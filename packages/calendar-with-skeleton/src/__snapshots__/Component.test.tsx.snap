@@ -18,7 +18,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
           class="component monthYear"
         >
           <button
-            class="component ghost xs xs component ghost component ghost button filled button month"
+            class="component ghost xs hug xs component ghost component ghost button filled button month"
             type="button"
           >
             <span
@@ -47,7 +47,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
             </span>
           </button>
           <button
-            class="component ghost xs xs component ghost component ghost button filled button year"
+            class="component ghost xs hug xs component ghost component ghost button filled button year"
             type="button"
           >
             <span
@@ -138,7 +138,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -165,7 +165,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -190,7 +190,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -215,7 +215,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -240,7 +240,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -265,7 +265,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -290,7 +290,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -315,7 +315,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -342,7 +342,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -367,7 +367,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -392,7 +392,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -417,7 +417,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -442,7 +442,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -467,7 +467,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -492,7 +492,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -519,7 +519,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -544,7 +544,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -569,7 +569,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -594,7 +594,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -619,7 +619,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -644,7 +644,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -669,7 +669,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -696,7 +696,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -721,7 +721,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -746,7 +746,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -771,7 +771,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -796,7 +796,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -821,7 +821,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -846,7 +846,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded"
+                  class="component ghost xs hug xs component ghost component ghost day rounded"
                   type="button"
                 >
                   <span
@@ -873,7 +873,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="0"
               >
                 <button
-                  class="component ghost xs xs component ghost component ghost day rounded selected"
+                  class="component ghost xs hug xs component ghost component ghost day rounded selected"
                   type="button"
                 >
                   <span

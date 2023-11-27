@@ -144,7 +144,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           >
                             <button
                               aria-label="закрыть"
-                              class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
+                              class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
                               type="button"
                             >
                               <span
@@ -384,7 +384,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             tabindex="0"
                           >
                             <button
-                              class="component secondary m m component secondary component secondary button"
+                              class="component secondary m hug m component secondary component secondary button"
                               type="button"
                             >
                               <span
@@ -394,7 +394,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               </span>
                             </button>
                             <button
-                              class="component primary m m component primary component primary button"
+                              class="component primary m hug m component primary component primary button"
                               type="button"
                             >
                               <span

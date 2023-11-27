@@ -23,8 +23,8 @@ export const button: Story = {
     name: 'Button',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const sizel = select('size', SIZES, 'm');
-        const addons = sizel === 'xxs' ? <StarSIcon /> : <StarMIcon />;
+        const size = select('size', SIZES, 'm');
+        const addons = ['xxs', 'xs'].includes(size) ? <StarSIcon /> : <StarMIcon />;
         return (
             <div
                 style={{
@@ -43,7 +43,7 @@ export const button: Story = {
                 <Button
                     view={select('view', VIEWS, 'primary')}
                     colors={colors}
-                    size={sizel}
+                    size={size}
                     href={text('href', '')}
                     loading={boolean('loading', false)}
                     disabled={boolean('disabled', false)}
@@ -63,8 +63,8 @@ export const button_mobile: Story = {
     name: 'ButtonMobile',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const sizel = select('size', SIZES, 'm');
-        const addons = sizel === 'xxs' ? <StarSIcon /> : <StarMIcon />;
+        const size = select('size', SIZES, 'm');
+        const addons = ['xxs', 'xs'].includes(size) ? <StarSIcon /> : <StarMIcon />;
         return (
             <div
                 style={{
@@ -83,7 +83,7 @@ export const button_mobile: Story = {
                 <ButtonMobile
                     view={select('view', VIEWS, 'primary')}
                     colors={colors}
-                    size={sizel}
+                    size={size}
                     href={text('href', '')}
                     loading={boolean('loading', false)}
                     disabled={boolean('disabled', false)}
@@ -103,8 +103,8 @@ export const button_desktop: Story = {
     name: 'ButtonDesktop',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const sizel = select('size', SIZES, 'm');
-        const addons = sizel === 'xxs' ? <StarSIcon /> : <StarMIcon />;
+        const size = select('size', SIZES, 'm');
+        const addons = ['xxs', 'xs'].includes(size) ? <StarSIcon /> : <StarMIcon />;
         return (
             <div
                 style={{
@@ -123,7 +123,7 @@ export const button_desktop: Story = {
                 <ButtonDesktop
                     view={select('view', VIEWS, 'primary')}
                     colors={colors}
-                    size={sizel}
+                    size={size}
                     href={text('href', '')}
                     loading={boolean('loading', false)}
                     disabled={boolean('disabled', false)}

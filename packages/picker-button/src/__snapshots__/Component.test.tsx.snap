@@ -13,7 +13,7 @@ exports[`Snapshots tests should display correctly 1`] = `
       <button
         aria-controls="downshift-:r1:-menu"
         aria-labelledby="downshift-:r1:-label"
-        class="component secondary m m component secondary component secondary block withRightAddons"
+        class="component secondary m hug m component secondary component secondary block withRightAddons"
         formcontrolcomponent="[object Object]"
         id="downshift-:r1:-input"
         tabindex="0"
@@ -69,7 +69,7 @@ exports[`Snapshots tests should display correctly 2`] = `
       <button
         aria-controls="downshift-:r4:-menu"
         aria-labelledby="downshift-:r4:-label"
-        class="component secondary m m component secondary component secondary block withRightAddons"
+        class="component secondary m hug m component secondary component secondary block withRightAddons"
         id="downshift-:r4:-input"
         tabindex="0"
         type="button"
@@ -124,7 +124,7 @@ exports[`Snapshots tests should display correctly 3`] = `
       <button
         aria-controls="downshift-:r7:-menu"
         aria-labelledby="downshift-:r7:-label"
-        class="component secondary m m component secondary component secondary block withRightAddons"
+        class="component secondary m hug m component secondary component secondary block withRightAddons"
         formcontrolcomponent="[object Object]"
         id="downshift-:r7:-input"
         tabindex="0"
@@ -180,7 +180,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       <button
         aria-controls="downshift-:r3:-menu"
         aria-labelledby="downshift-:r3:-label"
-        class="component secondary m m component secondary component secondary block iconOnly"
+        class="component secondary m hug m component secondary component secondary block iconOnly"
         formcontrolcomponent="[object Object]"
         id="downshift-:r3:-input"
         tabindex="0"
@@ -276,7 +276,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
+                            class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
@@ -1299,7 +1299,7 @@ exports[`Snapshots tests should display opened correctly 3`] = `
       <button
         aria-controls="downshift-:r6:-menu"
         aria-labelledby="downshift-:r6:-label"
-        class="component secondary m m component secondary component secondary block iconOnly"
+        class="component secondary m hug m component secondary component secondary block iconOnly"
         formcontrolcomponent="[object Object]"
         id="downshift-:r6:-input"
         tabindex="0"
@@ -1395,7 +1395,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
+                            class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
@@ -2418,7 +2418,7 @@ exports[`Snapshots tests should display opened correctly 5`] = `
       <button
         aria-controls="downshift-:r9:-menu"
         aria-labelledby="downshift-:r9:-label"
-        class="component secondary m m component secondary component secondary block iconOnly"
+        class="component secondary m hug m component secondary component secondary block iconOnly"
         formcontrolcomponent="[object Object]"
         id="downshift-:r9:-input"
         tabindex="0"
@@ -2514,7 +2514,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
+                            class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span

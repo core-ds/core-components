@@ -1,38 +1,40 @@
 ## Виды кнопок
 
-```jsx live mobileHeight={475}
+```jsx live mobileHeight={500}
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
 
     return (
-        <Container>
-            <Row align='middle'>
-                <Col>
-                    <ButtonDesktop disabled={disabled} view='accent'>Accent</ButtonDesktop>
-                </Col>
-                <Col>
-                    <ButtonDesktop disabled={disabled} view='primary'>Primary</ButtonDesktop>
-                </Col>
-                <Col>
-                    <ButtonDesktop disabled={disabled} view='secondary'>Secondary</ButtonDesktop>
-                </Col>
-                <Col>
-                    <ButtonDesktop disabled={disabled} view='tertiary'>Tertiary</ButtonDesktop>
-                </Col>
-                <Col>
-                    <ButtonDesktop disabled={disabled} view='link'>Link</ButtonDesktop>
-                </Col>
-                <Col>
-                    <ButtonDesktop disabled={disabled} view='ghost'>Ghost</ButtonDesktop>
-                </Col>
-            </Row>
+        <>
+            <Space direction='horizontal' align='center'>
+                <ButtonDesktop disabled={disabled} view='accent'>
+                    Accent
+                </ButtonDesktop>
+                <ButtonDesktop disabled={disabled} view='primary'>
+                    Primary
+                </ButtonDesktop>
+                <ButtonDesktop disabled={disabled} view='secondary'>
+                    Secondary
+                </ButtonDesktop>
+                <ButtonDesktop disabled={disabled} view='tertiary'>
+                    Tertiary
+                </ButtonDesktop>
+                <ButtonDesktop disabled={disabled} view='link'>
+                    Link
+                </ButtonDesktop>
+                <ButtonDesktop disabled={disabled} view='ghost'>
+                    Ghost
+                </ButtonDesktop>
+            </Space>
+
             <Gap size='xl' />
+
             <Switch
                 checked={disabled}
                 onChange={() => setDisabled((prevState) => !prevState)}
                 label='Недоступна'
             />
-        </Container>
+        </>
     );
 });
 //MOBILE
@@ -40,210 +42,233 @@ render(() => {
     const [disabled, setDisabled] = React.useState(false);
 
     return (
-        <Container>
-            <ButtonMobile block={true} disabled={disabled} view='accent'>Accent</ButtonMobile>
-                <Gap size='m' />
-            <ButtonMobile block={true} disabled={disabled} view='primary'>Primary</ButtonMobile>
-                <Gap size='m' />
-            <ButtonMobile block={true} disabled={disabled} view='secondary'>Secondary</ButtonMobile>
-                <Gap size='m' />
-            <ButtonMobile block={true} disabled={disabled} view='tertiary'>Tertiary</ButtonMobile>
-                <Gap size='m' />
-            <ButtonMobile block={true} disabled={disabled} view='link'>Link</ButtonMobile>
-                <Gap size='m' />
-            <ButtonMobile block={true} disabled={disabled} view='ghost'>Ghost</ButtonMobile>
+        <>
+            <ButtonMobile block={true} disabled={disabled} view='accent'>
+                Accent
+            </ButtonMobile>
+            <Gap size='l' />
+            <ButtonMobile block={true} disabled={disabled} view='primary'>
+                Primary
+            </ButtonMobile>
+            <Gap size='l' />
+            <ButtonMobile block={true} disabled={disabled} view='secondary'>
+                Secondary
+            </ButtonMobile>
+            <Gap size='l' />
+            <ButtonMobile block={true} disabled={disabled} view='tertiary'>
+                Tertiary
+            </ButtonMobile>
+            <Gap size='l' />
+            <ButtonMobile block={true} disabled={disabled} view='link'>
+                Link
+            </ButtonMobile>
+            <Gap size='l' />
+            <ButtonMobile block={true} disabled={disabled} view='ghost'>
+                Ghost
+            </ButtonMobile>
             <Gap size='xl' />
             <Switch
                 checked={disabled}
                 onChange={() => setDisabled((prevState) => !prevState)}
                 label='Недоступна'
             />
-        </Container>
+        </>
     );
 });
 ```
 
 ## Размеры
 
-Кнопка доступна в размерах XL, L, M, S, XS, XXS.
+Кнопка доступна в размерах 72, 64, 56, 48, 40, 32.
 
-```jsx live
+```jsx live mobileHeight={460}
 const BIG_SIZES = ['xl', 'l', 'm'];
-const SMALL_SIZES = [ 's', 'xs', 'xxs'];
+const SMALL_SIZES = ['s', 'xs', 'xxs'];
+const SIZES_MAP = {
+    xl: 72,
+    l: 64,
+    m: 56,
+    s: 48,
+    xs: 40,
+    xxs: 32,
+};
 
 render(
-    <Container>
-        <Row>
+    <>
+        <Space direction='horizontal' align='center'>
             {BIG_SIZES.map((size) => (
-                <Col key={size}>
-                    <ButtonDesktop size={size} view='primary'>
-                        {`${size.toUpperCase()}-size`}
-                    </ButtonDesktop>
-                </Col>
+                <ButtonDesktop key={size} size={size} view='primary'>
+                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                </ButtonDesktop>
             ))}
-        </Row>
-        <Row>
+        </Space>
+        <Gap size='l' />
+        <Space direction='horizontal' align='center'>
             {SMALL_SIZES.map((size) => (
-                <Col key={size}>
-                    <ButtonDesktop size={size} view='primary'>
-                        {`${size.toUpperCase()}-size`}
-                    </ButtonDesktop>
-                </Col>
+                <ButtonDesktop key={size} size={size} view='primary'>
+                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                </ButtonDesktop>
             ))}
-        </Row>
-    </Container>,
+        </Space>
+    </>,
 );
 //MOBILE
+const SIZES_MAP = {
+    xl: 72,
+    l: 64,
+    m: 56,
+    s: 48,
+    xs: 40,
+    xxs: 32,
+};
 const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 
 render(
     <Container>
-        {SIZES.map((size) => (
-        <>
-            <ButtonMobile block={true} size={size} view='primary'>
-                {`${size.toUpperCase()}-size`}
-            </ButtonMobile>
-            <Gap size='m' />
-        </>
+        {SIZES.map((size, idx) => (
+            <React.Fragment key={size}>
+                <ButtonMobile block={true} size={size} view='primary'>
+                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                </ButtonMobile>
+                {SIZES.length - 1 !== idx && <Gap size='l' />}
+            </React.Fragment>
         ))}
-    </Container>
+    </Container>,
 );
+```
+
+## Форма
+
+Для кнопки доступно два варианта скругления углов.
+
+```jsx live
+render(() => {
+    const [shape, setShape] = React.useState('rectangular');
+
+    return (
+        <>
+            <Button shape={shape} view='primary' breakpoint={BREAKPOINT}>
+                Label
+            </Button>
+
+            <Gap size='xl' />
+
+            <RadioGroup
+                label='Shape'
+                value={shape}
+                onChange={(_, { value }) => setShape(value)}
+                breakpoint={BREAKPOINT}
+            >
+                <Radio value='rectangular' label='Rectangular' />
+                <Radio value='rounded' label='Rounded' />
+            </RadioGroup>
+        </>
+    );
+});
 ```
 
 ## Ширина
 
 Кнопка адаптируется под длину контента. Для каждого вертикального размера кнопки задан минимальный горизонтальный размер.
 С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
+Через доступ по classname можно задать кнопке ширину в рх.
 
 ```jsx live
-<Container>
-    <Row>
-        <Col>
-            <ButtonDesktop>0</ButtonDesktop>
-        </Col>
-    </Row>
-    <Row>
-        <Col>
-            <ButtonDesktop>Очень длинный лейбл</ButtonDesktop>
-        </Col>
-    </Row>
-    <br />
-    <ButtonDesktop block={true} size='m' nowrap={true}>
+<div style={{ textAlign: isMobile() ? 'center' : 'left' }}>
+    <Button breakpoint={BREAKPOINT}>Мин.</Button>
+    <Gap size='l' />
+    <Button breakpoint={BREAKPOINT}>Ширина зависит от лейбла</Button>
+    <Gap size='l' />
+    <style>{'.button { width: 300px; }'}</style>
+    <Button breakpoint={BREAKPOINT} className='button'>
+        Ширина задана вручную
+    </Button>
+    <Gap size='l' />
+    <Button block={true} size='m' nowrap={true} breakpoint={BREAKPOINT}>
         Занимает всю ширину контейнера
-    </ButtonDesktop>
-</Container>
-//MOBILE
-<Container>
-    <Row>
-        <Col>
-            <ButtonMobile>0</ButtonMobile>
-        </Col>
-    </Row>
-    <Row>
-        <Col>
-            <ButtonMobile>Очень длинный лейбл</ButtonMobile>
-        </Col>
-    </Row>
-    <br />
-    <ButtonMobile block={true} size='m' nowrap={true}>
-        Занимает всю ширину контейнера
-    </ButtonMobile>
-</Container>
+    </Button>
+</div>
 ```
 
 ## Анатомия
 
 С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
 Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
+В 56, 64 и 72 размерах доступна подпись под лейблом.
 
 ```jsx live
 render(() => {
     const [label, setLabel] = React.useState(true);
-    const [leftAddons, setLeftAddonsl] = React.useState(false);
+    const [hint, setHint] = React.useState();
+    const [leftAddons, setLeftAddons] = React.useState(false);
     const [rightAddons, setRightAddons] = React.useState(false);
 
     const handleLabelChange = () => setLabel(!label);
-    const handleLeftAddonsChange = () => setLeftAddonsl(!leftAddons);
+    const handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));
+    const handleLeftAddonsChange = () => setLeftAddons(!leftAddons);
     const handleRightAddonsChange = () => setRightAddons(!rightAddons);
 
     return (
-        <Container>
-            <Row>
-                <Col>
-                    <ButtonDesktop
-                        leftAddons={leftAddons && <StarMIcon />}
-                        rightAddons={rightAddons && <StarMIcon />}
-                        view='primary'
-                    >
-                        {label && 'Label'}
-                    </ButtonDesktop>
-                </Col>
-            </Row>
-
-            <Row align='middle'>
-                <Switch label={<span>Label</span>} checked={label} onChange={handleLabelChange} />
-            </Row>
-
-            <Row align='middle'>
-                <Switch
-                    label={<span>LeftAddons</span>}
-                    checked={leftAddons}
-                    onChange={handleLeftAddonsChange}
-                />
-            </Row>
-
-            <Row align='middle'>
-                <Switch
-                    label={<span>RightAddons</span>}
-                    checked={rightAddons}
-                    onChange={handleRightAddonsChange}
-                />
-            </Row>
-        </Container>
-    );
-});
-//MOBILE
-render(() => {
-    const [label, setLabel] = React.useState(true);
-    const [leftAddons, setLeftAddonsl] = React.useState(false);
-    const [rightAddons, setRightAddons] = React.useState(false);
-
-    const handleLabelChange = () => setLabel(!label);
-    const handleLeftAddonsChange = () => setLeftAddonsl(!leftAddons);
-    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
-
-    return (
-        <Container>
-
-            <ButtonMobile
+        <div>
+            <Button
+                breakpoint={BREAKPOINT}
                 leftAddons={leftAddons && <StarMIcon />}
                 rightAddons={rightAddons && <StarMIcon />}
+                hint={hint}
                 view='primary'
-                block={label}
+                block={isMobile()}
             >
                 {label && 'Label'}
-            </ButtonMobile>
+            </Button>
 
-            <Row align='middle'>
-                <Switch label={<span>Label</span>} checked={label} onChange={handleLabelChange} />
-            </Row>
+            <Gap size='xl' />
 
-            <Row align='middle'>
-                <Switch
-                    label={<span>LeftAddons</span>}
-                    checked={leftAddons}
-                    onChange={handleLeftAddonsChange}
-                />
-            </Row>
+            <Switch label='Label' checked={label} onChange={handleLabelChange} />
+            <Gap size='m' />
+            <Switch label='Hint' checked={hint} onChange={handleHintChange} />
+            <Gap size='m' />
+            <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
+            <Gap size='m' />
+            <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
+        </div>
+    );
+});
+```
 
-            <Row align='middle'>
-                <Switch
-                    label={<span>RightAddons</span>}
-                    checked={rightAddons}
-                    onChange={handleRightAddonsChange}
-                />
-            </Row>
-        </Container>
+## Поведение лейбла
+
+С помощью свойства `textResizing` можно сжать или растянуть текстовый контент внутри кнопки.
+
+```jsx live
+render(() => {
+    const [textResizing, setTextResizing] = React.useState('hug');
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 240 }}>
+            <Button
+                view='primary'
+                breakpoint={BREAKPOINT}
+                block={true}
+                rightAddons={<StarMIcon />}
+                leftAddons={<StarMIcon />}
+                hint='Hint'
+                textResizing={textResizing}
+            >
+                Label
+            </Button>
+
+            <Gap size='xl' />
+
+            <RadioGroup
+                label='Поведение текста'
+                value={textResizing}
+                onChange={(_, { value }) => setTextResizing(value)}
+                breakpoint={BREAKPOINT}
+            >
+                <Radio value='hug' label='Hug' />
+                <Radio value='fill' label='Fill' />
+            </RadioGroup>
+        </div>
     );
 });
 ```
@@ -307,101 +332,47 @@ render(() => {
 
 ```jsx live expanded
 render(() => {
-    const [loading, setLoading] = React.useState({
-        primary: false,
-        secondary: false,
-    });
+    const [loading, setLoading] = React.useState(false);
+    const [loadTimeout, setLoadTimeout] = React.useState('30');
+    const timeoutId = React.useRef();
 
-    const handleClick = (buttonName, timeout) => {
-        setLoading({ ...loading, [buttonName]: true });
-        setTimeout(() => {
-            setLoading({ ...loading, [buttonName]: false });
-        }, timeout);
+    const handleClick = () => {
+        setLoading(true);
+
+        clearTimeout(timeoutId.current);
+
+        timeoutId.current = setTimeout(() => {
+            setLoading(false);
+        }, Number(loadTimeout));
+    };
+
+    const handleTimeoutChange = (_, { value }) => {
+        clearTimeout(timeoutId.current);
+        setLoading(false);
+        setLoadTimeout(value);
     };
 
     return (
-        <Container>
-            <Row align='middle'>
-                <Col>
-                    <ButtonDesktop
-                        view='primary'
-                        loading={loading.primary}
-                        onClick={() => handleClick('primary', 30)}
-                    >
-                        Быстрый запрос (30ms)
-                    </ButtonDesktop>
-                </Col>
-                <Col>
-                    <ButtonDesktop
-                        view='secondary'
-                        loading={loading.secondary}
-                        onClick={() => handleClick('secondary', 1500)}
-                    >
-                        Долгий запрос (1500ms)
-                    </ButtonDesktop>
-                </Col>
-            </Row>
-        </Container>
-    );
-});
-//MOBILE
-render(() => {
-    const [loading, setLoading] = React.useState({
-        primary: false,
-        secondary: false,
-    });
-
-    const handleClick = (buttonName, timeout) => {
-        setLoading({ ...loading, [buttonName]: true });
-        setTimeout(() => {
-            setLoading({ ...loading, [buttonName]: false });
-        }, timeout);
-    };
-
-    return (
-        <Container>
-            <ButtonMobile
+        <>
+            <Button
                 view='primary'
-                loading={loading.primary}
-                block={true}
-                onClick={() => handleClick('primary', 30)}
+                loading={loading}
+                onClick={handleClick}
+                breakpoint={BREAKPOINT}
+                block={isMobile()}
             >
-                Быстрый запрос (30ms)
-            </ButtonMobile>
-            <Gap size='m' />
-            <ButtonMobile
-                view='secondary'
-                loading={loading.secondary}
-                block={true}
-                onClick={() => handleClick('secondary', 1500)}
-            >
-                Долгий запрос (1500ms)
-            </ButtonMobile>
-        </Container>
+                Отправить запрос
+            </Button>
+
+            <Gap size='xl' />
+
+            <RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>
+                <Radio value='30' label='Быстрый запрос (30ms)' />
+                <Radio value='1500' label='Долгий запрос (1500ms)' />
+            </RadioGroup>
+        </>
     );
 });
-```
-
-## Кнопка-ссылка
-
-Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
-
-```jsx live
-<Container>
-    <Row align='middle'>
-        <Col>
-            <ButtonDesktop view='primary' href='https://alfabank.ru' target='_blank'>
-                Кнопка-ссылка
-            </ButtonDesktop>
-        </Col>
-    </Row>
-</Container>
-//MOBILE
-<Container>
-    <ButtonMobile block={true} view='primary' href='https://alfabank.ru' target='_blank'>
-        Кнопка-ссылка
-    </ButtonMobile>
-</Container>
 ```
 
 ## Другие кнопки

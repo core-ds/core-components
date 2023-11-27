@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
@@ -57,6 +58,9 @@ export const BaseButton = React.forwardRef<
         {
             children,
             view = 'secondary',
+            shape = 'rectangular',
+            textResizing = 'hug',
+            hint,
             leftAddons,
             rightAddons,
             size = 'm',
@@ -90,6 +94,8 @@ export const BaseButton = React.forwardRef<
 
         const showLoader = loading || !loaderTimePassed;
 
+        const showHint = hint && ['m', 'l', 'xl'].includes(size);
+
         const iconOnly = !children;
 
         const componentProps = {
@@ -97,7 +103,9 @@ export const BaseButton = React.forwardRef<
                 commonStyles.component,
                 commonStyles[view],
                 commonStyles[size],
-                styles[size],
+                commonStyles[textResizing],
+                shape === 'rectangular' && styles[size],
+                shape === 'rounded' && commonStyles[shape],
                 colorStyles[colors].component,
                 colorStyles[colors][view],
                 colorStylesMap[colors].component,
@@ -129,10 +137,12 @@ export const BaseButton = React.forwardRef<
                     <span
                         className={cn(commonStyles.text, {
                             [commonStyles.nowrap]: nowrap,
-                            [commonStyles.stretchText]: !(leftAddons || rightAddons),
+                            [commonStyles.stretchText]:
+                                !(leftAddons || rightAddons) || textResizing === 'fill',
                         })}
                     >
                         {children}
+                        {showHint && <span className={commonStyles.hint}>{hint}</span>}
                     </span>
                 )}
 
