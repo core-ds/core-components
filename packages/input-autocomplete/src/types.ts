@@ -56,14 +56,20 @@ type MobileProps = {
     >['transitionProps'];
 
     /**
-     * Обработчик нажатия на кнопку «Продолжить» в BottomSheet
+     * Обработчик нажатия на кнопку «Продолжить» в BottomSheet или модальном окне
      */
     onApply?: () => void;
 
     /**
-     * Обработчик нажатия на кнопку «Отмена» в BottomSheet
+     * Обработчик нажатия на кнопку «Отмена» в BottomSheet или модальном окне
      */
     onCancel?: () => void;
+
+    /**
+     * Заголовок в модальном окне или шторке.
+     * Если не передан, то заголовок будет совпадать с label. Если не передан и label, то заголовок будет равен placeholder
+     */
+    title?: string;
 };
 
 export type InputAutocompleteMobileProps = InputAutocompleteCommonProps & MobileProps;
