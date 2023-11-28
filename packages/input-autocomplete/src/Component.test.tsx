@@ -96,6 +96,42 @@ describe('InputAutocompleteMobile', () => {
 
             expect(getByRole('dialog').querySelector('div[class^="title"]')).toBeInTheDocument();
         });
+
+        it('should display title instead of label in bottom-sheet', () => {
+            const label = 'Label';
+            const title = 'Title';
+
+            const { getByRole } = render(
+                <InputAutocompleteMobileWrapper
+                    title={title}
+                    label={label}
+                    open={true}
+                    isBottomSheet={true}
+                />,
+            );
+
+            expect(getByRole('dialog').querySelector('div[class^="header"]')?.textContent).toBe(
+                title,
+            );
+        });
+
+        it('should display title instead of label in modal', () => {
+            const label = 'Label';
+            const title = 'Title';
+
+            const { getByRole } = render(
+                <InputAutocompleteMobileWrapper
+                    title={title}
+                    label={label}
+                    open={true}
+                    isBottomSheet={false}
+                />,
+            );
+
+            expect(getByRole('dialog').querySelector('div[class^="header"]')?.textContent).toBe(
+                title,
+            );
+        });
     });
 
     describe('Interactions tests', () => {

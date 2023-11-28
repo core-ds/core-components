@@ -41,6 +41,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             transitionProps,
             onCancel,
             onApply,
+            title,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -103,7 +104,7 @@ export const InputAutocompleteMobile = React.forwardRef(
         const componentProps:
             | ModalSelectMobileProps['modalProps']
             | BottomSheetSelectMobileProps['bottomSheetProps'] = {
-            title: label || placeholder,
+            title: title || label || placeholder,
             onClose: restorePrevValue,
             transitionProps: {
                 ...transitionProps,
@@ -122,7 +123,10 @@ export const InputAutocompleteMobile = React.forwardRef(
                 {...restProps}
                 {...(isBottomSheet
                     ? { bottomSheetProps: componentProps }
-                    : { modalProps: componentProps })}
+                    : {
+                          modalProps: componentProps,
+                          modalHeaderProps: { title },
+                      })}
                 dataTestId={dataTestId}
                 useWithApplyHook={false}
                 showSearch={true}
