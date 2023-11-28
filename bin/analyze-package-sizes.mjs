@@ -59,7 +59,7 @@ async function calculateBundleSize(packageName) {
     //     console.log(await esbuild.analyzeMetafile(result.metafile));
     // }
 
-    return Object.keys(result.metafile.outputs).reduce((acc, path) => {
+    const bundleSizeMap = Object.keys(result.metafile.outputs).reduce((acc, path) => {
         const pathParts = path.split('/');
         const entry =
             pathParts.slice(-2)[0] === packageName
@@ -68,10 +68,18 @@ async function calculateBundleSize(packageName) {
 
         acc[entry.endsWith('.js') ? entry : entry + '.js'] = +(
             result.metafile.outputs[path].bytes / 1024
-        ).toFixed(2);
+        ).toFixed(1);
 
         return acc;
     }, {});
+
+    // Сортируем ключи по алфавиту, иначе выводятся в случайном порядке
+    return Object.keys(bundleSizeMap)
+        .sort()
+        .reduce((obj, key) => {
+            obj[key] = bundleSizeMap[key];
+            return obj;
+        }, {});
 }
 
 async function run() {
