@@ -217,8 +217,8 @@
     },
     "international-phone-input": {
         "desktop.js": 498.96,
-        "mobile.js": 504.71,
-        "index.js": 531.02
+        "mobile.js": 504.75,
+        "index.js": 531.05
     },
     "input": {
         "desktop.js": 17.28,
@@ -228,8 +228,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 182.22,
-        "mobile.js": 189.71,
-        "index.js": 215.48
+        "mobile.js": 189.75,
+        "index.js": 215.52
     },
     "indicator": {
         "index.js": 1.99
