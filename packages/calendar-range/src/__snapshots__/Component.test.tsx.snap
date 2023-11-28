@@ -54,7 +54,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 class="text stretchText"
               >
                 <span
-                  class="iconWrapper xs center"
+                  class="iconWrapper size-32 center"
                 >
                   <svg
                     class="icon"
@@ -86,7 +86,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 class="text stretchText"
               >
                 <span
-                  class="iconWrapper xs center"
+                  class="iconWrapper size-32 center"
                 >
                   <svg
                     class="icon"
@@ -967,7 +967,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 class="text stretchText"
               >
                 <span
-                  class="iconWrapper xs center"
+                  class="iconWrapper size-32 center"
                 >
                   <svg
                     class="icon"
@@ -999,7 +999,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 class="text stretchText"
               >
                 <span
-                  class="iconWrapper xs center"
+                  class="iconWrapper size-32 center"
                 >
                   <svg
                     class="icon"

@@ -31,8 +31,9 @@ export type IconButtonProps = {
 
     /**
      * Размер компонента
+     * @description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно
      */
-    size?: 'xxs' | 'xs' | 's';
+    size?: 'xxs' | 'xs' | 's' | 24 | 32 | 40 | 48 | 56;
 
     /**
      * Дополнительный класс
@@ -58,13 +59,24 @@ export type IconButtonProps = {
     Pick<ButtonProps, 'Component' | 'href' | 'loading' | 'breakpoint'> &
     Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'>;
 
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-24',
+    xs: 'size-32',
+    s: 'size-48',
+    24: 'size-24',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+    56: 'size-56',
+};
+
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (
         {
             className,
             icon: Icon,
             view = 'primary',
-            size = 's',
+            size = 48,
             colors = 'default',
             alignIcon = 'center',
             ...restProps
@@ -86,7 +98,13 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             )}
             size='s'
         >
-            <span className={cn(styles.iconWrapper, styles[size], styles[alignIcon])}>
+            <span
+                className={cn(
+                    styles.iconWrapper,
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[alignIcon],
+                )}
+            >
                 {React.isValidElement(Icon) ? (
                     React.cloneElement(Icon, { className: cn(styles.icon, Icon.props.className) })
                 ) : (

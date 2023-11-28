@@ -5,41 +5,61 @@ Primary, secondary, tertiary, negative.
 ```jsx live
 <Container>
     <Row>
-    {['primary', 'secondary','tertiary','negative' ].map(view => (
-        <Col>
-            <IconButton
-                view={view}
-                size='xs'
-                icon={DiamondsMIcon}
-            />
-        </Col>
-    ))}
+        {['primary', 'secondary', 'tertiary', 'negative'].map((view) => (
+            <Col key={view}>
+                <IconButton view={view} size={32} icon={DiamondsMIcon} />
+            </Col>
+        ))}
     </Row>
 </Container>
 ```
 
-## Размеры
+## Размеры компонента
 
 Рекомендуется использовать один из трёх размеров, в зависимости от контекста.
 
 ```jsx live
-<Container>
-    <Row>
-    {['s', 'xs','xss' ].map(size => (
-        <Col>
-            <IconButton
-                view='primary'
-                size={size}
-                icon={DiamondsMIcon}
-                style={{
-                    backgroundColor: 'rgba(55, 120, 251, 0.1)',
-                    borderRadius: 0,
-                }}
-            />
-        </Col>
+<Space direction='horizontal' size={[20]}>
+    {[56, 48, 40, 32, 24].map((size) => (
+        <IconButton
+            key={size}
+            view='primary'
+            size={size}
+            icon={DiamondsMIcon}
+            style={{
+                backgroundColor: 'rgba(55, 120, 251, 0.1)',
+                borderRadius: 0,
+            }}
+        />
     ))}
-    </Row>
-</Container>
+</Space>
+```
+
+## Размеры иконки
+
+Допускается использовать иконку 24 и 16 размера.
+
+```jsx live
+<Space direction='horizontal' size={[20]}>
+    <IconButton
+        view='primary'
+        size={56}
+        icon={DiamondsMIcon}
+        style={{
+            backgroundColor: 'rgba(55, 120, 251, 0.1)',
+            borderRadius: 0,
+        }}
+    />
+    <IconButton
+        view='primary'
+        size={56}
+        icon={DiamondsSIcon}
+        style={{
+            backgroundColor: 'rgba(55, 120, 251, 0.1)',
+            borderRadius: 0,
+        }}
+    />
+</Space>
 ```
 
 ## Обработка событий
@@ -66,7 +86,7 @@ render(() => {
                 <Col>
                     <IconButton
                         view='primary'
-                        size='xs'
+                        size={32}
                         icon={DiamondsMIcon}
                         loading={loading.primary}
                         onClick={() => handleClick('primary', 30)}
@@ -75,7 +95,7 @@ render(() => {
                 <Col>
                     <IconButton
                         view='secondary'
-                        size='xs'
+                        size={32}
                         icon={DiamondsMIcon}
                         loading={loading.secondary}
                         onClick={() => handleClick('secondary', 1500)}

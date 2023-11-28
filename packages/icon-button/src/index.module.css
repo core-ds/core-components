@@ -3,22 +3,34 @@
 :root {
     --icon-button-xxs-size: 24px;
     --icon-button-xs-size: 32px;
+    --icon-button-40-size: 40px;
     --icon-button-s-size: 48px;
+    --icon-button-56-size: 56px;
 }
 
-.xxs {
+.size-24 {
     width: var(--icon-button-xxs-size);
     height: var(--icon-button-xxs-size);
 }
 
-.xs {
+.size-32 {
     width: var(--icon-button-xs-size);
     height: var(--icon-button-xs-size);
 }
 
-.s {
+.size-40 {
+    width: var(--icon-button-40-size);
+    height: var(--icon-button-40-size);
+}
+
+.size-48 {
     width: var(--icon-button-s-size);
     height: var(--icon-button-s-size);
+}
+
+.size-56 {
+    width: var(--icon-button-56-size);
+    height: var(--icon-button-56-size);
 }
 
 .iconWrapper {
