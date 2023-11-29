@@ -19,7 +19,7 @@
         "@alfalab/core-components-stack": "^4.1.0",
         "@alfalab/hooks": "^1.13.0",
         "@juggle/resize-observer": "^3.3.1",
-        "@popperjs/core": "^2.3.3",
+        "@popperjs/core": "^2.11.8",
         "classnames": "^2.3.1",
         "popper-max-size-modifier": "^0.2.0",
         "react-merge-refs": "^1.1.0",

@@ -55,7 +55,7 @@ export type PopoverProps = {
 
     /**
      * Запрещает поповеру менять свою позицию.
-     * Например, если места снизу недостаточно,то он все равно будет показан снизу
+     * Например, если места снизу недостаточно, то он все равно будет показан снизу
      */
     preventFlip?: boolean;
 
@@ -176,11 +176,36 @@ const availableHieghtModifier = {
     },
 };
 
-/**
- * Минимальный размер anchorElement,
- * при котором возможно смещение стрелочки относительно центра
- */
-const MIN_ARROW_SHIFT_SIZE = 75;
+const DEFAULT_OFFSET = [0, 0];
+
+// Минимальное расстояние стрелки до края поповера
+const MIN_DISTANCE_TO_EDGE = 24;
+
+function getArrowPadding({
+    placement,
+}: {
+    popper: { height: number; width: number };
+    reference: { height: number; width: number };
+    placement: Position;
+}) {
+    if (placement === 'right-end' || placement === 'left-end') {
+        return { top: MIN_DISTANCE_TO_EDGE, right: 0, bottom: 0, left: 0 };
+    }
+
+    if (placement === 'top-start' || placement === 'bottom-start') {
+        return { top: 0, right: MIN_DISTANCE_TO_EDGE, bottom: 0, left: 0 };
+    }
+
+    if (placement === 'right-start' || placement === 'left-start') {
+        return { top: 0, right: 0, bottom: MIN_DISTANCE_TO_EDGE, left: 0 };
+    }
+
+    if (placement === 'top-end' || placement === 'bottom-end') {
+        return { top: 0, right: 0, bottom: 0, left: MIN_DISTANCE_TO_EDGE };
+    }
+
+    return 0;
+}
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     (
@@ -190,7 +215,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             transition = DEFAULT_TRANSITION,
             anchorElement,
             useAnchorWidth,
-            offset = [0, 0],
+            offset = DEFAULT_OFFSET,
             withArrow = false,
             withTransition = true,
             position = 'left',
@@ -212,7 +237,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
         const [popperElement, setPopperElement] = useState<RefElement>(null);
         const [arrowElement, setArrowElement] = useState<RefElement>(null);
-        const [arrowShift, setArrowShift] = useState(false);
 
         const updatePopperRef = useRef<() => void>();
 
@@ -223,7 +247,13 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
 
             if (withArrow) {
-                modifiers.push({ name: 'arrow', options: { element: arrowElement } });
+                modifiers.push({
+                    name: 'arrow',
+                    options: {
+                        element: arrowElement,
+                        padding: getArrowPadding,
+                    },
+                });
             }
 
             if (preventFlip) {
@@ -302,25 +332,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             return () => ({});
         }, [anchorElement, useAnchorWidth]);
 
-        /**
-         * По дизайну, если у тултипа позиционирование -start/-end, то стрелочка немного сдвигается вбок.
-         * Но если anchorElement слишком маленький, то стрелочка сдвигаться не должна.
-         */
-        useEffect(() => {
-            const shiftedPosition = position.includes('-start') || position.includes('-end');
-
-            if (shiftedPosition && referenceElement) {
-                const { width, height } = referenceElement.getBoundingClientRect();
-
-                const size =
-                    position.includes('left') || position.includes('right') ? height : width;
-
-                if (size >= MIN_ARROW_SHIFT_SIZE) {
-                    setArrowShift(true);
-                }
-            }
-        }, [referenceElement, position]);
-
         const renderContent = (computedZIndex: number) => (
             <div
                 ref={mergeRefs([ref, popperRef, setPopperElement])}
@@ -331,9 +342,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     ...(popperStyles.popper?.transform ? null : { visibility: 'hidden' }),
                 }}
                 data-test-id={dataTestId}
-                className={cn(styles.component, className, {
-                    [styles.arrowShift]: arrowShift,
-                })}
+                className={cn(styles.component, className)}
                 {...attributes.popper}
             >
                 <div className={cn(styles.inner, popperClassName)} ref={innerRef}>
