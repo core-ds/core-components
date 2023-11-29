@@ -1,17 +1,13 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Title as TitleBase, TitleProps } from './component';
 
 import commonStyles from './common.module.css';
 import styles from './index.module.css';
 
-const Title: FC<TitleProps> = (props) => (
-    /**
-     * Если поменять Object.assign на деструктуризацию, то упадут тесты.
-     * Видимо, это особенность работы jest и css-modules.
-     */
-    <TitleBase {...props} styles={Object.assign(commonStyles, styles)} />
-);
+const Title = forwardRef<HTMLHeadingElement | HTMLDivElement, TitleProps>((props, ref) => (
+    <TitleBase {...props} styles={Object.assign(commonStyles, styles)} ref={ref} />
+));
 
 export { Title };
 export type { TitleProps };
