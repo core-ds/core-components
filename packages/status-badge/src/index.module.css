@@ -1,0 +1,50 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-circle);
+    color: var(--color-static-neutral-1500-inverted);
+    vertical-align: top;
+}
+
+.size-16 {
+    width: 16px;
+    height: 16px;
+}
+
+.size-20 {
+    width: 20px;
+    height: 20px;
+}
+
+.size-24 {
+    width: 24px;
+    height: 24px;
+
+    & > svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.size-32 {
+    width: 32px;
+    height: 32px;
+
+    & > svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.size-40 {
+    width: 40px;
+    height: 40px;
+
+    & > svg {
+        width: 32px;
+        height: 32px;
+    }
+}

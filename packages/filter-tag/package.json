@@ -17,7 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-mq": "^4.2.0",
         "@alfalab/hooks": "^1.13.0",
-        "@alfalab/icons-glyph": "^2.108.0",
+        "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }

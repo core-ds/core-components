@@ -70,10 +70,10 @@
     "@alfalab/utils" "^1.13.2"
     uuid "^8.3.2"
 
-"@alfalab/icons-glyph@^2.108.0", "@alfalab/icons-glyph@^2.66.0":
-  version "2.110.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.110.0.tgz#f99b02416e210f97684e64bddc20fa6ff6250586"
-  integrity sha512-rkHyGj/79v/5+dUjn2U6ETV+g+ROl0lFvfZyMo12SDrpoetWgG0OjA7Z7JDSOohJhga0XAvKITSJkX1pRixi8g==
+"@alfalab/icons-glyph@^2.108.0", "@alfalab/icons-glyph@^2.139.0", "@alfalab/icons-glyph@^2.66.0":
+  version "2.140.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.140.0.tgz#31cb75bf2495b082a0b8d0e3f4a8c2c47e3e2eb6"
+  integrity sha512-Mee0c9tyFVKIH0yN9IuKyLa0qoYf1ybwGFkng9Iy+1OGIvgl9ecb74erg/+n/NzR7bI2AAx1yVFDS/LEHivixw==
 
 "@alfalab/icons-logotype@^2.27.0":
   version "2.27.0"

@@ -48,7 +48,7 @@ export const CONFIG: TConfig = {
     Аутентификация: ['PassCode', 'PatternLock', 'Confirmation'],
     Ячейки: ['GenericWrapper', 'PureCell', 'Underlay', 'SortableList'],
     Навигация: ['Tabs', 'Pagination', 'TabBar'],
-    Индикаторы: ['Badge', 'Indicator', 'Status'],
+    Индикаторы: ['StatusBadge', 'Indicator', 'Status'],
     Текст: ['Typography', 'List', 'Markdown'],
     'Отображение данных': [
         'Amount',

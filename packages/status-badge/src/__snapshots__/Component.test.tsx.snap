@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge Snapshots tests should match snapshot with view=attention-alert 1`] = `
+<div>
+  <div
+    class="component size-24 component attention-alert"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        d="M10.7 6.5h2.6L13 14h-2l-.3-7.5zm2.549 10.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Badge Snapshots tests should match snapshot with view=negative-alert 1`] = `
+<div>
+  <div
+    class="component size-24 component negative-alert"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        d="M10.7 6.5h2.6L13 14h-2l-.3-7.5zm2.549 10.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Badge Snapshots tests should match snapshot with view=negative-block 1`] = `
+<div>
+  <div
+    class="component size-24 component negative-block"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        d="M7 10.25h10v3.5H7v-3.5z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Badge Snapshots tests should match snapshot with view=negative-cross 1`] = `
+<div>
+  <div
+    class="component size-24 component negative-cross"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        d="M7.05 15.536l8.486-8.485 1.414 1.414-8.485 8.485-1.414-1.414z"
+      />
+      <path
+        d="M8.465 7.05l8.485 8.486-1.414 1.414-8.485-8.485 1.414-1.414z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Badge Snapshots tests should match snapshot with view=neutral-cross 1`] = `
+<div>
+  <div
+    class="component size-24 component neutral-cross"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        d="M7.05 15.536l8.486-8.485 1.414 1.414-8.485 8.485-1.414-1.414z"
+      />
+      <path
+        d="M8.465 7.05l8.485 8.486-1.414 1.414-8.485-8.485 1.414-1.414z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Badge Snapshots tests should match snapshot with view=neutral-information 1`] = `
+<div>
+  <div
+    class="component size-24 component neutral-information"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        d="M13.25 7.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0zM10.5 11v1h.5v5h-.5v1h3v-1H13v-5.5a.5.5 0 00-.5-.5h-2z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Badge Snapshots tests should match snapshot with view=neutral-operation 1`] = `
+<div>
+  <div
+    class="component size-24 component neutral-operation"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        d="M11 12.495V7h2v5.495c0 .345.163.671.44.879l2.85 1.868L15.176 17l-2.857-1.868A3.297 3.297 0 0111 12.495z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Badge Snapshots tests should match snapshot with view=positive-checkmark 1`] = `
+<div>
+  <div
+    class="component size-24 component positive-checkmark"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M17.108 9.473l-6.718 6.719-3.89-3.89 1.414-1.414 2.476 2.475 5.303-5.304 1.415 1.414z"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</div>
+`;
