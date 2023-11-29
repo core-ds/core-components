@@ -2,9 +2,9 @@
 
 Компонент имеет несколько форм шейпа. Для каждой формы доступны следующие размеры:
 
-```jsx live
+```jsx live mobileHeight={475}
 render(() => {
-    const SIZES = ['128', '80', '64', '48', '40', '32', '24', '20'];
+    const SIZES = ['128', '80', '64', '56', '48', '40', '32', '24', '20', '16'];
     const [component, setComponent] = React.useState('SuperEllipse');
 
     const Component = {
@@ -21,23 +21,40 @@ render(() => {
     const styles = {
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
         gap: '16px',
+    };
+
+    const mainSize = {
+        16: 16,
+        20: 16,
+        24: 20,
+        32: 24,
+        40: 32,
+        48: 40,
+        56: 48,
+        64: 56,
+        80: 64,
+        128: 80,
     };
 
     return (
         <Container>
             <div style={styles}>
-                {SIZES.map((size) => (
-                    <Component size={size}>
-                        {size === '128' || size === '80' ? (
-                            <DiamondsXxlIcon />
-                        ) : size === '20' ? (
-                            <DiamondsSIcon />
-                        ) : (
-                            <DiamondsMIcon />
-                        )}
-                    </Component>
-                ))}
+                {SIZES.map((size) => {
+                    if (component === 'Rectangle' && size === '16') return;
+                    return (
+                        <Component size={size} mainSize={mainSize[size]} border={true}>
+                            {size === '128' || size === '80' ? (
+                                <DiamondsXxlIcon />
+                            ) : size <= '20' ? (
+                                <DiamondsSIcon />
+                            ) : (
+                                <DiamondsMIcon />
+                            )}
+                        </Component>
+                    );
+                })}
             </div>
             <Row>
                 <RadioGroup name='radioGroup' onChange={onChange} value={component}>
@@ -57,7 +74,8 @@ render(() => {
 //MOBILE
 render(() => {
     const BIG_SIZES = ['128', '80', '64'];
-    const SMALL_SIZES = ['48', '40', '32', '24', '20'];
+    const MEDIUM_SIZES = ['56', '48', '40'];
+    const SMALL_SIZES = ['32', '24', '20', '16'];
 
     const [component, setComponent] = React.useState('SuperEllipse');
 
@@ -75,25 +93,50 @@ render(() => {
     const styles = {
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
         gap: '16px',
     };
+
+    const mainSize = {
+        16: 16,
+        20: 16,
+        24: 20,
+        32: 24,
+        40: 32,
+        48: 40,
+        56: 48,
+        64: 56,
+        80: 64,
+        128: 80,
+    }
 
     return (
         <Container>
             <div style={styles}>
                 {BIG_SIZES.map((size) => (
-                    <Component size={size}>
+                    <Component size={size} mainSize={mainSize[size]} border={true}>
                         {size !== '64' ? <DiamondsXxlIcon /> : <DiamondsMIcon />}
                     </Component>
                 ))}
             </div>
             <Gap size='xl' />
             <div style={styles}>
-                {SMALL_SIZES.map((size) => (
-                    <Component size={size}>
-                        {size !== '20' ? <DiamondsMIcon /> : <DiamondsSIcon />}
+                {MEDIUM_SIZES.map((size) => (
+                    <Component size={size} mainSize={mainSize[size]} border={true}>
+                        <DiamondsMIcon />
                     </Component>
                 ))}
+            </div>
+            <Gap size='xl' />
+            <div style={styles}>
+                {SMALL_SIZES.map((size) => {
+                    if (component === 'Rectangle' && size === '16') return;
+                    return (
+                        <Component size={size} mainSize={mainSize[size]} border={true}>
+                            {size === '32' || size === '24' ? <DiamondsMIcon /> : <DiamondsSIcon />}
+                        </Component>
+                    );
+                })}
             </div>
 
             <Row>
@@ -148,6 +191,7 @@ render(() => {
                 <Col>
                     <Component
                         size='80'
+                        mainSize={64}
                         backgroundColor={
                             value.background ? 'var(--color-light-bg-secondary)' : 'transparent'
                         }
@@ -219,6 +263,7 @@ render(() => {
                 <Col>
                     <SuperEllipse
                         size='80'
+                        mainSize={64}
                         backgroundColor='var(--color-light-bg-secondary)'
                         border={border && { color: 'var(--color-light-border-primary)' }}
                     >
@@ -241,11 +286,16 @@ render(() => {
 
 ## Слоты
 
-В зависимости от размера, компонент поддерживает один или несколько слотов.
-Контент можно расположить в центральном слоте или в верхнем и нижнем аддоне.
-В центральном слоте допустимо располагать иконки, в верхнем аддоне индикатор и другие
-IconView cоответствующего размера, в нижнем аддоне только IconView cоответствующего размера.
-Размер компонента так же определяет размер слотов и соответственно размеры контента который можно в них поместить.
+В зависимости от размера, компонент поддерживает один или несколько слотов. 
+Контент можно расположить в центральном слоте или в верхнем и нижнем аддоне. 
+
+В центральном слоте допустимо располагать иконки. Размер центрального слота можно настроить. 
+Допустимо использовать размеры слота, не превышающие размеры самого компонента. 
+Для каждого размера компонента есть рекомендуемый размер слота.  
+
+В верхнем аддоне допустимо располагать индикатор и другие IconView соответствующего размера, 
+в нижнем аддоне только IconView соответствующего размера. 
+Размер компонента определяет размер аддонов и, соответственно, размеры контента, который можно в них поместить. 
 Для шейпов `rectangle` и `noShape` верхний и нижний аддоны недоступны.
 
 ```jsx live
@@ -266,20 +316,16 @@ render(() => {
         setBottomAddons(payload.value);
     };
 
-    const iconViewSvg = bottomAddons === 'iconView' && (
-        <Circle size='24' backgroundIcon={ThumbUpCompactMIcon} />
+    const iconView = (
+        <Circle size='24' mainSize={16}><DiamondsSIcon/></Circle>
     );
-    const iconViewPositive = (
-        <Circle size='24' backgroundColor='var(--color-light-graphic-positive)'>
-            <CheckmarkCompactMIcon color='var(--color-static-graphic-light)' />
-        </Circle>
-    );
+
     const indicatorSmall = topAddons === 'indicatorSmall' && <Indicator view='red' />;
     const indicator = <Indicator value={1} view='red' height={24} />;
 
     const topAddonsView = {
         indicator,
-        iconViewPositive,
+        iconView,
     }[topAddons];
 
     return (
@@ -288,9 +334,10 @@ render(() => {
                 <Col>
                     <SuperEllipse
                         size='80'
+                        mainSize={64}
                         topAddons={topAddonsView}
                         indicator={indicatorSmall}
-                        bottomAddons={iconViewSvg}
+                        bottomAddons={bottomAddons === 'iconView' && iconView}
                     >
                         {content === 'icon' && <DiamondsMIcon />}
                     </SuperEllipse>
@@ -318,7 +365,7 @@ render(() => {
                 >
                     <Radio label='Маленький индикатор' value='indicatorSmall' size='m' />
                     <Radio label='Индикатор' value='indicator' size='m' />
-                    <Radio label='IconView' value='iconViewPositive' size='m' />
+                    <Radio label='IconView' value='iconView' size='m' />
                     <Radio label='Без контента' value='noContent' size='m' />
                 </RadioGroup>
             </Row>
