@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+.segment {
+    color: var(--color-light-text-primary);
+
+    &:not(:first-child):before {
+        background-color: var(--color-light-neutral-translucent-300);
+    }
+}

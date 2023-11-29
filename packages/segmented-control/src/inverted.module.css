@@ -1,0 +1,14 @@
+@import '../../themes/src/default.css';
+
+.wrapper {
+    background-color: var(--color-light-neutral-translucent-200-inverted);
+}
+
+.segment.selected {
+    color: var(--color-light-text-primary-inverted);
+}
+
+.selectedBox {
+    border: 0.5px solid var(--color-light-neutral-translucent-200-inverted);
+    background-color: var(--color-light-neutral-translucent-0-inverted);
+}
