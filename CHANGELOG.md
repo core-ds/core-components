@@ -1,3 +1,26 @@
+## 44.3.0
+
+<sup><time>30.11.2023</time></sup>
+
+### [#1014](https://github.com/core-ds/core-components/pull/1014)
+
+#### Что изменилось
+- Добавлен data-test-id с модификатором inner на wrapper инпута
+
+#### Влияние на компоненты
+- Патчи<br />`form-control`
+
+
+### [#1000](https://github.com/core-ds/core-components/pull/1000)
+
+#### Что изменилось
+- Добавлено новое свойство colors, отвечающее за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+#### Влияние на компоненты
+- Минорное<br />`segmented-control`
+
+
+
 ## 44.2.0
 
 <sup><time>28.11.2023</time></sup>
