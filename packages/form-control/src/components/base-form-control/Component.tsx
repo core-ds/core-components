@@ -130,7 +130,7 @@ export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для слота слева используется модификатор -left-addons, слота справа -right-addons,
-     * ошибки -error-message, текста подсказки -hint
+     * ошибки -error-message, текста подсказки -hint, внутренней части компонента -inner
      */
     dataTestId?: string;
 
@@ -212,6 +212,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                     </span>
                 )}
                 <div
+                    data-test-id={getDataTestId(dataTestId, 'inner')}
                     {...restProps}
                     className={cn(
                         fieldClassName,

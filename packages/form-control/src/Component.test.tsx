@@ -56,11 +56,12 @@ describe('FormControl', () => {
         });
     });
 
-    it('should set `data-test-id` atribute', () => {
+    it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
         const errorDti = `${dataTestId}-error-message`;
         const leftAddonsDti = `${dataTestId}-left-addons`;
         const rightAddonsDti = `${dataTestId}-right-addons`;
+        const innerDti = `${dataTestId}-inner`;
         const { getByTestId } = render(
             <FormControl
                 block={true}
@@ -75,6 +76,7 @@ describe('FormControl', () => {
         expect(getByTestId(errorDti)).toBeTruthy();
         expect(getByTestId(leftAddonsDti)).toBeTruthy();
         expect(getByTestId(rightAddonsDti)).toBeTruthy();
+        expect(getByTestId(innerDti)).toBeTruthy();
     });
 
     describe('Classes tests', () => {
