@@ -85,7 +85,7 @@
         "index.js": 29.1
     },
     "slider-input": {
-        "index.js": 47.8
+        "index.js": 47.9
     },
     "skeleton": {
         "index.js": 1.4
@@ -101,7 +101,7 @@
     },
     "select": {
         "desktop.js": 142.3,
-        "index.js": 202.8,
+        "index.js": 202.9,
         "mobile.js": 177.9,
         "shared.js": 164
     },
@@ -145,7 +145,7 @@
         "mobile.js": 13.8
     },
     "picker-button": {
-        "desktop.js": 184.7,
+        "desktop.js": 184.8,
         "index.js": 216.5,
         "mobile.js": 190.3,
         "shared.js": 3
@@ -213,7 +213,7 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 692.8
+        "index.js": 692.9
     },
     "international-phone-input": {
         "desktop.js": 499,
@@ -222,7 +222,7 @@
     },
     "input": {
         "desktop.js": 17.3,
-        "index.js": 17.8,
+        "index.js": 17.9,
         "mobile.js": 17.3,
         "shared.js": 10.4
     },
@@ -263,7 +263,7 @@
     },
     "form-control": {
         "desktop.js": 3.8,
-        "index.js": 6.9,
+        "index.js": 7,
         "mobile.js": 3.8
     },
     "filter-tag": {
@@ -286,7 +286,7 @@
     "date-time-input": {
         "desktop.js": 131,
         "index.js": 226.7,
-        "mobile.js": 225.3
+        "mobile.js": 225.4
     },
     "date-range-input": {
         "desktop.js": 132.6,
