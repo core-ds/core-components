@@ -168,5 +168,18 @@ describe('Radio', () => {
 
             expect(cb).not.toBeCalled();
         });
+
+        test('should not call `onChange` on addon click', () => {
+            const cb = jest.fn();
+            const addonDti = 'addon';
+
+            const { getByTestId } = render(
+                <Radio onChange={cb} addons={<div data-test-id={addonDti} />} />,
+            );
+
+            fireEvent.click(getByTestId(addonDti));
+
+            expect(cb).not.toBeCalled();
+        });
     });
 });
