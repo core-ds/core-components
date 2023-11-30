@@ -5,6 +5,7 @@
 ```jsx live
 render(() => {
     const [suffix, setSuffix] = React.useState('currency');
+    const [minor, setMinor] = React.useState(true);
 
     const suffixInput = {
         currency: 'RUR',
@@ -16,6 +17,8 @@ render(() => {
         setSuffix(payload.value);
     };
 
+    const handleMinorChange = () => setMinor(!minor);
+
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
             <AmountInput 
@@ -23,13 +26,16 @@ render(() => {
                 placeholder='Введите сумму'
                 labelView={isMobile() ? 'outer': 'inner'}
                 label='Сумма' 
-                minority={100} 
+                minority={minor ? 100 : 1} 
+                integersOnly={!minor}
                 bold={false} 
                 suffix={suffixInput}
                 block={true}
                 size={isMobile() ? 's': 'm'}
                 breakpoint={BREAKPOINT}
             />
+            <Gap size='xl'/>
+            <Switch label='Минорная часть' checked={minor} onChange={handleMinorChange} />
             <Gap size='xl'/>
             <RadioGroup
                 label='Суффикс'
