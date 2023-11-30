@@ -40,6 +40,7 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
             contentTransitionProps = {},
             backdropProps,
             placement = 'right',
+            dataTestId,
             ...restProps
         },
         ref,
@@ -58,13 +59,14 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
         });
 
         const contextValue = React.useMemo<TResponsiveModalContext>(
-            () => ({ size, view: 'desktop' }),
-            [size],
+            () => ({ size, view: 'desktop', dataTestId }),
+            [size, dataTestId],
         );
 
         const renderContent = () => (
             <Drawer
                 {...restProps}
+                dataTestId={dataTestId}
                 ref={mergeRefs([ref, modalRef])}
                 placement={placement}
                 wrapperClassName={wrapperClassName}

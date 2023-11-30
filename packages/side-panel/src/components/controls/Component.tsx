@@ -1,6 +1,8 @@
 import React, { ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { ResponsiveContext } from '../../ResponsiveContext';
 
 import layoutStyles from '../footer/layout.module.css';
@@ -43,7 +45,7 @@ export const Controls: React.FC<ControlsProps> = ({
     mobileLayout = layoutProp,
 }) => {
     const context = useContext(ResponsiveContext);
-    const { view = 'desktop' } = context || {};
+    const { view = 'desktop', dataTestId } = context || {};
 
     const layout = view === 'mobile' ? mobileLayout : layoutProp;
 
@@ -51,6 +53,7 @@ export const Controls: React.FC<ControlsProps> = ({
 
     return (
         <div
+            data-test-id={getDataTestId(dataTestId, 'controls')}
             className={cn(
                 styles.component,
                 layoutStyles[layout],

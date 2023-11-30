@@ -48,6 +48,7 @@ export type View = 'desktop' | 'mobile';
 export type TResponsiveModalContext = {
     view: View;
     size: NonNullable<ModalDesktopProps['size']>;
+    dataTestId?: string;
 };
 
 export type ContentProps = {
