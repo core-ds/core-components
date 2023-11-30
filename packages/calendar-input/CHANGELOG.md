@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.15
+
 ## 10.1.0
 
 ### Minor Changes

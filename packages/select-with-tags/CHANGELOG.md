@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.0.1
+    -   select@17.0.1
+
 ## 8.0.0
 
 ### Major Changes

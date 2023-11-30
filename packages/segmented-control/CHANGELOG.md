@@ -1,5 +1,13 @@
 # @alfalab/core-components-segmented-control
 
+## 1.3.0
+
+### Minor Changes
+
+### [#1000](https://github.com/core-ds/core-components/pull/1000)
+
+-   Добавлено новое свойство colors, отвечающее за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
 ## 1.2.0
 
 ### Minor Changes

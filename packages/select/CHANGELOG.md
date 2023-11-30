@@ -1,5 +1,13 @@
 # Change Log
 
+## 17.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.0.1
+    -   input@14.0.1
+
 ## 17.0.0
 
 ### Major Changes

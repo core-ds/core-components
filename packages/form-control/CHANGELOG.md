@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.0.1
+
+### Patch Changes
+
+### [#1014](https://github.com/core-ds/core-components/pull/1014)
+
+-   Добавлен data-test-id с модификатором inner на wrapper инпута
+
 ## 12.0.0
 
 ### Major Changes
