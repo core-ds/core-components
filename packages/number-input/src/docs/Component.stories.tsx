@@ -16,6 +16,7 @@ export const number_input: Story = {
     name: 'NumberInput',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const stepper = boolean('stepper', false);
         return (
             <div
                 style={{
@@ -31,26 +32,36 @@ export const number_input: Story = {
                     bottom: 0,
                 }}
             >
-                <NumberInput
-                    separator={select('separator', [',', '.'], ',')}
-                    fractionLength={number('fractionLength', 2)}
-                    allowSigns={boolean('showSigns', true)}
-                    block={boolean('block', false)}
-                    clear={boolean('clear', false)}
-                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
-                    colors={colors}
-                    disabled={boolean('disabled', false)}
-                    placeholder={text('placeholder', '')}
-                    label={text('label', '')}
-                    labelView={select('labelView', ['inner', 'outer'], 'inner')}
-                    hint={text('hint', '')}
-                    error={text('error', '')}
-                    success={boolean('success', false)}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
-                    bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-                    readOnly={boolean('readOnly', false)}
-                />
+                {stepper ? (
+                    <NumberInput
+                        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                        colors={colors}
+                        disabled={boolean('disabled', false)}
+                        step={number('step', 1)}
+                        max={number('max', 10)}
+                        min={number('min', 0)}
+                    />
+                ) : (
+                    <NumberInput
+                        separator={select('separator', [',', '.'], ',')}
+                        fractionLength={number('fractionLength', 2)}
+                        block={boolean('block', false)}
+                        clear={boolean('clear', false)}
+                        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                        colors={colors}
+                        disabled={boolean('disabled', false)}
+                        placeholder={text('placeholder', '')}
+                        label={text('label', '')}
+                        labelView={select('labelView', ['inner', 'outer'], 'inner')}
+                        hint={text('hint', '')}
+                        error={text('error', '')}
+                        success={boolean('success', false)}
+                        rightAddons={boolean('rightAddons', false) && <StarMIcon />}
+                        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+                        readOnly={boolean('readOnly', false)}
+                    />
+                )}
             </div>
         );
     },
