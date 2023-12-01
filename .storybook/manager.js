@@ -1,7 +1,7 @@
 import { addons } from '@storybook/addons';
 import alfaTheme from './theme';
 
-import { STORY_RENDERED } from '@storybook/core-events';
+import { STORY_RENDERED, STORY_MISSING, STORY_ERRORED } from '@storybook/core-events';
 import { renderLabel } from './render-label';
 
 import '../packages/themes/src/default.css';
@@ -43,6 +43,15 @@ addons.register('TitleAddon', (api) => {
     setTitle();
     api.on(STORY_RENDERED, (story) => {
         setTitle();
+    });
+});
+
+addons.register('RedirectAddon', (api) => {
+    api.on(STORY_MISSING, () => {
+        window.location.href = '/';
+    });
+    api.on(STORY_ERRORED, () => {
+        window.location.href = '/';
     });
 });
 

@@ -103,6 +103,7 @@ module.exports = {
     },
     docs: {
         autodocs: false,
+        defaultName: 'Docs',
     },
     staticDirs: ['./public'],
     webpackFinal: async (config, { configType: mode }) => {

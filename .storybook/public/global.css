@@ -81,9 +81,12 @@ div[id*='story--'] {
 /* Manager */
 
 .sidebar-container > div {
-    padding-left: 36px !important;
-    padding-right: var(--gap-m) !important;
+    padding-left: var(--gap-m);
     overflow: hidden;
+}
+
+div[data-radix-scroll-area-viewport] > div > div {
+    padding-right: var(--gap-m);
 }
 
 div.sidebar-header {
@@ -101,6 +104,7 @@ div.sidebar-header > div:first-child a {
 
 div.sidebar-header img {
     max-height: 40px;
+    max-width: 100%;
 }
 
 div.sidebar-header button {
@@ -244,7 +248,7 @@ div.sidebar-subheading > button > span:first-of-type {
     padding: 6px 0 6px 4px;
 }
 
-.sidebar-container .sidebar-item > span:first-child {
+.sidebar-container .sidebar-item > div > span {
     margin-top: 0;
     margin-right: 8px;
     border-radius: 1px;

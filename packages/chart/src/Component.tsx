@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any,prefer-template */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 import {
@@ -83,12 +83,12 @@ export const Chart = (props: OptionsProps) => {
             const withGrad = chart === 'area';
             let changed = false;
 
-            if (charts[`${dataKey}`] && filterCount > 1) {
+            if (charts[dataKey + ''] && filterCount > 1) {
                 changed = true;
                 setFilterCount((prev) => prev - 1);
             }
 
-            if (!charts[`${dataKey}`]) {
+            if (!charts[dataKey + '']) {
                 changed = true;
                 setFilterCount((prev) => prev + 1);
             }
@@ -97,8 +97,8 @@ export const Chart = (props: OptionsProps) => {
             setCharts((prev: DataDynamicBooleanProps) => {
                 const newState = { ...prev };
 
-                newState[`${dataKey}`] = !newState[`${dataKey}`];
-                if (withGrad) newState[`${dataKey}-gradient`] = !newState[`${dataKey}-gradient`];
+                newState[dataKey + ''] = !newState[dataKey + ''];
+                if (withGrad) newState[dataKey + '-gradient'] = !newState[dataKey + '-gradient'];
 
                 return newState;
             });
