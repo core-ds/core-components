@@ -92,6 +92,21 @@ describe('AmountInput', () => {
         expect(input.placeholder).toBe(`0${THINSP}%`);
     });
 
+    it('should use currency suffix with codeFormat=letter', () => {
+        const input = renderAmountInput(null, 'RUR', { codeFormat: 'letter' });
+        expect(input.placeholder).toBe(`0${THINSP}RUR`);
+    });
+
+    it('should use currency suffix with codeFormat=symbolic', () => {
+        const input = renderAmountInput(null, 'RUR', { codeFormat: 'symbolic' });
+        expect(input.placeholder).toBe(`0${THINSP}₽`);
+    });
+
+    it('should use currency suffix without codeFormat', () => {
+        const input = renderAmountInput(null, 'RUR');
+        expect(input.placeholder).toBe(`0${THINSP}₽`);
+    });
+
     it('should allow to clean suffix when currency empty', () => {
         const input = renderAmountInput(null, null, { suffix: '' });
         expect(input.placeholder).toBe(`0${THINSP}`);
