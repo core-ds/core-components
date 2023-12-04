@@ -76,7 +76,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
                 class="text stretchText"
               >
                 <span
-                  class="iconWrapper s center"
+                  class="iconWrapper size-48 center"
                 >
                   <svg
                     class="icon"

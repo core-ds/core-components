@@ -44,7 +44,7 @@ export const icon_button: Story = {
                 }}
             >
                 <IconButton
-                    size={select('size', ['xxs', 'xs', 's'], 's')}
+                    size={select('size', [24, 32, 40, 48, 56], 48)}
                     view={select(
                         'view',
                         ['primary', 'secondary', 'tertiary', 'negative', 'transparent'],

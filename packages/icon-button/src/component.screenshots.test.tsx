@@ -30,7 +30,7 @@ describe(
             componentName: 'IconButton',
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
-                size: ['xxs', 'xs', 's'],
+                size: [24, 32, 40, 48, 56],
             },
             testStory: false,
         }),
@@ -65,7 +65,7 @@ describe(
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                 colors: ['default', 'inverted'],
-                size: 's',
+                size: 48,
             },
             testStory: false,
         }),
@@ -85,7 +85,7 @@ describe(
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                 colors: ['default', 'inverted'],
-                size: 's',
+                size: 48,
             },
             testStory: false,
         }),
@@ -108,7 +108,7 @@ describe(
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                 colors: ['default', 'inverted'],
-                size: 's',
+                size: 48,
                 disabled: 'true',
             },
             testStory: false,

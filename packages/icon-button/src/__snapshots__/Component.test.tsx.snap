@@ -14,7 +14,7 @@ Object {
           class="text stretchText"
         >
           <span
-            class="iconWrapper s center"
+            class="iconWrapper size-48 center"
           >
             <svg
               class="icon"
@@ -44,7 +44,7 @@ Object {
         class="text stretchText"
       >
         <span
-          class="iconWrapper s center"
+          class="iconWrapper size-48 center"
         >
           <svg
             class="icon"
@@ -130,7 +130,7 @@ Object {
           class="text stretchText"
         >
           <span
-            class="iconWrapper s center"
+            class="iconWrapper size-48 center"
           >
             <svg
               class="icon"
@@ -159,7 +159,7 @@ Object {
         class="text stretchText"
       >
         <span
-          class="iconWrapper s center"
+          class="iconWrapper size-48 center"
         >
           <svg
             class="icon"
