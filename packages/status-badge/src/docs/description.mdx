@@ -1,0 +1,28 @@
+## Виды статусов
+
+Компонент доступен в пяти размерах. Представленный ниже набор комбинаций иконки и цвета является единым для всех продуктов.
+Если нужной конфигурации нет, её придётся собрать на основе компонента [IconView](?path=/docs/iconview--docs).
+
+```jsx live mobileHeight={520}
+<div>
+    {[
+        'negative-cross',
+        'negative-block',
+        'negative-alert',
+        'attention-alert',
+        'positive-checkmark',
+        'neutral-information',
+        'neutral-cross',
+        'neutral-operation',
+    ].map((view) => (
+        <React.Fragment key={view}>
+            <Space size={20} align='center' direction={isMobile() ? 'horizontal' : 'vertical'}>
+                {[40, 32, 24, 20, 16].map((size) => (
+                    <StatusBadge key={size} view={view} size={size} />
+                ))}
+            </Space>
+            <Gap size='l' direction={isMobile() ? 'vertical' : 'horizontal'} />
+        </React.Fragment>
+    ))}
+</div>
+```

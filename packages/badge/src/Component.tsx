@@ -68,6 +68,9 @@ export type BadgeProps = {
     dataTestId?: string;
 };
 
+/**
+ * @deprecated Используйте StatusBadge или Indicator
+ */
 // eslint-disable-next-line complexity
 export const Badge = ({
     className,

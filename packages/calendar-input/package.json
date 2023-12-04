@@ -19,7 +19,7 @@
         "@alfalab/core-components-date-input": "^4.3.15",
         "@alfalab/core-components-popover": "^6.2.0",
         "@alfalab/hooks": "^1.13.0",
-        "@alfalab/icons-glyph": "^2.108.0",
+        "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.3.1",
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0",

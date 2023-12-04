@@ -1,0 +1,21 @@
+@import '../../themes/src/default.css';
+
+.positive-checkmark {
+    background-color: var(--color-light-status-positive);
+}
+
+.negative-cross,
+.negative-alert,
+.negative-block {
+    background-color: var(--color-light-status-negative);
+}
+
+.attention-alert {
+    background-color: var(--color-light-status-attention);
+}
+
+.neutral-information,
+.neutral-operation,
+.neutral-cross {
+    background-color: var(--color-light-neutral-700);
+}

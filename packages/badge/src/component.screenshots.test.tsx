@@ -2,7 +2,6 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     generateTestCases,
-    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -11,16 +10,6 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
-
-describe('Badge', () =>
-    createPreview(
-        {
-            testStory: false,
-            componentName: 'Badge',
-            knobs: {},
-        },
-        'transform:scale(4)',
-    ));
 
 describe(
     'Badge | screenshots view=`count`',
