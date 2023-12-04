@@ -311,7 +311,7 @@ Object {
         href="https://some-url"
       >
         <svg
-          class="spinner component s loader loader visible"
+          class="spinner component s loader loader loader visible"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -376,7 +376,7 @@ Object {
       href="https://some-url"
     >
       <svg
-        class="spinner component s loader loader visible"
+        class="spinner component s loader loader loader visible"
         fill="none"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -498,7 +498,7 @@ Object {
         type="button"
       >
         <svg
-          class="spinner component s loader loader visible"
+          class="spinner component s loader loader loader visible"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -563,7 +563,7 @@ Object {
       type="button"
     >
       <svg
-        class="spinner component s loader loader visible"
+        class="spinner component s loader loader loader visible"
         fill="none"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"

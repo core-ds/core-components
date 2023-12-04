@@ -110,6 +110,7 @@ export const BaseButton = React.forwardRef<
                     [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
                     [commonStyles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
                     [colorStyles[colors].loading]: showLoader,
+                    [colorStylesMap[colors].loading]: showLoader,
                 },
                 className,
             ),
@@ -143,6 +144,7 @@ export const BaseButton = React.forwardRef<
                         className={cn(
                             commonStyles.loader,
                             colorStyles[colors].loader,
+                            colorStylesMap[colors].loader,
                             spinnerClassName,
                         )}
                     />
