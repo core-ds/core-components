@@ -22,6 +22,7 @@ export const PrimaryTabList = ({
     onChange,
     dataTestId,
     platform,
+    textStyle,
 }: TabListProps & Styles & PlatformProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +56,7 @@ export const PrimaryTabList = ({
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size], {
+            className={cn(styles.component, className, !textStyle && size && styles[size], {
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
@@ -76,18 +77,24 @@ export const PrimaryTabList = ({
         </div>
     );
 
+    const wrapperClassName = cn(textStyle && styles[textStyle], styles[platform]);
+
     return scrollable ? (
         <ScrollableContainer
+            containerWrapperClassName={wrapperClassName}
             activeChild={focusedTab || selectedTab}
             containerClassName={containerClassName}
+            scrollControlsClassName={cn(textStyle && styles.scrollControls)}
             fullWidthScroll={fullWidthScroll}
             view='primary'
-            size={size}
+            size={textStyle ? undefined : size}
             platform={platform}
         >
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
+        <div className={cn(styles.container, wrapperClassName, containerClassName)}>
+            {renderContent()}
+        </div>
     );
 };

@@ -6,6 +6,8 @@
 Если табов больше, чем может отобразиться на экране, можно воспользоваться одной из двух опций: горизонтальный
 скролл или скрытие табов в кнопку ещё.
 
+На вид табов влияет переданный стиль текста.
+
 ```jsx live
 const TABS = [
     { title: 'Aurum', id: 'tab-1' },
@@ -30,6 +32,7 @@ render(() => {
 
     const [count, setCount] = React.useState('3');
     const [overflowType, setOverflowType] = React.useState('scrollable');
+    const [textStyle, setTextStyle] = React.useState('paragraph-primary-large');
 
     const handleChange = (event, { selectedId }) => {
         setSelectedId(selectedId);
@@ -43,6 +46,7 @@ render(() => {
                 selectedId={selectedId}
                 onChange={handleChange}
                 scrollable={overflowType === 'scrollable'}
+                textStyle={textStyle}
             >
                 {TABS.slice(0, Number(count)).map((item) => (
                     <Tab title={item.title} id={item.id} key={item.id} />
@@ -78,6 +82,16 @@ render(() => {
                     <Radio label='Scrollable' value='scrollable' />
                     <Radio label='Collapsible' value='collapsible' />
                 </RadioGroup>
+
+                <RadioGroup
+                    direction='vertical'
+                    label='Стиль текста табов'
+                    value={textStyle}
+                    onChange={(e) => setTextStyle(e.target.value)}
+                >
+                    <Radio label='Paragraph primary large' value='paragraph-primary-large' />
+                    <Radio label='Headline small' value='headline-small' />
+                </RadioGroup>
             </Space>
         </>
     );
@@ -103,6 +117,7 @@ const TABS = [
 
 render(() => {
     const [selectedId, setSelectedId] = React.useState(TABS[0].id);
+    const [textStyle, setTextStyle] = React.useState('paragraph-primary-large');
 
     const [count, setCount] = React.useState('3');
 
@@ -117,6 +132,7 @@ render(() => {
                 onChange={handleChange}
                 scrollable={true}
                 fullWidthScroll={true}
+                textStyle={textStyle}
             >
                 {TABS.slice(0, Number(count)).map((item) => (
                     <Tab title={item.title} id={item.id} key={item.id} />
@@ -141,6 +157,16 @@ render(() => {
                 >
                     <Radio label='3' value='3' />
                     <Radio label='15' value='15' />
+                </RadioGroup>
+
+                <RadioGroup
+                    direction='vertical'
+                    label='Стиль текста табов'
+                    value={textStyle}
+                    onChange={(e) => setTextStyle(e.target.value)}
+                >
+                    <Radio label='Paragraph primary large' value='paragraph-primary-large' />
+                    <Radio label='Headline medium' value='headline-medium' />
                 </RadioGroup>
             </Space>
         </>

@@ -31,6 +31,30 @@ export type TabsProps = {
     view?: 'primary' | 'secondary';
 
     /**
+     * Стиль текста. Имеет приоритет над size. Работает только в primary табах.
+     */
+    textStyle?:
+        | 'paragraph-primary-large'
+        | 'paragraph-primary-medium'
+        | 'paragraph-primary-small'
+        | 'action-primary-large'
+        | 'action-primary-medium'
+        | 'action-primary-small'
+        | 'accent-primary-large'
+        | 'accent-primary-medium'
+        | 'accent-primary-small'
+        | 'headline-system-xlarge'
+        | 'headline-system-large'
+        | 'headline-system-medium'
+        | 'headline-system-small'
+        | 'headline-system-xsmall'
+        | 'headline-xlarge'
+        | 'headline-large'
+        | 'headline-medium'
+        | 'headline-small'
+        | 'headline-xsmall';
+
+    /**
      * Высота заголовков табов
      */
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
@@ -175,6 +199,7 @@ export type TabListProps = Pick<
     | 'fullWidthScroll'
     | 'tagShape'
     | 'tagView'
+    | 'textStyle'
 > & {
     /**
      * Заголовки табов

@@ -1,0 +1,228 @@
+@import '../../../../themes/src/default.css';
+
+@define-mixin element_styles $lh {
+    & .title {
+        padding-bottom: calc($lh / 2);
+    }
+
+    & .title + .title,
+    & .pickerWrapper {
+        margin-left: $lh;
+    }
+
+    & .option {
+        padding: 0;
+    }
+
+    & .scrollControls {
+        & > button {
+            box-sizing: content-box;
+            width: $lh;
+            height: $lh;
+            padding: 0;
+        }
+
+        & button:first-child {
+            margin: 0 0 0 calc($lh / 2);
+        }
+    }
+}
+
+@define-mixin text-style {
+    &.paragraph-primary-large .title {
+        @mixin paragraph_primary_large;
+    }
+
+    &.paragraph-primary-medium .title {
+        @mixin paragraph_primary_medium;
+    }
+
+    &.paragraph-primary-small .title {
+        @mixin paragraph_primary_small;
+    }
+
+    &.action-primary-large .title {
+        @mixin action_primary_large;
+    }
+
+    &.action-primary-medium .title {
+        @mixin action_primary_medium;
+    }
+
+    &.action-primary-small .title {
+        @mixin action_primary_small;
+    }
+
+    &.accent-primary-large .title {
+        @mixin accent_primary_large;
+    }
+
+    &.accent-primary-medium .title {
+        @mixin accent_primary_medium;
+    }
+
+    &.accent-primary-small .title {
+        @mixin accent_primary_small;
+    }
+
+    &.paragraph-primary-large,
+    &.paragraph-primary-medium,
+    &.accent-primary-large,
+    &.accent-primary-medium,
+    &.action-primary-large,
+    &.action-primary-medium {
+        @mixin element_styles 24px;
+    }
+
+    &.paragraph-primary-small,
+    &.accent-primary-small,
+    &.action-primary-small {
+        @mixin element_styles 20px;
+    }
+}
+
+@define-mixin text-style-desktop {
+    &.headline-system-xlarge .title {
+        @mixin headline-system_xlarge;
+    }
+
+    &.headline-system-large .title {
+        @mixin headline-system_large;
+    }
+
+    &.headline-system-medium .title {
+        @mixin headline-system_medium;
+    }
+
+    &.headline-system-small .title {
+        @mixin headline-system_small;
+    }
+
+    &.headline-system-xsmall .title {
+        @mixin headline-system_xsmall;
+    }
+
+    &.headline-xlarge .title {
+        @mixin headline_xlarge;
+    }
+
+    &.headline-large .title {
+        @mixin headline_large;
+    }
+
+    &.headline-medium .title {
+        @mixin headline_medium;
+    }
+
+    &.headline-small .title {
+        @mixin headline_small;
+    }
+
+    &.headline-xsmall .title {
+        @mixin headline_xsmall;
+    }
+
+    &.headline-system-xlarge {
+        @mixin element_styles 52px;
+    }
+
+    &.headline-system-large,
+    &.headline-large {
+        @mixin element_styles 48px;
+    }
+
+    &.headline-system-medium {
+        @mixin element_styles 36px;
+    }
+
+    &.headline-system-small {
+        @mixin element_styles 26px;
+    }
+
+    &.headline-system-xsmall {
+        @mixin element_styles 22px;
+    }
+
+    &.headline-xlarge {
+        @mixin element_styles 64px;
+    }
+
+    &.headline-medium {
+        @mixin element_styles 40px;
+    }
+
+    &.headline-small {
+        @mixin element_styles 32px;
+    }
+
+    &.headline-xsmall {
+        @mixin element_styles 24px;
+    }
+}
+
+@define-mixin text-style-mobile {
+    &.headline-system-xlarge .title {
+        @mixin headline-system-mobile_xlarge;
+    }
+
+    &.headline-system-large .title {
+        @mixin headline-system-mobile_large;
+    }
+
+    &.headline-system-medium .title {
+        @mixin headline-system-mobile_medium;
+    }
+
+    &.headline-system-small .title {
+        @mixin headline-system-mobile_small;
+    }
+
+    &.headline-system-xsmall .title {
+        @mixin headline-system-mobile_xsmall;
+    }
+
+    &.headline-xlarge .title {
+        @mixin headline-mobile_xlarge;
+    }
+
+    &.headline-large .title {
+        @mixin headline-mobile_large;
+    }
+
+    &.headline-medium .title {
+        @mixin headline-mobile_medium;
+    }
+
+    &.headline-small .title {
+        @mixin headline-mobile_small;
+    }
+
+    &.headline-xsmall .title {
+        @mixin headline-mobile_xsmall;
+    }
+
+    &.headline-system-xlarge,
+    &.headline-xlarge {
+        @mixin element_styles 40px;
+    }
+
+    &.headline-system-large,
+    &.headline-large {
+        @mixin element_styles 36px;
+    }
+
+    &.headline-system-medium,
+    &.headline-medium {
+        @mixin element_styles 32px;
+    }
+
+    &.headline-system-small,
+    &.headline-small {
+        @mixin element_styles 28px;
+    }
+
+    &.headline-system-xsmall,
+    &.headline-xsmall {
+        @mixin element_styles 20px;
+    }
+}

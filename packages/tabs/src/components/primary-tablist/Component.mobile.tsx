@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'classnames';
 
 import { TabListProps } from '../../typings';
 
@@ -15,11 +14,6 @@ const styles = {
 
 export type PrimaryTabListMobileProps = Omit<TabListProps, 'size' | 'collapsedTabsIds'>;
 
-export const PrimaryTabListMobile = ({ className, ...restProps }: PrimaryTabListMobileProps) => (
-    <PrimaryTabList
-        {...restProps}
-        styles={styles}
-        className={cn(className, styles.mobile)}
-        platform='mobile'
-    />
+export const PrimaryTabListMobile = (props: PrimaryTabListMobileProps) => (
+    <PrimaryTabList {...props} styles={styles} platform='mobile' />
 );
