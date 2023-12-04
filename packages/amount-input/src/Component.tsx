@@ -4,9 +4,9 @@ import cn from 'classnames';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
-import { formatAmount, getCurrencySymbol, THINSP } from '@alfalab/utils';
+import { formatAmount, THINSP } from '@alfalab/utils';
 
-import { getAmountValueFromStr, getFormattedValue } from './utils';
+import { getAmountValueFromStr, getCurrencyCodeWithFormat, getFormattedValue } from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -23,6 +23,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
      * Значение null - значит не установлено
      */
     value?: string | number | null;
+
+    /**
+     * Формат отображения кода валюты
+     */
+    codeFormat?: 'letter' | 'symbolic';
 
     /**
      * default - не отображаем копейки, если их значение 0
@@ -104,8 +109,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             minority = 100,
             currency = 'RUR',
             suffix = currency,
+            codeFormat = 'symbolic',
             placeholder = `0\u2009${
-                suffix === currency ? getCurrencySymbol(currency) || '' : suffix
+                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) || '' : suffix
             }`,
             integersOnly = false,
             positiveOnly = true,
@@ -144,7 +150,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         const [inputValue, setInputValue] = useState<string>(() => getFormattedAmount(value));
 
         const [majorPart, minorPart] = inputValue.split(',');
-        const currencySymbol = getCurrencySymbol(currency);
+        const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
 
         useEffect(() => {
             const currentAmountValue = getAmountValueFromStr(inputValue, minority);
@@ -283,7 +289,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             <span className={colorStyles[colors].minorPartAndCurrency}>
                                 {minorPart !== undefined && `,${minorPart}`}
                                 {THINSP}
-                                {suffix === currency ? currencySymbol : suffix}
+                                {suffix === currency ? currencyCode : suffix}
                             </span>
                         </Fragment>
                     }

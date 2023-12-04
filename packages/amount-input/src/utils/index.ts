@@ -4,7 +4,9 @@
  */
 
 import { CurrencyCodes } from '@alfalab/data';
-import { formatAmount } from '@alfalab/utils';
+import { formatAmount, getCurrencySymbol } from '@alfalab/utils';
+
+import { AmountInputProps } from '../Component';
 
 /**
  * Форматирует введенное значение
@@ -54,4 +56,15 @@ export function getAmountValueFromStr(str: string, minority: number) {
     }
 
     return Math.round(Number(str.replace(',', '.').replace(/[^0-9.-]/g, '')) * minority);
+}
+
+export function getCurrencyCodeWithFormat(
+    currency: CurrencyCodes,
+    codeFormat: AmountInputProps['codeFormat'],
+) {
+    if (!currency) {
+        return '';
+    }
+
+    return codeFormat === 'symbolic' ? getCurrencySymbol(currency) : currency;
 }
