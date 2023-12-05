@@ -47,11 +47,13 @@ addons.register('TitleAddon', (api) => {
 });
 
 addons.register('RedirectAddon', (api) => {
+    const redirectTo = process.env.NODE_ENV === 'development' ? '/' : '/core-components/master/';
+
     api.on(STORY_MISSING, () => {
-        window.location.href = '/';
+        window.location.href = redirectTo;
     });
     api.on(STORY_ERRORED, () => {
-        window.location.href = '/';
+        window.location.href = redirectTo;
     });
 });
 
