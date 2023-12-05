@@ -86,6 +86,11 @@ export type BaseShapeProps = {
      * Текст
      */
     text?: ReactNode;
+
+    /**
+     * Размер основного слота
+     */
+    mainSize?: 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 80 | 128;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
@@ -105,6 +110,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             indicator,
             pathsMap,
             dataTestId,
+            mainSize,
         },
         ref,
     ) => {
@@ -227,7 +233,11 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
                     {text && <div className={styles.text}>{text}</div>}
 
-                    {children && <div className={styles.children}>{children}</div>}
+                    {children && (
+                        <div className={cn(styles.children, styles[`size-${mainSize}`])}>
+                            {children}
+                        </div>
+                    )}
                 </div>
 
                 {hasTopAddons && (

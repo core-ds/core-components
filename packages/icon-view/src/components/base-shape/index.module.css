@@ -157,6 +157,36 @@
     }
 }
 
+.size_56 {
+    width: 56px;
+    height: 56px;
+
+    & .children {
+        width: 40px;
+        height: 40px;
+    }
+
+    & .addons {
+        width: 20px;
+        height: 20px;
+    }
+
+    & .topAddons {
+        top: -8px;
+        right: -6px;
+    }
+
+    & .bottomAddons {
+        bottom: -8px;
+        right: -6px;
+    }
+
+    & .indicator {
+        top: -6px;
+        right: -12px;
+    }
+}
+
 .size_48 {
     width: 48px;
     height: 48px;
@@ -259,5 +289,30 @@
     & .indicator {
         top: -3px;
         right: -3px;
+    }
+}
+
+.size_16 {
+    width: 16px;
+    height: 16px;
+
+    & .children {
+        width: 16px;
+        height: 16px;
+    }
+
+    & .indicator {
+        top: -4px;
+        right: -4px;
+    }
+}
+
+/* prettier-ignore */
+@each $size in 16, 20, 24, 32, 40, 48, 56, 64, 80, 128 {
+    .children {
+        &.size-$(size) {
+            width: $(size)px;
+            height: $(size)px;
+        }
     }
 }

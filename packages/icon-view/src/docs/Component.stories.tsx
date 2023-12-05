@@ -29,8 +29,14 @@ export const super_ellipse: Story = {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
-        const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
-        const sizeAddons = size === '128' ? '40' : size === '80' || size === '64' ? '24' : '20';
+        const size = select(
+            'size',
+            ['16', '20', '24', '32', '40', '48', '56', '64', '80', '128'],
+            '64',
+        );
+        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
+        const sizeAddons =
+            size === '128' ? '40' : size === '80' || size === '64' || size === '56' ? '24' : '20';
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
         const addonsIcon = (
@@ -56,10 +62,11 @@ export const super_ellipse: Story = {
                 bottomAddons={bottomAddons && addonsIcon}
                 indicator={indicator && <Badge view='count' />}
                 text={text('text', '')}
+                mainSize={mainSize}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
-                ) : size === '20' ? (
+                ) : size <= '20' ? (
                     <DiamondsSIcon />
                 ) : (
                     <DiamondsMIcon />
@@ -75,8 +82,14 @@ export const circle: Story = {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
-        const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
-        const sizeAddons = size === '128' ? '40' : size === '80' || size === '64' ? '24' : '20';
+        const size = select(
+            'size',
+            ['16', '20', '24', '32', '40', '48', '56', '64', '80', '128'],
+            '64',
+        );
+        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
+        const sizeAddons =
+            size === '128' ? '40' : size === '80' || size === '64' || size === '56' ? '24' : '20';
         const addonsIcon = (
             <Circle size={sizeAddons}>
                 {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}
@@ -92,10 +105,11 @@ export const circle: Story = {
                 bottomAddons={bottomAddons && addonsIcon}
                 indicator={indicator && <Badge view='count' />}
                 text={text('text', '')}
+                mainSize={mainSize}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
-                ) : size === '20' ? (
+                ) : size <= '20' ? (
                     <DiamondsSIcon />
                 ) : (
                     <DiamondsMIcon />
@@ -108,7 +122,8 @@ export const circle: Story = {
 export const rectangle: Story = {
     name: 'Rectangle',
     render: () => {
-        const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
+        const size = select('size', ['20', '24', '32', '40', '48', '56', '64', '80', '128'], '64');
+        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
         return (
@@ -118,6 +133,7 @@ export const rectangle: Story = {
                 border={border}
                 imageUrl={text('imageUrl', '')}
                 text={text('text', '')}
+                mainSize={mainSize}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
@@ -134,7 +150,12 @@ export const rectangle: Story = {
 export const no_shape: Story = {
     name: 'NoShape',
     render: () => {
-        const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
+        const size = select(
+            'size',
+            ['16', '20', '24', '32', '40', '48', '56', '64', '80', '128'],
+            '64',
+        );
+        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         return (
             <NoShape
@@ -142,10 +163,11 @@ export const no_shape: Story = {
                 backgroundColor={backgroundColor}
                 imageUrl={text('imageUrl', '')}
                 text={text('text', '')}
+                mainSize={mainSize}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
-                ) : size === '20' ? (
+                ) : size <= '20' ? (
                     <DiamondsSIcon />
                 ) : (
                     <DiamondsMIcon />

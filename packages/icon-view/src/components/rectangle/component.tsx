@@ -12,7 +12,7 @@ export type RectangleProps = Omit<
      * Размер компонента
      * @default 64
      */
-    size?: 20 | 24 | 32 | 40 | 48 | 64 | 80 | 128;
+    size?: 20 | 24 | 32 | 40 | 48 | 56 | 64 | 80 | 128;
 
     /**
      * Дочерний компонент
@@ -26,6 +26,7 @@ const heights: Record<Required<RectangleProps>['size'], number> = {
     32: 22,
     40: 28,
     48: 34,
+    56: 40,
     64: 46,
     80: 58,
     128: 94,
