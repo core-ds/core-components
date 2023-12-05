@@ -5,6 +5,7 @@ import { Typography } from '@alfalab/core-components-typography';
 import { Space } from '@alfalab/core-components-space';
 import { pluralize } from '@alfalab/utils';
 import { GithubIcon } from 'storybook/components/icons/GithubIcon';
+import figmaLinks from 'storybook/figma-links.json';
 
 import usages from 'storybook/usages.json';
 
@@ -17,7 +18,11 @@ type ComponentHeaderProps = {
     children?: ReactNode;
 };
 
-export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, children }) => {
+export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
+    name,
+    design: designProp,
+    children,
+}) => {
     const [isDesktop] = useMatchMedia('--tablet-m');
 
     const packageName = name
@@ -26,6 +31,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
         .toLowerCase();
 
     const githubLink = `https://github.com/core-ds/core-components/tree/master/packages/${packageName}`;
+    const designLink = figmaLinks[name]?.figma || designProp;
 
     const Title = isDesktop ? Typography.Title : Typography.TitleMobile;
 
@@ -44,12 +50,12 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
                 </Typography.Text>
             )}
             <div className={styles.links}>
-                {design && (
+                {designLink && (
                     <a
                         className={cn(styles.design, {
-                            [styles.commonLink]: !design,
+                            [styles.commonLink]: !designLink,
                         })}
-                        href={design}
+                        href={designLink}
                         target='_blank'
                     >
                         Figma
