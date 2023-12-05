@@ -238,10 +238,10 @@
         "index.js": 2
     },
     "icon-view": {
-        "circle.js": 27.5,
-        "no-shape.js": 5.1,
-        "rectangle.js": 16.2,
-        "super-ellipse.js": 53.3
+        "circle.js": 32.2,
+        "no-shape.js": 5.2,
+        "rectangle.js": 17.6,
+        "super-ellipse.js": 62.8
     },
     "icon-button": {
         "index.js": 9.8
