@@ -15,14 +15,14 @@
 
     /* disabled */
     --switch-disabled-color: var(--color-light-text-secondary);
-    --switch-disabled-bg-color: var(--color-light-neutral-translucent-700);
+    --switch-disabled-bg-color: var(--color-light-neutral-translucent-200);
 
     /* disabled checked */
-    --switch-disabled-checked-bg-color: var(--color-light-neutral-translucent-200);
+    --switch-disabled-checked-bg-color: var(--switch-disabled-bg-color);
 
     /* icon */
     --switch-icon-color: var(--color-static-neutral-1500-inverted);
-    --switch-icon-disabled-checked-color: var(--color-light-neutral-translucent-500);
+    --switch-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
 .component {
@@ -151,14 +151,14 @@
 
 .disabled .switch {
     background-color: var(--switch-disabled-bg-color);
+
+    &:before {
+        background-color: var(--switch-icon-disabled-color);
+    }
 }
 
 .disabled.checked .switch {
     background-color: var(--switch-disabled-checked-bg-color);
-
-    &:before {
-        background-color: var(--switch-icon-disabled-checked-color);
-    }
 }
 
 .disabled .label {
