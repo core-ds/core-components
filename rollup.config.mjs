@@ -111,6 +111,7 @@ const es5 = {
             interop: 'compat',
             dynamicImportInCjs: false,
             plugins: [addCssImports({ currentPackageDir }), packagesTypingResolver()],
+            hoistTransitiveImports: false,
         },
     ],
     plugins: [
@@ -146,6 +147,7 @@ const modern = {
                 coreComponentsResolver({ importFrom: 'modern' }),
                 packagesTypingResolver(),
             ],
+            hoistTransitiveImports: false,
         },
     ],
     plugins: [
@@ -179,6 +181,7 @@ const cssm = {
             interop: 'compat',
             dynamicImportInCjs: false,
             plugins: [coreComponentsResolver({ importFrom: 'cssm' }), packagesTypingResolver()],
+            hoistTransitiveImports: false,
         },
     ],
     plugins: [
@@ -212,6 +215,7 @@ const esm = {
                 coreComponentsResolver({ importFrom: 'esm' }),
                 packagesTypingResolver(),
             ],
+            hoistTransitiveImports: false,
         },
     ],
     plugins: [
