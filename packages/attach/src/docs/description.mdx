@@ -26,7 +26,7 @@ render(() => {
     return (
         <Space size={24} >
         <Attach 
-            size='m' 
+            size={56} 
             onChange={handleChange}
             multiple={multiple} 
             maxFilenameLength={isMobile() ? 10 : undefined}
@@ -81,14 +81,14 @@ render(() => {
                 multiple={true}
                 name='file'
                 onClear={() => setFiles([])}
-                size='m'
+                size={56}
                 maxFilenameLength={isMobile() ? 10 : undefined}
                 buttonProps={{
                     breakpoint: BREAKPOINT,
                     nowrap: true,
                 }}
             />
-            <Button size='xxs' type='button' onClick={handleSubmit}>
+            <Button size={32} type='button' onClick={handleSubmit}>
                 Отправить
             </Button>
 

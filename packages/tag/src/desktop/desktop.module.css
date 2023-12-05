@@ -1,21 +1,21 @@
 @import '../vars.css';
 
 .rectangular {
-    &.xxs {
+    &.size-32 {
         border-radius: var(--tag-rectangular-xxs-border-radius);
     }
 
-    &.xs {
+    &.size-40 {
         border-radius: var(--tag-rectangular-xs-border-radius);
     }
 
-    &.s {
+    &.size-48 {
         border-radius: var(--tag-rectangular-s-border-radius);
     }
 
-    &.m,
-    &.l,
-    &.xl {
+    &.size-56,
+    &.size-64,
+    &.size-72 {
         border-radius: var(--tag-alt-border-radius);
     }
 }

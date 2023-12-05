@@ -41,8 +41,9 @@ type ComponentProps = {
 
     /**
      *  Размер кнопки
+     * @description s deprecated, используйте 48
      */
-    size?: 's';
+    size?: 's' | 48;
 
     /**
      * Тип кнопки
@@ -86,6 +87,11 @@ type ComponentProps = {
     colors?: Colors;
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-48',
+    48: 'size-48',
+};
+
 type AnchorProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 export type ActionButtonProps = Partial<AnchorProps | ButtonProps>;
@@ -97,7 +103,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
             icon,
             children,
             href,
-            size = 's',
+            size = 48,
             view = 'primary',
             type = 'button',
             iconWrapperClassName,
@@ -119,7 +125,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
             className: cn(
                 styles.component,
                 colorStyles[colors][view],
-                styles[size],
+                styles[SIZE_TO_CLASSNAME_MAP[size]],
                 {
                     [styles.focused]: focused,
                     [styles.disabled]: disabled,
@@ -138,7 +144,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                     className={cn(
                         styles.iconWrapper,
                         colorStyles[colors].iconWrapper,
-                        styles[size],
+                        styles[SIZE_TO_CLASSNAME_MAP[size]],
                         iconWrapperClassName,
                     )}
                 >

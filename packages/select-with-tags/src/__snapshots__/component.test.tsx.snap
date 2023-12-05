@@ -10,10 +10,10 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component xl"
+      class="component size-72"
     >
       <div
-        class="component component xl xl block hasRightAddons"
+        class="component component size-72 size-72 block hasRightAddons"
       >
         <div
           class="field inner inner inner inner"
@@ -41,7 +41,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="addons rightAddons addons addons-size-xl"
+            class="addons rightAddons addons addons-size-72"
           >
             <svg
               class="arrow"
@@ -74,10 +74,10 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
     tabindex="-1"
   >
     <div
-      class="component xl"
+      class="component size-72"
     >
       <div
-        class="component component xl xl block hasRightAddons"
+        class="component component size-72 size-72 block hasRightAddons"
       >
         <div
           class="field inner inner inner inner filled"
@@ -92,7 +92,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                 class="contentWrapper hasTags"
               >
                 <button
-                  class="component component component xxs xxs outlined outlined checked rectangular outlined tag"
+                  class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
                   <span>
@@ -122,7 +122,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component component component xxs xxs outlined outlined checked rectangular outlined tag"
+                  class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
                   <span>
@@ -152,7 +152,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component component component xxs xxs outlined outlined checked rectangular outlined tag"
+                  class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
                   <span>
@@ -196,7 +196,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
             </div>
           </div>
           <div
-            class="addons rightAddons addons addons-size-xl"
+            class="addons rightAddons addons addons-size-72"
           >
             <svg
               class="arrow"

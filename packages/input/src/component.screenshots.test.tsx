@@ -23,7 +23,7 @@ describe('Input', () =>
             knobs: {
                 label: 'Текстовое поле',
                 value: 'Текст',
-                size: 'm',
+                size: 56,
                 block: true,
             },
         },
@@ -72,7 +72,7 @@ describe('Input | screenshots size prop', () => {
                         componentName: 'Input',
                         knobs: {
                             label: 'Label',
-                            size: ['s', 'm', 'l', 'xl'],
+                            size: [48, 56, 64, 72],
                         },
                         size: { width: 350, height: 150 },
                     }),
@@ -96,7 +96,7 @@ describe('Input | screenshots block prop', () => {
                     componentName: 'Input',
                     knobs: {
                         label: 'Label',
-                        size: 'm',
+                        size: 56,
                         block: [false, true],
                     },
                     size: { width: 350, height: 150 },
@@ -120,7 +120,7 @@ describe('Input | screenshots disabled prop', () => {
                         componentName: 'Input',
                         knobs: {
                             label: 'Label',
-                            size: 'm',
+                            size: 56,
                             disabled: true,
                             colors,
                         },
@@ -148,7 +148,7 @@ describe('Input | screenshots hint and error', () => {
                     createSpriteStorybookUrl({
                         componentName: 'Input',
                         knobs: {
-                            size: 'm',
+                            size: 56,
                             hint: ['', 'Hint'],
                             error: ['', 'Error'],
                             value: ['', 'Value'],
@@ -179,7 +179,7 @@ describe('Input | clear icon', () => {
                     createSpriteStorybookUrl({
                         componentName: 'Input',
                         knobs: {
-                            size: 'm',
+                            size: 56,
                             clear: true,
                             value: 'value',
                             colors,

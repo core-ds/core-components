@@ -13,11 +13,11 @@ const meta: Meta<typeof FilterTag> = {
 
 type Story = StoryObj<typeof FilterTag>;
 
-const SIZES = ['xxs', 'xs', 's'] as const;
+const SIZES = [32, 40, 48] as const;
 
 export const filter_tag: Story = {
     name: 'FilterTag',
-    render: () => 
+    render: () => (
         <div
             style={{
                 padding: '8px',
@@ -29,7 +29,7 @@ export const filter_tag: Story = {
             }}
         >
             <FilterTag
-                size={select('size', SIZES, 's')}
+                size={select('size', SIZES, 48)}
                 variant={select('variant', ['default', 'alt'], 'default')}
                 shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                 view={select('view', ['outlined', 'filled'], 'outlined')}
@@ -41,11 +41,12 @@ export const filter_tag: Story = {
                 {text('children', 'FilterTag')}
             </FilterTag>
         </div>
+    ),
 };
 
 export const filter_tag_mobile: Story = {
     name: 'FilterTagMobile',
-    render: () => 
+    render: () => (
         <div
             style={{
                 padding: '8px',
@@ -57,7 +58,7 @@ export const filter_tag_mobile: Story = {
             }}
         >
             <FilterTagMobile
-                size={select('size', SIZES, 's')}
+                size={select('size', SIZES, 48)}
                 variant={select('variant', ['default', 'alt'], 'default')}
                 shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                 view={select('view', ['outlined', 'filled'], 'outlined')}
@@ -69,11 +70,12 @@ export const filter_tag_mobile: Story = {
                 {text('children', 'FilterTag')}
             </FilterTagMobile>
         </div>
+    ),
 };
 
 export const filter_tag_desktop: Story = {
     name: 'FilterTagDesktop',
-    render: () => 
+    render: () => (
         <div
             style={{
                 padding: '8px',
@@ -85,7 +87,7 @@ export const filter_tag_desktop: Story = {
             }}
         >
             <FilterTagDesktop
-                size={select('size', SIZES, 's')}
+                size={select('size', SIZES, 48)}
                 variant={select('variant', ['default', 'alt'], 'default')}
                 shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                 view={select('view', ['outlined', 'filled'], 'outlined')}
@@ -97,6 +99,7 @@ export const filter_tag_desktop: Story = {
                 {text('children', 'FilterTag')}
             </FilterTagDesktop>
         </div>
+    ),
 };
 
 export default meta;

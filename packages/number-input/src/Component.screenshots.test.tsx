@@ -7,7 +7,7 @@ describe('NumberInput ', () =>
             knobs: {
                 label: 'Число',
                 value: 1234,
-                size: 'm',
+                size: 56,
                 block: true,
             },
         },

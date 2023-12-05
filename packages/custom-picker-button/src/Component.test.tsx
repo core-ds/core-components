@@ -137,14 +137,14 @@ describe('Render tests', () => {
     });
 
     it.each(customPickerButtonVariants)(
-        'should have m class, icon size = 24, primary class by default',
+        'should have 56 class, icon size = 24, primary class by default',
         async (Component) => {
             const iconSize = '24';
             const { getByTestId } = render(<Component options={options} />);
             const button = document.querySelector('button');
             const icon = getByTestId('custom-picker-button-icon');
 
-            expect(button).toHaveClass('m');
+            expect(button).toHaveClass('size-56');
             expect(button).toHaveClass('primary');
             expect(icon.getAttribute('width')).toBe(iconSize);
             expect(icon.getAttribute('height')).toBe(iconSize);
@@ -154,14 +154,14 @@ describe('Render tests', () => {
     it.each(customPickerButtonVariants)(
         'should have xxs class and small icon',
         async (Component) => {
-            const size = 'xxs';
+            const size = 32;
             const iconSize = '16';
 
             const { getByTestId } = render(<Component options={options} size={size} />);
             const button = document.querySelector('button');
             const icon = getByTestId('custom-picker-button-icon');
 
-            expect(button).toHaveClass(size);
+            expect(button).toHaveClass(`size-${size}`);
             expect(icon.getAttribute('width')).toBe(iconSize);
             expect(icon.getAttribute('height')).toBe(iconSize);
         },

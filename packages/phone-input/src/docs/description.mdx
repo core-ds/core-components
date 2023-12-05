@@ -6,7 +6,7 @@
         placeholder='+7 000 000 00 00'
         label='Телефонный номер'
         labelView={isMobile() ? 'outer' : 'inner'}
-        size='m'
+        size={isMobile() ? 48 : 56}
         breakpoint={BREAKPOINT}
         block={true}
     />

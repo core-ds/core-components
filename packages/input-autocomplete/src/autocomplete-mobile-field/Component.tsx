@@ -28,7 +28,7 @@ export type AutocompleteMobileFieldProps = FormControlMobileProps &
     };
 
 export const AutocompleteMobileField = ({
-    size = 'm',
+    size = 56,
     open,
     disabled,
     value,

@@ -13,7 +13,7 @@ render(() => {
                 }}
                 label='Пароль'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size='m'
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
                 block={true}
             />

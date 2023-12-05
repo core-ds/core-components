@@ -18,7 +18,7 @@ type FieldProps = {
 };
 
 export const Field = ({
-    size = 'm',
+    size = 56,
     open,
     multiple,
     error,

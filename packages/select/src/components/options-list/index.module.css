@@ -34,7 +34,7 @@
     color: var(--select-options-list-empty-placeholder-color);
 }
 
-.l .emptyPlaceholder,
-.xl .emptyPlaceholder {
+.size-64 .emptyPlaceholder,
+.size-72 .emptyPlaceholder {
     padding: var(--gap-xl) var(--gap-m);
 }

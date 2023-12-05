@@ -22,7 +22,7 @@ describe('CustomButton', () =>
             componentName: 'CustomButton',
             knobs: {
                 children: 'Кнопка',
-                size: 'xl',
+                size: 72,
                 backgroundColor:
                     'linear-gradient(264.15deg,rgb(255,66,202) 0px,rgb(255,138,0) 128px)',
             },
@@ -45,7 +45,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         contentColor: ['white', 'black'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],
@@ -68,7 +68,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         backgroundColor: ['rgba(255, 69, 195, 1)', 'rgba(74, 242, 253, 1)'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],

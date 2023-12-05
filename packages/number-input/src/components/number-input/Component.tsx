@@ -98,6 +98,17 @@ export interface NumberInputProps
     dataTestId?: string;
 }
 
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     (
         {
@@ -116,7 +127,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             onFocus,
             view,
             step: stepProp,
-            size = 's',
+            size = 48,
             disableUserInput,
             clear: clearProp,
             colors = 'default',
@@ -265,10 +276,14 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                                 value={parseNumber(value)}
                                 min={min}
                                 max={max}
-                                className={cn(colorStyles[colors].steppers, styles[size], {
-                                    [colorStyles[colors].steppersFocused]: focused,
-                                    [colorStyles[colors].steppersDisabled]: disabled,
-                                })}
+                                className={cn(
+                                    colorStyles[colors].steppers,
+                                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                                    {
+                                        [colorStyles[colors].steppersFocused]: focused,
+                                        [colorStyles[colors].steppersDisabled]: disabled,
+                                    },
+                                )}
                                 onIncrement={handleIncrement}
                                 onDecrement={handleDecrement}
                             />

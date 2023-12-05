@@ -75,13 +75,3 @@ export const CustomButton = React.forwardRef<
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-CustomButton.defaultProps = {
-    size: 'm',
-    block: false,
-    loading: false,
-    nowrap: false,
-};

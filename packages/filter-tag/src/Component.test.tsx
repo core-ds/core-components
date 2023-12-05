@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { FilterTagDesktop as FilterTag} from './desktop';
+import { FilterTagDesktop as FilterTag } from './desktop';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
@@ -30,16 +30,16 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass(className);
     });
 
-    it('should set size `s` as default size', () => {
+    it('should set size 48 as default size', () => {
         const { container } = render(<FilterTag />);
 
-        expect(container.firstElementChild).toHaveClass('s');
+        expect(container.firstElementChild).toHaveClass('size-48');
     });
 
     it('should set size', () => {
-        const { container } = render(<FilterTag size='xs' />);
+        const { container } = render(<FilterTag size={40} />);
 
-        expect(container.firstElementChild).toHaveClass('xs');
+        expect(container.firstElementChild).toHaveClass('size-40');
     });
 
     it('should set `checked` class if prop `checked` is present', () => {

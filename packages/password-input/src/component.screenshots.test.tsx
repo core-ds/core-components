@@ -18,7 +18,7 @@ describe('PasswordInput ', () =>
             knobs: {
                 label: 'Пароль',
                 value: '123456',
-                size: 'm',
+                size: 56,
                 block: true,
             },
         },

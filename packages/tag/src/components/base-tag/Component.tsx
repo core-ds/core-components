@@ -32,8 +32,9 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
 
     /**
      * Размер компонента
+     * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Дочерние элементы.
@@ -116,6 +117,21 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
     colorStylesMap?: StyleColors;
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
 export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
     (
         {
@@ -123,7 +139,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
             rightAddons,
             leftAddons,
             children,
-            size = 's',
+            size = 48,
             checked,
             className,
             dataTestId,
@@ -156,8 +172,8 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                 commonStyles.component,
                 colorCommonStyles[colors].component,
                 colorStyles.component,
-                commonStyles[size],
-                styles[size],
+                commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                styles[SIZE_TO_CLASSNAME_MAP[size]],
                 colorCommonStyles[colors][view],
                 commonStyles[view],
                 {

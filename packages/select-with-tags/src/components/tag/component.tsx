@@ -25,7 +25,7 @@ export const Tag: TagComponent = ({
     return (
         <CoreTag
             key={key}
-            size='xxs'
+            size={32}
             shape='rectangular'
             onClick={onClick}
             checked={checked}

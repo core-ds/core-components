@@ -3,7 +3,7 @@
 exports[`withSuffix Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component component suffixVisible hasSuffix s s"
+    class="component component suffixVisible hasSuffix size-48 size-48"
   >
     <div
       class="inner inner inner inner filled"

@@ -1,6 +1,6 @@
 @import '../../../../themes/src/default.css';
 
-.component.xl {
+.component.size-72 {
     & .contentWrapper {
         padding: 18px 14px;
     }
@@ -14,7 +14,7 @@
     }
 }
 
-.component.l {
+.component.size-64 {
     & .contentWrapper {
         padding: 14px 10px;
     }
@@ -28,7 +28,7 @@
     }
 }
 
-.component.m {
+.component.size-56 {
     & .contentWrapper {
         padding: 10px;
     }
@@ -42,7 +42,7 @@
     }
 }
 
-.component.s {
+.component.size-48 {
     & .contentWrapper {
         padding: 6px;
     }
@@ -138,34 +138,34 @@
     padding-top: var(--gap-s);
 }
 
-.addons-size-m {
+.addons-size-56 {
     padding-top: var(--gap-m);
 }
 
-.addons-size-l {
+.addons-size-64 {
     padding-top: var(--gap-l);
 }
 
-.addons-size-xl {
+.addons-size-72 {
     padding-top: var(--gap-xl);
 }
 
-.component.s .label {
+.component.size-48 .label {
     top: 5px;
     left: 12px;
 }
 
-.component.m .label {
+.component.size-56 .label {
     top: 8px;
     left: 12px;
 }
 
-.component.l .label {
+.component.size-64.label {
     top: 10px;
     left: 16px;
 }
 
-.component.xl .label {
+.component.size-72 .label {
     top: 14px;
     left: 16px;
 }

@@ -30,7 +30,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component ghost s hug s component ghost component ghost component"
+                  class="component ghost size-48 hug size-48 component ghost component ghost component"
                   type="button"
                 >
                   <span
@@ -77,7 +77,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component ghost s hug s component ghost component ghost cc-icon-button button primary component"
+                    class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button primary component"
                     type="button"
                   >
                     <span
@@ -168,7 +168,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component ghost xxs hug xxs component ghost component ghost component mobileComponent"
+                  class="component ghost size-32 hug size-32 component ghost component ghost component mobileComponent"
                   type="button"
                 >
                   <span
@@ -215,7 +215,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
+                    class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button mobile primary component"
                     type="button"
                   >
                     <span

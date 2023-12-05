@@ -7,7 +7,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component component s s block hasRightAddons"
+      class="component component size-48 size-48 block hasRightAddons"
     >
       <div
         class="inner inner inner inner"
@@ -70,7 +70,7 @@ Object {
         tabindex="-1"
       >
         <div
-          class="component component s s block hasLeftAddons hasRightAddons"
+          class="component component size-48 size-48 block hasLeftAddons hasRightAddons"
         >
           <div
             class="inner inner inner inner"
@@ -132,7 +132,7 @@ Object {
       tabindex="-1"
     >
       <div
-        class="component component s s block hasLeftAddons hasRightAddons"
+        class="component component size-48 size-48 block hasLeftAddons hasRightAddons"
       >
         <div
           class="inner inner inner inner"
@@ -254,7 +254,7 @@ Object {
         tabindex="-1"
       >
         <div
-          class="component component s s block hasRightAddons"
+          class="component component size-48 size-48 block hasRightAddons"
         >
           <div
             class="inner inner inner inner"
@@ -312,7 +312,7 @@ Object {
       tabindex="-1"
     >
       <div
-        class="component component s s block hasRightAddons"
+        class="component component size-48 size-48 block hasRightAddons"
       >
         <div
           class="inner inner inner inner"

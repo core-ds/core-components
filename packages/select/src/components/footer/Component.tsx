@@ -40,7 +40,7 @@ export const Footer = ({
         >
             {showClear && (
                 <ButtonMobile
-                    size='m'
+                    size={56}
                     view='secondary'
                     className={styles.button}
                     onClick={handleClear}
@@ -51,7 +51,7 @@ export const Footer = ({
             )}
 
             <ButtonMobile
-                size='m'
+                size={56}
                 view='primary'
                 className={styles.button}
                 onClick={handleApply}

@@ -48,7 +48,8 @@ describe('Plate', () => {
         expect(getByTestId(dataTestId).tagName).toBe('DIV');
     });
 
-    it('should render buttons size=xxs, first view=secondary, others view=link', () => {
+    it('should render buttons size=32, first view=secondary, others view=link', () => {
+        const size = 32;
         const { queryByTestId } = render(
             <Plate
                 buttons={[
@@ -63,9 +64,9 @@ describe('Plate', () => {
         expect(queryByTestId('button-2')).toBeInTheDocument();
         expect(queryByTestId('button-3')).toBeInTheDocument();
 
-        expect(queryByTestId('button-1')).toHaveClass('xxs');
-        expect(queryByTestId('button-2')).toHaveClass('xxs');
-        expect(queryByTestId('button-3')).toHaveClass('xxs');
+        expect(queryByTestId('button-1')).toHaveClass(`size-${size}`);
+        expect(queryByTestId('button-2')).toHaveClass(`size-${size}`);
+        expect(queryByTestId('button-3')).toHaveClass(`size-${size}`);
 
         expect(queryByTestId('button-1')).toHaveClass('secondary');
         expect(queryByTestId('button-2')).toHaveClass('link');

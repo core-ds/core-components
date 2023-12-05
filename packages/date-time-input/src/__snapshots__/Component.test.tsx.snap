@@ -6,7 +6,7 @@ exports[`DateTimeInput Display tests should match snapshot 1`] = `
     class="component"
   >
     <div
-      class="component component s s hasRightAddons"
+      class="component component size-48 size-48 hasRightAddons"
     >
       <div
         class="inner inner inner inner filled"

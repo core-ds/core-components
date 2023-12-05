@@ -4,7 +4,7 @@
     height: 100%;
 }
 
-.xl {
+.size-72 {
     & .eye:last-child {
         margin-right: var(--gap-m-neg);
     }
