@@ -178,7 +178,11 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                 >
                     <span className={commonStyles.content}>{children}</span>
                     <span className={commonStyles.chevron}>
-                        {size === 'xxs' ? <ChevronDownCompactSIcon /> : <ChevronDownMIcon />}
+                        {size === 'xxs' || size === 'xs' ? (
+                            <ChevronDownCompactSIcon />
+                        ) : (
+                            <ChevronDownMIcon />
+                        )}
                     </span>
                 </button>
 

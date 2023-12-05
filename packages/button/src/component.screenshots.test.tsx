@@ -273,3 +273,36 @@ describe(
         viewport: { width: 740, height: 100 },
     }),
 );
+
+describe(
+    'Button | rounded shape',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Button',
+            knobs: {
+                children: 'Оплатить',
+                view: 'primary',
+                shape: 'rounded',
+                size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+            },
+        }),
+        screenshotOpts: { clip },
+    }),
+);
+
+describe(
+    'Button | hint & textResizing',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Button',
+            knobs: {
+                children: 'Оплатить',
+                hint: 'Hint',
+                view: 'primary',
+                size: ['m', 'l', 'xl'],
+                textResizing: ['hug', 'fill'],
+            },
+        }),
+        screenshotOpts: { clip },
+    }),
+);

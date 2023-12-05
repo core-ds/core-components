@@ -151,6 +151,24 @@ describe('Button', () => {
 
             expect(screen.getByText('Button')).toHaveClass('nowrap');
         });
+
+        it('should set `hug` class', () => {
+            const { container } = render(<Button textResizing='hug'>Button</Button>);
+
+            expect(container.firstElementChild).toHaveClass('hug');
+        });
+
+        it('should set `fill` class', () => {
+            const { container } = render(<Button textResizing='fill'>Button</Button>);
+
+            expect(container.firstElementChild).toHaveClass('fill');
+        });
+
+        it('should set `rounded` class', () => {
+            const { container } = render(<Button shape='rounded'>Button</Button>);
+
+            expect(container.firstElementChild).toHaveClass('rounded');
+        });
     });
 
     describe('Callbacks tests', () => {
@@ -294,6 +312,30 @@ describe('Button', () => {
 
             expect(props.href).toBeFalsy();
             expect(props.to).toBe('test');
+        });
+    });
+
+    describe('props test', () => {
+        it('should show hint', () => {
+            const hint = 'hint';
+            render(
+                <Button size='m' hint={hint}>
+                    Button
+                </Button>,
+            );
+
+            expect(screen.queryByText(hint)).toBeInTheDocument();
+        });
+
+        it('should not show hint', () => {
+            const hint = 'hint';
+            render(
+                <Button size='s' hint={hint}>
+                    Button
+                </Button>,
+            );
+
+            expect(screen.queryByText(hint)).not.toBeInTheDocument();
         });
     });
 

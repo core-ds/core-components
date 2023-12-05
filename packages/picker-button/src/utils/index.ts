@@ -15,5 +15,5 @@ export const getIcon = (
         return size === 'xxs' ? MoreSIcon : MoreMIcon;
     }
 
-    return size === 'xxs' ? ChevronDownCompactSIcon : ChevronDownMIcon;
+    return size === 'xxs' || size === 'xs' ? ChevronDownCompactSIcon : ChevronDownMIcon;
 };

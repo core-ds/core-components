@@ -177,7 +177,7 @@
         padding-left: var(--gap-l);
 
         & .chevron {
-            margin: 0 var(--gap-xs) 0 var(--gap-2xs);
+            margin: 0 var(--gap-s) 0 6px;
         }
     }
 
@@ -187,7 +187,7 @@
         padding-left: var(--gap-m);
 
         & .chevron {
-            margin: 0 var(--gap-xs) 0 var(--gap-2xs);
+            margin: 0 var(--gap-xs) 0 6px;
         }
     }
 

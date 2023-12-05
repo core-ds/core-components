@@ -33,11 +33,11 @@
     align-items: center;
 
     &:first-child {
-        margin-right: var(--gap-2xs);
+        margin-right: 6px;
     }
 
     &:last-child {
-        margin-left: var(--gap-2xs);
+        margin-left: 6px;
     }
 
     &:only-child {

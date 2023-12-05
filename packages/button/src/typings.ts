@@ -26,6 +26,23 @@ export type ComponentProps = {
         | 'ghost';
 
     /**
+     * Форма кнопки
+     * @default rectangular
+     */
+    shape?: 'rounded' | 'rectangular';
+
+    /**
+     * Ширина текстового контента
+     * @default hug
+     */
+    textResizing?: 'fill' | 'hug';
+
+    /**
+     *  Подпись под лейблом (видна только в размерах >= m)
+     */
+    hint?: ReactNode;
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
