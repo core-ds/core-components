@@ -3,7 +3,7 @@
 exports[`segmented-control should display correctly 1`] = `
 <div>
   <div
-    class="wrapper wrapper rectangular xxs"
+    class="wrapper wrapper rectangular size-32"
   >
     <div
       class="container"
