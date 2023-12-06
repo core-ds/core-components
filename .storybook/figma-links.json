@@ -1,5 +1,206 @@
 {
     "ActionButton": {
         "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=603%3A79511&mode=design&t=pa1b0UPYsI3eWhOB-1"
-    }
+    },
+    "Amount": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=485%3A67053&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "AmountInput": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=92927%3A121445&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Attach": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=95010%3A126580&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "BankCard": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=101197%3A116070&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "BottomSheet": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=208%3A78252&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Button": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=26%3A20881&mode=design&t=33iUEWwi2L84rxNg-1"
+    },
+    "Calendar": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=86183%3A112501&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Checkbox": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=104%3A20999&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "CheckboxGroup": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=171%3A4368&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "CircularProgressBar": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=96449%3A122707&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "CodeInput": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=777%3A58604&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Comment": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=101197%3A7563&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Confirmation": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=97620%3A117005&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "CustomButton": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=49%3A115155&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Dropzone": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=95245%3A122221&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "FileUploadItem": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=95266%3A126069&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "FilterTag": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=177%3A59866&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "GenericWrapper": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100652%3A120406&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "HatchingProgressBar": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=96157%3A121692&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "IconButton": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=603%3A59035&mode=design&t=33iUEWwi2L84rxNg-1"
+    },
+    "IconView": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=448%3A16801&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Indicator": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=383%3A1661&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Input": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=59%3A30014&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "InputAutocomplete": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=577%3A83206&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "InternationalPhoneInput": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=569%3A21032&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Link": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=493%3A7757&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "List": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=494%3A7506&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Markdown": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=494%3A8245&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Modal": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=208%3A72115&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Notification": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=96729%3A114824&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "NumberInput": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=160%3A12851&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Pagination": {
+        "figma": "https://www.figma.com/file/GBJfADE8j6Ar17QDEHFYnG/Web-%3A%3A-Core-Navigation?type=design&node-id=57%3A3873&mode=design&t=BNfs4vUcbM7LD6iN-1"
+    },
+    "PassCode": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100467%3A125629&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "PasswordInput": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=92927%3A121445&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "PatternLock": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100593%3A126200&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "PhoneInput": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=59%3A30014&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "PickerButton": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=206%3A63179&mode=design&t=33iUEWwi2L84rxNg-1"
+    },
+    "Plate": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=96954%3A116586&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "PopupSheet": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=373%3A16689&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "ProgressBar": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=95706%3A121367&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "PureCell": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100611%3A118085&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Radio": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=154%3A3194&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "RadioGroup": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=175%3A53870&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Scrollbar": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=206%3A69707&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "SegmentedControl": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=331%3A18634&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Select": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=320%3A90715&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "SelectWithTags": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=585%3A66514&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "SidePanel": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=208%3A72557&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Skeleton": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=485%3A57469&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Slider": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=190%3A36111&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "SliderInput": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=201%3A20347&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "SortableList": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=101204%3A138780&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Spinner": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=373%3A16135&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Status": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=443%3A12743&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "StatusBadge": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=460%3A23657&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "SteppedProgressBar": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=84762%3A103717&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Steps": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=101204%3A117641&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Switch": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=167%3A8581&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "SystemMessage": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=97264%3A163212&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "TabBar": {
+        "figma": "https://www.figma.com/file/GBJfADE8j6Ar17QDEHFYnG/Web-%3A%3A-Core-Navigation?type=design&node-id=1%3A12124&mode=design&t=0h3IjfxsbYoUpm02-1"
+    },
+    "Tabs": {
+        "figma": "https://www.figma.com/file/GBJfADE8j6Ar17QDEHFYnG/Web-%3A%3A-Core-Navigation?type=design&node-id=1%3A3099&mode=design&t=iKKRdsdGxyub7Phv-1"
+    },
+    "Tag": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=109%3A22542&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Textarea": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=603%3A36187&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Toast": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=96743%3A116990&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "Tooltip": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=377%3A1701&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    },
+    "Underlay": {
+        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100050%3A117140&mode=design&t=Itgzojk9BOtPqYkS-1"
+    },
+    "UniversalDateInput": {
+        "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=507%3A25759&mode=design&t=pa1b0UPYsI3eWhOB-1"
+    }   
 }
