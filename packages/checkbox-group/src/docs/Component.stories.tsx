@@ -43,7 +43,6 @@ export const checkbox_group: Story = {
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
-        const size = select('Checkbox.size', ['s', 'm'], 's');
         const type = select('type', ['checkbox', 'tag'], 'checkbox');
         return (
             <div style={stylesStringToObj(wrapperStyles)}>
@@ -60,7 +59,7 @@ export const checkbox_group: Story = {
                         type === 'checkbox' ? (
                             <Checkbox
                                 key={`${index}-check`}
-                                size={size}
+                                size={select('Checkbox.size', [20, 24], 20)}
                                 label={`Значение ${order[index][0]}`}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
@@ -68,7 +67,7 @@ export const checkbox_group: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={size}
+                                size={select('Tag.size', ['s', 'm'], 's')}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
                             >
@@ -104,7 +103,6 @@ export const checkbox_group_mobile: Story = {
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
-        const size = select('Checkbox.size', ['s', 'm'], 's');
         const type = select('type', ['checkbox', 'tag'], 'checkbox');
         return (
             <div style={stylesStringToObj(wrapperStyles)}>
@@ -121,7 +119,7 @@ export const checkbox_group_mobile: Story = {
                         type === 'checkbox' ? (
                             <Checkbox
                                 key={`${index}-check`}
-                                size={size}
+                                size={select('Checkbox.size', [20, 24], 20)}
                                 label={`Значение ${order[index][0]}`}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
@@ -129,7 +127,7 @@ export const checkbox_group_mobile: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={size}
+                                size={select('Tag.size', ['s', 'm'], 's')}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
                             >
@@ -165,7 +163,6 @@ export const checkbox_group_desktop: Story = {
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
-        const size = select('Checkbox.size', ['s', 'm'], 's');
         const type = select('type', ['checkbox', 'tag'], 'checkbox');
         return (
             <div style={stylesStringToObj(wrapperStyles)}>
@@ -182,7 +179,7 @@ export const checkbox_group_desktop: Story = {
                         type === 'checkbox' ? (
                             <Checkbox
                                 key={`${index}-check`}
-                                size={size}
+                                size={select('Checkbox.size', [20, 24], 20)}
                                 label={`Значение ${order[index][0]}`}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
@@ -190,7 +187,7 @@ export const checkbox_group_desktop: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={size}
+                                size={select('Tag.size', ['s', 'm'], 's')}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
                             >

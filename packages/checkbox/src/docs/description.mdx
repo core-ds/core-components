@@ -12,7 +12,7 @@ render(() => {
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Checkbox
                 block={true}
-                size='m'
+                size={24}
                 onChange={handleChange}
                 checked={checked}
                 label='Согласен с условиями'
@@ -33,22 +33,22 @@ render(() => {
 render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Checkbox size='m' label='Неопределён' indeterminate={true} block={true} />
+            <Checkbox size={24} label='Неопределён' indeterminate={true} block={true} />
             <Gap size='xl' />
-            <Checkbox size='m' label='Выбран' checked={true} block={true} />
+            <Checkbox size={24} label='Выбран' checked={true} block={true} />
             <Gap size='m' />
             <Checkbox
-                size='m'
+                size={24}
                 label='Выбран и недоступен'
                 disabled={true}
                 checked={true}
                 block={true}
             />
             <Gap size='m' />
-            <Checkbox size='m' label='По умолчанию' checked={false} block={true} />
+            <Checkbox size={24} label='По умолчанию' checked={false} block={true} />
             <Gap size='m' />
             <Checkbox
-                size='m'
+                size={24}
                 label='По умолчанию и недоступен'
                 checked={false}
                 disabled={true}
