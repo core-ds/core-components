@@ -80,8 +80,9 @@ export type SliderProps = {
 
     /**
      * Размер
+     * @description s, m deprecated, используйте вместо них 2, 4 соответственно
      */
-    size?: 's' | 'm';
+    size?: 's' | 'm' | 2 | 4;
 
     /**
      * Обработчик поля ввода
@@ -104,6 +105,13 @@ export type SliderProps = {
     dataTestId?: string;
 };
 
+export const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-2',
+    m: 'size-4',
+    2: 'size-2',
+    4: 'size-4',
+};
+
 export const Slider: FC<SliderProps> = ({
     min = 0,
     max = 100,
@@ -114,7 +122,7 @@ export const Slider: FC<SliderProps> = ({
     pips,
     behaviour = 'tap',
     range = { min, max },
-    size = 's',
+    size = 2,
     className,
     onChange,
     onStart,
@@ -227,7 +235,7 @@ export const Slider: FC<SliderProps> = ({
 
     return (
         <div
-            className={cn(styles.component, className, styles[size])}
+            className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}
             ref={sliderRef}
             data-test-id={dataTestId}
             {...{ disabled }}

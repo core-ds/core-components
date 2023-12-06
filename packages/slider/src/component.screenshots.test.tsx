@@ -18,7 +18,7 @@ describe('Slider', () => {
             componentName: 'Slider',
             knobs: {
                 value: 5,
-                size: 'm',
+                size: 4,
                 min: 0,
                 max: 20,
                 block: true,

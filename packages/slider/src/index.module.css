@@ -117,7 +117,7 @@
     }
 }
 
-.s {
+.size-2 {
     & :global(.noUi-base) {
         border-radius: var(--slider-progress-s-border-radius);
         top: calc(var(--slider-progress-s-height) / 2);
@@ -130,7 +130,7 @@
     }
 }
 
-.m {
+.size-4 {
     & :global(.noUi-base) {
         border-radius: var(--slider-progress-m-border-radius);
         top: calc(var(--slider-progress-m-height) / 2);
