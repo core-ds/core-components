@@ -20,8 +20,9 @@ export type SpinnerProps = {
 
     /**
      * Размер компонента
+     * @description xs, s, m deprecated, используйте вместо них 16, 24, 48 соответственно
      */
-    size?: 'xs' | 's' | 'm';
+    size?: 'xs' | 's' | 'm' | 16 | 24 | 48;
 
     /**
      * Дополнительный класс
@@ -60,10 +61,34 @@ const CONFIG = {
         lineWidth: 4,
         size: 48,
     },
+    16: {
+        padding: 1,
+        lineWidth: 2,
+        size: 18,
+    },
+    24: {
+        padding: 2,
+        lineWidth: 2,
+        size: 24,
+    },
+    48: {
+        padding: 4,
+        lineWidth: 4,
+        size: 48,
+    },
 } as const;
 
+export const SIZE_TO_CLASSNAME_MAP = {
+    xs: 'size-16',
+    s: 'size-24',
+    m: 'size-48',
+    16: 'size-16',
+    24: 'size-24',
+    48: 'size-48',
+};
+
 export const Spinner: FC<SpinnerProps> = ({
-    size: sizeProp = 's',
+    size: sizeProp = 24,
     colors = 'default',
     visible,
     id,
@@ -89,7 +114,7 @@ export const Spinner: FC<SpinnerProps> = ({
             className={cn(
                 styles.spinner,
                 colorStyles[colors].component,
-                styles[sizeProp],
+                styles[SIZE_TO_CLASSNAME_MAP[sizeProp]],
                 className,
                 {
                     [styles.visible]: visible,
