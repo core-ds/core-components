@@ -1,5 +1,11 @@
 @import '../../vars.css';
 
+@property --tag-backdrop-filter {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 80;
+}
+
 .component {
     display: inline-flex;
     justify-content: center;
@@ -189,5 +195,17 @@
 
 .outlined.checked[disabled],
 .filled {
-    backdrop-filter: blur(80px);
+    transform: translate3d(0, 0, 0);
+    backdrop-filter: blur(calc(var(--tag-backdrop-filter, 80) * 1px));
+    animation: backdrop-filter-animation 100ms linear;
+}
+
+@keyframes backdrop-filter-animation {
+    from {
+        --tag-backdrop-filter: 0;
+    }
+
+    to {
+        --tag-backdrop-filter: 80;
+    }
 }

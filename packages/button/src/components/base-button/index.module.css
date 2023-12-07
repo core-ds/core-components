@@ -1,6 +1,12 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
+@property --button-backdrop-filter {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 80;
+}
+
 .component {
     position: relative;
     display: inline-flex;
@@ -41,7 +47,9 @@
 .secondary,
 .accent[disabled],
 .primary[disabled] {
-    backdrop-filter: blur(80px);
+    transform: translate3d(0, 0, 0);
+    backdrop-filter: blur(calc(var(--button-backdrop-filter, 80) * 1px));
+    animation: backdrop-filter-animation 100ms linear;
 }
 
 .focused {
@@ -295,4 +303,14 @@
 
 .rounded {
     border-radius: var(--border-radius-pill);
+}
+
+@keyframes backdrop-filter-animation {
+    from {
+        --button-backdrop-filter: 0;
+    }
+
+    to {
+        --button-backdrop-filter: 80;
+    }
 }
