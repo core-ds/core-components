@@ -15,4 +15,20 @@
     --size-m-height: 56px;
     --size-l-height: 64px;
     --size-xl-height: 72px;
+
+    /* blurred underlay */
+    --blur-regular-mix-blend-mode: color-dodge;
+    --color-light-bg-blur-regular-top: #383838;
+    --color-light-bg-blur-regular-bottom: rgba(179, 179, 179, 0.82);
+    --color-light-bg-blur-primary-top: #3d3d3d;
+    --color-light-bg-blur-primary-bottom: rgba(127, 127, 127, 0.5);
+    --color-light-bg-blur-tertiary-top: rgba(61, 61, 61, 0.5);
+    --color-light-bg-blur-tertiary-bottom: rgba(127, 127, 127, 0.2);
+    --blur-regular-mix-blend-mode-inverted: overlay;
+    --color-light-bg-blur-regular-top-inverted: #8c8c8c;
+    --color-light-bg-blur-regular-bottom-inverted: rgba(37, 37, 37, 0.82);
+    --color-light-bg-blur-primary-top-inverted: #c2c2c2;
+    --color-light-bg-blur-primary-bottom-inverted: rgba(127, 127, 127, 0.5);
+    --color-light-bg-blur-tertiary-top-inverted: rgba(194, 194, 194, 0.5);
+    --color-light-bg-blur-tertiary-bottom-inverted: rgba(127, 127, 127, 0.2);
 }
