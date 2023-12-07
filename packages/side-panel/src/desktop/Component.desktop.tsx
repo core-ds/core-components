@@ -9,6 +9,7 @@ import { ContentDesktop } from '../components/content/Component.desktop';
 import { Controls, ControlsProps } from '../components/controls';
 import { FooterDesktop } from '../components/footer/Component.desktop';
 import { Header, HeaderProps } from '../components/header/Component';
+import { SIZE_TO_CLASSNAME_MAP } from '../consts';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
@@ -21,7 +22,7 @@ export type SidePanelDesktopProps = BaseModalProps &
          * Ширина модального окна
          * @default "s"
          */
-        size?: 's';
+        size?: 's' | 500;
 
         /**
          * Управление наличием закрывающего крестика
@@ -33,7 +34,7 @@ export type SidePanelDesktopProps = BaseModalProps &
 const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopProps>(
     (
         {
-            size = 's',
+            size = 500,
             children,
             className,
             wrapperClassName,
@@ -70,7 +71,7 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
                 ref={mergeRefs([ref, modalRef])}
                 placement={placement}
                 wrapperClassName={wrapperClassName}
-                className={cn(className, styles[size], styles.hidden)}
+                className={cn(className, styles[SIZE_TO_CLASSNAME_MAP[size]], styles.hidden)}
                 backdropProps={backdropProps}
                 contentTransitionProps={{
                     classNames: {

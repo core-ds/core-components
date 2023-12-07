@@ -13,10 +13,10 @@
     }
 }
 
-.s,
-.m,
-.l,
-.xl,
+.size-500,
+.size-600,
+.size-800,
+.size-1140,
 .fullscreen {
     padding: var(--modal-s-footer-paddings);
 }

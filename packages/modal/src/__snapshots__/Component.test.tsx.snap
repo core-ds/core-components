@@ -8,13 +8,13 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
   tabindex="0"
 >
   <div
-    class="component s appear appearActive"
+    class="component size-500 appear appearActive"
   >
     <div
       class="content"
     >
       <div
-        class="header hasContent s"
+        class="header hasContent size-500"
       >
         <div
           class="mainLine"
@@ -115,12 +115,12 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="content withHeader s"
+        class="content withHeader size-500"
       >
         Content
       </div>
       <div
-        class="footer start s"
+        class="footer start size-500"
       >
         <div
           class="component start"

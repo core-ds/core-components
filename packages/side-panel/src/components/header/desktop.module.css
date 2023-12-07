@@ -5,13 +5,13 @@
     font-family: var(--side-panel-header-desktop-font-family);
 }
 
-.s .content {
+.size-500 .content {
     padding: var(--side-panel-s-header-desktop-content-paddings);
     font-size: var(--side-panel-s-header-desktop-font-size);
     line-height: var(--side-panel-s-header-desktop-line-height);
 }
 
-.s {
+.size-500 {
     padding: var(--side-panel-s-header-paddings);
 }
 

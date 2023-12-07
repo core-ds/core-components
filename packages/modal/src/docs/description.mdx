@@ -84,7 +84,7 @@ render(() => {
             <Button type='button' size='s' onClick={handleModalAnatomy}>
                 Показать анатомию
             </Button>
-            <ModalDesktop open={modalAnatomy} onClose={handleModalAnatomy} size='m'>
+            <ModalDesktop open={modalAnatomy} onClose={handleModalAnatomy} size={600}>
                 <Header />
                 <ModalDesktop.Content>
                     <div style={styleContent}></div>
@@ -177,7 +177,7 @@ render(() => {
             <Button type='button' size='xs' onClick={handleOpen}>
                 Показать анатомию
             </Button>
-            <ModalMobile open={open} onClose={handleClose} size='m'>
+            <ModalMobile open={open} onClose={handleClose} size={600}>
                 <Header />
                 <ModalMobile.Content flex={true}>
                     <div style={contentStyle}></div>
@@ -261,10 +261,10 @@ const Text = () => (
 );
 
 const SIZES = [
-    { value: 's', label: 'Small (500рх)' },
-    { value: 'm', label: 'Medium (600рх)' },
-    { value: 'l', label: 'Large (800рх)' },
-    { value: 'xl', label: 'xLarge (1140рх)' },
+    { value: '500', label: 'Small (500рх)' },
+    { value: '600', label: 'Medium (600рх)' },
+    { value: '800', label: 'Large (800рх)' },
+    { value: '1140', label: 'xLarge (1140рх)' },
     { value: 'fullscreen', label: 'FullScreen' },
 ];
 
@@ -283,7 +283,7 @@ const FOOTER_SETTINGS = [
 
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [size, setSize] = React.useState('s');
+    const [size, setSize] = React.useState('500');
     const [headerSettings, setHeaderSettings] = React.useState(() => ({
         ...HEADER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
         titleInContent: false,
@@ -371,7 +371,7 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <ModalDesktop open={open} onClose={handleClose} size={size} key={getKey()}>
+            <ModalDesktop open={open} onClose={handleClose} size={size === 'fullscreen' ? 'fullscreen' : Number(size)} key={getKey()}>
                 {showHeader && (
                     <ModalDesktop.Header
                         hasCloser={headerSettings.hasCloser}
