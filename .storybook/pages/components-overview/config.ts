@@ -14,7 +14,6 @@ export const CONFIG: TConfig = {
         'Input',
         'AmountInput',
         'NumberInput',
-        'StepperInput',
         'PhoneInput',
         'InternationalPhoneInput',
         'MaskedInput',
