@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
 ## 3.3.0
 
 ### Minor Changes

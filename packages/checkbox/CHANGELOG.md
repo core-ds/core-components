@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+### [#1011](https://github.com/core-ds/core-components/pull/1011)
+
+-   Исправлена ошибка, из-за которой обработчик onChange вызывался при клике на addon
+
+-   Обновлены зависимости
+    -   shared@0.9.0
+
 ## 4.0.0
 
 ### Major Changes

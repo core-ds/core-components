@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.5.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.5.0
+    -   tag@8.0.1
+    -   badge@5.5.0
+    -   icon-button@6.5.0
+    -   shared@0.9.0
+
 ## 8.4.1
 
 ### Patch Changes

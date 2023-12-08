@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-bottom-sheet",
-    "version": "6.13.0",
+    "version": "6.13.1",
     "description": "Bottom sheet mobile component",
     "keywords": [],
     "license": "MIT",
@@ -16,9 +16,9 @@
     },
     "dependencies": {
         "@alfalab/core-components-backdrop": "^3.2.0",
-        "@alfalab/core-components-base-modal": "^5.7.0",
-        "@alfalab/core-components-navigation-bar": "^0.7.0",
-        "@alfalab/core-components-shared": "^0.8.0",
+        "@alfalab/core-components-base-modal": "^5.7.1",
+        "@alfalab/core-components-navigation-bar": "^0.8.0",
+        "@alfalab/core-components-shared": "^0.9.0",
         "classnames": "^2.3.1",
         "react-div-100vh": "^0.7.0",
         "react-merge-refs": "^1.1.0",

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-modal",
-    "version": "9.0.0",
+    "version": "9.0.1",
     "description": "Modal component",
     "keywords": [],
     "license": "MIT",
@@ -11,8 +11,8 @@
         "directory": "dist"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.7.0",
-        "@alfalab/core-components-navigation-bar": "^0.7.0",
+        "@alfalab/core-components-base-modal": "^5.7.1",
+        "@alfalab/core-components-navigation-bar": "^0.8.0",
         "@alfalab/core-components-mq": "^4.2.0",
         "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",

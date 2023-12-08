@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.1.0
+
 ## 6.2.15
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.9.0
+
 ## 12.0.1
 
 ### Patch Changes

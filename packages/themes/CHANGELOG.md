@@ -1,5 +1,19 @@
 # Change Log
 
+## 12.1.0
+
+### Minor Changes
+
+### [#1006](https://github.com/core-ds/core-components/pull/1006)
+
+-   Удалена темизация corp (стиль перекрытия при фиксации для футера и хедера) для компонентов BottomSheet и Modal
+
+### Patch Changes
+
+### [#1003](https://github.com/core-ds/core-components/pull/1003)
+
+-   Цвет primary кнопки мобильного компонента в теме corp изменен на черный
+
 ## 12.0.0
 
 ### Major Changes

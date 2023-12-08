@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.3.0
+
+### Minor Changes
+
+### [#1008](https://github.com/core-ds/core-components/pull/1008)
+
+-   Title, TitleMobile и TitleResponsive обернуты в forwardRef
+
 ## 4.2.1
 
 ### Patch Changes

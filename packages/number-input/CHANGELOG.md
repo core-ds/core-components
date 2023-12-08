@@ -1,5 +1,24 @@
 # @alfalab/core-components-number-input
 
+## 2.1.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+### [#1016](https://github.com/core-ds/core-components/pull/1016)
+
+-   Изменили CSS-токен для фона в степпере с neutral_inverted/1500 на neutral-translucent/0 в дефолтном наборе цветов и с neutral/1500 на neutral-translucent_inverted/0 в инвертированном
+
+-   Обновлены зависимости
+    -   input@14.1.0
+    -   icon-button@6.5.0
+    -   shared@0.9.0
+
 ## 2.0.4
 
 ### Patch Changes

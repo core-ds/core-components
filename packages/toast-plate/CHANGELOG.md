@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.3.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.5.0
+    -   icon-button@6.5.0
+
 ## 6.2.0
 
 ### Minor Changes

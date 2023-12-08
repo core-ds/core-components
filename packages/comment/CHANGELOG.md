@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.3.0
+
 ## 2.3.0
 
 ### Minor Changes

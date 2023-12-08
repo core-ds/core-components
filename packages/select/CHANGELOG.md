@@ -1,5 +1,31 @@
 # Change Log
 
+## 17.1.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+### [#1036](https://github.com/core-ds/core-components/pull/1036)
+
+-   Повышена специфичность стилей поповера и инпута поиска
+
+-   Обновлены зависимости
+    -   button@11.1.0
+    -   popover@6.2.1
+    -   checkbox@4.1.0
+    -   badge@5.5.0
+    -   input@14.1.0
+    -   modal@9.0.1
+    -   shared@0.9.0
+    -   bottom-sheet@6.13.1
+    -   base-modal@5.7.1
+    -   form-control@12.0.2
+
 ## 17.0.1
 
 ### Patch Changes

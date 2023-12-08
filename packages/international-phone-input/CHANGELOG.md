@@ -1,5 +1,21 @@
 # @alfalab/core-components-international-phone-input
 
+## 1.3.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.1.0
+    -   input@14.1.0
+    -   shared@0.9.0
+    -   input-autocomplete@11.3.2
+
 ## 1.2.7
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+### [#1013](https://github.com/core-ds/core-components/pull/1013)
+
+-   Исправлена проблема, из-за которой dataTestId не передавался внутренним компонентам (Header, Content, Footer, Controls)
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.0
+    -   shared@0.9.0
+    -   base-modal@5.7.1
+    -   drawer@5.0.7
+
 ## 5.0.0
 
 ### Major Changes

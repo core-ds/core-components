@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+### [#1001](https://github.com/core-ds/core-components/pull/1001)
+
+-   Изменен отступ до аддонов в размерах xxs, xs с 4px до 6px
+
 ## 5.0.0
 
 ### Major Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+### [#1013](https://github.com/core-ds/core-components/pull/1013)
+
+-   Исправлена проблема, из-за которой dataTestId не передавался внутренним компонентам (Header, Content, Footer, Controls)
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.0
+    -   base-modal@5.7.1
+
 ## 9.0.0
 
 ### Major Changes

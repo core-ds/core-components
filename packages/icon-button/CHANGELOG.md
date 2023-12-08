@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.5.0
+
+### Minor Changes
+
+### [#1004](https://github.com/core-ds/core-components/pull/1004)
+
+-   Добавлены новые размеры - 24, 32, 40, 48, 56
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.1.0
+
 ## 6.4.3
 
 ### Patch Changes

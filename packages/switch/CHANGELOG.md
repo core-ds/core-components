@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#1018](https://github.com/core-ds/core-components/pull/1018)
+
+-   Изменены стили для состояния disabled в соответствии с макетом. Css-переменная --switch-icon-disabled-checked-color переименована в --switch-icon-disabled-color
+
+### Patch Changes
+
+### [#1011](https://github.com/core-ds/core-components/pull/1011)
+
+-   Исправлена ошибка, из-за которой обработчик onChange вызывался при клике на addon
+
+-   Обновлены зависимости
+    -   shared@0.9.0
+
 ## 4.0.0
 
 ### Major Changes
