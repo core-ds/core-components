@@ -11,11 +11,14 @@
 .popoverInner {
     padding-top: var(--select-options-list-offset);
     padding-bottom: var(--select-options-list-offset);
-    box-shadow: none;
-    border: none;
     background: transparent;
     border-radius: 0;
     position: relative;
+}
+
+.popoverInner.popoverInner {
+    box-shadow: none;
+    border: none;
 }
 
 .optionsListWrapper {
