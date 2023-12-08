@@ -2,6 +2,7 @@ import React, { FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
@@ -22,7 +23,7 @@ export const Header: FC<HeaderProps> = ({
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
-    const { size = 's', view = 'desktop' } = useContext(ResponsiveContext) || {};
+    const { size = 's', view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
 
     useEffect(() => {
         setHasHeader(true);
@@ -33,6 +34,7 @@ export const Header: FC<HeaderProps> = ({
     return (
         <NavigationBar
             {...restProps}
+            dataTestId={getDataTestId(dataTestId, 'header')}
             scrollableParentRef={componentRef}
             view={view}
             sticky={sticky}

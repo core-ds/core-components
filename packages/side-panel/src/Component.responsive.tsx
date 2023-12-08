@@ -55,7 +55,17 @@ function createResponsive<DesktopType extends FC, MobileType extends FC>(
 }
 
 const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelResponsiveProps>(
-    ({ children, breakpoint = 1024, size = 's', defaultMatchMediaValue, ...restProps }, ref) => {
+    (
+        {
+            children,
+            breakpoint = 1024,
+            size = 's',
+            defaultMatchMediaValue,
+            dataTestId,
+            ...restProps
+        },
+        ref,
+    ) => {
         const query = `(min-width: ${breakpoint}px)`;
         const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
 
@@ -63,13 +73,16 @@ const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelRespons
 
         const view = isDesktop ? 'desktop' : 'mobile';
 
-        const contextValue = useMemo<TResponsiveModalContext>(() => ({ view, size }), [view, size]);
+        const contextValue = useMemo<TResponsiveModalContext>(
+            () => ({ view, size, dataTestId }),
+            [view, size, dataTestId],
+        );
 
         const Component = isDesktop ? SidePanelDesktop : SidePanelMobile;
 
         return (
             <ResponsiveContext.Provider value={contextValue}>
-                <Component ref={ref} size={size} {...restProps}>
+                <Component ref={ref} size={size} dataTestId={dataTestId} {...restProps}>
                     {children}
                 </Component>
             </ResponsiveContext.Provider>

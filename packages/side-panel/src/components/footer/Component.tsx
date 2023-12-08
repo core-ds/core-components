@@ -1,7 +1,10 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { ModalContext } from '../../Context';
+import { ResponsiveContext } from '../../ResponsiveContext';
 
 import styles from './index.module.css';
 import layoutStyles from './layout.module.css';
@@ -47,6 +50,7 @@ export const Footer: FC<FooterProps> = ({
     dataTestId,
 }) => {
     const { footerHighlighted, setHasFooter } = useContext(ModalContext);
+    const responsiveContext = useContext(ResponsiveContext);
 
     useEffect(() => {
         setHasFooter(true);
@@ -64,7 +68,7 @@ export const Footer: FC<FooterProps> = ({
                     [styles.sticky]: sticky,
                 },
             )}
-            data-test-id={dataTestId}
+            data-test-id={dataTestId || getDataTestId(responsiveContext?.dataTestId, 'footer')}
         >
             {children}
         </div>

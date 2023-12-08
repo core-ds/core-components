@@ -22,6 +22,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
             wrapperClassName,
             transitionProps = {},
             view,
+            dataTestId,
             ...restProps
         },
         ref,
@@ -81,11 +82,14 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
                       className: cn(className, mobileStyles.component),
                   };
 
-        const contextValue = useMemo(() => ({ size: componentSize, view }), [componentSize, view]);
+        const contextValue = useMemo(
+            () => ({ size: componentSize, view, dataTestId }),
+            [componentSize, view, dataTestId],
+        );
 
         return (
             <ResponsiveContext.Provider value={contextValue}>
-                <BaseModal {...restProps} {...baseModalProps}>
+                <BaseModal {...restProps} {...baseModalProps} dataTestId={dataTestId}>
                     {children}
                 </BaseModal>
             </ResponsiveContext.Provider>

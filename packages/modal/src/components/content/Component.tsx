@@ -1,6 +1,8 @@
 import React, { FC, Ref, useContext } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
 import { ContentProps } from '../../typings';
@@ -11,7 +13,7 @@ import mobileStyles from './mobile.module.css';
 
 export const Content: FC<ContentProps> = ({ children, flex, className }) => {
     const { contentRef, hasHeader } = useContext(ModalContext);
-    const { size, view } = useContext(ResponsiveContext);
+    const { size, view, dataTestId } = useContext(ResponsiveContext);
 
     return (
         <div
@@ -22,6 +24,7 @@ export const Content: FC<ContentProps> = ({ children, flex, className }) => {
                 [mobileStyles.content]: view === 'mobile',
             })}
             ref={contentRef as Ref<HTMLDivElement>}
+            data-test-id={getDataTestId(dataTestId, 'content')}
         >
             {children}
         </div>
