@@ -1,7 +1,7 @@
 @import '../../../../themes/src/default.css';
 
 .steppers {
-    background-color: var(--color-light-neutral-1500-inverted);
+    background-color: var(--color-light-neutral-translucent-0);
 }
 
 .steppersFocused,
