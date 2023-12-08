@@ -2,6 +2,7 @@ import React, { ChangeEvent, forwardRef, InputHTMLAttributes, ReactNode, useRef 
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
@@ -108,7 +109,6 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         };
 
         return (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
                 className={cn(styles.component, styles[align], className, {
                     [styles.disabled]: disabled || inactive,
@@ -139,7 +139,12 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     </span>
                 )}
 
-                {addons && <span className={styles.addons}>{addons}</span>}
+                {addons && (
+                    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+                    <span className={styles.addons} onClick={dom.preventDefault}>
+                        {addons}
+                    </span>
+                )}
             </label>
         );
     },

@@ -11,6 +11,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
@@ -178,7 +179,12 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                         {hint && <span className={styles.hint}>{hint}</span>}
                     </span>
                 )}
-                {addons && <span className={styles.addons}>{addons}</span>}
+                {addons && (
+                    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+                    <span className={styles.addons} onClick={dom.preventDefault}>
+                        {addons}
+                    </span>
+                )}
             </label>
         );
     },
