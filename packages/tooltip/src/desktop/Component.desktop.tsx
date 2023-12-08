@@ -23,6 +23,8 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
+const DEFAULT_OFFSET: [number, number] = [0, 16];
+
 export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     children,
     content,
@@ -31,7 +33,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     onOpenDelay = 300,
     dataTestId,
     open: forcedOpen,
-    offset = [0, 16],
+    offset = DEFAULT_OFFSET,
     position,
     contentClassName,
     arrowClassName,
