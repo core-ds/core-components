@@ -32,3 +32,11 @@
 .error {
     border-color: var(--color-light-status-negative);
 }
+
+.inner {
+    transition: opacity 0.2s ease;
+}
+
+.hidden {
+    opacity: 0;
+}

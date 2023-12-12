@@ -97,6 +97,8 @@ export const Dropzone: FC<DropzoneProps> = ({
      */
     const dragCounter = useRef(0);
 
+    const isOverlayVisible = Boolean(dragOver || overlayVisible);
+
     const handleDragOver = useCallback(
         (event: React.DragEvent<HTMLElement>) => {
             preventAndStopEvent(event);
@@ -180,8 +182,10 @@ export const Dropzone: FC<DropzoneProps> = ({
             onDragOver={handleDragOver}
             onDrop={handleDrop}
         >
-            {children}
-            {Overlay && <Overlay text={text} visible={Boolean(dragOver || overlayVisible)} />}
+            <div className={cn(styles.inner, isOverlayVisible && styles.hidden)}>
+                {children}
+            </div>
+            {Overlay && <Overlay text={text} visible={isOverlayVisible} />}
         </div>
     );
 };
