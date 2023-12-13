@@ -51,10 +51,9 @@ describe('Badge', () => {
         });
 
         it('should set `view` class', () => {
-            const view = 'count';
-            const { container } = render(<Badge view={view} />);
+            const { container } = render(<Badge view='count' />);
 
-            expect(container.firstElementChild).toHaveClass(view);
+            expect(container.firstElementChild).toHaveClass('countWrapper');
         });
 
         it('should set `outline` class', () => {

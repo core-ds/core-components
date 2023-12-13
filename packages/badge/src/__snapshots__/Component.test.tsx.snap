@@ -3,7 +3,7 @@
 exports[`Badge Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="count"
+    class="countWrapper"
   >
     <div
       class="component m count background-accent graphic-static-light heightS"
