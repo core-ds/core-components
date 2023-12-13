@@ -47,7 +47,7 @@
         "shared.js": 28.4
     },
     "table": {
-        "index.js": 155.2
+        "index.js": 155.3
     },
     "tab-bar": {
         "index.js": 8.7
@@ -97,7 +97,7 @@
         "desktop.js": 63.4,
         "index.js": 65.1,
         "mobile.js": 61.6,
-        "shared.js": 40.2
+        "shared.js": 40.5
     },
     "shared": {
         "index.js": 4.4
@@ -190,7 +190,7 @@
         "desktop.js": 62.1,
         "index.js": 62.3,
         "mobile.js": 62.1,
-        "shared.js": 40.2
+        "shared.js": 40.5
     },
     "masked-input": {
         "index.js": 27.3
@@ -231,7 +231,7 @@
     },
     "input-autocomplete": {
         "desktop.js": 184.1,
-        "index.js": 217.9,
+        "index.js": 217.8,
         "mobile.js": 190.5
     },
     "indicator": {
