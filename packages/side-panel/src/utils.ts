@@ -1,6 +1,6 @@
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-export function getModalTestIds(dataTestId: string) {
+export function getSidePanelTestIds(dataTestId: string) {
     return {
         modal: dataTestId,
         content: getDataTestId(dataTestId, 'content'),
