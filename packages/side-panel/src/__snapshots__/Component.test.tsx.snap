@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
+<div
+  class="wrapper"
+  role="dialog"
+  style="z-index: 100;"
+  tabindex="0"
+>
+  <div
+    class="component s hidden rightPlacement enterRight enterActive"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="content appearRight enterActive"
+      >
+        <div
+          class="header header hasContent s"
+        >
+          <div
+            class="mainLine"
+          >
+            <div
+              class="addonsWrapper"
+            >
+              <div
+                class="addon"
+              >
+                <button
+                  aria-label="назад"
+                  class="component ghost s hug s component ghost component ghost component"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    <div
+                      class="flex"
+                    >
+                      <div
+                        class="iconWrapper"
+                      >
+                        <svg
+                          fill="currentColor"
+                          focusable="false"
+                          height="24"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M1 12l8.25-9 2.25 2.25-5.25 5.25H23v3H6.25l5.25 5.25L9.25 21 1 12z"
+                          />
+                        </svg>
+                      </div>
+                      <span
+                        class="text primary-large medium"
+                        style="opacity: 1;"
+                      >
+                        Назад
+                      </span>
+                    </div>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="addonsWrapper rightAddons"
+            >
+              <div
+                class="addon closer"
+              >
+                <div
+                  class="closer"
+                >
+                  <button
+                    aria-label="закрыть"
+                    class="component ghost s hug s component ghost component ghost cc-icon-button button primary component"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      <span
+                        class="iconWrapper size-48 center"
+                      >
+                        <svg
+                          class="icon"
+                          fill="currentColor"
+                          focusable="false"
+                          height="24"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M10 12L3 5.5 5.25 3 12 9.5 18.75 3 21 5.5 14 12l7 6.5-2.25 2.5L12 14.5 5.25 21 3 18.5l7-6.5z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="content contentOnBotDesktop left trim"
+            style="visibility: visible;"
+          >
+            <div
+              class="title"
+            >
+              Title
+            </div>
+          </div>
+        </div>
+        <div
+          class="content s flex withHeader"
+        >
+          Content
+        </div>
+        <div
+          class="footer s start"
+        >
+          <div
+            class="component start"
+          >
+            Primary
+            Secondary
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
+<div
+  class="wrapper"
+  role="dialog"
+  style="z-index: 100;"
+  tabindex="0"
+>
+  <div
+    class="component appear appearActive"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="mobileContent"
+      >
+        <div
+          class="header header hasContent header"
+        >
+          <div
+            class="mainLine"
+          >
+            <div
+              class="addonsWrapper"
+            >
+              <div
+                class="addon"
+              >
+                <button
+                  aria-label="назад"
+                  class="component ghost xxs hug xxs component ghost component ghost component mobileComponent"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    <div
+                      class="flex"
+                    >
+                      <div
+                        class="iconWrapper mobileWrapper"
+                      >
+                        <svg
+                          fill="currentColor"
+                          focusable="false"
+                          height="24"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M7.5 13H19v-2H7.5L11 7.5 9.5 6 4 12l5.5 6 1.5-1.5L7.5 13z"
+                          />
+                        </svg>
+                      </div>
+                      <span
+                        class="text component medium"
+                        style="opacity: 1;"
+                      >
+                        Назад
+                      </span>
+                    </div>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="addonsWrapper rightAddons"
+            >
+              <div
+                class="addon closer"
+              >
+                <div
+                  class="closer"
+                >
+                  <button
+                    aria-label="закрыть"
+                    class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      <span
+                        class="iconWrapper size-32 center"
+                      >
+                        <svg
+                          class="icon"
+                          fill="currentColor"
+                          focusable="false"
+                          height="24"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="content contentOnBotMobile content left trim"
+            style="visibility: visible;"
+          >
+            <div
+              class="title"
+            >
+              Title
+            </div>
+          </div>
+        </div>
+        <div
+          class="content content flex withHeader"
+        >
+          Content
+        </div>
+        <div
+          class="footer footer start"
+        >
+          <div
+            class="component start"
+          >
+            Secondary
+            Primary
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
