@@ -1,5 +1,7 @@
 import { ArgTypes } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
 import { TabBar } from '../Component';
+import styles from '!!raw-loader!../index.module.css';
 
 ## Подключение
 
@@ -10,3 +12,7 @@ import { TabBar } from '@alfalab/core-components/tab-bar';
 ## Свойства
 
 <ArgTypes of={TabBar} />
+
+## Переменные
+
+<CssVars css={styles} />
