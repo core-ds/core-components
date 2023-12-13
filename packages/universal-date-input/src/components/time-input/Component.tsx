@@ -14,19 +14,18 @@ export const TimeInput = forwardRef<HTMLInputElement, InnerTimeInputProps>(
             autoCorrection,
             value: valueProp,
             defaultValue,
+            clear,
+            onClear,
             onChange,
-            onComplete,
+            onInputChange,
             onBlur,
             ...restProps
         },
         ref,
     ) => {
-        const [value, setValue] = useState(defaultValue);
+        const [inputValue, setInputValue] = useState(defaultValue);
 
         const lastValidTime = useRef(defaultTime);
-
-        const uncontrolled = valueProp === undefined;
-        const inputValue = value ?? valueProp ?? '';
 
         useEffect(() => {
             if (autoCorrection && !inputValue) {
@@ -34,35 +33,48 @@ export const TimeInput = forwardRef<HTMLInputElement, InnerTimeInputProps>(
             }
         }, [autoCorrection, inputValue]);
 
-        const callOnComplete = (val: string) => {
-            onComplete?.(val);
+        useEffect(() => {
+            if (valueProp !== undefined) {
+                setInputValue(valueProp);
+            }
+        }, [valueProp]);
+
+        const callOnChange = (val: string) => {
+            onChange?.(val);
             lastValidTime.current = val;
         };
 
-        const changeValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
-            onChange?.(event, { value: val });
+        const changeInputValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
+            onInputChange?.(event, { value: val });
 
-            if (uncontrolled) setValue(val);
-            if (isCompleteTime(val, true)) callOnComplete(val);
+            setInputValue(val);
+            if (val === '' || isCompleteTime(val, true)) callOnChange(val);
         };
 
-        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-            changeValue(event.target.value, event);
+        const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+            changeInputValue(event.target.value, event);
+        };
+
+        const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
+            changeInputValue('', null);
+            onClear?.(event);
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
             onBlur?.(event);
 
             if (autoCorrection && inputValue && !isCompleteTime(inputValue, true)) {
-                changeValue(lastValidTime.current, null);
+                changeInputValue(lastValidTime.current, null);
             }
         };
 
         return (
             <Input
                 {...restProps}
+                clear={clear && isCompleteTime(inputValue, true)}
+                onClear={valueProp === undefined ? handleClear : onClear}
                 onBlur={handleBlur}
-                onInput={handleChange}
+                onInput={handleInputChange}
                 ref={ref}
                 value={inputValue}
                 inputMode='decimal'
