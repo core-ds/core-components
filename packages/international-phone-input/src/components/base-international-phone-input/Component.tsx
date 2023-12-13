@@ -77,17 +77,17 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const maskRef = useMaskito({ options: maskOptions });
 
-        const changeNumber = (e: ChangeEvent<HTMLInputElement> | null, phone: string) => {
-            onChange?.(e, { value: phone });
+        const changeNumber = (phone: string) => {
+            onChange?.(phone);
         };
 
-        const updatePhoneData = (phone: string, e: ChangeEvent<HTMLInputElement> | null) => {
+        const updatePhoneData = (phone: string) => {
             const { nextCountry, nextPhone } = getPhoneData(phone, countriesData, defaultIso2);
 
             if (nextCountry !== country) {
                 handleCountryChange?.(nextCountry);
             }
-            changeNumber(e, nextPhone);
+            changeNumber(nextPhone);
         };
 
         const handleSelectCountry = ({ selected }: BaseSelectChangePayload) => {
@@ -96,7 +96,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             handleCountryChange?.(nextCountry);
 
             if (nextCountry) {
-                changeNumber(null, `+${nextCountry.dialCode}`);
+                changeNumber(`+${nextCountry.dialCode}`);
             }
 
             requestAnimationFrame(() => inputRef.current?.focus());
@@ -108,12 +108,11 @@ export const BaseInternationalPhoneInput = forwardRef<
                     typeof payload === 'string' ? payload : payload.selected?.key || '',
                     maskOptions,
                 ),
-                null,
             );
         };
 
         const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-            updatePhoneData(e.target.value, e);
+            updatePhoneData(e.target.value);
         };
 
         const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
@@ -121,7 +120,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 
             const countryCode = country?.countryCode || '';
 
-            changeNumber(null, clearableCountryCode ? '' : `+${countryCode}`);
+            changeNumber(clearableCountryCode ? '' : `+${countryCode}`);
         };
 
         useEffect(() => {
@@ -129,7 +128,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 const newValue = maskitoTransform(value, maskOptions);
 
                 if (value !== newValue) {
-                    updatePhoneData(newValue, null);
+                    updatePhoneData(newValue);
                 }
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -169,7 +168,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 options={filteredOptions}
                 value={value}
                 onChange={handleOptionSelect}
-                onInput={(event, { value: phone }) => updatePhoneData(phone, event)}
+                onInput={(phone) => updatePhoneData(phone)}
                 inputProps={{
                     ...inputProps,
                     onClear: handleClear,

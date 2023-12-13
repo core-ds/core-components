@@ -267,9 +267,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const handleInputChange: InputAutocompleteDesktopProps['onInput'] = (_, payload) => {
-            setCountryByDialCodeWithLengthCheck(payload.value);
-            changePhone(addCountryCode(payload.value));
+        const handleInputChange: InputAutocompleteDesktopProps['onInput'] = (newValue) => {
+            setCountryByDialCodeWithLengthCheck(newValue);
+            changePhone(addCountryCode(newValue));
         };
 
         const handleSelectChange: Required<SelectProps>['onChange'] = ({ selected }) => {

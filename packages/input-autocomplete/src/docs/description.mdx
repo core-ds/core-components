@@ -31,9 +31,7 @@ render(() => {
     const matchOption = (option, inputValue) =>
         option.key.toLowerCase().includes((inputValue || '').toLowerCase());
 
-    const handleInput = (_, { value }) => {
-        setValue(value);
-    };
+    const handleInput = (newValue) => setValue(newValue);
 
     const handleChange = ({ selected, selectedMultiple }) => {
         if (multiple) {
@@ -205,9 +203,7 @@ render(() => {
     const [value, setValue] = React.useState('');
     const inputRef = React.useRef();
 
-    const handleInput = (_, { value }) => {
-        setValue(value);
-    };
+    const handleInput = (newValue) => setValue(newValue);
 
     const handleChange = ({ selected }) => {
         const value = selected ? selected.content : null;

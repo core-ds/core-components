@@ -18,9 +18,7 @@ render(() => {
     const [clearableCountryCode, setClearableCountryCode] = React.useState(false);
     const [autocomplete, setAutocomplete] = React.useState(false);
 
-    const handleChange = (e, { value: phone }) => {
-        setValue(phone);
-    };
+    const handleChange = (phone) => setValue(phone);
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
@@ -67,9 +65,7 @@ render(() => {
     const [value, setValue] = React.useState('');
     const [selectedCountry, setSelectedCountry] = React.useState();
 
-    const handleChange = (e, { value: phone }) => {
-        setValue(phone);
-    };
+    const handleChange = (phone) => setValue(phone);
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
