@@ -31,3 +31,11 @@
 .spaceItem:empty {
     display: none;
 }
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.divider {
+    width: 100%;
+}
