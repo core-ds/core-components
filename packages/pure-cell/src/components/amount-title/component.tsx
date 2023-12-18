@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Color, TitleProps, Typography } from '@alfalab/core-components-typography';
 
+import { PureCellContext } from '../../component';
 import { AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
@@ -37,6 +38,8 @@ export const AmountTitle: React.FC<Props> = ({
     titleProps = {},
     ...restProps
 }) => {
+    const pureCellContext = useContext(PureCellContext);
+
     const titleDefaultProps = {
         tag: 'h4',
         view: 'small',
@@ -47,13 +50,16 @@ export const AmountTitle: React.FC<Props> = ({
     return (
         <Typography.Title
             {...titleDefaultProps}
-            dataTestId={getDataTestId(dataTestId, 'amount-title')}
+            dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-title')}
             className={cn(styles.component, titleProps.className)}
         >
             <CoreAmount
                 minority={minority || minorUnits}
                 className={cn(styles.weight, className)}
-                dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
+                dataTestId={getDataTestId(
+                    dataTestId || pureCellContext.dataTestId,
+                    'core-amount-title',
+                )}
                 {...restProps}
                 bold='none'
             />

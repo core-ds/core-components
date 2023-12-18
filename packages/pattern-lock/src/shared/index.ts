@@ -1,0 +1,1 @@
+export { getPatternLockTestIds } from '../utils';

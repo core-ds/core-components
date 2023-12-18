@@ -1,5 +1,7 @@
 import { cloneElement, isValidElement, ReactNode, RefObject, useEffect, useRef } from 'react';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { BaseSelectProps, GroupShape, OptionShape } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
@@ -184,3 +186,34 @@ export const lastIndexOf = <T>(array: T[], predicate: (item: T) => boolean) => {
 
     return -1;
 };
+
+export function getSelectTestIds(dataTestId: string) {
+    return {
+        select: dataTestId,
+        option: getDataTestId(dataTestId, 'option'),
+        optionsList: getDataTestId(dataTestId, 'options-list'),
+        clearButton: getDataTestId(dataTestId, 'options-list-clear'),
+        applyButton: getDataTestId(dataTestId, 'options-list-apply'),
+        field: getDataTestId(dataTestId, 'field'),
+        fieldFormControl: getDataTestId(dataTestId, 'field-form-control'),
+        fieldLeftAddons: getDataTestId(dataTestId, 'field-form-control-left-addons'),
+        fieldRightAddons: getDataTestId(dataTestId, 'field-form-control-right-addons'),
+        fieldError: getDataTestId(dataTestId, 'field-form-control-error-message'),
+        fieldHint: getDataTestId(dataTestId, 'field-form-control-hint'),
+        searchInput: getDataTestId(dataTestId, 'search'),
+        searchFormControl: getDataTestId(dataTestId, 'search-form-control'),
+        searchInner: getDataTestId(dataTestId, 'search-form-control-inner'),
+        searchLeftAddons: getDataTestId(dataTestId, 'search-form-control-left-addons'),
+        searchRightAddons: getDataTestId(dataTestId, 'search-form-control-right-addons'),
+        searchError: getDataTestId(dataTestId, 'search-form-control-error-message'),
+        searchHint: getDataTestId(dataTestId, 'search-form-control-hint'),
+
+        bottomSheet: getDataTestId(dataTestId, 'bottom-sheet'),
+        bottomSheetHeader: getDataTestId(dataTestId, 'bottom-sheet-header'),
+        bottomSheetContent: getDataTestId(dataTestId, 'bottom-sheet-content'),
+
+        modal: getDataTestId(dataTestId, 'modal'),
+        modalHeader: getDataTestId(dataTestId, 'modal-header'),
+        modalContent: getDataTestId(dataTestId, 'modal-content'),
+    };
+}

@@ -1,0 +1,1 @@
+export { getTabBarTestIds } from '../utils';

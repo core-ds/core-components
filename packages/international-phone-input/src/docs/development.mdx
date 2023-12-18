@@ -6,13 +6,95 @@ import { InternationalPhoneInputMobile } from '../mobile';
 
 ```jsx
 // responsive версия
-import { InternationalPhoneInput } from '@alfalab/core-components/phone-input-international';
+import { InternationalPhoneInput } from '@alfalab/core-components/international-phone-input';
 
 // desktop версия
-import { InternationalPhoneInputDesktop } from '@alfalab/core-components/phone-input-international/desktop';
+import { InternationalPhoneInputDesktop } from '@alfalab/core-components/international-phone-input/desktop';
 
 // mobile версия
-import { InternationalPhoneInputMobile } from '@alfalab/core-components/phone-input-international/mobile';
+import { InternationalPhoneInputMobile } from '@alfalab/core-components/international-phone-input/mobile';
+```
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функциями `getInternationalPhoneInputDesktopTestIds` и `getInternationalPhoneInputMobileTestIds`.  
+Импорт из `@alfalab/core-components/international-phone-input/shared`.
+
+Функции возвращают объекты:
+
+```jsx
+// desktop
+{
+    // Для инпута при автокомплите
+    fieldAutocompleteWrapper: dataTestId,
+    fieldAutocompleteInner: `${dataTestId}-field-form-control-inner`,
+    fieldAutocompleteFormControl: `${dataTestId}-field-form-control`,
+    fieldAutocompleteLeftAddons: `${dataTestId}-field-form-control-left-addons`,
+    fieldAutocompleteRightAddons: `${dataTestId}-field-form-control-right-addons`,
+    fieldAutocompleteError: `${dataTestId}-field-form-control-error-message`,
+    fieldAutocompleteHint: `${dataTestId}-field-form-control-hint`,
+    option: `${dataTestId}-option`,
+    optionsList: `${dataTestId}-options-list`,
+
+    // Для инпута без автокомплита
+    field: dataTestId,
+    fieldInner: `${dataTestId}-form-control-inner`,
+    fieldFormControl: `${dataTestId}-form-control`,
+    fieldLeftAddons: `${dataTestId}-form-control-left-addons`,
+    fieldRightAddons: `${dataTestId}-form-control-right-addons`,
+    fieldError: `${dataTestId}-form-control-error-message`,
+    fieldHint: `${dataTestId}-form-control-hint`,
+
+    // Для списка стран
+    countryOption: `${dataTestId}-country-select-option`,
+    countryOptionsList: `${dataTestId}-country-select-options-list`,
+};
+
+// mobile
+{
+    // Для инпута при автокомплите
+    fieldAutocompleteWrapper: dataTestId,
+    fieldAutocompleteInner: `${dataTestId}-field-form-control-inner`,
+    fieldAutocompleteFormControl: `${dataTestId}-field-form-control`,
+    fieldAutocompleteLeftAddons: `${dataTestId}-field-form-control-left-addons`,
+    fieldAutocompleteRightAddons: `${dataTestId}-field-form-control-right-addons`,
+    fieldAutocompleteError: `${dataTestId}-field-form-control-error-message`,
+    fieldAutocompleteHint: `${dataTestId}-field-form-control-hint`,
+
+    searchInput: `${dataTestId}-search`,
+    searchFormControl: `${dataTestId}-search-form-control`,
+    searchInner: `${dataTestId}-search-form-control-inner`,
+    searchLeftAddons: `${dataTestId}-search-form-control-left-addons`,
+    searchRightAddons: `${dataTestId}-search-form-control-right-addons`,
+    searchError: `${dataTestId}-search-form-control-error-message`,
+    searchHint: `${dataTestId}-search-form-control-hint`,
+
+    bottomSheet: `${dataTestId}-bottom-sheet`,
+    bottomSheetHeader: `${dataTestId}-bottom-sheet-header`,
+    bottomSheetContent: `${dataTestId}-bottom-sheet-content`,
+    option: `${dataTestId}-option`,
+    optionsList: `${dataTestId}-options-list`,
+
+    clearButton: `${dataTestId}-clear`,
+    applyButton: `${dataTestId}-apply`,
+
+    // Для инпута без автокомплита
+    field: dataTestId,
+    fieldInner: `${dataTestId}-form-control-inner`,
+    fieldFormControl: `${dataTestId}-form-control`,
+    fieldLeftAddons: `${dataTestId}-form-control-left-addons`,
+    fieldRightAddons: `${dataTestId}-form-control-right-addons`,
+    fieldError: `${dataTestId}-form-control-error-message`,
+    fieldHint: `${dataTestId}-form-control-hint`,
+
+    // Для списка стран
+    countryBottomSheet: `${dataTestId}-country-select-bottom-sheet`,
+    countryBottomSheetHeader: `${dataTestId}-country-select-bottom-sheet-header`,
+    countryBottomSheetContent: `${dataTestId}-country-select-bottom-sheet-content`,
+    countryOption: `${dataTestId}-country-select-option`,
+    countryOptionsList: `${dataTestId}-country-select-options-list`,
+};
 ```
 
 ## Свойства

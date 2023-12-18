@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { InputAutocompleteMobile, InputAutocompleteMobileProps } from './mobile';
+import {
+    InputAutocompleteMobile,
+    InputAutocompleteMobileProps,
+    InputAutocompleteModalMobile,
+} from './mobile';
+import { InputAutocompleteDesktop } from './desktop';
+import { getInputAutocompleteDesktopTestIds, getInputAutocompleteMobileTestIds } from './utils';
 
 const dataTestId = 'test-id';
 
@@ -9,6 +15,11 @@ const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
 ];
+
+const COMPONENT_NAME = {
+    InputAutocompleteMobile,
+    InputAutocompleteModalMobile,
+} as const;
 
 const noop = () => {};
 
@@ -72,13 +83,113 @@ describe('InputAutocompleteMobile', () => {
     });
 
     describe('Props tests', () => {
-        it('should set `data-test-id` attribute', () => {
-            const { getByTestId } = render(
-                <InputAutocompleteMobileWrapper dataTestId={dataTestId} />,
+        (['InputAutocompleteMobile', 'InputAutocompleteModalMobile'] as const).forEach(
+            (componentName) => {
+                const Component = COMPONENT_NAME[componentName];
+
+                describe(componentName, () => {
+                    it('should set `data-test-id` attribute in mobile component', () => {
+                        const { getByTestId } = render(
+                            <Component
+                                open={true}
+                                options={[{ key: 'Fermium' }]}
+                                fieldProps={{
+                                    leftAddons: 'left',
+                                    rightAddons: 'right',
+                                    error: 'error',
+                                }}
+                                inputProps={{
+                                    error: 'error',
+                                    leftAddons: 'left',
+                                    rightAddons: 'right',
+                                }}
+                                dataTestId={dataTestId}
+                            />,
+                        );
+
+                        const testIds = getInputAutocompleteMobileTestIds(dataTestId);
+
+                        if (componentName === 'InputAutocompleteMobile') {
+                            expect(getByTestId(testIds.bottomSheet)).toBeInTheDocument();
+                            expect(getByTestId(testIds.bottomSheetHeader)).toBeInTheDocument();
+                            expect(getByTestId(testIds.bottomSheetContent)).toBeInTheDocument();
+                        } else {
+                            expect(getByTestId(testIds.modal)).toBeInTheDocument();
+                            expect(getByTestId(testIds.modalHeader)).toBeInTheDocument();
+                            expect(getByTestId(testIds.modalContent)).toBeInTheDocument();
+                        }
+
+                        expect(getByTestId(testIds.inputAutocomplete)).toBeInTheDocument();
+                        expect(getByTestId(testIds.optionsList)).toBeInTheDocument();
+                        expect(getByTestId(testIds.option)).toBeInTheDocument();
+                        expect(getByTestId(testIds.clearButton)).toBeInTheDocument();
+                        expect(getByTestId(testIds.applyButton)).toBeInTheDocument();
+                        expect(getByTestId(testIds.fieldInner)).toBeInTheDocument();
+                        expect(getByTestId(testIds.fieldFormControl)).toBeInTheDocument();
+                        expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
+                        expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
+                        expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+                        expect(getByTestId(testIds.searchInput)).toBeInTheDocument();
+                        expect(getByTestId(testIds.searchFormControl)).toBeInTheDocument();
+                        expect(getByTestId(testIds.searchInner)).toBeInTheDocument();
+                        expect(getByTestId(testIds.searchLeftAddons)).toBeInTheDocument();
+                        expect(getByTestId(testIds.searchRightAddons)).toBeInTheDocument();
+                        expect(getByTestId(testIds.searchError)).toBeInTheDocument();
+                        expect(getByTestId(dataTestId).tagName).toBe('DIV');
+                        expect(getByTestId(dataTestId).getAttribute('role')).toBe('combobox');
+
+                        const { getByTestId: getByTestIdHint } = render(
+                            <Component
+                                open={true}
+                                options={[{ key: 'Fermium' }]}
+                                fieldProps={{ hint: 'hint' }}
+                                inputProps={{ hint: 'hint' }}
+                                dataTestId={dataTestId}
+                            />,
+                        );
+
+                        expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
+                        expect(getByTestIdHint(testIds.searchHint)).toBeInTheDocument();
+                    });
+                });
+            },
+        );
+
+        it('should set `data-test-id` attribute in desktop component', () => {
+            const { getByTestId, container } = render(
+                <InputAutocompleteDesktop
+                    options={[{ key: 'Fermium' }]}
+                    open={true}
+                    error='error'
+                    inputProps={{
+                        leftAddons: 'left',
+                        rightAddons: 'right',
+                    }}
+                    dataTestId={dataTestId}
+                />,
             );
 
-            expect(getByTestId(dataTestId).tagName).toBe('DIV');
-            expect(getByTestId(dataTestId).getAttribute('role')).toBe('combobox');
+            const testIds = getInputAutocompleteDesktopTestIds(dataTestId);
+
+            expect(getByTestId(testIds.inputAutocomplete)).toBeInTheDocument();
+            expect(getByTestId(testIds.field)).toBeInTheDocument();
+            expect(getByTestId(testIds.optionsList)).toBeInTheDocument();
+            expect(getByTestId(testIds.option)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldInner)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldFormControl)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+
+            const { getByTestId: getByTestIdHint } = render(
+                <InputAutocompleteDesktop
+                    options={[{ key: 'Fermium' }]}
+                    hint='hint'
+                    dataTestId={dataTestId}
+                />,
+            );
+
+            expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
         });
 
         it('should be open, if open is `true`', () => {

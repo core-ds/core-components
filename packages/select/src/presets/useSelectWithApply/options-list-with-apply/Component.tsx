@@ -110,6 +110,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
                         handleClear={handleClear}
                         showClear={showClear}
                         selectedDraft={selectedDraft}
+                        dataTestId={restProps?.dataTestId}
                     />
                 }
             />

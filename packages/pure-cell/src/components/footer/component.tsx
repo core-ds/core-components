@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { PureCellContext } from '../../component';
 import { FooterElement } from '../types';
 
 import styles from './index.module.css';
@@ -25,11 +26,15 @@ type Props = {
     dataTestId?: string;
 };
 
-export const Footer: React.FC<Props> = ({ children, footerPadding = 'default', dataTestId }) => (
-    <footer
-        className={cn(styles.component, styles[footerPadding])}
-        data-test-id={getDataTestId(dataTestId, 'footer')}
-    >
-        {children}
-    </footer>
-);
+export const Footer: React.FC<Props> = ({ children, footerPadding = 'default', dataTestId }) => {
+    const pureCellContext = useContext(PureCellContext);
+
+    return (
+        <footer
+            className={cn(styles.component, styles[footerPadding])}
+            data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'footer')}
+        >
+            {children}
+        </footer>
+    );
+};

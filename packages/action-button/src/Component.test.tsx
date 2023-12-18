@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getActionButtonTestIds } from './utils';
 
 import { ActionButton } from '.';
 
@@ -119,5 +120,15 @@ describe('ActionButton', () => {
         await userEvent.click(screen.getByRole('button'));
 
         expect(cb).toBeCalledTimes(1);
+    });
+
+    it('should have data-test-id', () => {
+        const dti = 'action-button-dti';
+        const { getByTestId } = render(<ActionButton dataTestId={dti} loading />);
+
+        const testIds = getActionButtonTestIds(dti);
+
+        expect(getByTestId(testIds.actionButton)).toBeInTheDocument();
+        expect(getByTestId(testIds.spinner)).toBeInTheDocument();
     });
 });

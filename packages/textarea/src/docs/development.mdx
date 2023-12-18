@@ -9,6 +9,27 @@ import styles from '!!raw-loader!../index.module.css';
 import { Textarea } from '@alfalab/core-components/textarea';
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Компонент является оберткой над FormControl, поэтому наследует все его модификаторы.  
+Для удобного поиска элементов можно воспользоваться функцией `getTextareaTestIds`.  
+Импорт из `@alfalab/core-components/textarea/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    textarea: dataTestId,
+    inputWrapper: `${dataTestId}-form-control`,
+    inputWrapperInner: `${dataTestId}-form-control-inner`,
+    leftAddons: `${dataTestId}-form-control-left-addons`,
+    rightAddons: `${dataTestId}-form-control-right-addons`,
+    error: `${dataTestId}-form-control-error-message`,
+    hint: `${dataTestId}-form-control-hint`,
+};
+```
+
 ## Свойства
 
 <ArgsTable of={TextareaTS} />

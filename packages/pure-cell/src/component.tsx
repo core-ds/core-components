@@ -33,6 +33,7 @@ import styles from './index.module.css';
 export type PureCellContext = {
     /** Направление */
     direction?: 'horizontal' | 'vertical';
+    dataTestId?: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
@@ -126,7 +127,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     data-test-id={dataTestId}
                     onClick={onClick}
                 >
-                    <PureCellContext.Provider value={{ direction }}>
+                    <PureCellContext.Provider value={{ direction, dataTestId }}>
                         {children}
                     </PureCellContext.Provider>
                 </Component>
@@ -142,7 +143,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     data-test-id={dataTestId}
                     onClick={onClick}
                 >
-                    <PureCellContext.Provider value={{ direction }}>
+                    <PureCellContext.Provider value={{ direction, dataTestId }}>
                         {children}
                     </PureCellContext.Provider>
                 </Component>
@@ -157,7 +158,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                 className={cn(addClasses, className)}
                 data-test-id={dataTestId}
             >
-                <PureCellContext.Provider value={{ direction }}>
+                <PureCellContext.Provider value={{ direction, dataTestId }}>
                     {children}
                 </PureCellContext.Provider>
             </Component>

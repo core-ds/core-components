@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
+import { getTextareaTestIds } from './utils';
 import { Textarea } from './index';
 
 describe('Textarea', () => {
@@ -70,9 +70,30 @@ describe('Textarea', () => {
 
     it('should set `data-test-id` attribute to textarea', () => {
         const dataTestId = 'test-id';
-        render(<Textarea block={true} dataTestId={dataTestId} />);
+        const { getByTestId } = render(
+            <Textarea
+                block={true}
+                error='error message'
+                leftAddons={<span />}
+                rightAddons={<span />}
+                dataTestId={dataTestId}
+            />,
+        );
 
-        expect(screen.getByTestId(dataTestId).tagName).toBe('TEXTAREA');
+        const testIds = getTextareaTestIds(dataTestId);
+        expect(getByTestId(testIds.textarea)).toBeInTheDocument();
+        expect(getByTestId(testIds.inputWrapper)).toBeInTheDocument();
+        expect(getByTestId(testIds.inputWrapperInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.leftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.rightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.error)).toBeInTheDocument();
+        expect(getByTestId(dataTestId).tagName).toBe('TEXTAREA');
+
+        const { getByTestId: getByTestIdHint } = render(
+            <Textarea block={true} dataTestId={dataTestId} hint='hint' />,
+        );
+
+        expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
     });
 
     describe('Classes tests', () => {

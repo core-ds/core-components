@@ -7,7 +7,7 @@ import {
     maskitoTransform,
 } from '@maskito/core';
 
-import { fnUtils } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 
 export const MINUS_SIGN = '-';
 export const SEPARATORS = [',', '.'];
@@ -320,5 +320,19 @@ export function createNotEmptyPartsPlugin(separator: string): MaskitoPlugin {
         element.addEventListener('blur', listener, evListenerOptions);
 
         return () => element.removeEventListener('blur', listener, evListenerOptions);
+    };
+}
+
+export function getNumberInputTestIds(dataTestId: string) {
+    return {
+        input: dataTestId,
+        inputWrapper: getDataTestId(dataTestId, 'form-control'),
+        inputWrapperInner: getDataTestId(dataTestId, 'form-control-inner'),
+        leftAddons: getDataTestId(dataTestId, 'form-control-left-addons'),
+        rightAddons: getDataTestId(dataTestId, 'form-control-right-addons'),
+        error: getDataTestId(dataTestId, 'form-control-error-message'),
+        hint: getDataTestId(dataTestId, 'form-control-hint'),
+        decrementButton: getDataTestId(dataTestId, 'decrement-button'),
+        incrementButton: getDataTestId(dataTestId, 'increment-button'),
     };
 }

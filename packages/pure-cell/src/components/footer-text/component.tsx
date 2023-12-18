@@ -1,7 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Color, Typography } from '@alfalab/core-components-typography';
+
+import { PureCellContext } from '../../component';
 
 export type Props = {
     /**
@@ -21,12 +23,16 @@ export type Props = {
     children?: ReactNode;
 };
 
-export const FooterText: React.FC<Props> = ({ children, color = 'secondary', dataTestId }) => (
-    <Typography.Text
-        view='primary-small'
-        color={color}
-        data-test-id={getDataTestId(dataTestId, 'footer-title')}
-    >
-        {children}
-    </Typography.Text>
-);
+export const FooterText: React.FC<Props> = ({ children, color = 'secondary', dataTestId }) => {
+    const pureCellContext = useContext(PureCellContext);
+
+    return (
+        <Typography.Text
+            view='primary-small'
+            color={color}
+            data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'footer-title')}
+        >
+            {children}
+        </Typography.Text>
+    );
+};

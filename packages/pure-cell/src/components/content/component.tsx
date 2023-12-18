@@ -22,12 +22,12 @@ type Props = {
 };
 
 export const Content: React.FC<Props> = ({ children, dataTestId }) => {
-    const { direction } = useContext(PureCellContext);
+    const { direction, dataTestId: contextDataTestId } = useContext(PureCellContext);
 
     return (
         <section
             className={cn(styles.component, { [styles.horizontal]: direction === 'horizontal' })}
-            data-test-id={getDataTestId(dataTestId, 'content')}
+            data-test-id={getDataTestId(dataTestId || contextDataTestId, 'content')}
         >
             {children}
         </section>

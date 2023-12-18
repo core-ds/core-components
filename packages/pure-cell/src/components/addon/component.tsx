@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { PureCellContext } from '../../component';
 import { AddonElement } from '../types';
 
 import styles from './index.module.css';
@@ -35,11 +36,15 @@ export const Addon: React.FC<Props> = ({
     verticalAlign = 'top',
     addonPadding = 'default',
     dataTestId,
-}) => (
-    <section
-        className={cn(styles.component, styles[addonPadding], styles[verticalAlign])}
-        data-test-id={getDataTestId(dataTestId, 'addon')}
-    >
-        {children}
-    </section>
-);
+}) => {
+    const pureCellContext = useContext(PureCellContext);
+
+    return (
+        <section
+            className={cn(styles.component, styles[addonPadding], styles[verticalAlign])}
+            data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'addon')}
+        >
+            {children}
+        </section>
+    );
+};

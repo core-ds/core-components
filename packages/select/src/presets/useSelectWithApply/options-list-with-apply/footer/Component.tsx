@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { OptionShape } from '../../../../typings';
 
@@ -11,6 +12,7 @@ export type FooterProps = {
     handleApply?: () => void;
     showClear?: boolean;
     selectedDraft?: OptionShape[];
+    dataTestId?: string;
 };
 
 export const Footer = ({
@@ -18,18 +20,29 @@ export const Footer = ({
     handleClear,
     showClear,
     selectedDraft = [],
+    dataTestId,
 }: FooterProps) => (
     <div
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
         className={styles.footer}
     >
-        <ButtonDesktop size='xxs' view='primary' onClick={handleApply}>
+        <ButtonDesktop
+            size='xxs'
+            view='primary'
+            onClick={handleApply}
+            dataTestId={getDataTestId(dataTestId, 'apply')}
+        >
             Применить
         </ButtonDesktop>
 
         {showClear && selectedDraft.length > 0 && (
-            <ButtonDesktop size='xxs' view='secondary' onClick={handleClear}>
+            <ButtonDesktop
+                size='xxs'
+                view='secondary'
+                onClick={handleClear}
+                dataTestId={getDataTestId(dataTestId, 'clear')}
+            >
                 Сбросить
             </ButtonDesktop>
         )}

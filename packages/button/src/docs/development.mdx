@@ -13,6 +13,21 @@ import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 ```
 Из индекса импортируется responsive версия компонента.
 
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getButtonTestIds`.  
+Импорт из `@alfalab/core-components/button/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    button: dataTestId, 
+    spinner: `${dataTestId}-loader`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs components={{ButtonDesktop, ButtonMobile, Button}} />

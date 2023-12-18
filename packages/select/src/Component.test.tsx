@@ -7,9 +7,50 @@ import * as popoverModule from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { asyncRender } from '../../utils/test-utils';
 
-import { FieldProps as BaseFieldProps, OptionsListProps, OptionProps } from './shared';
+import {
+    FieldProps as BaseFieldProps,
+    OptionsListProps,
+    OptionProps,
+    useSelectWithApply,
+} from './shared';
 import { SelectDesktop as Select } from './desktop';
-import { SelectMobile } from './mobile';
+import { SelectMobile, SelectModalMobile } from './mobile';
+import { getSelectTestIds } from './utils';
+
+function SelectWithApplyComponent({ testId }: { testId: string }) {
+    const selectProps = useSelectWithApply({
+        searchProps: {
+            componentProps: {
+                error: 'error',
+                leftAddons: 'left',
+                rightAddons: 'right',
+            },
+        },
+        showSearch: true,
+        options: [{ key: '1', content: 'Neptunium' }],
+        selected: [{ key: '1', content: 'Neptunium' }],
+        onChange: jest.fn(),
+    });
+
+    return (
+        <Select
+            open={true}
+            error='error'
+            fieldProps={{
+                leftAddons: 'left',
+                rightAddons: 'right',
+                error: 'error',
+            }}
+            {...selectProps}
+            dataTestId={testId}
+        />
+    );
+}
+
+const COMPONENT_NAME = {
+    SelectMobile,
+    SelectModalMobile,
+} as const;
 
 jest.mock('./components/field', () =>
     Object.assign({}, jest.requireActual('./components/field') as Record<any, any>),
@@ -95,10 +136,119 @@ describe('Select', () => {
     });
 
     describe('test attributes', () => {
-        it('should set `data-test-id`', () => {
-            const testId = 'test-id';
-            const { getByTestId } = render(<Select {...baseProps} dataTestId={testId} />);
-            expect(getByTestId(testId)).toBeInTheDocument();
+        it('should set `data-test-id` attribute in desktop component', () => {
+            const testId = 'select-test-id';
+
+            const { getByTestId } = render(<SelectWithApplyComponent testId={testId} />);
+
+            const testIds = getSelectTestIds(testId);
+
+            expect(getByTestId(testIds.select)).toBeInTheDocument();
+            expect(getByTestId(testIds.optionsList)).toBeInTheDocument();
+            expect(getByTestId(testIds.option)).toBeInTheDocument();
+            expect(getByTestId(testIds.clearButton)).toBeInTheDocument();
+            expect(getByTestId(testIds.applyButton)).toBeInTheDocument();
+            expect(getByTestId(testIds.field)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldFormControl)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+            expect(getByTestId(testIds.searchInput)).toBeInTheDocument();
+            expect(getByTestId(testIds.searchFormControl)).toBeInTheDocument();
+            expect(getByTestId(testIds.searchInner)).toBeInTheDocument();
+            expect(getByTestId(testIds.searchLeftAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.searchRightAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.searchError)).toBeInTheDocument();
+
+            const { getByTestId: getByTestIdHint } = render(
+                <Select
+                    open={true}
+                    showSearch={true}
+                    options={[{ key: 'Fermium' }]}
+                    fieldProps={{ hint: 'hint' }}
+                    searchProps={{ componentProps: { hint: 'hint' } }}
+                    dataTestId={testId}
+                />,
+            );
+
+            expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
+            expect(getByTestIdHint(testIds.searchHint)).toBeInTheDocument();
+        });
+
+        (['SelectMobile', 'SelectModalMobile'] as const).forEach((componentName) => {
+            const Component = COMPONENT_NAME[componentName];
+
+            describe(componentName, () => {
+                it('should set `data-test-id` attribute in mobile component', () => {
+                    const testId = 'select-test-id';
+
+                    const { getByTestId } = render(
+                        <Component
+                            showSearch={true}
+                            multiple={true}
+                            open={true}
+                            fieldProps={{
+                                leftAddons: 'left',
+                                rightAddons: 'right',
+                                error: 'error',
+                            }}
+                            dataTestId={testId}
+                            block={true}
+                            searchProps={{
+                                componentProps: {
+                                    error: 'error',
+                                    leftAddons: 'left',
+                                    rightAddons: 'right',
+                                },
+                            }}
+                            options={[{ key: '1', content: 'Neptunium' }]}
+                        />,
+                    );
+
+                    const testIds = getSelectTestIds(testId);
+
+                    if (componentName === 'SelectMobile') {
+                        expect(getByTestId(testIds.bottomSheet)).toBeInTheDocument();
+                        expect(getByTestId(testIds.bottomSheetHeader)).toBeInTheDocument();
+                        expect(getByTestId(testIds.bottomSheetContent)).toBeInTheDocument();
+                    } else {
+                        expect(getByTestId(testIds.modal)).toBeInTheDocument();
+                        expect(getByTestId(testIds.modalHeader)).toBeInTheDocument();
+                        expect(getByTestId(testIds.modalContent)).toBeInTheDocument();
+                    }
+
+                    expect(getByTestId(testIds.select)).toBeInTheDocument();
+                    expect(getByTestId(testIds.optionsList)).toBeInTheDocument();
+                    expect(getByTestId(testIds.option)).toBeInTheDocument();
+                    expect(getByTestId(testIds.clearButton)).toBeInTheDocument();
+                    expect(getByTestId(testIds.applyButton)).toBeInTheDocument();
+                    expect(getByTestId(testIds.field)).toBeInTheDocument();
+                    expect(getByTestId(testIds.fieldFormControl)).toBeInTheDocument();
+                    expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
+                    expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
+                    expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+                    expect(getByTestId(testIds.searchInput)).toBeInTheDocument();
+                    expect(getByTestId(testIds.searchFormControl)).toBeInTheDocument();
+                    expect(getByTestId(testIds.searchInner)).toBeInTheDocument();
+                    expect(getByTestId(testIds.searchLeftAddons)).toBeInTheDocument();
+                    expect(getByTestId(testIds.searchRightAddons)).toBeInTheDocument();
+                    expect(getByTestId(testIds.searchError)).toBeInTheDocument();
+
+                    const { getByTestId: getByTestIdHint } = render(
+                        <Component
+                            open={true}
+                            showSearch={true}
+                            options={[{ key: 'Fermium' }]}
+                            fieldProps={{ hint: 'hint' }}
+                            searchProps={{ componentProps: { hint: 'hint' } }}
+                            dataTestId={testId}
+                        />,
+                    );
+
+                    expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
+                    expect(getByTestIdHint(testIds.searchHint)).toBeInTheDocument();
+                });
+            });
         });
 
         it('should set `id` attribute', () => {

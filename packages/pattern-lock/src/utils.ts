@@ -1,5 +1,7 @@
 import { Theme, ThemeParams } from 'react-canvas-pattern-lock';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { OBSERVABLE_TOKENS, THEME_STATE } from './consts';
 
 export function getDefaultObserveTarget() {
@@ -80,5 +82,14 @@ export function getTheme(dimens: ThemeParams['dimens']): Theme {
             },
             dimens,
         },
+    };
+}
+
+export function getPatternLockTestIds(dataTestId: string) {
+    return {
+        patternLock: dataTestId,
+        forgotCodeBtn: getDataTestId(dataTestId, 'forgot-code-btn'),
+        error: getDataTestId(dataTestId, 'error'),
+        message: getDataTestId(dataTestId, 'message'),
     };
 }

@@ -2,9 +2,56 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { PureCell } from './component';
+import { PureCell, PureCellProps } from './component';
+import { getPureCellTestIds } from './utils';
+
+const PureCellWrapper = (props: Partial<PureCellProps>) => {
+    return (
+        <PureCell {...props}>
+            <PureCell.Graphics>
+                <StarMIcon />
+            </PureCell.Graphics>
+            <PureCell.Content>
+                <PureCell.Main>
+                    <PureCell.Text value='value' titleColor='primary'>
+                        Title
+                    </PureCell.Text>
+                </PureCell.Main>
+                <PureCell.Addon>
+                    <StarMIcon />
+                </PureCell.Addon>
+                <PureCell.Amount value={1234} />
+                <PureCell.AmountTitle value={1234} />
+                <PureCell.Category
+                    rightAddons={<div />}
+                    categoryName='Category'
+                    categoryPercent={10}
+                />
+                <PureCell.Footer>
+                    <PureCell.Comment>Comment</PureCell.Comment>
+                </PureCell.Footer>
+                <PureCell.FooterButton />
+                <PureCell.ExtraSubtitle />
+            </PureCell.Content>
+        </PureCell>
+    );
+};
 
 describe('PureCell', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     it('should use `direction` prop', () => {
         render(
             <PureCell direction='vertical' dataTestId='cell-pure'>
@@ -52,27 +99,28 @@ describe('PureCell', () => {
     });
 
     it('should use `dataTestId` prop', () => {
-        const dataTestId = 'cell-pure';
+        const dti = 'pure-cell-dti';
+        const { getByTestId } = render(<PureCellWrapper dataTestId={dti} />);
 
-        render(
-            <PureCell dataTestId={dataTestId}>
-                <PureCell.Graphics>
-                    <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
-                            Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
-                            Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
-            </PureCell>,
-        );
+        const testIds = getPureCellTestIds(dti);
 
-        expect(screen.getByTestId('cell-pure')).toBeInTheDocument();
+        expect(getByTestId(testIds.pureCell)).toBeInTheDocument();
+        expect(getByTestId(testIds.addon)).toBeInTheDocument();
+        expect(getByTestId(testIds.amount)).toBeInTheDocument();
+        expect(getByTestId(testIds.amountText)).toBeInTheDocument();
+        expect(getByTestId(testIds.amountTitle)).toBeInTheDocument();
+        expect(getByTestId(testIds.coreAmountTitle)).toBeInTheDocument();
+        expect(getByTestId(testIds.categoryName)).toBeInTheDocument();
+        expect(getByTestId(testIds.categoryPercent)).toBeInTheDocument();
+        expect(getByTestId(testIds.categoryRightAddon)).toBeInTheDocument();
+        expect(getByTestId(testIds.content)).toBeInTheDocument();
+        expect(getByTestId(testIds.footer)).toBeInTheDocument();
+        expect(getByTestId(testIds.footerButton)).toBeInTheDocument();
+        expect(getByTestId(testIds.extraSubtitle)).toBeInTheDocument();
+        expect(getByTestId(testIds.graphics)).toBeInTheDocument();
+        expect(getByTestId(testIds.main)).toBeInTheDocument();
+        expect(getByTestId(testIds.textContent)).toBeInTheDocument();
+        expect(getByTestId(testIds.textValue)).toBeInTheDocument();
     });
 
     it('should use `Component` prop', () => {

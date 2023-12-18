@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import React, { forwardRef } from 'react';
-
+import { getTabBarTestIds } from './utils';
 import { TabBar, TabBarProps, TabProps } from '.';
 
 const dti = 'tab-bar';
@@ -31,8 +31,10 @@ describe('TagBar', () => {
         it('should set `data-test-id` attribute', () => {
             const { container, getAllByTestId } = render(<TabBarComponent />);
 
-            expect(getAllByTestId(dti).length).toBe(1);
-            expect(getAllByTestId(`${dti}-tab`).length).toBe(2);
+            const testIds = getTabBarTestIds(dti);
+
+            expect(getAllByTestId(testIds.tabBar).length).toBe(1);
+            expect(getAllByTestId(testIds.tab).length).toBe(2);
         });
 
         it('should set `className` attribute', () => {

@@ -65,7 +65,12 @@ export const KeyPad: React.FC<KeyPadProps> = ({
             if (i === 11) {
                 if (showClear) {
                     return (
-                        <KeyPadButton key='clear-btn' onClick={onClear} view='ghost'>
+                        <KeyPadButton
+                            key='clear-btn'
+                            onClick={onClear}
+                            view='ghost'
+                            dataTestId={getDataTestId(dataTestId, 'backspace-button')}
+                        >
                             <BackspaceXxlIcon />
                         </KeyPadButton>
                     );
@@ -82,6 +87,7 @@ export const KeyPad: React.FC<KeyPadProps> = ({
                     onClick={onClick}
                     view='secondary'
                     buttonClassName={styles.digit}
+                    dataTestId={getDataTestId(dataTestId, 'keypad-button')}
                 >
                     {digit}
                 </KeyPadButton>

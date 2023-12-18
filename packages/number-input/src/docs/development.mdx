@@ -14,6 +14,29 @@ import { NumberInputDesktop } from '@alfalab/core-components/number-input/deskto
 import { NumberInputMobile } from '@alfalab/core-components/number-input/mobile';
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Компонент является оберткой над FormControl, поэтому наследует все его модификаторы.  
+Для удобного поиска элементов можно воспользоваться функцией `getNumberInputTestIds`.  
+Импорт из `@alfalab/core-components/number-input/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    input: dataTestId,
+    inputWrapper: `${dataTestId}-form-control`,
+    inputWrapperInner: `${dataTestId}-form-control-inner`,
+    leftAddons: `${dataTestId}-form-control-left-addons`,
+    rightAddons: `${dataTestId}-form-control-right-addons`,
+    error: `${dataTestId}-form-control-error-message`,
+    hint: `${dataTestId}-form-control-hint`,
+    decrementButton: `${dataTestId}-decrement-button`,
+    incrementButton: `${dataTestId}-increment-button`,
+};
+```
+
 ## Свойства
 
 <ArgTypes of={NumberInputResponsive} />

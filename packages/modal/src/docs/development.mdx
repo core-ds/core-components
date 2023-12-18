@@ -41,6 +41,27 @@ export type ModalContext = {
 };
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getModalTestIds`.  
+Импорт из `@alfalab/core-components/modal/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    modal: dataTestId,
+    content: `${dataTestId}-content`,
+    footer: `${dataTestId}-footer`,
+    controls: `${dataTestId}-controls`,
+    header: `${dataTestId}-header`,
+    title: `${dataTestId}-header-title`,
+    closer: `${dataTestId}-header-closer`,
+    backButton: `${dataTestId}-header-back-button`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs

@@ -32,7 +32,7 @@ type Props = {
 };
 
 export const Main: React.FC<Props> = ({ children, isReverse, className, dataTestId }) => {
-    const { direction = 'horizontal' } = useContext(PureCellContext);
+    const { direction = 'horizontal', dataTestId: contextDataTestId } = useContext(PureCellContext);
 
     return (
         <div
@@ -44,7 +44,7 @@ export const Main: React.FC<Props> = ({ children, isReverse, className, dataTest
                 },
                 className,
             )}
-            data-test-id={getDataTestId(dataTestId, 'main')}
+            data-test-id={getDataTestId(dataTestId || contextDataTestId, 'main')}
         >
             {children}
         </div>

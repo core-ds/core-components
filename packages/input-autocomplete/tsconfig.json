@@ -20,6 +20,7 @@
         { "path": "../button" },
         { "path": "../form-control" },
         { "path": "../bottom-sheet" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../shared" }
     ]
 }

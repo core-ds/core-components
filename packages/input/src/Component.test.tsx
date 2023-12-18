@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getInputTestIds } from './utils';
 
 import { InputDesktop as Input } from './desktop';
 
@@ -41,24 +42,31 @@ describe('Input', () => {
     });
 
     it('should set `data-test-id` atribute to input', () => {
-        const dataTestId = 'test-id';
-        const errorDti = `${dataTestId}-form-control-error-message`;
-        const leftAddonsDti = `${dataTestId}-form-control-left-addons`;
-        const rightAddonsDti = `${dataTestId}-form-control-right-addons`;
+        const dti = 'input-dti';
         const { getByTestId } = render(
             <Input
                 block={true}
-                dataTestId={dataTestId}
+                dataTestId={dti}
                 error='error message'
                 leftAddons={<span />}
                 rightAddons={<span />}
             />,
         );
 
-        expect(getByTestId(dataTestId).tagName).toBe('INPUT');
-        expect(getByTestId(errorDti)).toBeTruthy();
-        expect(getByTestId(leftAddonsDti)).toBeTruthy();
-        expect(getByTestId(rightAddonsDti)).toBeTruthy();
+        const testIds = getInputTestIds(dti);
+        expect(getByTestId(dti).tagName).toBe('INPUT');
+        expect(getByTestId(testIds.input)).toBeInTheDocument();
+        expect(getByTestId(testIds.inputWrapper)).toBeInTheDocument();
+        expect(getByTestId(testIds.inputWrapperInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.leftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.rightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.error)).toBeInTheDocument();
+
+        const { getByTestId: getByTestIdHint } = render(
+            <Input block={true} dataTestId={dti} hint='hint' />,
+        );
+
+        expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
     });
 
     it('should set `aria-label` atribute to input', () => {
