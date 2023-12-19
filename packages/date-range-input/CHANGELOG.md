@@ -1,5 +1,14 @@
 # @alfalab/core-components-date-range-input
 
+## 3.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.3.1
+    -   input@14.1.1
+    -   icon-button@6.5.1
+
 ## 3.3.0
 
 ### Minor Changes

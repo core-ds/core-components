@@ -1,5 +1,15 @@
 # Change Log
 
+## 11.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.9.1
+    -   select@17.1.1
+    -   form-control@12.0.3
+    -   input@14.1.1
+
 ## 11.3.2
 
 ### Patch Changes

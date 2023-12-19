@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.1.1
+    -   button@11.1.1
+
 ## 11.5.0
 
 ### Minor Changes

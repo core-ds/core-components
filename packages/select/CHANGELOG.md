@@ -1,5 +1,19 @@
 # Change Log
 
+## 17.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.1.0
+    -   shared@0.9.1
+    -   base-modal@5.7.2
+    -   bottom-sheet@6.13.2
+    -   button@11.1.1
+    -   checkbox@4.1.1
+    -   form-control@12.0.3
+    -   input@14.1.1
+
 ## 17.1.0
 
 ### Minor Changes

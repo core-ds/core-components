@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.3.3
+
+### Patch Changes
+
+### [#1048](https://github.com/core-ds/core-components/pull/1048)
+
+-   Добавлена возможность прокидывать кастомную ошибку в static календарь
+
+-   Обновлены зависимости
+    -   calendar@7.3.1
+    -   calendar-input@10.2.1
+    -   date-input@4.3.17
+
 ## 7.3.2
 
 ### Patch Changes

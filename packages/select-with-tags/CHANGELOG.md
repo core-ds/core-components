@@ -1,5 +1,14 @@
 # Change Log
 
+## 8.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.1.1
+    -   bottom-sheet@6.13.2
+    -   form-control@12.0.3
+
 ## 8.1.0
 
 ### Minor Changes

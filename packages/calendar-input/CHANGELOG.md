@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.3.1
+    -   date-input@4.3.17
+
 ## 10.2.0
 
 ### Minor Changes

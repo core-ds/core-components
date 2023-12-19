@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.4.0
+
+### Minor Changes
+
+### [#1045](https://github.com/core-ds/core-components/pull/1045)
+
+-   Добавлены свойства align и wrapperClassName в skeletonProps
+
 ## 4.3.0
 
 ### Minor Changes
