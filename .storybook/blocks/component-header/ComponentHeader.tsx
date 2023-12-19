@@ -5,8 +5,8 @@ import { Typography } from '@alfalab/core-components-typography';
 import { Space } from '@alfalab/core-components-space';
 import { pluralize } from '@alfalab/utils';
 import { GithubIcon } from 'storybook/components/icons/GithubIcon';
-import figmaLinks from 'storybook/figma-links.json';
 
+import figmaLinks from 'storybook/figma-links.json';
 import usages from 'storybook/usages.json';
 
 import styles from './ComponentHeader.module.css';
@@ -14,15 +14,10 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 
 type ComponentHeaderProps = {
     name: string;
-    design?: string;
     children?: ReactNode;
 };
 
-export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
-    name,
-    design: designProp,
-    children,
-}) => {
+export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, children }) => {
     const [isDesktop] = useMatchMedia('--tablet-m');
 
     const packageName = name
@@ -31,7 +26,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         .toLowerCase();
 
     const githubLink = `https://github.com/core-ds/core-components/tree/master/packages/${packageName}`;
-    const designLink = figmaLinks[name]?.figma || designProp;
+    const designLink = figmaLinks[name]?.figma;
 
     const Title = isDesktop ? Typography.Title : Typography.TitleMobile;
 
