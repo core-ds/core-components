@@ -41,20 +41,6 @@ describe('CalendarRange', () => {
             jest.advanceTimersByTime(300);
         });
 
-    Object.defineProperty(window, 'matchMedia', {
-        writable: true,
-        value: jest.fn().mockImplementation((query) => ({
-            matches: true,
-            media: query,
-            onchange: null,
-            addListener: jest.fn(),
-            removeListener: jest.fn(),
-            addEventListener: jest.fn(),
-            removeEventListener: jest.fn(),
-            dispatchEvent: jest.fn(),
-        })),
-    });
-
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(
@@ -88,6 +74,23 @@ describe('CalendarRange', () => {
         expect(queryByText('addonFrom')).toBeInTheDocument();
         expect(queryByText('addonTo')).toBeInTheDocument();
     });
+
+    for (const position of ['static', 'popover'] as const) {
+        it(`should pass custom errors to ${position} CalendarInputs`, () => {
+            const fromError = '`from` message error';
+            const toError = '`to` message error';
+            const { queryByText } = render(
+                <CalendarRange
+                    calendarPosition={position}
+                    inputFromProps={{ error: fromError }}
+                    inputToProps={{ error: toError }}
+                />,
+            );
+
+            expect(queryByText(fromError)).toBeInTheDocument();
+            expect(queryByText(toError)).toBeInTheDocument();
+        });
+    }
 
     it('should open current and next month by default', () => {
         const { container } = render(<CalendarRange />);
