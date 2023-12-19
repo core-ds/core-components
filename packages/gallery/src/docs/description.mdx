@@ -1,6 +1,29 @@
 ## Примеры
 
 ```jsx live mobileHeight={500}
+const images = [
+    {
+        name: 'Вертикальное изображение',
+        src: './images/gallery_1.jpg',
+    },
+    {
+        name: 'Горизонтальное  изображение',
+        src: './images/gallery_2.jpg',
+    },
+    {
+        name: 'Квадратное изображение',
+        src: './images/gallery_3.jpg',
+    },
+    {
+        name: 'Маленькое изображение',
+        src: './images/gallery_4.jpg',
+    },
+    {
+        name: 'Битое изображение.jpg',
+        src: 'https://picsum.photos',
+    },
+];
+
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [imagesQuantity, setImagesQuantity] = React.useState('some');
@@ -8,29 +31,6 @@ render(() => {
     const onImagesQuantityChange = (_, payload) => {
         setImagesQuantity(payload.value);
     };
-
-    const images = [
-        {
-            name: 'Вертикальное изображение',
-            src: './images/gallery_1.jpg',
-        },
-        {
-            name: 'Горизонтальное  изображение',
-            src: './images/gallery_2.jpg',
-        },
-        {
-            name: 'Квадратное изображение',
-            src: './images/gallery_3.jpg',
-        },
-        {
-            name: 'Маленькое изображение',
-            src: './images/gallery_4.jpg',
-        },
-        {
-            name: 'Битое изображение.jpg',
-            src: 'https://picsum.photos',
-        },
-    ];
 
     return (
         <div style={{ width: 320 }}>
@@ -63,6 +63,25 @@ render(() => {
 ## Галерея с предпросмотром
 
 ```jsx live mobileHeight={875}
+const images = [
+    {
+        name: 'Вертикальное изображение',
+        src: './images/gallery_1.jpg',
+    },
+    {
+        name: 'Горизонтальное  изображение',
+        src: './images/gallery_2.jpg',
+    },
+    {
+        name: 'Квадратное изображение',
+        src: './images/gallery_3.jpg',
+    },
+    {
+        name: 'Маленькое изображение',
+        src: './images/gallery_4.jpg',
+    },
+];
+
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [slideIndex, setSlideIndex] = React.useState(0);
@@ -73,21 +92,6 @@ render(() => {
     };
 
     const closeGallery = () => setOpen(false);
-
-    const images = [
-        {
-            src: './images/gallery_1.jpg',
-        },
-        {
-            src: './images/gallery_2.jpg',
-        },
-        {
-            src: './images/gallery_3.jpg',
-        },
-        {
-            src: './images/gallery_4.jpg',
-        },
-    ];
 
     return (
         <div>
