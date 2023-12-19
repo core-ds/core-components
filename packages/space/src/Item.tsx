@@ -4,6 +4,7 @@ import { Direction } from './utils';
 
 export interface ItemProps {
     className: string;
+    dividerClassName: string;
     horizontalSize: number;
     verticalSize: number;
     length: number;
@@ -12,11 +13,13 @@ export interface ItemProps {
     direction?: Direction;
     divider?: string | React.ReactNode;
     wrap?: boolean;
+    useCssGaps: boolean;
 }
 
 const Item = (props: ItemProps) => {
     const {
         className,
+        dividerClassName,
         horizontalSize,
         verticalSize,
         length,
@@ -25,19 +28,22 @@ const Item = (props: ItemProps) => {
         children,
         divider,
         wrap,
+        useCssGaps,
     } = props;
 
-    let style: React.CSSProperties = {};
+    let style: React.CSSProperties | undefined;
 
-    if (direction === 'vertical') {
-        if (index < length - 1) {
-            style = { marginBottom: horizontalSize / (divider ? 2 : 1) };
+    if (!useCssGaps) {
+        if (direction === 'vertical') {
+            if (index < length - 1) {
+                style = { marginBottom: horizontalSize / (divider ? 2 : 1) };
+            }
+        } else {
+            style = {
+                ...(index < length - 1 && { marginRight: horizontalSize / (divider ? 2 : 1) }),
+                ...(wrap && { paddingBottom: verticalSize }),
+            };
         }
-    } else {
-        style = {
-            ...(index < length - 1 && { marginRight: horizontalSize / (divider ? 2 : 1) }),
-            ...(wrap && { paddingBottom: verticalSize }),
-        };
     }
 
     if (children === null || children === undefined) {
@@ -50,12 +56,7 @@ const Item = (props: ItemProps) => {
                 {children}
             </div>
             {index < length - 1 && divider && (
-                <span
-                    style={{
-                        width: '100%',
-                        ...style,
-                    }}
-                >
+                <span className={dividerClassName} style={style}>
                     {divider}
                 </span>
             )}

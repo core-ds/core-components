@@ -1,5 +1,5 @@
 import React, { Children, forwardRef, ReactNode } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import Item from './Item';
 import { Align, Direction, Size } from './utils';
@@ -51,6 +51,12 @@ export type SpaceProps = {
      * Растягивать ли компонент на всю ширину
      */
     fullWidth?: boolean;
+
+    /**
+     * Использовать css gap
+     * @description Поддержка ограничена. см https://caniuse.com/?search=gap
+     */
+    useCssGaps?: boolean;
 };
 
 const SpaceSizes: { [key in Size]: number } = {
@@ -76,6 +82,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         divider = false,
         fullWidth = false,
         dataTestId,
+        useCssGaps = false,
     } = props;
 
     const [horizontalSize, verticalSize] = React.useMemo(
@@ -95,7 +102,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     const directionClassName = styles[direction];
     const alignClassName = styles[align];
 
-    const containerClassName = classNames(
+    const containerClassName = cn(
         styles.spaceContainer,
         directionClassName,
         {
@@ -105,7 +112,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         className,
     );
 
-    const itemClassName = classNames(styles.spaceItem, {
+    const itemClassName = cn(styles.spaceItem, {
         [styles.spaceItemFullWidth]: fullWidth,
     });
 
@@ -113,6 +120,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         /* eslint-disable react/no-array-index-key */
         <Item
             className={itemClassName}
+            dividerClassName={styles.divider}
             key={`${itemClassName}-${i}`}
             direction={direction}
             horizontalSize={horizontalSize}
@@ -121,6 +129,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
             index={i}
             wrap={wrap}
             divider={divider}
+            useCssGaps={useCssGaps}
         >
             {child}
         </Item>
@@ -130,9 +139,15 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     return (
         <div
             data-test-id={dataTestId}
-            className={containerClassName}
+            className={cn(containerClassName, {
+                [styles.wrap]: useCssGaps && wrap,
+            })}
             style={{
-                ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
+                ...(useCssGaps && {
+                    columnGap: horizontalSize / (divider ? 2 : 1),
+                    rowGap: verticalSize / (divider ? 2 : 1),
+                }),
+                ...(wrap && !useCssGaps && { flexWrap: 'wrap', marginBottom: -verticalSize }),
             }}
             ref={ref}
         >
