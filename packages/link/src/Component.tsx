@@ -107,7 +107,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
                 styles.component,
                 colorStyles[colors][viewClassName],
                 {
-                    [styles.withoutUnderline]: !underline && !pseudo,
+                    [styles.withoutUnderline]: !underline,
                     [styles.pseudo]: pseudo,
                     [styles.focused]: focused,
                     [styles.withAddons]: leftAddons || rightAddons,
@@ -140,11 +140,3 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-Link.defaultProps = {
-    view: 'primary',
-    pseudo: false,
-};
