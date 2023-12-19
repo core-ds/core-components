@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import cn from 'classnames';
 
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -52,7 +53,14 @@ export function useSkeleton(showSkeleton?: boolean, skeletonProps?: TextSkeleton
     const renderSkeleton = (props: SkeletonProps) => {
         if (showSkeleton && skeletonParams) {
             return (
-                <div className={props.wrapperClassName} data-test-id={props.dataTestId}>
+                <div
+                    className={cn(
+                        skeletonProps?.wrapperClassName,
+                        props.wrapperClassName,
+                        skeletonProps?.align && styles[skeletonProps.align],
+                    )}
+                    data-test-id={props.dataTestId}
+                >
                     {[...Array(skeletonParams.rows)].map((_, idx) => {
                         const width = Array.isArray(skeletonProps?.width)
                             ? skeletonProps?.width[idx]
