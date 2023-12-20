@@ -1,4 +1,4 @@
-import { Collection, JSCodeshift, JSXOpeningElement } from 'jscodeshift';
+import { Collection, ImportSpecifier, JSCodeshift, JSXOpeningElement } from 'jscodeshift';
 
 type TransformTypographyImportOpts = {
     from: string;
@@ -72,6 +72,63 @@ export const transformTypographyImports = (
         );
     }
 };
+
+export function findCoreComponentJSXElement(
+    source: Collection,
+    j: JSCodeshift,
+    packageName: string,
+    componentName: string,
+): string | undefined {
+    const componentImportDecl = source.find(j.ImportDeclaration).filter((decl) => {
+        const isCoreImport = new RegExp(`@alfalab/core-components[-/]${packageName}`).test(
+            String(decl.node.source.value),
+        );
+
+        const hasComponentImport = !!decl.node.specifiers?.some((s) =>
+            'imported' in s ? s.imported.name === componentName : false,
+        );
+
+        return isCoreImport && hasComponentImport;
+    });
+
+    if (componentImportDecl.length) {
+        return componentImportDecl
+            .get(0)
+            .node.specifiers.find((s: ImportSpecifier) => s.imported.name === componentName).local
+            .name;
+    }
+
+    return undefined;
+}
+
+export function addOrReplaceNumericOrBooleanAttribute(
+    source: Collection,
+    j: JSCodeshift,
+    component: string,
+    propName: string,
+    propValue: number | boolean,
+) {
+    const jsxElements = source
+        .find(j.JSXElement)
+        .filter((path) =>
+            'name' in path.value.openingElement.name
+                ? path.value.openingElement.name.name === component
+                : false,
+        );
+
+    jsxElements.forEach((element) => {
+        // eslint-disable-next-line no-param-reassign
+        element.node.openingElement.attributes = [
+            ...(element.node.openingElement.attributes || []).filter((attr) =>
+                'name' in attr ? attr.name.name !== propName : true,
+            ),
+            j.jsxAttribute(
+                j.jsxIdentifier(propName),
+                j.jsxExpressionContainer(j.literal(propValue)),
+            ),
+        ];
+    });
+}
 
 export const renameAttribute = (
     j: JSCodeshift,
