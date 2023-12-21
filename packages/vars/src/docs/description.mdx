@@ -1,11 +1,13 @@
 import { CssVars } from 'storybook/blocks';
-import colorsIndigo from '!!raw-loader!../colors-indigo.css';
 import colorsBluetint from '!!raw-loader!../colors-bluetint.css';
 import colorsAddons from '!!raw-loader!../colors-addons.css';
-import colorsTransparent from '!!raw-loader!../colors-transparent.css';
+import colorsDecorative from '!!raw-loader!../colors-decorative.css';
+import colorsQualitative from '!!raw-loader!../colors-qualitative.css';
+import colorsSequential from '!!raw-loader!../colors-sequential.css';
+import colorsPfm from '!!raw-loader!../colors-pfm.css';
 import borderRadius from '!!raw-loader!../border-radius.css';
 import gaps from '!!raw-loader!../gaps.css';
-import shadowsIndigo from '!!raw-loader!../shadows-indigo.css';
+import shadowsBluetint from '!!raw-loader!../shadows-bluetint.css';
 import typography from '!!raw-loader!../typography.css';
 import mixins from '!!raw-loader!../mixins.css';
 
@@ -21,11 +23,11 @@ import * as vars from '@alfalab/core-components/vars';
 vars.gap2xl === '32px'; //true
 ```
 
-Для использования в проекте, подключите весь набор переменных в одном из корневых css файлов:
+Для использования в проекте, добавьте один из [подготовленных бандлов](https://github.com/core-ds/core-components/tree/master/packages/vars/src/bundle) продуктов в один из корневых файлов CSS:
 
 ```css
 /* app.css */
-@import '@alfalab/core-components/vars/index.css';
+@import '@alfalab/core-components/vars/bundle/click.css';
 ```
 
 Теперь все переменные и миксины можно использовать в любом месте проекта:
@@ -60,19 +62,10 @@ vars.gap2xl === '32px'; //true
 #### Тени
 
 ```css
-@import '@alfalab/core-components/vars/shadows-indigo.css';
+@import '@alfalab/core-components/vars/shadows-bluetint.css';
 ```
 
-<CssVars css={shadowsIndigo} expandable />
-&nbsp;
-
-#### Цвета indigo
-
-```css
-@import '@alfalab/core-components/vars/colors-indigo.css';
-```
-
-<CssVars css={colorsIndigo} expandable />
+<CssVars css={shadowsBluetint} expandable />
 &nbsp;
 
 #### Цвета bluetint
@@ -93,13 +86,40 @@ vars.gap2xl === '32px'; //true
 <CssVars css={colorsAddons} expandable />
 &nbsp;
 
-#### Цвета transparent
+#### Цвета decorative
 
 ```css
-@import '@alfalab/core-components/vars/colors-transparent.css';
+@import '@alfalab/core-components/vars/colors-decorative.css';
 ```
 
-<CssVars css={colorsTransparent} expandable />
+<CssVars css={colorsDecorative} expandable />
+&nbsp;
+
+#### Цвета qualitative
+
+```css
+@import '@alfalab/core-components/vars/colors-qualitative.css';
+```
+
+<CssVars css={colorsQualitative} expandable />
+&nbsp;
+
+#### Цвета sequential
+
+```css
+@import '@alfalab/core-components/vars/colors-sequential.css';
+```
+
+<CssVars css={colorsSequential} expandable />
+&nbsp;
+
+#### Цвета pfm
+
+```css
+@import '@alfalab/core-components/vars/colors-pfm.css';
+```
+
+<CssVars css={colorsPfm} expandable />
 &nbsp;
 
 #### Переменные и миксины typography
