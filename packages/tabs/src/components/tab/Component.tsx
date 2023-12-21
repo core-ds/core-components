@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import { TabProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Tab = ({ children, hidden, className, disabled, dataTestId }: TabProps) =>
+export const Tab = forwardRef<HTMLDivElement, TabProps>(({ children, hidden, className, disabled, dataTestId }, ref) =>
     children ? (
         <div
+            ref={ref}
             className={cn(
                 styles.component,
                 {
@@ -22,4 +23,4 @@ export const Tab = ({ children, hidden, className, disabled, dataTestId }: TabPr
         >
             {children}
         </div>
-    ) : null;
+    ) : null);
