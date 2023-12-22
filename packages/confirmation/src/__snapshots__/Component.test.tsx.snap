@@ -22,6 +22,8 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         class="component containerInput codeInput"
       >
         <div
+          aria-label="Введено 0 из 5 символов"
+          aria-live="polite"
           class=""
         >
           <input
@@ -103,6 +105,8 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         class="component containerInput codeInput"
       >
         <div
+          aria-label="Введено 0 из 5 символов"
+          aria-live="polite"
           class=""
         >
           <input
@@ -247,6 +251,8 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         class="component containerInput codeInput"
       >
         <div
+          aria-label="Введено 0 из 5 символов"
+          aria-live="polite"
           class="shake"
         >
           <input
@@ -334,6 +340,8 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         class="component containerInput codeInput"
       >
         <div
+          aria-label="Введено 0 из 5 символов"
+          aria-live="polite"
           class=""
         >
           <input

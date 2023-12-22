@@ -34,6 +34,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             initialValues = '',
             dataTestId,
             clearCodeOnError = true,
+            errorVisibleDuration = CODE_ERROR_HINT_VISIBLE_DURATION,
             onErrorAnimationEnd,
             onChange,
             onComplete,
@@ -243,7 +244,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 }
 
                 onErrorAnimationEnd?.();
-            }, CODE_ERROR_HINT_VISIBLE_DURATION);
+            }, errorVisibleDuration);
         };
 
         useEffect(
@@ -292,7 +293,11 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 data-test-id={dataTestId}
                 onAnimationEnd={handleErrorAnimationEnd}
             >
-                <div className={cn({ [styles.shake]: Boolean(error) })}>
+                <div
+                    className={cn({ [styles.shake]: Boolean(error) })}
+                    aria-label={`Введено ${values.length} из ${fields} символов`}
+                    aria-live='polite'
+                >
                     {/* eslint-disable react/no-array-index-key */}
                     {new Array(fields).fill('').map((_, index) => (
                         <Input
