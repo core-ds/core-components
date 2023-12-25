@@ -86,7 +86,7 @@ export const CollapsiblePrimaryTabList = ({
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
-            {tablistTitles.map(({ dataTestId: _, ...restTitleProps }, index) => (
+            {tablistTitles.map(({ dataTestId: _, ref: __, ...restTitleProps }, index) => (
                 <KeyboardFocusable key={restTitleProps.id}>
                     {(ref, focused) => (
                         <Title

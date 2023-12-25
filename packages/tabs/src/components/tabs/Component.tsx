@@ -32,6 +32,7 @@ export const Tabs = ({
                 toggleClassName,
                 dataTestId: toggleTestId,
             },
+            ref,
         }) => ({
             title,
             id,
@@ -40,6 +41,7 @@ export const Tabs = ({
             hidden,
             toggleClassName,
             dataTestId: toggleTestId,
+            ref,
         }),
     );
 
