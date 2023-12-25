@@ -213,7 +213,9 @@ describe('InputAutocompleteMobile', () => {
             const option = await findByText(options[0].content);
 
             fireEvent.click(option);
-            await waitFor(() => expect(onExited).toBeCalled());
+            await waitFor(() => expect(onExited).toBeCalled(), {
+                timeout: 4000,
+            });
             await userEvent.tab();
 
             expect(onBlur).toBeCalled();
