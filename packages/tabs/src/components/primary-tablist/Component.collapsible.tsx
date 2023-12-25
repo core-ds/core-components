@@ -49,17 +49,27 @@ export const CollapsiblePrimaryTabList = ({
 
     const collapsedOptions = useMemo(
         () =>
-            tablistTitles.reduce<PickerButtonDesktopProps['options']>((options, title) => {
-                if (title.collapsed) {
-                    options.push({
-                        key: title.title,
-                        value: title.id,
-                        content: <Title {...title} styles={styles} isOption={true} />,
-                    });
-                }
+            tablistTitles.reduce<PickerButtonDesktopProps['options']>(
+                (options, { ref, ...title }) => {
+                    if (title.collapsed) {
+                        options.push({
+                            key: title.title,
+                            value: title.id,
+                            content: (
+                                <Title
+                                    {...title}
+                                    ref={ref as React.Ref<HTMLButtonElement>}
+                                    styles={styles}
+                                    isOption={true}
+                                />
+                            ),
+                        });
+                    }
 
-                return options;
-            }, []),
+                    return options;
+                },
+                [],
+            ),
         [tablistTitles],
     );
 
