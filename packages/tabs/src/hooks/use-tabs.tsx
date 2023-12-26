@@ -1,4 +1,13 @@
-import { KeyboardEvent, MouseEvent, MutableRefObject, useCallback, useRef, useState } from 'react';
+import {
+    KeyboardEvent,
+    MouseEvent,
+    MutableRefObject,
+    Ref,
+    useCallback,
+    useRef,
+    useState,
+} from 'react';
+import mergeRefs from 'react-merge-refs';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
@@ -104,6 +113,18 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
         const item = titles[index];
         const itemSelected = item.id === selectedId;
 
+        const refs: Array<Ref<HTMLElement>> = [
+            (node: HTMLButtonElement) => {
+                // eslint-disable-next-line no-param-reassign
+                if (outerRef) outerRef.current = node;
+                handleItemRef(node, item, index);
+            },
+        ];
+
+        if (item.ref) {
+            refs.push(item.ref);
+        }
+
         return {
             role: 'tab',
             tabIndex: itemSelected ? 0 : -1,
@@ -111,11 +132,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
             selected: itemSelected,
             'data-test-id': getDataTestId(item.dataTestId, 'toggle'),
             disabled: item.disabled,
-            ref: (node: HTMLButtonElement) => {
-                // eslint-disable-next-line no-param-reassign
-                if (outerRef) outerRef.current = node;
-                handleItemRef(node, item, index);
-            },
+            ref: mergeRefs(refs),
             onKeyDown: handleKeyDown,
             onClick: (event?: MouseEvent) => handleItemClick(event as MouseEvent, item),
         };

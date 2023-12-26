@@ -59,7 +59,7 @@ export const PrimaryTabList = ({
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
-            {titles.map(({ dataTestId: _, ...restTitleProps }, index) => (
+            {titles.map(({ dataTestId: _, ref: __, ...restTitleProps }, index) => (
                 <KeyboardFocusable key={restTitleProps.id}>
                     {(ref, focused) => (
                         <Title
