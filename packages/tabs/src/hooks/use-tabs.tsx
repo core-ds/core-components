@@ -121,8 +121,8 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
             },
         ];
 
-        if (item.ref) {
-            refs.push(item.ref);
+        if (item.toggleRef) {
+            refs.push(item.toggleRef);
         }
 
         return {

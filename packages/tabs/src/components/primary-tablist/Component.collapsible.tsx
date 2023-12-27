@@ -50,7 +50,7 @@ export const CollapsiblePrimaryTabList = ({
     const collapsedOptions = useMemo(
         () =>
             tablistTitles.reduce<PickerButtonDesktopProps['options']>(
-                (options, { ref, ...title }) => {
+                (options, { toggleRef, ...title }) => {
                     if (title.collapsed) {
                         options.push({
                             key: title.title,
@@ -58,7 +58,7 @@ export const CollapsiblePrimaryTabList = ({
                             content: (
                                 <Title
                                     {...title}
-                                    ref={ref as Ref<HTMLButtonElement>}
+                                    ref={toggleRef as Ref<HTMLButtonElement>}
                                     styles={styles}
                                     isOption={true}
                                 />
@@ -96,7 +96,7 @@ export const CollapsiblePrimaryTabList = ({
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
-            {tablistTitles.map(({ dataTestId: _, ref: __, ...restTitleProps }, index) => (
+            {tablistTitles.map(({ dataTestId: _, toggleRef: __, ...restTitleProps }, index) => (
                 <KeyboardFocusable key={restTitleProps.id}>
                     {(ref, focused) => (
                         <Title
