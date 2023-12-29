@@ -1,5 +1,12 @@
 # @alfalab/core-components-date-range-input
 
+## 3.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.1.2
+
 ## 3.3.1
 
 ### Patch Changes

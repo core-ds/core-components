@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.0.3
+
+### Patch Changes
+
+### [#1044](https://github.com/core-ds/core-components/pull/1044)
+
+-   Добавлена css-переменная для токена фона
+
+-   Обновлены зависимости
+    -   badge@5.5.1
+
 ## 1.0.2
 
 ### Patch Changes

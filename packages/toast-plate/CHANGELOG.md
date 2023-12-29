@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.5.1
+
 ## 6.3.1
 
 ### Patch Changes

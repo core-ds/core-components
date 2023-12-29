@@ -1,5 +1,12 @@
 # @alfalab/core-components-time-input
 
+## 2.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.1.2
+
 ## 2.2.17
 
 ### Patch Changes

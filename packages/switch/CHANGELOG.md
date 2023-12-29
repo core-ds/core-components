@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.2
+
+### Patch Changes
+
+### [#1051](https://github.com/core-ds/core-components/pull/1051)
+
+-   Исправлена проблема, из-за которой компоненты некорректно отображались при уменьшении масштаба страницы
+
 ## 4.1.1
 
 ### Patch Changes

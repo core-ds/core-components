@@ -1,5 +1,13 @@
 # Change Log
 
+## 17.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.5.1
+    -   input@14.1.2
+
 ## 17.1.1
 
 ### Patch Changes

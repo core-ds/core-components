@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.5.2
+
+### Patch Changes
+
+### [#1059](https://github.com/core-ds/core-components/pull/1059)
+
+-   Добавлен toggleRef для кнопки переключения таба
+
+-   Обновлены зависимости
+    -   badge@5.5.1
+    -   picker-button@11.5.2
+
 ## 8.5.1
 
 ### Patch Changes

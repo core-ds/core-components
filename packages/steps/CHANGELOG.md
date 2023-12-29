@@ -1,5 +1,12 @@
 # @alfalab/core-components-steps
 
+## 1.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.5.1
+
 ## 1.5.0
 
 ### Minor Changes
