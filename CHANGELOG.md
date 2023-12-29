@@ -1,3 +1,221 @@
+## 44.5.0
+
+<sup><time>19.12.2023</time></sup>
+
+### [#1039](https://github.com/core-ds/core-components/pull/1039)
+
+#### Что изменилось
+- Исправлена ошибка с dataTestId в заголовках. В версии 44.4.0 явно переданный dataTestId в Header не работал.
+- Добавлены функции getSidePanelTestIds, getModalTestIds для удобного поиска элементов модальных сущностей. Импортировать их можно из @alfalab/core-components/{modal,side-panel}/shared.
+
+#### Влияние на компоненты
+- Минорное<br />`modal` `side-panel`
+
+<br />
+
+#### Что изменилось
+- Исправлены типы getDataTestId функции
+
+#### Влияние на компоненты
+- Патчи<br />`shared`
+
+
+### [#1048](https://github.com/core-ds/core-components/pull/1048)
+
+#### Что изменилось
+- Добавлена возможность прокидывать кастомную ошибку в static календарь
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-range`
+
+
+### [#1046](https://github.com/core-ds/core-components/pull/1046)
+
+#### Что изменилось
+- Добавлен новый проп useCssGaps. Не всеми старыми браузерами поддерживается flex gaps, поэтому используйте на свой страх и риск
+
+#### Влияние на компоненты
+- Минорное<br />`space`
+
+
+### [#1045](https://github.com/core-ds/core-components/pull/1045)
+
+#### Что изменилось
+- Добавлены свойства align и wrapperClassName в skeletonProps
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1038](https://github.com/core-ds/core-components/pull/1038)
+
+#### Что изменилось
+- Раньше при появления оверлея в дропозоне контент оставался видимым и из-за прозрачности в цвете оверлея его было видно, теперь скрываем контент при появление оверлея
+
+#### Влияние на компоненты
+- Минорное<br />`dropzone`
+
+
+
+## 44.4.0
+
+<sup><time>08.12.2023</time></sup>
+
+### [#1009](https://github.com/core-ds/core-components/pull/1009)
+
+#### Что изменилось
+- Добавлены два новых размера компонента: 16 и 56. Добавлено новое свойство mainSize, отвечающее за размер основного слота (обычно, это иконка)
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#1001](https://github.com/core-ds/core-components/pull/1001)
+
+#### Что изменилось
+- Изменен отступ до аддонов в размерах xxs, xs с 4px до 6px
+
+#### Влияние на компоненты
+- Патчи<br />`filter-tag` `picker-button` `tag`
+
+<br />
+
+#### Что изменилось
+- Добавлены свойства hint, textResizing и shape
+- Изменен отступ до аддонов в размерах xxs, xs с 4px до 6px
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#1036](https://github.com/core-ds/core-components/pull/1036)
+
+#### Что изменилось
+- Повышена специфичность стилей поповера и инпута поиска
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1010](https://github.com/core-ds/core-components/pull/1010)
+
+#### Что изменилось
+- Исправлена позиция стрелки поповера в случаях, когда anchorElement более чем в два раз выше или шире самого поповера и position заканчивается на -start или -end
+
+#### Влияние на компоненты
+- Патчи<br />`popover`
+
+
+### [#1018](https://github.com/core-ds/core-components/pull/1018)
+
+#### Что изменилось
+- Изменены стили для состояния disabled в соответствии с макетом. Css-переменная --switch-icon-disabled-checked-color переименована в --switch-icon-disabled-color
+
+#### Влияние на компоненты
+- Минорное<br />`switch`
+
+
+### [#1011](https://github.com/core-ds/core-components/pull/1011)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой обработчик onChange вызывался при клике на addon
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox` `radio` `switch`
+
+<br />
+
+#### Что изменилось
+- Добавлена функция preventDefault
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+
+### [#1008](https://github.com/core-ds/core-components/pull/1008)
+
+#### Что изменилось
+- Title, TitleMobile и TitleResponsive обернуты в forwardRef
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1003](https://github.com/core-ds/core-components/pull/1003)
+
+#### Что изменилось
+- Цвет primary кнопки мобильного компонента в теме corp изменен на черный
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+- Патчи<br />`themes`
+
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+#### Что изменилось
+- Обновлена зависимость @alfalab/icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`attach` `badge` `bank-card` `calendar` `calendar-input`<br /> `checkbox` `checkbox-group` `collapse` `confirmation-v1` `date-range-input`<br /> `date-time-input` `dropzone` `file-upload-item` `filter-tag` `gallery`<br /> `input` `international-phone-input` `intl-phone-input` `navigation-bar` `number-input`<br /> `pagination` `pass-code` `password-input` `picker-button` `plate`<br /> `select` `select-with-tags` `sortable-list` `steps` `tabs`<br /> `toast-plate` `universal-date-input`
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент StatusBadge
+
+#### Влияние на компоненты
+- Минорное<br />`status-badge`
+
+
+### [#1004](https://github.com/core-ds/core-components/pull/1004)
+
+#### Что изменилось
+- Добавлены новые размеры - 24, 32, 40, 48, 56
+
+#### Влияние на компоненты
+- Минорное<br />`icon-button`
+
+
+### [#1013](https://github.com/core-ds/core-components/pull/1013)
+
+#### Что изменилось
+- Исправлена проблема, из-за которой dataTestId не передавался внутренним компонентам (Header, Content, Footer, Controls)
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+
+### [#1016](https://github.com/core-ds/core-components/pull/1016)
+
+#### Что изменилось
+- Изменили CSS-токен для фона в степпере с neutral_inverted/1500 на neutral-translucent/0 в дефолтном наборе цветов и с neutral/1500 на neutral-translucent_inverted/0 в инвертированном
+
+#### Влияние на компоненты
+- Патчи<br />`number-input`
+
+
+### [#1006](https://github.com/core-ds/core-components/pull/1006)
+
+#### Что изменилось
+- Удалена темизация corp (стиль перекрытия при фиксации для футера и хедера) для компонентов BottomSheet и Modal
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#1017](https://github.com/core-ds/core-components/pull/1017)
+
+#### Что изменилось
+- Добавлен проп codeFormat: 'letter' | 'symbolic'
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input`
+
+
+
 ## 44.3.0
 
 <sup><time>30.11.2023</time></sup>

@@ -127,12 +127,13 @@
 
     &:before {
         content: '';
-        background-color: var(--radio-icon-color);
         position: absolute;
-        width: 6px;
-        height: 6px;
-        border-radius: 3px;
-        margin: auto;
+        background-color: var(--radio-icon-color);
+        background-clip: padding-box;
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent;
+        border-radius: var(--border-radius-circle);
         left: 0;
         right: 0;
         top: 0;
@@ -146,6 +147,10 @@
     width: 16px;
     height: 16px;
     margin: var(--gap-2xs) var(--gap-3xs);
+
+    &:before {
+        border-width: 4px;
+    }
 }
 
 .content {

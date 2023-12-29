@@ -47,7 +47,7 @@ addons.register('TitleAddon', (api) => {
 });
 
 addons.register('RedirectAddon', (api) => {
-    const redirectTo = process.env.NODE_ENV === 'development' ? '/' : '/core-components/master/';
+    const redirectTo = process.env.NODE_ENV === 'development' ? '/' : window.location.pathname;
 
     api.on(STORY_MISSING, () => {
         window.location.href = redirectTo;

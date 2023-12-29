@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-navigation-bar",
-    "version": "0.7.0",
+    "version": "0.8.1",
     "description": "Navigation bar component",
     "keywords": [],
     "license": "MIT",
@@ -11,10 +11,10 @@
         "directory": "dist"
     },
     "dependencies": {
-        "@alfalab/core-components-icon-button": "^6.4.3",
-        "@alfalab/core-components-button": "^11.0.0",
-        "@alfalab/core-components-typography": "^4.2.1",
-        "@alfalab/core-components-shared": "^0.8.0",
+        "@alfalab/core-components-icon-button": "^6.5.1",
+        "@alfalab/core-components-button": "^11.1.1",
+        "@alfalab/core-components-typography": "^4.4.0",
+        "@alfalab/core-components-shared": "^0.9.1",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.3.1",

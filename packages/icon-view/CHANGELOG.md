@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.6.0
+
+### Minor Changes
+
+### [#1009](https://github.com/core-ds/core-components/pull/1009)
+
+-   Добавлены два новых размера компонента: 16 и 56. Добавлено новое свойство mainSize, отвечающее за размер основного слота (обычно, это иконка)
+
 ## 3.5.0
 
 ### Minor Changes

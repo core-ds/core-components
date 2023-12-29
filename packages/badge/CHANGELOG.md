@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.5.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
 ## 5.4.0
 
 ### Minor Changes

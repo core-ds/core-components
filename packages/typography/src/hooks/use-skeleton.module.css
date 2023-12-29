@@ -3,3 +3,15 @@
 .skeletonText.skeletonText {
     border-radius: var(--border-radius-pill);
 }
+
+.left > div {
+    margin-right: auto;
+}
+
+.center > div {
+    margin: 0 auto;
+}
+
+.right > div {
+    margin-left: auto;
+}

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+### [#1001](https://github.com/core-ds/core-components/pull/1001)
+
+-   Изменен отступ до аддонов в размерах xxs, xs с 4px до 6px
+
 ## 8.0.0
 
 ### Major Changes

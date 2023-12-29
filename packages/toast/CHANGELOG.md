@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.3.1
+
+## 5.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.1
+    -   toast-plate@6.3.0
+
 ## 5.2.4
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.9.1
+
+## 5.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.9.0
+
 ## 5.7.0
 
 ### Minor Changes

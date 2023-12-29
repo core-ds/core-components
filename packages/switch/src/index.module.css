@@ -80,9 +80,9 @@
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 16px;
     display: block;
-    width: 16px;
-    height: 16px;
     border-radius: var(--border-radius-circle);
     background-color: var(--switch-icon-color);
     box-sizing: border-box;

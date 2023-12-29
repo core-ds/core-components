@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.2.1
+
+### Patch Changes
+
+### [#1010](https://github.com/core-ds/core-components/pull/1010)
+
+-   Исправлена позиция стрелки поповера в случаях, когда anchorElement более чем в два раз выше или шире самого поповера и position заканчивается на -start или -end
+
 ## 6.2.0
 
 ### Minor Changes

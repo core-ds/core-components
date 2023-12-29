@@ -1,5 +1,31 @@
 # Change Log
 
+## 7.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.1.0
+    -   shared@0.9.1
+    -   button@11.1.1
+    -   icon-button@6.5.1
+
+## 7.3.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.1.0
+    -   icon-button@6.5.0
+    -   modal@9.0.1
+    -   shared@0.9.0
+
 ## 7.2.0
 
 ### Minor Changes

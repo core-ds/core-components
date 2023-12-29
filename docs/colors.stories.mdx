@@ -6,11 +6,16 @@ import { Meta } from '@storybook/addon-docs';
     id='Guidelines/Colors'
 />
 
-## Цвета
+### Цвета
 
-Полный актуальный набор цветов доступен в виде переменных и хранится в [core-components/vars/colors-indigo.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-indigo.css).
+Полный актуальный набор цветов доступен в виде переменных и хранится в [core-components/vars/colors-bluetint.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-bluetint.css).
 
-Дополнительные цвета хранятся в [core-components/vars/colors-addons.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-addons.css).
+Дополнительные цвета хранятся в:
+- [core-components/vars/colors-addons.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-addons.css).
+- [core-components/vars/colors-decorative.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-decorative.css).
+- [core-components/vars/colors-qualitative.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-qualitative.css).
+- [core-components/vars/colors-sequential.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-sequential.css).
+- [core-components/vars/colors-pfm.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-pfm.css).
 
 ### Использование цветов
 
@@ -18,10 +23,10 @@ import { Meta } from '@storybook/addon-docs';
 
 <img src='./images/colors_figma-element.png' width={319} alt='Пример цвета в Figma' />
 
-Названию цвета `light/text/primary` соответствует переменная `var(--color-light-text-primary)`.
+Переменная var(--color-light-text-primary) соответствует цвету light/text/primary. Для получения соответствующих значений переменных токенов используйте [конвертер токенов](https://core-ds.github.io/core-components/master/?path=/docs/token-converter--docs).
 
 ```css
-@import '@alfalab/core-components/vars/colors-indigo.css';
+@import '@alfalab/core-components/vars/colors-bluetint.css';
 
 .item {
     color: var(--color-light-text-primary);
@@ -44,7 +49,7 @@ import { Meta } from '@storybook/addon-docs';
 
 ### Тени
 
-Для теней предусмотрены отдельные переменные: [core-components/vars/shadows-indigo.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/shadows-indigo.css).
+Для теней предусмотрены отдельные переменные: [core-components/vars/shadows-bluetint.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/shadows-bluetint.css).
 
 Названия видны в Figma аналогично цветам, смотрите размер (xs/s/m/l/xl):
 

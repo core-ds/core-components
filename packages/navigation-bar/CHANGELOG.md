@@ -1,5 +1,31 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.4.0
+    -   shared@0.9.1
+    -   button@11.1.1
+    -   icon-button@6.5.1
+
+## 0.8.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.1.0
+    -   typography@4.3.0
+    -   icon-button@6.5.0
+    -   shared@0.9.0
+
 ## 0.7.0
 
 ### Minor Changes

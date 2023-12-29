@@ -55,11 +55,15 @@
     }
 }
 
+.countWrapper {
+    display: inline-flex;
+    border-radius: var(--border-radius-pill);
+}
+
 .count {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(--border-radius-pill);
 }
 
 .outlineCount {

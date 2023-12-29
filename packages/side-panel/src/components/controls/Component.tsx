@@ -40,7 +40,7 @@ export interface ControlsProps {
 export const Controls: React.FC<ControlsProps> = ({
     primary,
     secondary,
-    gap = 16,
+    gap,
     layout: layoutProp = 'start',
     mobileLayout = layoutProp,
 }) => {

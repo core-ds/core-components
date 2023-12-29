@@ -33,8 +33,8 @@ export const Header: FC<HeaderProps> = ({
 
     return (
         <NavigationBar
-            {...restProps}
             dataTestId={getDataTestId(dataTestId, 'header')}
+            {...restProps}
             scrollableParentRef={parentRef}
             hasCloser={hasCloser}
             sticky={sticky}

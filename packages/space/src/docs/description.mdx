@@ -11,7 +11,7 @@ render(() => {
         backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
     };
     return (
-        <Space direction='horizontal' align={isMobile() ? 'center' : 'start'}>
+        <Space useCssGaps={true} direction='horizontal' align={isMobile() ? 'center' : 'start'}>
             {new Array(3).fill(null).map((_, idx) => (
                 <div key={idx} style={styleBlock} />
             ))}
@@ -31,7 +31,7 @@ render(() => {
         backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
     };
     return (
-        <Space divider={<Divider />} align={isMobile() ? 'center' : 'start'}>
+        <Space useCssGaps={true} divider={<Divider />} align={isMobile() ? 'center' : 'start'}>
             {new Array(4).fill(null).map((_, idx) => (
                 <div key={idx} style={styleBlock} />
             ))}
@@ -51,7 +51,7 @@ render(() => {
         backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
     };
     return (
-        <Space direction='horizontal' size={[16, 20]} wrap>
+        <Space useCssGaps={true} direction='horizontal' size={[16, 20]} wrap>
             {new Array(20).fill(null).map((_, idx) => (
                 <div key={idx} style={styleBlock} />
             ))}
@@ -71,7 +71,7 @@ render(() => {
         backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
     };
     return (
-        <Space direction='horizontal' size={12} fullWidth>
+        <Space useCssGaps={true} direction='horizontal' size={12} fullWidth>
             {new Array(5).fill(null).map((_, idx) => (
                 <div key={idx} style={styleBlock} />
             ))}
@@ -92,17 +92,17 @@ render(() => {
     };
     return (
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Space align='start' size={8}>
+            <Space useCssGaps={true} align='start' size={8}>
                 <div style={styleBlock} />
                 <div style={{ ...styleBlock, width: '144px' }} />
                 <div style={{ ...styleBlock, width: '176px' }} />
             </Space>
-            <Space align='center' size={8}>
+            <Space useCssGaps={true} align='center' size={8}>
                 <div style={styleBlock} />
                 <div style={{ ...styleBlock, width: '144px' }} />
                 <div style={{ ...styleBlock, width: '176px' }} />
             </Space>
-            <Space align='end' size={8}>
+            <Space useCssGaps={true} align='end' size={8}>
                 <div style={styleBlock} />
                 <div style={{ ...styleBlock, width: '144px' }} />
                 <div style={{ ...styleBlock, width: '176px' }} />

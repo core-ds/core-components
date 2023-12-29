@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.4.0
+
+### Minor Changes
+
+### [#1045](https://github.com/core-ds/core-components/pull/1045)
+
+-   Добавлены свойства align и wrapperClassName в skeletonProps
+
+## 4.3.0
+
+### Minor Changes
+
+### [#1008](https://github.com/core-ds/core-components/pull/1008)
+
+-   Title, TitleMobile и TitleResponsive обернуты в forwardRef
+
 ## 4.2.1
 
 ### Patch Changes

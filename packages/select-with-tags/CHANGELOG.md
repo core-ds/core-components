@@ -1,5 +1,31 @@
 # Change Log
 
+## 8.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.1.1
+    -   bottom-sheet@6.13.2
+    -   form-control@12.0.3
+
+## 8.1.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.0.1
+    -   select@17.1.0
+    -   popover@6.2.1
+    -   bottom-sheet@6.13.1
+    -   form-control@12.0.2
+
 ## 8.0.1
 
 ### Patch Changes

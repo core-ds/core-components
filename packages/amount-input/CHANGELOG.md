@@ -1,5 +1,27 @@
 # Change Log
 
+## 7.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.1.1
+    -   with-suffix@4.1.17
+
+## 7.6.0
+
+### Minor Changes
+
+### [#1017](https://github.com/core-ds/core-components/pull/1017)
+
+-   Добавлен проп codeFormat: 'letter' | 'symbolic'
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.1.0
+    -   with-suffix@4.1.16
+
 ## 7.5.6
 
 ### Patch Changes

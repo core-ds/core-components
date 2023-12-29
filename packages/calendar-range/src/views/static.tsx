@@ -311,7 +311,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     onChange={handleInputToChange}
                     onClear={handleClearTo}
                     onBlur={handleValidInputTo}
-                    error={bothInvalid || inputToInvalid}
+                    error={bothInvalid || inputToInvalid || dateInputToProps.error}
                     clear={true}
                     block={true}
                 />

@@ -1,5 +1,32 @@
 # Change Log
 
+## 9.1.0
+
+### Minor Changes
+
+### [#1039](https://github.com/core-ds/core-components/pull/1039)
+
+-   Исправлена ошибка с dataTestId в заголовках. В версии 44.4.0 явно переданный dataTestId в Header не работал.
+-   Добавлены функции getSidePanelTestIds, getModalTestIds для удобного поиска элементов модальных сущностей. Импортировать их можно из @alfalab/core-components/{modal,side-panel}/shared.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.1
+    -   base-modal@5.7.2
+
+## 9.0.1
+
+### Patch Changes
+
+### [#1013](https://github.com/core-ds/core-components/pull/1013)
+
+-   Исправлена проблема, из-за которой dataTestId не передавался внутренним компонентам (Header, Content, Footer, Controls)
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.0
+    -   base-modal@5.7.1
+
 ## 9.0.0
 
 ### Major Changes

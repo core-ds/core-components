@@ -1,5 +1,27 @@
 # Change Log
 
+## 9.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.1.1
+    -   input-autocomplete@11.3.3
+
+## 9.6.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.1.0
+    -   input-autocomplete@11.3.2
+
 ## 9.5.24
 
 ### Patch Changes

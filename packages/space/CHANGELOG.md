@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#1046](https://github.com/core-ds/core-components/pull/1046)
+
+-   Добавлен новый проп useCssGaps. Не всеми старыми браузерами поддерживается flex gaps, поэтому используйте на свой страх и риск
+
 ## 3.1.0
 
 ### Minor Changes

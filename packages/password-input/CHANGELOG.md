@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.1.1
+    -   icon-button@6.5.1
+
+## 5.1.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.1.0
+    -   icon-button@6.5.0
+
 ## 5.0.1
 
 ### Patch Changes

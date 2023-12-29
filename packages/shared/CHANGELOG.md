@@ -1,5 +1,21 @@
 # @alfalab/core-components-shared
 
+## 0.9.1
+
+### Patch Changes
+
+### [#1039](https://github.com/core-ds/core-components/pull/1039)
+
+-   Исправлены типы getDataTestId функции
+
+## 0.9.0
+
+### Minor Changes
+
+### [#1011](https://github.com/core-ds/core-components/pull/1011)
+
+-   Добавлена функция preventDefault
+
 ## 0.8.0
 
 ### Minor Changes

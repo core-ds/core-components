@@ -1,11 +1,15 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --tab-bar-bg-color: var(--color-light-base-bg-primary);
+}
+
 .component {
     display: flex;
     justify-content: center;
     height: 64px;
     max-height: 64px;
-    background-color: var(--color-light-base-bg-primary);
+    background-color: var(--tab-bar-bg-color);
     box-sizing: border-box;
     overflow: hidden;
     transition: box-shadow 0.2s ease;

@@ -1,5 +1,31 @@
 # Change Log
 
+## 5.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.4.0
+    -   base-modal@5.7.2
+    -   tooltip@7.3.2
+    -   icon-button@6.5.1
+
+## 5.5.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.3.0
+    -   icon-button@6.5.0
+    -   tooltip@7.3.1
+    -   base-modal@5.7.1
+
 ## 5.4.2
 
 ### Patch Changes

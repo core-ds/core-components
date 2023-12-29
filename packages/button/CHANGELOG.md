@@ -1,5 +1,30 @@
 # Change Log
 
+## 11.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.9.1
+
+## 11.1.0
+
+### Minor Changes
+
+### [#1001](https://github.com/core-ds/core-components/pull/1001)
+
+-   Добавлены свойства hint, textResizing и shape
+-   Изменен отступ до аддонов в размерах xxs, xs с 4px до 6px
+
+### [#1003](https://github.com/core-ds/core-components/pull/1003)
+
+-   Цвет primary кнопки мобильного компонента в теме corp изменен на черный
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.9.0
+
 ## 11.0.0
 
 ### Major Changes

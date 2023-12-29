@@ -118,7 +118,9 @@ import {
                         width: 500,
                         height: 380,
                         paddingTop: 48,
-                        ...(isPreview ? { background: 'var(--color-light-modal-bg-primary)' } : null),
+                        ...(isPreview
+                            ? { background: 'var(--color-light-modal-bg-primary)' }
+                            : null),
                     }}
                 >
                     <ConfirmationComponent
@@ -149,11 +151,7 @@ import {
 
 {/* Docs */}
 
-<ComponentHeader
-    name='Confirmation'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=97620%3A117005&mode=design&t=Itgzojk9BOtPqYkS-1'
-    children='Используется для ввода кода подтверждения.'
-/>
+<ComponentHeader name='Confirmation' children='Используется для ввода кода подтверждения.' />
 
 <Tabs
     description={<Description />}

@@ -5,6 +5,9 @@ exports[`Dropzone Snapshots tests should match snapshot 1`] = `
   class="component"
 >
   <div
+    class="inner"
+  />
+  <div
     class="overlay"
   >
     <svg

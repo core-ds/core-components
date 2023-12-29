@@ -1,5 +1,30 @@
 # @alfalab/core-components-date-time-input
 
+## 4.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.3.1
+    -   input@14.1.1
+    -   icon-button@6.5.1
+
+## 4.3.0
+
+### Minor Changes
+
+### [#1007](https://github.com/core-ds/core-components/pull/1007)
+
+-   Обновлена зависимость @alfalab/icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.1
+    -   calendar@7.3.0
+    -   input@14.1.0
+    -   icon-button@6.5.0
+
 ## 4.2.1
 
 ### Patch Changes
