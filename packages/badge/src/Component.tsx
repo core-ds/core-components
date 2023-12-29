@@ -68,6 +68,16 @@ export type BadgeProps = {
     dataTestId?: string;
 };
 
+function getSize(height: number): string {
+    if (height >= 16 && height <= 18) return 'heightS';
+    if (height >= 19 && height <= 24) return 'heightM';
+    if (height >= 25 && height <= 32) return 'heightL';
+    if (height >= 33 && height <= 40) return 'heightXL';
+    if (height >= 41) return 'heightXXL';
+
+    return '';
+}
+
 /**
  * @deprecated Используйте StatusBadge или Indicator
  */
@@ -89,11 +99,7 @@ export const Badge = ({
 
     const isHidden = isCountView && typeof content === 'number' && content <= 0;
     const componentContent = isCountView && content && content >= 100 ? '99+' : content;
-    const isHeightS = isCountView && height >= 16 && height <= 18;
-    const isHeightM = isCountView && height >= 19 && height <= 24;
-    const isHeightL = isCountView && height >= 25 && height <= 32;
-    const isHeightXL = isCountView && height >= 33 && height <= 40;
-    const isHeightXXL = isCountView && height >= 41 && height <= 48;
+    const heightSize = getSize(height);
 
     return (
         <div
@@ -104,7 +110,7 @@ export const Badge = ({
                     [styles[size]]: !isCountView,
                     [styles.outline]: !isCountView && visibleIconOutline,
                     [styles.outlineColor]: !isCountView && visibleColorOutline,
-                    [styles.count]: isCountView,
+                    [styles.countWrapper]: isCountView,
                 },
                 className,
             )}
@@ -118,12 +124,8 @@ export const Badge = ({
                     styles[`background-${color}`],
                     styles[`graphic-${iconUnderlayColor}`],
                     iconColor && styles[iconColor],
-                    isHeightS && styles.heightS,
-                    isHeightM && styles.heightM,
-                    isHeightL && styles.heightL,
-                    isHeightXL && styles.heightXL,
-                    isHeightXXL && styles.heightXXL,
                     {
+                        [styles[heightSize]]: isCountView,
                         [styles.isHidden]: isHidden,
                         [styles.dot]: !content,
                         [styles.outlineCount]: isCountView && visibleIconOutline,
