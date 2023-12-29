@@ -1,4 +1,4 @@
-import { FC, MouseEvent, ReactElement, ReactNode } from 'react';
+import { FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
 
 import { TagProps } from '@alfalab/core-components-tag';
 
@@ -147,6 +147,11 @@ export type TabProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Реф для кнопки переключения таба
+     */
+    toggleRef?: Ref<HTMLDivElement>;
 };
 
 export type TabListTitle = {
@@ -159,6 +164,7 @@ export type TabListTitle = {
     selected?: boolean;
     collapsed?: boolean;
     dataTestId?: string;
+    toggleRef?: Ref<HTMLDivElement>;
 };
 
 export type TabListProps = Pick<

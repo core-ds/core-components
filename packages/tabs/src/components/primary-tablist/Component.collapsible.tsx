@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { Ref, useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
@@ -49,17 +49,27 @@ export const CollapsiblePrimaryTabList = ({
 
     const collapsedOptions = useMemo(
         () =>
-            tablistTitles.reduce<PickerButtonDesktopProps['options']>((options, title) => {
-                if (title.collapsed) {
-                    options.push({
-                        key: title.title,
-                        value: title.id,
-                        content: <Title {...title} styles={styles} isOption={true} />,
-                    });
-                }
+            tablistTitles.reduce<PickerButtonDesktopProps['options']>(
+                (options, { toggleRef, ...title }) => {
+                    if (title.collapsed) {
+                        options.push({
+                            key: title.title,
+                            value: title.id,
+                            content: (
+                                <Title
+                                    {...title}
+                                    ref={toggleRef as Ref<HTMLButtonElement>}
+                                    styles={styles}
+                                    isOption={true}
+                                />
+                            ),
+                        });
+                    }
 
-                return options;
-            }, []),
+                    return options;
+                },
+                [],
+            ),
         [tablistTitles],
     );
 
@@ -86,7 +96,7 @@ export const CollapsiblePrimaryTabList = ({
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
-            {tablistTitles.map(({ dataTestId: _, ...restTitleProps }, index) => (
+            {tablistTitles.map(({ dataTestId: _, toggleRef: __, ...restTitleProps }, index) => (
                 <KeyboardFocusable key={restTitleProps.id}>
                     {(ref, focused) => (
                         <Title
