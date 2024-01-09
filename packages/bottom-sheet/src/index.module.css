@@ -6,7 +6,6 @@
     width: 100%;
     max-width: 600px;
     pointer-events: none;
-    touch-action: none;
 }
 
 .modal.modal {
@@ -17,7 +16,6 @@
 .wrapper {
     transform: translateY(100%);
     pointer-events: none;
-    touch-action: none;
     border-top-right-radius: var(--bottom-sheet-top-radius);
     border-top-left-radius: var(--bottom-sheet-top-radius);
     transition: border-radius 0.3s ease;
@@ -49,7 +47,6 @@
     height: 100%;
     background-color: inherit;
     border-radius: inherit;
-    overscroll-behavior: contain;
 }
 
 .marker {

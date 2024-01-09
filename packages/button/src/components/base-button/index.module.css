@@ -38,12 +38,6 @@
     display: block;
 }
 
-.secondary,
-.accent[disabled],
-.primary[disabled] {
-    backdrop-filter: blur(80px);
-}
-
 .focused {
     @mixin focus-outline;
 }

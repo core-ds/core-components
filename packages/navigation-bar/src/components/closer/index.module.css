@@ -13,7 +13,6 @@
 
 .button {
     background: var(--color-light-bg-primary-alpha-40);
-    backdrop-filter: blur(10px);
     color: var(--color-light-neutral-1500);
 
     &.mobile {
