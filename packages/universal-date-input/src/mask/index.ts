@@ -14,8 +14,9 @@ export function createMaskOptions(
     max: Date,
     autoCorrection: boolean,
     onCorrection: () => void,
+    displayFormat?: string,
 ): MaskitoOptions {
-    const template = TEMPLATES[view];
+    const template = TEMPLATES(displayFormat)[view];
     const stringTemplate = segmentsToString(template.segments, template.separators);
 
     return {

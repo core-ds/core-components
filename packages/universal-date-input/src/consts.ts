@@ -1,3 +1,4 @@
+import { formatDateToTemplate } from './mask/utils';
 import { DateSegments, DateTemplate, View } from './types';
 
 export const DATE_RANGE_SEPARATOR = ' – ';
@@ -5,11 +6,15 @@ export const DATE_TIME_SEPARATOR = ', ';
 
 export const HOURS_MINUTES_SEPARATOR = ':';
 
-export const TEMPLATES: Record<View, DateTemplate> = {
-    date: {
-        segments: ['dd', 'MM', 'yyyy'],
-        separators: ['.', '.'],
-    },
+export const DATE_POSSIBLE_SEPARATORS = /\.|\/|-|\s/;
+
+export const TEMPLATES = (formatDate?: string): Record<View, DateTemplate> => ({
+    date: formatDate
+        ? formatDateToTemplate(formatDate)
+        : {
+              segments: ['dd', 'MM', 'yyyy'],
+              separators: ['.', '.'],
+          },
     'date-time': {
         segments: ['dd', 'MM', 'yyyy', 'HH', 'mm'],
         separators: ['.', '.', DATE_TIME_SEPARATOR, HOURS_MINUTES_SEPARATOR],
@@ -22,7 +27,7 @@ export const TEMPLATES: Record<View, DateTemplate> = {
         segments: ['HH', 'mm'],
         separators: [HOURS_MINUTES_SEPARATOR],
     },
-};
+});
 
 export const DATE_MAX_VALUES: DateSegments<number> = {
     day: 31,

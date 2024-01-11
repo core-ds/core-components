@@ -183,14 +183,17 @@ describe('utils tests', () => {
     describe('segmentsToObj', () => {
         const tests = [
             [
-                [['09', '12', '2024'], TEMPLATES.date.segments],
+                [['09', '12', '2024'], TEMPLATES().date.segments],
                 { day: '09', month: '12', year: '2024' },
             ],
             [
-                [['09', '1', '2024'], TEMPLATES.date.segments],
+                [['09', '1', '2024'], TEMPLATES().date.segments],
                 { day: '09', month: '1', year: '2024' },
             ],
-            [[['', '12', '2024'], TEMPLATES.date.segments], { day: '', month: '12', year: '2024' }],
+            [
+                [['', '12', '2024'], TEMPLATES().date.segments],
+                { day: '', month: '12', year: '2024' },
+            ],
         ];
 
         for (const [args, result] of tests) {
@@ -221,7 +224,7 @@ describe('utils tests', () => {
     });
 
     describe('findCursorPlace', () => {
-        const { segments, separators } = TEMPLATES.date;
+        const { segments, separators } = TEMPLATES().date;
 
         const tests = [
             [
@@ -271,8 +274,8 @@ describe('utils tests', () => {
             [
                 [
                     ['01', '01', '1900', '11', '12', '2000'],
-                    TEMPLATES['date-range'].segments,
-                    TEMPLATES['date-range'].separators,
+                    TEMPLATES()['date-range'].segments,
+                    TEMPLATES()['date-range'].separators,
                     [11, 11],
                 ],
                 { segmentIdx: 2, offset: 5, beforeNext: true },
@@ -280,8 +283,8 @@ describe('utils tests', () => {
             [
                 [
                     ['01', '01', '1900', '11', '12', '2000'],
-                    TEMPLATES['date-range'].segments,
-                    TEMPLATES['date-range'].separators,
+                    TEMPLATES()['date-range'].segments,
+                    TEMPLATES()['date-range'].separators,
                     [12, 12],
                 ],
                 { segmentIdx: 2, offset: 6, beforeNext: true },
@@ -289,8 +292,8 @@ describe('utils tests', () => {
             [
                 [
                     ['01', '01', '1900', '11', '12', '2000'],
-                    TEMPLATES['date-range'].segments,
-                    TEMPLATES['date-range'].separators,
+                    TEMPLATES()['date-range'].segments,
+                    TEMPLATES()['date-range'].separators,
                     [13, 13],
                 ],
                 { segmentIdx: 3, offset: 0, beforeNext: false },
@@ -321,7 +324,7 @@ describe('utils tests', () => {
     });
 
     describe('shiftSegmentsData', () => {
-        const templateSegments = TEMPLATES.date.segments;
+        const templateSegments = TEMPLATES().date.segments;
         const tests = [
             [
                 [['000', '00'], templateSegments],
@@ -333,7 +336,7 @@ describe('utils tests', () => {
             ],
 
             [
-                [['00', '00', '00005'], TEMPLATES['date-range'].segments],
+                [['00', '00', '00005'], TEMPLATES()['date-range'].segments],
                 ['00', '00', '0000', '5'],
             ],
         ];
@@ -350,15 +353,15 @@ describe('utils tests', () => {
     describe('replaceSegmentsData', () => {
         const tests = [
             [
-                [['021', '01'], TEMPLATES.date, [1, 1], '2'],
+                [['021', '01'], TEMPLATES().date, [1, 1], '2'],
                 ['02', '01'],
             ],
             [
-                [['201', '01'], TEMPLATES.date, [0, 0], '2'],
+                [['201', '01'], TEMPLATES().date, [0, 0], '2'],
                 ['21', '01'],
             ],
             [
-                [['01', '01', '21900'], TEMPLATES.date, [6, 6], '2'],
+                [['01', '01', '21900'], TEMPLATES().date, [6, 6], '2'],
                 ['01', '01', '2900'],
             ],
         ];
@@ -417,7 +420,7 @@ describe('utils tests', () => {
                 expect(
                     validateSegments({
                         dateTemplate: 'dd.MM.yyyy',
-                        templateSegments: TEMPLATES.date.segments,
+                        templateSegments: TEMPLATES().date.segments,
                         segments,
                         selection,
                         min: new Date(DEFAULT_MIN_DATE),

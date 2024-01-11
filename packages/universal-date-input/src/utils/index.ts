@@ -14,8 +14,8 @@ export function parseDateString(value: string, format: string = DATE_FORMAT) {
 export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
     dateFnsFormat(date, dateFormat);
 
-export function isCompleteDate(value = '') {
-    return value.length === DATE_FORMAT.length;
+export function isCompleteDate(value = '', dateFormat = DATE_FORMAT) {
+    return value.length === dateFormat.length;
 }
 
 export function isCompleteTime(value = '', withTime = false) {
@@ -33,13 +33,17 @@ export function isValidDate({
     minDate,
     maxDate,
     offDays,
+    selectedDateFormat,
 }: {
     value?: string;
     minDate: number;
     maxDate: number;
     offDays?: Array<Date | number>;
+    selectedDateFormat?: string;
 }) {
-    const parsed = isCompleteDate(value) ? parseDateString(value).getTime() : undefined;
+    const parsed = isCompleteDate(value, selectedDateFormat)
+        ? parseDateString(value, selectedDateFormat).getTime()
+        : undefined;
 
     if (parsed) {
         return (
