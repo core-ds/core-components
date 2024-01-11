@@ -34,9 +34,9 @@ describe('Tabs | TabsDesktop', () => {
         screenshotTesting({
             cases: generateTestCases({
                 componentName: 'Tabs',
+                subComponentName: 'TabsDesktop',
                 testStory: false,
                 knobs: {
-                    TabsComponent: 'TabsDesktop',
                     view: ['primary', 'secondary'],
                     size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                 },
@@ -69,9 +69,9 @@ describe(
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'Tabs',
+            subComponentName: 'TabsDesktop',
             testStory: false,
             knobs: {
-                TabsComponent: 'TabsDesktop',
                 view: ['primary', 'secondary'],
                 size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                 scrollable: true,
@@ -80,6 +80,46 @@ describe(
         viewport: {
             width: 700,
             height: 150,
+        },
+    }),
+);
+
+describe(
+    'Tabs | textStyle prop',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Tabs',
+            subComponentName: 'TabsDesktop',
+            testStory: false,
+            knobs: {
+                view: 'primary',
+                scrollable: true,
+                textStyle: [
+                    'paragraph-primary-large',
+                    'paragraph-primary-medium',
+                    'paragraph-primary-small',
+                    'action-primary-large',
+                    'action-primary-medium',
+                    'action-primary-small',
+                    'accent-primary-large',
+                    'accent-primary-medium',
+                    'accent-primary-small',
+                    'headline-system-xlarge',
+                    'headline-system-large',
+                    'headline-system-medium',
+                    'headline-system-small',
+                    'headline-system-xsmall',
+                    'headline-xlarge',
+                    'headline-large',
+                    'headline-medium',
+                    'headline-small',
+                    'headline-xsmall',
+                ],
+            },
+        }),
+        viewport: {
+            width: 500,
+            height: 180,
         },
     }),
 );

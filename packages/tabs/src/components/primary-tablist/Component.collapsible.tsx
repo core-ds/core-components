@@ -27,6 +27,7 @@ export const CollapsiblePrimaryTabList = ({
     dataTestId,
     breakpoint = 1024,
     defaultMatchMediaValue,
+    textStyle,
 }: TabListProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -92,7 +93,7 @@ export const CollapsiblePrimaryTabList = ({
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size], {
+            className={cn(styles.component, className, !textStyle && size && styles[size], {
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
@@ -113,7 +114,7 @@ export const CollapsiblePrimaryTabList = ({
                 <span ref={addonRef} role='menu' className={styles.pickerWrapper}>
                     <PickerButtonDesktop
                         fieldClassName={styles.title}
-                        optionClassName={cn(styles.pickerOption, size && styles[size])}
+                        optionClassName={cn(size && styles[size])}
                         options={collapsedOptions}
                         onChange={handleOptionsChange}
                         rightAddons={
@@ -134,7 +135,15 @@ export const CollapsiblePrimaryTabList = ({
     );
 
     return (
-        <div ref={containerRef} className={cn(styles.container, containerClassName)}>
+        <div
+            ref={containerRef}
+            className={cn(
+                styles.container,
+                textStyle && styles[textStyle],
+                styles.desktop,
+                containerClassName,
+            )}
+        >
             {renderContent()}
         </div>
     );

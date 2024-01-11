@@ -182,9 +182,7 @@ export const Dropzone: FC<DropzoneProps> = ({
             onDragOver={handleDragOver}
             onDrop={handleDrop}
         >
-            <div className={cn(styles.inner, isOverlayVisible && styles.hidden)}>
-                {children}
-            </div>
+            <div className={cn(styles.inner, isOverlayVisible && styles.hidden)}>{children}</div>
             {Overlay && <Overlay text={text} visible={isOverlayVisible} />}
         </div>
     );
