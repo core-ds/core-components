@@ -39,7 +39,7 @@
         "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=101197%3A7563&mode=design&t=Itgzojk9BOtPqYkS-1"
     },
     "Confirmation": {
-        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=97620%3A117005&mode=design&t=Itgzojk9BOtPqYkS-1"
+        "figma": "https://www.figma.com/file/jDJxQE1knc3NySMBYYiBYf/Web-%3A%3A-Core-Authentication?type=design&node-id=1%3A3194&mode=design&t=bnoEMKlx7GnSNDxn-1"
     },
     "CustomButton": {
         "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=49%3A115155&mode=design&t=pa1b0UPYsI3eWhOB-1"
@@ -99,13 +99,13 @@
         "figma": "https://www.figma.com/file/GBJfADE8j6Ar17QDEHFYnG/Web-%3A%3A-Core-Navigation?type=design&node-id=57%3A3873&mode=design&t=BNfs4vUcbM7LD6iN-1"
     },
     "PassCode": {
-        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100467%3A125629&mode=design&t=Itgzojk9BOtPqYkS-1"
+        "figma": "https://www.figma.com/file/jDJxQE1knc3NySMBYYiBYf/Web-%3A%3A-Core-Authentication?type=design&node-id=23%3A2169&mode=design&t=bnoEMKlx7GnSNDxn-1"
     },
     "PasswordInput": {
         "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=92927%3A121445&mode=design&t=Itgzojk9BOtPqYkS-1"
     },
     "PatternLock": {
-        "figma": "https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100593%3A126200&mode=design&t=Itgzojk9BOtPqYkS-1"
+        "figma": "https://www.figma.com/file/jDJxQE1knc3NySMBYYiBYf/Web-%3A%3A-Core-Authentication?type=design&node-id=53%3A4604&mode=design&t=bnoEMKlx7GnSNDxn-1"
     },
     "PhoneInput": {
         "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=59%3A30014&mode=design&t=pa1b0UPYsI3eWhOB-1"
@@ -202,5 +202,5 @@
     },
     "UniversalDateInput": {
         "figma": "https://www.figma.com/file/lGWq8DtnUcSkRasagBuwq6/Web-%3A%3A-Core?type=design&node-id=507%3A25759&mode=design&t=pa1b0UPYsI3eWhOB-1"
-    }   
+    }
 }
