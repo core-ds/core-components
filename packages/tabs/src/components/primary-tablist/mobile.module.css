@@ -1,5 +1,6 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
+@import './text-styles.module.css';
 
 .title {
     composes: title from 'index.module.css';
@@ -17,4 +18,7 @@
             margin-left: var(--primary-tablist-mobile-gaps);
         }
     }
+
+    @mixin text-style;
+    @mixin text-style-mobile;
 }

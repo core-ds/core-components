@@ -1,5 +1,6 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
+@import './text-styles.module.css';
 
 .component {
     position: relative;
@@ -15,6 +16,11 @@
         width: 100%;
         background-color: var(--primary-tablist-bottom-border-color);
     }
+}
+
+.desktop {
+    @mixin text-style;
+    @mixin text-style-desktop;
 }
 
 .fullWidthScroll {
