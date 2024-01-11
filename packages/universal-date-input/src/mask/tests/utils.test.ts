@@ -10,6 +10,7 @@ import {
     shiftSegmentsData,
     replaceSegmentsData,
     validateSegments,
+    formatDateToTemplate,
 } from '../utils';
 import { DEFAULT_MAX_DATE, DEFAULT_MIN_DATE, TEMPLATES } from '../../consts';
 import { DateSegments, DateTemplate } from '../../types';
@@ -427,6 +428,30 @@ describe('utils tests', () => {
                         max: new Date(DEFAULT_MAX_DATE),
                     }),
                 ).toEqual(result);
+            });
+        }
+    });
+
+    describe('formatDateToTemplate', () => {
+        const tests = [
+            [['dd-MM-yyyy'], { segments: ['dd', 'MM', 'yyyy'], separators: ['-', '-'] }],
+            [['yyyy-dd-MM'], { segments: ['yyyy', 'dd', 'MM'], separators: ['-', '-'] }],
+            [['yyyy-dd-MM'], { segments: ['yyyy', 'dd', 'MM'], separators: ['-', '-'] }],
+            [['YY.mm/DDDD'], { segments: ['YY', 'mm', 'DDDD'], separators: ['.', '/'] }],
+            [['dd MM EEEE'], { segments: ['dd', 'MM', 'EEEE'], separators: [' ', ' '] }],
+            [
+                ['YY.mm-DDDD dd'],
+                { segments: ['YY', 'mm', 'DDDD', 'dd'], separators: ['.', '-', ' '] },
+            ],
+            [['DDDD'], { segments: ['DDDD'], separators: [] }],
+            [[''], { segments: [], separators: [] }],
+        ];
+
+        for (const [args, result] of tests) {
+            const [displayFormat] = args as string[];
+
+            it(`should return ${JSON.stringify(result)}`, () => {
+                expect(formatDateToTemplate(displayFormat)).toEqual(result);
             });
         }
     });
