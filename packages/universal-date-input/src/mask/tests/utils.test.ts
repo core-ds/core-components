@@ -436,7 +436,7 @@ describe('utils tests', () => {
         const tests = [
             [['dd-MM-yyyy'], { segments: ['dd', 'MM', 'yyyy'], separators: ['-', '-'] }],
             [['yyyy-dd-MM'], { segments: ['yyyy', 'dd', 'MM'], separators: ['-', '-'] }],
-            [['yyyy-dd-MM'], { segments: ['yyyy', 'dd', 'MM'], separators: ['-', '-'] }],
+            [['yyyy.dd.MM'], { segments: ['yyyy', 'dd', 'MM'], separators: ['.', '.'] }],
             [['YY.mm/DDDD'], { segments: ['YY', 'mm', 'DDDD'], separators: ['.', '/'] }],
             [['dd MM EEEE'], { segments: ['dd', 'MM', 'EEEE'], separators: [' ', ' '] }],
             [
