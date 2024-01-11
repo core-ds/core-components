@@ -40,11 +40,11 @@
         "mobile.js": 4.6
     },
     "tabs": {
-        "collapsible.js": 193.8,
-        "desktop.js": 33.5,
-        "index.js": 34.8,
-        "mobile.js": 33.7,
-        "shared.js": 28.5
+        "collapsible.js": 193.9,
+        "desktop.js": 33.9,
+        "index.js": 35.1,
+        "mobile.js": 34,
+        "shared.js": 28.7
     },
     "table": {
         "index.js": 155.2
