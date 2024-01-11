@@ -54,12 +54,12 @@ export const InputAutocompleteMobile = React.forwardRef(
         const restorePrevValue = () => onInput?.(null, { value: frozenValue.current });
 
         const setModalVisibility = (isOpen: boolean) => {
-            if (openProp === undefined) {
-                setOpen(isOpen);
-            }
-
             if (isOpen) {
                 frozenValue.current = value || '';
+            }
+
+            if (openProp === undefined) {
+                setOpen(isOpen);
             }
 
             onOpen?.({ open: isOpen, name });
