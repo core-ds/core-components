@@ -45,7 +45,6 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             fieldClassName,
             disableUserInput,
             displayFormat,
-            displayFormatPlaceholder,
             ...restProps
         },
         ref,
@@ -194,11 +193,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             case 'date-time':
                 return (
                     <DateInput
-                        placeholder={
-                            view === 'date-time'
-                                ? 'ДД.ММ.ГГГГ, ЧЧ:ММ'
-                                : displayFormatPlaceholder ?? 'ДД.ММ.ГГГГ'
-                        }
+                        placeholder={view === 'date-time' ? 'ДД.ММ.ГГГГ, ЧЧ:ММ' : 'ДД.ММ.ГГГГ'}
                         {...restProps}
                         {...commonProps}
                         {...pickerProps}

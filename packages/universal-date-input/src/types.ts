@@ -118,11 +118,6 @@ export interface BaseUniversalDateInputProps
      * Формат отображения даты
      */
     displayFormat?: string;
-
-    /**
-     * Плейсхолдер для кастомного формата даты
-     */
-    displayFormatPlaceholder?: string;
 }
 
 export interface InnerDateInputProps extends Omit<BaseUniversalDateInputProps, 'view'> {
