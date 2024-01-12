@@ -1,7 +1,7 @@
 import { MaskitoMask, MaskitoMaskExpression, MaskitoOptions } from '@maskito/core';
 
-import { TEMPLATES } from '../consts';
 import { DateTemplate, View } from '../types';
+import { getTemplate } from '../utils';
 
 import { createCaretPosPlugin } from './plugins';
 import { createPreventCaretJumpPostprocessor } from './postprocessors';
@@ -16,7 +16,7 @@ export function createMaskOptions(
     onCorrection: () => void,
     displayFormat?: string,
 ): MaskitoOptions {
-    const template = TEMPLATES(displayFormat)[view];
+    const template = getTemplate(displayFormat)[view];
     const stringTemplate = segmentsToString(template.segments, template.separators);
 
     return {
