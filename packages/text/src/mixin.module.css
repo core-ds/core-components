@@ -1,0 +1,301 @@
+@import '../../themes/src/default.css';
+
+.accent-caps {
+    @mixin accent_caps;
+}
+
+.accent-component-primary {
+    @mixin accent_component_primary;
+}
+
+.accent-component-secondary {
+    @mixin accent_component_secondary;
+}
+
+.accent-primary-large {
+    @mixin accent_primary_large;
+}
+
+.accent-primary-medium {
+    @mixin accent_primary_medium;
+}
+
+.accent-primary-small {
+    @mixin accent_primary_small;
+}
+
+.accent-secondary-large {
+    @mixin accent_secondary_large;
+}
+
+.accent-secondary-medium {
+    @mixin accent_secondary_medium;
+}
+
+.accent-secondary-small {
+    @mixin accent_secondary_small;
+}
+
+.action-caps {
+    @mixin action_caps;
+}
+
+.action-component-primary {
+    @mixin action_component_primary;
+}
+
+.action-component-secondary {
+    @mixin action_component_secondary;
+}
+
+.action-primary-large {
+    @mixin action_primary_large;
+}
+
+.action-primary-medium {
+    @mixin action_primary_medium;
+}
+
+.action-primary-small {
+    @mixin action_primary_small;
+}
+
+.action-secondary-large {
+    @mixin action_secondary_large;
+}
+
+.action-secondary-medium {
+    @mixin action_secondary_medium;
+}
+
+.action-secondary-small {
+    @mixin action_secondary_small;
+}
+
+.headline-mobile-large {
+    @mixin headline-mobile_large;
+}
+
+.headline-mobile-medium {
+    @mixin headline-mobile_medium;
+}
+
+.headline-mobile-small {
+    @mixin headline-mobile_small;
+}
+
+.headline-mobile-xlarge {
+    @mixin headline-mobile_xlarge;
+}
+
+.headline-mobile-xsmall {
+    @mixin headline-mobile_xsmall;
+}
+
+.headline-system-mobile-large {
+    @mixin headline-system-mobile_large;
+}
+
+.headline-system-mobile-medium {
+    @mixin headline-system-mobile_medium;
+}
+
+.headline-system-mobile-small {
+    @mixin headline-system-mobile_small;
+}
+
+.headline-system-mobile-xlarge {
+    @mixin headline-system-mobile_xlarge;
+}
+
+.headline-system-mobile-xsmall {
+    @mixin headline-system-mobile_xsmall;
+}
+
+.headline-system-large {
+    @mixin headline-system_large;
+}
+
+.headline-system-medium {
+    @mixin headline-system_medium;
+}
+
+.headline-system-small {
+    @mixin headline-system_small;
+}
+
+.headline-system-xlarge {
+    @mixin headline-system_xlarge;
+}
+
+.headline-system-xsmall {
+    @mixin headline-system_xsmall;
+}
+
+.headline-large {
+    @mixin headline_large;
+}
+
+.headline-medium {
+    @mixin headline_medium;
+}
+
+.headline-small {
+    @mixin headline_small;
+}
+
+.headline-xlarge {
+    @mixin headline_xlarge;
+}
+
+.headline-xsmall {
+    @mixin headline_xsmall;
+}
+
+.key-large {
+    @mixin key_large;
+}
+
+.key-medium {
+    @mixin key_medium;
+}
+
+.key-small {
+    @mixin key_small;
+}
+
+.key-xlarge {
+    @mixin key_xlarge;
+}
+
+.key-xsmall {
+    @mixin key_xsmall;
+}
+
+.paragraph-caps {
+    @mixin paragraph_caps;
+}
+
+.paragraph-component-primary {
+    @mixin paragraph_component_primary;
+}
+
+.paragraph-component-secondary {
+    @mixin paragraph_component_secondary;
+}
+
+.paragraph-primary-large {
+    @mixin paragraph_primary_large;
+}
+
+.paragraph-primary-medium {
+    @mixin paragraph_primary_medium;
+}
+
+.paragraph-primary-small {
+    @mixin paragraph_primary_small;
+}
+
+.paragraph-secondary-large {
+    @mixin paragraph_secondary_large;
+}
+
+.paragraph-secondary-medium {
+    @mixin paragraph_secondary_medium;
+}
+
+.paragraph-secondary-small {
+    @mixin paragraph_secondary_small;
+}
+
+.promo-mobile-large {
+    @mixin promo-mobile_large;
+}
+
+.promo-mobile-medium {
+    @mixin promo-mobile_medium;
+}
+
+.promo-mobile-small {
+    @mixin promo-mobile_small;
+}
+
+.promo-mobile-xlarge {
+    @mixin promo-mobile_xlarge;
+}
+
+.promo-mobile-xsmall {
+    @mixin promo-mobile_xsmall;
+}
+
+.promo-system-mobile-large {
+    @mixin promo-system-mobile_large;
+}
+
+.promo-system-mobile-medium {
+    @mixin promo-system-mobile_medium;
+}
+
+.promo-system-mobile-small {
+    @mixin promo-system-mobile_small;
+}
+
+.promo-system-mobile-xlarge {
+    @mixin promo-system-mobile_xlarge;
+}
+
+.promo-system-mobile-xsmall {
+    @mixin promo-system-mobile_xsmall;
+}
+
+.promo-system-large {
+    @mixin promo-system_large;
+}
+
+.promo-system-medium {
+    @mixin promo-system_medium;
+}
+
+.promo-system-small {
+    @mixin promo-system_small;
+}
+
+.promo-system-xlarge {
+    @mixin promo-system_xlarge;
+}
+
+.promo-system-xsmall {
+    @mixin promo-system_xsmall;
+}
+
+.promo-large {
+    @mixin promo_large;
+}
+
+.promo-medium {
+    @mixin promo_medium;
+}
+
+.promo-small {
+    @mixin promo_small;
+}
+
+.promo-xlarge {
+    @mixin promo_xlarge;
+}
+
+.promo-xsmall {
+    @mixin promo_xsmall;
+}
+
+.accent-component {
+    @mixin accent_component;
+}
+
+.action-component {
+    @mixin action_component;
+}
+
+.paragraph-component {
+    @mixin paragraph_component;
+}
