@@ -6,6 +6,8 @@ import { Color } from '../colors';
 import { useSkeleton } from '../hooks';
 import { TextSkeletonProps } from '../types';
 
+import { getDefaultWeight } from './utils';
+
 import colors from '../colors.module.css';
 
 type NativeProps = HTMLAttributes<HTMLHeadingElement>;
@@ -29,7 +31,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
     /**
      * Толщина шрифта
      */
-    weight?: 'regular' | 'medium' | 'bold';
+    weight?: 'regular' | 'medium' | 'bold' | 'semibold';
 
     /**
      * Шрифт текста
@@ -72,21 +74,23 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
     skeletonProps?: TextSkeletonProps;
 };
 
-type Styles = {
+type PrivateProps = {
     styles: {
         [key: string]: string;
     };
+    platform: 'mobile' | 'desktop';
 };
 
 type TitleElementType = HTMLHeadingElement | HTMLDivElement;
 
-export const Title = forwardRef<TitleElementType, TitleProps & Styles>(
+export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>(
     (
         {
             tag: Component = 'div',
             view = 'medium',
             font = 'styrene',
-            weight = font === 'styrene' ? 'medium' : 'bold',
+            platform,
+            weight = getDefaultWeight(font, platform),
             defaultMargins = false,
             color,
             className,

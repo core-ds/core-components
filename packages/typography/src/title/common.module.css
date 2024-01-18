@@ -6,6 +6,10 @@
         font-weight: bold;
     }
 
+    &.semibold {
+        font-weight: 600;
+    }
+
     &.medium {
         font-weight: 500;
     }
