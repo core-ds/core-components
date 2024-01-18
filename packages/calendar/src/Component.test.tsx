@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import subDays from 'date-fns/subDays';
 import addDays from 'date-fns/addDays';
@@ -12,6 +12,7 @@ import subMonths from 'date-fns/subMonths';
 import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
+import { usePeriod } from './usePeriod';
 
 import { CalendarDesktop as Calendar } from './desktop';
 
@@ -1356,5 +1357,32 @@ describe('Calendar', () => {
 
             expect(unmount).not.toThrowError();
         });
+    });
+});
+
+describe('hook tests', () => {
+    it('should fromDate less than toDate when initial dates is equal', () => {
+        const initialDate = new Date('2024-01-01').getTime();
+        const newToDate = new Date('2024-01-02').getTime();
+        const newFromDate = new Date('2023-12-01').getTime();
+
+        const { result, rerender } = renderHook(() =>
+            usePeriod({
+                initialSelectedFrom: initialDate,
+                initialSelectedTo: initialDate,
+            }),
+        );
+
+        act(() => result.current.updatePeriod(newFromDate));
+
+        expect(result.current.selectedFrom).toBe(newFromDate);
+        expect(result.current.selectedTo).toBe(initialDate);
+
+        act(() => result.current.setStart(initialDate));
+        act(() => result.current.setEnd(initialDate));
+        act(() => result.current.updatePeriod(newFromDate));
+
+        expect(result.current.selectedFrom).toBe(newFromDate);
+        expect(result.current.selectedTo).toBe(initialDate);
     });
 });
