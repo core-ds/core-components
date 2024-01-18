@@ -11,7 +11,11 @@ const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
         if (rule.oneOf) {
             rule.oneOf.forEach((nestedRule) => {
-                if (nestedRule.loader && nestedRule.loader.includes('babel-loader')) {
+                if (
+                    nestedRule.loader &&
+                    nestedRule.test.test('.tsx') &&
+                    nestedRule.loader.includes('babel-loader')
+                ) {
                     const paths = [path.resolve(__dirname, '../packages')];
                     nestedRule.include.push(...paths);
                 }
@@ -99,7 +103,11 @@ module.exports = {
     ],
     framework: {
         name: '@storybook/react-webpack5',
-        options: {},
+        options: {
+            builder: {
+                useSWC: true,
+            },
+        },
     },
     docs: {
         autodocs: false,
