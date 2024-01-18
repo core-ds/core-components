@@ -1,6 +1,7 @@
 import React, { FC, KeyboardEventHandler, useContext, useRef } from 'react';
 import cn from 'classnames';
 
+import { getImageAlt } from '@alfalab/core-components-gallery';
 import { useFocus } from '@alfalab/hooks';
 
 import { GalleryContext } from '../../context';
@@ -77,11 +78,11 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             ) : (
                 <div
                     className={cn(styles.preview, styles.image, {
-                        [styles.broken]: isBroken,
                         [styles.loading]: !meta,
                     })}
-                    style={{ backgroundImage: `url(${image.src})` }}
-                />
+                >
+                    <img src={image.src} alt={getImageAlt(image, index)} />
+                </div>
             )}
         </div>
     );
