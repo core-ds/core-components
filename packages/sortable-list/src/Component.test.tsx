@@ -45,6 +45,17 @@ describe('ScrollableList', () => {
             expect(container).toHaveClass(containerClassName);
         });
 
+        it('should set itemContentClassName on item content wrapper', async () => {
+            const itemContentClassName = 'itemContentClassName';
+            const { getByTestId } = render(
+                <SortableListWrapper itemContentClassName={itemContentClassName} />,
+            );
+
+            const item = getByTestId(itemTestId + '_1');
+
+            expect(item.firstElementChild).toHaveClass(itemContentClassName);
+        });
+
         it('should set paddings as obj prop', async () => {
             const { getByTestId } = render(
                 <SortableListWrapper

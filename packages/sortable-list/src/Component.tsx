@@ -58,6 +58,7 @@ export const SortableList = forwardRef<HTMLDivElement, SortableListProps>(
         {
             className,
             itemClassName,
+            itemContentClassName,
             controlPosition = 'right',
             controlPadding,
             items,
@@ -145,6 +146,7 @@ export const SortableList = forwardRef<HTMLDivElement, SortableListProps>(
                 key={item.id}
                 id={item.id}
                 className={sortableItemClassName}
+                contentClassName={itemContentClassName}
                 activatorNode={activatorNode}
                 disabled={item.disabled}
                 {...restProps}
