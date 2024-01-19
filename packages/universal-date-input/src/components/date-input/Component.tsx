@@ -56,6 +56,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             block,
             withTime,
             breakpoint,
+            displayFormat,
             ...restProps
         },
         ref,
@@ -69,7 +70,14 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         const { offDays } = calendarProps;
         const inputValue = valueProp ?? value ?? '';
         const [inputDate, inputTime] = inputValue.split(DATE_TIME_SEPARATOR);
-        const isValidValue = isValidDate({ value: inputDate, minDate, maxDate, offDays });
+        const selectedDateFormat = displayFormat ?? DATE_FORMAT;
+        const isValidValue = isValidDate({
+            value: inputDate,
+            minDate,
+            maxDate,
+            offDays,
+            selectedDateFormat,
+        });
 
         useEffect(() => {
             if (autoCorrection) {
@@ -78,14 +86,16 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                 if (!lastValidDate.current || !inputValue) {
                     lastValidDate.current = hasValidValue
                         ? inputValue
-                        : formatDate(minDate, withTime ? DATE_TIME_FORMAT : DATE_FORMAT);
+                        : formatDate(minDate, withTime ? DATE_TIME_FORMAT : selectedDateFormat);
                 }
             }
-        }, [autoCorrection, minDate, withTime, isValidValue, inputValue]);
+        }, [autoCorrection, minDate, withTime, isValidValue, inputValue, selectedDateFormat]);
 
         const getInnerError = () => {
             if (autoCorrection) {
-                const isComplete = isCompleteDate(inputDate) && isCompleteTime(inputTime, withTime);
+                const isComplete =
+                    isCompleteDate(inputDate, selectedDateFormat) &&
+                    isCompleteTime(inputTime, withTime);
 
                 return isComplete && !isValidValue ? 'Эта дата недоступна' : false;
             }
@@ -94,7 +104,10 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         };
 
         const callOnComplete = (val: string) => {
-            onComplete?.(val, parseDateString(val, withTime ? DATE_TIME_FORMAT : DATE_FORMAT));
+            onComplete?.(
+                val,
+                parseDateString(val, withTime ? DATE_TIME_FORMAT : selectedDateFormat),
+            );
             lastValidDate.current = val;
         };
 
@@ -104,7 +117,8 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             const [date, time = ''] = val.split(DATE_TIME_SEPARATOR);
 
             if (uncontrolled) setValue(val);
-            if (isCompleteDate(date) && isCompleteTime(time, withTime)) callOnComplete(val);
+            if (isCompleteDate(date, selectedDateFormat) && isCompleteTime(time, withTime))
+                callOnComplete(val);
         };
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -113,9 +127,12 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
 
         const handleCalendarChange: CalendarProps['onChange'] = (date?: number) => {
             if (date) {
-                changeValue(formatDate(date, withTime ? DATE_TIME_FORMAT : DATE_FORMAT), null);
+                changeValue(
+                    formatDate(date, withTime ? DATE_TIME_FORMAT : selectedDateFormat),
+                    null,
+                );
                 requestAnimationFrame(() => {
-                    const dateLen = DATE_FORMAT.length;
+                    const dateLen = selectedDateFormat.length;
                     const newCaretPos = withTime ? dateLen + DATE_TIME_SEPARATOR.length : dateLen;
 
                     inputRef.current?.setSelectionRange(newCaretPos, newCaretPos);
@@ -127,7 +144,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
             onBlur?.(event);
             if (autoCorrection) {
-                const dateFilled = isCompleteDate(inputDate);
+                const dateFilled = isCompleteDate(inputDate, selectedDateFormat);
 
                 if (dateFilled && !isCompleteTime(inputTime, withTime)) {
                     const [, prevTime] = lastValidDate.current.split(DATE_TIME_SEPARATOR);
@@ -154,7 +171,11 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                             open={open}
                             onClose={onCalendarClose}
                             ref={calendarRef}
-                            value={isValidValue ? parseDateString(inputDate).getTime() : undefined}
+                            value={
+                                isValidValue
+                                    ? parseDateString(inputDate, selectedDateFormat).getTime()
+                                    : undefined
+                            }
                             onChange={handleCalendarChange}
                             minDate={minDate}
                             maxDate={maxDate}

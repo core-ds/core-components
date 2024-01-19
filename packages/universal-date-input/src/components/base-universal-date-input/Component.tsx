@@ -44,6 +44,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             readOnly,
             fieldClassName,
             disableUserInput,
+            displayFormat,
             ...restProps
         },
         ref,
@@ -63,8 +64,9 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
                     endOfDay(maxDate),
                     autoCorrection,
                     handleCorrection,
+                    displayFormat,
                 ),
-            [view, minDate, maxDate, autoCorrection],
+            [view, minDate, maxDate, autoCorrection, displayFormat],
         );
 
         const maskRef = useMaskito({ options: maskOptions });
@@ -197,6 +199,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
                         {...pickerProps}
                         withTime={view === 'date-time'}
                         open={open}
+                        displayFormat={displayFormat}
                         calendarRef={calendarRef}
                         inputWrapperRef={inputWrapperRef}
                         ref={mergeRefs([ref, maskRef, inputRef])}

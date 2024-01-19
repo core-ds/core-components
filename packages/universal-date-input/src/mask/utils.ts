@@ -2,7 +2,12 @@
 import clamp from 'date-fns/clamp';
 import getDaysInMonth from 'date-fns/getDaysInMonth';
 
-import { DATE_MAX_VALUES, DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from '../consts';
+import {
+    DATE_MAX_VALUES,
+    DATE_POSSIBLE_SEPARATORS,
+    DATE_RANGE_SEPARATOR,
+    DATE_TIME_SEPARATOR,
+} from '../consts';
 import { DateSegments, DateTemplate } from '../types';
 
 function fillMask(len: number) {
@@ -396,5 +401,33 @@ export function segmentsToObj(
         year: segments[templateSegments.indexOf('yyyy')],
         hours: segments[templateSegments.indexOf('HH')],
         minutes: segments[templateSegments.indexOf('mm')],
+    };
+}
+
+/**
+ *  Превращает строку с форматом даты в объект с сегментами и разделителями
+ */
+
+export function formatDateToTemplate(formatDate: string): DateTemplate {
+    const formatDateTrimmed = formatDate.trim();
+
+    // Получаем массив сегментов по возможным типам разделителей
+    const segments = formatDateTrimmed.split(DATE_POSSIBLE_SEPARATORS).filter(Boolean);
+    const separators = formatDateTrimmed.split('').reduce((acc, currentSymbol) => {
+        switch (currentSymbol) {
+            case '.':
+            case '/':
+            case '-':
+            case ' ':
+                acc.push(currentSymbol);
+                break;
+        }
+
+        return acc;
+    }, [] as string[]);
+
+    return {
+        segments,
+        separators,
     };
 }

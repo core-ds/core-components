@@ -5,7 +5,14 @@ import dateFnsFormat from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import parse from 'date-fns/parse';
 
-import { DATE_FORMAT, DATE_RANGE_SEPARATOR } from '../consts';
+import {
+    DATE_FORMAT,
+    DATE_RANGE_SEPARATOR,
+    DATE_TIME_SEPARATOR,
+    HOURS_MINUTES_SEPARATOR,
+} from '../consts';
+import { formatDateToTemplate } from '../mask/utils';
+import { DateTemplate, View } from '../types';
 
 export function parseDateString(value: string, format: string = DATE_FORMAT) {
     return parse(value, format, new Date());
@@ -14,8 +21,8 @@ export function parseDateString(value: string, format: string = DATE_FORMAT) {
 export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
     dateFnsFormat(date, dateFormat);
 
-export function isCompleteDate(value = '') {
-    return value.length === DATE_FORMAT.length;
+export function isCompleteDate(value = '', dateFormat = DATE_FORMAT) {
+    return value.length === dateFormat.length;
 }
 
 export function isCompleteTime(value = '', withTime = false) {
@@ -33,13 +40,17 @@ export function isValidDate({
     minDate,
     maxDate,
     offDays,
+    selectedDateFormat,
 }: {
     value?: string;
     minDate: number;
     maxDate: number;
     offDays?: Array<Date | number>;
+    selectedDateFormat?: string;
 }) {
-    const parsed = isCompleteDate(value) ? parseDateString(value).getTime() : undefined;
+    const parsed = isCompleteDate(value, selectedDateFormat)
+        ? parseDateString(value, selectedDateFormat).getTime()
+        : undefined;
 
     if (parsed) {
         return (
@@ -157,3 +168,24 @@ export function updateRange({
 
     return '';
 }
+
+export const getTemplate = (displayFormat?: string): Record<View, DateTemplate> => ({
+    date: displayFormat
+        ? formatDateToTemplate(displayFormat)
+        : {
+              segments: ['dd', 'MM', 'yyyy'],
+              separators: ['.', '.'],
+          },
+    'date-time': {
+        segments: ['dd', 'MM', 'yyyy', 'HH', 'mm'],
+        separators: ['.', '.', DATE_TIME_SEPARATOR, HOURS_MINUTES_SEPARATOR],
+    },
+    'date-range': {
+        segments: ['dd', 'MM', 'yyyy', 'dd', 'MM', 'yyyy'],
+        separators: ['.', '.', DATE_RANGE_SEPARATOR, '.', '.'],
+    },
+    time: {
+        segments: ['HH', 'mm'],
+        separators: [HOURS_MINUTES_SEPARATOR],
+    },
+});

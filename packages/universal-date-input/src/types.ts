@@ -113,6 +113,11 @@ export interface BaseUniversalDateInputProps
      * Для враппера используется модификатор -wrapper, календаря -calendar, поповера -popover
      */
     dataTestId?: string;
+
+    /**
+     * Формат отображения даты
+     */
+    displayFormat?: string;
 }
 
 export interface InnerDateInputProps extends Omit<BaseUniversalDateInputProps, 'view'> {
