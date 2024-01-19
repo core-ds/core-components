@@ -98,7 +98,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             if (pseudoNode) {
                 pseudoNode.scrollTop = scrollPosition;
             }
-        }, [scrollPosition, stateValue]);
+        }, [scrollPosition, stateValue, hasOverflow]);
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
@@ -235,9 +235,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                             value={value ?? stateValue}
                             size={size}
                             maxLength={maxLength as number}
-                            pseudoTextareaClassName={cn(textareaClassNameCalc, {
-                                [styles.nativeScrollbar]: nativeScrollbar,
-                            })}
+                            pseudoTextareaClassName={textareaClassNameCalc}
                             ref={pseudoTextareaRef}
                         />
                     )}
