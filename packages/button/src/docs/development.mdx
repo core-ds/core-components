@@ -1,8 +1,33 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
+import { Plate } from '@alfalab/core-components-plate';
 import { Button } from '../index';
 import { ButtonDesktop } from '../desktop';
 import { ButtonMobile } from '../mobile';
 import styles from '!!raw-loader!../vars.css';
+
+<style>
+    {`
+    .transformer-info {
+        display: none;
+    }
+
+    html[theme='corp'] .transformer-info {
+        display: block;
+    }
+`}
+</style>
+
+<Plate view='attention' limitContentWidth={false} className='transformer-info'>
+    В приложениях Альфа-Бизнес (НИБ) компонент должен переключаться в мобильный вид при ширине
+    768px. Для этого необходимо установить свойство `breakpoint={768}`.
+
+    Воспользуйтесь трансформером `button-breakpoint-768`, чтобы добавить брейкпоинт всем кнопкам в
+    проекте. Трансформер доступен в `@alfalab/core-components-codemod`, начиная с версии `2.5.0`.
+
+    Если возникнут вопросы — свяжитесь с командой дизайн-системы Альфа-Бизнес в рокетчате
+    `#arui-private`.
+
+</Plate>
 
 ## Подключение
 
@@ -11,11 +36,12 @@ import { Button } from '@alfalab/core-components/button';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 ```
+
 Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
-<ArgsTabs components={{ButtonDesktop, ButtonMobile, Button}} />
+<ArgsTabs components={{ ButtonDesktop, ButtonMobile, Button }} />
 
 ## Переменные
 

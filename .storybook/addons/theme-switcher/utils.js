@@ -50,5 +50,6 @@ export function themeChangeListen() {
 
         setThemeStyles(theme, document);
         setThemeStylesInMobileFrame(theme);
+        document.documentElement.setAttribute('theme', theme);
     });
 }
