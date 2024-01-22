@@ -1,12 +1,4 @@
-import React, {
-    ChangeEvent,
-    FocusEvent,
-    forwardRef,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
@@ -71,60 +63,74 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
 
         const [value, setValue] = useState(propValue || defaultValue);
 
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const { value: newValue } = event.target;
+        const moveCaretTo = (pos: number) => {
+            requestAnimationFrame(() => {
+                inputRef.current?.setSelectionRange(pos, pos);
+            });
+        };
 
-                // Позволяем вводить только цифры и точки
-                if (/[^\d.]/.test(newValue)) {
-                    return;
+        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+            const { value: newValue } = event.target;
+            const caretPos = event.target.selectionStart || 0;
+
+            // Позволяем вводить только цифры и точки
+            if (/[^\d.]/.test(newValue)) {
+                moveCaretTo(caretPos - 1);
+
+                return;
+            }
+
+            // Не даем вводить больше, чем 2 точки
+            if (getDotsCount(newValue) > 2) {
+                moveCaretTo(caretPos - 1);
+
+                return;
+            }
+
+            // Форматируем введенное значение (добавляем точки)
+            const formattedValue = format(newValue);
+            const date = parseDateString(formattedValue);
+
+            // Управляем кареткой, если она находится не в конце инпута
+            if (caretPos !== newValue.length) {
+                if (formattedValue === value) {
+                    moveCaretTo(caretPos);
+                } else if (newValue.length - formattedValue.length === 1) {
+                    moveCaretTo(caretPos);
+                } else if (
+                    formattedValue.length - newValue.length === 1 &&
+                    getDotsCount(formattedValue) > getDotsCount(newValue)
+                ) {
+                    moveCaretTo(caretPos);
                 }
+            }
 
-                const dots = newValue.match(/\./g);
+            setValue(formattedValue);
 
-                // Не даем вводить больше, чем 2 точки
-                if (dots && dots.length > 2) {
-                    return;
-                }
+            if (onChange) onChange(event, { date, value: formattedValue });
 
-                // Форматируем введенное значение (добавляем точки)
-                const formattedValue = format(newValue);
-                const date = parseDateString(formattedValue);
+            if (isCompleteDateInput(formattedValue)) {
+                const valid = formattedValue.length > 0 && isValid(formattedValue);
 
-                setValue(formattedValue);
+                if (!valid) return;
 
-                if (onChange) onChange(event, { date, value: formattedValue });
+                if (onComplete) onComplete(event, { date, value: formattedValue });
+            }
+        };
 
-                if (isCompleteDateInput(formattedValue)) {
-                    const valid = formattedValue.length > 0 && isValid(formattedValue);
+        const handleNativeInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+            const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
+            const newValue = event.target.value === '' ? '' : formatDate(newDate);
 
-                    if (!valid) return;
+            setValue(newValue);
 
-                    if (onComplete) onComplete(event, { date, value: formattedValue });
-                }
-            },
-            [onChange, onComplete],
-        );
+            if (onComplete) onComplete(event, { date: newDate, value: newValue });
+            if (onChange) onChange(event, { date: newDate, value: newValue });
+        };
 
-        const handleNativeInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
-                const newValue = event.target.value === '' ? '' : formatDate(newDate);
-
-                setValue(newValue);
-
-                if (onComplete) onComplete(event, { date: newDate, value: newValue });
-                if (onChange) onChange(event, { date: newDate, value: newValue });
-            },
-            [onComplete, onChange],
-        );
-
-        const handleBlur = useCallback(
-            (event: FocusEvent<HTMLInputElement>) => {
-                if (onBlur) onBlur(event);
-            },
-            [onBlur],
-        );
+        const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+            if (onBlur) onBlur(event);
+        };
 
         useEffect(() => {
             if (mobileMode === 'native' && isInputDateSupported()) {
@@ -169,3 +175,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         );
     },
 );
+
+function getDotsCount(value: string) {
+    return (value.match(/\./g) || []).length;
+}

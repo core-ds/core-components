@@ -18,7 +18,7 @@ describe('DateInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(render(<DateInput defaultValue='01.01.2021' />).container).toMatchSnapshot();
@@ -94,6 +94,41 @@ describe('DateInput', () => {
 
             expect(onComplete).toBeCalledTimes(1);
             expect(onChange).toBeCalledTimes(value.length);
+        });
+    });
+
+    describe('Caret tests', () => {
+        it('should be set correct caret position', async () => {
+            const value = '01.01.2020';
+            const { queryByRole } = render(<DateInput defaultValue={value} />);
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            await userEvent.type(input, '5', { initialSelectionStart: 4, initialSelectionEnd: 4 });
+
+            await waitFor(() => expect(input.selectionStart).toBe(5));
+            expect(input.value).toBe('01.05.2020');
+
+            await userEvent.type(input, '1', { initialSelectionStart: 0, initialSelectionEnd: 0 });
+
+            await waitFor(() => expect(input.selectionStart).toBe(1));
+            expect(input.value).toBe('10.05.2020');
+
+            await userEvent.type(input, '{Backspace}', {
+                initialSelectionStart: 3,
+                initialSelectionEnd: 3,
+            });
+
+            await waitFor(() => expect(input.selectionStart).toBe(2));
+            expect(input.value).toBe('10.05.2020');
+
+            await userEvent.type(input, '{Backspace}', {
+                initialSelectionStart: 2,
+                initialSelectionEnd: 2,
+            });
+
+            expect(input.selectionStart).toBe(1);
+            expect(input.value).toBe('1.05.2020');
         });
     });
 
