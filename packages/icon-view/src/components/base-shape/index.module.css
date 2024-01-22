@@ -58,7 +58,7 @@
     transform: translate(-50%, -50%);
 
     & svg,
-    :global(.cc-cdn-icon) {
+    & :global(.cc-cdn-icon) {
         width: 100%;
         height: 100%;
     }
