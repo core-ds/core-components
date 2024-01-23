@@ -169,6 +169,12 @@ describe('Button', () => {
 
             expect(container.firstElementChild).toHaveClass('rounded');
         });
+
+        it('should set `allowBackdropBlur` class', () => {
+            const { container } = render(<Button allowBackdropBlur={true} />);
+
+            expect(container.firstElementChild).toHaveClass('allowBackdropBlur');
+        });
     });
 
     describe('Callbacks tests', () => {

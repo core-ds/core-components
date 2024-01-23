@@ -108,6 +108,12 @@ export type ComponentProps = {
     colors?: 'default' | 'inverted';
 
     /**
+     * Включает размытие фона для некоторых вариантов кнопки
+     * @description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.
+     */
+    allowBackdropBlur?: boolean;
+
+    /**
      * Дочерние элементы.
      */
     children?: ReactNode;

@@ -38,10 +38,12 @@
     display: block;
 }
 
-.secondary,
-.accent[disabled],
-.primary[disabled] {
-    backdrop-filter: blur(80px);
+.allowBackdropBlur {
+    &.secondary,
+    &.accent[disabled],
+    &.primary[disabled] {
+        backdrop-filter: blur(80px);
+    }
 }
 
 .focused {

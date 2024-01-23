@@ -187,7 +187,9 @@
     }
 }
 
-.outlined.checked[disabled],
-.filled {
-    backdrop-filter: blur(80px);
+.allowBackdropBlur {
+    &.outlined.checked[disabled],
+    &.filled {
+        backdrop-filter: blur(80px);
+    }
 }
