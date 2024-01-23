@@ -110,6 +110,16 @@ export type SliderInputProps = Omit<
     onSliderChange?: (payload: { value: number }) => void;
 
     /**
+     * Обработчик начала перетаскивания ползунка
+     */
+    onSliderStart?: SliderProps['onStart'];
+
+    /**
+     * Обработчик окончания перетаскивания ползунка
+     */
+    onSliderEnd?: SliderProps['onEnd'];
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -139,6 +149,8 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             onChange,
             onInputChange,
             onSliderChange,
+            onSliderStart,
+            onSliderEnd,
             rightAddons,
             Input = DefaultInput,
             customInputProps = {},
@@ -218,6 +230,8 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                 min={min}
                                 max={max}
                                 step={step}
+                                onStart={onSliderStart}
+                                onEnd={onSliderEnd}
                                 onChange={handleSliderChange}
                                 value={
                                     Number.isNaN(sliderValue) || !sliderValue ? min : sliderValue

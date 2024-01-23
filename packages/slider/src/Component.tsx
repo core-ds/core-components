@@ -89,6 +89,16 @@ export type SliderProps = {
     onChange?: (payload: { value: number; valueTo?: number }) => void;
 
     /**
+     * Обработчик начала перетаскивания ползунка
+     */
+    onStart?: () => void;
+
+    /**
+     * Обработчик окончания перетаскивания ползунка
+     */
+    onEnd?: () => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -107,9 +117,11 @@ export const Slider: FC<SliderProps> = ({
     size = 's',
     className,
     onChange,
+    onStart,
+    onEnd,
     dataTestId,
 }) => {
-    const sliderRef = useRef<HTMLDivElement & { noUiSlider: API }>(null);
+    const sliderRef = useRef<(HTMLDivElement & { noUiSlider: API }) | null>(null);
     const busyRef = useRef<boolean>(false);
     const hasValueTo = valueTo !== undefined;
 
@@ -127,16 +139,36 @@ export const Slider: FC<SliderProps> = ({
             range,
         });
 
-        slider.on('start', () => {
-            busyRef.current = true;
-        });
-
         slider.on('change', () => {
             busyRef.current = false;
         });
 
+        // eslint-disable-next-line consistent-return
+        return () => slider.destroy();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        const slider = getSlider();
+
+        if (!slider) return;
+
+        slider.on('start', () => {
+            busyRef.current = true;
+            onStart?.();
+        });
+
+        slider.on('end', () => {
+            onEnd?.();
+        });
+
+        // eslint-disable-next-line consistent-return
+        return () => {
+            slider.off('start');
+            slider.off('end');
+        };
+    }, [onStart, onEnd]);
 
     useEffect(() => {
         const slider = getSlider();
