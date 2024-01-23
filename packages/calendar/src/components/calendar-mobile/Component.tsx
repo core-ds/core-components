@@ -225,6 +225,7 @@ const CalendarMonthOnlyView = ({
             itemSize={(el) => el.getBoundingClientRect().height + 32}
             customScrollParent={scrollableContainer}
             useWindowScroll={true}
+            className={styles.virtuoso}
         />
     );
 };
@@ -304,7 +305,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 <CalendarDesktop
                     responsive={true}
                     className={cn(className, styles.calendar)}
-                    headerClassName={styles.header}
                     contentClassName={styles.content}
                     {...commonProps}
                     {...restProps}
@@ -378,7 +378,9 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         className={cn({ [styles.withZIndex]: selectorView === 'full' })}
                     />
                 )}
-                <ModalMobile.Content flex={true}>{renderContent()}</ModalMobile.Content>
+                <ModalMobile.Content className={styles.contentModal} flex={true}>
+                    {renderContent()}
+                </ModalMobile.Content>
                 <ModalMobile.Footer
                     sticky={true}
                     className={cn({ [styles.withZIndex]: selectorView === 'full' })}

@@ -63,8 +63,11 @@
     }
 }
 
-.header.header,
-.content.content {
+.virtuoso {
+    margin: 0 var(--gap-m);
+}
+
+.contentModal {
     padding-right: 0;
     padding-left: 0;
 }

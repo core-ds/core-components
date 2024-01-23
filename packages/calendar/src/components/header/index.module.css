@@ -11,5 +11,5 @@
 }
 
 .withShadow {
-    box-shadow: var(--shadow-s);
+    box-shadow: 0 1px 0 0 var(--color-light-neutral-300);
 }
