@@ -16,6 +16,7 @@ export const SortableItem: React.FC<SortableItemProps> = ({
     controlPadding,
     children,
     className,
+    contentClassName,
     id,
     isDragOverlay,
     disabled,
@@ -74,7 +75,7 @@ export const SortableItem: React.FC<SortableItemProps> = ({
         >
             {controlPosition === 'left' && renderControl()}
 
-            <div className={cn(styles.content)}>{children}</div>
+            <div className={cn(styles.content, contentClassName)}>{children}</div>
 
             {controlPosition === 'right' && renderControl()}
         </div>

@@ -30,6 +30,7 @@ export type SortableItemProps = {
     controlPosition: ControlPosition;
     children: React.ReactNode;
     className: string;
+    contentClassName?: string;
     id: UniqueIdentifier;
     isDragOverlay?: boolean;
     disabled?: boolean;
@@ -46,6 +47,11 @@ export type SortableListProps = {
      * Дополнительный класс на элемент списка
      */
     itemClassName?: string;
+
+    /**
+     * Дополнительный класс на обертку контента у элемента списка
+     */
+    itemContentClassName?: string;
 
     /**
      * Пропсы портала, в котором отображается draggable элемент
