@@ -364,14 +364,14 @@
     "calendar": {
         "desktop.js": 63.5,
         "index.js": 167.7,
-        "mobile.js": 167.5,
+        "mobile.js": 167.6,
         "shared.js": 47.1
     },
     "calendar-with-skeleton": {
         "index.js": 64.6
     },
     "calendar-range": {
-        "index.js": 237.6
+        "index.js": 237.7
     },
     "calendar-input": {
         "desktop.js": 134.2,
