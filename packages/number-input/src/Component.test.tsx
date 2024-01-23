@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getNumberInputTestIds } from './utils';
 
 import { NumberInput, NumberInputProps } from '.';
 
@@ -26,10 +27,38 @@ describe('NumberInput', () => {
     });
 
     it('should set `data-test-id` attribute', () => {
-        const dataTestId = 'test-id';
-        const { getByTestId } = render(<NumberInput dataTestId={dataTestId} />);
+        const dti = 'number-input-dti';
+        const { getByTestId } = render(
+            <NumberInput
+                block={true}
+                dataTestId={dti}
+                error='error message'
+                leftAddons={<span />}
+                rightAddons={<span />}
+            />,
+        );
 
-        expect(getByTestId(dataTestId)).toBeInTheDocument();
+        const testIds = getNumberInputTestIds(dti);
+
+        expect(getByTestId(testIds.input)).toBeInTheDocument();
+        expect(getByTestId(testIds.inputWrapper)).toBeInTheDocument();
+        expect(getByTestId(testIds.inputWrapperInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.leftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.rightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.error)).toBeInTheDocument();
+    });
+
+    it('should set `data-test-id` attribute for hint, decrement, increment', () => {
+        const dti = 'number-input-dti';
+        const { getByTestId } = render(
+            <NumberInput block={true} dataTestId={dti} step={1} hint='hint' />,
+        );
+
+        const testIds = getNumberInputTestIds(dti);
+
+        expect(getByTestId(testIds.decrementButton)).toBeInTheDocument();
+        expect(getByTestId(testIds.incrementButton)).toBeInTheDocument();
+        expect(getByTestId(testIds.hint)).toBeInTheDocument();
     });
 
     it('should set custom class', () => {

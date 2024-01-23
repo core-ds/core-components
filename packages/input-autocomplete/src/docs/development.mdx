@@ -11,6 +11,65 @@ import { InputAutocompleteDesktop } from '@alfalab/core-components/input-autocom
 import { InputAutocompleteMobile } from '@alfalab/core-components/input-autocomplete/mobile';
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функциями `getInputAutocompleteDesktopTestIds` и `getInputAutocompleteMobileTestIds`.  
+Импорт из `@alfalab/core-components/input-autocomplete/shared`.
+
+Функции возвращают объекты:
+
+```jsx
+// desktop
+{
+    inputAutocomplete: dataTestId,
+    option: `${dataTestId}-option`,
+    optionsList: `${dataTestId}-options-list`,
+    field: `${dataTestId}-field`,
+    fieldInner: `${dataTestId}-field-form-control-inner`,
+    fieldFormControl: `${dataTestId}-field-form-control`,
+    fieldLeftAddons: `${dataTestId}-field-form-control-left-addons`,
+    fieldRightAddons: `${dataTestId}-field-form-control-right-addons`,
+    fieldError: `${dataTestId}-field-form-control-error-message`,
+    fieldHint: `${dataTestId}-field-form-control-hint`,
+};
+
+// mobile
+{
+    inputAutocomplete: dataTestId,
+    option: `${dataTestId}-option`,
+    optionsList: `${dataTestId}-options-list`,
+
+    // для InputAutocompleteMobile
+    bottomSheet: `${dataTestId}-bottom-sheet`,
+    bottomSheetHeader: `${dataTestId}-bottom-sheet-header`,
+    bottomSheetContent: `${dataTestId}-bottom-sheet-content`,
+
+    // для InputAutocompleteModalMobile
+    modal: `${dataTestId}-modal`,
+    modalHeader: `${dataTestId}-modal-header`,
+    modalContent: `${dataTestId}-modal-content`,
+
+    clearButton: `${dataTestId}-clear`,
+    applyButton: `${dataTestId}-apply`,
+
+    fieldInner: `${dataTestId}-field-form-control-inner`,
+    fieldFormControl: `${dataTestId}-field-form-control`,
+    fieldLeftAddons: `${dataTestId}-field-form-control-left-addons`,
+    fieldRightAddons: `${dataTestId}-field-form-control-right-addons`,
+    fieldError: `${dataTestId}-field-form-control-error-message`,
+    fieldHint: `${dataTestId}-field-form-control-hint`,
+
+    searchInput: `${dataTestId}-search`,
+    searchFormControl: `${dataTestId}-search-form-control`,
+    searchInner: `${dataTestId}-search-form-control-inner`,
+    searchLeftAddons: `${dataTestId}-search-form-control-left-addons`,
+    searchRightAddons: `${dataTestId}-search-form-control-right-addons`,
+    searchError: `${dataTestId}-search-form-control-error-message`,
+    searchHint: `${dataTestId}-search-form-control-hint`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs

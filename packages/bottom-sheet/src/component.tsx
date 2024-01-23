@@ -602,6 +602,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                     [styles.noHeader]: hideHeader || emptyHeader,
                                     [styles.noFooter]: !actionButton,
                                 })}
+                                data-test-id={getDataTestId(dataTestId, 'content')}
                             >
                                 {children}
                             </div>
@@ -610,6 +611,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                 <Footer
                                     sticky={stickyFooter}
                                     className={cn(bgClassName, footerClassName)}
+                                    dataTestId={getDataTestId(dataTestId, 'footer')}
                                 >
                                     {actionButton}
                                 </Footer>

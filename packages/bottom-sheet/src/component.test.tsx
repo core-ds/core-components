@@ -4,6 +4,7 @@ import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-
 import { act } from 'react-dom/test-utils';
 import { BottomSheet, BottomSheetProps, CLOSE_OFFSET, HEADER_OFFSET } from '.';
 import { convertPercentToNumber } from './utils';
+import { getBottomSheetTestIds } from './utils';
 
 jest.useFakeTimers();
 
@@ -92,11 +93,41 @@ describe('Bottom sheet', () => {
     });
 
     describe('Props tests', () => {
-        it('should set `data-test-id` attribute', () => {
-            const { getByTestId } = render(<BottomSheetWrapper dataTestId={dataTestId} />);
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation((query) => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(),
+                removeListener: jest.fn(),
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        });
 
-            expect(getByTestId(dataTestId).tagName).toBe('DIV');
-            expect(getByTestId(dataTestId).getAttribute('role')).toBe('dialog');
+        it('should have data-test-id', () => {
+            const dti = 'bottom-sheet-dti';
+            const { getByTestId } = render(
+                <BottomSheetWrapper
+                    actionButton={<div />}
+                    hasCloser={true}
+                    hasBacker={true}
+                    dataTestId={dti}
+                />,
+            );
+
+            const testIds = getBottomSheetTestIds(dti);
+
+            expect(getByTestId(testIds.bottomSheet)).toBeInTheDocument();
+            expect(getByTestId(testIds.content)).toBeInTheDocument();
+            expect(getByTestId(testIds.footer)).toBeInTheDocument();
+            expect(getByTestId(testIds.header)).toBeInTheDocument();
+            expect(getByTestId(testIds.title)).toBeInTheDocument();
+            expect(getByTestId(testIds.closer)).toBeInTheDocument();
+            expect(getByTestId(testIds.backButton)).toBeInTheDocument();
+            expect(getByTestId(testIds.bottomSheet).getAttribute('role')).toBe('dialog');
         });
 
         it('should forward ref', () => {

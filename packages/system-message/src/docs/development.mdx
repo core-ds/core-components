@@ -14,6 +14,24 @@ import { SystemMessageDesktop } from '@alfalab/core-components/system-message/de
 import { SystemMessageMobile } from '@alfalab/core-components/system-message/mobile';
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getSystemMessageTestIds`.  
+Импорт из `@alfalab/core-components/system-message/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    systemMessage: dataTestId,
+    caption: `${dataTestId}-caption`,
+    controls: `${dataTestId}-controls`,
+    graphic: `${dataTestId}-graphic`,
+    subtitle: `${dataTestId}-subtitle`,
+    title: `${dataTestId}-core-title`,
+```
+
 ## Свойства
 
 <ArgsTable of={SystemMessageResponsive} />

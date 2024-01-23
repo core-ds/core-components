@@ -2,7 +2,7 @@ import type { MaskitoOptions } from '@maskito/core';
 
 import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
 import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select/shared';
-import { maskUtils } from '@alfalab/core-components-shared';
+import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
 import { countriesData } from '../data/country-data';
@@ -245,4 +245,65 @@ export function getClear(
     return clearableCountryCode
         ? trimmedValue !== '' && trimmedValue !== '+'
         : trimmedValue.length > countryCode.length + 1;
+}
+
+export function getInternationalPhoneInputDesktopTestIds(dataTestId: string) {
+    return {
+        fieldAutocompleteWrapper: dataTestId,
+        fieldAutocompleteInner: `${dataTestId}-field-form-control-inner`,
+        fieldAutocompleteFormControl: `${dataTestId}-field-form-control`,
+        fieldAutocompleteLeftAddons: `${dataTestId}-field-form-control-left-addons`,
+        fieldAutocompleteRightAddons: `${dataTestId}-field-form-control-right-addons`,
+        fieldAutocompleteError: `${dataTestId}-field-form-control-error-message`,
+        fieldAutocompleteHint: `${dataTestId}-field-form-control-hint`,
+        option: getDataTestId(dataTestId, 'option'),
+        optionsList: getDataTestId(dataTestId, 'options-list'),
+        countryOption: getDataTestId(dataTestId, 'country-select-option'),
+        countryOptionsList: getDataTestId(dataTestId, 'country-select-options-list'),
+        field: dataTestId,
+        fieldInner: getDataTestId(dataTestId, 'form-control-inner'),
+        fieldFormControl: getDataTestId(dataTestId, 'form-control'),
+        fieldLeftAddons: getDataTestId(dataTestId, 'form-control-left-addons'),
+        fieldRightAddons: getDataTestId(dataTestId, 'form-control-right-addons'),
+        fieldError: getDataTestId(dataTestId, 'form-control-error-message'),
+        fieldHint: getDataTestId(dataTestId, 'form-control-hint'),
+    };
+}
+
+export function getInternationalPhoneInputMobileTestIds(dataTestId: string) {
+    return {
+        fieldAutocompleteWrapper: dataTestId,
+        fieldAutocompleteInner: getDataTestId(dataTestId, 'field-form-control-inner'),
+        fieldAutocompleteFormControl: getDataTestId(dataTestId, 'field-form-control'),
+        fieldAutocompleteLeftAddons: getDataTestId(dataTestId, 'field-form-control-left-addons'),
+        fieldAutocompleteRightAddons: getDataTestId(dataTestId, 'field-form-control-right-addons'),
+        fieldAutocompleteError: getDataTestId(dataTestId, 'field-form-control-error-message'),
+        fieldAutocompleteHint: getDataTestId(dataTestId, 'field-form-control-hint'),
+        option: getDataTestId(dataTestId, 'option'),
+        optionsList: getDataTestId(dataTestId, 'options-list'),
+        bottomSheet: getDataTestId(dataTestId, 'bottom-sheet'),
+        bottomSheetHeader: getDataTestId(dataTestId, 'bottom-sheet-header'),
+        bottomSheetContent: getDataTestId(dataTestId, 'bottom-sheet-content'),
+        countryOption: getDataTestId(dataTestId, 'country-select-option'),
+        countryOptionsList: getDataTestId(dataTestId, 'country-select-options-list'),
+        countryBottomSheet: getDataTestId(dataTestId, 'country-select-bottom-sheet'),
+        countryBottomSheetHeader: getDataTestId(dataTestId, 'country-select-bottom-sheet-header'),
+        countryBottomSheetContent: getDataTestId(dataTestId, 'country-select-bottom-sheet-content'),
+        clearButton: getDataTestId(dataTestId, 'clear'),
+        applyButton: getDataTestId(dataTestId, 'apply'),
+        field: dataTestId,
+        fieldInner: getDataTestId(dataTestId, 'form-control-inner'),
+        fieldFormControl: getDataTestId(dataTestId, 'form-control'),
+        fieldLeftAddons: getDataTestId(dataTestId, 'form-control-left-addons'),
+        fieldRightAddons: getDataTestId(dataTestId, 'form-control-right-addons'),
+        fieldError: getDataTestId(dataTestId, 'form-control-error-message'),
+        fieldHint: getDataTestId(dataTestId, 'form-control-hint'),
+        searchInput: getDataTestId(dataTestId, 'search'),
+        searchFormControl: getDataTestId(dataTestId, 'search-form-control'),
+        searchInner: getDataTestId(dataTestId, 'search-form-control-inner'),
+        searchLeftAddons: getDataTestId(dataTestId, 'search-form-control-left-addons'),
+        searchRightAddons: getDataTestId(dataTestId, 'search-form-control-right-addons'),
+        searchError: getDataTestId(dataTestId, 'search-form-control-error-message'),
+        searchHint: getDataTestId(dataTestId, 'search-form-control-hint'),
+    };
 }

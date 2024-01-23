@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { PatternLock } from './Component';
-import { getSizes } from './utils';
+import { getPatternLockTestIds, getSizes } from './utils';
 
 jest.mock('react-canvas-pattern-lock', () => {
     return {
@@ -44,10 +44,28 @@ describe('PatternLock test', () => {
 
     describe('attrubute tests', () => {
         it('should set `data-test-id` attribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<PatternLock dataTestId={dataTestId} />);
+            const dti = 'pattern-lock-dti';
+            const { getByTestId } = render(
+                <PatternLock
+                    message='message'
+                    onForgotBtnClick={jest.fn()}
+                    forgotCodeBtnText='кнопка'
+                    showForgotCodeBtn={true}
+                    dataTestId={dti}
+                />,
+            );
 
-            expect(getByTestId(dataTestId)).toBeInTheDocument();
+            const testIds = getPatternLockTestIds(dti);
+
+            expect(getByTestId(testIds.patternLock)).toBeInTheDocument();
+            expect(getByTestId(testIds.forgotCodeBtn)).toBeInTheDocument();
+            expect(getByTestId(testIds.message)).toBeInTheDocument();
+
+            const { getByTestId: getByTestIdError } = render(
+                <PatternLock error='error' dataTestId={dti} />,
+            );
+
+            expect(getByTestIdError(testIds.error)).toBeInTheDocument();
         });
 
         it('should set `className` class', () => {

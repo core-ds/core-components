@@ -6,6 +6,7 @@ import {
     waitFor,
     waitForElementToBeRemoved,
 } from '@testing-library/react';
+import { getButtonTestIds } from './utils';
 
 import { LOADER_MIN_DISPLAY_INTERVAL } from './components/base-button';
 import { ButtonDesktop as Button, ButtonDesktopProps as ButtonProps } from './desktop';
@@ -65,9 +66,14 @@ describe('Button', () => {
 
     describe('Attributes tests', () => {
         it('should set `data-test-id` attribute', () => {
-            const { getByTestId } = render(<Button dataTestId={dataTestId} />);
+            const dti = 'button-dti';
+            const { getByTestId } = render(<Button dataTestId={dti} loading />);
 
-            expect(getByTestId(dataTestId).tagName).toBe('BUTTON');
+            const testIds = getButtonTestIds(dti);
+
+            expect(getByTestId(testIds.button)).toBeInTheDocument();
+            expect(getByTestId(testIds.spinner)).toBeInTheDocument();
+            expect(getByTestId(testIds.button).tagName).toBe('BUTTON');
         });
 
         it('should set rel="noreferrer noopener" if "href" and target="_blank" are passed', () => {

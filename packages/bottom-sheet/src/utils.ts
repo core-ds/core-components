@@ -1,3 +1,5 @@
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 export const TIMEOUT = 500;
 export const SWIPE_VELOCITY = 0.4;
 export const MARKER_HEIGHT = 24;
@@ -28,3 +30,15 @@ export const convertPercentToNumber = (
 
     return Math.min(maxHeight, value);
 };
+
+export function getBottomSheetTestIds(dataTestId: string) {
+    return {
+        bottomSheet: dataTestId,
+        content: getDataTestId(dataTestId, 'content'),
+        footer: getDataTestId(dataTestId, 'footer'),
+        header: getDataTestId(dataTestId, 'header'),
+        title: getDataTestId(dataTestId, 'header-title'),
+        closer: getDataTestId(dataTestId, 'header-closer'),
+        backButton: getDataTestId(dataTestId, 'header-back-button'),
+    };
+}

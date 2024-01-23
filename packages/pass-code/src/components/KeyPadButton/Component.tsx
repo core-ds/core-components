@@ -30,6 +30,11 @@ export type KeyPadButtonProps<T> = {
      * Коллбэк нажатия на кнопку.
      */
     onClick?: (payload: T) => void;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования.
+     */
+    dataTestId?: string;
 };
 
 export function KeyPadButton<T extends ReactNode>({
@@ -38,6 +43,7 @@ export function KeyPadButton<T extends ReactNode>({
     className,
     view = 'secondary',
     buttonClassName,
+    dataTestId,
 }: KeyPadButtonProps<T>) {
     return (
         <div className={cn(styles.component, className)}>
@@ -45,6 +51,7 @@ export function KeyPadButton<T extends ReactNode>({
                 className={cn(styles.button, styles[view], buttonClassName)}
                 view={view}
                 onClick={() => onClick?.(children)}
+                dataTestId={dataTestId}
             >
                 {children}
             </ButtonMobile>

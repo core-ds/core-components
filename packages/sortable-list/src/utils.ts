@@ -1,6 +1,8 @@
 import type { ClientRect, Modifier } from '@dnd-kit/core';
 import type { Transform } from '@dnd-kit/utilities';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 export const restrictToParentElement: Modifier = ({
     containerNodeRect,
     draggingNodeRect,
@@ -41,3 +43,10 @@ export const restrictToVerticalAxis: Modifier = ({ transform }) => ({
     ...transform,
     x: 0,
 });
+
+export function getSortableListTestIds(dataTestId: string, index: number) {
+    return {
+        sortableList: getDataTestId(dataTestId, 'container'),
+        item: getDataTestId(dataTestId, `item_${index}`),
+    };
+}

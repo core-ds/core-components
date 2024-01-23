@@ -20,9 +20,14 @@ export type FooterProps = {
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
-export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
+export const Footer: FC<FooterProps> = ({ children, className, sticky, dataTestId }) => {
     const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
 
     useEffect(() => {
@@ -35,6 +40,7 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
                 [styles.sticky]: sticky,
                 [styles.highlighted]: footerHighlighted && sticky,
             })}
+            data-test-id={dataTestId}
         >
             {children}
         </div>

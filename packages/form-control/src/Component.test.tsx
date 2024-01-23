@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { getFormControlTestIds } from './utils';
 
 import { FormControlDesktop as FormControl } from './desktop';
 
@@ -57,26 +58,31 @@ describe('FormControl', () => {
     });
 
     it('should set `data-test-id` attribute', () => {
-        const dataTestId = 'test-id';
-        const errorDti = `${dataTestId}-error-message`;
-        const leftAddonsDti = `${dataTestId}-left-addons`;
-        const rightAddonsDti = `${dataTestId}-right-addons`;
-        const innerDti = `${dataTestId}-inner`;
+        const dti = 'form-control-dti';
+
         const { getByTestId } = render(
             <FormControl
                 block={true}
-                dataTestId={dataTestId}
+                dataTestId={dti}
                 error='error message'
                 leftAddons={<span />}
                 rightAddons={<span />}
             />,
         );
 
-        expect(getByTestId(dataTestId)).toBeTruthy();
-        expect(getByTestId(errorDti)).toBeTruthy();
-        expect(getByTestId(leftAddonsDti)).toBeTruthy();
-        expect(getByTestId(rightAddonsDti)).toBeTruthy();
-        expect(getByTestId(innerDti)).toBeTruthy();
+        const testIds = getFormControlTestIds(dti);
+
+        expect(getByTestId(testIds.inputWrapper)).toBeInTheDocument();
+        expect(getByTestId(testIds.inputWrapperInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.leftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.rightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.error)).toBeInTheDocument();
+
+        const { getByTestId: getByTestIdHint } = render(
+            <FormControl block={true} dataTestId={dti} hint='hint' />,
+        );
+
+        expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
     });
 
     describe('Classes tests', () => {

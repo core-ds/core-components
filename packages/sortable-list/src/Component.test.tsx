@@ -1,6 +1,7 @@
 import React from 'react';
 import { act, fireEvent, render } from '@testing-library/react';
 import { SortableList, SortableListProps } from '.';
+import { getSortableListTestIds } from './utils';
 
 const items = [{ id: 1 }];
 const testId = 'sortable';
@@ -165,6 +166,15 @@ describe('ScrollableList', () => {
             const icon = item.childNodes[0];
 
             expect(icon).toHaveClass('control-left-padding-s');
+        });
+
+        it('should have data-test-id', () => {
+            const { getByTestId } = render(<SortableListWrapper />);
+
+            const testIds = getSortableListTestIds(testId, 1);
+
+            expect(getByTestId(testIds.sortableList)).toBeInTheDocument();
+            expect(getByTestId(testIds.item)).toBeInTheDocument();
         });
     });
 

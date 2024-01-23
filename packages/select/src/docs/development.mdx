@@ -28,6 +28,50 @@ import {
 } from '@alfalab/core-components/select/shared';
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.   
+Для удобного поиска элементов можно воспользоваться функцией `getSelectTestIds`.  
+Импорт из `@alfalab/core-components/select/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    select: dataTestId,
+    option: `${dataTestId}-option`,
+    optionsList: `${dataTestId}-options-list`,
+
+    clearButton: `${dataTestId}-options-list-clear`,
+    applyButton: `${dataTestId}-options-list-apply`,
+
+    // Для SelectMobile
+    bottomSheet: `${dataTestId}-bottom-sheet`,
+    bottomSheetHeader: `${dataTestId}-bottom-sheet-header`,
+    bottomSheetContent: `${dataTestId}-bottom-sheet-content`,
+
+    // Для SelectModalMobile
+    modal: `${dataTestId}-modal`,
+    modalHeader: `${dataTestId}-modalt-header`,
+    modalContent: `${dataTestId}-modal-content`,
+
+    field: `${dataTestId}-field`,
+    fieldFormControl: `${dataTestId}-field-form-control`,
+    fieldLeftAddons: `${dataTestId}-field-form-control-left-addons`,
+    fieldRightAddons: `${dataTestId}-field-form-control-right-addons`,
+    fieldError: `${dataTestId}-field-form-control-error-message`,
+    fieldHint: `${dataTestId}-field-form-control-hint`,
+
+    searchInput: `${dataTestId}-search`,
+    searchFormControl: `${dataTestId}-search-form-control`,
+    searchInner: `${dataTestId}-search-form-control-inner`,
+    searchLeftAddons: `${dataTestId}-search-form-control-left-addons`,
+    searchRightAddons: `${dataTestId}-search-form-control-right-addons`,
+    searchError: `${dataTestId}-search-form-control-error-message`,
+    searchHint: `${dataTestId}-search-form-control-hint`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs components={{ Select, SelectDesktop, SelectMobile }} />

@@ -700,6 +700,7 @@ export const BaseSelect = forwardRef(
             if (!nativeSelect && ModalMobile) {
                 return (
                     <ModalMobile
+                        dataTestId={getDataTestId(dataTestId, 'modal')}
                         open={open}
                         hasCloser={true}
                         {...modalProps}

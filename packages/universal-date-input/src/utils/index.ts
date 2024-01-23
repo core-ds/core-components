@@ -5,6 +5,8 @@ import dateFnsFormat from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import parse from 'date-fns/parse';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { DATE_FORMAT, DATE_RANGE_SEPARATOR } from '../consts';
 
 export function parseDateString(value: string, format: string = DATE_FORMAT) {
@@ -162,4 +164,19 @@ export function updateRange({
     if (dateFrom) return dateFrom;
 
     return '';
+}
+
+export function getUniversalDateInputTestIds(dataTestId: string) {
+    return {
+        input: dataTestId,
+        componentWrapper: getDataTestId(dataTestId, 'wrapper'),
+        popover: getDataTestId(dataTestId, 'popover'),
+        calendar: getDataTestId(dataTestId, 'calendar'),
+        inputWrapper: getDataTestId(dataTestId, 'form-control'),
+        inputWrapperInner: getDataTestId(dataTestId, 'form-control-inner'),
+        leftAddons: getDataTestId(dataTestId, 'form-control-left-addons'),
+        rightAddons: getDataTestId(dataTestId, 'form-control-right-addons'),
+        error: getDataTestId(dataTestId, 'form-control-error-message'),
+        hint: getDataTestId(dataTestId, 'form-control-hint'),
+    };
 }

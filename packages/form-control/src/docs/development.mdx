@@ -14,6 +14,25 @@ import { FormControlDesktop } from '@alfalab/core-components/form-control/deskto
 
 Из индекса импортируется responsive версия компонента.
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getFormControlTestIds`.  
+Импорт из `@alfalab/core-components/form-control/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    inputWrapper: dataTestId,
+    inputWrapperInner: `${dataTestId}-inner`,
+    leftAddons: `${dataTestId}-left-addons`,
+    rightAddons: `${dataTestId}-right-addons`,
+    error: `${dataTestId}-error-message`,
+    hint: `${dataTestId}-hint`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs components={{ FormControlDesktop, FormControlMobile, FormControl }} />

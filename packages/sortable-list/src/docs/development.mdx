@@ -7,6 +7,21 @@ import { SortableList } from '..';
 import { SortableList } from '@alfalab/core-components/sortable-list';
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getSortableListTestIds(dataTestId, index)`.  
+Импорт из `@alfalab/core-components/sortable-list/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    sortableList: `${dataTestId}-container`, 
+    item: `${dataTestId}-item_${index}`,
+};
+```
+
 ## Свойства
 
 <ArgsTable of={SortableList} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { PassCode } from './Component';
+import { getPassCodeTestIds } from './utils';
 
 jest.mock('react-transition-group', () => ({
     CSSTransition: jest.fn((props) => (props.unmountOnExit ? null : props.children)),
@@ -48,12 +49,26 @@ describe('PassCode', () => {
 
     describe('attributes tests', () => {
         it('should set `data-test-id` attribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <PassCode dataTestId={dataTestId} value='' onChange={jest.fn} />,
+            const dti = 'pass-code-dti';
+            const cb = jest.fn();
+            const { getByTestId, getAllByTestId } = render(
+                <PassCode value='12' onChange={cb} message='message' dataTestId={dti} />,
             );
 
-            expect(getByTestId(dataTestId + '-wrapper')).toBeInTheDocument();
+            const testIds = getPassCodeTestIds(dti);
+
+            expect(getByTestId(testIds.passCode)).toBeInTheDocument();
+            expect(getByTestId(testIds.inputProgress)).toBeInTheDocument();
+            expect(getByTestId(testIds.keypad)).toBeInTheDocument();
+            expect(getByTestId(testIds.message)).toBeInTheDocument();
+            expect(getAllByTestId(testIds.keypadButton).length).toBe(10);
+            expect(getByTestId(testIds.backspaceButton)).toBeInTheDocument();
+
+            const { getByTestId: getByTestIdError } = render(
+                <PassCode value='12' onChange={cb} error='error' dataTestId={dti} />,
+            );
+
+            expect(getByTestIdError(testIds.error)).toBeInTheDocument();
         });
 
         it('should set `className` class', () => {

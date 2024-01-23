@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { InternationalPhoneInputDesktop, InternationalPhoneInputDesktopProps } from './desktop';
+import { InternationalPhoneInputMobile } from './mobile';
+
+import {
+    getInternationalPhoneInputDesktopTestIds,
+    getInternationalPhoneInputMobileTestIds,
+} from './utils';
 
 describe('InternationalPhoneInput', () => {
     Object.defineProperty(window, 'matchMedia', {
@@ -380,5 +386,178 @@ describe('InternationalPhoneInput', () => {
         await waitFor(() => {
             expect(onChange).not.toBeCalled();
         });
+    });
+
+    it('should set `data-test-id` attribute in mobile component autocomplete', () => {
+        const dti = 'test-dti';
+        const { getByTestId } = render(
+            <InternationalPhoneInputMobile
+                options={[{ key: '+7 921 681 53 98' }]}
+                open={true}
+                fieldProps={{
+                    rightAddons: 'right',
+                    error: 'error',
+                }}
+                inputProps={{
+                    error: 'error',
+                    rightAddons: 'right',
+                }}
+                dataTestId={dti}
+            />,
+        );
+
+        const testIds = getInternationalPhoneInputMobileTestIds(dti);
+
+        expect(getByTestId(testIds.optionsList)).toBeInTheDocument();
+        expect(getByTestId(testIds.option)).toBeInTheDocument();
+        expect(getByTestId(testIds.bottomSheet)).toBeInTheDocument();
+        expect(getByTestId(testIds.bottomSheetHeader)).toBeInTheDocument();
+        expect(getByTestId(testIds.bottomSheetContent)).toBeInTheDocument();
+        expect(getByTestId(testIds.clearButton)).toBeInTheDocument();
+        expect(getByTestId(testIds.applyButton)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteWrapper)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteFormControl)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteRightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteLeftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteError)).toBeInTheDocument();
+        expect(getByTestId(testIds.searchInput)).toBeInTheDocument();
+        expect(getByTestId(testIds.searchFormControl)).toBeInTheDocument();
+        expect(getByTestId(testIds.searchInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.searchLeftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.searchRightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.searchError)).toBeInTheDocument();
+
+        const { getByTestId: getByTestIdHint } = render(
+            <InternationalPhoneInputMobile
+                options={[{ key: '+7 921 681 53 98' }]}
+                open={true}
+                fieldProps={{ hint: 'hint' }}
+                inputProps={{ hint: 'hint' }}
+                dataTestId={dti}
+            />,
+        );
+
+        expect(getByTestIdHint(testIds.fieldAutocompleteHint)).toBeInTheDocument();
+        expect(getByTestIdHint(testIds.searchHint)).toBeInTheDocument();
+    });
+
+    it('should set `data-test-id` attribute in mobile component country ', () => {
+        const dti = 'test-dti';
+        const { getByTestId, getAllByTestId } = render(
+            <InternationalPhoneInputMobile countrySelectProps={{ open: true }} dataTestId={dti} />,
+        );
+
+        const testIds = getInternationalPhoneInputMobileTestIds(dti);
+
+        expect(getAllByTestId(testIds.countryOption).length).toBe(16);
+        expect(getByTestId(testIds.countryOptionsList)).toBeInTheDocument();
+        expect(getByTestId(testIds.countryBottomSheet)).toBeInTheDocument();
+        expect(getByTestId(testIds.countryBottomSheetHeader)).toBeInTheDocument();
+        expect(getByTestId(testIds.countryBottomSheetContent)).toBeInTheDocument();
+    });
+
+    it('should set `data-test-id` attribute in mobile component no autocomplete', () => {
+        const dti = 'test-dti';
+        const { getByTestId } = render(
+            <InternationalPhoneInputMobile
+                options={undefined}
+                error='error'
+                rightAddons='right'
+                dataTestId={dti}
+            />,
+        );
+
+        const testIds = getInternationalPhoneInputMobileTestIds(dti);
+
+        expect(getByTestId(testIds.field)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldFormControl)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+
+        const { getByTestId: getByTestIdHint } = render(
+            <InternationalPhoneInputMobile options={undefined} hint='hint' dataTestId={dti} />,
+        );
+
+        expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
+    });
+
+    it('should set `data-test-id` attribute in desktop component autocomplete', () => {
+        const dti = 'test-dti';
+
+        const { getByTestId, container } = render(
+            <InternationalPhoneInputDesktop
+                options={[{ key: '+7 921 681 53 98' }]}
+                open={true}
+                error='error'
+                inputProps={{
+                    rightAddons: 'right',
+                }}
+                dataTestId={dti}
+            />,
+        );
+
+        const testIds = getInternationalPhoneInputDesktopTestIds(dti);
+
+        expect(getByTestId(testIds.optionsList)).toBeInTheDocument();
+        expect(getByTestId(testIds.option)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteWrapper)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteFormControl)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteLeftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteRightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldAutocompleteError)).toBeInTheDocument();
+
+        const { getByTestId: getByTestIdHint } = render(
+            <InternationalPhoneInputDesktop
+                options={[{ key: '+7 921 681 53 98' }]}
+                hint='hint'
+                dataTestId={dti}
+            />,
+        );
+
+        expect(getByTestIdHint(testIds.fieldAutocompleteHint)).toBeInTheDocument();
+    });
+
+    it('should set `data-test-id` attribute in desktop component country ', () => {
+        const dti = 'test-dti';
+        const { getByTestId, getAllByTestId } = render(
+            <InternationalPhoneInputDesktop countrySelectProps={{ open: true }} dataTestId={dti} />,
+        );
+
+        const testIds = getInternationalPhoneInputDesktopTestIds(dti);
+
+        expect(getAllByTestId(testIds.countryOption).length).toBe(16);
+        expect(getByTestId(testIds.countryOptionsList)).toBeInTheDocument();
+    });
+
+    it('should set `data-test-id` attribute in desktop component no autocomplete', () => {
+        const dti = 'test-dti';
+
+        const { getByTestId, container } = render(
+            <InternationalPhoneInputDesktop
+                options={undefined}
+                error='error'
+                rightAddons='right'
+                dataTestId={dti}
+            />,
+        );
+
+        const testIds = getInternationalPhoneInputDesktopTestIds(dti);
+
+        expect(getByTestId(testIds.field)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldInner)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldFormControl)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
+        expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+
+        const { getByTestId: getByTestIdHint } = render(
+            <InternationalPhoneInputDesktop options={undefined} hint='hint' dataTestId={dti} />,
+        );
+
+        expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
     });
 });

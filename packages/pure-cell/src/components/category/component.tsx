@@ -1,7 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Typography } from '@alfalab/core-components-typography';
+
+import { PureCellContext } from '../../component';
 
 import styles from './index.module.css';
 
@@ -34,34 +36,47 @@ export const Category: React.FC<Props> = ({
     categoryPercent,
     rightAddons,
     dataTestId,
-}) => (
-    <div className={styles.component} data-test-id='cell-pure-category'>
-        <Typography.Text
-            view='primary-small'
-            color='secondary'
-            dataTestId={getDataTestId(dataTestId, 'category-name')}
-            className={styles.categoryName}
-        >
-            {categoryName}
-        </Typography.Text>
-        {categoryPercent !== undefined && (
+}) => {
+    const pureCellContext = useContext(PureCellContext);
+
+    return (
+        <div className={styles.component} data-test-id='cell-pure-category'>
             <Typography.Text
-                tag='div'
                 view='primary-small'
                 color='secondary'
-                className={styles.categoryPercent}
-                dataTestId={getDataTestId(dataTestId, 'category-percent')}
+                dataTestId={getDataTestId(
+                    dataTestId || pureCellContext.dataTestId,
+                    'category-name',
+                )}
+                className={styles.categoryName}
             >
-                {categoryPercent}%
+                {categoryName}
             </Typography.Text>
-        )}
-        {rightAddons !== undefined && (
-            <div
-                className={styles.rightAddon}
-                data-test-id={getDataTestId(dataTestId, 'category-right-addon')}
-            >
-                {rightAddons}
-            </div>
-        )}
-    </div>
-);
+            {categoryPercent !== undefined && (
+                <Typography.Text
+                    tag='div'
+                    view='primary-small'
+                    color='secondary'
+                    className={styles.categoryPercent}
+                    dataTestId={getDataTestId(
+                        dataTestId || pureCellContext.dataTestId,
+                        'category-percent',
+                    )}
+                >
+                    {categoryPercent}%
+                </Typography.Text>
+            )}
+            {rightAddons !== undefined && (
+                <div
+                    className={styles.rightAddon}
+                    data-test-id={getDataTestId(
+                        dataTestId || pureCellContext.dataTestId,
+                        'category-right-addon',
+                    )}
+                >
+                    {rightAddons}
+                </div>
+            )}
+        </div>
+    );
+};

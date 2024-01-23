@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Color, Typography } from '@alfalab/core-components-typography';
 
+import { PureCellContext } from '../../component';
 import { AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
@@ -40,18 +41,22 @@ export const Amount: React.FC<Props> = ({
     minorUnits = 100,
     dataTestId,
     ...restProps
-}) => (
-    <Typography.Text
-        view={textView}
-        dataTestId={getDataTestId(dataTestId, 'amount-text')}
-        className={cn(styles.component)}
-        color={color}
-    >
-        <CoreAmount
-            minority={minority || minorUnits}
-            bold={weight === 'bold' ? 'full' : 'none'}
-            dataTestId={getDataTestId(dataTestId, 'amount')}
-            {...restProps}
-        />
-    </Typography.Text>
-);
+}) => {
+    const pureCellContext = useContext(PureCellContext);
+
+    return (
+        <Typography.Text
+            view={textView}
+            dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-text')}
+            className={cn(styles.component)}
+            color={color}
+        >
+            <CoreAmount
+                minority={minority || minorUnits}
+                bold={weight === 'bold' ? 'full' : 'none'}
+                dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount')}
+                {...restProps}
+            />
+        </Typography.Text>
+    );
+};

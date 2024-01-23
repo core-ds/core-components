@@ -4,7 +4,7 @@ import { maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
 import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import { BaseOption } from '@alfalab/core-components-select/shared';
+import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
 import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
 
 import type { BaseInternationalPhoneInputProps, Country } from '../../types';
@@ -129,6 +129,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const renderCountrySelect = (compact = false) => (
             <CountrySelect
+                dataTestId={restProps?.dataTestId}
                 {...countrySelectProps}
                 view={view}
                 SelectComponent={SelectComponent}
@@ -147,6 +148,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             addonsClassName: styles.addons,
             type: 'tel',
             clear: getClear(clearProp, clearableCountryCode, value, country?.countryCode),
+            ...restProps.inputProps,
         } as const;
 
         return Array.isArray(options) ? (
@@ -167,6 +169,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                     leftAddons: renderCountrySelect(view === 'mobile'),
                 }}
                 fieldProps={{
+                    ...(restProps.fieldProps as AnyObject),
                     className: inputProps.className,
                     addonsClassName: inputProps.addonsClassName,
                     ...(view === 'mobile' ? { leftAddons: renderCountrySelect() } : null),

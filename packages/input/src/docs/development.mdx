@@ -14,6 +14,27 @@ import { InputMobile } from '@alfalab/core-components/input/mobile';
 
 Из индекса импортируется responsive версия компонента.
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Компонент является оберткой над FormControl, поэтому наследует все его модификаторы.  
+Для удобного поиска элементов можно воспользоваться функцией `getInputTestIds`.  
+Импорт из `@alfalab/core-components/input/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    input: dataTestId,
+    inputWrapper: `${dataTestId}-form-control`,
+    inputWrapperInner: `${dataTestId}-form-control-inner`,
+    leftAddons: `${dataTestId}-form-control-left-addons`,
+    rightAddons: `${dataTestId}-form-control-right-addons`,
+    error: `${dataTestId}-form-control-error-message`,
+    hint: `${dataTestId}-form-control-hint`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs components={{ InputDesktop, InputMobile, Input }} />

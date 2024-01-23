@@ -12,6 +12,23 @@ import { PatternLock } from '@alfalab/core-components/pattern-lock';
 import { THEME_STATE } from '@alfalab/core-components/pattern-lock';
 ```
 
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getPatternLockTestIds`.  
+Импорт из `@alfalab/core-components/pattern-lock/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    patternLock: dataTestId,
+    forgotCodeBtn: `${dataTestId}-forgot-code-btn`,
+    error: `${dataTestId}-error`,
+    message: `${dataTestId}-message`,
+};
+```
+
 ## Свойства
 
 <ArgsTable of={PatternLock} />

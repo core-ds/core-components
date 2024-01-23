@@ -9,6 +9,21 @@ import styles from '!!raw-loader!../index.module.css';
 import { PopupSheet } from '@alfalab/core-components/popup-sheet';
 ```
 
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getPopupSheetTestIds`.  
+Импорт из `@alfalab/core-components/popup-sheet/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    popupSheet: dataTestId, 
+    closer: `${dataTestId}-closer`,
+};
+```
+
 ## Свойства
 
 <ArgsTable of={PopupSheet} />

@@ -1,8 +1,9 @@
 import React from 'react';
 import { DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from './consts';
 import { UniversalDateInputDesktop } from './desktop';
-import { render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getUniversalDateInputTestIds } from './utils';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -191,6 +192,37 @@ describe('UniversalDateInput', () => {
 
             expect(onComplete).toBeCalledTimes(1);
             expect(onComplete).toBeCalledWith('12:12');
+        });
+    });
+
+    describe('Snapshots tests', () => {
+        it('should set `data-test-id` attribute', () => {
+            const dataTestId = 'test-id';
+
+            const { getByTestId, getByRole } = render(
+                <UniversalDateInputDesktop
+                    error='error message'
+                    leftAddons={<span />}
+                    rightAddons={<span />}
+                    view='date'
+                    dataTestId={dataTestId}
+                />,
+            );
+
+            const testIds = getUniversalDateInputTestIds(dataTestId);
+            expect(getByTestId(testIds.input)).toBeInTheDocument();
+            expect(getByTestId(testIds.componentWrapper)).toBeInTheDocument();
+            expect(getByTestId(testIds.inputWrapper)).toBeInTheDocument();
+            expect(getByTestId(testIds.inputWrapperInner)).toBeInTheDocument();
+            expect(getByTestId(testIds.leftAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.rightAddons)).toBeInTheDocument();
+            expect(getByTestId(testIds.error)).toBeInTheDocument();
+
+            const { getByTestId: getByTestIdHint } = render(
+                <UniversalDateInputDesktop view='date' dataTestId={dataTestId} hint='hint' />,
+            );
+
+            expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
         });
     });
 });

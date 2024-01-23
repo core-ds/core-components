@@ -28,6 +28,7 @@ export const AutocompleteField = ({
     onInput,
     inputProps = {},
     innerProps,
+    dataTestId,
 }: AutocompleteFieldProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -48,6 +49,7 @@ export const AutocompleteField = ({
 
     return (
         <Input
+            dataTestId={dataTestId}
             {...inputProps}
             {...innerProps}
             wrapperRef={mergeRefs([

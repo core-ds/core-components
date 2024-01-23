@@ -10,10 +10,29 @@ import invertedColorStyles from '!!raw-loader!../inverted.module.css';
 import { ActionButton } from '@alfalab/core-components/action-button';
 ```
 
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getActionButtonTestIds`.  
+Импорт из `@alfalab/core-components/action-button/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    actionButton: dataTestId, 
+    spinner: `${dataTestId}-loader`,
+};
+```
+
 ## Свойства
 
 <ArgsTable of={ActionButton} />
 
 ## Переменные
 
-<CssVars css={`${defaultColorStyles}${invertedColorStyles}`} />
+<CssVars
+    css={`
+        ${defaultColorStyles}${invertedColorStyles}
+    `}
+/>

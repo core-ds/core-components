@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
 import { SystemMessage } from '.';
+import { getSystemMessageTestIds } from './utils';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -115,6 +116,29 @@ describe('SystemMessage', () => {
             );
 
             expect(getByTestId(controlsDti)).toHaveClass(className);
+        });
+
+        it('should have data-test-id', () => {
+            const { getByTestId } = render(
+                <SystemMessage dataTestId={systemMessageDti}>
+                    <SystemMessage.Graphic>
+                        <StarMIcon />
+                    </SystemMessage.Graphic>
+                    <SystemMessage.Title>Title</SystemMessage.Title>
+                    <SystemMessage.Subtitle>Subtitle</SystemMessage.Subtitle>
+                    <SystemMessage.Caption>Caption</SystemMessage.Caption>
+                    <SystemMessage.Controls>Buttons</SystemMessage.Controls>
+                </SystemMessage>,
+            );
+
+            const testIds = getSystemMessageTestIds(systemMessageDti);
+
+            expect(getByTestId(testIds.systemMessage)).toBeInTheDocument();
+            expect(getByTestId(testIds.caption)).toBeInTheDocument();
+            expect(getByTestId(testIds.controls)).toBeInTheDocument();
+            expect(getByTestId(testIds.graphic)).toBeInTheDocument();
+            expect(getByTestId(testIds.subtitle)).toBeInTheDocument();
+            expect(getByTestId(testIds.title)).toBeInTheDocument();
         });
     });
 

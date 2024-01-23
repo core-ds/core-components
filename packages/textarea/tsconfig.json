@@ -10,5 +10,5 @@
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"]
         }
     },
-    "references": [{ "path": "../form-control" }]
+    "references": [{ "path": "../form-control" }, { "path": "../shared" }]
 }
