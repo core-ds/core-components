@@ -87,7 +87,7 @@
     word-wrap: break-word;
     white-space: pre-wrap;
     z-index: -1;
-    overflow: hidden;
+    overflow: auto;
     max-height: 100%;
     & span {
         color: transparent;
@@ -95,8 +95,8 @@
     & .overflow {
         background-color: var(--color-light-graphic-negative-alpha-40);
     }
-    &.nativeScrollbar {
-        overflow: auto;
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
     }
 }
 
