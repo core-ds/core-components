@@ -118,6 +118,12 @@ export function updateRange({
         } else if (!selectedTo) {
             selectedTo = Math.max(date, selectedFrom);
             selectedFrom = Math.min(date, selectedFrom);
+        } else if (selectedTo === selectedFrom) {
+            if (date > selectedTo) {
+                selectedTo = date;
+            } else {
+                selectedFrom = date;
+            }
         } else if (
             Math.abs(differenceInDays(date, selectedTo)) >
             Math.abs(differenceInDays(date, selectedFrom))

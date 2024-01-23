@@ -90,6 +90,16 @@ export function usePeriod({
                 return;
             }
 
+            if (selectedTo === selectedFrom) {
+                if (date > selectedTo) {
+                    setSelectedTo(date);
+                } else {
+                    setSelectedFrom(date);
+                }
+
+                return;
+            }
+
             // сдвигаем тот конец выделения, который ближе к выбранной дате
             if (
                 Math.abs(differenceInDays(date, selectedTo)) >
