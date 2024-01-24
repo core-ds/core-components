@@ -37,10 +37,10 @@ jobs:
       - name: Set NPM Token
         uses: filipstefansson/set-npm-token-action@v1
         with:
-          token: ${{ secrets.CC_NPM_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
 
       - name: Release
         run: npm run pub:ci
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.CC_NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
