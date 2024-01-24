@@ -310,7 +310,7 @@
         "mobile.js": 229.5
     },
     "date-input": {
-        "index.js": 62.8
+        "index.js": 62.9
     },
     "custom-picker-button": {
         "desktop.js": 188.2,
@@ -371,13 +371,13 @@
         "index.js": 64.6
     },
     "calendar-range": {
-        "index.js": 237.7
+        "index.js": 237.8
     },
     "calendar-input": {
-        "desktop.js": 134.2,
-        "index.js": 230,
-        "mobile.js": 229.1,
-        "shared.js": 65.5
+        "desktop.js": 134.4,
+        "index.js": 230.2,
+        "mobile.js": 229.3,
+        "shared.js": 65.7
     },
     "button": {
         "desktop.js": 7.4,
