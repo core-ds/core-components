@@ -1,5 +1,17 @@
 # @alfalab/core-components-sortable-list
 
+## 1.5.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+
+### [#1076](https://github.com/core-ds/core-components/pull/1076)
+
+-   Добавлен проп itemContentClassName
+
 ## 1.4.1
 
 ### Patch Changes

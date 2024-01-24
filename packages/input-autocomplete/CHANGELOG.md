@@ -1,5 +1,21 @@
 # Change Log
 
+## 11.4.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавили возможность передавать dataTestId в input, его обертку и слоты.
+-   Добавлены функции getInputAutocompleteDesktopTestIds и getInputAutocompleteMobileTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.1.0
+    -   input@14.2.0
+    -   select@17.2.0
+
 ## 11.3.4
 
 ### Patch Changes

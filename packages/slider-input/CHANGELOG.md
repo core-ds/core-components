@@ -1,5 +1,21 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+### [#1069](https://github.com/core-ds/core-components/pull/1069)
+
+-   В Slider добавлены колбэки onStart, onEnd.
+-   В SliderInput добавлены колбэки onSliderStart, onSliderEnd
+-   Исправлена ошибка в 18 реакте с инициализацией слайдера ("Slider was already initialized")
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.2.0
+    -   slider@4.5.0
+
 ## 8.0.7
 
 ### Patch Changes

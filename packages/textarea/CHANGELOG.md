@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.5.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+
+### Patch Changes
+
+### [#1075](https://github.com/core-ds/core-components/pull/1075)
+
+-   Исправлена проблема с неверным выделением границ переполнения
+
+-   Обновлены зависимости
+    -   form-control@12.1.0
+
 ## 8.4.8
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @alfalab/core-components-number-input
 
+## 2.2.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.2.0
+    -   icon-button@6.5.2
+
 ## 2.1.2
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.6.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   В PureCellContext добавлен dataTestId, что позволяет избежать необходимости передавать dataTestId в каждый слот отдельно.
+-   Добавлена функция getPureCellTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.2.0
+    -   typography@4.5.0
+    -   comment@2.3.3
+
 ## 4.5.2
 
 ### Patch Changes

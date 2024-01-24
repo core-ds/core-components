@@ -1,5 +1,22 @@
 # @alfalab/core-components-universal-date-input
 
+## 1.5.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+
+### Patch Changes
+
+### [#1074](https://github.com/core-ds/core-components/pull/1074)
+
+-   Исправлена ошибка с выбором диапазона дат. (Если dateFrom была равна dateTo и после этого выбиралась меньшая дата, то получался некорректный диапазон, в котором dateTo < dateFrom)
+
+-   Обновлены зависимости
+    -   input@14.2.0
+
 ## 1.4.2
 
 ### Patch Changes

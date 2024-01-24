@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-icon-button",
-    "version": "6.5.1",
+    "version": "6.5.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,7 +14,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^11.1.1",
+        "@alfalab/core-components-button": "^11.2.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }

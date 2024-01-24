@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.6.1
+
+### Patch Changes
+
+### [#1079](https://github.com/core-ds/core-components/pull/1079)
+
+-   Исправлена ошибка с nested оператором в css, из-за которой svg изображения не растягивались на всю ширину контейнера
+
 ## 3.6.0
 
 ### Minor Changes

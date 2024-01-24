@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.5.0
+
+### Minor Changes
+
+### [#1070](https://github.com/core-ds/core-components/pull/1070)
+
+-   Добавлен новый weight - semibold
+-   Исправлена ошибка с жирностью в мобильном заголовке (по-умолчанию жирность мобильного заголовка со шрифтом system должна была быть 600, а была 700)
+
 ## 4.4.0
 
 ### Minor Changes

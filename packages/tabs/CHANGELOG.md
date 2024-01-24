@@ -1,5 +1,20 @@
 # Change Log
 
+## 8.6.0
+
+### Minor Changes
+
+### [#1019](https://github.com/core-ds/core-components/pull/1019)
+
+-   Добавлен новый проп textStyle, с помощью которого задается стиль текста табов (только primary). Если textStyle указан, то свойство size будет проигнорировано, все отсутпы также зависимы от textStyle.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.1.0
+    -   icon-button@6.5.2
+    -   picker-button@11.5.3
+
 ## 8.5.2
 
 ### Patch Changes

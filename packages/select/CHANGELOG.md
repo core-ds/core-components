@@ -1,5 +1,23 @@
 # Change Log
 
+## 17.2.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавили возможность передавать dataTestId в компонент Modal и его слоты (для SelectModalMobile), а также в кнопки подтверждения и сброса при множественном выборе.
+-   Добавлена функция getSelectTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.0
+    -   button@11.2.0
+    -   form-control@12.1.0
+    -   input@14.2.0
+    -   modal@9.1.1
+
 ## 17.1.2
 
 ### Patch Changes

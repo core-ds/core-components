@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.5.2
+
+### Patch Changes
+
+### [#1072](https://github.com/core-ds/core-components/pull/1072)
+
+-   Исправлена ошибка, из-за которой не отображалось изображение в preview, если адрес изображения содержал пробел
+
+-   Обновлены зависимости
+    -   typography@4.5.0
+    -   tooltip@7.3.3
+    -   icon-button@6.5.2
+
 ## 5.5.1
 
 ### Patch Changes

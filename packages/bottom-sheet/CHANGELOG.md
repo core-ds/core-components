@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.14.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавили возможность передавать dataTestId в слоты content и footer.
+-   Добавлена функция getBottomSheetTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.2
+
 ## 6.13.2
 
 ### Patch Changes

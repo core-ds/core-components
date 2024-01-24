@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.5.0
+
 ## 1.0.3
 
 ### Patch Changes

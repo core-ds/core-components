@@ -1,5 +1,19 @@
 # @alfalab/core-components-international-phone-input
 
+## 1.3.3
+
+### Patch Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавили возможность передавать dataTestId в компонент выбора страны и props в input (error, rightAddons).
+-   Добавлены функции getInternationalPhoneInputDesktopTestIds и getInternationalPhoneInputMobileTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+-   Обновлены зависимости
+    -   input@14.2.0
+    -   select@17.2.0
+    -   input-autocomplete@11.4.0
+
 ## 1.3.2
 
 ### Patch Changes

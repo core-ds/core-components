@@ -1,5 +1,18 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.1.0
+
+### Minor Changes
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+-   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.2
+
 ## 1.0.15
 
 ### Patch Changes

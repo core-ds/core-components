@@ -1,5 +1,13 @@
 # Change Log
 
+## 13.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.2.0
+    -   typography@4.5.0
+
 ## 13.3.2
 
 ### Patch Changes
