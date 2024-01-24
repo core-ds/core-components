@@ -1,3 +1,164 @@
+## 44.6.0
+
+<sup><time>24.01.2024</time></sup>
+
+### [#1019](https://github.com/core-ds/core-components/pull/1019)
+
+#### Что изменилось
+- Добавлен новый проп textStyle, с помощью которого задается стиль текста табов (только primary). Если textStyle указан, то свойство size будет проигнорировано, все отсутпы также зависимы от textStyle.
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1049](https://github.com/core-ds/core-components/pull/1049)
+
+#### Что изменилось
+- Добавили возможность передавать dataTestId в слоты content и footer.
+- Добавлена функция getBottomSheetTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+<br />
+
+#### Что изменилось
+- Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+
+#### Влияние на компоненты
+- Минорное<br />`action-button` `button` `form-control` `input` `number-input`<br /> `pass-code` `pattern-lock` `popup-sheet` `sortable-list` `system-message`<br /> `tab-bar` `textarea` `universal-date-input`
+
+<br />
+
+#### Что изменилось
+- Добавили возможность передавать dataTestId в компонент Modal и его слоты (для SelectModalMobile), а также в кнопки подтверждения и сброса при множественном выборе.
+- Добавлена функция getSelectTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+<br />
+
+#### Что изменилось
+- Добавили возможность передавать dataTestId в input, его обертку и слоты.
+- Добавлены функции getInputAutocompleteDesktopTestIds и getInputAutocompleteMobileTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete`
+
+<br />
+
+#### Что изменилось
+- Добавили возможность передавать dataTestId в компонент выбора страны и props в input (error, rightAddons).
+- Добавлены функции getInternationalPhoneInputDesktopTestIds и getInternationalPhoneInputMobileTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+<br />
+
+#### Что изменилось
+- В PureCellContext добавлен dataTestId, что позволяет избежать необходимости передавать dataTestId в каждый слот отдельно.
+- Добавлена функция getPureCellTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1072](https://github.com/core-ds/core-components/pull/1072)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не отображалось изображение в preview, если адрес изображения содержал пробел
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+### [#1079](https://github.com/core-ds/core-components/pull/1079)
+
+#### Что изменилось
+- Исправлена ошибка с nested оператором в css, из-за которой svg изображения не растягивались на всю ширину контейнера
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1076](https://github.com/core-ds/core-components/pull/1076)
+
+#### Что изменилось
+- Добавлен проп itemContentClassName
+
+#### Влияние на компоненты
+- Минорное<br />`sortable-list`
+
+
+### [#1080](https://github.com/core-ds/core-components/pull/1080)
+
+#### Что изменилось
+- Добавлен новый проп allowBackdropFilter, который включает размытие фона для некоторых вариантов кнопок (secondary, accent + disabled, primary + disabled) и тегов (filled, outlined + checked + disabled)
+
+#### Влияние на компоненты
+- Минорное<br />`button` `tag`
+
+
+### [#1070](https://github.com/core-ds/core-components/pull/1070)
+
+#### Что изменилось
+- Добавлен новый weight - semibold
+- Исправлена ошибка с жирностью в мобильном заголовке (по-умолчанию жирность мобильного заголовка со шрифтом system должна была быть 600, а была 700)
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1071](https://github.com/core-ds/core-components/pull/1071)
+
+#### Что изменилось
+- Исправлено отображение тени в мобильном компоненте (теперь визуально отображается как бордер и не обрезается из-за паддингов в контентной части модалки)
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#1074](https://github.com/core-ds/core-components/pull/1074)
+
+#### Что изменилось
+- Исправлена ошибка с выбором диапазона дат. (Если dateFrom была равна dateTo и после этого выбиралась меньшая дата, то получался некорректный диапазон, в котором dateTo < dateFrom)
+
+#### Влияние на компоненты
+- Патчи<br />`calendar` `universal-date-input`
+
+
+### [#1075](https://github.com/core-ds/core-components/pull/1075)
+
+#### Что изменилось
+- Исправлена проблема с неверным выделением границ переполнения
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#1069](https://github.com/core-ds/core-components/pull/1069)
+
+#### Что изменилось
+- В Slider добавлены колбэки onStart, onEnd.
+- В SliderInput добавлены колбэки onSliderStart, onSliderEnd
+- Исправлена ошибка в 18 реакте с инициализацией слайдера ("Slider was already initialized")
+
+#### Влияние на компоненты
+- Минорное<br />`slider` `slider-input`
+
+
+### [#1078](https://github.com/core-ds/core-components/pull/1078)
+
+#### Что изменилось
+- Исправлена проблема с "прыжками" каретки при редактировании введенного значения (было: '1|2.12.2020' -> type 3 -> 13.12.2020|)
+
+#### Влияние на компоненты
+- Патчи<br />`date-input`
+
+
+
 ## 44.5.1
 
 <sup><time>29.12.2023</time></sup>
