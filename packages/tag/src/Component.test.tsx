@@ -57,6 +57,12 @@ describe('Classes tests', () => {
 
         expect(container.firstElementChild).toHaveClass('rectangular');
     });
+
+    it('should set `allowBackdropBlur` class', () => {
+        const { container } = render(<Tag allowBackdropBlur={true} />);
+
+        expect(container.firstElementChild).toHaveClass('allowBackdropBlur');
+    });
 });
 
 describe('Attributes tests', () => {

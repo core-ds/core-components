@@ -100,6 +100,12 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
     view?: 'outlined' | 'filled';
 
     /**
+     * Включает размытие фона для некоторых вариантов тега
+     * @description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.
+     */
+    allowBackdropBlur?: boolean;
+
+    /**
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
@@ -113,6 +119,7 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
 export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
     (
         {
+            allowBackdropBlur,
             rightAddons,
             leftAddons,
             children,
@@ -154,6 +161,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                 colorCommonStyles[colors][view],
                 commonStyles[view],
                 {
+                    [commonStyles.allowBackdropBlur]: allowBackdropBlur,
                     [commonStyles.checked]: checked,
                     [commonStyles[shapeClassName]]: Boolean(commonStyles[shapeClassName]),
                     [styles[shapeClassName]]: Boolean(styles[shapeClassName]),

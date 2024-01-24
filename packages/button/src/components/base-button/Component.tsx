@@ -56,6 +56,7 @@ export const BaseButton = React.forwardRef<
 >(
     (
         {
+            allowBackdropBlur,
             children,
             view = 'secondary',
             shape = 'rectangular',
@@ -110,6 +111,7 @@ export const BaseButton = React.forwardRef<
                 colorStyles[colors][view],
                 colorStylesMap[colors].component,
                 {
+                    [commonStyles.allowBackdropBlur]: allowBackdropBlur,
                     [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
                     [commonStyles.focused]: focused,
                     [commonStyles.block]: block,
