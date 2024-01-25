@@ -12,7 +12,7 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     /**
      * Текст после иконки
      */
-    text?: string;
+    text?: string | null;
 
     /**
      * Дополнительный класс
@@ -44,29 +44,26 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     ...htmlAttributes
 }) => {
     const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon;
+    const isMobileView = view === 'mobile';
 
     return (
         <ButtonDesktop
             view='ghost'
-            size={view === 'mobile' ? 'xxs' : 's'}
+            size={isMobileView ? 'xxs' : 's'}
             onClick={onClick}
             aria-label='назад'
-            className={cn(
-                styles.component,
-                { [styles.mobileComponent]: view === 'mobile' },
-                className,
-            )}
+            className={cn(styles.component, { [styles.mobileComponent]: isMobileView }, className)}
             {...htmlAttributes}
         >
             <div className={styles.flex}>
                 <div
                     className={cn(styles.iconWrapper, {
-                        [styles.mobileWrapper]: view === 'mobile',
+                        [styles.mobileWrapper]: isMobileView,
                     })}
                 >
                     <Icon />
                 </div>
-                {textOpacity > 0 && (
+                {textOpacity > 0 && text && (
                     <Typography.Text
                         className={styles.text}
                         view={view === 'desktop' ? 'primary-large' : 'component'}

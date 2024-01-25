@@ -5,6 +5,7 @@
     background: var(--color-light-bg-primary-alpha-40);
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius-pill);
+    min-width: 48px;
 
     & svg > path {
         transition: fill 0.2s ease;
@@ -26,6 +27,7 @@
 
 .mobileComponent {
     height: 32px;
+    min-width: 32px;
     margin: 0 var(--gap-xs);
     backdrop-filter: none;
     background: none;
