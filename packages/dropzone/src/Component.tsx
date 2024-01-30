@@ -13,6 +13,11 @@ export type DropzoneProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для контента
+     */
+    contentClassName?: string;
+
+    /**
      * Подпись для заглушки
      */
     text?: string;
@@ -76,6 +81,7 @@ export type DropzoneProps = {
 
 export const Dropzone: FC<DropzoneProps> = ({
     className,
+    contentClassName,
     children,
     text = 'Перетащите файлы',
     error = false,
@@ -182,8 +188,10 @@ export const Dropzone: FC<DropzoneProps> = ({
             onDragOver={handleDragOver}
             onDrop={handleDrop}
         >
-            <div className={cn(styles.inner, isOverlayVisible && styles.hidden)}>{children}</div>
-            {Overlay && <Overlay text={text} visible={isOverlayVisible} />}
+            <div className={cn(styles.inner, isOverlayVisible && styles.hidden, contentClassName)}>
+                {children}
+            </div>
+            <Overlay text={text} visible={isOverlayVisible} />
         </div>
     );
 };
