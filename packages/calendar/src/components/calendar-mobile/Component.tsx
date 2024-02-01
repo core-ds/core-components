@@ -71,7 +71,7 @@ export type CalendarMobileProps = CalendarDesktopProps & {
     allowSelectionFromEmptyRange?: boolean;
 };
 
-const CalendarMonthOnlyView = ({
+export const CalendarMonthOnlyView = ({
     value,
     defaultView,
     month: monthTimestamp,
@@ -230,6 +230,20 @@ const CalendarMonthOnlyView = ({
     );
 };
 
+export const CalendarMonthOnlyViewHeader = () => (
+    <table className={styles.dayNames}>
+        <thead>
+            <tr>
+                {WEEKDAYS.map((dayName) => (
+                    <th className={styles.dayName} key={dayName}>
+                        {dayName}
+                    </th>
+                ))}
+            </tr>
+        </thead>
+    </table>
+);
+
 export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
     (
         {
@@ -263,20 +277,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (onChange) onChange();
         };
 
-        const renderDayNames = () =>
-            monthOnlyView ? (
-                <table className={styles.dayNames}>
-                    <thead>
-                        <tr>
-                            {WEEKDAYS.map((dayName) => (
-                                <th className={styles.dayName} key={dayName}>
-                                    {dayName}
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-                </table>
-            ) : null;
+        const renderDayNames = () => (monthOnlyView ? <CalendarMonthOnlyViewHeader /> : null);
 
         const renderContent = () => {
             const commonProps = {
