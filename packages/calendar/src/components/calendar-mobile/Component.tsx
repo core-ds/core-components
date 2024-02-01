@@ -34,12 +34,7 @@ if (typeof window !== 'undefined' && !window.ResizeObserver) {
     window.ResizeObserver = ResizeObserverPolyfill;
 }
 
-export type CalendarMobileProps = CalendarDesktopProps & {
-    /**
-     * Управление видимостью модалки
-     */
-    open: boolean;
-
+type CalendarContentProps = CalendarDesktopProps & {
     /**
      * Заголовок календаря
      */
@@ -71,6 +66,13 @@ export type CalendarMobileProps = CalendarDesktopProps & {
     allowSelectionFromEmptyRange?: boolean;
 };
 
+export type CalendarMobileProps = {
+    /**
+     * Управление видимостью модалки
+     */
+    open: boolean;
+} & CalendarContentProps;
+
 export const CalendarMonthOnlyView = ({
     value,
     defaultView,
@@ -91,7 +93,7 @@ export const CalendarMonthOnlyView = ({
     dayAddons,
     shape = 'rounded',
     scrollableContainer,
-}: CalendarMobileProps & {
+}: CalendarContentProps & {
     scrollableContainer?: HTMLElement;
 }) => {
     const month = useMemo(
@@ -292,7 +294,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (monthOnlyView) {
                 return (
                     <CalendarMonthOnlyView
-                        open={open}
                         yearsAmount={yearsAmount}
                         scrollableContainer={modalRef}
                         onMonthTitleClick={onMonthTitleClick}
