@@ -118,9 +118,14 @@ export const BaseInternationalPhoneInput = forwardRef<
         const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
             restProps.inputProps?.onClear?.(event);
 
-            const countryCode = country?.countryCode || '';
+            if (clearableCountryCode) {
+                const nextCountry = findCountry(countriesData, '', defaultIso2, countryProp);
 
-            changeNumber(clearableCountryCode ? '' : `+${countryCode}`);
+                changeNumber('');
+                handleCountryChange(nextCountry);
+            } else {
+                changeNumber(`+${country?.countryCode}` || '');
+            }
         };
 
         useEffect(() => {
