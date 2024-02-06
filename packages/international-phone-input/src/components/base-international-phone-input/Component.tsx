@@ -1,4 +1,12 @@
-import React, { ChangeEvent, forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+    ChangeEvent,
+    forwardRef,
+    MouseEvent,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import { maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
@@ -108,12 +116,12 @@ export const BaseInternationalPhoneInput = forwardRef<
             updatePhoneData(e.target.value, e);
         };
 
-        const handleClear = () => {
-            if (clearableCountryCode) {
-                changeNumber(null, '');
-            } else {
-                changeNumber(null, `+${country?.countryCode}` || '');
-            }
+        const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
+            restProps.inputProps?.onClear?.(event);
+
+            const countryCode = country?.countryCode || '';
+
+            changeNumber(null, clearableCountryCode ? '' : `+${countryCode}`);
         };
 
         useEffect(() => {
