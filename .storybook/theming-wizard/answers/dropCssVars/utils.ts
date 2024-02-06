@@ -22,14 +22,3 @@ export const aruiScriptsExample = (answers: Answers) => {
         4,
     );
 };
-
-export const darkModeExample = (answers: Answers) => `
-import darkMode from '@alfalab/core-components/themes/compiled/${answers.product}-dark-${
-    answers.product === 'mobile' ? 'bluetint' : 'indigo'
-}';
-
-<>
-    {mode === 'dark' && <style>{darkMode}</style>}
-    {this.renderPage()}
-</>
-`;
