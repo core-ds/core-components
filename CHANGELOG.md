@@ -1,3 +1,44 @@
+## 44.7.0
+
+<sup><time>06.02.2024</time></sup>
+
+### [#1081](https://github.com/core-ds/core-components/pull/1081)
+
+#### Что изменилось
+- Добавлен дополнительный класс для контента - contentClassName
+
+#### Влияние на компоненты
+- Патчи<br />`dropzone`
+
+
+### [#1083](https://github.com/core-ds/core-components/pull/1083)
+
+#### Что изменилось
+- Добавлен вызов функции onClear из inputProps
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+### [#1090](https://github.com/core-ds/core-components/pull/1090)
+
+#### Что изменилось
+- Теперь подзаголовок "Код отправлен на" не отображается, если номер телефона не передан
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+### [#1077](https://github.com/core-ds/core-components/pull/1077)
+
+#### Что изменилось
+- Добавили возможность скрывать текст для кнопки назад (заголовок) в модальных компонентах (BottomSheet, Modal, SidePanel). Для того чтобы скрыть текст кнопки назад, необходимо указать backButtonProps={{ text: null }}
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+
 ## 44.6.0
 
 <sup><time>24.01.2024</time></sup>
