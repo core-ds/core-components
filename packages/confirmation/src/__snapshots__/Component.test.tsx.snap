@@ -13,11 +13,6 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       >
         Введите код из сообщения
       </h3>
-      <span
-        class="phone typographyTheme primary primary-medium"
-      >
-        Код отправлен на 
-      </span>
       <div
         class="component containerInput codeInput"
       >
@@ -94,11 +89,6 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       >
         Введите код из сообщения
       </h3>
-      <span
-        class="phone typographyTheme primary primary-medium"
-      >
-        Код отправлен на 
-      </span>
       <div
         class="component containerInput codeInput"
       >
@@ -238,11 +228,6 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       >
         Введите код из сообщения
       </h3>
-      <span
-        class="phone typographyTheme primary primary-medium"
-      >
-        Код отправлен на 
-      </span>
       <div
         class="component containerInput codeInput"
       >
@@ -325,11 +310,6 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       >
         Введите код из сообщения
       </h3>
-      <span
-        class="phone typographyTheme primary primary-medium"
-      >
-        Код отправлен на 
-      </span>
       <div
         class="component containerInput codeInput"
       >
