@@ -1,5 +1,13 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.8.3
+
+### Patch Changes
+
+### [#1077](https://github.com/core-ds/core-components/pull/1077)
+
+-   Добавили возможность скрывать текст для кнопки назад (заголовок) в модальных компонентах (BottomSheet, Modal, SidePanel). Для того чтобы скрыть текст кнопки назад, необходимо указать backButtonProps={{ text: null }}
+
 ## 0.8.2
 
 ### Patch Changes

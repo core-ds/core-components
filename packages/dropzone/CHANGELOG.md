@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.5.1
+
+### Patch Changes
+
+### [#1081](https://github.com/core-ds/core-components/pull/1081)
+
+-   Добавлен дополнительный класс для контента - contentClassName
+
 ## 3.5.0
 
 ### Minor Changes

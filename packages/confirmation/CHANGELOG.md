@@ -1,5 +1,13 @@
 # Change Log
 
+## 13.3.4
+
+### Patch Changes
+
+### [#1090](https://github.com/core-ds/core-components/pull/1090)
+
+-   Теперь подзаголовок "Код отправлен на" не отображается, если номер телефона не передан
+
 ## 13.3.3
 
 ### Patch Changes

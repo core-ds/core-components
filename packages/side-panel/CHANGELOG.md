@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.3
+
 ## 5.1.1
 
 ### Patch Changes

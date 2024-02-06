@@ -1,5 +1,12 @@
 # Change Log
 
+## 11.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.2.1
+
 ## 11.4.0
 
 ### Minor Changes

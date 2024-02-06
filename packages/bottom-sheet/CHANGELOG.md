@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.14.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.3
+
 ## 6.14.0
 
 ### Minor Changes
