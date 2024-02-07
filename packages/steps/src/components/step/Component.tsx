@@ -179,12 +179,14 @@ export const Step: React.FC<StepProps> = ({
 
     const renderDash = () => (
         <div
-            className={cn(styles.dash, {
-                [styles.vertical]: isVerticalAlign,
-                [styles.completed]: isStepCompleted,
-                [styles.m]: minStepLength === 'm',
-                [styles.s]: minStepLength === 's',
-            })}
+            className={cn(
+                styles.dash,
+                {
+                    [styles.vertical]: isVerticalAlign,
+                    [styles.completed]: isStepCompleted,
+                },
+                styles[minStepLength],
+            )}
         />
     );
 
