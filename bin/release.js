@@ -288,6 +288,9 @@ async function releasePackages() {
     logger.log('=> bump packages version');
     shell.exec('yarn changeset version', { fatal: true });
 
+    logger.log('=> write vars and themes version to package.json');
+    shell.exec('yarn write-vars-and-themes-version', { fatal: true });
+
     logger.log('=> copy package.json to dist');
     shell.exec('yarn lerna exec -- yarn copyfiles package.json dist', execOptions);
 
