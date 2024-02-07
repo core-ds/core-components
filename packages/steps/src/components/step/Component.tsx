@@ -83,6 +83,17 @@ export type StepProps = {
     isNotLastStep?: boolean;
 
     /**
+     * Маркер того, что шаги растягиваются на всю ширину блока
+     * для вертикальной ориентации
+     */
+    fullWidth?: boolean;
+
+    /**
+     * Минимальная высота между шагами для вертикальной ориентации
+     */
+    minStepHeight?: 's' | 'm' | 'l';
+
+    /**
      * Обработчик нажатия на текущей шаг
      * @param stepNumber - номер шага
      */
@@ -105,6 +116,8 @@ export const Step: React.FC<StepProps> = ({
     interactive,
     isVerticalAlign,
     isNotLastStep,
+    fullWidth,
+    minStepHeight = 'l',
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
@@ -169,6 +182,8 @@ export const Step: React.FC<StepProps> = ({
             className={cn(styles.dash, {
                 [styles.vertical]: isVerticalAlign,
                 [styles.completed]: isStepCompleted,
+                [styles.m]: minStepHeight === 'm',
+                [styles.s]: minStepHeight === 's',
             })}
         />
     );
@@ -186,6 +201,7 @@ export const Step: React.FC<StepProps> = ({
                 [styles.focused]: focused,
                 [styles.vertical]: isVerticalAlign,
                 [styles.interactive]: interactive,
+                [styles.fullWidth]: fullWidth && isVerticalAlign,
             })}
             onClick={handleButtonClick}
             onKeyDown={handleKeyDown}
@@ -211,6 +227,7 @@ export const Step: React.FC<StepProps> = ({
             <div
                 className={cn(styles.text, {
                     [styles.interactive]: interactive,
+                    [styles.fullWidth]: fullWidth && isVerticalAlign,
                 })}
                 onClick={handleTextClick}
             >

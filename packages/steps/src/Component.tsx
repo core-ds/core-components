@@ -51,6 +51,18 @@ export type StepsProps = {
     interactive?: boolean;
 
     /**
+     * Растягивание на всю ширину блока для вертикальной ориентации
+     * @default false
+     */
+    fullWidth?: boolean;
+
+    /**
+     * Минимальная высота между шагами для вертикальной ориентации
+     * @default 'l'
+     */
+    minStepHeight?: 's' | 'm' | 'l';
+
+    /**
      * Кастомный метод для управления состоянием disabled шага и
      * возможностью перехода на этот шаг
      * @param stepNumber - номер шага
@@ -114,6 +126,8 @@ export const Steps: React.FC<StepsProps> = ({
     isVerticalAlign = false,
     ordered = true,
     interactive = true,
+    fullWidth = false,
+    minStepHeight = 'l',
     checkIsStepDisabled,
     checkIsStepError,
     checkIsStepWarning,
@@ -180,6 +194,8 @@ export const Steps: React.FC<StepsProps> = ({
                         isVerticalAlign={isVerticalAlign}
                         isNotLastStep={isNotLastStep}
                         key={stepNumber}
+                        fullWidth={fullWidth}
+                        minStepHeight={minStepHeight}
                     >
                         {step}
                     </Step>

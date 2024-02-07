@@ -76,6 +76,14 @@
         margin-top: var(--gap-xs);
         border-left: 2px solid var(--color-light-neutral-translucent-300);
         border-top: none;
+
+        &.m {
+            min-height: 16px;
+        }
+
+        &.s {
+            min-height: 8px;
+        }
     }
 
     &.completed.vertical {
@@ -151,4 +159,8 @@
 .completedIndicator > [class*='positive'] {
     color: var(--steps-option-svg-color);
     background-color: var(--steps-option-svg-color);
+}
+
+.fullWidth {
+    width: 100%;
 }
