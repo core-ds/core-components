@@ -83,15 +83,15 @@ export type StepProps = {
     isNotLastStep?: boolean;
 
     /**
-     * Маркер того, что шаги растягиваются на всю ширину блока
+     * Маркер того, что шаг растягивается на всю ширину блока
      * для вертикальной ориентации
      */
     fullWidth?: boolean;
 
     /**
-     * Минимальная высота между шагами для вертикальной ориентации
+     * Минимальное расстояние между шагами
      */
-    minStepHeight?: 's' | 'm' | 'l';
+    minStepLength?: 's' | 'm' | 'l';
 
     /**
      * Обработчик нажатия на текущей шаг
@@ -117,7 +117,7 @@ export const Step: React.FC<StepProps> = ({
     isVerticalAlign,
     isNotLastStep,
     fullWidth,
-    minStepHeight = 'l',
+    minStepLength = 'l',
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
@@ -182,8 +182,8 @@ export const Step: React.FC<StepProps> = ({
             className={cn(styles.dash, {
                 [styles.vertical]: isVerticalAlign,
                 [styles.completed]: isStepCompleted,
-                [styles.m]: minStepHeight === 'm',
-                [styles.s]: minStepHeight === 's',
+                [styles.m]: minStepLength === 'm',
+                [styles.s]: minStepLength === 's',
             })}
         />
     );

@@ -76,14 +76,14 @@
         margin-top: var(--gap-xs);
         border-left: 2px solid var(--color-light-neutral-translucent-300);
         border-top: none;
+    }
 
-        &.m {
-            min-height: 16px;
-        }
+    &.m {
+        min-height: 16px;
+    }
 
-        &.s {
-            min-height: 8px;
-        }
+    &.s {
+        min-height: 8px;
     }
 
     &.completed.vertical {
