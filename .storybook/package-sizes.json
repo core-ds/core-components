@@ -90,10 +90,10 @@
         "shared.js": 0.6
     },
     "slider": {
-        "index.js": 29.2
+        "index.js": 29.3
     },
     "slider-input": {
-        "index.js": 49
+        "index.js": 49.1
     },
     "skeleton": {
         "index.js": 1.4
