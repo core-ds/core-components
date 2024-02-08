@@ -70,7 +70,7 @@
     font-family: var(--circular-progress-bar-font-family);
 }
 
-.xxl {
+.size-144 {
     width: 144px;
     height: 144px;
 
@@ -83,7 +83,7 @@
     }
 }
 
-.xl {
+.size-128 {
     width: 128px;
     height: 128px;
 
@@ -96,7 +96,7 @@
     }
 }
 
-.l {
+.size-80 {
     width: 80px;
     height: 80px;
 
@@ -109,7 +109,7 @@
     }
 }
 
-.m {
+.size-64 {
     width: 64px;
     height: 64px;
 
@@ -123,7 +123,7 @@
     }
 }
 
-.s {
+.size-48 {
     width: 48px;
     height: 48px;
 
@@ -137,7 +137,7 @@
     }
 }
 
-.xs {
+.size-24 {
     width: 24px;
     height: 24px;
 
@@ -178,32 +178,32 @@
     align-items: center;
     justify-content: center;
 
-    &.xxl {
+    &.size-144 {
         max-width: 64px;
         max-height: 64px;
     }
 
-    &.xl {
+    &.size-128 {
         max-width: 64px;
         max-height: 64px;
     }
 
-    &.l {
+    &.size-80 {
         max-width: 48px;
         max-height: 48px;
     }
 
-    &.m {
+    &.size-64 {
         max-width: 36px;
         max-height: 36px;
     }
 
-    &.s {
+    &.size-48 {
         max-width: 24px;
         max-height: 24px;
     }
 
-    &.xs {
+    &.size-24 {
         max-width: 16px;
         max-height: 16px;
     }
