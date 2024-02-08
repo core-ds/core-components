@@ -23,6 +23,23 @@ const SIZES = [
     '6xl',
     '7xl',
     '8xl',
+    0,
+    1,
+    2,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40,
+    48,
+    64,
+    72,
+    96,
+    128,
+    256,
 ];
 
 const meta: Meta<typeof Gap> = {
@@ -78,7 +95,7 @@ export const gap: Story = {
                 }}
             >
                 <CardImage cardId='EG' />
-                <Gap direction={direction} size={select('size', SIZES, 's')} />
+                <Gap direction={direction} size={select('size', SIZES, 12)} />
                 <CardImage cardId='EG' />
             </div>
         );
