@@ -16,6 +16,10 @@ export function parseDateString(value: string, format: string = DATE_FORMAT) {
 export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
     dateFnsFormat(date, dateFormat);
 
+export function formatDateRange(range: { dateFrom: Date | number; dateTo: Date | number }) {
+    return formatDate(range.dateFrom) + DATE_RANGE_SEPARATOR + formatDate(range.dateTo);
+}
+
 export function isCompleteDate(value = '') {
     return value.length === DATE_FORMAT.length;
 }

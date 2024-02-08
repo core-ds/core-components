@@ -29,17 +29,12 @@ export type DateSegments<T = string> = {
 };
 
 export interface BaseUniversalDateInputProps
-    extends Omit<InputProps, 'onChange' | 'wrapperRef' | 'dataTestId'> {
+    extends Omit<InputProps, 'onChange' | 'wrapperRef' | 'dataTestId' | 'value' | 'defaultValue'> {
     /**
      * Автоматическое исправление ввода
      *  @default true
      */
     autoCorrection?: boolean;
-
-    /**
-     *  Значение инпута
-     */
-    value?: string;
 
     /**
      * Минимальная дата, доступная для выбора (timestamp)
@@ -104,9 +99,12 @@ export interface BaseUniversalDateInputProps
     onPickerClick?: (event: MouseEvent) => void;
 
     /**
-     * Обработчик изменения значения
+     * Обработчик изменения значения в инпуте
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement> | null, payload: { value: string }) => void;
+    onInputChange?: (
+        event: ChangeEvent<HTMLInputElement> | null,
+        payload: { value: string },
+    ) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
@@ -116,6 +114,16 @@ export interface BaseUniversalDateInputProps
 }
 
 export interface InnerDateInputProps extends Omit<BaseUniversalDateInputProps, 'view'> {
+    /**
+     *  Дата
+     */
+    value?: Date | number | null;
+
+    /**
+     *  Дата по умолчанию
+     */
+    defaultValue?: Date | number;
+
     /**
      * Флаг, открыт ли календарь
      */
@@ -147,12 +155,23 @@ export interface InnerDateInputProps extends Omit<BaseUniversalDateInputProps, '
     };
 
     /**
-     * Обработчик окончания ввода
+     * Обработчик изменения значения
      */
-    onComplete?: (value: string, date: Date) => void;
+    onChange?: (date: Date | null, value: string) => void;
 }
 
-export interface InnerDateRangeInputProps extends Omit<InnerDateInputProps, 'onComplete'> {
+export interface InnerDateRangeInputProps
+    extends Omit<InnerDateInputProps, 'onChange' | 'value' | 'defaultValue'> {
+    /**
+     *  Диапазон дат
+     */
+    value?: { dateFrom: Date | number | null; dateTo: Date | number | null };
+
+    /**
+     *  Диапазон дат по умолчанию
+     */
+    defaultValue?: { dateFrom: Date | number; dateTo: Date | number };
+
     /**
      * Тип выбора границ в календаре
      * @default clarification
@@ -160,12 +179,22 @@ export interface InnerDateRangeInputProps extends Omit<InnerDateInputProps, 'onC
     rangeBehavior?: 'clarification' | 'reset';
 
     /**
-     * Обработчик окончания ввода
+     * Обработчик изменения значения
      */
-    onComplete?: (value: string, dateFrom: Date, dateTo: Date) => void;
+    onChange?: (range: { dateFrom: Date | null; dateTo: Date | null }, value: string) => void;
 }
 
 export interface InnerTimeInputProps extends Omit<InputProps, 'onChange'> {
+    /**
+     *  Время
+     */
+    value?: string;
+
+    /**
+     *  Время по умолчанию
+     */
+    defaultValue?: string;
+
     /**
      * Автоматическое исправление ввода
      *  @default true
@@ -173,14 +202,14 @@ export interface InnerTimeInputProps extends Omit<InputProps, 'onChange'> {
     autoCorrection?: BaseUniversalDateInputProps['autoCorrection'];
 
     /**
-     * Обработчик изменения значения
+     * Обработчик изменения значения в инпуте
      */
-    onChange?: BaseUniversalDateInputProps['onChange'];
+    onInputChange?: BaseUniversalDateInputProps['onInputChange'];
 
     /**
-     * Обработчик окончания ввода
+     * Обработчик изменения значения
      */
-    onComplete?: (value: string) => void;
+    onChange?: (value: string) => void;
 }
 
 type PrivateProps =
@@ -209,29 +238,35 @@ type NoPickerProps = Never<WithPickerRequiredProps> & Never<WithPickerProps>;
 export type UniversalDateInputConditionalProps =
     // date
     | ({ view: 'date'; picker: true } & WithPickerProps &
-          Pick<InnerDateInputProps, 'onComplete' | 'wrapperClassName'>)
+          Pick<InnerDateInputProps, 'onChange' | 'wrapperClassName' | 'value' | 'defaultValue'>)
     | ({ view: 'date'; picker?: false } & NoPickerProps &
-          Pick<InnerDateInputProps, 'onComplete' | 'wrapperClassName'>)
+          Pick<InnerDateInputProps, 'onChange' | 'wrapperClassName' | 'value' | 'defaultValue'>)
 
     // date-time
     | ({ view: 'date-time'; picker: true } & WithPickerProps &
-          Pick<InnerDateInputProps, 'onComplete' | 'wrapperClassName'>)
+          Pick<InnerDateInputProps, 'onChange' | 'wrapperClassName' | 'value' | 'defaultValue'>)
     | ({ view: 'date-time'; picker?: false } & NoPickerProps &
-          Pick<InnerDateInputProps, 'onComplete' | 'wrapperClassName'>)
+          Pick<InnerDateInputProps, 'onChange' | 'wrapperClassName' | 'value' | 'defaultValue'>)
 
     // date-range
     | ({
           view: 'date-range';
           picker: true;
       } & WithPickerProps &
-          Pick<InnerDateRangeInputProps, 'onComplete' | 'wrapperClassName' | 'rangeBehavior'>)
+          Pick<
+              InnerDateRangeInputProps,
+              'onChange' | 'wrapperClassName' | 'rangeBehavior' | 'value' | 'defaultValue'
+          >)
     | ({ view: 'date-range'; picker?: false } & NoPickerProps &
-          Pick<InnerDateRangeInputProps, 'onComplete' | 'wrapperClassName'>)
+          Pick<
+              InnerDateRangeInputProps,
+              'onChange' | 'wrapperClassName' | 'value' | 'defaultValue'
+          >)
 
     // time
     | ({ view: 'time'; picker?: never; minDate?: never; maxDate?: never; Calendar?: never } & Pick<
           InnerTimeInputProps,
-          'onComplete'
+          'onChange' | 'value' | 'defaultValue'
       >);
 
 export type UniversalDateInputProps = Omit<
