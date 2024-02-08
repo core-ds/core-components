@@ -18,7 +18,7 @@ export type SidePanelResponsiveProps = BaseModalProps &
          * Ширина модального окна
          * @default "s"
          */
-        size?: 's';
+        size?: 's' | 500;
 
         /**
          * Управление наличием закрывающего крестика
@@ -59,7 +59,7 @@ const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelRespons
         {
             children,
             breakpoint = 1024,
-            size = 's',
+            size = 500,
             defaultMatchMediaValue,
             dataTestId,
             ...restProps

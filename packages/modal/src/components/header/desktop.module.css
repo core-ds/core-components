@@ -10,25 +10,25 @@
     font-family: var(--modal-header-desktop-font-family);
 }
 
-.s .content,
-.m .content {
+.size-500 .content,
+.size-600 .content {
     padding: var(--modal-s-header-desktop-content-paddings);
     font-size: var(--modal-s-header-desktop-font-size);
     line-height: var(--modal-s-header-desktop-line-height);
 }
 
-.l .content,
-.xl .content,
+.size-800 .content,
+.size-1140 .content,
 .fullscreen .content {
     padding: var(--modal-l-header-desktop-content-paddings);
     font-size: var(--modal-l-header-desktop-font-size);
     line-height: var(--modal-l-header-desktop-line-height);
 }
 
-.s,
-.m,
-.l,
-.xl,
+.size-500,
+.size-600,
+.size-800,
+.size-1140,
 .fullscreen {
     padding: var(--modal-s-header-paddings);
 }

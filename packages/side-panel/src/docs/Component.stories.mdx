@@ -84,7 +84,7 @@ export let SidePanelComponent = SidePanelDesktop;
         const props =
             SidePanelComponent !== SidePanelMobile
                 ? {
-                      size: select('size', ['s'], 's'),
+                      size: select('size', [500], 500),
                   }
                 : {};
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));

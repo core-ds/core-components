@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
 import { ContentProps } from '../../typings';
@@ -20,7 +21,7 @@ export const Content: FC<ContentProps> = ({ children, flex, className }) => {
             className={cn(styles.content, className, {
                 [styles.flex]: flex,
                 [styles.withHeader]: hasHeader,
-                [desktopStyles[size]]: view === 'desktop' && size,
+                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop' && size,
                 [mobileStyles.content]: view === 'mobile',
             })}
             ref={contentRef as Ref<HTMLDivElement>}

@@ -1,6 +1,6 @@
 @import '../../vars.css';
 
-.s {
+.size-500 {
     padding: var(--side-panel-s-content-paddings);
 
     &:last-child {

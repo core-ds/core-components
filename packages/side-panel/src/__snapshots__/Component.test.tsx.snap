@@ -8,7 +8,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
   tabindex="0"
 >
   <div
-    class="component s hidden rightPlacement enterRight enterActive"
+    class="component size-500 hidden rightPlacement enterRight enterActive"
   >
     <div
       class="content"
@@ -17,7 +17,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
         class="content appearRight enterActive"
       >
         <div
-          class="header header hasContent s"
+          class="header header hasContent size-500"
         >
           <div
             class="mainLine"
@@ -118,12 +118,12 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="content s flex withHeader"
+          class="content size-500 flex withHeader"
         >
           Content
         </div>
         <div
-          class="footer s start"
+          class="footer size-500 start"
         >
           <div
             class="component start"

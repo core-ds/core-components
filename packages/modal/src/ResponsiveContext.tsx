@@ -4,5 +4,5 @@ import type { TResponsiveModalContext } from './typings';
 
 export const ResponsiveContext = React.createContext<TResponsiveModalContext>({
     view: 'desktop',
-    size: 's',
+    size: 500,
 });
