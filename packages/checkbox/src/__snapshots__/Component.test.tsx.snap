@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="component s start"
+        class="component size-20 start"
       >
         <input
           type="checkbox"
@@ -33,7 +33,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="component s start"
+      class="component size-20 start"
     >
       <input
         type="checkbox"
@@ -117,7 +117,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="component s start"
+        class="component size-20 start"
       >
         <input
           type="checkbox"
@@ -145,7 +145,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="component s start"
+      class="component size-20 start"
     >
       <input
         type="checkbox"
@@ -230,7 +230,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="component s start indeterminate"
+        class="component size-20 start indeterminate"
       >
         <input
           type="checkbox"
@@ -261,7 +261,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="component s start indeterminate"
+      class="component size-20 start indeterminate"
     >
       <input
         type="checkbox"

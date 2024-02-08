@@ -17,7 +17,7 @@ Object {
           class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start my-radio verticalRadio"
+            class="container size-20 start my-radio verticalRadio"
           >
             <input
               type="radio"
@@ -37,7 +37,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start my-second-radio verticalRadio"
+            class="container size-20 start my-second-radio verticalRadio"
           >
             <input
               type="radio"
@@ -57,7 +57,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start verticalRadio"
+            class="container size-20 start verticalRadio"
           >
             <input
               type="radio"
@@ -93,7 +93,7 @@ Object {
         class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start my-radio verticalRadio"
+          class="container size-20 start my-radio verticalRadio"
         >
           <input
             type="radio"
@@ -113,7 +113,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start my-second-radio verticalRadio"
+          class="container size-20 start my-second-radio verticalRadio"
         >
           <input
             type="radio"
@@ -133,7 +133,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start verticalRadio"
+          class="container size-20 start verticalRadio"
         >
           <input
             type="radio"
@@ -226,7 +226,7 @@ Object {
           class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start my-radio verticalRadio"
+            class="container size-20 start my-radio verticalRadio"
           >
             <input
               type="radio"
@@ -246,7 +246,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start my-second-radio verticalRadio"
+            class="container size-20 start my-second-radio verticalRadio"
           >
             <input
               type="radio"
@@ -266,7 +266,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start verticalRadio"
+            class="container size-20 start verticalRadio"
           >
             <input
               type="radio"
@@ -308,7 +308,7 @@ Object {
         class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start my-radio verticalRadio"
+          class="container size-20 start my-radio verticalRadio"
         >
           <input
             type="radio"
@@ -328,7 +328,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start my-second-radio verticalRadio"
+          class="container size-20 start my-second-radio verticalRadio"
         >
           <input
             type="radio"
@@ -348,7 +348,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start verticalRadio"
+          class="container size-20 start verticalRadio"
         >
           <input
             type="radio"
@@ -447,7 +447,7 @@ Object {
           class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start radio-group verticalRadio"
+            class="container size-20 start radio-group verticalRadio"
           >
             <input
               type="radio"
@@ -483,7 +483,7 @@ Object {
         class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start radio-group verticalRadio"
+          class="container size-20 start radio-group verticalRadio"
         >
           <input
             type="radio"
