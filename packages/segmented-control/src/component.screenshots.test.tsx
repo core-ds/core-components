@@ -14,7 +14,7 @@ describe(
             componentName: 'SegmentedControl',
             testStory: false,
             knobs: {
-                size: ['xs', 'xxs'],
+                size: [40, 32],
                 shape: ['rounded', 'rectangular'],
                 selectedId: 1,
             },
@@ -32,7 +32,7 @@ describe(
             componentName: 'SegmentedControl',
             testStory: false,
             knobs: {
-                size: 'xs',
+                size: 40,
                 shape: 'rounded',
                 selectedId: 1,
                 colors: 'inverted',
