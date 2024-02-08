@@ -3,7 +3,7 @@
 exports[`InternationalPhoneInput should match snapshot 1`] = `
 <div>
   <div
-    class="component component component m m hasLeftAddons"
+    class="component component component size-56 size-56 hasLeftAddons"
   >
     <div
       class="inner inner inner inner filled"
@@ -22,7 +22,7 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="component s"
+              class="component size-48"
             >
               <div
                 aria-controls="downshift-:r0:-menu"

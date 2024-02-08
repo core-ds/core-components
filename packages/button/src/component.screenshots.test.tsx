@@ -23,7 +23,7 @@ describe('Button', () =>
             knobs: {
                 children: 'Кнопка',
                 view: 'accent',
-                size: 'xl',
+                size: 72,
             },
         },
         'width:800px;transform:scale(2.3)',
@@ -44,7 +44,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         view: ['accent', 'primary'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],
@@ -56,7 +56,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         view: ['secondary', 'tertiary'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],
@@ -68,7 +68,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         view: ['link', 'ghost'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],
@@ -238,7 +238,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         view: ['accent', 'primary'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],
@@ -250,7 +250,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         view: ['secondary', 'tertiary'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],
@@ -262,7 +262,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         view: ['link', 'ghost'],
-                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                        size: [32, 40, 48, 56, 64, 72],
                     },
                 }),
             ],
@@ -283,7 +283,7 @@ describe(
                 children: 'Оплатить',
                 view: 'primary',
                 shape: 'rounded',
-                size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                size: [32, 40, 48, 56, 64, 72],
             },
         }),
         screenshotOpts: { clip },
@@ -299,7 +299,7 @@ describe(
                 children: 'Оплатить',
                 hint: 'Hint',
                 view: 'primary',
-                size: ['m', 'l', 'xl'],
+                size: [56, 64, 72],
                 textResizing: ['hug', 'fill'],
             },
         }),

@@ -16,7 +16,7 @@ Object {
           class="component"
         >
           <div
-            class="component component s s block hasRightAddons"
+            class="component component size-48 size-48 block hasRightAddons"
           >
             <div
               aria-controls="downshift-:r0:-menu"
@@ -74,7 +74,7 @@ Object {
         class="component"
       >
         <div
-          class="component component s s block hasRightAddons"
+          class="component component size-48 size-48 block hasRightAddons"
         >
           <div
             aria-controls="downshift-:r0:-menu"
@@ -183,7 +183,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
       class="component"
     >
       <div
-        class="component component s s block hasRightAddons"
+        class="component component size-48 size-48 block hasRightAddons"
       >
         <div
           aria-controls="downshift-:r1:-menu"
@@ -246,7 +246,7 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
       class="component"
     >
       <div
-        class="component component s s block hasRightAddons"
+        class="component component size-48 size-48 block hasRightAddons"
       >
         <div
           aria-controls="downshift-:r2:-menu"

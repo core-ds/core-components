@@ -14,7 +14,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
         class="component"
       >
         <div
-          class="component component s s block"
+          class="component component size-48 size-48 block"
         >
           <div
             aria-controls="downshift-:r0:-menu"
@@ -58,7 +58,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
         class="component"
       >
         <div
-          class="component component s s block"
+          class="component component size-48 size-48 block"
         >
           <div
             aria-controls="downshift-:r1:-menu"
@@ -144,7 +144,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           >
                             <button
                               aria-label="закрыть"
-                              class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
+                              class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button mobile primary component"
                               type="button"
                             >
                               <span
@@ -177,7 +177,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                       class="bottomAddons"
                     >
                       <div
-                        class="component component component input search s s"
+                        class="component component component input search size-48 size-48"
                       >
                         <div
                           class="inner inner inner inner"
@@ -210,7 +210,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                       role="listbox"
                     >
                       <div
-                        class="optionsList s optionsList"
+                        class="optionsList size-48 optionsList"
                       >
                         <div
                           class="component component scrollable scrollbar"
@@ -249,7 +249,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                     <div
                                       aria-disabled="false"
                                       aria-selected="false"
-                                      class="option m option"
+                                      class="option size-56 option"
                                       id="downshift-:r1:-item-0"
                                       role="option"
                                     >
@@ -300,7 +300,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                     <div
                                       aria-disabled="false"
                                       aria-selected="false"
-                                      class="option m option"
+                                      class="option size-56 option"
                                       id="downshift-:r1:-item-1"
                                       role="option"
                                     >
@@ -384,7 +384,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             tabindex="0"
                           >
                             <button
-                              class="component secondary m hug m component secondary component secondary button"
+                              class="component secondary size-56 hug size-56 component secondary component secondary button"
                               type="button"
                             >
                               <span
@@ -394,7 +394,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               </span>
                             </button>
                             <button
-                              class="component primary m hug m component primary component primary button"
+                              class="component primary size-56 hug size-56 component primary component primary button"
                               type="button"
                             >
                               <span

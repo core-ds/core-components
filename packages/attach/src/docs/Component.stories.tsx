@@ -16,7 +16,7 @@ export const attach: Story = {
     render: () => {
         return (
             <Attach
-                size={select('size', ['xxs', 'xs', 's', 'm', 'l'], 's')}
+                size={select('size', [32, 40, 48, 56, 64], 48)}
                 buttonContent={text('buttonContent', undefined)}
                 disabled={boolean('disabled', false)}
                 maxFilenameLength={number('maxFilenameLength', undefined)}

@@ -14,18 +14,18 @@
 
 /* SIZES */
 
-.s .inner {
+.size-48 .inner {
     border-radius: var(--form-control-s-border-radius);
 }
 
-.m .inner {
+.size-56 .inner {
     border-radius: var(--form-control-m-border-radius);
 }
 
-.l .inner {
+.size-64 .inner {
     border-radius: var(--form-control-l-border-radius);
 }
 
-.xl .inner {
+.size-72 .inner {
     border-radius: var(--form-control-xl-border-radius);
 }

@@ -22,7 +22,7 @@ describe('InternationalPhoneInput', () =>
             knobs: {
                 label: 'Телефон',
                 value: '+7 999 555-35-35',
-                size: 'm',
+                size: 56,
                 block: true,
             },
         },

@@ -30,7 +30,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             Arrow = null,
             label,
             placeholder = '',
-            size = 's',
+            size = 48,
             open: openProp,
             onInput,
             onOpen,

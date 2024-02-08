@@ -24,7 +24,7 @@ describe('FilterTag', () => {
             componentName: 'FilterTag',
             knobs: {
                 children: 'Фильтр: Значение',
-                size: 's',
+                size: 48,
                 checked: true,
             },
         },
@@ -45,7 +45,7 @@ describe('FilterTag | main props', () => {
                         componentName: 'FilterTag',
                         knobs: {
                             children: 'Фильтр',
-                            size: 'xxs',
+                            size: 32,
                             checked: false,
                             disabled: [false, true],
                             open: [false, true],
@@ -60,7 +60,7 @@ describe('FilterTag | main props', () => {
                         componentName: 'FilterTag',
                         knobs: {
                             children: 'Фильтр',
-                            size: 'xxs',
+                            size: 32,
                             checked: true,
                             disabled: [false, true],
                             open: [false, true],
@@ -75,7 +75,7 @@ describe('FilterTag | main props', () => {
                         componentName: 'FilterTag',
                         knobs: {
                             children: 'Фильтр',
-                            size: ['xxs', 'xs', 's'],
+                            size: [32, 40, 48],
                             shape: ['rounded', 'rectangular'],
                         },
                         size: { width: 160, height: 90 },
@@ -99,7 +99,7 @@ describe(
             componentName: 'FilterTag',
             knobs: {
                 children: 'Фильтр',
-                size: 's',
+                size: 48,
                 checked: true,
                 disabled: false,
             },
@@ -121,7 +121,7 @@ describe(
             componentName: 'FilterTag',
             knobs: {
                 children: 'Фильтр',
-                size: 's',
+                size: 48,
                 checked: true,
                 disabled: false,
             },
@@ -143,7 +143,7 @@ describe(
             componentName: 'FilterTag',
             knobs: {
                 children: 'Фильтр',
-                size: 's',
+                size: 48,
                 checked: [true, false],
                 disabled: [false, true],
             },

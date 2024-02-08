@@ -18,7 +18,7 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
           >
             <button
               aria-label="назад"
-              class="component ghost s hug s component ghost component ghost component"
+              class="component ghost size-48 hug size-48 component ghost component ghost component"
               data-test-id="navigation-bar-dti-back-button"
               type="button"
             >
@@ -66,7 +66,7 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component ghost s hug s component ghost component ghost cc-icon-button button primary component"
+                class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button primary component"
                 data-test-id="navigation-bar-dti-closer"
                 type="button"
               >

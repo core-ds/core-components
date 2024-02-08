@@ -35,7 +35,7 @@
     margin-top: calc(var(--slider-progress-s-height) / -2);
     transform: translateY(-1px);
 
-    &.xl {
+    &.size-72 {
         width: calc(100% - var(--slider-input-xl-progress-margin-horizontal) * 2);
         margin-left: var(--slider-input-xl-progress-margin-horizontal);
         margin-right: var(--slider-input-xl-progress-margin-horizontal);
@@ -74,22 +74,22 @@
 }
 
 .component .field {
-    &.s {
+    &.size-48 {
         border-bottom-left-radius: var(--slider-input-s-border-bottom-radius);
         border-bottom-right-radius: var(--slider-input-s-border-bottom-radius);
     }
 
-    &.m {
+    &.size-56 {
         border-bottom-left-radius: var(--slider-input-m-border-bottom-radius);
         border-bottom-right-radius: var(--slider-input-m-border-bottom-radius);
     }
 
-    &.l {
+    &.size-64 {
         border-bottom-left-radius: var(--slider-input-l-border-bottom-radius);
         border-bottom-right-radius: var(--slider-input-l-border-bottom-radius);
     }
 
-    &.xl {
+    &.size-72 {
         border-bottom-left-radius: var(--slider-input-xl-border-bottom-radius);
         border-bottom-right-radius: var(--slider-input-xl-border-bottom-radius);
     }
@@ -126,25 +126,25 @@
     visibility: hidden;
 }
 
-.s.hasLabel .info:first-child {
+.size-48.hasLabel .info:first-child {
     padding: var(--form-control-labeled-s-paddings);
     padding-left: 0;
     padding-right: 0;
 }
 
-.m.hasLabel .info:first-child {
+.size-56.hasLabel .info:first-child {
     padding: var(--form-control-labeled-m-paddings);
     padding-left: 0;
     padding-right: 0;
 }
 
-.l.hasLabel .info:first-child {
+.size-64.hasLabel .info:first-child {
     padding: var(--form-control-labeled-l-paddings);
     padding-left: 0;
     padding-right: 0;
 }
 
-.xl.hasLabel .info:first-child {
+.size-72.hasLabel .info:first-child {
     padding: var(--form-control-labeled-xl-paddings);
     padding-left: 0;
     padding-right: 0;

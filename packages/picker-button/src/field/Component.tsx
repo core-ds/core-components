@@ -16,8 +16,23 @@ type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | '
         showArrow?: boolean;
     };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
 export const Field = ({
-    buttonSize = 'm',
+    buttonSize = 56,
     buttonVariant = 'default',
     view,
     label,
@@ -36,7 +51,10 @@ export const Field = ({
     labelView,
     ...restProps
 }: FieldProps) => {
-    const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(buttonVariant, buttonSize);
+    const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(
+        buttonVariant,
+        SIZE_TO_CLASSNAME_MAP[buttonSize],
+    );
 
     const { ref, ...restInnerProps } = innerProps;
 

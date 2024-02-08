@@ -3,13 +3,13 @@
 exports[`SliderInput should match snapshot 1`] = `
 <div>
   <div
-    class="component s"
+    class="component size-48"
   >
     <div
-      class="component component input s s block"
+      class="component component input size-48 size-48 block"
     >
       <div
-        class="field s inner inner inner inner"
+        class="field size-48 inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -28,7 +28,7 @@ exports[`SliderInput should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="component slider s noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
+        class="component slider size-48 s noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
       >
         <div
           class="noUi-base"

@@ -45,8 +45,8 @@
     }
 }
 
-.s,
-.m {
+.size-48,
+.size-56 {
     & .addons:first-child {
         margin-right: var(--gap-xs);
     }
@@ -56,8 +56,8 @@
     }
 }
 
-.l,
-.xl {
+.size-64,
+.size-72 {
     & .addons:first-child {
         margin-right: var(--gap-s);
     }
@@ -67,7 +67,7 @@
     }
 }
 
-.xxs {
+.size-32 {
     min-width: 60px;
     min-height: var(--size-xxs-height);
     padding: 0 var(--gap-m);
@@ -76,7 +76,7 @@
     font-weight: normal;
 }
 
-.xs {
+.size-40 {
     min-width: 72px;
     min-height: var(--size-xs-height);
     padding: 0 var(--gap-l);
@@ -85,7 +85,7 @@
     font-weight: normal;
 }
 
-.s {
+.size-48 {
     min-width: 80px;
     min-height: var(--size-s-height);
     padding: 0 var(--gap-xl);
@@ -94,21 +94,21 @@
     font-weight: normal;
 }
 
-.m {
+.size-56 {
     @mixin action_component;
     min-width: 96px;
     min-height: var(--size-m-height);
     padding: 0 28px;
 }
 
-.l {
+.size-64 {
     @mixin action_primary_large;
     min-width: 120px;
     min-height: var(--size-l-height);
     padding: 0 var(--gap-2xl);
 }
 
-.xl {
+.size-72 {
     @mixin action_primary_large;
     min-width: 120px;
     min-height: var(--size-xl-height);
@@ -116,73 +116,73 @@
 }
 
 .withRightAddons {
-    &.xxs {
+    &.size-32 {
         padding-right: var(--gap-s);
     }
 
-    &.xs {
+    &.size-40 {
         padding-right: var(--gap-m);
     }
 
-    &.s {
+    &.size-48 {
         padding-right: var(--gap-l);
     }
 
-    &.m {
+    &.size-56 {
         padding-right: var(--gap-xl);
     }
 
-    &.l {
+    &.size-64 {
         padding-right: 28px;
     }
 
-    &.xl {
+    &.size-72 {
         padding-right: var(--gap-2xl);
     }
 }
 
 .withLeftAddons {
-    &.xxs {
+    &.size-32 {
         padding-left: var(--gap-s);
     }
 
-    &.xs {
+    &.size-40 {
         padding-left: var(--gap-m);
     }
 
-    &.s {
+    &.size-48 {
         padding-left: var(--gap-l);
     }
 
-    &.m {
+    &.size-56 {
         padding-left: var(--gap-xl);
     }
 
-    &.l {
+    &.size-64 {
         padding-left: 28px;
     }
 
-    &.xl {
+    &.size-72 {
         padding-left: var(--gap-2xl);
     }
 }
 
 .rounded {
-    &.xxs {
+    &.size-32 {
         border-radius: var(--tag-rounded-xxs-border-radius);
     }
 
-    &.xs {
+    &.size-40 {
         border-radius: var(--tag-rounded-xs-border-radius);
     }
 
-    &.s {
+    &.size-48 {
         border-radius: var(--tag-rounded-s-border-radius);
     }
 
-    &.m,
-    &.l,
-    &.xl {
+    &.size-56,
+    &.size-64,
+    &.size-72 {
         border-radius: var(--tag-border-radius);
     }
 }

@@ -1,9 +1,9 @@
 @import '../../../../themes/src/default.css';
 
-.s {
+.size-48 {
     margin-right: var(--gap-xs-neg);
 }
 
-.m {
+.size-56 {
     margin-right: var(--gap-2xs-neg);
 }

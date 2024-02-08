@@ -5,7 +5,7 @@ describe('UniversalDateInput', () =>
         {
             componentName: 'UniversalDateInput',
             knobs: {
-                size: 'm',
+                size: 56,
                 value: new Date('2023-01-01').getTime(),
                 label: 'Дата',
                 block: true,

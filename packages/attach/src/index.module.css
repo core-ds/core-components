@@ -32,25 +32,25 @@
 }
 
 /* TODO обновить типографику на новую, когда ее зарелизят */
-.xxs .file,
-.xxs .noFile,
-.xs .file,
-.xs .noFile {
+.size-32 .file,
+.size-32 .noFile,
+.size-40 .file,
+.size-40 .noFile {
     @mixin paragraph_component_secondary;
 }
 
-.s .file,
-.s .noFile {
+.size-48 .file,
+.size-48 .noFile {
     @mixin paragraph_component;
 }
 
-.m .file,
-.m .noFile {
+.size-56 .file,
+.size-56 .noFile {
     @mixin paragraph_component;
 }
 
-.l .file,
-.l .noFile {
+.size-64 .file,
+.size-64 .noFile {
     @mixin promo-system_xsmall;
 }
 

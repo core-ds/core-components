@@ -20,7 +20,7 @@ describe('Attach', () =>
         {
             componentName: 'Attach',
             knobs: {
-                size: 'xl',
+                size: 64,
                 buttonContent: 'Выберите файл',
                 noFileText: ' ',
             },
@@ -42,7 +42,7 @@ describe(
                     knobs: {
                         buttonContent: 'Выберите файл',
                         noFileText: 'Нет файла',
-                        size: ['xs', 's', 'm', 'l'],
+                        size: [40, 48, 56, 64],
                     },
                     size: { width: 400, height: 100 },
                 }),
@@ -57,7 +57,7 @@ describe('Attach | interactions tests', () => {
             componentName: 'Attach',
             knobs: {
                 buttonContent: 'Выберите файл',
-                size: 'l',
+                size: 64,
                 progressBarPercent: 75,
             },
         });

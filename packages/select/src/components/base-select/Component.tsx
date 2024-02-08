@@ -101,7 +101,7 @@ export const BaseSelect = forwardRef(
             name,
             id,
             selected,
-            size = 's',
+            size = 48,
             optionsSize = size,
             error,
             hint,

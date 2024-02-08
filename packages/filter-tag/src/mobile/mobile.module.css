@@ -3,15 +3,15 @@
 
 .component {
     &.rectangular {
-        &.xxs {
+        &.size-32 {
             border-radius: var(--tag-rectangular-mobile-xxs-border-radius);
         }
 
-        &.xs {
+        &.size-40 {
             border-radius: var(--tag-rectangular-mobile-xs-border-radius);
         }
 
-        &.s {
+        &.size-48 {
             border-radius: var(--tag-rectangular-mobile-s-border-radius);
         }
     }
@@ -19,15 +19,15 @@
 
 .valueButton {
     &.rectangular {
-        &.xxs {
+        &.size-32 {
             border-radius: var(--tag-rectangular-mobile-xxs-border-radius);
         }
 
-        &.xs {
+        &.size-40 {
             border-radius: var(--tag-rectangular-mobile-xs-border-radius);
         }
 
-        &.s {
+        &.size-48 {
             border-radius: var(--tag-rectangular-mobile-s-border-radius);
         }
     }
@@ -52,32 +52,32 @@
 
     &.checked {
         &.rectangular {
-            &.xxs {
+            &.size-32 {
                 border-radius: var(--tag-rectangular-mobile-xxs-border-radius) 0 0
                     var(--tag-rectangular-mobile-xxs-border-radius);
             }
 
-            &.xs {
+            &.size-40 {
                 border-radius: var(--tag-rectangular-mobile-xs-border-radius) 0 0
                     var(--tag-rectangular-mobile-xs-border-radius);
             }
 
-            &.s {
+            &.size-48 {
                 border-radius: var(--tag-rectangular-mobile-s-border-radius) 0 0
                     var(--tag-rectangular-mobile-s-border-radius);
             }
 
             &:disabled,
             &.close {
-                &.xxs {
+                &.size-32 {
                     border-radius: var(--tag-rectangular-mobile-xxs-border-radius);
                 }
 
-                &.xs {
+                &.size-40 {
                     border-radius: var(--tag-rectangular-mobile-xs-border-radius);
                 }
 
-                &.s {
+                &.size-48 {
                     border-radius: var(--tag-rectangular-mobile-s-border-radius);
                 }
             }
@@ -87,17 +87,17 @@
 
 .clear {
     &.rectangular {
-        &.xxs {
+        &.size-32 {
             border-radius: 0 var(--tag-rectangular-mobile-xxs-border-radius)
                 var(--tag-rectangular-mobile-xxs-border-radius) 0;
         }
 
-        &.xs {
+        &.size-40 {
             border-radius: 0 var(--tag-rectangular-mobile-xs-border-radius)
                 var(--tag-rectangular-mobile-xs-border-radius) 0;
         }
 
-        &.s {
+        &.size-48 {
             border-radius: 0 var(--tag-rectangular-mobile-s-border-radius)
                 var(--tag-rectangular-mobile-s-border-radius) 0;
         }

@@ -18,17 +18,17 @@ describe('ActionButton', () => {
     });
 
     it('should use "size" prop', () => {
-        const size = 's';
+        const size = 48;
 
         render(<ActionButton size={size} />);
 
-        expect(screen.getByRole('button')).toHaveClass('s');
+        expect(screen.getByRole('button')).toHaveClass('size-48');
     });
 
     it('should use "size" prop "s" by default', () => {
         render(<ActionButton />);
 
-        expect(screen.getByRole('button')).toHaveClass('s');
+        expect(screen.getByRole('button')).toHaveClass('size-48');
     });
 
     it('should use "iconWrapperClassName" prop', () => {

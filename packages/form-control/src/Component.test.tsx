@@ -117,10 +117,10 @@ describe('FormControl', () => {
         });
 
         it('should set `size` class', () => {
-            const size = 'm';
+            const size = 56;
             const { container } = render(<FormControl size={size} />);
 
-            expect(container.firstElementChild).toHaveClass(size);
+            expect(container.firstElementChild).toHaveClass(`size-${size}`);
         });
 
         it('should set `block` class', () => {

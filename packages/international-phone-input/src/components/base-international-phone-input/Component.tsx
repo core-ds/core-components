@@ -45,7 +45,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             defaultIso2,
             disabled,
             options,
-            size = 'm',
+            size = 56,
             Input,
             InputAutocomplete,
             SelectComponent,

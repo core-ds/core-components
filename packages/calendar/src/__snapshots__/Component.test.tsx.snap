@@ -15,7 +15,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
         class="component monthYear"
       >
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button month"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
           type="button"
         >
           <span
@@ -44,7 +44,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button year"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
           type="button"
         >
           <span
@@ -135,7 +135,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -162,7 +162,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -187,7 +187,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -212,7 +212,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -237,7 +237,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -262,7 +262,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -287,7 +287,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -312,7 +312,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -339,7 +339,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -364,7 +364,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -389,7 +389,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -414,7 +414,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -439,7 +439,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -464,7 +464,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -489,7 +489,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -516,7 +516,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -541,7 +541,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -566,7 +566,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -591,7 +591,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -616,7 +616,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -641,7 +641,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -666,7 +666,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -693,7 +693,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -718,7 +718,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -743,7 +743,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -768,7 +768,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -793,7 +793,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -818,7 +818,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -843,7 +843,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -870,7 +870,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="0"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded selected"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
                 type="button"
               >
                 <span
@@ -916,7 +916,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         class="component monthYear"
       >
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button month"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
           type="button"
         >
           <span
@@ -945,7 +945,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
           </span>
         </button>
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button year"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
           type="button"
         >
           <span
@@ -983,7 +983,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
       >
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1577836800000"
           tabindex="-1"
           type="button"
@@ -996,7 +996,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1580515200000"
           tabindex="-1"
           type="button"
@@ -1009,7 +1009,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1583020800000"
           tabindex="-1"
           type="button"
@@ -1022,7 +1022,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1585699200000"
           tabindex="-1"
           type="button"
@@ -1035,7 +1035,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1588291200000"
           tabindex="-1"
           type="button"
@@ -1048,7 +1048,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1590969600000"
           tabindex="-1"
           type="button"
@@ -1061,7 +1061,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1593561600000"
           tabindex="-1"
           type="button"
@@ -1074,7 +1074,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1596240000000"
           tabindex="-1"
           type="button"
@@ -1087,7 +1087,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1598918400000"
           tabindex="-1"
           type="button"
@@ -1100,7 +1100,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1601510400000"
           tabindex="-1"
           type="button"
@@ -1113,7 +1113,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="true"
-          class="component ghost xs hug xs component ghost component ghost button selected button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button selected button"
           data-date="1604188800000"
           tabindex="0"
           type="button"
@@ -1126,7 +1126,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs hug xs component ghost component ghost button default button"
+          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
           data-date="1606780800000"
           tabindex="-1"
           type="button"
@@ -1158,7 +1158,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
         class="component monthYear"
       >
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button month"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
           type="button"
         >
           <span
@@ -1187,7 +1187,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button year"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
           type="button"
         >
           <span
@@ -1228,7 +1228,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
         >
           <button
             aria-selected="true"
-            class="component ghost xs hug xs component ghost component ghost button selected button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button selected button"
             data-date="1577836800000"
             tabindex="0"
             type="button"
@@ -1241,7 +1241,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1546300800000"
             tabindex="-1"
             type="button"
@@ -1254,7 +1254,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1514764800000"
             tabindex="-1"
             type="button"
@@ -1267,7 +1267,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1483228800000"
             tabindex="-1"
             type="button"
@@ -1280,7 +1280,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1451606400000"
             tabindex="-1"
             type="button"
@@ -1293,7 +1293,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1420070400000"
             tabindex="-1"
             type="button"
@@ -1306,7 +1306,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1388534400000"
             tabindex="-1"
             type="button"
@@ -1319,7 +1319,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1356998400000"
             tabindex="-1"
             type="button"
@@ -1332,7 +1332,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1325376000000"
             tabindex="-1"
             type="button"
@@ -1345,7 +1345,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1293840000000"
             tabindex="-1"
             type="button"
@@ -1358,7 +1358,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1262304000000"
             tabindex="-1"
             type="button"
@@ -1371,7 +1371,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1230768000000"
             tabindex="-1"
             type="button"
@@ -1384,7 +1384,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1199145600000"
             tabindex="-1"
             type="button"
@@ -1397,7 +1397,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1167609600000"
             tabindex="-1"
             type="button"
@@ -1410,7 +1410,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1136073600000"
             tabindex="-1"
             type="button"
@@ -1423,7 +1423,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1104537600000"
             tabindex="-1"
             type="button"
@@ -1436,7 +1436,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1072915200000"
             tabindex="-1"
             type="button"
@@ -1449,7 +1449,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1041379200000"
             tabindex="-1"
             type="button"
@@ -1462,7 +1462,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="1009843200000"
             tabindex="-1"
             type="button"
@@ -1475,7 +1475,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="978307200000"
             tabindex="-1"
             type="button"
@@ -1488,7 +1488,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="946684800000"
             tabindex="-1"
             type="button"
@@ -1501,7 +1501,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="915148800000"
             tabindex="-1"
             type="button"
@@ -1514,7 +1514,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="883612800000"
             tabindex="-1"
             type="button"
@@ -1527,7 +1527,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="852076800000"
             tabindex="-1"
             type="button"
@@ -1540,7 +1540,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="820454400000"
             tabindex="-1"
             type="button"
@@ -1553,7 +1553,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="788918400000"
             tabindex="-1"
             type="button"
@@ -1566,7 +1566,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="757382400000"
             tabindex="-1"
             type="button"
@@ -1579,7 +1579,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="725846400000"
             tabindex="-1"
             type="button"
@@ -1592,7 +1592,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="694224000000"
             tabindex="-1"
             type="button"
@@ -1605,7 +1605,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="662688000000"
             tabindex="-1"
             type="button"
@@ -1618,7 +1618,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="631152000000"
             tabindex="-1"
             type="button"
@@ -1631,7 +1631,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="599616000000"
             tabindex="-1"
             type="button"
@@ -1644,7 +1644,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="567993600000"
             tabindex="-1"
             type="button"
@@ -1657,7 +1657,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="536457600000"
             tabindex="-1"
             type="button"
@@ -1670,7 +1670,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="504921600000"
             tabindex="-1"
             type="button"
@@ -1683,7 +1683,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="473385600000"
             tabindex="-1"
             type="button"
@@ -1696,7 +1696,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="441763200000"
             tabindex="-1"
             type="button"
@@ -1709,7 +1709,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="410227200000"
             tabindex="-1"
             type="button"
@@ -1722,7 +1722,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="378691200000"
             tabindex="-1"
             type="button"
@@ -1735,7 +1735,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="347155200000"
             tabindex="-1"
             type="button"
@@ -1748,7 +1748,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="315532800000"
             tabindex="-1"
             type="button"
@@ -1761,7 +1761,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="283996800000"
             tabindex="-1"
             type="button"
@@ -1774,7 +1774,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="252460800000"
             tabindex="-1"
             type="button"
@@ -1787,7 +1787,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="220924800000"
             tabindex="-1"
             type="button"
@@ -1800,7 +1800,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="189302400000"
             tabindex="-1"
             type="button"
@@ -1813,7 +1813,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="157766400000"
             tabindex="-1"
             type="button"
@@ -1826,7 +1826,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="126230400000"
             tabindex="-1"
             type="button"
@@ -1839,7 +1839,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="94694400000"
             tabindex="-1"
             type="button"
@@ -1852,7 +1852,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="63072000000"
             tabindex="-1"
             type="button"
@@ -1865,7 +1865,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="31536000000"
             tabindex="-1"
             type="button"
@@ -1878,7 +1878,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="0"
             tabindex="-1"
             type="button"
@@ -1891,7 +1891,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-31536000000"
             tabindex="-1"
             type="button"
@@ -1904,7 +1904,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-63158400000"
             tabindex="-1"
             type="button"
@@ -1917,7 +1917,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-94694400000"
             tabindex="-1"
             type="button"
@@ -1930,7 +1930,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-126230400000"
             tabindex="-1"
             type="button"
@@ -1943,7 +1943,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-157766400000"
             tabindex="-1"
             type="button"
@@ -1956,7 +1956,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-189388800000"
             tabindex="-1"
             type="button"
@@ -1969,7 +1969,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-220924800000"
             tabindex="-1"
             type="button"
@@ -1982,7 +1982,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-252460800000"
             tabindex="-1"
             type="button"
@@ -1995,7 +1995,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-283996800000"
             tabindex="-1"
             type="button"
@@ -2008,7 +2008,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-315619200000"
             tabindex="-1"
             type="button"
@@ -2021,7 +2021,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-347155200000"
             tabindex="-1"
             type="button"
@@ -2034,7 +2034,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-378691200000"
             tabindex="-1"
             type="button"
@@ -2047,7 +2047,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-410227200000"
             tabindex="-1"
             type="button"
@@ -2060,7 +2060,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-441849600000"
             tabindex="-1"
             type="button"
@@ -2073,7 +2073,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-473385600000"
             tabindex="-1"
             type="button"
@@ -2086,7 +2086,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-504921600000"
             tabindex="-1"
             type="button"
@@ -2099,7 +2099,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-536457600000"
             tabindex="-1"
             type="button"
@@ -2112,7 +2112,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-568080000000"
             tabindex="-1"
             type="button"
@@ -2125,7 +2125,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-599616000000"
             tabindex="-1"
             type="button"
@@ -2138,7 +2138,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-631152000000"
             tabindex="-1"
             type="button"
@@ -2151,7 +2151,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-662688000000"
             tabindex="-1"
             type="button"
@@ -2164,7 +2164,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-694310400000"
             tabindex="-1"
             type="button"
@@ -2177,7 +2177,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-725846400000"
             tabindex="-1"
             type="button"
@@ -2190,7 +2190,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-757382400000"
             tabindex="-1"
             type="button"
@@ -2203,7 +2203,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-788918400000"
             tabindex="-1"
             type="button"
@@ -2216,7 +2216,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-820540800000"
             tabindex="-1"
             type="button"
@@ -2229,7 +2229,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-852076800000"
             tabindex="-1"
             type="button"
@@ -2242,7 +2242,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-883612800000"
             tabindex="-1"
             type="button"
@@ -2255,7 +2255,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-915148800000"
             tabindex="-1"
             type="button"
@@ -2268,7 +2268,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-946771200000"
             tabindex="-1"
             type="button"
@@ -2281,7 +2281,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-978307200000"
             tabindex="-1"
             type="button"
@@ -2294,7 +2294,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1009843200000"
             tabindex="-1"
             type="button"
@@ -2307,7 +2307,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1041379200000"
             tabindex="-1"
             type="button"
@@ -2320,7 +2320,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1073001600000"
             tabindex="-1"
             type="button"
@@ -2333,7 +2333,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1104537600000"
             tabindex="-1"
             type="button"
@@ -2346,7 +2346,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1136073600000"
             tabindex="-1"
             type="button"
@@ -2359,7 +2359,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1167609600000"
             tabindex="-1"
             type="button"
@@ -2372,7 +2372,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1199232000000"
             tabindex="-1"
             type="button"
@@ -2385,7 +2385,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1230768000000"
             tabindex="-1"
             type="button"
@@ -2398,7 +2398,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1262304000000"
             tabindex="-1"
             type="button"
@@ -2411,7 +2411,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1293840000000"
             tabindex="-1"
             type="button"
@@ -2424,7 +2424,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1325462400000"
             tabindex="-1"
             type="button"
@@ -2437,7 +2437,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1356998400000"
             tabindex="-1"
             type="button"
@@ -2450,7 +2450,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1388534400000"
             tabindex="-1"
             type="button"
@@ -2463,7 +2463,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1420070400000"
             tabindex="-1"
             type="button"
@@ -2476,7 +2476,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </button>
           <button
             aria-selected="false"
-            class="component ghost xs hug xs component ghost component ghost button default button"
+            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
             data-date="-1451692800000"
             tabindex="-1"
             type="button"
@@ -2509,7 +2509,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
         class="component monthYear"
       >
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button month"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
           type="button"
         >
           <span
@@ -2538,7 +2538,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button year"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
           type="button"
         >
           <span
@@ -2629,7 +2629,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2656,7 +2656,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2681,7 +2681,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2706,7 +2706,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2731,7 +2731,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2756,7 +2756,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2781,7 +2781,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2806,7 +2806,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2833,7 +2833,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2858,7 +2858,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2883,7 +2883,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2908,7 +2908,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2933,7 +2933,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2958,7 +2958,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -2983,7 +2983,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3010,7 +3010,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3035,7 +3035,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3060,7 +3060,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3085,7 +3085,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3110,7 +3110,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3135,7 +3135,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3160,7 +3160,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3187,7 +3187,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3212,7 +3212,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3237,7 +3237,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3262,7 +3262,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3287,7 +3287,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3312,7 +3312,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3337,7 +3337,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3364,7 +3364,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="0"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded selected"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
                 type="button"
               >
                 <span
@@ -3411,7 +3411,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost s hug s component ghost component ghost cc-icon-button arrow primary component"
+          class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button arrow primary component"
           type="button"
         >
           <span
@@ -3443,7 +3443,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component ghost s hug s component ghost component ghost cc-icon-button arrow primary component"
+          class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button arrow primary component"
           type="button"
         >
           <span
@@ -3531,7 +3531,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3558,7 +3558,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3583,7 +3583,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3608,7 +3608,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3633,7 +3633,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3658,7 +3658,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3683,7 +3683,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3708,7 +3708,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3735,7 +3735,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3760,7 +3760,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3785,7 +3785,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3810,7 +3810,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3835,7 +3835,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3860,7 +3860,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3885,7 +3885,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3912,7 +3912,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3937,7 +3937,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3962,7 +3962,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -3987,7 +3987,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4012,7 +4012,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4037,7 +4037,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4062,7 +4062,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4089,7 +4089,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4114,7 +4114,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4139,7 +4139,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4164,7 +4164,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4189,7 +4189,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4214,7 +4214,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4239,7 +4239,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4266,7 +4266,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="0"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded selected"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
                 type="button"
               >
                 <span
@@ -4312,7 +4312,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
         class="component monthYear"
       >
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button month"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
           type="button"
         >
           <span
@@ -4341,7 +4341,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component ghost xs hug xs component ghost component ghost button filled button year"
+          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
           type="button"
         >
           <span
@@ -4432,7 +4432,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4459,7 +4459,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4484,7 +4484,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4509,7 +4509,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4534,7 +4534,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4559,7 +4559,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4584,7 +4584,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4609,7 +4609,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4636,7 +4636,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4661,7 +4661,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4686,7 +4686,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4711,7 +4711,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4736,7 +4736,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4761,7 +4761,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4786,7 +4786,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4813,7 +4813,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4838,7 +4838,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4863,7 +4863,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4888,7 +4888,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4913,7 +4913,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4938,7 +4938,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4963,7 +4963,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -4990,7 +4990,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -5015,7 +5015,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -5040,7 +5040,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -5065,7 +5065,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -5090,7 +5090,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -5115,7 +5115,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -5140,7 +5140,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
                 type="button"
               >
                 <span
@@ -5167,7 +5167,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="0"
             >
               <button
-                class="component ghost xs hug xs component ghost component ghost day rounded selected"
+                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
                 type="button"
               >
                 <span

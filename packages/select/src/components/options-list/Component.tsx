@@ -6,7 +6,7 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { isClient } from '@alfalab/core-components-shared';
 
-import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
+import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
 import { isGroup, useVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
@@ -23,7 +23,7 @@ const createCounter = () => {
 export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
         {
-            size = 's',
+            size = 48,
             className,
             optionGroupClassName,
             scrollbarClassName,
@@ -130,7 +130,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         return (
             <div
                 {...(nativeScrollbar && { 'data-test-id': dataTestId })}
-                className={cn(styles.optionsList, styles[size], className)}
+                className={cn(styles.optionsList, styles[SIZE_TO_CLASSNAME_MAP[size]], className)}
             >
                 {header && (
                     <div className={styles.optionsListHeader} onMouseEnter={resetHighlightedIndex}>

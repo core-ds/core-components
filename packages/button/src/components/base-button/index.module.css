@@ -70,7 +70,7 @@
 
 /* За счет того, что у кнопок есть border 1px,
 для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
-.xxs {
+.size-32 {
     min-width: 80px;
     min-height: var(--size-xxs-height);
     padding: 0 15px;
@@ -81,7 +81,7 @@
     }
 }
 
-.xs {
+.size-40 {
     min-width: 88px;
     min-height: var(--size-xs-height);
     padding: 0 19px;
@@ -92,7 +92,7 @@
     }
 }
 
-.s {
+.size-48 {
     min-width: 104px;
     min-height: var(--size-s-height);
     font-size: 16px;
@@ -103,7 +103,7 @@
     }
 }
 
-.m {
+.size-56 {
     min-width: 128px;
     min-height: var(--size-m-height);
     padding: 0 27px;
@@ -115,7 +115,7 @@
     }
 }
 
-.l {
+.size-64 {
     min-width: 160px;
     min-height: var(--size-l-height);
     padding: 0 31px;
@@ -127,7 +127,7 @@
     }
 }
 
-.xl {
+.size-72 {
     min-width: 168px;
     min-height: var(--size-xl-height);
     padding: 0 35px;
@@ -140,27 +140,27 @@
 }
 
 .withRightAddons {
-    &.xxs {
+    &.size-32 {
         padding-right: 11px;
     }
 
-    &.xs {
+    &.size-40 {
         padding-right: 15px;
     }
 
-    &.s {
+    &.size-48 {
         padding-right: 19px;
     }
 
-    &.m {
+    &.size-56 {
         padding-right: 23px;
     }
 
-    &.l {
+    &.size-64 {
         padding-right: 27px;
     }
 
-    &.xl {
+    &.size-72 {
         padding-right: 31px;
     }
 
@@ -170,27 +170,27 @@
 }
 
 .withLeftAddons {
-    &.xxs {
+    &.size-32 {
         padding-left: 11px;
     }
 
-    &.xs {
+    &.size-40 {
         padding-left: 15px;
     }
 
-    &.s {
+    &.size-48 {
         padding-left: 19px;
     }
 
-    &.m {
+    &.size-56 {
         padding-left: 23px;
     }
 
-    &.l {
+    &.size-64 {
         padding-left: 27px;
     }
 
-    &.xl {
+    &.size-72 {
         padding-left: 31px;
     }
 
@@ -246,8 +246,8 @@
     }
 }
 
-.s,
-.m {
+.size-48,
+.size-56 {
     & .addons:first-child {
         margin-right: var(--gap-xs);
     }
@@ -261,8 +261,8 @@
     }
 }
 
-.l,
-.xl {
+.size-64,
+.size-72 {
     & .addons:first-child {
         margin-right: var(--gap-s);
     }

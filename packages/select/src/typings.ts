@@ -144,13 +144,15 @@ export type BaseSelectProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Размер пунктов меню
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    optionsSize?: 's' | 'm' | 'l' | 'xl';
+    optionsSize?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -477,8 +479,9 @@ export type OptionsListProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Компонент пункта меню
@@ -605,8 +608,9 @@ export type OptgroupProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Заголовок группы
@@ -627,8 +631,9 @@ export type OptionProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Контент пункта меню

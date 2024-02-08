@@ -279,11 +279,11 @@ describe('Select', () => {
         });
 
         it('should set class for `block` and `size` props', () => {
-            const { getByRole } = render(<Select {...baseProps} block={true} size='xl' />);
+            const { getByRole } = render(<Select {...baseProps} block={true} size={72} />);
 
             const combobox = getByRole(ROLE_COMBOBOX);
             expect(combobox).toHaveClass('block');
-            expect(combobox.querySelector('.block')).toHaveClass('xl');
+            expect(combobox.querySelector('.block')).toHaveClass('size-72');
         });
 
         it('should set custom class', () => {
@@ -648,7 +648,7 @@ describe('Select', () => {
             const propPrefix = 'field';
 
             const fieldProps: Partial<BaseFieldProps> = {
-                size: 'l',
+                size: 64,
                 selected: options[0],
                 selectedMultiple: [options[1], options[2]],
                 multiple: true,
@@ -678,7 +678,7 @@ describe('Select', () => {
                 flatOptions: options,
                 highlightedIndex: -1,
                 open: true,
-                size: 'l',
+                size: 64,
                 visibleOptions: 3,
                 ...optionsListProps,
             };
