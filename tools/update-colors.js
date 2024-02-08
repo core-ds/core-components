@@ -18,10 +18,13 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
         generateColorMods(colors);
 
         let css = '';
+        const isColorsPackage = pathname.includes('colors.json');
 
         Object.entries(colors).forEach(([color, token]) => {
             let value = token.hex && token.hex.length <= 7 ? token.hex : token.rgba;
-            css += `    ${buildVarName(color)}: ${value};  ${token.deprecated ? '/* deprecated */' : ''}\n`;
+            css += `    ${buildVarName(color)}: ${value};  ${
+                token.deprecated || isColorsPackage ? '/* deprecated */' : ''
+            }\n`;
         });
 
         const cssPath = path.resolve(
