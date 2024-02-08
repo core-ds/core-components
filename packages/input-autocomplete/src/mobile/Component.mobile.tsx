@@ -51,7 +51,7 @@ export const InputAutocompleteMobile = React.forwardRef(
         const searchInputRef = useRef<HTMLInputElement>(null);
         const targetRef = useRef<HTMLDivElement>(null);
 
-        const restorePrevValue = () => onInput?.(null, { value: frozenValue.current });
+        const restorePrevValue = () => onInput?.(frozenValue.current);
 
         const setModalVisibility = (isOpen: boolean) => {
             if (isOpen) {
@@ -140,7 +140,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         className: cn(styles.input, inputProps?.className),
                         clear,
                         ref: mergeRefs([searchInputRef, inputProps?.ref as Ref<HTMLInputElement>]),
-                        onChange: onInput,
+                        onChange: (_, payload) => onInput?.(payload.value),
                     },
                 }}
                 Search={Input}

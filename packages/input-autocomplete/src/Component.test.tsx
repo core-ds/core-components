@@ -31,9 +31,9 @@ const InputAutocompleteMobileWrapper = (props: Partial<InputAutocompleteMobilePr
         setOpen(Boolean(isOpen));
     };
 
-    const handleInput: InputAutocompleteMobileProps['onInput'] = (event, payload) => {
-        setValue(payload.value);
-        props?.onInput?.(event, payload);
+    const handleInput: InputAutocompleteMobileProps['onInput'] = (value) => {
+        setValue(value);
+        props?.onInput?.(value);
     };
 
     return (
@@ -343,7 +343,7 @@ describe('InputAutocompleteMobile', () => {
             fireEvent.change(input, { target: { value: '123' } });
             fireEvent.click(getByTestId(dataTestId + '-clear'));
 
-            expect(cb).toHaveBeenNthCalledWith(2, expect.any(Object), { value: '' });
+            expect(cb).toHaveBeenNthCalledWith(2, '');
         });
 
         it('should restore prev value when click close button ', () => {
@@ -357,7 +357,7 @@ describe('InputAutocompleteMobile', () => {
             fireEvent.change(input, { target: { value: '123' } });
             fireEvent.click(getByTestId(dataTestId + '-bottom-sheet-header-closer'));
 
-            expect(cb).toHaveBeenNthCalledWith(2, expect.any(Object), { value: '' });
+            expect(cb).toHaveBeenNthCalledWith(2, '');
         });
 
         it('should apply new value when click continue ', () => {
@@ -372,7 +372,7 @@ describe('InputAutocompleteMobile', () => {
             fireEvent.click(getByTestId(dataTestId + '-apply'));
 
             expect(cb).toBeCalledTimes(1);
-            expect(cb).toBeCalledWith(expect.any(Object), { value: '123' });
+            expect(cb).toBeCalledWith('123');
         });
     });
 
