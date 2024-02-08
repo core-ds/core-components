@@ -6,7 +6,4 @@
     --bottom-sheet-title-font-weight: 500;
     --bottom-sheet-title-line-height: 28px;
     --bottom-sheet-title-font-family: var(--font-family-styrene);
-
-    /* navigation-bar-back-arrow */
-    --navigation-bar-back-arrow-mobile-fill: var(--color-light-graphic-primary);
 }
