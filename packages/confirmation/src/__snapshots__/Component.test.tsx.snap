@@ -141,7 +141,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         class="loaderWrap countdownContainer typographyTheme"
       >
         <svg
-          class="spinner component s visible"
+          class="spinner component size-24 visible"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -362,7 +362,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         class="loaderWrap countdownContainer typographyTheme"
       >
         <svg
-          class="spinner component s visible"
+          class="spinner component size-24 visible"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
