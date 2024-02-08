@@ -6,12 +6,12 @@
     display: flex;
     overflow: hidden;
 
-    &.s {
+    &.size-4 {
         border-radius: var(--border-radius-s);
         height: 4px;
     }
 
-    &.m {
+    &.size-8 {
         border-radius: var(--border-radius-m);
         height: 8px;
     }

@@ -18,7 +18,7 @@ describe('ProgressBar', () =>
             knobs: {
                 view: 'accent',
                 value: 50,
-                size: 's',
+                size: 4,
             },
         },
         'transform:scale(2.5);display:block;padding:300px 300px 0;',
@@ -33,7 +33,7 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'ProgressBar',
                     knobs: {
-                        size: ['s', 'm'],
+                        size: [4, 8],
                         view: [
                             'positive',
                             'negative',
@@ -54,7 +54,7 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'ProgressBar',
                     knobs: {
-                        size: ['s', 'm'],
+                        size: [4, 8],
                         view: [
                             'positive',
                             'negative',
@@ -75,7 +75,7 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'ProgressBar',
                     knobs: {
-                        size: ['s', 'm'],
+                        size: [4, 8],
                         view: [
                             'positive',
                             'negative',
