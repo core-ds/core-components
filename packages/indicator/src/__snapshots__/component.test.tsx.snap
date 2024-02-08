@@ -3,7 +3,7 @@
 exports[`Indicator Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component s"
+    class="component size-20"
   >
     <span
       class="content"
