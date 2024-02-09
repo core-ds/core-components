@@ -180,27 +180,23 @@ render(() => {
 
     const viewIndicators = [
         {
-            view: 'positive',
+            view: 'positive-checkmark',
             content: 'Completed',
-            icon: <CheckmarkCircleMIcon />,
         },
         {
-            view: 'positive',
+            view: 'positive-checkmark',
             content: 'Positive',
-            icon: <CheckmarkCircleMIcon />,
         },
         {
-            view: 'negative',
+            view: 'negative-alert',
             content: 'Negative',
-            icon: <ExclamationCircleMIcon />,
         },
         {
-            view: 'attention',
+            view: 'attention-alert',
             content: 'Warning',
-            icon: <ExclamationCircleMIcon />,
         },
         {
-            view: 'secondary',
+            view: 'neutral-operation',
             content: 'Warning',
             icon: <ClockMIcon />,
         },
@@ -212,16 +208,10 @@ render(() => {
         <Space size={20}>
             {viewIndicators.map((indicator, key) => (
                 <div key={key} style={styles}>
-                    {key === 5 ? (
-                        <div style={stylesCustom} />
+                    {indicator.view ? (
+                        <StatusBadge view={indicator.view} />
                     ) : (
-                        <Badge
-                            size='m'
-                            view='icon'
-                            iconColor={indicator.view}
-                            content={indicator.icon}
-                            visibleColorOutline='true'
-                        />
+                        <div style={stylesCustom} />
                     )}
                     <Typography.Text color='secondary' view='primary-small'>
                         {indicator.content}

@@ -208,16 +208,7 @@ render(() => {
                 error={hasError}
                 rightAddons={
                     hasError ? (
-                        <Badge
-                            view='icon'
-                            size='m'
-                            iconColor='negative'
-                            content={
-                                <ExclamationCircleMIcon
-                                    style={{ color: 'var(--color-light-graphic-negative)' }}
-                                />
-                            }
-                        />
+                        <StatusBadge view='negative-alert' />
                     ) : undefined
                 }
             />
