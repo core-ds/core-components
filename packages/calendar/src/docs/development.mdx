@@ -11,7 +11,7 @@ import vars from '!!raw-loader!../vars.css';
 ```jsx
 import { Calendar } from '@alfalab/core-components/calendar';
 import { CalendarDesktop } from '@alfalab/core-components/calendar/desktop';
-import { CalendarMobile } from '@alfalab/core-components/calendar/mobile';
+import { CalendarMobile, CalendarMonthOnlyView, CalendarMonthOnlyViewHeader } from '@alfalab/core-components/calendar/mobile';
 ```
 
 Из индекса импортируются responsive версия компонента.
@@ -34,3 +34,39 @@ import { CalendarMobile } from '@alfalab/core-components/calendar/mobile';
         ${styles}${vars}
     `}
 />
+
+## Mobile Month Only View
+
+Представляет из себя контент мобильного month-only календаря
+
+```jsx live mobileOnly
+render(() => {
+    const [value, setValue] = React.useState();
+
+    const headerStyle = {
+        top: 0,
+        left: 0,
+        position: 'fixed',
+        boxSizing: 'border-box',
+        zIndex: 2,
+        width: '100%',
+        padding: 'var(--gap-s) var(--gap-xl)',
+        background: "var(--color-light-bg-primary)",
+        borderBottom: '1px solid var(--color-light-graphic-tertiary)',
+    };
+
+    return (
+        <>
+        <div style={headerStyle}>
+            <CalendarMonthOnlyViewHeader />
+        </div>
+        <Gap size="m" direction="vertical" />
+        <CalendarMonthOnlyView
+             responsive
+             value={value}
+             onChange={setValue}
+        />
+        </>
+    );
+});
+```

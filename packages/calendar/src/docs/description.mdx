@@ -590,30 +590,6 @@ render(() => {
 });
 ```
 
-## Mobile Month Only View
-
-Представляет из себя контент мобильного month-only календаря
-
-```jsx live mobileOnly
-render(() => {
-    const [value, setValue] = React.useState();
-
-    return (
-        <CalendarMonthOnlyView
-             responsive
-             value={value}
-             onChange={setValue}
-        />
-    );
-});
-```
-
-#### Дни недели
-
-```jsx live mobileOnly
-render(() => (<CalendarMonthOnlyViewHeader />));
-```
-
 ## Слоты
 
 В каждую дату можно передать дополнительный контент, расположив его под числом.
