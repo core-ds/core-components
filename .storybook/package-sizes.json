@@ -36,6 +36,9 @@
         "index.js": 14.8,
         "shared.js": 0.8
     },
+    "text": {
+        "index.js": 1.5
+    },
     "tag": {
         "desktop.js": 4.8,
         "index.js": 6.5,
