@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.2.0
+    -   button@11.3.0
+    -   icon-button@6.5.3
+
 ## 7.3.3
 
 ### Patch Changes

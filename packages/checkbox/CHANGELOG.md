@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1024](https://github.com/core-ds/core-components/pull/1024)
+
+-   Добавлены новые способы указать размеры - 20 и 24. Буквенные значения размеров s и m теперь deprecated, используйте вместо них 20 и 24 соответственно
+
 ## 4.1.1
 
 ### Patch Changes

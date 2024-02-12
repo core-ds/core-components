@@ -1,5 +1,23 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.0
+    -   select@17.3.0
+    -   tag@8.2.0
+    -   bottom-sheet@6.14.2
+
 ## 8.1.4
 
 ### Patch Changes

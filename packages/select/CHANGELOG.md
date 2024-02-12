@@ -1,5 +1,37 @@
 # Change Log
 
+## 17.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1062](https://github.com/core-ds/core-components/pull/1062)
+
+-   Обновлена зависимость downshift до 8.3.1
+
+### Patch Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1087](https://github.com/core-ds/core-components/pull/1087)
+
+-   Повышена специфичность стилей Checkmark (стили Badge переопределяли стили в Checkmark, из-за чего вместе с точкой отрисовывался и бейдж)
+
+-   Обновлены зависимости
+    -   form-control@12.2.0
+    -   input@14.3.0
+    -   modal@9.2.0
+    -   button@11.3.0
+    -   checkbox@4.2.0
+    -   bottom-sheet@6.14.2
+
 ## 17.2.1
 
 ### Patch Changes

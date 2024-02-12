@@ -1,5 +1,19 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.8.4
+
+### Patch Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1096](https://github.com/core-ds/core-components/pull/1096)
+
+-   Изменены стили для темы click: в bottom-sheet при скролле у header нет нижнего бордера, у back-arrow в navigation-bar теперь primary цвет
+
+-   Обновлены зависимости
+    -   button@11.3.0
+    -   icon-button@6.5.3
+
 ## 0.8.3
 
 ### Patch Changes

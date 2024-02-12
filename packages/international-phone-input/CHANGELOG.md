@@ -1,5 +1,30 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.0
+
+### Major Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1043](https://github.com/core-ds/core-components/pull/1043)
+
+-   Тип onChange коллбэка заменен на (value: string) => void
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.0.0
+    -   input@14.3.0
+    -   select@17.3.0
+
 ## 1.4.0
 
 ### Minor Changes

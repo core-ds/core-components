@@ -1,5 +1,38 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.0.0
+
+### Major Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1041](https://github.com/core-ds/core-components/pull/1041)
+
+-   Переименованы свойства. onChange стал называться onInputChange, onComplete стал называться onChange
+-   Изменены типы свойств value и onChange.
+-   Исправлена ошибка из-за которой onChange не вызывался в момент очистки инпута
+
+## Миграция с предыдущей версии
+
+-   Меняем onChange на onInputChange. (но от использования onInputChange лучше отказаться, если не нужно посимвольно контролировать пользовательский ввод).
+-   Меняем onComplete на onChange. (Это основной обработчик. Вызывается в момент, когда дата введена полностью, либо полностью стерта. Первый аргумент - дата(или диапазон дат), второй - значение инпута).
+-   value теперь принимает дату(диапазон дат в случае view=data-range), а не строку как раньше.
+
+Примеры всегда можно посмотреть в [сторибуке](https://core-ds.github.io/core-components/master/?path=/docs/universaldateinput--docs)
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.0
+
 ## 1.5.0
 
 ### Minor Changes
