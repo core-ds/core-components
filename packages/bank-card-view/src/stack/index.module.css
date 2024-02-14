@@ -1,0 +1,79 @@
+@import '../../../themes/src/default.css';
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+
+    &.size-164-264 {
+        width: 272px;
+        height: 164px;
+    }
+
+    &.size-48-76 {
+        width: 84px;
+        height: 64px;
+    }
+
+    &.size-40-65 {
+        width: 73px;
+        height: 56px;
+    }
+
+    &.size-32-51 {
+        width: 55px;
+        height: 48px;
+    }
+
+    &.size-16-24 {
+        width: 28px;
+        height: 20px;
+    }
+}
+
+.componentImage {
+    align-items: center;
+}
+
+.componentStack {
+    &.size-164-264 {
+        padding-left: var(--gap-xs);
+    }
+}
+
+.firstCard {
+    z-index: 4;
+
+    &.size-32-51 {
+        margin-top: var(--gap-2xs);
+    }
+}
+
+.wrapperSecondCard {
+    &.size-164-264 {
+        width: 272px;
+        padding-left: var(--gap-xs);
+        margin-top: 18px;
+        margin-left: -280px;
+    }
+
+    &.size-48-76 {
+        margin-top: var(--gap-m);
+        margin-left: -68px;
+    }
+
+    &.size-40-65 {
+        margin-top: var(--gap-m);
+        margin-left: -57px;
+    }
+
+    &.size-32-51 {
+        margin-top: var(--gap-s);
+        margin-left: -47px;
+    }
+
+    &.size-16-24 {
+        margin-top: var(--gap-2xs);
+        margin-left: var(--gap-l-neg);
+    }
+}

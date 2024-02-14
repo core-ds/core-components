@@ -1,0 +1,272 @@
+## BankСardView.Image
+
+Используется для отображения карточек и их статусов.
+
+## Размеры
+
+Карточка используется в следующих размерах: 16х24, 32х51, 40x65, 48x76, 96x152, 128x205, 164x264.
+
+```jsx live
+render(() => {
+    const BIG_SIZES = [
+        [164, 264],
+        [128, 205],
+        [96, 152],
+        [48, 76],
+    ];
+    const SMALL_SIZES = [
+        [40, 65],
+        [32, 51],
+        [16, 24],
+    ];
+
+    render(
+        <>
+            <Space direction='horizontal' align='start' size={[20]}>
+                {BIG_SIZES.map((size) => (
+                    <BankСardView.Image
+                        key={String(size)}
+                        size={size}
+                        cardholderName='Cardholder Name'
+                        maskedCardNumber={1234000000001234}
+                        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+                        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                        cardId='RM'
+                        colors='inverted'
+                    />
+                ))}
+            </Space>
+            <Gap size='l' />
+            <Space direction='horizontal' align='center' size={[20]}>
+                {SMALL_SIZES.map((size) => (
+                    <BankСardView.Image
+                        key={String(size)}
+                        size={size}
+                        cardholderName='Cardholder Name'
+                        maskedCardNumber={1234000000001234}
+                        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+                        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                        cardId='RM'
+                        colors='inverted'
+                    />
+                ))}
+            </Space>
+        </>,
+    );
+});
+```
+
+## Изображения
+
+Компонент принимает ссылку на изображение и знает что делать, если изображения не передано.
+
+```jsx live
+<Space direction='horizontal' align='start' size={[20]}>
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='RM'
+    />
+    <BankСardView.Image />
+</Space>
+```
+
+## Статусы
+
+Для отображения статуса карты используется оверлей с иконкой. Рекомендуется использовать тёмный оверлей для ярких карт, и светлый для тёмных.
+
+```jsx live
+<Space direction='horizontal' align='start' size={[20]}>
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        statusIcon={DiamondsXxlIcon}
+        cardId='RM'
+        colors='inverted'
+    />
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='VY'
+        statusIcon={DiamondsXxlIcon}
+    />
+</Space>
+```
+
+## Текст
+
+В зависимости от размера, карточка может принимать различный текстовый контент. Цвет контента можно изменить на тёмный, с помощью опции `inverted`.  
+В размере 164x264 доступно поле CardholderName и опция `cardholderNameUppercase`. Карточка может принять MaskedCardNumber и отобразить кнопку с иконкой глазика.
+
+```jsx live
+<Space direction='horizontal' align='start' size={[20]}>
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='RM'
+        cardholderName='Cardholder Name'
+        maskedCardNumber={1234000000001234}
+        eyeButton={true}
+        colors='inverted'
+    />
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='RM'
+        cardholderName='Cardholder Name'
+        cardholderNameUppercase={true}
+        maskedCardNumber={1234000000001234}
+        eyeButton={true}
+        colors='inverted'
+    />
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='RM'
+        maskedCardNumber={1234000000001234}
+        colors='inverted'
+    />
+</Space>
+```
+
+В размерах 32x52, 40x65 и 48x76 карточка может принимать maskedCardNumber или numberOfСards, если карт несколько.
+
+```jsx live
+<Space direction='horizontal' align='start' size={[20]}>
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='RM'
+        size={[48, 76]}
+        maskedCardNumber={1234000000001234}
+        colors='inverted'
+    />
+    <BankСardView.Image size={[48, 76]} numberOfСards={3} />
+</Space>
+```
+
+В размерах 16х24, 100x172, 132x212 карточка может принимать только MaskedCardNumber.
+
+## Тень
+
+Карточке можно задать необходимую тень или отключить её. По умолчанию тень отключена. Дефолтная тень заточена под использование комопнента в качестве верхней карты в стопке.
+
+```jsx live
+<Space direction='horizontal' align='start' size={[20]}>
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='RM'
+        size={[48, 76]}
+        maskedCardNumber={1234000000001234}
+        colors='inverted'
+    />
+    <BankСardView.Image
+        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+        cardId='RM'
+        size={[48, 76]}
+        maskedCardNumber={1234000000001234}
+        shadow={'2px 2px 2px 0px rgba(0, 0, 0, 0.20)'}
+        colors='inverted'
+    />
+</Space>
+```
+
+## BankСardView.Stack
+
+Стопка доступна только для некоторых размеров карточек. Если карт больше двух, то в качестве контента для нижней карты рекомендуется передавать их количество, а вместо рубашки карты — заглушку.
+
+```jsx live
+render(() => {
+    const [numberOfСards, setNumberOfСards] = React.useState('1');
+    const [sizeCard, setSizeCard] = React.useState('164-264');
+
+    const onChangeNumberOfСards = (_, payload) => {
+        setNumberOfСards(payload.value);
+    };
+
+    const onChangeSizeCard = (_, payload) => {
+        setSizeCard(payload.value);
+    };
+
+    const SIZES = {
+        '16-24': [16, 24],
+        '32-51': [32, 51],
+        '40-65': [40, 65],
+        '48-76': [48, 76],
+        '164-264': [164, 264],
+    };
+
+    const firstCard = {
+        maskedCardNumber: 1234000000001234,
+        shadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.20)',
+        imageUrl: 'https://online.alfabank.ru/cards-images/cards/',
+        layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+        cardId: 'RM',
+        colors: 'inverted',
+        ...(sizeCard === '164-264' && {
+            shadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
+        }),
+        ...(sizeCard === '16-24' && {
+            shadow: 'none',
+        }),
+    };
+
+    const secondCard = {
+        ...(sizeCard !== '32-51' && {
+            maskedCardNumber: 1234000000001234,
+            colors: 'default',
+        }),
+        ...(numberOfСards !== '3' && {
+            imageUrl: 'https://online.alfabank.ru/cards-images/cards/',
+            layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+            cardId: 'RM',
+            colors: 'inverted',
+        }),
+    };
+
+    return (
+        <Container>
+            <Row>
+                <Col>
+                    <BankСardView.Stack
+                        size={SIZES[sizeCard]}
+                        firstCard={firstCard}
+                        secondCard={numberOfСards !== '1' && secondCard}
+                        numberOfСards={Number(numberOfСards)}
+                    />
+                </Col>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    label='Количество карт'
+                    name='radioGroup'
+                    onChange={onChangeNumberOfСards}
+                    value={numberOfСards}
+                >
+                    <Radio label='Одна' value='1' size='m' />
+                    <Radio label='Две' value='2' size='m' />
+                    <Radio label='Больше двух' value='3' size='m' />
+                </RadioGroup>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    label='Верхний аддон'
+                    name='radioGroup'
+                    onChange={onChangeSizeCard}
+                    value={sizeCard}
+                >
+                    <Radio label='164x264' value='164-264' size='m' />
+                    <Radio label='48x76' value='48-76' size='m' />
+                    <Radio label='40x65' value='40-65' size='m' />
+                    <Radio label='32x51' value='32-51' size='m' />
+                    <Radio label='16x24' value='16-24' size='m' />
+                </RadioGroup>
+            </Row>
+        </Container>
+    );
+});
+```

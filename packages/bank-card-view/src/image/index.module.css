@@ -1,0 +1,34 @@
+@import '../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    align-items: end;
+    position: relative;
+    background-color: var(--color-light-graphic-tertiary);
+    box-sizing: border-box;
+
+    &.size-164-264 {
+        border-radius: var(--border-radius-xxl);
+        padding: var(--gap-s) var(--gap-m);
+    }
+    &.size-128-205 {
+        border-radius: var(--border-radius-xl);
+        padding: var(--gap-xs) var(--gap-s);
+    }
+    &.size-96-152 {
+        border-radius: var(--border-radius-l);
+        padding: 6px var(--gap-s);
+    }
+    &.size-48-76,
+    &.size-40-65 {
+        border-radius: 6px;
+        padding: var(--gap-3xs) var(--gap-2xs);
+    }
+    &.size-32-51 {
+        border-radius: var(--border-radius-s);
+        padding: 0 var(--gap-3xs);
+    }
+    &.size-16-24 {
+        border-radius: var(--border-radius-xs);
+    }
+}

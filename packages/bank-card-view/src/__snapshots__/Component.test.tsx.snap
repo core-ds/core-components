@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BankСardView Snapshots tests should match snapshots 1`] = `
+<div>
+  <div
+    class="component size-164-264"
+    style="width: 264px; height: 164px;"
+  >
+    <img
+      alt="card"
+      class="cardImage"
+      height="164"
+      src="https://online.alfabank.ru/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=264"
+      srcset="https://online.alfabank.ru/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=528 2x"
+      width="264"
+    />
+    <div
+      class="component textColor"
+    >
+      <div
+        class="cardholderName static-primary-dark secondary-medium medium"
+      >
+        Cardholder Name
+      </div>
+      <div
+        class="cardNumber"
+      >
+        <span
+          class="static-primary-dark primary-medium medium"
+        >
+          ·· 
+          1234
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

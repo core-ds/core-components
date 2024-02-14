@@ -1,0 +1,40 @@
+import { ArgsTabs } from 'storybook/blocks';
+import { Image } from '../image';
+import { Stack } from '../stack';
+
+## Подключение
+
+```jsx
+import { BankСardView } from '@alfalab/core-components/bank-card-view';
+```
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функциями `getBankСardViewImageTestIds` и `getBankСardViewStackTestIds`.  
+Импорт из `@alfalab/core-components/bank-card-view/shared`.
+
+Функции возвращают объекты:
+
+```jsx
+//BankСardView.Image
+{
+    bankСardViewImage: dataTestId,
+    userInfo: `${dataTestId}-user-info`,
+    userInfoEye: `${dataTestId}-user-info-eye-btn`,
+};
+
+//BankСardView.Stack
+{
+    bankСardViewStack: dataTestId,
+    firstCard: `${dataTestId}-first-card`,
+    secondCard: `${dataTestId}-second-card`,
+    userInfoFirstCard: `${dataTestId}-first-card-user-info`,
+    userInfoSecondCard: `${dataTestId}-second-card-user-info`,
+    userInfoEye: `${dataTestId}-first-card-user-info-eye-btn`,
+};
+```
+
+## Свойства
+
+<ArgsTabs components={{ Image, Stack }} />
