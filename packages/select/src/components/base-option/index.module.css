@@ -28,7 +28,7 @@
         }
     }
 
-    &.checkmarkAfter {
+    &.checkmarkAfter.checkmarkAfter {
         padding: 0 var(--gap-s) 0 0;
 
         &.mobile {
