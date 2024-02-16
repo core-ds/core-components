@@ -90,14 +90,21 @@ export type StepProps = {
 
     /**
      * Минимальное расстояние между шагами
+     * @default 24
      */
-    minSpaceBetweenSteps?: 's' | 'm' | 'l';
+    minSpaceBetweenSteps?: 8 | 16 | 24;
 
     /**
      * Обработчик нажатия на текущей шаг
      * @param stepNumber - номер шага
      */
     onClick: (stepNumber: number) => void;
+};
+
+const SIZE_TO_CLASSNAME_MAP = {
+    8: 'size-8',
+    16: 'size-16',
+    24: 'size-24',
 };
 
 export const Step: React.FC<StepProps> = ({
@@ -117,7 +124,7 @@ export const Step: React.FC<StepProps> = ({
     isVerticalAlign,
     isNotLastStep,
     fullWidth,
-    minSpaceBetweenSteps = 'l',
+    minSpaceBetweenSteps = 24,
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
@@ -185,7 +192,7 @@ export const Step: React.FC<StepProps> = ({
                     [styles.vertical]: isVerticalAlign,
                     [styles.completed]: isStepCompleted,
                 },
-                styles[minSpaceBetweenSteps],
+                styles[SIZE_TO_CLASSNAME_MAP[minSpaceBetweenSteps]],
             )}
         />
     );

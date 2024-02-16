@@ -58,8 +58,9 @@ export type StepsProps = {
 
     /**
      * Минимальное расстояние между шагами
+     * @default 24
      */
-    minSpaceBetweenSteps?: 's' | 'm' | 'l';
+    minSpaceBetweenSteps?: 8 | 16 | 24;
 
     /**
      * Кастомный метод для управления состоянием disabled шага и
@@ -126,7 +127,7 @@ export const Steps: React.FC<StepsProps> = ({
     ordered = true,
     interactive = true,
     fullWidth = false,
-    minSpaceBetweenSteps = 'l',
+    minSpaceBetweenSteps = 24,
     checkIsStepDisabled,
     checkIsStepError,
     checkIsStepWarning,

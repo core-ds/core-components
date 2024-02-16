@@ -30,7 +30,7 @@ Object {
             </div>
           </div>
           <div
-            class="dash l"
+            class="dash size-24"
           />
         </div>
         <div
@@ -84,7 +84,7 @@ Object {
           </div>
         </div>
         <div
-          class="dash l"
+          class="dash size-24"
         />
       </div>
       <div
