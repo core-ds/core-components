@@ -93,93 +93,108 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
               >
                 <button
                   class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
+                  style="display: inline-flex; white-space: nowrap;"
                   type="button"
                 >
-                  <span>
-                    <span
-                      class="tagContentWrap cursorPointer"
-                    >
-                      H
+                  <div
+                    class="addonsContainer"
+                  >
+                    <span>
                       <span
-                        class="tagCross"
+                        class="tagContentWrap cursorPointer"
                       >
-                        <svg
-                          fill="currentColor"
-                          focusable="false"
-                          height="16"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="16"
+                        H
+                        <span
+                          class="tagCross"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            fill="currentColor"
+                            focusable="false"
+                            height="16"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="16"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </span>
-                  </span>
+                  </div>
                 </button>
                 <button
                   class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
+                  style="display: inline-flex; white-space: nowrap;"
                   type="button"
                 >
-                  <span>
-                    <span
-                      class="tagContentWrap cursorPointer"
-                    >
-                      Li
+                  <div
+                    class="addonsContainer"
+                  >
+                    <span>
                       <span
-                        class="tagCross"
+                        class="tagContentWrap cursorPointer"
                       >
-                        <svg
-                          fill="currentColor"
-                          focusable="false"
-                          height="16"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="16"
+                        Li
+                        <span
+                          class="tagCross"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            fill="currentColor"
+                            focusable="false"
+                            height="16"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="16"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </span>
-                  </span>
+                  </div>
                 </button>
                 <button
                   class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
+                  style="display: inline-flex; white-space: nowrap;"
                   type="button"
                 >
-                  <span>
-                    <span
-                      class="tagContentWrap cursorPointer"
-                    >
-                      Na
+                  <div
+                    class="addonsContainer"
+                  >
+                    <span>
                       <span
-                        class="tagCross"
+                        class="tagContentWrap cursorPointer"
                       >
-                        <svg
-                          fill="currentColor"
-                          focusable="false"
-                          height="16"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="16"
+                        Na
+                        <span
+                          class="tagCross"
                         >
-                          <path
-                            clip-rule="evenodd"
-                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            fill="currentColor"
+                            focusable="false"
+                            height="16"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="16"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </span>
-                  </span>
+                  </div>
                 </button>
                 <input
                   aria-autocomplete="list"

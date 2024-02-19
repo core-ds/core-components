@@ -115,61 +115,86 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 1
-          </span>
-          <span
-            class="addons"
+          <div
+            class="addonsContainer"
           >
-            addon
-          </span>
+            <span>
+              Таб 1
+            </span>
+            <span
+              class="addons"
+            >
+              addon
+            </span>
+          </div>
         </button>
         <button
           aria-selected="true"
           class="component component component size-48 size-48 outlined outlined checked rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="0"
           type="button"
         >
-          <span>
-            Таб 2
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 2
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 3
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 3
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 4
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 4
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 5
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 5
+            </span>
+          </div>
         </button>
       </div>
     </div>
@@ -302,61 +327,86 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
             aria-selected="false"
             class="component component component size-40 size-40 outlined outlined rounded outlined withRightAddons"
             role="tab"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="-1"
             type="button"
           >
-            <span>
-              Таб 1
-            </span>
-            <span
-              class="addons"
+            <div
+              class="addonsContainer"
             >
-              addon
-            </span>
+              <span>
+                Таб 1
+              </span>
+              <span
+                class="addons"
+              >
+                addon
+              </span>
+            </div>
           </button>
           <button
             aria-selected="true"
             class="component component component size-40 size-40 outlined outlined checked rounded outlined"
             role="tab"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="0"
             type="button"
           >
-            <span>
-              Таб 2
-            </span>
+            <div
+              class="addonsContainer"
+            >
+              <span>
+                Таб 2
+              </span>
+            </div>
           </button>
           <button
             aria-selected="false"
             class="component component component size-40 size-40 outlined outlined rounded outlined"
             role="tab"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="-1"
             type="button"
           >
-            <span>
-              Таб 3
-            </span>
+            <div
+              class="addonsContainer"
+            >
+              <span>
+                Таб 3
+              </span>
+            </div>
           </button>
           <button
             aria-selected="false"
             class="component component component size-40 size-40 outlined outlined rounded outlined"
             role="tab"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="-1"
             type="button"
           >
-            <span>
-              Таб 4
-            </span>
+            <div
+              class="addonsContainer"
+            >
+              <span>
+                Таб 4
+              </span>
+            </div>
           </button>
           <button
             aria-selected="false"
             class="component component component size-40 size-40 outlined outlined rounded outlined"
             role="tab"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="-1"
             type="button"
           >
-            <span>
-              Таб 5
-            </span>
+            <div
+              class="addonsContainer"
+            >
+              <span>
+                Таб 5
+              </span>
+            </div>
           </button>
         </div>
       </div>
@@ -487,61 +537,86 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 1
-          </span>
-          <span
-            class="addons"
+          <div
+            class="addonsContainer"
           >
-            addon
-          </span>
+            <span>
+              Таб 1
+            </span>
+            <span
+              class="addons"
+            >
+              addon
+            </span>
+          </div>
         </button>
         <button
           aria-selected="true"
           class="component component component size-48 size-48 outlined outlined checked rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="0"
           type="button"
         >
-          <span>
-            Таб 2
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 2
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 3
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 3
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 4
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 4
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="component component component size-48 size-48 outlined outlined rounded outlined title"
           role="tab"
+          style="display: inline-flex; white-space: nowrap;"
           tabindex="-1"
           type="button"
         >
-          <span>
-            Таб 5
-          </span>
+          <div
+            class="addonsContainer"
+          >
+            <span>
+              Таб 5
+            </span>
+          </div>
         </button>
       </div>
     </div>

@@ -16,7 +16,6 @@
     user-select: none;
     cursor: pointer;
     outline: none;
-    white-space: nowrap;
 
     &:disabled {
         cursor: var(--disabled-cursor);
@@ -25,6 +24,11 @@
 
 .focused {
     @mixin focus-outline;
+}
+
+.addonsContainer {
+    display: flex;
+    align-items: center;
 }
 
 .addons {

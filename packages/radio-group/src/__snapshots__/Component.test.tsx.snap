@@ -586,13 +586,18 @@ Object {
             />
             <button
               class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
+              style="display: inline-flex; white-space: nowrap;"
               tabindex="-1"
               type="button"
               value="one"
             >
-              <span>
-                Первый вариант
-              </span>
+              <div
+                class="addonsContainer"
+              >
+                <span>
+                  Первый вариант
+                </span>
+              </div>
             </button>
           </label>
           <label
@@ -606,13 +611,18 @@ Object {
             />
             <button
               class="component component component size-48 size-48 outlined outlined rounded outlined"
+              style="display: inline-flex; white-space: nowrap;"
               tabindex="-1"
               type="button"
               value="two"
             >
-              <span>
-                Второй вариант
-              </span>
+              <div
+                class="addonsContainer"
+              >
+                <span>
+                  Второй вариант
+                </span>
+              </div>
             </button>
           </label>
           <label
@@ -626,13 +636,18 @@ Object {
             />
             <button
               class="component component component size-48 size-48 outlined outlined rounded outlined"
+              style="display: inline-flex; white-space: nowrap;"
               tabindex="-1"
               type="button"
               value="three"
             >
-              <span>
-                Третий вариант
-              </span>
+              <div
+                class="addonsContainer"
+              >
+                <span>
+                  Третий вариант
+                </span>
+              </div>
             </button>
           </label>
         </div>
@@ -662,13 +677,18 @@ Object {
           />
           <button
             class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="-1"
             type="button"
             value="one"
           >
-            <span>
-              Первый вариант
-            </span>
+            <div
+              class="addonsContainer"
+            >
+              <span>
+                Первый вариант
+              </span>
+            </div>
           </button>
         </label>
         <label
@@ -682,13 +702,18 @@ Object {
           />
           <button
             class="component component component size-48 size-48 outlined outlined rounded outlined"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="-1"
             type="button"
             value="two"
           >
-            <span>
-              Второй вариант
-            </span>
+            <div
+              class="addonsContainer"
+            >
+              <span>
+                Второй вариант
+              </span>
+            </div>
           </button>
         </label>
         <label
@@ -702,13 +727,18 @@ Object {
           />
           <button
             class="component component component size-48 size-48 outlined outlined rounded outlined"
+            style="display: inline-flex; white-space: nowrap;"
             tabindex="-1"
             type="button"
             value="three"
           >
-            <span>
-              Третий вариант
-            </span>
+            <div
+              class="addonsContainer"
+            >
+              <span>
+                Третий вариант
+              </span>
+            </div>
           </button>
         </label>
       </div>

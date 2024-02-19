@@ -1,4 +1,11 @@
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode, RefObject, useRef } from 'react';
+import React, {
+    ButtonHTMLAttributes,
+    CSSProperties,
+    forwardRef,
+    ReactNode,
+    RefObject,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -55,6 +62,11 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
      * Слот справа
      */
     rightAddons?: ReactNode;
+
+    /**
+     * Слот снизу
+     */
+    bottomAddons?: ReactNode;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -138,6 +150,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
             allowBackdropBlur,
             rightAddons,
             leftAddons,
+            bottomAddons,
             children,
             size = 48,
             checked,
@@ -189,6 +202,10 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                 },
                 className,
             ),
+            style: {
+                display: bottomAddons ? 'block' : 'inline-flex',
+                whiteSpace: bottomAddons ? 'pre' : 'nowrap',
+            } as CSSProperties,
             'data-test-id': dataTestId,
         };
 
@@ -206,15 +223,20 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                 {...tagProps}
                 {...restProps}
             >
-                {leftAddons ? <span className={commonStyles.addons}>{leftAddons}</span> : null}
+                <div className={commonStyles.addonsContainer}>
+                    {leftAddons ? <span className={commonStyles.addons}>{leftAddons}</span> : null}
 
-                {children && (
-                    <span ref={childrenRef} className={childrenClassName}>
-                        {children}
-                    </span>
-                )}
+                    {children && (
+                        <span ref={childrenRef} className={childrenClassName}>
+                            {children}
+                        </span>
+                    )}
 
-                {rightAddons ? <span className={commonStyles.addons}>{rightAddons}</span> : null}
+                    {rightAddons ? (
+                        <span className={commonStyles.addons}>{rightAddons}</span>
+                    ) : null}
+                </div>
+                {bottomAddons}
             </button>
         );
     },

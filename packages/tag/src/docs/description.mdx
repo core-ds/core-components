@@ -32,20 +32,30 @@ render(() => {
 
 ## Анатомия
 
-С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать тэг.
+С помощью слотов `leftAddons`, `rightAddons`, `bottomAddons` можно кастомизировать тэг.
 Например, добавить иконку. Переданный контент будет отрисован слева или справа от текста тэга.
 
 ```jsx live
 render(() => {
+    const addonStyle = {
+        background: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed #3778FB',
+        borderRadius: '8px',
+        height: '24px',
+        width: '24px',
+        boxSizing: 'border-box',
+    };
+
     const addon = (
+        <div style={addonStyle} />
+    );
+
+    const bottomAddon = (
         <div
             style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '24px',
-                width: '24px',
-                boxSizing: 'border-box',
+                ...addonStyle,
+                height: '20px',
+                width: '100%',
             }}
         />
     );
@@ -64,6 +74,11 @@ render(() => {
                 </div>
                 <div style={{ marginRight: 12 }}>
                     <Tag size='s' rightAddons={addon} leftAddons={addon}>
+                        Label
+                    </Tag>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size='s' bottomAddons={bottomAddon}>
                         Label
                     </Tag>
                 </div>
