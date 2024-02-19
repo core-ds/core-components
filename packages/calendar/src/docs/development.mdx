@@ -1,7 +1,7 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
 import { PeriodSlider } from '../shared';
 import { CalendarDesktop } from '../desktop';
-import { CalendarMobile } from '../mobile';
+import { CalendarMobile, CalendarMonthOnlyView, CalendarMonthOnlyViewHeader } from '../mobile';
 import { CalendarResponsive } from '../Component.responsive';
 import styles from '!!raw-loader!../desktop/desktop.module.css';
 import vars from '!!raw-loader!../vars.css';
@@ -24,6 +24,8 @@ import { CalendarMobile, CalendarMonthOnlyView, CalendarMonthOnlyViewHeader } fr
         CalendarDesktop,
         CalendarMobile,
         PeriodSlider,
+        CalendarMonthOnlyView,
+        CalendarMonthOnlyViewHeader
     }}
 />
 
@@ -57,15 +59,15 @@ render(() => {
 
     return (
         <>
-        <div style={headerStyle}>
-            <CalendarMonthOnlyViewHeader />
-        </div>
-        <Gap size="m" direction="vertical" />
-        <CalendarMonthOnlyView
-             responsive
-             value={value}
-             onChange={setValue}
-        />
+            <div style={headerStyle}>
+                <CalendarMonthOnlyViewHeader />
+            </div>
+            <Gap size="m" direction="vertical" />
+            <CalendarMonthOnlyView
+                 value={value}
+                 onChange={setValue}
+                 showCurrentYearSelector={false}
+            />
         </>
     );
 });

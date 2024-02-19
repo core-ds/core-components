@@ -11,7 +11,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
-import { CalendarDesktop, CalendarDesktopProps } from '../../desktop';
+import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
 import {
@@ -25,6 +25,8 @@ import {
 } from '../../utils';
 import { DaysTable } from '../days-table';
 
+import { CalendarContentProps, CalendarMobileProps } from './typings';
+
 import backdropTransitionStyles from './backdrop-transitions.module.css';
 import styles from './index.module.css';
 import transitionStyles from './transitions.module.css';
@@ -34,48 +36,8 @@ if (typeof window !== 'undefined' && !window.ResizeObserver) {
     window.ResizeObserver = ResizeObserverPolyfill;
 }
 
-type CalendarContentProps = CalendarDesktopProps & {
-    /**
-     * Заголовок календаря
-     */
-    title?: string;
-
-    /**
-     * Обработчик закрытия модалки
-     */
-    onClose?: () => void;
-
-    /**
-     * Обработчик клика на название месяца в мобильном календаре
-     */
-    onMonthTitleClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-
-    /**
-     * Количество лет для генерации в обе стороны от текущего года
-     */
-    yearsAmount?: number;
-
-    /**
-     * Нужно ли рендерить шапку
-     */
-    hasHeader?: boolean;
-
-    /**
-     * Разрешить выбор из недозаполненного диапазона дат.
-     */
-    allowSelectionFromEmptyRange?: boolean;
-};
-
-export type CalendarMobileProps = {
-    /**
-     * Управление видимостью модалки
-     */
-    open: boolean;
-} & CalendarContentProps;
-
 export const CalendarMonthOnlyView = ({
     value,
-    defaultView,
     month: monthTimestamp,
     minDate: minDateTimestamp,
     maxDate: maxDateTimestamp,
@@ -87,15 +49,11 @@ export const CalendarMonthOnlyView = ({
     onMonthTitleClick,
     selectedFrom,
     selectedTo,
-    rangeComplete,
-    onMonthChange,
     yearsAmount = 3,
     dayAddons,
     shape = 'rounded',
     scrollableContainer,
-}: CalendarContentProps & {
-    scrollableContainer?: HTMLElement;
-}) => {
+}: CalendarContentProps) => {
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
         [monthTimestamp],
@@ -129,14 +87,13 @@ export const CalendarMonthOnlyView = ({
     const { activeMonth, highlighted, getDayProps } = useCalendar({
         month,
         defaultMonth,
-        view: defaultView,
+        view: 'months',
         minDate,
         maxDate,
         selected,
         offDays,
         events,
         onChange,
-        onMonthChange,
         dayAddons,
     });
 
@@ -182,10 +139,10 @@ export const CalendarMonthOnlyView = ({
     }, [events, offDays, holidays, dayAddons, yearsAmount, minDate, maxDate, selected]);
 
     const initialMonthIndex = useMemo(() => {
-        const date = value || selectedFrom || Date.now();
+        const date = value || selectedFrom || activeMonth.getTime() || Date.now();
 
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
-    }, [activeMonths, selectedFrom, value]);
+    }, [activeMonth, activeMonths, selectedFrom, value]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -210,7 +167,6 @@ export const CalendarMonthOnlyView = ({
                 selectedTo={selectedTo}
                 getDayProps={getDayProps}
                 highlighted={highlighted}
-                rangeComplete={rangeComplete}
                 hasHeader={false}
                 responsive={true}
                 shape={shape}
