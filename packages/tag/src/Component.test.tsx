@@ -23,6 +23,10 @@ describe('Snapshots tests', () => {
     it('should match snapshot with left addons', () => {
         expect(render(<Tag leftAddons={<span>10 000 $</span>}>Press me</Tag>)).toMatchSnapshot();
     });
+
+    it('should match snapshot with bottom addons', () => {
+        expect(render(<Tag bottomAddons={<span>10 000 $</span>}>Press me</Tag>)).toMatchSnapshot();
+    });
 });
 
 describe('Classes tests', () => {
@@ -108,6 +112,16 @@ describe('Render tests', () => {
         );
 
         expect(container.firstElementChild).toContainElement(getByText(leftAddonText));
+    });
+
+    test('should contain bottom addons', () => {
+        const bottomAddonText = 'Bottom addon text';
+
+        const { container, getByText } = render(
+            <Tag leftAddons={<span>{bottomAddonText}</span>}>Tag</Tag>,
+        );
+
+        expect(container.firstElementChild).toContainElement(getByText(bottomAddonText));
     });
 });
 
