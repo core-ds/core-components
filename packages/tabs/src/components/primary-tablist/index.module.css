@@ -188,3 +188,15 @@
     align-items: center;
     margin-left: var(--gap-xs);
 }
+
+.leftAddons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: var(--gap-xs);
+}
+
+.addonsWrapper {
+    display: flex;
+    align-items: center;
+}

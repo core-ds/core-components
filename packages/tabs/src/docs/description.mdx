@@ -364,7 +364,7 @@ render(() => {
 
 ## Анатомия
 
-С помощью слота `RightAddons` можно кастомизировать таб. Например, добавить иконку.
+С помощью слотов `RightAddons`, `LeftAddons`, `BottomAddons` можно кастомизировать таб. Например, добавить иконку.
 
 ```jsx live
 render(() => {
@@ -374,18 +374,17 @@ render(() => {
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
     const handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);
 
-    const addon = (
-        <div
-            style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '24px',
-                width: '24px',
-                boxSizing: 'border-box',
-            }}
-        />
-    );
+    const addonStyle = {
+        background: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed #3778FB',
+        borderRadius: '8px',
+        height: '24px',
+        width: '24px',
+        boxSizing: 'border-box',
+    };
+
+    const addon = (<div style={addonStyle}/>);
+    const bottomAddon = (<div style={{...addonStyle, width: '100%'}}/>);
 
     return (
         <>
@@ -394,6 +393,7 @@ render(() => {
                 <Tab title='Bercelium' id='tab-2' rightAddons={addon} />
                 <Tab title='Curium' id='tab-3' rightAddons={addon} />
                 <Tab title='Neptunium' id='tab-4' rightAddons={addon} />
+                <Tab title='Californium' id='tab-5' leftAddons={addon} />
             </TabsDesktop>
             <div style={{ marginTop: 20 }}>
                 <TabsDesktop
@@ -406,6 +406,8 @@ render(() => {
                     <Tab title='Bercelium' id='tab-2' rightAddons={addon} />
                     <Tab title='Curium' id='tab-3' rightAddons={addon} />
                     <Tab title='Neptunium' id='tab-4' rightAddons={addon} />
+                    <Tab title='Californium' id='tab-5' leftAddons={addon} />
+                    <Tab title='Einsteinium' id='tab-6' bottomAddons={bottomAddon} />
                 </TabsDesktop>
             </div>
         </>
@@ -419,18 +421,17 @@ render(() => {
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
     const handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);
 
-    const addon = (
-        <div
-            style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '24px',
-                width: '24px',
-                boxSizing: 'border-box',
-            }}
-        />
-    );
+    const addonStyle = {
+        background: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed #3778FB',
+        borderRadius: '8px',
+        height: '24px',
+        width: '24px',
+        boxSizing: 'border-box',
+    };
+
+    const addon = (<div style={addonStyle}/>);
+    const bottomAddon = (<div style={{...addonStyle, width: '100%', height: '10px',}}/>);
 
     return (
         <>
@@ -439,6 +440,7 @@ render(() => {
                 <Tab title='Bercelium' id='tab-2' rightAddons={addon} />
                 <Tab title='Curium' id='tab-3' rightAddons={addon} />
                 <Tab title='Neptunium' id='tab-4' rightAddons={addon} />
+                <Tab title='Californium' id='tab-5' leftAddons={addon} />
             </TabsMobile>
             <div style={{ marginTop: 20 }}>
                 <TabsMobile
@@ -451,6 +453,8 @@ render(() => {
                     <Tab title='Bercelium' id='tab-2' rightAddons={addon} />
                     <Tab title='Curium' id='tab-3' rightAddons={addon} />
                     <Tab title='Neptunium' id='tab-4' rightAddons={addon} />
+                <Tab title='Californium' id='tab-5' leftAddons={addon} />
+                <Tab title='Einsteinium' id='tab-6' bottomAddons={bottomAddon} />
                 </TabsMobile>
             </div>
         </>

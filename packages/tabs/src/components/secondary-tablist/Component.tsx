@@ -52,6 +52,8 @@ export const SecondaryTabList = ({
                             checked={item.id === selectedId}
                             size={tagSize}
                             rightAddons={item.rightAddons}
+                            leftAddons={item.leftAddons}
+                            bottomAddons={item.bottomAddons}
                         >
                             {item.title}
                         </TagComponent>

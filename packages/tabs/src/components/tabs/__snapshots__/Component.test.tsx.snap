@@ -15,75 +15,100 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
           class="title"
           id="tab-1"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 1
-          </span>
-          <span
-            class="rightAddons"
-          >
-            addon
-          </span>
+            <span
+              class="content"
+            >
+              Таб 1
+            </span>
+            <span
+              class="rightAddons"
+            >
+              addon
+            </span>
+          </div>
         </button>
         <button
           aria-selected="true"
           class="title selected"
           id="tab-2"
           role="tab"
+          style="display: inline-flex;"
           tabindex="0"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 2
-          </span>
+            <span
+              class="content"
+            >
+              Таб 2
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="title"
           id="tab-3"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 3
-          </span>
+            <span
+              class="content"
+            >
+              Таб 3
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="title"
           id="tab-4"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 4
-          </span>
+            <span
+              class="content"
+            >
+              Таб 4
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="title"
           id="tab-5"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 5
-          </span>
+            <span
+              class="content"
+            >
+              Таб 5
+            </span>
+          </div>
         </button>
         <div
           class="line"
@@ -227,73 +252,88 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
             class=""
             id="tab-1"
             role="tab"
+            style="display: inline-flex;"
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
-              Таб 1
-            </span>
-            <span>
-              addon
-            </span>
+            <div>
+              <span
+                class=""
+              >
+                Таб 1
+              </span>
+              <span>
+                addon
+              </span>
+            </div>
           </button>
           <button
             aria-selected="true"
             class=""
             id="tab-2"
             role="tab"
+            style="display: inline-flex;"
             tabindex="0"
             type="button"
           >
-            <span
-              class=""
-            >
-              Таб 2
-            </span>
+            <div>
+              <span
+                class=""
+              >
+                Таб 2
+              </span>
+            </div>
           </button>
           <button
             aria-selected="false"
             class=""
             id="tab-3"
             role="tab"
+            style="display: inline-flex;"
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
-              Таб 3
-            </span>
+            <div>
+              <span
+                class=""
+              >
+                Таб 3
+              </span>
+            </div>
           </button>
           <button
             aria-selected="false"
             class=""
             id="tab-4"
             role="tab"
+            style="display: inline-flex;"
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
-              Таб 4
-            </span>
+            <div>
+              <span
+                class=""
+              >
+                Таб 4
+              </span>
+            </div>
           </button>
           <button
             aria-selected="false"
             class=""
             id="tab-5"
             role="tab"
+            style="display: inline-flex;"
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
-              Таб 5
-            </span>
+            <div>
+              <span
+                class=""
+              >
+                Таб 5
+              </span>
+            </div>
           </button>
           <div />
         </div>
@@ -437,75 +477,100 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
           class="title"
           id="tab-1"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 1
-          </span>
-          <span
-            class="rightAddons"
-          >
-            addon
-          </span>
+            <span
+              class="content"
+            >
+              Таб 1
+            </span>
+            <span
+              class="rightAddons"
+            >
+              addon
+            </span>
+          </div>
         </button>
         <button
           aria-selected="true"
           class="title selected"
           id="tab-2"
           role="tab"
+          style="display: inline-flex;"
           tabindex="0"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 2
-          </span>
+            <span
+              class="content"
+            >
+              Таб 2
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="title"
           id="tab-3"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 3
-          </span>
+            <span
+              class="content"
+            >
+              Таб 3
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="title"
           id="tab-4"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 4
-          </span>
+            <span
+              class="content"
+            >
+              Таб 4
+            </span>
+          </div>
         </button>
         <button
           aria-selected="false"
           class="title"
           id="tab-5"
           role="tab"
+          style="display: inline-flex;"
           tabindex="-1"
           type="button"
         >
-          <span
-            class="content"
+          <div
+            class="addonsWrapper"
           >
-            Таб 5
-          </span>
+            <span
+              class="content"
+            >
+              Таб 5
+            </span>
+          </div>
         </button>
         <div
           class="line"

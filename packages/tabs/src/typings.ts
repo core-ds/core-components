@@ -168,6 +168,16 @@ export type TabProps = {
     rightAddons?: ReactNode;
 
     /**
+     * Слот слева
+     */
+    leftAddons?: ReactNode;
+
+    /**
+     * Слот снизу
+     */
+    bottomAddons?: ReactNode;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -183,6 +193,8 @@ export type TabListTitle = {
     id: SelectedId;
     disabled?: boolean;
     rightAddons?: ReactNode;
+    bottomAddons?: ReactNode;
+    leftAddons?: ReactNode;
     hidden?: boolean;
     toggleClassName?: string;
     selected?: boolean;

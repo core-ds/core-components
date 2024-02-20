@@ -15,6 +15,8 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
             title,
             styles = {},
             rightAddons = null,
+            leftAddons = null,
+            bottomAddons = null,
             hidden = false,
             selected = false,
             disabled = false,
@@ -42,10 +44,20 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
                     },
                     toggleClassName,
                 )}
+                style={{
+                    display: bottomAddons ? 'block' : 'inline-flex',
+                }}
             >
-                <span className={cn(styles.content, { [styles.focused]: focused })}>{title}</span>
+                <div className={styles.addonsWrapper}>
+                    {leftAddons && <span className={styles.leftAddons}>{leftAddons}</span>}
 
-                {rightAddons && <span className={styles.rightAddons}>{rightAddons}</span>}
+                    <span className={cn(styles.content, { [styles.focused]: focused })}>
+                        {title}
+                    </span>
+
+                    {rightAddons && <span className={styles.rightAddons}>{rightAddons}</span>}
+                </div>
+                {bottomAddons && <div>{bottomAddons}</div>}
             </button>
         ),
 );
