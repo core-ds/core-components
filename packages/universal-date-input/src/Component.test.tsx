@@ -176,6 +176,21 @@ describe('UniversalDateInput', () => {
             expect(input.value).toBe(`12.12.2022${DATE_TIME_SEPARATOR}00:00`);
         });
 
+        it('should not show an error', () => {
+            const dataTestId = 'test-id';
+
+            const { queryByText } = render(
+                <UniversalDateInputDesktop
+                    dataTestId={dataTestId}
+                    view='date-time'
+                    value={new Date().getTime()}
+                    minDate={new Date().getTime()}
+                />,
+            );
+            const errorMessageText = 'Эта дата недоступна';
+            expect(queryByText(errorMessageText)).toBeNull();
+        });
+
         describe('onInputChange tests', () => {
             const tests: Array<[{ value: string }, [Object, { value: string }]]> = [
                 [
