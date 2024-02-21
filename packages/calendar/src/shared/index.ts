@@ -13,3 +13,4 @@ export {
 export { usePeriod, usePeriodWithReset } from '../usePeriod';
 export { useCalendar } from '../useCalendar';
 export * from '../components/period-slider';
+export { getCalendarMobileTestIds } from '../utils';

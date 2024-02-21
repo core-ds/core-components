@@ -10,11 +10,12 @@ import addMonths from 'date-fns/addMonths';
 import endOfYear from 'date-fns/endOfYear';
 import subMonths from 'date-fns/subMonths';
 import { act } from 'react-dom/test-utils';
-import { monthName, MONTHS } from './utils';
+import { getCalendarMobileTestIds, monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
 import { usePeriod } from './usePeriod';
 
 import { CalendarDesktop as Calendar } from './desktop';
+import { CalendarMobile } from './mobile';
 
 jest.useFakeTimers();
 
@@ -74,6 +75,29 @@ describe('Calendar', () => {
         const { getByTestId } = render(<Calendar dataTestId={testId} />);
 
         expect(getByTestId(testId)).toBeInTheDocument();
+    });
+
+    it('should set `data-test-id` attribute in mobile component', () => {
+        const dti = 'modal-dti';
+
+        const { getByTestId } = render(
+            <CalendarMobile
+                open={true}
+                selectedFrom={1708376400000}
+                selectedTo={1708549200000}
+                dataTestId={dti}
+            />,
+        );
+
+        const testIds = getCalendarMobileTestIds(dti);
+
+        expect(getByTestId(testIds.calendar)).toBeInTheDocument();
+        expect(getByTestId(testIds.header)).toBeInTheDocument();
+        expect(getByTestId(testIds.content)).toBeInTheDocument();
+        expect(getByTestId(testIds.footer)).toBeInTheDocument();
+        expect(getByTestId(testIds.btnApply)).toBeInTheDocument();
+        expect(getByTestId(testIds.closer)).toBeInTheDocument();
+        expect(getByTestId(testIds.btnReset)).toBeInTheDocument();
     });
 
     it('should set custom class', () => {
@@ -650,6 +674,21 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText('2020'));
             expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should not call onApply when close button is clicked', () => {
+            const onCloseMock = jest.fn();
+            const onApplyMock = jest.fn();
+
+            const { getByLabelText } = render(
+                <CalendarMobile open={true} onClose={onCloseMock} onApply={onApplyMock} />,
+            );
+
+            const closeButton = getByLabelText('закрыть');
+            fireEvent.click(closeButton);
+
+            expect(onCloseMock).toHaveBeenCalled();
+            expect(onApplyMock).not.toHaveBeenCalled();
         });
     });
 
