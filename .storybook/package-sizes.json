@@ -136,7 +136,7 @@
         "mobile.js": 4.3
     },
     "pure-cell": {
-        "index.js": 43.4,
+        "index.js": 43.6,
         "shared.js": 1
     },
     "progress-bar": {
@@ -229,7 +229,7 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 696.1
+        "index.js": 696.3
     },
     "international-phone-input": {
         "desktop.js": 502.4,
@@ -330,7 +330,7 @@
         "shared.js": 28.4
     },
     "confirmation-v1": {
-        "index.js": 44.9
+        "index.js": 45
     },
     "comment": {
         "index.js": 7.5
@@ -405,13 +405,13 @@
         "index.js": 8.9
     },
     "attach": {
-        "index.js": 36
+        "index.js": 36.2
     },
     "amount": {
-        "index.js": 25.9
+        "index.js": 26
     },
     "amount-input": {
-        "index.js": 46.8
+        "index.js": 46.9
     },
     "alert": {
         "index.js": 15.1
