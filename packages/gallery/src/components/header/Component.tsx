@@ -40,9 +40,10 @@ export const Header: FC = () => {
 
     const canDownload = currentImage?.canDownload ?? true;
     const filename = currentImage?.name || '';
-    const description = singleSlide
-        ? ''
-        : `Изображение ${currentSlideIndex + 1} из ${images.length}`;
+    const description =
+        singleSlide || !images.length
+            ? ''
+            : `Изображение ${currentSlideIndex + 1} из ${images.length}`;
 
     const meta = getCurrentImageMeta();
 

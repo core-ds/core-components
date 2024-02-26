@@ -191,13 +191,13 @@ export const Gallery: FC<GalleryProps> = ({
     };
 
     return (
-        <GalleryContext.Provider value={galleryContext}>
-            <BaseModal
-                open={open}
-                className={styles.modal}
-                onEscapeKeyDown={handleEscapeKeyDown}
-                Backdrop={Backdrop}
-            >
+        <BaseModal
+            open={open}
+            className={styles.modal}
+            onEscapeKeyDown={handleEscapeKeyDown}
+            Backdrop={Backdrop}
+        >
+            <GalleryContext.Provider value={galleryContext}>
                 <div className={styles.container}>
                     <Header />
 
@@ -205,7 +205,7 @@ export const Gallery: FC<GalleryProps> = ({
 
                     {showNavigationBar && <NavigationBar />}
                 </div>
-            </BaseModal>
-        </GalleryContext.Provider>
+            </GalleryContext.Provider>
+        </BaseModal>
     );
 };

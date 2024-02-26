@@ -85,6 +85,19 @@ export const Slide: FC<SlideProps> = ({
     const verticalImageFit = !small && swiperAspectRatio > imageAspectRatio;
     const horizontalImageFit = !small && swiperAspectRatio <= imageAspectRatio;
 
+    console.log(
+        'broken',
+        broken,
+        'small',
+        small,
+        'verticalImageFit',
+        verticalImageFit,
+        'horizontalImageFit',
+        horizontalImageFit,
+        'meta',
+        meta,
+    );
+
     return (
         <SlideInner
             active={isActive}
@@ -97,7 +110,7 @@ export const Slide: FC<SlideProps> = ({
                 alt={getImageAlt(image, index)}
                 className={cn({
                     [styles.smallImage]: small,
-                    [styles.image]: !small,
+                    [styles.image]: !small && meta,
                     [styles.verticalImageFit]: verticalImageFit,
                     [styles.horizontalImageFit]: horizontalImageFit,
                 })}
