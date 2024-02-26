@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { TabBar } from '@alfalab/core-components-tab-bar';
 import DiamondsMIcon from '@alfalab/icons-glyph/DiamondsMIcon';
 import {
@@ -31,6 +31,12 @@ export const tab_bar: Story = {
                         selectedId={selectedId}
                         onChange={setSelectedId}
                         border={boolean('border', true)}
+                        accentColor={select('accentColor', ['primary', 'secondary'], 'primary')}
+                        bgColor={select(
+                            'bgColor',
+                            ['modal-bg-primary', 'modal-bg-alt-primary'],
+                            'modal-bg-primary',
+                        )}
                     >
                         {Array(4)
                             .fill(null)
