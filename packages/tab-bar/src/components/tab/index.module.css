@@ -12,8 +12,12 @@
     color: var(--color-light-neutral-translucent-700);
 }
 
-.selected {
+.primary {
     color: var(--color-light-accent-primary);
+}
+
+.secondary {
+    color: var(--color-light-accent-secondary);
 }
 
 .icon {
@@ -38,7 +42,7 @@
 
 .indicator {
     position: absolute;
-    top: var(--gap-2xs);
+    top: 3px;
     left: calc(50% + var(--gap-2xs));
     height: 16px;
     min-width: 16px;
