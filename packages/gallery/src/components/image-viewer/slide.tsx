@@ -85,19 +85,6 @@ export const Slide: FC<SlideProps> = ({
     const verticalImageFit = !small && swiperAspectRatio > imageAspectRatio;
     const horizontalImageFit = !small && swiperAspectRatio <= imageAspectRatio;
 
-    console.log(
-        'broken',
-        broken,
-        'small',
-        small,
-        'verticalImageFit',
-        verticalImageFit,
-        'horizontalImageFit',
-        horizontalImageFit,
-        'meta',
-        meta,
-    );
-
     return (
         <SlideInner
             active={isActive}
