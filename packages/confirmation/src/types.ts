@@ -122,6 +122,12 @@ export type ConfirmationProps = {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Продолжительность отображения ошибки
+     * @default 1300
+     */
+    errorVisibleDuration?: number;
 };
 
 export type TConfirmationContext = Required<
@@ -149,6 +155,7 @@ export type TConfirmationContext = Required<
         | 'onTempBlockFinished'
         | 'clearCodeOnError'
         | 'initialScreenHintSlot'
+        | 'errorVisibleDuration'
     > & {
         timeLeft: number;
     } & {

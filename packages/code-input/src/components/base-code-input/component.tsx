@@ -22,7 +22,7 @@ import { Input, InputProps } from '..';
 import styles from './index.module.css';
 
 /** После истечения этого времени код очищается */
-const CODE_ERROR_HINT_VISIBLE_DURATION = 300;
+const CODE_ERROR_HINT_VISIBLE_DURATION = 1300;
 
 export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
     (
@@ -34,6 +34,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             initialValues = '',
             dataTestId,
             clearCodeOnError = true,
+            errorVisibleDuration = CODE_ERROR_HINT_VISIBLE_DURATION,
             onErrorAnimationEnd,
             onChange,
             onComplete,
@@ -243,7 +244,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 }
 
                 onErrorAnimationEnd?.();
-            }, CODE_ERROR_HINT_VISIBLE_DURATION);
+            }, errorVisibleDuration);
         };
 
         useEffect(

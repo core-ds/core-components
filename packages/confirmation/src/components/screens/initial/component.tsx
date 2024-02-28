@@ -36,6 +36,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         clearCodeOnError,
         hideCountdownSection,
         initialScreenHintSlot,
+        errorVisibleDuration,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -179,6 +180,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}
                 clearCodeOnError={clearCodeOnError}
+                errorVisibleDuration={errorVisibleDuration}
                 onErrorAnimationEnd={handleErrorAnimationEnd}
             />
             {!hideCountdownSection && (

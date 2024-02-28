@@ -38,6 +38,12 @@ export type BaseCodeInputProps = {
     clearCodeOnError?: boolean;
 
     /**
+     * Продолжительность отображения ошибки
+     * @default 1300
+     */
+    errorVisibleDuration?: number;
+
+    /**
      * Коллбэк вызываемый после окончания проигрывания анимации при возникновении ошибки.
      */
     onErrorAnimationEnd?: () => void;
