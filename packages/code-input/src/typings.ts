@@ -53,6 +53,12 @@ export type BaseCodeInputProps = {
     onComplete?: (code: string) => void;
 
     /**
+     * Продолжительность отображения ошибки
+     * @default 300
+     */
+    errorVisibleDuration?: number;
+
+    /**
      * Основные стили компонента.
      */
     stylesInput?: { [key: string]: string };

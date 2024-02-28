@@ -41,6 +41,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     hideCountdownSection = false,
     breakpoint = 1024,
     initialScreenHintSlot,
+    errorVisibleDuration,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);
@@ -105,6 +106,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         onChangeState,
         onChangeScreen,
         clearCodeOnError,
+        errorVisibleDuration,
         initialScreenHintSlot,
         onInputFinished: handleInputFinished,
         onSmsRetryClick: handleSmsRetry,

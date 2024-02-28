@@ -6,6 +6,8 @@ exports[`CodeInput Display tests should display correctly 1`] = `
     class="component"
   >
     <div
+      aria-label="Введено 0 из 4 символов"
+      aria-live="polite"
       class=""
     >
       <input
@@ -47,6 +49,8 @@ exports[`CodeInput Display tests should display correctly with error 1`] = `
     class="component"
   >
     <div
+      aria-label="Введено 0 из 4 символов"
+      aria-live="polite"
       class="shake"
     >
       <input
