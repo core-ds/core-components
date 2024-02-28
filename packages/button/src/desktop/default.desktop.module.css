@@ -31,6 +31,12 @@
     }
 }
 
+.text {
+    &:active {
+        color: var(--button-text-active-color);
+    }
+}
+
 .ghost {
     &:active {
         color: var(--button-ghost-active-color);
@@ -52,13 +58,26 @@
         background-color: var(--button-secondary-disabled-bg-color);
     }
 
+    &.outlined {
+        color: var(--button-outlined-disabled-color);
+        border-color: var(--button-outlined-disabled-border-color);
+    }
+
     &.tertiary {
         color: var(--button-tertiary-disabled-color);
         border-color: var(--button-tertiary-disabled-border-color);
     }
 
+    &.transparent {
+        color: var(--button-transparent-disabled-color);
+    }
+
     &.link {
         color: var(--button-link-disabled-color);
+    }
+
+    &.text {
+        color: var(--button-text-disabled-color);
     }
 
     &.ghost {

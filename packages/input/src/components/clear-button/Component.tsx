@@ -24,7 +24,7 @@ const preventDefault = (e: React.UIEvent<HTMLElement>) => e.preventDefault();
 export const ClearButton: React.FC<ClearButtonProps> = ({ colors, disabled, onClick }) => (
     <Button
         type='button'
-        view='ghost'
+        view='text'
         disabled={disabled}
         aria-label='Очистить'
         className={styles.clearButton}

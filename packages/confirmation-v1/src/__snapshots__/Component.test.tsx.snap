@@ -140,7 +140,7 @@ exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] 
         type="button"
       >
         <span
-          class="text stretchText"
+          class="label stretchText"
         >
           Понятно
         </span>

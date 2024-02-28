@@ -41,11 +41,16 @@
     @media (hover: hover) {
         &:hover {
             background-color: var(--button-outlined-hover-bg-color);
+            border-color: var(--button-outlined-hover-border-color);
         }
     }
 
     &:active {
         background-color: var(--button-outlined-active-bg-color);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-default-color);
     }
 }
 
@@ -86,17 +91,22 @@
 }
 
 .transparent {
-    color: var(--color-light-text-primary);
-    background-color: var(--color-light-bg-primary-inverted-alpha-10);
+    color: var(--button-transparent-base-color);
+    background-color: transparent;
+    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
-            background-color: var(--color-light-bg-primary-inverted-alpha-20);
+            background-color: var(--button-transparent-hover-bg-color);
         }
     }
 
     &:active {
-        background-color: var(--color-light-bg-primary-inverted-alpha-40);
+        background-color: var(--button-transparent-active-bg-color);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-default-color);
     }
 }
 
@@ -113,6 +123,21 @@
 
     &:active {
         background-color: var(--button-link-active-bg-color);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-default-color);
+    }
+}
+
+.text {
+    background-color: transparent;
+    color: var(--button-text-base-color);
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--button-text-hover-color);
+        }
     }
 
     & > .loader {
@@ -158,12 +183,11 @@
     }
 
     &.outlined {
-        color: var(--button-outlined-disabled-color);
         background-color: var(--button-outlined-disabled-bg-color);
-        border-color: var(--button-outlined-disabled-border-color);
 
         &.loading {
             color: var(--button-outlined-color);
+            border-color: var(--button-outlined-base-border-color);
         }
     }
 
@@ -187,12 +211,10 @@
     }
 
     &.transparent {
-        color: var(--color-light-text-primary-alpha-30);
-        background-color: var(--color-light-bg-primary-inverted-alpha-3);
+        background-color: transparent;
 
         &.loading {
-            color: var(--color-light-text-primary);
-            background-color: var(--color-light-bg-primary-inverted-alpha-10);
+            color: var(--button-transparent-base-color);
         }
     }
 
@@ -201,6 +223,12 @@
 
         &.loading {
             color: var(--button-link-base-color);
+        }
+    }
+
+    &.text {
+        &.loading {
+            color: var(--button-text-base-color);
         }
     }
 

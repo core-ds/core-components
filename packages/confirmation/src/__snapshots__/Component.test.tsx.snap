@@ -459,7 +459,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
         type="button"
       >
         <span
-          class="text stretchText"
+          class="label stretchText"
         >
           Понятно
         </span>
@@ -583,7 +583,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
         type="button"
       >
         <span
-          class="text stretchText"
+          class="label stretchText"
         >
           Вернуться к вводу кода
         </span>

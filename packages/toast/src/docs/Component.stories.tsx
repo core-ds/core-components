@@ -98,7 +98,7 @@ export const toast: Story = {
                         actionButton={
                             <Button
                                 size={isMobile ? 'xs' : 's'}
-                                view='ghost'
+                                view='text'
                                 colors='inverted'
                                 onClick={() => {
                                     setFixedToastOpen(false);
@@ -217,7 +217,7 @@ export const toast_mobile: Story = {
                         actionButton={
                             <Button
                                 size='xs'
-                                view='ghost'
+                                view='text'
                                 colors='inverted'
                                 onClick={() => {
                                     setFixedToastOpen(false);
@@ -334,7 +334,7 @@ export const toast_desktop: Story = {
                         actionButton={
                             <Button
                                 size='s'
-                                view='ghost'
+                                view='text'
                                 colors='inverted'
                                 onClick={() => {
                                     setFixedToastOpen(false);

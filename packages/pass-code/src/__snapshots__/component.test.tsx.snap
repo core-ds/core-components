@@ -43,7 +43,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             1
           </span>
@@ -57,7 +57,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             2
           </span>
@@ -71,7 +71,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             3
           </span>
@@ -85,7 +85,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             4
           </span>
@@ -99,7 +99,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             5
           </span>
@@ -113,7 +113,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             6
           </span>
@@ -127,7 +127,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             7
           </span>
@@ -141,7 +141,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             8
           </span>
@@ -155,7 +155,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             9
           </span>
@@ -210,7 +210,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             1
           </span>
@@ -224,7 +224,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             2
           </span>
@@ -238,7 +238,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             3
           </span>
@@ -252,7 +252,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             4
           </span>
@@ -266,7 +266,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             5
           </span>
@@ -280,7 +280,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             6
           </span>
@@ -294,7 +294,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             7
           </span>
@@ -308,7 +308,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             8
           </span>
@@ -322,7 +322,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             9
           </span>
@@ -343,11 +343,11 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component ghost size-56 hug size-56 component ghost component ghost button ghost"
+          class="component text size-56 hug size-56 component text component text button text"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <svg
               fill="currentColor"
@@ -404,7 +404,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             1
           </span>
@@ -418,7 +418,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             2
           </span>
@@ -432,7 +432,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             3
           </span>
@@ -446,7 +446,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             4
           </span>
@@ -460,7 +460,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             5
           </span>
@@ -474,7 +474,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             6
           </span>
@@ -488,7 +488,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             7
           </span>
@@ -502,7 +502,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             8
           </span>
@@ -516,7 +516,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             9
           </span>

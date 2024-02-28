@@ -18,12 +18,13 @@ export type ComponentProps = {
         | 'accent'
         | 'primary'
         | 'secondary'
+        | 'outlined'
+        | 'transparent'
+        | 'text'
         | 'tertiary'
-        | 'outlined' // deprecated
         | 'filled' // deprecated
-        | 'transparent' // deprecated
-        | 'link'
-        | 'ghost';
+        | 'link' // deprecated
+        | 'ghost'; // deprecated;
 
     /**
      * Форма кнопки

@@ -15,11 +15,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
         class="component monthYear"
       >
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
+          class="component text size-40 hug size-40 component text component text button filled button month"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -44,11 +44,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
+          class="component text size-40 hug size-40 component text component text button filled button year"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -135,11 +135,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -162,11 +162,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -187,11 +187,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -212,11 +212,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -237,11 +237,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -262,11 +262,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -287,11 +287,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -312,11 +312,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -339,11 +339,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -364,11 +364,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -389,11 +389,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -414,11 +414,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -439,11 +439,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -464,11 +464,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -489,11 +489,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -516,11 +516,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -541,11 +541,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -566,11 +566,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -591,11 +591,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -616,11 +616,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -641,11 +641,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -666,11 +666,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -693,11 +693,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -718,11 +718,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -743,11 +743,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -768,11 +768,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -793,11 +793,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -818,11 +818,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -843,11 +843,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -870,11 +870,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="0"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
+                class="component text size-40 hug size-40 component text component text day rounded selected"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -916,11 +916,11 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         class="component monthYear"
       >
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
+          class="component text size-40 hug size-40 component text component text button filled button month"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -945,11 +945,11 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
           </span>
         </button>
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
+          class="component text size-40 hug size-40 component text component text button filled button year"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -983,156 +983,156 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
       >
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1577836800000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Январь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1580515200000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Февраль
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1583020800000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Март
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1585699200000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Апрель
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1588291200000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Май
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1590969600000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Июнь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1593561600000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Июль
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1596240000000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Август
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1598918400000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Сентябрь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1601510400000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Октябрь
           </span>
         </button>
         <button
           aria-selected="true"
-          class="component ghost size-40 hug size-40 component ghost component ghost button selected button"
+          class="component text size-40 hug size-40 component text component text button selected button"
           data-date="1604188800000"
           tabindex="0"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Ноябрь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+          class="component text size-40 hug size-40 component text component text button default button"
           data-date="1606780800000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             Декабрь
           </span>
@@ -1158,11 +1158,11 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
         class="component monthYear"
       >
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
+          class="component text size-40 hug size-40 component text component text button filled button month"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -1187,11 +1187,11 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
+          class="component text size-40 hug size-40 component text component text button filled button year"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -1228,1261 +1228,1261 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
         >
           <button
             aria-selected="true"
-            class="component ghost size-40 hug size-40 component ghost component ghost button selected button"
+            class="component text size-40 hug size-40 component text component text button selected button"
             data-date="1577836800000"
             tabindex="0"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2020
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1546300800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2019
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1514764800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2018
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1483228800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2017
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1451606400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2016
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1420070400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2015
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1388534400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2014
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1356998400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2013
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1325376000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2012
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1293840000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2011
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1262304000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2010
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1230768000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2009
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1199145600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2008
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1167609600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2007
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1136073600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2006
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1104537600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2005
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1072915200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2004
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1041379200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2003
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="1009843200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2002
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="978307200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2001
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="946684800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               2000
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="915148800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1999
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="883612800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1998
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="852076800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1997
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="820454400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1996
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="788918400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1995
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="757382400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1994
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="725846400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1993
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="694224000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1992
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="662688000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1991
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="631152000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1990
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="599616000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1989
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="567993600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1988
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="536457600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1987
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="504921600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1986
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="473385600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1985
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="441763200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1984
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="410227200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1983
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="378691200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1982
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="347155200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1981
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="315532800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1980
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="283996800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1979
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="252460800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1978
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="220924800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1977
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="189302400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1976
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="157766400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1975
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="126230400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1974
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="94694400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1973
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="63072000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1972
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="31536000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1971
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="0"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1970
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-31536000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1969
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-63158400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1968
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-94694400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1967
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-126230400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1966
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-157766400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1965
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-189388800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1964
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-220924800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1963
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-252460800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1962
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-283996800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1961
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-315619200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1960
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-347155200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1959
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-378691200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1958
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-410227200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1957
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-441849600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1956
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-473385600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1955
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-504921600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1954
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-536457600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1953
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-568080000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1952
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-599616000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1951
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-631152000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1950
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-662688000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1949
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-694310400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1948
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-725846400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1947
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-757382400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1946
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-788918400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1945
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-820540800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1944
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-852076800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1943
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-883612800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1942
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-915148800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1941
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-946771200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1940
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-978307200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1939
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1009843200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1938
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1041379200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1937
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1073001600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1936
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1104537600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1935
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1136073600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1934
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1167609600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1933
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1199232000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1932
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1230768000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1931
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1262304000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1930
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1293840000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1929
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1325462400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1928
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1356998400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1927
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1388534400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1926
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1420070400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1925
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component ghost size-40 hug size-40 component ghost component ghost button default button"
+            class="component text size-40 hug size-40 component text component text button default button"
             data-date="-1451692800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               1924
             </span>
@@ -2509,11 +2509,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
         class="component monthYear"
       >
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
+          class="component text size-40 hug size-40 component text component text button filled button month"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -2538,11 +2538,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
+          class="component text size-40 hug size-40 component text component text button filled button year"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -2629,11 +2629,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2656,11 +2656,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2681,11 +2681,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2706,11 +2706,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2731,11 +2731,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2756,11 +2756,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2781,11 +2781,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2806,11 +2806,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2833,11 +2833,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2858,11 +2858,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2883,11 +2883,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2908,11 +2908,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2933,11 +2933,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2958,11 +2958,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -2983,11 +2983,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3010,11 +3010,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3035,11 +3035,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3060,11 +3060,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3085,11 +3085,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3110,11 +3110,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3135,11 +3135,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3160,11 +3160,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3187,11 +3187,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3212,11 +3212,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3237,11 +3237,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3262,11 +3262,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3287,11 +3287,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3312,11 +3312,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3337,11 +3337,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3364,11 +3364,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="0"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
+                class="component text size-40 hug size-40 component text component text day rounded selected"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3411,11 +3411,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button arrow primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="iconWrapper size-32 center"
@@ -3443,11 +3443,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button arrow primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="iconWrapper size-32 center"
@@ -3531,11 +3531,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3558,11 +3558,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3583,11 +3583,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3608,11 +3608,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3633,11 +3633,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3658,11 +3658,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3683,11 +3683,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3708,11 +3708,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3735,11 +3735,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3760,11 +3760,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3785,11 +3785,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3810,11 +3810,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3835,11 +3835,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3860,11 +3860,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3885,11 +3885,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3912,11 +3912,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3937,11 +3937,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3962,11 +3962,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -3987,11 +3987,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4012,11 +4012,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4037,11 +4037,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4062,11 +4062,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4089,11 +4089,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4114,11 +4114,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4139,11 +4139,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4164,11 +4164,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4189,11 +4189,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4214,11 +4214,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4239,11 +4239,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4266,11 +4266,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="0"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
+                class="component text size-40 hug size-40 component text component text day rounded selected"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4312,11 +4312,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
         class="component monthYear"
       >
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
+          class="component text size-40 hug size-40 component text component text button filled button month"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -4341,11 +4341,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
+          class="component text size-40 hug size-40 component text component text button filled button year"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="buttonContent"
@@ -4432,11 +4432,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4459,11 +4459,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4484,11 +4484,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4509,11 +4509,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4534,11 +4534,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4559,11 +4559,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4584,11 +4584,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4609,11 +4609,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4636,11 +4636,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4661,11 +4661,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4686,11 +4686,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4711,11 +4711,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4736,11 +4736,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4761,11 +4761,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4786,11 +4786,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4813,11 +4813,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4838,11 +4838,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4863,11 +4863,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4888,11 +4888,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4913,11 +4913,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4938,11 +4938,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4963,11 +4963,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -4990,11 +4990,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -5015,11 +5015,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -5040,11 +5040,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -5065,11 +5065,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -5090,11 +5090,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -5115,11 +5115,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -5140,11 +5140,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                class="component text size-40 hug size-40 component text component text day rounded"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"
@@ -5167,11 +5167,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="0"
             >
               <button
-                class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
+                class="component text size-40 hug size-40 component text component text day rounded selected"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="dayContent"

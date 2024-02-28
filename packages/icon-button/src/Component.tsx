@@ -86,7 +86,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         <Button
             {...restProps}
             ref={ref}
-            view='ghost'
+            view='text'
             className={cn(
                 'cc-icon-button',
                 className,

@@ -123,7 +123,7 @@ export const CollapsiblePrimaryTabList = ({
                             ) : null
                         }
                         size='m'
-                        view='ghost'
+                        view='text'
                         label='Ещё'
                         popoverPosition='bottom-end'
                     />

@@ -20,7 +20,7 @@ exports[`Snapshots tests should display correctly 1`] = `
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:r1:-input"
@@ -75,7 +75,7 @@ exports[`Snapshots tests should display correctly 2`] = `
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:r4:-input"
@@ -131,7 +131,7 @@ exports[`Snapshots tests should display correctly 3`] = `
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:r7:-input"
@@ -276,11 +276,11 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button mobile primary component"
+                            class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
-                              class="text stretchText"
+                              class="label stretchText"
                             >
                               <span
                                 class="iconWrapper size-32 center"
@@ -1395,11 +1395,11 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button mobile primary component"
+                            class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
-                              class="text stretchText"
+                              class="label stretchText"
                             >
                               <span
                                 class="iconWrapper size-32 center"
@@ -2514,11 +2514,11 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button mobile primary component"
+                            class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
-                              class="text stretchText"
+                              class="label stretchText"
                             >
                               <span
                                 class="iconWrapper size-32 center"

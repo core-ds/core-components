@@ -30,11 +30,11 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component ghost size-48 hug size-48 component ghost component ghost component"
+                  class="component text size-48 hug size-48 component text component text component"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <div
                       class="flex"
@@ -77,11 +77,11 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button primary component"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button primary component"
                     type="button"
                   >
                     <span
-                      class="text stretchText"
+                      class="label stretchText"
                     >
                       <span
                         class="iconWrapper size-48 center"
@@ -168,11 +168,11 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component ghost size-32 hug size-32 component ghost component ghost component mobileComponent"
+                  class="component text size-32 hug size-32 component text component text component mobileComponent"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <div
                       class="flex"
@@ -215,11 +215,11 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button mobile primary component"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component"
                     type="button"
                   >
                     <span
-                      class="text stretchText"
+                      class="label stretchText"
                     >
                       <span
                         class="iconWrapper size-32 center"

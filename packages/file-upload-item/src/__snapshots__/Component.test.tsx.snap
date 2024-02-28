@@ -50,12 +50,12 @@ Object {
         </div>
         <a
           aria-label="скачать"
-          class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button download primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button download primary component"
           download="новое_название_файла"
           href="/link"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="iconWrapper size-24 center"
@@ -78,11 +78,11 @@ Object {
         </a>
         <button
           aria-label="удалить"
-          class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button delete primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component"
           type="button"
         >
           <span
-            class="text stretchText"
+            class="label stretchText"
           >
             <span
               class="iconWrapper size-24 center"
@@ -152,12 +152,12 @@ Object {
       </div>
       <a
         aria-label="скачать"
-        class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button download primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button download primary component"
         download="новое_название_файла"
         href="/link"
       >
         <span
-          class="text stretchText"
+          class="label stretchText"
         >
           <span
             class="iconWrapper size-24 center"
@@ -180,11 +180,11 @@ Object {
       </a>
       <button
         aria-label="удалить"
-        class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button delete primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component"
         type="button"
       >
         <span
-          class="text stretchText"
+          class="label stretchText"
         >
           <span
             class="iconWrapper size-24 center"

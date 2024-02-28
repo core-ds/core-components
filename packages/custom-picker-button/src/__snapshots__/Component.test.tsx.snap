@@ -20,7 +20,7 @@ exports[`Snapshots tests should display correctly 1`] = `
       type="button"
     >
       <span
-        class="text"
+        class="label"
       >
         <span
           for="downshift-:r1:-input"
@@ -75,7 +75,7 @@ exports[`Snapshots tests should display correctly 2`] = `
       type="button"
     >
       <span
-        class="text"
+        class="label"
       >
         <span
           for="downshift-:r8:-input"
@@ -132,7 +132,7 @@ exports[`Snapshots tests should display correctly 3`] = `
       type="button"
     >
       <span
-        class="text"
+        class="label"
       >
         <span
           for="downshift-:rd:-input"
@@ -1402,7 +1402,7 @@ Object {
           type="button"
         >
           <span
-            class="text"
+            class="label"
           >
             <span
               for="downshift-:r5:-input"
@@ -1455,7 +1455,7 @@ Object {
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:r5:-input"
@@ -1568,7 +1568,7 @@ Object {
           type="button"
         >
           <span
-            class="text"
+            class="label"
           >
             <span
               for="downshift-:ra:-input"
@@ -1621,7 +1621,7 @@ Object {
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:ra:-input"
@@ -1736,7 +1736,7 @@ Object {
           type="button"
         >
           <span
-            class="text"
+            class="label"
           >
             <span
               for="downshift-:rf:-input"
@@ -1791,7 +1791,7 @@ Object {
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:rf:-input"
@@ -1904,7 +1904,7 @@ Object {
           type="button"
         >
           <span
-            class="text"
+            class="label"
           >
             <span
               for="downshift-:r3:-input"
@@ -1957,7 +1957,7 @@ Object {
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:r3:-input"
@@ -2070,7 +2070,7 @@ Object {
           type="button"
         >
           <span
-            class="text"
+            class="label"
           >
             <span
               for="downshift-:r9:-input"
@@ -2123,7 +2123,7 @@ Object {
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:r9:-input"
@@ -2238,7 +2238,7 @@ Object {
           type="button"
         >
           <span
-            class="text"
+            class="label"
           >
             <span
               for="downshift-:re:-input"
@@ -2293,7 +2293,7 @@ Object {
         type="button"
       >
         <span
-          class="text"
+          class="label"
         >
           <span
             for="downshift-:re:-input"
