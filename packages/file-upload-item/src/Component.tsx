@@ -109,6 +109,11 @@ export type FileUploadItemProps = {
     disableButtons?: boolean;
 
     /**
+     * Убирает нижнюю границу
+     */
+    withoutBorder?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -133,6 +138,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     onDownload,
     onRestore,
     disableButtons,
+    withoutBorder,
     dataTestId,
 }) => {
     const handleDownload = (event: MouseEvent<HTMLElement>) => {
@@ -200,6 +206,9 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 className,
                 styles.component,
                 uploadStatus && styles[uploadStatus.toLocaleLowerCase()],
+                {
+                    [styles.withoutBorder]: withoutBorder,
+                },
             )}
             data-test-id={dataTestId}
         >

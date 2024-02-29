@@ -15,6 +15,10 @@
     }
 }
 
+.withoutBorder {
+    box-shadow: none;
+}
+
 .infoSection {
     display: flex;
     flex-direction: column;
