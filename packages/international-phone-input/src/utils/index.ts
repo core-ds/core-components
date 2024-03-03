@@ -60,7 +60,7 @@ export function findCountry(
         const inputNumber = clearMask(value);
         const nextCountry = guessCountry(inputNumber, countries);
 
-        if (nextCountry) return nextCountry;
+        return nextCountry;
     }
 
     if (!iso2) return undefined;

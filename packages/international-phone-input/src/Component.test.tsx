@@ -185,6 +185,67 @@ describe('InternationalPhoneInput', () => {
         );
     });
 
+    it('should show a blank icon if the country code is not defined after changing the input', async () => {
+        const onCountryChange = jest.fn();
+        const { container } = render(
+            <InternationalPhoneInputDesktop
+                value=''
+                onChange={() => null}
+                dataTestId={testId}
+                onCountryChange={onCountryChange}
+                defaultIso2='az'
+            />,
+        );
+        const input = screen.getByDisplayValue('');
+
+        fireEvent.input(input, { target: { value: '+000 12 345 67 89', selectionStart: 0 } });
+
+        const emptyCountryIcon = container.querySelector('.emptyCountryIcon');
+        expect(emptyCountryIcon).toBeInTheDocument();
+    });
+
+    it('should clear the value and set the default flag', async () => {
+        const onChange = jest.fn();
+        const { container } = render(
+            <InternationalPhoneInputDesktop
+                value='+7'
+                defaultIso2='az'
+                onChange={onChange}
+                clear={true}
+                clearableCountryCode={true}
+            />,
+        );
+
+        const clearButton = await screen.findByLabelText('Очистить');
+        expect(clearButton).toBeInTheDocument();
+
+        fireEvent.click(clearButton);
+
+        const flagComponent = container.querySelector('.flagIcon');
+        expect(flagComponent).toHaveAttribute('data-test-id', 'flag-icon-az');
+    });
+
+    it('should clear the value and set an empty icon', async () => {
+        const onChange = jest.fn();
+        const { container } = render(
+            <InternationalPhoneInputDesktop
+                value='+7'
+                clearableCountryCode={true}
+                onChange={onChange}
+                onCountryChange={() => undefined}
+                clear={true}
+            />,
+        );
+
+        const clearButton = await screen.findByLabelText('Очистить');
+        expect(clearButton).toBeInTheDocument();
+
+        fireEvent.click(clearButton);
+
+        const emptyCountryIcon = container.querySelector('.emptyCountryIcon');
+        expect(emptyCountryIcon).toBeInTheDocument();
+    });
+
     it('should remove country code', async () => {
         const onChange = jest.fn();
         render(<InternationalPhoneInputDesktop value='+7' onChange={onChange} />);
