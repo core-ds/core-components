@@ -14,7 +14,7 @@ describe('InputAutocomplete', () => {
             componentName: 'SelectDesktop',
             knobs: {
                 label: 'Автокомплит',
-                size: 'm',
+                size: 56,
                 block: true,
                 selected: '["1"]',
                 options: '[{"key": "1", "content": "Вариант из списка"}]',

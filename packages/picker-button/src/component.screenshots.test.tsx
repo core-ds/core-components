@@ -23,7 +23,7 @@ describe('PickerButton', () => {
             knobs: {
                 options: JSON.stringify(options),
                 label: 'Кнопка',
-                size: 'xl',
+                size: 72,
                 view: 'primary',
             },
         },
@@ -117,7 +117,7 @@ describe(
                     knobs: {
                         options: [options],
                         label: 'Открыть',
-                        size: ['xs', 's', 'm'],
+                        size: [40, 48, 56],
                         view: ['link', 'primary', 'secondary'],
                         variant: 'default',
                         disabled: true,
@@ -131,7 +131,7 @@ describe(
                     knobs: {
                         options: [options],
                         label: 'Открыть',
-                        size: ['xs', 's', 'm'],
+                        size: [40, 48, 56],
                         view: ['link', 'primary', 'secondary'],
                         variant: 'default',
                         disabled: false,
@@ -145,7 +145,7 @@ describe(
                     knobs: {
                         options: [options],
                         label: 'Открыть',
-                        size: ['xs', 's', 'm'],
+                        size: [40, 48, 56],
                         view: ['link', 'primary', 'secondary'],
                         variant: 'compact',
                         disabled: true,
@@ -159,7 +159,7 @@ describe(
                     knobs: {
                         options: [options],
                         label: 'Открыть',
-                        size: ['xs', 's', 'm'],
+                        size: [40, 48, 56],
                         view: ['link', 'primary', 'secondary'],
                         variant: 'compact',
                         disabled: false,

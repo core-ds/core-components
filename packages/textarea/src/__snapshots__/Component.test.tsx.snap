@@ -3,20 +3,20 @@
 exports[`Textarea Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component component s s"
+    class="component component size-48 size-48"
   >
     <div
       class="inner inner inner inner filled"
     >
       <div
-        class="inputWrapper wrapper s"
+        class="inputWrapper wrapper size-48"
       >
         <div
           class="input"
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s overflowHidden filled"
+            class="textarea textarea size-48 overflowHidden filled"
             rows="1"
           >
             value
@@ -31,20 +31,20 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
 exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] = `
 <div>
   <div
-    class="component component s s"
+    class="component component size-48 size-48"
   >
     <div
       class="inner inner inner inner filled"
     >
       <div
-        class="inputWrapper wrapper s"
+        class="inputWrapper wrapper size-48"
       >
         <div
           class="input"
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s overflowHidden filled"
+            class="textarea textarea size-48 overflowHidden filled"
             rows="1"
           >
             value
@@ -64,20 +64,20 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
 exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`] = `
 <div>
   <div
-    class="component component s s"
+    class="component component size-48 size-48"
   >
     <div
       class="inner inner inner inner filled"
     >
       <div
-        class="inputWrapper wrapper s"
+        class="inputWrapper wrapper size-48"
       >
         <div
           class="input"
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s overflowHidden customScrollbar filled"
+            class="textarea textarea size-48 overflowHidden customScrollbar filled"
             rows="1"
           >
             value
@@ -92,20 +92,20 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
 exports[`Textarea Snapshots tests should match snapshot with default counter 1`] = `
 <div>
   <div
-    class="component component s s"
+    class="component component size-48 size-48"
   >
     <div
       class="inner inner inner inner filled"
     >
       <div
-        class="inputWrapper wrapper s"
+        class="inputWrapper wrapper size-48"
       >
         <div
           class="input"
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s overflowHidden filled"
+            class="textarea textarea size-48 overflowHidden filled"
             rows="1"
           >
             value

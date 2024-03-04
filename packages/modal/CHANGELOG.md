@@ -1,5 +1,27 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1033](https://github.com/core-ds/core-components/pull/1033)
+
+-   Добавлены новые способы указать размеры - 500, 600, 800, 1140. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 500, 600, 800, 1140 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.4
+
+## 9.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.3
+
 ## 9.1.1
 
 ### Patch Changes

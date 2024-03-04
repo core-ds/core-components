@@ -18,7 +18,7 @@ describe('Textarea ', () =>
             knobs: {
                 label: 'Текстовая область',
                 value: 'Текст',
-                size: 'm',
+                size: 56,
                 block: true,
                 minRows: 2,
             },
@@ -40,7 +40,7 @@ describe('Textarea | sprite', () => {
                         knobs: {
                             value: 'Компонент текстового поля ввода.',
                             block: true,
-                            size: ['s', 'm', 'l', 'xl'],
+                            size: [48, 56, 64, 72],
                             label: ['', 'Лейбл'],
                             labelView: 'inner',
                             placeholder: 'Плейсхолдер',
@@ -55,7 +55,7 @@ describe('Textarea | sprite', () => {
                         knobs: {
                             value: 'Компонент текстового поля ввода.',
                             block: true,
-                            size: ['s', 'm', 'l', 'xl'],
+                            size: [48, 56, 64, 72],
                             label: ['', 'Лейбл'],
                             labelView: 'outer',
                             placeholder: 'Плейсхолдер',

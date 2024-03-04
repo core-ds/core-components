@@ -43,15 +43,15 @@ describe('Render tests', () => {
     });
 
     it('should set `size` class', () => {
-        const size = 's';
+        const size = 24;
         const { container } = render(<Spinner visible={true} size={size} />);
 
-        expect(container.firstElementChild).toHaveClass(size);
+        expect(container.firstElementChild).toHaveClass(`size-${size}`);
     });
 
     it('should use default `size`', () => {
         const { container } = render(<Spinner visible={true} />);
 
-        expect(container.firstElementChild).toHaveClass('s');
+        expect(container.firstElementChild).toHaveClass('size-24');
     });
 });

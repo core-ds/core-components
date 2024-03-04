@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
@@ -47,7 +48,7 @@ export const Header: FC<HeaderProps> = ({
                 [styles.hasContent]: hasContent,
                 [desktopStyles.header]: view === 'desktop',
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
-                [desktopStyles[size]]: view === 'desktop',
+                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
                 [mobileStyles.header]: view === 'mobile',
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
             })}

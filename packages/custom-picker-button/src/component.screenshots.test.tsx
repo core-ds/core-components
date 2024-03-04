@@ -21,7 +21,7 @@ describe('CustomPickerButton', () => {
             knobs: {
                 options: JSON.stringify(options),
                 label: 'Кнопка',
-                size: 'xl',
+                size: 72,
             },
         },
         'width:800px;transform:scale(2.3)',

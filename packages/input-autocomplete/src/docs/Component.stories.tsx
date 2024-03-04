@@ -44,7 +44,7 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
     ];
 
     const [value, setValue] = React.useState('');
-    const handleInput: InputAutocompleteProps['onInput'] = (_, { value }) => {
+    const handleInput: InputAutocompleteProps['onInput'] = (value) => {
         setValue(value);
     };
     const handleChange: InputAutocompleteProps['onChange'] = ({ selected }) => {

@@ -50,6 +50,21 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     );
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
 export const BaseButton = React.forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
     CommonButtonProps & PrivateButtonProps
@@ -64,7 +79,7 @@ export const BaseButton = React.forwardRef<
             hint,
             leftAddons,
             rightAddons,
-            size = 'm',
+            size = 56,
             block = false,
             className,
             spinnerClassName,
@@ -95,7 +110,7 @@ export const BaseButton = React.forwardRef<
 
         const showLoader = loading || !loaderTimePassed;
 
-        const showHint = hint && ['m', 'l', 'xl'].includes(size);
+        const showHint = hint && ['size-56', 'size-64', 'size-72'].includes(SIZE_TO_CLASSNAME_MAP[size]);
 
         const iconOnly = !children;
 
@@ -103,9 +118,9 @@ export const BaseButton = React.forwardRef<
             className: cn(
                 commonStyles.component,
                 commonStyles[view],
-                commonStyles[size],
+                commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                 commonStyles[textResizing],
-                shape === 'rectangular' && styles[size],
+                shape === 'rectangular' && styles[SIZE_TO_CLASSNAME_MAP[size]],
                 shape === 'rounded' && commonStyles[shape],
                 colorStyles[colors].component,
                 colorStyles[colors][view],

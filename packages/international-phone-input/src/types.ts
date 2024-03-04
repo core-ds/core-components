@@ -1,4 +1,4 @@
-import type { ChangeEvent, ElementType, FC } from 'react';
+import type { ElementType, FC } from 'react';
 import { FocusEvent } from 'react';
 
 import type { InputProps } from '@alfalab/core-components-input';
@@ -71,7 +71,7 @@ type CommonPhoneInputProps = {
     /**
      *  Обработчик изменения номера
      */
-    onChange?: (e: ChangeEvent<HTMLInputElement> | null, { value }: { value: string }) => void;
+    onChange?: (phone: string) => void;
 
     /**
      * Обработчик блюра поля

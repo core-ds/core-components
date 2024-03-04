@@ -31,17 +31,17 @@ describe('Indicator', () => {
         });
 
         it('should set `size` class', () => {
-            const size = 's';
+            const size = 20;
             const { container } = render(<Indicator size={size} />);
 
-            expect(container.firstElementChild).toHaveClass(size);
+            expect(container.firstElementChild).toHaveClass(`size-${size}`);
         });
 
-        it('should set `xs` class if value is empty', () => {
-            const size = 'xs';
+        it('should set size-8 class if value is empty', () => {
+            const size = 8;
             const { container } = render(<Indicator />);
 
-            expect(container.firstElementChild).toHaveClass(size);
+            expect(container.firstElementChild).toHaveClass(`size-${size}`);
         });
 
         it('should set `view` class', () => {

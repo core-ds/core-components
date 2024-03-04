@@ -1,25 +1,25 @@
 @import '../vars.css';
 
-.xxs {
+.size-32 {
     border-radius: var(--button-xxs-size-border-radius);
 }
 
-.xs {
+.size-40 {
     border-radius: var(--button-xs-size-border-radius);
 }
 
-.s {
+.size-48 {
     border-radius: var(--button-s-size-border-radius);
 }
 
-.m {
+.size-56 {
     border-radius: var(--button-m-size-border-radius);
 }
 
-.l {
+.size-64 {
     border-radius: var(--button-l-size-border-radius);
 }
 
-.xl {
+.size-72 {
     border-radius: var(--button-xl-size-border-radius);
 }

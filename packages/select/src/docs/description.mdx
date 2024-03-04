@@ -24,7 +24,7 @@ render(() => {
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элемент'
                 label='Одиночный выбор'
@@ -100,7 +100,7 @@ render(() => {
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 placeholder='Выберите элементы'
                 label='Множественный выбор'
                 Option={BaseOption}
@@ -118,7 +118,7 @@ render(() => {
             <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элементы'
                 label='Множественный выбор'
@@ -194,7 +194,7 @@ render(() => {
             <SelectDesktop
                 showSearch={true}
                 selected={selectedFirst}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элемент'
                 label='Одиночный выбор'
@@ -207,7 +207,7 @@ render(() => {
             <Gap size='m' />
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 placeholder='Выберите элементы'
                 label='Множественный выбор'
                 Option={BaseOption}
@@ -287,7 +287,7 @@ render(() => {
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элемент'
                 label='Сгруппированный список'
@@ -418,7 +418,7 @@ render(() => {
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 placeholder='Выберите счёт'
                 label='Счёт'
                 Option={BaseOption}
@@ -446,7 +446,7 @@ render(() => {
             <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите счёт'
                 Option={BaseOption}
@@ -626,7 +626,7 @@ render(() => {
             block={true}
             optionsListWidth='field'
             Option={BaseOption}
-            size='m'
+            size={56}
             {...useSelectWithApply({
                 options,
                 selected,
@@ -706,7 +706,7 @@ render(() => {
             placeholder='Выберите счёт'
             options={pureCellOptions}
             Option={BaseOption}
-            size='m'
+            size={56}
             valueRenderer={renderSelected}
             block={true}
         />
@@ -814,7 +814,7 @@ render(() => {
                 block={true}
                 optionsListWidth='field'
                 Option={BaseOption}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 multiple={true}
                 showHeaderWithSelectAll={true}
@@ -828,7 +828,7 @@ render(() => {
                 placeholder='Выберите счёт'
                 options={pureCellOptions}
                 Option={BaseOption}
-                size='m'
+                size={56}
                 valueRenderer={renderSelected}
                 block={true}
                 selected={selected}
@@ -894,7 +894,7 @@ render(() => {
         <div style={{ width: isMobile ? '100%' : 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={groups}
                 placeholder='Выберите элемент'
                 label='Одиночный выбор'
@@ -905,7 +905,7 @@ render(() => {
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <MobileSelect
-                size='m'
+                size={56}
                 allowUnselect={true}
                 options={options}
                 placeholder='Выберите элемент'
@@ -963,7 +963,7 @@ render(() => {
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectDesktop
                 onOpen={handleOpen}
-                size='m'
+                size={56}
                 block={true}
                 placeholder='Выберите один из тысячи'
                 label='Одиночный выбор'
@@ -1029,7 +1029,7 @@ render(() => {
             <style>{`.hideScrollbar {overflow: hidden}`}</style>
             <SelectMobile
                 bottomSheetProps={loading ? { containerClassName: 'hideScrollbar' } : undefined}
-                size='m'
+                size={56}
                 onOpen={handleOpen}
                 block={true}
                 placeholder='Выберите один из тысячи'
@@ -1096,7 +1096,7 @@ render(() => {
                         name='select'
                         optionsListWidth='field'
                         Option={BaseOption}
-                        size='m'
+                        size={56}
                         selected={selected}
                         {...useSelectWithApply({
                             options,
@@ -1106,7 +1106,7 @@ render(() => {
                     />
                 </div>
 
-                <Button size='xs' type='submit'>
+                <Button size={40} type='submit'>
                     Отправить
                 </Button>
 
@@ -1152,7 +1152,7 @@ render(() => {
             <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
                 <SelectMobile
                     allowUnselect={true}
-                    size='m'
+                    size={56}
                     block={true}
                     options={options}
                     placeholder='Выберите элемент'
@@ -1167,7 +1167,7 @@ render(() => {
 
             <Gap size='m' />
 
-            <Button size='xs' type='submit'>
+            <Button size={40} type='submit'>
                 Отправить
             </Button>
 
@@ -1216,7 +1216,7 @@ render(() => {
                 name='select'
                 optionsListWidth='field'
                 Option={BaseOption}
-                size='m'
+                size={56}
                 selected={selected}
                 {...useSelectWithApply({
                     options,
@@ -1253,7 +1253,7 @@ render(() => {
         <div style={{ width: '100%' }}>
             <SelectMobile
                 allowUnselect={true}
-                size='m'
+                size={56}
                 block={true}
                 options={options}
                 placeholder='Выберите элемент'

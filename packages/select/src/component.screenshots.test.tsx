@@ -50,7 +50,7 @@ describe('Select', () => {
             componentName: 'SelectDesktop',
             knobs: {
                 label: 'Селект',
-                size: 'm',
+                size: 56,
                 block: true,
                 selected: '["1"]',
                 options: '[{"key": "1", "content": "Вариант из списка"}]',
@@ -76,7 +76,7 @@ describe('Select', () => {
                             options: [[]],
                             block: true,
                             placeholder: 'Выберите элемент',
-                            size: ['s', 'm', 'l'],
+                            size: [48, 56, 64],
                             label: ['Элемент', ''],
                         },
                         size: { width: 300, height: 120 },
@@ -312,7 +312,7 @@ describe('Select | optgroup', () => {
                         knobs: {
                             options: JSON.stringify(groups),
                             selected: JSON.stringify(groups[0].options[1].key),
-                            size: 'l',
+                            size: 64,
                             defaultOpen: true,
                             block: true,
                             placeholder: 'Выберите элемент',

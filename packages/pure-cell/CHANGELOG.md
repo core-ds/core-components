@@ -1,5 +1,33 @@
 # Change Log
 
+## 4.7.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1105](https://github.com/core-ds/core-components/pull/1105)
+
+-   Расширили типы для children в подкомпонентах GraphicsElement, MainElement, FooterElement
+
+-   Обновлены зависимости
+    -   amount@3.4.0
+
+## 4.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.3.0
+
 ## 4.6.0
 
 ### Minor Changes

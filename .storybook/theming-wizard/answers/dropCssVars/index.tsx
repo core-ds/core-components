@@ -7,7 +7,7 @@ import { Typography } from '@alfalab/core-components-typography';
 import { Example } from 'storybook-addon-live-examples';
 import { Answers } from '.storybook/theming-wizard/types';
 
-import { aruiScriptsExample, withoutAruiScriptsExample, darkModeExample } from './utils';
+import { aruiScriptsExample, withoutAruiScriptsExample } from './utils';
 
 export const DropCssVars = ({ answers }: { answers: Answers }) => {
     const steps = [];
@@ -47,18 +47,6 @@ export const DropCssVars = ({ answers }: { answers: Answers }) => {
                     </Link>
                 </Typography.Text>
                 <Example live={false} language='json' code={withoutAruiScriptsExample(answers)} />
-            </div>,
-        );
-    }
-
-    if (answers.darkMode === 'yes') {
-        steps.push(
-            <div key='dark-mode-without-vars' style={{ flex: 1 }}>
-                <Typography.Text>
-                    Добавьте на страницу дополнительные стили, если темный режим был включен. Обычно
-                    это можно сделать в корне приложения.
-                </Typography.Text>
-                <Example live={false} language='css' code={darkModeExample(answers)} />
             </div>,
         );
     }

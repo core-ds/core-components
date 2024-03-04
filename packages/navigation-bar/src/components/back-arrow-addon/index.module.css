@@ -1,4 +1,5 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     height: 100%;
@@ -63,6 +64,6 @@
     }
 
     & svg > path {
-        fill: var(--color-light-neutral-translucent-700);
+        fill: var(--navigation-bar-back-arrow-mobile-fill);
     }
 }

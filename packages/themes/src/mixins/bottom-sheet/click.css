@@ -1,4 +1,5 @@
 @define-mixin bottom-sheet-click {
+    --bottom-sheet-header-border-bottom: none;
     --bottom-sheet-footer-border-top: none;
     --bottom-sheet-footer-background-color: var(--color-light-bg-secondary);
     --bottom-sheet-title-font-size: 20px;

@@ -33,15 +33,27 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'Indicator',
                     knobs: {
-                        view: ['red', 'grey', 'white'],
-                        size: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+                        view: ['red', 'grey'],
+                        size: [8, 20, 24, 40],
+                        value: [1, 10, 100],
+                    },
+                }),
+            ],
+            [
+                'sprite-inverted',
+                createSpriteStorybookUrl({
+                    componentName: 'Indicator',
+                    inverted: true,
+                    knobs: {
+                        view: 'white',
+                        size: [8, 20, 24, 40],
                         value: [1, 10, 100],
                     },
                 }),
             ],
         ],
         screenshotOpts: {
-            clip: { x: 0, y: 0, width: 1920, height: 150 },
+            clip: { x: 0, y: 0, width: 1920, height: 200 },
         },
     }),
 );

@@ -31,9 +31,9 @@ describe('InternationalPhoneInput', () => {
     }: InternationalPhoneInputDesktopProps) => {
         const [value, setValue] = useState('');
 
-        const handleChange: InternationalPhoneInputDesktopProps['onChange'] = (e, payload) => {
-            onChange?.(e, payload);
-            setValue(payload.value);
+        const handleChange: InternationalPhoneInputDesktopProps['onChange'] = (phone) => {
+            onChange?.(phone);
+            setValue(phone);
         };
         return (
             <InternationalPhoneInputDesktop {...restProps} value={value} onChange={handleChange} />
@@ -66,7 +66,7 @@ describe('InternationalPhoneInput', () => {
 
         fireEvent.input(input, { target: { value: '+54' } });
 
-        expect(onChange).toHaveBeenCalledWith(expect.any(Object), { value: '+54' });
+        expect(onChange).toHaveBeenCalledWith('+54');
     });
 
     it('should call `onChange` callback after input was changed with dial code of country from NANP', async () => {
@@ -78,7 +78,7 @@ describe('InternationalPhoneInput', () => {
         fireEvent.input(input, { target: { value: '+1868' } });
 
         await waitFor(() => {
-            expect(onChange).toHaveBeenCalledWith(expect.any(Object), { value: '+1868' });
+            expect(onChange).toHaveBeenCalledWith('+1868');
         });
     });
 
@@ -89,7 +89,7 @@ describe('InternationalPhoneInput', () => {
         const input = screen.getByDisplayValue('');
         fireEvent.input(input, { target: { value: '+74957888878' } });
 
-        expect(onChange).toHaveBeenCalledWith(expect.any(Object), { value: '+7 495 788 88 78' });
+        expect(onChange).toHaveBeenCalledWith('+7 495 788 88 78');
     });
 
     it('should have passed country flag icon', () => {
@@ -185,6 +185,67 @@ describe('InternationalPhoneInput', () => {
         );
     });
 
+    it('should show a blank icon if the country code is not defined after changing the input', async () => {
+        const onCountryChange = jest.fn();
+        const { container } = render(
+            <InternationalPhoneInputDesktop
+                value=''
+                onChange={() => null}
+                dataTestId={testId}
+                onCountryChange={onCountryChange}
+                defaultIso2='az'
+            />,
+        );
+        const input = screen.getByDisplayValue('');
+
+        fireEvent.input(input, { target: { value: '+000 12 345 67 89', selectionStart: 0 } });
+
+        const emptyCountryIcon = container.querySelector('.emptyCountryIcon');
+        expect(emptyCountryIcon).toBeInTheDocument();
+    });
+
+    it('should clear the value and set the default flag', async () => {
+        const onChange = jest.fn();
+        const { container } = render(
+            <InternationalPhoneInputDesktop
+                value='+7'
+                defaultIso2='az'
+                onChange={onChange}
+                clear={true}
+                clearableCountryCode={true}
+            />,
+        );
+
+        const clearButton = await screen.findByLabelText('Очистить');
+        expect(clearButton).toBeInTheDocument();
+
+        fireEvent.click(clearButton);
+
+        const flagComponent = container.querySelector('.flagIcon');
+        expect(flagComponent).toHaveAttribute('data-test-id', 'flag-icon-az');
+    });
+
+    it('should clear the value and set an empty icon', async () => {
+        const onChange = jest.fn();
+        const { container } = render(
+            <InternationalPhoneInputDesktop
+                value='+7'
+                clearableCountryCode={true}
+                onChange={onChange}
+                onCountryChange={() => undefined}
+                clear={true}
+            />,
+        );
+
+        const clearButton = await screen.findByLabelText('Очистить');
+        expect(clearButton).toBeInTheDocument();
+
+        fireEvent.click(clearButton);
+
+        const emptyCountryIcon = container.querySelector('.emptyCountryIcon');
+        expect(emptyCountryIcon).toBeInTheDocument();
+    });
+
     it('should remove country code', async () => {
         const onChange = jest.fn();
         render(<InternationalPhoneInputDesktop value='+7' onChange={onChange} />);
@@ -193,7 +254,7 @@ describe('InternationalPhoneInput', () => {
         await userEvent.type(input, '{backspace}');
 
         await waitFor(() => {
-            expect(onChange).toHaveBeenCalledWith(expect.any(Object), { value: '' });
+            expect(onChange).toHaveBeenCalledWith('');
         });
     });
 
@@ -274,7 +335,7 @@ describe('InternationalPhoneInput', () => {
         fireEvent.click(clearButton);
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith(null, { value: '' });
+            expect(onChange).toBeCalledWith('');
         });
     });
 
@@ -289,9 +350,9 @@ describe('InternationalPhoneInput', () => {
                     <InternationalPhoneInputDesktop
                         value={value}
                         onCountryChange={onCountryChange}
-                        onChange={(e, p) => {
-                            setValue(p.value);
-                            onChange(e, p);
+                        onChange={(phone) => {
+                            setValue(phone);
+                            onChange(phone);
                         }}
                     />
                     <button
@@ -311,9 +372,7 @@ describe('InternationalPhoneInput', () => {
         fireEvent.click(btn);
 
         await waitFor(async () => {
-            expect(onChange).toHaveBeenCalledWith(expect.any(Object), {
-                value: '+7 949 123 45 67',
-            });
+            expect(onChange).toHaveBeenCalledWith('+7 949 123 45 67');
             expect(onCountryChange).toHaveBeenCalledWith(
                 expect.objectContaining({
                     iso2: 'ru',
@@ -339,7 +398,7 @@ describe('InternationalPhoneInput', () => {
             await userEvent.type(input, '{backspace}');
         }
 
-        expect(onChange).toHaveBeenCalledWith(expect.any(Object), { value: '+7' });
+        expect(onChange).toHaveBeenCalledWith('+7');
     });
 
     it('should be remove chars in selection', async () => {
@@ -361,7 +420,7 @@ describe('InternationalPhoneInput', () => {
         });
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith(expect.any(Object), { value: '+7 983 123 67' });
+            expect(onChange).toBeCalledWith('+7 983 123 67');
         });
     });
 

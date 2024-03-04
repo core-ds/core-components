@@ -3,7 +3,16 @@ const { getInfo } = require('@changesets/get-github-info');
 const repo = 'core-ds/core-components';
 
 const getLinesFromSummary = (summary, prLink, showPrLink = true, isRootChangelog = false) => {
-    let returnVal = showPrLink ? `### ${prLink}\n\n` : '';
+    let returnVal = '';
+
+    if (!isRootChangelog) {
+        returnVal += `<sup><time>${new Date().toLocaleDateString('ru-RU')}</time></sup>\n\n`;
+    }
+
+    if (showPrLink) {
+        returnVal += `### ${prLink}\n\n`;
+    }
+
     if (isRootChangelog) {
         returnVal += '#### Что изменилось\n';
     }

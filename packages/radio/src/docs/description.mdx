@@ -13,7 +13,7 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Radio
-                size='m'
+                size={24}
                 onChange={handleChange}
                 checked={checked}
                 label='Вариант выбора'
@@ -34,19 +34,19 @@ render(() => {
 render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Radio size='m' label='Выбрана' checked={true} block={true} />
+            <Radio size={24} label='Выбрана' checked={true} block={true} />
             <Gap size='m' />
             <Radio
-                size='m'
+                size={24}
                 label='Выбрана и недоступна'
                 disabled={true}
                 checked={true}
                 block={true}
             />
             <Gap size='xl' />
-            <Radio size='m' label='По умолчанию' block={true} />
+            <Radio size={24} label='По умолчанию' block={true} />
             <Gap size='m' />
-            <Radio size='m' label='По умолчанию и недоступна' disabled={true} block={true} />
+            <Radio size={24} label='По умолчанию и недоступна' disabled={true} block={true} />
         </div>
     );
 });

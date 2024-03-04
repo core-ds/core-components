@@ -1,0 +1,55 @@
+## Стили текста
+
+Компоненту можно задать необходимый стиль текста.
+
+```jsx live
+<div>
+    <Text view='headline-system-small'>Headline-system-small</Text>
+    <Gap size='m' />
+    <Text view='paragraph-primary-medium'>Paragraph-primary-medium</Text>
+</div>
+```
+
+## Цвет текста и фона
+
+Тексту и фону под ним можно здать необходимый цвет.
+
+```jsx live
+<Text
+    color='var(--color-light-text-positive)'
+    textBackgroundColor='var(--color-light-status-muted-attention)'
+>
+    Пример с покраской фона
+</Text>
+```
+
+## Отсечение текста
+
+Можно настроить отсечение текста при переполнении одной, двух или трёх строк.
+
+```jsx live
+<div style={{ width: isMobile() ? 320 : 430 }}>
+    <Text rowLimit={1}>
+        Я взял со стола, как теперь помню, червонного туза и бросил кверху: дыхание у всех
+        остановилось;
+    </Text>
+</div>
+```
+
+## Выравнивание
+
+```jsx live
+<div style={{ width: isMobile() ? 320 : 200 }}>
+    <Text tag='div' align='center'>
+        По центру
+    </Text>
+    <Gap size='s' />
+    <Text tag='div' align='left'>
+        По левому краю
+    </Text>
+    <Gap size='s' />
+    <Text tag='div' align='right'>
+        По правому краю
+    </Text>
+</div>
+```

@@ -1,5 +1,59 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1092](https://github.com/core-ds/core-components/pull/1092)
+
+-   Теперь, если пользователь удаляет номер телефона с помощью кнопки "очистить" (крестика), то выбранный флаг сбрасывается на флаг страны по умолчанию (если задан defaultIso2) или на заглушку - флаг страны не выбран. Ранее, после удаления номера с помощью кнопки "очистить", оставался последний выбранный флаг
+-   Если код страны не найден и установлено свойство defaultIso2, то теперь будет отображаться заглушка - флаг страны не выбран. Раньше оставался дефолтный флаг
+
+-   Обновлены зависимости
+    -   select@17.3.1
+    -   input-autocomplete@12.0.1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1043](https://github.com/core-ds/core-components/pull/1043)
+
+-   Тип onChange коллбэка заменен на (value: string) => void
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.0.0
+    -   input@14.3.0
+    -   select@17.3.0
+
+## 1.4.0
+
+### Minor Changes
+
+### [#1083](https://github.com/core-ds/core-components/pull/1083)
+
+-   Добавлен вызов функции onClear из inputProps
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.2.1
+    -   input-autocomplete@11.4.1
+
 ## 1.3.3
 
 ### Patch Changes

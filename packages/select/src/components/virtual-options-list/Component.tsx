@@ -7,7 +7,7 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { isClient } from '@alfalab/core-components-shared';
 
-import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
+import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
@@ -17,9 +17,10 @@ import styles from './index.module.css';
 export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
         {
-            size = 's',
+            size = 48,
             flatOptions = [],
             highlightedIndex = -1,
+            optionGroupClassName,
             className,
             getOptionProps,
             Option,
@@ -151,7 +152,13 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                             transform: `translateY(${virtualRow.start}px)`,
                         }}
                     >
-                        {group && <Optgroup label={group.label} />}
+                        {group && (
+                            <Optgroup
+                                label={group.label}
+                                size={size}
+                                className={optionGroupClassName}
+                            />
+                        )}
                         {!isGroup(option) && (
                             <Option {...getOptionProps(option, virtualRow.index)} />
                         )}
@@ -201,7 +208,11 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         return (
             <div
-                className={cn(styles.virtualOptionsList, styles[size], className)}
+                className={cn(
+                    styles.virtualOptionsList,
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    className,
+                )}
                 data-test-id={dataTestId}
             >
                 {header && (

@@ -127,10 +127,10 @@ describe('Button', () => {
         });
 
         it('should set `size` class', () => {
-            const size = 'm';
+            const size = 56;
             const { container } = render(<Button size={size} />);
 
-            expect(container.firstElementChild).toHaveClass(size);
+            expect(container.firstElementChild).toHaveClass(`size-${size}`);
         });
 
         it('should set `block` class', () => {
@@ -331,7 +331,7 @@ describe('Button', () => {
         it('should show hint', () => {
             const hint = 'hint';
             render(
-                <Button size='m' hint={hint}>
+                <Button size={56} hint={hint}>
                     Button
                 </Button>,
             );
@@ -342,7 +342,7 @@ describe('Button', () => {
         it('should not show hint', () => {
             const hint = 'hint';
             render(
-                <Button size='s' hint={hint}>
+                <Button size={40} hint={hint}>
                     Button
                 </Button>,
             );

@@ -10,7 +10,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component component m m m block hasLeftAddons"
+      class="component component m size-56 size-56 block hasLeftAddons"
     >
       <div
         class="inner inner inner inner filled"

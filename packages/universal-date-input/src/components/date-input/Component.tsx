@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import isValid from 'date-fns/isValid';
 
 import type { CalendarProps } from '@alfalab/core-components-calendar';
 import { Input } from '@alfalab/core-components-input';
@@ -27,6 +28,14 @@ import {
 
 import styles from '../../index.module.css';
 
+function getDefaultValue(defaultValue?: Date | number, withTime?: boolean) {
+    if (defaultValue && isValid(new Date(defaultValue))) {
+        return formatDate(defaultValue, withTime ? DATE_TIME_FORMAT : DATE_FORMAT);
+    }
+
+    return '';
+}
+
 export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
     (
         {
@@ -43,7 +52,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             calendarProps = {},
             platform,
             calendarRef,
-            onComplete,
+            onInputChange,
             onChange,
             onBlur,
             onCalendarClose,
@@ -56,18 +65,18 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             block,
             withTime,
             breakpoint,
+            clear,
+            onClear,
             ...restProps
         },
         ref,
     ) => {
-        const [value, setValue] = useState(defaultValue);
+        const [inputValue, setInputValue] = useState(() => getDefaultValue(defaultValue, withTime));
 
         const lastValidDate = useRef<string>('');
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
-        const uncontrolled = valueProp === undefined;
         const { offDays } = calendarProps;
-        const inputValue = valueProp ?? value ?? '';
         const [inputDate, inputTime] = inputValue.split(DATE_TIME_SEPARATOR);
         const isValidValue = isValidDate({ value: inputDate, minDate, maxDate, offDays });
 
@@ -83,6 +92,16 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             }
         }, [autoCorrection, minDate, withTime, isValidValue, inputValue]);
 
+        useEffect(() => {
+            if (valueProp !== undefined) {
+                setInputValue(
+                    valueProp && isValid(valueProp)
+                        ? formatDate(valueProp, withTime ? DATE_TIME_FORMAT : DATE_FORMAT)
+                        : '',
+                );
+            }
+        }, [valueProp, withTime]);
+
         const getInnerError = () => {
             if (autoCorrection) {
                 const isComplete = isCompleteDate(inputDate) && isCompleteTime(inputTime, withTime);
@@ -93,27 +112,33 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             return false;
         };
 
-        const callOnComplete = (val: string) => {
-            onComplete?.(val, parseDateString(val, withTime ? DATE_TIME_FORMAT : DATE_FORMAT));
+        const callOnChange = (val: string) => {
+            onChange?.(
+                val ? parseDateString(val, withTime ? DATE_TIME_FORMAT : DATE_FORMAT) : null,
+                val,
+            );
             lastValidDate.current = val;
         };
 
-        const changeValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
-            onChange?.(event, { value: val });
+        const changeInputValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
+            onInputChange?.(event, { value: val });
 
             const [date, time = ''] = val.split(DATE_TIME_SEPARATOR);
 
-            if (uncontrolled) setValue(val);
-            if (isCompleteDate(date) && isCompleteTime(time, withTime)) callOnComplete(val);
+            setInputValue(val);
+
+            if (val === '' || (isCompleteDate(date) && isCompleteTime(time, withTime))) {
+                callOnChange(val);
+            }
         };
 
-        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-            changeValue(event.target.value, event);
+        const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+            changeInputValue(event.target.value, event);
         };
 
         const handleCalendarChange: CalendarProps['onChange'] = (date?: number) => {
             if (date) {
-                changeValue(formatDate(date, withTime ? DATE_TIME_FORMAT : DATE_FORMAT), null);
+                changeInputValue(formatDate(date, withTime ? DATE_TIME_FORMAT : DATE_FORMAT), null);
                 requestAnimationFrame(() => {
                     const dateLen = DATE_FORMAT.length;
                     const newCaretPos = withTime ? dateLen + DATE_TIME_SEPARATOR.length : dateLen;
@@ -132,13 +157,18 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                 if (dateFilled && !isCompleteTime(inputTime, withTime)) {
                     const [, prevTime] = lastValidDate.current.split(DATE_TIME_SEPARATOR);
 
-                    changeValue(`${inputDate}${DATE_TIME_SEPARATOR}${prevTime}`, null);
+                    changeInputValue(`${inputDate}${DATE_TIME_SEPARATOR}${prevTime}`, null);
                 }
 
                 if (inputValue && !dateFilled) {
-                    changeValue(lastValidDate.current, null);
+                    changeInputValue(lastValidDate.current, null);
                 }
             }
+        };
+
+        const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
+            changeInputValue('', null);
+            onClear?.(event);
         };
 
         const renderCalendar = () => {
@@ -177,13 +207,17 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             >
                 <Input
                     {...restProps}
+                    clear={
+                        clear && isCompleteDate(inputDate) && isCompleteTime(inputTime, withTime)
+                    }
+                    onClear={valueProp === undefined ? handleClear : onClear}
                     breakpoint={breakpoint}
                     dataTestId={dataTestId}
                     wrapperRef={mergeRefs([inputWrapperRef, inputWrapperRefProp])}
                     ref={mergeRefs([ref, inputRef])}
                     value={inputValue}
                     inputMode='decimal'
-                    onInput={handleChange}
+                    onInput={handleInputChange}
                     onBlur={handleBlur}
                     error={error || getInnerError()}
                     block={true}

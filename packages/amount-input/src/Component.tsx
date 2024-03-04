@@ -90,6 +90,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
             valueString: string;
         },
     ) => void;
+
+    /**
+     * Делает минорную часть полупрозрачной
+     */
+    transparentMinor?: boolean;
 };
 
 /**
@@ -126,6 +131,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onBlur,
             breakpoint = 1024,
             onKeyDown,
+            transparentMinor = true,
             ...restProps
         },
         ref,
@@ -286,7 +292,11 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         <Fragment>
                             {majorPart}
 
-                            <span className={colorStyles[colors].minorPartAndCurrency}>
+                            <span
+                                className={cn({
+                                    [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
+                                })}
+                            >
                                 {minorPart !== undefined && `,${minorPart}`}
                                 {THINSP}
                                 {suffix === currency ? currencyCode : suffix}

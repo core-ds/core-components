@@ -16,6 +16,10 @@ export function parseDateString(value: string, format: string = DATE_FORMAT) {
 export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
     dateFnsFormat(date, dateFormat);
 
+export function formatDateRange(range: { dateFrom: Date | number; dateTo: Date | number }) {
+    return formatDate(range.dateFrom) + DATE_RANGE_SEPARATOR + formatDate(range.dateTo);
+}
+
 export function isCompleteDate(value = '') {
     return value.length === DATE_FORMAT.length;
 }
@@ -42,10 +46,11 @@ export function isValidDate({
     offDays?: Array<Date | number>;
 }) {
     const parsed = isCompleteDate(value) ? parseDateString(value).getTime() : undefined;
+    const minDateStartOfDay = new Date(minDate).setUTCHours(0, 0, 0, 0);
 
     if (parsed) {
         return (
-            parsed >= minDate &&
+            parsed >= minDateStartOfDay &&
             parsed <= maxDate &&
             !offDays?.some((offDay) => isSameDay(offDay, parsed))
         );

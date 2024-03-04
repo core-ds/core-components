@@ -1,5 +1,37 @@
 # Change Log
 
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1116](https://github.com/core-ds/core-components/pull/1116)
+
+-   Добавлено новое свойство transparentMinor, теперь есть возможность отключить полупрозрачность минорной части
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.0
+    -   with-suffix@4.1.20
+
 ## 7.6.3
 
 ### Patch Changes

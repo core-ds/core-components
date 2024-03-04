@@ -1,5 +1,12 @@
 # @alfalab/core-components-generic-wrapper
 
+## 1.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   gap@1.3.0
+
 ## 1.1.0
 
 ### Minor Changes

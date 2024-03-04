@@ -38,7 +38,7 @@ render(() => {
                     label='Элементы'
                     labelView='outer'
                     placeholder='Выберите элементы'
-                    size={isMobile() ? 's' : 'm'}
+                    size={isMobile() ? 48 : 56}
                     block={true}
                     value={value}
                     options={options}
@@ -115,7 +115,7 @@ render(() => {
                     label='Элементы'
                     labelView='outer'
                     placeholder='Выберите элементы'
-                    size={isMobile() ? 's' : 'm'}
+                    size={isMobile() ? 48 : 56}
                     block={true}
                     value={value}
                     options={options}
@@ -128,19 +128,19 @@ render(() => {
             <Gap size='xl' />
 
             <Space direction='horizontal' wrap={true} size={12}>
-                <Button onClick={() => setAdditionalState(undefined)} size='xxs' view='secondary'>
+                <Button onClick={() => setAdditionalState(undefined)} size={32} view='secondary'>
                     По умолчанию
                 </Button>
                 <Button
                     onClick={() => setAdditionalState({ disabled: true })}
-                    size='xxs'
+                    size={32}
                     view='secondary'
                 >
                     Заблокирован
                 </Button>
                 <Button
                     onClick={() => setAdditionalState({ error: 'Error message' })}
-                    size='xxs'
+                    size={32}
                     view='secondary'
                 >
                     Ошибка

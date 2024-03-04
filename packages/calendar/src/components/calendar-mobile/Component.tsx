@@ -10,6 +10,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
@@ -220,6 +221,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             onClose,
             title = 'Календарь',
             yearsAmount = 3,
+            onApply,
             ...restProps
         },
         ref,
@@ -229,6 +231,11 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
         const handleClose = () => {
             if (onClose) onClose();
+        };
+
+        const handleApply = () => {
+            onApply?.();
+            handleClose?.();
         };
 
         const handleClear = () => {
@@ -280,15 +287,22 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
                 return (
                     <React.Fragment>
-                        <ButtonMobile view='secondary' size='m' block={true} onClick={handleClear}>
+                        <ButtonMobile
+                            view='secondary'
+                            size='m'
+                            block={true}
+                            onClick={handleClear}
+                            dataTestId={getDataTestId(dataTestId, 'btn-reset')}
+                        >
                             Сбросить
                         </ButtonMobile>
                         <ButtonMobile
                             view='primary'
                             size='m'
                             block={true}
-                            onClick={handleClose}
+                            onClick={handleApply}
                             disabled={selectButtonDisabled}
+                            dataTestId={getDataTestId(dataTestId, 'btn-apply')}
                         >
                             Выбрать
                         </ButtonMobile>
@@ -298,14 +312,26 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
             if (value) {
                 return (
-                    <ButtonMobile view='primary' size='m' block={true} onClick={handleClose}>
+                    <ButtonMobile
+                        view='primary'
+                        size='m'
+                        block={true}
+                        onClick={handleApply}
+                        dataTestId={getDataTestId(dataTestId, 'btn-apply')}
+                    >
                         Выбрать
                     </ButtonMobile>
                 );
             }
 
             return (
-                <ButtonMobile view='secondary' size='m' block={true} onClick={handleClose}>
+                <ButtonMobile
+                    view='secondary'
+                    size='m'
+                    block={true}
+                    onClick={handleClose}
+                    dataTestId={getDataTestId(dataTestId, 'btn-reset')}
+                >
                     Отмена
                 </ButtonMobile>
             );
@@ -326,6 +352,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     transitionClassNames: backdropTransitionStyles,
                     timeout: 360,
                 }}
+                dataTestId={dataTestId}
             >
                 {hasHeader && (
                     <ModalMobile.Header

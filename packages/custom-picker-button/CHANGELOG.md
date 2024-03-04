@@ -1,5 +1,38 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+    -   picker-button@11.6.1
+
+## 2.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 32, 40, 48, 56, 64, 72. Буквенные значения размеров xxs, xs, s, m, l, xl теперь deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.0
+    -   custom-button@3.5.0
+    -   picker-button@11.6.0
+
+## 2.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.2.1
+    -   picker-button@11.5.4
+
 ## 2.1.10
 
 ### Patch Changes

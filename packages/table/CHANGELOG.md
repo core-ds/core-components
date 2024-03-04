@@ -1,5 +1,28 @@
 # Change Log
 
+## 2.4.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+
+## 2.4.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.0
+    -   button@11.3.0
+    -   pagination@2.3.2
+
+## 2.4.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.2.1
+
 ## 2.4.14
 
 ### Patch Changes

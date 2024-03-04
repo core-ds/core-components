@@ -21,18 +21,18 @@
     }
 }
 
-.s {
+.size-500 {
     width: var(--modal-s-width);
 }
 
-.m {
+.size-600 {
     width: var(--modal-m-width);
 }
 
-.l {
+.size-800 {
     width: var(--modal-l-width);
 }
 
-.xl {
+.size-1140 {
     width: var(--modal-xl-width);
 }

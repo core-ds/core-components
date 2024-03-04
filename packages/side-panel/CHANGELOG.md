@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1033](https://github.com/core-ds/core-components/pull/1033)
+
+-   Добавлен новый способ указать размер - 500. Буквенное значение размера s теперь deprecated, используйте вместо него 500
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.4
+
+## 5.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.3
+
 ## 5.1.1
 
 ### Patch Changes

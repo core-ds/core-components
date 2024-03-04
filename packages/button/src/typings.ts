@@ -54,9 +54,10 @@ export type ComponentProps = {
 
     /**
      * Размер компонента
-     * @default m
+     * @default 56
+     * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера

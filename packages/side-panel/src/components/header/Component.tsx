@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
@@ -23,7 +24,7 @@ export const Header: FC<HeaderProps> = ({
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
-    const { size = 's', view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
+    const { size = 500, view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
 
     useEffect(() => {
         setHasHeader(true);
@@ -46,7 +47,7 @@ export const Header: FC<HeaderProps> = ({
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
-                [desktopStyles[size]]: view === 'desktop',
+                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
                 [mobileStyles.header]: view === 'mobile',
             })}

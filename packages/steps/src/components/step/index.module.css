@@ -65,6 +65,14 @@
     border-top: 2px solid var(--color-light-neutral-translucent-300);
     margin-right: var(--gap-xs);
 
+    &.size-16 {
+        min-width: 16px;
+    }
+
+    &.size-8 {
+        min-width: 8px;
+    }
+
     &.completed {
         border-top: var(--steps-dash-border);
     }
@@ -76,6 +84,14 @@
         margin-top: var(--gap-xs);
         border-left: 2px solid var(--color-light-neutral-translucent-300);
         border-top: none;
+
+        &.size-16 {
+            min-height: 16px;
+        }
+
+        &.size-8 {
+            min-height: 8px;
+        }
     }
 
     &.completed.vertical {
@@ -151,4 +167,8 @@
 .completedIndicator > [class*='positive'] {
     color: var(--steps-option-svg-color);
     background-color: var(--steps-option-svg-color);
+}
+
+.fullWidth {
+    width: 100%;
 }

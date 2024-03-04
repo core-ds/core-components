@@ -56,7 +56,7 @@ const renderComponent = (Component = SelectWithTags) => {
                 moveInputToNewLine={boolean('moveInputToNewLine', true)}
                 options={options}
                 block={boolean('block', true)}
-                size={select('size', ['s', 'm', 'l', 'xl'], 'xl')}
+                size={select('size', [48, 56, 64, 72], 72)}
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
                 hint={text('hint', '')}

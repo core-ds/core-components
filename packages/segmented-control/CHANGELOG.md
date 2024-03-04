@@ -1,5 +1,15 @@
 # @alfalab/core-components-segmented-control
 
+## 1.4.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1028](https://github.com/core-ds/core-components/pull/1028)
+
+-   Добавлены новые способы указать размеры - 32 и 40. Буквенные значения размеров xs и xxs теперь deprecated, используйте вместо них 32 и 40 соответственно
+
 ## 1.3.0
 
 ### Minor Changes

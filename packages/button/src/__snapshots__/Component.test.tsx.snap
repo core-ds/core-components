@@ -6,14 +6,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m hug m component secondary component secondary iconOnly"
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary m hug m component secondary component secondary iconOnly"
+      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
       type="button"
     />
   </div>,
@@ -77,14 +77,14 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component secondary m hug m component secondary component secondary iconOnly"
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
         href="https://some-url"
       />
     </div>
   </body>,
   "container": <div>
     <a
-      class="component secondary m hug m component secondary component secondary iconOnly"
+      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
       href="https://some-url"
     />
   </div>,
@@ -148,14 +148,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m hug m component secondary component secondary iconOnly"
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary m hug m component secondary component secondary iconOnly"
+      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
       type="button"
     />
   </div>,
@@ -219,7 +219,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m hug m component secondary component secondary iconOnly"
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
         type="button"
       >
         <span
@@ -234,7 +234,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component secondary m hug m component secondary component secondary iconOnly"
+      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
       type="button"
     >
       <span
@@ -306,12 +306,12 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component secondary m hug m component secondary component secondary iconOnly loading"
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
         disabled=""
         href="https://some-url"
       >
         <svg
-          class="spinner component s loader loader loader visible"
+          class="spinner component size-24 loader loader loader visible"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -371,12 +371,12 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="component secondary m hug m component secondary component secondary iconOnly loading"
+      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
       disabled=""
       href="https://some-url"
     >
       <svg
-        class="spinner component s loader loader loader visible"
+        class="spinner component size-24 loader loader loader visible"
         fill="none"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -493,12 +493,12 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m hug m component secondary component secondary iconOnly loading"
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
         disabled=""
         type="button"
       >
         <svg
-          class="spinner component s loader loader loader visible"
+          class="spinner component size-24 loader loader loader visible"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -558,12 +558,12 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component secondary m hug m component secondary component secondary iconOnly loading"
+      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
       disabled=""
       type="button"
     >
       <svg
-        class="spinner component s loader loader loader visible"
+        class="spinner component size-24 loader loader loader visible"
         fill="none"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -680,7 +680,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m hug m component secondary component secondary iconOnly"
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
         type="button"
       >
         <span
@@ -695,7 +695,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component secondary m hug m component secondary component secondary iconOnly"
+      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
       type="button"
     >
       <span

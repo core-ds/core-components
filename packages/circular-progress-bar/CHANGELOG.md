@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.5.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1025](https://github.com/core-ds/core-components/pull/1025)
+
+-   Добавлены новые способы указать размеры - 24, 48, 64, 80, 128, 144. Буквенные значения размеров xs, s, m, l, xl, xxl теперь deprecated, используйте вместо них 24, 48, 64, 80, 128, 144 соответственно
+
 ## 3.4.3
 
 ### Patch Changes

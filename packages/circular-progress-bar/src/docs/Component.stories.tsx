@@ -51,10 +51,10 @@ export const circular_progress_bar: Story = {
                     fillComplete={boolean('fillComplete', false)}
                     completeTextColor={completeTextColor}
                     height={number('height', 0)}
-                    size={select('size', ['xs', 's', 'm', 'l', 'xl', 'xxl'], 'l')}
+                    size={select('size', [24, 48, 64, 80, 128, 144], 80)}
                 />
                 <p>Без атрибута title значение для title берётся из value</p>
-                <CircularProgressBar value={value} view={view} subtitle={subtitle} size='l' />
+                <CircularProgressBar value={value} view={view} subtitle={subtitle} size={80} />
                 <p>
                     Если есть children, то они подставляются в центр, а title и subtitle
                     игнорируются
@@ -64,7 +64,7 @@ export const circular_progress_bar: Story = {
                     view={view}
                     title={title}
                     subtitle={subtitle}
-                    size='l'
+                    size={80}
                 >
                     <p>Hello</p>
                 </CircularProgressBar>

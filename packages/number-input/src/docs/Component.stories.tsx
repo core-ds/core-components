@@ -34,7 +34,7 @@ export const number_input: Story = {
             >
                 {stepper ? (
                     <NumberInput
-                        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                        size={select('size', [48, 56, 64, 72], 48)}
                         colors={colors}
                         disabled={boolean('disabled', false)}
                         step={number('step', 1)}
@@ -47,7 +47,7 @@ export const number_input: Story = {
                         fractionLength={number('fractionLength', 2)}
                         block={boolean('block', false)}
                         clear={boolean('clear', false)}
-                        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                        size={select('size', [48, 56, 64, 72], 48)}
                         colors={colors}
                         disabled={boolean('disabled', false)}
                         placeholder={text('placeholder', '')}

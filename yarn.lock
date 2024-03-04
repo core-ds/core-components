@@ -57,10 +57,10 @@
     tslib "^2.4.0"
     ui-primitives "^13.19.0"
 
-"@alfalab/data@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.6.0.tgz#2f331f92f27ecf7ca7dbfc00f94c6954e06ad83e"
-  integrity sha512-zFj1Ch2JjrPaafPEYd90mnoF+wN+GukTRkJJtW6IyksqdqAILOlcH1WvTyhVYweg2awGtgDZ9DzYLzjpHl7RJQ==
+"@alfalab/data@^1.6.0", "@alfalab/data@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.7.0.tgz#87e1525d2b653b9312d5b008df62b13193d1dc0c"
+  integrity sha512-aw1zL8TktUn3wCLcHVns2ndHypmMqINmqAc6E2nL90FFnh4ieWzw9gRRfUesNmbFNTRnkdp9VpI0ASS7l4kyEQ==
 
 "@alfalab/hooks@^1.13.0":
   version "1.13.0"
@@ -106,12 +106,12 @@
   resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.5.0.tgz#2eb559978a9835a80afb1bf7d8ba36c7b12b6a49"
   integrity sha512-3gYD2jZa0Vv/FvoiLVRec/U5JMBpg2AUrIipyUne7ymlnOH9ETM3ecZVPTWAh3K3kPoPFSvVV8vSrKkG/qEliw==
 
-"@alfalab/utils@^1.13.2", "@alfalab/utils@^1.14.4":
-  version "1.14.4"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.14.4.tgz#afdba1e9486265a1302af981be3a35a3c3bb02f2"
-  integrity sha512-4+//NknkPUPlGveXSKLdf3Q1vR3VT30QZiG+eYbQYMPNv4GR9B3rM5ymljZF+I9EptQqE0I78Xv7ZGakBjEy6Q==
+"@alfalab/utils@^1.13.2", "@alfalab/utils@^1.14.4", "@alfalab/utils@^1.15.1":
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.15.1.tgz#251dbdee08bf3f405ac6735edfe9e7fd023822f7"
+  integrity sha512-uGNu5WtidH8WGmGTofJlNuxCIvMSWAt+AEf+yO5Mk6Hbo8LzIMg6CCmrYH+jwnvQY7GcoIv3BC4hhhqFHuS+HQ==
   dependencies:
-    "@alfalab/data" "^1.6.0"
+    "@alfalab/data" "^1.7.0"
     lodash "4.17.21"
 
 "@alloc/quick-lru@^5.2.0":
@@ -9497,10 +9497,10 @@ dotgitignore@^2.1.0:
     find-up "^3.0.0"
     minimatch "^3.0.4"
 
-downshift@^8.2.2:
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-8.2.2.tgz#bc4bf0024ad9b70bf2c493b58cca9c652fb1d555"
-  integrity sha512-UmJHlNTzmFN3i427Hh9f1OXMnkhgSB/J+urC9ywabvwuftm0nB0/Utsb89OtDq+2UqyScQV4Ro7EM2PEV80N5w==
+downshift@^8.2.2, downshift@^8.3.1:
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-8.3.1.tgz#a820e3a500f0f2a0784a55bac48ffaa7e11141b5"
+  integrity sha512-djPzjGfTSEjOsfmlur4onCV3Mtd6oGI+eOQIBNwoS7oEYTjPrxk6n+sJLmndT/KKwHvUyBSh3AFb64eHIFifTQ==
   dependencies:
     "@babel/runtime" "^7.22.15"
     compute-scroll-into-view "^3.0.3"

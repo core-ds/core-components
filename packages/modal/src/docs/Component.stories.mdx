@@ -84,7 +84,7 @@ export const ModalComponent = ModalDesktop;
         const props =
             ModalComponent !== ModalMobile
                 ? {
-                      size: select('size', ['s', 'm', 'l', 'xl', 'fullscreen'], 's'),
+                      size: select('size', [500, 600, 800, 1140, 'fullscreen'], 500),
                   }
                 : {};
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));

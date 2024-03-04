@@ -14,7 +14,7 @@ render(() => {
     return (
         <div style={{ width: 360 }}>
         <Space fullWidth size={24}>
-            <SegmentedControl size='xs' onChange={(id) => handleChange('1', id)} selectedId={selectedId["1"]}>
+            <SegmentedControl size={40} onChange={(id) => handleChange('1', id)} selectedId={selectedId["1"]}>
                 <Segment id={1} title='Таб 1' />
                 <Segment id={2} title='Таб 2' />
             </SegmentedControl>
@@ -22,7 +22,7 @@ render(() => {
                 <Segment id={1} title='Таб 1' />
                 <Segment id={2} title='Таб 2' />
             </SegmentedControl>
-            <SegmentedControl size='xs' shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId["3"]}>
+            <SegmentedControl size={40} shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId["3"]}>
                 <Segment id={1} title='Таб 1' />
                 <Segment id={2} title='Таб 2' />
             </SegmentedControl>
@@ -45,7 +45,7 @@ render(() => {
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
         <Space fullWidth size={24}>
-            <SegmentedControl size='xs' onChange={(id) => handleChange('1', id)} selectedId={selectedId["1"]}>
+            <SegmentedControl size={40} onChange={(id) => handleChange('1', id)} selectedId={selectedId["1"]}>
                 <Segment id={1} title='Таб 1' />
                 <Segment id={2} title='Таб 2' />
             </SegmentedControl>
@@ -53,7 +53,7 @@ render(() => {
                 <Segment id={1} title='Таб 1' />
                 <Segment id={2} title='Таб 2' />
             </SegmentedControl>
-            <SegmentedControl size='xs' shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId["3"]}>
+            <SegmentedControl size={40} shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId["3"]}>
                 <Segment id={1} title='Таб 1' />
                 <Segment id={2} title='Таб 2' />
             </SegmentedControl>

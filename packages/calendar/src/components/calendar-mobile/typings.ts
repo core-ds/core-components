@@ -58,5 +58,10 @@ export type CalendarMobileProps = {
      * Нужно ли рендерить шапку
      */
     hasHeader?: boolean;
+
+    /**
+     * Обработчик клика на кнопку выбрать
+     */
+    onApply?: () => void;
 } & CalendarContentProps &
     Pick<CalendarDesktopProps, OmittedCalendarContentProps>;

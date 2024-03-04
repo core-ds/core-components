@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -24,7 +24,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"
@@ -99,7 +99,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s hasRightAddons"
+        class="component component size-48 size-48 hasRightAddons"
       >
         <div
           class="inner inner inner inner hasError"
@@ -123,7 +123,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s hasRightAddons"
+      class="component component size-48 size-48 hasRightAddons"
     >
       <div
         class="inner inner inner inner hasError"
@@ -204,7 +204,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -225,7 +225,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"
@@ -303,7 +303,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s hasRightAddons"
+        class="component component size-48 size-48 hasRightAddons"
       >
         <div
           class="inner inner inner inner hasError"
@@ -327,7 +327,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s hasRightAddons"
+      class="component component size-48 size-48 hasRightAddons"
     >
       <div
         class="inner inner inner inner hasError"
@@ -408,7 +408,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -431,7 +431,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"
@@ -511,7 +511,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner hasInnerLabel"
@@ -548,7 +548,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner hasInnerLabel"
@@ -642,7 +642,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s hasLeftAddons"
+        class="component component size-48 size-48 hasLeftAddons"
       >
         <div
           class="inner inner inner inner"
@@ -667,7 +667,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s hasLeftAddons"
+      class="component component size-48 size-48 hasLeftAddons"
     >
       <div
         class="inner inner inner inner"
@@ -749,7 +749,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s"
+        class="component component size-48 size-48"
       >
         <span
           class="above above label"
@@ -774,7 +774,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s"
+      class="component component size-48 size-48"
     >
       <span
         class="above above label"
@@ -856,7 +856,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s s hasRightAddons"
+        class="component component size-48 size-48 hasRightAddons"
       >
         <div
           class="inner inner inner inner"
@@ -881,7 +881,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s s hasRightAddons"
+      class="component component size-48 size-48 hasRightAddons"
     >
       <div
         class="inner inner inner inner"

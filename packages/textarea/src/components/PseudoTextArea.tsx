@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../consts';
 import { TextareaIncomeProps } from '../typings';
 
 import styles from '../index.module.css';
@@ -21,9 +22,13 @@ type PseudoTextAreaProps = {
 } & Pick<TextareaIncomeProps, 'size'>;
 
 export const PseudoTextArea = forwardRef<HTMLDivElement, PseudoTextAreaProps>(
-    ({ size = 's', pseudoTextareaClassName, maxLength, value }, ref) => (
+    ({ size = 48, pseudoTextareaClassName, maxLength, value }, ref) => (
         <div
-            className={cn(styles.pseudoTextarea, styles[size], pseudoTextareaClassName)}
+            className={cn(
+                styles.pseudoTextarea,
+                styles[SIZE_TO_CLASSNAME_MAP[size]],
+                pseudoTextareaClassName,
+            )}
             ref={ref}
             hidden={true}
         >

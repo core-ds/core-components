@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.6.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1029](https://github.com/core-ds/core-components/pull/1029)
+
+-   Добавлены новые способы указать размеры - 4 и 2. Буквенные значения размеров m и s теперь deprecated, используйте вместо них 4 и 2 соответственно
+
 ## 4.5.0
 
 ### Minor Changes

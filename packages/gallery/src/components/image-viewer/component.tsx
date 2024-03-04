@@ -133,7 +133,7 @@ export const ImageViewer: FC = () => {
         [swiper, fullScreen, initialSlide, handleSlideChange, setSwiper],
     );
 
-    const showControls = !singleSlide && !fullScreen;
+    const showControls = !singleSlide && !fullScreen && !!images.length;
 
     const swiperWidth = swiper?.width || 1;
     const swiperHeight = swiper?.height || swiper?.width || 1;

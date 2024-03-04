@@ -39,7 +39,6 @@ export const radio_group: Story = {
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
-        const size = select('Radio.size', ['s', 'm'], 's');
         const type = select('type', ['radio', 'tag'], 'radio');
         const wrapperStyles = getQueryParam('wrapperStyles');
         return (
@@ -58,12 +57,16 @@ export const radio_group: Story = {
                         type === 'radio' ? (
                             <Radio
                                 key={`${index}-check`}
-                                size={size}
+                                size={select('Radio.size', [20, 24], 20)}
                                 label={`Значение ${order[index][0]}`}
                                 value={order[index][1]}
                             />
                         ) : (
-                            <Tag key={`${index}-tag`} size={size} value={order[index][1]}>
+                            <Tag
+                                key={`${index}-tag`}
+                                size={select('Tag.size', ['s', 'm'], 's')}
+                                value={order[index][1]}
+                            >
                                 {`${order[index][0]} вариант`}
                             </Tag>
                         ),
@@ -91,7 +94,6 @@ export const radio_group_mobile: Story = {
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
-        const size = select('Radio.size', ['s', 'm'], 's');
         const type = select('type', ['radio', 'tag'], 'radio');
         const wrapperStyles = getQueryParam('wrapperStyles');
         return (
@@ -110,12 +112,16 @@ export const radio_group_mobile: Story = {
                         type === 'radio' ? (
                             <Radio
                                 key={`${index}-check`}
-                                size={size}
+                                size={select('Radio.size', [20, 24], 20)}
                                 label={`Значение ${order[index][0]}`}
                                 value={order[index][1]}
                             />
                         ) : (
-                            <Tag key={`${index}-tag`} size={size} value={order[index][1]}>
+                            <Tag
+                                key={`${index}-tag`}
+                                size={select('Tag.size', ['s', 'm'], 's')}
+                                value={order[index][1]}
+                            >
                                 {`${order[index][0]} вариант`}
                             </Tag>
                         ),
@@ -143,7 +149,6 @@ export const radio_group_desktop: Story = {
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
-        const size = select('Radio.size', ['s', 'm'], 's');
         const type = select('type', ['radio', 'tag'], 'radio');
         const wrapperStyles = getQueryParam('wrapperStyles');
         return (
@@ -162,12 +167,16 @@ export const radio_group_desktop: Story = {
                         type === 'radio' ? (
                             <Radio
                                 key={`${index}-check`}
-                                size={size}
+                                size={select('Radio.size', [20, 24], 20)}
                                 label={`Значение ${order[index][0]}`}
                                 value={order[index][1]}
                             />
                         ) : (
-                            <Tag key={`${index}-tag`} size={size} value={order[index][1]}>
+                            <Tag
+                                key={`${index}-tag`}
+                                size={select('Tag.size', ['s', 'm'], 's')}
+                                value={order[index][1]}
+                            >
                                 {`${order[index][0]} вариант`}
                             </Tag>
                         ),

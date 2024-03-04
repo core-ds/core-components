@@ -1,15 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, boolean } from '@storybook/addon-knobs';
-import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph/CheckmarkOnCircleMIcon';
-import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 import { Plate } from '@alfalab/core-components-plate';
 import { PlateMobile } from '@alfalab/core-components-plate/mobile';
 import { PlateDesktop } from '@alfalab/core-components-plate/desktop';
 
 import { Button } from '@alfalab/core-components-button';
-import { Badge } from '@alfalab/core-components-badge';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
 
 import {
     stylesStringToObj,
@@ -29,24 +27,16 @@ export const plate: Story = {
     render: () => {
         const VIEWS_MAP = {
             common: {
-                addon: (
-                    <Badge view='icon' iconColor='secondary' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='neutral-information' />,
             },
             negative: {
-                addon: (
-                    <Badge view='icon' iconColor='negative' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='negative-alert' />,
             },
             positive: {
-                addon: (
-                    <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='positive-checkmark' />,
             },
             attention: {
-                addon: (
-                    <Badge view='icon' iconColor='attention' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='attention-alert' />,
             },
             custom: { addon: <DiamondsMIcon fill='#CF70FF' /> },
         };
@@ -109,24 +99,16 @@ export const plate_mobile: Story = {
     render: () => {
         const VIEWS_MAP = {
             common: {
-                addon: (
-                    <Badge view='icon' iconColor='secondary' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='neutral-information' />,
             },
             negative: {
-                addon: (
-                    <Badge view='icon' iconColor='negative' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='negative-alert' />,
             },
             positive: {
-                addon: (
-                    <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='positive-checkmark' />,
             },
             attention: {
-                addon: (
-                    <Badge view='icon' iconColor='attention' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='attention-alert' />,
             },
             custom: { addon: <DiamondsMIcon fill='#CF70FF' /> },
         };
@@ -188,24 +170,16 @@ export const plate_desktop: Story = {
     render: () => {
         const VIEWS_MAP = {
             common: {
-                addon: (
-                    <Badge view='icon' iconColor='secondary' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='neutral-information' />,
             },
             negative: {
-                addon: (
-                    <Badge view='icon' iconColor='negative' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='negative-alert' />,
             },
             positive: {
-                addon: (
-                    <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='positive-checkmark' />,
             },
             attention: {
-                addon: (
-                    <Badge view='icon' iconColor='attention' content={<ExclamationCircleMIcon />} />
-                ),
+                addon: <StatusBadge view='attention-alert' />,
             },
             custom: { addon: <DiamondsMIcon fill='#CF70FF' /> },
         };

@@ -48,7 +48,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
             Arrow = DefaultArrow,
             value,
             selected: selectedProp,
-            size = 'xl',
+            size = 72,
             onOpen,
             onInput,
             onChange,

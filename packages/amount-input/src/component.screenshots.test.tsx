@@ -19,7 +19,7 @@ describe('AmountInput ', () =>
             knobs: {
                 label: 'Сумма',
                 value: 123400,
-                size: 'm',
+                size: 56,
                 bold: false,
                 block: true,
             },

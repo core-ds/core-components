@@ -1,5 +1,32 @@
 # Change Log
 
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1111](https://github.com/core-ds/core-components/pull/1111)
+
+-   Добавлен новый пропс onApply, отвечающий за обработку клика по кнопке "Выбрать"
+-   Добавлена возможность передавать dataTestId в компонент ModalMobile и его слоты (для CalendarMobile), а также в кнопки подтверждения и сброса
+
+## 7.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.2.0
+    -   button@11.3.0
+    -   icon-button@6.5.3
+
+## 7.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.1.2
+
 ## 7.3.2
 
 ### Patch Changes

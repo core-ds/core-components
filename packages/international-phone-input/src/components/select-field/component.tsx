@@ -15,7 +15,22 @@ export const EMPTY_COUNTRY_SELECT_FIELD = {
     key: 'EMPTY_COUNTRY_SELECT_KEY',
 };
 
-export const SelectField: FC<FieldProps> = ({
+type SelectFieldProps = FieldProps & {
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
+};
+
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
+export const SelectField: FC<SelectFieldProps> = ({
     selected,
     Arrow,
     size,
@@ -31,7 +46,7 @@ export const SelectField: FC<FieldProps> = ({
     return (
         <div
             ref={ref}
-            className={cn(styles.component, size && styles[size], {
+            className={cn(styles.component, size && styles[SIZE_TO_CLASSNAME_MAP[size]], {
                 [styles.focusVisible]: focusVisible,
                 [styles.disabled]: disabled,
             })}

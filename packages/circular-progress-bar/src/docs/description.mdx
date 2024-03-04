@@ -1,16 +1,16 @@
 ## Примеры
 
-Доступны XXL, XL, L, M, S, XS и произвольный размеры компонента.
+Доступны 144, 128, 80, 64, 48, 24 и произвольный размер компонента.
 
 ```jsx live mobileHeight={652}
 <Container align={isMobile() ? 'center' : 'left'}>
     <Space direction={isMobile() ? 'vertical' : 'horizontal'} align='center' size={24}>
-        <CircularProgressBar value={25} size='xxl' contentColor='primary' />
-        <CircularProgressBar value={25} size='xl' contentColor='primary' />
-        <CircularProgressBar value={25} size='l' contentColor='primary' />
-        <CircularProgressBar value={25} size='m' contentColor='primary' />
-        <CircularProgressBar value={25} size='s' contentColor='primary' />
-        <CircularProgressBar value={25} size='xs' contentColor='primary' />
+        <CircularProgressBar value={25} size={144} contentColor='primary' />
+        <CircularProgressBar value={25} size={128} contentColor='primary' />
+        <CircularProgressBar value={25} size={80} contentColor='primary' />
+        <CircularProgressBar value={25} size={64} contentColor='primary' />
+        <CircularProgressBar value={25} size={48} contentColor='primary' />
+        <CircularProgressBar value={25} size={24} contentColor='primary' />
     </Space>
 </Container>
 ```
@@ -23,17 +23,17 @@
 ```jsx live
 <Container align={isMobile() ? 'center' : 'left'} >
     <Space direction='horizontal'>
-        <CircularProgressBar value={0} title='0%' size='l' subtitle='Caption' contentColor='primary' />
-        <CircularProgressBar value={50} title='50%' size='l' subtitle='Caption' contentColor='primary'/>
-        <CircularProgressBar value={100} size='l' icon={CheckmarkMIcon} contentColor='tertiary' completeIconColor='positive'/>
+        <CircularProgressBar value={0} title='0%' size={80} subtitle='Caption' contentColor='primary' />
+        <CircularProgressBar value={50} title='50%' size={80} subtitle='Caption' contentColor='primary'/>
+        <CircularProgressBar value={100} size={80}' icon={CheckmarkMIcon} contentColor='tertiary' completeIconColor='positive'/>
     </Space>
     <Gap size='m'/>
     <Space direction='horizontal'>
-        <CircularProgressBar value={0} size='l' icon={CheckmarkMIcon} contentColor='tertiary' />
-        <CircularProgressBar value={50} size='l' icon={CheckmarkMIcon} contentColor='tertiary' />
+        <CircularProgressBar value={0} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />
+        <CircularProgressBar value={50} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />
         <CircularProgressBar 
             value={100} 
-            size='l' 
+            size={80} 
             icon={CheckmarkMIcon} 
             contentColor='tertiary'
             completeIconColor='primary-inverted'
@@ -42,9 +42,9 @@
     </Space>
     <Gap size='m'/>
     <Space direction='horizontal'>
-        <CircularProgressBar value={0} title='0%' size='l' contentColor='primary' />
-        <CircularProgressBar value={50} title='50%' size='l' view='negative' contentColor='primary'/>
-        <CircularProgressBar value={100} size='l' titleComplete='100%' view='negative' completeTextColor='negative'/>
+        <CircularProgressBar value={0} title='0%' size={80} contentColor='primary' />
+        <CircularProgressBar value={50} title='50%' size={80} view='negative' contentColor='primary'/>
+        <CircularProgressBar value={100} size={80} titleComplete='100%' view='negative' completeTextColor='negative'/>
     </Space>
 </Container>
 ```

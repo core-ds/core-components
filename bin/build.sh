@@ -30,13 +30,6 @@ lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
     -- $(pwd)/bin/rollup.sh
 
-# копирую собранные css пакеты в корневой пакет
-copy_to_root="cp -rp dist/ ../../dist/\${PWD##*/}"
-lerna exec \
-    --scope @alfalab/core-components-vars \
-    --scope @alfalab/core-components-themes \
-    -- $copy_to_root
-
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
 

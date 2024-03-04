@@ -1,4 +1,4 @@
-import type { ChangeEvent, FC, RefAttributes } from 'react';
+import type { FC, RefAttributes } from 'react';
 
 import type { InputProps } from '@alfalab/core-components-input';
 import type {
@@ -39,7 +39,7 @@ export interface InputAutocompleteCommonProps
     /**
      * Обработчик ввода
      */
-    onInput?: (event: ChangeEvent<HTMLInputElement> | null, payload: { value: string }) => void;
+    onInput?: (value: string) => void;
 }
 
 type MobileProps = {

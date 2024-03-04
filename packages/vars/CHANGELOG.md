@@ -1,5 +1,21 @@
 # Change Log
 
+## 9.8.1
+
+### Patch Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1054](https://github.com/core-ds/core-components/pull/1054)
+
+-   Файл index.js, который находится в корне пакета, теперь имеет cjs формат.
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1088](https://github.com/core-ds/core-components/pull/1088)
+
+-   Добавлены новые палитры, доступные в ts: decorative, qualitative, sequential, pfm
+
 ## 9.8.0
 
 ### Minor Changes

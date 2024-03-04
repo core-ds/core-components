@@ -17,7 +17,7 @@ export const password_input: Story = {
     render: () => (
         <PasswordInput
             block={boolean('block', false)}
-            size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+            size={select('size', [48, 56, 64, 72], 48)}
             disabled={boolean('disabled', false)}
             placeholder={text('placeholder', '')}
             label={text('label', '')}

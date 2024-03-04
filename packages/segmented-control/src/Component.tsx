@@ -33,8 +33,9 @@ export type SegmentedControlProps = {
 
     /**
      * Размер компонента
+     * @description xs, xxs deprecated, используйте вместо них 40, 32 соответственно
      */
-    size?: 'xs' | 'xxs';
+    size?: 'xs' | 'xxs' | 32 | 40;
 
     /**
      * Форма компонента
@@ -59,12 +60,19 @@ export type SegmentedControlProps = {
 
 const MAX_SEGMENTS = 5;
 
+export const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    32: 'size-32',
+    40: 'size-40',
+};
+
 export const SegmentedControl: FC<SegmentedControlProps> = ({
     className,
     selectedId,
     onChange,
     shape = 'rectangular',
-    size = 'xxs',
+    size = 32,
     children: defaultChildren,
     colors = 'default',
     dataTestId,
@@ -120,7 +128,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                     styles.wrapper,
                     colorStyles[colors].wrapper,
                     styles[shape],
-                    styles[size],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     className,
                 )}
                 data-test-id={dataTestId}
