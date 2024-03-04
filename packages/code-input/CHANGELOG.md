@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1119](https://github.com/core-ds/core-components/pull/1119)
+
+-   Добавлена новая пропса errorVisibleDuration, отвечающая за продолжительность отображения ошибки
+-   Увеличено дефолтное время отображения ошибки с 300ms до 1300ms
+
 ## 3.2.0
 
 ### Minor Changes

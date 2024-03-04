@@ -1,5 +1,15 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1110](https://github.com/core-ds/core-components/pull/1110)
+
+-   Исправлена логика обработки значения minDate. Ранее при установке minDate=new Date().getTime() возникала ошибка при выборе текущей даты. Теперь данное поведение исправлено
+
 ## 2.0.0
 
 ### Major Changes

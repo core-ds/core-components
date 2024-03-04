@@ -1,5 +1,15 @@
 # Change Log
 
+## 17.3.1
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1106](https://github.com/core-ds/core-components/pull/1106)
+
+-   Повышена специфичность стилей для option в SelectMobile
+
 ## 17.3.0
 
 ### Minor Changes

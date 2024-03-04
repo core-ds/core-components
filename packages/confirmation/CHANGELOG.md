@@ -1,5 +1,27 @@
 # Change Log
 
+## 13.4.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1119](https://github.com/core-ds/core-components/pull/1119)
+
+-   Добавлена новая пропса errorVisibleDuration, отвечающая за продолжительность отображения ошибки
+-   Увеличено дефолтное время отображения ошибки с 300ms до 1300ms
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1112](https://github.com/core-ds/core-components/pull/1112)
+
+-   Повышена специфичность стилей для кнопки на экране FATAL_ERROR
+
+-   Обновлены зависимости
+    -   code-input@3.3.0
+
 ## 13.3.5
 
 ### Patch Changes

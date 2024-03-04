@@ -1,5 +1,21 @@
 # Change Log
 
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1116](https://github.com/core-ds/core-components/pull/1116)
+
+-   Добавлено новое свойство transparentMinor, теперь есть возможность отключить полупрозрачность минорной части
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
 ## 7.7.0
 
 ### Minor Changes
