@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.5.5
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1117](https://github.com/core-ds/core-components/pull/1117)
+
+-   Исправлено применение стилей, когда картнинки добавляются через время, а открытие галереи происходит с пустым массивом images
+
 ## 5.5.4
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 17.3.2
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1115](https://github.com/core-ds/core-components/pull/1115)
+
+-   Исправлено использование хука useSelectWithApply в респонсив версии
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1104](https://github.com/core-ds/core-components/pull/1104)
+
+-   Добавлена передача optionGroupClassName и size для Optgroup внутри VirtualOptionsList
+
 ## 17.3.1
 
 ### Patch Changes

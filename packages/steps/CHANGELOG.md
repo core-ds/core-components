@@ -1,5 +1,19 @@
 # @alfalab/core-components-steps
 
+## 1.6.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1094](https://github.com/core-ds/core-components/pull/1094)
+
+Добавлены свойства fullWidth и minSpaceBetweenSteps:
+
+-   fullWidth - возможность растягивания шагов на всю ширину блока для вертикальной ориентации,
+
+-   minSpaceBetweenSteps - возможность задать разное минимальное расстояние между шагами.
+
 ## 1.5.1
 
 ### Patch Changes

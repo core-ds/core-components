@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1091](https://github.com/core-ds/core-components/pull/1091)
+
+-   Экспортирован мобильный month-only календарь, пофикшены параметры month/defaultMonth для month-only view
+
 ## 7.4.0
 
 ### Minor Changes

@@ -27,6 +27,6 @@
         "tslib": "^2.4.0"
     },
     "devDependencies": {
-        "@alfalab/core-components-calendar": "^7.4.0"
+        "@alfalab/core-components-calendar": "^7.5.0"
     }
 }
