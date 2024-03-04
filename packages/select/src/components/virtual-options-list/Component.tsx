@@ -20,6 +20,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             size = 48,
             flatOptions = [],
             highlightedIndex = -1,
+            optionGroupClassName,
             className,
             getOptionProps,
             Option,
@@ -151,7 +152,13 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                             transform: `translateY(${virtualRow.start}px)`,
                         }}
                     >
-                        {group && <Optgroup label={group.label} />}
+                        {group && (
+                            <Optgroup
+                                label={group.label}
+                                size={size}
+                                className={optionGroupClassName}
+                            />
+                        )}
                         {!isGroup(option) && (
                             <Option {...getOptionProps(option, virtualRow.index)} />
                         )}
