@@ -66,6 +66,7 @@ describe('CodeInput', () => {
                     error={true}
                     clearCodeOnError={true}
                     dataTestId={testId}
+                    errorVisibleDuration={300}
                 />,
             );
 
