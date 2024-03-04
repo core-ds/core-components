@@ -68,7 +68,7 @@
         "index.js": 4.6
     },
     "steps": {
-        "index.js": 8.9
+        "index.js": 9.1
     },
     "stepped-progress-bar": {
         "index.js": 8.1
@@ -112,12 +112,12 @@
     },
     "select": {
         "desktop.js": 145.5,
-        "index.js": 207,
-        "mobile.js": 180.5,
-        "shared.js": 166.7
+        "index.js": 207.2,
+        "mobile.js": 180.7,
+        "shared.js": 166.9
     },
     "select-with-tags": {
-        "desktop.js": 192.8,
+        "desktop.js": 192.9,
         "index.js": 215.6,
         "mobile.js": 189.6
     },
@@ -159,8 +159,8 @@
     },
     "picker-button": {
         "desktop.js": 188.2,
-        "index.js": 220.8,
-        "mobile.js": 193,
+        "index.js": 221,
+        "mobile.js": 193.2,
         "shared.js": 3
     },
     "phone-input": {
@@ -233,8 +233,8 @@
     },
     "international-phone-input": {
         "desktop.js": 502.4,
-        "index.js": 535.4,
-        "mobile.js": 507.5,
+        "index.js": 535.6,
+        "mobile.js": 507.7,
         "shared.js": 159.4
     },
     "input": {
@@ -244,9 +244,9 @@
         "shared.js": 11.4
     },
     "input-autocomplete": {
-        "desktop.js": 185.5,
-        "index.js": 219.7,
-        "mobile.js": 192.4,
+        "desktop.js": 185.6,
+        "index.js": 219.9,
+        "mobile.js": 192.6,
         "shared.js": 1.9
     },
     "indicator": {
@@ -277,7 +277,7 @@
         "index.js": 1.8
     },
     "gallery": {
-        "index.js": 196.3
+        "index.js": 196.4
     },
     "form-control": {
         "desktop.js": 4,
@@ -316,9 +316,9 @@
         "index.js": 63.6
     },
     "custom-picker-button": {
-        "desktop.js": 189.7,
-        "index.js": 222,
-        "mobile.js": 194.6
+        "desktop.js": 189.8,
+        "index.js": 222.2,
+        "mobile.js": 194.8
     },
     "custom-button": {
         "index.js": 9.9
