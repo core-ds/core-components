@@ -1,3 +1,57 @@
+## 45.2.0
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1091](https://github.com/core-ds/core-components/pull/1091)
+
+#### Что изменилось
+- Экспортирован мобильный month-only календарь, пофикшены параметры month/defaultMonth для month-only view
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#1115](https://github.com/core-ds/core-components/pull/1115)
+
+#### Что изменилось
+- Исправлено использование хука useSelectWithApply в респонсив версии
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1094](https://github.com/core-ds/core-components/pull/1094)
+
+#### Что изменилось
+Добавлены свойства fullWidth и minSpaceBetweenSteps:
+
+- fullWidth - возможность растягивания шагов на всю ширину блока для вертикальной ориентации,
+
+- minSpaceBetweenSteps - возможность задать разное минимальное расстояние между шагами.
+
+#### Влияние на компоненты
+- Минорное<br />`steps`
+
+
+### [#1117](https://github.com/core-ds/core-components/pull/1117)
+
+#### Что изменилось
+- Исправлено применение стилей, когда картнинки добавляются через время, а открытие галереи происходит с пустым массивом images
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+### [#1104](https://github.com/core-ds/core-components/pull/1104)
+
+#### Что изменилось
+- Добавлена передача optionGroupClassName и size для Optgroup внутри VirtualOptionsList
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
 ## 45.1.0
 
 <sup><time>04.03.2024</time></sup>
