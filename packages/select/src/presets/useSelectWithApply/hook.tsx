@@ -185,5 +185,18 @@ export function useSelectWithApply({
                   onChange: setSearch,
               }
             : undefined,
+        /* Костыль для респонсив селекта. В мобильную версию хук уже зашит, и это единственный передать в мобилку оригинальные пропсы */
+        originalProps: {
+            options,
+            selected,
+            onChange,
+            OptionsList,
+            optionsListProps,
+            showClear,
+            showSelectAll,
+            showHeaderWithSelectAll,
+            showSearch,
+            searchProps,
+        },
     };
 }
