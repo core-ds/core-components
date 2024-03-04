@@ -304,8 +304,8 @@
     },
     "date-time-input": {
         "desktop.js": 133.5,
-        "index.js": 230.1,
-        "mobile.js": 228.8
+        "index.js": 230,
+        "mobile.js": 228.7
     },
     "date-range-input": {
         "desktop.js": 135.2,
@@ -374,11 +374,11 @@
         "index.js": 65.1
     },
     "calendar-range": {
-        "index.js": 238.8
+        "index.js": 238.7
     },
     "calendar-input": {
         "desktop.js": 135,
-        "index.js": 231.2,
+        "index.js": 231.1,
         "mobile.js": 230.2,
         "shared.js": 66.3
     },
