@@ -46,10 +46,11 @@ export function isValidDate({
     offDays?: Array<Date | number>;
 }) {
     const parsed = isCompleteDate(value) ? parseDateString(value).getTime() : undefined;
+    const minDateStartOfDay = new Date(minDate).setUTCHours(0, 0, 0, 0);
 
     if (parsed) {
         return (
-            parsed >= minDate &&
+            parsed >= minDateStartOfDay &&
             parsed <= maxDate &&
             !offDays?.some((offDay) => isSameDay(offDay, parsed))
         );
