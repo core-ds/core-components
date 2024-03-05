@@ -4,16 +4,23 @@ import { ReactCanvasPatternLock } from 'react-canvas-pattern-lock';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { Gap } from '@alfalab/core-components-gap';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { DEFAULT_EXTRA_BOUNDS, OBSERVABLE_TOKENS, OBSERVE_OPTIONS, THEME_STATE } from './consts';
-import type { PatternLockProps } from './typings';
-import { getColorByToken, getDefaultObserveTarget, getSizes, getTheme } from './utils';
+import {
+    DEFAULT_EXTRA_BOUNDS,
+    OBSERVABLE_TOKENS,
+    OBSERVE_OPTIONS,
+    THEME_STATE,
+} from '../../consts';
+import type { CommonPatternLockProps, PrivatePatternLockProps } from '../../typings';
+import { getColorByToken, getDefaultObserveTarget, getSizes, getTheme } from '../../utils';
 
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 
-export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
+export const BasePatternLock = forwardRef<
+    TPatternLockInstance,
+    CommonPatternLockProps & PrivatePatternLockProps
+>(
     (
         {
             observeTokens = false,
@@ -27,6 +34,9 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
             onForgotBtnClick,
             extraBounds = DEFAULT_EXTRA_BOUNDS,
             message,
+            messageClassName,
+            hover,
+            styles = {},
             ...restProps
         },
         ref,
@@ -77,14 +87,17 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
         }, [observeTokens]);
 
         const renderMessage = () => (
-            <div className={styles.message} data-test-id={getDataTestId(dataTestId, 'message')}>
+            <div
+                className={cn(commonStyles.message, messageClassName)}
+                data-test-id={getDataTestId(dataTestId, 'message')}
+            >
                 {message}
             </div>
         );
 
         const renderError = () => (
             <div
-                className={cn(styles.message, styles.error)}
+                className={cn(commonStyles.message, commonStyles.error, messageClassName)}
                 data-test-id={getDataTestId(dataTestId, 'error')}
             >
                 {error}
@@ -93,14 +106,12 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
 
         return (
             <div
-                className={cn(styles.component, className, { [styles.hidden]: !params })}
+                className={cn(commonStyles.component, styles.component, className, {
+                    [commonStyles.hidden]: !params,
+                })}
                 data-test-id={dataTestId}
             >
-                <Gap size='xs' />
-
                 {error ? renderError() : renderMessage()}
-
-                <Gap size='3xl' />
 
                 <ReactCanvasPatternLock
                     {...restProps}
@@ -110,19 +121,24 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
                     cols={3}
                     justifyNodes={justifyNodes}
                     extraBounds={extraBounds}
+                    hover={hover}
                 />
 
                 {showForgotCodeBtn ? (
                     <ButtonMobile
                         view='link'
-                        className={styles.forgotBtn}
+                        className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
                         onClick={onForgotBtnClick}
                         dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
                     >
                         {forgotCodeBtnText}
                     </ButtonMobile>
                 ) : (
-                    <div className={styles.forgotBtn} />
+                    <div
+                        className={cn(commonStyles.forgotBtn, styles.forgotBtn, {
+                            [styles.hiddenBtn]: Boolean(styles.hiddenBtn),
+                        })}
+                    />
                 )}
             </div>
         );

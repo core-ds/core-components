@@ -26,7 +26,13 @@ export const getSizes = (() => {
             return cachedSize;
         }
 
-        if (window.matchMedia('(min-width: 390px)').matches) {
+        if (window.matchMedia('(min-width: 600px)').matches) {
+            cachedSize = {
+                elementSizes: { ...COMMON_SIZES, nodeRadius: 32 },
+                width: 240,
+                height: 240,
+            };
+        } else if (window.matchMedia('(min-width: 390px)').matches) {
             cachedSize = {
                 elementSizes: { ...COMMON_SIZES, nodeRadius: 43 },
                 width: 322,
@@ -55,6 +61,10 @@ export function getTheme(dimens: ThemeParams['dimens']): Theme {
         primary: getColorByToken(OBSERVABLE_TOKENS.PRIMARY),
         bg: getColorByToken(OBSERVABLE_TOKENS.BG),
         ringBg: getColorByToken(OBSERVABLE_TOKENS.RING_BG_INITIAL),
+        hover: {
+            inner: getColorByToken(OBSERVABLE_TOKENS.HOVER_INNER),
+            outer: getColorByToken(OBSERVABLE_TOKENS.HOVER_OUTER),
+        },
     };
 
     return {

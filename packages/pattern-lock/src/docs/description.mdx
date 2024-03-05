@@ -5,7 +5,7 @@
 После валидации компонент может отобразить состоянии ошибки с еррор месседжем или состояние успеха.
 Корректная комбинация для примера `698751`.
 
-```jsx live mobileHeight={640} mobileOnly
+```jsx live mobileHeight={640}
 render(() => {
     const shouldBeCode = [6, 9, 8, 7, 5, 1];
     const [currentState, setCurrentState] = React.useState(THEME_STATE.INITIAL);
@@ -37,14 +37,18 @@ render(() => {
     }, [currentState]);
 
     return (
-        <PatternLock
-            ref={patternLockInstance}
-            onComplete={handleComplete}
-            themeState={currentState}
-            onDragStart={handleDragStart}
-            observeTokens={true}
-            error={currentState === THEME_STATE.FAILURE && 'Error message'}
-        />
+        <Container align='center'>
+            <PatternLock
+                ref={patternLockInstance}
+                onComplete={handleComplete}
+                themeState={currentState}
+                onDragStart={handleDragStart}
+                observeTokens={true}
+                error={currentState === THEME_STATE.FAILURE && 'Error message'}
+                showForgotCodeBtn={true}
+                breakpoint={BREAKPOINT}
+            />
+        </Container>
     );
 });
 ```
@@ -52,4 +56,4 @@ render(() => {
 ## Адаптивность
 
 Размер контролов компонента подстраивается под ширину мобильного экрана.
-Компонент не предназначен для использования на десктопных устройствах и не имеет соответствующих состояний.
+Для десктопных устройств доступен только один размер.

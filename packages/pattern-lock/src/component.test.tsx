@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import { PatternLock } from './Component';
+import { PatternLockMobile as PatternLock } from './mobile';
 import { getPatternLockTestIds, getSizes } from './utils';
 
 jest.mock('react-canvas-pattern-lock', () => {

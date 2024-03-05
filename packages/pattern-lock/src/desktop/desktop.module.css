@@ -1,0 +1,15 @@
+@import '../../../themes/src/default.css';
+@import '../vars.css';
+
+.component {
+    max-width: var(--pattern-lock-desktop-max-width);
+    margin: var(--gap-xs) 0 var(--gap-xl) 0;
+}
+
+.forgotBtn {
+    margin: var(--gap-xl) auto 0;
+}
+
+.hiddenBtn {
+    display: none;
+}
