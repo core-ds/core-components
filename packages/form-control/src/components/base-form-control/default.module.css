@@ -56,6 +56,7 @@
 
     &.hasError {
         box-shadow: var(--form-control-focus-error-shadow);
+        background-color: var(--form-control-focus-bg-color);
     }
 }
 
@@ -67,7 +68,6 @@
 
 .hasError {
     box-shadow: var(--form-control-error-shadow);
-    background-color: var(--form-control-error-bg-color);
 }
 
 .hasError:before {

@@ -4,6 +4,10 @@
     background-color: var(--form-control-bg-color);
 }
 
+.inner.hasError {
+    background-color: var(--form-control-error-bg-color);
+}
+
 /* DISABLED STATE */
 
 .disabled.hasError {

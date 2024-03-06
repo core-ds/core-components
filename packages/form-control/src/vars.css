@@ -52,8 +52,8 @@
         var(--color-light-status-negative-inverted);
     --form-control-inverted-error-disabled-shadow: var(--form-control-inverted-error-shadow);
     --form-control-inverted-error-border-bottom: 0;
-    --form-control-error-bg-color: var(--color-light-neutral-translucent-100);
-    --form-control-inverted-error-bg-color: var(--color-light-neutral-translucent-100-inverted);
+    --form-control-error-bg-color: var(--color-light-neutral-translucent-200);
+    --form-control-inverted-error-bg-color: var(--color-light-neutral-translucent-200-inverted);
 
     /* height */
     --form-control-s-min-height: var(--size-s-height);

@@ -242,7 +242,8 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                             [colorCommonStyles[colors].focused]: focused,
                             [commonStyles.hasError]: error,
                             [colorCommonStyles[colors].hasError]: error,
-                            [colorStyles[colors].hasError]: error,
+                            [colorStyles[colors].hasError]:
+                                error && Boolean(colorStyles[colors].hasError),
                         },
                     )}
                     ref={ref}
