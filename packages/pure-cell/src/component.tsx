@@ -61,6 +61,16 @@ export type PureCellProps = {
     verticalPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
 
     /**
+     * Вертикальный отступ сверху (переопределяет значение verticalPadding для отступа сверху )
+     */
+    verticalTopPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+
+    /**
+     * Вертикальный отступ снизу (переопределяет значение verticalPadding для отступа снизу)
+     */
+    verticalBottomPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+
+    /**
      * Горизонтальные отступы
      */
     horizontalPadding?: 'left' | 'right' | 'both' | 'none';
@@ -69,6 +79,7 @@ export type PureCellProps = {
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
     tag?: ElementType;
+
     /**
      * Компоненты
      */
@@ -95,6 +106,8 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             children,
             horizontalPadding = 'none',
             verticalPadding = 'none',
+            verticalTopPadding,
+            verticalBottomPadding,
             direction = 'horizontal',
             ...restProps
         },
@@ -106,8 +119,9 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             [styles.component]: true,
             [styles.focused]: focused,
             [styles[direction]]: true,
-            [styles.defaultPadding]: verticalPadding === 'default',
-            [styles[verticalPadding]]: verticalPadding !== 'default',
+            [styles[verticalPadding]]: true,
+            [styles[`${verticalTopPadding}Top`]]: verticalTopPadding,
+            [styles[`${verticalBottomPadding}Bottom`]]: verticalBottomPadding,
             [styles[horizontalPadding]]: true,
         };
 
