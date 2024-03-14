@@ -1,10 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-
+import * as hooks from '@alfalab/hooks';
 import { SuperEllipse } from './super-ellipse';
 import { Circle } from './circle';
 import { Rectangle } from './rectangle';
 import { NoShape } from './no-shape';
+
+enum UseLoadingStates {
+    LOADED = 'loaded',
+    LOADING = 'loading',
+    ERROR = 'error',
+}
 
 describe('IconView', () => {
     describe('Snapshots tests', () => {
@@ -21,6 +27,7 @@ describe('IconView', () => {
         });
 
         it('should match snapshot with image', () => {
+            jest.spyOn(hooks, 'useImageLoadingState').mockReturnValue('loaded' as UseLoadingStates);
             const { baseElement } = render(
                 <SuperEllipse imageUrl='https://picsum.photos/id/1081/5512/3708' />,
             );
