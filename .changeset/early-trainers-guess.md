@@ -1,8 +1,8 @@
 ---
-"@alfalab/core-components-tab-bar": major
+"@alfalab/core-components-tab-bar": minor
 ---
 
-- Изменили компонент, отвечающий за индикатор таба с Badge на Indicator. Следовательно, изменился тип свойства indicatorProps с BadgeProps на IndicatorProp
+- Изменили компонент, отвечающий за индикатор таба с Badge на Indicator. Следовательно, изменился тип свойства indicatorProps с BadgeProps на IndicatorProps
 
 ## Миграция с предыдущей версии
 
