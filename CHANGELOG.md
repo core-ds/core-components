@@ -1,3 +1,53 @@
+## 45.3.0
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1122](https://github.com/core-ds/core-components/pull/1122)
+
+#### Что изменилось
+- Добавлены десктопная и адаптивная версии компонента
+
+#### Влияние на компоненты
+- Минорное<br />`pattern-lock`
+
+
+### [#1125](https://github.com/core-ds/core-components/pull/1125)
+
+#### Что изменилось
+- Изменили токен цвета фона при возникновении ошибки с neutral-translucent/100 на neutral-translucent/200
+
+#### Влияние на компоненты
+- Патчи<br />`form-control`
+
+
+### [#1120](https://github.com/core-ds/core-components/pull/1120)
+
+#### Что изменилось
+- Загрузка изображений исправлена: теперь если произошла ошибка при загрузке, битое изображение не будет отображаться
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1102](https://github.com/core-ds/core-components/pull/1102)
+
+#### Что изменилось
+- Добавлена переменная цвета фона для компонента tooltip
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [#1126](https://github.com/core-ds/core-components/pull/1126)
+
+#### Что изменилось
+- Добавлены флаги для следующих стран: Caribbean Netherlands, Cyprus, French Guiana, Guadeloupe, Guyana, Kuwait, Malaysia, New Caledonia, Réunion, São Tomé and Príncipe
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+
 ## 45.2.0
 
 <sup><time>04.03.2024</time></sup>
