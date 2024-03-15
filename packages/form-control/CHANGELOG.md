@@ -1,5 +1,15 @@
 # Change Log
 
+## 12.2.1
+
+### Patch Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1125](https://github.com/core-ds/core-components/pull/1125)
+
+-   Изменили токен цвета фона при возникновении ошибки с neutral-translucent/100 на neutral-translucent/200
+
 ## 12.2.0
 
 ### Minor Changes

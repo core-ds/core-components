@@ -1,5 +1,15 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.6.0
+
+### Minor Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1122](https://github.com/core-ds/core-components/pull/1122)
+
+-   Добавлены десктопная и адаптивная версии компонента
+
 ## 1.5.1
 
 ### Patch Changes

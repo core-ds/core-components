@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.1
+
 ## 8.2.0
 
 ### Minor Changes

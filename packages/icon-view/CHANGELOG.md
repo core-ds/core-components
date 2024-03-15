@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.6.2
+
+### Patch Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1120](https://github.com/core-ds/core-components/pull/1120)
+
+-   Загрузка изображений исправлена: теперь если произошла ошибка при загрузке, битое изображение не будет отображаться
+
 ## 3.6.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.3.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.1
+
 ## 4.3.20
 
 ### Patch Changes

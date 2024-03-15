@@ -1,5 +1,12 @@
 # Change Log
 
+## 14.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.1
+
 ## 14.3.0
 
 ### Minor Changes

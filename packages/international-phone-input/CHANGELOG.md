@@ -1,5 +1,20 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.3
+
+### Patch Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1126](https://github.com/core-ds/core-components/pull/1126)
+
+-   Добавлены флаги для следующих стран: Caribbean Netherlands, Cyprus, French Guiana, Guadeloupe, Guyana, Kuwait, Malaysia, New Caledonia, Réunion, São Tomé and Príncipe
+
+-   Обновлены зависимости
+    -   input@14.3.1
+    -   input-autocomplete@12.0.3
+    -   select@17.3.3
+
 ## 2.0.2
 
 ### Patch Changes
