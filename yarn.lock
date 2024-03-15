@@ -17935,6 +17935,14 @@ react-canvas-pattern-lock@^1.1.1:
     react-merge-refs "^1.1.0"
     react-use-event-hook "^0.9.6"
 
+react-canvas-pattern-lock@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-canvas-pattern-lock/-/react-canvas-pattern-lock-1.2.0.tgz#aa4ef18597c2d49e0c760248c7e4f10ee91ac75d"
+  integrity sha512-fK8dWtm7vddD9XXALQxSc7tGIfnBcnCRu5ptDwbqSB/ioVRkA3mxDj7uk+lv45wn/EnJTdakpcZSUbVh1TvHAQ==
+  dependencies:
+    react-merge-refs "^1.1.0"
+    react-use-event-hook "^0.9.6"
+
 react-clientside-effect@^1.2.6:
   version "1.2.6"
   resolved "https://registry.npmjs.org/react-clientside-effect/-/react-clientside-effect-1.2.6.tgz"

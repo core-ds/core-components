@@ -57,9 +57,9 @@ describe('PatternLock ', () => {
         await testComponent(
             {
                 wrapperStyles:
-                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 800px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
+                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 670px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
             },
-            { width: 800, height: 600 },
+            { width: 599, height: 600 },
             {
                 x: 88,
                 y: 60,
@@ -74,9 +74,9 @@ describe('PatternLock ', () => {
             {
                 darkMode: true,
                 wrapperStyles:
-                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 800px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
+                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 670px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
             },
-            { width: 800, height: 600 },
+            { width: 599, height: 600 },
             {
                 x: 88,
                 y: 60,

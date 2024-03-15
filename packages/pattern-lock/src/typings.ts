@@ -4,7 +4,7 @@ import { ReactPatternLockProps } from 'react-canvas-pattern-lock';
 type ConditionalProps =
     | {
           /**
-           * Текст кнопки "забыли код"
+           * Показать кнопку "забыли код"
            * @default "Забыли код?"
            */
           showForgotCodeBtn: true;
@@ -26,7 +26,7 @@ type ConditionalProps =
           forgotCodeBtnText?: never;
       };
 
-export type PatternLockProps = {
+export type CommonPatternLockProps = {
     /**
      * Дополнительный класс.
      */
@@ -62,9 +62,32 @@ export type PatternLockProps = {
         getTarget?: () => Node;
         options?: MutationObserverInit;
     };
-} & Omit<ReactPatternLockProps, 'theme' | 'width' | 'height' | 'rows' | 'cols'> &
+
+    /**
+     * Дополнительный класс для message/errorMessage
+     */
+    messageClassName?: string;
+} & Omit<ReactPatternLockProps, 'theme' | 'width' | 'height' | 'rows' | 'cols' | 'hover'> &
     ConditionalProps;
 
+export type PrivatePatternLockProps = {
+    /**
+     * Включает ховер-эффект
+     */
+    hover?: boolean;
+    /**
+     * Стили компонента.
+     */
+    styles: { [key: string]: string };
+};
+
+export type PatternLockProps = CommonPatternLockProps & {
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
+};
 export type ObservableTokens = {
     ACCENT_INITIAL: string;
     ACCENT_SUCCESS: string;
@@ -75,4 +98,6 @@ export type ObservableTokens = {
     SELECTED_RING_BG_FAILURE: string;
     PRIMARY: string;
     BG: string;
+    HOVER_INNER: string;
+    HOVER_OUTER: string;
 };
