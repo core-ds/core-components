@@ -39,7 +39,7 @@ export type PureCellContext = {
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PureCellContext = React.createContext<PureCellContext>({});
 
-export type PureCellProps = {
+type BasePureCellProps = {
     /**
      * Направление
      */
@@ -79,12 +79,14 @@ export type PureCellProps = {
      */
     dataTestId?: string;
 };
-type AnchorPureCellProps = PureCellProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type ButtonPureCellProps = PureCellProps & ButtonHTMLAttributes<HTMLButtonElement>;
-type ElementPureCellProps = PureCellProps & HTMLAttributes<HTMLElement>;
-type PureProps = Partial<AnchorPureCellProps | ButtonPureCellProps | ElementPureCellProps>;
+type AnchorPureCellProps = BasePureCellProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type ButtonPureCellProps = BasePureCellProps & ButtonHTMLAttributes<HTMLButtonElement>;
+type ElementPureCellProps = BasePureCellProps & HTMLAttributes<HTMLElement>;
+export type PureCellProps = Partial<
+    AnchorPureCellProps | ButtonPureCellProps | ElementPureCellProps
+>;
 
-const PureCellComponent = forwardRef<HTMLElement, PureProps>(
+const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
     (
         {
             className,
