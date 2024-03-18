@@ -8,20 +8,12 @@
 .horizontal {
     display: flex;
     width: 100%;
-
-    & > section:not(:last-child) {
-        margin-right: var(--gap-m);
-    }
 }
 
 .vertical {
     display: flex;
     align-items: center;
     flex-direction: column;
-
-    & > section:not(:last-child) {
-        margin-bottom: var(--gap-s);
-    }
 }
 
 .button {

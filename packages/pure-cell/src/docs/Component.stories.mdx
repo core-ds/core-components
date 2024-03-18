@@ -45,6 +45,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const weight = select('weight', ['bold', 'normal'], 'normal');
         const view = select('view', ['component', 'primary-small'], 'component');
@@ -96,7 +101,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
-                        <PureCell.Graphics>
+                        <PureCell.Graphics graphicPadding={graphicPadding}>
                             <StarMIcon />
                         </PureCell.Graphics>
                         <PureCell.Content>
@@ -223,7 +228,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
-                        <PureCell.Graphics>
+                        <PureCell.Graphics graphicPadding={graphicPadding}>
                             <Circle />
                         </PureCell.Graphics>
                         <PureCell.Content>
@@ -248,7 +253,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
-                        <PureCell.Graphics>
+                        <PureCell.Graphics graphicPadding={graphicPadding}>
                             <Circle />
                         </PureCell.Graphics>
                         <PureCell.Content>
@@ -299,6 +304,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
         const addonPadding = select('addonPadding', ['default', 'none'], 'default');
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
@@ -315,7 +325,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     horizontalPadding={horizontalPadding}
                     direction={direction}
                 >
-                    <PureCell.Graphics>
+                    <PureCell.Graphics graphicPadding={graphicPadding}>
                         <Circle />
                     </PureCell.Graphics>
                     <PureCell.Content>
@@ -530,7 +540,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
@@ -622,6 +632,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
             <div
@@ -637,7 +652,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     horizontalPadding={horizontalPadding}
                     direction={direction}
                 >
-                    <PureCell.Graphics>
+                    <PureCell.Graphics graphicPadding={graphicPadding}>
                         <Circle />
                     </PureCell.Graphics>
                     <PureCell.Content>
@@ -687,6 +702,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
             <PureCell
@@ -697,7 +717,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
@@ -877,6 +897,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
             <PureCell
@@ -887,7 +912,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
             </PureCell>
@@ -918,6 +943,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
+        );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const styleAddons = {
@@ -989,7 +1019,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
@@ -1034,6 +1064,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const rowLimit = select('rowLimit', ['1', '2'], '1');
         const view = select('view', ['primary-small', 'component'], 'component');
@@ -1064,7 +1099,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
