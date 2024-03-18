@@ -16,7 +16,7 @@ import { colors } from '../colors';
     {React.createElement(() => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
         const color = select('color', colors, '');
-        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system'], 'styrene');
         return VIEW_TYPES.map((view) => (
             <Typography.Title
@@ -37,7 +37,7 @@ import { colors } from '../colors';
     {React.createElement(() => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
         const color = select('color', colors, '');
-        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system'], 'styrene');
         return VIEW_TYPES.map((view) => (
             <Typography.TitleResponsive
@@ -58,7 +58,7 @@ import { colors } from '../colors';
     {React.createElement(() => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
         const color = select('color', colors, '');
-        const weight = select('weight', ['regular', 'medium', 'bold', '-'], '-');
+        const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system'], 'styrene');
         return VIEW_TYPES.map((view) => (
             <Typography.TitleMobile
