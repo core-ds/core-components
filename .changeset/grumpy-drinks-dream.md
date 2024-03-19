@@ -2,4 +2,4 @@
 "@alfalab/core-components-calendar": patch
 ---
 
-fix(calendar): fix old dates generation
+Исправлена критическая ошибка генерации списка в мобильном календаре с view="month-only" при установке даты больше трех лет назад
