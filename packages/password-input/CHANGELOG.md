@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.4
+    -   input@14.3.2
+
 ## 5.2.1
 
 ### Patch Changes

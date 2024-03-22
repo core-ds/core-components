@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.2.1
+
 ## 4.4.0
 
 ### Minor Changes

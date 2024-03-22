@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   input@14.3.2
+
 ## 12.0.3
 
 ### Patch Changes

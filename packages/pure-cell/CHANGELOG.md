@@ -1,5 +1,18 @@
 # Change Log
 
+## 4.7.1
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1131](https://github.com/core-ds/core-components/pull/1131)
+
+-   Добавили экспорт типа PureCellProps
+
+-   Обновлены зависимости
+    -   button@11.4.0
+
 ## 4.7.0
 
 ### Minor Changes

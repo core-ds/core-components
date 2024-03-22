@@ -1,5 +1,20 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.4
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1142](https://github.com/core-ds/core-components/pull/1142)
+
+-   Изменили название стран с английского на русский язык
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   input-autocomplete@12.0.4
+    -   input@14.3.2
+
 ## 2.0.3
 
 ### Patch Changes

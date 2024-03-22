@@ -1,5 +1,26 @@
 # Change Log
 
+## 7.5.1
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1135](https://github.com/core-ds/core-components/pull/1135)
+
+-   Исправлена критическая ошибка генерации списка в мобильном календаре с view="month-only" при установке даты больше трех лет назад
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1140](https://github.com/core-ds/core-components/pull/1140)
+
+-   Добавлен обработчик периода `range` для компонента `PeriodSlider`
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   icon-button@6.5.4
+    -   modal@9.2.1
+
 ## 7.5.0
 
 ### Minor Changes

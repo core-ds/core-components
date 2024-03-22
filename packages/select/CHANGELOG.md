@@ -1,5 +1,27 @@
 # Change Log
 
+## 17.3.4
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1137](https://github.com/core-ds/core-components/pull/1137)
+
+-   Зафиксирована версия downshift, т.к. более новые версии ломают поведение компонента
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1138](https://github.com/core-ds/core-components/pull/1138)
+
+-   Увеличена специфичность стилей в мобильном селекте
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   input@14.3.2
+    -   bottom-sheet@6.14.3
+    -   modal@9.2.1
+
 ## 17.3.3
 
 ### Patch Changes

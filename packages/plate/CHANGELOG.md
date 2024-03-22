@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   icon-button@6.5.4
+
 ## 7.3.3
 
 ### Patch Changes

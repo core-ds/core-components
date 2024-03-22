@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.2.1
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1134](https://github.com/core-ds/core-components/pull/1134)
+
+-   Убрали hover для мобильных устройств
+
 ## 5.2.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @alfalab/core-components-markdown
 
+## 1.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.2.1
+
 ## 1.2.5
 
 ### Patch Changes
