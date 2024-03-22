@@ -72,6 +72,9 @@ export const CalendarMonthOnlyView = ({
 
     const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const startingDate = useMemo(() => (value ? new Date(value) : new Date()), []);
+
     const defaultMonth = useMemo(
         () =>
             startOfMonth(
@@ -107,7 +110,7 @@ export const CalendarMonthOnlyView = ({
         const prevMonths: Month[] = [];
         const nextMonths: Month[] = [];
 
-        const date = new Date();
+        const date = new Date(startingDate.getTime());
         const currentYear = date.getFullYear();
         const currYearMonths = generateMonths(date, {});
 
@@ -137,7 +140,17 @@ export const CalendarMonthOnlyView = ({
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [events, offDays, holidays, dayAddons, yearsAmount, minDate, maxDate, selected]);
+    }, [
+        events,
+        offDays,
+        holidays,
+        dayAddons,
+        startingDate,
+        minDate,
+        maxDate,
+        yearsAmount,
+        selected,
+    ]);
 
     const initialMonthIndex = useMemo(() => {
         const date = value || selectedFrom || activeMonth.getTime() || Date.now();
