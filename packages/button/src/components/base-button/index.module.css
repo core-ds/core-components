@@ -50,7 +50,7 @@
     @mixin focus-outline;
 }
 
-.loading .text,
+.loading .label,
 .loading .addons {
     opacity: 0;
 }
@@ -164,7 +164,8 @@
         padding-right: 31px;
     }
 
-    &.ghost {
+    &.ghost,
+    &.text {
         padding-right: 0;
     }
 }
@@ -194,16 +195,19 @@
         padding-left: 31px;
     }
 
-    &.ghost {
+    &.ghost,
+    &.text {
         padding-left: 0;
     }
 }
 
-.link {
+.link,
+.transparent {
     min-width: 0;
 }
 
-.ghost {
+.ghost,
+.text {
     min-width: 0;
     min-height: 0;
     padding: 0;

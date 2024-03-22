@@ -126,7 +126,7 @@ export const BasePatternLock = forwardRef<
 
                 {showForgotCodeBtn ? (
                     <ButtonMobile
-                        view='link'
+                        view='transparent'
                         className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
                         onClick={onForgotBtnClick}
                         dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}

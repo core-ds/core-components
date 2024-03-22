@@ -43,7 +43,8 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
 |                       | `--color-static-bg-neutral-light`: `--color-static-bg-quaternary-light`                                                                                                                                                             |
 |                       | `--color-static-bg-neutral-dark`: `--color-static-bg-quaternary-dark`                                                                                                                                                               |
 | delete-dist           | Удаляет '/dist' в импортах отдельных пакетов. Может принимать дополнительный аргумент командной строки --packages, в котором указывается список компонентов, импорты которых нужно обработать, например (--packages="modal,button") |
-| button-breakpoint-768 | Добавляет свойство breakpoint со значением 768 к респонсивной кнопке                                                                                                                                                                |
+| button-breakpoint-768 | Добавляет свойство breakpoint со значением 768 к респонсивной кнопке |
+| button-views-45 | Меняет вид кнопки с view `tertiary` на `outlined`, `link` на `transparent`, `ghost` на `text` |
 
 ### 42 мажорный релиз
 

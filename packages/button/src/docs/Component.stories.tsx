@@ -16,7 +16,7 @@ const meta: Meta<typeof Button> = {
 
 type Story = StoryObj<typeof Button>;
 
-const VIEWS = ['accent', 'primary', 'secondary', 'tertiary', 'link', 'ghost'] as const;
+const VIEWS = ['accent', 'primary', 'secondary', 'outlined', 'transparent', 'text'] as const;
 const SIZES = [32, 40, 48, 56, 64, 72] as const;
 
 export const button: Story = {

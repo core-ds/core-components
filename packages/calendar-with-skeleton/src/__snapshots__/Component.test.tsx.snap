@@ -18,11 +18,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
           class="component monthYear"
         >
           <button
-            class="component ghost size-40 hug size-40 component ghost component ghost button filled button month"
+            class="component text size-40 hug size-40 component text component text button filled button month"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               <span
                 class="buttonContent"
@@ -47,11 +47,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
             </span>
           </button>
           <button
-            class="component ghost size-40 hug size-40 component ghost component ghost button filled button year"
+            class="component text size-40 hug size-40 component text component text button filled button year"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               <span
                 class="buttonContent"
@@ -138,11 +138,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -165,11 +165,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -190,11 +190,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -215,11 +215,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -240,11 +240,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -265,11 +265,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -290,11 +290,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -315,11 +315,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -342,11 +342,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -367,11 +367,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -392,11 +392,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -417,11 +417,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -442,11 +442,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -467,11 +467,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -492,11 +492,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -519,11 +519,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -544,11 +544,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -569,11 +569,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -594,11 +594,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -619,11 +619,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -644,11 +644,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -669,11 +669,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -696,11 +696,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -721,11 +721,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -746,11 +746,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -771,11 +771,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -796,11 +796,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -821,11 +821,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -846,11 +846,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded"
+                  class="component text size-40 hug size-40 component text component text day rounded"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"
@@ -873,11 +873,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="0"
               >
                 <button
-                  class="component ghost size-40 hug size-40 component ghost component ghost day rounded selected"
+                  class="component text size-40 hug size-40 component text component text day rounded selected"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="dayContent"

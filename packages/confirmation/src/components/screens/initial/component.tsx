@@ -134,7 +134,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
         if (mobile) {
             return (
-                <ButtonMobile onClick={handleSmsHintLinkClick} view='link' size='xs'>
+                <ButtonMobile onClick={handleSmsHintLinkClick} view='transparent' size='xs'>
                     {texts.linkToHint}
                 </ButtonMobile>
             );

@@ -27,6 +27,12 @@
     }
 }
 
+.text {
+    &:active {
+        color: var(--button-inverted-text-mobile-active-color);
+    }
+}
+
 .ghost {
     &:active {
         color: var(--button-inverted-ghost-mobile-active-color);
@@ -48,13 +54,26 @@
         background-color: var(--button-inverted-secondary-mobile-disabled-bg-color);
     }
 
+    &.outlined {
+        color: var(--button-inverted-outlined-mobile-disabled-color);
+        border-color: var(--button-inverted-outlined-mobile-disabled-border-color);
+    }
+
     &.tertiary {
         color: var(--button-inverted-tertiary-mobile-disabled-color);
         border-color: var(--button-inverted-tertiary-mobile-disabled-border-color);
     }
 
+    &.transparent {
+        color: var(--button-inverted-transparent-mobile-disabled-color);
+    }
+
     &.link {
         color: var(--button-inverted-link-mobile-disabled-color);
+    }
+
+    &.text {
+        color: var(--button-inverted-text-mobile-disabled-color);
     }
 
     &.ghost {

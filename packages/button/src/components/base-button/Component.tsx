@@ -36,9 +36,8 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     }
 
     const viewsMap: { [key: string]: string } = {
-        filled: 'secondary',
-        transparent: 'secondary',
-        outlined: 'tertiary',
+        link: 'transparent',
+        ghost: 'text',
     };
 
     // eslint-disable-next-line no-console
@@ -46,7 +45,7 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
         // eslint-disable-next-line prefer-template
         `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
             `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
-            'npx @alfalab/core-components-codemod --transformers=button-views src/**/*.tsx',
+            'npx @alfalab/core-components-codemod --transformers=button-views-45 src/**/*.tsx',
     );
 };
 
@@ -96,7 +95,7 @@ export const BaseButton = React.forwardRef<
         },
         ref,
     ) => {
-        if (['outlined', 'filled', 'transparent'].includes(view)) {
+        if (['link', 'ghost'].includes(view)) {
             logWarning(view);
         }
 
@@ -110,7 +109,8 @@ export const BaseButton = React.forwardRef<
 
         const showLoader = loading || !loaderTimePassed;
 
-        const showHint = hint && ['size-56', 'size-64', 'size-72'].includes(SIZE_TO_CLASSNAME_MAP[size]);
+        const showHint =
+            hint && ['size-56', 'size-64', 'size-72'].includes(SIZE_TO_CLASSNAME_MAP[size]);
 
         const iconOnly = !children;
 
@@ -153,7 +153,7 @@ export const BaseButton = React.forwardRef<
                 {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
                     <span
-                        className={cn(commonStyles.text, {
+                        className={cn(commonStyles.label, {
                             [commonStyles.nowrap]: nowrap,
                             [commonStyles.stretchText]:
                                 !(leftAddons || rightAddons) || textResizing === 'fill',

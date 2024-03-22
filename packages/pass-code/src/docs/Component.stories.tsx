@@ -29,14 +29,14 @@ export const pass_code: Story = {
                 error={text('error', '')}
                 leftAddons={
                     boolean('leftAddons', false) && (
-                        <KeyPadButton view='ghost' key='left-addon'>
+                        <KeyPadButton view='text' key='left-addon'>
                             Забыли код?
                         </KeyPadButton>
                     )
                 }
                 rightAddons={
                     boolean('rightAddons', false) && (
-                        <KeyPadButton view='ghost' key='right-addon'>
+                        <KeyPadButton view='text' key='right-addon'>
                             <SfFaceIdXxlIcon />
                         </KeyPadButton>
                     )

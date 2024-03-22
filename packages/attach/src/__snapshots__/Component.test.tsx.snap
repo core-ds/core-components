@@ -29,7 +29,7 @@ exports[`Attach Snapshots tests should match snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="text"
+        class="label"
       >
         <span>
           Выберите файл

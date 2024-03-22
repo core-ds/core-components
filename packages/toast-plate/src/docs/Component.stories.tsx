@@ -49,7 +49,7 @@ export const toast_plate: Story = {
                     actionButton={
                         boolean('renderActionButton', false) ? (
                             <Button
-                                view='ghost'
+                                view='text'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
                                 size={isMobile ? 'xs' : 's'}
                             >
@@ -99,7 +99,7 @@ export const toast_plate_mobile: Story = {
                     actionButton={
                         boolean('renderActionButton', false) ? (
                             <Button
-                                view='ghost'
+                                view='text'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
                                 size='xs'
                             >
@@ -148,7 +148,7 @@ export const toast_plate_desktop: Story = {
                     actionButton={
                         boolean('renderActionButton', false) ? (
                             <Button
-                                view='ghost'
+                                view='text'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
                                 size='s'
                             >

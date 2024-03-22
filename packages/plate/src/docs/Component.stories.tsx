@@ -75,7 +75,7 @@ export const plate: Story = {
                     subAddons={
                         boolean('subAddons', false)
                             ? [
-                                  <Button view='link' size='xxs'>
+                                  <Button view='transparent' size='xxs'>
                                       Кнопка
                                   </Button>,
                                   <Button view='secondary' size='xxs'>
@@ -146,7 +146,7 @@ export const plate_mobile: Story = {
                     subAddons={
                         boolean('subAddons', false)
                             ? [
-                                  <Button view='link' size='xxs'>
+                                  <Button view='transparent' size='xxs'>
                                       Кнопка
                                   </Button>,
                                   <Button view='secondary' size='xxs'>
@@ -218,7 +218,7 @@ export const plate_desktop: Story = {
                     subAddons={
                         boolean('subAddons', false)
                             ? [
-                                  <Button view='link' size='xxs'>
+                                  <Button view='transparent' size='xxs'>
                                       Кнопка
                                   </Button>,
                                   <Button view='secondary' size='xxs'>

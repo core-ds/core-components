@@ -22,7 +22,7 @@ export const SelectButton = forwardRef<HTMLButtonElement, SelectButtonProps>(
         <Button
             {...restProps}
             ref={ref}
-            view='ghost'
+            view='text'
             size='xs'
             className={cn(styles.button, styles[view], className)}
         >

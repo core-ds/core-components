@@ -144,11 +144,11 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           >
                             <button
                               aria-label="закрыть"
-                              class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button mobile primary component"
+                              class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component"
                               type="button"
                             >
                               <span
-                                class="text stretchText"
+                                class="label stretchText"
                               >
                                 <span
                                   class="iconWrapper size-32 center"
@@ -388,7 +388,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               type="button"
                             >
                               <span
-                                class="text stretchText"
+                                class="label stretchText"
                               >
                                 Отмена
                               </span>
@@ -398,7 +398,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               type="button"
                             >
                               <span
-                                class="text stretchText"
+                                class="label stretchText"
                               >
                                 Продолжить
                               </span>

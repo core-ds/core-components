@@ -18,12 +18,12 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
           >
             <button
               aria-label="назад"
-              class="component ghost size-48 hug size-48 component ghost component ghost component"
+              class="component text size-48 hug size-48 component text component text component"
               data-test-id="navigation-bar-dti-back-button"
               type="button"
             >
               <span
-                class="text stretchText"
+                class="label stretchText"
               >
                 <div
                   class="flex"
@@ -66,12 +66,12 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component ghost size-48 hug size-48 component ghost component ghost cc-icon-button button primary component"
+                class="component text size-48 hug size-48 component text component text cc-icon-button button primary component"
                 data-test-id="navigation-bar-dti-closer"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <span
                     class="iconWrapper size-48 center"

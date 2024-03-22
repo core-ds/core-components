@@ -51,14 +51,15 @@
     --button-tertiary-disabled-color: var(--color-light-text-tertiary);
 
     /* outlined */
-    --button-outlined-base-bg-color: transparent;
-    --button-outlined-hover-bg-color: rgba(0, 0, 0, 0.07);
-    --button-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
-    --button-outlined-disabled-bg-color: transparent;
-    --button-outlined-base-border-color: var(--color-light-border-underline-inverted);
-    --button-outlined-disabled-border-color: var(--color-light-border-underline-inverted-alpha-30);
+    --button-outlined-base-bg-color: var(--color-light-transparent-default);
+    --button-outlined-hover-bg-color: var(--color-light-transparent-default-hover);
+    --button-outlined-active-bg-color: var(--color-light-transparent-default-press);
+    --button-outlined-hover-border-color: var(--color-light-neutral-1500);
+    --button-outlined-disabled-bg-color: var(--color-light-transparent-default);
+    --button-outlined-base-border-color: var(--color-light-neutral-1500);
+    --button-outlined-disabled-border-color: var(--color-light-neutral-translucent-500);
     --button-outlined-color: var(--color-light-text-primary);
-    --button-outlined-disabled-color: var(--color-light-text-primary-alpha-30);
+    --button-outlined-disabled-color: var(--color-light-text-tertiary);
 
     /* ghost */
     --button-ghost-base-color: var(--color-light-text-primary);
@@ -66,11 +67,23 @@
     --button-ghost-active-color: var(--color-light-text-primary-press);
     --button-ghost-disabled-color: var(--color-light-text-tertiary);
 
+    /* text */
+    --button-text-base-color: var(--color-light-text-primary);
+    --button-text-hover-color: var(--color-light-text-primary-hover);
+    --button-text-active-color: var(--color-light-text-primary-press);
+    --button-text-disabled-color: var(--color-light-text-tertiary);
+
     /* link */
     --button-link-base-color: var(--color-light-text-primary);
     --button-link-hover-bg-color: var(--color-light-transparent-default-hover);
     --button-link-active-bg-color: var(--color-light-transparent-default-press);
     --button-link-disabled-color: var(--color-light-text-tertiary);
+
+    /* transparent */
+    --button-transparent-base-color: var(--color-light-text-primary);
+    --button-transparent-hover-bg-color: var(--color-light-transparent-default-hover);
+    --button-transparent-active-bg-color: var(--color-light-transparent-default-press);
+    --button-transparent-disabled-color: var(--color-light-text-tertiary);
 
     /* loader */
     --button-spinner-static-color: var(--color-static-neutral-1500-inverted);
@@ -129,16 +142,21 @@
     --button-inverted-tertiary-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* outlined inverted */
-    --button-inverted-outlined-base-bg-color: transparent;
-    --button-inverted-outlined-hover-bg-color: rgba(255, 255, 255, 0.15);
-    --button-inverted-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
-    --button-inverted-outlined-disabled-bg-color: transparent;
-    --button-inverted-outlined-base-border-color: var(--color-light-border-underline-inverted);
-    --button-inverted-outlined-disabled-border-color: color-mod(
-        var(--color-dark-border-tertiary) alpha(30%)
+    --button-inverted-outlined-base-bg-color: var(--color-light-transparent-default);
+    --button-inverted-outlined-hover-bg-color: var(
+        --color-light-transparent-default-inverted-hover
     );
-    --button-inverted-outlined-color: var(--color-dark-text-primary);
-    --button-inverted-outlined-disabled-color: color-mod(var(--color-dark-text-primary) alpha(30%));
+    --button-inverted-outlined-active-bg-color: var(
+        --color-light-transparent-default-inverted-press
+    );
+    --button-inverted-outlined-hover-border-color: var(--color-light-neutral-1500-inverted);
+    --button-inverted-outlined-disabled-bg-color: var(--color-light-transparent-default);
+    --button-inverted-outlined-base-border-color: var(--color-light-neutral-1500-inverted);
+    --button-inverted-outlined-disabled-border-color: var(
+        --color-light-neutral-translucent-500-inverted
+    );
+    --button-inverted-outlined-color: var(--color-light-text-primary-inverted);
+    --button-inverted-outlined-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* ghost inverted */
     --button-inverted-ghost-base-color: var(--color-light-text-primary-inverted);
@@ -146,11 +164,27 @@
     --button-inverted-ghost-active-color: var(--color-light-text-primary-inverted-press);
     --button-inverted-ghost-disabled-color: var(--color-light-text-tertiary-inverted);
 
+    /* text inverted */
+    --button-inverted-text-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-text-hover-color: var(--color-light-text-primary-inverted-hover);
+    --button-inverted-text-active-color: var(--color-light-text-primary-inverted-press);
+    --button-inverted-text-disabled-color: var(--color-light-text-tertiary-inverted);
+
     /* link inverted */
     --button-inverted-link-base-color: var(--color-light-text-primary-inverted);
     --button-inverted-link-hover-bg-color: var(--color-light-transparent-default-inverted-hover);
     --button-inverted-link-active-bg-color: var(--color-light-transparent-default-inverted-press);
     --button-inverted-link-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* transparent inverted */
+    --button-inverted-transparent-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-transparent-hover-bg-color: var(
+        --color-light-transparent-default-inverted-hover
+    );
+    --button-inverted-transparent-active-bg-color: var(
+        --color-light-transparent-default-inverted-press
+    );
+    --button-inverted-transparent-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* loader inverted */
     --button-spinner-inverted-static-color: var(--color-static-neutral-1500-inverted);
@@ -215,11 +249,27 @@
     );
     --button-inverted-tertiary-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
 
+    /* outlined mobile */
+    --button-outlined-mobile-disabled-border-color: var(--color-light-neutral-translucent-500);
+    --button-outlined-mobile-disabled-color: var(--color-light-text-tertiary);
+
+    /* outlined inverted mobile */
+    --button-inverted-outlined-mobile-disabled-border-color: var(
+        --color-light-neutral-translucent-500-inverted
+    );
+    --button-inverted-outlined-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
+
     /* link mobile */
     --button-link-mobile-disabled-color: var(--color-light-text-tertiary);
 
     /* link inverted mobile */
     --button-inverted-link-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* transparent mobile */
+    --button-transparent-mobile-disabled-color: var(--color-light-text-tertiary);
+
+    /* transparent inverted mobile */
+    --button-inverted-transparent-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* ghost mobile */
     --button-ghost-mobile-active-color: var(--color-light-text-primary-press);
@@ -228,6 +278,14 @@
     /* ghost mobile inverted */
     --button-inverted-ghost-mobile-active-color: var(--color-light-text-primary-inverted-press);
     --button-inverted-ghost-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* text mobile */
+    --button-text-mobile-active-color: var(--color-light-text-primary-press);
+    --button-text-mobile-disabled-color: var(--color-light-text-tertiary);
+
+    /* text mobile inverted */
+    --button-inverted-text-mobile-active-color: var(--color-light-text-primary-inverted-press);
+    --button-inverted-text-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* loader mobile */
     --button-spinner-primary-mobile-color: var(--color-light-neutral-1500-inverted);

@@ -194,13 +194,13 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         if (periodType === 'month' && isMonthAndYearSelectable) {
             return (
                 <div>
-                    <Button className={styles.period} view='ghost' size='l' onClick={onMonthClick}>
+                    <Button className={styles.period} view='text' size='l' onClick={onMonthClick}>
                         {monthName(valueFrom)}
                     </Button>
                     {yearSelectorValue && (
                         <Button
                             className={cn(styles.yearSelectorButton, styles.period)}
-                            view='ghost'
+                            view='text'
                             size='l'
                             onClick={onYearClick}
                         >

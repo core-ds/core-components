@@ -68,7 +68,7 @@ export const KeyPad: React.FC<KeyPadProps> = ({
                         <KeyPadButton
                             key='clear-btn'
                             onClick={onClear}
-                            view='ghost'
+                            view='text'
                             dataTestId={getDataTestId(dataTestId, 'backspace-button')}
                         >
                             <BackspaceXxlIcon />
