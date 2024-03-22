@@ -28,7 +28,7 @@
     classnames "^2.3.1"
     compute-scroll-into-view "^3.1.0"
     date-fns "^2.16.1"
-    downshift "^8.2.2"
+    downshift "8.4.0"
     element-closest "^3.0.2"
     intersection-observer "^0.12.0"
     libphonenumber-js "^1.10.30"
@@ -9497,10 +9497,10 @@ dotgitignore@^2.1.0:
     find-up "^3.0.0"
     minimatch "^3.0.4"
 
-downshift@^8.2.2, downshift@^8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-8.3.1.tgz#a820e3a500f0f2a0784a55bac48ffaa7e11141b5"
-  integrity sha512-djPzjGfTSEjOsfmlur4onCV3Mtd6oGI+eOQIBNwoS7oEYTjPrxk6n+sJLmndT/KKwHvUyBSh3AFb64eHIFifTQ==
+downshift@8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-8.4.0.tgz#850697de3e691673a1084de3b66034e32d8a940f"
+  integrity sha512-feeqAR0s53NTIKaHxyFhdLo9UCHUwge4q/j+heIz7X8AaURgdcANOnMGLWffWQCoX9l4Vpw87nOrlX6uJceqjA==
   dependencies:
     "@babel/runtime" "^7.22.15"
     compute-scroll-into-view "^3.0.3"
