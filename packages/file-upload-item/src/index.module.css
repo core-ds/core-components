@@ -4,6 +4,7 @@
     @mixin paragraph_secondary_large;
 
     display: flex;
+    align-items: flex-start;
     width: 100%;
     padding: var(--gap-xs);
     color: var(--color-light-text-secondary);
@@ -12,6 +13,10 @@
 
     & svg {
         display: block;
+    }
+
+    &:last-child {
+        box-shadow: none;
     }
 }
 
@@ -48,14 +53,17 @@
 }
 
 .name {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: var(--color-light-text-primary);
 
     & a {
         display: block;
         margin-bottom: 1px;
+    }
+
+    &.rowLimit {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
@@ -100,6 +108,7 @@
     @mixin paragraph_primary_small;
 
     margin-left: var(--gap-s);
+    margin-top: var(--gap-3xs);
 }
 
 .spinnerWrapper {

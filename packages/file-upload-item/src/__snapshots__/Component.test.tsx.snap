@@ -30,7 +30,7 @@ Object {
             class="infoSection"
           >
             <div
-              class="name"
+              class="name rowLimit"
             >
               Довольно длинное название файла.pdf
             </div>
@@ -132,7 +132,7 @@ Object {
           class="infoSection"
         >
           <div
-            class="name"
+            class="name rowLimit"
           >
             Довольно длинное название файла.pdf
           </div>

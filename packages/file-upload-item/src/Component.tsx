@@ -109,6 +109,11 @@ export type FileUploadItemProps = {
     disableButtons?: boolean;
 
     /**
+     * Разрешить многострочное название файла
+     */
+    multiline?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -133,6 +138,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     onDownload,
     onRestore,
     disableButtons,
+    multiline = false,
     dataTestId,
 }) => {
     const handleDownload = (event: MouseEvent<HTMLElement>) => {
@@ -180,7 +186,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
 
         return (
             <div className={styles.infoSection}>
-                <div className={styles.name}>{name}</div>
+                <div className={cn(styles.name, { [styles.rowLimit]: !multiline })}>{name}</div>
 
                 {shouldShownError && (
                     <div className={styles.errorWrapper} role='alert'>
