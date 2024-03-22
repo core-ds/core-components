@@ -3,6 +3,7 @@ import addMonths from 'date-fns/addMonths';
 import addQuarters from 'date-fns/addQuarters';
 import addWeeks from 'date-fns/addWeeks';
 import addYears from 'date-fns/addYears';
+import differenceInDays from 'date-fns/differenceInDays';
 import endOfMonth from 'date-fns/endOfMonth';
 import endOfQuarter from 'date-fns/endOfQuarter';
 import endOfWeek from 'date-fns/endOfWeek';
@@ -101,6 +102,13 @@ export const shiftValues = (
             newValueFrom = startOfYear(addYears(valueFrom, amount));
             newValueTo = endOfYear(newValueFrom);
             break;
+        case 'range': {
+            const diffInDays = differenceInDays(valueTo, valueFrom);
+
+            newValueFrom = addDays(valueFrom, diffInDays * amount);
+            newValueTo = addDays(valueTo, diffInDays * amount);
+            break;
+        }
         default:
             break;
     }
