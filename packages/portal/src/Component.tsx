@@ -1,7 +1,7 @@
 import { forwardRef, ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import { useCoreComponentsContext } from '@alfalab/core-components-provider';
+import { useComponentOverrides } from '@alfalab/core-components-provider';
 
 import { getDefaultPortalContainer, setRef } from './utils';
 
@@ -21,12 +21,11 @@ export type PortalProps = {
 };
 export const Portal = forwardRef<Element, PortalProps>(
     ({ getPortalContainer = getDefaultPortalContainer, immediateMount = false, children }, ref) => {
-        const CoreComponentsContext = useCoreComponentsContext();
+        const overrides = useComponentOverrides('Portal');
 
         const [mountNode, setMountNode] = useState<Element | null>(() =>
             typeof window !== 'undefined' && immediateMount
-                ? (CoreComponentsContext?.getContainer && CoreComponentsContext?.getContainer()) ||
-                  getPortalContainer()
+                ? (overrides?.getContainer && overrides.getContainer()) || getPortalContainer()
                 : null,
         );
 
