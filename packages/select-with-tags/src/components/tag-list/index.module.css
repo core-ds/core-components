@@ -116,10 +116,6 @@
     margin: 0;
 }
 
-.block {
-    min-width: 100%;
-}
-
 .focusVisible {
     @mixin focus-outline;
 }

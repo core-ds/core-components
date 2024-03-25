@@ -275,7 +275,6 @@ export const TagList: FC<Partial<FieldProps> & FormControlProps & TagListOwnProp
                             onChange={onInput}
                             className={cn(styles.input, {
                                 [styles.focusVisible]: inputFocusVisible,
-                                [styles.block]: inputOnNewLine,
                                 [styles.hidden]: !isOpen && selectedMultiple.length > 0,
                             })}
                             disabled={disabled}
