@@ -3,11 +3,11 @@
 exports[`TagBar snapshot test should match snapshot 1`] = `
 <div>
   <nav
-    class="component"
+    class="component modal-bg-primary"
     data-test-id="tab-bar"
   >
     <button
-      class="component selected"
+      class="component primary"
       data-test-id="tab-bar-tab"
       id="1"
       tabindex="0"

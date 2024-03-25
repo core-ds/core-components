@@ -8,7 +8,7 @@ import type {
     RefAttributes,
 } from 'react';
 
-import type { BadgeProps } from '@alfalab/core-components-badge';
+import type { IndicatorProps } from '@alfalab/core-components-indicator';
 
 type TabElementType = ReactElement<
     TabProps,
@@ -71,6 +71,16 @@ export interface TabBarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onCha
      * Обработчик изменения выбранного таба
      */
     onChange?: (id: string) => void;
+
+    /**
+     * Цвет активного таба
+     */
+    accentColor?: 'primary' | 'secondary';
+
+    /**
+     * Цвет фона
+     */
+    bgColor?: 'modal-bg-primary' | 'modal-bg-alt-primary';
 }
 
 type AdditionalTabProps = Record<string, unknown>;
@@ -108,8 +118,8 @@ export interface TabProps
      * Свойства индикатора
      */
     indicatorProps?: Omit<
-        BadgeProps,
-        'view' | 'visibleColorOutline' | 'size' | 'iconColor' | 'iconUnderlayColor'
+        IndicatorProps,
+        'color' | 'backgroundColor' | 'border' | 'view' | 'size' | 'height'
     >;
 
     /**
@@ -134,6 +144,9 @@ export interface TabProps
 }
 
 export interface PrivateTabProps
-    extends Pick<TabBarProps, 'tabClassNames' | 'onChange' | 'dataTestId'> {
+    extends Pick<
+        TabBarProps,
+        'tabClassNames' | 'onChange' | 'dataTestId' | 'accentColor' | 'bgColor'
+    > {
     selected: boolean;
 }

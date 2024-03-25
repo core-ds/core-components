@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-typography": "^4.5.0",
-        "@alfalab/core-components-badge": "^5.5.1",
+        "@alfalab/core-components-indicator": "^2.0.0",
         "@alfalab/core-components-shared": "^0.9.1",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"

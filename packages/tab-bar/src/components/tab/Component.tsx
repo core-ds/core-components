@@ -1,9 +1,10 @@
 import React, { cloneElement, forwardRef, isValidElement, MouseEvent } from 'react';
 import cn from 'classnames';
 
-import { Badge } from '@alfalab/core-components-badge';
+import { Indicator } from '@alfalab/core-components-indicator';
 import { Typography } from '@alfalab/core-components-typography';
 
+import { INDICATOR_BG_COLOR, INDICATOR_BORDER_COLOR } from '../../consts';
 import { PrivateTabProps, TabProps } from '../../types';
 
 import styles from './index.module.css';
@@ -27,6 +28,8 @@ const TabComponent = forwardRef(
             iconClassName,
             href,
             Component = href ? 'a' : 'button',
+            accentColor = 'primary',
+            bgColor = 'modal-bg-primary',
             ...restProps
         }: PrivateTabProps & TabProps,
         ref,
@@ -59,7 +62,7 @@ const TabComponent = forwardRef(
                     selected && commonSelectedClassName,
                     selected && selectedClassName,
                     {
-                        [styles.selected]: selected,
+                        [styles[accentColor]]: selected,
                     },
                 )}
                 onClick={handleClick}
@@ -80,7 +83,15 @@ const TabComponent = forwardRef(
 
                 {showIndicator && (
                     <div className={styles.indicator}>
-                        <Badge visibleIconOutline={true} {...indicatorProps} view='count' />
+                        <Indicator
+                            {...indicatorProps}
+                            height={indicatorProps?.value ? 16 : undefined}
+                            border={{
+                                width: 2,
+                                color: INDICATOR_BORDER_COLOR[bgColor],
+                            }}
+                            backgroundColor={INDICATOR_BG_COLOR[accentColor]}
+                        />
                     </div>
                 )}
             </Component>
