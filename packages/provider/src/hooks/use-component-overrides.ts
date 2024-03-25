@@ -11,4 +11,6 @@ export const useComponentOverrides = (component: keyof ComponentsContextValue) =
     if (context?.components && context.components[component]) {
         return context.components[component];
     }
+
+    return undefined;
 };

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { PortalProps } from '@alfalab/core-components-portal';
+import type { PortalProps } from '@alfalab/core-components-portal';
 
 export * from './hooks';
 
