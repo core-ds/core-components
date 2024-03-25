@@ -1,7 +1,7 @@
 {
-    "name": "@alfalab/core-components-portal",
-    "version": "3.2.0",
-    "description": "Portal component",
+    "name": "@alfalab/core-components-provider",
+    "version": "1.0.0",
+    "description": "",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
@@ -11,11 +11,11 @@
         "directory": "dist"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "^1.0.0",
+        "@alfalab/core-components-portal": "^3.2.0",
+        "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }
 }
