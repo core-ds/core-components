@@ -88,6 +88,16 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     return masked.conformedValue;
                 }
 
+                /*
+                 * Код нужен для исправления ошибки в библиотеке text-mask: если цифра 7 находится на второй позиции при вставке, то она удаляется
+                 * Это происходит потому что цифра 7 есть уже в маске
+                 */
+                if (rawValue[1] === '7') {
+                    const masked = conformToMask(`+7${rawValue}`, mask, config);
+
+                    return masked.conformedValue;
+                }
+
                 const insertedNumber = getInsertedNumber({
                     rawValue,
                     clearableCountryCode,
