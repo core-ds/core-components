@@ -24,7 +24,7 @@
     transform: translate3d(0, 0, 0);
 }
 
-.expandedLabel {
+.expandedLabel.expandedLabel {
     margin-top: 15px;
 }
 
