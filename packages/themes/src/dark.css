@@ -665,4 +665,13 @@
     --color-light-text-secondary-inverted-tint-30: var(
         --color-dark-text-secondary-inverted-shade-30
     );
+
+    /* blurred underlay */
+    --blur-regular-mix-blend-mode: var(--blur-regular-mix-blend-mode-inverted);
+    --color-light-bg-blur-regular-top: var(--color-light-bg-blur-regular-top-inverted);
+    --color-light-bg-blur-regular-bottom: var(--color-light-bg-blur-regular-bottom-inverted);
+    --color-light-bg-blur-primary-top: var(--color-light-bg-blur-primary-top-inverted);
+    --color-light-bg-blur-primary-bottom: var(--color-light-bg-blur-primary-bottom-inverted);
+    --color-light-bg-blur-tertiary-top: var(--color-light-bg-blur-tertiary-top-inverted);
+    --color-light-bg-blur-tertiary-bottom: var(--color-light-bg-blur-tertiary-bottom-inverted);
 }

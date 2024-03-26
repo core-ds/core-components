@@ -1,0 +1,63 @@
+```jsx live
+render(() => {
+    return (
+        <div>
+            {['regular', 'primary', 'tertiary'].map((view) => {
+                return (
+                    <div style={{ position: 'relative' }} key={view}>
+                        <img src='./images/flowers.jpg' />
+                        <div
+                            style={{
+                                position: 'absolute',
+                                left: 50,
+                                top: 75,
+                            }}
+                        >
+                            <style>{`
+                                .underlay-button {
+                                    border-radius: 12px;
+                                }
+                            `}</style>
+                            <BlurredUnderlay view={view} className='underlay-button'>
+                                <Button view='link'>Label</Button>
+                            </BlurredUnderlay>
+                        </div>
+                        <div
+                            style={{
+                                position: 'absolute',
+                                left: 230,
+                                top: 10,
+                                width: 300,
+                                height: 180,
+                            }}
+                        >
+                            <style>{`
+                                .underlay {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            `}</style>
+                            <BlurredUnderlay view={view} className='underlay'>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        height: '100%',
+                                    }}
+                                >
+                                    <Typography.Text
+                                        color={view === 'regular' ? 'primary' : 'primary-inverted'}
+                                    >
+                                        {view}
+                                    </Typography.Text>
+                                </div>
+                            </BlurredUnderlay>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    );
+});
+```
