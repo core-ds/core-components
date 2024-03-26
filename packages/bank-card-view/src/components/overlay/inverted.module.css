@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+.overlayBackground {
+    background: var(--color-static-neutral-translucent-700);
+}
+
+.iconColor {
+    color: var(--color-static-text-primary-inverted);
+}

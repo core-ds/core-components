@@ -1,0 +1,15 @@
+@import '../../../../themes/src/default.css';
+
+.textColor {
+    color: var(--color-static-text-primary-dark);
+}
+
+.buttonEye.buttonEye {
+    &:hover {
+        color: var(--color-light-text-primary);
+    }
+
+    &:active {
+        color: var(--color-light-text-primary);
+    }
+}
