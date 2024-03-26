@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { Portal } from './index';
+import { CoreComponentsProvider } from './../../provider/src';
 import { PORTAL_CONTAINER_ATTRIBUTE } from './utils';
 
 describe('Portal tests', () => {
@@ -57,6 +58,34 @@ describe('Portal tests', () => {
                     <span>{textInPortal}</span>
                 </Portal>
             </div>,
+        );
+
+        const portalChild = getByText(textInPortal);
+
+        expect(document.querySelector('#portal-container')).toContainElement(portalChild);
+    });
+
+    it('should render overlay into container (DOMNode) by CoreComponentsProvider', () => {
+        const textInPortal = 'Text in portal';
+
+        const { getByText } = render(
+            <CoreComponentsProvider
+                config={{
+                    components: {
+                        Portal: {
+                            getPortalContainer: () => document.querySelector('#portal-container'),
+                        },
+                    },
+                }}
+            >
+                <div>
+                    <h1>Title</h1>
+                    <div id='portal-container' />
+                    <Portal>
+                        <span>{textInPortal}</span>
+                    </Portal>
+                </div>
+            </CoreComponentsProvider>,
         );
 
         const portalChild = getByText(textInPortal);

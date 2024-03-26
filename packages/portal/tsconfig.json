@@ -5,8 +5,5 @@
         "outDir": "dist",
         "rootDirs": ["src"]
     },
-    "references": [
-        //
-        { "path": "../provider" }
-    ]
+    "references": [{ "path": "../provider" }]
 }
