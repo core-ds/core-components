@@ -1,20 +1,14 @@
 import { createContext } from 'react';
 
-import type { PortalProps } from '@alfalab/core-components-portal';
-
 export * from './hooks';
 
-export type ComponentsContextValue = {
-    Portal?: {
-        getContainer?: PortalProps['getPortalContainer'];
-    };
-};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ComponentsContextValue = Record<string, any>;
 
-export type CoreComponentsContextValue = {
-    /** Уникальный идентификатор страницы для специфичности стилей страницы  */
+export type CoreContextValue = {
     components?: ComponentsContextValue;
 };
 
-export const CoreComponentsContext = createContext<CoreComponentsContextValue>({});
+export const CoreComponentsContext = createContext<CoreContextValue>({});
 
 export const CoreComponentsProvider = CoreComponentsContext.Provider;

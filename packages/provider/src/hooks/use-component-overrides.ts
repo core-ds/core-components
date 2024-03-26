@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ComponentsContextValue, CoreComponentsContext } from '..';
 
 /**
- * Получение глобальных настрояек для компонента
+ * Получение глобальных настроек для компонента
  */
 export const useComponentOverrides = (component: keyof ComponentsContextValue) => {
     const context = useContext(CoreComponentsContext);

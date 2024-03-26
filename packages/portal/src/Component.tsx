@@ -25,7 +25,8 @@ export const Portal = forwardRef<Element, PortalProps>(
 
         const [mountNode, setMountNode] = useState<Element | null>(() =>
             typeof window !== 'undefined' && immediateMount
-                ? (overrides?.getContainer && overrides.getContainer()) || getPortalContainer()
+                ? (overrides?.getPortalContainer && overrides.getPortalContainer()) ||
+                  getPortalContainer()
                 : null,
         );
 

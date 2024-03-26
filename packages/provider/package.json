@@ -16,8 +16,5 @@
     "dependencies": {
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
-    },
-    "devDependencies": {
-        "@alfalab/core-components-portal": "^3.2.0"
     }
 }
