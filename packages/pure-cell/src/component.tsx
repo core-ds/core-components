@@ -58,17 +58,22 @@ export type PureCellProps = {
     /**
      * Вертикальные отступы
      */
-    verticalPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
-
-    /**
-     * Вертикальный отступ сверху (переопределяет значение verticalPadding для отступа сверху )
-     */
-    verticalTopPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
-
-    /**
-     * Вертикальный отступ снизу (переопределяет значение verticalPadding для отступа снизу)
-     */
-    verticalBottomPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+    verticalPadding?:
+        | 'airy'
+        | 'default'
+        | 'compact'
+        | 'tiny'
+        | 'none'
+        | {
+              /**
+               * Вертикальный отступ сверху
+               */
+              top?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+              /**
+               * Вертикальный отступ снизу
+               */
+              bottom?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+          };
 
     /**
      * Горизонтальные отступы
@@ -106,8 +111,6 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             children,
             horizontalPadding = 'none',
             verticalPadding = 'none',
-            verticalTopPadding,
-            verticalBottomPadding,
             direction = 'horizontal',
             ...restProps
         },
@@ -119,11 +122,17 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             [styles.component]: true,
             [styles.focused]: focused,
             [styles[direction]]: true,
-            [styles[verticalPadding]]: true,
-            [styles[`${verticalTopPadding}Top`]]: verticalTopPadding,
-            [styles[`${verticalBottomPadding}Bottom`]]: verticalBottomPadding,
             [styles[horizontalPadding]]: true,
         };
+
+        if (typeof verticalPadding === 'string') {
+            addClasses[styles[verticalPadding as string]] = typeof verticalPadding === 'string';
+        }
+
+        if (typeof verticalPadding === 'object') {
+            addClasses[styles[`${verticalPadding.top}Top`]] = !!verticalPadding.top;
+            addClasses[styles[`${verticalPadding.bottom}Bottom`]] = !!verticalPadding.bottom;
+        }
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;

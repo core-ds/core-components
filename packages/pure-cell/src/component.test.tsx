@@ -191,7 +191,7 @@ describe('PureCell', () => {
 
     it('should use `verticalTopPadding` and `verticalBottomPadding` prop', () => {
         render(
-            <PureCell verticalTopPadding='airy' verticalBottomPadding='tiny' dataTestId='cell-pure'>
+            <PureCell verticalPadding={{ top: 'airy', bottom: 'tiny' }} dataTestId='cell-pure'>
                 <PureCell.Graphics>
                     <StarMIcon />
                 </PureCell.Graphics>
