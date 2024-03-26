@@ -1,12 +1,10 @@
-import { useContext } from 'react';
-
-import { ComponentsContextValue, CoreComponentsContext } from '..';
+import { ComponentsContextValue, useCoreComponentsContext } from '..';
 
 /**
  * Получение глобальных настроек для компонента
  */
 export const useComponentOverrides = (component: keyof ComponentsContextValue) => {
-    const context = useContext(CoreComponentsContext);
+    const context = useCoreComponentsContext();
 
     if (context?.components && context.components[component]) {
         return context.components[component];
