@@ -45,7 +45,15 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
             >
                 <span className={cn(styles.content, { [styles.focused]: focused })}>{title}</span>
 
-                {rightAddons && <span className={styles.rightAddons}>{rightAddons}</span>}
+                {rightAddons && (
+                    <span
+                        className={cn(styles.rightAddons, {
+                            [styles.rightAddonsMarginZero]: !title,
+                        })}
+                    >
+                        {rightAddons}
+                    </span>
+                )}
             </button>
         ),
 );

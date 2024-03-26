@@ -210,7 +210,9 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
             >
               Таб 1
             </span>
-            <span>
+            <span
+              class=""
+            >
               addon
             </span>
           </button>
