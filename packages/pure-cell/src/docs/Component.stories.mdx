@@ -30,10 +30,27 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
+        );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const weight = select('weight', ['bold', 'normal'], 'normal');
@@ -80,11 +97,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 >
                     <PureCell
                         href={text('href', '')}
-                        verticalPadding={verticalPadding}
+                        verticalPadding={verticalPaddingPrepared}
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
-                        <PureCell.Graphics>
+                        <PureCell.Graphics graphicPadding={graphicPadding}>
                             <StarMIcon />
                         </PureCell.Graphics>
                         <PureCell.Content>
@@ -112,7 +129,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell>
                     <PureCell
                         href={text('href', '')}
-                        verticalPadding={verticalPadding}
+                        verticalPadding={verticalPaddingPrepared}
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
@@ -140,7 +157,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell>
                     <PureCell
                         href={text('href', '')}
-                        verticalPadding={verticalPadding}
+                        verticalPadding={verticalPaddingPrepared}
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
@@ -174,7 +191,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 >
                     <PureCell
                         href={text('href', '')}
-                        verticalPadding={verticalPadding}
+                         verticalPadding={verticalPaddingPrepared}
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
@@ -199,11 +216,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell>
                     <PureCell
                         href={text('href', '')}
-                        verticalPadding={verticalPadding}
+                        verticalPadding={verticalPaddingPrepared}
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
-                        <PureCell.Graphics>
+                        <PureCell.Graphics graphicPadding={graphicPadding}>
                             <Circle />
                         </PureCell.Graphics>
                         <PureCell.Content>
@@ -222,11 +239,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell>
                     <PureCell
                         href={text('href', '')}
-                        verticalPadding={verticalPadding}
+                         verticalPadding={verticalPaddingPrepared}
                         horizontalPadding={horizontalPadding}
                         direction={direction}
                     >
-                        <PureCell.Graphics>
+                        <PureCell.Graphics graphicPadding={graphicPadding}>
                             <Circle />
                         </PureCell.Graphics>
                         <PureCell.Content>
@@ -253,6 +270,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </div>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Addon'>
@@ -262,10 +280,27 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
+        );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
         );
         const addonPadding = select('addonPadding', ['default', 'none'], 'default');
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
@@ -277,11 +312,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             >
                 <PureCell
                     href={text('href', '')}
-                    verticalPadding={verticalPadding}
+                    verticalPadding={verticalPaddingPrepared}
                     horizontalPadding={horizontalPadding}
                     direction={direction}
                 >
-                    <PureCell.Graphics>
+                    <PureCell.Graphics graphicPadding={graphicPadding}>
                         <Circle />
                     </PureCell.Graphics>
                     <PureCell.Content>
@@ -301,6 +336,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </div>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Amount'>
@@ -310,6 +346,18 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -341,7 +389,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
@@ -369,15 +417,28 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.AmountTitle'>
     {React.createElement(() => {
-        const verticalPadding = select(
+                const verticalPadding = select(
             'verticalPadding',
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -411,7 +472,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
@@ -436,6 +497,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Category'>
@@ -445,22 +507,41 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const categoryName = text('categoryName', 'Кафе, рестораны, столовые, бары');
         const categoryPercent = text('categoryPercent', '10');
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
@@ -477,6 +558,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Comment'>
@@ -486,6 +568,18 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -495,7 +589,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
@@ -516,19 +610,37 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Content'>
     {React.createElement(() => {
-        const verticalPadding = select(
+                const verticalPadding = select(
             'verticalPadding',
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
+        );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
@@ -539,11 +651,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             >
                 <PureCell
                     href={text('href', '')}
-                    verticalPadding={verticalPadding}
+                    verticalPadding={verticalPaddingPrepared}
                     horizontalPadding={horizontalPadding}
                     direction={direction}
                 >
-                    <PureCell.Graphics>
+                    <PureCell.Graphics graphicPadding={graphicPadding}>
                         <Circle />
                     </PureCell.Graphics>
                     <PureCell.Content>
@@ -568,6 +680,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </div>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Footer'>
@@ -578,20 +691,37 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
-        const horizontalPadding = select(
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+       
+       const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
+        );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
@@ -612,6 +742,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.FooterButton'>
@@ -622,6 +753,18 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -632,7 +775,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
@@ -665,6 +808,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.ExtraSubtitle'>
@@ -675,6 +819,18 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -702,7 +858,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
@@ -723,6 +879,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Graphics'>
@@ -732,25 +889,43 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Main'>
@@ -762,10 +937,27 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
+        );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const styleAddons = {
@@ -831,11 +1023,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         ) : (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
@@ -856,6 +1048,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 <Story name='PureCell.Text'>
@@ -865,10 +1058,27 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             ['airy', 'default', 'compact', 'tiny', 'none'],
             'default',
         );
+        const verticalTopPadding = select(
+            'verticalPadding.top',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalBottomPadding = select(
+            'verticalPadding.bottom',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
+        );
+        const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
+        
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
+        );
+        const graphicPadding = select(
+            'graphicPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            undefined,
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const rowLimit = select('rowLimit', ['1', '2'], '1');
@@ -894,11 +1104,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         return (
             <PureCell
                 href={text('href', '')}
-                verticalPadding={verticalPadding}
+                verticalPadding={verticalPaddingPrepared}
                 horizontalPadding={horizontalPadding}
                 direction={direction}
             >
-                <PureCell.Graphics>
+                <PureCell.Graphics graphicPadding={graphicPadding}>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
@@ -923,6 +1133,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell>
         );
     })}
+
 </Story>
 
 {/* Docs */}

@@ -58,7 +58,22 @@ type BasePureCellProps = {
     /**
      * Вертикальные отступы
      */
-    verticalPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+    verticalPadding?:
+        | 'airy'
+        | 'default'
+        | 'compact'
+        | 'tiny'
+        | 'none'
+        | {
+              /**
+               * Вертикальный отступ сверху
+               */
+              top?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+              /**
+               * Вертикальный отступ снизу
+               */
+              bottom?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+          };
 
     /**
      * Горизонтальные отступы
@@ -69,6 +84,7 @@ type BasePureCellProps = {
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
     tag?: ElementType;
+
     /**
      * Компоненты
      */
@@ -108,10 +124,17 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
             [styles.component]: true,
             [styles.focused]: focused,
             [styles[direction]]: true,
-            [styles.defaultPadding]: verticalPadding === 'default',
-            [styles[verticalPadding]]: verticalPadding !== 'default',
             [styles[horizontalPadding]]: true,
         };
+
+        if (typeof verticalPadding === 'string') {
+            addClasses[styles[verticalPadding as string]] = typeof verticalPadding === 'string';
+        }
+
+        if (typeof verticalPadding === 'object') {
+            addClasses[styles[`${verticalPadding.top}Top`]] = !!verticalPadding.top;
+            addClasses[styles[`${verticalPadding.bottom}Bottom`]] = !!verticalPadding.bottom;
+        }
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
