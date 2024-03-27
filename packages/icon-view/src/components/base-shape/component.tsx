@@ -53,6 +53,11 @@ export type BaseShapeProps = {
     className?: string;
 
     /**
+     * Сss класс для стилизации обертки иконки
+     */
+    iconContainerClassName?: string;
+
+    /**
      * Слот сверху
      */
     topAddons?: ReactNode;
@@ -111,6 +116,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             pathsMap,
             dataTestId,
             mainSize,
+            iconContainerClassName,
         },
         ref,
     ) => {
@@ -236,7 +242,13 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                     {text && <div className={styles.text}>{text}</div>}
 
                     {children && (
-                        <div className={cn(styles.children, styles[`size-${mainSize}`])}>
+                        <div
+                            className={cn(
+                                styles.children,
+                                styles[`size-${mainSize}`],
+                                iconContainerClassName,
+                            )}
+                        >
                             {children}
                         </div>
                     )}
