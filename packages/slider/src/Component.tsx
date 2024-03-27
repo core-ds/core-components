@@ -90,12 +90,14 @@ export type SliderProps = {
     onChange?: (payload: { value: number; valueTo?: number }) => void;
 
     /**
+     * @deprecated
      * Обработчик начала перетаскивания ползунка
      */
     onStart?: () => void;
 
     /**
      * Обработчик окончания перетаскивания ползунка
+     * @description https://refreshless.com/nouislider/events-callbacks/#section-change
      */
     onEnd?: () => void;
 
@@ -147,10 +149,6 @@ export const Slider: FC<SliderProps> = ({
             range,
         });
 
-        slider.on('change', () => {
-            busyRef.current = false;
-        });
-
         // eslint-disable-next-line consistent-return
         return () => slider.destroy();
 
@@ -167,14 +165,15 @@ export const Slider: FC<SliderProps> = ({
             onStart?.();
         });
 
-        slider.on('end', () => {
+        slider.on('change', () => {
+            busyRef.current = false;
             onEnd?.();
         });
 
         // eslint-disable-next-line consistent-return
         return () => {
             slider.off('start');
-            slider.off('end');
+            slider.off('change');
         };
     }, [onStart, onEnd]);
 
