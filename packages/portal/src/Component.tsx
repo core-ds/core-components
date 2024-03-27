@@ -20,15 +20,18 @@ export type PortalProps = {
     immediateMount?: boolean;
 };
 export const Portal = forwardRef<Element, PortalProps>(
-    ({ getPortalContainer = getDefaultPortalContainer, immediateMount = false, children }, ref) => {
+    ({ getPortalContainer, immediateMount = false, children }, ref) => {
         const overrides = useComponentOverrides('Portal');
 
         const getContainer = useCallback(() => {
+            if (getPortalContainer) {
+                return getPortalContainer();
+            }
             if (overrides?.getPortalContainer) {
                 return overrides.getPortalContainer();
             }
 
-            return getPortalContainer();
+            return getDefaultPortalContainer();
         }, [getPortalContainer, overrides]);
 
         const [mountNode, setMountNode] = useState<Element | null>(() =>
