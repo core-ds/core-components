@@ -26,6 +26,7 @@ import Changelog from '../../CHANGELOG.md?raw';
         const dataTestId = text('dataTestId', '');
         const label = text('label', 'Условие тоггла');
         const hint = text('hint', 'Описание пункта');
+        const error = text('error', '');
         return (
             <Switch
                 disabled={disabled}
@@ -39,6 +40,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 dataTestId={dataTestId}
                 label={label}
                 hint={hint}
+                error={error}
                 onChange={handleChange}
             />
         );
