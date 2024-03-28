@@ -747,7 +747,7 @@ describe('Select', () => {
 
             const cb = () => undefined;
 
-            const expectedProps: Partial<popoverModule.PopoverProps> = {
+            const testProps: Partial<popoverModule.PopoverProps> = {
                 update: {
                     current: cb,
                 },
@@ -756,13 +756,23 @@ describe('Select', () => {
                 open: true,
             };
 
+            const additionalTestProps: Partial<popoverModule.PopoverProps> = {
+                availableHeight: true,
+            };
+
+            const expectedProps = {
+                ...testProps,
+                ...additionalTestProps,
+            };
+
             await asyncRender(
                 <Select
                     {...baseProps}
                     defaultOpen={true}
-                    popoverPosition={expectedProps.position}
-                    updatePopover={expectedProps.update}
+                    popoverPosition={testProps.position}
+                    updatePopover={testProps.update}
                     preventFlip={false}
+                    popoverProps={additionalTestProps}
                 />,
             );
 

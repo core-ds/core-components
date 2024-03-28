@@ -135,6 +135,7 @@ export const BaseSelect = forwardRef(
             footer,
             swipeable,
             modalProps,
+            popoverProps,
             modalFooterProps,
             modalHeaderProps,
             bottomSheetProps,
@@ -642,6 +643,7 @@ export const BaseSelect = forwardRef(
             if (!nativeSelect && Popover) {
                 return (
                     <Popover
+                        {...popoverProps}
                         open={open}
                         withTransition={false}
                         anchorElement={fieldRef.current as HTMLElement}
