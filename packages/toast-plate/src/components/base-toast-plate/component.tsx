@@ -1,11 +1,8 @@
 import React, { forwardRef, HTMLAttributes, MouseEvent, ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 
-import { Badge } from '@alfalab/core-components-badge';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
-import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
-import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
+import { StatusBadge, StatusBadgeProps } from '@alfalab/core-components-status-badge';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import defaultColors from './default.module.css';
@@ -21,6 +18,7 @@ export type BadgeIcons = {
     negative: JSX.Element;
     positive: JSX.Element;
     attention: JSX.Element;
+    tertiary: JSX.Element;
 };
 
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
@@ -57,7 +55,7 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Вид бэйджа
      */
-    badge?: 'negative' | 'positive' | 'attention';
+    badge?: StatusBadgeProps['view'];
 
     /**
      * Слот слева, заменяет стандартную иконку
@@ -100,11 +98,6 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
 
     /**
-     * Функция, с помощью которой можно переопределить иконки в Badge
-     */
-    getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
-
-    /**
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
@@ -118,12 +111,6 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
-};
-
-const iconDefaultComponents = {
-    negative: <CrossCircleMIcon className={commonStyles.badgeIcon} />,
-    positive: <CheckmarkCircleMIcon className={commonStyles.badgeIcon} />,
-    attention: <AlertCircleMIcon className={commonStyles.badgeIcon} />,
 };
 
 export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
@@ -142,7 +129,6 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             actionButton,
             block,
             onClose,
-            getBadgeIcons,
             colors = 'default',
             closerWrapperClassName,
             closerClassName,
@@ -153,10 +139,6 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
         ref,
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
-
-        const iconComponents = getBadgeIcons
-            ? getBadgeIcons(iconDefaultComponents)
-            : iconDefaultComponents;
 
         const handleClose = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -183,16 +165,8 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                     <div className={commonStyles.contentWrapper}>
                         {needRenderLeftAddons && (
                             <div className={commonStyles.leftAddons}>
-                                {leftAddons || (
-                                    <Badge
-                                        view='icon'
-                                        content={badge && iconComponents[badge]}
-                                        iconColor={badge}
-                                        className={commonStyles.badge}
-                                        dataTestId='badge'
-                                        visibleColorOutline={true}
-                                    />
-                                )}
+                                {leftAddons ||
+                                    (badge && <StatusBadge view={badge} dataTestId='badge' />)}
                             </div>
                         )}
                         <div

@@ -35,9 +35,19 @@ export const notification: Story = {
                     colors={colors}
                     visible={boolean('visible', false)}
                     badge={select(
-                        'badge',
-                        ['negative', 'positive', 'attention', undefined],
-                        'positive',
+                        'status-badge',
+                        [
+                            'positive-checkmark',
+                            'negative-cross',
+                            'negative-alert',
+                            'negative-block',
+                            'attention-alert',
+                            'neutral-information',
+                            'neutral-operation',
+                            'neutral-cross',
+                            undefined,
+                        ],
+                        'positive-checkmark',
                     )}
                     title={text('title', 'Поздравляем, полный успех')}
                     hasCloser={boolean('hasCloser', true)}

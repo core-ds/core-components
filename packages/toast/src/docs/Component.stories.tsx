@@ -66,9 +66,19 @@ export const toast: Story = {
                         position={select('position', POSITION_OPTIONS, 'left')}
                         offset={[number('offset[0]', 0), number('offset[1]', 8)]}
                         badge={select(
-                            'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            'status-badge',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title={text('title', 'Скопировано')}
                         hasCloser={boolean('hasCloser', true)}
@@ -84,9 +94,19 @@ export const toast: Story = {
                         colors={select('colors', ['default', 'inverted'], 'default')}
                         open={fixedToastOpen}
                         badge={select(
-                            'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            'status-badge',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title='Ваша карта удалена'
                         hasCloser={boolean('hasCloser', true)}
@@ -185,9 +205,19 @@ export const toast_mobile: Story = {
                         position={select('position', POSITION_OPTIONS, 'left')}
                         offset={[number('offset[0]', 0), number('offset[1]', 8)]}
                         badge={select(
-                            'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            'status-badge',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title={text('title', 'Скопировано')}
                         hasCloser={boolean('hasCloser', true)}
@@ -203,9 +233,19 @@ export const toast_mobile: Story = {
                         colors={select('colors', ['default', 'inverted'], 'default')}
                         open={fixedToastOpen}
                         badge={select(
-                            'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            'status-badge',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title='Ваша карта удалена'
                         hasCloser={boolean('hasCloser', true)}
@@ -304,9 +344,19 @@ export const toast_desktop: Story = {
                         position={select('position', POSITION_OPTIONS, 'left')}
                         offset={[number('offset[0]', 0), number('offset[1]', 8)]}
                         badge={select(
-                            'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            'status-badge',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title={text('title', 'Скопировано')}
                         hasCloser={boolean('hasCloser', true)}
@@ -321,9 +371,19 @@ export const toast_desktop: Story = {
                         colors={select('colors', ['default', 'inverted'], 'default')}
                         open={fixedToastOpen}
                         badge={select(
-                            'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            'status-badge',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title='Ваша карта удалена'
                         hasCloser={boolean('hasCloser', true)}
