@@ -26,7 +26,7 @@ describe('Notification', () => {
 
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <Notification badge='positive' title='title' onClose={onClose}>
+                <Notification badge='positive-checkmark' title='title' onClose={onClose}>
                     text
                 </Notification>,
             );

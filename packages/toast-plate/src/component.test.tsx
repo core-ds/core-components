@@ -23,7 +23,7 @@ describe('Notification', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <ToastPlate badge='positive' title='title'>
+                <ToastPlate badge='positive-checkmark' title='title'>
                     text
                 </ToastPlate>,
             );

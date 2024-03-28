@@ -21,28 +21,23 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
               class="leftAddons"
             >
               <div
-                class="wrapper positive m outlineColor badge"
+                class="component size-24 component positive-checkmark"
                 data-test-id="badge"
               >
-                <div
-                  class="component m icon background-accent graphic-static-light positive"
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
                 >
-                  <svg
-                    class="badgeIcon"
-                    fill="currentColor"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </div>
+                  <path
+                    clip-rule="evenodd"
+                    d="M17.108 9.473l-6.718 6.719-3.89-3.89 1.414-1.414 2.476 2.475 5.303-5.304 1.415 1.414z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </div>
             </div>
             <div
