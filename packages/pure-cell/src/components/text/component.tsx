@@ -22,7 +22,13 @@ type Props = {
     /**
      * Размер текста
      */
-    view?: 'primary-large' | 'primary-medium' | 'primary-small' | 'component' | 'component-primary';
+    view?:
+        | 'primary-large'
+        | 'primary-medium'
+        | 'primary-small'
+        | 'component'
+        | 'component-primary'
+        | 'secondary-large';
 
     /**
      * Толщина title

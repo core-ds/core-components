@@ -189,6 +189,29 @@ describe('PureCell', () => {
         expect(screen.getByTestId('cell-pure')).toHaveClass('airy');
     });
 
+    it('should use `verticalTopPadding` and `verticalBottomPadding` prop', () => {
+        render(
+            <PureCell verticalPadding={{ top: 'airy', bottom: 'tiny' }} dataTestId='cell-pure'>
+                <PureCell.Graphics>
+                    <StarMIcon />
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
+                            Title
+                        </PureCell.Text>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                            Label
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>,
+        );
+
+        expect(screen.getByTestId('cell-pure')).toHaveClass('airyTop');
+        expect(screen.getByTestId('cell-pure')).toHaveClass('tinyBottom');
+    });
+
     it('should use `horizontalPadding` prop', () => {
         render(
             <PureCell horizontalPadding='both' dataTestId='cell-pure'>
