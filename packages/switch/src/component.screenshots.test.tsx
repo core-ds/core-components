@@ -124,3 +124,20 @@ describe(
         },
     }),
 );
+
+describe(
+    'Switch | error state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Switch',
+            knobs: {
+                label: 'Согласен с условиями',
+                error: 'Error',
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 300, height: 150 },
+        },
+    }),
+);
