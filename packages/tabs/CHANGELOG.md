@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.6.7
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1146](https://github.com/core-ds/core-components/pull/1146)
+
+-   Убран margin-left у rightAddons, если title передали пустую строку
+
 ## 8.6.6
 
 ### Patch Changes
