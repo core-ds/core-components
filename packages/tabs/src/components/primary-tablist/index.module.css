@@ -188,3 +188,6 @@
     align-items: center;
     margin-left: var(--gap-xs);
 }
+.rightAddonsMarginZero {
+    margin-left: 0;
+}
