@@ -28,7 +28,7 @@
     classnames "^2.3.1"
     compute-scroll-into-view "^3.1.0"
     date-fns "^2.16.1"
-    downshift "8.4.0"
+    downshift "^8.2.2"
     element-closest "^3.0.2"
     intersection-observer "^0.12.0"
     libphonenumber-js "^1.10.30"
@@ -61,6 +61,11 @@
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.7.0.tgz#87e1525d2b653b9312d5b008df62b13193d1dc0c"
   integrity sha512-aw1zL8TktUn3wCLcHVns2ndHypmMqINmqAc6E2nL90FFnh4ieWzw9gRRfUesNmbFNTRnkdp9VpI0ASS7l4kyEQ==
+
+"@alfalab/data@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.8.0.tgz#2f991e196946336541de5a7d64eabf7caf02b58c"
+  integrity sha512-hyYAw8tbx099ibX9r9T3YiOkxI+s7p/Hi7WOQC6cF+Uy5KX/0usghFyt/gUjj+7acf6G+zx1VwAtcI9tSUle9w==
 
 "@alfalab/hooks@^1.13.0":
   version "1.13.0"
@@ -106,12 +111,20 @@
   resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.5.0.tgz#2eb559978a9835a80afb1bf7d8ba36c7b12b6a49"
   integrity sha512-3gYD2jZa0Vv/FvoiLVRec/U5JMBpg2AUrIipyUne7ymlnOH9ETM3ecZVPTWAh3K3kPoPFSvVV8vSrKkG/qEliw==
 
-"@alfalab/utils@^1.13.2", "@alfalab/utils@^1.14.4", "@alfalab/utils@^1.15.1":
+"@alfalab/utils@^1.13.2", "@alfalab/utils@^1.14.4":
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.15.1.tgz#251dbdee08bf3f405ac6735edfe9e7fd023822f7"
   integrity sha512-uGNu5WtidH8WGmGTofJlNuxCIvMSWAt+AEf+yO5Mk6Hbo8LzIMg6CCmrYH+jwnvQY7GcoIv3BC4hhhqFHuS+HQ==
   dependencies:
     "@alfalab/data" "^1.7.0"
+    lodash "4.17.21"
+
+"@alfalab/utils@^1.15.2":
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.15.2.tgz#309d0c9add52a59244f9d74eb720c2ad5fe14209"
+  integrity sha512-FD6eH06OHwNB4wr6A81aIAnJjXosXalTnfUiRMA6VALSQBCsvcvxH8BmLUxsLb5Hb84rJS01Q+zk3onT2JBjYA==
+  dependencies:
+    "@alfalab/data" "^1.8.0"
     lodash "4.17.21"
 
 "@alloc/quick-lru@^5.2.0":
@@ -9501,6 +9514,17 @@ downshift@8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/downshift/-/downshift-8.4.0.tgz#850697de3e691673a1084de3b66034e32d8a940f"
   integrity sha512-feeqAR0s53NTIKaHxyFhdLo9UCHUwge4q/j+heIz7X8AaURgdcANOnMGLWffWQCoX9l4Vpw87nOrlX6uJceqjA==
+  dependencies:
+    "@babel/runtime" "^7.22.15"
+    compute-scroll-into-view "^3.0.3"
+    prop-types "^15.8.1"
+    react-is "^18.2.0"
+    tslib "^2.6.2"
+
+downshift@^8.2.2:
+  version "8.5.0"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-8.5.0.tgz#480a3f59f03a2940947a2ea7c5cccf6c5b8e2a9b"
+  integrity sha512-BAr/KAZX8GGARwWl4aER6ABv8aAaRXZcVKP0m1oFPKpSIXCGuoqnhi6nRf87glHhYDd/CCPp9RVUK27JKJD/Fw==
   dependencies:
     "@babel/runtime" "^7.22.15"
     compute-scroll-into-view "^3.0.3"
