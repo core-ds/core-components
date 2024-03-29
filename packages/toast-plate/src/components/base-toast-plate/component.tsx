@@ -14,13 +14,6 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type BadgeIcons = {
-    negative: JSX.Element;
-    positive: JSX.Element;
-    attention: JSX.Element;
-    tertiary: JSX.Element;
-};
-
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Дополнительный класс
