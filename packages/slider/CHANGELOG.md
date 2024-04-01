@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.6.1
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1100](https://github.com/core-ds/core-components/pull/1100)
+
+-   fix(slider): Исправлена проблема, что событие onEnd не вызывалось когда перемещался ползунок стрелками на клавиатуре или тапом в слайдере
+
 ## 4.6.0
 
 ### Minor Changes

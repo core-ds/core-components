@@ -1,5 +1,29 @@
 # Change Log
 
+## 13.5.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1127](https://github.com/core-ds/core-components/pull/1127)
+
+-   Исправлено выравнивание в мобильном компоненте: изменен вид кнопки "Не приходит сообщение" с link на text. Также исправлено выравнивание номеров телефона на экране "Не приходит сообщение?"
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1143](https://github.com/core-ds/core-components/pull/1143)
+
+-   Исправлен повторный рендеринг кастомного экрана при каждом обновлении таймера. Теперь таймер не вызывает повторный рендеринг
+
 ## 13.4.1
 
 ### Patch Changes

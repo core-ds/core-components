@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.9.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
 ## 7.8.2
 
 ### Patch Changes

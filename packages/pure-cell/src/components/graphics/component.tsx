@@ -24,14 +24,31 @@ export type Props = {
      * Вертикальное выравнивание
      */
     verticalAlign?: 'top' | 'center' | 'bottom';
+
+    /**
+     * Отступ от графики
+     */
+    graphicPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
 };
 
-export const Graphics: React.FC<Props> = ({ children, dataTestId, verticalAlign = 'top' }) => {
+export const Graphics: React.FC<Props> = ({
+    children,
+    dataTestId,
+    verticalAlign = 'top',
+    graphicPadding,
+}) => {
     const pureCellContext = useContext(PureCellContext);
+
+    const defaultGraphicPadding = pureCellContext.direction === 'horizontal' ? 'airy' : 'default';
 
     return (
         <section
-            className={cn(styles.component, styles[verticalAlign])}
+            className={cn(
+                styles.component,
+                styles[verticalAlign],
+                styles[pureCellContext.direction || 'horizontal'],
+                styles[graphicPadding || defaultGraphicPadding],
+            )}
             data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'graphics')}
         >
             {children}

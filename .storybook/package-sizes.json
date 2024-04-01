@@ -45,10 +45,10 @@
         "mobile.js": 4.8
     },
     "tabs": {
-        "collapsible.js": 195.8,
-        "desktop.js": 34.5,
-        "index.js": 35.7,
-        "mobile.js": 34.6,
+        "collapsible.js": 195.9,
+        "desktop.js": 34.6,
+        "index.js": 35.8,
+        "mobile.js": 34.7,
         "shared.js": 29.1
     },
     "table": {
@@ -65,7 +65,7 @@
         "shared.js": 2.9
     },
     "switch": {
-        "index.js": 4.6
+        "index.js": 4.7
     },
     "steps": {
         "index.js": 9.1
@@ -136,7 +136,7 @@
         "mobile.js": 4.3
     },
     "pure-cell": {
-        "index.js": 43.6,
+        "index.js": 44.2,
         "shared.js": 1
     },
     "progress-bar": {
@@ -410,10 +410,10 @@
         "index.js": 36.2
     },
     "amount": {
-        "index.js": 26
+        "index.js": 26.5
     },
     "amount-input": {
-        "index.js": 47
+        "index.js": 47.4
     },
     "alert": {
         "index.js": 15.1

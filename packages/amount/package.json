@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-amount",
-    "version": "3.4.0",
+    "version": "3.5.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -11,8 +11,8 @@
         "directory": "dist"
     },
     "dependencies": {
-        "@alfalab/data": "^1.7.0",
-        "@alfalab/utils": "^1.15.1",
+        "@alfalab/data": "^1.8.0",
+        "@alfalab/utils": "^1.15.2",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     },

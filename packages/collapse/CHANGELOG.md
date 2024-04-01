@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.4.2
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1152](https://github.com/core-ds/core-components/pull/1152)
+
+-   Повышена специфичность стилей label
+
 ## 4.4.1
 
 ### Patch Changes

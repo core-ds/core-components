@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   slider@4.6.1
+
 ## 8.2.2
 
 ### Patch Changes

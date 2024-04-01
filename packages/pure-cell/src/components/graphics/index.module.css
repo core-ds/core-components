@@ -16,3 +16,46 @@
 .bottom {
     align-self: flex-end;
 }
+
+.horizontal:not(:last-child) {
+    &.none {
+        margin-right: 0;
+    }
+
+    &.airy {
+        margin-right: var(--gap-m);
+    }
+
+    &.default {
+        margin-right: var(--gap-s);
+    }
+
+    &.compact {
+        margin-right: var(--gap-xs);
+    }
+
+    &.tiny {
+        margin-right: var(--gap-2xs);
+    }
+}
+
+.vertical:not(:last-child) {
+    &.none {
+        margin-bottom: 0;
+    }
+    &.airy {
+        margin-bottom: var(--gap-m);
+    }
+
+    &.default {
+        margin-bottom: var(--gap-s);
+    }
+
+    &.compact {
+        margin-bottom: var(--gap-xs);
+    }
+
+    &.tiny {
+        margin-bottom: var(--gap-2xs);
+    }
+}

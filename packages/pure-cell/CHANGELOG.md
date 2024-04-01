@@ -1,5 +1,28 @@
 # Change Log
 
+## 4.8.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1133](https://github.com/core-ds/core-components/pull/1133)
+
+-   Добавлена возможность изменять верхний и нижний паддинги компонента независимо друг от друга.
+-   Добавлена возможность выставлять значение марджина графики.
+-   Добавлена поддержка 'secondary-large' для текста.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.5.0
+
 ## 4.7.1
 
 ### Patch Changes
