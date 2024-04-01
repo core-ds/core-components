@@ -6,6 +6,7 @@ import React, {
     LabelHTMLAttributes,
     ReactNode,
     Ref,
+    RefObject,
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
@@ -112,6 +113,11 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     hiddenInput?: boolean;
 
     /**
+     * Реф на инпут
+     */
+    inputRef?: RefObject<HTMLInputElement>;
+
+    /**
      * Пропсы для label
      */
     labelProps?: DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
@@ -146,6 +152,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             hiddenInput = false,
             labelProps,
             error,
+            inputRef,
             ...restProps
         },
         ref,
@@ -188,6 +195,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         disabled={disabled || inactive}
                         checked={checked}
                         data-test-id={dataTestId}
+                        ref={inputRef}
                         {...restProps}
                     />
                 )}
