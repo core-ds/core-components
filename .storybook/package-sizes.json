@@ -4,7 +4,7 @@
     },
     "universal-date-input": {
         "desktop.js": 131.6,
-        "index.js": 131.8,
+        "index.js": 131.7,
         "mobile.js": 131.6,
         "shared.js": 43.5
     },
@@ -160,7 +160,7 @@
     "picker-button": {
         "desktop.js": 188.6,
         "index.js": 221.4,
-        "mobile.js": 193.6,
+        "mobile.js": 193.7,
         "shared.js": 3
     },
     "phone-input": {
@@ -255,7 +255,7 @@
         "index.js": 2.1
     },
     "icon-view": {
-        "circle.js": 32.4,
+        "circle.js": 32.5,
         "no-shape.js": 5.5,
         "rectangle.js": 17.9,
         "super-ellipse.js": 63.1
@@ -350,7 +350,7 @@
         "index.js": 10.3
     },
     "checkbox": {
-        "index.js": 6
+        "index.js": 6.1
     },
     "checkbox-group": {
         "desktop.js": 2.6,
