@@ -2,6 +2,15 @@
 
 <sup><time>08.04.2024</time></sup>
 
+### [#1155](https://github.com/core-ds/core-components/pull/1155)
+
+#### Что изменилось
+- Добавлен `iconContainerClassName` для стилизации обёртки иконки
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
 ### [#1160](https://github.com/core-ds/core-components/pull/1160)
 
 #### Что изменилось
