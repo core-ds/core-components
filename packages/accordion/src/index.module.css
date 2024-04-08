@@ -1,0 +1,45 @@
+@import '../../themes/src/default.css';
+
+.accordion {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--gap-2xs);
+}
+
+.body {
+    position: relative;
+    margin-top: var(--gap-s);
+    overflow: hidden;
+    height: 0;
+    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1.25);
+}
+
+.expandedBody {
+    height: auto;
+    transition: height 400ms cubic-bezier(0, 0.1, 0.5, 1);
+    transform: translate3d(0, 0, 0);
+}
+
+.endPosition {
+    order: 2;
+    margin-left: var(--gap-2xs);
+}
+
+.startPosition {
+    margin-left: 0;
+}
