@@ -1,5 +1,12 @@
 # Change Log
 
+## 17.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.3.0
+
 ## 17.3.4
 
 ### Patch Changes

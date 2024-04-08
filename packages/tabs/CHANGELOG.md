@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.5
+
 ## 8.6.7
 
 ### Patch Changes
