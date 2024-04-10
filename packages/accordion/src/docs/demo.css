@@ -1,7 +1,9 @@
 @import '../../../themes/src/default.css';
 
 .accordion-container {
-    width: 474px;
+    @media screen and (min-width: 1024px) {
+        width: 474px;
+    }
 }
 
 .accordion-header,

@@ -35,14 +35,12 @@ export const accordion: Story = {
             )
         );
         const controlPosition = select('controlPosition', ['start', 'end'], 'end');
-        const expanded = boolean('expanded', false);
 
         return (
             <Accordion
                 header={header}
                 controlPosition={controlPosition}
                 control={control}
-                expanded={expanded}
                 bodyClassName='accordion-container'
             >
                 {body}
