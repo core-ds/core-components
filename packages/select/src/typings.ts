@@ -353,14 +353,13 @@ export type BaseSelectProps = {
      */
     popoverProps?: Omit<
         PopoverProps,
-        | 'updatePopover'
-        | 'zIndexPopover'
+        | 'update'
+        | 'zIndex'
         | 'position'
         | 'className'
         | 'open'
         | 'anchorElement'
         | 'preventFlip'
-        | 'update'
         | 'dataTestId'
     >;
 };
