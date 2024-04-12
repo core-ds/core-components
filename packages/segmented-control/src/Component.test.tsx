@@ -59,4 +59,19 @@ describe('segmented-control', () => {
 
         expect(container.firstElementChild).toHaveClass(className);
     });
+
+    it('should set custom style', () => {
+        const style = { padding: 20 };
+        const { container } = render(
+            renderComponent({
+                onChange: () => null,
+                style,
+                selectedId: 2,
+            }),
+        );
+
+        const firstElement = container.firstChild;
+
+        expect(firstElement).toHaveStyle('padding: 20px');
+    });
 });
