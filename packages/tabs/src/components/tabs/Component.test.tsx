@@ -100,6 +100,15 @@ describe('Tabs', () => {
             expect(tabs[1].textContent).toBe('Таб 2');
             expect(tabs[2].textContent).toBe('Таб 3');
         });
+
+        it.each(tabVariants)('should set custom style', (Component, view) => {
+            const style = { padding: 20 };
+            const { container } = renderTabs(Component, { view, style });
+
+            const firstElement = container.firstChild;
+
+            expect(firstElement).toHaveStyle('padding: 20px');
+        });
     });
 
     describe('Render tests', () => {

@@ -119,6 +119,11 @@ export type TabsProps = {
      * Стиль тега (для view secondary только)
      */
     tagView?: TagProps['view'];
+
+    /**
+     * Дополнительные инлайн стили для враппера
+     */
+    style?: React.CSSProperties;
 };
 
 export type TabProps = {
