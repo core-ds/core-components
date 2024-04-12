@@ -119,7 +119,7 @@ export type TabsProps = {
      * Стиль тега (для view secondary только)
      */
     tagView?: TagProps['view'];
-};
+} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'onChange'>;
 
 export type TabProps = {
     /**

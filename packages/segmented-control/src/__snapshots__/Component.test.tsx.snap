@@ -3,43 +3,47 @@
 exports[`segmented-control should display correctly 1`] = `
 <div>
   <div
-    class="wrapper wrapper rectangular size-32"
+    class=""
   >
     <div
-      class="container"
+      class="wrapper wrapper rectangular size-32"
     >
       <div
-        class="selectedBox selectedBox rectangular"
-        style="width: 0px; transform: translateX(0px);"
-      />
-      <div
-        class="inner"
+        class="container"
       >
-        <button
-          class="segment segment segment segment selected"
-          type="button"
+        <div
+          class="selectedBox selectedBox rectangular"
+          style="width: 0px; transform: translateX(0px);"
+        />
+        <div
+          class="inner"
         >
-          Label 1
-        </button>
-        <button
-          class="segment segment segment segment"
-          data-test-id="SEGMENT"
-          type="button"
-        >
-          Label 2
-        </button>
-        <button
-          class="segment segment segment segment"
-          type="button"
-        >
-          Label 3
-        </button>
-        <button
-          class="segment segment segment segment"
-          type="button"
-        >
-          Label 4
-        </button>
+          <button
+            class="segment segment segment segment selected"
+            type="button"
+          >
+            Label 1
+          </button>
+          <button
+            class="segment segment segment segment"
+            data-test-id="SEGMENT"
+            type="button"
+          >
+            Label 2
+          </button>
+          <button
+            class="segment segment segment segment"
+            type="button"
+          >
+            Label 3
+          </button>
+          <button
+            class="segment segment segment segment"
+            type="button"
+          >
+            Label 4
+          </button>
+        </div>
       </div>
     </div>
   </div>
