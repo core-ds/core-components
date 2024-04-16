@@ -5,6 +5,7 @@ import type {
     BaseSelectProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+import { OnInputReason } from './enums';
 
 export interface InputAutocompleteCommonProps
     extends Omit<
@@ -39,7 +40,7 @@ export interface InputAutocompleteCommonProps
     /**
      * Обработчик ввода
      */
-    onInput?: (value: string) => void;
+    onInput?: (value: string, reason?: OnInputReason) => void;
 }
 
 type MobileProps = {
