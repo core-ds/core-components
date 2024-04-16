@@ -5,6 +5,7 @@ import type {
     BaseSelectProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+
 import { OnInputReason } from './enums';
 
 export interface InputAutocompleteCommonProps

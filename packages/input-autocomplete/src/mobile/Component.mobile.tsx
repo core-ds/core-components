@@ -16,11 +16,11 @@ import {
 } from '@alfalab/core-components-select/shared';
 
 import { AutocompleteMobileField } from '../autocomplete-mobile-field';
+import { OnInputReason } from '../enums';
 import { InputAutocompleteMobileProps } from '../types';
 import { searchFilterStub } from '../utils';
 
 import styles from './mobile.module.css';
-import { OnInputReason } from '../enums';
 
 export const InputAutocompleteMobile = React.forwardRef(
     (
