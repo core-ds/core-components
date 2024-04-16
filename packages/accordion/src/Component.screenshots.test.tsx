@@ -4,6 +4,7 @@ import {
     matchHtml,
     closeBrowser,
     Knobs,
+    createPreview,
 } from '../../screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 768, height: 200 };
@@ -50,6 +51,22 @@ const componentTest = async (knobs: Knobs) => {
         await closeBrowser({ browser, context, page });
     }
 };
+
+describe('Accordion ', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Accordion',
+            knobs: {
+                control: false,
+            },
+        },
+        'width:800px;transform:scale(1.3)',
+        {
+            viewport: {width: 1024, height: 600},
+        }
+    ));
+
 describe('Accordion with expanded mode', () => {
     test('component', () => componentTest({}));
     test('control position - start', () => componentTest({ controlPosition: 'start' }));

@@ -3,13 +3,17 @@ import cn from 'classnames';
 
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 
-import styles from './index.module.css'
+import styles from './index.module.css';
 
 type Props = {
     expanded: boolean;
-    isStartPosition: boolean;
-}
-export const DefaultControlIcon: FC<Props> = ({ expanded, isStartPosition}) => <ChevronDownMIcon className={cn(styles.icon, {
-    [styles.expanded]: expanded,
-    [styles.startPosition]: isStartPosition
-})} />;
+    startPosition: boolean;
+};
+export const DefaultControlIcon: FC<Props> = ({ expanded, startPosition }) => (
+    <ChevronDownMIcon
+        className={cn(styles.icon, {
+            [styles.expanded]: expanded,
+            [styles.startPosition]: startPosition,
+        })}
+    />
+);

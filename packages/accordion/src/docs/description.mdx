@@ -4,13 +4,13 @@
 Слоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку.
 
 ```jsx live
-
-<Accordion
-    header={<div className='accordion-header' />}
-    control={<div className='accordion-control' />}
->
-    <div className='accordion-body' />
-</Accordion>
+    <Accordion
+        className='accordion-wrapper'
+        header={<div className='accordion-header' />}
+        control={<div className='accordion-control' />}
+    >
+        <div className='accordion-body' />
+    </Accordion>
 ```
 
 ## Контрол
@@ -28,6 +28,7 @@ render(() => {
 
     return <Space>
         <Accordion
+            className='accordion-wrapper'
             header={<div className='accordion-header' />}
             controlPosition={controlPosition}
         >
@@ -35,6 +36,7 @@ render(() => {
         </Accordion>
 
         <Accordion
+            className='accordion-wrapper'
             header={<div className='accordion-header' />}
             controlPosition={controlPosition}
         >
@@ -42,6 +44,7 @@ render(() => {
         </Accordion>
 
         <Accordion
+            className='accordion-wrapper'
             header={<div className='accordion-header' />}
             controlPosition={controlPosition}
         >
@@ -72,7 +75,6 @@ render(() => {
         <Accordion
             header='Зачем нужен аккордион?'
             className='accordion-container'
-            headerClassName='accordion-container'
         >
             Используется для создания интерактивных списков,
             которые можно разворачивать и сворачивать для
@@ -82,7 +84,6 @@ render(() => {
         <Accordion
             header='Когда лучше использовать аккордион?'
             className='accordion-container'
-            headerClassName='accordion-container'
         >
             Подходит для организации сложной информации в ограниченном пространстве,
             представления большого объема данных, иерархической структуры с

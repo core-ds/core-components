@@ -67,6 +67,15 @@ describe('Accordion', () => {
             expect(control).toHaveClass(controlClassName);
         });
 
+        it('should set "containerClassName" prop', () => {
+            const containerClassName = 'class-name';
+            const { container } = renderComponent({ containerClassName });
+
+            const body = container.querySelector(`.${containerClassName}`);
+
+            expect(body).toHaveClass(containerClassName);
+        });
+
         it('should set "bodyClassName" prop', () => {
             const bodyClassName = 'class-name';
             const { container } = renderComponent({ bodyClassName });
@@ -103,7 +112,7 @@ describe('Accordion', () => {
         it('should set "expanded" prop', () => {
             const { container, debug } = renderComponent({ expanded: true });
 
-            const expandedClassName = 'expandedContent';
+            const expandedClassName = 'expandedBody';
             const body = container.querySelector(`.${expandedClassName}`);
 
             expect(body).toHaveClass(expandedClassName);

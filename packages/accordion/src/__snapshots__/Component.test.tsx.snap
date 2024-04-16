@@ -6,6 +6,7 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
     class="accordion"
   >
     <div
+      aria-expanded="false"
       class="container"
       role="button"
       tabindex="0"
@@ -40,7 +41,9 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
     <div
       class="body"
     >
-      <div>
+      <div
+        class="bodyContent"
+      >
         <span
           class="primary-medium"
         >

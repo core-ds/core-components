@@ -23,16 +23,21 @@
 
 .body {
     position: relative;
-    margin-top: var(--gap-s);
     overflow: hidden;
+    visibility: hidden;
     height: 0;
-    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1.25);
+    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1.25), visibility 0s linear 400ms;
 }
 
 .expandedBody {
+    visibility: visible;
     height: auto;
     transition: height 400ms cubic-bezier(0, 0.1, 0.5, 1);
     transform: translate3d(0, 0, 0);
+}
+
+.bodyContent {
+    padding-top: var(--gap-s);
 }
 
 .endPosition {
