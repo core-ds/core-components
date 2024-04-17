@@ -33,6 +33,11 @@ const pkg = require(currentPkg);
 
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
 
+const externals = [
+    ...externalsWithEntryPoints(Object.keys(pkg.dependencies || {})),
+    ...Object.keys(pkg.peerDependencies || {}),
+];
+
 const baseConfig = {
     cache: false,
     input: [
@@ -42,10 +47,7 @@ const baseConfig = {
         '!src/**/*.d.ts',
     ],
     plugins: [wildcardExternal(['@alfalab/core-components-*/**'])],
-    external: [
-        ...externalsWithEntryPoints(Object.keys(pkg.dependencies || {})),
-        ...Object.keys(pkg.peerDependencies || {}),
-    ],
+    external: externals,
 };
 
 const multiInputPlugin = multiInput.default();
@@ -175,30 +177,33 @@ const cssm = {
     ...baseConfig,
     output: [
         {
-            esModule: true,
             dir: 'dist/cssm',
-            format: 'cjs',
-            interop: 'compat',
-            dynamicImportInCjs: false,
-            plugins: [coreComponentsResolver({ importFrom: 'cssm' }), packagesTypingResolver()],
+            format: 'esm',
+            generatedCode: 'es2015',
+            plugins: [
+                addCssImports({ currentPackageDir }),
+                coreComponentsResolver({ importFrom: 'cssm' }),
+                packagesTypingResolver(),
+            ],
             hoistTransitiveImports: false,
         },
     ],
     plugins: [
         ...baseConfig.plugins,
         multiInputPlugin,
-        ignoreCss(),
         typescript({
             outDir: 'dist/cssm',
             tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
+                target: ScriptTarget.ES2020,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
         json(),
-        processCss(),
-        assetsCopyPlugin('dist/cssm'),
+        processCss('cssm'),
+        assetsCopyPlugin('dist/ccsm'),
     ],
+    external: (id) => externals.includes(id) || id.endsWith('.module.css'),
 };
 
 /**
@@ -241,7 +246,8 @@ const rootDir = `../../dist/${currentComponentName}`;
  */
 const root = {
     input: ['dist/**/*.js'],
-    external: baseConfig.external,
+    external: (id, parentId) =>
+        externals.includes(id) || (parentId.includes('dist/cssm') && id.endsWith('.module.css')),
     plugins: [
         ...baseConfig.plugins,
         multiInput.default({
