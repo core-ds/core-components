@@ -58,6 +58,7 @@ export const CONFIG: TConfig = {
         'Chart',
         'Gallery',
         'Collapse',
+        'Accordion'
     ],
     Лейаут: ['Gap', 'Space', 'Grid'],
 };

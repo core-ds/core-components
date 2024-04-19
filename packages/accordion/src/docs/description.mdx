@@ -1,0 +1,96 @@
+## Анатомия
+
+Компонент состоит из только 3 слотов: Control - элемента управления, Header - основной элемент для отображения содержимого и Body - содержимое.
+Слоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку.
+
+```jsx live
+    <Accordion
+        className='accordion-wrapper'
+        header={<div className='accordion-header' />}
+        control={<div className='accordion-control' />}
+    >
+        <div className='accordion-body' />
+    </Accordion>
+```
+
+## Контрол
+Control может быть в виде кнопки, иконки или любым другим интерактивным элементом, который инициирует раскрытие или сворачивание секции.
+По умолчанию Control размещается сбоку справа от Header, но может располагаться и слева, что больше напоминает дерево.
+
+```jsx live
+
+render(() => {
+    const [controlPosition, setControlPosition] = React.useState('end');
+
+    const handleControlPositionChange = React.useCallback((_, payload) => {
+        setControlPosition(payload.value);
+    }, []);
+
+    return <Space>
+        <Accordion
+            className='accordion-wrapper'
+            header={<div className='accordion-header' />}
+            controlPosition={controlPosition}
+        >
+            <div className='accordion-body' />
+        </Accordion>
+
+        <Accordion
+            className='accordion-wrapper'
+            header={<div className='accordion-header' />}
+            controlPosition={controlPosition}
+        >
+            <div className='accordion-body' />
+        </Accordion>
+
+        <Accordion
+            className='accordion-wrapper'
+            header={<div className='accordion-header' />}
+            controlPosition={controlPosition}
+        >
+            <div className='accordion-body' />
+        </Accordion>
+
+        <RadioGroup
+            label='Расположение контрола'
+            direction='vertical'
+            name='radioGroup'
+            onChange={handleControlPositionChange}
+            value={controlPosition}
+        >
+            <Radio size='m' label='Справа' value='end' />
+            <Radio size='m' label='Слева' value='start' />
+        </RadioGroup>
+    </Space>
+})
+```
+
+## Примеры
+В качестве пресетов в компонент заложены текстовые контейнеры, как самый распространённый вариант использования.
+
+```jsx live
+
+render(() => {
+    return <Space>
+        <Accordion
+            header='Зачем нужен аккордион?'
+            className='accordion-container'
+        >
+            Используется для создания интерактивных списков,
+            которые можно разворачивать и сворачивать для
+            отображения дополнительной информации.
+        </Accordion>
+
+        <Accordion
+            header='Когда лучше использовать аккордион?'
+            className='accordion-container'
+        >
+            Подходит для организации сложной информации в ограниченном пространстве,
+            представления большого объема данных, иерархической структуры с
+            возможностью скрытия и открытия разделов,
+            удовлетворения потребностей пользователей в доступе к информации
+            по запросу и просмотра нескольких связанных разделов контента.
+        </Accordion>
+    </Space>
+})
+```
