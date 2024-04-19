@@ -12,6 +12,10 @@
     width: calc(100vw - var(--gap-xl));
     margin-top: var(--gap-s);
     will-change: transform;
+
+    &.withoutMargin {
+        margin-top: 0;
+    }
 }
 
 .component .notification.notification {
