@@ -421,5 +421,8 @@
     "action-button": {
         "index.js": 6.7,
         "shared.js": 0.6
+    },
+    "accordion": {
+        "index.js": 18.1
     }
 }
