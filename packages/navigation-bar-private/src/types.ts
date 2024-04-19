@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import { BackArrowAddonProps } from './components/back-arrow-addon';
 import type { CloserProps } from './components/closer';
 
-export type NavigationBarProps = {
+export type NavigationBarPrivateProps = {
     /**
      * Контент шапки
      */

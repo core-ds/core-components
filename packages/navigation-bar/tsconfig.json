@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings"],
+    "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -11,7 +11,7 @@
         }
     },
     "references": [
-        { "path": "../icon-button" },
+        { "path": "../button" },
         { "path": "../typography" },
         { "path": "../shared" }
     ]

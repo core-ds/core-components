@@ -1,0 +1,40 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    height: 100%;
+    border-radius: var(--border-radius-pill);
+    min-width: 48px;
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    border-radius: var(--border-radius-circle);
+    background: var(--color-light-neutral-translucent-100);
+    vertical-align: middle;
+
+    &.back {
+        background: transparent;
+    }
+}
+
+.floating {
+    & path {
+        fill: var(--color-light-neutral-translucent-700);
+    }
+
+    &:hover {
+        & path {
+            fill: var(--color-light-neutral-translucent-700-hover);
+        }
+    }
+
+    &:active {
+        & path {
+            fill: var(--color-light-neutral-translucent-700-press);
+        }
+    }
+}

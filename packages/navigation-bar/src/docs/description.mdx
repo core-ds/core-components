@@ -1,0 +1,350 @@
+## Анатомия
+
+Компонент содержит основной, левый, правый, и нижний слоты.
+Поддерживается два вида выравнивания: левое и центральное.
+При левом выравнивании недоступен левый слот.
+
+```jsx live mobileHeight={212} mobileOnly
+const ALIGN_SELECT_OPTIONS = [
+    { key: 'left', content: 'Левое' },
+    { key: 'center', content: 'Центральное' },
+];
+
+render(() => {
+    const [alignViewSelected, setAlignView] = React.useState(ALIGN_SELECT_OPTIONS[0].key);
+
+    const wrapperStyles = {
+        width: 360,
+        margin: 'var(--gap-l-neg)',
+    };
+
+    const commonStyles = {
+        backgroundColor: 'var(--color-light-status-muted-alt-attention)',
+        border: '1px dashed var(--color-light-status-attention)',
+        boxSizing: 'border-box',
+        borderRadius: '8px',
+        height: '40px',
+        ...(alignViewSelected === 'left' && {
+            backgroundColor: 'var(--color-light-status-muted-alt-negative)',
+        }),
+    };
+
+    const addonsStyles = {
+        ...commonStyles,
+        backgroundColor: 'var(--color-light-status-muted-alt-positive)',
+        borderColor: 'var(--color-light-status-positive)',
+        width: '48px',
+    };
+
+    const bottomAddonsStyles = {
+        ...commonStyles,
+        backgroundColor: 'var(--color-light-status-muted-alt-info)',
+        borderColor: 'var(--color-light-status-info)',
+        width: '100%',
+    };
+    return (
+        <div>
+            <div style={wrapperStyles}>
+                <NavigationBar
+                    leftAddons={<div style={addonsStyles} />}
+                    rightAddons={<div style={addonsStyles} />}
+                    bottomAddons={<div style={bottomAddonsStyles} />}
+                    backgroundColor='var(--color-light-base-bg-secondary)'
+                    align={alignViewSelected}
+                >
+                    <div style={commonStyles} />
+                </NavigationBar>
+            </div>
+            <Gap size={40} />
+            <div style={{ margin: ' 0 -4px' }}>
+                <SelectMobile
+                    block={true}
+                    options={ALIGN_SELECT_OPTIONS}
+                    label='Выравнивание'
+                    labelView='outer'
+                    selected={alignViewSelected}
+                    onChange={({ selected }) => setAlignView(selected.key)}
+                    Option={BaseOption}
+                    size={48}
+                />
+            </div>
+        </div>
+    );
+});
+```
+
+## Конструктор
+
+В качестве контента для слотов можно передавать как дефолтные варианты, так и кастомную вёрстку. Кастомные варианты контента отмечены в списках астериском.
+
+```jsx live mobileHeight={635} mobileOnly
+const ALIGN_SELECT_OPTIONS = [
+    { key: 'center', content: 'Центральное' },
+    { key: 'left', content: 'Левое' },
+];
+const BACKGROUND_SELECT_OPTIONS = [
+    { key: 'var(--color-light-base-bg-primary)', content: 'base-bg-primary' },
+    { key: 'var(--color-light-base-bg-secondary)', content: 'base-bg-secondary' },
+    { key: 'transparent', content: 'transparent-default' },
+];
+const BORDER_SELECT_OPTIONS = [
+    { key: 'scroll', content: '*Только при скролле' },
+    { key: 'no', content: 'Без бордера' },
+    { key: 'yes', content: 'Всегда есть' },
+];
+const STICKY_SELECT_OPTIONS = [
+    { key: 'yes', content: 'Фиксированное' },
+    { key: 'no', content: 'Скроллится с контентом' },
+];
+const MAIN_SELECT_OPTIONS = [
+    { key: 'title', content: 'Заголовок' },
+    { key: 'titleWithSubtitle', content: 'Заголовок и подпись' },
+    { key: 'no', content: 'Пустой' },
+];
+const LEFT_SELECT_OPTIONS = [
+    { key: 'back', content: 'Стрелка назад' },
+    { key: 'floatingBack', content: 'Плавающая стрелка назад' },
+    { key: 'primary', content: 'Основное действие' },
+    { key: 'secondary', content: 'Второстепенное действие' },
+    { key: 'no', content: 'Пустой' },
+];
+const RIGHT_SELECT_OPTIONS = [
+    { key: 'close', content: 'Плавающий крестик' },
+    { key: 'primary', content: 'Основное действие' },
+    { key: 'secondary', content: 'Второстепенное действие' },
+    { key: 'oneIcon', content: 'Одна иконка' },
+    { key: 'twoIcons', content: 'Две иконки' },
+    { key: 'threeIcons', content: 'Три иконки' },
+    { key: 'no', content: 'Пустой' },
+];
+const BOTTOM_SELECT_OPTIONS = [
+    { key: 'no', content: 'Пустой' },
+    { key: 'input', content: '*Input' },
+    { key: 'segmentedControl', content: '*SegmentedControl' },  
+];
+
+const ShowIcontAddons = ({ quantity }) => (
+    <div style={{ display: 'flex', gap: '4px', padding: '0 4px' }}>
+        {Array(quantity)
+            .fill('')
+            .map((_, key) => (
+                <div key={key}>
+                    <IconButton view='primary' size={40} icon={DiamondsMIcon} />
+                </div>
+            ))}
+    </div>
+);
+
+render(() => {
+    const [alignViewSelected, setAlignView] = React.useState(ALIGN_SELECT_OPTIONS[0].key);
+    const [backgroundViewSelected, setBackgroundView] = React.useState(
+        BACKGROUND_SELECT_OPTIONS[0].key,
+    );
+    const [borderViewSelected, setBorderView] = React.useState(BORDER_SELECT_OPTIONS[0].key);
+    const [stickyViewSelected, setStickyView] = React.useState(STICKY_SELECT_OPTIONS[0].key);
+
+    const [mainSelected, setMainView] = React.useState(MAIN_SELECT_OPTIONS[0].key);
+    const [leftSelected, setLeftView] = React.useState(LEFT_SELECT_OPTIONS[0].key);
+    const [rightSelected, setRightView] = React.useState(RIGHT_SELECT_OPTIONS[0].key);
+    const [bottomSelected, setBottomView] = React.useState(BOTTOM_SELECT_OPTIONS[0].key);
+
+    const [selectedId, setSelectedId] = React.useState(1);
+    const [scrollTop, setScrollTop] = React.useState(false);
+
+    const mainContent = {
+        title: { title: 'Название экрана', subtitle: undefined },
+        titleWithSubtitle: { title: 'Название экрана', subtitle: 'Подпись экрана' },
+        no: { title: undefined, subtitle: undefined },
+    };
+
+    const leftContent = {
+        back: <ActionIconAddon action='back' />,
+        floatingBack: <ActionIconAddon action='floatingBack' />,
+        primary: <ActionTextAddon text='Label' action='primary' />,
+        secondary: <ActionTextAddon text='Label' action='secondary' />,
+        no: undefined,
+    };
+
+    const rightContent = {
+        close: <ActionIconAddon action='close' />,
+        primary: <ActionTextAddon text='Label' action='primary' />,
+        secondary: <ActionTextAddon text='Label' action='secondary' />,
+        oneIcon: <ShowIcontAddons quantity={1} />,
+        twoIcons: <ShowIcontAddons quantity={2} />,
+        threeIcons: <ShowIcontAddons quantity={3} />,
+        no: undefined,
+    };
+
+    const border = {
+        yes: true,
+        no: false,
+        scroll: scrollTop,
+    };
+
+    const wrapperBottomStyles = {
+        padding: '8px 12px 0px',
+    };
+
+    const input = (
+        <div style={wrapperBottomStyles}>
+            <Input block leftAddons={<MagnifierMIcon color='#86868A' />} placeholder='Поиск' />
+        </div>
+    );
+
+    const segmentedControl = (
+        <div style={wrapperBottomStyles}>
+            <SegmentedControl onChange={(id) => setSelectedId(id)} selectedId={selectedId}>
+                <Segment id={1} title='Label' />
+                <Segment id={2} title='Label' />
+            </SegmentedControl>
+        </div>
+    );
+
+    const bottomContent = {
+        input,
+        segmentedControl: segmentedControl,
+        no: undefined,
+    };
+
+    const wrapperStyles = {
+        height: 635,
+        overflowY: 'scroll',
+        width: 360,
+        margin: 'var(--gap-l-neg)',
+    };
+
+    const handleScroll = (event) => {
+        const scrolledToHeader = event.currentTarget.scrollTop > 0;
+        setScrollTop(scrolledToHeader);
+    };
+
+    const css = `
+        div[data-test-id='title'] {
+            padding: 0 var(--gap-2xs);
+        }
+    `;
+    
+    return (
+        <div style={wrapperStyles} onScroll={handleScroll}>
+            <style>{css}</style>
+            <NavigationBar
+                title={mainContent[mainSelected].title}
+                subtitle={mainContent[mainSelected].subtitle}
+                leftAddons={leftContent[leftSelected]}
+                rightAddons={rightContent[rightSelected]}
+                bottomAddons={bottomContent[bottomSelected]}
+                align={alignViewSelected}
+                backgroundColor={backgroundViewSelected}
+                border={border[borderViewSelected]}
+                sticky={stickyViewSelected === 'yes'}
+            />
+            <Gap size={24} />
+            <div style={{ margin: '0px 16px 20px' }}>
+                <Space size={24} fullWidth>
+                    <Typography.TitleMobile
+                        view='xsmall'
+                        font='system'
+                        weight='semibold'
+                        dataTestId='title'
+                    >
+                        Основные настройки
+                    </Typography.TitleMobile>
+                    <SelectMobile
+                        block={true}
+                        options={BACKGROUND_SELECT_OPTIONS}
+                        label='Цвет фона'
+                        labelView='outer'
+                        selected={backgroundViewSelected}
+                        onChange={({ selected }) => setBackgroundView(selected.key)}
+                        Option={BaseOption}
+                        size={48}
+                    />
+                    <SelectMobile
+                        block={true}
+                        options={BORDER_SELECT_OPTIONS}
+                        label='Бордер'
+                        labelView='outer'
+                        selected={borderViewSelected}
+                        onChange={({ selected }) => setBorderView(selected.key)}
+                        Option={BaseOption}
+                        size={48}
+                    />
+                    <SelectMobile
+                        block={true}
+                        options={ALIGN_SELECT_OPTIONS}
+                        label='Выравнивание'
+                        labelView='outer'
+                        selected={alignViewSelected}
+                        onChange={({ selected }) => setAlignView(selected.key)}
+                        Option={BaseOption}
+                        size={48}
+                    />
+                    <SelectMobile
+                        block={true}
+                        options={STICKY_SELECT_OPTIONS}
+                        label='Положение'
+                        labelView='outer'
+                        selected={stickyViewSelected}
+                        onChange={({ selected }) => setStickyView(selected.key)}
+                        Option={BaseOption}
+                        size={48}
+                    />
+                </Space>
+                <Gap size={24} />
+                <Space size={24} fullWidth>
+                    <Typography.TitleMobile
+                        view='xsmall'
+                        font='system'
+                        weight='semibold'
+                        dataTestId='title'
+                    >
+                        Контент
+                    </Typography.TitleMobile>
+                    <SelectMobile
+                        block={true}
+                        options={MAIN_SELECT_OPTIONS}
+                        label='Основной слот'
+                        labelView='outer'
+                        selected={mainSelected}
+                        onChange={({ selected }) => setMainView(selected.key)}
+                        Option={BaseOption}
+                        size={48}
+                    />
+                    {alignViewSelected === 'center' && (
+                        <SelectMobile
+                            block={true}
+                            options={LEFT_SELECT_OPTIONS}
+                            label='Левый слот'
+                            labelView='outer'
+                            selected={leftSelected}
+                            onChange={({ selected }) => setLeftView(selected.key)}
+                            Option={BaseOption}
+                            size={48}
+                        />
+                    )}
+                    <SelectMobile
+                        block={true}
+                        options={RIGHT_SELECT_OPTIONS}
+                        label='Правый слот'
+                        labelView='outer'
+                        selected={rightSelected}
+                        onChange={({ selected }) => setRightView(selected.key)}
+                        Option={BaseOption}
+                        size={48}
+                    />
+                    <SelectMobile
+                        block={true}
+                        options={BOTTOM_SELECT_OPTIONS}
+                        label='Нижний слот'
+                        labelView='outer'
+                        selected={bottomSelected}
+                        onChange={({ selected }) => setBottomView(selected.key)}
+                        Option={BaseOption}
+                        size={48}
+                    />
+                </Space>
+            </div>
+        </div>
+    );
+});
+```

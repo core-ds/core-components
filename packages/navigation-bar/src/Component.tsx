@@ -1,284 +1,203 @@
-/* eslint-disable complexity */
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import mergeRefs from 'react-merge-refs';
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-
-import { BackArrowAddon } from './components/back-arrow-addon';
-import { Closer } from './components/closer';
-import type { ContentParams, NavigationBarProps } from './types';
 
 import styles from './index.module.css';
 
-const ADDONS_HEIGHT = 48;
+export interface NavigationBarProps {
+    /**
+     * Заголовок
+     */
+    title?: string;
 
-export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
-    (
-        {
-            addonClassName,
-            className,
-            contentClassName,
-            closerClassName,
-            leftAddons,
-            rightAddons,
-            bottomAddons,
-            bottomAddonsClassName,
-            children,
-            align = 'left',
-            trim = true,
-            title,
-            titleSize = 'default',
-            subtitle,
-            hasCloser,
-            hasBackButton,
-            backButtonClassName,
-            backButtonProps,
-            dataTestId,
-            imageUrl,
-            closerIcon,
-            onClose,
-            view,
-            scrollableParentRef,
-            sticky,
-            onBack,
-        },
-        ref,
-    ) => {
-        const [scrollTop, setScrollTop] = useState(0);
-        const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
-        const bottomContentRef = useRef<HTMLDivElement>(null);
-        const headerRef = useRef<HTMLDivElement>(null);
-        const mainLinePaddingTopRef = useRef<string>('0px');
-        const leftAddonsRef = useRef<HTMLDivElement>(null);
-        const rightAddonsRef = useRef<HTMLDivElement>(null);
+    /**
+     * Подзаголовок
+     */
+    subtitle?: string;
 
-        const compactTitle = view === 'mobile' && titleSize === 'compact';
-        const hasLeftPart = Boolean(leftAddons || hasBackButton);
-        const hasRightPart = Boolean(rightAddons || hasCloser);
-        const hasContent = Boolean(title || children);
-        const withAnimation = Boolean(view === 'mobile' && hasLeftPart && sticky && !compactTitle);
-        const showContentOnTop = hasContent && (compactTitle || !hasLeftPart);
-        const showContentOnBot = hasContent && !compactTitle && hasLeftPart;
-        const showStaticContentOnTop = !withAnimation && showContentOnTop;
-        const showStaticContentOnBot = !withAnimation && showContentOnBot;
-        const showAnimatedContentOnTop =
-            withAnimation && showContentOnBot && scrollTop > ADDONS_HEIGHT;
-        const showAnimatedContentOnBot = withAnimation && showContentOnBot;
-        const headerPaddingTop = mainLinePaddingTopRef.current;
+    /**
+     * Контент шапки
+     */
+    children?: ReactNode;
 
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (align === 'center' && (showStaticContentOnTop || showAnimatedContentOnTop)) {
-                const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
-                const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
+    /**
+     * Выравнивание заголовка
+     * @default center
+     */
+    align?: 'left' | 'center';
 
-                const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
-                const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
+    /**
+     * Цвет фона
+     */
+    backgroundColor?: string;
 
-                setTitleMargin((prev) => {
-                    const newState = shouldAddLeftMargin
-                        ? { left: marginSize, right: 0 }
-                        : { left: 0, right: marginSize };
+    /**
+     * Наличие бордера
+     */
+    border?: boolean;
 
-                    const isStateChanged =
-                        prev.left !== newState.left || prev.right !== newState.right;
+    /**
+     * Фиксирует шапку
+     */
+    sticky?: boolean;
 
-                    return isStateChanged ? newState : prev;
-                });
-            }
-        }, [
-            align,
-            showStaticContentOnTop,
-            showAnimatedContentOnTop,
-            leftAddons,
-            rightAddons,
-            hasBackButton,
-            hasCloser,
-        ]);
+    /**
+     * Слот снизу
+     */
+    bottomAddons?: ReactNode;
 
-        useEffect(() => {
-            const parent = scrollableParentRef?.current;
+    /**
+     * Слот слева
+     */
+    leftAddons?: ReactNode;
 
-            const handleScroll = (ev: Event) => {
-                const divElement = ev.target as HTMLDivElement;
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
 
-                setScrollTop(divElement.scrollTop);
-            };
+    /**
+     * Дополнительный класс для контента
+     */
+    contentClassName?: string;
 
-            if (withAnimation && headerRef.current) {
-                mainLinePaddingTopRef.current = getComputedStyle(headerRef.current).paddingTop;
-            }
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 
-            if (withAnimation && parent) {
-                parent.addEventListener('scroll', handleScroll);
-            }
+    /**
+     * Дополнительный класс для правого аддона
+     */
+    rightAddonsClassName?: string;
 
-            return () => parent?.removeEventListener('scroll', handleScroll);
-        }, [scrollableParentRef, withAnimation]);
+    /**
+     * Дополнительный класс для левого аддона
+     */
+    leftAddonsClassName?: string;
 
-        const renderBackButton = () => {
-            let textOpacity = 1;
+    /**
+     * Дополнительный класс для нижнего аддона
+     */
+    bottomAddonsClassName?: string;
 
-            if (withAnimation) {
-                const height = hasContent ? ADDONS_HEIGHT : ADDONS_HEIGHT / 2;
+    /**
+     * Идентификатор для систем автоматизированного тестирования.
+     */
+    dataTestId?: string;
+}
 
-                textOpacity = Math.max(0, 1 - scrollTop / height);
-            } else if (compactTitle) {
-                textOpacity = 0;
-            }
+export const NavigationBar: FC<NavigationBarProps> = ({
+    align = 'center',
+    rightAddons,
+    leftAddons,
+    bottomAddons,
+    sticky,
+    border,
+    subtitle,
+    title,
+    children,
+    backgroundColor = 'var(--color-light-base-bg-primary)',
+    className,
+    contentClassName,
+    rightAddonsClassName,
+    leftAddonsClassName,
+    bottomAddonsClassName,
+    dataTestId,
+}) => {
+    const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
+    const leftAddonsRef = useRef<HTMLDivElement>(null);
+    const rightAddonsRef = useRef<HTMLDivElement>(null);
+    const hasLeftAddons = leftAddons && align !== 'left';
 
-            return (
-                <div className={cn(styles.addon, backButtonClassName)}>
-                    <BackArrowAddon
-                        data-test-id={getDataTestId(dataTestId, 'back-button')}
-                        {...backButtonProps}
-                        textOpacity={textOpacity}
-                        view={view}
-                        onClick={onBack}
-                    />
-                </div>
-            );
-        };
+    useEffect(() => {
+        if (hasLeftAddons) {
+            const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
+            const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
 
-        const renderContent = (args: ContentParams = {}) => {
-            const { extraClassName, wrapperRef, style, hidden } = args;
+            const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
+            const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
 
-            return (
-                <div
-                    style={{ ...style, visibility: hidden ? 'hidden' : 'visible' }}
-                    ref={wrapperRef}
-                    className={cn(styles.content, extraClassName, contentClassName, styles[align], {
-                        [styles.trim]: trim,
-                        [styles.withCompactTitle]: view === 'mobile' && compactTitle && hasContent,
-                    })}
-                    aria-hidden={hidden}
-                >
-                    {children && <div className={styles.children}>{children}</div>}
-                    {title && (
+            setTitleMargin((prev) => {
+                const newState = shouldAddLeftMargin
+                    ? { left: marginSize, right: 0 }
+                    : { left: 0, right: marginSize };
+
+                const isStateChanged = prev.left !== newState.left || prev.right !== newState.right;
+
+                return isStateChanged ? newState : prev;
+            });
+        }
+    }, [hasLeftAddons, leftAddons, rightAddons]);
+
+    return (
+        <div
+            className={cn(
+                styles.component,
+                {
+                    [styles.border]: border,
+                    [styles.sticky]: sticky,
+                },
+                className,
+            )}
+            style={{
+                ...(backgroundColor && { backgroundColor }),
+            }}
+            data-test-id={dataTestId}
+        >
+            <div className={cn(styles.mainLine, styles[align], contentClassName)}>
+                {hasLeftAddons && (
+                    <div className={cn(styles.addons, leftAddonsClassName)} ref={leftAddonsRef}>
+                        {leftAddons}
+                    </div>
+                )}
+
+                {children && <div className={styles.children}>{children}</div>}
+
+                {title && (
+                    <div
+                        className={cn(styles.content, { [styles[align]]: !hasLeftAddons })}
+                        style={{
+                            ...(align === 'center'
+                                ? {
+                                      marginLeft: titleMargin.left,
+                                      marginRight: titleMargin.right,
+                                  }
+                                : null),
+                        }}
+                    >
                         <div
-                            className={styles.title}
-                            data-test-id={hidden ? undefined : getDataTestId(dataTestId, 'title')}
+                            className={cn(styles.title, {
+                                [styles[align]]: !hasLeftAddons && !subtitle,
+                            })}
+                            data-test-id={getDataTestId(dataTestId, 'title')}
                         >
                             {title}
                         </div>
-                    )}
-                    {compactTitle && subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-                </div>
-            );
-        };
 
-        const renderCloser = () => (
-            <div className={cn(styles.addon, styles.closer, closerClassName)}>
-                <Closer
-                    view={view}
-                    icon={closerIcon}
-                    dataTestId={getDataTestId(dataTestId, 'closer')}
-                    onClose={onClose}
-                />
-            </div>
-        );
+                        {subtitle && (
+                            <div
+                                className={styles.subtitle}
+                                data-test-id={getDataTestId(dataTestId, 'subtitle')}
+                            >
+                                {subtitle}
+                            </div>
+                        )}
+                    </div>
+                )}
 
-        return (
-            <div
-                ref={mergeRefs([ref, headerRef])}
-                className={cn(styles.header, className, { [styles.backgroundImage]: imageUrl })}
-                data-test-id={getDataTestId(dataTestId)}
-                style={{
-                    ...(imageUrl && { backgroundImage: `url(${imageUrl})` }),
-                    ...(withAnimation &&
-                        bottomContentRef.current && {
-                            top: -bottomContentRef.current.scrollHeight,
-                        }),
-                }}
-            >
-                <div
-                    className={cn(styles.mainLine, {
-                        [styles.mainLineSticky]: withAnimation,
-                        [styles.mainLineWithImageBg]: imageUrl,
-                    })}
-                    style={{
-                        ...(withAnimation
-                            ? {
-                                  marginTop: `-${headerPaddingTop}`,
-                                  paddingTop: headerPaddingTop,
-                              }
-                            : null),
-                    }}
-                >
-                    {hasLeftPart && (
-                        <div className={styles.addonsWrapper} ref={leftAddonsRef}>
-                            {hasBackButton && renderBackButton()}
-                            {leftAddons && (
-                                <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>
-                            )}
-                        </div>
-                    )}
-
-                    {showStaticContentOnTop &&
-                        renderContent({
-                            ...(align === 'center'
-                                ? {
-                                      style: {
-                                          marginLeft: titleMargin.left,
-                                          marginRight: titleMargin.right,
-                                      },
-                                  }
-                                : null),
-                        })}
-
-                    {showAnimatedContentOnTop &&
-                        renderContent({
-                            extraClassName: styles.withBothAddons,
-                            style: {
-                                opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
-                                ...(align === 'center'
-                                    ? {
-                                          marginLeft: titleMargin.left,
-                                          marginRight: titleMargin.right,
-                                      }
-                                    : null),
-                            },
-                        })}
-
-                    {hasRightPart && (
-                        <div
-                            className={cn(styles.addonsWrapper, styles.rightAddons)}
-                            ref={rightAddonsRef}
-                        >
-                            {rightAddons && (
-                                <div className={cn(styles.addon, addonClassName)}>
-                                    {rightAddons}
-                                </div>
-                            )}
-
-                            {hasCloser && renderCloser()}
-                        </div>
-                    )}
-                </div>
-
-                {showAnimatedContentOnBot &&
-                    renderContent({
-                        wrapperRef: bottomContentRef,
-                        extraClassName: styles.underAddons,
-                        style: { opacity: Math.max(0, 1 - scrollTop / ADDONS_HEIGHT) },
-                        hidden: scrollTop / ADDONS_HEIGHT > 1,
-                    })}
-
-                {showStaticContentOnBot &&
-                    renderContent({
-                        extraClassName: cn({
-                            [styles.contentOnBotDesktop]: view === 'desktop',
-                            [styles.contentOnBotMobile]: view === 'mobile',
-                        }),
-                    })}
-
-                {bottomAddons && (
-                    <div className={cn(styles.bottomAddons, bottomAddonsClassName)}>
-                        {bottomAddons}
+                {rightAddons && (
+                    <div
+                        className={cn(styles.rightAddons, styles.addons, rightAddonsClassName)}
+                        ref={rightAddonsRef}
+                    >
+                        {rightAddons}
                     </div>
                 )}
             </div>
-        );
-    },
-);
+
+            {bottomAddons && <div className={bottomAddonsClassName}>{bottomAddons}</div>}
+        </div>
+    );
+};

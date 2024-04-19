@@ -1,7 +1,10 @@
 import React, { FC, useCallback, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+import {
+    NavigationBarPrivate,
+    NavigationBarPrivateProps,
+} from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
@@ -12,7 +15,7 @@ import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -27,7 +30,7 @@ export const Header: FC<HeaderProps> = ({
     const { setHasHeader, headerHighlighted, parentRef, onClose } = useContext(ModalContext);
     const { view, size, dataTestId } = useContext(ResponsiveContext);
 
-    const handleClose = useCallback<NonNullable<NavigationBarProps['onClose']>>(
+    const handleClose = useCallback<NonNullable<NavigationBarPrivateProps['onClose']>>(
         (...params) => {
             if (onHeaderClose) {
                 onHeaderClose(...params);
@@ -46,7 +49,7 @@ export const Header: FC<HeaderProps> = ({
     const hasContent = Boolean(title || children);
 
     return (
-        <NavigationBar
+        <NavigationBarPrivate
             dataTestId={getDataTestId(dataTestId, 'header')}
             {...restProps}
             scrollableParentRef={parentRef}
@@ -71,6 +74,6 @@ export const Header: FC<HeaderProps> = ({
             })}
         >
             {children}
-        </NavigationBar>
+        </NavigationBarPrivate>
     );
 };
