@@ -29,24 +29,56 @@ type Props = {
      * Используется модификатор -main
      */
     dataTestId?: string;
+
+    /**
+     * Клик по контенту.
+     */
+    onClick?: () => void;
 };
 
-export const Main: React.FC<Props> = ({ children, isReverse, className, dataTestId }) => {
-    const { direction = 'horizontal', dataTestId: contextDataTestId } = useContext(PureCellContext);
+export const Main: React.FC<Props> = ({ children, isReverse, className, dataTestId, onClick }) => {
+    const {
+        direction = 'horizontal',
+        dataTestId: contextDataTestId,
+        setMainHover,
+        unsetMainHover,
+    } = useContext(PureCellContext);
+
+    const Component = onClick ? 'button' : 'section';
+
+    const events = onClick
+        ? {
+              onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.stopPropagation();
+                  onClick();
+              },
+              onMouseEnter: () => {
+                  unsetMainHover?.();
+              },
+              onMouseLeave: () => {
+                  setMainHover?.();
+              },
+              onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.stopPropagation();
+              },
+          }
+        : {};
 
     return (
-        <div
+        <Component
             className={cn(
                 styles.component,
                 styles[direction],
                 {
                     [styles.reverse]: isReverse,
                 },
+                { [styles.button]: onClick },
                 className,
             )}
             data-test-id={getDataTestId(dataTestId || contextDataTestId, 'main')}
+            {...events}
         >
             {children}
-        </div>
+        </Component>
     );
 };

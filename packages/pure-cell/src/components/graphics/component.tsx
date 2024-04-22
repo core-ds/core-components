@@ -29,6 +29,11 @@ export type Props = {
      * Отступ от графики
      */
     graphicPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+
+    /**
+     * Клик по контенту графики.
+     */
+    onClick?: () => void;
 };
 
 export const Graphics: React.FC<Props> = ({
@@ -36,22 +41,45 @@ export const Graphics: React.FC<Props> = ({
     dataTestId,
     verticalAlign = 'top',
     graphicPadding,
+    onClick,
 }) => {
     const pureCellContext = useContext(PureCellContext);
 
+    const Component = onClick ? 'button' : 'section';
+
     const defaultGraphicPadding = pureCellContext.direction === 'horizontal' ? 'airy' : 'default';
 
+    const events = onClick
+        ? {
+              onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.stopPropagation();
+                  onClick();
+              },
+              onMouseEnter: () => {
+                  pureCellContext.unsetMainHover?.();
+              },
+              onMouseLeave: () => {
+                  pureCellContext.setMainHover?.();
+              },
+              onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.stopPropagation();
+              },
+          }
+        : {};
+
     return (
-        <section
+        <Component
             className={cn(
                 styles.component,
                 styles[verticalAlign],
                 styles[pureCellContext.direction || 'horizontal'],
                 styles[graphicPadding || defaultGraphicPadding],
+                { [styles.button]: onClick },
             )}
             data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'graphics')}
+            {...events}
         >
             {children}
-        </section>
+        </Component>
     );
 };

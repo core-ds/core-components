@@ -59,3 +59,18 @@
         margin-bottom: var(--gap-2xs);
     }
 }
+
+.button {
+    @mixin button-reset;
+    padding: 0;
+    transition: opacity 0.15s ease-in-out;
+    min-width: auto;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}

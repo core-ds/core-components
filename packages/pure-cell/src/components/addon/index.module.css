@@ -37,3 +37,17 @@
         align-self: flex-end;
     }
 }
+
+.button {
+    @mixin button-reset;
+    padding: 0;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}
