@@ -52,6 +52,7 @@
 .size-64 .file,
 .size-64 .noFile {
     @mixin promo-system_xsmall;
+    margin-left: var(--gap-s);
 }
 
 .file,
