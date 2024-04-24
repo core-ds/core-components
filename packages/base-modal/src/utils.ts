@@ -1,5 +1,5 @@
 import { getModalStore, SavedStyle } from '@alfalab/core-components-global-store';
-import { browser, os } from '@alfalab/core-components-shared';
+import { browser } from '@alfalab/core-components-shared';
 
 export function isScrolledToTop(target: HTMLElement) {
     return target.scrollTop <= 0;
@@ -92,20 +92,9 @@ export const handleContainer = (container?: HTMLElement) => {
             key: 'overflow',
             el: scrollContainer,
         });
-        // @see DS-3410
-        if (os.isIOS()) {
-            containerStyles.push({
-                value: scrollContainer.style.position,
-                key: 'position',
-                el: scrollContainer,
-            });
-        }
     }
 
     scrollContainer.style.overflow = 'hidden';
-    if (os.isIOS()) {
-        scrollContainer.style.position = 'fixed';
-    }
 
     modalRestoreStyles.push({
         container,
