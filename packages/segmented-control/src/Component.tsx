@@ -56,6 +56,11 @@ export type SegmentedControlProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительные инлайн стили для враппера
+     */
+    style?: React.CSSProperties;
 };
 
 const MAX_SEGMENTS = 5;
@@ -76,6 +81,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     children: defaultChildren,
     colors = 'default',
     dataTestId,
+    style,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -122,41 +128,40 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         <SegmentedControlContext.Provider value={{ onChange, colors }}>
-            <div
-                ref={wrapperRef}
-                className={cn(
-                    styles.wrapper,
-                    colorStyles[colors].wrapper,
-                    styles[shape],
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
-                    className,
-                )}
-                data-test-id={dataTestId}
-            >
-                <div className={cn(styles.container)}>
-                    <div
-                        className={cn(
-                            styles.selectedBox,
-                            colorStyles[colors].selectedBox,
-                            styles[shape],
-                        )}
-                        ref={selectedBoxRef}
-                    />
-                    <div className={cn(styles.inner)} ref={innerRef}>
-                        {React.Children.map(children, (item) =>
-                            React.cloneElement(item, {
-                                className: cn(
-                                    styles.segment,
-                                    colorStyles[colors].segment,
-                                    {
-                                        [styles.selected]: item.props.id === selectedId,
-                                        [colorStyles[colors].selected]:
-                                            item.props.id === selectedId,
-                                    },
-                                    item.props.className,
-                                ),
-                            }),
-                        )}
+            <div ref={wrapperRef} className={className} style={style} data-test-id={dataTestId}>
+                <div
+                    className={cn(
+                        styles.wrapper,
+                        colorStyles[colors].wrapper,
+                        styles[shape],
+                        styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    )}
+                >
+                    <div className={cn(styles.container)}>
+                        <div
+                            className={cn(
+                                styles.selectedBox,
+                                colorStyles[colors].selectedBox,
+                                styles[shape],
+                            )}
+                            ref={selectedBoxRef}
+                        />
+                        <div className={cn(styles.inner)} ref={innerRef}>
+                            {React.Children.map(children, (item) =>
+                                React.cloneElement(item, {
+                                    className: cn(
+                                        styles.segment,
+                                        colorStyles[colors].segment,
+                                        {
+                                            [styles.selected]: item.props.id === selectedId,
+                                            [colorStyles[colors].selected]:
+                                                item.props.id === selectedId,
+                                        },
+                                        item.props.className,
+                                    ),
+                                }),
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

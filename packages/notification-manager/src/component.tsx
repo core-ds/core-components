@@ -32,6 +32,11 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
     zIndex?: number;
 
     /**
+     * Отступ от верхнего края
+     */
+    offset?: number;
+
+    /**
      * Удаление нотификации
      */
     onRemoveNotification: (id: string) => void;
@@ -62,6 +67,7 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
             dataTestId,
             zIndex = stackingOrder.TOAST,
             style = {},
+            offset,
             onRemoveNotification,
             container,
             ...restProps
@@ -77,12 +83,13 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                         data-test-id={dataTestId}
                         style={{
                             zIndex: computedZIndex,
+                            top: offset,
                             ...style,
                         }}
                         {...restProps}
                     >
                         <TransitionGroup>
-                            {notifications.map((element) => (
+                            {notifications.map((element, index) => (
                                 <CSSTransition
                                     key={element.props.id}
                                     timeout={TIMEOUT}
@@ -91,7 +98,9 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                                 >
                                     <Notification
                                         element={element}
-                                        className={styles.notification}
+                                        className={cn(styles.notification, {
+                                            [styles.withoutMargin]: offset && index === 0,
+                                        })}
                                         onRemoveNotification={onRemoveNotification}
                                     />
                                 </CSSTransition>

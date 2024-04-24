@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -46,12 +46,30 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         },
         ref,
     ) => {
+        const [scrollTop, setScrollTop] = useState(true);
+        const [scrollBottom, setScrollBottom] = useState(false);
+
         const query = '(max-width: 1023px)';
         let [nativeScrollbar] = useMatchMedia(query, () =>
             isClient() ? window.matchMedia(query).matches : true,
         );
 
         nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
+
+        const handleScroll = useCallback(
+            (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                const scrolledToHeader = event.currentTarget.scrollTop <= 0;
+                const scrolledToFooter =
+                    event.currentTarget.scrollHeight - event.currentTarget.offsetHeight <=
+                    event.currentTarget.scrollTop;
+
+                setScrollTop(scrolledToHeader);
+                setScrollBottom(scrolledToFooter);
+
+                onScroll?.(event);
+            },
+            [onScroll],
+        );
 
         const renderOption = (option: OptionShape, index: number) => (
             <Option key={option.key} {...getOptionProps(option, index)} />
@@ -97,7 +115,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         const renderWithCustomScrollbar = () => {
             const scrollableNodeProps = {
-                onScroll,
+                onScroll: handleScroll,
                 'data-test-id': dataTestId,
                 ref: ref as React.RefObject<HTMLDivElement>,
             };
@@ -119,7 +137,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             <div
                 className={cn(styles.scrollable, scrollbarClassName)}
                 ref={mergeRefs([listRef, ref])}
-                onScroll={onScroll}
+                onScroll={handleScroll}
             >
                 {renderListItems()}
             </div>
@@ -133,7 +151,12 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 className={cn(styles.optionsList, styles[SIZE_TO_CLASSNAME_MAP[size]], className)}
             >
                 {header && (
-                    <div className={styles.optionsListHeader} onMouseEnter={resetHighlightedIndex}>
+                    <div
+                        className={cn(styles.optionsListHeader, {
+                            [styles.headerHighlighted]: !scrollTop,
+                        })}
+                        onMouseEnter={resetHighlightedIndex}
+                    >
                         {header}
                     </div>
                 )}
@@ -145,7 +168,9 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         onMouseEnter={resetHighlightedIndex}
                         className={cn(styles.optionsListFooter, {
                             [styles.withBorder]:
-                                visibleOptions && flatOptions.length > visibleOptions,
+                                visibleOptions &&
+                                flatOptions.length > visibleOptions &&
+                                !scrollBottom,
                         })}
                     >
                         {footer}

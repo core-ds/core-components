@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion Display test should match snapshots for base 1`] = `
+<div>
+  <div
+    class="accordion"
+  >
+    <div
+      aria-expanded="false"
+      class="container"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="header"
+      >
+        <span
+          class="primary-large medium"
+        >
+          Зачем нужен аккордион?
+        </span>
+      </div>
+      <div
+        class="control"
+      >
+        <svg
+          class="icon"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div
+        class="bodyContent"
+      >
+        <span
+          class="primary-medium"
+        >
+          Используется для создания интерактивных списков, которые можно разворачивать и сворачивать для отображения дополнительной информации
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
