@@ -18,55 +18,34 @@ type ComponentProps = Omit<ButtonProps, 'dataTestId'> & {
 type FooterButtonProps = ComponentProps &
     Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
+type FooterButtonMouseEvent = React.MouseEvent<HTMLAnchorElement, MouseEvent> &
+    React.MouseEvent<HTMLButtonElement, MouseEvent>;
+
+type FooterButtonMouseEventHandler =
+    | React.MouseEventHandler<HTMLAnchorElement>
+    | React.MouseEventHandler<HTMLButtonElement>;
+
 export const FooterButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, FooterButtonProps>(
     ({ children, dataTestId, onClick, onMouseDown, onMouseEnter, onMouseLeave, ...props }, ref) => {
         const pureCellContext = useContext(PureCellContext);
 
-        const handleClick = (
-            e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
-                React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        ) => {
+        const handleClick = (e: FooterButtonMouseEvent) => {
             e.stopPropagation();
-            (
-                onClick as
-                    | React.MouseEventHandler<HTMLAnchorElement>
-                    | React.MouseEventHandler<HTMLButtonElement>
-            )?.(e);
+            (onClick as FooterButtonMouseEventHandler)?.(e);
         };
 
-        const handleMouseEnter = (
-            e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
-                React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        ) => {
-            (
-                onMouseEnter as
-                    | React.MouseEventHandler<HTMLAnchorElement>
-                    | React.MouseEventHandler<HTMLButtonElement>
-            )?.(e);
+        const handleMouseEnter = (e: FooterButtonMouseEvent) => {
+            (onMouseEnter as FooterButtonMouseEventHandler)?.(e);
             pureCellContext.unsetMainHover?.();
         };
 
-        const handleMouseLeave = (
-            e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
-                React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        ) => {
-            (
-                onMouseLeave as
-                    | React.MouseEventHandler<HTMLAnchorElement>
-                    | React.MouseEventHandler<HTMLButtonElement>
-            )?.(e);
+        const handleMouseLeave = (e: FooterButtonMouseEvent) => {
+            (onMouseLeave as FooterButtonMouseEventHandler)?.(e);
             pureCellContext.setMainHover?.();
         };
 
-        const handleMouseDown = (
-            e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
-                React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        ) => {
-            (
-                onMouseDown as
-                    | React.MouseEventHandler<HTMLAnchorElement>
-                    | React.MouseEventHandler<HTMLButtonElement>
-            )?.(e);
+        const handleMouseDown = (e: FooterButtonMouseEvent) => {
+            (onMouseDown as FooterButtonMouseEventHandler)?.(e);
             e.stopPropagation();
         };
 

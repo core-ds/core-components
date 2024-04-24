@@ -36,6 +36,11 @@ export type Props = {
     onClick?: () => void;
 };
 
+const GRAPHICS_COMPONENT: Record<string, keyof Pick<React.ReactHTML, 'button' | 'section'>> = {
+    button: 'button',
+    section: 'section',
+};
+
 export const Graphics: React.FC<Props> = ({
     children,
     dataTestId,
@@ -45,27 +50,25 @@ export const Graphics: React.FC<Props> = ({
 }) => {
     const pureCellContext = useContext(PureCellContext);
 
-    const Component = onClick ? 'button' : 'section';
+    const Component = onClick ? GRAPHICS_COMPONENT.button : GRAPHICS_COMPONENT.section;
 
     const defaultGraphicPadding = pureCellContext.direction === 'horizontal' ? 'airy' : 'default';
 
-    const events = onClick
-        ? {
-              onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.stopPropagation();
-                  onClick();
-              },
-              onMouseEnter: () => {
-                  pureCellContext.unsetMainHover?.();
-              },
-              onMouseLeave: () => {
-                  pureCellContext.setMainHover?.();
-              },
-              onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.stopPropagation();
-              },
-          }
-        : {};
+    const onMouseEvents = {
+        onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation();
+            onClick?.();
+        },
+        onMouseEnter: () => {
+            pureCellContext.unsetMainHover?.();
+        },
+        onMouseLeave: () => {
+            pureCellContext.setMainHover?.();
+        },
+        onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation();
+        },
+    };
 
     return (
         <Component
@@ -77,7 +80,7 @@ export const Graphics: React.FC<Props> = ({
                 { [styles.button]: onClick },
             )}
             data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'graphics')}
-            {...events}
+            {...(onClick && onMouseEvents)}
         >
             {children}
         </Component>

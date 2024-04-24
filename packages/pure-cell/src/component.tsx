@@ -123,14 +123,13 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
     ) => {
         const cellRef = useRef<HTMLDivElement>(null);
         const [focused] = useFocus(cellRef, 'keyboard');
-        const [hoverState, setHoverState] = useState(false);
-        const [activeState, setActiveState] = useState(false);
+        const [hoverState, setHoverState] = useState<boolean>(false);
+        const [activeState, setActiveState] = useState<boolean>(false);
 
         const setHover = () => setHoverState(true);
         const unsetHover = () => setHoverState(false);
-        const setActive = () => {
-            setActiveState(true);
-        };
+        const setActive = () => setActiveState(true);
+
         const unsetActive = () => setActiveState(false);
 
         const mouseEvents = {

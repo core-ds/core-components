@@ -36,6 +36,11 @@ type Props = {
     onClick?: () => void;
 };
 
+const ADDON_COMPONENT: Record<string, keyof Pick<React.ReactHTML, 'button' | 'section'>> = {
+    button: 'button',
+    section: 'section',
+};
+
 export const Addon: React.FC<Props> = ({
     children,
     verticalAlign = 'top',
@@ -45,25 +50,23 @@ export const Addon: React.FC<Props> = ({
 }) => {
     const pureCellContext = useContext(PureCellContext);
 
-    const Component = onClick ? 'button' : 'section';
+    const Component = onClick ? ADDON_COMPONENT.button : ADDON_COMPONENT.section;
 
-    const events = onClick
-        ? {
-              onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.stopPropagation();
-                  onClick();
-              },
-              onMouseEnter: () => {
-                  pureCellContext.unsetMainHover?.();
-              },
-              onMouseLeave: () => {
-                  pureCellContext.setMainHover?.();
-              },
-              onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.stopPropagation();
-              },
-          }
-        : {};
+    const onMouseEvents = {
+        onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation();
+            onClick?.();
+        },
+        onMouseEnter: () => {
+            pureCellContext.unsetMainHover?.();
+        },
+        onMouseLeave: () => {
+            pureCellContext.setMainHover?.();
+        },
+        onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation();
+        },
+    };
 
     return (
         <Component
@@ -71,7 +74,7 @@ export const Addon: React.FC<Props> = ({
                 [styles.button]: onClick,
             })}
             data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'addon')}
-            {...events}
+            {...(onClick && onMouseEvents)}
         >
             {children}
         </Component>

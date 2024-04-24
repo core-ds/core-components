@@ -36,6 +36,11 @@ type Props = {
     onClick?: () => void;
 };
 
+const MAIN_COMPONENT: Record<string, keyof Pick<React.ReactHTML, 'button' | 'section'>> = {
+    button: 'button',
+    section: 'section',
+};
+
 export const Main: React.FC<Props> = ({ children, isReverse, className, dataTestId, onClick }) => {
     const {
         direction = 'horizontal',
@@ -44,25 +49,23 @@ export const Main: React.FC<Props> = ({ children, isReverse, className, dataTest
         unsetMainHover,
     } = useContext(PureCellContext);
 
-    const Component = onClick ? 'button' : 'section';
+    const Component = onClick ? MAIN_COMPONENT.button : MAIN_COMPONENT.section;
 
-    const events = onClick
-        ? {
-              onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.stopPropagation();
-                  onClick();
-              },
-              onMouseEnter: () => {
-                  unsetMainHover?.();
-              },
-              onMouseLeave: () => {
-                  setMainHover?.();
-              },
-              onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.stopPropagation();
-              },
-          }
-        : {};
+    const onMouseEvents = {
+        onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation();
+            onClick?.();
+        },
+        onMouseEnter: () => {
+            unsetMainHover?.();
+        },
+        onMouseLeave: () => {
+            setMainHover?.();
+        },
+        onMouseDown: (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation();
+        },
+    };
 
     return (
         <Component
@@ -76,7 +79,7 @@ export const Main: React.FC<Props> = ({ children, isReverse, className, dataTest
                 className,
             )}
             data-test-id={getDataTestId(dataTestId || contextDataTestId, 'main')}
-            {...events}
+            {...(onClick && onMouseEvents)}
         >
             {children}
         </Component>
