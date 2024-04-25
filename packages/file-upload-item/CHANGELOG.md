@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.6.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1168](https://github.com/core-ds/core-components/pull/1168)
+
+-   Для свойства onDelete был добавлен второй параметр, который является опциональным и представляет собой событие event
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.5
+
 ## 5.5.0
 
 ### Minor Changes

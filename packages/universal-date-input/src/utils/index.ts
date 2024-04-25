@@ -47,7 +47,7 @@ export function isValidDate({
     offDays?: Array<Date | number>;
 }) {
     const parsed = isCompleteDate(value) ? parseDateString(value).getTime() : undefined;
-    const minDateStartOfDay = startOfDay(new Date(minDate)).getDate();
+    const minDateStartOfDay = startOfDay(new Date(minDate)).getTime();
 
     if (parsed) {
         return (

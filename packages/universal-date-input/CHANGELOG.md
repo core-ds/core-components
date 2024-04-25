@@ -1,5 +1,18 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.0.5
+
+### Patch Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1170](https://github.com/core-ds/core-components/pull/1170)
+
+-   Устранена проблема, из-за которой невозможно было установить год раньше 1971
+
+-   Обновлены зависимости
+    -   input@14.3.3
+
 ## 2.0.4
 
 ### Patch Changes

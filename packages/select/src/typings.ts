@@ -105,7 +105,7 @@ export type BaseSelectProps = {
     /**
      * Дополнительный класс для поповера
      */
-    popperClassName?: string;
+    popperClassName?: PopoverProps['className'];
 
     /**
      * Список вариантов выбора
@@ -347,6 +347,21 @@ export type BaseSelectProps = {
      * Показывать OptionsList, если он пустой
      */
     showEmptyOptionsList?: boolean;
+
+    /**
+     * Дополнительные пропсы для Popover
+     */
+    popoverProps?: Omit<
+        PopoverProps,
+        | 'update'
+        | 'zIndex'
+        | 'position'
+        | 'className'
+        | 'open'
+        | 'anchorElement'
+        | 'preventFlip'
+        | 'dataTestId'
+    >;
 };
 
 // TODO: использовать InputProps

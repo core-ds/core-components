@@ -1,5 +1,29 @@
 # Change Log
 
+## 17.4.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1153](https://github.com/core-ds/core-components/pull/1153)
+
+-   Добавили возможность прокидки popoverProps в компонент
+
+### Patch Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1157](https://github.com/core-ds/core-components/pull/1157)
+
+-   Изменили логику добавления бордера при скролле в десктопном компоненте. Теперь бордер добавляется к футеру и хедеру только при перекрытии контента
+
+-   Обновлены зависимости
+    -   button@11.4.1
+    -   input@14.3.3
+    -   bottom-sheet@6.14.4
+    -   modal@9.2.2
+
 ## 17.3.5
 
 ### Patch Changes

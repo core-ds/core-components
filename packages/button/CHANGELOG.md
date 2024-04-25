@@ -1,5 +1,15 @@
 # Change Log
 
+## 11.4.1
+
+### Patch Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1172](https://github.com/core-ds/core-components/pull/1172)
+
+-   Повышена специфичность для стилей, отвечающих за размеры кнопки text
+
 ## 11.4.0
 
 ### Minor Changes

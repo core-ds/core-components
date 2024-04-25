@@ -1,0 +1,36 @@
+@import '../../../themes/src/default.css';
+
+.accordion-container {
+    @media screen and (min-width: 1024px) {
+        width: 474px;
+    }
+}
+
+.accordion-wrapper {
+    @media screen and (min-width: 1024px) {
+        width: 304px;
+    }
+}
+
+.accordion-header,
+.accordion-control,
+.accordion-body {
+    background-color: rgba(55, 120, 251, 0.1);
+    box-sizing: border-box;
+    border-radius: var(--gap-xs);
+    border: 1px dashed rgb(55, 120, 251);
+    height: 24px;
+}
+
+.accordion-header {
+    width: 272px;
+}
+
+.accordion-control {
+    width: 24px;
+}
+
+.accordion-body {
+    width: 300px;
+    height: 48px;
+}

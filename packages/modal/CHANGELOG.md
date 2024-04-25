@@ -1,5 +1,12 @@
 # Change Log
 
+## 9.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.6
+
 ## 9.2.1
 
 ### Patch Changes

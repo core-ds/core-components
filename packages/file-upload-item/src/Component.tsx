@@ -96,7 +96,7 @@ export type FileUploadItemProps = {
     /**
      * Обработчик удаления файла
      */
-    onDelete?: (id: string) => void;
+    onDelete?: (id: string, event?: MouseEvent<HTMLElement>) => void;
 
     /**
      * Обработчик восстановления файла
@@ -148,8 +148,8 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
         }
     };
 
-    const handleDelete = () => {
-        if (onDelete) onDelete(id);
+    const handleDelete = (event: MouseEvent<HTMLElement>) => {
+        if (onDelete) onDelete(id, event);
     };
 
     const handleRestore = () => {
