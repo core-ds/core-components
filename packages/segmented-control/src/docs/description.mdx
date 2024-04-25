@@ -147,3 +147,52 @@ render(() => {
     )
 })
 ```
+
+## Заголовки сегментов
+
+Сегменты могут содержать как строковые значения, так и React компоненты
+
+```jsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        '1': 1,
+        '2': 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <div style={{ width: 360 }}>
+        <Space fullWidth size={24}>
+            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
+                <Segment id={1} title='Таб 1' />
+                <Segment id={2} title='Таб 2' />
+            </SegmentedControl>
+            <SegmentedControl selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
+                <Segment id={1} title={<AScoresCircleMIcon />} />
+                <Segment id={2} title={<AScoresCircleMIcon />} />
+            </SegmentedControl>
+        </Space>
+    </div>
+    )
+})
+//MOBILE
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        '1': 1,
+        '2': 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <Space fullWidth size={24}>
+            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
+                <Segment id={1} title='Таб 1' />
+                <Segment id={2} title='Таб 2' />
+            </SegmentedControl>
+            <SegmentedControl selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
+                <Segment id={1} title={<AScoresCircleMIcon />} />
+                <Segment id={2} title={<AScoresCircleMIcon />} />
+            </SegmentedControl>
+        </Space>
+    )
+})
+```
+
