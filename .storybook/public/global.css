@@ -49,6 +49,12 @@ body.sb-show-main.sb-main-padded {
     box-sizing: border-box;
 }
 
+html.is-locked,
+html.is-locked body {
+    height: var(--window-inner-height);
+    overflow: hidden;
+}
+
 #root iframe[data-is-storybook='true'] {
     box-sizing: border-box;
     padding: 0;
