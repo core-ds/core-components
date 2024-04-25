@@ -102,21 +102,3 @@ export const handleContainer = (container?: HTMLElement) => {
         styles: containerStyles,
     });
 };
-
-export const bodyLock = () => {
-    const { scrollY } = window;
-
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-};
-
-export const bodyUnlock = () => {
-    const scrollY = parseFloat(document.body.style.top) * -1;
-
-    document.body.style.position = '';
-    document.body.style.top = '';
-
-    window.setTimeout(() => {
-        window.scrollTo(0, scrollY);
-    }, 300);
-};

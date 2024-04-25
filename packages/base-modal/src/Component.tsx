@@ -22,12 +22,10 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { browser, os } from '@alfalab/core-components-shared';
+import { browser } from '@alfalab/core-components-shared';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import {
-    bodyLock,
-    bodyUnlock,
     handleContainer,
     hasScrollbar,
     isScrolledToBottom,
@@ -203,11 +201,6 @@ export type BaseModalProps = {
      * Реф, который должен быть установлен компонентной области
      */
     componentRef?: MutableRefObject<HTMLDivElement | null>;
-
-    /**
-     * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
-     */
-    iOsBodyLock?: boolean;
 };
 
 export type BaseModalContext = {
@@ -275,7 +268,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             zIndex = stackingOrder.MODAL,
             componentRef = null,
             usePortal = true,
-            iOsBodyLock = false,
         },
         ref,
     ) => {
@@ -356,10 +348,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
-                if (iOsBodyLock && os.isIOS()) {
-                    bodyUnlock();
-                }
-
                 if (onClose) {
                     onClose(event, reason);
                 }
@@ -374,7 +362,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 return null;
             },
-            [onBackdropClick, onClose, onEscapeKeyDown, iOsBodyLock],
+            [onBackdropClick, onClose, onEscapeKeyDown],
         );
 
         const handleBackdropMouseDown = (event: MouseEvent<HTMLElement>) => {
@@ -480,9 +468,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 if (!disableBlockingScroll) {
                     const el = getContainer();
 
-                    if (iOsBodyLock && os.isIOS()) {
-                        bodyLock();
-                    }
                     handleContainer(el);
 
                     restoreContainerStylesRef.current = () => {
@@ -493,7 +478,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 setExited(false);
             }
-        }, [getContainer, open, disableBlockingScroll, isExited, iOsBodyLock]);
+        }, [getContainer, open, disableBlockingScroll, isExited]);
 
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
