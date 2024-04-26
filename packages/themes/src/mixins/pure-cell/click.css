@@ -1,0 +1,4 @@
+@define-mixin pure-cell-click {
+    --pure-cell-clickable-area-hover-opacity: 0.8;
+    --pure-cell-clickable-area-active-opacity: 0.6;
+}

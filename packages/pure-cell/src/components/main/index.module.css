@@ -28,11 +28,11 @@
         min-width: auto;
 
         &:hover {
-            opacity: 0.8;
+            opacity: var(--pure-cell-clickable-area-hover-opacity);
         }
 
         &:active {
-            opacity: 0.6;
+            opacity: var(--pure-cell-clickable-area-active-opacity);
         }
     }
 }
