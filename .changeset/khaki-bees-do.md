@@ -1,8 +1,8 @@
 ---
-"@alfalab/core-components-pure-cell": patch
+"@alfalab/core-components-pure-cell": minor
 ---
 
-Добавлена пропс onClick для компонента PureCell.Graphics
-Добавлена пропс onClick для компонента PureCell.Main
-Добавлена пропс onClick для компонента PureCell.Addon
-Кликабельные области PureCell изолированы в плане всплытия событий (click, hover, active)
+- Добавлен пропс onClick для компонента PureCell.Graphics
+- Добавлен пропс onClick для компонента PureCell.Main
+- Добавлен пропс onClick для компонента PureCell.Addon
+- Кликабельные области PureCell изолированы в плане всплытия событий (click, hover, active)
