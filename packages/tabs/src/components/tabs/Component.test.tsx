@@ -105,7 +105,7 @@ describe('Tabs', () => {
             const style = { padding: 20 };
             const { container } = renderTabs(Component, { view, style });
 
-            const firstElement = container.firstChild;
+            const firstElement = container.firstChild?.firstChild;
 
             expect(firstElement).toHaveStyle('padding: 20px');
         });

@@ -21,6 +21,7 @@ export const SecondaryTabList = ({
     platform,
     tagShape,
     tagView,
+    inlineStyle,
 }: SecondaryTabListProps & Styles & PlatformProps) => {
     const { focusedTab, selectedTab, getTabListItemProps } = useTabs({
         titles,
@@ -69,10 +70,13 @@ export const SecondaryTabList = ({
             view='secondary'
             size={size}
             platform={platform}
+            inlineStyle={inlineStyle}
         >
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
+        <div className={cn(styles.container, containerClassName)} style={inlineStyle}>
+            {renderContent()}
+        </div>
     );
 };
