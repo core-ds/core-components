@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.9.2
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+-   Обновлены зависимости
+    -   input@14.4.0
+    -   with-suffix@4.1.24
+
 ## 7.9.1
 
 ### Patch Changes
