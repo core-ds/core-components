@@ -1,3 +1,92 @@
+## 45.8.0
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1173](https://github.com/core-ds/core-components/pull/1173)
+
+#### Что изменилось
+- Для компонента Attach с размером 64 исправлен отступ от label. Для остальных размеров сохранены прежние отступы.
+
+#### Влияние на компоненты
+- Патчи<br />`attach`
+
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+#### Что изменилось
+- Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `amount-input` `amount` `attach` `bottom-sheet`<br /> `button`
+
+
+### [#1177](https://github.com/core-ds/core-components/pull/1177)
+
+#### Что изменилось
+- Добавлены css переменные --pure-cell-clickable-area-hover-opacity и --pure-cell-clickable-area-active-opacity для PureCell темы click
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+<br />
+
+#### Что изменилось
+- Добавлен пропс onClick для компонента PureCell.Graphics
+- Добавлен пропс onClick для компонента PureCell.Main
+- Добавлен пропс onClick для компонента PureCell.Addon
+- Кликабельные области PureCell изолированы в плане всплытия событий (click, hover, active)
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1183](https://github.com/core-ds/core-components/pull/1183)
+
+#### Что изменилось
+- Добавлена возможность изменения текста PeriodSlider для состояния когда ему не переданы даты
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#1171](https://github.com/core-ds/core-components/pull/1171)
+
+#### Что изменилось
+- Добавлен параметр reason для onInput события
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete` `input`
+
+
+### [#1182](https://github.com/core-ds/core-components/pull/1182)
+
+#### Что изменилось
+- Добавлена возможность устанавливать в сегмент ReactNode
+- Обновлена документация
+
+#### Влияние на компоненты
+- Патчи<br />`segmented-control`
+
+
+### [#1181](https://github.com/core-ds/core-components/pull/1181)
+
+#### Что изменилось
+- В компоненте Modal.Header теперь учитывается как onClose пропса из Modal, так и из Modal.Header
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#1187](https://github.com/core-ds/core-components/pull/1187)
+
+#### Что изменилось
+- В компоненте Tab был расширен тип для свойства title до ReactNode
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+
 ## 45.7.0
 
 <sup><time>19.04.2024</time></sup>
