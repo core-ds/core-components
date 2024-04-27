@@ -106,6 +106,12 @@ export type PeriodSliderProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Отображаемый текст, когда слайдеру не переданы значения c датами value={...}
+     * @default 'Укажите период'
+     */
+    emptyValueText?: string;
 };
 
 export const PeriodSlider: FC<PeriodSliderProps> = ({
@@ -124,6 +130,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     onYearClick,
     onPeriodClick,
     dataTestId,
+    emptyValueText = 'Укажите период',
 }) => {
     const [valueFrom, valueTo] = useMemo(() => {
         let from: Date;
@@ -188,7 +195,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
 
     const renderHeader = () => {
         if (!(valueFrom && valueTo)) {
-            return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
+            return <span className={cn(styles.period, styles.empty)}>{emptyValueText}</span>;
         }
 
         if (periodType === 'month' && isMonthAndYearSelectable) {
