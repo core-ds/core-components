@@ -20,11 +20,11 @@ describe(
                     knobs: {
                         size: [128],
                         firstCard: {
-                            maskedCardNumber: 1234000000001234,
+                            cardNumber: 1234000000001234,
                             shadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
                         },
                         secondCard: {
-                            maskedCardNumber: 1234000000001234,
+                            cardNumber: 1234000000001234,
                         },
                         numberOfСards: 2,
                     },
@@ -39,11 +39,8 @@ describe(
                     knobs: {
                         size: [40, 32],
                         firstCard: {
-                            maskedCardNumber: 1234000000001234,
+                            cardNumber: 1234000000001234,
                             shadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.20)',
-                        },
-                        secondCard: {
-                            maskedCardNumber: 1234000000001234,
                         },
                         numberOfСards: 2,
                     },
@@ -58,10 +55,10 @@ describe(
                     knobs: {
                         size: [16],
                         firstCard: {
-                            maskedCardNumber: 1234000000001234,
+                            cardNumber: 1234000000001234,
                         },
                         secondCard: {
-                            maskedCardNumber: 1234000000001234,
+                            cardNumber: 1234000000001234,
                         },
                         numberOfСards: 2,
                     },

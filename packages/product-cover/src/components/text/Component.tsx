@@ -42,12 +42,17 @@ export type TextProps = {
     /**
      * Номер карты
      */
-    maskedCardNumber?: number;
+    cardNumber?: number;
 
     /**
      * Количество карт
      */
     numberOfСards?: number;
+
+    /**
+     * Управление ориентацией стопки карт компонента
+     */
+    align?: 'bottom' | 'default';
 
     /**
      * Обработчик клика по иконке 'показать номер карты'
@@ -63,15 +68,16 @@ export type TextProps = {
 export const Text: React.FC<TextProps> = ({
     cardholderNameUppercase,
     cardholderName,
-    maskedCardNumber,
+    cardNumber,
     numberOfСards,
+    align,
     eyeButton,
     dataTestId,
     size = 164,
     onEyeIconClick,
 }) => {
     const maxSize = size === 164;
-    const visibleNumberOfСards = showNumberOfСards(size, numberOfСards);
+    const visibleNumberOfСards = showNumberOfСards(size, numberOfСards, align);
 
     return (
         <div className={cn(styles.component)} data-test-id={dataTestId}>
@@ -87,7 +93,7 @@ export const Text: React.FC<TextProps> = ({
                 </Typography.Text>
             ) : null}
 
-            {maskedCardNumber && !visibleNumberOfСards ? (
+            {cardNumber && !visibleNumberOfСards ? (
                 <div className={styles.cardNumber}>
                     <Typography.Text
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
@@ -95,7 +101,7 @@ export const Text: React.FC<TextProps> = ({
                         color='static-primary-light'
                     >
                         {[164, 128].includes(size) && '··\u2009'}
-                        {String(maskedCardNumber).slice(-4)}
+                        {String(cardNumber).slice(-4)}
                     </Typography.Text>
                     {eyeButton && maxSize && (
                         <ButtonDesktop
@@ -116,7 +122,7 @@ export const Text: React.FC<TextProps> = ({
                     <Typography.Text
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
                         weight='medium'
-                        color='static-primary-light'
+                        color='static-primary-dark'
                     >
                         {`+${numberOfСards}\u00A0`}
                         {pluralize(numberOfСards || 0, 'карта', 'карты', 'карт')}

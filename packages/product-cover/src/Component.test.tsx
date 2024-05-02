@@ -10,9 +10,9 @@ describe('ProductCover', () => {
             expect(
                 render(
                     <ProductCover.Single
-                        maskedCardNumber={1234000000001234}
+                        cardNumber={1234000000001234}
                         cardholderName='Cardholder Name'
-                        imageUrl='https://online.alfabank.ru/cards-images/cards/'
+                        baseUrl='https://online.alfabank.ru/cards-images/cards/'
                         layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                         cardId='RM'
                     />,
@@ -31,7 +31,7 @@ describe('ProductCover', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(
                 <ProductCover.Single
-                    maskedCardNumber={1234000000001234}
+                    cardNumber={1234000000001234}
                     cardholderName='Cardholder Name'
                     eyeButton
                     dataTestId={dataTestId}
@@ -49,12 +49,12 @@ describe('ProductCover', () => {
             const { getByTestId } = render(
                 <ProductCover.Stack
                     firstCard={{
-                        maskedCardNumber: 1234000000001234,
+                        cardNumber: 1234000000001234,
                         cardholderName: 'Cardholder Name',
                         eyeButton: true,
                     }}
                     secondCard={{
-                        maskedCardNumber: 1234000000001234,
+                        cardNumber: 1234000000001234,
                     }}
                     numberOfСards={2}
                     dataTestId={dataTestId}
@@ -107,17 +107,13 @@ describe('ProductCover', () => {
             const { container } = render(<ProductCover.Single borderColor='red' />);
 
             expect(container.querySelector('.border')).toHaveStyle({
-                boxShadow: 'inset 0 0 0 2px red',
+                boxShadow: 'inset 0 0 0 1px red',
             });
         });
 
         it('displays the ProductCover component with a button to show card number', () => {
             render(
-                <ProductCover.Single
-                    maskedCardNumber={1234000000001234}
-                    eyeButton
-                    dataTestId='card'
-                />,
+                <ProductCover.Single cardNumber={1234000000001234} eyeButton dataTestId='card' />,
             );
 
             const eyeButtonElement = screen.getByTestId('card-user-info-eye-btn');
@@ -128,11 +124,7 @@ describe('ProductCover', () => {
         it('clicking on eyeButton should not trigger onEyeIconClick if onEyeIconClick is not provided', () => {
             const onEyeIconClick = jest.fn();
             render(
-                <ProductCover.Single
-                    maskedCardNumber={1234000000001234}
-                    eyeButton
-                    dataTestId='card'
-                />,
+                <ProductCover.Single cardNumber={1234000000001234} eyeButton dataTestId='card' />,
             );
 
             const eyeButtonElement = screen.getByTestId('card-user-info-eye-btn');
@@ -147,7 +139,7 @@ describe('ProductCover', () => {
             render(
                 <ProductCover.Single
                     onEyeIconClick={onEyeIconClick}
-                    maskedCardNumber={1234000000001234}
+                    cardNumber={1234000000001234}
                     eyeButton
                     dataTestId='card'
                 />,
@@ -163,7 +155,7 @@ describe('ProductCover', () => {
         it('renders ProductCover component with image', () => {
             render(
                 <ProductCover.Single
-                    imageUrl='https://online.alfabank.ru/cards-images/cards/'
+                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                     cardId='RM'
                 />,

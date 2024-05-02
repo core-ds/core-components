@@ -7,15 +7,15 @@ import styles from './index.module.css';
 export type ImageCardProps = {
     /**
      * Идентификатор карты
-     * (например: RM,SQ, SR)
+     * (например: RM, SQ, SR)
      */
     cardId?: string;
 
     /**
-     * Фоновое изображение
+     * Базовый URL сервиса с изображениями
      * https://online.alfabank.ru/cards-images/cards/
      */
-    imageUrl?: string;
+    baseUrl?: string;
 
     /**
      * Какие слои показывать, через запятую без пробелов
@@ -40,7 +40,7 @@ export type ImageCardProps = {
 };
 
 export const ImageCard: FC<ImageCardProps> = ({
-    imageUrl,
+    baseUrl,
     cardId,
     layers,
     width,
@@ -49,9 +49,9 @@ export const ImageCard: FC<ImageCardProps> = ({
 }) => {
     const imagePatternId = useId();
 
-    const cardImageUrl = `${imageUrl}${cardId}/images?layers=${layers}&width=${width}`;
+    const cardImageUrl = `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`;
     const cardImageUrl2x =
-        width && `${imageUrl}${cardId}/images?layers=${layers}&width=${width * 2}`;
+        width && `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2}`;
 
     const imageLoadingState = useImageLoadingState({ src: cardImageUrl || '' });
     const imageLoadingState2x = useImageLoadingState({ src: cardImageUrl2x || '' });

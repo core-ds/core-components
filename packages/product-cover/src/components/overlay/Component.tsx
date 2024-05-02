@@ -5,9 +5,9 @@ import { OverlayProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Overlay: FC<OverlayProps> = ({ color = 'default', visible }) => (
+export const Overlay: FC<OverlayProps> = ({ colors = 'default', visible }) => (
     <div
-        className={cn(styles.overlay, styles[color], {
+        className={cn(styles.overlay, styles[colors], {
             [styles.visible]: visible,
         })}
     />

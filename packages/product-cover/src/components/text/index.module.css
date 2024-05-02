@@ -18,7 +18,7 @@
 }
 
 .buttonEye.buttonEye {
-    padding-left: 5px;
+    margin-left: 5px;
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -33,10 +33,7 @@
     }
 
     & > span {
-        vertical-align: middle;
-
-        & > * {
-            vertical-align: middle;
-        }
+        display: flex;
+        align-items: center;
     }
 }

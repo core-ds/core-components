@@ -20,12 +20,12 @@ export const product_cover_single: Story = {
 
         return (
             <ProductCover.Single
-                imageUrl={text('imageUrl', 'https://online.alfabank.ru/cards-images/cards/')}
+                baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
                 layers={text('layers', 'BACKGROUND,LOGO,PAYMENT_SYSTEM')}
                 cardId={text('cardId', 'RM')}
                 icon={boolean('icon', false) && DiamondsXxlIcon}
                 eyeButton={boolean('eyeButton', false)}
-                maskedCardNumber={number('maskedCardNumber', 1234000000001234)}
+                cardNumber={number('cardNumber', 1234000000001234)}
                 cardholderName={text('cardholderName', 'Cardholder Name')}
                 cardholderNameUppercase={boolean('cardholderNameUppercase', false)}
                 size={sizes}
@@ -44,15 +44,15 @@ export const product_cover_stack: Story = {
         const shadow = text('shadow', '2px 2px 2px 0px rgba(0, 0, 0, 0.20)');
 
         const firstCard = {
-            maskedCardNumber: 1234000000001234,
+            cardNumber: 1234000000001234,
             cardholderName: 'Cardholder Name',
             shadow: shadow,
-            imageUrl: 'https://online.alfabank.ru/cards-images/cards/',
+            baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
         };
         const secondCard = {
-            imageUrl: 'https://online.alfabank.ru/cards-images/cards/',
+            baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
         };

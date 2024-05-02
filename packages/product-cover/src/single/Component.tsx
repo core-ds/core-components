@@ -14,24 +14,26 @@ export const Single: FC<SingleCommonProps> = ({
     icon: Icon,
     cardId,
     layers,
-    imageUrl,
+    baseUrl,
     shadow,
     iconColor,
     backgroundColor,
     borderColor,
-    overlayProps = { color: 'default', visible: false },
+    overlayProps = { colors: 'default', visible: false },
     eyeButton,
     cardholderNameUppercase,
     cardholderName,
     numberOfСards,
-    maskedCardNumber,
+    align,
+    cardNumber,
     className,
     contentAddons,
     contentAddonsProps,
     onEyeIconClick,
     dataTestId,
 }) => {
-    const showContent = (maskedCardNumber || cardholderName) && size !== 16 && !contentAddons;
+    const hasContent = Boolean(cardNumber || cardholderName || numberOfСards);
+    const showContent = hasContent && size !== 16 && !contentAddons;
 
     return (
         <div
@@ -45,12 +47,12 @@ export const Single: FC<SingleCommonProps> = ({
             data-test-id={dataTestId}
         >
             {Icon && <Icon color={iconColor} className={styles.icon} />}
-            <Overlay color={overlayProps.color} visible={overlayProps.visible} />
+            <Overlay colors={overlayProps.colors} visible={overlayProps.visible} />
 
             {borderColor && (
                 <div
                     className={cn(styles.border)}
-                    style={{ boxShadow: `inset 0 0 0 2px ${borderColor}` }}
+                    style={{ boxShadow: `inset 0 0 0 1px ${borderColor}` }}
                 />
             )}
 
@@ -59,17 +61,18 @@ export const Single: FC<SingleCommonProps> = ({
                 height={size}
                 cardId={cardId}
                 layers={layers}
-                imageUrl={imageUrl}
+                baseUrl={baseUrl}
                 numberOfСards={numberOfСards}
             />
 
             {showContent && (
                 <Text
-                    maskedCardNumber={maskedCardNumber}
+                    cardNumber={cardNumber}
                     eyeButton={eyeButton}
                     cardholderNameUppercase={cardholderNameUppercase}
                     cardholderName={cardholderName}
                     numberOfСards={numberOfСards}
+                    align={align}
                     size={size}
                     onEyeIconClick={onEyeIconClick}
                     dataTestId={getDataTestId(dataTestId, 'user-info')}

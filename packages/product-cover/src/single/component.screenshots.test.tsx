@@ -22,7 +22,7 @@ describe(
                     knobs: {
                         size: SIZES,
                         cardholderName: 'Cardholder Name',
-                        maskedCardNumber: 1234000000001234,
+                        cardNumber: 1234000000001234,
                         eyeButton: true,
                     },
                 }),

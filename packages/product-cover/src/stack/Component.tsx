@@ -26,38 +26,26 @@ export const Stack: FC<StackProps> = ({
         [styles[align]]: Boolean(styles[align]),
     };
 
-    if (firstCard && secondCard) {
-        return (
-            <div
-                className={cn(styles.wrapper, styles.componentStack, commonClassName, className)}
-                data-test-id={dataTestId}
-            >
-                <Single
-                    {...firstCard}
-                    className={cn(styles.firstCard, commonClassName)}
-                    size={size}
-                    dataTestId={getDataTestId(dataTestId, 'first-card')}
-                />
-                <div className={cn(styles.wrapperSecondCard, commonClassName)}>
-                    <Single
-                        {...secondCard}
-                        size={secondCardSize}
-                        numberOfСards={numberOfСards}
-                        dataTestId={getDataTestId(dataTestId, 'second-card')}
-                    />
-                </div>
-            </div>
-        );
-    }
-
     return (
-        <div className={cn(styles.wrapper, styles.componentImage, styles[sizeClassNames])}>
+        <div
+            className={cn(styles.wrapper, styles.componentStack, commonClassName, className)}
+            data-test-id={dataTestId}
+        >
             <Single
                 {...firstCard}
+                className={cn(styles.firstCard, commonClassName)}
                 size={size}
-                className={className}
                 dataTestId={getDataTestId(dataTestId, 'first-card')}
             />
+            <div className={cn(styles.wrapperSecondCard, commonClassName)}>
+                <Single
+                    {...secondCard}
+                    size={secondCardSize}
+                    align={align}
+                    numberOfСards={numberOfСards}
+                    dataTestId={getDataTestId(dataTestId, 'second-card')}
+                />
+            </div>
         </div>
     );
 };

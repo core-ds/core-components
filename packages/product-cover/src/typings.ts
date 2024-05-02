@@ -6,7 +6,7 @@ export type OverlayProps = {
     /**
      * Набор цветов для компонента
      */
-    color?: 'default' | 'inverted';
+    colors?: 'default' | 'inverted';
 
     /**
      * Управление видимостью
@@ -27,10 +27,10 @@ export type SingleCommonProps = {
     cardId?: string;
 
     /**
-     * Фоновое изображение
+     * Базовый URL сервиса с изображениями
      * (например: https://online.alfabank.ru/cards-images/cards/)
      */
-    imageUrl?: string;
+    baseUrl?: string;
 
     /**
      * Какие слои показывать, через запятую без пробелов
@@ -91,12 +91,17 @@ export type SingleCommonProps = {
     /**
      * Номер карты
      */
-    maskedCardNumber?: number;
+    cardNumber?: number;
 
     /**
      * Количество карт
      */
     numberOfСards?: number;
+
+    /**
+     * Управление ориентацией стопки карт компонента
+     */
+    align?: 'bottom' | 'default';
 
     /**
      * Слот для кастомного контента компонента
@@ -119,11 +124,11 @@ export type SingleCommonProps = {
     dataTestId?: string;
 };
 
-export type SingleProps = Omit<SingleCommonProps, 'numberOfСards'>;
+export type SingleProps = Omit<SingleCommonProps, 'numberOfСards' | 'align'>;
 
 export type BankCardImageProps = Omit<
     SingleCommonProps,
-    'size' | 'numberOfСards' | 'className' | 'dataTestId'
+    'size' | 'numberOfСards' | 'className' | 'dataTestId' | 'align'
 >;
 
 export type SizeStack = Exclude<Size, 48 | 96 | 164>;
