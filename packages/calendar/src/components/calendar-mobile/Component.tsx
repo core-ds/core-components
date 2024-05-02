@@ -15,6 +15,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
+import { useRangeBehavior } from '../../useRangeBehavior';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
@@ -39,6 +40,8 @@ if (typeof window !== 'undefined' && !window.ResizeObserver) {
 
 export const CalendarMonthOnlyView = ({
     value,
+    mode = 'single',
+    rangeBehavior = 'clarification',
     month: monthTimestamp,
     minDate: minDateTimestamp,
     maxDate: maxDateTimestamp,
@@ -55,6 +58,15 @@ export const CalendarMonthOnlyView = ({
     shape = 'rounded',
     scrollableContainer,
 }: CalendarContentProps) => {
+    const range = useRangeBehavior({
+        mode,
+        value,
+        selectedFrom,
+        selectedTo,
+        rangeBehavior,
+        onChange,
+    });
+
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
         [monthTimestamp],
@@ -70,10 +82,13 @@ export const CalendarMonthOnlyView = ({
         [maxDateTimestamp],
     );
 
-    const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
+    const selected = useMemo(
+        () => (range.value ? new Date(range.value) : undefined),
+        [range.value],
+    );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const startingDate = useMemo(() => (value ? new Date(value) : new Date()), []);
+    const startingDate = useMemo(() => (range.value ? new Date(range.value) : new Date()), []);
 
     const defaultMonth = useMemo(
         () =>
@@ -97,7 +112,7 @@ export const CalendarMonthOnlyView = ({
         selected,
         offDays,
         events,
-        onChange,
+        onChange: range.onChange,
         dayAddons,
     });
 
@@ -153,10 +168,10 @@ export const CalendarMonthOnlyView = ({
     ]);
 
     const initialMonthIndex = useMemo(() => {
-        const date = value || selectedFrom || activeMonth.getTime() || Date.now();
+        const date = range.value || range.selectedFrom || activeMonth.getTime() || Date.now();
 
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
-    }, [activeMonth, activeMonths, selectedFrom, value]);
+    }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -177,8 +192,8 @@ export const CalendarMonthOnlyView = ({
                 withTransition={false}
                 weeks={activeMonths[index].weeks}
                 activeMonth={activeMonth}
-                selectedFrom={selectedFrom}
-                selectedTo={selectedTo}
+                selectedFrom={range.selectedFrom}
+                selectedTo={range.selectedTo}
                 getDayProps={getDayProps}
                 highlighted={highlighted}
                 hasHeader={false}
@@ -291,11 +306,14 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         };
 
         const renderFooter = () => {
-            if (selectedFrom || selectedTo) {
-                let selectButtonDisabled = !selectedFrom || !selectedTo;
+            const valueFrom = typeof value === 'object' ? value.dateFrom : selectedFrom;
+            const valueTo = typeof value === 'object' ? value.dateTo : selectedTo;
+
+            if (valueFrom || valueTo) {
+                let selectButtonDisabled = !valueFrom || !valueTo;
 
                 if (allowSelectionFromEmptyRange) {
-                    selectButtonDisabled = !selectedFrom;
+                    selectButtonDisabled = !valueFrom;
                 }
 
                 return (
