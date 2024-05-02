@@ -54,7 +54,7 @@ export const CollapsiblePrimaryTabList = ({
                 (options, { toggleRef, ...title }) => {
                     if (title.collapsed) {
                         options.push({
-                            key: title.title,
+                            key: String(title.id),
                             value: title.id,
                             content: (
                                 <Title

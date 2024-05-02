@@ -15,6 +15,7 @@
 @import './circular-progress-bar/click.css';
 @import './select/click.css';
 @import './progress-bar/click.css';
+@import './pure-cell/click.css';
 @import './icon-view/click.css';
 @import './system-message/click.css';
 @import './side-panel/click.css';
@@ -28,6 +29,7 @@
     @mixin navigation-bar-click;
     @mixin select-click;
     @mixin progress-bar-click;
+    @mixin pure-cell-click;
     @mixin amount-click;
     @mixin checkbox-group-click;
     @mixin tabs-click;

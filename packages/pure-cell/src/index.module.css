@@ -25,11 +25,11 @@
     transition: opacity 0.15s ease-in-out;
     padding: 0;
 
-    &:hover {
+    &.hover {
         opacity: 0.8;
     }
 
-    &:active {
+    &.active {
         opacity: 0.6;
     }
 }
@@ -40,11 +40,11 @@
     cursor: pointer;
     transition: opacity 0.15s ease-in-out;
 
-    &:hover {
+    &.hover {
         opacity: 0.8;
     }
 
-    &:active {
+    &.active {
         opacity: 0.6;
     }
 }

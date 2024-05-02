@@ -6,6 +6,7 @@ import React, {
     forwardRef,
     HTMLAttributes,
     useRef,
+    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -34,6 +35,8 @@ export type PureCellContext = {
     /** Направление */
     direction?: 'horizontal' | 'vertical';
     dataTestId?: string;
+    setMainHover?: () => void;
+    unsetMainHover?: () => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
@@ -120,11 +123,36 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
     ) => {
         const cellRef = useRef<HTMLDivElement>(null);
         const [focused] = useFocus(cellRef, 'keyboard');
+        const [hoverState, setHoverState] = useState<boolean>(false);
+        const [activeState, setActiveState] = useState<boolean>(false);
+
+        const setHover = () => setHoverState(true);
+        const unsetHover = () => setHoverState(false);
+        const setActive = () => setActiveState(true);
+
+        const unsetActive = () => setActiveState(false);
+
+        const mouseEvents = {
+            onMouseEnter: setHover,
+            onMouseLeave: unsetHover,
+            onMouseDown: setActive,
+            onMouseUp: unsetActive,
+        };
+
         const addClasses = {
             [styles.component]: true,
             [styles.focused]: focused,
             [styles[direction]]: true,
             [styles[horizontalPadding]]: true,
+            [styles.hover]: hoverState,
+            [styles.active]: activeState,
+        };
+
+        const contextState: PureCellContext = {
+            direction,
+            dataTestId,
+            setMainHover: setHover,
+            unsetMainHover: unsetHover,
         };
 
         if (typeof verticalPadding === 'string') {
@@ -151,8 +179,9 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
                     className={cn(styles.link, addClasses, className)}
                     data-test-id={dataTestId}
                     onClick={onClick}
+                    {...mouseEvents}
                 >
-                    <PureCellContext.Provider value={{ direction, dataTestId }}>
+                    <PureCellContext.Provider value={contextState}>
                         {children}
                     </PureCellContext.Provider>
                 </Component>
@@ -167,8 +196,9 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
                     className={cn(styles.button, addClasses, className)}
                     data-test-id={dataTestId}
                     onClick={onClick}
+                    {...mouseEvents}
                 >
-                    <PureCellContext.Provider value={{ direction, dataTestId }}>
+                    <PureCellContext.Provider value={contextState}>
                         {children}
                     </PureCellContext.Provider>
                 </Component>
@@ -183,9 +213,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
                 className={cn(addClasses, className)}
                 data-test-id={dataTestId}
             >
-                <PureCellContext.Provider value={{ direction, dataTestId }}>
-                    {children}
-                </PureCellContext.Provider>
+                <PureCellContext.Provider value={contextState}>{children}</PureCellContext.Provider>
             </Component>
         );
     },
