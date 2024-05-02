@@ -439,21 +439,3 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
         );
     },
 );
-
-export function Test() {
-    const [value, setValue] = React.useState<{ dateFrom?: number; dateTo?: number }>();
-
-    return (
-        <div>
-            <div>{JSON.stringify(value)}</div>
-            <CalendarDesktop
-                value={value}
-                onChange={(dateFrom, dateTo) => setValue({ dateFrom, dateTo })}
-                mode='range'
-                rangeBehavior='reset'
-                selectorView='month-only'
-                showCurrentYearSelector={true}
-            />
-        </div>
-    );
-}
