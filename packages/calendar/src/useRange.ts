@@ -3,19 +3,19 @@ import { useEffect } from 'react';
 import type { CalendarDesktopProps } from './desktop';
 import { usePeriod, usePeriodWithReset } from './usePeriod';
 
-type UseRangeBehaviorProps = Pick<
+type UseRangeProps = Pick<
     CalendarDesktopProps,
     'mode' | 'value' | 'rangeBehavior' | 'onChange' | 'selectedFrom' | 'selectedTo'
 >;
 
-export function useRangeBehavior({
+export function useRange({
     mode = 'single',
     value,
     selectedFrom,
     selectedTo,
     rangeBehavior,
     onChange,
-}: UseRangeBehaviorProps) {
+}: UseRangeProps) {
     const valueFrom = typeof value === 'object' ? value.dateFrom : value;
     const valueTo = typeof value === 'object' ? value.dateTo : value;
 

@@ -15,7 +15,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
-import { useRangeBehavior } from '../../useRangeBehavior';
+import { useRange } from '../../useRange';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
@@ -58,7 +58,7 @@ export const CalendarMonthOnlyView = ({
     shape = 'rounded',
     scrollableContainer,
 }: CalendarContentProps) => {
-    const range = useRangeBehavior({
+    const range = useRange({
         mode,
         value,
         selectedFrom,

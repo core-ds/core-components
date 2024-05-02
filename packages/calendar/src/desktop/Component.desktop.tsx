@@ -15,7 +15,7 @@ import { PeriodSlider } from '../components/period-slider';
 import { YearsTable } from '../components/years-table';
 import { DayAddons, SelectorView, View } from '../typings';
 import { useCalendar } from '../useCalendar';
-import { useRangeBehavior } from '../useRangeBehavior';
+import { useRange } from '../useRange';
 import { limitDate } from '../utils';
 
 import styles from './desktop.module.css';
@@ -215,7 +215,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
         const firstUpdate = useRef(true);
 
-        const range = useRangeBehavior({
+        const range = useRange({
             mode,
             value,
             selectedFrom,
