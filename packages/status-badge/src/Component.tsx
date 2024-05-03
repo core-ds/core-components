@@ -58,6 +58,15 @@ export type StatusBadgeProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Необходим для переопределения иконок
+     */
+    customIcons?: {
+        negative: React.FC<React.SVGProps<SVGSVGElement>>;
+        positive: React.FC<React.SVGProps<SVGSVGElement>>;
+        attention: React.FC<React.SVGProps<SVGSVGElement>>;
+    };
 };
 
 const ICON_MAP: Record<
@@ -128,7 +137,23 @@ export const StatusBadge = ({
     size = 24,
     view,
     colors = 'default',
+    customIcons,
 }: StatusBadgeProps) => {
+    if (customIcons) {
+        ICON_MAP['positive-checkmark'] = {
+            ...ICON_MAP['positive-checkmark'],
+            24: customIcons.positive,
+        };
+        ICON_MAP['negative-cross'] = {
+            ...ICON_MAP['negative-cross'],
+            24: customIcons.negative,
+        };
+        ICON_MAP['attention-alert'] = {
+            ...ICON_MAP['attention-alert'],
+            24: customIcons.attention,
+        };
+    }
+
     const Icon = ICON_MAP[view][size];
 
     return (

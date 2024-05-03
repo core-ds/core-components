@@ -18,6 +18,12 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
+export type BadgeIcons = {
+    negative: React.FC<React.SVGProps<SVGSVGElement>>;
+    positive: React.FC<React.SVGProps<SVGSVGElement>>;
+    attention: React.FC<React.SVGProps<SVGSVGElement>>;
+};
+
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Дополнительный класс
@@ -95,6 +101,11 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
 
     /**
+     * Функция, с помощью которой можно переопределить иконки в Badge
+     */
+    getBadgeIcons?: () => BadgeIcons;
+
+    /**
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
@@ -126,6 +137,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             actionButton,
             block,
             onClose,
+            getBadgeIcons,
             colors = 'default',
             closerWrapperClassName,
             closerClassName,
@@ -175,6 +187,9 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                         <StatusBadge
                                             view={statusBadgeView as StatusBadgeProps['view']}
                                             dataTestId='badge'
+                                            {...(getBadgeIcons && {
+                                                customIcons: getBadgeIcons(),
+                                            })}
                                         />
                                     ))}
                             </div>
