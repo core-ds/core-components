@@ -5,6 +5,10 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 import { StatusBadge, StatusBadgeProps } from '@alfalab/core-components-status-badge';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
+import { useDeprecatedBadge } from './hooks/useDeprecatedBadge';
+import { unsafe_BadgeProps } from './types/unsafeBadgeProps';
+import { isUnsafeBadge } from './utils/isUnsafeBadge';
+
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -48,7 +52,7 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Вид бэйджа
      */
-    badge?: StatusBadgeProps['view'];
+    badge?: unsafe_BadgeProps | StatusBadgeProps['view'];
 
     /**
      * Слот слева, заменяет стандартную иконку
@@ -133,6 +137,8 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
 
+        const { transformDeprecatedBadge } = useDeprecatedBadge();
+
         const handleClose = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
                 if (onClose) {
@@ -141,6 +147,12 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             },
             [onClose],
         );
+
+        let statusBadgeView = badge;
+
+        if (badge && isUnsafeBadge(badge)) {
+            statusBadgeView = transformDeprecatedBadge(badge);
+        }
 
         return (
             <div
@@ -159,7 +171,12 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                         {needRenderLeftAddons && (
                             <div className={commonStyles.leftAddons}>
                                 {leftAddons ||
-                                    (badge && <StatusBadge view={badge} dataTestId='badge' />)}
+                                    (badge && (
+                                        <StatusBadge
+                                            view={statusBadgeView as StatusBadgeProps['view']}
+                                            dataTestId='badge'
+                                        />
+                                    ))}
                             </div>
                         )}
                         <div
