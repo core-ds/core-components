@@ -1,5 +1,36 @@
 # Change Log
 
+## 12.1.0
+
+### Minor Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1171](https://github.com/core-ds/core-components/pull/1171)
+
+-   Добавлен параметр reason для onInput события
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.0
+    -   select@17.4.1
+
+## 12.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   input@14.3.3
+
+## 12.0.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+
 ## 12.0.4
 
 ### Patch Changes

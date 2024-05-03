@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.2.21
+
+## 5.4.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1169](https://github.com/core-ds/core-components/pull/1169)
+
+-   Добавлено свойство offset, которое определяет отступ от верхнего края
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.2.20
+
 ## 5.3.19
 
 ### Patch Changes

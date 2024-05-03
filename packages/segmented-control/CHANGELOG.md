@@ -1,5 +1,26 @@
 # @alfalab/core-components-segmented-control
 
+## 1.5.1
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1182](https://github.com/core-ds/core-components/pull/1182)
+
+-   Добавлена возможность устанавливать в сегмент ReactNode
+-   Обновлена документация
+
+## 1.5.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1166](https://github.com/core-ds/core-components/pull/1166)
+
+-   Добавлено новое свойство style, отвечающее за дополнительные инлайновые стили для враппера
+
 ## 1.4.0
 
 ### Minor Changes

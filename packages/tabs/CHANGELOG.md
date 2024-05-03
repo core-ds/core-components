@@ -1,5 +1,42 @@
 # Change Log
 
+## 8.7.1
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1187](https://github.com/core-ds/core-components/pull/1187)
+
+-   В компоненте Tab был расширен тип для свойства title до ReactNode
+
+-   Обновлены зависимости
+    -   icon-button@6.5.6
+    -   picker-button@11.6.7
+
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1165](https://github.com/core-ds/core-components/pull/1165)
+
+-   Добавлено новое свойство style, отвечающее за дополнительные инлайновые стили для враппера
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.6
+    -   icon-button@6.5.5
+
+## 8.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.5
+
 ## 8.6.7
 
 ### Patch Changes

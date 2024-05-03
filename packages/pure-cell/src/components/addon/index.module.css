@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     display: flex;
@@ -35,5 +35,19 @@
 
     &.bottom {
         align-self: flex-end;
+    }
+}
+
+.button {
+    @mixin button-reset;
+    padding: 0;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+        opacity: var(--pure-cell-clickable-area-hover-opacity);
+    }
+
+    &:active {
+        opacity: var(--pure-cell-clickable-area-active-opacity);
     }
 }

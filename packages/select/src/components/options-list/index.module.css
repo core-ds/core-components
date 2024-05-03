@@ -10,7 +10,12 @@
 
 .optionsListHeader {
     box-sizing: border-box;
-    border-bottom: 1px solid var(--color-light-neutral-300);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+
+    &.headerHighlighted {
+        border-bottom-color: var(--color-light-neutral-300);
+    }
 }
 
 .optionsListFooter {
@@ -18,9 +23,10 @@
     bottom: 0;
     box-sizing: border-box;
     border-top: 1px solid transparent;
+    transition: border-color 0.2s ease;
 
     &.withBorder {
-        border-top: 1px solid var(--color-light-neutral-300);
+        border-top-color: var(--color-light-neutral-300);
     }
 }
 

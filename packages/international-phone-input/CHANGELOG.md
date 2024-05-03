@@ -1,5 +1,37 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.0
+    -   input@14.4.0
+    -   select@17.4.1
+
+## 2.0.6
+
+### Patch Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1151](https://github.com/core-ds/core-components/pull/1151)
+
+-   Исправлена логика закрытия селекта с номерами телефонов при включенном автокомплите. Теперь при переключении между селектами выбора страны и выбора номера телефона, селекты закрываются, а не перекрывают друг друга
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   input-autocomplete@12.0.6
+    -   input@14.3.3
+
+## 2.0.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+    -   input-autocomplete@12.0.5
+
 ## 2.0.4
 
 ### Patch Changes

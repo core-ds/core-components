@@ -5,7 +5,10 @@ import { Styles, TabListTitle } from '../../typings';
 
 type Props = TabListTitle &
     Styles &
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'id'> & { focused?: boolean; isOption?: boolean };
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'id' | 'title'> & {
+        focused?: boolean;
+        isOption?: boolean;
+    };
 
 export const Title = forwardRef<HTMLButtonElement, Props>(
     (

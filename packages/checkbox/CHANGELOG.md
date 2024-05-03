@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.3.0
+
+### Minor Changes
+
+<sup><time>08.04.2024</time></sup>
+
+### [#1160](https://github.com/core-ds/core-components/pull/1160)
+
+-   Добавлено свойство inputRef, отвечающее за передачу ref на инпут
+
 ## 4.2.0
 
 ### Minor Changes

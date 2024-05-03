@@ -1,3 +1,228 @@
+## 45.8.0
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1173](https://github.com/core-ds/core-components/pull/1173)
+
+#### Что изменилось
+- Для компонента Attach с размером 64 исправлен отступ от label. Для остальных размеров сохранены прежние отступы.
+
+#### Влияние на компоненты
+- Патчи<br />`attach`
+
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+#### Что изменилось
+- Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `amount-input` `amount` `attach` `bottom-sheet`<br /> `button`
+
+
+### [#1177](https://github.com/core-ds/core-components/pull/1177)
+
+#### Что изменилось
+- Добавлены css переменные --pure-cell-clickable-area-hover-opacity и --pure-cell-clickable-area-active-opacity для PureCell темы click
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+<br />
+
+#### Что изменилось
+- Добавлен пропс onClick для компонента PureCell.Graphics
+- Добавлен пропс onClick для компонента PureCell.Main
+- Добавлен пропс onClick для компонента PureCell.Addon
+- Кликабельные области PureCell изолированы в плане всплытия событий (click, hover, active)
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1183](https://github.com/core-ds/core-components/pull/1183)
+
+#### Что изменилось
+- Добавлена возможность изменения текста PeriodSlider для состояния когда ему не переданы даты
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#1171](https://github.com/core-ds/core-components/pull/1171)
+
+#### Что изменилось
+- Добавлен параметр reason для onInput события
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete` `input`
+
+
+### [#1182](https://github.com/core-ds/core-components/pull/1182)
+
+#### Что изменилось
+- Добавлена возможность устанавливать в сегмент ReactNode
+- Обновлена документация
+
+#### Влияние на компоненты
+- Патчи<br />`segmented-control`
+
+
+### [#1181](https://github.com/core-ds/core-components/pull/1181)
+
+#### Что изменилось
+- В компоненте Modal.Header теперь учитывается как onClose пропса из Modal, так и из Modal.Header
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#1187](https://github.com/core-ds/core-components/pull/1187)
+
+#### Что изменилось
+- В компоненте Tab был расширен тип для свойства title до ReactNode
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+
+## 45.7.0
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1163](https://github.com/core-ds/core-components/pull/1163)
+
+#### Что изменилось
+- Обновили версию react-canvas-pattern-lock. Исправили ховер, теперь, если линию не довести до узла, она исчезает
+
+#### Влияние на компоненты
+- Минорное<br />`pattern-lock`
+
+
+### [#1168](https://github.com/core-ds/core-components/pull/1168)
+
+#### Что изменилось
+- Для свойства onDelete был добавлен второй параметр, который является опциональным и представляет собой событие event
+
+#### Влияние на компоненты
+- Минорное<br />`file-upload-item`
+
+
+### [#1153](https://github.com/core-ds/core-components/pull/1153)
+
+#### Что изменилось
+- Добавили возможность прокидки popoverProps в компонент
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1170](https://github.com/core-ds/core-components/pull/1170)
+
+#### Что изменилось
+- Устранена проблема, из-за которой невозможно было установить год раньше 1971
+
+#### Влияние на компоненты
+- Патчи<br />`universal-date-input`
+
+
+### [#1164](https://github.com/core-ds/core-components/pull/1164)
+
+#### Что изменилось
+- Добавлен новый компонент Accordion
+
+#### Влияние на компоненты
+- Минорное<br />`accordion`
+
+
+### [#1165](https://github.com/core-ds/core-components/pull/1165)
+
+#### Что изменилось
+- Добавлено новое свойство style, отвечающее за дополнительные инлайновые стили для враппера
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1172](https://github.com/core-ds/core-components/pull/1172)
+
+#### Что изменилось
+- Повышена специфичность для стилей, отвечающих за размеры кнопки text
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#1151](https://github.com/core-ds/core-components/pull/1151)
+
+#### Что изменилось
+- Исправлена логика закрытия селекта с номерами телефонов при включенном автокомплите. Теперь при переключении между селектами выбора страны и выбора номера телефона, селекты закрываются, а не перекрывают друг друга
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+### [#1169](https://github.com/core-ds/core-components/pull/1169)
+
+#### Что изменилось
+- Добавлено свойство offset, которое определяет отступ от верхнего края
+
+#### Влияние на компоненты
+- Минорное<br />`notification-manager`
+
+
+### [#1157](https://github.com/core-ds/core-components/pull/1157)
+
+#### Что изменилось
+- Изменили логику добавления бордера при скролле в десктопном компоненте. Теперь бордер добавляется к футеру и хедеру только при перекрытии контента
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1166](https://github.com/core-ds/core-components/pull/1166)
+
+#### Что изменилось
+- Добавлено новое свойство style, отвечающее за дополнительные инлайновые стили для враппера
+
+#### Влияние на компоненты
+- Минорное<br />`segmented-control`
+
+
+
+## 45.6.0
+
+<sup><time>08.04.2024</time></sup>
+
+### [#1155](https://github.com/core-ds/core-components/pull/1155)
+
+#### Что изменилось
+- Добавлен `iconContainerClassName` для стилизации обёртки иконки
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#1160](https://github.com/core-ds/core-components/pull/1160)
+
+#### Что изменилось
+- Добавлено свойство inputRef, отвечающее за передачу ref на инпут
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox`
+
+
+### [#1162](https://github.com/core-ds/core-components/pull/1162)
+
+#### Что изменилось
+- Исправлена логика обработки значения minDate. Ранее при установке minDate=new Date().getTime() возникала ошибка при выборе текущей даты. Теперь данное поведение исправлено
+
+#### Влияние на компоненты
+- Патчи<br />`universal-date-input`
+
+
+
 ## 45.5.0
 
 <sup><time>29.03.2024</time></sup>

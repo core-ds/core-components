@@ -51,6 +51,8 @@ export const BaseInternationalPhoneInput = forwardRef<
             SelectComponent,
             view,
             clear: clearProp,
+            open: openProps,
+            defaultOpen,
             ...restProps
         },
         ref,
@@ -59,6 +61,10 @@ export const BaseInternationalPhoneInput = forwardRef<
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
 
+        const [open, setOpen] = useState<boolean | undefined>(defaultOpen);
+        const [openCountry, setOpenCountry] = useState<boolean | undefined>(
+            countrySelectProps?.defaultOpen,
+        );
         const [selectedCountry, setSelectedCountry] = useState<Country | undefined>(() =>
             findCountry(countriesData, value, defaultIso2, countryProp),
         );
@@ -139,6 +145,34 @@ export const BaseInternationalPhoneInput = forwardRef<
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [value, maskOptions]);
 
+        const openPhoneSelect: InputAutocompleteProps['onOpen'] = (payload) => {
+            if (openProps === undefined) setOpen(payload.open);
+            restProps.onOpen?.(payload);
+        };
+
+        const openCountrySelect: InputAutocompleteProps['onOpen'] = (payload) => {
+            if (countrySelectProps?.open === undefined) setOpenCountry(payload.open);
+            countrySelectProps?.onOpen?.(payload);
+        };
+
+        const handlePhoneSelectOpen: InputAutocompleteProps['onOpen'] = (payload) => {
+            if (payload.open) {
+                openCountrySelect({ open: false });
+            }
+
+            openPhoneSelect(payload);
+        };
+
+        const handleCountrySelectOpen: InputAutocompleteProps['onOpen'] = (payload) => {
+            if (payload.open) {
+                openPhoneSelect({ open: false });
+            }
+            openCountrySelect(payload);
+        };
+
+        const showPhoneSelect = Boolean(open || openProps);
+        const showCountrySelect = Boolean(openCountry || countrySelectProps?.open);
+
         const renderCountrySelect = (compact = false) => (
             <CountrySelect
                 dataTestId={restProps?.dataTestId}
@@ -150,6 +184,8 @@ export const BaseInternationalPhoneInput = forwardRef<
                 country={country}
                 countries={compact ? [] : countriesData}
                 fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
+                onOpen={handleCountrySelectOpen}
+                open={showCountrySelect}
             />
         );
 
@@ -172,6 +208,8 @@ export const BaseInternationalPhoneInput = forwardRef<
                 disabled={disabled}
                 options={filteredOptions}
                 value={value}
+                open={showPhoneSelect}
+                onOpen={handlePhoneSelectOpen}
                 onChange={handleOptionSelect}
                 onInput={(phone) => updatePhoneData(phone)}
                 inputProps={{

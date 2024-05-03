@@ -1,5 +1,31 @@
 # Change Log
 
+## 7.6.0
+
+### Minor Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1183](https://github.com/core-ds/core-components/pull/1183)
+
+-   Добавлена возможность изменения текста PeriodSlider для состояния когда ему не переданы даты
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+    -   modal@9.2.3
+    -   icon-button@6.5.6
+
+## 7.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+    -   icon-button@6.5.5
+    -   modal@9.2.2
+
 ## 7.5.1
 
 ### Patch Changes

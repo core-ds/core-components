@@ -1,5 +1,27 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+
+## 1.7.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1163](https://github.com/core-ds/core-components/pull/1163)
+
+-   Обновили версию react-canvas-pattern-lock. Исправили ховер, теперь, если линию не довести до узла, она исчезает
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
 ## 1.6.1
 
 ### Patch Changes

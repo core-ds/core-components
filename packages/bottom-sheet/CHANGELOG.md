@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.14.5
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.7
+
+## 6.14.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.6
+
 ## 6.14.3
 
 ### Patch Changes

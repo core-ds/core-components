@@ -1,5 +1,31 @@
 # Change Log
 
+## 4.9.0
+
+### Minor Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1177](https://github.com/core-ds/core-components/pull/1177)
+
+-   Добавлен пропс onClick для компонента PureCell.Graphics
+-   Добавлен пропс onClick для компонента PureCell.Main
+-   Добавлен пропс onClick для компонента PureCell.Addon
+-   Кликабельные области PureCell изолированы в плане всплытия событий (click, hover, active)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.5.1
+    -   button@11.4.2
+
+## 4.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
 ## 4.8.0
 
 ### Minor Changes

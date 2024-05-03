@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { fireEvent, render } from '@testing-library/react';
+import { AScoresCircleMIcon } from '@alfalab/icons-glyph/AScoresCircleMIcon';
 
 import { Segment, SegmentProps } from '../../index';
 import { SegmentedControlContext } from '../../context';
@@ -43,5 +44,13 @@ describe('segment', () => {
         fireEvent.click(getByTestId(dataTestId));
 
         expect(onChange).toBeCalledTimes(1);
+    });
+
+    it('render with icon as title', () => {
+        const { container } = render(
+            renderComponent({ id: 1, title: React.createElement(AScoresCircleMIcon) }),
+        );
+
+        expect(container).toMatchSnapshot();
     });
 });

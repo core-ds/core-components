@@ -119,6 +119,11 @@ export type TabsProps = {
      * Стиль тега (для view secondary только)
      */
     tagView?: TagProps['view'];
+
+    /**
+     * Дополнительные инлайн стили для враппера
+     */
+    style?: React.CSSProperties;
 };
 
 export type TabProps = {
@@ -130,7 +135,7 @@ export type TabProps = {
     /**
      * Заголовок таба
      */
-    title: string;
+    title: NonNullable<ReactNode>;
 
     /**
      * Дополнительный класс для контейнера содержимого таба
@@ -179,7 +184,7 @@ export type TabProps = {
 };
 
 export type TabListTitle = {
-    title: string;
+    title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
     rightAddons?: ReactNode;

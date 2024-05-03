@@ -4,6 +4,7 @@ import differenceInDays from 'date-fns/differenceInDays';
 import dateFnsFormat from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import parse from 'date-fns/parse';
+import startOfDay from 'date-fns/startOfDay';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
@@ -46,7 +47,7 @@ export function isValidDate({
     offDays?: Array<Date | number>;
 }) {
     const parsed = isCompleteDate(value) ? parseDateString(value).getTime() : undefined;
-    const minDateStartOfDay = new Date(minDate).setUTCHours(0, 0, 0, 0);
+    const minDateStartOfDay = startOfDay(new Date(minDate)).getTime();
 
     if (parsed) {
         return (
