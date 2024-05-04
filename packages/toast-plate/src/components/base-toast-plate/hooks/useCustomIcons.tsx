@@ -1,20 +1,15 @@
-import {
-    StatusBadgeIcon,
-    StatusBadgeSizes,
-    StatusBadgeViews,
-} from '@alfalab/core-components-status-badge';
+import { StatusBadgeCustomIcon, StatusBadgeViews } from '@alfalab/core-components-status-badge';
 
 import { BadgeIcons } from '../types/BaseToastPlatePropTypes';
 import { unsafe_BadgeProps } from '../types/unsafeBadgeProps';
 
-type GetCustomIcons = Partial<
-    Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>
-> | null;
+type GetCustomIcons = StatusBadgeCustomIcon | null;
 
 type GetCustomIconsParams = {
     iconDefaultComponents: BadgeIcons;
     transformDeprecatedBadge: (deprecatedBadge: unsafe_BadgeProps) => StatusBadgeViews;
     getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
+    customBadgeIcons?: StatusBadgeCustomIcon;
 };
 
 type UseCustomIcons = {
@@ -23,7 +18,8 @@ type UseCustomIcons = {
 
 export const useCustomIcons = (): UseCustomIcons => {
     const getCustomIcons = (params: GetCustomIconsParams): GetCustomIcons => {
-        const { iconDefaultComponents, transformDeprecatedBadge, getBadgeIcons } = params;
+        const { customBadgeIcons, iconDefaultComponents, transformDeprecatedBadge, getBadgeIcons } =
+            params;
 
         if (getBadgeIcons) {
             const badgeIcons: BadgeIcons = getBadgeIcons(iconDefaultComponents);
@@ -37,6 +33,10 @@ export const useCustomIcons = (): UseCustomIcons => {
                 }),
                 {},
             );
+        }
+
+        if (customBadgeIcons) {
+            return customBadgeIcons;
         }
 
         return null;

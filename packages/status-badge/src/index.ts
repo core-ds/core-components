@@ -1,2 +1,7 @@
 export * from './Component';
-export { StatusBadgeViews, StatusBadgeSizes, StatusBadgeIcon } from './types/statusBadgePropTypes';
+export {
+    StatusBadgeViews,
+    StatusBadgeSizes,
+    StatusBadgeIcon,
+    StatusBadgeCustomIcon,
+} from './types/statusBadgePropTypes';

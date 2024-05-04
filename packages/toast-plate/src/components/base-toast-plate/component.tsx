@@ -2,7 +2,12 @@ import React, { forwardRef, HTMLAttributes, MouseEvent, ReactNode, useCallback }
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { StatusBadge, StatusBadgeProps } from '@alfalab/core-components-status-badge';
+import {
+    StatusBadge,
+    StatusBadgeCustomIcon,
+    StatusBadgeProps,
+    StatusBadgeViews,
+} from '@alfalab/core-components-status-badge';
 import AlertCircleMIcon from '@alfalab/icons-glyph/AlertCircleMIcon';
 import CheckmarkCircleMIcon from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import CrossCircleMIcon from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -21,12 +26,6 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-const iconDefaultComponents = {
-    negative: <CrossCircleMIcon className={commonStyles.badgeIcon} />,
-    positive: <CheckmarkCircleMIcon className={commonStyles.badgeIcon} />,
-    attention: <AlertCircleMIcon className={commonStyles.badgeIcon} />,
 };
 
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
@@ -63,7 +62,7 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Вид бэйджа
      */
-    badge?: unsafe_BadgeProps | StatusBadgeProps['view'];
+    badge?: unsafe_BadgeProps | StatusBadgeViews;
 
     /**
      * Слот слева, заменяет стандартную иконку
@@ -107,9 +106,14 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Функция, с помощью которой можно переопределить иконки в Badge
-     * @deprecated Будет удалено в будущих версиях
+     * @deprecated Будет удалено в будущих версиях. Используйте `customBadgeIcons`
      */
     getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
+
+    /**
+     * Кастомные иконки
+     */
+    customBadgeIcons?: StatusBadgeCustomIcon;
 
     /**
      * Набор цветов для компонента
@@ -125,6 +129,15 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
+};
+
+/**
+ * @deprecated Нужен для обратной совместимости
+ */
+const iconDefaultComponents = {
+    negative: <CrossCircleMIcon className={commonStyles.badgeIcon} />,
+    positive: <CheckmarkCircleMIcon className={commonStyles.badgeIcon} />,
+    attention: <AlertCircleMIcon className={commonStyles.badgeIcon} />,
 };
 
 export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
@@ -144,6 +157,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             block,
             onClose,
             getBadgeIcons,
+            customBadgeIcons,
             colors = 'default',
             closerWrapperClassName,
             closerClassName,
@@ -177,6 +191,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             iconDefaultComponents,
             transformDeprecatedBadge,
             getBadgeIcons,
+            customBadgeIcons,
         });
 
         return (

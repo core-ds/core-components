@@ -1,10 +1,14 @@
 import { ICON_MAP, IconMap } from '../consts/iconMap';
-import { CustomIcons, StatusBadgeSizes, StatusBadgeViews } from '../types/statusBadgePropTypes';
+import {
+    StatusBadgeCustomIcon,
+    StatusBadgeSizes,
+    StatusBadgeViews,
+} from '../types/statusBadgePropTypes';
 
 export const useStatusBadgeIcon = (
     view: StatusBadgeViews,
     size: StatusBadgeSizes,
-    customIcons?: CustomIcons,
+    customIcons?: StatusBadgeCustomIcon,
 ) => {
     let iconsMap = ICON_MAP;
 

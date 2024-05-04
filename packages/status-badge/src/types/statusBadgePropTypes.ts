@@ -14,6 +14,6 @@ export type StatusBadgeSizes = 16 | 20 | 24 | 32 | 40;
 
 export type StatusBadgeIcon = React.FC<React.SVGProps<SVGSVGElement>>;
 
-export type CustomIcons = Partial<
+export type StatusBadgeCustomIcon = Partial<
     Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>
 >;

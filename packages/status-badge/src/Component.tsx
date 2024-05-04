@@ -2,7 +2,11 @@ import React from 'react';
 import cn from 'classnames';
 
 import { useStatusBadgeIcon } from './hooks/useStatusBadgeIcon';
-import { CustomIcons, StatusBadgeSizes, StatusBadgeViews } from './types/statusBadgePropTypes';
+import {
+    StatusBadgeCustomIcon,
+    StatusBadgeSizes,
+    StatusBadgeViews,
+} from './types/statusBadgePropTypes';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -43,7 +47,7 @@ export type StatusBadgeProps = {
     /**
      * Кастомные иконки
      */
-    customIcons?: CustomIcons;
+    customIcons?: StatusBadgeCustomIcon;
 };
 
 export const StatusBadge = ({
