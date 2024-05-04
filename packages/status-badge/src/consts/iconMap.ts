@@ -1,6 +1,8 @@
-import React from 'react';
-
-import { StatusBadgeProps } from '@alfalab/core-components-status-badge';
+import {
+    StatusBadgeIcon,
+    StatusBadgeSizes,
+    StatusBadgeViews,
+} from '@alfalab/core-components-status-badge';
 import { CheckmarkCompactMIcon } from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
 import { CheckmarkCompactSIcon } from '@alfalab/icons-glyph/CheckmarkCompactSIcon';
 import { ClockHandsCompactMIcon } from '@alfalab/icons-glyph/ClockHandsCompactMIcon';
@@ -16,8 +18,8 @@ import { StopBrickMIcon } from '@alfalab/icons-glyph/StopBrickMIcon';
 import { StopBrickSIcon } from '@alfalab/icons-glyph/StopBrickSIcon';
 
 export type IconMap = Record<
-    StatusBadgeProps['view'],
-    Record<NonNullable<StatusBadgeProps['size']>, React.FC<React.SVGProps<SVGSVGElement>>>
+    StatusBadgeViews,
+    Record<NonNullable<StatusBadgeSizes>, StatusBadgeIcon>
 >;
 
 export const ICON_MAP: IconMap = {

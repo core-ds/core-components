@@ -3,9 +3,14 @@ import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { StatusBadge, StatusBadgeProps } from '@alfalab/core-components-status-badge';
+import AlertCircleMIcon from '@alfalab/icons-glyph/AlertCircleMIcon';
+import CheckmarkCircleMIcon from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import CrossCircleMIcon from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
+import { useCustomIcons } from './hooks/useCustomIcons';
 import { useDeprecatedBadge } from './hooks/useDeprecatedBadge';
+import { BadgeIcons } from './types/BaseToastPlatePropTypes';
 import { unsafe_BadgeProps } from './types/unsafeBadgeProps';
 import { isUnsafeBadge } from './utils/isUnsafeBadge';
 
@@ -16,6 +21,12 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
+};
+
+const iconDefaultComponents = {
+    negative: <CrossCircleMIcon className={commonStyles.badgeIcon} />,
+    positive: <CheckmarkCircleMIcon className={commonStyles.badgeIcon} />,
+    attention: <AlertCircleMIcon className={commonStyles.badgeIcon} />,
 };
 
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
@@ -95,6 +106,12 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
 
     /**
+     * Функция, с помощью которой можно переопределить иконки в Badge
+     * @deprecated Будет удалено в будущих версиях
+     */
+    getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
+
+    /**
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
@@ -126,6 +143,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             actionButton,
             block,
             onClose,
+            getBadgeIcons,
             colors = 'default',
             closerWrapperClassName,
             closerClassName,
@@ -138,6 +156,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
         const needRenderLeftAddons = Boolean(leftAddons || badge);
 
         const { transformDeprecatedBadge } = useDeprecatedBadge();
+        const { getCustomIcons } = useCustomIcons();
 
         const handleClose = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -153,6 +172,12 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
         if (badge && isUnsafeBadge(badge)) {
             statusBadgeView = transformDeprecatedBadge(badge);
         }
+
+        const customIcons = getCustomIcons({
+            iconDefaultComponents,
+            transformDeprecatedBadge,
+            getBadgeIcons,
+        });
 
         return (
             <div
@@ -175,6 +200,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                         <StatusBadge
                                             view={statusBadgeView as StatusBadgeProps['view']}
                                             dataTestId='badge'
+                                            {...(customIcons && { customIcons })}
                                         />
                                     ))}
                             </div>
