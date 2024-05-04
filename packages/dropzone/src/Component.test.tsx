@@ -13,6 +13,7 @@ describe('Dropzone', () => {
     const dataTransfer = {
         files: {
             item: (itemIndex: number) => filesList[itemIndex],
+            ...filesList,
             length: filesList.length,
         },
         items: filesList,
@@ -140,7 +141,7 @@ describe('Dropzone', () => {
 
             fireDragEventWithFiles(dropzone, 'drop');
 
-            expect(handleDrop.mock.calls[0][0]).toEqual(dataTransfer.files);
+            expect(handleDrop.mock.calls[0][0]).toEqual(Array.from(dataTransfer.files));
         });
 
         it('should not call drag callbacks when disabled', () => {
