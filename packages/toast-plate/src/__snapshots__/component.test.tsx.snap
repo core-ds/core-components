@@ -5,6 +5,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
   <div>
     <div
       class="component component"
+      data-test-id="test-id-component"
     >
       <div
         class="wrapper"
@@ -17,7 +18,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
           >
             <div
               class="component size-24 component positive-checkmark"
-              data-test-id="badge"
+              data-test-id="test-id-badge"
             >
               <svg
                 fill="currentColor"

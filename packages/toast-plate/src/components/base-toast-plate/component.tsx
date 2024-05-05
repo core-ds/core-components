@@ -2,6 +2,7 @@ import React, { forwardRef, HTMLAttributes, MouseEvent, ReactNode, useCallback }
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import {
     StatusBadge,
     StatusBadgeCustomIcon,
@@ -203,7 +204,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                     className,
                 )}
                 ref={ref}
-                data-test-id={dataTestId}
+                data-test-id={getDataTestId(dataTestId, 'component')}
                 {...restProps}
             >
                 <div className={commonStyles.wrapper}>
@@ -214,7 +215,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                     (badge && (
                                         <StatusBadge
                                             view={statusBadgeView as StatusBadgeProps['view']}
-                                            dataTestId='badge'
+                                            dataTestId={getDataTestId(dataTestId, 'badge')}
                                             {...(customIcons && { customIcons })}
                                         />
                                     ))}
