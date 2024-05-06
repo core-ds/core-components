@@ -51,6 +51,7 @@ describe('Notification', () => {
         const testIds = getBaseToastPlateTestIds(dataTestId);
         const { getByTestId } = render(<ToastPlate dataTestId={dataTestId} />);
 
+        expect(getByTestId(testIds.component)).toBeInTheDocument();
         expect(getByTestId(testIds.component).tagName).toBe('DIV');
     });
 

@@ -9,14 +9,10 @@ import {
     StatusBadgeProps,
     StatusBadgeViews,
 } from '@alfalab/core-components-status-badge';
-import AlertCircleMIcon from '@alfalab/icons-glyph/AlertCircleMIcon';
-import CheckmarkCircleMIcon from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
-import CrossCircleMIcon from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { useCustomIcons } from './hooks/useCustomIcons';
 import { useDeprecatedBadge } from './hooks/useDeprecatedBadge';
-import { BadgeIcons } from './types/BaseToastPlatePropTypes';
 import { unsafe_BadgeProps } from './types/unsafeBadgeProps';
 import { isUnsafeBadge } from './utils/isUnsafeBadge';
 
@@ -106,15 +102,9 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
 
     /**
-     * Функция, с помощью которой можно переопределить иконки в Badge
-     * @deprecated Будет удалено в будущих версиях. Используйте `customBadgeIcons`
+     * Функция, с помощью которой можно переопределить иконки в StatusBadge
      */
-    getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
-
-    /**
-     * Кастомные иконки
-     */
-    customBadgeIcons?: StatusBadgeCustomIcon;
+    getBadgeIcons?: StatusBadgeCustomIcon;
 
     /**
      * Набор цветов для компонента
@@ -130,15 +120,6 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
-};
-
-/**
- * @deprecated Нужен для обратной совместимости
- */
-const iconDefaultComponents = {
-    negative: <CrossCircleMIcon className={commonStyles.badgeIcon} />,
-    positive: <CheckmarkCircleMIcon className={commonStyles.badgeIcon} />,
-    attention: <AlertCircleMIcon className={commonStyles.badgeIcon} />,
 };
 
 export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
@@ -158,7 +139,6 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             block,
             onClose,
             getBadgeIcons,
-            customBadgeIcons,
             colors = 'default',
             closerWrapperClassName,
             closerClassName,
@@ -188,12 +168,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             statusBadgeView = transformDeprecatedBadge(badge);
         }
 
-        const customIcons = getCustomIcons({
-            iconDefaultComponents,
-            transformDeprecatedBadge,
-            getBadgeIcons,
-            customBadgeIcons,
-        });
+        const customIcons = getCustomIcons(getBadgeIcons);
 
         return (
             <div

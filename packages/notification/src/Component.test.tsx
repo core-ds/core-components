@@ -47,6 +47,7 @@ describe('Notification', () => {
         const testIds = getNotificationTestIds(dataTestId);
         const { getByTestId } = render(<Notification dataTestId={dataTestId} />);
 
+        expect(getByTestId(testIds.component)).toBeInTheDocument();
         expect(getByTestId(testIds.component).tagName).toBe('DIV');
     });
 
