@@ -4,7 +4,7 @@ import endOfDay from 'date-fns/endOfDay';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { hooks } from '@alfalab/core-components-shared';
+import { getDataTestId, hooks } from '@alfalab/core-components-shared';
 import { useDidUpdateEffect, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DaysTable } from '../components/days-table';
@@ -348,6 +348,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                                 onPrevArrowClick={handlePrevArrowClick}
                                 onNextArrowClick={handleNextArrowClick}
                                 onPeriodClick={onPeriodClick}
+                                dataTestId={getDataTestId(dataTestId, 'slider')}
                             />
                         ) : (
                             <MonthYearHeader
