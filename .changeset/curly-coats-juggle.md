@@ -25,5 +25,5 @@
 }
 ```
 
-- `'negative' | 'positive' | 'attention'` - `@depracated`
+- `'negative' | 'positive' | 'attention'` - `@deprеcated`
   Их по-прежнему можно передавать в пропс badge, под капотом они автоматически преобразуютеся в `'negative-cross' | 'positive-checkmark' | 'attention-alert'` соответственно
