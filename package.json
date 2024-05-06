@@ -85,7 +85,7 @@
         "popper-max-size-modifier": "^0.2.0",
         "react-canvas-pattern-lock": "^2.0.6",
         "react-div-100vh": "^0.7.0",
-        "react-focus-lock": "^2.9.3",
+        "react-focus-lock": "^2.12.1",
         "react-markdown": "6.0.2",
         "react-merge-refs": "^1.1.0",
         "react-popper": "^2.3.0",
