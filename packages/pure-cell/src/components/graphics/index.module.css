@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     display: inline-flex;
@@ -57,5 +57,20 @@
 
     &.tiny {
         margin-bottom: var(--gap-2xs);
+    }
+}
+
+.button {
+    @mixin button-reset;
+    padding: 0;
+    transition: opacity 0.15s ease-in-out;
+    min-width: auto;
+
+    &:hover {
+        opacity: var(--pure-cell-clickable-area-hover-opacity);
+    }
+
+    &:active {
+        opacity: var(--pure-cell-clickable-area-active-opacity);
     }
 }

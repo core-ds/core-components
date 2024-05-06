@@ -10,4 +10,6 @@
 
 [Cторибук](https://core-ds.github.io/core-components/) с документацией и песочницей.
 
+This project is tested with BrowserStack.
+
 </div>

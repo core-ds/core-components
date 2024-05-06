@@ -151,6 +151,18 @@
         --color-dark-neutral-translucent-100-inverted-press
     );
     --color-light-neutral-translucent-100-press: var(--color-dark-neutral-translucent-100-press);
+    --color-light-neutral-translucent-1300: var(--color-dark-neutral-translucent-1300);
+    --color-light-neutral-translucent-1300-hover: var(--color-dark-neutral-translucent-1300-hover);
+    --color-light-neutral-translucent-1300-inverted: var(
+        --color-dark-neutral-translucent-1300-inverted
+    );
+    --color-light-neutral-translucent-1300-inverted-hover: var(
+        --color-dark-neutral-translucent-1300-inverted-hover
+    );
+    --color-light-neutral-translucent-1300-inverted-press: var(
+        --color-dark-neutral-translucent-1300-inverted-press
+    );
+    --color-light-neutral-translucent-1300-press: var(--color-dark-neutral-translucent-1300-press);
     --color-light-neutral-translucent-1500-hover: var(--color-dark-neutral-translucent-1500-hover);
     --color-light-neutral-translucent-1500-inverted-hover: var(
         --color-dark-neutral-translucent-1500-inverted-hover

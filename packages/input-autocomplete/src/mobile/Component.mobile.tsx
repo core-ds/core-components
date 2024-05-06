@@ -16,6 +16,7 @@ import {
 } from '@alfalab/core-components-select/shared';
 
 import { AutocompleteMobileField } from '../autocomplete-mobile-field';
+import { OnInputReason } from '../enums';
 import { InputAutocompleteMobileProps } from '../types';
 import { searchFilterStub } from '../utils';
 
@@ -51,7 +52,7 @@ export const InputAutocompleteMobile = React.forwardRef(
         const searchInputRef = useRef<HTMLInputElement>(null);
         const targetRef = useRef<HTMLDivElement>(null);
 
-        const restorePrevValue = () => onInput?.(frozenValue.current);
+        const restorePrevValue = () => onInput?.(frozenValue.current, OnInputReason.Close);
 
         const setModalVisibility = (isOpen: boolean) => {
             if (isOpen) {
@@ -140,7 +141,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         className: cn(styles.input, inputProps?.className),
                         clear,
                         ref: mergeRefs([searchInputRef, inputProps?.ref as Ref<HTMLInputElement>]),
-                        onChange: (_, payload) => onInput?.(payload.value),
+                        onChange: (_, payload) => onInput?.(payload.value, OnInputReason.Change),
                     },
                 }}
                 Search={Input}

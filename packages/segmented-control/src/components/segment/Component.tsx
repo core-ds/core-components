@@ -35,7 +35,7 @@ export type SegmentProps = {
     /**
      * Заголовок сегмента
      */
-    title: string;
+    title: ReactNode;
 
     /**
      * Контент выбранного сегмента

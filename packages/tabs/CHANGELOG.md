@@ -1,5 +1,19 @@
 # Change Log
 
+## 8.7.1
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1187](https://github.com/core-ds/core-components/pull/1187)
+
+-   В компоненте Tab был расширен тип для свойства title до ReactNode
+
+-   Обновлены зависимости
+    -   icon-button@6.5.6
+    -   picker-button@11.6.7
+
 ## 8.7.0
 
 ### Minor Changes

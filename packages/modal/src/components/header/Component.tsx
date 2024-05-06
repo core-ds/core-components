@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useCallback, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
@@ -21,10 +21,23 @@ export const Header: FC<HeaderProps> = ({
     children,
     contentClassName,
     hasCloser = true,
+    onClose: onHeaderClose,
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted, parentRef, onClose } = useContext(ModalContext);
     const { view, size, dataTestId } = useContext(ResponsiveContext);
+
+    const handleClose = useCallback<NonNullable<NavigationBarProps['onClose']>>(
+        (...params) => {
+            if (onHeaderClose) {
+                onHeaderClose(...params);
+            }
+            if (onClose) {
+                onClose(...params);
+            }
+        },
+        [onHeaderClose, onClose],
+    );
 
     useEffect(() => {
         setHasHeader(true);
@@ -41,7 +54,7 @@ export const Header: FC<HeaderProps> = ({
             sticky={sticky}
             view={view}
             title={title}
-            onClose={onClose}
+            onClose={handleClose}
             className={cn(className, {
                 [styles.highlighted]: hasContent && sticky && headerHighlighted,
                 [styles.sticky]: sticky,

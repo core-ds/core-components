@@ -63,8 +63,8 @@ describe('Accordion ', () =>
         },
         'width:800px;transform:scale(1.3)',
         {
-            viewport: {width: 1024, height: 600},
-        }
+            viewport: { width: 1024, height: 600 },
+        },
     ));
 
 describe('Accordion with expanded mode', () => {

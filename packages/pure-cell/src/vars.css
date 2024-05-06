@@ -1,0 +1,6 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --pure-cell-clickable-area-hover-opacity: 1;
+    --pure-cell-clickable-area-active-opacity: 1;
+}
