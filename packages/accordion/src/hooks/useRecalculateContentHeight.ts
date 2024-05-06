@@ -34,5 +34,5 @@ export const useRecalculateContentHeight = (expanded: boolean) => {
         };
     }, [expanded]);
 
-    return { contentRef, contentCaseRef }
-}
+    return { contentRef, contentCaseRef };
+};

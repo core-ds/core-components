@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.6.1
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
 ## 1.6.0
 
 ### Minor Changes

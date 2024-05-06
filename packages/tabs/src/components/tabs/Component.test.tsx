@@ -7,6 +7,7 @@ import { TabsMobile } from './Component.mobile';
 import { TabsResponsive } from './Component.responsive';
 import { Tab } from '../tab';
 import { TabsProps } from '../../typings';
+import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -62,6 +63,16 @@ describe('Tabs', () => {
             const { container } = renderTabs(Component, { view });
             expect(container).toMatchSnapshot();
         });
+    });
+
+    it('should match snapshot with icon as title', () => {
+        const { container } = render(
+            <TabsDesktop selectedId='tab-2'>
+                <Tab title={<DiamondsMIcon />} id='tab-1' />
+                <Tab title={<DiamondsMIcon />} id='tab-2' />
+            </TabsDesktop>,
+        );
+        expect(container).toMatchSnapshot();
     });
 
     describe('Classes tests', () => {
