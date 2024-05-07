@@ -247,7 +247,6 @@ exports[`Snapshots tests should display opened correctly 2`] = `
         >
           <div
             class="wrapper"
-            style="max-height: 744px;"
           >
             <div
               class="component sheet"
@@ -1366,7 +1365,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
         >
           <div
             class="wrapper"
-            style="max-height: 744px;"
           >
             <div
               class="component sheet"
@@ -2485,7 +2483,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
         >
           <div
             class="wrapper"
-            style="max-height: 744px;"
           >
             <div
               class="component sheet"

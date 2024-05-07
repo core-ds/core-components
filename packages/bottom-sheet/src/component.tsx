@@ -14,7 +14,7 @@ import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, os } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -114,7 +114,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 );
             }
 
-            return [0, fullHeight - headerOffset];
+            const iOSViewHeight = document?.documentElement?.clientHeight || window.innerHeight;
+            const viewHeight = os.isIOS() ? iOSViewHeight : fullHeight;
+
+            return [0, viewHeight - headerOffset];
         }, [fullHeight, headerOffset, magneticAreasProp]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
@@ -562,7 +565,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 keepMounted={keepMounted}
             >
                 <div
-                    style={{ ...getHeightStyles() }}
                     className={cn(styles.wrapper, {
                         [styles.fullscreen]: headerOffset === 0 && sheetOffset === 0,
                     })}
@@ -571,6 +573,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(styles.component, bgClassName, className, {
                             [styles.withTransition]: swipingInProgress === false,
+                            [styles.safeAreaBottom]: os.isIOS(),
                         })}
                         style={{
                             ...getSwipeStyles(),
