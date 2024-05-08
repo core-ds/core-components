@@ -1,9 +1,7 @@
 ---
 "@alfalab/core-components-notification": major
-"@alfalab/core-components-shared": major
-"@alfalab/core-components-status-badge": major
-"@alfalab/core-components-status": major
-"@alfalab/core-components-text": major
+"@alfalab/core-components-shared": minor
+"@alfalab/core-components-status-badge": minor
 "@alfalab/core-components-toast-plate": major
 "@alfalab/core-components-toast": major
 ---
@@ -26,4 +24,4 @@
 ```
 
 - `'negative' | 'positive' | 'attention'` - `@deprеcated`
-  Их по-прежнему можно передавать в пропс badge, под капотом они автоматически преобразуютеся в `'negative-cross' | 'positive-checkmark' | 'attention-alert'` соответственно
+  Их по-прежнему можно передавать в пропс `badge` (компоненты toast, toast-plate, notification), под капотом они автоматически преобразуютеся в `'negative-cross' | 'positive-checkmark' | 'attention-alert'` соответственно
