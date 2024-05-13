@@ -59,6 +59,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             maxLength,
             allowOverflow = true,
             nativeScrollbar: nativeScrollbarProp,
+            wrapperRef,
             breakpoint,
             ...restProps
         },
@@ -206,6 +207,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         return (
             <FormControl
+                ref={wrapperRef}
                 className={cn(className)}
                 fieldClassName={cn(fieldClassName, {
                     [styles.focusVisible]: focusVisible,
