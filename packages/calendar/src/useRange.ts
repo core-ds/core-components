@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import type { CalendarDesktopProps } from './desktop';
 import { usePeriod, usePeriodWithReset } from './usePeriod';
+import { isRangeValue } from './utils';
 
 type UseRangeProps = Pick<
     CalendarDesktopProps,
@@ -16,8 +17,8 @@ export function useRange({
     rangeBehavior,
     onChange,
 }: UseRangeProps) {
-    const valueFrom = typeof value === 'object' ? value.dateFrom : value;
-    const valueTo = typeof value === 'object' ? value.dateTo : value;
+    const valueFrom = isRangeValue(value) ? value.dateFrom : value;
+    const valueTo = isRangeValue(value) ? value.dateTo : value;
 
     const periodHook = rangeBehavior === 'clarification' ? usePeriod : usePeriodWithReset;
 

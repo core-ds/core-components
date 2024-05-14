@@ -25,6 +25,7 @@ import subMonths from 'date-fns/subMonths';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { DateShift, Day, DayAddons, Month, SpecialDays, SpecialDaysAddon } from './typings';
+import { CalendarProps } from '.';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;
@@ -298,4 +299,10 @@ export function getCalendarMobileTestIds(dataTestId: string) {
         btnApply: getDataTestId(dataTestId, 'btn-apply'),
         btnReset: getDataTestId(dataTestId, 'btn-reset'),
     };
+}
+
+export function isRangeValue(
+    value: CalendarProps['value'],
+): value is { dateFrom?: number | undefined; dateTo?: number | undefined } {
+    return Boolean(value) && typeof value === 'object';
 }

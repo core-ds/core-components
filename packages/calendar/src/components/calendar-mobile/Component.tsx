@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
@@ -21,6 +21,7 @@ import {
     dateArrayToHashTable,
     generateMonths,
     generateWeeks,
+    isRangeValue,
     limitDate,
     monthName,
     WEEKDAYS,
@@ -87,8 +88,7 @@ export const CalendarMonthOnlyView = ({
         [range.value],
     );
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const startingDate = useMemo(() => (range.value ? new Date(range.value) : new Date()), []);
+    const startingDate = useRef(range.value);
 
     const defaultMonth = useMemo(
         () =>
@@ -125,7 +125,7 @@ export const CalendarMonthOnlyView = ({
         const prevMonths: Month[] = [];
         const nextMonths: Month[] = [];
 
-        const date = new Date(startingDate.getTime());
+        const date = startingDate.current ? new Date(startingDate.current) : new Date();
         const currentYear = date.getFullYear();
         const currYearMonths = generateMonths(date, {});
 
@@ -155,17 +155,7 @@ export const CalendarMonthOnlyView = ({
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [
-        events,
-        offDays,
-        holidays,
-        dayAddons,
-        startingDate,
-        minDate,
-        maxDate,
-        yearsAmount,
-        selected,
-    ]);
+    }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
     const initialMonthIndex = useMemo(() => {
         const date = range.value || range.selectedFrom || activeMonth.getTime() || Date.now();
@@ -306,8 +296,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         };
 
         const renderFooter = () => {
-            const valueFrom = typeof value === 'object' ? value.dateFrom : selectedFrom;
-            const valueTo = typeof value === 'object' ? value.dateTo : selectedTo;
+            const valueFrom = isRangeValue(value) ? value.dateFrom : selectedFrom;
+            const valueTo = isRangeValue(value) ? value.dateTo : selectedTo;
 
             if (valueFrom || valueTo) {
                 let selectButtonDisabled = !valueFrom || !valueTo;
