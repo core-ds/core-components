@@ -1,5 +1,9 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --window-inner-height: 10px; /* fallback value to prevent error */
+}
+
 html {
     &:global(.is-locked),
     &:global(.is-locked) body {
