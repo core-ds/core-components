@@ -13,11 +13,12 @@ import cn from 'classnames';
 import elementClosest from 'element-closest';
 
 import { Portal } from '@alfalab/core-components-portal';
-import { Stack, stackingOrder } from '@alfalab/core-components-stack';
+import { Stack } from '@alfalab/core-components-stack';
 import {
     ToastPlateDesktop,
     ToastPlateDesktopProps,
 } from '@alfalab/core-components-toast-plate/desktop';
+import { stackingOrder } from '@alfalab/stack-context';
 
 import { useClickOutside } from './utils';
 
