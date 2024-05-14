@@ -27,6 +27,11 @@ export type ModalDesktopProps = BaseModalProps & {
      * @default false
      */
     hasCloser?: boolean;
+
+    /**
+     * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
+     */
+    iOSLock?: boolean;
 };
 
 export type ModalMobileProps = Omit<ModalDesktopProps, 'size' | 'fixedPosition' | 'fullscreen'>;

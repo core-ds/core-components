@@ -1,5 +1,14 @@
 @import '../../themes/src/default.css';
 
+html {
+    &:global(.is-locked),
+    &:global(.is-locked) body {
+        height: calc(var(--window-inner-height) - 1px);
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+}
+
 .component {
     position: relative;
     box-sizing: border-box;

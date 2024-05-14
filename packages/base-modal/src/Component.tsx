@@ -481,6 +481,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                     handleContainer(el, os.isIOS());
                     if (iOSLock && os.isIOS()) {
+                        syncHeight();
                         lockScroll();
                     }
 
@@ -509,18 +510,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 }
             };
         }, []);
-
-        useEffect(() => {
-            if (iOSLock && os.isIOS()) {
-                window.addEventListener('resize', syncHeight);
-            }
-
-            return () => {
-                if (iOSLock && os.isIOS()) {
-                    window.removeEventListener('resize', syncHeight);
-                }
-            };
-        }, [iOSLock]);
 
         const contextValue = useMemo<BaseModalContext>(
             () => ({
