@@ -6,7 +6,7 @@ export const getDefaultInputLabel = (maskType: MaskType) => {
         case MaskTypeEnum.Card:
             return 'Номер карты';
         case MaskTypeEnum.AccountNumber:
-            return 'Номер счета';
+            return 'Номер счёта';
         case MaskTypeEnum.Default:
         default:
             return 'Номер карты или счёта';

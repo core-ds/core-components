@@ -604,7 +604,7 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
                 aria-hidden="true"
                 class="hiddenLabel"
               >
-                Номер счета
+                Номер счёта
               </span>
               <div
                 class="label label label"
@@ -612,14 +612,14 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
                 <span
                   class="labelInner"
                 >
-                  Номер счета
+                  Номер счёта
                 </span>
               </div>
               <div
                 class="input"
               >
                 <input
-                  aria-label="Номер счета"
+                  aria-label="Номер счёта"
                   class="input input size-56 hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
