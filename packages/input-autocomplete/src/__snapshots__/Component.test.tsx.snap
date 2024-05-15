@@ -115,7 +115,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
           >
             <div
               class="wrapper"
-              style="max-height: 744px; height: 744px;"
             >
               <div
                 class="component sheet"
