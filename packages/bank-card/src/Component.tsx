@@ -8,6 +8,8 @@ import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
 import { MirXxlIcon } from '@alfalab/icons-logotype/MirXxlIcon';
 import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
 
+import { MaskTypeEnum } from './enums';
+import { MaskType } from './types';
 import { validateCardNumber } from './utils';
 
 import styles from './index.module.css';
@@ -52,6 +54,12 @@ export type BankCardProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Тип вводимой маски. Позволяет устанавливать необходимый тип номера (номер карты или номер счета)
+     * Если параметр не передавать - работает с обоими типами номеров
+     */
+    maskType?: MaskType;
 };
 
 // prettier-ignore
@@ -82,6 +90,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
             onUsePhoto,
             onChange,
             dataTestId,
+            maskType = MaskTypeEnum.Default,
         },
         ref,
     ) => {
@@ -90,9 +99,18 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         const [brandIcon, setBrandIcon] = useState<ReactNode>(getBrandIcon(value));
 
         const getMask = useCallback(
-            (newValue: string) =>
-                newValue.length <= cardMask.length ? cardMask : accountNumberMask,
-            [],
+            (newValue: string) => {
+                switch (maskType) {
+                    case MaskTypeEnum.Card:
+                        return cardMask;
+                    case MaskTypeEnum.AccountNumber:
+                        return accountNumberMask;
+                    case MaskTypeEnum.Default:
+                    default:
+                        return newValue.length <= cardMask.length ? cardMask : accountNumberMask;
+                }
+            },
+            [maskType],
         );
 
         const handleInputChange = useCallback(
