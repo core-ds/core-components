@@ -48,7 +48,7 @@ export const AmountTitle: React.FC<Props> = ({
     } as Omit<TitleProps, 'className' | 'dataTestId'>;
 
     return (
-        <Typography.Title
+        <Typography.TitleResponsive
             {...titleDefaultProps}
             dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-title')}
             className={cn(styles.component, titleProps.className)}
@@ -63,6 +63,6 @@ export const AmountTitle: React.FC<Props> = ({
                 {...restProps}
                 bold='none'
             />
-        </Typography.Title>
+        </Typography.TitleResponsive>
     );
 };
