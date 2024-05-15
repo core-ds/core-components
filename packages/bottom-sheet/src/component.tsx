@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { use100vh } from 'react-div-100vh';
 import mergeRefs from 'react-merge-refs';
-import { SwipeCallback, TapCallback, useSwipeable } from 'react-swipeable';
+import { SwipeCallback, SwipeEventData, TapCallback, useSwipeable } from 'react-swipeable';
 import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
@@ -19,6 +19,8 @@ import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
+import { horizontalDirections } from './consts/swipeConsts';
+import { ShouldSkipSwipingParams } from './types/swipeTypes';
 import type { BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
@@ -333,7 +335,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
          * Если контент внутри шторки скроллится - то шторка не должна свайпаться
          * Если шапка внутри шторки зафиксирована - то шторка должна свайпаться только в области шапки
          */
-        const shouldSkipSwiping = (deltaY: number, startY: number, event: HandledEvents) => {
+        const shouldSkipSwiping = (swipeParams: ShouldSkipSwipingParams) => {
+            const { deltaY, startY, event, dir } = swipeParams;
+
             if (scrollLockedProp || swipingInProgress) return false;
 
             if (!swipeableContent && contentRef.current?.contains(event.target as HTMLElement)) {
@@ -366,19 +370,31 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 scrollOccurred.current = true;
             }
 
+            // Если контент внутри шторки скроллится горизонально - то шторка не должна закрываться
+            if (horizontalDirections.includes(dir)) {
+                return true;
+            }
+
             return shouldScroll;
         };
 
-        const handleSheetSwipe: SwipeCallback = ({ initial, velocity, deltaY, event }) => {
-            if (scrollOccurred.current || shouldSkipSwiping(deltaY, initial[1], event)) {
+        const handleSheetSwipeEnd: SwipeCallback = (swipeParams: SwipeEventData) => {
+            const { initial, velocity, deltaY, event, dir } = swipeParams;
+            const shouldPreventSwipe =
+                scrollOccurred.current ||
+                shouldSkipSwiping({ deltaY, startY: initial[1], event, dir });
+
+            if (shouldPreventSwipe) {
                 return;
             }
 
             magnetize(velocity, deltaY);
         };
 
-        const handleSheetSwipeStart: SwipeCallback = ({ deltaY, initial, event }) => {
-            if (shouldSkipSwiping(deltaY, initial[1], event)) {
+        const handleSheetSwipeStart: SwipeCallback = (swipeParams: SwipeEventData) => {
+            const { deltaY, initial, event, dir } = swipeParams;
+
+            if (shouldSkipSwiping({ deltaY, startY: initial[1], event, dir })) {
                 return;
             }
 
@@ -387,8 +403,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const handleTouchEnd: TapCallback = ({ event }) => stopSwiping(event);
 
-        const handleSheetSwiping: SwipeCallback = ({ initial, deltaY, event }) => {
-            if (scrollOccurred.current || shouldSkipSwiping(deltaY, initial[1], event)) {
+        const handleSheetSwipeMove: SwipeCallback = (swipeParams: SwipeEventData) => {
+            const { initial, deltaY, event, dir } = swipeParams;
+            const shouldPreventSwipe =
+                scrollOccurred.current ||
+                shouldSkipSwiping({ deltaY, startY: initial[1], event, dir });
+
+            if (shouldPreventSwipe) {
                 return;
             }
 
@@ -405,8 +426,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const sheetSwipeableHandlers = useSwipeable({
             onSwipeStart: handleSheetSwipeStart,
-            onSwiping: handleSheetSwiping,
-            onSwiped: handleSheetSwipe,
+            onSwiping: handleSheetSwipeMove,
+            onSwiped: handleSheetSwipeEnd,
             onTouchEndOrOnMouseUp: handleTouchEnd,
             trackMouse: swipeable,
             trackTouch: swipeable,
