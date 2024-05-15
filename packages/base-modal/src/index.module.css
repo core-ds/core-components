@@ -1,16 +1,13 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --window-inner-height: 10px; /* fallback value to prevent error */
+    --window-inner-scrollY: 10px; /* fallback value to prevent ci error */
 }
 
-html {
-    &:global(.is-locked),
-    &:global(.is-locked) body {
-        height: calc(var(--window-inner-height) - 1px);
-        overflow: hidden;
-        box-sizing: border-box;
-    }
+body:global(.is-locked) {
+    margin-top: calc(var(--window-inner-scrollY) * -1);
+    position: fixed;
+    overflow: hidden;
 }
 
 .component {
