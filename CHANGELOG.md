@@ -1,3 +1,71 @@
+## 45.9.0
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1188](https://github.com/core-ds/core-components/pull/1188)
+
+#### Что изменилось
+- Исправлено закрытие компонента при горизонтальных свайпах
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#1197](https://github.com/core-ds/core-components/pull/1197)
+
+#### Что изменилось
+- Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet` `input-autocomplete` `input` `picker-button`
+
+
+### [#1195](https://github.com/core-ds/core-components/pull/1195)
+
+#### Что изменилось
+- Обновлена зависимость react-focus-lock
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#1199](https://github.com/core-ds/core-components/pull/1199)
+
+#### Что изменилось
+- В PureCell.AmountTitle заменили компонент Typography.Title на Typography.TitleResponsive
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1192](https://github.com/core-ds/core-components/pull/1192)
+
+#### Что изменилось
+- В связи с проблемами поддержки свойства gap в Chrome версии 79, было принято решение заменить его использование для создания отступа между элементами Checkmark и подписью в опциях на свойство margin-right, которое было применено к самому элементу Checkmark
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1202](https://github.com/core-ds/core-components/pull/1202)
+
+#### Что изменилось
+- Добавлена возможность устанавливать тип маски для номера счёта
+
+#### Влияние на компоненты
+- Минорное<br />`bank-card`
+
+
+### [#1198](https://github.com/core-ds/core-components/pull/1198)
+
+#### Что изменилось
+- Добавили новое свойство wrapperRef, отвечающее за ref для обертки textarea
+
+#### Влияние на компоненты
+- Минорное<br />`textarea`
+
+
+
 ## 45.8.0
 
 <sup><time>27.04.2024</time></sup>
