@@ -445,3 +445,217 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
   </div>
 </div>
 `;
+
+exports[`BankCard Snapshots tests should match snapshots 5`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="aspectRatioContainer"
+    >
+      <div
+        class="content"
+        style="background-color: rgb(239, 49, 36);"
+      >
+        <div
+          class="bankLogo"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="32"
+            role="img"
+            viewBox="0 0 21 32"
+            width="21"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div
+          class="component component filled size-56 size-56 block hasRightAddons"
+        >
+          <div
+            class="inner inner inner inner filled hasInnerLabel"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <span
+                aria-hidden="true"
+                class="hiddenLabel"
+              >
+                Номер карты
+              </span>
+              <div
+                class="label label label"
+              >
+                <span
+                  class="labelInner"
+                >
+                  Номер карты
+                </span>
+              </div>
+              <div
+                class="input"
+              >
+                <input
+                  aria-label="Номер карты"
+                  class="input input size-56 hasInnerLabel input"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  type="text"
+                  value="2201 3820 0000 0013"
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <button
+                class="usePhoto"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M15.5 13a3.5 3.5 0 10-7 0 3.5 3.5 0 007 0z"
+                  />
+                  <path
+                    d="M8 3h8l1.071 3H20a2 2 0 012 2v11a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h2.929L8 3zm9 10a5 5 0 10-10 0 5 5 0 0010 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="brandLogo"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            role="img"
+            viewBox="0 0 48 18"
+            width="48"
+          >
+            <path
+              d="M32.88 2.4h-4.195a1.47 1.47 0 00-1.332.826l-3.33 6.984c-.142.3-.604.201-.604-.129V2.528a.13.13 0 00-.133-.128h-4.064v13.203h4.339a1.47 1.47 0 001.322-.808l3.45-6.98c.085-.173.352-.113.352.077v7.711h4.196V2.4zm-15.8 0h-4.847a1.43 1.43 0 00-1.374 1.025L8.837 10.32c-.086.295-.507.295-.594 0L6.221 3.425A1.43 1.43 0 004.847 2.4H0v13.203h4.1V7.988c0-.206.29-.25.351-.052l2.381 7.667h3.416l2.38-7.667c.061-.197.352-.154.352.052v7.615h4.1V2.4zm30.645 6.17h-13.4v7.033h4.197v-4.215h4.911a4.628 4.628 0 004.292-2.818zm-7.131-.776c-3.07 0-6.956-2.414-6.956-5.394h9.732C45.927 2.4 48 4.411 48 6.894c0 .302-.032.604-.095.9h-7.31z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BankCard Snapshots tests should match snapshots 6`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="aspectRatioContainer"
+    >
+      <div
+        class="content"
+        style="background-color: rgb(239, 49, 36);"
+      >
+        <div
+          class="bankLogo"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="32"
+            role="img"
+            viewBox="0 0 21 32"
+            width="21"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div
+          class="component component filled size-56 size-56 block hasRightAddons"
+        >
+          <div
+            class="inner inner inner inner filled hasInnerLabel"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <span
+                aria-hidden="true"
+                class="hiddenLabel"
+              >
+                Номер счета
+              </span>
+              <div
+                class="label label label"
+              >
+                <span
+                  class="labelInner"
+                >
+                  Номер счета
+                </span>
+              </div>
+              <div
+                class="input"
+              >
+                <input
+                  aria-label="Номер счета"
+                  class="input input size-56 hasInnerLabel input"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  type="text"
+                  value="1234 1234 1234 1234 1234"
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <button
+                class="usePhoto"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M15.5 13a3.5 3.5 0 10-7 0 3.5 3.5 0 007 0z"
+                  />
+                  <path
+                    d="M8 3h8l1.071 3H20a2 2 0 012 2v11a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h2.929L8 3zm9 10a5 5 0 10-10 0 5 5 0 0010 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

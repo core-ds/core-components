@@ -8,6 +8,7 @@ import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
 import { MirXxlIcon } from '@alfalab/icons-logotype/MirXxlIcon';
 import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
 
+import { getDefaultInputLabel } from './helpers/getDefaultInputLabel';
 import { MaskTypeEnum } from './enums';
 import { MaskType } from './types';
 import { validateCardNumber } from './utils';
@@ -84,13 +85,13 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         {
             bankLogo = <AlfaBankLIcon />,
             backgroundColor = '#EF3124',
-            inputLabel = 'Номер карты или счёта',
             value,
             className,
             onUsePhoto,
             onChange,
             dataTestId,
             maskType = MaskTypeEnum.Default,
+            inputLabel = getDefaultInputLabel(maskType),
         },
         ref,
     ) => {
@@ -171,9 +172,3 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         );
     },
 );
-
-BankCard.defaultProps = {
-    bankLogo: <AlfaBankLIcon />,
-    backgroundColor: '#EF3124',
-    inputLabel: 'Номер карты или счёта',
-};
