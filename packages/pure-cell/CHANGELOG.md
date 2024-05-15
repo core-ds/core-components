@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.10.0
+
+### Minor Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1199](https://github.com/core-ds/core-components/pull/1199)
+
+-   В PureCell.AmountTitle заменили компонент Typography.Title на Typography.TitleResponsive
+
 ## 4.9.0
 
 ### Minor Changes

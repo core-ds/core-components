@@ -1,5 +1,21 @@
 # Change Log
 
+## 17.4.2
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1192](https://github.com/core-ds/core-components/pull/1192)
+
+-   В связи с проблемами поддержки свойства gap в Chrome версии 79, было принято решение заменить его использование для создания отступа между элементами Checkmark и подписью в опциях на свойство margin-right, которое было применено к самому элементу Checkmark
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.6
+    -   input@14.4.1
+    -   base-modal@5.7.3
+    -   modal@9.2.4
+
 ## 17.4.1
 
 ### Patch Changes

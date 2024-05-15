@@ -1,5 +1,19 @@
 # Change Log
 
+## 12.1.1
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1197](https://github.com/core-ds/core-components/pull/1197)
+
+-   Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+
+-   Обновлены зависимости
+    -   input@14.4.1
+    -   select@17.4.2
+
 ## 12.1.0
 
 ### Minor Changes

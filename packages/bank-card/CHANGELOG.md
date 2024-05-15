@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1202](https://github.com/core-ds/core-components/pull/1202)
+
+-   Добавлена возможность устанавливать тип маски для номера счёта
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.5
+
 ## 5.6.8
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1198](https://github.com/core-ds/core-components/pull/1198)
+
+-   Добавили новое свойство wrapperRef, отвечающее за ref для обертки textarea
+
 ## 8.6.1
 
 ### Patch Changes

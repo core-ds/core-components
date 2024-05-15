@@ -1,5 +1,15 @@
 # Change Log
 
+## 14.4.1
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1197](https://github.com/core-ds/core-components/pull/1197)
+
+-   Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+
 ## 14.4.0
 
 ### Minor Changes
