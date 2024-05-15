@@ -114,7 +114,7 @@
         "desktop.js": 146.2,
         "index.js": 211,
         "mobile.js": 184.5,
-        "shared.js": 170.4
+        "shared.js": 170.5
     },
     "select-with-tags": {
         "desktop.js": 196.4,
@@ -234,9 +234,9 @@
         "index.js": 699.9
     },
     "international-phone-input": {
-        "desktop.js": 566.1,
-        "index.js": 599.5,
-        "mobile.js": 571.6,
+        "desktop.js": 566.2,
+        "index.js": 599.6,
+        "mobile.js": 571.7,
         "shared.js": 162.9
     },
     "input": {
