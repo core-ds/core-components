@@ -12,13 +12,12 @@ import cn from 'classnames';
 
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { Portal } from '@alfalab/core-components-portal';
-import { Stack } from '@alfalab/core-components-stack';
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import {
     ToastPlate as ToastPlateComponent,
     ToastPlateProps,
 } from '@alfalab/core-components-toast-plate';
 import { useClickOutside, usePrevious } from '@alfalab/hooks';
-import { stackingOrder } from '@alfalab/stack-context';
 
 import styles from './index.module.css';
 

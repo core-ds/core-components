@@ -106,15 +106,6 @@
     string-hash "^1.1.3"
     style-inject "^0.3.0"
 
-"@alfalab/stack-context@^1.14.0":
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/stack-context/-/stack-context-1.14.0.tgz#2181e4769aa61c2bba78dbed37bcc045d7cd68d9"
-  integrity sha512-2hEaaiGZe3ajCcW78EwF8cYT6MEw8e4wgS+ee41oQGzPmGtGV73TeELR2DW/mUsuwcM5P/IXPSLvGV4X9p+Ujw==
-  dependencies:
-    "@types/react" "^18.0.15"
-    react "^18.2.0"
-    typescript "~4.7.4"
-
 "@alfalab/stylelint-core-vars@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.5.0.tgz#2eb559978a9835a80afb1bf7d8ba36c7b12b6a49"

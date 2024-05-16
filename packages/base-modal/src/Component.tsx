@@ -23,8 +23,7 @@ import cn from 'classnames';
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { browser } from '@alfalab/core-components-shared';
-import { Stack } from '@alfalab/core-components-stack';
-import { stackingOrder } from '@alfalab/stack-context';
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import {
     handleContainer,
