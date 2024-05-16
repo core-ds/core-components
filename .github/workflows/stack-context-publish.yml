@@ -1,0 +1,54 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Введите версию x.x.x'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check permissions
+        if: ${{ contains(fromJSON('["reme3d2y","Valeri8888","SiebenSieben"]'), github.actor) == false }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            core.setFailed("you don't have permission to run this workflow!");
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+
+
+
+
+#      - name: Install dependencies
+#        run: yarn --pure-lockfile
+#
+#      - name: Build app
+#        run: yarn build
+#
+#      - name: Set version
+#        if: success()
+#        run: |
+#          git config user.name core-ds-bot
+#          git config user.email ds@gitmax.tech
+#          npm version ${{ github.event.inputs.version }}
+#          git push origin master
+#          git push origin v${{ github.event.inputs.version }}
+#
+#      - name: Publish
+#        if: success()
+#        run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
