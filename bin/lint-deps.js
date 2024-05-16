@@ -8,6 +8,7 @@ const packages = shell.exec(
         --ignore @alfalab/core-components-vars \\
         --ignore @alfalab/core-components-themes \\
         --ignore @alfalab/core-components-scrollbar \\
+        --ignore @alfalab/stack-context \\
         --all`,
     { silent: true },
 ).stdout;
