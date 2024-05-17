@@ -6,6 +6,9 @@ on:
       version:
         description: 'Введите версию x.x.x'
         required: true
+  push:
+    branches:
+      - feat/stack_global_context
 
 jobs:
   build:
@@ -28,28 +31,27 @@ jobs:
          node-version: '20.x'
          registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies
-        run: yarn --pure-lockfile
+#      - name: Install dependencies
+#        run: yarn --pure-lockfile
 
-      - name: Build app
-        run: |
-          cd ./packages/stack-context
-          yarn build
+#      - name: Build app
+#        run: |
+#          cd ./packages/stack-context
+#          yarn build
 
-      - name: Set version
-        if: success()
-        run: |
-          cd ./packages/stack-context
-          git config user.name core-ds-bot
-          git config user.email ds@gitmax.tech
-          yarn --new-version version ${{ github.event.inputs.version }}
-          git push
-#          git push origin v${{ github.event.inputs.version }}
+#      - name: Set version
+#        if: success()
+#        run: |
+#          cd ./packages/stack-context
+#          git config user.name core-ds-bot
+#          git config user.email ds@gitmax.tech
+#          yarn --new-version version ${{ github.event.inputs.version }}
+#          git push
 
-      - name: Publish
-        if: success()
-        run: |
-          cd ./packages/stack-context
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+#      - name: Publish
+#        if: success()
+#        run: |
+#          cd ./packages/stack-context
+#          npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
