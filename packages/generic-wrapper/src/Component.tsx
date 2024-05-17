@@ -17,7 +17,7 @@ export type PaddingPropType = {
     left?: ReducedGapType;
 };
 
-export type GenericWrapperProps = {
+export type GenericWrapperProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Дочерние элементы.
      */
@@ -68,6 +68,7 @@ export const GenericWrapper = ({
     dataTestId,
     column = false,
     grow = false,
+    ...restProps
 }: GenericWrapperProps) => {
     const paddingStyles = padding && {
         [styles[`padding-top-${padding.top}`]]: padding.top,
@@ -92,6 +93,7 @@ export const GenericWrapper = ({
                 className,
             )}
             data-test-id={dataTestId}
+            {...restProps}
         >
             {children}
         </div>
