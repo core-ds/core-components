@@ -33,13 +33,13 @@ jobs:
 
       - name: Build app
         run: |
-          cd ./packages/stack-context
+          cd ./utils/stack-context
           yarn build
 
       - name: Set version
         if: success()
         run: |
-          cd ./packages/stack-context
+          cd ./utils/stack-context
           git config user.name core-ds-bot
           git config user.email ds@gitmax.tech
           yarn --new-version version ${{ github.event.inputs.version }}
@@ -48,7 +48,7 @@ jobs:
       - name: Publish
         if: success()
         run: |
-          cd ./packages/stack-context
+          cd ./utils/stack-context
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
