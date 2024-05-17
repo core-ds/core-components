@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, SVGProps } from 'react';
+import React, { ComponentType, forwardRef, SVGProps } from 'react';
 import cn from 'classnames';
 
 import type { ButtonProps } from '@alfalab/core-components-button';
@@ -41,7 +41,7 @@ export type PickerButtonDesktopProps = Omit<
                 /**
                  * Иконка, отображающаяся слева от текстового представления пункта
                  */
-                icon?: FC<SVGProps<SVGSVGElement>>;
+                icon?: ComponentType<SVGProps<SVGSVGElement>>;
             }
         >;
 

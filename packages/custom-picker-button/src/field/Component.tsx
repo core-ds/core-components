@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC, Fragment, SVGProps } from 'react';
+import React, { ButtonHTMLAttributes, ComponentType, Fragment, SVGProps } from 'react';
 import cn from 'classnames';
 
 import { CustomButton, CustomButtonProps } from '@alfalab/core-components-custom-button';
@@ -47,7 +47,7 @@ export const Field = ({
     showArrow = true,
     ...restProps
 }: FieldProps) => {
-    const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(
+    const Icon: ComponentType<SVGProps<SVGSVGElement>> = getIcon(
         buttonVariant,
         SIZE_TO_CLASSNAME_MAP[buttonSize],
     );

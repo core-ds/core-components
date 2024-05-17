@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, {
-    FC,
+    ComponentType,
     forwardRef,
     KeyboardEvent,
     MouseEvent,
@@ -47,7 +47,7 @@ export type BaseModalProps = {
     /**
      * Компонент бэкдропа
      */
-    Backdrop?: FC<BackdropProps>;
+    Backdrop?: ComponentType<BackdropProps>;
 
     /**
      * Свойства для Бэкдропа

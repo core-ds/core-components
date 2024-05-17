@@ -1,5 +1,6 @@
 import type {
     AriaAttributes,
+    ComponentType,
     FC,
     FocusEvent,
     MouseEvent,
@@ -250,12 +251,12 @@ export type BaseSelectProps = {
     /**
      * Компонент стрелки
      */
-    Arrow?: FC<ArrowProps> | null | false;
+    Arrow?: ComponentType<ArrowProps> | null | false;
 
     /**
      * Компонент поля
      */
-    Field?: FC<FieldProps>;
+    Field?: ComponentType<FieldProps>;
 
     /**
      * Пропсы, которые будут прокинуты в компонент поля
@@ -275,17 +276,17 @@ export type BaseSelectProps = {
     /**
      * Компонент выпадающего меню
      */
-    OptionsList?: FC<OptionsListProps & RefAttributes<HTMLDivElement>>;
+    OptionsList?: ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>;
 
     /**
      * Компонент группы
      */
-    Optgroup?: FC<OptgroupProps>;
+    Optgroup?: ComponentType<OptgroupProps>;
 
     /**
      * Компонент пункта меню
      */
-    Option?: FC<OptionProps>;
+    Option?: ComponentType<OptionProps>;
 
     /**
      * Включает отображение поиска
@@ -295,7 +296,7 @@ export type BaseSelectProps = {
     /**
      * Компонент поиска
      */
-    Search?: FC<SearchProps>;
+    Search?: ComponentType<SearchProps>;
 
     /**
      * Настройки поиска
