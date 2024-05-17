@@ -6,9 +6,6 @@ on:
       version:
         description: 'Введите версию x.x.x'
         required: true
-  push:
-    branches:
-      - feat/stack_global_context
 
 jobs:
   build:
@@ -45,7 +42,7 @@ jobs:
           cd ./packages/stack-context
           git config user.name core-ds-bot
           git config user.email ds@gitmax.tech
-          yarn --new-version version 1.15.0
+          yarn --new-version version ${{ github.event.inputs.version }}
           git push
 
       - name: Publish
