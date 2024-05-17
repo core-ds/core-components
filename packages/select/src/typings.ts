@@ -502,7 +502,7 @@ export type OptionsListProps = {
     /**
      * Компонент пункта меню
      */
-    Option: FC<OptionProps>;
+    Option: ComponentType<OptionProps>;
 
     /**
      * Функция для получения пропсов для ячейки
