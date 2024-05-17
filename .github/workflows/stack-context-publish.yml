@@ -45,7 +45,6 @@ jobs:
           cd ./packages/stack-context
           git config user.name core-ds-bot
           git config user.email ds@gitmax.tech
-#          yarn --new-version version ${{ github.event.inputs.version }}
           yarn --new-version version 1.15.0
           git push
 
