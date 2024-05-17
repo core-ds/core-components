@@ -21,6 +21,7 @@
         "element-closest": "^3.0.2",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^7.0.0",
-        "tslib": "^2.4.0"
+        "tslib": "^2.4.0",
+        "@alfalab/stack-context": "^1.15.0"
     }
 }
