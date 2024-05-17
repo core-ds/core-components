@@ -62,10 +62,6 @@ button[class*='eye'] + .errorIcon {
     margin-right: var(--gap-s);
 }
 
-.errorColorIcon {
-    color: var(--color-light-status-negative);
-}
-
 .successIcon {
     display: var(--input-success-icon-display);
 
@@ -76,10 +72,6 @@ button[class*='eye'] + .errorIcon {
 
 button[class*='eye'] + .successIcon {
     margin-right: var(--gap-s);
-}
-
-.successColorIcon {
-    color: var(--color-light-status-positive);
 }
 
 /* DISABLED STATE */
