@@ -47,7 +47,7 @@ export const restoreContainerStyles = (container: HTMLElement) => {
     }
 };
 
-export const handleContainer = (container?: HTMLElement, isIOS = false) => {
+export const handleContainer = (container?: HTMLElement, shouldIOSLock = false) => {
     if (!container) return;
 
     const modalRestoreStyles = getModalStore().getRestoreStyles();
@@ -94,7 +94,7 @@ export const handleContainer = (container?: HTMLElement, isIOS = false) => {
         });
     }
 
-    if (!isIOS) {
+    if (!shouldIOSLock) {
         scrollContainer.style.overflow = 'hidden';
     }
 

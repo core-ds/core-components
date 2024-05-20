@@ -479,8 +479,9 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 if (!disableBlockingScroll) {
                     const el = getContainer();
 
-                    handleContainer(el, os.isIOS());
-                    if (iOSLock && os.isIOS()) {
+                    const shouldIOSLock = iOSLock && os.isIOS();
+                    handleContainer(el, shouldIOSLock);
+                    if (shouldIOSLock) {
                         syncHeight();
                         lockScroll();
                     }
