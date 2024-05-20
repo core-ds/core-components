@@ -480,6 +480,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                     const el = getContainer();
 
                     const shouldIOSLock = iOSLock && os.isIOS();
+
                     handleContainer(el, shouldIOSLock);
                     if (shouldIOSLock) {
                         syncHeight();
