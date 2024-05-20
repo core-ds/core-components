@@ -49,6 +49,7 @@ export const Field = ({
     valueRenderer,
     showArrow = true,
     labelView,
+    FormControlComponent,
     ...restProps
 }: FieldProps) => {
     const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(
