@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { InputProps } from '@alfalab/core-components-input';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 import { useMedia } from '@alfalab/hooks';
 
 import { DateTimeInputProps } from './components/date-time-input/Component';
@@ -19,7 +18,7 @@ export type DateTimeInputResponsiveProps = Omit<DateTimeInputProps, 'view' | 'In
 export type DateTimeInputMedia = 'desktop' | 'mobile';
 
 export const DateTimeInputResponsive = forwardRef<HTMLInputElement, DateTimeInputResponsiveProps>(
-    ({ breakpoint = 1024, ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
         const [view] = useMedia<DateTimeInputMedia>(
             [
                 ['mobile', `(max-width: ${breakpoint - 1}px)`],

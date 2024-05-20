@@ -6,6 +6,7 @@ import {
     BottomSheetSelectMobileProps,
     Optgroup as DefaultOptgroup,
 } from '@alfalab/core-components-select/shared';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import type { PickerButtonDesktopProps } from '../desktop';
 import { Field as DefaultField } from '../field';
@@ -41,7 +42,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             showArrow,
             Field = DefaultField,
             fieldProps = {},
-            breakpoint = 1024,
+            breakpoint = getComponentBreakpoint(),
             ...restProps
         },
         ref,

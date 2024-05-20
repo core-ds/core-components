@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { CodeInputDesktop } from './desktop';
 import { CodeInputMobile } from './mobile';
@@ -15,7 +16,7 @@ export type CodeInputProps = Omit<BaseCodeInputProps, 'stylesInput'> & {
 };
 
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
-    ({ breakpoint = 1024, ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
         const [isDesktop] = useMatchMedia(query);

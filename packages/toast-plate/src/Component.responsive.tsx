@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { BaseToastPlateProps } from './components/base-toast-plate';
 import { ToastPlateDesktop } from './desktop';
@@ -15,7 +16,7 @@ export type ToastPlateProps = Omit<BaseToastPlateProps, 'styles'> & {
 };
 
 export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
-    ({ children, breakpoint = 1024, ...restProps }, ref) => {
+    ({ children, breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
         const [isDesktop] = useMatchMedia(query);

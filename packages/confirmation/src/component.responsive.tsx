@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { ConfirmationDesktop } from './desktop';
 import { ConfirmationMobile } from './mobile';
@@ -18,7 +19,7 @@ export type ResponsiveConfirmationProps = Omit<
 };
 
 export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = ({
-    breakpoint = 1024,
+    breakpoint = getComponentBreakpoint(),
     ...restProps
 }) => {
     const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, true);

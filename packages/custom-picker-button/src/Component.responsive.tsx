@@ -1,12 +1,11 @@
 import React, { forwardRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CustomButtonProps } from '@alfalab/core-components-custom-button';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 import type {
     AdditionalMobileProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './desktop';
 import { CustomPickerButtonMobile } from './mobile';
@@ -32,7 +31,7 @@ export const CustomPickerButtonResponsive = forwardRef<
             footer,
             swipeable,
             bottomSheetProps,
-            breakpoint = 1024,
+            breakpoint = getComponentBreakpoint(),
             ...restProps
         },
         ref,

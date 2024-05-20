@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { BaseCheckboxGroupProps } from './components/base-checkbox-group';
 import { CheckboxGroupDesktop } from './desktop';
@@ -14,7 +15,10 @@ export type CheckboxGroupProps = Omit<BaseCheckboxGroupProps, 'styles'> & {
     breakpoint?: number;
 };
 
-export const CheckboxGroup: FC<CheckboxGroupProps> = ({ breakpoint = 1024, ...restProps }) => {
+export const CheckboxGroup: FC<CheckboxGroupProps> = ({
+    breakpoint = getComponentBreakpoint(),
+    ...restProps
+}) => {
     const query = `(min-width: ${breakpoint}px)`;
 
     const [isDesktop] = useMatchMedia(query);

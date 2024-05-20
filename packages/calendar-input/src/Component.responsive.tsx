@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { DateInputProps } from '@alfalab/core-components-date-input';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 import { useMedia } from '@alfalab/hooks';
 
 import { CalendarInputProps } from './components/calendar-input/Component';
@@ -23,7 +22,7 @@ export type CalendarInputMedia = 'desktop' | 'mobile';
  * use UniversalDateInput instead
  */
 export const CalendarInputResponsive = forwardRef<HTMLInputElement, CalendarInputResponsiveProps>(
-    ({ breakpoint = 1024, ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
         const [view] = useMedia<CalendarInputMedia>(
             [
                 ['mobile', `(max-width: ${breakpoint - 1}px)`],

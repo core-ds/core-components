@@ -2,6 +2,7 @@ import React, { FocusEvent, forwardRef, Fragment, useCallback, useEffect, useSta
 import cn from 'classnames';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
 import { formatAmount, THINSP } from '@alfalab/utils';
@@ -129,7 +130,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onChange,
             onClear,
             onBlur,
-            breakpoint = 1024,
+            breakpoint = getComponentBreakpoint(),
             onKeyDown,
             transparentMinor = true,
             ...restProps

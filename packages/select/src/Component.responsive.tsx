@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { SelectDesktop } from './desktop';
 import { SelectMobile } from './mobile';
@@ -9,25 +10,36 @@ import type { SelectFieldProps, SelectProps } from './typings';
 export const SelectResponsive = forwardRef<
     HTMLDivElement,
     SelectProps & { originalProps?: SelectProps }
->(({ onScroll, fieldProps, breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
-    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+>(
+    (
+        {
+            onScroll,
+            fieldProps,
+            breakpoint = getComponentBreakpoint(),
+            defaultMatchMediaValue,
+            ...restProps
+        },
+        ref,
+    ) => {
+        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
-    if (isDesktop) {
-        return (
-            <SelectDesktop
-                onScroll={onScroll}
-                {...restProps}
-                ref={ref}
-                fieldProps={fieldProps as SelectFieldProps}
-            />
-        );
-    }
+        if (isDesktop) {
+            return (
+                <SelectDesktop
+                    onScroll={onScroll}
+                    {...restProps}
+                    ref={ref}
+                    fieldProps={fieldProps as SelectFieldProps}
+                />
+            );
+        }
 
-    const mobileProps = {
-        ...restProps,
-        /* В мобильную версию хук уже зашит, и это единственный передать в мобилку оригинальные пропсы */
-        ...restProps.originalProps,
-    };
+        const mobileProps = {
+            ...restProps,
+            /* В мобильную версию хук уже зашит, и это единственный передать в мобилку оригинальные пропсы */
+            ...restProps.originalProps,
+        };
 
-    return <SelectMobile fieldProps={fieldProps} {...mobileProps} ref={ref} />;
-});
+        return <SelectMobile fieldProps={fieldProps} {...mobileProps} ref={ref} />;
+    },
+);

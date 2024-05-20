@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { CalendarMobile, CalendarMobileProps } from './components/calendar-mobile';
 import { CalendarDesktop, CalendarDesktopProps } from './desktop';
@@ -15,7 +16,7 @@ export type ResponsiveCalendarProps = CalendarDesktopProps &
     };
 
 export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarProps>(
-    ({ breakpoint = 1024, ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
         const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`);
 
         return isDesktop ? (

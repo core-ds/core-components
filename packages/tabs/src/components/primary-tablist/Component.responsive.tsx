@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { TabListProps } from '../../typings';
 
@@ -9,7 +10,7 @@ import { PrimaryTabListMobile } from './Component.mobile';
 
 export const PrimaryTabListResponsive = ({
     size,
-    breakpoint = 1024,
+    breakpoint = getComponentBreakpoint(),
     fullWidthScroll,
     defaultMatchMediaValue,
     ...restProps

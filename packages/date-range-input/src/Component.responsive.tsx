@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { InputProps } from '@alfalab/core-components-input';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 import { useMedia } from '@alfalab/hooks';
 
 import { ConditionalProps, DateRangeInputProps } from './components/date-range-input';
@@ -27,7 +26,7 @@ export type DateRangeInputMedia = 'desktop' | 'mobile';
  * use UniversalDateInput instead
  */
 export const DateRangeInputResponsive = forwardRef<HTMLInputElement, DateRangeInputResponsiveProps>(
-    ({ breakpoint = 1024, ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
         const [view] = useMedia<DateRangeInputMedia>(
             [
                 ['mobile', `(max-width: ${breakpoint - 1}px)`],

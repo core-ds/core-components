@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { BaseTagProps } from './components/base-tag';
 import { TagDesktop } from './desktop';
@@ -15,7 +16,7 @@ export type TagProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'> & {
 };
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
-    ({ children, breakpoint = 1024, ...restProps }, ref) => {
+    ({ children, breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
         const [isDesktop] = useMatchMedia(query);
