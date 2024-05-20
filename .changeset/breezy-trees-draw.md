@@ -12,7 +12,6 @@
 "@alfalab/core-components-date-range-input": minor
 "@alfalab/core-components-date-time-input": minor
 "@alfalab/core-components-filter-tag": minor
-"@alfalab/core-components-code-input": minor
 "@alfalab/core-components-form-control": minor
 "@alfalab/core-components-input-autocomplete": minor
 "@alfalab/core-components-input": minor
