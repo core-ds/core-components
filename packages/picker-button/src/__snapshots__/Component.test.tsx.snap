@@ -237,7 +237,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
       class="wrapper"
       role="dialog"
       style="z-index: 100;"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="component modal appear appearActive"
@@ -1355,7 +1355,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
       class="wrapper"
       role="dialog"
       style="z-index: 100;"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="component modal appear appearActive"
@@ -2473,7 +2473,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
       class="wrapper"
       role="dialog"
       style="z-index: 100;"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="component modal appear appearActive"

@@ -496,6 +496,12 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             };
         }, []);
 
+        useEffect(() => {
+            if (disableAutoFocus || !open) return;
+
+            wrapperRef.current?.focus();
+        }, [open, disableAutoFocus]);
+
         const contextValue = useMemo<BaseModalContext>(
             () => ({
                 parentRef: wrapperRef,
@@ -530,7 +536,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 {(computedZIndex) => (
                     <BaseModalContext.Provider value={contextValue}>
                         <FocusLock
-                            autoFocus={!disableAutoFocus}
                             disabled={disableFocusLock || !open}
                             returnFocus={!disableRestoreFocus}
                         >
@@ -563,8 +568,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 onKeyDown={handleKeyDown}
                                 onMouseDown={handleBackdropMouseDown}
                                 onMouseUp={handleBackdropMouseUp}
-                                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                                tabIndex={0}
+                                tabIndex={-1}
                                 data-test-id={dataTestId}
                                 style={{
                                     zIndex: computedZIndex,
