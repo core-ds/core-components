@@ -8,7 +8,7 @@ on:
         required: true
   push:
     branches:
-      - feat/stack_context
+      - feat/stack-context
 
 jobs:
   build:
