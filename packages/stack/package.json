@@ -16,6 +16,6 @@
     },
     "dependencies": {
         "tslib": "^2.4.0",
-        "@alfalab/stack-context": "^1.15.0"
+        "@alfalab/stack-context": "^1.16.0"
     }
 }

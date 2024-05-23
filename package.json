@@ -60,7 +60,7 @@
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "@alfalab/icons-logotype": "^2.27.0",
-        "@alfalab/stack-context": "^1.15.0",
+        "@alfalab/stack-context": "^1.16.0",
         "@alfalab/utils": "^1.15.2",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",

@@ -106,10 +106,10 @@
     string-hash "^1.1.3"
     style-inject "^0.3.0"
 
-"@alfalab/stack-context@^1.15.0":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/stack-context/-/stack-context-1.15.0.tgz#b0942fd21a6d823f9e40dbca25bad845992fab29"
-  integrity sha512-qyZsB7BqoYAeTiIT5BBlf2q0ObsxXfXA2kvDuf2ryYzHc+s4mqfA5C2vXkVN/YOrkAcFFR0rGgbnSqIClUSTJA==
+"@alfalab/stack-context@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/stack-context/-/stack-context-1.16.0.tgz#7f33b497f3903dcafeba563f2cf96adb6a9c345b"
+  integrity sha512-8XiqNU7WaHKK6HvlBr0TNj3WYoe8neC5s7FWCQkYjv8ybeQZ8q68EQvICW3GnfVNG3L/rhFbm6QtV2UObYfYzw==
 
 "@alfalab/stylelint-core-vars@1.5.0":
   version "1.5.0"
