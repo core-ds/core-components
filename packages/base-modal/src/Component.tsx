@@ -37,6 +37,7 @@ import styles from './index.module.css';
 
 // TODO Без полифила крашится FocusLock в IE11. Выпилить в будущем!!!.
 import './matches-polyfill';
+import './weakref-polyfill';
 
 export type BaseModalProps = {
     /**
