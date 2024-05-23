@@ -37,4 +37,4 @@
 "@alfalab/core-components-universal-date-input": minor
 ---
 
-Добавлена возможность глобального переопределения breakpoint компонентов
+Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
