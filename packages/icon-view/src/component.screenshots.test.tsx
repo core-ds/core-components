@@ -30,7 +30,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'SuperEllipse',
             knobs: {
-                size: [24, 48, 64, 80, 128],
+                size: [24, 48, 64, 80, 128, 16, 20, 32, 40, 56],
                 border: [true, false],
             },
             testStory: false,
@@ -86,7 +86,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'Circle',
             knobs: {
-                size: [24, 48, 64, 80, 128],
+                size: [24, 48, 64, 80, 128, 16, 20, 32, 40, 56],
                 border: [true, false],
             },
             testStory: false,
@@ -142,7 +142,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'Rectangle',
             knobs: {
-                size: [24, 48, 64, 80, 128],
+                size: [24, 48, 64, 80, 128, 20, 32, 40, 56],
                 border: [true, false],
             },
             testStory: false,
@@ -160,8 +160,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'NoShape',
             knobs: {
-                size: [24, 48, 64, 80, 128],
-                border: [true, false],
+                size: [16, 20, 24, 32, 40, 48, 56, 64, 80, 128],
             },
             testStory: false,
         }),
