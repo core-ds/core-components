@@ -1,7 +1,7 @@
 {
   "name": "@alfalab/stack-context",
   "version": "1.15.0",
-  "description": "External library for providing React Context to a Stack component",
+  "description": "Библиотека для предоставления React Context компоненту Stack",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
