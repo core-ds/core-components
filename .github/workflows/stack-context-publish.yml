@@ -6,9 +6,9 @@ on:
       version:
         description: 'Введите версию x.x.x'
         required: true
-    push:
-      branches:
-        - feat/stack_context
+  push:
+    branches:
+      - feat/stack_context
 
 jobs:
   build:
