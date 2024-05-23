@@ -29,7 +29,7 @@
 }
 
 .verticalRadio {
-    margin-bottom: var(--gap-m);
+    margin-bottom: var(--gap-s);
 
     &:last-child {
         margin-bottom: 0;
