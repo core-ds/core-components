@@ -3,9 +3,9 @@
         "index.js": 2.7
     },
     "universal-date-input": {
-        "desktop.js": 131.6,
-        "index.js": 131.7,
-        "mobile.js": 131.6,
+        "desktop.js": 131.7,
+        "index.js": 131.8,
+        "mobile.js": 131.7,
         "shared.js": 43.5
     },
     "underlay": {
@@ -45,7 +45,7 @@
         "mobile.js": 4.8
     },
     "tabs": {
-        "collapsible.js": 199,
+        "collapsible.js": 199.1,
         "desktop.js": 34.6,
         "index.js": 35.8,
         "mobile.js": 34.7,
@@ -158,8 +158,8 @@
         "mobile.js": 14.5
     },
     "picker-button": {
-        "desktop.js": 191.7,
-        "index.js": 225.2,
+        "desktop.js": 191.8,
+        "index.js": 225.3,
         "mobile.js": 197.5,
         "shared.js": 3
     },
@@ -258,7 +258,7 @@
         "circle.js": 32.5,
         "no-shape.js": 5.5,
         "rectangle.js": 17.9,
-        "super-ellipse.js": 63.1
+        "super-ellipse.js": 62.1
     },
     "icon-button": {
         "index.js": 10.2
