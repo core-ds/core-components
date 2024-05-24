@@ -199,6 +199,10 @@
         "index.js": 12.9
     },
     "navigation-bar": {
+        "index.js": 3,
+        "shared.js": 14.8
+    },
+    "navigation-bar-private": {
         "index.js": 20.4,
         "shared.js": 17.1
     },
