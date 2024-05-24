@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { DateInputProps } from '@alfalab/core-components-date-input';
 import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 import { useMedia } from '@alfalab/hooks';
 
