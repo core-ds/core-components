@@ -105,7 +105,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
         class="wrapper"
         role="dialog"
         style="z-index: 100;"
-        tabindex="0"
+        tabindex="-1"
       >
         <div
           class="component modal appear appearActive"
