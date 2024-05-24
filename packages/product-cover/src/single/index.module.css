@@ -1,0 +1,60 @@
+@import '../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    align-items: end;
+    position: relative;
+    background-color: var(--color-light-graphic-tertiary);
+    box-sizing: border-box;
+
+    &.size-164 {
+        border-radius: var(--border-radius-xxl);
+        padding: var(--gap-s) var(--gap-m);
+    }
+    &.size-128 {
+        border-radius: var(--border-radius-xl);
+        padding: var(--gap-xs) var(--gap-s);
+    }
+    &.size-96 {
+        border-radius: var(--border-radius-l);
+        padding: 6px var(--gap-s);
+    }
+    &.size-48,
+    &.size-40 {
+        border-radius: 6px;
+        padding: var(--gap-3xs) var(--gap-2xs);
+    }
+    &.size-32 {
+        border-radius: var(--border-radius-s);
+        padding: 0 var(--gap-3xs);
+    }
+    &.size-16 {
+        border-radius: var(--border-radius-xs);
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+.border {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.contentAddons {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+}

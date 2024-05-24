@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCover Snapshots tests should match snapshots 1`] = `
+<div>
+  <div
+    class="component size-164"
+    style="width: 264px; height: 164px;"
+  >
+    <div
+      class="overlay default"
+    />
+    <img
+      alt="card"
+      class="cardImage"
+      height="164"
+      src="https://online.alfabank.ru/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=264"
+      srcset="https://online.alfabank.ru/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=528 2x"
+      width="264"
+    />
+    <div
+      class="component"
+    >
+      <div
+        class="cardholderName static-primary-light secondary-medium medium"
+      >
+        Cardholder Name
+      </div>
+      <div
+        class="cardNumber"
+      >
+        <span
+          class="static-primary-light primary-medium medium"
+        >
+          ·· 
+          1234
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

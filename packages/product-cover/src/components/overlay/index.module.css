@@ -1,0 +1,25 @@
+@import '../../../../themes/src/default.css';
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.default {
+    background: var(--color-static-neutral-translucent-700-inverted);
+}
+
+.inverted {
+    background: var(--color-static-neutral-translucent-700);
+}
