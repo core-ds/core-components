@@ -1,3 +1,170 @@
+## 45.10.0
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1193](https://github.com/core-ds/core-components/pull/1193)
+
+#### Что изменилось
+- Добавили dataTestId к PeriodSlider
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#1216](https://github.com/core-ds/core-components/pull/1216)
+
+#### Что изменилось
+- Исправлено поведение фокуса внутри модального окна
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#1214](https://github.com/core-ds/core-components/pull/1214)
+
+#### Что изменилось
+- Добавлена возможность обработки строковых значений для отображения даты
+
+#### Влияние на компоненты
+- Патчи<br />`universal-date-input`
+
+
+### [#1175](https://github.com/core-ds/core-components/pull/1175)
+
+#### Что изменилось
+- Внутренний компонент NavigationBar переименован в NavigationBarPrivate
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet` `modal` `navigation-bar-private` `popup-sheet` `side-panel`<br />
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент NavigationBar
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar`
+
+
+### [#1204](https://github.com/core-ds/core-components/pull/1204)
+
+#### Что изменилось
+- Исправлен отступ в компонентах CheckboxGroup и RadioGroup в соответствии с макетом при их вертикальном расположении. Ранее отступ составлял 16px, теперь он уменьшен до 12px
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox-group` `radio-group`
+
+
+### [#1178](https://github.com/core-ds/core-components/pull/1178)
+
+#### Что изменилось
+- При открытии модальных окон в iOS, если браузерный navbar был сжат, то в модалке сохранится возможность взаимодействия со скролом. Текущее поведение исправлено, чтобы воспользоваться, нужно передать пропс iOSLock.
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `modal`
+
+
+### [#1189](https://github.com/core-ds/core-components/pull/1189)
+
+#### Что изменилось
+- Свойство style перенесено с корневого HTML тега на заголовок табов.
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1205](https://github.com/core-ds/core-components/pull/1205)
+
+#### Что изменилось
+- Для компонента Status было добавлено многоточие для обработки сценариев переполнения
+
+#### Влияние на компоненты
+- Минорное<br />`status`
+
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+#### Что изменилось
+- Изменены типы принимаемых компонентов
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `custom-picker-button` `input-autocomplete` `input` `picker-button`<br /> `select` `slider-input` `slider`
+
+
+### [#1201](https://github.com/core-ds/core-components/pull/1201)
+
+#### Что изменилось
+- У кнопок в нижнем аддоне изменился отступ сверху: для десктопа с 20 до 8 пикселей, а на мобильной версии — с 12 до 8 пикселей. Также на десктопе у контейнера Caption был уменьшен верхний отступ с 4 до 0 пикселей
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#1203](https://github.com/core-ds/core-components/pull/1203)
+
+#### Что изменилось
+- Исправлена форма для компонета SuperEllipse в размере 40 (стала более округлой)
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#1218](https://github.com/core-ds/core-components/pull/1218)
+
+#### Что изменилось
+- Исправлен выбор даты на мобильных устройствах
+
+#### Влияние на компоненты
+- Патчи<br />`universal-date-input`
+
+
+### [#1208](https://github.com/core-ds/core-components/pull/1208)
+
+#### Что изменилось
+- Тип GenericWrapperProps был расширен нативными атрибутами, предоставляемыми библиотекой React для элемента HTMLDivElement
+
+#### Влияние на компоненты
+- Патчи<br />`generic-wrapper`
+
+
+### [#1103](https://github.com/core-ds/core-components/pull/1103)
+
+#### Что изменилось
+- Добавлен новый компонент ProductCover
+
+#### Влияние на компоненты
+- Минорное<br />`product-cover`
+
+
+### [#1212](https://github.com/core-ds/core-components/pull/1212)
+
+#### Что изменилось
+- Исправлено предупреждение, которое возникало из-за передачи FormControlComponent в компонент Button
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button`
+
+
+### [#1209](https://github.com/core-ds/core-components/pull/1209)
+
+#### Что изменилось
+- Добавлено новое свойство icon, которое позволяет передать кастомную иконку при использовании типа кнопки compact
+
+#### Влияние на компоненты
+- Минорное<br />`picker-button`
+
+
+### [#1211](https://github.com/core-ds/core-components/pull/1211)
+
+#### Что изменилось
+- Добавили dataTestId для иконок, обозначающих успешное действие, ошибку и крестик для очистки
+- Компонент Badge заменен на StatusBadge
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+
 ## 45.9.0
 
 <sup><time>15.05.2024</time></sup>
