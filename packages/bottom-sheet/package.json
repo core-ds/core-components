@@ -17,7 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-backdrop": "^3.2.0",
         "@alfalab/core-components-base-modal": "^5.7.3",
-        "@alfalab/core-components-navigation-bar": "^0.8.7",
+        "@alfalab/core-components-navigation-bar-private": "^0.0.0",
         "@alfalab/core-components-shared": "^0.9.1",
         "classnames": "^2.3.1",
         "react-div-100vh": "^0.7.0",

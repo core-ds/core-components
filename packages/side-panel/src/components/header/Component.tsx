@@ -1,7 +1,10 @@
 import React, { FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+import {
+    NavigationBarPrivate,
+    NavigationBarPrivateProps,
+} from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
@@ -12,7 +15,7 @@ import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -33,7 +36,7 @@ export const Header: FC<HeaderProps> = ({
     const hasContent = Boolean(title || children);
 
     return (
-        <NavigationBar
+        <NavigationBarPrivate
             dataTestId={getDataTestId(dataTestId, 'header')}
             {...restProps}
             scrollableParentRef={componentRef}
@@ -57,6 +60,6 @@ export const Header: FC<HeaderProps> = ({
             })}
         >
             {children}
-        </NavigationBar>
+        </NavigationBarPrivate>
     );
 };
