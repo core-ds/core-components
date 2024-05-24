@@ -15,12 +15,10 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Badge } from '@alfalab/core-components-badge';
 import { FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus } from '@alfalab/hooks';
-import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
-import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
 import { ClearButton } from '../clear-button';
 
@@ -363,30 +361,25 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 onClick={handleClear}
                                 disabled={disabled}
                                 colors={colors}
+                                dataTestId={getDataTestId(dataTestId, 'clear-icon')}
                             />
                         )}
                         {rightAddons}
                         {error && (
                             <div className={styles.errorIcon} data-addon='error-icon'>
-                                <Badge
-                                    view='icon'
-                                    size='m'
-                                    iconColor='negative'
-                                    content={
-                                        <ExclamationCircleMIcon className={styles.errorColorIcon} />
-                                    }
+                                <StatusBadge
+                                    view='negative-alert'
+                                    size={20}
+                                    dataTestId={getDataTestId(dataTestId, 'error-icon')}
                                 />
                             </div>
                         )}
                         {success && !error && (
                             <div className={styles.successIcon}>
-                                <Badge
-                                    view='icon'
-                                    size='m'
-                                    iconColor='positive'
-                                    content={
-                                        <CheckmarkCircleMIcon className={styles.successColorIcon} />
-                                    }
+                                <StatusBadge
+                                    view='positive-checkmark'
+                                    size={20}
+                                    dataTestId={getDataTestId(dataTestId, 'success-icon')}
                                 />
                             </div>
                         )}

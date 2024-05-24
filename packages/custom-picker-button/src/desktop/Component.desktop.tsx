@@ -23,6 +23,7 @@ export const CustomPickerButtonDesktop = forwardRef<
             backgroundColor = DEFAULT_BUTTON_COLOR,
             contentColor = DEFAULT_CONTENT_COLOR,
             stateType = 'darkening',
+            icon,
             ...restProps
         },
         ref,
@@ -34,6 +35,7 @@ export const CustomPickerButtonDesktop = forwardRef<
                 contentColor,
                 stateType,
                 breakpoint: 1,
+                icon,
             }}
             Field={DefaultField}
             ref={ref}

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC, Fragment, SVGProps } from 'react';
+import React, { ButtonHTMLAttributes, ComponentType, Fragment, SVGProps } from 'react';
 import cn from 'classnames';
 
 import { Button, ButtonProps } from '@alfalab/core-components-button';
@@ -14,6 +14,7 @@ type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | '
         buttonSize?: PickerButtonSize;
         buttonVariant?: PickerButtonVariant;
         showArrow?: boolean;
+        icon?: ComponentType<SVGProps<SVGSVGElement>>;
     };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -49,11 +50,14 @@ export const Field = ({
     valueRenderer,
     showArrow = true,
     labelView,
+    FormControlComponent,
+    icon,
     ...restProps
 }: FieldProps) => {
-    const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(
+    const Icon: ComponentType<SVGProps<SVGSVGElement>> = getIcon(
         buttonVariant,
         SIZE_TO_CLASSNAME_MAP[buttonSize],
+        icon,
     );
 
     const { ref, ...restInnerProps } = innerProps;

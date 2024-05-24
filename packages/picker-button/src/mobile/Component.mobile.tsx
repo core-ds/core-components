@@ -42,6 +42,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             showArrow,
             Field = DefaultField,
             fieldProps = {},
+            icon,
             breakpoint = getComponentBreakpoint(),
             ...restProps
         },
@@ -57,6 +58,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             rightAddons,
             showArrow,
             breakpoint,
+            icon,
         };
 
         return (

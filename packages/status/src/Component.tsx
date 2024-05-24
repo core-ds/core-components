@@ -19,7 +19,7 @@ export type StatusProps = {
     /**
      * Цветовое оформление иконки
      */
-    color?: typeof colors[number];
+    color?: (typeof colors)[number];
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -43,6 +43,6 @@ export const Status: FC<StatusProps> = ({
         className={cn(styles.component, styles[color], styles[view], className)}
         data-test-id={dataTestId}
     >
-        {children}
+        <span className={styles.ellipsis}>{children}</span>
     </span>
 );
