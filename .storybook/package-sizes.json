@@ -142,6 +142,10 @@
     "progress-bar": {
         "index.js": 1.7
     },
+    "product-cover": {
+        "index.js": 39.6,
+        "shared.js": 0.8
+    },
     "portal": {
         "index.js": 0.6
     },
