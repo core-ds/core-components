@@ -1,5 +1,22 @@
 # Change Log
 
+## 14.4.2
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1211](https://github.com/core-ds/core-components/pull/1211)
+
+-   Добавили dataTestId для иконок, обозначающих успешное действие, ошибку и крестик для очистки
+-   Компонент Badge заменен на StatusBadge
+
 ## 14.4.1
 
 ### Patch Changes

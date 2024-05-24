@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-input",
-    "version": "10.2.12",
+    "version": "10.2.13",
     "description": "Calendar input component",
     "keywords": [],
     "license": "MIT",
@@ -15,8 +15,8 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^7.6.1",
-        "@alfalab/core-components-date-input": "^4.3.25",
+        "@alfalab/core-components-calendar": "^7.6.2",
+        "@alfalab/core-components-date-input": "^4.3.26",
         "@alfalab/core-components-popover": "^6.2.1",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",

@@ -1,5 +1,15 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.1.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1175](https://github.com/core-ds/core-components/pull/1175)
+
+-   Внутренний компонент NavigationBar переименован в NavigationBarPrivate
+
 ## 0.8.5
 
 ### Patch Changes

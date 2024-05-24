@@ -1,5 +1,22 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1175](https://github.com/core-ds/core-components/pull/1175)
+
+-   Внутренний компонент NavigationBar переименован в NavigationBarPrivate
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   navigation-bar-private@0.1.0
+    -   drawer@5.0.10
+
 ## 5.2.4
 
 ### Patch Changes

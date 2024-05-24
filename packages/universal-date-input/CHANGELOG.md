@@ -1,5 +1,24 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.0.8
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1214](https://github.com/core-ds/core-components/pull/1214)
+
+-   Добавлена возможность обработки строковых значений для отображения даты
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1218](https://github.com/core-ds/core-components/pull/1218)
+
+-   Исправлен выбор даты на мобильных устройствах
+
+-   Обновлены зависимости
+    -   input@14.4.2
+
 ## 2.0.7
 
 ### Patch Changes

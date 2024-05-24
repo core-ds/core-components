@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.6.2
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1193](https://github.com/core-ds/core-components/pull/1193)
+
+-   Добавили dataTestId к PeriodSlider
+
+-   Обновлены зависимости
+    -   modal@9.3.0
+
 ## 7.6.1
 
 ### Patch Changes
