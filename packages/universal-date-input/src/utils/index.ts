@@ -31,6 +31,10 @@ export function isCompleteTime(value = '', withTime = false) {
     return value.length === 5;
 }
 
+export function isCompleteMonth(value = '') {
+    return value.length === 7;
+}
+
 export function isCompleteDateRange(value = '') {
     return value.length === DATE_RANGE_SEPARATOR.length + DATE_FORMAT.length * 2;
 }

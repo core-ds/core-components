@@ -24,6 +24,7 @@ import { createMaskOptions } from '../../mask';
 import { BaseUniversalDateInputProps } from '../../types';
 import { DateInput } from '../date-input';
 import { DateRangeInput } from '../date-range-input';
+import { MonthInput } from '../month-input';
 import { TimeInput } from '../time-input';
 
 import styles from '../../index.module.css';
@@ -221,6 +222,15 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
                 return (
                     <TimeInput
                         placeholder={`ЧЧ${HOURS_MINUTES_SEPARATOR}ММ`}
+                        {...restProps}
+                        {...commonProps}
+                        ref={mergeRefs([ref, maskRef, inputRef])}
+                    />
+                );
+            case 'month':
+                return (
+                    <MonthInput
+                        placeholder='ММ.ГГГГ'
                         {...restProps}
                         {...commonProps}
                         ref={mergeRefs([ref, maskRef, inputRef])}
