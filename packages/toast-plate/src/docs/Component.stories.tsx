@@ -38,8 +38,18 @@ export const toast_plate: Story = {
                     colors={colors}
                     badge={select(
                         'badge',
-                        ['negative', 'positive', 'attention', undefined],
-                        'positive',
+                        [
+                            'positive-checkmark',
+                            'negative-cross',
+                            'negative-alert',
+                            'negative-block',
+                            'attention-alert',
+                            'neutral-information',
+                            'neutral-operation',
+                            'neutral-cross',
+                            undefined,
+                        ],
+                        'positive-checkmark',
                     )}
                     title={text('title', 'Toast Title')}
                     hasCloser={boolean('hasCloser', true)}
@@ -88,8 +98,18 @@ export const toast_plate_mobile: Story = {
                     colors={colors}
                     badge={select(
                         'badge',
-                        ['negative', 'positive', 'attention', undefined],
-                        'positive',
+                        [
+                            'positive-checkmark',
+                            'negative-cross',
+                            'negative-alert',
+                            'negative-block',
+                            'attention-alert',
+                            'neutral-information',
+                            'neutral-operation',
+                            'neutral-cross',
+                            undefined,
+                        ],
+                        'positive-checkmark',
                     )}
                     title={text('title', 'Toast Title')}
                     hasCloser={boolean('hasCloser', true)}
@@ -138,8 +158,18 @@ export const toast_plate_desktop: Story = {
                     colors={colors}
                     badge={select(
                         'badge',
-                        ['negative', 'positive', 'attention', undefined],
-                        'positive',
+                        [
+                            'positive-checkmark',
+                            'negative-cross',
+                            'negative-alert',
+                            'negative-block',
+                            'attention-alert',
+                            'neutral-information',
+                            'neutral-operation',
+                            'neutral-cross',
+                            undefined,
+                        ],
+                        'positive-checkmark',
                     )}
                     title={text('title', 'Toast Title')}
                     hasCloser={boolean('hasCloser', true)}
