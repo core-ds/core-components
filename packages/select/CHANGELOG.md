@@ -1,5 +1,20 @@
 # Change Log
 
+## 17.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.0.0
+    -   shared@0.10.0
+    -   base-modal@5.7.5
+    -   bottom-sheet@6.15.1
+    -   button@11.4.3
+    -   checkbox@4.3.1
+    -   form-control@12.2.2
+    -   input@14.4.3
+    -   modal@9.3.1
+
 ## 17.4.3
 
 ### Patch Changes

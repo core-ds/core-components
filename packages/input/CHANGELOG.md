@@ -1,5 +1,15 @@
 # Change Log
 
+## 14.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   status-badge@1.1.0
+    -   button@11.4.3
+    -   form-control@12.2.2
+
 ## 14.4.2
 
 ### Patch Changes

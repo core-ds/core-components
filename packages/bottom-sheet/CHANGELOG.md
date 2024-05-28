@@ -1,5 +1,14 @@
 # Change Log
 
+## 6.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   base-modal@5.7.5
+    -   navigation-bar-private@0.1.1
+
 ## 6.15.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 12.2.0
+
+### Minor Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1159](https://github.com/core-ds/core-components/pull/1159)
+
+-   Удалена тема click для компонента Skeleton
+
 ## 12.1.3
 
 ### Patch Changes

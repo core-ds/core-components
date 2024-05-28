@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1159](https://github.com/core-ds/core-components/pull/1159)
+
+-   Добавлено новое свойство allowBackdropBlur, отвечающее за размытие фона
+-   Добавлен трансформер skeleton-blur, который устанавливает свойство allowBackdropBlur в значение true для компонента Skeleton
+-   Удалена css переменная --skeleton-gradient-animation-display
+
 ## 4.2.0
 
 ### Minor Changes
