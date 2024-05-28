@@ -1,3 +1,87 @@
+## 46.0.0
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1159](https://github.com/core-ds/core-components/pull/1159)
+
+#### Что изменилось
+- Добавлено новое свойство allowBackdropBlur, отвечающее за размытие фона
+- Добавлен трансформер skeleton-blur, который устанавливает свойство allowBackdropBlur в значение true для компонента Skeleton
+- Удалена css переменная --skeleton-gradient-animation-display
+
+#### Влияние на компоненты
+- Мажорное<br />`skeleton`
+
+<br />
+
+#### Что изменилось
+- Удалена тема click для компонента Skeleton
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#1158](https://github.com/core-ds/core-components/pull/1158)
+
+#### Что изменилось
+- В toast-plate компоненте badge заменен на status-badge
+- Добавлена возможность принимать кастомные иконки для status-badge
+
+## Миграция для toast-plate компонента
+
+- Добавлены изменения в пропс getBadgeIcons. Теперь он будет принимать объект в виде:
+```
+{
+  'positive-checkmark': {
+      24: AScoresCircleMIcon,
+  },
+  'negative-cross': {
+    ...
+  },
+}
+```
+
+- `'negative' | 'positive' | 'attention'` - `@deprеcated`
+  Их по-прежнему можно передавать в пропс `badge` (компоненты toast, toast-plate, notification), под капотом они автоматически преобразуютеся в `'negative-cross' | 'positive-checkmark' | 'attention-alert'` соответственно
+
+#### Влияние на компоненты
+- Мажорное<br />`notification` `toast-plate` `toast`
+
+
+- Минорное<br />`shared` `status-badge`
+
+
+### [#1114](https://github.com/core-ds/core-components/pull/1114)
+
+#### Что изменилось
+- Изменили компонент, отвечающий за индикатор таба с Badge на Indicator. Следовательно, изменился тип свойства indicatorProps с BadgeProps на IndicatorProps
+
+## Миграция с предыдущей версии
+
+- Для того чтобы передать значение в индикатор необходимо заменить content на value. Например: indicatorProps: { content: 100 } -> indicatorProps: { value: 100 }
+
+#### Влияние на компоненты
+- Мажорное<br />`tab-bar`
+
+<br />
+
+#### Что изменилось
+- Добавили новые props accentColor и bgColor, отвечающие за цвет активного таба и фон соответственно
+
+#### Влияние на компоненты
+- Минорное<br />`tab-bar`
+
+
+### [#1194](https://github.com/core-ds/core-components/pull/1194)
+
+#### Что изменилось
+- Изменен тип параметра на Files[] в обработчике onDrop
+
+#### Влияние на компоненты
+- Мажорное<br />`dropzone`
+
+
+
 ## 45.10.0
 
 <sup><time>24.05.2024</time></sup>
