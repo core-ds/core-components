@@ -51,7 +51,7 @@ export type DropzoneProps = {
     /**
      * Обработчик события 'drop'
      */
-    onDrop?: (files: FileList) => void;
+    onDrop?: (files: File[]) => void;
 
     /**
      * Обработчик события 'dragover'
@@ -165,7 +165,7 @@ export const Dropzone: FC<DropzoneProps> = ({
 
             if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
                 if (onDrop) {
-                    onDrop(event.dataTransfer.files);
+                    onDrop(Array.from(event.dataTransfer.files));
                 }
 
                 event.dataTransfer.clearData();
