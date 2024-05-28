@@ -1,8 +1,0 @@
-@define-mixin skeleton-click {
-    /* theme */
-    --skeleton-default-color: transparent;
-    --skeleton-backdrop-filter: blur(20px);
-    --skeleton-gradient-animation-display: none;
-    --skeleton-bg-animation-display: block;
-    --skeleton-bg-animation-color: var(--color-light-graphic-quaternary);
-}
