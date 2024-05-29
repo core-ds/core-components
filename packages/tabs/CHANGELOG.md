@@ -1,5 +1,29 @@
 # Change Log
 
+## 8.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   picker-button@11.7.1
+    -   icon-button@6.5.7
+
+## 8.8.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1189](https://github.com/core-ds/core-components/pull/1189)
+
+-   Свойство style перенесено с корневого HTML тега на заголовок табов.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.0
+
 ## 8.7.2
 
 ### Patch Changes

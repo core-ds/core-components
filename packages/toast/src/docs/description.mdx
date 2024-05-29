@@ -1,6 +1,6 @@
 ## Примеры
 
-Если передать ссылку на якорный элемент в пропсе `anchorElement`, то тост появится около якорного элемента.  
+Если передать ссылку на якорный элемент в пропсе `anchorElement`, то тост появится около якорного элемента.
 Если `anchorElement` не передавать, то тост появится снизу экрана.
 
 ```jsx live
@@ -34,7 +34,7 @@ render(() => {
             <Toast
                 breakpoint={BREAKPOINT}
                 open={fixedToastOpen}
-                badge='positive'
+                badge='positive-checkmark'
                 title='Пример уведомления с кнопкой и крестиком'
                 hasCloser={true}
                 bottomButtonPosition={isMobile()}
@@ -65,15 +65,17 @@ render(() => {
             >
                 Показать снизу
             </Button>
-            {!isMobile() && <Button
-                breakpoint={BREAKPOINT}
-                ref={handleButtonRef}
-                onClick={() => {
-                    setAnchorToastOpen(true);
-                }}
-            >
-                Показать рядом
-            </Button>}
+            {!isMobile() && (
+                <Button
+                    breakpoint={BREAKPOINT}
+                    ref={handleButtonRef}
+                    onClick={() => {
+                        setAnchorToastOpen(true);
+                    }}
+                >
+                    Показать рядом
+                </Button>
+            )}
         </Space>
     );
 });
@@ -114,9 +116,7 @@ render(() => {
                             title='Пример уведомления'
                             border={true}
                             rounded={true}
-                            leftAddons={
-                                <StatusBadge view='positive-checkmark' />
-                            }
+                            leftAddons={<StatusBadge view='positive-checkmark' />}
                             breakpoint={BREAKPOINT}
                             open={true}
                         />

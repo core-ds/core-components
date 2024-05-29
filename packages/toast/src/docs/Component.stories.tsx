@@ -67,8 +67,18 @@ export const toast: Story = {
                         offset={[number('offset[0]', 0), number('offset[1]', 8)]}
                         badge={select(
                             'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title={text('title', 'Скопировано')}
                         hasCloser={boolean('hasCloser', true)}
@@ -85,8 +95,18 @@ export const toast: Story = {
                         open={fixedToastOpen}
                         badge={select(
                             'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title='Ваша карта удалена'
                         hasCloser={boolean('hasCloser', true)}
@@ -186,8 +206,18 @@ export const toast_mobile: Story = {
                         offset={[number('offset[0]', 0), number('offset[1]', 8)]}
                         badge={select(
                             'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title={text('title', 'Скопировано')}
                         hasCloser={boolean('hasCloser', true)}
@@ -204,8 +234,18 @@ export const toast_mobile: Story = {
                         open={fixedToastOpen}
                         badge={select(
                             'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title='Ваша карта удалена'
                         hasCloser={boolean('hasCloser', true)}
@@ -305,8 +345,18 @@ export const toast_desktop: Story = {
                         offset={[number('offset[0]', 0), number('offset[1]', 8)]}
                         badge={select(
                             'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title={text('title', 'Скопировано')}
                         hasCloser={boolean('hasCloser', true)}
@@ -322,8 +372,18 @@ export const toast_desktop: Story = {
                         open={fixedToastOpen}
                         badge={select(
                             'badge',
-                            ['negative', 'positive', 'attention', undefined],
-                            'positive',
+                            [
+                                'positive-checkmark',
+                                'negative-cross',
+                                'negative-alert',
+                                'negative-block',
+                                'attention-alert',
+                                'neutral-information',
+                                'neutral-operation',
+                                'neutral-cross',
+                                undefined,
+                            ],
+                            'positive-checkmark',
                         )}
                         title='Ваша карта удалена'
                         hasCloser={boolean('hasCloser', true)}

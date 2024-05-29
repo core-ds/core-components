@@ -1,0 +1,31 @@
+import { ArgsTabs } from 'storybook/blocks';
+import { NavigationBar } from '../index';
+import { ActionIconAddon } from '../components/action-icon-addon';
+import { ActionTextAddon } from '../components/action-text-addon';
+
+## Подключение
+
+```jsx
+import { NavigationBar } from '@alfalab/core-components/navigation-bar';
+import { ActionIconAddon, ActionTextAddon  } from '@alfalab/core-components/navigation-bar/shared';
+```
+
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getNavigationBarTestIds`.  
+Импорт из `@alfalab/core-components/navigation-bar/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    navigationBar: dataTestId, 
+    title: `${dataTestId}-title`,
+    subtitle: `${dataTestId}-subtitle`,
+};
+```
+
+## Свойства
+
+<ArgsTabs components={{NavigationBar, ActionIconAddon, ActionTextAddon}} />

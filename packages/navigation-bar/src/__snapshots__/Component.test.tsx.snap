@@ -1,113 +1,154 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
-<body>
-  <div>
-    <div
-      class="header"
-      data-test-id="navigation-bar-dti"
-    >
+exports[`NavigationBar Snapshots tests should match default snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        class="mainLine"
+        class="component"
+        data-test-id="nb-dti"
       >
         <div
-          class="addonsWrapper"
+          class="mainLine center"
         >
           <div
-            class="addon"
+            class="addons"
           >
-            <button
-              aria-label="назад"
-              class="component text size-48 hug size-48 component text component text component"
-              data-test-id="navigation-bar-dti-back-button"
-              type="button"
-            >
-              <span
-                class="label stretchText"
-              >
-                <div
-                  class="flex"
-                >
-                  <div
-                    class="iconWrapper"
-                  >
-                    <svg
-                      fill="currentColor"
-                      focusable="false"
-                      height="24"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="24"
-                    >
-                      <path
-                        d="M1 12l8.25-9 2.25 2.25-5.25 5.25H23v3H6.25l5.25 5.25L9.25 21 1 12z"
-                      />
-                    </svg>
-                  </div>
-                  <span
-                    class="text primary-large medium"
-                    style="opacity: 1;"
-                  >
-                    Назад
-                  </span>
-                </div>
-              </span>
-            </button>
+            <span>
+              Left
+            </span>
           </div>
-        </div>
-        <div
-          class="addonsWrapper rightAddons"
-        >
           <div
-            class="addon closer"
+            class="content"
+            style="margin-left: 0px; margin-right: 0px;"
           >
             <div
-              class="closer"
+              class="title"
+              data-test-id="nb-dti-title"
             >
-              <button
-                aria-label="закрыть"
-                class="component text size-48 hug size-48 component text component text cc-icon-button button primary component"
-                data-test-id="navigation-bar-dti-closer"
-                type="button"
-              >
-                <span
-                  class="label stretchText"
-                >
-                  <span
-                    class="iconWrapper size-48 center"
-                  >
-                    <svg
-                      class="icon"
-                      fill="currentColor"
-                      focusable="false"
-                      height="24"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="24"
-                    >
-                      <path
-                        d="M10 12L3 5.5 5.25 3 12 9.5 18.75 3 21 5.5 14 12l7 6.5-2.25 2.5L12 14.5 5.25 21 3 18.5l7-6.5z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </button>
+              Title
+            </div>
+            <div
+              class="subtitle"
+              data-test-id="nb-dti-subtitle"
+            >
+              subtitle
             </div>
           </div>
+          <div
+            class="rightAddons addons"
+          >
+            <span>
+              Right
+            </span>
+          </div>
         </div>
-      </div>
-      <div
-        class="content contentOnBotDesktop left trim"
-        style="visibility: visible;"
-      >
-        <div
-          class="title"
-          data-test-id="navigation-bar-dti-title"
-        >
-          some title
+        <div>
+          <span>
+            bottom
+          </span>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>,
+  "container": <div>
+    <div
+      class="component"
+      data-test-id="nb-dti"
+    >
+      <div
+        class="mainLine center"
+      >
+        <div
+          class="addons"
+        >
+          <span>
+            Left
+          </span>
+        </div>
+        <div
+          class="content"
+          style="margin-left: 0px; margin-right: 0px;"
+        >
+          <div
+            class="title"
+            data-test-id="nb-dti-title"
+          >
+            Title
+          </div>
+          <div
+            class="subtitle"
+            data-test-id="nb-dti-subtitle"
+          >
+            subtitle
+          </div>
+        </div>
+        <div
+          class="rightAddons addons"
+        >
+          <span>
+            Right
+          </span>
+        </div>
+      </div>
+      <div>
+        <span>
+          bottom
+        </span>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

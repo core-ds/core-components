@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Badge Custom icons Custom icon snapshot 1`] = `
+<div>
+  <div
+    class="component size-24 component positive-checkmark"
+  >
+    <div>
+      Icon
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Badge Snapshots tests should match snapshot with view=attention-alert 1`] = `
 <div>
   <div

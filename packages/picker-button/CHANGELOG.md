@@ -1,5 +1,40 @@
 # Change Log
 
+## 11.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.4
+    -   button@11.4.3
+
+## 11.7.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1209](https://github.com/core-ds/core-components/pull/1209)
+
+-   Добавлено новое свойство icon, которое позволяет передать кастомную иконку при использовании типа кнопки compact
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1212](https://github.com/core-ds/core-components/pull/1212)
+
+-   Исправлено предупреждение, которое возникало из-за передачи FormControlComponent в компонент Button
+
+-   Обновлены зависимости
+    -   select@17.4.3
+
 ## 11.6.8
 
 ### Patch Changes

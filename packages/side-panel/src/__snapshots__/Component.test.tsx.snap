@@ -5,7 +5,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
   class="wrapper"
   role="dialog"
   style="z-index: 100;"
-  tabindex="0"
+  tabindex="-1"
 >
   <div
     class="component size-500 hidden rightPlacement enterRight enterActive"
@@ -143,7 +143,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
   class="wrapper"
   role="dialog"
   style="z-index: 100;"
-  tabindex="0"
+  tabindex="-1"
 >
   <div
     class="component appear appearActive"

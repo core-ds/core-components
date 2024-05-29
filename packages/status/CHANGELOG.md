@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1205](https://github.com/core-ds/core-components/pull/1205)
+
+-   Для компонента Status было добавлено многоточие для обработки сценариев переполнения
+
 ## 3.2.0
 
 ### Minor Changes

@@ -3,8 +3,11 @@ import { fireEvent, render } from '@testing-library/react';
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 
 import { Notification } from './index';
+import { getNotificationTestIds } from './utils/getNotificationTestIds';
 
 jest.useFakeTimers();
+
+const dataTestId = 'test-id';
 
 describe('Notification', () => {
     Object.defineProperty(window, 'matchMedia', {
@@ -26,7 +29,12 @@ describe('Notification', () => {
 
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <Notification badge='positive' title='title' onClose={onClose}>
+                <Notification
+                    dataTestId={dataTestId}
+                    badge='positive-checkmark'
+                    title='title'
+                    onClose={onClose}
+                >
                     text
                 </Notification>,
             );
@@ -36,38 +44,39 @@ describe('Notification', () => {
     });
 
     it('should set `data-test-id` attribute', () => {
-        const dataTestId = 'test-id';
+        const testIds = getNotificationTestIds(dataTestId);
         const { getByTestId } = render(<Notification dataTestId={dataTestId} />);
 
-        expect(getByTestId(dataTestId).tagName).toBe('DIV');
+        expect(getByTestId(testIds.component)).toBeInTheDocument();
+        expect(getByTestId(testIds.component).tagName).toBe('DIV');
     });
 
     it('should forward ref', () => {
         const ref = jest.fn();
-        const dataTestId = 'test-id';
+        const testIds = getNotificationTestIds(dataTestId);
         const { getByTestId } = render(<Notification ref={ref} dataTestId={dataTestId} />);
 
-        expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+        expect(ref.mock.calls).toEqual([[getByTestId(testIds.component)]]);
     });
 
     describe('Classes tests', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(
                 <Notification className={className} dataTestId={dataTestId} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             expect(el).toHaveClass(className);
         });
 
         it('should set `visible` class', () => {
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(<Notification visible={true} dataTestId={dataTestId} />);
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             expect(el).toHaveClass('isVisible');
         });
@@ -76,12 +85,12 @@ describe('Notification', () => {
     describe('Callbacks tests', () => {
         it('should call `onClose` prop', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(
                 <Notification hasCloser={true} onClose={cb} dataTestId={dataTestId} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
             const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
 
             fireEvent.click(closeEl);
@@ -91,7 +100,7 @@ describe('Notification', () => {
 
         it('should call `onCloseTimeout` prop', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(
                 <Notification
                     autoCloseDelay={100}
@@ -101,7 +110,7 @@ describe('Notification', () => {
                 />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             fireEvent.mouseEnter(el);
             fireEvent.mouseLeave(el);
@@ -113,12 +122,12 @@ describe('Notification', () => {
 
         it('should call `onMouseEnter` prop', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(
                 <Notification onMouseEnter={cb} dataTestId={dataTestId} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             fireEvent.mouseEnter(el);
 
@@ -127,12 +136,12 @@ describe('Notification', () => {
 
         it('should call `onMouseLeave` prop', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(
                 <Notification onMouseLeave={cb} dataTestId={dataTestId} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             fireEvent.mouseLeave(el);
 
@@ -158,12 +167,12 @@ describe('Notification', () => {
 
         it('should not call `onClickOutside` if clicked inside', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(
                 <Notification onClickOutside={cb} visible={true} dataTestId={dataTestId} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             fireEvent.click(el);
             fireEvent.click(el.firstElementChild as HTMLElement);
@@ -173,7 +182,7 @@ describe('Notification', () => {
 
         it('should not call `onClickOutside` if clicked inside another', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const testIds = getNotificationTestIds(dataTestId);
             const { getByTestId } = render(
                 <div>
                     <Notification visible={true} dataTestId={dataTestId} />
@@ -181,7 +190,7 @@ describe('Notification', () => {
                 </div>,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             fireEvent.click(el);
             fireEvent.click(el.firstElementChild as HTMLElement);

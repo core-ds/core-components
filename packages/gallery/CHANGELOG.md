@@ -1,5 +1,23 @@
 # Change Log
 
+## 5.5.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.5.1
+    -   base-modal@5.7.5
+    -   tooltip@7.3.12
+    -   icon-button@6.5.7
+
+## 5.5.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   tooltip@7.3.11
+
 ## 5.5.10
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.0.0
+
 ## 5.4.1
 
 ### Patch Changes

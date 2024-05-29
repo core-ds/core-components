@@ -8,7 +8,6 @@
 @import './modal/click.css';
 @import './toast-plate/click.css';
 @import './list/click.css';
-@import './skeleton/click.css';
 @import './dropzone/click.css';
 @import './bottom-sheet/click.css';
 @import './icon-button/click.css';
@@ -39,7 +38,6 @@
     @mixin modal-click;
     @mixin toast-plate-click;
     @mixin list-click;
-    @mixin skeleton-click;
     @mixin dropzone-click;
     @mixin bottom-sheet-click;
     @mixin icon-button-click;

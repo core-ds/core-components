@@ -1,4 +1,4 @@
-import type { FC, RefAttributes } from 'react';
+import type { ComponentType, RefAttributes } from 'react';
 
 import type { InputProps } from '@alfalab/core-components-input';
 import type {
@@ -16,7 +16,7 @@ export interface InputAutocompleteCommonProps
     /**
      * Компонент ввода значения
      */
-    Input?: FC<InputProps & RefAttributes<HTMLInputElement>>;
+    Input?: ComponentType<InputProps & RefAttributes<HTMLInputElement>>;
 
     /**
      * Пропсы, которые будут прокинуты в инпут

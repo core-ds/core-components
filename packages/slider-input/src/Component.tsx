@@ -1,7 +1,7 @@
 import React, {
     ChangeEvent,
     cloneElement,
-    FC,
+    ComponentType,
     forwardRef,
     Fragment,
     isValidElement,
@@ -69,7 +69,7 @@ export type SliderInputProps = Omit<
     /**
      * Компонент поля ввода
      */
-    Input?: FC<Omit<InputProps, 'onChange' | 'value'>>;
+    Input?: ComponentType<Omit<InputProps, 'onChange' | 'value'>>;
 
     /**
      * Кастомные пропсы для поля ввода
