@@ -1,9 +1,11 @@
 const defaultComponentBreakpoint = 1024;
 
 const getCustomBreakpoint = (): number | null => {
-    const breakpoint = window
-        ?.getComputedStyle(document.documentElement)
-        ?.getPropertyValue('--global-breakpoint-desktop');
+    const breakpoint =
+        typeof window !== 'undefined' &&
+        window
+            ?.getComputedStyle(document.documentElement)
+            ?.getPropertyValue('--global-breakpoint-desktop');
 
     return breakpoint ? parseFloat(breakpoint) : null;
 };
