@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    height: 100%;
+}
+
+.text {
+    padding: var(--gap-xs) var(--gap-m);
+}

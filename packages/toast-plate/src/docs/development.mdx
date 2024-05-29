@@ -14,6 +14,21 @@ import { ToastPlateDesktop } from '@alfalab/core-components/toast-plate/desktop'
 
 Из индекса импортируется responsive версия компонента.
 
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.\
+Для удобного поиска элементов можно воспользоваться функцией `getBaseToastPlateTestIds`.\
+Импорт из `@alfalab/core-components/toast-plate/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    badge: `${dataTestId}-badge`,,
+    component: `${dataTestId}-component`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs components={{ ToastPlateDesktop, ToastPlateMobile, ToastPlate }} />

@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.3.1
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1204](https://github.com/core-ds/core-components/pull/1204)
+
+-   Исправлен отступ в компонентах CheckboxGroup и RadioGroup в соответствии с макетом при их вертикальном расположении. Ранее отступ составлял 16px, теперь он уменьшен до 12px
+
 ## 4.3.0
 
 ### Minor Changes

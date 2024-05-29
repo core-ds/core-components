@@ -25,6 +25,11 @@ export type SkeletonProps = {
     style?: React.CSSProperties;
 
     /**
+     * Включает размытие фона
+     */
+    allowBackdropBlur?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -42,11 +47,19 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     dataTestId,
     children,
     style,
+    allowBackdropBlur,
 }) => {
     if (visible) {
         return (
             <div
-                className={cn(styles.component, { [styles.animate]: animate }, className)}
+                className={cn(
+                    styles.component,
+                    {
+                        [styles.animate]: animate,
+                        [styles.allowBackdropBlur]: allowBackdropBlur,
+                    },
+                    className,
+                )}
                 style={style}
                 data-test-id={dataTestId}
             >

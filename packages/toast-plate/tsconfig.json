@@ -12,7 +12,7 @@
     },
     "references": [
       { "path": "../icon-button" },
-      { "path": "../badge" },
+      { "path": "../status-badge" },
       { "path": "../mq" },
       { "path": "../shared" },
     ]

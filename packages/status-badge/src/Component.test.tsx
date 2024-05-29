@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { StatusBadge, StatusBadgeProps } from '.';
 
@@ -74,5 +74,31 @@ describe('Badge', () => {
         const { unmount } = render(<StatusBadge view='positive-checkmark' />);
 
         expect(unmount).not.toThrowError();
+    });
+
+    describe('Custom icons', () => {
+        it('Check custom icon', () => {
+            render(
+                <StatusBadge
+                    view='positive-checkmark'
+                    size={24}
+                    customIcons={{ 'positive-checkmark': { 24: () => <div>Icon</div> } }}
+                />,
+            );
+
+            expect(screen.queryByText('Icon')).toBeTruthy();
+        });
+
+        it('Custom icon snapshot', () => {
+            const { container } = render(
+                <StatusBadge
+                    view='positive-checkmark'
+                    size={24}
+                    customIcons={{ 'positive-checkmark': { 24: () => <div>Icon</div> } }}
+                />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
     });
 });

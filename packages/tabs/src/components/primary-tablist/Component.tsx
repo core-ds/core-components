@@ -23,6 +23,7 @@ export const PrimaryTabList = ({
     dataTestId,
     platform,
     textStyle,
+    inlineStyle,
 }: TabListProps & Styles & PlatformProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -89,11 +90,15 @@ export const PrimaryTabList = ({
             view='primary'
             size={textStyle ? undefined : size}
             platform={platform}
+            inlineStyle={inlineStyle}
         >
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        <div className={cn(styles.container, wrapperClassName, containerClassName)}>
+        <div
+            className={cn(styles.container, wrapperClassName, containerClassName)}
+            style={inlineStyle}
+        >
             {renderContent()}
         </div>
     );

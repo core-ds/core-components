@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, {
-    FC,
+    ComponentType,
     forwardRef,
     KeyboardEvent,
     MouseEvent,
@@ -22,9 +22,10 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { browser } from '@alfalab/core-components-shared';
+import { browser, os } from '@alfalab/core-components-shared';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
+import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
     handleContainer,
     hasScrollbar,
@@ -47,7 +48,7 @@ export type BaseModalProps = {
     /**
      * Компонент бэкдропа
      */
-    Backdrop?: FC<BackdropProps>;
+    Backdrop?: ComponentType<BackdropProps>;
 
     /**
      * Свойства для Бэкдропа
@@ -201,6 +202,11 @@ export type BaseModalProps = {
      * Реф, который должен быть установлен компонентной области
      */
     componentRef?: MutableRefObject<HTMLDivElement | null>;
+
+    /**
+     * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
+     */
+    iOSLock?: boolean;
 };
 
 export type BaseModalContext = {
@@ -268,6 +274,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             zIndex = stackingOrder.MODAL,
             componentRef = null,
             usePortal = true,
+            iOSLock = false,
         },
         ref,
     ) => {
@@ -348,6 +355,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
+                if (iOSLock && os.isIOS()) {
+                    unlockScroll();
+                }
+
                 if (onClose) {
                     onClose(event, reason);
                 }
@@ -362,7 +373,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 return null;
             },
-            [onBackdropClick, onClose, onEscapeKeyDown],
+            [onBackdropClick, onClose, onEscapeKeyDown, iOSLock],
         );
 
         const handleBackdropMouseDown = (event: MouseEvent<HTMLElement>) => {
@@ -468,7 +479,13 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 if (!disableBlockingScroll) {
                     const el = getContainer();
 
-                    handleContainer(el);
+                    const shouldIOSLock = iOSLock && os.isIOS();
+
+                    handleContainer(el, shouldIOSLock);
+                    if (shouldIOSLock) {
+                        syncHeight();
+                        lockScroll();
+                    }
 
                     restoreContainerStylesRef.current = () => {
                         restoreContainerStylesRef.current = null;
@@ -478,7 +495,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 setExited(false);
             }
-        }, [getContainer, open, disableBlockingScroll, isExited]);
+        }, [getContainer, open, disableBlockingScroll, isExited, iOSLock]);
 
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
@@ -495,6 +512,12 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 }
             };
         }, []);
+
+        useEffect(() => {
+            if (disableAutoFocus || !open) return;
+
+            wrapperRef.current?.focus();
+        }, [open, disableAutoFocus]);
 
         const contextValue = useMemo<BaseModalContext>(
             () => ({
@@ -530,7 +553,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 {(computedZIndex) => (
                     <BaseModalContext.Provider value={contextValue}>
                         <FocusLock
-                            autoFocus={!disableAutoFocus}
                             disabled={disableFocusLock || !open}
                             returnFocus={!disableRestoreFocus}
                         >
@@ -563,8 +585,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 onKeyDown={handleKeyDown}
                                 onMouseDown={handleBackdropMouseDown}
                                 onMouseUp={handleBackdropMouseUp}
-                                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                                tabIndex={0}
+                                tabIndex={-1}
                                 data-test-id={dataTestId}
                                 style={{
                                     zIndex: computedZIndex,

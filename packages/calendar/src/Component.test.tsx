@@ -77,6 +77,18 @@ describe('Calendar', () => {
         expect(getByTestId(testId)).toBeInTheDocument();
     });
 
+    it('should set `data-test-id` attribute for month-only view', () => {
+        const testId = 'test-id';
+        const { getByTestId } = render(<Calendar dataTestId={testId} selectorView='month-only' />);
+
+        expect(getByTestId(testId)).toBeInTheDocument();
+
+        const testIds = getCalendarMobileTestIds(testId);
+
+        expect(getByTestId(testIds.btnPreviousDate)).toBeInTheDocument();
+        expect(getByTestId(testIds.btnNextDate)).toBeInTheDocument();
+    });
+
     it('should set `data-test-id` attribute in mobile component', () => {
         const dti = 'modal-dti';
 
@@ -1402,10 +1414,9 @@ describe('Calendar', () => {
 describe('hook tests', () => {
     it('should fromDate less than toDate when initial dates is equal', () => {
         const initialDate = new Date('2024-01-01').getTime();
-        const newToDate = new Date('2024-01-02').getTime();
         const newFromDate = new Date('2023-12-01').getTime();
 
-        const { result, rerender } = renderHook(() =>
+        const { result } = renderHook(() =>
             usePeriod({
                 initialSelectedFrom: initialDate,
                 initialSelectedTo: initialDate,

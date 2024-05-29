@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.6.2
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
 ## 4.6.1
 
 ### Patch Changes

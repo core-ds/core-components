@@ -3,7 +3,7 @@ import type { HandledEvents } from 'react-swipeable/es/types';
 import type { TransitionProps } from 'react-transition-group/Transition';
 
 import type { BaseModalProps } from '@alfalab/core-components-base-modal';
-import type { NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+import type { NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
 
 import type { BackgroundColorType } from '../../types';
 
