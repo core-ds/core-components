@@ -2,8 +2,11 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import { ToastPlateDesktop as ToastPlate } from './desktop';
+import { getBaseToastPlateTestIds } from './components/base-toast-plate/utils/getBaseToastPlateTestIds';
 
 jest.useFakeTimers();
+
+const dataTestId = 'test-id';
 
 describe('Notification', () => {
     Object.defineProperty(window, 'matchMedia', {
@@ -23,7 +26,7 @@ describe('Notification', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <ToastPlate badge='positive' title='title'>
+                <ToastPlate badge='positive-checkmark' title='title' dataTestId={dataTestId}>
                     text
                 </ToastPlate>,
             );
@@ -45,40 +48,41 @@ describe('Notification', () => {
     });
 
     it('should set `data-test-id` attribute', () => {
-        const dataTestId = 'test-id';
+        const testIds = getBaseToastPlateTestIds(dataTestId);
         const { getByTestId } = render(<ToastPlate dataTestId={dataTestId} />);
 
-        expect(getByTestId(dataTestId).tagName).toBe('DIV');
+        expect(getByTestId(testIds.component)).toBeInTheDocument();
+        expect(getByTestId(testIds.component).tagName).toBe('DIV');
     });
 
     it('should forward ref', () => {
         const ref = jest.fn();
-        const dataTestId = 'test-id';
+        const testIds = getBaseToastPlateTestIds(dataTestId);
         const { getByTestId } = render(<ToastPlate ref={ref} dataTestId={dataTestId} />);
 
-        expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+        expect(ref.mock.calls).toEqual([[getByTestId(testIds.component)]]);
     });
 
     describe('Classes tests', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
-            const dataTestId = 'test-id';
+            const testIds = getBaseToastPlateTestIds(dataTestId);
             const { getByTestId } = render(
                 <ToastPlate className={className} dataTestId={dataTestId} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             expect(el).toHaveClass(className);
         });
 
         it('should set `hasCloser` class', () => {
-            const dataTestId = 'test-id';
+            const testIds = getBaseToastPlateTestIds(dataTestId);
             const { getByTestId } = render(
                 <ToastPlate hasCloser={true} dataTestId={dataTestId} onClose={jest.fn()} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
 
             expect(el).toHaveClass('hasCloser');
         });
@@ -87,12 +91,12 @@ describe('Notification', () => {
     describe('Callbacks tests', () => {
         it('should call `onClose` prop', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const testIds = getBaseToastPlateTestIds(dataTestId);
             const { getByTestId } = render(
                 <ToastPlate hasCloser={true} onClose={cb} dataTestId={dataTestId} />,
             );
 
-            const el = getByTestId(dataTestId);
+            const el = getByTestId(testIds.component);
             const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
 
             fireEvent.click(closeEl);

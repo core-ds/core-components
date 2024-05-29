@@ -1,5 +1,34 @@
 # Change Log
 
+## 5.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+
+## 5.7.4
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1216](https://github.com/core-ds/core-components/pull/1216)
+
+-   Исправлено поведение фокуса внутри модального окна
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1178](https://github.com/core-ds/core-components/pull/1178)
+
+-   При открытии модальных окон в iOS, если браузерный navbar был сжат, то в модалке сохранится возможность взаимодействия со скролом. Текущее поведение исправлено, чтобы воспользоваться, нужно передать пропс iOSLock.
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
 ## 5.7.3
 
 ### Patch Changes

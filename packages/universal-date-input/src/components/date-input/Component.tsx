@@ -28,9 +28,15 @@ import {
 
 import styles from '../../index.module.css';
 
-function getDefaultValue(defaultValue?: Date | number, withTime?: boolean) {
-    if (defaultValue && isValid(new Date(defaultValue))) {
-        return formatDate(defaultValue, withTime ? DATE_TIME_FORMAT : DATE_FORMAT);
+function getDefaultValue(defaultValue?: Date | number | string, withTime?: boolean) {
+    if (defaultValue !== undefined) {
+        if (typeof defaultValue === 'string') {
+            return defaultValue;
+        }
+
+        if (isValid(new Date(defaultValue))) {
+            return formatDate(defaultValue, withTime ? DATE_TIME_FORMAT : DATE_FORMAT);
+        }
     }
 
     return '';
@@ -94,11 +100,15 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
 
         useEffect(() => {
             if (valueProp !== undefined) {
-                setInputValue(
-                    valueProp && isValid(valueProp)
-                        ? formatDate(valueProp, withTime ? DATE_TIME_FORMAT : DATE_FORMAT)
-                        : '',
-                );
+                if (typeof valueProp === 'string') {
+                    setInputValue(valueProp);
+                } else {
+                    setInputValue(
+                        valueProp && isValid(valueProp)
+                            ? formatDate(valueProp, withTime ? DATE_TIME_FORMAT : DATE_FORMAT)
+                            : '',
+                    );
+                }
             }
         }, [valueProp, withTime]);
 

@@ -1,5 +1,33 @@
 # Change Log
 
+## 2.0.0
+
+### Major Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1114](https://github.com/core-ds/core-components/pull/1114)
+
+-   Изменили компонент, отвечающий за индикатор таба с Badge на Indicator. Следовательно, изменился тип свойства indicatorProps с BadgeProps на IndicatorProps
+
+## Миграция с предыдущей версии
+
+-   Для того чтобы передать значение в индикатор необходимо заменить content на value. Например: indicatorProps: { content: 100 } -> indicatorProps: { value: 100 }
+
+### Minor Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1114](https://github.com/core-ds/core-components/pull/1114)
+
+-   Добавили новые props accentColor и bgColor, отвечающие за цвет активного таба и фон соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   typography@4.5.1
+
 ## 1.1.0
 
 ### Minor Changes

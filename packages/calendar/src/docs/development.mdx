@@ -18,8 +18,8 @@ import { CalendarMobile, CalendarMonthOnlyView, CalendarMonthOnlyViewHeader } fr
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getCalendarMobileTestIds`.  
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getCalendarMobileTestIds`.
 Импорт из `@alfalab/core-components/calendar/shared`.
 
 Функция возвращает объект:
@@ -34,6 +34,8 @@ import { CalendarMobile, CalendarMonthOnlyView, CalendarMonthOnlyViewHeader } fr
     closer: `${dataTestId}-header-closer`,
     btnApply: `${dataTestId}-btn-apply`,
     btnReset: `${dataTestId}-btn-reset`,
+    btnNextDate: `${dataTestId}-slider-btn-next-day`,
+    btnPreviousDate: `${dataTestId}-slider-btn-previous-day`,
 };
 ```
 

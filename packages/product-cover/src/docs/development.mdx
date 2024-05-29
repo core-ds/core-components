@@ -1,0 +1,38 @@
+import { ArgsTabs } from 'storybook/blocks';
+import { ProductCover } from '../Component';
+
+## Подключение
+
+```jsx
+import { ProductCover } from '@alfalab/core-components/product-cover';
+```
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функциями `getProductCoverSingleTestIds` и `getProductCoverStackTestIds`.  
+Импорт из `@alfalab/core-components/product-cover/shared`.
+
+Функции возвращают объекты:
+
+```jsx
+//ProductCover.Single
+{
+    productCoverSingle: dataTestId,
+    userInfo: `${dataTestId}-user-info`,
+    userInfoEye: `${dataTestId}-user-info-eye-btn`,
+};
+
+//ProductCover.Stack
+{
+    productCoverStack: dataTestId,
+    firstCard: `${dataTestId}-first-card`,
+    secondCard: `${dataTestId}-second-card`,
+    userInfoFirstCard: `${dataTestId}-first-card-user-info`,
+    userInfoSecondCard: `${dataTestId}-second-card-user-info`,
+};
+```
+
+## Свойства
+
+<ArgsTabs components={ProductCover} />

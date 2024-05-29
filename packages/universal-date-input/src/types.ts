@@ -117,12 +117,12 @@ export interface InnerDateInputProps extends Omit<BaseUniversalDateInputProps, '
     /**
      *  Дата
      */
-    value?: Date | number | null;
+    value?: Date | number | string | null;
 
     /**
      *  Дата по умолчанию
      */
-    defaultValue?: Date | number;
+    defaultValue?: Date | number | string;
 
     /**
      * Флаг, открыт ли календарь

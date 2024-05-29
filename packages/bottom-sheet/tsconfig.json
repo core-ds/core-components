@@ -15,7 +15,7 @@
         { "path": "../base-modal" },
         { "path": "../icon-button" },
         { "path": "../typography" },
-        { "path": "../navigation-bar" },
+        { "path": "../navigation-bar-private" },
         { "path": "../shared" }
     ]
 }

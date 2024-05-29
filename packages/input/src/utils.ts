@@ -9,5 +9,8 @@ export function getInputTestIds(dataTestId: string) {
         rightAddons: getDataTestId(dataTestId, 'form-control-right-addons'),
         error: getDataTestId(dataTestId, 'form-control-error-message'),
         hint: getDataTestId(dataTestId, 'form-control-hint'),
+        errorIcon: getDataTestId(dataTestId, 'error-icon'),
+        successIcon: getDataTestId(dataTestId, 'success-icon'),
+        clearIcon: getDataTestId(dataTestId, 'clear-icon'),
     };
 }

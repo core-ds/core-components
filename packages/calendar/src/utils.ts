@@ -297,5 +297,7 @@ export function getCalendarMobileTestIds(dataTestId: string) {
         closer: getDataTestId(dataTestId, 'header-closer'),
         btnApply: getDataTestId(dataTestId, 'btn-apply'),
         btnReset: getDataTestId(dataTestId, 'btn-reset'),
+        btnNextDate: getDataTestId(dataTestId, 'slider-btn-next-day'),
+        btnPreviousDate: getDataTestId(dataTestId, 'slider-btn-previous-day'),
     };
 }

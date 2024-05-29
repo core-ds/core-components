@@ -10,5 +10,5 @@
 }
 
 .footer {
-    padding: var(--gap-s) 0 var(--gap-2xs) var(--gap-2xs);
+    padding: var(--gap-xs) 0 var(--gap-2xs) var(--gap-2xs);
 }

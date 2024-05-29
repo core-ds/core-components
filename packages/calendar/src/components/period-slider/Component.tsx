@@ -5,6 +5,7 @@ import startOfWeek from 'date-fns/startOfWeek';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 
 import { monthName } from '../../utils';
@@ -129,7 +130,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     onMonthClick,
     onYearClick,
     onPeriodClick,
-    dataTestId,
+    dataTestId = 'period-slider',
     emptyValueText = 'Укажите период',
 }) => {
     const [valueFrom, valueTo] = useMemo(() => {
@@ -253,6 +254,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                     onClick={handlePrevArrowClick}
                     disabled={prevArrowDisabled || !valueFrom}
                     aria-label='Предыдущий период'
+                    dataTestId={getDataTestId(dataTestId, 'btn-previous-day')}
                 />
             )}
 
@@ -266,6 +268,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                     onClick={handleNextArrowClick}
                     disabled={nextArrowDisabled || !valueFrom}
                     aria-label='Следующий период'
+                    dataTestId={getDataTestId(dataTestId, 'btn-next-day')}
                 />
             )}
         </div>

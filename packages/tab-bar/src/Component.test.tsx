@@ -49,6 +49,18 @@ describe('TagBar', () => {
             expect(getByTestId(dti)).toHaveClass('border');
         });
 
+        it('should set `modal-bg-alt-primary` className if bgColor=`modal-bg-alt-primary`', () => {
+            const { getByTestId } = render(<TabBarComponent bgColor='modal-bg-alt-primary' />);
+
+            expect(getByTestId(dti)).toHaveClass('modal-bg-alt-primary');
+        });
+
+        it('should set `secondary` className if accentColor=`secondary`', () => {
+            const { getAllByTestId } = render(<TabBarComponent accentColor='secondary' />);
+
+            expect(getAllByTestId(`${dti}-tab`)[0]).toHaveClass('secondary');
+        });
+
         it('should set classes for every tab if tabClassNames specified', () => {
             const { getAllByTestId } = render(
                 <TabBarComponent

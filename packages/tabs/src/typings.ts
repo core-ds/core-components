@@ -221,6 +221,10 @@ export type TabListProps = Pick<
      * @default 1024
      */
     breakpoint?: number;
+    /**
+     * Дополнительные инлайн стили для заголовка
+     */
+    inlineStyle?: React.CSSProperties;
 };
 
 export type SecondaryTabListProps = TabListProps & {

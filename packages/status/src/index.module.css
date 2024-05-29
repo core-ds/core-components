@@ -12,8 +12,12 @@
     border-radius: var(--border-radius-s);
     text-align: center;
     text-transform: uppercase;
-    white-space: nowrap;
     letter-spacing: 0.5px;
+
+    & .ellipsis {
+        @mixin row_limit 1;
+        word-break: break-all;
+    }
 
     &:empty {
         padding: 0;

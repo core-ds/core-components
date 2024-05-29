@@ -1,12 +1,20 @@
 import React, { forwardRef, HTMLAttributes, MouseEvent, ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 
-import { Badge } from '@alfalab/core-components-badge';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
-import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
-import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
+import { getDataTestId } from '@alfalab/core-components-shared';
+import {
+    StatusBadge,
+    StatusBadgeCustomIcon,
+    StatusBadgeProps,
+    StatusBadgeViews,
+} from '@alfalab/core-components-status-badge';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+
+import { useCustomIcons } from './hooks/useCustomIcons';
+import { useDeprecatedBadge } from './hooks/useDeprecatedBadge';
+import { unsafe_BadgeProps } from './types/unsafeBadgeProps';
+import { isUnsafeBadge } from './utils/isUnsafeBadge';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -15,12 +23,6 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-export type BadgeIcons = {
-    negative: JSX.Element;
-    positive: JSX.Element;
-    attention: JSX.Element;
 };
 
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
@@ -57,7 +59,7 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Вид бэйджа
      */
-    badge?: 'negative' | 'positive' | 'attention';
+    badge?: unsafe_BadgeProps | StatusBadgeViews;
 
     /**
      * Слот слева, заменяет стандартную иконку
@@ -100,9 +102,9 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
 
     /**
-     * Функция, с помощью которой можно переопределить иконки в Badge
+     * Функция, с помощью которой можно переопределить иконки в StatusBadge
      */
-    getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
+    getBadgeIcons?: StatusBadgeCustomIcon;
 
     /**
      * Набор цветов для компонента
@@ -118,12 +120,6 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
-};
-
-const iconDefaultComponents = {
-    negative: <CrossCircleMIcon className={commonStyles.badgeIcon} />,
-    positive: <CheckmarkCircleMIcon className={commonStyles.badgeIcon} />,
-    attention: <AlertCircleMIcon className={commonStyles.badgeIcon} />,
 };
 
 export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
@@ -154,9 +150,8 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
 
-        const iconComponents = getBadgeIcons
-            ? getBadgeIcons(iconDefaultComponents)
-            : iconDefaultComponents;
+        const { transformDeprecatedBadge } = useDeprecatedBadge();
+        const { getCustomIcons } = useCustomIcons();
 
         const handleClose = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -167,6 +162,14 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             [onClose],
         );
 
+        let statusBadgeView = badge;
+
+        if (badge && isUnsafeBadge(badge)) {
+            statusBadgeView = transformDeprecatedBadge(badge);
+        }
+
+        const customIcons = getCustomIcons(getBadgeIcons);
+
         return (
             <div
                 className={cn(
@@ -176,23 +179,21 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                     className,
                 )}
                 ref={ref}
-                data-test-id={dataTestId}
+                data-test-id={getDataTestId(dataTestId, 'component')}
                 {...restProps}
             >
                 <div className={commonStyles.wrapper}>
                     <div className={commonStyles.contentWrapper}>
                         {needRenderLeftAddons && (
                             <div className={commonStyles.leftAddons}>
-                                {leftAddons || (
-                                    <Badge
-                                        view='icon'
-                                        content={badge && iconComponents[badge]}
-                                        iconColor={badge}
-                                        className={commonStyles.badge}
-                                        dataTestId='badge'
-                                        visibleColorOutline={true}
-                                    />
-                                )}
+                                {leftAddons ||
+                                    (badge && (
+                                        <StatusBadge
+                                            view={statusBadgeView as StatusBadgeProps['view']}
+                                            dataTestId={getDataTestId(dataTestId, 'badge')}
+                                            {...(customIcons && { customIcons })}
+                                        />
+                                    ))}
                             </div>
                         )}
                         <div

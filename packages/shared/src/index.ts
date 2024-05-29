@@ -8,3 +8,4 @@ export * from './browser';
 export * from './hooks';
 export * from './os';
 export * from './dom';
+export * from './exhaustiveCheck';

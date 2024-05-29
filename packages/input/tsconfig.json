@@ -15,7 +15,7 @@
         { "path": "../button" },
         { "path": "../form-control" },
         { "path": "../loader" },
-        { "path": "../badge" },
+        { "path": "../status-badge" },
         { "path": "../mq" },
         { "path": "../shared" }
     ]

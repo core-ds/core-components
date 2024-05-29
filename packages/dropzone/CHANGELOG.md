@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1194](https://github.com/core-ds/core-components/pull/1194)
+
+-   Изменен тип параметра на Files[] в обработчике onDrop
+
 ## 3.5.1
 
 ### Patch Changes

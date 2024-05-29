@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, SVGProps } from 'react';
+import React, { ComponentType, forwardRef, SVGProps } from 'react';
 import cn from 'classnames';
 
 import type { ButtonProps } from '@alfalab/core-components-button';
@@ -41,7 +41,7 @@ export type PickerButtonDesktopProps = Omit<
                 /**
                  * Иконка, отображающаяся слева от текстового представления пункта
                  */
-                icon?: FC<SVGProps<SVGSVGElement>>;
+                icon?: ComponentType<SVGProps<SVGSVGElement>>;
             }
         >;
 
@@ -61,6 +61,11 @@ export type PickerButtonDesktopProps = Omit<
          * @default true
          */
         showArrow?: boolean;
+
+        /**
+         * Кастомная иконка при variant = compact
+         */
+        icon?: ComponentType<SVGProps<SVGSVGElement>>;
     };
 
 export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesktopProps>(
@@ -81,6 +86,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             showArrow,
             Field = DefaultField,
             fieldProps = {},
+            icon,
             ...restProps
         },
         ref,
@@ -98,6 +104,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             rightAddons,
             showArrow,
             breakpoint: 1,
+            icon,
         };
 
         return (

@@ -5,7 +5,11 @@ exports[`Status Snapshots tests should match view="contrast" snapshot 1`] = `
   <span
     class="component green contrast"
   >
-    Label
+    <span
+      class="ellipsis"
+    >
+      Label
+    </span>
   </span>
 </div>
 `;
@@ -15,7 +19,11 @@ exports[`Status Snapshots tests should match view="soft" snapshot 1`] = `
   <span
     class="component green soft"
   >
-    Label
+    <span
+      class="ellipsis"
+    >
+      Label
+    </span>
   </span>
 </div>
 `;

@@ -1,5 +1,26 @@
 # Change Log
 
+## 8.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.3
+
+## 8.2.7
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+-   Обновлены зависимости
+    -   input@14.4.2
+    -   slider@4.6.2
+
 ## 8.2.6
 
 ### Patch Changes

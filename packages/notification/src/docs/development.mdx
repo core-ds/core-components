@@ -9,6 +9,21 @@ import styles from '!!raw-loader!../index.module.css';
 import { Notification } from '@alfalab/core-components/notification';
 ```
 
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.\
+Для удобного поиска элементов можно воспользоваться функцией `getNotificationTestIds`.\
+Импорт из `@alfalab/core-components/notification/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    badge: `${dataTestId}-badge`,,
+    component: `${dataTestId}-component`,
+};
+```
+
 ## Свойства
 
 <ArgTypes of={Notification} />

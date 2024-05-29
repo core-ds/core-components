@@ -52,7 +52,7 @@ export const Tabs = ({
     );
 
     return (
-        <div className={className} style={style}>
+        <div className={className}>
             <TabList
                 containerClassName={containerClassName}
                 size={size}
@@ -68,6 +68,7 @@ export const Tabs = ({
                 tagShape={tagShape}
                 tagView={tagView}
                 textStyle={textStyle}
+                inlineStyle={style}
             />
 
             {tabs.map((tab) => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}

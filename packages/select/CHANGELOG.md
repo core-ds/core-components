@@ -1,5 +1,36 @@
 # Change Log
 
+## 17.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.0.0
+    -   shared@0.10.0
+    -   base-modal@5.7.5
+    -   bottom-sheet@6.15.1
+    -   button@11.4.3
+    -   checkbox@4.3.1
+    -   form-control@12.2.2
+    -   input@14.4.3
+    -   modal@9.3.1
+
+## 17.4.3
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   bottom-sheet@6.15.0
+    -   modal@9.3.0
+    -   input@14.4.2
+
 ## 17.4.2
 
 ### Patch Changes

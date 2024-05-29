@@ -31,24 +31,26 @@ render(() => {
 
 Каждый таб может иметь индикатор.
 
-```jsx live mobileOnly mobileHeight={395}
+```jsx live mobileOnly mobileHeight={612}
 const INDICATOR_OPTIONS = [
     { showIndicator: false, label: 'Без индикатора' },
     { showIndicator: true, label: 'Индикатор без значения' },
     {
         showIndicator: true,
-        indicatorProps: { content: 7 },
+        indicatorProps: { value: 7 },
         label: '7 уведомлений',
     },
     {
         showIndicator: true,
-        indicatorProps: { content: 100 },
+        indicatorProps: { value: 100 },
         label: '99+ уведомлений',
     },
 ];
 
 render(() => {
     const [selectedId, setSelectedId] = React.useState('Tab1');
+    const [accentColor, setAccentColor] = React.useState('primary');
+    const [bgColor, setBgColor] = React.useState('modal-bg-primary');
     const [optionId, setOptionId] = React.useState('0');
     const [textOverflow, setTextOverflow] = React.useState(false);
 
@@ -66,7 +68,7 @@ render(() => {
                     {selectedId}
                 </Typography.Text>
 
-                <Gap size='xl' />
+                <Gap size='s' />
 
                 <Switch
                     label='Длинное название таба'
@@ -85,10 +87,39 @@ render(() => {
                         <Radio size='m' value={String(idx)} label={option.label} key={idx} />
                     ))}
                 </RadioGroup>
+
+                <Gap size='xl' />
+
+                <RadioGroup
+                    onChange={(_, { value }) => setAccentColor(value)}
+                    value={accentColor}
+                    label='Цвет активного таба'
+                >
+                    <Radio label='Accent-primary' value='primary' size='m' />
+                    <Radio label='Accent-secondary' value='secondary' size='m' />
+                </RadioGroup>
+
+                <Gap size='xl' />
+
+                <RadioGroup
+                    onChange={(_, { value }) => setBgColor(value)}
+                    value={bgColor}
+                    label='Цвет подложки'
+                >
+                    <Radio label='Modal-bg-primary' value='modal-bg-primary' size='m' />
+                    <Radio label='Modal-bg-alt-primary' value='modal-bg-alt-primary' size='m' />
+                </RadioGroup>
+                <Gap size='l' />
             </div>
 
             <div style={{ margin: '0 -20px -20px' }}>
-                <TabBar selectedId={selectedId} onChange={setSelectedId} border={true}>
+                <TabBar
+                    bgColor={bgColor}
+                    accentColor={accentColor}
+                    selectedId={selectedId}
+                    onChange={setSelectedId}
+                    border={true}
+                >
                     {Array(5)
                         .fill(null)
                         .map((_, idx) => {
