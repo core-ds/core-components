@@ -52,6 +52,7 @@ export const icon_button: Story = {
                     )}
                     icon={Icon}
                     colors={colors}
+                    transparentBg={boolean('transparentBg', false)}
                     disabled={boolean('disabled', false)}
                     loading={boolean('loading', false)}
                 />
