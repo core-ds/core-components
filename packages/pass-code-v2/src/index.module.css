@@ -2,21 +2,17 @@
 @import './vars.css';
 
 .component {
-    max-width: var(--pass-code-max-width);
-    margin: var(--gap-xs) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    box-sizing: border-box;
+    min-height: var(--pass-code-v2-min-height);
+    height: var(--pass-code-v2-height);
+    padding: var(--gap-xs) 0 var(--gap-m);
 }
 
-.message {
-    @mixin paragraph_primary_medium;
-
-    min-height: 24px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: var(--color-light-text-primary);
-}
-
-.error {
-    color: var(--color-light-text-negative);
+.inputProgressContainer {
+    position: relative;
+    flex: 1 0 auto;
 }

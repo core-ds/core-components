@@ -15,14 +15,14 @@
 }
 
 /* prettier-ignore */
-@each $size in 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256 {
+@each $size in 0, 1, 2, 4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 64, 72, 96, 128, 256 {
     .vertical.gap[data-gap-size='size-$(size)'] {
         height: $(size)px;
     }
 }
 
 /* prettier-ignore */
-@each $size in 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256 {
+@each $size in 0, 1, 2, 4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 64, 72, 96, 128, 256 {
     .horizontal.gap[data-gap-size='size-$(size)'] {
         width: $(size)px;
     }

@@ -3,45 +3,42 @@ import cn from 'classnames';
 
 import { Gap } from '@alfalab/core-components-gap';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { Toast } from '@alfalab/core-components-toast';
 
 import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';
 
 import styles from './index.module.css';
+import { useComponent } from './hooks/useComponent';
 
 export type BasePassCodeProps = {
     /**
-     * Код.
+     * Код
      */
     value: string;
 
     /**
-     * Обработчик изменения кода.
+     * Обработчик изменения кода
      */
     onChange: (code: string) => void;
 
     /**
-     * Дополнительный класс.
+     * Дополнительный класс
      */
     className?: string;
 
     /**
      * Отображение ошибки
      */
-    error?: ReactNode;
+    error?: string;
 
     /**
-     *  Сообщение над клавиатурой
-     */
-    message?: ReactNode;
-
-    /**
-     * Слот слева.
+     * Слот слева
      */
     leftAddons?: ReactNode;
 
     /**
-     * Слот справа.
+     * Слот справа
      */
     rightAddons?: ReactNode;
 
@@ -84,13 +81,13 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             leftAddons,
             rightAddons,
             error,
-            message,
             onChange,
             maxCodeLength = 10,
             codeLength,
         },
         ref,
     ) => {
+        const { errorToastOpen, inputProgressRef, setErrorToastOpen } = useComponent(error);
         const passwordLen = codeLength || maxCodeLength;
 
         const handleChange = (digit: number) => {
@@ -107,40 +104,33 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             }
         };
 
-        const renderError = () => (
-            <div
-                className={cn(styles.message, styles.error)}
-                data-test-id={getDataTestId(dataTestId, 'error')}
-            >
-                {error}
-            </div>
-        );
-
-        const renderMessage = () => (
-            <div className={styles.message} data-test-id={getDataTestId(dataTestId, 'message')}>
-                {message}
-            </div>
-        );
-
         return (
             <div
                 className={cn(styles.component, className)}
                 ref={ref}
                 data-test-id={getDataTestId(dataTestId, 'wrapper')}
             >
-                {error ? renderError() : renderMessage()}
-
-                <Gap size='m' />
-
-                <InputProgress
-                    dataTestId={dataTestId}
-                    value={value}
-                    maxCodeLength={maxCodeLength}
-                    codeLength={codeLength}
-                    error={Boolean(error)}
-                />
-
-                <Gap size='4xl' />
+                <div className={cn(styles.inputProgressContainer)} ref={inputProgressRef}>
+                    <Toast
+                        title={error}
+                        open={errorToastOpen}
+                        anchorElement={inputProgressRef.current}
+                        fallbackPlacements={['top']}
+                        position='top'
+                        badge='negative-alert'
+                        autoCloseDelay={2000}
+                        onClose={() => setErrorToastOpen(false)}
+                    />
+                    <Gap size={16} />
+                    <InputProgress
+                        dataTestId={dataTestId}
+                        value={value}
+                        maxCodeLength={maxCodeLength}
+                        codeLength={codeLength}
+                        error={Boolean(error)}
+                    />
+                    <Gap size={28} />
+                </div>
 
                 <KeyPad
                     dataTestId={dataTestId}

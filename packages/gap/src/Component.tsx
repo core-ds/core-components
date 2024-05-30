@@ -27,6 +27,7 @@ type Size =
     | 16
     | 20
     | 24
+    | 28
     | 32
     | 40
     | 48
@@ -91,6 +92,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     16: 'size-16',
     20: 'size-20',
     24: 'size-24',
+    28: 'size-28',
     32: 'size-32',
     40: 'size-40',
     48: 'size-48',

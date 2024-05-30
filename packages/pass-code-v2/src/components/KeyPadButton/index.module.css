@@ -51,19 +51,3 @@
         background: var(--button-bg-color-active);
     }
 }
-
-@media screen and (min-width: 360px) {
-    .button.button {
-        min-width: 76px;
-        height: 76px;
-        width: 76px;
-    }
-}
-
-@media screen and (min-width: 390px) {
-    .button.button {
-        min-width: 86px;
-        width: 86px;
-        height: 86px;
-    }
-}
