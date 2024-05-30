@@ -2,10 +2,12 @@
 
 .component {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, var(--size-l-height));
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: var(--gap-3xl);
     grid-row-gap: var(--gap-2s);
+    justify-content: center;
+
     margin: 0 auto;
     min-width: var(--pass-code-v2-min-width);
 

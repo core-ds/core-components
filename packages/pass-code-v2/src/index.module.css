@@ -10,6 +10,8 @@
     min-height: var(--pass-code-v2-min-height);
     height: var(--pass-code-v2-height);
     padding: var(--gap-xs) 0 var(--gap-m);
+
+    background-color: var(--color-dark-bg-secondary-inverted);
 }
 
 .inputProgressContainer {

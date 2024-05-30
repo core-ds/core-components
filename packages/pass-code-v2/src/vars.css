@@ -2,6 +2,7 @@
     --pass-code-v2-min-width: 304px;
     --pass-code-v2-min-height: 378px;
     --pass-code-v2-height: 100%;
-    --button-bg-color: var(--color-light-neutral-translucent-200);
-    --button-bg-color-active: var(--color-light-neutral-translucent-200-press);
+    --pass-code-button-width: var(--size-l-height);
+    --pass-code-button-min-width: var(--size-l-height);
+    --pass-code-button-height: var(--size-l-height);
 }

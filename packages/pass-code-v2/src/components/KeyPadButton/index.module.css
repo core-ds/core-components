@@ -1,21 +1,15 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
-.component {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-}
-
 .button.button {
     @mixin action_component_secondary;
 
     border-radius: var(--border-radius-circle);
     padding: 0;
-    min-width: 64px;
-    width: 64px;
-    height: 64px;
+    min-width: var(--pass-code-button-min-width);
+    width: var(--pass-code-button-width);
+    height: var(--pass-code-button-height);
+
     text-align: center;
 
     & > span {
@@ -27,27 +21,16 @@
     }
 }
 
-.secondary.secondary {
+.secondary.secondary,
+.button.button {
     color: var(--color-light-text-primary);
-    background: var(--button-bg-color);
+    background-color: var(--color-light-transparent-default);
 
     &:hover {
-        color: var(--color-light-text-primary);
+        background-color: var(--color-light-transparent-default-hover);
     }
 
     &:active {
-        background: var(--button-bg-color-active);
-    }
-}
-
-.ghost.ghost {
-    color: var(--color-light-text-primary);
-
-    &:hover {
-        color: var(--color-light-text-primary);
-    }
-
-    &:active {
-        background: var(--button-bg-color-active);
+        background-color: var(--color-light-transparent-default-press);
     }
 }
