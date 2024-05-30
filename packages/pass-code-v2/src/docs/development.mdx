@@ -1,0 +1,41 @@
+import { CssVars } from 'storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { PassCode } from '../Component';
+import vars from '!!raw-loader!../vars.css';
+
+## Подключение
+
+```jsx
+import { PassCode } from '@alfalab/core-components/pass-code';
+
+// Если добавляете аддон, то можно обернуть его в KeyPadButton. Так не понадобится подгонять стили под другие кнопки.
+import { KeyPadButton } from '@alfalab/core-components/pass-code';
+```
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getPassCodeTestIds`.  
+Импорт из `@alfalab/core-components/pass-code/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    passCode: `${dataTestId}-wrapper`,
+    inputProgress: `${dataTestId}-input-progress`,
+    keypad: `${dataTestId}-keypad`,
+    keypadButton: `${dataTestId}-keypad-button`,
+    backspaceButton: `${dataTestId}-backspace-button`,
+    error: `${dataTestId}-error`,
+    message: `${dataTestId}-message`,
+};
+```
+
+## Свойства
+
+<ArgsTable of={PassCode} />
+
+## Переменные
+
+<CssVars css={vars} />
