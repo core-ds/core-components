@@ -26,7 +26,8 @@ export const pass_code: Story = {
                         height: 'calc(100vh - 60px)',
                         position: 'fixed',
                         bottom: 0,
-                        width: '100%',
+                        left: 0,
+                        right: 0,
                     }}
                 >
                     <PassCode

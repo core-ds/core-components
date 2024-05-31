@@ -14,7 +14,7 @@ describe('PassCode ', () => {
             packageName: 'pass-code',
             knobs: {},
         },
-        '',
+        'transform:translateX(-8px)',
         {
             screenshotOpts: {
                 fullPage: true,
