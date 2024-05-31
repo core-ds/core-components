@@ -7,9 +7,9 @@ import { Toast } from '@alfalab/core-components-toast';
 
 import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';
+import { useComponent } from './hooks/useComponent';
 
 import styles from './index.module.css';
-import { useComponent } from './hooks/useComponent';
 
 export type BasePassCodeProps = {
     /**
