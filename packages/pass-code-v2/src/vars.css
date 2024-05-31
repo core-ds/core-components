@@ -5,4 +5,8 @@
     --pass-code-button-width: var(--size-l-height);
     --pass-code-button-min-width: var(--size-l-height);
     --pass-code-button-height: var(--size-l-height);
+    --pass-code-dot-width: 12px;
+    --pass-code-dot-height: 12px;
+    --pass-code-dot-container-width: 14px;
+    --pass-code-dot-container-height: 14px;
 }

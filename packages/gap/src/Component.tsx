@@ -27,6 +27,7 @@ type Size =
     | 16
     | 20
     | 24
+    | 26
     | 28
     | 32
     | 40
@@ -41,7 +42,7 @@ export type GapProps = {
     /**
      * Размер отступа
      * @description 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl deprecated,
-     * используйте 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256
+     * используйте 2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256
      */
     size: Size;
 
@@ -92,6 +93,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     16: 'size-16',
     20: 'size-20',
     24: 'size-24',
+    26: 'size-26',
     28: 'size-28',
     32: 'size-32',
     40: 'size-40',

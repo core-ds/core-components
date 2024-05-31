@@ -1,29 +1,45 @@
 @import '../../../../themes/src/default.css';
 
 .component {
-    height: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
-.dot {
-    margin: 0 6px;
-    width: 12px;
-    height: 12px;
-    background: var(--color-light-neutral-translucent-300);
-    border-radius: var(--border-radius-circle);
-    flex-shrink: 0;
-    transition: background 75ms ease-in;
-    will-change: transform, opacity;
+.dotWrapper {
+    width: var(--pass-code-dot-container-width);
+    height: var(--pass-code-dot-container-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
 
-    &.error {
-        background: var(--color-light-status-negative);
-        transition: none;
+    &:last-child {
+        margin-right: 0;
     }
 }
 
-.filled {
-    background: var(--color-light-neutral-1500);
+.dot {
+    width: var(--pass-code-dot-width);
+    height: var(--pass-code-dot-height);
+    background: var(--color-light-neutral-translucent-300);
+    border-radius: var(--border-radius-circle);
+    flex-shrink: 0;
+
+    &.filled {
+        animation: dotFilled 100ms ease-in forwards;
+        background: var(--color-light-neutral-translucent-1300);
+    }
+
+    &.error {
+        background: var(--color-light-status-negative);
+    }
+}
+
+@keyframes dotFilled {
+    50% {
+        width: var(--pass-code-dot-container-width);
+        height: var(--pass-code-dot-container-height);
+        animation-timing-function: ease-out;
+    }
 }

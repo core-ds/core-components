@@ -34,13 +34,15 @@ export const InputProgress: React.FC<InputProgressProps> = ({
                   const filled = Boolean(value[i]);
 
                   return (
-                      <div
-                          key={i}
-                          className={cn(styles.dot, {
-                              [styles.error]: filled && error,
-                              [styles.filled]: filled,
-                          })}
-                      />
+                      <div className={cn(styles.dotWrapper)}>
+                          <div
+                              key={i}
+                              className={cn(styles.dot, {
+                                  [styles.error]: filled && error,
+                                  [styles.filled]: filled,
+                              })}
+                          />
+                      </div>
                   );
               })
             : new Array(maxCodeLength).fill(null).map((_, i) => (
@@ -51,7 +53,11 @@ export const InputProgress: React.FC<InputProgressProps> = ({
                       classNames={transitions}
                       unmountOnExit={true}
                   >
-                      <div className={cn(styles.dot, styles.filled, { [styles.error]: error })} />
+                      <div className={cn(styles.dotWrapper)}>
+                          <div
+                              className={cn(styles.dot, styles.filled, { [styles.error]: error })}
+                          />
+                      </div>
                   </CSSTransition>
               ))}
     </div>

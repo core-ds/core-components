@@ -129,7 +129,7 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
                         codeLength={codeLength}
                         error={Boolean(error)}
                     />
-                    <Gap size={28} />
+                    <Gap size={26} />
                 </div>
 
                 <KeyPad
