@@ -11,9 +11,16 @@ describe('PassCode ', () => {
     createPreview(
         {
             componentName: 'PassCode',
+            packageName: 'pass-code',
             knobs: {},
         },
-        'transform:scale(0.9);padding-bottom:100px',
+        '',
+        {
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: { width: 360, height: 640 },
+        },
     );
 });
 
@@ -25,6 +32,7 @@ describe(
                 'default',
                 createStorybookUrl({
                     componentName: 'PassCode',
+                    packageName: 'pass-code',
                     testStory: false,
                     knobs: { value: '1234' },
                 }),
@@ -33,22 +41,16 @@ describe(
                 'with error',
                 createStorybookUrl({
                     componentName: 'PassCode',
+                    packageName: 'pass-code',
                     testStory: false,
                     knobs: { value: '1234', error: 'Error message' },
-                }),
-            ],
-            [
-                'with message',
-                createStorybookUrl({
-                    componentName: 'PassCode',
-                    testStory: false,
-                    knobs: { value: '1234', message: 'Message' },
                 }),
             ],
             [
                 'with addons',
                 createStorybookUrl({
                     componentName: 'PassCode',
+                    packageName: 'pass-code',
                     testStory: false,
                     knobs: { leftAddons: true, rightAddons: true },
                 }),
@@ -57,18 +59,15 @@ describe(
                 'with codeLength prop',
                 createStorybookUrl({
                     componentName: 'PassCode',
+                    packageName: 'pass-code',
                     testStory: false,
                     knobs: { codeLength: 4, value: '12' },
                 }),
             ],
         ],
+        viewport: { width: 360, height: 640 },
         screenshotOpts: {
-            clip: {
-                x: 0,
-                y: 0,
-                width: 520,
-                height: 550,
-            },
+            fullPage: true,
         },
     }),
 );

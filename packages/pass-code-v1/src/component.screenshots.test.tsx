@@ -7,10 +7,11 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('PassCode ', () => {
+describe('PassCodeV1 ', () => {
     createPreview(
         {
-            componentName: 'PassCode',
+            componentName: 'PassCodeV1',
+            packageName: 'pass-code-v1',
             knobs: {},
         },
         'transform:scale(0.9);padding-bottom:100px',
@@ -18,13 +19,14 @@ describe('PassCode ', () => {
 });
 
 describe(
-    'PassCode',
+    'PassCodeV1',
     screenshotTesting({
         cases: [
             [
                 'default',
                 createStorybookUrl({
-                    componentName: 'PassCode',
+                    componentName: 'PassCodeV1',
+                    packageName: 'pass-code-v1',
                     testStory: false,
                     knobs: { value: '1234' },
                 }),
@@ -32,7 +34,8 @@ describe(
             [
                 'with error',
                 createStorybookUrl({
-                    componentName: 'PassCode',
+                    componentName: 'PassCodeV1',
+                    packageName: 'pass-code-v1',
                     testStory: false,
                     knobs: { value: '1234', error: 'Error message' },
                 }),
@@ -40,7 +43,8 @@ describe(
             [
                 'with message',
                 createStorybookUrl({
-                    componentName: 'PassCode',
+                    componentName: 'PassCodeV1',
+                    packageName: 'pass-code-v1',
                     testStory: false,
                     knobs: { value: '1234', message: 'Message' },
                 }),
@@ -48,7 +52,8 @@ describe(
             [
                 'with addons',
                 createStorybookUrl({
-                    componentName: 'PassCode',
+                    componentName: 'PassCodeV1',
+                    packageName: 'pass-code-v1',
                     testStory: false,
                     knobs: { leftAddons: true, rightAddons: true },
                 }),
@@ -56,7 +61,8 @@ describe(
             [
                 'with codeLength prop',
                 createStorybookUrl({
-                    componentName: 'PassCode',
+                    componentName: 'PassCodeV1',
+                    packageName: 'pass-code-v1',
                     testStory: false,
                     knobs: { codeLength: 4, value: '12' },
                 }),
