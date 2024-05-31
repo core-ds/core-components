@@ -7,8 +7,8 @@
     justify-content: end;
 
     box-sizing: border-box;
-    min-height: var(--pass-code-v2-min-height);
-    height: var(--pass-code-v2-height);
+    min-height: var(--pass-code-min-height);
+    height: var(--pass-code-height);
     padding: var(--gap-xs) 0 var(--gap-m);
 
     background-color: var(--color-dark-bg-secondary-inverted);

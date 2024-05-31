@@ -1,21 +1,21 @@
 import { Story } from '@storybook/addon-docs';
 import { number, text, boolean } from '@storybook/addon-knobs';
 
-import { PassCode, KeyPadButton } from '@alfalab/core-components-pass-code-v2';
+import { PassCode, KeyPadButton } from '@alfalab/core-components-pass-code';
 import { SfFaceIdXxlIcon } from '@alfalab/icons-glyph/SfFaceIdXxlIcon';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 const meta: Meta<typeof PassCode> = {
-    title: 'Components/PassCodeV2',
+    title: 'Components/PassCode',
     component: PassCode,
-    id: 'PassCodeV2',
+    id: 'PassCode',
 };
 
 type Story = StoryObj<typeof PassCode>;
 
-export const pass_code_v2: Story = {
-    name: 'PassCodeV2',
+export const pass_code: Story = {
+    name: 'PassCode',
     render: () => {
         const codeLength = number('codeLength', 0, { min: 0, max: 12, range: true });
 

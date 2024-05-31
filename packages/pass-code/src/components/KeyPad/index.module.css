@@ -9,7 +9,7 @@
     justify-content: center;
 
     margin: 0 auto;
-    min-width: var(--pass-code-v2-min-width);
+    min-width: var(--pass-code-min-width);
 
     & .digit.digit {
         font-size: 36px;
