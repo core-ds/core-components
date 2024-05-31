@@ -41,7 +41,7 @@
     --select-checkmark-before-display-multiple: block;
     --select-checkmark-after-display-single: none;
     --select-checkmark-unselected-opacity: 0;
-    --select-checkmark-background: var(--color-light-neutral-1500);
+    --select-checkmark-background: var(--color-light-neutral-translucent-1300);
     --select-checkmark-border-radius: var(--border-radius-circle);
     --select-mobile-checkmark-display-icon: block;
     --select-mobile-checkmark-display-badge: none;

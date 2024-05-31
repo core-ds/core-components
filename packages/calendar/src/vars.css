@@ -52,6 +52,6 @@
     --calendar-disabled-background: transparent;
 
     /* marker */
-    --calendar-marker-background: var(--color-light-neutral-1500);
-    --calendar-marker-selected-background: var(--color-light-neutral-1500-inverted);
+    --calendar-marker-background: var(--color-light-neutral-translucent-1300);
+    --calendar-marker-selected-background: var(--color-light-neutral-translucent-1300-inverted);
 }

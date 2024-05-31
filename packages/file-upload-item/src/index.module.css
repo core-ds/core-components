@@ -39,7 +39,7 @@
 .icon {
     display: block;
     flex-shrink: 0;
-    color: var(--color-light-neutral-1500);
+    color: var(--color-light-neutral-translucent-1300);
 }
 
 .errorIcon {

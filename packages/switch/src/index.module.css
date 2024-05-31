@@ -22,7 +22,7 @@
     --switch-disabled-checked-bg-color: var(--switch-disabled-bg-color);
 
     /* icon */
-    --switch-icon-color: var(--color-static-neutral-1500-inverted);
+    --switch-icon-color: var(--color-static-neutral-0);
     --switch-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 

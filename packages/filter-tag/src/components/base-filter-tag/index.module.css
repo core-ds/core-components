@@ -73,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-light-neutral-1500);
+    color: var(--color-light-neutral-translucent-1300);
 }
 
 .valueButton {
@@ -201,7 +201,7 @@
         background-color: var(--tag-background-color-checked);
 
         & > .chevron {
-            color: var(--color-light-neutral-1500-inverted);
+            color: var(--color-light-neutral-translucent-1300-inverted);
         }
 
         &.rounded {

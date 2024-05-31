@@ -10,18 +10,18 @@
 
     & svg > path {
         transition: fill 0.2s ease;
-        fill: var(--color-light-neutral-1500);
+        fill: var(--color-light-neutral-translucent-1300);
     }
 
     &:hover {
         & svg > path {
-            fill: var(--color-light-neutral-1500-hover);
+            fill: var(--color-light-neutral-translucent-1300-hover);
         }
     }
 
     &:active {
         & svg > path {
-            fill: var(--color-light-neutral-1500-press);
+            fill: var(--color-light-neutral-translucent-1300-press);
         }
     }
 }
