@@ -5,7 +5,7 @@ import { Color, Typography } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 
-export type Props = {
+export type FooterTextProps = {
     /**
      * Цвет текста
      */
@@ -23,7 +23,11 @@ export type Props = {
     children?: ReactNode;
 };
 
-export const FooterText: React.FC<Props> = ({ children, color = 'secondary', dataTestId }) => {
+export const FooterText: React.FC<FooterTextProps> = ({
+    children,
+    color = 'secondary',
+    dataTestId,
+}) => {
     const pureCellContext = useContext(PureCellContext);
 
     return (
