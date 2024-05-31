@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
+exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = `
 <div>
   <div
     class="component"
@@ -178,7 +178,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
 </div>
 `;
 
-exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
+exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
 <div>
   <div
     class="component"
@@ -374,7 +374,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
 </div>
 `;
 
-exports[`PassCode Snapshot tests should match snapshot with unknown code length 1`] = `
+exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code length 1`] = `
 <div>
   <div
     class="component"

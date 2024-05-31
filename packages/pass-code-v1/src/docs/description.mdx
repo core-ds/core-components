@@ -133,7 +133,7 @@ render(() => {
                 height: 600,
             }}
         >
-            <PassCode {...passCodeParams} value={code} onChange={handleChange} error={error} />
+            <PassCodeV1 {...passCodeParams} value={code} onChange={handleChange} error={error} />
 
             {passCodeParams.maxCodeLength > 0 && (
                 <Button block view='primary' onClick={() => validate(code)}>

@@ -75,7 +75,7 @@ type PropsWithLen = {
 
 type PassCodeProps = BasePassCodeProps & (PropsWithLen | PropsWithUnknownLen);
 
-export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
+export const PassCodeV1 = forwardRef<HTMLDivElement, PassCodeProps>(
     (
         {
             value = '',
