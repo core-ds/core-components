@@ -1,12 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
-export const useComponent = (error?: string) => {
-    const [errorToastOpen, setErrorToastOpen] = useState<boolean>(false);
+export const usePassCode = () => {
     const inputProgressRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        setErrorToastOpen(Boolean(error));
-    }, [error]);
-
-    return { errorToastOpen, inputProgressRef, setErrorToastOpen };
+    return { inputProgressRef };
 };

@@ -84,7 +84,8 @@ describe('PassCode', () => {
             const errorMessage = 'Error message';
             const { getByTestId } = render(
                 <PassCode
-                    error={errorMessage}
+                    error
+                    errorMessage={errorMessage}
                     value='1234'
                     codeLength={4}
                     onChange={jest.fn}

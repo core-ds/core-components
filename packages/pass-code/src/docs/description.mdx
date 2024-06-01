@@ -131,6 +131,8 @@ render(() => {
                 flexFlow: 'column nowrap',
                 justifyContent: 'space-between',
                 height: 600,
+                boxSizing: 'border-box',
+                paddingTop: '60px',
             }}
         >
             <PassCode {...passCodeParams} value={code} onChange={handleChange} error={error} />

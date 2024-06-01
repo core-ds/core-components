@@ -7,7 +7,7 @@ import { Toast } from '@alfalab/core-components-toast';
 
 import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';
-import { useComponent } from './hooks/useComponent';
+import { usePassCode } from './hooks/useComponent';
 
 import styles from './index.module.css';
 
@@ -28,9 +28,15 @@ export type BasePassCodeProps = {
     className?: string;
 
     /**
-     * Отображение ошибки
+     * Отображение ошибки ввода
      */
-    error?: string;
+    error?: boolean;
+
+    /**
+     * Сообщение ошибки ввода
+     * @default 'Неправильный код'
+     */
+    errorMessage?: string;
 
     /**
      * Слот слева
@@ -81,13 +87,14 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             leftAddons,
             rightAddons,
             error,
+            errorMessage = 'Неправильный код',
             onChange,
             maxCodeLength = 10,
             codeLength,
         },
         ref,
     ) => {
-        const { errorToastOpen, inputProgressRef, setErrorToastOpen } = useComponent(error);
+        const { inputProgressRef } = usePassCode();
         const passwordLen = codeLength || maxCodeLength;
 
         const handleChange = (digit: number) => {
@@ -112,14 +119,14 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             >
                 <div className={cn(styles.inputProgressContainer)} ref={inputProgressRef}>
                     <Toast
-                        title={error}
-                        open={errorToastOpen}
+                        title={errorMessage}
+                        open={Boolean(error)}
                         anchorElement={inputProgressRef.current}
                         fallbackPlacements={['top']}
                         position='top'
                         badge='negative-alert'
                         autoCloseDelay={2000}
-                        onClose={() => setErrorToastOpen(false)}
+                        onClose={() => {}}
                     />
                     <Gap size={16} />
                     <InputProgress
