@@ -101,7 +101,7 @@ export type BaseInputProps = Omit<
     /**
      * Атрибут type
      */
-    type?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
+    type?: 'number' | 'email' | 'money' | 'password' | 'tel' | 'text';
 
     /**
      * Ref для обертки input
