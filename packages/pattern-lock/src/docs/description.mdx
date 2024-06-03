@@ -38,6 +38,12 @@ render(() => {
 
     return (
         <Container align='center'>
+            <div style={
+                {...(isMobile() && {
+                    height: '600px',
+                    paddingTop: '50px'
+                })}
+            }>
             <PatternLock
                 ref={patternLockInstance}
                 onComplete={handleComplete}
@@ -48,6 +54,7 @@ render(() => {
                 showForgotCodeBtn={true}
                 breakpoint={BREAKPOINT}
             />
+            </div>
         </Container>
     );
 });
