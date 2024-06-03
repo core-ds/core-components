@@ -48,7 +48,7 @@ export const BasePatternLock = forwardRef<
             { theme: Theme; width: number; height: number } | undefined
         >();
 
-        const { inputProgressRef } = usePatternLock();
+        const { patternLockRef } = usePatternLock();
 
         useEffect(() => {
             const { elementSizes, width, height } = getSizes();
@@ -108,12 +108,12 @@ export const BasePatternLock = forwardRef<
                     [commonStyles.hidden]: !params,
                 })}
                 data-test-id={dataTestId}
-                ref={inputProgressRef}
+                ref={patternLockRef}
             >
                 <Toast
                     title={errorMessage}
                     open={Boolean(error)}
-                    anchorElement={inputProgressRef.current}
+                    anchorElement={patternLockRef.current}
                     fallbackPlacements={['top']}
                     position='top'
                     badge='negative-alert'
