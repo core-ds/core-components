@@ -38,12 +38,12 @@ describe(
                 }),
             ],
             [
-                'with error',
+                'with message',
                 createStorybookUrl({
                     componentName: 'PassCode',
                     packageName: 'pass-code',
                     testStory: false,
-                    knobs: { value: '1234', error: 'Error message' },
+                    knobs: { value: '1234', message: 'Message' },
                 }),
             ],
             [

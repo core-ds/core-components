@@ -10,11 +10,20 @@
     min-height: var(--pass-code-min-height);
     height: var(--pass-code-height);
     padding: var(--gap-xs) 0 var(--gap-m);
-
-    background-color: var(--color-dark-bg-secondary-inverted);
 }
 
 .inputProgressContainer {
     position: relative;
     flex: 1 0 auto;
+}
+
+.message {
+    @mixin paragraph_primary_medium;
+
+    min-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-light-text-primary);
 }

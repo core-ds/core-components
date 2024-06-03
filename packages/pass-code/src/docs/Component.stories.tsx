@@ -35,6 +35,7 @@ export const pass_code: Story = {
                         onChange={() => {}}
                         maxCodeLength={number('maxCodeLength', 8, { min: 0, max: 12, range: true })}
                         codeLength={codeLength === 0 ? undefined : codeLength}
+                        message={text('message', '')}
                         error={boolean('error', false)}
                         errorMessage={text('errorMessage', 'Неправильный код')}
                         leftAddons={

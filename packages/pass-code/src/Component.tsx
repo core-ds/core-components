@@ -33,6 +33,11 @@ export type BasePassCodeProps = {
     error?: boolean;
 
     /**
+     *  Сообщение над клавиатурой
+     */
+    message?: ReactNode;
+
+    /**
      * Сообщение ошибки ввода
      * @default 'Неправильный код'
      */
@@ -87,6 +92,7 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             leftAddons,
             rightAddons,
             error,
+            message,
             errorMessage = 'Неправильный код',
             onChange,
             maxCodeLength = 10,
@@ -111,43 +117,52 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             }
         };
 
-        return (
-            <div
-                className={cn(styles.component, className)}
-                ref={ref}
-                data-test-id={getDataTestId(dataTestId, 'wrapper')}
-            >
-                <div className={cn(styles.inputProgressContainer)} ref={inputProgressRef}>
-                    <Toast
-                        title={errorMessage}
-                        open={Boolean(error)}
-                        anchorElement={inputProgressRef.current}
-                        fallbackPlacements={['top']}
-                        position='top'
-                        badge='negative-alert'
-                        autoCloseDelay={2000}
-                        onClose={() => {}}
-                    />
-                    <Gap size={16} />
-                    <InputProgress
-                        dataTestId={dataTestId}
-                        value={value}
-                        maxCodeLength={maxCodeLength}
-                        codeLength={codeLength}
-                        error={Boolean(error)}
-                    />
-                    <Gap size={26} />
-                </div>
-
-                <KeyPad
-                    dataTestId={dataTestId}
-                    leftAddons={leftAddons}
-                    rightAddons={rightAddons}
-                    onClick={handleChange}
-                    onClear={handleClear}
-                    showClear={Boolean(value)}
-                />
+        const renderMessage = () => (
+            <div className={styles.message} data-test-id={getDataTestId(dataTestId, 'message')}>
+                {message}
             </div>
+        );
+
+        return (
+            <React.Fragment>
+                {message && renderMessage()}
+                <div
+                    className={cn(styles.component, className)}
+                    ref={ref}
+                    data-test-id={getDataTestId(dataTestId, 'wrapper')}
+                >
+                    <div className={cn(styles.inputProgressContainer)} ref={inputProgressRef}>
+                        <Toast
+                            title={errorMessage}
+                            open={Boolean(error)}
+                            anchorElement={inputProgressRef.current}
+                            fallbackPlacements={['top']}
+                            position='top'
+                            badge='negative-alert'
+                            autoCloseDelay={2000}
+                            onClose={() => {}}
+                        />
+                        <Gap size={16} />
+                        <InputProgress
+                            dataTestId={dataTestId}
+                            value={value}
+                            maxCodeLength={maxCodeLength}
+                            codeLength={codeLength}
+                            error={Boolean(error)}
+                        />
+                        <Gap size={26} />
+                    </div>
+
+                    <KeyPad
+                        dataTestId={dataTestId}
+                        leftAddons={leftAddons}
+                        rightAddons={rightAddons}
+                        onClick={handleChange}
+                        onClear={handleClear}
+                        showClear={Boolean(value)}
+                    />
+                </div>
+            </React.Fragment>
         );
     },
 );
