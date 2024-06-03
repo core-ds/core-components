@@ -20,7 +20,8 @@ async function testComponent(
     clip = DEFAULT_CLIP,
 ) {
     const pageUrl = createStorybookUrl({
-        componentName: 'PatternLock',
+        componentName: 'PatternLockV1',
+        packageName: 'pattern-lock-v1',
         testStory: false,
         knobs: {},
         ...urlParams,
@@ -52,7 +53,7 @@ async function testComponent(
     }
 }
 
-describe('PatternLock ', () => {
+describe('PatternLockV1', () => {
     test('preview', async () => {
         await testComponent(
             {
@@ -87,7 +88,7 @@ describe('PatternLock ', () => {
     });
 });
 
-describe('PatternLock | screenshots', () => {
+describe('PatternLockV1 | screenshots', () => {
     test('default', async () => {
         await testComponent({});
     });

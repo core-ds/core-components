@@ -6,6 +6,6 @@ import { CommonPatternLockProps } from '../typings';
 
 import styles from './desktop.module.css';
 
-export const PatternLockDesktop = forwardRef<TPatternLockInstance, CommonPatternLockProps>(
+export const PatternLockDesktopV1 = forwardRef<TPatternLockInstance, CommonPatternLockProps>(
     (restProps, ref) => <BasePatternLock {...restProps} hover={true} ref={ref} styles={styles} />,
 );

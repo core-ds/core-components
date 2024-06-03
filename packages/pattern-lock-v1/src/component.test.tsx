@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import { PatternLockMobile as PatternLock } from './mobile';
+import { PatternLockMobileV1 as PatternLockV1 } from './mobile';
 import { getPatternLockTestIds, getSizes } from './utils';
 
 jest.mock('react-canvas-pattern-lock', () => {
@@ -27,16 +27,16 @@ const mutationObserverMock = jest.fn<any, any>(function MutationObserver(this: M
 });
 global.MutationObserver = mutationObserverMock;
 
-describe('PatternLock test', () => {
+describe('PatternLockV1 test', () => {
     describe('Snapshot tests', () => {
         it('should match snapshot', () => {
-            const { container } = render(<PatternLock />);
+            const { container } = render(<PatternLockV1 />);
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with error prop', () => {
-            const { container } = render(<PatternLock error='Error message' />);
+            const { container } = render(<PatternLockV1 error='Error message' />);
 
             expect(container).toMatchSnapshot();
         });
@@ -46,7 +46,7 @@ describe('PatternLock test', () => {
         it('should set `data-test-id` attribute', () => {
             const dti = 'pattern-lock-dti';
             const { getByTestId } = render(
-                <PatternLock
+                <PatternLockV1
                     message='message'
                     onForgotBtnClick={jest.fn()}
                     forgotCodeBtnText='кнопка'
@@ -62,7 +62,7 @@ describe('PatternLock test', () => {
             expect(getByTestId(testIds.message)).toBeInTheDocument();
 
             const { getByTestId: getByTestIdError } = render(
-                <PatternLock error='error' dataTestId={dti} />,
+                <PatternLockV1 error='error' dataTestId={dti} />,
             );
 
             expect(getByTestIdError(testIds.error)).toBeInTheDocument();
@@ -70,14 +70,14 @@ describe('PatternLock test', () => {
 
         it('should set `className` class', () => {
             const className = 'test-class';
-            const { container } = render(<PatternLock className={className} />);
+            const { container } = render(<PatternLockV1 className={className} />);
 
             expect(container.firstElementChild).toHaveClass(className);
         });
 
         it('should shown message', () => {
             const message = 'message';
-            const { getByText } = render(<PatternLock message={message} />);
+            const { getByText } = render(<PatternLockV1 message={message} />);
 
             const messageElement = getByText(message);
 
@@ -86,7 +86,7 @@ describe('PatternLock test', () => {
 
         it('should shown error message', () => {
             const errorMessage = 'Error message';
-            const { getByText } = render(<PatternLock error={errorMessage} />);
+            const { getByText } = render(<PatternLockV1 error={errorMessage} />);
 
             const errorElement = getByText(errorMessage);
 
@@ -97,7 +97,7 @@ describe('PatternLock test', () => {
             const testId = 'pattern-lock';
             const onForgotBtnClick = jest.fn();
             const { getByTestId } = render(
-                <PatternLock
+                <PatternLockV1
                     showForgotCodeBtn={true}
                     onForgotBtnClick={onForgotBtnClick}
                     dataTestId={testId}
@@ -120,7 +120,7 @@ describe('PatternLock test', () => {
     });
 
     it('should be created mutation observer instance', () => {
-        render(<PatternLock observeTokens={true} />);
+        render(<PatternLockV1 observeTokens={true} />);
 
         const [observerInstance] = mutationObserverMock.mock.instances;
         expect(observerInstance.observe).toHaveBeenCalledTimes(1);
@@ -129,7 +129,7 @@ describe('PatternLock test', () => {
     });
 
     it('should unmount without errors', () => {
-        const { unmount } = render(<PatternLock />);
+        const { unmount } = render(<PatternLockV1 />);
 
         expect(unmount).not.toThrowError();
     });
