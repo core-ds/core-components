@@ -11,6 +11,10 @@
     max-width: 100%;
     box-sizing: border-box;
 
+    &.block {
+        width: 100%;
+    }
+
     &.disabled {
         background-color: var(--tag-outlined-background-color-disabled);
     }
@@ -92,6 +96,11 @@
     border-style: solid;
     transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     margin: 0;
+
+    &.block {
+        width: inherit;
+        justify-content: center;
+    }
 
     &:disabled {
         cursor: var(--disabled-cursor);
