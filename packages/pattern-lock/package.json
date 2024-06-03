@@ -1,7 +1,7 @@
 {
-    "name": "@alfalab/core-components-pattern-lock-v1",
+    "name": "@alfalab/core-components-pattern-lock",
     "version": "1.7.2",
-    "description": "Pattern lock v1 (deprecated)",
+    "description": "Pattern lock",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
@@ -18,6 +18,7 @@
         "@alfalab/core-components-button": "^11.4.3",
         "@alfalab/core-components-shared": "^0.10.0",
         "@alfalab/core-components-mq": "^4.2.0",
+        "@alfalab/core-components-toast": "^6.0.0",
         "react-canvas-pattern-lock": "^2.0.6",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"

@@ -1,4 +1,4 @@
-# @alfalab/core-components-pattern-lock-v1
+# @alfalab/core-components-pattern-lock
 
 ## 1.7.2
 

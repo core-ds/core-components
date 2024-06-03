@@ -2,7 +2,7 @@
 @import '../vars.css';
 
 .component {
-    max-width: var(--pattern-lock-max-width);
+    max-width: var(--pattern-lock-v1-max-width);
     margin: var(--gap-xs) 0 var(--gap-xl) 0;
 }
 

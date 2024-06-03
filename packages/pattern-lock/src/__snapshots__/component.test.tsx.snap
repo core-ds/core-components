@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PatternLock test Snapshot tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component component"
+  >
+    <div
+      class="patternContainer"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,5 @@
+:root {
+    --pattern-lock-min-width: 304px;
+    --pattern-lock-min-height: 272px;
+    --pattern-lock-with-forgot-btn-min-height: 336px;
+}
