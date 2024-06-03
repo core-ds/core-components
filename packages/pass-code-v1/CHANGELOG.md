@@ -1,4 +1,4 @@
-# @alfalab/core-components-pass-code
+# @alfalab/core-components-pass-code-v1
 
 ## 1.5.5
 

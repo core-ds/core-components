@@ -1,7 +1,7 @@
 {
     "name": "@alfalab/core-components-pass-code",
-    "version": "0.0.1",
-    "description": "Pass code v2",
+    "version": "1.5.5",
+    "description": "Pass code",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
