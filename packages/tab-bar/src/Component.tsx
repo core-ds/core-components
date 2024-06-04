@@ -53,4 +53,6 @@ const TabBarComponent = forwardRef<HTMLDivElement, TabBarProps>(
     },
 );
 
+TabBarComponent.displayName = 'TabBarComponent';
+
 export const TabBar = Object.assign(TabBarComponent, { Tab });

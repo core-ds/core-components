@@ -162,3 +162,5 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
         );
     },
 );
+
+Indicator.displayName = 'Indicator';

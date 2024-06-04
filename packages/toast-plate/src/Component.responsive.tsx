@@ -29,3 +29,5 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
         );
     },
 );
+
+ToastPlate.displayName = 'ToastPlate';

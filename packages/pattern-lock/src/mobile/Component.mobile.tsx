@@ -9,3 +9,5 @@ import styles from './mobile.module.css';
 export const PatternLockMobile = forwardRef<TPatternLockInstance, CommonPatternLockProps>(
     (restProps, ref) => <BasePatternLock {...restProps} ref={ref} styles={styles} />,
 );
+
+PatternLockMobile.displayName = 'PatternLockMobile';

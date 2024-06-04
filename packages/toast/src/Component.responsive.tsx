@@ -23,3 +23,5 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         );
     },
 );
+
+Toast.displayName = 'Toast';

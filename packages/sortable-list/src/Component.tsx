@@ -201,3 +201,6 @@ export const SortableList = forwardRef<HTMLDivElement, SortableListProps>(
         );
     },
 );
+
+SortableList.displayName = 'SortableList';
+DragOverlay.displayName = 'DragOverlay';

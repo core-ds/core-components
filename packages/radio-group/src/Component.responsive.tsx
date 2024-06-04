@@ -25,3 +25,5 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         return <Component ref={ref} {...restProps} />;
     },
 );
+
+RadioGroup.displayName = 'RadioGroup';
