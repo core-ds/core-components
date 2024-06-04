@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: var(--pass-code-progress-container-min-height);
 }
 
 .dotWrapper {
@@ -28,12 +29,16 @@
     flex-shrink: 0;
 
     &.filled {
-        animation: dotFilled 100ms ease-in forwards;
+        animation: dotFilled 200ms ease-in forwards;
         background: var(--color-light-neutral-translucent-1300);
     }
 
     &.error {
         background: var(--color-light-status-negative);
+    }
+
+    &.success {
+        background: var(--color-light-status-positive);
     }
 }
 

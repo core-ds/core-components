@@ -3,8 +3,7 @@
 Компоненту можно передать длину кода, в этом случае он сразу отобразит нужное количество точек над пин-падом.
 Если длина неизвестна, после каждого нажатия на пин-пад будет добавляться новая точка.
 Кнопка удаления появляется после ввода первого символа.
-После валидации компонент может отобразить состоянии ошибки и вывести сообщение.
-Состояния успеха для цифрового кода не предусмотренно, пользователь просто пойдёт дальше по сценарию.
+После валидации компонент может отобразить состоянии ошибки.
 Корректная комбинация для примера `0451`.
 
 ```jsx live mobileHeight={640}
@@ -21,6 +20,8 @@ render(() => {
     const [error, setError] = React.useState(false);
     const [code, setCode] = React.useState('');
     const [passCodeParams, setPassCodeParams] = React.useState();
+    const passCodeRef = React.useRef(null);
+    const [isSuccess, setSuccess] = React.useState(false);
 
     const validate = (codeToValidate) => {
         if (codeToValidate !== VALID_CODE) {
@@ -38,17 +39,33 @@ render(() => {
 
             return;
         }
+        setSuccess(true);
 
-        setTimeout(() => setScreen(SCREENS.SUCCESS), 500);
+        setTimeout(() => setScreen(SCREENS.SUCCESS), 700);
     };
 
     const handleChange = (value) => {
         setCode(value);
         setError(false);
+        setSuccess(false);
 
         if (passCodeParams.codeLength > 0 && value.length === MAX_LENGTH) {
             validate(value);
         }
+    };
+
+    const renderMessage = () => {
+        if ('codeLength' in passCodeParams) {
+            return (
+                <div style={{ textAlign: 'center' }}>
+                    <Typography.Text view='primary-medium'>
+                        Введите код из четырёх цифр
+                    </Typography.Text>
+                </div>
+            );
+        }
+
+        return null;
     };
 
     if (screen === SCREENS.INITIAL) {
@@ -91,7 +108,7 @@ render(() => {
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        flex: 1,
+                        ...(isMobile() && { flex: 1 }),
                     }}
                 >
                     <div style={{ textAlign: 'center' }}>
@@ -104,17 +121,28 @@ render(() => {
 
                         <Gap size='m' />
 
-                        <Typography.Text view='primary-medium' weight='bold'>
-                            Введён корректный код
+                        <Typography.Title view='small' font='system'>
+                            Введён корректный пароль
+                        </Typography.Title>
+
+                        <Gap size={16} />
+
+                        <Typography.Text view='primary-medium'>
+                            Это пример экрана, на который попадает пользователь после ввода
+                            корректного пароля
                         </Typography.Text>
                     </div>
 
+                    <Gap size={24} />
+
                     <Button
-                        block
                         onClick={() => {
                             setScreen(SCREENS.INITIAL);
                             setError(false);
                             setCode('');
+                        }}
+                        style={{
+                            ...(isMobile() && { width: 320 }),
                         }}
                     >
                         Попробовать ещё раз
@@ -124,21 +152,105 @@ render(() => {
         );
     }
 
+    if (isMobile()) {
+        return (
+            <div
+                style={{
+                    height: 600,
+                    boxSizing: 'border-box',
+                    paddingTop: passCodeParams.maxCodeLength > 0 ? '60px' : '36px',
+                }}
+            >
+                <div style={{ height: passCodeParams.maxCodeLength > 0 ? 464 : 504 }}>
+                    <Toast
+                        title={'Error message'}
+                        open={Boolean(error)}
+                        anchorElement={passCodeRef.current}
+                        position='top'
+                        badge='negative-alert'
+                        style={{ width: '320px' }}
+                        onClose={() => {}}
+                    />
+                    {renderMessage()}
+                    <PassCode
+                        {...passCodeParams}
+                        ref={passCodeRef}
+                        value={code}
+                        onChange={handleChange}
+                        error={error}
+                        success={isSuccess}
+                        leftAddons={
+                            <KeyPadButton view='text' key='left-addon'>
+                                Забыли код?
+                            </KeyPadButton>
+                        }
+                        rightAddons={
+                            <KeyPadButton view='text' key='right-addon'>
+                                <SfFaceIdXxlIcon />
+                            </KeyPadButton>
+                        }
+                    />
+
+                    {passCodeParams.maxCodeLength > 0 && (
+                        <React.Fragment>
+                            <Gap size={20} />
+                            <Button
+                                style={{ display: 'block', width: '304px', margin: '0 auto' }}
+                                view='primary'
+                                onClick={() => validate(code)}
+                            >
+                                Продолжить
+                            </Button>
+                        </React.Fragment>
+                    )}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div
             style={{
-                display: 'flex',
-                flexFlow: 'column nowrap',
-                justifyContent: 'space-between',
                 height: 600,
                 boxSizing: 'border-box',
-                paddingTop: '60px',
+                paddingTop: '107px',
             }}
         >
-            <PassCode {...passCodeParams} value={code} onChange={handleChange} error={error} />
+            <Toast
+                title={'Error message'}
+                open={Boolean(error)}
+                anchorElement={passCodeRef.current}
+                position='top'
+                badge='negative-alert'
+                style={{ width: '304px' }}
+                onClose={() => {}}
+            />
+            {renderMessage()}
+            <PassCode
+                {...passCodeParams}
+                ref={passCodeRef}
+                value={code}
+                onChange={handleChange}
+                error={error}
+                success={isSuccess}
+                leftAddons={
+                    <KeyPadButton view='text' key='left-addon'>
+                        Забыли код?
+                    </KeyPadButton>
+                }
+                rightAddons={
+                    <KeyPadButton view='text' key='right-addon'>
+                        <SfFaceIdXxlIcon />
+                    </KeyPadButton>
+                }
+            />
 
             {passCodeParams.maxCodeLength > 0 && (
-                <Button block view='primary' onClick={() => validate(code)}>
+                <Button
+                    style={{ display: 'block', width: '304px', margin: '0 auto' }}
+                    view='primary'
+                    onClick={() => validate(code)}
+                >
                     Продолжить
                 </Button>
             )}

@@ -21,39 +21,28 @@ export const pass_code: Story = {
 
         return (
             <div style={{ height: '100vh' }}>
-                <div
-                    style={{
-                        height: 'calc(100vh - 60px)',
-                        position: 'fixed',
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                    }}
-                >
-                    <PassCode
-                        value={text('value', '')}
-                        onChange={() => {}}
-                        maxCodeLength={number('maxCodeLength', 8, { min: 0, max: 12, range: true })}
-                        codeLength={codeLength === 0 ? undefined : codeLength}
-                        message={text('message', '')}
-                        error={boolean('error', false)}
-                        errorMessage={text('errorMessage', 'Неправильный код')}
-                        leftAddons={
-                            boolean('leftAddons', false) && (
-                                <KeyPadButton view='text' key='left-addon'>
-                                    Забыли код?
-                                </KeyPadButton>
-                            )
-                        }
-                        rightAddons={
-                            boolean('rightAddons', false) && (
-                                <KeyPadButton view='text' key='right-addon'>
-                                    <SfFaceIdXxlIcon />
-                                </KeyPadButton>
-                            )
-                        }
-                    />
-                </div>
+                <PassCode
+                    value={text('value', '')}
+                    onChange={() => {}}
+                    maxCodeLength={number('maxCodeLength', 8, { min: 0, max: 12, range: true })}
+                    codeLength={codeLength === 0 ? undefined : codeLength}
+                    error={boolean('error', false)}
+                    success={boolean('success', false)}
+                    leftAddons={
+                        boolean('leftAddons', false) && (
+                            <KeyPadButton view='text' key='left-addon'>
+                                Забыли код?
+                            </KeyPadButton>
+                        )
+                    }
+                    rightAddons={
+                        boolean('rightAddons', false) && (
+                            <KeyPadButton view='text' key='right-addon'>
+                                <SfFaceIdXxlIcon />
+                            </KeyPadButton>
+                        )
+                    }
+                />
             </div>
         );
     },

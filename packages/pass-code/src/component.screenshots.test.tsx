@@ -38,15 +38,6 @@ describe(
                 }),
             ],
             [
-                'with message',
-                createStorybookUrl({
-                    componentName: 'PassCode',
-                    packageName: 'pass-code',
-                    testStory: false,
-                    knobs: { value: '1234', message: 'Message' },
-                }),
-            ],
-            [
                 'with addons',
                 createStorybookUrl({
                     componentName: 'PassCode',
@@ -62,6 +53,24 @@ describe(
                     packageName: 'pass-code',
                     testStory: false,
                     knobs: { codeLength: 4, value: '12' },
+                }),
+            ],
+            [
+                'with error',
+                createStorybookUrl({
+                    componentName: 'PassCode',
+                    packageName: 'pass-code',
+                    testStory: false,
+                    knobs: { codeLength: 4, value: '1234', error: true },
+                }),
+            ],
+            [
+                'with success',
+                createStorybookUrl({
+                    componentName: 'PassCode',
+                    packageName: 'pass-code',
+                    testStory: false,
+                    knobs: { codeLength: 4, value: '1234', success: true },
                 }),
             ],
         ],

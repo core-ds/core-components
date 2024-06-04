@@ -14,6 +14,7 @@ export type InputProgressProps = {
     error: boolean;
     value?: string;
     dataTestId?: string;
+    success?: boolean;
 };
 
 const TRANSITION_DURATION = 150;
@@ -24,6 +25,7 @@ export const InputProgress: React.FC<InputProgressProps> = ({
     codeLength,
     error,
     dataTestId,
+    success,
 }) => (
     <div
         className={cn(styles.component, { [transitions.shake]: error })}
@@ -39,6 +41,7 @@ export const InputProgress: React.FC<InputProgressProps> = ({
                               className={cn(styles.dot, {
                                   [styles.error]: filled && error,
                                   [styles.filled]: filled,
+                                  [styles.success]: success,
                               })}
                           />
                       </div>
@@ -54,7 +57,10 @@ export const InputProgress: React.FC<InputProgressProps> = ({
                   >
                       <div className={cn(styles.dotWrapper)}>
                           <div
-                              className={cn(styles.dot, styles.filled, { [styles.error]: error })}
+                              className={cn(styles.dot, styles.filled, {
+                                  [styles.error]: error,
+                                  [styles.success]: success,
+                              })}
                           />
                       </div>
                   </CSSTransition>

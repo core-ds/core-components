@@ -2,14 +2,7 @@
 @import './vars.css';
 
 .component {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-
-    box-sizing: border-box;
     min-height: var(--pass-code-min-height);
-    height: var(--pass-code-height);
-    padding: var(--gap-xs) 0 var(--gap-m);
 }
 
 .inputProgressContainer {
