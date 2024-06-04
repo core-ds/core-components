@@ -109,6 +109,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
 
+        const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
+
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
                 return magneticAreasProp.map((area) =>
@@ -226,6 +228,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const scrollToArea = (idx: number) => {
+            if (isFirstRender) {
+                initialIndexRef.current = idx;
+
+                return;
+            }
+
             stopSwiping(null);
             const nextArea = magneticAreas[idx];
             const nextAreaIdx = getActiveAreaIndex(nextArea);
@@ -438,7 +446,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         });
 
         const handleExited = (node: HTMLElement) => {
-            const idx = initialActiveAreaIndex as number;
+            const idx = initialIndexRef.current as number;
 
             setBackdropOpacity(1);
             setSheetOffset(isNil(idx) ? magneticAreas[0] : lastMagneticArea - magneticAreas[idx]);
@@ -450,7 +458,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
-            onMagnetize?.(initialActiveAreaIndex ?? magneticAreas.length - 1);
+            onMagnetize?.(initialIndexRef.current ?? magneticAreas.length - 1);
 
             if (transitionProps.onEnter) {
                 transitionProps.onEnter(node, isAppearing);
@@ -481,7 +489,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (!isFirstRender) {
                 // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
                 if (activeAreaIdx === -1) {
-                    const idx = initialActiveAreaIndex as number;
+                    const idx = initialIndexRef.current as number;
 
                     setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
                     setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
