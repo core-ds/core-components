@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { PatternLockMobile as PatternLock } from './mobile';
-import { getPatternLockTestIds, getSizes } from './utils';
+import { getPatternLockTestIds } from './utils';
 
 jest.mock('react-canvas-pattern-lock', () => {
     return {
@@ -41,7 +41,6 @@ describe('PatternLock test', () => {
             const dti = 'pattern-lock-dti';
             const { getByTestId } = render(
                 <PatternLock
-                    message='message'
                     onForgotBtnClick={jest.fn()}
                     forgotCodeBtnText='кнопка'
                     showForgotCodeBtn={true}
@@ -53,7 +52,6 @@ describe('PatternLock test', () => {
 
             expect(getByTestId(testIds.patternLock)).toBeInTheDocument();
             expect(getByTestId(testIds.forgotCodeBtn)).toBeInTheDocument();
-            expect(getByTestId(testIds.message)).toBeInTheDocument();
         });
 
         it('should set `className` class', () => {
@@ -61,15 +59,6 @@ describe('PatternLock test', () => {
             const { container } = render(<PatternLock className={className} />);
 
             expect(container.firstElementChild).toHaveClass(className);
-        });
-
-        it('should shown message', () => {
-            const message = 'message';
-            const { getByText } = render(<PatternLock message={message} />);
-
-            const messageElement = getByText(message);
-
-            expect(messageElement).toBeInTheDocument();
         });
 
         it('should call onForgotBtnClick', () => {
@@ -89,12 +78,6 @@ describe('PatternLock test', () => {
 
             expect(buttonEl).toBeInTheDocument();
             expect(onForgotBtnClick).toBeCalledTimes(1);
-        });
-    });
-
-    describe('utils test', function () {
-        it('should return "l" size', function () {
-            expect(getSizes().width).toBe(322);
         });
     });
 

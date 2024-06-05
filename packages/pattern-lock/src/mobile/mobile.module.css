@@ -2,12 +2,8 @@
 @import '../vars.css';
 
 .component {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
     margin: 0 auto;
     min-width: var(--pattern-lock-min-width);
-    height: 100%;
 }
 
 .forgotBtn {

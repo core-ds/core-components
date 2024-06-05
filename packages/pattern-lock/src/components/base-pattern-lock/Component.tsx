@@ -5,7 +5,6 @@ import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Toast } from '@alfalab/core-components-toast';
 
 import {
     DEFAULT_EXTRA_BOUNDS,
@@ -13,7 +12,6 @@ import {
     OBSERVE_OPTIONS,
     THEME_STATE,
 } from '../../consts';
-import { usePatternLock } from '../../hooks/usePatternLock';
 import type { CommonPatternLockProps, PrivatePatternLockProps } from '../../typings';
 import { getColorByToken, getDefaultObserveTarget, getSizes, getTheme } from '../../utils';
 
@@ -29,17 +27,14 @@ export const BasePatternLock = forwardRef<
             observerParams = {},
             justifyNodes = 'space-between',
             className,
-            error,
             dataTestId,
             forgotCodeBtnText = 'Забыли код?',
             showForgotCodeBtn = false,
             onForgotBtnClick,
             extraBounds = DEFAULT_EXTRA_BOUNDS,
-            message,
             messageClassName,
             hover,
             styles = {},
-            errorMessage = 'Неправильный код',
             ...restProps
         },
         ref,
@@ -47,8 +42,6 @@ export const BasePatternLock = forwardRef<
         const [params, setParams] = useState<
             { theme: Theme; width: number; height: number } | undefined
         >();
-
-        const { patternLockRef } = usePatternLock();
 
         useEffect(() => {
             const { elementSizes, width, height } = getSizes();
@@ -91,63 +84,35 @@ export const BasePatternLock = forwardRef<
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [observeTokens]);
 
-        const renderMessage = () => (
-            <div
-                className={cn(commonStyles.message, messageClassName, {
-                    [commonStyles.error]: error,
-                })}
-                data-test-id={getDataTestId(dataTestId, 'message')}
-            >
-                {message}
-            </div>
-        );
-
         return (
             <div
                 className={cn(commonStyles.component, styles.component, className, {
                     [commonStyles.hidden]: !params,
+                    [commonStyles.withForgotBtn]: showForgotCodeBtn,
                 })}
                 data-test-id={dataTestId}
-                ref={patternLockRef}
             >
-                <Toast
-                    title={errorMessage}
-                    open={Boolean(error)}
-                    anchorElement={patternLockRef.current}
-                    fallbackPlacements={['top']}
-                    position='top'
-                    badge='negative-alert'
-                    autoCloseDelay={2000}
-                    onClose={() => {}}
+                <ReactCanvasPatternLock
+                    {...restProps}
+                    {...params}
+                    ref={ref}
+                    rows={3}
+                    cols={3}
+                    justifyNodes={justifyNodes}
+                    extraBounds={extraBounds}
+                    hover={hover}
                 />
-                {message && renderMessage()}
-                <div
-                    className={cn(commonStyles.patternContainer, {
-                        [commonStyles.withForgotBtn]: showForgotCodeBtn,
-                    })}
-                >
-                    <ReactCanvasPatternLock
-                        {...restProps}
-                        {...params}
-                        ref={ref}
-                        rows={3}
-                        cols={3}
-                        justifyNodes={justifyNodes}
-                        extraBounds={extraBounds}
-                        hover={hover}
-                    />
 
-                    {showForgotCodeBtn && (
-                        <ButtonMobile
-                            view='transparent'
-                            className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
-                            onClick={onForgotBtnClick}
-                            dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
-                        >
-                            {forgotCodeBtnText}
-                        </ButtonMobile>
-                    )}
-                </div>
+                {showForgotCodeBtn && (
+                    <ButtonMobile
+                        view='transparent'
+                        className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
+                        onClick={onForgotBtnClick}
+                        dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
+                    >
+                        {forgotCodeBtnText}
+                    </ButtonMobile>
+                )}
             </div>
         );
     },

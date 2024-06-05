@@ -70,7 +70,14 @@ render(() => {
 
     if (screen === SCREENS.INITIAL) {
         return (
-            <>
+            <div
+                style={{
+                    height: 600,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                }}
+            >
                 <Button
                     block
                     onClick={() => {
@@ -93,7 +100,7 @@ render(() => {
                 >
                     Длина кода неизвестна заранее
                 </Button>
-            </>
+            </div>
         );
     }
 

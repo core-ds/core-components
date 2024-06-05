@@ -2,37 +2,20 @@
 @import '../../vars.css';
 
 .component {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: var(--pattern-lock-min-height);
+    padding: var(--gap-m) 0;
+
     & canvas {
         display: block;
         margin: 0 auto;
     }
 }
 
-.patternContainer {
-    display: flex;
-    flex-direction: column;
-    min-height: var(--pattern-lock-min-height);
-}
-
 .withForgotBtn {
     min-height: var(--pattern-lock-with-forgot-btn-min-height);
-}
-
-.message {
-    @mixin paragraph_primary_medium;
-
-    flex: 1 0 auto;
-    text-align: center;
-    padding: 0 var(--gap-m) var(--gap-xl);
-    min-height: 24px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: var(--color-light-text-primary);
-}
-
-.error {
-    color: var(--color-light-text-negative);
 }
 
 .forgotBtn {

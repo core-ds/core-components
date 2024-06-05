@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent } from 'react';
 import { ReactPatternLockProps } from 'react-canvas-pattern-lock';
 
 type ConditionalProps =
@@ -33,16 +33,6 @@ export type CommonPatternLockProps = {
     className?: string;
 
     /**
-     * Сообщение об ошибке
-     */
-    error?: ReactNode;
-
-    /**
-     * Сообщение над графическим ключом
-     */
-    message?: ReactNode;
-
-    /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для сообщения используется модификатор -message, ошибки -error,
      * кнопки "забыли код" -forgot-code-btn
@@ -67,12 +57,6 @@ export type CommonPatternLockProps = {
      * Дополнительный класс для message/errorMessage
      */
     messageClassName?: string;
-
-    /**
-     * Сообщение ошибки ввода
-     * @default 'Неправильный код'
-     */
-    errorMessage?: string;
 } & Omit<ReactPatternLockProps, 'theme' | 'width' | 'height' | 'rows' | 'cols' | 'hover'> &
     ConditionalProps;
 

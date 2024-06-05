@@ -16,7 +16,7 @@ const DEFAULT_CLIP = {
 
 async function testComponent(
     urlParams: Partial<CreateStorybookUrlParams>,
-    viewport = { width: 400, height: 500 },
+    viewport = { width: 340, height: 340 },
     clip = DEFAULT_CLIP,
 ) {
     const pageUrl = createStorybookUrl({
@@ -99,13 +99,5 @@ describe('PatternLock | screenshots', () => {
 
     test('justifyNodes - space-around', async () => {
         await testComponent({ knobs: { justifyNodes: 'space-around' } });
-    });
-
-    test('error message', async () => {
-        await testComponent({ knobs: { error: 'Error message' } });
-    });
-
-    test('message', async () => {
-        await testComponent({ knobs: { message: 'Message' } });
     });
 });

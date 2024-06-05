@@ -8,15 +8,11 @@
         "paths": {
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-toast/*": ["../toast/src/*"],
-            "@alfalab/core-components-toast-plate/*": ["../toast-plate/src/*"]
         }
     },
     "references": [
       { "path": "../button" },
       { "path": "../shared" },
       { "path": "../mq" },
-      { "path": "../toast" },
-      { "path": "../toast-plate"},
     ]
 }
