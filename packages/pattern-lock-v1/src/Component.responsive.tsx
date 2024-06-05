@@ -7,6 +7,10 @@ import { PatternLockDesktopV1 } from './desktop';
 import { PatternLockMobileV1 } from './mobile';
 import { PatternLockProps } from './typings';
 
+/**
+ * @deprecated
+ * Использует PatternLock
+ */
 export const PatternLockV1 = forwardRef<TPatternLockInstance, PatternLockProps>(
     ({ breakpoint = 1024, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;

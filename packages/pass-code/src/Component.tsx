@@ -61,7 +61,7 @@ export type BasePassCodeProps = {
     breakpoint?: number;
 
     /**
-     * Стили компонента.
+     * Стили компонента
      */
     styles?: { [key: string]: string };
 };

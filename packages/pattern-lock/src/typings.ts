@@ -28,7 +28,7 @@ type ConditionalProps =
 
 export type CommonPatternLockProps = {
     /**
-     * Дополнительный класс.
+     * Дополнительный класс
      */
     className?: string;
 
@@ -40,13 +40,13 @@ export type CommonPatternLockProps = {
     dataTestId?: string;
 
     /**
-     * Следить ли за изменениями значений цветовых токенов.
+     * Следить ли за изменениями значений цветовых токенов
      * @default false
      */
     observeTokens?: boolean;
 
     /**
-     * Параметры MutationObserver для наблюдения за изменениями режима(css custom properties).
+     * Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)
      */
     observerParams?: {
         getTarget?: () => Node;
@@ -66,7 +66,7 @@ export type PrivatePatternLockProps = {
      */
     hover?: boolean;
     /**
-     * Стили компонента.
+     * Стили компонента
      */
     styles: { [key: string]: string };
 };

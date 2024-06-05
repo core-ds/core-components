@@ -11,17 +11,17 @@ import styles from './index.module.css';
 
 export type BasePassCodeProps = {
     /**
-     * Код.
+     * Код
      */
     value: string;
 
     /**
-     * Обработчик изменения кода.
+     * Обработчик изменения кода
      */
     onChange: (code: string) => void;
 
     /**
-     * Дополнительный класс.
+     * Дополнительный класс
      */
     className?: string;
 
@@ -41,7 +41,7 @@ export type BasePassCodeProps = {
     leftAddons?: ReactNode;
 
     /**
-     * Слот справа.
+     * Слот справа
      */
     rightAddons?: ReactNode;
 
@@ -58,7 +58,7 @@ type PropsWithUnknownLen = {
     codeLength?: never;
 
     /**
-     * Максимально возможная длина кода.
+     * Максимально возможная длина кода
      * @default 10
      */
     maxCodeLength?: number;
@@ -68,13 +68,17 @@ type PropsWithLen = {
     maxCodeLength?: never;
 
     /**
-     * Длина кода.
+     * Длина кода
      */
     codeLength?: number;
 };
 
 type PassCodeProps = BasePassCodeProps & (PropsWithLen | PropsWithUnknownLen);
 
+/**
+ * @deprecated
+ * Используйте PassCode
+ */
 export const PassCodeV1 = forwardRef<HTMLDivElement, PassCodeProps>(
     (
         {
