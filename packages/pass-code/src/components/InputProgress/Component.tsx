@@ -40,7 +40,7 @@ export const InputProgress: React.FC<InputProgressProps> = ({
                           <div
                               className={cn(styles.dot, {
                                   [styles.error]: filled && error,
-                                  [styles.filled]: filled,
+                                  [styles.animatedFill]: filled,
                                   [styles.success]: success,
                               })}
                           />

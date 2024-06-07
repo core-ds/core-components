@@ -114,10 +114,10 @@ describe('PassCode', () => {
 
             const dots = getByTestId(dataTestId + '-input-progress').childNodes;
 
-            expect(dots[0].childNodes[0]).toHaveClass('filled');
-            expect(dots[1].childNodes[0]).toHaveClass('filled');
-            expect(dots[2].childNodes[0]).not.toHaveClass('filled');
-            expect(dots[3].childNodes[0]).not.toHaveClass('filled');
+            expect(dots[0].childNodes[0]).toHaveClass('animatedFill');
+            expect(dots[1].childNodes[0]).toHaveClass('animatedFill');
+            expect(dots[2].childNodes[0]).not.toHaveClass('animatedFill');
+            expect(dots[3].childNodes[0]).not.toHaveClass('animatedFill');
         });
     });
 

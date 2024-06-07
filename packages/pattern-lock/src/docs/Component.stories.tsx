@@ -38,11 +38,6 @@ export const pattern_lock: Story = {
                         { initial: 'initial', success: 'success', failure: 'failure' },
                         'initial',
                     )}
-                    justifyNodes={radios(
-                        'justifyNodes',
-                        { 'space-around': 'space-around', 'space-between': 'space-between' },
-                        'space-between',
-                    )}
                     showForgotCodeBtn={boolean('showForgotCodeBtn', false) as false}
                 />
             </div>

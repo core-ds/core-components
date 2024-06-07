@@ -18,7 +18,7 @@ render(() => {
     const [passCodeParams, setPassCodeParams] = React.useState();
     const patternLockInstance = React.useRef();
     const timerId = React.useRef();
-    const patternLockRef = React.useRef();
+    const containerRef = React.useRef(null);
 
     const handleComplete = (code) => {
         if (shouldBeCode.join() === code.join()) {
@@ -50,7 +50,7 @@ render(() => {
             return (
                 <div style={{ textAlign: 'center' }}>
                     <Typography.Text view='primary-medium'>
-                        Введите код из четырёх цифр
+                        Введите код из шести знаков
                     </Typography.Text>
                     <Gap size={24} />
                 </div>
@@ -67,28 +67,31 @@ render(() => {
                     height: 600,
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'center',
+                    justifyContent: isMobile() ? 'start' : 'center',
+                    alignItems: 'center',
                 }}
             >
-                <Button
-                    block
-                    onClick={() => {
-                        setPassCodeParams('codeLength');
-                        setScreen(SCREENS.ENTER_CODE);
-                    }}
-                >
-                    Код из четырех цифр
-                </Button>
-                <Gap size='m' />
-                <Button
-                    block
-                    onClick={() => {
-                        setPassCodeParams('maxCodeLength');
-                        setScreen(SCREENS.ENTER_CODE);
-                    }}
-                >
-                    Длина кода неизвестна заранее
-                </Button>
+                <div style={{ width: 320 }}>
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams('codeLength');
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                        Код из четырех цифр
+                    </Button>
+                    <Gap size='m' />
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams('maxCodeLength');
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                        Длина кода неизвестна заранее
+                    </Button>
+                </div>
             </div>
         );
     }
@@ -149,26 +152,28 @@ render(() => {
     if (isMobile()) {
         return (
             <Container align='center'>
-                <div style={{ height: '600px', boxSizing: 'border-box', paddingTop: '36px' }}>
+                <div
+                    style={{ height: '600px', boxSizing: 'border-box', paddingTop: '36px' }}
+                    ref={containerRef}
+                >
                     {renderMessage()}
-                    <div ref={patternLockRef}></div>
                     <div
                         style={{
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'end',
-                            height: passCodeParams === 'maxCodeLength' ? '564px' : '504px',
+                            height: passCodeParams === 'maxCodeLength' ? '564px' : '502px',
                         }}
                     >
                         <Toast
                             title={'Error message'}
                             open={currentState === THEME_STATE.FAILURE}
-                            anchorElement={patternLockRef.current}
+                            anchorElement={containerRef.current}
                             position='top'
                             badge='negative-alert'
+                            offset={[0, -56]}
                             style={{ width: '304px' }}
                             onClose={() => {}}
-                            {...(passCodeParams === 'maxCodeLength' && {offset: [0, -20]})}
                         />
                         <PatternLock
                             ref={patternLockInstance}
@@ -180,19 +185,6 @@ render(() => {
                             showForgotCodeBtn={passCodeParams === 'maxCodeLength'}
                             breakpoint={BREAKPOINT}
                         />
-
-                        {passCodeParams === 'maxCodeLength' && (
-                            <>
-                                <Gap size={20} />
-                                <Button
-                                    style={{ display: 'block', width: '304px', margin: '0 auto' }}
-                                    view='primary'
-                                    onClick={() => setCurrentState(THEME_STATE.FAILURE)}
-                                >
-                                    Продолжить
-                                </Button>
-                            </>
-                        )}
                     </div>
                 </div>
             </Container>
@@ -201,18 +193,25 @@ render(() => {
 
     return (
         <Container align='center'>
-            <div style={{ height: '600px', boxSizing: 'border-box', paddingTop: '107px' }}>
+            <div
+                style={{
+                    height: '600px',
+                    boxSizing: 'border-box',
+                    paddingTop: passCodeParams === 'maxCodeLength' ? 129 : 92,
+                }}
+                ref={containerRef}
+            >
                 <Toast
                     title={'Error message'}
                     open={currentState === THEME_STATE.FAILURE}
-                    anchorElement={patternLockRef.current}
+                    anchorElement={containerRef.current}
                     position='top'
                     badge='negative-alert'
+                    offset={[0, -56]}
                     style={{ width: '304px' }}
                     onClose={() => {}}
                 />
                 {renderMessage()}
-                <div ref={patternLockRef}></div>
                 <PatternLock
                     ref={patternLockInstance}
                     onComplete={handleComplete}
@@ -223,26 +222,8 @@ render(() => {
                     showForgotCodeBtn={true}
                     breakpoint={BREAKPOINT}
                 />
-
-                {passCodeParams === 'maxCodeLength' && (
-                    <>
-                        <Gap size={20} />
-                        <Button
-                            style={{ display: 'block', width: '304px', margin: '0 auto' }}
-                            view='primary'
-                            onClick={() => setCurrentState(THEME_STATE.FAILURE)}
-                        >
-                            Продолжить
-                        </Button>
-                    </>
-                )}
             </div>
         </Container>
     );
 });
 ```
-
-## Адаптивность
-
-Размер контролов компонента подстраивается под ширину мобильного экрана.
-Для десктопных устройств доступен только один размер.

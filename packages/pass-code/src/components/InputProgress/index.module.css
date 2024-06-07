@@ -29,8 +29,12 @@
     flex-shrink: 0;
 
     &.filled {
-        animation: dotFilled 200ms ease-in forwards;
         background: var(--color-light-neutral-translucent-1300);
+    }
+
+    &.animatedFill {
+        background: var(--color-light-neutral-translucent-1300);
+        animation: dotFilled 200ms ease-in forwards;
     }
 
     &.error {

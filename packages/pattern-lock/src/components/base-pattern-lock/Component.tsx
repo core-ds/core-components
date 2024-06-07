@@ -25,7 +25,6 @@ export const BasePatternLock = forwardRef<
         {
             observeTokens = false,
             observerParams = {},
-            justifyNodes = 'space-between',
             className,
             dataTestId,
             forgotCodeBtnText = 'Забыли код?',
@@ -98,7 +97,7 @@ export const BasePatternLock = forwardRef<
                     ref={ref}
                     rows={3}
                     cols={3}
-                    justifyNodes={justifyNodes}
+                    justifyNodes='space-between'
                     extraBounds={extraBounds}
                     hover={hover}
                 />

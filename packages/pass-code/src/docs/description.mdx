@@ -21,6 +21,7 @@ render(() => {
     const [code, setCode] = React.useState('');
     const [passCodeParams, setPassCodeParams] = React.useState();
     const passCodeRef = React.useRef(null);
+    const containerRef = React.useRef(null);
     const [isSuccess, setSuccess] = React.useState(false);
 
     const validate = (codeToValidate) => {
@@ -39,9 +40,11 @@ render(() => {
 
             return;
         }
-        setSuccess(true);
+        setTimeout(() => {
+            setSuccess(true);
+        }, 500);
 
-        setTimeout(() => setScreen(SCREENS.SUCCESS), 700);
+        setTimeout(() => setScreen(SCREENS.SUCCESS), 1300);
     };
 
     const handleChange = (value) => {
@@ -75,31 +78,34 @@ render(() => {
                     height: 600,
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'center',
+                    justifyContent: isMobile() ? 'start' : 'center',
+                    alignItems: 'center',
                 }}
             >
-                <Button
-                    block
-                    onClick={() => {
-                        setPassCodeParams({
-                            codeLength: MAX_LENGTH,
-                            message: 'Введите код из четырёх цифр',
-                        });
-                        setScreen(SCREENS.ENTER_CODE);
-                    }}
-                >
-                    Код из четырех цифр
-                </Button>
-                <Gap size='m' />
-                <Button
-                    block
-                    onClick={() => {
-                        setPassCodeParams({ maxCodeLength: 12 });
-                        setScreen(SCREENS.ENTER_CODE);
-                    }}
-                >
-                    Длина кода неизвестна заранее
-                </Button>
+                <div style={{ width: 320 }}>
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams({
+                                codeLength: MAX_LENGTH,
+                                message: 'Введите код из четырёх цифр',
+                            });
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                        Код из четырех цифр
+                    </Button>
+                    <Gap size='m' />
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams({ maxCodeLength: 12 });
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                        Длина кода неизвестна заранее
+                    </Button>
+                </div>
             </div>
         );
     }
@@ -146,6 +152,7 @@ render(() => {
                         onClick={() => {
                             setScreen(SCREENS.INITIAL);
                             setError(false);
+                            setSuccess(false);
                             setCode('');
                         }}
                         style={{
@@ -165,16 +172,18 @@ render(() => {
                 style={{
                     height: 600,
                     boxSizing: 'border-box',
-                    paddingTop: passCodeParams.maxCodeLength > 0 ? '60px' : '36px',
+                    paddingTop: passCodeParams.maxCodeLength > 0 ? '60px' : '34px',
                 }}
+                ref={containerRef}
             >
                 <div style={{ height: passCodeParams.maxCodeLength > 0 ? 464 : 504 }}>
                     <Toast
                         title={'Error message'}
                         open={Boolean(error)}
-                        anchorElement={passCodeRef.current}
+                        anchorElement={containerRef.current}
                         position='top'
                         badge='negative-alert'
+                        offset={[0, -56]}
                         style={{ width: '320px' }}
                         onClose={() => {}}
                     />
@@ -222,13 +231,15 @@ render(() => {
                 boxSizing: 'border-box',
                 paddingTop: '107px',
             }}
+            ref={containerRef}
         >
             <Toast
                 title={'Error message'}
                 open={Boolean(error)}
-                anchorElement={passCodeRef.current}
+                anchorElement={containerRef.current}
                 position='top'
                 badge='negative-alert'
+                offset={[0, -56]}
                 style={{ width: '304px' }}
                 onClose={() => {}}
             />
@@ -265,8 +276,3 @@ render(() => {
     );
 });
 ```
-
-## Адаптивность
-
-Размер контролов компонента подстраивается под ширину мобильного экрана.
-Компонент не предназначен для использования на десктопных устройствах и не имеет соответствующих состояний.

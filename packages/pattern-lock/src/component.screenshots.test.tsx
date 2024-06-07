@@ -96,8 +96,4 @@ describe('PatternLock | screenshots', () => {
     test('default with forgot code button', async () => {
         await testComponent({ knobs: { showForgotCodeBtn: true } });
     });
-
-    test('justifyNodes - space-around', async () => {
-        await testComponent({ knobs: { justifyNodes: 'space-around' } });
-    });
 });

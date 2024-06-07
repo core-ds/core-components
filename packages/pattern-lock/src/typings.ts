@@ -57,7 +57,10 @@ export type CommonPatternLockProps = {
      * Дополнительный класс для message/errorMessage
      */
     messageClassName?: string;
-} & Omit<ReactPatternLockProps, 'theme' | 'width' | 'height' | 'rows' | 'cols' | 'hover'> &
+} & Omit<
+    ReactPatternLockProps,
+    'theme' | 'width' | 'height' | 'rows' | 'cols' | 'hover' | 'justifyNodes'
+> &
     ConditionalProps;
 
 export type PrivatePatternLockProps = {
