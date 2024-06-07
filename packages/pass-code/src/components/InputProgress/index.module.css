@@ -1,5 +1,6 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
+@import './animations.module.css';
 
 .component {
     display: flex;
@@ -16,22 +17,29 @@
     align-items: center;
     margin-right: 6px;
 
+    & .dot {
+        margin: unset;
+    }
+
     &:last-child {
         margin-right: 0;
     }
 }
 
 .dot {
+    margin: 0 6px;
     width: var(--pass-code-dot-width);
     height: var(--pass-code-dot-height);
     background: var(--color-light-neutral-translucent-300);
     border-radius: var(--border-radius-circle);
     flex-shrink: 0;
 
+    /* for unknown password length */
     &.filled {
         background: var(--color-light-neutral-translucent-1300);
     }
 
+    /* for a known passcode length */
     &.animatedFill {
         background: var(--color-light-neutral-translucent-1300);
         animation: dotFilled 200ms ease-in forwards;
@@ -43,13 +51,6 @@
 
     &.success {
         background: var(--color-light-status-positive);
-    }
-}
-
-@keyframes dotFilled {
-    50% {
-        width: var(--pass-code-dot-container-width);
-        height: var(--pass-code-dot-container-height);
-        animation-timing-function: ease-out;
+        animation: dotSuccessFilled 200ms ease-in forwards;
     }
 }

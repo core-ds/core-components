@@ -42,9 +42,20 @@ render(() => {
         }
         setTimeout(() => {
             setSuccess(true);
-        }, 500);
+        }, 700);
 
-        setTimeout(() => setScreen(SCREENS.SUCCESS), 1300);
+        setTimeout(() => {
+            setSuccess((prev) => {
+                if (prev) {
+                    setCode('');
+                    return false;
+                }
+
+                return prev;
+            });
+        }, 1400);
+
+        setTimeout(() => setScreen(SCREENS.SUCCESS), 2100);
     };
 
     const handleChange = (value) => {
@@ -124,7 +135,7 @@ render(() => {
                         ...(isMobile() && { flex: 1 }),
                     }}
                 >
-                    <div style={{ textAlign: 'center' }}>
+                    <div style={{ textAlign: 'center', width: isMobile() ? 315 : 472 }}>
                         <SuperEllipse
                             size={80}
                             backgroundColor='var(--color-light-graphic-positive)'

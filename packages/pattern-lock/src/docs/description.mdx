@@ -79,7 +79,7 @@ render(() => {
                             setScreen(SCREENS.ENTER_CODE);
                         }}
                     >
-                        Код из четырех цифр
+                       Код длинной 6 знаков
                     </Button>
                     <Gap size='m' />
                     <Button
@@ -110,7 +110,7 @@ render(() => {
                         ...(isMobile() && { flex: 1 }),
                     }}
                 >
-                    <div style={{ textAlign: 'center' }}>
+                    <div style={{ textAlign: 'center', width: isMobile() ? 315 : 472 }}>
                         <SuperEllipse
                             size={80}
                             backgroundColor='var(--color-light-graphic-positive)'

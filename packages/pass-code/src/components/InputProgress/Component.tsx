@@ -55,14 +55,12 @@ export const InputProgress: React.FC<InputProgressProps> = ({
                       classNames={transitions}
                       unmountOnExit={true}
                   >
-                      <div className={cn(styles.dotWrapper)}>
-                          <div
-                              className={cn(styles.dot, styles.filled, {
-                                  [styles.error]: error,
-                                  [styles.success]: success,
-                              })}
-                          />
-                      </div>
+                      <div
+                          className={cn(styles.dot, styles.filled, {
+                              [styles.error]: error,
+                              [styles.success]: success,
+                          })}
+                      />
                   </CSSTransition>
               ))}
     </div>
