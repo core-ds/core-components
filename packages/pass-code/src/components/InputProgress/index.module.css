@@ -15,10 +15,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 6px;
+    margin-right: 10px;
 
     & .dot {
-        margin: unset;
+        margin-right: unset;
     }
 
     &:last-child {
@@ -27,7 +27,7 @@
 }
 
 .dot {
-    margin: 0 6px;
+    margin-right: var(--gap-s);
     width: var(--pass-code-dot-width);
     height: var(--pass-code-dot-height);
     background: var(--color-light-neutral-translucent-300);
