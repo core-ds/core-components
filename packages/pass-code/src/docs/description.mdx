@@ -18,6 +18,7 @@ const SCREENS = {
 render(() => {
     const [screen, setScreen] = React.useState(SCREENS.INITIAL);
     const [error, setError] = React.useState(false);
+    const [errorMessage, setErrorMessage] = React.useState(false);
     const [code, setCode] = React.useState('');
     const [passCodeParams, setPassCodeParams] = React.useState();
     const passCodeRef = React.useRef(null);
@@ -26,16 +27,16 @@ render(() => {
 
     const validate = (codeToValidate) => {
         if (codeToValidate !== VALID_CODE) {
-            setTimeout(() => setError('Error message'), 300);
             setTimeout(() => {
-                setError((prev) => {
-                    if (prev) {
-                        setCode('');
-                        return false;
-                    }
-
-                    return prev;
-                });
+                setError(true)
+                setErrorMessage(true);
+            }, 300);
+            setTimeout(() => {
+                if ('codeLength' in passCodeParams) {
+                    setError(false);
+                }
+                setCode('');
+                setErrorMessage(false);
             }, 1300);
 
             return;
@@ -45,15 +46,11 @@ render(() => {
         }, 700);
 
         setTimeout(() => {
-            setSuccess((prev) => {
-                if (prev) {
-                    setCode('');
-                    return false;
-                }
-
-                return prev;
-            });
-        }, 1400);
+            if ('codeLength' in passCodeParams) {
+                setSuccess(false);
+            }
+            setCode('');
+        }, 1300);
 
         setTimeout(() => setScreen(SCREENS.SUCCESS), 2100);
     };
@@ -62,6 +59,7 @@ render(() => {
         setCode(value);
         setError(false);
         setSuccess(false);
+        setErrorMessage(false);
 
         if (passCodeParams.codeLength > 0 && value.length === MAX_LENGTH) {
             validate(value);
@@ -190,7 +188,7 @@ render(() => {
                 <div style={{ height: passCodeParams.maxCodeLength > 0 ? 464 : 504 }}>
                     <Toast
                         title={'Error message'}
-                        open={Boolean(error)}
+                        open={Boolean(errorMessage)}
                         anchorElement={containerRef.current}
                         position='top'
                         badge='negative-alert'
@@ -246,7 +244,7 @@ render(() => {
         >
             <Toast
                 title={'Error message'}
-                open={Boolean(error)}
+                open={Boolean(errorMessage)}
                 anchorElement={containerRef.current}
                 position='top'
                 badge='negative-alert'

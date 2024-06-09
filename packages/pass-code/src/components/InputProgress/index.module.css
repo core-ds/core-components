@@ -53,4 +53,9 @@
         background: var(--color-light-status-positive);
         animation: dotSuccessFilled 200ms ease-in forwards;
     }
+
+    /* without animation */
+    &.rawSuccess {
+        background: var(--color-light-status-positive);
+    }
 }
