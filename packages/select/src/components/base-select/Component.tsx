@@ -633,6 +633,8 @@ export const BaseSelect = forwardRef(
                         })}
                         emptyPlaceholder={renderEmptyPlaceholder()}
                         onScroll={onScroll}
+                        search={search}
+                        multiple={multiple}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>

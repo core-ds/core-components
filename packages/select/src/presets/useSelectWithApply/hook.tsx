@@ -169,6 +169,7 @@ export function useSelectWithApply({
             onApply: handleApply,
             onClose: handleClose,
             selectedDraft,
+            setSelectedDraft,
             showHeaderWithSelectAll,
             headerProps: {
                 indeterminate: !!selectedDraft.length && selectedDraft.length < flatOptions.length,
