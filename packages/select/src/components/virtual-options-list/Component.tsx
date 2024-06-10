@@ -37,6 +37,10 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
             setHighlightedIndex,
+            selectedItems,
+            addSelectedItem,
+            removeSelectedItem,
+            search,
         },
         ref,
     ) => {
@@ -157,6 +161,13 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                                 label={group.label}
                                 size={size}
                                 className={optionGroupClassName}
+                                options={group.options}
+                                selectedItems={selectedItems?.filter((item) =>
+                                    group.options.includes(item),
+                                )}
+                                addSelectedItem={addSelectedItem}
+                                removeSelectedItem={removeSelectedItem}
+                                search={search}
                             />
                         )}
                         {!isGroup(option) && (

@@ -43,6 +43,10 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
             setHighlightedIndex,
+            selectedItems,
+            addSelectedItem,
+            removeSelectedItem,
+            search,
         },
         ref,
     ) => {
@@ -84,6 +88,11 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 label={group.label}
                 key={group.label}
                 size={size}
+                options={group.options}
+                selectedItems={selectedItems?.filter((item) => group.options.includes(item))}
+                addSelectedItem={addSelectedItem}
+                removeSelectedItem={removeSelectedItem}
+                search={search}
             >
                 {group.options.map((option) => renderOption(option, counter()))}
             </Optgroup>

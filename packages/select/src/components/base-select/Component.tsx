@@ -623,6 +623,8 @@ export const BaseSelect = forwardRef(
                         Option={Option}
                         selectedItems={selectedItems}
                         setSelectedItems={setSelectedItems}
+                        addSelectedItem={addSelectedItem}
+                        removeSelectedItem={removeSelectedItem}
                         toggleMenu={toggleMenu}
                         getOptionProps={getOptionProps}
                         visibleOptions={view === 'desktop' ? visibleOptions : 0}
@@ -633,6 +635,7 @@ export const BaseSelect = forwardRef(
                         })}
                         emptyPlaceholder={renderEmptyPlaceholder()}
                         onScroll={onScroll}
+                        search={search}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>

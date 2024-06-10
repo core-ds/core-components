@@ -614,6 +614,21 @@ export type OptionsListProps = {
      * Указать индекс пункта для hover состояния
      */
     setHighlightedIndex?: (index: number) => void;
+
+    /**
+     * Обработчик добавления в список выбранных вариантов
+     */
+    addSelectedItem?: (item: OptionShape) => void;
+
+    /**
+     * Обработчик удаления из списка выбранных вариантов
+     */
+    removeSelectedItem?: (item: OptionShape) => void;
+
+    /**
+     * Значение поиска
+     */
+    search?: string;
 };
 
 export type OptgroupProps = {
@@ -637,6 +652,31 @@ export type OptgroupProps = {
      * Дочерние элементы
      */
     children?: ReactNode;
+
+    /**
+     * Список вариантов выбора в группе
+     */
+    options?: OptionShape[];
+
+    /**
+     * Список выбранных вариантов в группе
+     */
+    selectedItems?: OptionShape[];
+
+    /**
+     * Обработчик добавления в список выбранных вариантов
+     */
+    addSelectedItem?: (item: OptionShape) => void;
+
+    /**
+     * Обработчик удаления из списка выбранных вариантов
+     */
+    removeSelectedItem?: (item: OptionShape) => void;
+
+    /**
+     * Значение поиска
+     */
+    search?: string;
 };
 
 export type OptionProps = {
