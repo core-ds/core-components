@@ -14,10 +14,24 @@ exports[`Status Snapshots tests should match view="contrast" snapshot 1`] = `
 </div>
 `;
 
-exports[`Status Snapshots tests should match view="soft" snapshot 1`] = `
+exports[`Status Snapshots tests should match view="muted" snapshot 1`] = `
 <div>
   <span
-    class="component green soft"
+    class="component green muted"
+  >
+    <span
+      class="ellipsis"
+    >
+      Label
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Status Snapshots tests should match view="muted-alt" snapshot 1`] = `
+<div>
+  <span
+    class="component green muted-alt"
   >
     <span
       class="ellipsis"

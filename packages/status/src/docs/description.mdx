@@ -16,7 +16,18 @@
     <div>
         {colors.map((color) => (
             <>
-                <Status view='soft' color={color} key={color}>
+                <Status view='muted-alt' color={color} key={color}>
+                    Label
+                </Status>
+                <Gap size='l' direction='horizontal' />
+            </>
+        ))}
+    </div>
+    <Gap size='l' />
+    <div>
+        {colors.map((color) => (
+            <>
+                <Status view='muted' color={color} key={color}>
                     Label
                 </Status>
                 <Gap size='l' direction='horizontal' />

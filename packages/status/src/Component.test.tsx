@@ -5,9 +5,12 @@ import { Status, colors } from './index';
 
 describe('Status', () => {
     describe('Snapshots tests', () => {
-        it.each(['soft', 'contrast'] as const)('should match view="%s" snapshot', (view) => {
-            expect(render(<Status view={view}>Label</Status>).container).toMatchSnapshot();
-        });
+        it.each(['muted', 'contrast', 'muted-alt'] as const)(
+            'should match view="%s" snapshot',
+            (view) => {
+                expect(render(<Status view={view}>Label</Status>).container).toMatchSnapshot();
+            },
+        );
     });
 
     it('should set `data-test-id` attribute', () => {
@@ -25,14 +28,14 @@ describe('Status', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set `view=soft, color=green` by default', () => {
+        it('should set `view=muted-alt, color=green` by default', () => {
             const { container } = render(<Status />);
 
-            expect(container.firstElementChild).toHaveClass('soft');
+            expect(container.firstElementChild).toHaveClass('muted-alt');
             expect(container.firstElementChild).toHaveClass('green');
         });
 
-        it.each(['soft', 'contrast'] as const)('should set view="%s"', (view) => {
+        it.each(['muted-alt', 'contrast', 'muted'] as const)('should set view="%s"', (view) => {
             const { container } = render(<Status view={view}>Label</Status>);
 
             expect(container.firstElementChild).toHaveClass(view);
