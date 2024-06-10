@@ -119,6 +119,56 @@
         }
     }
 
+    &.transparentBg {
+        &.primary {
+            color: var(--color-light-text-primary-inverted);
+
+            &:hover {
+                background: var(--color-light-transparent-default-inverted-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-inverted-press);
+            }
+        }
+
+        &.secondary {
+            color: var(--color-light-text-secondary-inverted);
+
+            &:hover {
+                background: var(--color-light-transparent-default-inverted-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-inverted-press);
+            }
+        }
+
+        &.negative {
+            color: var(--color-light-text-negative-inverted);
+
+            &:hover {
+                background: var(--color-light-transparent-default-inverted-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-inverted-press);
+            }
+        }
+
+        &.tertiary {
+            color: var(--color-light-text-tertiary-inverted);
+
+            &:hover {
+                background: var(--color-light-transparent-default-inverted-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-inverted-press);
+            }
+        }
+    }
+
     &.component:disabled {
         &.primary {
             color: var(--icon-button-inverted-primary-disabled-color);
@@ -150,6 +200,10 @@
             &.loader {
                 color: var(--icon-button-inverted-tertiary-base-color);
             }
+        }
+
+        &.transparentBg {
+            background: transparent;
         }
     }
 }

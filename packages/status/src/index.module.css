@@ -24,35 +24,19 @@
     }
 }
 
-.soft {
-    &.green {
-        background: var(--color-light-decorative-muted-alt-green);
-        color: var(--color-light-decorative-text-green);
+.muted-alt {
+    @each $color in green, orange, red, blue, teal {
+        &.$(color) {
+            background: var(--color-light-decorative-muted-alt-$(color));
+            color: var(--color-light-decorative-text-$(color));
+        }
     }
+}
 
-    &.orange {
-        background: var(--color-light-decorative-muted-alt-orange);
-        color: var(--color-light-decorative-text-orange);
-    }
-
-    &.red {
-        background: var(--color-light-decorative-muted-alt-red);
-        color: var(--color-light-decorative-text-red);
-    }
-
-    &.blue {
-        background: var(--color-light-decorative-muted-alt-blue);
-        color: var(--color-light-decorative-text-blue);
-    }
-
+.muted-alt {
     &.grey {
         background: var(--color-light-neutral-translucent-300);
         color: var(--color-light-text-secondary);
-    }
-
-    &.teal {
-        background: var(--color-light-decorative-muted-alt-teal);
-        color: var(--color-light-decorative-text-teal);
     }
 
     &.purple {
@@ -64,31 +48,40 @@
 .contrast {
     color: var(--color-light-text-primary-inverted);
 
-    &.green {
-        background: var(--color-light-decorative-green);
+    @each $color in green, orange, red, blue, teal {
+        &.$(color) {
+            background: var(--color-light-decorative-$(color));
+        }
     }
+}
 
-    &.orange {
-        background: var(--color-light-decorative-orange);
-    }
-
-    &.red {
-        background: var(--color-light-decorative-red);
-    }
-
-    &.blue {
-        background: var(--color-light-decorative-blue);
-    }
-
+.contrast {
     &.grey {
         background: var(--color-light-neutral-700);
     }
 
-    &.teal {
-        background: var(--color-light-decorative-teal);
+    &.purple {
+        background: var(--color-light-decorative-indigo);
+    }
+}
+
+.muted {
+    @each $color in green, orange, red, blue, teal {
+        &.$(color) {
+            background: var(--color-light-decorative-muted-$(color));
+            color: var(--color-light-decorative-text-$(color));
+        }
+    }
+}
+
+.muted {
+    &.grey {
+        background: var(--color-light-neutral-translucent-200);
+        color: var(--color-light-text-secondary);
     }
 
     &.purple {
-        background: var(--color-light-decorative-indigo);
+        background: var(--color-light-decorative-muted-indigo);
+        color: var(--color-light-decorative-text-indigo);
     }
 }

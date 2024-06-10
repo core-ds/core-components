@@ -14,9 +14,27 @@ Primary, secondary, tertiary, negative.
 </Container>
 ```
 
+С помощью опции `transparentBg` кнопке можно добавить более явный вид состояний ховера и нажатия.
+
+```jsx live
+<Space direction='horizontal' size={8}>
+    <IconButton
+        view='primary'
+        size={32}
+        icon={DiamondsMIcon}
+    />
+    <IconButton
+        view='primary'
+        size={32}
+        icon={DiamondsMIcon}
+        transparentBg={true}
+    />
+</Space>
+```
+
 ## Размеры компонента
 
-Рекомендуется использовать один из трёх размеров, в зависимости от контекста.
+Рекомендуется использовать один из пяти размеров, в зависимости от контекста.
 
 ```jsx live
 <Space direction='horizontal' size={[20]}>

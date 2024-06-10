@@ -16,7 +16,7 @@ export const status: Story = {
     render: () => (
         <Status
             color={select('color', colors, 'green')}
-            view={select('view', ['soft', 'contrast'], 'soft')}
+            view={select('view', ['muted-alt', 'contrast', 'muted'], 'muted-alt')}
         >
             {text('children', 'Label')}
         </Status>
