@@ -15,19 +15,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
+    margin: 0 5px;
 
     & .dot {
-        margin-right: unset;
-    }
-
-    &:last-child {
-        margin-right: 0;
+        margin: unset;
     }
 }
 
 .dot {
-    margin-right: var(--gap-s);
+    margin: 0 6px;
     width: var(--pass-code-dot-width);
     height: var(--pass-code-dot-height);
     background: var(--color-light-neutral-translucent-300);

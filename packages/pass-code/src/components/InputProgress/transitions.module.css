@@ -1,5 +1,3 @@
-@import '../../../../themes/src/default.css';
-
 .enter {
     opacity: 0;
     width: 0;
@@ -11,7 +9,7 @@
     opacity: 1;
     width: 12px;
     height: 12px;
-    margin-right: var(--gap-s);
+    margin: 0 6px;
     transition: all 0.15s ease-in;
 }
 
@@ -19,7 +17,7 @@
     opacity: 1;
     width: 12px;
     height: 12px;
-    margin-right: var(--gap-s);
+    margin: 0 6px;
 }
 
 .exitActive {

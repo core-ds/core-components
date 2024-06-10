@@ -26,13 +26,15 @@ render(() => {
     const [isSuccess, setSuccess] = React.useState(false);
 
     const validate = (codeToValidate) => {
+        const isMaxCodeLength = 'maxCodeLength' in passCodeParams;
+
         if (codeToValidate !== VALID_CODE) {
             setTimeout(() => {
-                setError(true)
+                setError(true);
                 setErrorMessage(true);
             }, 300);
             setTimeout(() => {
-                if ('codeLength' in passCodeParams) {
+                if (!isMaxCodeLength) {
                     setError(false);
                 }
                 setCode('');
@@ -45,14 +47,23 @@ render(() => {
             setSuccess(true);
         }, 700);
 
-        setTimeout(() => {
-            if ('codeLength' in passCodeParams) {
-                setSuccess(false);
-            }
-            setCode('');
-        }, 1300);
+        if (isMaxCodeLength) {
+            setTimeout(() => {
+                setCode('');
+            }, 1300);
+        }
 
-        setTimeout(() => setScreen(SCREENS.SUCCESS), 2100);
+        setTimeout(
+            () => {
+                setScreen(SCREENS.SUCCESS);
+
+                setTimeout(() => {
+                    setSuccess(false);
+                    setCode('');
+                }, 200);
+            },
+            isMaxCodeLength ? 2100 : 1500,
+        );
     };
 
     const handleChange = (value) => {
