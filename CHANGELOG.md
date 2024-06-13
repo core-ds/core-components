@@ -1,3 +1,70 @@
+## 46.1.0
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+#### Что изменилось
+- Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `badge` `bank-card` `button` `calendar-range`<br /> `calendar` `checkbox` `circular-progress-bar` `dropzone` `file-upload-item`<br /> `filter-tag` `icon-button` `indicator` `input` `navigation-bar-private`<br /> `pass-code` `progress-bar` `radio` `select` `sortable-list`<br /> `spinner` `status-badge` `steps` `underlay`
+
+<br />
+
+#### Что изменилось
+- Изменили цветовой токен: color-light-graphic-primary -> color-light-neutral-0-inverted
+
+#### Влияние на компоненты
+- Патчи<br />`pattern-lock`
+
+<br />
+
+#### Что изменилось
+- Изменили цветовой токен: color-static-neutral-1500-inverted -> color-static-neutral-0
+
+#### Влияние на компоненты
+- Патчи<br />`switch`
+
+
+### [#1225](https://github.com/core-ds/core-components/pull/1225)
+
+#### Что изменилось
+- Добавлено новое свойство transparentBg, отвечающее за включение прозрачного фона у компонента
+
+#### Влияние на компоненты
+- Минорное<br />`icon-button`
+
+
+### [#1239](https://github.com/core-ds/core-components/pull/1239)
+
+#### Что изменилось
+- Исправлено положение футера для виртуального списка опций с поиском (при OptionsList={VirtualOptionsList}). Раньше при вводе в инпут поиска положение футера было сверху, теперь футер снизу
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1223](https://github.com/core-ds/core-components/pull/1223)
+
+#### Что изменилось
+- Добавлены новые значения для свойства view: 'muted-alt' и 'muted'. Значение 'soft' для view теперь deprecated, используйте вместо него 'muted-alt'
+- Также добавлен кодмод, который изменяет значение view компонента Status с 'soft' на 'muted-alt'
+
+#### Влияние на компоненты
+- Минорное<br />`status`
+
+
+### [#1234](https://github.com/core-ds/core-components/pull/1234)
+
+#### Что изменилось
+- Исправлено поведение scrollToArea при первом рендере, когда еще не выполнены расчеты высоты. Теперь scrollToArea при первом рендере ведет себя так же, как и initialActiveAreaIndex.
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+
 ## 46.0.0
 
 <sup><time>28.05.2024</time></sup>
