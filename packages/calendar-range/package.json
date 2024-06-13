@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-range",
-    "version": "7.3.16",
+    "version": "7.3.17",
     "description": "Calendar range component",
     "keywords": [],
     "license": "MIT",
@@ -15,9 +15,9 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^7.6.3",
-        "@alfalab/core-components-calendar-input": "^10.2.14",
-        "@alfalab/core-components-date-input": "^4.3.27",
+        "@alfalab/core-components-calendar": "^7.6.4",
+        "@alfalab/core-components-calendar-input": "^10.2.15",
+        "@alfalab/core-components-date-input": "^4.3.28",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "date-fns": "^2.16.1",
