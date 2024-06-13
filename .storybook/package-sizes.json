@@ -112,13 +112,13 @@
     },
     "select": {
         "desktop.js": 153.1,
-        "index.js": 218.8,
-        "mobile.js": 192.3,
+        "index.js": 218.9,
+        "mobile.js": 192.4,
         "shared.js": 178.1
     },
     "select-with-tags": {
         "desktop.js": 204,
-        "index.js": 227.1,
+        "index.js": 227.2,
         "mobile.js": 201.1
     },
     "segmented-control": {
@@ -255,7 +255,7 @@
     },
     "input-autocomplete": {
         "desktop.js": 196.7,
-        "index.js": 231.5,
+        "index.js": 231.6,
         "mobile.js": 204.2,
         "shared.js": 1.9
     },
