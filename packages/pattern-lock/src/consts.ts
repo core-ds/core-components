@@ -12,7 +12,7 @@ export const OBSERVE_OPTIONS: MutationObserverInit = {
 export const DEFAULT_EXTRA_BOUNDS: ReactPatternLockProps['extraBounds'] = [75, 50, 75, 50];
 
 export const OBSERVABLE_TOKENS: ObservableTokens = {
-    ACCENT_INITIAL: '--color-light-graphic-primary',
+    ACCENT_INITIAL: '--color-light-neutral-0-inverted',
     ACCENT_SUCCESS: '--color-light-graphic-positive',
     ACCENT_FAILURE: '--color-light-graphic-negative',
     PRIMARY: '--color-light-graphic-tertiary',

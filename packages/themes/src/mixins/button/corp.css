@@ -30,8 +30,8 @@
     --button-inverted-accent-color: var(--color-light-text-primary);
 
     /* spinner */
-    --button-spinner-static-color: var(--color-light-neutral-1500-inverted);
-    --button-spinner-inverted-static-color: var(--color-light-neutral-1500);
-    --button-spinner-primary-color: var(--color-static-neutral-1500-inverted);
-    --button-spinner-inverted-primary-color: var(--color-static-neutral-1500-inverted);
+    --button-spinner-static-color: var(--color-light-neutral-translucent-1300-inverted);
+    --button-spinner-inverted-static-color: var(--color-light-neutral-translucent-1300);
+    --button-spinner-primary-color: var(--color-static-neutral-translucent-1300-inverted);
+    --button-spinner-inverted-primary-color: var(--color-static-neutral-translucent-1300-inverted);
 }

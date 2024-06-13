@@ -5,12 +5,12 @@
     --input-placeholder-color: var(--color-light-text-secondary);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
     --input-with-label-placeholder-color: var(--color-light-text-tertiary);
-    --input-caret-color: var(--color-light-neutral-1500);
+    --input-caret-color: var(--color-light-neutral-translucent-1300);
     --input-inverted-color: var(--color-light-text-primary-inverted);
     --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
     --input-inverted-with-label-placeholder-color: var(--color-light-text-tertiary-inverted);
-    --input-inverted-caret-color: var(--color-light-neutral-1500-inverted);
+    --input-inverted-caret-color: var(--color-light-neutral-translucent-1300-inverted);
 
     /* disabled */
     --input-disabled-color: var(--color-light-text-tertiary);

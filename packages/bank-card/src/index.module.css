@@ -8,7 +8,7 @@
     --form-control-bg-color: transparent;
 
     /* focus */
-    --form-control-focus-border-bottom: 1px solid var(--color-light-neutral-1500);
+    --form-control-focus-border-bottom: 1px solid var(--color-light-neutral-translucent-1300);
     --form-control-focus-shadow: transparent;
 
     /* hover */
@@ -55,7 +55,7 @@
 
 .focused .label,
 .filled .label {
-    color: var(--color-light-neutral-1500);
+    color: var(--color-light-neutral-translucent-1300);
     transform: translateY(-19px) scale(0.6);
 
     @media (max-width: 360px) {
@@ -70,8 +70,8 @@
 .input {
     @mixin promo_xsmall;
 
-    color: var(--color-light-neutral-1500);
-    caret-color: var(--color-light-neutral-1500);
+    color: var(--color-light-neutral-translucent-1300);
+    caret-color: var(--color-light-neutral-translucent-1300);
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: 0 !important;
@@ -93,7 +93,7 @@
         display: block;
 
         & g {
-            fill: var(--color-light-neutral-1500);
+            fill: var(--color-light-neutral-translucent-1300);
         }
     }
 }
@@ -105,7 +105,7 @@
 
     & svg {
         display: block;
-        fill: var(--color-light-neutral-1500);
+        fill: var(--color-light-neutral-translucent-1300);
     }
 }
 
@@ -127,7 +127,7 @@
     margin-right: calc(var(--gap-s) * -1);
 
     & svg {
-        fill: var(--color-light-neutral-1500);
+        fill: var(--color-light-neutral-translucent-1300);
         display: block;
     }
 }

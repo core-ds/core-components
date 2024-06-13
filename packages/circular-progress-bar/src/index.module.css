@@ -221,11 +221,11 @@
     }
 
     &.icon-primary-inverted {
-        color: var(--color-light-neutral-1500-inverted);
+        color: var(--color-light-neutral-translucent-1300-inverted);
     }
 
     &.icon-primary {
-        color: var(--color-light-neutral-1500);
+        color: var(--color-light-neutral-translucent-1300);
     }
 
     &.icon-secondary {
