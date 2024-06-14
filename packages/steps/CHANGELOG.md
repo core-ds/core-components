@@ -1,5 +1,15 @@
 # @alfalab/core-components-steps
 
+## 1.6.2
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1236](https://github.com/core-ds/core-components/pull/1236)
+
+-   Исправлена ​​логика смены активного шага
+
 ## 1.6.1
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # Change Log
 
+## 10.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.5
+    -   popover@6.2.2
+    -   date-input@4.3.29
+
 ## 10.2.15
 
 ### Patch Changes

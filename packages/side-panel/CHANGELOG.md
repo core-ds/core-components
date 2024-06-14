@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.3.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   drawer@5.0.12
+    -   navigation-bar-private@0.1.3
+
 ## 5.3.2
 
 ### Patch Changes

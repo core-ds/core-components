@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.15.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1240](https://github.com/core-ds/core-components/pull/1240)
+
+-   Исправлена ошибка рендера в ssr
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   navigation-bar-private@0.1.3
+
 ## 6.15.2
 
 ### Patch Changes

@@ -1,5 +1,40 @@
 # Change Log
 
+## 17.5.0
+
+### Minor Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1246](https://github.com/core-ds/core-components/pull/1246)
+
+-   Добавлены пропсы в OptGroup для управления выбранными вариантами
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1242](https://github.com/core-ds/core-components/pull/1242)
+
+-   Исправлен сброс чекбоксов при работе с поиском в мультиселекте
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   bottom-sheet@6.15.3
+    -   button@11.4.5
+    -   checkbox@4.3.3
+    -   form-control@12.2.3
+    -   input@14.4.5
+    -   modal@9.3.3
+    -   popover@6.2.2
+    -   scrollbar@3.0.1
+
 ## 17.4.5
 
 ### Patch Changes

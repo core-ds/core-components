@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.9.7
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   input@14.4.5
+    -   with-suffix@4.1.29
+
 ## 7.9.6
 
 ### Patch Changes

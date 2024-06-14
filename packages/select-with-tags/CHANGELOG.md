@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.2.13
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.3
+    -   form-control@12.2.3
+    -   popover@6.2.2
+    -   select@17.5.0
+    -   tag@8.2.1
+
 ## 8.2.12
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.1.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   icon-button@6.6.1
+
 ## 0.1.2
 
 ### Patch Changes

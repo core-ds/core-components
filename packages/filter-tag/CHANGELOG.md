@@ -1,5 +1,23 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1232](https://github.com/core-ds/core-components/pull/1232)
+
+-   Добавили новое свойство block, отвечающее за растягивание компонента на ширину контейнера
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
 ## 5.2.1
 
 ### Patch Changes

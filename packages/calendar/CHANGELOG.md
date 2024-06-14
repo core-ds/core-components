@@ -1,5 +1,26 @@
 # Change Log
 
+## 7.6.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1227](https://github.com/core-ds/core-components/pull/1227)
+
+-   Повышена специфичность для стилей, отвечающих за внутренний отступ у кнопок выбора года и месяца
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   icon-button@6.6.1
+    -   modal@9.3.3
+
 ## 7.6.4
 
 ### Patch Changes

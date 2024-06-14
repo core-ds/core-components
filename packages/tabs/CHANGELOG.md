@@ -1,5 +1,20 @@
 # Change Log
 
+## 8.8.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   icon-button@6.6.1
+    -   picker-button@11.7.3
+    -   tag@8.2.1
+
 ## 8.8.2
 
 ### Patch Changes

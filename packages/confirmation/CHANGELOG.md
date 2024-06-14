@@ -1,5 +1,14 @@
 # Change Log
 
+## 13.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   code-input@3.3.1
+    -   link@5.2.2
+
 ## 13.5.4
 
 ### Patch Changes

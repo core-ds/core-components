@@ -1,5 +1,21 @@
 # Change Log
 
+## 12.1.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   form-control@12.2.3
+    -   input@14.4.5
+    -   popover@6.2.2
+    -   select@17.5.0
+
 ## 12.1.4
 
 ### Patch Changes
