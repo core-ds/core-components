@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import deepEqual from 'deep-equal';
 
 import type { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
 import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
@@ -146,7 +147,10 @@ export function useSelectWithApply({
     const handleClose = () => setSelectedDraft(selectedOptionsRef.current);
 
     useEffect(() => {
-        setSelectedDraft(selectedOptions);
+        // устанавливать selectedDraft если selectedOptions изменились
+        if (!deepEqual(selectedOptionsRef.current, selectedOptions)) {
+            setSelectedDraft(selectedOptions);
+        }
         selectedOptionsRef.current = selectedOptions;
     }, [selectedOptions]);
 
