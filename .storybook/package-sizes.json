@@ -45,14 +45,14 @@
         "mobile.js": 4.8
     },
     "tabs": {
-        "collapsible.js": 283.1,
+        "collapsible.js": 283.4,
         "desktop.js": 34.8,
         "index.js": 36,
         "mobile.js": 34.9,
         "shared.js": 29.2
     },
     "table": {
-        "index.js": 164.4
+        "index.js": 164.7
     },
     "tab-bar": {
         "index.js": 10.8,
@@ -111,21 +111,21 @@
         "index.js": 4.4
     },
     "select": {
-        "desktop.js": 153.2,
-        "index.js": 295.5,
-        "mobile.js": 268.9,
-        "shared.js": 254.6
+        "desktop.js": 153.5,
+        "index.js": 295.8,
+        "mobile.js": 269.2,
+        "shared.js": 254.9
     },
     "select-with-tags": {
-        "desktop.js": 280.4,
-        "index.js": 303.8,
-        "mobile.js": 277.7
+        "desktop.js": 280.7,
+        "index.js": 304.1,
+        "mobile.js": 278
     },
     "segmented-control": {
         "index.js": 13.7
     },
     "scrollbar": {
-        "index.js": 36.7
+        "index.js": 37
     },
     "radio": {
         "index.js": 4.7
@@ -162,9 +162,9 @@
         "mobile.js": 14.6
     },
     "picker-button": {
-        "desktop.js": 275.8,
-        "index.js": 309.4,
-        "mobile.js": 281.5,
+        "desktop.js": 276.1,
+        "index.js": 309.7,
+        "mobile.js": 281.8,
         "shared.js": 3.1
     },
     "phone-input": {
@@ -239,13 +239,13 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 784.1
+        "index.js": 784.4
     },
     "international-phone-input": {
-        "desktop.js": 650.2,
-        "index.js": 684.1,
-        "mobile.js": 656.1,
-        "shared.js": 246.1
+        "desktop.js": 650.5,
+        "index.js": 684.4,
+        "mobile.js": 656.4,
+        "shared.js": 246.4
     },
     "input": {
         "desktop.js": 24.2,
@@ -254,9 +254,9 @@
         "shared.js": 11.5
     },
     "input-autocomplete": {
-        "desktop.js": 273.1,
-        "index.js": 308.2,
-        "mobile.js": 280.8,
+        "desktop.js": 273.4,
+        "index.js": 308.5,
+        "mobile.js": 281.1,
         "shared.js": 1.9
     },
     "indicator": {
@@ -326,9 +326,9 @@
         "index.js": 69.6
     },
     "custom-picker-button": {
-        "desktop.js": 277.4,
-        "index.js": 310.6,
-        "mobile.js": 283.1
+        "desktop.js": 277.7,
+        "index.js": 310.9,
+        "mobile.js": 283.4
     },
     "custom-button": {
         "index.js": 9.9
