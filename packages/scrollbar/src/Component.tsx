@@ -248,3 +248,5 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
         );
     },
 );
+
+Scrollbar.displayName = 'Scrollbar';

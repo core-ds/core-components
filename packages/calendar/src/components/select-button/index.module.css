@@ -2,7 +2,7 @@
 @import '../../vars.css';
 
 :global(.cc-calendar) {
-    & .button {
+    & .button.button {
         @mixin paragraph_primary_medium;
 
         height: 40px;

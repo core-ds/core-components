@@ -45,3 +45,5 @@ export const Portal = forwardRef<Element, PortalProps>((props, ref) => {
 
     return mountNode ? createPortal(children, mountNode) : mountNode;
 });
+
+Portal.displayName = 'Portal';

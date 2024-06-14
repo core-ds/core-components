@@ -112,3 +112,5 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
         </Stack>
     ),
 );
+
+NotificationManager.displayName = 'NotificationManager';

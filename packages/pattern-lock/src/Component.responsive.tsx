@@ -18,3 +18,5 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
         return <Component ref={ref} {...restProps} />;
     },
 );
+
+PatternLock.displayName = 'PatternLock';

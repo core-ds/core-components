@@ -238,3 +238,5 @@ export const PureCell = Object.assign(PureCellComponent, {
     Comment,
     Category,
 });
+
+PureCellComponent.displayName = 'PureCellComponent';

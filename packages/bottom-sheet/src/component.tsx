@@ -14,7 +14,7 @@ import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, os } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -118,7 +118,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 );
             }
 
-            const iOSViewHeight = document?.documentElement?.clientHeight || window.innerHeight;
+            const iOSViewHeight = isClient()
+                ? document?.documentElement?.clientHeight || window?.innerHeight
+                : 0;
+
             const viewHeight = os.isIOS() ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
@@ -655,3 +658,5 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         );
     },
 );
+
+BottomSheet.displayName = 'BottomSheet';

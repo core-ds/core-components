@@ -29,3 +29,5 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         );
     },
 );
+
+Plate.displayName = 'Plate';

@@ -75,3 +75,5 @@ export const CustomButton = React.forwardRef<
         );
     },
 );
+
+CustomButton.displayName = 'CustomButton';

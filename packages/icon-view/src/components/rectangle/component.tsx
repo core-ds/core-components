@@ -42,3 +42,5 @@ export const Rectangle = forwardRef<HTMLDivElement, RectangleProps>(
         />
     ),
 );
+
+Rectangle.displayName = 'Rectangle';

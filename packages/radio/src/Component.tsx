@@ -197,3 +197,5 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         );
     },
 );
+
+Radio.displayName = 'Radio';

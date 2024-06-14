@@ -30,3 +30,5 @@ export const FormControl = forwardRef<HTMLDivElement, FormControlProps>(
         return <Component ref={ref} {...restProps} />;
     },
 );
+
+FormControl.displayName = 'FormControl';

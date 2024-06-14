@@ -95,3 +95,5 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
         );
     },
 );
+
+Underlay.displayName = 'Underlay';

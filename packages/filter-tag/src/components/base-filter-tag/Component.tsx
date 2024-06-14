@@ -62,6 +62,12 @@ export type BaseFilterTagProps = {
     showClear?: boolean;
 
     /**
+     * Растягивает компонент на ширину контейнера
+     * @default false
+     */
+    block?: boolean;
+
+    /**
      * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
      * Используйте props shape и view
      * Вариант тега
@@ -112,6 +118,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             view = 'outlined',
             onClear = () => null,
             showClear = true,
+            block = false,
             className,
             dataTestId,
             styles = {},
@@ -158,6 +165,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         [styles.disabled]: disabled,
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
+                        [commonStyles.block]: block,
                     },
                 )}
                 ref={ref}
@@ -183,6 +191,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                             [commonStyles.open]: open,
                             [commonStyles.close]: !showClear,
                             [styles.close]: !showClear,
+                            [commonStyles.block]: block,
                         },
                     )}
                 >

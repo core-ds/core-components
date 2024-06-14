@@ -53,3 +53,5 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
         );
     },
 );
+
+CalendarWithSkeleton.displayName = 'CalendarWithSkeleton';

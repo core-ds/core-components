@@ -183,3 +183,5 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
         );
     },
 );
+
+Collapse.displayName = 'Collapse';

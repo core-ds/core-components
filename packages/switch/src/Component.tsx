@@ -163,3 +163,5 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         );
     },
 );
+
+Switch.displayName = 'Switch';
