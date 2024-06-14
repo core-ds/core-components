@@ -131,7 +131,7 @@
 
     & .option {
         color: var(--color-light-text-primary-inverted);
-        background: var(--color-light-neutral-1500);
+        background: var(--color-light-neutral-translucent-1300);
     }
 }
 
@@ -153,10 +153,10 @@
 }
 
 .selected .checkbox {
-    border: 2px solid var(--color-light-neutral-1500);
+    border: 2px solid var(--color-light-neutral-translucent-1300);
 
     & .dot {
-        background: var(--color-light-neutral-1500);
+        background: var(--color-light-neutral-translucent-1300);
     }
 }
 

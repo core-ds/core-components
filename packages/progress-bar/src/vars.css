@@ -23,7 +23,7 @@
     --progressbar-secondary-color: var(--color-light-neutral-700);
 
     /* primary */
-    --progressbar-primary-color: var(--color-light-neutral-1500);
+    --progressbar-primary-color: var(--color-light-neutral-translucent-1300);
 
     /* accent */
     --progressbar-accent-color: var(--color-light-accent-primary);

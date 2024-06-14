@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.2.2
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовой токен: color-static-neutral-1500-inverted -> color-static-neutral-0
+
 ## 4.2.1
 
 ### Patch Changes

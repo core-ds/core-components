@@ -23,7 +23,7 @@ import { Category } from './components/category';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { FooterButton } from './components/footer-button';
-import { FooterText } from './components/footer-text';
+import { FooterText, FooterTextProps } from './components/footer-text';
 import { Graphics } from './components/graphics';
 import { Main } from './components/main';
 import { Text } from './components/text';
@@ -233,7 +233,7 @@ export const PureCell = Object.assign(PureCellComponent, {
     AmountTitle,
     Addon,
     Footer,
-    ExtraSubtitle: FooterText,
+    ExtraSubtitle: FooterText as React.FC<FooterTextProps>,
     FooterButton,
     Comment,
     Category,

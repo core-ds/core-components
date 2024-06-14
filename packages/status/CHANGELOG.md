@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1223](https://github.com/core-ds/core-components/pull/1223)
+
+-   Добавлены новые значения для свойства view: 'muted-alt' и 'muted'. Значение 'soft' для view теперь deprecated, используйте вместо него 'muted-alt'
+-   Также добавлен кодмод, который изменяет значение view компонента Status с 'soft' на 'muted-alt'
+
 ## 3.3.0
 
 ### Minor Changes

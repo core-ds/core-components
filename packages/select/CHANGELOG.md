@@ -1,5 +1,29 @@
 # Change Log
 
+## 17.4.5
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1239](https://github.com/core-ds/core-components/pull/1239)
+
+-   Исправлено положение футера для виртуального списка опций с поиском (при OptionsList={VirtualOptionsList}). Раньше при вводе в инпут поиска положение футера было сверху, теперь футер снизу
+
+-   Обновлены зависимости
+    -   badge@5.5.2
+    -   button@11.4.4
+    -   checkbox@4.3.2
+    -   input@14.4.4
+    -   bottom-sheet@6.15.2
+    -   modal@9.3.2
+
 ## 17.4.4
 
 ### Patch Changes

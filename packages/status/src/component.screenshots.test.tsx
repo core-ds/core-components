@@ -31,7 +31,7 @@ describe(
             componentName: 'Status',
             knobs: {
                 children: 'Label',
-                view: ['soft', 'contrast'],
+                view: ['muted-alt', 'contrast', 'muted'],
                 color: [...colors],
             },
         }),

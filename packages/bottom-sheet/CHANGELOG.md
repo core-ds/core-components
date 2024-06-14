@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.15.2
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1234](https://github.com/core-ds/core-components/pull/1234)
+
+-   Исправлено поведение scrollToArea при первом рендере, когда еще не выполнены расчеты высоты. Теперь scrollToArea при первом рендере ведет себя так же, как и initialActiveAreaIndex.
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.2
+
 ## 6.15.1
 
 ### Patch Changes
