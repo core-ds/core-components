@@ -214,7 +214,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                         <div
                           class="component component scrollable scrollbar"
                           data-simplebar="init"
-                          style="min-width: 0px;"
+                          style="min-width: 0;"
                         >
                           <div
                             class="wrapper"
