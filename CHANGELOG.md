@@ -1,3 +1,98 @@
+## 46.2.0
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+#### Что изменилось
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `amount-input` `attach` `bank-card` `base-modal`<br /> `bottom-sheet` `button` `calendar` `calendar-with-skeleton` `chart`<br /> `checkbox` `code-input` `collapse` `custom-button` `custom-picker-button`<br /> `drawer` `filter-tag` `form-control` `hatching-progress-bar` `icon-button`<br /> `icon-view` `indicator` `input` `input-autocomplete` `international-phone-input`<br /> `link` `masked-input` `modal` `navigation-bar-private` `notification`<br /> `notification-manager` `number-input` `pass-code` `password-input` `pattern-lock`<br /> `phone-input` `picker-button` `plate` `popover` `popup-sheet`<br /> `portal` `progress-bar` `pure-cell` `radio` `radio-group`<br /> `scrollbar` `select` `select-with-tags` `side-panel` `slider-input`<br /> `sortable-list` `space` `switch` `tab-bar` `tabs`<br /> `tag` `textarea` `toast` `toast-plate` `underlay`<br /> `universal-date-input`
+
+
+### [#1246](https://github.com/core-ds/core-components/pull/1246)
+
+#### Что изменилось
+- Добавлены пропсы в OptGroup для управления выбранными вариантами
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1247](https://github.com/core-ds/core-components/pull/1247)
+
+#### Что изменилось
+- Изменили стили типографики для имени файла и текста, отображаемого, когда файл не загружен
+
+#### Влияние на компоненты
+- Патчи<br />`attach`
+
+
+### [#1232](https://github.com/core-ds/core-components/pull/1232)
+
+#### Что изменилось
+- Добавили новое свойство block, отвечающее за растягивание компонента на ширину контейнера
+
+#### Влияние на компоненты
+- Минорное<br />`filter-tag`
+
+
+### [#1227](https://github.com/core-ds/core-components/pull/1227)
+
+#### Что изменилось
+- Повышена специфичность для стилей, отвечающих за внутренний отступ у кнопок выбора года и месяца
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#1236](https://github.com/core-ds/core-components/pull/1236)
+
+#### Что изменилось
+- Исправлена ​​логика смены активного шага
+
+#### Влияние на компоненты
+- Патчи<br />`steps`
+
+
+### [#1220](https://github.com/core-ds/core-components/pull/1220)
+
+#### Что изменилось
+- Добавлена поддержка формата мм.гггг
+
+#### Влияние на компоненты
+- Минорное<br />`universal-date-input`
+
+
+### [#1240](https://github.com/core-ds/core-components/pull/1240)
+
+#### Что изменилось
+- Исправлена ошибка рендера в ssr
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#1242](https://github.com/core-ds/core-components/pull/1242)
+
+#### Что изменилось
+- Исправлен сброс чекбоксов при работе с поиском в мультиселекте
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1244](https://github.com/core-ds/core-components/pull/1244)
+
+#### Что изменилось
+- Исправлена ширина списка выбора вариантов Select при использовании VirtualOptionsList
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar`
+
+
+
 ## 46.1.0
 
 <sup><time>13.06.2024</time></sup>
