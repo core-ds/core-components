@@ -22,6 +22,10 @@ export const TEMPLATES: Record<View, DateTemplate> = {
         segments: ['HH', 'mm'],
         separators: [HOURS_MINUTES_SEPARATOR],
     },
+    month: {
+        segments: ['MM', 'yyyy'],
+        separators: ['.'],
+    },
 };
 
 export const DATE_MAX_VALUES: DateSegments<number> = {
