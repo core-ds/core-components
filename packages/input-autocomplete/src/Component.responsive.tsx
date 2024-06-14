@@ -18,3 +18,5 @@ export const InputAutocomplete = forwardRef<
         <InputAutocompleteMobile {...restProps} {...mobileProps} ref={ref} />
     );
 });
+
+InputAutocomplete.displayName = 'InputAutocomplete';

@@ -83,3 +83,5 @@ export const ScrollControls = forwardRef<HTMLDivElement, ScrollControlsProps>(
         );
     },
 );
+
+ScrollControls.displayName = 'ScrollControls';

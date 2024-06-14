@@ -58,3 +58,5 @@ export const CustomPickerButtonResponsive = forwardRef<
         );
     },
 );
+
+CustomPickerButtonResponsive.displayName = 'CustomPickerButtonResponsive';

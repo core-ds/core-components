@@ -140,3 +140,5 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         );
     },
 );
+
+MaskedInput.displayName = 'MaskedInput';

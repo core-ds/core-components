@@ -269,3 +269,5 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         );
     },
 );
+
+BaseShape.displayName = 'BaseShape';

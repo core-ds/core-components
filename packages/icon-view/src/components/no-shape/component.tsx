@@ -23,3 +23,5 @@ export type NoShapeProps = Omit<
 export const NoShape = forwardRef<HTMLDivElement, NoShapeProps>((props, ref) => (
     <BaseShape {...props} pathsMap={pathsMap} ref={ref} />
 ));
+
+NoShape.displayName = 'NoShape';

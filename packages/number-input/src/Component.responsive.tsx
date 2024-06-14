@@ -23,3 +23,5 @@ export const NumberInputResponsive = forwardRef<HTMLInputElement, NumberInputRes
         );
     },
 );
+
+NumberInputResponsive.displayName = 'NumberInputResponsive';

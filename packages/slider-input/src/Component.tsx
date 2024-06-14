@@ -284,3 +284,5 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         );
     },
 );
+
+SliderInput.displayName = 'SliderInput';

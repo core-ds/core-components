@@ -60,3 +60,5 @@ export const HatchingProgressBar = React.forwardRef<HTMLDivElement, HatchingProg
         </div>
     ),
 );
+
+HatchingProgressBar.displayName = 'HatchingProgressBar';

@@ -25,3 +25,5 @@ export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarP
         );
     },
 );
+
+CalendarResponsive.displayName = 'CalendarResponsive';

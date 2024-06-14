@@ -658,3 +658,5 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         );
     },
 );
+
+BottomSheet.displayName = 'BottomSheet';
