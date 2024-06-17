@@ -1,5 +1,15 @@
 # Change Log
 
+## 17.5.1
+
+### Patch Changes
+
+<sup><time>17.06.2024</time></sup>
+
+### [#1251](https://github.com/core-ds/core-components/pull/1251)
+
+-   Повысили специфичность для отступов контента в мобильной селекте
+
 ## 17.5.0
 
 ### Minor Changes
