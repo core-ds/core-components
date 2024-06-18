@@ -142,4 +142,9 @@ export type ButtonProps = CommonButtonProps & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
