@@ -59,7 +59,7 @@ describe('Indicator', () => {
         });
 
         it('should set `backgroundColor` style', () => {
-            const backgroundColor = 'var(--color-light-bg-secondary)';
+            const backgroundColor = 'var(--color-light-base-bg-secondary)';
             const { container } = render(<Indicator backgroundColor={backgroundColor} />);
 
             expect(container.firstElementChild).toHaveStyle({ backgroundColor });
@@ -67,7 +67,7 @@ describe('Indicator', () => {
 
         it('should set `border` styles', () => {
             const border = {
-                color: 'var(--color-light-border-secondary)',
+                color: 'var(--color-light-neutral-300)',
                 width: 1,
                 style: 'solid',
             } as const;

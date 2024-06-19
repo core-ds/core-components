@@ -2,7 +2,7 @@
 
 .plate {
     padding: var(--gap-m) var(--gap-l);
-    background-color: var(--color-light-bg-secondary);
+    background-color: var(--color-light-base-bg-secondary);
     border-radius: var(--border-radius-xxl);
     color: var(--color-light-text-primary);
     text-decoration: none;
@@ -10,12 +10,12 @@
 
     @media (hover: hover) {
         &:hover {
-            background-color: var(--color-light-specialbg-tertiary-transparent-shade-7);
+            background-color: var(--color-light-neutral-translucent-200-hover);
         }
     }
 
     &:active {
-        background-color: var(--color-light-specialbg-tertiary-transparent-shade-15);
+        background-color: var(--color-light-neutral-translucent-200-press);
     }
 }
 

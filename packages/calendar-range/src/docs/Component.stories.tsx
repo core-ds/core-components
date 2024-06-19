@@ -17,10 +17,10 @@ type Story = StoryObj<typeof CalendarRange>;
 
 const WRAPPER_STYLES = {
     display: 'inline-block',
-    border: '1px solid var(--color-light-border-secondary)',
+    border: '1px solid var(--color-light-neutral-300)',
     borderRadius: 8,
     boxShadow: 'var(--shadow-m)',
-    background: 'var(--color-light-bg-primary)',
+    background: 'var(--color-light-base-bg-primary)',
     padding: 'var(--gap-m)',
 };
 

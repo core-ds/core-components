@@ -81,7 +81,7 @@ export const ImageCard: FC<ImageCardProps> = ({
             <path
                 style={{
                     fill: imageFailed
-                        ? 'var(--color-light-graphic-tertiary)'
+                        ? 'var(--color-light-neutral-500)'
                         : `url(#${imagePatternId})`,
                 }}
                 d='M0 13V14C0 15.1046 0.89543 16 2 16H22C23.1046 16 24 15.1046 24 14V2C24 0.895431 23.1046 0 22 0H21V10C21 11.6569 19.6569 13 18 13H0Z'

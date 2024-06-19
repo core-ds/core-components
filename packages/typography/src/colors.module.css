@@ -7,11 +7,11 @@
 }
 
 .disabled {
-    color: var(--color-light-text-disabled);
+    color: var(--color-light-text-quaternary);
 }
 
 .accent {
-    color: var(--color-light-text-accent);
+    color: var(--color-light-accent-primary);
 }
 
 .primary {
@@ -43,7 +43,7 @@
 }
 
 .link {
-    color: var(--color-light-text-link);
+    color: var(--color-light-text-info);
 }
 
 .negative {
@@ -75,5 +75,5 @@
 }
 
 .static-accent {
-    color: var(--color-static-text-accent);
+    color: var(--color-static-accent-primary);
 }

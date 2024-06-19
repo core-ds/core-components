@@ -4,7 +4,7 @@
     display: flex;
     align-items: end;
     position: relative;
-    background-color: var(--color-light-graphic-tertiary);
+    background-color: var(--color-light-neutral-500);
     box-sizing: border-box;
 
     &.size-164 {

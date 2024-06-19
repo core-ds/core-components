@@ -12,7 +12,7 @@
     --select-options-list-bottom-padding: 0;
     --select-options-list-empty-placeholder-color: var(--color-light-text-secondary);
     --select-option-divider-display: none;
-    --select-option-divider-background: var(--color-light-border-primary);
+    --select-option-divider-background: var(--color-light-neutral-400);
 
     /* option */
 

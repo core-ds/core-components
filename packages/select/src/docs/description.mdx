@@ -1370,10 +1370,10 @@ render(() => {
                     option,
                     innerProps: {
                         style: {
-                            background: 'var(--color-light-bg-positive-muted)',
+                            background: 'var(--color-light-status-muted-positive)',
                             borderBottom:
                                 index + 1 !== options.length
-                                    ? '1px solid var(--color-light-bg-info)'
+                                    ? '1px solid var(--color-light-status-info)'
                                     : 'none',
                         },
                     },
@@ -1383,7 +1383,7 @@ render(() => {
                     <div
                         style={{
                             height: 12,
-                            background: 'var(--color-light-bg-negative-muted)',
+                            background: 'var(--color-light-status-muted-negative)',
                         }}
                     ></div>
                 }
@@ -1391,7 +1391,7 @@ render(() => {
                     <div
                         style={{
                             height: 12,
-                            background: 'var(--color-light-bg-negative-muted)',
+                            background: 'var(--color-light-status-muted-negative)',
                         }}
                     ></div>
                 }
