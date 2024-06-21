@@ -24,37 +24,22 @@ import {
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import type {
-    AdditionalMobileProps,
-    AnyObject,
-    BaseSelectProps,
-    BottomSheetSelectMobileProps,
-    ModalSelectMobileProps,
-    OptionShape,
-    OptionsListProps,
-    SearchProps,
-} from '../../typings';
+import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
 import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';
 
+import { useListPopoverDesktopProps } from './components/list-desktop/hooks/use-list-popover-desktop-props';
 import { ListPopoverDesktop } from './components/list-desktop/list-popover-desktop';
+import {
+    useListBottomSheetMobileProps,
+    useListModalMobileProps,
+} from './components/list-mobile/hooks';
 import { ListBottomSheetMobile } from './components/list-mobile/list-bottom-sheet-mobile';
 import { ListModalMobile } from './components/list-mobile/list-modal-mobile';
-import { BottomSheetType, ModalMobileType, PopoverType } from './types/component-types';
+import { ComponentProps } from './types/component-types';
 
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
-
-type ComponentProps = BaseSelectProps &
-    AdditionalMobileProps &
-    BottomSheetSelectMobileProps &
-    ModalSelectMobileProps & {
-        isBottomSheet?: boolean;
-        view: 'desktop' | 'mobile';
-        Popover?: PopoverType;
-        BottomSheet?: BottomSheetType;
-        ModalMobile?: ModalMobileType;
-    };
 
 const itemToString = (option: OptionShape | null) => (option ? option.key : '');
 
@@ -63,15 +48,14 @@ const isItemDisabled = (option: OptionShape | null) => Boolean(option?.disabled)
 export const BaseSelect = forwardRef(
     // TODO: 😭
     // eslint-disable-next-line complexity
-    (
-        {
+    (props: ComponentProps, ref) => {
+        const {
             dataTestId,
             className,
             fieldClassName,
             optionGroupClassName,
             optionsListClassName,
             optionClassName,
-            popperClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -82,8 +66,6 @@ export const BaseSelect = forwardRef(
             nativeSelect = false,
             defaultOpen = false,
             open: openProp,
-            popoverPosition = 'bottom-start',
-            preventFlip = true,
             optionsListWidth = 'content',
             name,
             id,
@@ -113,25 +95,18 @@ export const BaseSelect = forwardRef(
             Optgroup = () => null,
             Option = () => null,
             Search = () => null,
-            updatePopover,
-            zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
             view,
             isBottomSheet = true,
-            footer,
-            swipeable,
             modalProps,
-            popoverProps,
-            modalFooterProps,
-            modalHeaderProps,
             bottomSheetProps,
-            Popover,
-            ModalMobile,
-            BottomSheet,
-        }: ComponentProps,
-        ref,
-    ) => {
+        } = props;
+
+        const listBottomSheetMobileProps = useListBottomSheetMobileProps(props);
+        const listModalMobileProps = useListModalMobileProps(props);
+        const listPopoverDesktopProps = useListPopoverDesktopProps(props);
+
         const rootRef = useRef<HTMLDivElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
@@ -678,32 +653,18 @@ export const BaseSelect = forwardRef(
 
                 {name && !nativeSelect && renderValue()}
 
-                {view === 'desktop' && !nativeSelect && Popover && (
+                {view === 'desktop' && !nativeSelect && (
                     <ListPopoverDesktop
-                        Popover={Popover}
+                        {...listPopoverDesktopProps}
                         open={open}
-                        popoverProps={popoverProps}
                         fieldRef={fieldRef}
-                        popoverPosition={popoverPosition}
-                        preventFlip={preventFlip}
-                        popperClassName={popperClassName}
-                        updatePopover={updatePopover}
-                        zIndexPopover={zIndexPopover}
                         renderOptionsList={renderOptionsList}
                     />
                 )}
-                {view === 'mobile' && isBottomSheet && !nativeSelect && BottomSheet && (
+                {view === 'mobile' && isBottomSheet && !nativeSelect && (
                     <ListBottomSheetMobile
+                        {...listBottomSheetMobileProps}
                         open={open}
-                        showSearch={showSearch}
-                        onScroll={onScroll}
-                        dataTestId={dataTestId}
-                        swipeable={swipeable}
-                        label={label}
-                        BottomSheet={BottomSheet}
-                        bottomSheetProps={bottomSheetProps}
-                        placeholder={placeholder}
-                        footer={footer}
                         menuRef={menuRef}
                         scrollableContainerRef={scrollableContainerRef}
                         renderOptionsList={renderOptionsList}
@@ -713,19 +674,12 @@ export const BaseSelect = forwardRef(
                     />
                 )}
 
-                {view === 'mobile' && !isBottomSheet && !nativeSelect && ModalMobile && (
+                {view === 'mobile' && !isBottomSheet && !nativeSelect && (
                     <ListModalMobile
-                        ModalMobile={ModalMobile}
-                        dataTestId={dataTestId}
+                        {...listModalMobileProps}
                         open={open}
-                        modalProps={modalProps}
-                        modalHeaderProps={modalHeaderProps}
-                        modalFooterProps={modalFooterProps}
                         menuRef={menuRef}
                         scrollableContainerRef={scrollableContainerRef}
-                        label={label}
-                        placeholder={placeholder}
-                        onScroll={onScroll}
                         renderOptionsList={renderOptionsList}
                         renderSearch={renderSearch}
                         closeMenu={closeMenu}

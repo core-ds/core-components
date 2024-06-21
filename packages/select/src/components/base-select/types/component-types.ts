@@ -8,15 +8,32 @@ import type {
 } from '@alfalab/core-components-modal/shared';
 import type { ModalMobileProps } from '@alfalab/core-components-modal/typings';
 import type { PopoverProps } from '@alfalab/core-components-popover';
+import type {
+    AdditionalMobileProps,
+    BaseSelectProps,
+    BottomSheetSelectMobileProps,
+    ModalSelectMobileProps,
+} from '@alfalab/core-components-select/typings';
 
-export type PopoverType = ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>;
-export type BottomSheetType = React.ForwardRefExoticComponent<
+type PopoverType = ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>;
+type BottomSheetType = React.ForwardRefExoticComponent<
     BottomSheetProps & React.RefAttributes<HTMLDivElement>
 >;
-export type ModalMobileType = ForwardRefExoticComponent<
+type ModalMobileType = ForwardRefExoticComponent<
     ModalMobileProps & RefAttributes<HTMLDivElement>
 > & {
     Header: FC<ModalHeaderProps>;
     Footer: FC<ModalFooterProps>;
     Content: FC<ModalContentProps>;
 };
+
+export type ComponentProps = BaseSelectProps &
+    AdditionalMobileProps &
+    BottomSheetSelectMobileProps &
+    ModalSelectMobileProps & {
+        isBottomSheet?: boolean;
+        view: 'desktop' | 'mobile';
+        Popover?: PopoverType;
+        BottomSheet?: BottomSheetType;
+        ModalMobile?: ModalMobileType;
+    };
