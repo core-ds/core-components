@@ -113,7 +113,7 @@
     "select": {
         "desktop.js": 153.8,
         "index.js": 296.5,
-        "mobile.js": 269.8,
+        "mobile.js": 269.9,
         "shared.js": 255.5
     },
     "select-with-tags": {
@@ -164,7 +164,7 @@
     "picker-button": {
         "desktop.js": 276.7,
         "index.js": 310.3,
-        "mobile.js": 282.4,
+        "mobile.js": 282.5,
         "shared.js": 3.1
     },
     "phone-input": {
@@ -242,7 +242,7 @@
         "index.js": 785
     },
     "international-phone-input": {
-        "desktop.js": 651,
+        "desktop.js": 651.1,
         "index.js": 685,
         "mobile.js": 657,
         "shared.js": 247
@@ -255,7 +255,7 @@
     },
     "input-autocomplete": {
         "desktop.js": 274,
-        "index.js": 309.1,
+        "index.js": 309.2,
         "mobile.js": 281.7,
         "shared.js": 1.9
     },
@@ -326,9 +326,9 @@
         "index.js": 69.6
     },
     "custom-picker-button": {
-        "desktop.js": 278.3,
-        "index.js": 311.5,
-        "mobile.js": 284
+        "desktop.js": 278.4,
+        "index.js": 311.6,
+        "mobile.js": 284.1
     },
     "custom-button": {
         "index.js": 9.9
