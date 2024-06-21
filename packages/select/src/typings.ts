@@ -307,6 +307,8 @@ export type BaseSelectProps = {
         filterFn?: (optionText: string, search: string) => boolean;
         value?: string;
         onChange?: (value: string) => void;
+        filterGroup?: boolean;
+        groupAccessor?: (group: GroupShape) => string | undefined;
     };
 
     /**

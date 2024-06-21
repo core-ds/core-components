@@ -25,7 +25,13 @@ import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
-import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
+import {
+    defaultAccessor,
+    defaultFilterFn,
+    defaultGroupAccessor,
+    isGroup,
+    processOptions,
+} from '../../utils';
 import { NativeSelect } from '../native-select';
 
 import { useListPopoverDesktopProps } from './components/list-desktop/hooks/use-list-popover-desktop-props';
@@ -124,10 +130,29 @@ export const BaseSelect = forwardRef(
 
         const accessor = searchProps.accessor || defaultAccessor;
         const filterFn = searchProps.filterFn || defaultFilterFn;
+        const filterGroup = searchProps.filterGroup ?? false;
+        const groupAccessor = searchProps.groupAccessor ?? defaultGroupAccessor;
 
         const { filteredOptions, flatOptions, selectedOptions } = useMemo(
-            () => processOptions(options, selected, (option) => filterFn(accessor(option), search)),
-            [filterFn, accessor, options, search, selected],
+            () =>
+                processOptions(
+                    options,
+                    selected,
+                    (option) => {
+                        if (isGroup(option)) {
+                            const groupAccessorValue = groupAccessor(option);
+
+                            return (
+                                typeof groupAccessorValue === 'string' &&
+                                filterFn(groupAccessorValue, search)
+                            );
+                        }
+
+                        return filterFn(accessor(option), search);
+                    },
+                    filterGroup,
+                ),
+            [options, selected, filterFn, accessor, search, filterGroup, groupAccessor],
         );
 
         const scrollIntoView = (node: HTMLElement) => {

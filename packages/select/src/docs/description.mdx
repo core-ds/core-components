@@ -167,100 +167,6 @@ render(() => {
 });
 ```
 
-## Поиск среди элементов списка
-
-Если список содержит большое количество пунктов, используя `showSearch` можно добавить в шапку дропдауна поиск, с помощью которого пользователь сможет отфильтровать элементы списка.
-
-По умолчанию компонент ищет строковое значение среди полей `content`, `value` и `key` и фильтрует по нему. Переопределить это поведение можно с помощью `searchProps.accessor`.
-
-```jsx live mobileHeight={640}
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState([]);
-    const [selectedSecond, setSelectedSecond] = React.useState([]);
-
-    return (
-        <div style={{ width: 320 }}>
-            <SelectDesktop
-                showSearch={true}
-                selected={selectedFirst}
-                size={56}
-                options={OPTIONS}
-                placeholder='Выберите элемент'
-                label='Одиночный выбор'
-                Option={BaseOption}
-                block={true}
-                onChange={({ selected }) => {
-                    setSelectedFirst(selected);
-                }}
-            />
-            <Gap size='m' />
-            <SelectDesktop
-                allowUnselect={true}
-                size={56}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                multiple={true}
-                block={true}
-                {...useSelectWithApply({
-                    showSearch: true,
-                    options: OPTIONS,
-                    selected: selectedSecond,
-                    onChange: ({ selectedMultiple }) => {
-                        setSelectedSecond(selectedMultiple.map((option) => option.key));
-                    },
-                })}
-            />
-        </div>
-    );
-});
-//MOBILE
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selected, setSelected] = React.useState([]);
-
-    return (
-        <div style={{ width: '100%' }}>
-            <SelectMobile
-                showSearch={true}
-                multiple={true}
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                block={true}
-                selected={selected}
-                onChange={({ selectedMultiple }) => {
-                    setSelected(selectedMultiple.map((option) => option.key));
-                }}
-            />
-        </div>
-    );
-});
-```
-
 ## Группировка
 
 Пункты списка можно группировать.
@@ -332,6 +238,156 @@ render(() => {
                 selected={selected}
                 onChange={handleChange}
                 block={true}
+            />
+        </div>
+    );
+});
+```
+
+## Поиск среди элементов списка
+
+Если список содержит большое количество пунктов, можно добавить в шапку дропдауна поиск `showSearch`, с помощью которого пользователь сможет отфильтровать элементы списка. Можно искать по названиям групп пунктов c помощью `searchProps.filterGroup`.
+
+```jsx live mobileHeight={640}
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+const GROUP_OPTIONS = [
+    {
+        label: 'nonmetals',
+        options: [
+            { key: '1', content: 'Argon' },
+            { key: '2', content: 'Helium' },
+        ],
+    },
+    {
+        label: 'metals',
+        options: [
+            { key: '3', content: 'Aurum' },
+            { key: '4', content: 'Platinum' },
+        ],
+    },
+];
+
+render(() => {
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
+    const [selectedSecond, setSelectedSecond] = React.useState([]);
+
+    return (
+        <div style={{ width: 320 }}>
+            <SelectDesktop
+                showSearch={true}
+                selected={selectedFirst}
+                size={56}
+                options={OPTIONS}
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
+                Option={BaseOption}
+                block={true}
+                onChange={({ selected }) => {
+                    setSelectedFirst(selected);
+                }}
+            />
+            <Gap size='m' />
+            <SelectDesktop
+                allowUnselect={true}
+                size={56}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                Option={BaseOption}
+                multiple={true}
+                block={true}
+                {...useSelectWithApply({
+                    showSearch: true,
+                    options: OPTIONS,
+                    selected: selectedSecond,
+                    onChange: ({ selectedMultiple }) => {
+                        setSelectedSecond(selectedMultiple.map((option) => option.key));
+                    },
+                })}
+            />
+            <Gap size='m' />
+            <SelectDesktop
+                allowUnselect={true}
+                size={56}
+                options={GROUP_OPTIONS}
+                placeholder='Выберите элемент'
+                label='Сгруппированный список'
+                Option={BaseOption}
+                block={true}
+                showSearch={true}
+                searchProps={{ filterGroup: true }}
+            />
+        </div>
+    );
+});
+//MOBILE
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+const GROUP_OPTIONS = [
+    {
+        label: 'nonmetals',
+        options: [
+            { key: '1', content: 'Argon' },
+            { key: '2', content: 'Helium' },
+        ],
+    },
+    {
+        label: 'metals',
+        options: [
+            { key: '3', content: 'Aurum' },
+            { key: '4', content: 'Platinum' },
+        ],
+    },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState([]);
+
+    return (
+        <div style={{ width: '100%' }}>
+            <SelectMobile
+                showSearch={true}
+                multiple={true}
+                allowUnselect={true}
+                options={OPTIONS}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                Option={BaseOption}
+                block={true}
+                selected={selected}
+                onChange={({ selectedMultiple }) => {
+                    setSelected(selectedMultiple.map((option) => option.key));
+                }}
+            />
+            <Gap size='m' />
+            <SelectMobile
+                allowUnselect={true}
+                size={56}
+                options={GROUP_OPTIONS}
+                placeholder='Выберите элемент'
+                label='Сгруппированный список'
+                Option={BaseOption}
+                block={true}
+                showSearch={true}
+                searchProps={{ filterGroup: true }}
             />
         </div>
     );
