@@ -57,13 +57,10 @@ render(() => {
     const getFilteredOptions = () => {
         if (multiple) {
             return inputValues.length === selected.length
+                // отображаем весь список, если значения в поле ввода совпадают с выбранными значениями в списке
                 ? options
-                : options.filter((option) => {
-                      return (
-                          selectedOptions.includes(option) ||
-                          matchOption(option, inputValues[inputValues.length - 1])
-                      );
-                  });
+                // отображаем только совпадения с новым введенным значением, включая уже выбранные элементы
+                : options.filter((option) => matchOption(option, inputValues[inputValues.length - 1]));
         }
 
         return options.some(({ key }) => key === value)
