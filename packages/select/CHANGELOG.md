@@ -1,5 +1,29 @@
 # Change Log
 
+## 17.6.0
+
+### Minor Changes
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1249](https://github.com/core-ds/core-components/pull/1249)
+
+-   Добавлен поиск по группам значений
+
+### Patch Changes
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1248](https://github.com/core-ds/core-components/pull/1248)
+
+-   увеличена специфичность стилей для кнопок футера
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1257](https://github.com/core-ds/core-components/pull/1257)
+
+-   Корректная передача пропсов для мобильного варианта компонента
+
 ## 17.5.1
 
 ### Patch Changes
