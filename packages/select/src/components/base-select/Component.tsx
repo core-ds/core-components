@@ -1,9 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React, {
-    FC,
     FocusEvent,
     forwardRef,
-    ForwardRefExoticComponent,
     KeyboardEvent,
     MouseEvent,
     RefAttributes,
@@ -23,14 +21,6 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { ModalMobileProps } from '@alfalab/core-components-modal/mobile';
-import type {
-    ModalContentProps,
-    ModalFooterProps,
-    ModalHeaderProps,
-} from '@alfalab/core-components-modal/shared';
-import type { PopoverProps } from '@alfalab/core-components-popover';
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
@@ -47,6 +37,11 @@ import type {
 import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';
 
+import { ListPopoverDesktop } from './components/list-desktop/list-popover-desktop';
+import { ListBottomSheetMobile } from './components/list-mobile/list-bottom-sheet-mobile';
+import { ListModalMobile } from './components/list-mobile/list-modal-mobile';
+import { BottomSheetType, ModalMobileType, PopoverType } from './types/component-types';
+
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
@@ -56,17 +51,9 @@ type ComponentProps = BaseSelectProps &
     ModalSelectMobileProps & {
         isBottomSheet?: boolean;
         view: 'desktop' | 'mobile';
-        Popover?: ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>;
-        BottomSheet?: React.ForwardRefExoticComponent<
-            BottomSheetProps & React.RefAttributes<HTMLDivElement>
-        >;
-        ModalMobile?: ForwardRefExoticComponent<
-            ModalMobileProps & RefAttributes<HTMLDivElement>
-        > & {
-            Header: FC<ModalHeaderProps>;
-            Footer: FC<ModalFooterProps>;
-            Content: FC<ModalContentProps>;
-        };
+        Popover?: PopoverType;
+        BottomSheet?: BottomSheetType;
+        ModalMobile?: ModalMobileType;
     };
 
 const itemToString = (option: OptionShape | null) => (option ? option.key : '');
@@ -641,130 +628,6 @@ export const BaseSelect = forwardRef(
             );
         };
 
-        const renderInPopover = () => {
-            if (!nativeSelect && Popover) {
-                return (
-                    <Popover
-                        {...popoverProps}
-                        open={open}
-                        withTransition={false}
-                        anchorElement={fieldRef.current as HTMLElement}
-                        position={popoverPosition}
-                        preventFlip={preventFlip}
-                        popperClassName={cn(styles.popoverInner, popperClassName)}
-                        update={updatePopover}
-                        zIndex={zIndexPopover}
-                    >
-                        {renderOptionsList()}
-                    </Popover>
-                );
-            }
-
-            return null;
-        };
-
-        const renderInBottomSheet = () => {
-            if (!nativeSelect && BottomSheet) {
-                return (
-                    <BottomSheet
-                        dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
-                        open={open}
-                        className={mobileStyles.sheet}
-                        contentClassName={mobileStyles.sheetContent}
-                        containerClassName={mobileStyles.sheetContainer}
-                        title={label || placeholder}
-                        actionButton={footer}
-                        stickyHeader={true}
-                        hasCloser={true}
-                        swipeable={swipeable}
-                        initialHeight={showSearch ? 'full' : 'default'}
-                        {...bottomSheetProps}
-                        sheetContainerRef={menuRef}
-                        scrollableContainerRef={scrollableContainerRef}
-                        onClose={() => {
-                            closeMenu();
-                            bottomSheetProps?.onClose?.();
-                        }}
-                        transitionProps={{
-                            ...bottomSheetProps?.transitionProps,
-                            onEntered: handleEntered,
-                        }}
-                        bottomAddons={
-                            <React.Fragment>
-                                {renderSearch()}
-                                {bottomSheetProps?.bottomAddons}
-                            </React.Fragment>
-                        }
-                        containerProps={{
-                            ...bottomSheetProps?.containerProps,
-                            onScroll,
-                        }}
-                    >
-                        {renderOptionsList()}
-                    </BottomSheet>
-                );
-            }
-
-            return null;
-        };
-
-        const renderInModalMobile = () => {
-            if (!nativeSelect && ModalMobile) {
-                return (
-                    <ModalMobile
-                        dataTestId={getDataTestId(dataTestId, 'modal')}
-                        open={open}
-                        hasCloser={true}
-                        {...modalProps}
-                        componentRef={menuRef}
-                        onClose={(...args) => {
-                            closeMenu();
-                            modalProps?.onClose?.(...args);
-                        }}
-                        contentClassName={cn(
-                            mobileStyles.sheetContent,
-                            modalProps?.contentClassName,
-                        )}
-                        ref={mergeRefs([
-                            scrollableContainerRef,
-                            modalProps?.ref as React.Ref<HTMLDivElement>,
-                        ])}
-                        wrapperProps={{
-                            ...modalProps?.wrapperProps,
-                            onScroll,
-                        }}
-                        transitionProps={{
-                            ...modalProps?.transitionProps,
-                            onEntered: handleEntered,
-                        }}
-                    >
-                        <ModalMobile.Header
-                            hasCloser={true}
-                            sticky={true}
-                            {...modalHeaderProps}
-                            title={undefined}
-                            bottomAddons={
-                                <React.Fragment>
-                                    {renderSearch()}
-                                    {modalHeaderProps?.bottomAddons}
-                                </React.Fragment>
-                            }
-                        >
-                            {modalHeaderProps?.title || label || placeholder}
-                        </ModalMobile.Header>
-
-                        <ModalMobile.Content flex={true} className={mobileStyles.modalContent}>
-                            {renderOptionsList()}
-                        </ModalMobile.Content>
-
-                        {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
-                    </ModalMobile>
-                );
-            }
-
-            return null;
-        };
-
         return (
             <div
                 {...(disabled && { 'aria-disabled': true })}
@@ -815,9 +678,60 @@ export const BaseSelect = forwardRef(
 
                 {name && !nativeSelect && renderValue()}
 
-                {view === 'desktop' && renderInPopover()}
-                {view === 'mobile' && isBottomSheet && renderInBottomSheet()}
-                {view === 'mobile' && !isBottomSheet && renderInModalMobile()}
+                {view === 'desktop' && !nativeSelect && Popover && (
+                    <ListPopoverDesktop
+                        Popover={Popover}
+                        open={open}
+                        popoverProps={popoverProps}
+                        fieldRef={fieldRef}
+                        popoverPosition={popoverPosition}
+                        preventFlip={preventFlip}
+                        popperClassName={popperClassName}
+                        updatePopover={updatePopover}
+                        zIndexPopover={zIndexPopover}
+                        renderOptionsList={renderOptionsList}
+                    />
+                )}
+                {view === 'mobile' && isBottomSheet && !nativeSelect && BottomSheet && (
+                    <ListBottomSheetMobile
+                        open={open}
+                        showSearch={showSearch}
+                        onScroll={onScroll}
+                        dataTestId={dataTestId}
+                        swipeable={swipeable}
+                        label={label}
+                        BottomSheet={BottomSheet}
+                        bottomSheetProps={bottomSheetProps}
+                        placeholder={placeholder}
+                        footer={footer}
+                        menuRef={menuRef}
+                        scrollableContainerRef={scrollableContainerRef}
+                        renderOptionsList={renderOptionsList}
+                        renderSearch={renderSearch}
+                        closeMenu={closeMenu}
+                        handleEntered={handleEntered}
+                    />
+                )}
+
+                {view === 'mobile' && !isBottomSheet && !nativeSelect && ModalMobile && (
+                    <ListModalMobile
+                        ModalMobile={ModalMobile}
+                        dataTestId={dataTestId}
+                        open={open}
+                        modalProps={modalProps}
+                        modalHeaderProps={modalHeaderProps}
+                        modalFooterProps={modalFooterProps}
+                        menuRef={menuRef}
+                        scrollableContainerRef={scrollableContainerRef}
+                        label={label}
+                        placeholder={placeholder}
+                        onScroll={onScroll}
+                        renderOptionsList={renderOptionsList}
+                        renderSearch={renderSearch}
+                        closeMenu={closeMenu}
+                        handleEntered={handleEntered}
+                    />
+                )}
             </div>
         );
     },
