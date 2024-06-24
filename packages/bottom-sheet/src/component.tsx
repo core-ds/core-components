@@ -13,7 +13,7 @@ import { SwipeCallback, SwipeEventData, TapCallback, useSwipeable } from 'react-
 import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
-import { BaseModal } from '@alfalab/core-components-base-modal';
+import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
 import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
@@ -102,6 +102,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             swipeableMarker,
             swipeableMarkerClassName,
             backButtonProps,
+            iOSLock = false,
         },
         ref,
     ) => {
@@ -242,6 +243,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const nextAreaIdx = getActiveAreaIndex(nextArea);
 
             if (nextArea === 0) {
+                if (iOSLock) {
+                    unlockScroll();
+                }
                 onClose();
 
                 return;
@@ -280,6 +284,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     .find((area) => area < activeArea);
 
                 if (nextArea === 0) {
+                    if (iOSLock) {
+                        unlockScroll();
+                    }
+
                     onClose();
 
                     return;
@@ -314,6 +322,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 isSecondArea && canClose && 1 - currentSheetHeight / activeArea > CLOSE_OFFSET;
 
             if (shouldCloseByOffset) {
+                if (iOSLock) {
+                    unlockScroll();
+                }
+
                 onClose();
 
                 return;
@@ -335,6 +347,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             );
 
             if (nearestArea === 0) {
+                if (iOSLock) {
+                    unlockScroll();
+                }
+
                 onClose();
             } else {
                 const nextOffset = lastMagneticArea - nearestArea;
@@ -595,6 +611,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 disableEscapeKeyDown={disableEscapeKeyDown}
                 disableRestoreFocus={disableRestoreFocus}
                 keepMounted={keepMounted}
+                iOSLock={iOSLock}
             >
                 <div
                     className={cn(styles.wrapper, {
