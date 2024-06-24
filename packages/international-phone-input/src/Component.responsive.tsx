@@ -19,3 +19,5 @@ export const InternationalPhoneInput = React.forwardRef<
         <InternationalPhoneInputMobile {...restProps} ref={ref} />
     );
 });
+
+InternationalPhoneInput.displayName = 'InternationalPhoneInput';

@@ -5,7 +5,7 @@
     padding: var(--gap-s);
     outline: none;
 
-    & > * + * {
+    & > .button + .button {
         margin-left: var(--gap-xs);
     }
 }

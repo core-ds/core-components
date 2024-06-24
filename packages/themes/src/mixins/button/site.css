@@ -32,10 +32,12 @@
     --button-inverted-primary-mobile-color: var(--color-static-text-primary-inverted);
 
     /* spinner */
-    --button-spinner-primary-color: var(--color-static-neutral-1500-inverted);
-    --button-spinner-inverted-primary-color: var(--color-static-neutral-1500-inverted);
+    --button-spinner-primary-color: var(--color-static-neutral-translucent-1300-inverted);
+    --button-spinner-inverted-primary-color: var(--color-static-neutral-translucent-1300-inverted);
 
     /* spinner mobile */
-    --button-spinner-primary-mobile-color: var(--color-static-neutral-1500-inverted);
-    --button-spinner-inverted-primary-mobile-color: var(--color-static-neutral-1500-inverted);
+    --button-spinner-primary-mobile-color: var(--color-static-neutral-translucent-1300-inverted);
+    --button-spinner-inverted-primary-mobile-color: var(
+        --color-static-neutral-translucent-1300-inverted
+    );
 }

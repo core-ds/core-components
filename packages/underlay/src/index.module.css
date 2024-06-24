@@ -2,8 +2,8 @@
 
 :root {
     --underline-border-color-accent: var(--color-light-accent-primary);
-    --underline-border-color-key: var(--color-light-neutral-1500);
-    --underline-border-color-key-inverted: var(--color-light-neutral-1500-inverted);
+    --underline-border-color-key: var(--color-light-neutral-translucent-1300);
+    --underline-border-color-key-inverted: var(--color-light-neutral-translucent-1300-inverted);
     --underline-border-color-link: var(--color-light-status-info);
     --underline-border-color-primary: var(--color-light-neutral-400);
     --underline-border-color-primary-inverted: var(--color-light-neutral-400-inverted);

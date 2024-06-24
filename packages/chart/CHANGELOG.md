@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.2.8
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
 ## 3.2.7
 
 ### Patch Changes

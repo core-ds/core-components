@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.3
+    -   button@11.4.5
+    -   popover@6.2.2
+
+## 7.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   bottom-sheet@6.15.2
+
 ## 7.3.12
 
 ### Patch Changes

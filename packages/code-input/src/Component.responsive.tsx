@@ -26,3 +26,5 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
         return <Component ref={ref} {...restProps} />;
     },
 );
+
+CodeInput.displayName = 'CodeInput';

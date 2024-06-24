@@ -60,3 +60,5 @@ export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonR
         );
     },
 );
+
+PickerButtonResponsive.displayName = 'PickerButtonResponsive';

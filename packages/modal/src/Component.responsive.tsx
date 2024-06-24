@@ -36,3 +36,5 @@ export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
     Footer,
     Controls,
 });
+
+ModalResponsiveComponent.displayName = 'ModalResponsiveComponent';

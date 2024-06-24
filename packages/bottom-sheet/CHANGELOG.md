@@ -1,5 +1,38 @@
 # Change Log
 
+## 6.15.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1240](https://github.com/core-ds/core-components/pull/1240)
+
+-   Исправлена ошибка рендера в ssr
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   navigation-bar-private@0.1.3
+
+## 6.15.2
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1234](https://github.com/core-ds/core-components/pull/1234)
+
+-   Исправлено поведение scrollToArea при первом рендере, когда еще не выполнены расчеты высоты. Теперь scrollToArea при первом рендере ведет себя так же, как и initialActiveAreaIndex.
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.2
+
 ## 6.15.1
 
 ### Patch Changes

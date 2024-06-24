@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-.sheetContent {
+.sheetContent.sheetContent {
     padding: 0;
 
     & .modalContent {

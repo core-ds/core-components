@@ -97,3 +97,5 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
         );
     },
 );
+
+Modal.displayName = 'Modal';

@@ -326,3 +326,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         );
     },
 );
+
+AmountInput.displayName = 'AmountInput';
+SuffixInput.displayName = 'SuffixInput';

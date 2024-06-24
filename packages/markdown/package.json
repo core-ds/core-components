@@ -1,7 +1,7 @@
 {
     "name": "@alfalab/core-components-markdown",
     "description": "",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "main": "index.js",
     "license": "MIT",
     "publishConfig": {
@@ -16,7 +16,7 @@
     "dependencies": {
         "@alfalab/core-components-typography": "^4.5.1",
         "@alfalab/core-components-list": "^3.3.7",
-        "@alfalab/core-components-link": "^5.2.1",
+        "@alfalab/core-components-link": "^5.2.2",
         "@alfalab/core-components-mq": "^4.1.4",
         "@alfalab/core-components-shared": "^0.10.0",
         "tslib": "^2.4.0",

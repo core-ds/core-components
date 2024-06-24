@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1244](https://github.com/core-ds/core-components/pull/1244)
+
+-   Исправлена ширина списка выбора вариантов Select при использовании VirtualOptionsList
+
 ## 3.0.0
 
 ### Major Changes

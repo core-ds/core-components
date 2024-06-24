@@ -402,3 +402,6 @@ export const Chart = (props: OptionsProps) => {
         </div>
     );
 };
+
+Chart.displayName = 'Chart';
+ResponsiveContainer.displayName = 'ResponsiveContainer';

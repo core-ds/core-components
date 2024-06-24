@@ -29,3 +29,5 @@ export const InputAutocomplete = forwardRef<
         );
     },
 );
+
+InputAutocomplete.displayName = 'InputAutocomplete';

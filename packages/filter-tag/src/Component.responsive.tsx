@@ -30,3 +30,5 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
         );
     },
 );
+
+FilterTag.displayName = 'FilterTag';

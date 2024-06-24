@@ -287,3 +287,5 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         );
     },
 );
+
+Attach.displayName = 'Attach';

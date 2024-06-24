@@ -9,3 +9,5 @@ import styles from './desktop.module.css';
 export const PatternLockDesktop = forwardRef<TPatternLockInstance, CommonPatternLockProps>(
     (restProps, ref) => <BasePatternLock {...restProps} hover={true} ref={ref} styles={styles} />,
 );
+
+PatternLockDesktop.displayName = 'PatternLockDesktop';

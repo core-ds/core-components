@@ -30,3 +30,5 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         );
     },
 );
+
+Tag.displayName = 'Tag';

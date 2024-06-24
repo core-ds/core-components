@@ -2,9 +2,9 @@
 
 :root {
     /* primary */
-    --icon-button-primary-base-color: var(--color-light-neutral-1500);
-    --icon-button-primary-hover-color: var(--color-light-neutral-1500-hover);
-    --icon-button-primary-active-color: var(--color-light-neutral-1500-press);
+    --icon-button-primary-base-color: var(--color-light-neutral-translucent-1300);
+    --icon-button-primary-hover-color: var(--color-light-neutral-translucent-1300-hover);
+    --icon-button-primary-active-color: var(--color-light-neutral-translucent-1300-press);
     --icon-button-primary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* secondary */

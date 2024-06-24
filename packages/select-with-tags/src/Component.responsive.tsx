@@ -26,3 +26,5 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         );
     },
 );
+
+SelectWithTags.displayName = 'SelectWithTags';

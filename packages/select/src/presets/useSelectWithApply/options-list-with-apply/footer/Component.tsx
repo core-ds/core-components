@@ -32,6 +32,7 @@ export const Footer = ({
             view='primary'
             onClick={handleApply}
             dataTestId={getDataTestId(dataTestId, 'apply')}
+            className={styles.button}
         >
             Применить
         </ButtonDesktop>
@@ -42,6 +43,7 @@ export const Footer = ({
                 view='secondary'
                 onClick={handleClear}
                 dataTestId={getDataTestId(dataTestId, 'clear')}
+                className={styles.button}
             >
                 Сбросить
             </ButtonDesktop>

@@ -7,3 +7,19 @@
     <CodeInput fields={isMobile() ? 4 : 5} breakpoint={BREAKPOINT}/>
 </Container>
 ```
+
+## Шаблон sms сообщения для Android
+
+Для корректной вставки SMS-кода на Android нужно отправлять сообщение по указанному шаблону
+```mdx
+Your OTP is: 123456.
+@example.com #123456
+```
+
+Важно правильно указать домен. Здесь можно совершить массу ошибок. Вот несколько условий для корректной работы:
+1. Домен ресурса должен быть **https**, но не должен быть включен в шаблон сообщения (*<b><del>https://</del></b>core-ds.github.io*);
+2. Домен не должен содержать портов (*core-ds.github.io<b><del>:8080</del></b>*);
+3. Домен не должен содержать путей (*core-ds.github.io<b><del>/path</del></b>*).
+
+Полный список ошибок можно посмотреть [ссылке](https://developer.chrome.com/docs/identity/web-apis/web-otp?hl=ru#format).
+Протестировать шаблон сообщения можно в [демо](https://web-otp.glitch.me/)

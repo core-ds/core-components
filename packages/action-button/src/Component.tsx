@@ -191,3 +191,5 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         );
     },
 );
+
+ActionButton.displayName = 'ActionButton';

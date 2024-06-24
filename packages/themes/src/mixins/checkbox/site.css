@@ -5,6 +5,6 @@
     --checkbox-checked-active-bg-color: var(--color-light-accent-primary-press);
 
     /* icon */
-    --checkbox-icon-color: var(--color-static-neutral-1500-inverted);
-    --checkbox-icon-indeterminate-color: var(--color-static-neutral-1500-inverted);
+    --checkbox-icon-color: var(--color-static-neutral-translucent-1300-inverted);
+    --checkbox-icon-indeterminate-color: var(--color-static-neutral-translucent-1300-inverted);
 }

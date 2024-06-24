@@ -1,5 +1,31 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.7.4
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+
+## 1.7.3
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовой токен: color-light-graphic-primary -> color-light-neutral-0-inverted
+
+-   Обновлены зависимости
+    -   button@11.4.4
+
 ## 1.7.2
 
 ### Patch Changes

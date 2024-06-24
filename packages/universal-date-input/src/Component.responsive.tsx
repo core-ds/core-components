@@ -25,3 +25,5 @@ export const UniversalDateInput = forwardRef<HTMLInputElement, UniversalDateInpu
         );
     },
 );
+
+UniversalDateInput.displayName = 'UniversalDateInput';

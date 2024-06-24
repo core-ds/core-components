@@ -148,3 +148,5 @@ Link.defaultProps = {
     view: 'primary',
     pseudo: false,
 };
+
+Link.displayName = 'Link';

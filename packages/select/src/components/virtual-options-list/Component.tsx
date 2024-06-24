@@ -37,6 +37,10 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
             setHighlightedIndex,
+            selectedItems,
+            setSelectedItems,
+            search,
+            multiple,
         },
         ref,
     ) => {
@@ -139,7 +143,35 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const renderList = () =>
             rowVirtualizer.virtualItems.map((virtualRow) => {
                 const option = flatOptions[virtualRow.index];
-                const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+                const renderGroup = () => {
+                    const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+
+                    if (!group) return null;
+
+                    const groupSelectedItems = selectedItems?.filter((item) =>
+                        group.options.includes(item),
+                    );
+                    const handleSelectedItems = (items: OptionShape[]) => {
+                        setSelectedItems(
+                            (
+                                selectedItems?.filter((item) => !group.options.includes(item)) ?? []
+                            ).concat(items),
+                        );
+                    };
+
+                    return (
+                        <Optgroup
+                            label={group.label}
+                            size={size}
+                            className={optionGroupClassName}
+                            options={group.options}
+                            selectedItems={groupSelectedItems}
+                            setSelectedItems={handleSelectedItems}
+                            search={search}
+                            multiple={multiple}
+                        />
+                    );
+                };
 
                 return (
                     <div
@@ -152,13 +184,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                             transform: `translateY(${virtualRow.start}px)`,
                         }}
                     >
-                        {group && (
-                            <Optgroup
-                                label={group.label}
-                                size={size}
-                                className={optionGroupClassName}
-                            />
-                        )}
+                        {renderGroup()}
                         {!isGroup(option) && (
                             <Option {...getOptionProps(option, virtualRow.index)} />
                         )}

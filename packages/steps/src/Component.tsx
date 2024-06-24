@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import cn from 'classnames';
 
 import { Step } from './components/step';
@@ -137,18 +137,15 @@ export const Steps: React.FC<StepsProps> = ({
     onChange,
     dataTestId,
 }) => {
-    const [activeStep, setActiveStep] = useState(activeStepProp || defaultActiveStep);
+    const uncontrolled = activeStepProp === undefined;
+    const [activeStep, setActiveStep] = useState(defaultActiveStep);
 
     const stepsLength = React.Children.count(children);
 
-    useEffect(() => {
-        if (activeStepProp) {
-            setActiveStep(activeStepProp);
-        }
-    }, [activeStepProp]);
-
     const handleStepClick = (stepNumber: number) => {
-        setActiveStep(stepNumber);
+        if (uncontrolled) {
+            setActiveStep(stepNumber);
+        }
 
         if (onChange) {
             onChange(stepNumber);
@@ -156,6 +153,8 @@ export const Steps: React.FC<StepsProps> = ({
     };
 
     if (!stepsLength) return null;
+
+    const visibleActiveStep = uncontrolled ? activeStep : activeStepProp;
 
     return (
         <div
@@ -166,8 +165,8 @@ export const Steps: React.FC<StepsProps> = ({
         >
             {React.Children.map(children, (step, index) => {
                 const stepNumber = index + 1;
-                const isSelected = stepNumber === activeStep;
-                const isStepCompleted = isMarkCompletedSteps && stepNumber < activeStep;
+                const isSelected = stepNumber === visibleActiveStep;
+                const isStepCompleted = isMarkCompletedSteps && stepNumber < visibleActiveStep;
                 const disabled = checkIsStepDisabled ? checkIsStepDisabled(stepNumber) : false;
                 const isPositive = checkIsStepPositive ? checkIsStepPositive(stepNumber) : false;
                 const isError = checkIsStepError ? checkIsStepError(stepNumber) : false;

@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --badge-icon-bg-color: var(--color-light-neutral-1500-inverted);
+    --badge-icon-bg-color: var(--color-light-neutral-translucent-1300-inverted);
 }
 
 .wrapper {
@@ -154,8 +154,8 @@
     }
 
     &.primary {
-        color: var(--color-light-neutral-1500);
-        background-color: var(--color-light-neutral-1500);
+        color: var(--color-light-neutral-translucent-1300);
+        background-color: var(--color-light-neutral-translucent-1300);
     }
 }
 
@@ -176,11 +176,11 @@
 }
 
 .graphic-static-light.icon:before {
-    background-color: var(--color-static-neutral-1500-inverted);
+    background-color: var(--color-static-neutral-translucent-1300-inverted);
 }
 
 .graphic-primary.icon:before {
-    background-color: var(--color-light-neutral-1500);
+    background-color: var(--color-light-neutral-translucent-1300);
 }
 
 .outline {
@@ -215,7 +215,7 @@
     }
 
     &.primary {
-        background-color: var(--color-light-neutral-1500);
+        background-color: var(--color-light-neutral-translucent-1300);
     }
 }
 

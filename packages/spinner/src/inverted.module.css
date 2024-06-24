@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --spinner-inverted-color: var(--color-light-neutral-1500-inverted);
+    --spinner-inverted-color: var(--color-light-neutral-translucent-1300-inverted);
 }
 
 .component {

@@ -31,8 +31,8 @@
     --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
-    --checkbox-icon-color: var(--color-light-neutral-1500-inverted);
-    --checkbox-icon-indeterminate-color: var(--color-light-neutral-1500-inverted);
+    --checkbox-icon-color: var(--color-light-neutral-translucent-1300-inverted);
+    --checkbox-icon-indeterminate-color: var(--color-light-neutral-translucent-1300-inverted);
     --checkbox-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
