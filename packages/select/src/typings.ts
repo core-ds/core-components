@@ -52,6 +52,11 @@ export type OptionShape = {
 
 export type GroupShape = {
     /**
+     * Текстовое представление группы
+     */
+    key?: string;
+
+    /**
      * Заголовок группы
      */
     label?: string;

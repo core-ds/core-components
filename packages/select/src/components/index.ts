@@ -7,3 +7,4 @@ export * from './options-list';
 export * from './virtual-options-list';
 export * from './base-option';
 export * from './search';
+export * from './tree-options-list';
