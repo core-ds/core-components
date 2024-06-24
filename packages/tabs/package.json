@@ -22,6 +22,7 @@
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/core-components-shared": "^0.10.0",
         "@alfalab/core-components-icon-button": "^6.6.1",
+        "@alfalab/core-components-skeleton": "^5.0.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.3.1",
         "compute-scroll-into-view": "^3.1.0",

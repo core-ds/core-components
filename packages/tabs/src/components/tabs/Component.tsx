@@ -19,6 +19,8 @@ export const Tabs = ({
     breakpoint = 1024,
     tagShape,
     tagView,
+    showSkeleton = false,
+    skeletonProps,
     textStyle,
     style,
 }: Omit<TabsProps, 'view'>) => {
@@ -69,6 +71,8 @@ export const Tabs = ({
                 tagView={tagView}
                 textStyle={textStyle}
                 inlineStyle={style}
+                showSkeleton={showSkeleton}
+                skeletonProps={skeletonProps}
             />
 
             {tabs.map((tab) => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
