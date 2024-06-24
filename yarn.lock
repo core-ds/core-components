@@ -21140,10 +21140,10 @@ ui-primitives@^13.19.0:
   resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-13.19.0.tgz#1a7bfd2da12e49ae2b72b1705e86fadcd311cf8f"
   integrity sha512-MIrL0P4izg0wDVEZtHOHpxB41oD6gBpL504lRnkUoFc+UXa10NWIBqPLh0dOR4HU25Qjrg4n3knF4aR7SfbzhA==
 
-ui-primitives@^17.7.0:
-  version "17.7.0"
-  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-17.7.0.tgz#8e3a921cfabb2a0346793ea773dbd97e19941664"
-  integrity sha512-2ueIpjuQfCsAEmmOT7GY2VTogibOqV09C7bRrWI0iGo+MESM2zj7JRozTnqerCPohiwr3hZAWEgzy1lpFqkcFA==
+ui-primitives@^17.12.0:
+  version "17.12.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-17.12.0.tgz#3d012fb05df36111564388a44b278e3c20104d74"
+  integrity sha512-m60qB0LrWFrldp91RZb1GnkO/+2EKyIJo5JAUEgOJTd39xfNd7mnoJiUQ+E/NeurO82cJkhFFayE+YRWp0KcMQ==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

@@ -101,7 +101,7 @@
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^17.7.0"
+        "ui-primitives": "^17.12.0"
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.6.1",

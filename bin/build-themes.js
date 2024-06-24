@@ -38,6 +38,7 @@ const processRootTheme = (cssFile) => {
         '**/colors-pfm.css',
         '**/colors-qualitative.css',
         '**/colors-sequential.css',
+        '**/colors-students.css',
     ];
     const getImports = () => {
         if (cssFile.includes('dark.css')) return [];
