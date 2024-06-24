@@ -63,6 +63,11 @@ export interface NavigationBarProps {
     contentClassName?: string;
 
     /**
+     * Дополнительный класс для обертки контента
+     */
+    contentWrapperClassName?: string;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -99,6 +104,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     title,
     children,
     backgroundColor = 'var(--color-light-base-bg-primary)',
+    contentWrapperClassName,
     className,
     contentClassName,
     rightAddonsClassName,
@@ -157,7 +163,9 @@ export const NavigationBar: FC<NavigationBarProps> = ({
 
                 {title && (
                     <div
-                        className={cn(styles.content, { [styles[align]]: !hasLeftAddons })}
+                        className={cn(styles.content, contentWrapperClassName, {
+                            [styles[align]]: !hasLeftAddons,
+                        })}
                         style={{
                             ...(align === 'center'
                                 ? {
