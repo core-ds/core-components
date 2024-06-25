@@ -52,7 +52,7 @@
         "shared.js": 29.2
     },
     "table": {
-        "index.js": 165.2
+        "index.js": 165.3
     },
     "tab-bar": {
         "index.js": 10.8,
@@ -118,8 +118,8 @@
     },
     "select-with-tags": {
         "desktop.js": 281.6,
-        "index.js": 304.9,
-        "mobile.js": 278.8
+        "index.js": 305,
+        "mobile.js": 278.9
     },
     "segmented-control": {
         "index.js": 13.7
@@ -243,7 +243,7 @@
     },
     "international-phone-input": {
         "desktop.js": 651.3,
-        "index.js": 685.3,
+        "index.js": 685.4,
         "mobile.js": 657.4,
         "shared.js": 247.3
     },
