@@ -717,7 +717,7 @@ export const BaseSelect = forwardRef(
                         bottomAddons={
                             <React.Fragment>
                                 {renderSearch()}
-                                {bottomSheetProps?.bottomAddons}
+                                {flatOptions.length > 0 && bottomSheetProps?.bottomAddons}
                             </React.Fragment>
                         }
                         containerProps={{
@@ -771,7 +771,7 @@ export const BaseSelect = forwardRef(
                             bottomAddons={
                                 <React.Fragment>
                                     {renderSearch()}
-                                    {modalHeaderProps?.bottomAddons}
+                                    {flatOptions.length > 0 && modalHeaderProps?.bottomAddons}
                                 </React.Fragment>
                             }
                         >
