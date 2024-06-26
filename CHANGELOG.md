@@ -1,3 +1,26 @@
+## 46.3.1
+
+<sup><time>26.06.2024</time></sup>
+
+### [#1228](https://github.com/core-ds/core-components/pull/1228)
+
+#### Что изменилось
+- Добавлен пропс contentWrapperClassName
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+### [#1264](https://github.com/core-ds/core-components/pull/1264)
+
+#### Что изменилось
+- Исправлена ширина контента в пустом состоянии
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar`
+
+
+
 ## 46.3.0
 
 <sup><time>21.06.2024</time></sup>
