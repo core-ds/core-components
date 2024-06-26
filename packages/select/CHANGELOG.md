@@ -1,5 +1,12 @@
 # Change Log
 
+## 17.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.0.2
+
 ## 17.6.0
 
 ### Minor Changes

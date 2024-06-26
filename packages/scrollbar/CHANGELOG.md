@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+<sup><time>26.06.2024</time></sup>
+
+### [#1264](https://github.com/core-ds/core-components/pull/1264)
+
+-   Исправлена ширина контента в пустом состоянии
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "17.6.0",
+    "version": "17.6.1",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -25,7 +25,7 @@
         "@alfalab/core-components-modal": "^9.3.3",
         "@alfalab/core-components-mq": "^4.2.0",
         "@alfalab/core-components-popover": "^6.2.2",
-        "@alfalab/core-components-scrollbar": "^3.0.1",
+        "@alfalab/core-components-scrollbar": "^3.0.2",
         "@alfalab/core-components-skeleton": "^5.0.0",
         "@alfalab/core-components-shared": "^0.10.0",
         "@alfalab/hooks": "^1.13.0",
