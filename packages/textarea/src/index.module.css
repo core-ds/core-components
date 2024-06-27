@@ -99,7 +99,7 @@
         color: var(--input-color);
     }
     & .overflow {
-        color: var(--color-light-text-quaternary);
+        color: var(--color-light-text-tertiary);
     }
     &::-webkit-scrollbar-thumb {
         background-color: transparent;
