@@ -16,6 +16,7 @@ export const BaseOption: FC<OptionProps> = ({
     multiple,
     Checkmark = BaseCheckmark,
     checkmarkPosition = multiple ? 'before' : 'after',
+    align = 'center',
     innerProps,
     dataTestId,
     mobile = false,
@@ -36,6 +37,7 @@ export const BaseOption: FC<OptionProps> = ({
                     disabled={disabled}
                     selected={selected}
                     multiple={multiple}
+                    align={align}
                 />
             );
         }

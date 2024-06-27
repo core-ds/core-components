@@ -4,6 +4,14 @@
 .checkmark {
     flex-shrink: 0;
     box-sizing: border-box;
+
+    &.start {
+        align-self: start;
+    }
+
+    &.center {
+        align-self: center;
+    }
 }
 
 .single {
