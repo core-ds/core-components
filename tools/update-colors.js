@@ -22,8 +22,8 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
 
         Object.entries(colors).forEach(([color, token]) => {
             let value = token.hex && token.hex.length <= 7 ? token.hex : token.rgba;
-            css += `    ${buildVarName(color)}: ${value};  ${
-                token.deprecated || isColorsPackage ? '/* deprecated */' : ''
+            css += `    ${buildVarName(color)}: ${value};${
+                token.deprecated || isColorsPackage ? ' /* deprecated */' : ''
             }\n`;
         });
 
@@ -108,11 +108,13 @@ function generateColorMods(colors) {
                         rgba: `color-mod(${colorValue} blenda(${
                             mod === 'tint' ? 'white' : 'black'
                         } ${modValue}%))`,
+                        deprecated: true,
                     };
                 } else {
                     colors[generatedColorName] = {
                         hex: '',
                         rgba: `color-mod(${colorValue} ${mod}(${modValue}%))`,
+                        deprecated: true,
                     };
                 }
             });
