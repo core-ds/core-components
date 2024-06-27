@@ -1,3 +1,107 @@
+## 46.4.0
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1250](https://github.com/core-ds/core-components/pull/1250)
+
+#### Что изменилось
+- Изменен элемент наблюдения ResizeObserver с contentRef.current на contentCaseRef.current, теперь контейнер контента динамически изменяет высоту при добавлении контента
+
+#### Влияние на компоненты
+- Патчи<br />`accordion`
+
+
+### [#1256](https://github.com/core-ds/core-components/pull/1256)
+
+#### Что изменилось
+- Исправили стили для кнопки с view=filled
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#1266](https://github.com/core-ds/core-components/pull/1266)
+
+#### Что изменилось
+- Исправление типизации компонента
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#1263](https://github.com/core-ds/core-components/pull/1263)
+
+#### Что изменилось
+- Добавили новые свойства: showSkeleton и skeletonProps, отвечающие за отображение скелетона и дополнительные пропсы для него
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+#### Что изменилось
+- В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet`
+
+
+### [#1252](https://github.com/core-ds/core-components/pull/1252)
+
+#### Что изменилось
+- Добавлено новое свойство align, отвечающее за выравнивание чекбокса или иконки "галочки". По умолчанию элемент выровнен по центру. Для того чтобы изменить выравнивание, необходимо передать компоненту optionProps={{align: 'start'}}
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1259](https://github.com/core-ds/core-components/pull/1259)
+
+#### Что изменилось
+- Обновление vars из последней версии ui-primitives
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1254](https://github.com/core-ds/core-components/pull/1254)
+
+#### Что изменилось
+- Изменили стили для значения поля ввода, когда количество вводимых символов превышает maxLength, если включено переполнение
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#1255](https://github.com/core-ds/core-components/pull/1255)
+
+#### Что изменилось
+- Для предотвращения мерцания компонента в SSR добавлена возможность установки значения по умолчанию для useMatchMedia
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#1253](https://github.com/core-ds/core-components/pull/1253)
+
+#### Что изменилось
+- Удалена темизация click для компонентов Link и IconButton, а также для фона в ToastPlate
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+#### Что изменилось
+- Заменили устаревшие цветовые токены на актуальные
+
+#### Влияние на компоненты
+- Минорное<br />`calendar` `chart` `checkbox` `confirmation-v1` `custom-button`<br /> `filter-tag` `gallery` `icon-button` `indicator` `intl-phone-input`<br /> `pattern-lock` `product-cover` `pure-cell` `select` `themes`<br /> `table` `typography`
+
+
+
 ## 46.3.1
 
 <sup><time>26.06.2024</time></sup>
