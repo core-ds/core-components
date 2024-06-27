@@ -4,7 +4,7 @@
     --text-primary-color: var(--color-light-text-primary);
     --text-secondary-color: var(--color-light-text-secondary);
     --text-tertiary-color: var(--color-light-text-tertiary);
-    --focus-color: var(--color-light-border-link);
+    --focus-color: var(--color-light-status-info);
     --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
         sans-serif;
     --disabled-cursor: not-allowed;

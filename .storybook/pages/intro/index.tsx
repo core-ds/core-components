@@ -79,7 +79,7 @@ export const Intro = () => {
                     target='_blank'
                     rel='noopener noreferrer'
                     leftAddons={
-                        <GithubIcon fill='var(--color-light-bg-primary)' width={20} height={20} />
+                        <GithubIcon fill='var(--color-light-base-bg-primary)' width={20} height={20} />
                     }
                 >
                     View on GitHub

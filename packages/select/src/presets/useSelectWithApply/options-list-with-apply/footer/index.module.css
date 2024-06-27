@@ -1,7 +1,7 @@
 @import '../../../../../../themes/src/default.css';
 
 .footer {
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-base-bg-primary);
     padding: var(--gap-s);
     outline: none;
 

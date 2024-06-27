@@ -40,7 +40,7 @@ export const popup_sheet: Story = {
                     <SystemMessageMobile padding={32}>
                         <SystemMessageMobile.Graphic padding={{ bottom: 24 }}>
                             <SuperEllipse size={80}>
-                                <MobilePhoneBubbleLineMIcon color='var(--color-light-graphic-primary)' />
+                                <MobilePhoneBubbleLineMIcon color='var(--color-light-neutral-translucent-1300)' />
                             </SuperEllipse>
                         </SystemMessageMobile.Graphic>
 

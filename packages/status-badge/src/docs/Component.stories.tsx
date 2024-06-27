@@ -40,7 +40,7 @@ export const status_badge: Story = {
             <div
                 style={{
                     ...(colors === 'inverted'
-                        ? { backgroundColor: 'var(--color-light-bg-primary-inverted)' }
+                        ? { backgroundColor: 'var(--color-light-base-bg-primary-inverted)' }
                         : previewStyles),
                 }}
             >

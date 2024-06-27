@@ -85,8 +85,8 @@ export const chart_bar: Story = {
         const vertical = boolean('vertical', false, cartesianGridId);
         const horizontal = boolean('horizontal', true, cartesianGridId);
         const strokeDasharray = number('strokeDasharray', 0, {}, cartesianGridId);
-        const stroke = text('stroke', 'var(--color-light-border-primary)', cartesianGridId);
-        const fill = text('fill', 'var(--color-light-bg-primary)', cartesianGridId);
+        const stroke = text('stroke', 'var(--color-light-neutral-400)', cartesianGridId);
+        const fill = text('fill', 'var(--color-light-base-bg-primary)', cartesianGridId);
         const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
         const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
         const marginLeft = number('initMargin.left', 20, {}, composeChartId);
@@ -124,7 +124,7 @@ export const chart_bar: Story = {
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
         const tooltipSeparator = text('separator', ' ', tooltipId);
         const tooltipOffset = number('offset', 20, {}, tooltipId);
-        const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
+        const cursorStroke = text('cursor.stroke', 'var(--color-light-neutral-400)', tooltipId);
         const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
         const tooltipFilterNull = boolean('filterNull', true, tooltipId);
         const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);
@@ -182,7 +182,7 @@ export const chart_bar: Story = {
             horizontal,
             strokeDasharray,
             stroke,
-            fill: isPreview ? 'var(--color-light-bg-secondary)' : fill,
+            fill: isPreview ? 'var(--color-light-base-bg-secondary)' : fill,
         };
         const composeChart = {
             initMargin: {
@@ -513,8 +513,8 @@ export const chart_line: Story = {
         const vertical = boolean('vertical', true, cartesianGridId);
         const horizontal = boolean('horizontal', true, cartesianGridId);
         const strokeDasharray = number('strokeDasharray', 0, {}, cartesianGridId);
-        const stroke = text('stroke', 'var(--color-light-border-primary)', cartesianGridId);
-        const fill = text('fill', 'var(--color-light-bg-primary)', cartesianGridId);
+        const stroke = text('stroke', 'var(--color-light-neutral-400)', cartesianGridId);
+        const fill = text('fill', 'var(--color-light-base-bg-primary)', cartesianGridId);
         const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
         const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
         const marginLeft = number('initMargin.left', 20, {}, composeChartId);
@@ -552,7 +552,7 @@ export const chart_line: Story = {
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
         const tooltipSeparator = text('separator', ' ', tooltipId);
         const tooltipOffset = number('offset', 20, {}, tooltipId);
-        const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
+        const cursorStroke = text('cursor.stroke', 'var(--color-light-neutral-400)', tooltipId);
         const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
         const tooltipFilterNull = boolean('filterNull', true, tooltipId);
         const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);

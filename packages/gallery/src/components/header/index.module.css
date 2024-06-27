@@ -14,17 +14,17 @@
     padding-left: var(--gap-2xl);
 
     & path {
-        color: var(--color-static-graphic-light);
+        color: var(--color-static-neutral-translucent-1300-inverted);
     }
 }
 
 /* TODO: применять static цвет через prop IconButton'а */
 .iconButton {
     &:hover path {
-        color: var(--color-static-graphic-light-shade-7);
+        color: var(--color-static-neutral-100-hover);
     }
 
     &:active path {
-        color: var(--color-static-graphic-light-shade-15);
+        color: var(--color-static-neutral-100-press);
     }
 }

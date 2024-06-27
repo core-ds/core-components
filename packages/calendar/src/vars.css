@@ -15,7 +15,7 @@
     --calendar-select-button-width: calc(
         var(--calendar-inner-third-part-width) - var(--calendar-select-button-gap)
     );
-    --calendar-select-button-today-border-color: var(--color-light-border-key);
+    --calendar-select-button-today-border-color: var(--color-light-neutral-translucent-1300);
     --calendar-select-button-selected-background: var(--color-light-accent-secondary);
 
     /* Шапка */
@@ -39,8 +39,8 @@
 
     /* range */
     --calendar-range-color: var(--color-light-text-primary);
-    --calendar-range-background: var(--color-light-neutral-700-alpha-15);
-    --calendar-range-complete-background: var(--color-light-status-info-alpha-15);
+    --calendar-range-background: var(--color-light-neutral-translucent-200);
+    --calendar-range-complete-background: var(--color-light-status-muted-alt-info);
 
     /* selected */
     --calendar-selected-color: var(--color-light-text-primary-inverted);

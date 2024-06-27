@@ -10,8 +10,8 @@
     --modal-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
 
     /* scroll */
-    --modal-header-highlight-background: var(--color-light-bg-primary);
-    --modal-footer-highlight-background: var(--color-light-bg-secondary);
+    --modal-header-highlight-background: var(--color-light-base-bg-primary);
+    --modal-footer-highlight-background: var(--color-light-base-bg-secondary);
     --modal-footer-highlight-box-shadow: none;
 
     /* desktop */

@@ -18,7 +18,7 @@ export const indicator: Story = {
         return (
             <div
                 style={{
-                    backgroundColor: 'var(--color-light-bg-tertiary)',
+                    backgroundColor: 'var(--color-light-neutral-200)',
                     padding: '8px',
                     position: 'absolute',
                     top: 0,

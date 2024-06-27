@@ -33,11 +33,11 @@ html body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--color-light-text-primary);
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-base-bg-primary);
 }
 
 body:not(.sb-show-main) {
-    background-color: var(--color-light-bg-secondary);
+    background-color: var(--color-light-base-bg-secondary);
     margin: 0;
 }
 
@@ -140,7 +140,7 @@ a[href='#storybook-preview-wrapper'] {
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius-m);
-    background-color: var(--color-light-specialbg-tertiary-transparent);
+    background-color: var(--color-light-neutral-translucent-300);
     font-family: var(--font-family);
     border: 0;
     padding: 0 var(--gap-3xl) 0 var(--gap-4xl);
@@ -151,12 +151,12 @@ a[href='#storybook-preview-wrapper'] {
 }
 
 .search-field input:hover {
-    background-color: var(--color-light-specialbg-secondary-transparent);
+    background-color: var(--color-light-neutral-translucent-200);
 }
 
 .search-field.search-field input:focus {
     background-color: #fff;
-    box-shadow: inset 0 0 0 2px var(--color-light-graphic-secondary);
+    box-shadow: inset 0 0 0 2px var(--color-light-neutral-700);
 }
 
 .search-field input::placeholder {
@@ -173,15 +173,15 @@ a[href='#storybook-preview-wrapper'] {
 }
 
 .search-result-item[aria-selected='true'] {
-    background: var(--color-light-specialbg-secondary-transparent);
+    background: var(--color-light-neutral-translucent-200);
 }
 
 .search-result-item--label mark {
-    color: var(--color-light-text-accent) !important;
+    color: var(--color-light-accent-primary) !important;
 }
 
 .search-result-item svg {
-    color: var(--color-light-graphic-secondary);
+    color: var(--color-light-neutral-700);
 }
 
 .sidebar-header button:after {
@@ -291,13 +291,13 @@ div.sidebar-subheading > button > span:first-of-type {
 
 .sidebar-container .sidebar-item:hover {
     color: var(--color-light-text-primary);
-    background: var(--color-light-specialbg-secondary-transparent) !important;
+    background: var(--color-light-neutral-translucent-200) !important;
 }
 
 .sidebar-container .sidebar-item[data-selected='true']:not([data-nodetype='group']) {
     font-weight: 500;
     color: var(--color-light-text-primary);
-    background: var(--color-light-specialbg-secondary-transparent) !important;
+    background: var(--color-light-neutral-translucent-200) !important;
 }
 
 .sidebar-container .sidebar-item[data-selected='true'] .sidebar-icon {
@@ -332,13 +332,13 @@ button[data-action='collapse-root']:focus span:first-of-type {
 
 select.select {
     font-size: 14px;
-    background-color: var(--color-light-specialbg-tertiary-transparent);
+    background-color: var(--color-light-neutral-translucent-300);
     border-radius: 6px;
 }
 
 select.select > option,
 select[name] > option {
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-base-bg-primary);
 }
 
 select.select > option:hover,
@@ -381,7 +381,7 @@ select[name] {
 }
 
 .sb-show-preparing-docs .sb-previewBlock {
-    background: var(--color-light-bg-primary);
+    background: var(--color-light-base-bg-primary);
     border: none;
     width: 100%;
     box-shadow: none;
@@ -498,7 +498,7 @@ div.sbdocs-content > *:not([class*='component']) {
 }
 
 button.tabbutton-active {
-    color: var(--color-light-text-accent);
+    color: var(--color-light-accent-primary);
     border-bottom-color: #ef3124;
 }
 
@@ -533,7 +533,7 @@ img.sbdocs-img {
 
 body[data-theme$='-inverted'] iframe,
 body[data-theme$='-inverted'] .sbdocs-preview {
-    background: var(--color-light-bg-primary-inverted);
+    background: var(--color-light-base-bg-primary-inverted);
 }
 
 .alfa-logo {
@@ -546,7 +546,7 @@ body[data-theme$='-inverted'] .sbdocs-preview {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid var(--color-light-border-secondary);
+    border: solid var(--color-light-neutral-300);
     border-width: 0 1px 1px;
     box-sizing: border-box;
 }
@@ -581,15 +581,15 @@ table.docblock-argstable thead.docblock-argstable-head th {
 table.docblock-argstable tbody.docblock-argstable-body {
     border-radius: 4px;
     filter: none;
-    box-shadow: 0 0 1px var(--color-light-border-underline-inverted);
+    box-shadow: 0 0 1px var(--color-light-neutral-500-inverted);
 }
 
 table.docblock-argstable tbody.docblock-argstable-body tr:not(:first-child) {
-    border-top-color: var(--color-light-border-secondary);
+    border-top-color: var(--color-light-neutral-300);
 }
 
 table.docblock-argstable tbody.docblock-argstable-body td {
-    background: var(--color-light-bg-primary);
+    background: var(--color-light-base-bg-primary);
 }
 
 table.docblock-argstable.docblock-argstable {
@@ -600,8 +600,8 @@ table.docblock-argstable.docblock-argstable {
 table.docblock-argstable tbody.docblock-argstable-body td div:nth-child(2) span,
 table.docblock-argstable tbody.docblock-argstable-body td div:only-child span {
     color: var(--color-light-text-secondary);
-    border-color: var(--color-light-border-secondary);
-    background: var(--color-light-bg-secondary);
+    border-color: var(--color-light-neutral-300);
+    background: var(--color-light-base-bg-secondary);
 }
 
 table.docblock-argstable td {
