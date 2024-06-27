@@ -5,7 +5,8 @@
 }
 
 .mobile {
-    & .title + .title {
+    & .title + .title,
+    & .skeleton + .skeleton {
         margin-left: var(--secondary-tablist-mobile-gaps);
     }
 }
