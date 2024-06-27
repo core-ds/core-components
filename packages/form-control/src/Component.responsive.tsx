@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { BaseFormControlProps } from './components/base-form-control';
 import { FormControlDesktop } from './desktop';
@@ -20,7 +21,7 @@ export type FormControlProps = Omit<BaseFormControlProps, 'styles' | 'colorStyle
 };
 
 export const FormControl = forwardRef<HTMLDivElement, FormControlProps>(
-    ({ breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
         const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);

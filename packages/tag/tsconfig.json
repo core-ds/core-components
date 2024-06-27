@@ -5,5 +5,8 @@
         "outDir": "dist",
         "rootDirs": ["src"]
     },
-    "references": [{ "path": "../mq" }]
+    "references": [
+      { "path": "../mq" },
+      { "path": "../shared" },
+    ]
 }

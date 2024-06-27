@@ -17,6 +17,7 @@
     "references": [
         { "path": "../custom-button" },
         { "path": "../picker-button" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../shared" },
     ]
 }

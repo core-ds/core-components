@@ -19,6 +19,7 @@
         { "path": "../input" },
         { "path": "../icon-button" },
         { "path": "../popover" },
-        { "path": "../modal" }
+        { "path": "../shared" },
+        { "path": "../modal" },
     ]
 }

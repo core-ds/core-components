@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { TooltipDesktop } from './desktop';
 import { TooltipMobile } from './mobile';
@@ -11,7 +12,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     children,
     actionButtonTitle,
     bottomSheetProps,
-    breakpoint = 1024,
+    breakpoint = getComponentBreakpoint(),
     ...restProps
 }) => {
     const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);

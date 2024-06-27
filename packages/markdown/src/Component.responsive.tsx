@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
-import { isClient } from '@alfalab/core-components-shared';
+import { getComponentBreakpoint, isClient } from '@alfalab/core-components-shared';
 
 import { Markdown } from './Component';
 import { MarkdownResponsiveProps } from './typings';
 
 export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
-    breakpoint = 1024,
+    breakpoint = getComponentBreakpoint(),
     defaultMatchMediaValue,
     children,
     ...restProps

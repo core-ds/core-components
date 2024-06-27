@@ -1,6 +1,7 @@
 import React, { ComponentType, FC, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 import { usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../context';
@@ -39,7 +40,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     mobile,
     clearCodeOnError = true,
     hideCountdownSection = false,
-    breakpoint = 1024,
+    breakpoint = getComponentBreakpoint(),
     initialScreenHintSlot,
     errorVisibleDuration,
     ...restProps

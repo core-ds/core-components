@@ -1,5 +1,7 @@
 import React, { cloneElement } from 'react';
 
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+
 import { TabsProps } from '../../typings';
 
 export const Tabs = ({
@@ -16,7 +18,7 @@ export const Tabs = ({
     keepMounted = false,
     dataTestId,
     onChange,
-    breakpoint = 1024,
+    breakpoint = getComponentBreakpoint(),
     tagShape,
     tagView,
     showSkeleton = false,

@@ -5,12 +5,13 @@ import { FormControlDesktop } from '@alfalab/core-components-form-control/deskto
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Popover } from '@alfalab/core-components-popover';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { BaseSelectWithTags } from './components/base-select-with-tags';
 import { SelectWithTagsProps } from './types';
 
 export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
-    ({ breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps }, ref) => {
         const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
         return (

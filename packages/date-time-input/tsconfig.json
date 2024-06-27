@@ -19,6 +19,7 @@
         { "path": "../icon-button" },
         { "path": "../calendar" },
         { "path": "../popover" },
-        { "path": "../modal" }
+        { "path": "../modal" },
+        { "path": "../shared" },
     ]
 }

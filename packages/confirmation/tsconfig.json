@@ -17,6 +17,7 @@
         { "path": "../link" },
         { "path": "../typography" },
         { "path": "../code-input" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../shared" },
     ]
 }

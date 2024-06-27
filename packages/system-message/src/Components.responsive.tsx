@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
-import { isClient } from '@alfalab/core-components-shared';
+import { getComponentBreakpoint, isClient } from '@alfalab/core-components-shared';
 
 import { SystemMessage } from './Component';
 import type { SystemMessageResponsiveProps } from './types';
 import { createCompound } from './utils';
 
 const SystemMessageResponsiveComponent: React.FC<SystemMessageResponsiveProps> = ({
-    breakpoint = 1024,
+    breakpoint = getComponentBreakpoint(),
     defaultMatchMediaValue,
     children,
     ...restProps
