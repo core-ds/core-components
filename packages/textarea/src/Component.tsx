@@ -165,6 +165,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 [styles.hasInnerLabel]: hasInnerLabel,
                 [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                 [styles.filled]: filled,
+                [styles.overflow]: hasOverflow,
             },
             textareaClassName,
         );
