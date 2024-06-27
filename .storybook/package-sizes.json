@@ -45,11 +45,11 @@
         "mobile.js": 4.8
     },
     "tabs": {
-        "collapsible.js": 284.3,
-        "desktop.js": 34.8,
-        "index.js": 36,
-        "mobile.js": 34.9,
-        "shared.js": 29.2
+        "collapsible.js": 285.1,
+        "desktop.js": 36,
+        "index.js": 37.2,
+        "mobile.js": 36.1,
+        "shared.js": 29.3
     },
     "table": {
         "index.js": 165.3
@@ -114,7 +114,7 @@
         "desktop.js": 154,
         "index.js": 296.8,
         "mobile.js": 270.2,
-        "shared.js": 255.9
+        "shared.js": 256
     },
     "select-with-tags": {
         "desktop.js": 281.6,
@@ -242,7 +242,7 @@
         "index.js": 785.3
     },
     "international-phone-input": {
-        "desktop.js": 651.3,
+        "desktop.js": 651.4,
         "index.js": 685.4,
         "mobile.js": 657.4,
         "shared.js": 247.3
