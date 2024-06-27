@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.7.7
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+-   В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
 ## 5.7.6
 
 ### Patch Changes

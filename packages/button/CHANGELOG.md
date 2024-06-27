@@ -1,5 +1,23 @@
 # Change Log
 
+## 11.5.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1255](https://github.com/core-ds/core-components/pull/1255)
+
+-   Для предотвращения мерцания компонента в SSR добавлена возможность установки значения по умолчанию для useMatchMedia
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1256](https://github.com/core-ds/core-components/pull/1256)
+
+-   Исправили стили для кнопки с view=filled
+
 ## 11.4.5
 
 ### Patch Changes

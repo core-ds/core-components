@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   icon-button@6.7.0
+    -   modal@9.3.4
+
 ## 7.6.5
 
 ### Patch Changes

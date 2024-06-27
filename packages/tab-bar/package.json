@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tab-bar",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,8 +15,8 @@
         "react-dom": ">=16.8.0"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.5.1",
-        "@alfalab/core-components-indicator": "^2.0.2",
+        "@alfalab/core-components-typography": "^4.6.0",
+        "@alfalab/core-components-indicator": "^2.1.0",
         "@alfalab/core-components-shared": "^0.10.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"

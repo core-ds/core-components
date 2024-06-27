@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-universal-date-input",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,7 +14,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^14.4.5",
+        "@alfalab/core-components-input": "^14.4.6",
         "@alfalab/core-components-shared": "^0.10.0",
         "@alfalab/core-components-popover": "^6.2.2",
         "@alfalab/core-components-mq": "^4.2.0",
@@ -27,6 +27,6 @@
         "tslib": "^2.4.0"
     },
     "devDependencies": {
-        "@alfalab/core-components-calendar": "^7.6.5"
+        "@alfalab/core-components-calendar": "^7.7.0"
     }
 }

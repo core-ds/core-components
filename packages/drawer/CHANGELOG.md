@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.0.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+
 ## 5.0.12
 
 ### Patch Changes
