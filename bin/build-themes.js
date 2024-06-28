@@ -40,23 +40,9 @@ const processRootTheme = (cssFile) => {
         '**/colors-sequential.css',
         '**/colors-students.css',
     ];
-    const getImports = () => {
-        if (cssFile.includes('dark.css')) return [];
-
-        return glob
-            .sync('../../../../packages/vars/src/*.css', {
-                absolute: true,
-                ignore: ignorePattern,
-            })
-            .filter(createColorsByPaletteFilter())
-            .filter((varFile) => varFile.includes('index.css') === false)
-            .map((varFile) => `@import '${varFile}';`);
-    };
-
-    const withImports = (css) => getImports().concat(css).join('\n');
 
     // Добавляем импорты переменных, меняем миксин на :root
-    const content = withImports(replaceMixinToRoot(fs.readFileSync(cssFile, 'utf-8')));
+    const content = replaceMixinToRoot(fs.readFileSync(cssFile, 'utf-8'));
 
     return postcss([
         postcssImport({}),
