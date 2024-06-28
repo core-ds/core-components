@@ -1,0 +1,151 @@
+## Пример
+
+Компоненту можно передать длину кода, в этом случае он сразу отобразит нужное количество точек над пин-падом.
+Если длина неизвестна, после каждого нажатия на пин-пад будет добавляться новая точка.
+Кнопка удаления появляется после ввода первого символа.
+После валидации компонент может отобразить состоянии ошибки и вывести сообщение.
+Состояния успеха для цифрового кода не предусмотренно, пользователь просто пойдёт дальше по сценарию.
+Корректная комбинация для примера `0451`.
+
+```jsx live mobileHeight={640} mobileOnly
+const VALID_CODE = '0451';
+const MAX_LENGTH = VALID_CODE.length;
+const SCREENS = {
+    INITIAL: 'initial',
+    ENTER_CODE: 'ENTER_CODE',
+    SUCCESS: 'success',
+};
+
+render(() => {
+    const [screen, setScreen] = React.useState(SCREENS.INITIAL);
+    const [error, setError] = React.useState(false);
+    const [code, setCode] = React.useState('');
+    const [passCodeParams, setPassCodeParams] = React.useState();
+
+    const validate = (codeToValidate) => {
+        if (codeToValidate !== VALID_CODE) {
+            setTimeout(() => setError('Error message'), 300);
+            setTimeout(() => {
+                setError((prev) => {
+                    if (prev) {
+                        setCode('');
+                        return false;
+                    }
+
+                    return prev;
+                });
+            }, 1300);
+
+            return;
+        }
+
+        setTimeout(() => setScreen(SCREENS.SUCCESS), 500);
+    };
+
+    const handleChange = (value) => {
+        setCode(value);
+        setError(false);
+
+        if (passCodeParams.codeLength > 0 && value.length === MAX_LENGTH) {
+            validate(value);
+        }
+    };
+
+    if (screen === SCREENS.INITIAL) {
+        return (
+            <>
+                <Button
+                    block
+                    onClick={() => {
+                        setPassCodeParams({
+                            codeLength: MAX_LENGTH,
+                            message: 'Введите код из четырёх цифр',
+                        });
+                        setScreen(SCREENS.ENTER_CODE);
+                    }}
+                >
+                    Код из четырех цифр
+                </Button>
+                <Gap size='m' />
+                <Button
+                    block
+                    onClick={() => {
+                        setPassCodeParams({ maxCodeLength: 12 });
+                        setScreen(SCREENS.ENTER_CODE);
+                    }}
+                >
+                    Длина кода неизвестна заранее
+                </Button>
+            </>
+        );
+    }
+
+    if (screen === SCREENS.SUCCESS) {
+        return (
+            <div style={{ display: 'flex', flexFlow: 'column nowrap', height: 600 }}>
+                <Gap size='xl' />
+                <Gap size='8xl' />
+                <div
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        flex: 1,
+                    }}
+                >
+                    <div style={{ textAlign: 'center' }}>
+                        <SuperEllipse
+                            size={80}
+                            backgroundColor='var(--color-light-status-positive)'
+                        >
+                            <CheckmarkMIcon style={{ fill: '#fff' }} />
+                        </SuperEllipse>
+
+                        <Gap size='m' />
+
+                        <Typography.Text view='primary-medium' weight='bold'>
+                            Введён корректный код
+                        </Typography.Text>
+                    </div>
+
+                    <Button
+                        block
+                        onClick={() => {
+                            setScreen(SCREENS.INITIAL);
+                            setError(false);
+                            setCode('');
+                        }}
+                    >
+                        Попробовать ещё раз
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div
+            style={{
+                display: 'flex',
+                flexFlow: 'column nowrap',
+                justifyContent: 'space-between',
+                height: 600,
+            }}
+        >
+            <PassCodeV1 {...passCodeParams} value={code} onChange={handleChange} error={error} />
+
+            {passCodeParams.maxCodeLength > 0 && (
+                <Button block view='primary' onClick={() => validate(code)}>
+                    Продолжить
+                </Button>
+            )}
+        </div>
+    );
+});
+```
+
+## Адаптивность
+
+Размер контролов компонента подстраивается под ширину мобильного экрана.
+Компонент не предназначен для использования на десктопных устройствах и не имеет соответствующих состояний.

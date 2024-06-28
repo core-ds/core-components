@@ -2,30 +2,20 @@
 @import '../../vars.css';
 
 .component {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: var(--pattern-lock-min-height);
+    padding: var(--gap-m) 0;
+
     & canvas {
         display: block;
         margin: 0 auto;
     }
 }
 
-.hidden {
-    visibility: hidden;
-}
-
-.message {
-    @mixin paragraph_primary_medium;
-
-    text-align: center;
-    padding: 0 var(--gap-m) var(--gap-3xl);
-    min-height: 24px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: var(--color-light-text-primary);
-}
-
-.error {
-    color: var(--color-light-text-negative);
+.withForgotBtn {
+    min-height: var(--pattern-lock-with-forgot-btn-min-height);
 }
 
 .forgotBtn {

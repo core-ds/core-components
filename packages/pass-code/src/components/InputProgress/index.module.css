@@ -1,29 +1,57 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
+@import './animations.module.css';
 
 .component {
-    height: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    min-height: var(--pass-code-progress-container-min-height);
+}
+
+.dotWrapper {
+    width: var(--pass-code-dot-container-width);
+    height: var(--pass-code-dot-container-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+
+    & .dot {
+        margin: unset;
+    }
 }
 
 .dot {
     margin: 0 6px;
-    width: 12px;
-    height: 12px;
+    width: var(--pass-code-dot-width);
+    height: var(--pass-code-dot-height);
     background: var(--color-light-neutral-translucent-300);
     border-radius: var(--border-radius-circle);
     flex-shrink: 0;
-    transition: background 75ms ease-in;
-    will-change: transform, opacity;
+
+    /* for unknown password length */
+    &.filled {
+        background: var(--color-light-neutral-translucent-1300);
+    }
+
+    /* for a known passcode length */
+    &.animatedFill {
+        background: var(--color-light-neutral-translucent-1300);
+        animation: dotFilled 200ms ease-in forwards;
+    }
 
     &.error {
         background: var(--color-light-status-negative);
-        transition: none;
     }
-}
 
-.filled {
-    background: var(--color-light-neutral-translucent-1300);
+    &.success {
+        background: var(--color-light-status-positive);
+        animation: dotSuccessFilled 200ms ease-in forwards;
+    }
+
+    /* without animation */
+    &.rawSuccess {
+        background: var(--color-light-status-positive);
+    }
 }

@@ -6,42 +6,43 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';
+import { PassCodeProps } from './typings';
 
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 
 export type BasePassCodeProps = {
     /**
-     * Код.
+     * Код
      */
     value: string;
 
     /**
-     * Обработчик изменения кода.
+     * Обработчик изменения кода
      */
     onChange: (code: string) => void;
 
     /**
-     * Дополнительный класс.
+     * Дополнительный класс
      */
     className?: string;
 
     /**
-     * Отображение ошибки
+     * Отображение ошибки ввода
      */
-    error?: ReactNode;
+    error?: boolean;
 
     /**
-     *  Сообщение над клавиатурой
+     * Отображение успешного ввода
      */
-    message?: ReactNode;
+    success?: boolean;
 
     /**
-     * Слот слева.
+     * Слот слева
      */
     leftAddons?: ReactNode;
 
     /**
-     * Слот справа.
+     * Слот справа
      */
     rightAddons?: ReactNode;
 
@@ -52,28 +53,18 @@ export type BasePassCodeProps = {
      * блока с цифрами -keypad
      */
     dataTestId?: string;
-};
-
-type PropsWithUnknownLen = {
-    codeLength?: never;
 
     /**
-     * Максимально возможная длина кода.
-     * @default 10
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
      */
-    maxCodeLength?: number;
-};
-
-type PropsWithLen = {
-    maxCodeLength?: never;
+    breakpoint?: number;
 
     /**
-     * Длина кода.
+     * Стили компонента
      */
-    codeLength?: number;
+    styles?: { [key: string]: string };
 };
-
-type PassCodeProps = BasePassCodeProps & (PropsWithLen | PropsWithUnknownLen);
 
 export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
     (
@@ -84,10 +75,11 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             leftAddons,
             rightAddons,
             error,
-            message,
+            success,
             onChange,
             maxCodeLength = 10,
             codeLength,
+            styles = {},
         },
         ref,
     ) => {
@@ -107,40 +99,24 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             }
         };
 
-        const renderError = () => (
-            <div
-                className={cn(styles.message, styles.error)}
-                data-test-id={getDataTestId(dataTestId, 'error')}
-            >
-                {error}
-            </div>
-        );
-
-        const renderMessage = () => (
-            <div className={styles.message} data-test-id={getDataTestId(dataTestId, 'message')}>
-                {message}
-            </div>
-        );
-
         return (
             <div
-                className={cn(styles.component, className)}
+                className={cn(commonStyles.component, styles.component, className)}
                 ref={ref}
                 data-test-id={getDataTestId(dataTestId, 'wrapper')}
             >
-                {error ? renderError() : renderMessage()}
-
-                <Gap size='m' />
-
-                <InputProgress
-                    dataTestId={dataTestId}
-                    value={value}
-                    maxCodeLength={maxCodeLength}
-                    codeLength={codeLength}
-                    error={Boolean(error)}
-                />
-
-                <Gap size='4xl' />
+                <div className={cn(commonStyles.inputProgressContainer)}>
+                    <Gap size={16} />
+                    <InputProgress
+                        dataTestId={dataTestId}
+                        value={value}
+                        maxCodeLength={maxCodeLength}
+                        codeLength={codeLength}
+                        error={Boolean(error)}
+                        success={success}
+                    />
+                    <Gap size={26} />
+                </div>
 
                 <KeyPad
                     dataTestId={dataTestId}

@@ -1,0 +1,9 @@
+@import '../../../themes/src/default.css';
+@import '../vars.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: var(--pass-code-height);
+}

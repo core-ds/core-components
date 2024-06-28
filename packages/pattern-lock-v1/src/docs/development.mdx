@@ -1,0 +1,42 @@
+import { ArgsTabs, CssVars } from 'storybook/blocks';
+import { PatternLockV1 } from '../index';
+import { PatternLockDesktopV1 } from '../desktop';
+import { PatternLockMobileV1 } from '../mobile';
+import vars from '!!raw-loader!../vars.css';
+
+## Подключение
+
+```jsx
+import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
+import { PatternLockMobileV1 } from '@alfalab/core-components/pattern-lock-v1/mobile';
+import { PatternLockDesktopV1 } from '@alfalab/core-components/pattern-lock-v1/desktop';
+// Хук для очистки ввода
+import { usePatternLockCleanup } from '@alfalab/core-components/pattern-lock-v1/shared';
+// Также можно импортировать объект с состояниями темы
+import { THEME_STATE } from '@alfalab/core-components/pattern-lock';
+```
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getPatternLockTestIds`.
+Импорт из `@alfalab/core-components/pattern-lock/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    patternLock: dataTestId,
+    forgotCodeBtn: `${dataTestId}-forgot-code-btn`,
+    error: `${dataTestId}-error`,
+    message: `${dataTestId}-message`,
+};
+```
+
+## Свойства
+
+<ArgsTabs components={{PatternLockV1, PatternLockDesktopV1, PatternLockMobileV1}} />
+
+## Переменные
+
+<CssVars css={vars} />

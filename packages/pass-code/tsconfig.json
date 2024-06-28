@@ -10,5 +10,10 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../gap" }, { "path": "../shared" }]
+    "references": [
+      { "path": "../button" },
+      { "path": "../gap" },
+      { "path": "../shared" },
+      { "path": "../mq" }
+    ]
 }

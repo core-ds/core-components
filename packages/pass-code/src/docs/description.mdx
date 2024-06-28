@@ -3,11 +3,10 @@
 Компоненту можно передать длину кода, в этом случае он сразу отобразит нужное количество точек над пин-падом.
 Если длина неизвестна, после каждого нажатия на пин-пад будет добавляться новая точка.
 Кнопка удаления появляется после ввода первого символа.
-После валидации компонент может отобразить состоянии ошибки и вывести сообщение.
-Состояния успеха для цифрового кода не предусмотренно, пользователь просто пойдёт дальше по сценарию.
+После валидации компонент может отобразить состоянии ошибки.
 Корректная комбинация для примера `0451`.
 
-```jsx live mobileHeight={640} mobileOnly
+```jsx live mobileHeight={640}
 const VALID_CODE = '0451';
 const MAX_LENGTH = VALID_CODE.length;
 const SCREENS = {
@@ -19,64 +18,115 @@ const SCREENS = {
 render(() => {
     const [screen, setScreen] = React.useState(SCREENS.INITIAL);
     const [error, setError] = React.useState(false);
+    const [errorMessage, setErrorMessage] = React.useState(false);
     const [code, setCode] = React.useState('');
     const [passCodeParams, setPassCodeParams] = React.useState();
+    const passCodeRef = React.useRef(null);
+    const containerRef = React.useRef(null);
+    const [isSuccess, setSuccess] = React.useState(false);
 
     const validate = (codeToValidate) => {
-        if (codeToValidate !== VALID_CODE) {
-            setTimeout(() => setError('Error message'), 300);
-            setTimeout(() => {
-                setError((prev) => {
-                    if (prev) {
-                        setCode('');
-                        return false;
-                    }
+        const isMaxCodeLength = 'maxCodeLength' in passCodeParams;
 
-                    return prev;
-                });
+        if (codeToValidate !== VALID_CODE) {
+            setTimeout(() => {
+                setError(true);
+                setErrorMessage(true);
+            }, 300);
+            setTimeout(() => {
+                if (!isMaxCodeLength) {
+                    setError(false);
+                }
+                setCode('');
+                setErrorMessage(false);
             }, 1300);
 
             return;
         }
+        setTimeout(() => {
+            setSuccess(true);
+        }, 700);
 
-        setTimeout(() => setScreen(SCREENS.SUCCESS), 500);
+        if (isMaxCodeLength) {
+            setTimeout(() => {
+                setCode('');
+            }, 1300);
+        }
+
+        setTimeout(
+            () => {
+                setScreen(SCREENS.SUCCESS);
+
+                setTimeout(() => {
+                    setSuccess(false);
+                    setCode('');
+                }, 200);
+            },
+            isMaxCodeLength ? 2100 : 1500,
+        );
     };
 
     const handleChange = (value) => {
         setCode(value);
         setError(false);
+        setSuccess(false);
+        setErrorMessage(false);
 
         if (passCodeParams.codeLength > 0 && value.length === MAX_LENGTH) {
             validate(value);
         }
     };
 
+    const renderMessage = () => {
+        if ('codeLength' in passCodeParams) {
+            return (
+                <div style={{ textAlign: 'center' }}>
+                    <Typography.Text view='primary-medium'>
+                        Введите код из четырёх цифр
+                    </Typography.Text>
+                </div>
+            );
+        }
+
+        return null;
+    };
+
     if (screen === SCREENS.INITIAL) {
         return (
-            <>
-                <Button
-                    block
-                    onClick={() => {
-                        setPassCodeParams({
-                            codeLength: MAX_LENGTH,
-                            message: 'Введите код из четырёх цифр',
-                        });
-                        setScreen(SCREENS.ENTER_CODE);
-                    }}
-                >
-                    Код из четырех цифр
-                </Button>
-                <Gap size='m' />
-                <Button
-                    block
-                    onClick={() => {
-                        setPassCodeParams({ maxCodeLength: 12 });
-                        setScreen(SCREENS.ENTER_CODE);
-                    }}
-                >
-                    Длина кода неизвестна заранее
-                </Button>
-            </>
+            <div
+                style={{
+                    height: 600,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: isMobile() ? 'start' : 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <div style={{ width: 320 }}>
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams({
+                                codeLength: MAX_LENGTH,
+                                message: 'Введите код из четырёх цифр',
+                            });
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                        Код из четырех цифр
+                    </Button>
+                    <Gap size='m' />
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams({ maxCodeLength: 12 });
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                        Длина кода неизвестна заранее
+                    </Button>
+                </div>
+            </div>
         );
     }
 
@@ -91,10 +141,10 @@ render(() => {
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        flex: 1,
+                        ...(isMobile() && { flex: 1 }),
                     }}
                 >
-                    <div style={{ textAlign: 'center' }}>
+                    <div style={{ textAlign: 'center', width: isMobile() ? 315 : 472 }}>
                         <SuperEllipse
                             size={80}
                             backgroundColor='var(--color-light-status-positive)'
@@ -104,17 +154,29 @@ render(() => {
 
                         <Gap size='m' />
 
-                        <Typography.Text view='primary-medium' weight='bold'>
-                            Введён корректный код
+                        <Typography.Title view='small' font='system'>
+                            Введён корректный пароль
+                        </Typography.Title>
+
+                        <Gap size={16} />
+
+                        <Typography.Text view='primary-medium'>
+                            Это пример экрана, на который попадает пользователь после ввода
+                            корректного пароля
                         </Typography.Text>
                     </div>
 
+                    <Gap size={24} />
+
                     <Button
-                        block
                         onClick={() => {
                             setScreen(SCREENS.INITIAL);
                             setError(false);
+                            setSuccess(false);
                             setCode('');
+                        }}
+                        style={{
+                            ...(isMobile() && { width: 320 }),
                         }}
                     >
                         Попробовать ещё раз
@@ -124,19 +186,109 @@ render(() => {
         );
     }
 
+    if (isMobile()) {
+        return (
+            <div
+                style={{
+                    height: 600,
+                    boxSizing: 'border-box',
+                    paddingTop: passCodeParams.maxCodeLength > 0 ? '60px' : '34px',
+                }}
+                ref={containerRef}
+            >
+                <div style={{ height: passCodeParams.maxCodeLength > 0 ? 464 : 504 }}>
+                    <Toast
+                        title={'Error message'}
+                        open={Boolean(errorMessage)}
+                        anchorElement={containerRef.current}
+                        position='top'
+                        badge='negative-alert'
+                        offset={[0, -56]}
+                        style={{ width: '320px' }}
+                        onClose={() => {}}
+                    />
+                    {renderMessage()}
+                    <PassCode
+                        {...passCodeParams}
+                        ref={passCodeRef}
+                        value={code}
+                        onChange={handleChange}
+                        error={error}
+                        success={isSuccess}
+                        leftAddons={
+                            <KeyPadButton view='text' key='left-addon'>
+                                Забыли код?
+                            </KeyPadButton>
+                        }
+                        rightAddons={
+                            <KeyPadButton view='text' key='right-addon'>
+                                <SfFaceIdXxlIcon />
+                            </KeyPadButton>
+                        }
+                    />
+
+                    {passCodeParams.maxCodeLength > 0 && (
+                        <React.Fragment>
+                            <Gap size={20} />
+                            <Button
+                                style={{ display: 'block', width: '304px', margin: '0 auto' }}
+                                view='primary'
+                                onClick={() => validate(code)}
+                            >
+                                Продолжить
+                            </Button>
+                        </React.Fragment>
+                    )}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div
             style={{
-                display: 'flex',
-                flexFlow: 'column nowrap',
-                justifyContent: 'space-between',
                 height: 600,
+                boxSizing: 'border-box',
+                paddingTop: '107px',
             }}
+            ref={containerRef}
         >
-            <PassCode {...passCodeParams} value={code} onChange={handleChange} error={error} />
+            <Toast
+                title={'Error message'}
+                open={Boolean(errorMessage)}
+                anchorElement={containerRef.current}
+                position='top'
+                badge='negative-alert'
+                offset={[0, -56]}
+                style={{ width: '304px' }}
+                onClose={() => {}}
+            />
+            {renderMessage()}
+            <PassCode
+                {...passCodeParams}
+                ref={passCodeRef}
+                value={code}
+                onChange={handleChange}
+                error={error}
+                success={isSuccess}
+                leftAddons={
+                    <KeyPadButton view='text' key='left-addon'>
+                        Забыли код?
+                    </KeyPadButton>
+                }
+                rightAddons={
+                    <KeyPadButton view='text' key='right-addon'>
+                        <SfFaceIdXxlIcon />
+                    </KeyPadButton>
+                }
+            />
 
             {passCodeParams.maxCodeLength > 0 && (
-                <Button block view='primary' onClick={() => validate(code)}>
+                <Button
+                    style={{ display: 'block', width: '304px', margin: '0 auto' }}
+                    view='primary'
+                    onClick={() => validate(code)}
+                >
                     Продолжить
                 </Button>
             )}
@@ -144,8 +296,3 @@ render(() => {
     );
 });
 ```
-
-## Адаптивность
-
-Размер контролов компонента подстраивается под ширину мобильного экрана.
-Компонент не предназначен для использования на десктопных устройствах и не имеет соответствующих состояний.

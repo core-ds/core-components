@@ -2,31 +2,10 @@
 @import '../vars.css';
 
 .component {
-    max-width: var(--pattern-lock-max-width);
-    margin: var(--gap-xs) 0 var(--gap-xl) 0;
+    margin: 0 auto;
+    min-width: var(--pattern-lock-min-width);
 }
 
 .forgotBtn {
     margin: var(--gap-xl) auto 0;
-}
-
-@media screen and (min-width: 360px) {
-    .forgotBtn {
-        margin-top: var(--gap-2xl);
-        min-height: var(--size-s-height);
-    }
-
-    .component {
-        margin-bottom: var(--gap-s);
-    }
-}
-
-@media screen and (min-width: 390px) {
-    .forgotBtn {
-        min-height: var(--size-m-height);
-    }
-
-    .component {
-        margin-bottom: var(--gap-l);
-    }
 }

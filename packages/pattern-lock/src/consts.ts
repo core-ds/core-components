@@ -18,7 +18,7 @@ export const OBSERVABLE_TOKENS: ObservableTokens = {
     PRIMARY: '--color-light-neutral-500',
     BG: '--color-light-base-bg-primary',
     RING_BG_INITIAL: '--color-light-neutral-translucent-200',
-    SELECTED_RING_BG_INITIAL: '--color-light-neutral-translucent-300',
+    SELECTED_RING_BG_INITIAL: '--color-light-neutral-translucent-200-hover',
     SELECTED_RING_BG_SUCCESS: '--color-light-status-muted-positive',
     SELECTED_RING_BG_FAILURE: '--color-light-status-muted-negative',
     HOVER_INNER: '--color-light-neutral-500-hover',

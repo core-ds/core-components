@@ -25,15 +25,12 @@ export const BasePatternLock = forwardRef<
         {
             observeTokens = false,
             observerParams = {},
-            justifyNodes = 'space-between',
             className,
-            error,
             dataTestId,
             forgotCodeBtnText = 'Забыли код?',
             showForgotCodeBtn = false,
             onForgotBtnClick,
             extraBounds = DEFAULT_EXTRA_BOUNDS,
-            message,
             messageClassName,
             hover,
             styles = {},
@@ -86,45 +83,26 @@ export const BasePatternLock = forwardRef<
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [observeTokens]);
 
-        const renderMessage = () => (
-            <div
-                className={cn(commonStyles.message, messageClassName)}
-                data-test-id={getDataTestId(dataTestId, 'message')}
-            >
-                {message}
-            </div>
-        );
-
-        const renderError = () => (
-            <div
-                className={cn(commonStyles.message, commonStyles.error, messageClassName)}
-                data-test-id={getDataTestId(dataTestId, 'error')}
-            >
-                {error}
-            </div>
-        );
-
         return (
             <div
                 className={cn(commonStyles.component, styles.component, className, {
                     [commonStyles.hidden]: !params,
+                    [commonStyles.withForgotBtn]: showForgotCodeBtn,
                 })}
                 data-test-id={dataTestId}
             >
-                {error ? renderError() : renderMessage()}
-
                 <ReactCanvasPatternLock
                     {...restProps}
                     {...params}
                     ref={ref}
                     rows={3}
                     cols={3}
-                    justifyNodes={justifyNodes}
+                    justifyNodes='space-between'
                     extraBounds={extraBounds}
                     hover={hover}
                 />
 
-                {showForgotCodeBtn ? (
+                {showForgotCodeBtn && (
                     <ButtonMobile
                         view='transparent'
                         className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
@@ -133,12 +111,6 @@ export const BasePatternLock = forwardRef<
                     >
                         {forgotCodeBtnText}
                     </ButtonMobile>
-                ) : (
-                    <div
-                        className={cn(commonStyles.forgotBtn, styles.forgotBtn, {
-                            [styles.hiddenBtn]: Boolean(styles.hiddenBtn),
-                        })}
-                    />
                 )}
             </div>
         );
