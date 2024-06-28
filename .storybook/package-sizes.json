@@ -1,12 +1,12 @@
 {
     "with-suffix": {
-        "index.js": 2.7
+        "index.js": 3.2
     },
     "universal-date-input": {
-        "desktop.js": 138.7,
-        "index.js": 138.8,
-        "mobile.js": 138.7,
-        "shared.js": 43.5
+        "desktop.js": 138.8,
+        "index.js": 138.9,
+        "mobile.js": 138.8,
+        "shared.js": 43.6
     },
     "underlay": {
         "index.js": 3.3
@@ -15,25 +15,25 @@
         "index.js": 7.3
     },
     "tooltip": {
-        "desktop.js": 47.4,
-        "index.js": 104.8,
-        "mobile.js": 76.3
+        "desktop.js": 48,
+        "index.js": 105,
+        "mobile.js": 76.5
     },
     "toast": {
-        "desktop.js": 66.3,
-        "index.js": 66.8,
-        "mobile.js": 66.3
+        "desktop.js": 66.4,
+        "index.js": 66.9,
+        "mobile.js": 66.4
     },
     "toast-plate": {
-        "desktop.js": 21.5,
-        "index.js": 21.8,
-        "mobile.js": 21.5
+        "desktop.js": 21.6,
+        "index.js": 21.9,
+        "mobile.js": 21.6
     },
     "time-input": {
-        "index.js": 25.6
+        "index.js": 25.7
     },
     "textarea": {
-        "index.js": 14.9,
+        "index.js": 15,
         "shared.js": 0.8
     },
     "text": {
@@ -45,27 +45,27 @@
         "mobile.js": 4.8
     },
     "tabs": {
-        "collapsible.js": 285.1,
-        "desktop.js": 36,
-        "index.js": 37.2,
-        "mobile.js": 36.1,
-        "shared.js": 29.3
+        "collapsible.js": 285.3,
+        "desktop.js": 36.1,
+        "index.js": 37.3,
+        "mobile.js": 36.2,
+        "shared.js": 29.4
     },
     "table": {
-        "index.js": 165.3
+        "index.js": 165.4
     },
     "tab-bar": {
-        "index.js": 10.8,
-        "shared.js": 0.5
+        "index.js": 10.9,
+        "shared.js": 0.6
     },
     "system-message": {
-        "desktop.js": 4.6,
-        "index.js": 7.4,
-        "mobile.js": 4.6,
-        "shared.js": 2.9
+        "desktop.js": 4.7,
+        "index.js": 7.5,
+        "mobile.js": 4.7,
+        "shared.js": 3
     },
     "switch": {
-        "index.js": 4.7
+        "index.js": 4.8
     },
     "steps": {
         "index.js": 9.1
@@ -89,7 +89,7 @@
         "index.js": 2.5
     },
     "sortable-list": {
-        "index.js": 53.5,
+        "index.js": 53.6,
         "shared.js": 0.6
     },
     "slider": {
@@ -102,24 +102,24 @@
         "index.js": 1.5
     },
     "side-panel": {
-        "desktop.js": 67.8,
-        "index.js": 69.5,
-        "mobile.js": 66,
-        "shared.js": 44
+        "desktop.js": 68,
+        "index.js": 69.7,
+        "mobile.js": 66.2,
+        "shared.js": 44.2
     },
     "shared": {
-        "index.js": 4.4
+        "index.js": 4.5
     },
     "select": {
-        "desktop.js": 154,
-        "index.js": 296.9,
-        "mobile.js": 270.3,
-        "shared.js": 256
+        "desktop.js": 154.2,
+        "index.js": 297.1,
+        "mobile.js": 270.4,
+        "shared.js": 256.1
     },
     "select-with-tags": {
-        "desktop.js": 281.6,
-        "index.js": 305,
-        "mobile.js": 278.9
+        "desktop.js": 281.8,
+        "index.js": 305.2,
+        "mobile.js": 279.1
     },
     "segmented-control": {
         "index.js": 13.7
@@ -128,7 +128,7 @@
         "index.js": 37
     },
     "radio": {
-        "index.js": 4.7
+        "index.js": 4.8
     },
     "radio-group": {
         "desktop.js": 4.3,
@@ -136,7 +136,7 @@
         "mobile.js": 4.3
     },
     "pure-cell": {
-        "index.js": 45.5,
+        "index.js": 45.6,
         "shared.js": 1
     },
     "progress-bar": {
@@ -144,35 +144,35 @@
     },
     "product-cover": {
         "index.js": 39.7,
-        "shared.js": 0.8
+        "shared.js": 0.9
     },
     "portal": {
-        "index.js": 0.6
+        "index.js": 1.1
     },
     "popup-sheet": {
-        "index.js": 64.7,
-        "shared.js": 0.5
+        "index.js": 64.9,
+        "shared.js": 0.6
     },
     "popover": {
-        "index.js": 45.1
+        "index.js": 45.7
     },
     "plate": {
         "desktop.js": 14.7,
-        "index.js": 15,
+        "index.js": 15.1,
         "mobile.js": 14.7
     },
     "picker-button": {
-        "desktop.js": 277,
-        "index.js": 310.8,
-        "mobile.js": 282.9,
+        "desktop.js": 277.2,
+        "index.js": 310.9,
+        "mobile.js": 283,
         "shared.js": 3.1
     },
     "phone-input": {
         "index.js": 35.8
     },
     "pattern-lock": {
-        "desktop.js": 24.9,
-        "index.js": 26.5,
+        "desktop.js": 25,
+        "index.js": 26.6,
         "mobile.js": 24.9,
         "shared.js": 1.2
     },
@@ -180,47 +180,47 @@
         "index.js": 27.9
     },
     "pass-code": {
-        "index.js": 19.9,
-        "shared.js": 0.7
+        "index.js": 20,
+        "shared.js": 0.8
     },
     "pagination": {
         "index.js": 8.1
     },
     "number-input": {
-        "desktop.js": 42,
+        "desktop.js": 42.1,
         "index.js": 42.8,
-        "mobile.js": 42,
+        "mobile.js": 42.1,
         "shared.js": 0.9
     },
     "notification": {
-        "index.js": 28.2
+        "index.js": 28.3
     },
     "notification-manager": {
-        "index.js": 13
+        "index.js": 13.5
     },
     "navigation-bar": {
         "index.js": 3.1,
-        "shared.js": 14.9
+        "shared.js": 15
     },
     "navigation-bar-private": {
         "index.js": 20.6,
-        "shared.js": 17.2
+        "shared.js": 17.3
     },
     "mq": {
         "index.js": 2.8
     },
     "modal": {
-        "desktop.js": 66.8,
-        "index.js": 66.9,
-        "mobile.js": 66.7,
-        "shared.js": 44
+        "desktop.js": 66.9,
+        "index.js": 67,
+        "mobile.js": 66.9,
+        "shared.js": 44.2
     },
     "masked-input": {
         "index.js": 34.1
     },
     "markdown": {
         "desktop.js": 126.4,
-        "index.js": 126.9,
+        "index.js": 127,
         "mobile.js": 126.4
     },
     "loader": {
@@ -239,24 +239,24 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 785.3
+        "index.js": 785.5
     },
     "international-phone-input": {
-        "desktop.js": 651.4,
-        "index.js": 685.5,
-        "mobile.js": 657.5,
-        "shared.js": 247.3
+        "desktop.js": 651.6,
+        "index.js": 685.6,
+        "mobile.js": 657.7,
+        "shared.js": 247.5
     },
     "input": {
-        "desktop.js": 24.2,
+        "desktop.js": 24.3,
         "index.js": 24.8,
-        "mobile.js": 24.2,
-        "shared.js": 11.5
+        "mobile.js": 24.3,
+        "shared.js": 11.6
     },
     "input-autocomplete": {
-        "desktop.js": 274.3,
-        "index.js": 309.6,
-        "mobile.js": 282.2,
+        "desktop.js": 274.5,
+        "index.js": 309.7,
+        "mobile.js": 282.3,
         "shared.js": 1.9
     },
     "indicator": {
@@ -269,7 +269,7 @@
         "super-ellipse.js": 62.2
     },
     "icon-button": {
-        "index.js": 10.3
+        "index.js": 10.4
     },
     "hatching-progress-bar": {
         "index.js": 1.7
@@ -287,11 +287,11 @@
         "index.js": 1.8
     },
     "gallery": {
-        "index.js": 200.1
+        "index.js": 200.3
     },
     "form-control": {
         "desktop.js": 4,
-        "index.js": 7.1,
+        "index.js": 7.2,
         "mobile.js": 4,
         "shared.js": 0.7
     },
@@ -301,46 +301,46 @@
         "mobile.js": 7.6
     },
     "file-upload-item": {
-        "index.js": 20.4
+        "index.js": 20.5
     },
     "dropzone": {
         "index.js": 3.6
     },
     "drawer": {
-        "index.js": 45.1
+        "index.js": 45.3
     },
     "divider": {
         "index.js": 1.3
     },
     "date-time-input": {
-        "desktop.js": 140.4,
-        "index.js": 240.7,
-        "mobile.js": 239.4
+        "desktop.js": 140.6,
+        "index.js": 240.8,
+        "mobile.js": 239.5
     },
     "date-range-input": {
-        "desktop.js": 141.5,
-        "index.js": 241.8,
-        "mobile.js": 240.5
+        "desktop.js": 141.7,
+        "index.js": 242,
+        "mobile.js": 240.7
     },
     "date-input": {
         "index.js": 69.7
     },
     "custom-picker-button": {
-        "desktop.js": 278.6,
-        "index.js": 312,
-        "mobile.js": 284.5
+        "desktop.js": 278.8,
+        "index.js": 312.1,
+        "mobile.js": 284.6
     },
     "custom-button": {
-        "index.js": 9.9
+        "index.js": 10
     },
     "confirmation": {
-        "desktop.js": 30.2,
-        "index.js": 30.5,
-        "mobile.js": 30.3,
+        "desktop.js": 30.3,
+        "index.js": 30.6,
+        "mobile.js": 30.4,
         "shared.js": 28.6
     },
     "confirmation-v1": {
-        "index.js": 45
+        "index.js": 45.1
     },
     "comment": {
         "index.js": 7.5
@@ -376,37 +376,37 @@
     },
     "calendar": {
         "desktop.js": 64.8,
-        "index.js": 173.1,
-        "mobile.js": 172.9,
+        "index.js": 173.2,
+        "mobile.js": 173.1,
         "shared.js": 48.1
     },
     "calendar-with-skeleton": {
         "index.js": 66
     },
     "calendar-range": {
-        "index.js": 249.4
+        "index.js": 249.6
     },
     "calendar-input": {
-        "desktop.js": 141.9,
-        "index.js": 241.8,
-        "mobile.js": 240.9,
+        "desktop.js": 142.1,
+        "index.js": 242,
+        "mobile.js": 241.1,
         "shared.js": 72.5
     },
     "button": {
         "desktop.js": 7.8,
         "index.js": 9.5,
-        "mobile.js": 7.7,
-        "shared.js": 0.5
+        "mobile.js": 7.8,
+        "shared.js": 0.6
     },
     "bottom-sheet": {
-        "index.js": 75.6,
+        "index.js": 75.8,
         "shared.js": 0.7
     },
     "base-modal": {
-        "index.js": 43.9
+        "index.js": 44.1
     },
     "bank-card": {
-        "index.js": 40.9
+        "index.js": 41
     },
     "badge": {
         "index.js": 2
@@ -415,19 +415,19 @@
         "index.js": 8.9
     },
     "attach": {
-        "index.js": 36.3
+        "index.js": 36.4
     },
     "amount": {
         "index.js": 26.5
     },
     "amount-input": {
-        "index.js": 53.6
+        "index.js": 53.7
     },
     "alert": {
         "index.js": 15.3
     },
     "action-button": {
-        "index.js": 6.7,
+        "index.js": 6.8,
         "shared.js": 0.6
     },
     "accordion": {
