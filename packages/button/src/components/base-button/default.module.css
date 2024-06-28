@@ -77,16 +77,21 @@
 
 .filled {
     color: var(--color-light-text-primary);
-    background-color: var(--color-light-bg-quaternary);
+    background-color: var(--color-light-neutral-translucent-300);
+    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
-            background-color: var(--color-light-bg-quaternary-shade-7);
+            background-color: var(--color-light-neutral-translucent-300-hover);
         }
     }
 
     &:active {
-        background-color: var(--color-light-bg-quaternary-shade-15);
+        background-color: var(--color-light-neutral-translucent-300-press);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-default-color);
     }
 }
 
@@ -201,12 +206,12 @@
     }
 
     &.filled {
-        color: var(--color-light-text-primary-alpha-30);
-        background-color: var(--color-light-bg-quaternary-alpha-30);
+        color: var(--color-light-text-tertiary);
+        background-color: var(--color-light-neutral-translucent-100);
 
         &.loading {
             color: var(--color-light-text-primary);
-            background-color: var(--color-light-bg-quaternary);
+            background-color: var(--color-light-neutral-translucent-300);
         }
     }
 

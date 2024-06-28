@@ -10,7 +10,7 @@
     width: 100%;
     height: 390px;
     border-radius: var(--border-radius-xxl);
-    background-color: var(--color-light-bg-secondary);
+    background-color: var(--color-light-base-bg-secondary);
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('./assets/intro_mobile_bg.png');
@@ -61,7 +61,7 @@ div[data-mode='dark'] .intro {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 -1px 0 var(--color-light-border-primary);
+    box-shadow: 0 -1px 0 var(--color-light-neutral-400);
 }
 
 .supportDesc {

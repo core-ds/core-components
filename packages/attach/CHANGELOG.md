@@ -1,5 +1,40 @@
 # Change Log
 
+## 6.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+
+## 6.6.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1247](https://github.com/core-ds/core-components/pull/1247)
+
+-   Изменили стили типографики для имени файла и текста, отображаемого, когда файл не загружен
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   progress-bar@3.3.2
+
+## 6.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   progress-bar@3.3.1
+
 ## 6.6.3
 
 ### Patch Changes

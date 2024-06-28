@@ -1,5 +1,58 @@
 # Change Log
 
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   icon-button@6.7.0
+    -   modal@9.3.4
+
+## 7.6.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1227](https://github.com/core-ds/core-components/pull/1227)
+
+-   Повышена специфичность для стилей, отвечающих за внутренний отступ у кнопок выбора года и месяца
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   icon-button@6.6.1
+    -   modal@9.3.3
+
+## 7.6.4
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   icon-button@6.6.0
+    -   modal@9.3.2
+
 ## 7.6.3
 
 ### Patch Changes

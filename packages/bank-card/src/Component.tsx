@@ -172,3 +172,5 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         );
     },
 );
+
+BankCard.displayName = 'BankCard';

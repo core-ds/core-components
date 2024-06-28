@@ -13,7 +13,7 @@ import type { CalendarProps } from '@alfalab/core-components-calendar';
 import type { InputProps } from '@alfalab/core-components-input';
 import type { PopoverProps } from '@alfalab/core-components-popover';
 
-export type View = 'date' | 'date-time' | 'date-range' | 'time';
+export type View = 'date' | 'date-time' | 'date-range' | 'time' | 'month';
 
 export type DateTemplate = {
     segments: string[];
@@ -192,6 +192,34 @@ export interface InnerTimeInputProps extends Omit<InputProps, 'onChange'> {
 
     /**
      *  Время по умолчанию
+     */
+    defaultValue?: string;
+
+    /**
+     * Автоматическое исправление ввода
+     *  @default true
+     */
+    autoCorrection?: BaseUniversalDateInputProps['autoCorrection'];
+
+    /**
+     * Обработчик изменения значения в инпуте
+     */
+    onInputChange?: BaseUniversalDateInputProps['onInputChange'];
+
+    /**
+     * Обработчик изменения значения
+     */
+    onChange?: (value: string) => void;
+}
+
+export interface InnerMonthInputProps extends Omit<InputProps, 'onChange'> {
+    /**
+     *  Месяц
+     */
+    value?: string;
+
+    /**
+     *  Месяц по умолчанию
      */
     defaultValue?: string;
 

@@ -1,3 +1,338 @@
+## 46.4.0
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1250](https://github.com/core-ds/core-components/pull/1250)
+
+#### Что изменилось
+- Изменен элемент наблюдения ResizeObserver с contentRef.current на contentCaseRef.current, теперь контейнер контента динамически изменяет высоту при добавлении контента
+
+#### Влияние на компоненты
+- Патчи<br />`accordion`
+
+
+### [#1256](https://github.com/core-ds/core-components/pull/1256)
+
+#### Что изменилось
+- Исправили стили для кнопки с view=filled
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#1266](https://github.com/core-ds/core-components/pull/1266)
+
+#### Что изменилось
+- Исправление типизации компонента
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#1263](https://github.com/core-ds/core-components/pull/1263)
+
+#### Что изменилось
+- Добавили новые свойства: showSkeleton и skeletonProps, отвечающие за отображение скелетона и дополнительные пропсы для него
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+#### Что изменилось
+- В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet`
+
+
+### [#1252](https://github.com/core-ds/core-components/pull/1252)
+
+#### Что изменилось
+- Добавлено новое свойство align, отвечающее за выравнивание чекбокса или иконки "галочки". По умолчанию элемент выровнен по центру. Для того чтобы изменить выравнивание, необходимо передать компоненту optionProps={{align: 'start'}}
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1259](https://github.com/core-ds/core-components/pull/1259)
+
+#### Что изменилось
+- Обновление vars из последней версии ui-primitives
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1254](https://github.com/core-ds/core-components/pull/1254)
+
+#### Что изменилось
+- Изменили стили для значения поля ввода, когда количество вводимых символов превышает maxLength, если включено переполнение
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#1255](https://github.com/core-ds/core-components/pull/1255)
+
+#### Что изменилось
+- Для предотвращения мерцания компонента в SSR добавлена возможность установки значения по умолчанию для useMatchMedia
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#1253](https://github.com/core-ds/core-components/pull/1253)
+
+#### Что изменилось
+- Удалена темизация click для компонентов Link и IconButton, а также для фона в ToastPlate
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+#### Что изменилось
+- Заменили устаревшие цветовые токены на актуальные
+
+#### Влияние на компоненты
+- Минорное<br />`calendar` `chart` `checkbox` `confirmation-v1` `custom-button`<br /> `filter-tag` `gallery` `icon-button` `indicator` `intl-phone-input`<br /> `pattern-lock` `product-cover` `pure-cell` `select` `themes`<br /> `table` `typography`
+
+
+
+## 46.3.1
+
+<sup><time>26.06.2024</time></sup>
+
+### [#1228](https://github.com/core-ds/core-components/pull/1228)
+
+#### Что изменилось
+- Добавлен пропс contentWrapperClassName
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+### [#1264](https://github.com/core-ds/core-components/pull/1264)
+
+#### Что изменилось
+- Исправлена ширина контента в пустом состоянии
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar`
+
+
+
+## 46.3.0
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1249](https://github.com/core-ds/core-components/pull/1249)
+
+#### Что изменилось
+- Добавлен поиск по группам значений
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1248](https://github.com/core-ds/core-components/pull/1248)
+
+#### Что изменилось
+- увеличена специфичность стилей для кнопок футера
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1257](https://github.com/core-ds/core-components/pull/1257)
+
+#### Что изменилось
+- Корректная передача пропсов для мобильного варианта компонента
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
+## 46.2.1
+
+<sup><time>17.06.2024</time></sup>
+
+### [#1251](https://github.com/core-ds/core-components/pull/1251)
+
+#### Что изменилось
+- Повысили специфичность для отступов контента в мобильной селекте
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
+## 46.2.0
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+#### Что изменилось
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `amount-input` `attach` `bank-card` `base-modal`<br /> `bottom-sheet` `button` `calendar` `calendar-with-skeleton` `chart`<br /> `checkbox` `code-input` `collapse` `custom-button` `custom-picker-button`<br /> `drawer` `filter-tag` `form-control` `hatching-progress-bar` `icon-button`<br /> `icon-view` `indicator` `input` `input-autocomplete` `international-phone-input`<br /> `link` `masked-input` `modal` `navigation-bar-private` `notification`<br /> `notification-manager` `number-input` `pass-code` `password-input` `pattern-lock`<br /> `phone-input` `picker-button` `plate` `popover` `popup-sheet`<br /> `portal` `progress-bar` `pure-cell` `radio` `radio-group`<br /> `scrollbar` `select` `select-with-tags` `side-panel` `slider-input`<br /> `sortable-list` `space` `switch` `tab-bar` `tabs`<br /> `tag` `textarea` `toast` `toast-plate` `underlay`<br /> `universal-date-input`
+
+
+### [#1246](https://github.com/core-ds/core-components/pull/1246)
+
+#### Что изменилось
+- Добавлены пропсы в OptGroup для управления выбранными вариантами
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1247](https://github.com/core-ds/core-components/pull/1247)
+
+#### Что изменилось
+- Изменили стили типографики для имени файла и текста, отображаемого, когда файл не загружен
+
+#### Влияние на компоненты
+- Патчи<br />`attach`
+
+
+### [#1232](https://github.com/core-ds/core-components/pull/1232)
+
+#### Что изменилось
+- Добавили новое свойство block, отвечающее за растягивание компонента на ширину контейнера
+
+#### Влияние на компоненты
+- Минорное<br />`filter-tag`
+
+
+### [#1227](https://github.com/core-ds/core-components/pull/1227)
+
+#### Что изменилось
+- Повышена специфичность для стилей, отвечающих за внутренний отступ у кнопок выбора года и месяца
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#1236](https://github.com/core-ds/core-components/pull/1236)
+
+#### Что изменилось
+- Исправлена ​​логика смены активного шага
+
+#### Влияние на компоненты
+- Патчи<br />`steps`
+
+
+### [#1220](https://github.com/core-ds/core-components/pull/1220)
+
+#### Что изменилось
+- Добавлена поддержка формата мм.гггг
+
+#### Влияние на компоненты
+- Минорное<br />`universal-date-input`
+
+
+### [#1240](https://github.com/core-ds/core-components/pull/1240)
+
+#### Что изменилось
+- Исправлена ошибка рендера в ssr
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#1242](https://github.com/core-ds/core-components/pull/1242)
+
+#### Что изменилось
+- Исправлен сброс чекбоксов при работе с поиском в мультиселекте
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1244](https://github.com/core-ds/core-components/pull/1244)
+
+#### Что изменилось
+- Исправлена ширина списка выбора вариантов Select при использовании VirtualOptionsList
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar`
+
+
+
+## 46.1.0
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+#### Что изменилось
+- Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `badge` `bank-card` `button` `calendar-range`<br /> `calendar` `checkbox` `circular-progress-bar` `dropzone` `file-upload-item`<br /> `filter-tag` `icon-button` `indicator` `input` `navigation-bar-private`<br /> `pass-code` `progress-bar` `radio` `select` `sortable-list`<br /> `spinner` `status-badge` `steps` `underlay`
+
+<br />
+
+#### Что изменилось
+- Изменили цветовой токен: color-light-graphic-primary -> color-light-neutral-0-inverted
+
+#### Влияние на компоненты
+- Патчи<br />`pattern-lock`
+
+<br />
+
+#### Что изменилось
+- Изменили цветовой токен: color-static-neutral-1500-inverted -> color-static-neutral-0
+
+#### Влияние на компоненты
+- Патчи<br />`switch`
+
+
+### [#1225](https://github.com/core-ds/core-components/pull/1225)
+
+#### Что изменилось
+- Добавлено новое свойство transparentBg, отвечающее за включение прозрачного фона у компонента
+
+#### Влияние на компоненты
+- Минорное<br />`icon-button`
+
+
+### [#1239](https://github.com/core-ds/core-components/pull/1239)
+
+#### Что изменилось
+- Исправлено положение футера для виртуального списка опций с поиском (при OptionsList={VirtualOptionsList}). Раньше при вводе в инпут поиска положение футера было сверху, теперь футер снизу
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1223](https://github.com/core-ds/core-components/pull/1223)
+
+#### Что изменилось
+- Добавлены новые значения для свойства view: 'muted-alt' и 'muted'. Значение 'soft' для view теперь deprecated, используйте вместо него 'muted-alt'
+- Также добавлен кодмод, который изменяет значение view компонента Status с 'soft' на 'muted-alt'
+
+#### Влияние на компоненты
+- Минорное<br />`status`
+
+
+### [#1234](https://github.com/core-ds/core-components/pull/1234)
+
+#### Что изменилось
+- Исправлено поведение scrollToArea при первом рендере, когда еще не выполнены расчеты высоты. Теперь scrollToArea при первом рендере ведет себя так же, как и initialActiveAreaIndex.
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+
 ## 46.0.0
 
 <sup><time>28.05.2024</time></sup>

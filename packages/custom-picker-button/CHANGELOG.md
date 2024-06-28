@@ -1,5 +1,62 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.7.0
+    -   custom-button@3.6.0
+    -   picker-button@11.7.7
+
+## 2.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+    -   picker-button@11.7.6
+
+## 2.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+    -   picker-button@11.7.5
+
+## 2.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+    -   picker-button@11.7.4
+
+## 2.2.12
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   custom-button@3.5.6
+    -   picker-button@11.7.3
+    -   select@17.5.0
+
+## 2.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.5
+    -   custom-button@3.5.5
+    -   picker-button@11.7.2
+
 ## 2.2.10
 
 ### Patch Changes

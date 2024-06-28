@@ -38,7 +38,8 @@ export const joinOptions = ({
 export function processOptions(
     options: BaseSelectProps['options'],
     selected: BaseSelectProps['selected'] = [],
-    filterFn: (option: OptionShape) => boolean = () => true,
+    filterFn: (option: OptionShape | GroupShape) => boolean = () => true,
+    filterGroup = false,
 ) {
     const flatOptions: OptionShape[] = [];
     const filteredOptions: BaseSelectProps['options'] = [];
@@ -51,14 +52,22 @@ export function processOptions(
 
     const isSelected = (option: OptionShape) => selectedKeys.includes(option.key);
 
-    const process = (option: OptionShape) => {
-        if (isSelected(option)) {
+    const process = (option: OptionShape | GroupShape) => {
+        const isGroupOption = isGroup(option);
+
+        if (!isGroupOption && isSelected(option)) {
             selectedOptions.push(option);
         }
 
         if (!filterFn(option)) return false;
 
-        flatOptions.push(option);
+        if (isGroupOption) {
+            if (filterGroup) {
+                Array.prototype.push.apply(flatOptions, option.options);
+            }
+        } else {
+            flatOptions.push(option);
+        }
 
         return true;
     };
@@ -76,12 +85,17 @@ export function processOptions(
                 if (matched) group.options.push(groupOption);
             });
 
-            if (group.options.length) filteredOptions.push(group);
-        } else {
-            const matched = process(option);
+            if (group.options.length) {
+                filteredOptions.push(group);
 
-            if (matched) filteredOptions.push(option);
+                return;
+            }
+
+            if (!filterGroup) return;
         }
+        const matched = process(option);
+
+        if (matched) filteredOptions.push(option);
     });
 
     return { filteredOptions, flatOptions, selectedOptions };
@@ -158,6 +172,10 @@ export function defaultFilterFn(optionText: string, search: string) {
     if (!search) return true;
 
     return optionText.toLowerCase().includes(search.toLowerCase());
+}
+
+export function defaultGroupAccessor(option: GroupShape) {
+    return option.label;
 }
 
 export function defaultAccessor(option: OptionShape) {

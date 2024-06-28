@@ -20,7 +20,7 @@
         content: '';
         display: block;
         height: 1px;
-        background-color: var(--color-light-border-secondary);
+        background-color: var(--color-light-neutral-300);
         position: relative;
         bottom: var(--gap-xl);
     }

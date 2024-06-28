@@ -96,3 +96,5 @@ export const SidePanelResponsive = Object.assign(SidePanelResponsiveComponent, {
     Content: createResponsive(SidePanelDesktop.Content, SidePanelMobile.Content),
     Footer: createResponsive(SidePanelDesktop.Footer, SidePanelMobile.Footer),
 });
+
+SidePanelResponsiveComponent.displayName = 'SidePanelResponsiveComponent';

@@ -307,6 +307,8 @@ export type BaseSelectProps = {
         filterFn?: (optionText: string, search: string) => boolean;
         value?: string;
         onChange?: (value: string) => void;
+        filterGroup?: boolean;
+        groupAccessor?: (group: GroupShape) => string | undefined;
     };
 
     /**
@@ -614,6 +616,16 @@ export type OptionsListProps = {
      * Указать индекс пункта для hover состояния
      */
     setHighlightedIndex?: (index: number) => void;
+
+    /**
+     * Значение поиска
+     */
+    search?: string;
+
+    /**
+     * Возможность выбрать несколько значений
+     */
+    multiple?: boolean;
 };
 
 export type OptgroupProps = {
@@ -637,6 +649,32 @@ export type OptgroupProps = {
      * Дочерние элементы
      */
     children?: ReactNode;
+
+    /**
+     * Список вариантов выбора в группе
+     */
+    options?: OptionShape[];
+
+    /**
+     * Список выбранных вариантов в группе
+     */
+    selectedItems?: OptionShape[];
+
+    /**
+     * Обработчик выбранных вариантов
+     */
+
+    setSelectedItems?: (items: OptionShape[]) => void;
+
+    /**
+     * Значение поиска
+     */
+    search?: string;
+
+    /**
+     * Возможность выбрать несколько значений
+     */
+    multiple?: boolean;
 };
 
 export type OptionProps = {
@@ -714,6 +752,11 @@ export type OptionProps = {
     checkmarkPosition?: 'before' | 'after';
 
     /**
+     * Выравнивание чекбокса или иконки "галочки"
+     */
+    align?: 'start' | 'center';
+
+    /**
      * Мобильная верcия option.
      */
     mobile?: boolean;
@@ -749,6 +792,11 @@ export type CheckmarkProps = {
      * Иконка выбранного пункта
      */
     icon?: FC<SVGProps<SVGSVGElement>>;
+
+    /**
+     * Выравнивание чекбокса или иконки "галочки"
+     */
+    align?: 'start' | 'center';
 };
 
 export type SearchProps = InputProps & RefAttributes<HTMLInputElement>;

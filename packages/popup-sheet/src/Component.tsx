@@ -233,3 +233,5 @@ export const PopupSheet = forwardRef<HTMLDivElement, PopupSheetProps>(
         );
     },
 );
+
+PopupSheet.displayName = 'PopupSheet';

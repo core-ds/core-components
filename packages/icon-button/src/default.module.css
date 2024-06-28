@@ -2,9 +2,9 @@
 
 :root {
     /* primary */
-    --icon-button-primary-base-color: var(--color-light-neutral-1500);
-    --icon-button-primary-hover-color: var(--color-light-neutral-1500-hover);
-    --icon-button-primary-active-color: var(--color-light-neutral-1500-press);
+    --icon-button-primary-base-color: var(--color-light-neutral-translucent-1300);
+    --icon-button-primary-hover-color: var(--color-light-neutral-translucent-1300-hover);
+    --icon-button-primary-active-color: var(--color-light-neutral-translucent-1300-press);
     --icon-button-primary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* secondary */
@@ -14,10 +14,10 @@
     --icon-button-secondary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* transparent */
-    --icon-button-transparent-base-color: var(--color-light-graphic-primary-alpha-30);
-    --icon-button-transparent-hover-color: var(--color-light-graphic-primary-alpha-40);
-    --icon-button-transparent-active-color: var(--color-light-graphic-primary-alpha-50);
-    --icon-button-transparent-disabled-color: var(--color-light-graphic-primary-alpha-40);
+    --icon-button-transparent-base-color: var(--color-light-neutral-translucent-500);
+    --icon-button-transparent-hover-color: var(--color-light-neutral-translucent-500-hover);
+    --icon-button-transparent-active-color: var(--color-light-neutral-translucent-500-press);
+    --icon-button-transparent-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* tertiary */
     --icon-button-tertiary-base-color: var(--color-light-neutral-translucent-500);
@@ -93,6 +93,56 @@
         }
     }
 
+    &.transparentBg {
+        &.primary {
+            color: var(--color-light-text-primary);
+
+            &:hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+
+        &.secondary {
+            color: var(--color-light-text-secondary);
+
+            &:hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+
+        &.negative {
+            color: var(--color-light-text-negative);
+
+            &:hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+
+        &.tertiary {
+            color: var(--color-light-text-tertiary);
+
+            &:hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+    }
+
     &.component:disabled {
         &.primary {
             color: var(--icon-button-primary-disabled-color);
@@ -124,6 +174,10 @@
             &.loader {
                 color: var(--icon-button-tertiary-base-color);
             }
+        }
+
+        &.transparentBg {
+            background: transparent;
         }
     }
 }

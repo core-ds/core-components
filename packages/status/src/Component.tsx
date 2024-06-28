@@ -13,8 +13,9 @@ export type StatusProps = {
 
     /**
      *  Вид компонента
+     * @description soft deprecated, используйте вместо него muted-alt
      */
-    view?: 'contrast' | 'soft';
+    view?: 'contrast' | 'soft' | 'muted' | 'muted-alt';
 
     /**
      * Цветовое оформление иконки
@@ -34,7 +35,7 @@ export type StatusProps = {
 
 export const Status: FC<StatusProps> = ({
     className,
-    view = 'soft',
+    view = 'muted-alt',
     color = 'green',
     children,
     dataTestId,

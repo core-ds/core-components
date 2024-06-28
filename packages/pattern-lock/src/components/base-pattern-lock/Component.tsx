@@ -116,3 +116,6 @@ export const BasePatternLock = forwardRef<
         );
     },
 );
+
+BasePatternLock.displayName = 'BasePatternLock';
+ReactCanvasPatternLock.displayName = 'ReactCanvasPatternLock';

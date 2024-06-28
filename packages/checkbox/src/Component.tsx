@@ -236,3 +236,5 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 Checkbox.defaultProps = {
     indeterminate: false,
 };
+
+Checkbox.displayName = 'Checkbox';

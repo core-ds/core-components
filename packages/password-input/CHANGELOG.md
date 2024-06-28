@@ -1,5 +1,35 @@
 # Change Log
 
+## 5.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.0
+    -   input@14.4.6
+
+## 5.2.9
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   icon-button@6.6.1
+    -   input@14.4.5
+
+## 5.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.6.0
+    -   input@14.4.4
+
 ## 5.2.7
 
 ### Patch Changes

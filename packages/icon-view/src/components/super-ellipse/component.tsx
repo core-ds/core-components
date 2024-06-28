@@ -20,3 +20,5 @@ export type SuperEllipseProps = Omit<BaseShapeProps, 'pathsMap' | 'size'> & {
 export const SuperEllipse = forwardRef<HTMLDivElement, SuperEllipseProps>((props, ref) => (
     <BaseShape {...props} pathsMap={pathsMap} ref={ref} />
 ));
+
+SuperEllipse.displayName = 'SuperEllipse';

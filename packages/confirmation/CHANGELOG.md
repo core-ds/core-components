@@ -1,5 +1,30 @@
 # Change Log
 
+## 13.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   typography@4.6.0
+
+## 13.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   code-input@3.3.1
+    -   link@5.2.2
+
+## 13.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   spinner@3.3.1
+
 ## 13.5.3
 
 ### Patch Changes

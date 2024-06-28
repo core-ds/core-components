@@ -25,8 +25,8 @@ export const useRecalculateContentHeight = (expanded: boolean) => {
         const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
         const observer = new ResizeObserver(recalculate);
 
-        if (contentRef.current) {
-            observer.observe(contentRef.current);
+        if (contentCaseRef.current) {
+            observer.observe(contentCaseRef.current);
         }
 
         return () => {

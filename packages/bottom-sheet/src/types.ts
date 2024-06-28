@@ -342,4 +342,9 @@ export type BottomSheetProps = {
      * Вызывается после окончания свайпа
      */
     onSwipeEnd?: (event: HandledEvents | null) => void;
+
+    /**
+     * Блокирует скролл когда модальное окно открыто. Работает только на iOS
+     */
+    iOSLock?: boolean;
 };

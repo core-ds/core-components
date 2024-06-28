@@ -30,7 +30,7 @@
     --radio-checked-disabled-border-color: transparent;
 
     /* icon */
-    --radio-icon-color: var(--color-light-neutral-1500-inverted);
+    --radio-icon-color: var(--color-light-neutral-translucent-1300-inverted);
     --radio-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 

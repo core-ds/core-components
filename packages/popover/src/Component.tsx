@@ -397,3 +397,5 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         );
     },
 );
+
+Popover.displayName = 'Popover';

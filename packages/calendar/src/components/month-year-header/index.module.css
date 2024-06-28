@@ -10,7 +10,7 @@
 }
 
 :global(.cc-calendar) {
-    & .button {
+    & .button.button {
         border-radius: var(--border-radius-s);
     }
 }

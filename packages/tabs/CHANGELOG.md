@@ -1,5 +1,66 @@
 # Change Log
 
+## 8.9.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1263](https://github.com/core-ds/core-components/pull/1263)
+
+-   Добавили новые свойства: showSkeleton и skeletonProps, отвечающие за отображение скелетона и дополнительные пропсы для него
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.0
+    -   picker-button@11.7.7
+
+## 8.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.6
+
+## 8.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.5
+
+## 8.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.4
+
+## 8.8.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   icon-button@6.6.1
+    -   picker-button@11.7.3
+    -   tag@8.2.1
+
+## 8.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.5.2
+    -   icon-button@6.6.0
+    -   picker-button@11.7.2
+
 ## 8.8.1
 
 ### Patch Changes

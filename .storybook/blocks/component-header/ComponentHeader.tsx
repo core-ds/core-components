@@ -57,7 +57,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, children
                     </a>
                 )}
                 <a className={styles.github} href={githubLink} target='_blank'>
-                    <GithubIcon fill='var(--color-light-graphic-primary)' />
+                    <GithubIcon fill='var(--color-light-neutral-translucent-1300)' />
                     Github
                 </a>
             </div>

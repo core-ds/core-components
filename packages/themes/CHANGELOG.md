@@ -1,5 +1,21 @@
 # Change Log
 
+## 12.3.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1253](https://github.com/core-ds/core-components/pull/1253)
+
+-   Удалена темизация click для компонентов Link и IconButton, а также для фона в ToastPlate
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
 ## 12.2.0
 
 ### Minor Changes

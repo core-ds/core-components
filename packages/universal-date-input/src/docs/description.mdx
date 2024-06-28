@@ -208,6 +208,38 @@ render(() => {
 });
 ```
 
+## Месяц
+
+Поле ввода с маской.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (month) => setValue(month);
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <UniversalDateInput
+                value={value}
+                onChange={handleChange}
+                view='month'
+                label='Месяц'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 48 : 56}
+                breakpoint={BREAKPOINT}
+                block={true}
+                clear={true}
+                onClear={(e) => {
+                    e.stopPropagation();
+                    setValue('');
+                }}
+            />
+        </div>
+    );
+});
+```
+
 ## Морфология
 
 Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs),

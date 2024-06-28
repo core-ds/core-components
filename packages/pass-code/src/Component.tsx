@@ -130,3 +130,5 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
         );
     },
 );
+
+PassCode.displayName = 'PassCode';

@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius-circle);
-    color: var(--color-static-neutral-1500-inverted);
+    color: var(--color-static-neutral-translucent-1300-inverted);
     vertical-align: top;
 }
 

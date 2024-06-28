@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-base-modal",
-    "version": "5.7.5",
+    "version": "5.7.7",
     "description": "BaseModal component",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
     "dependencies": {
         "@alfalab/core-components-backdrop": "^3.2.0",
         "@alfalab/core-components-global-store": "^2.1.0",
-        "@alfalab/core-components-portal": "^3.2.0",
+        "@alfalab/core-components-portal": "^3.2.1",
         "@alfalab/core-components-stack": "^4.1.0",
         "@alfalab/core-components-shared": "^0.10.0",
         "@juggle/resize-observer": "^3.3.1",

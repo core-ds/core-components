@@ -1,6 +1,8 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import cn from 'classnames';
 
+import { Skeleton, SkeletonProps } from '@alfalab/core-components/skeleton';
+
 import { Styles, TabListTitle } from '../../typings';
 
 type Props = TabListTitle &
@@ -8,6 +10,8 @@ type Props = TabListTitle &
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'id' | 'title'> & {
         focused?: boolean;
         isOption?: boolean;
+        showSkeleton?: boolean;
+        skeletonProps?: Omit<SkeletonProps, 'visible'>;
     };
 
 export const Title = forwardRef<HTMLButtonElement, Props>(
@@ -24,15 +28,22 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
             collapsed = false,
             focused = false,
             isOption = false,
+            showSkeleton = false,
+            skeletonProps,
             ...restProps
         },
         ref,
-    ) =>
-        hidden ? null : (
+    ) => {
+        const titleClassName = {
+            [styles.content]: true,
+            [styles.focused]: focused,
+        };
+
+        return hidden ? null : (
             <button
                 {...restProps}
                 ref={ref}
-                disabled={disabled}
+                disabled={disabled || showSkeleton}
                 type='button'
                 id={String(id)}
                 className={cn(
@@ -46,7 +57,17 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
                     toggleClassName,
                 )}
             >
-                <span className={cn(styles.content, { [styles.focused]: focused })}>{title}</span>
+                {showSkeleton ? (
+                    <Skeleton
+                        {...skeletonProps}
+                        className={cn(titleClassName, skeletonProps?.className)}
+                        visible={true}
+                    >
+                        {title}
+                    </Skeleton>
+                ) : (
+                    <span className={cn(titleClassName)}>{title}</span>
+                )}
 
                 {rightAddons && (
                     <span
@@ -58,5 +79,6 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
                     </span>
                 )}
             </button>
-        ),
+        );
+    },
 );

@@ -43,6 +43,10 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
             setHighlightedIndex,
+            selectedItems,
+            search,
+            setSelectedItems,
+            multiple,
         },
         ref,
     ) => {
@@ -78,16 +82,34 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const listRef = useRef<HTMLDivElement>(null);
         const scrollbarRef = useRef<HTMLDivElement>(null);
         const counter = createCounter();
-        const renderGroup = (group: GroupShape) => (
-            <Optgroup
-                className={optionGroupClassName}
-                label={group.label}
-                key={group.label}
-                size={size}
-            >
-                {group.options.map((option) => renderOption(option, counter()))}
-            </Optgroup>
-        );
+        const renderGroup = (group: GroupShape) => {
+            const groupSelectedItems = selectedItems?.filter((item) =>
+                group.options.includes(item),
+            );
+            const handleSelectedItems = (items: OptionShape[]) => {
+                setSelectedItems(
+                    (selectedItems?.filter((item) => !group.options.includes(item)) ?? []).concat(
+                        items,
+                    ),
+                );
+            };
+
+            return (
+                <Optgroup
+                    className={optionGroupClassName}
+                    label={group.label}
+                    key={group.label}
+                    size={size}
+                    options={group.options}
+                    selectedItems={groupSelectedItems}
+                    setSelectedItems={handleSelectedItems}
+                    search={search}
+                    multiple={multiple}
+                >
+                    {group.options.map((option) => renderOption(option, counter()))}
+                </Optgroup>
+            );
+        };
 
         useVisibleOptions({
             ...(!nativeScrollbar && { styleTargetRef: scrollbarRef }),

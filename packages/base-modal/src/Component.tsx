@@ -644,3 +644,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
     },
 );
+
+BaseModal.displayName = 'BaseModal';
+BaseModalContext.displayName = 'BaseModalContext';

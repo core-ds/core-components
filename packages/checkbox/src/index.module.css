@@ -31,8 +31,8 @@
     --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
-    --checkbox-icon-color: var(--color-light-neutral-1500-inverted);
-    --checkbox-icon-indeterminate-color: var(--color-light-neutral-1500-inverted);
+    --checkbox-icon-color: var(--color-light-neutral-translucent-1300-inverted);
+    --checkbox-icon-indeterminate-color: var(--color-light-neutral-translucent-1300-inverted);
     --checkbox-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
@@ -69,7 +69,7 @@
     width: 20px;
     height: 20px;
     margin: var(--gap-3xs);
-    color: var(--color-light-graphic-primary-inverted);
+    color: var(--color-light-neutral-translucent-1300-inverted);
     background-color: var(--checkbox-bg-color);
     border: 1.5px solid var(--checkbox-border-color);
     border-radius: var(--border-radius-s);

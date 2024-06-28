@@ -31,3 +31,5 @@ export const SelectResponsive = forwardRef<
 
     return <SelectMobile fieldProps={fieldProps} {...mobileProps} ref={ref} />;
 });
+
+SelectResponsive.displayName = 'SelectResponsive';

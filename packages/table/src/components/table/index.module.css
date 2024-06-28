@@ -6,7 +6,7 @@
 
 .wrapper {
     padding: 0 var(--gap-m) var(--gap-m);
-    background: var(--color-light-bg-primary);
+    background: var(--color-light-base-bg-primary);
     box-shadow: var(--shadow-xs-hard);
     border-radius: var(--border-radius-m);
     overflow: auto;

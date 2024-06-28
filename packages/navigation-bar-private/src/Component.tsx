@@ -282,3 +282,5 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         );
     },
 );
+
+NavigationBarPrivate.displayName = 'NavigationBarPrivate';

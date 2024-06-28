@@ -1,5 +1,57 @@
 # Change Log
 
+## 11.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   select@17.7.0
+
+## 11.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
+## 11.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+
+## 11.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+
+## 11.7.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   popover@6.2.2
+    -   select@17.5.0
+
+## 11.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   select@17.4.5
+
 ## 11.7.1
 
 ### Patch Changes

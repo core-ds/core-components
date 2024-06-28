@@ -1,5 +1,34 @@
 # Change Log
 
+## 9.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+    -   navigation-bar-private@0.1.4
+
+## 9.3.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   navigation-bar-private@0.1.3
+
+## 9.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.2
+
 ## 9.3.1
 
 ### Patch Changes

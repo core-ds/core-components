@@ -1,5 +1,131 @@
 # Change Log
 
+## 17.7.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1252](https://github.com/core-ds/core-components/pull/1252)
+
+-   Добавлено новое свойство align, отвечающее за выравнивание чекбокса или иконки "галочки". По умолчанию элемент выровнен по центру. Для того чтобы изменить выравнивание, необходимо передать компоненту optionProps={{align: 'start'}}
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   base-modal@5.7.7
+    -   bottom-sheet@6.15.4
+    -   checkbox@4.4.0
+    -   input@14.4.6
+    -   modal@9.3.4
+
+## 17.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.0.2
+
+## 17.6.0
+
+### Minor Changes
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1249](https://github.com/core-ds/core-components/pull/1249)
+
+-   Добавлен поиск по группам значений
+
+### Patch Changes
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1248](https://github.com/core-ds/core-components/pull/1248)
+
+-   увеличена специфичность стилей для кнопок футера
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1257](https://github.com/core-ds/core-components/pull/1257)
+
+-   Корректная передача пропсов для мобильного варианта компонента
+
+## 17.5.1
+
+### Patch Changes
+
+<sup><time>17.06.2024</time></sup>
+
+### [#1251](https://github.com/core-ds/core-components/pull/1251)
+
+-   Повысили специфичность для отступов контента в мобильной селекте
+
+## 17.5.0
+
+### Minor Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1246](https://github.com/core-ds/core-components/pull/1246)
+
+-   Добавлены пропсы в OptGroup для управления выбранными вариантами
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1242](https://github.com/core-ds/core-components/pull/1242)
+
+-   Исправлен сброс чекбоксов при работе с поиском в мультиселекте
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   bottom-sheet@6.15.3
+    -   button@11.4.5
+    -   checkbox@4.3.3
+    -   form-control@12.2.3
+    -   input@14.4.5
+    -   modal@9.3.3
+    -   popover@6.2.2
+    -   scrollbar@3.0.1
+
+## 17.4.5
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1239](https://github.com/core-ds/core-components/pull/1239)
+
+-   Исправлено положение футера для виртуального списка опций с поиском (при OptionsList={VirtualOptionsList}). Раньше при вводе в инпут поиска положение футера было сверху, теперь футер снизу
+
+-   Обновлены зависимости
+    -   badge@5.5.2
+    -   button@11.4.4
+    -   checkbox@4.3.2
+    -   input@14.4.4
+    -   bottom-sheet@6.15.2
+    -   modal@9.3.2
+
 ## 17.4.4
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect, useRef } from 'react';
+import React, { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
@@ -95,6 +95,27 @@ const classNames = {
     visible: 'visible',
 };
 
+function getElementWindow(element: Element) {
+    return element.ownerDocument.defaultView ?? window;
+}
+
+function elementHasAbsPosChild(element: Element) {
+    let hasAbsPosChild = false;
+    const elementWindow = getElementWindow(element);
+
+    for (let i = 0; i < element.children.length; i++) {
+        const child = element.children[i];
+        const childStyle = elementWindow.getComputedStyle(child);
+
+        if (childStyle.position === 'absolute') {
+            hasAbsPosChild = true;
+            break;
+        }
+    }
+
+    return hasAbsPosChild;
+}
+
 export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
     (
         {
@@ -117,6 +138,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
         const contentNodeRef = useRef<HTMLDivElement>(null);
         const maskNodeRef = useRef<HTMLDivElement>(null);
+        const [width, setWidth] = useState<number>();
 
         const colorStyles = colorStylesMap[colors];
 
@@ -149,12 +171,22 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
         useEffect(() => {
             let mutationObserver: MutationObserver | null = null;
             const contentNode = contentNodeRef.current;
-            const rootNode = elRef.current;
-            const scrollableNode = scrollableNodeRef.current;
             const maskNode = maskNodeRef.current;
 
             const setMinWidth = throttle(() => {
-                if (contentNode && rootNode && scrollableNode && maskNode) {
+                if (!contentNode || !contentNode.children.length) return;
+
+                if (elementHasAbsPosChild(contentNode)) {
+                    /*
+                     * Измеряем scrollWidth у contentNode, т.к. элементы внутри него позицинированы абсолютно
+                     */
+                    setWidth(Math.ceil(contentNode.scrollWidth));
+                } else {
+                    if (!maskNode) return;
+
+                    const prevMinWidth = maskNode.style.minWidth;
+                    const prevDisplay = contentNode.style.display;
+
                     /*
                      * Устанавливаем min-width, чтобы максимально растянуть абсолютно позиционированный элемент.
                      * Затем контенту устанавливаем display: inline-block, чтобы его ширина была равна ширине содержимого.
@@ -163,15 +195,11 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     contentNode.style.display = 'inline-block';
 
                     const contentRect = contentNode.getBoundingClientRect();
-                    const newWidth = `${Math.ceil(contentRect.width)}px`;
-                    const prevWidth = rootNode.style[widthPropName];
 
-                    if (newWidth !== prevWidth) {
-                        rootNode.style[widthPropName] = newWidth;
-                    }
+                    setWidth(Math.ceil(contentRect.width));
 
-                    contentNode.style.display = '';
-                    maskNode.style.minWidth = '';
+                    maskNode.style.minWidth = prevMinWidth;
+                    contentNode.style.display = prevDisplay;
                 }
             }, 200);
 
@@ -185,20 +213,20 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     subtree: true,
                     characterData: true,
                 });
+            } else {
+                setWidth(undefined);
             }
 
             return () => {
                 setMinWidth.cancel();
-
-                if (mutationObserver) {
-                    mutationObserver.disconnect();
-                }
+                mutationObserver?.disconnect();
             };
-        }, [widthPropName, horizontalAutoStretch]);
+        }, [horizontalAutoStretch]);
 
         return (
             <div
                 {...htmlAttributes}
+                style={{ ...htmlAttributes.style, [widthPropName]: width }}
                 ref={mergeRefs([elRef, ref])}
                 data-simplebar={true}
                 className={cn(styles.component, colorStyles.component, className)}
@@ -248,3 +276,5 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
         );
     },
 );
+
+Scrollbar.displayName = 'Scrollbar';
