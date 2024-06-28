@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+
 ## 1.8.0
 
 ### Minor Changes

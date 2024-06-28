@@ -1,5 +1,14 @@
 # Change Log
 
+## 14.4.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   button@11.5.1
+    -   form-control@12.2.4
+
 ## 14.4.6
 
 ### Patch Changes
