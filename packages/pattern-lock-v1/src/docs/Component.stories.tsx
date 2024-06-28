@@ -27,7 +27,7 @@ export const pattern_lock_v1: Story = {
                     <style>
                         {`
                     :root {
-                        --color-light-bg-primary: var(--color-light-bg-secondary);
+                        --color-light-bg-primary: var(--color-light-base-bg-secondary);
                     }`}
                     </style>
                 )}
