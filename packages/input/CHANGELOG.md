@@ -1,5 +1,16 @@
 # Change Log
 
+## 15.0.0
+
+### Major Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+-   Удален тип 'card'
+-   Добавлен трансформер input-type-card, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric'
+
 ## 14.4.7
 
 ### Patch Changes

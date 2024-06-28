@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+-   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
 ## 4.1.0
 
 ### Minor Changes

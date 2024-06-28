@@ -1,5 +1,14 @@
 # Change Log
 
+## 8.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.4
+    -   select@17.7.2
+    -   bottom-sheet@6.15.6
+
 ## 8.2.18
 
 ### Patch Changes

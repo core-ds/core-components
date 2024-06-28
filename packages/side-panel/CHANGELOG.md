@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.9
+    -   drawer@5.0.15
+
 ## 5.3.5
 
 ### Patch Changes

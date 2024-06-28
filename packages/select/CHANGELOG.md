@@ -1,5 +1,16 @@
 # Change Log
 
+## 17.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   base-modal@5.7.9
+    -   popover@6.2.4
+    -   bottom-sheet@6.15.6
+    -   modal@9.3.6
+
 ## 17.7.1
 
 ### Patch Changes

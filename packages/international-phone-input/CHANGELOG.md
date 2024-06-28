@@ -1,5 +1,14 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   input-autocomplete@12.1.11
+    -   select@17.7.2
+
 ## 2.0.17
 
 ### Patch Changes
