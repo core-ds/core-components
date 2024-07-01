@@ -73,6 +73,11 @@ export type AccordionProps = {
     bodyClassName?: string;
 
     /**
+     * Дополнительный класс для body content
+     */
+    bodyContentClassName?: string;
+
+    /**
      * Обработчик смены состояний `expanded`
      */
     onExpandedChange?: (expanded: boolean) => void;
@@ -97,6 +102,7 @@ export const Accordion: FC<AccordionProps> = ({
     bodyClassName,
     onExpandedChange,
     dataTestId,
+    bodyContentClassName,
     ...rest
 }) => {
     const uncontrolled = expanded === undefined;
@@ -175,7 +181,10 @@ export const Accordion: FC<AccordionProps> = ({
                 className={cn(styles.body, bodyClassName, { [styles.expandedBody]: isExpanded })}
                 style={{ height: isExpanded ? contentHeight : 0 }}
             >
-                <div className={cn(styles.bodyContent)} ref={contentRef}>
+                <div
+                    className={cn(styles.bodyContent, bodyContentClassName)}
+                    ref={contentRef}
+                >
                     {bodyContent}
                 </div>
             </div>
