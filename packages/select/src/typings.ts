@@ -365,6 +365,11 @@ export type BaseSelectProps = {
         | 'preventFlip'
         | 'dataTestId'
     >;
+
+    /**
+     * Ограничение динамического размера группы вариантов выбора
+     */
+    limitDynamicOptionGroupSize?: boolean;
 };
 
 // TODO: использовать InputProps
@@ -626,6 +631,11 @@ export type OptionsListProps = {
      * Возможность выбрать несколько значений
      */
     multiple?: boolean;
+
+    /**
+     * Ограничение динамического размера группы вариантов выбора
+     */
+    limitDynamicOptionGroupSize?: BaseSelectProps['limitDynamicOptionGroupSize'];
 };
 
 export type OptgroupProps = {

@@ -11,7 +11,7 @@ import cn from 'classnames';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
-import { useRecalculateContentHeight } from './hooks';
+import { useMeasureHeight } from './hooks';
 import { ControlPosition } from './typings';
 
 import styles from './index.module.css';
@@ -73,6 +73,11 @@ export type AccordionProps = {
     bodyClassName?: string;
 
     /**
+     * Дополнительный класс для body content
+     */
+    bodyContentClassName?: string;
+
+    /**
      * Обработчик смены состояний `expanded`
      */
     onExpandedChange?: (expanded: boolean) => void;
@@ -97,6 +102,7 @@ export const Accordion: FC<AccordionProps> = ({
     bodyClassName,
     onExpandedChange,
     dataTestId,
+    bodyContentClassName,
     ...rest
 }) => {
     const uncontrolled = expanded === undefined;
@@ -105,7 +111,7 @@ export const Accordion: FC<AccordionProps> = ({
 
     const isStartPosition = controlPosition === 'start';
 
-    const { contentRef, contentCaseRef } = useRecalculateContentHeight(isExpanded);
+    const [contentHeight, contentRef] = useMeasureHeight();
 
     const controlContent =
         control === undefined ? (
@@ -172,10 +178,13 @@ export const Accordion: FC<AccordionProps> = ({
             </div>
 
             <div
-                ref={contentRef}
                 className={cn(styles.body, bodyClassName, { [styles.expandedBody]: isExpanded })}
+                style={{ height: isExpanded ? contentHeight : 0 }}
             >
-                <div className={cn(styles.bodyContent)} ref={contentCaseRef}>
+                <div
+                    className={cn(styles.bodyContent, bodyContentClassName)}
+                    ref={contentRef}
+                >
                     {bodyContent}
                 </div>
             </div>

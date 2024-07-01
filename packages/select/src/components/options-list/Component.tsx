@@ -47,6 +47,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             search,
             setSelectedItems,
             multiple,
+            limitDynamicOptionGroupSize = false,
         },
         ref,
     ) => {
@@ -116,7 +117,20 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             visibleOptions,
             listRef,
             open,
-            invalidate: options,
+            options,
+            actualOptionsCount: limitDynamicOptionGroupSize,
+            size: limitDynamicOptionGroupSize
+                ? (() => {
+                      switch (typeof size) {
+                          case 'string':
+                              throw new Error(
+                                  'OptionsList with `limitDynamicOptionGroupSize` enabled needs a `size` with number type',
+                              );
+                          default:
+                              return size;
+                      }
+                  })()
+                : undefined,
         });
 
         if (options.length === 0 && !emptyPlaceholder && !header && !footer) {
