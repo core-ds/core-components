@@ -45,7 +45,7 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'Spinner',
                     knobs: {
-                        size: [24, 48],
+                        size: [24, 48, 16],
                         visible: [false, true],
                     },
                     size: { width: 100, height: 60 },
