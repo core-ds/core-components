@@ -175,6 +175,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                     className={cn(
                         commonStyles[`${direction}Radio`],
                         commonStyles[`${direction}TagLabel`],
+                        commonStyles.tagLabel,
                     )}
                 >
                     <input
