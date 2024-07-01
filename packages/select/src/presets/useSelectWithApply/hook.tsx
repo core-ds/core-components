@@ -92,7 +92,7 @@ export function useSelectWithApply({
     const groupAccessor = searchProps.groupAccessor ?? defaultGroupAccessor;
     const filterGroup = searchProps.filterGroup ?? false;
 
-    const { flatOptions, selectedOptions } = useMemo(
+    const { flatOptions, filteredOptions, selectedOptions } = useMemo(
         () =>
             processOptions(
                 options,
@@ -177,8 +177,11 @@ export function useSelectWithApply({
     }, [selectedOptions]);
 
     const memoizedOptions = useMemo(
-        () => (showSelectAll ? [selectAllOption, ...options] : options),
-        [options, showSelectAll],
+        () =>
+            filteredOptions.length && showSelectAll
+                ? [selectAllOption, ...filteredOptions]
+                : filteredOptions,
+        [filteredOptions, showSelectAll],
     );
 
     return {

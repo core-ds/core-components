@@ -97,7 +97,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             return (
                 <React.Fragment>
                     {header}
-                    {showHeaderWithSelectAll && <Header {...headerProps} />}
+                    {showHeaderWithSelectAll && !!flatOptions.length && <Header {...headerProps} />}
                 </React.Fragment>
             );
         };
