@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
@@ -15,11 +15,13 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
+import { useRange } from '../../useRange';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
     generateMonths,
     generateWeeks,
+    isRangeValue,
     limitDate,
     monthName,
     WEEKDAYS,
@@ -39,6 +41,8 @@ if (typeof window !== 'undefined' && !window.ResizeObserver) {
 
 export const CalendarMonthOnlyView = ({
     value,
+    mode = 'single',
+    rangeBehavior = 'clarification',
     month: monthTimestamp,
     minDate: minDateTimestamp,
     maxDate: maxDateTimestamp,
@@ -55,6 +59,15 @@ export const CalendarMonthOnlyView = ({
     shape = 'rounded',
     scrollableContainer,
 }: CalendarContentProps) => {
+    const range = useRange({
+        mode,
+        value,
+        selectedFrom,
+        selectedTo,
+        rangeBehavior,
+        onChange,
+    });
+
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
         [monthTimestamp],
@@ -70,10 +83,12 @@ export const CalendarMonthOnlyView = ({
         [maxDateTimestamp],
     );
 
-    const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
+    const selected = useMemo(
+        () => (range.value ? new Date(range.value) : undefined),
+        [range.value],
+    );
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const startingDate = useMemo(() => (value ? new Date(value) : new Date()), []);
+    const startingDate = useRef(range.value);
 
     const defaultMonth = useMemo(
         () =>
@@ -97,7 +112,7 @@ export const CalendarMonthOnlyView = ({
         selected,
         offDays,
         events,
-        onChange,
+        onChange: range.onChange,
         dayAddons,
     });
 
@@ -110,7 +125,7 @@ export const CalendarMonthOnlyView = ({
         const prevMonths: Month[] = [];
         const nextMonths: Month[] = [];
 
-        const date = new Date(startingDate.getTime());
+        const date = startingDate.current ? new Date(startingDate.current) : new Date();
         const currentYear = date.getFullYear();
         const currYearMonths = generateMonths(date, {});
 
@@ -140,23 +155,13 @@ export const CalendarMonthOnlyView = ({
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [
-        events,
-        offDays,
-        holidays,
-        dayAddons,
-        startingDate,
-        minDate,
-        maxDate,
-        yearsAmount,
-        selected,
-    ]);
+    }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
     const initialMonthIndex = useMemo(() => {
-        const date = value || selectedFrom || activeMonth.getTime() || Date.now();
+        const date = range.value || range.selectedFrom || activeMonth.getTime() || Date.now();
 
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
-    }, [activeMonth, activeMonths, selectedFrom, value]);
+    }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -177,8 +182,8 @@ export const CalendarMonthOnlyView = ({
                 withTransition={false}
                 weeks={activeMonths[index].weeks}
                 activeMonth={activeMonth}
-                selectedFrom={selectedFrom}
-                selectedTo={selectedTo}
+                selectedFrom={range.selectedFrom}
+                selectedTo={range.selectedTo}
                 getDayProps={getDayProps}
                 highlighted={highlighted}
                 hasHeader={false}
@@ -292,11 +297,14 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         };
 
         const renderFooter = () => {
-            if (selectedFrom || selectedTo) {
-                let selectButtonDisabled = !selectedFrom || !selectedTo;
+            const valueFrom = isRangeValue(value) ? value.dateFrom : selectedFrom;
+            const valueTo = isRangeValue(value) ? value.dateTo : selectedTo;
+
+            if (valueFrom || valueTo) {
+                let selectButtonDisabled = !valueFrom || !valueTo;
 
                 if (allowSelectionFromEmptyRange) {
-                    selectButtonDisabled = !selectedFrom;
+                    selectButtonDisabled = !valueFrom;
                 }
 
                 return (

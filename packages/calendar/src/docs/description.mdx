@@ -12,17 +12,18 @@ render(() => {
         setValue();
     }, [firstRadioValue]);
 
-    const getDateString = React.useCallback((date) => {
-        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-        const year = date.getFullYear();
+    const format = React.useCallback((timestamp) => {
+        if (!timestamp) return '';
 
-        return `${day}.${month}.${year}`;
+        return new Intl.DateTimeFormat("ru-RU", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        }).format(new Date(timestamp));
     }, []);
 
     const selectedDate = React.useMemo(() => {
-        const date = new Date(value);
-        return getDateString(date);
+        return format(value);
     }, [value]);
 
     const onFirstRadioChange = React.useCallback((_, payload) => {
@@ -78,17 +79,18 @@ render(() => {
         setValue();
     }, [firstRadioValue]);
 
-    const getDateString = React.useCallback((date) => {
-        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-        const year = date.getFullYear();
+    const format = React.useCallback((timestamp) => {
+        if (!timestamp) return '';
 
-        return `${day}.${month}.${year}`;
+        return new Intl.DateTimeFormat("ru-RU", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        }).format(new Date(timestamp));
     }, []);
 
     const selectedDate = React.useMemo(() => {
-        const date = new Date(value);
-        return getDateString(date);
+        return format(value);
     }, [value]);
 
     const onFirstRadioChange = React.useCallback((_, payload) => {
@@ -131,82 +133,26 @@ render(() => {
 
 ```jsx live mobileHeight={640}
 render(() => {
-    const [firstRadioValue, setFirstRadioValue] = React.useState('clarification');
-    const [secondRadioValue, setSecondRadioValue] = React.useState('range');
+    const [rangeBehavior, setRangeBehavior] = React.useState('clarification');
+    const [value, setValue] = React.useState();
 
-    const {
-        selectedFrom: selectedFromClarification,
-        selectedTo: selectedToClarification,
-        updatePeriod: updatePeriodClarification,
-    } = usePeriod();
+    const format = React.useCallback((timestamp) => {
+        if (!timestamp) return '';
 
-    const {
-        selectedFrom: selectedFromReset,
-        selectedTo: selectedToReset,
-        updatePeriod: updatePeriodReset,
-    } = usePeriodWithReset();
-
-    const allowSelectionFromEmptyRange = secondRadioValue === 'singleAndRange';
+        return new Intl.DateTimeFormat("ru-RU", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        }).format(new Date(timestamp));
+    }, []);
 
     React.useEffect(() => {
-        updatePeriodClarification();
-        updatePeriodReset();
-    }, [firstRadioValue, secondRadioValue]);
-
-    const isClarification = React.useMemo(
-        () => firstRadioValue === 'clarification',
-        [firstRadioValue],
-    );
-
-    const updatePeriod = React.useMemo(() => {
-        return isClarification ? updatePeriodClarification : updatePeriodReset;
-    }, [isClarification, updatePeriodClarification, updatePeriodReset]);
-
-    const getDateString = React.useCallback((date) => {
-        if (!date) return '';
-
-        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-        const year = date.getFullYear();
-
-        return `${day}.${month}.${year}`;
-    }, []);
-
-    const selectedFrom = React.useMemo(() => {
-        return isClarification ? selectedFromClarification : selectedFromReset;
-    }, [isClarification, selectedFromClarification, selectedFromReset]);
-
-    const selectedTo = React.useMemo(() => {
-        return isClarification ? selectedToClarification : selectedToReset;
-    }, [isClarification, selectedToClarification, selectedToReset]);
+        setValue([]);
+    }, [rangeBehavior]);
 
     const selectedRange = React.useMemo(() => {
-        if (selectedFrom && selectedTo) {
-            const selectedFromDate = new Date(selectedFrom);
-            const selectedToDate = new Date(selectedTo);
-            return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
-        }
-
-        if (allowSelectionFromEmptyRange) {
-            if (selectedFrom) {
-                const selectedFromDate = new Date(selectedFrom);
-                return `${getDateString(selectedFromDate)}`;
-            } else if (selectedTo) {
-                const selectedToDate = new Date(selectedTo);
-                return `${getDateString(selectedToDate)}`;
-            }
-        }
-
-        return '';
-    }, [allowSelectionFromEmptyRange, selectedFrom, selectedTo]);
-
-    const onSecondRadioChange = React.useCallback((_, payload) => {
-        setSecondRadioValue(payload.value);
-    }, []);
-
-    const onFirstRadioChange = React.useCallback((_, payload) => {
-        setFirstRadioValue(payload.value);
-    }, []);
+        return `${format(value ? value.dateFrom : undefined)} - ${format(value ? value.dateTo : undefined)}`;
+    }, [value]);
 
     const calendarStyles = {
         border: '1px solid rgba(233, 233, 235, 1)',
@@ -221,38 +167,23 @@ render(() => {
         <div style={{ width: 344 }}>
             <div style={calendarStyles}>
                 <CalendarDesktop
-                    responsive={true}
-                    selectedFrom={selectedFrom}
-                    selectedTo={selectedTo}
-                    onChange={updatePeriod}
+                    mode='range'
+                    rangeBehavior={rangeBehavior}
+                    value={value}
+                    onChange={(dateFrom, dateTo) => setValue({ dateFrom, dateTo })}
                     selectorView='month-only'
                     showCurrentYearSelector={true}
+                    responsive={true}
                 />
             </div>
             <p style={{ marginTop: 32, marginBottom: 32 }}>Values: {selectedRange}</p>
-            <div style={{ marginBottom: 32 }}>
-                <RadioGroup
-                    label='Режим'
-                    direction='vertical'
-                    name='radioGroup'
-                    onChange={onSecondRadioChange}
-                    value={secondRadioValue}
-                >
-                    <Radio size='m' label='Принимает диапазон значений' value='range' />
-                    <Radio
-                        size='m'
-                        label='Может принимать и диапазон и дату'
-                        value='singleAndRange'
-                    />
-                </RadioGroup>
-            </div>
             <div>
                 <RadioGroup
                     label='Тип выбора границ'
                     direction='vertical'
-                    name='radioGroupFirst'
-                    onChange={onFirstRadioChange}
-                    value={firstRadioValue}
+                    name='rangeBehavior'
+                    onChange={(_, payload) => setRangeBehavior(payload.value)}
+                    value={rangeBehavior}
                 >
                     <Radio size='m' label='Уточнение' value='clarification' />
                     <Radio size='m' label='Сброс' value='reset' />
@@ -265,82 +196,29 @@ render(() => {
 render(() => {
     const [open, setOpen] = React.useState(false);
 
-    const [firstRadioValue, setFirstRadioValue] = React.useState('clarification');
-    const [secondRadioValue, setSecondRadioValue] = React.useState('range');
+    const [rangeBehavior, setRangeBehavior] = React.useState('clarification');
+    const [selectionMode, setSelectionMode] = React.useState('range');
+    const [value, setValue] = React.useState();
 
-    const {
-        selectedFrom: selectedFromClarification,
-        selectedTo: selectedToClarification,
-        updatePeriod: updatePeriodClarification,
-    } = usePeriod();
+    const format = React.useCallback((timestamp) => {
+        if (!timestamp) return '';
 
-    const {
-        selectedFrom: selectedFromReset,
-        selectedTo: selectedToReset,
-        updatePeriod: updatePeriodReset,
-    } = usePeriodWithReset();
-
-    const allowSelectionFromEmptyRange = secondRadioValue === 'singleAndRange';
+        return new Intl.DateTimeFormat("ru-RU", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        }).format(new Date(timestamp));
+    }, []);
 
     React.useEffect(() => {
-        updatePeriodClarification();
-        updatePeriodReset();
-    }, [firstRadioValue, secondRadioValue]);
-
-    const isClarification = React.useMemo(
-        () => firstRadioValue === 'clarification',
-        [firstRadioValue],
-    );
-
-    const updatePeriod = React.useMemo(() => {
-        return isClarification ? updatePeriodClarification : updatePeriodReset;
-    }, [isClarification, updatePeriodClarification, updatePeriodReset]);
-
-    const getDateString = React.useCallback((date) => {
-        if (!date) return '';
-
-        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-        const year = date.getFullYear();
-
-        return `${day}.${month}.${year}`;
-    }, []);
-
-    const selectedFrom = React.useMemo(() => {
-        return isClarification ? selectedFromClarification : selectedFromReset;
-    }, [isClarification, selectedFromClarification, selectedFromReset]);
-
-    const selectedTo = React.useMemo(() => {
-        return isClarification ? selectedToClarification : selectedToReset;
-    }, [isClarification, selectedToClarification, selectedToReset]);
+        setValue([]);
+    }, [rangeBehavior]);
 
     const selectedRange = React.useMemo(() => {
-        if (selectedFrom && selectedTo) {
-            const selectedFromDate = new Date(selectedFrom);
-            const selectedToDate = new Date(selectedTo);
-            return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
-        }
+        return `${format(value ? value.dateFrom : undefined)} - ${format(value ? value.dateTo : undefined)}`;
+    }, [value]);
 
-        if (allowSelectionFromEmptyRange) {
-            if (selectedFrom) {
-                const selectedFromDate = new Date(selectedFrom);
-                return `${getDateString(selectedFromDate)}`;
-            } else if (selectedTo) {
-                const selectedToDate = new Date(selectedTo);
-                return `${getDateString(selectedToDate)}`;
-            }
-        }
-
-        return '';
-    }, [allowSelectionFromEmptyRange, selectedFrom, selectedTo]);
-
-    const onSecondRadioChange = React.useCallback((_, payload) => {
-        setSecondRadioValue(payload.value);
-    }, []);
-
-    const onFirstRadioChange = React.useCallback((_, payload) => {
-        setFirstRadioValue(payload.value);
-    }, []);
+    const allowSelectionFromEmptyRange = selectionMode === 'singleAndRange';
 
     return (
         <Container>
@@ -348,11 +226,12 @@ render(() => {
                 Открыть календарь
             </Button>
             <CalendarMobile
+                mode='range'
+                rangeBehavior={rangeBehavior}
+                value={value}
+                onChange={(dateFrom, dateTo) => setValue({ dateFrom, dateTo })}
                 onClose={() => setOpen(false)}
                 open={open}
-                selectedFrom={selectedFrom}
-                selectedTo={selectedTo}
-                onChange={updatePeriod}
                 selectorView='month-only'
                 allowSelectionFromEmptyRange={allowSelectionFromEmptyRange}
             />
@@ -361,9 +240,9 @@ render(() => {
                 <RadioGroup
                     label='Режим'
                     direction='vertical'
-                    name='radioGroup'
-                    onChange={onSecondRadioChange}
-                    value={secondRadioValue}
+                    name='selectionMode'
+                    onChange={(_, payload) => setSelectionMode(payload.value)}
+                    value={selectionMode}
                 >
                     <Radio size='m' label='Принимает диапазон значений' value='range' />
                     <Radio
@@ -377,9 +256,9 @@ render(() => {
                 <RadioGroup
                     label='Тип выбора границ'
                     direction='vertical'
-                    name='radioGroupFirst'
-                    onChange={onFirstRadioChange}
-                    value={firstRadioValue}
+                    name='rangeBehavior'
+                    onChange={(_, payload) => setRangeBehavior(payload.value)}
+                    value={rangeBehavior}
                 >
                     <Radio size='m' label='Уточнение' value='clarification' />
                     <Radio size='m' label='Сброс' value='reset' />
