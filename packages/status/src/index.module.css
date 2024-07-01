@@ -24,6 +24,7 @@
     }
 }
 
+.soft,
 .muted-alt {
     @each $color in green, orange, red, blue, teal {
         &.$(color) {
@@ -33,6 +34,7 @@
     }
 }
 
+.soft,
 .muted-alt {
     &.grey {
         background: var(--color-light-neutral-translucent-300);
