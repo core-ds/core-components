@@ -51,6 +51,11 @@ export type NotificationProps = ToastPlateDesktopProps & {
     zIndex?: number;
 
     /**
+     * Позиционирование компонента от верхнего или нижнего края экрана
+     */
+    position?: 'top' | 'bottom';
+
+    /**
      * Обработчик события истечения времени до закрытия компонента
      */
     onCloseTimeout?: () => void;
@@ -87,6 +92,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             usePortal = true,
             zIndex = stackingOrder.TOAST,
             style,
+            position = 'top',
             onClose,
             onCloseTimeout,
             onMouseEnter,
@@ -215,7 +221,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     styles.actionSection,
                                 )}
                                 style={{
-                                    top: offset,
+                                    [position]: offset,
                                     zIndex: computedZIndex,
                                     ...style,
                                 }}
