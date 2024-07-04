@@ -1,5 +1,15 @@
 # Change Log
 
+## 17.8.0
+
+### Minor Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1274](https://github.com/core-ds/core-components/pull/1274)
+
+-   Добавлен проп 'limitDynamicOptionGroupSize' для ограчения динамического размера группы вариантов. Если он включен, используется размер, указанный в проп 'size'
+
 ## 17.7.2
 
 ### Patch Changes

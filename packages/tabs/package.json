@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "8.9.2",
+    "version": "8.9.3",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^4.1.0",
         "@alfalab/core-components-tag": "^8.2.1",
-        "@alfalab/core-components-picker-button": "^11.7.9",
+        "@alfalab/core-components-picker-button": "^11.7.10",
         "@alfalab/core-components-badge": "^5.5.2",
         "@alfalab/core-components-mq": "^4.2.0",
         "@alfalab/hooks": "^1.13.0",

@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.0.1
+
+### Patch Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1282](https://github.com/core-ds/core-components/pull/1282)
+
+-   Исправление сборки для темизаций. В каждую тему снова добавлены импорты переменных.
+
 ## 13.0.0
 
 ### Major Changes

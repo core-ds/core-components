@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1274](https://github.com/core-ds/core-components/pull/1274)
+
+-   Добавлен проп 'bodyContentClassName'
+
+### Patch Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1274](https://github.com/core-ds/core-components/pull/1274)
+
+-   Исправлен расчет высоты контента
+
 ## 1.0.2
 
 ### Patch Changes
