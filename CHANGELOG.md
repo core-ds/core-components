@@ -20,6 +20,15 @@
 - Минорное<br />`codemod`
 
 
+### [#1191](https://github.com/core-ds/core-components/pull/1191)
+
+#### Что изменилось
+- Релиз содержит ошибку, используйте следующий
+
+#### Влияние на компоненты
+- Мажорное<br />`themes`
+
+
 ### [#1207](https://github.com/core-ds/core-components/pull/1207)
 
 #### Что изменилось
