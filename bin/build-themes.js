@@ -41,8 +41,28 @@ const processRootTheme = (cssFile) => {
         '**/colors-students.css',
     ];
 
+    /**
+     * В каждый файл с темой необходимо импортировать переменные
+     * Это необходимо, так как некоторые проекты используют auri-scripts, который под капотом использует postcss-custom-properties
+     * 'postcss-custom-properties' - заменяет переменные значениями, что без дублирования импортов переменных будет приводить к потере значений
+     */
+    const getImports = () => {
+        if (cssFile.includes('dark.css')) return [];
+
+        return glob
+            .sync('../../../../packages/vars/src/*.css', {
+                absolute: true,
+                ignore: ignorePattern,
+            })
+            .filter(createColorsByPaletteFilter())
+            .filter((varFile) => varFile.includes('index.css') === false)
+            .map((varFile) => `@import '${varFile}';`);
+    };
+
+    const withImports = (css) => getImports().concat(css).join('\n');
+
     // Добавляем импорты переменных, меняем миксин на :root
-    const content = replaceMixinToRoot(fs.readFileSync(cssFile, 'utf-8'));
+    const content = withImports(replaceMixinToRoot(fs.readFileSync(cssFile, 'utf-8')));
 
     return postcss([
         postcssImport({}),
