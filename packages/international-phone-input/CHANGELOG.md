@@ -1,5 +1,15 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.20
+
+### Patch Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1226](https://github.com/core-ds/core-components/pull/1226)
+
+-   SVG флагов оптимизированны по размеру, с сохранением качества графики.
+
 ## 2.0.19
 
 ### Patch Changes
