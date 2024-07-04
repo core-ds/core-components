@@ -148,6 +148,7 @@ export const BaseSelect = forwardRef(
             Popover,
             ModalMobile,
             BottomSheet,
+            limitDynamicOptionGroupSize,
         }: ComponentProps,
         ref,
     ) => {
@@ -660,6 +661,7 @@ export const BaseSelect = forwardRef(
                         onScroll={onScroll}
                         search={search}
                         multiple={multiple}
+                        limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
