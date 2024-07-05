@@ -1,5 +1,12 @@
 # Change Log
 
+## 11.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.4.0
+
 ## 11.5.1
 
 ### Patch Changes

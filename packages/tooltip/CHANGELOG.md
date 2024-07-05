@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   bottom-sheet@6.15.7
+
 ## 7.3.17
 
 ### Patch Changes

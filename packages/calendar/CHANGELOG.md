@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1190](https://github.com/core-ds/core-components/pull/1190)
+
+-   Упрощена работа с периодами. Теперь достаточно использовать только value и onChange. Режим выбора периода управляется пропсой rangeBehavior. Пропсы selectedFrom и selectedTo помечены как deprecated.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   icon-button@6.7.2
+    -   modal@9.3.7
+
 ## 7.7.2
 
 ### Patch Changes

@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1278](https://github.com/core-ds/core-components/pull/1278)
+
+-   Добавлено новое свойство position, отвечающее за позиционирование компонента от верхнего или нижнего края экрана
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.5
+
 ## 7.0.5
 
 ### Patch Changes

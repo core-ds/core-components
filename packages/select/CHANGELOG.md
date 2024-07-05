@@ -1,5 +1,21 @@
 # Change Log
 
+## 17.8.1
+
+### Patch Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1269](https://github.com/core-ds/core-components/pull/1269)
+
+-   Пункт 'Выбрать все' скрыт, когда список вариантов пуст
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   input@15.0.1
+    -   bottom-sheet@6.15.7
+    -   modal@9.3.7
+
 ## 17.8.0
 
 ### Minor Changes
