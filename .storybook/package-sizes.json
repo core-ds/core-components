@@ -157,9 +157,9 @@
         "index.js": 46.5
     },
     "plate": {
-        "desktop.js": 14.7,
+        "desktop.js": 14.8,
         "index.js": 15.1,
-        "mobile.js": 14.7
+        "mobile.js": 14.8
     },
     "picker-button": {
         "desktop.js": 278.3,
@@ -434,7 +434,7 @@
         "index.js": 53.7
     },
     "alert": {
-        "index.js": 15.3
+        "index.js": 15.4
     },
     "action-button": {
         "index.js": 6.8,
