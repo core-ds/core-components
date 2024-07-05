@@ -179,3 +179,22 @@ describe(
         },
     }),
 );
+
+describe(
+    'Plate | custom view and background',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Plate',
+            testStory: false,
+            knobs: {
+                view: 'custom',
+                title: 'Поздравляем, полный успех',
+                children: 'Вам одобрено. Согласитесь на предложение',
+                background: 'var(--color-light-decorative-muted-indigo)',
+                borderColor: 'var(--color-light-decorative-indigo)',
+            },
+            wrapperStyles: 'width:500px',
+        }),
+        viewport: { width: 1024, height: 160 },
+    }),
+);

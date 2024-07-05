@@ -73,6 +73,20 @@ describe('Plate', () => {
         expect(queryByTestId('button-3')).toHaveClass('link');
     });
 
+    it('should set `background` style', () => {
+        const background = 'var(--color-light-base-bg-secondary)';
+        const { container } = render(<Plate background={background} />);
+
+        expect(container.firstElementChild).toHaveStyle({ background });
+    });
+
+    it('should set `borderColor` style', () => {
+        const borderColor = 'var(--color-light-base-bg-secondary)';
+        const { container } = render(<Plate borderColor={borderColor} />);
+
+        expect(container.firstElementChild).toHaveStyle({ borderColor });
+    });
+
     describe('Classes tests', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
