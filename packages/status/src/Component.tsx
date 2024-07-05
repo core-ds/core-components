@@ -33,17 +33,37 @@ export type StatusProps = {
     children?: ReactNode;
 };
 
+const logWarning = () => {
+    if (process.env.NODE_ENV !== 'development') {
+        return;
+    }
+
+    // eslint-disable-next-line no-console
+    console.warn(
+        // eslint-disable-next-line prefer-template
+        '@alfalab/core-components/status: view=soft будет удален в следующих мажорных версиях. ' +
+            'Используйте view=muted-alt. Чтобы изменить view=soft на view=muted-alt, можно воспользоваться codemod: ' +
+            'npx @alfalab/core-components-codemod --transformers=status-soft src/**/*.tsx',
+    );
+};
+
 export const Status: FC<StatusProps> = ({
     className,
     view = 'muted-alt',
     color = 'green',
     children,
     dataTestId,
-}) => (
-    <span
-        className={cn(styles.component, styles[color], styles[view], className)}
-        data-test-id={dataTestId}
-    >
-        <span className={styles.ellipsis}>{children}</span>
-    </span>
-);
+}) => {
+    if (view === 'soft') {
+        logWarning();
+    }
+
+    return (
+        <span
+            className={cn(styles.component, styles[color], styles[view], className)}
+            data-test-id={dataTestId}
+        >
+            <span className={styles.ellipsis}>{children}</span>
+        </span>
+    );
+};
