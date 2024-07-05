@@ -36,7 +36,7 @@ export const SecondaryTabList = ({
     dataTestId,
     TagComponent,
     platform,
-    tagShape,
+    tagShape = 'rounded',
     tagView,
     inlineStyle,
     showSkeleton,

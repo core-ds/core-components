@@ -68,8 +68,12 @@ const renderTabs = (TabsComponent: typeof Tabs) => {
             view={view}
             selectedId={selectedId}
             keepMounted={boolean('keepMounted', false)}
+            showSkeleton={boolean('showSkeleton', false)}
             onChange={handleChange}
             scrollable={boolean('scrollable', false)}
+            skeletonProps={{
+                animate: false,
+            }}
         >
             <Tab title='Aurum' id='tab-1'>
                 Aurum

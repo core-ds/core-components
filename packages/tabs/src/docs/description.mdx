@@ -469,13 +469,19 @@ render(() => {
 render(() => {
     const [selectedId, setSelectedId] = React.useState('tab-1');
     const [selectedSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');
+    const [showSkeleton, setShowSkeleton] = React.useState(false);
 
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
     const handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);
 
     return (
-        <>
-            <TabsDesktop size='xs' selectedId={selectedId} onChange={handleChange}>
+        <Space size={20}>
+            <TabsDesktop 
+                size='xs' 
+                selectedId={selectedId} 
+                onChange={handleChange}  
+                showSkeleton={showSkeleton}
+            >
                 <Tab title='Aurum' id='tab-1' />
                 <Tab title='Bercelium' id='tab-2' disabled={true} />
                 <Tab title='Curium' id='tab-3' />
@@ -484,36 +490,46 @@ render(() => {
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
             </TabsDesktop>
-            <div style={{ marginTop: 20 }}>
-                <TabsDesktop
-                    selectedId={selectedSecondaryId}
-                    onChange={handleSecondaryChange}
-                    view='secondary'
-                    size='xs'
-                >
-                    <Tab title='Aurum' id='tab-1' />
-                    <Tab title='Bercelium' id='tab-2' disabled={true} />
-                    <Tab title='Curium' id='tab-3' />
-                    <Tab title='Neptunium' id='tab-4' />
-                    <Tab title='Plutonuim' id='tab-5' />
-                    <Tab title='Rubidium' id='tab-6' />
-                    <Tab title='Californium' id='tab-7' />
-                </TabsDesktop>
-            </div>
-        </>
+            <TabsDesktop
+                selectedId={selectedSecondaryId}
+                onChange={handleSecondaryChange}
+                view='secondary'
+                size='xs'
+                showSkeleton={showSkeleton}
+            >
+                <Tab title='Aurum' id='tab-1' />
+                <Tab title='Bercelium' id='tab-2' disabled={true} />
+                <Tab title='Curium' id='tab-3' />
+                <Tab title='Neptunium' id='tab-4' />
+                <Tab title='Plutonuim' id='tab-5' />
+                <Tab title='Rubidium' id='tab-6' />
+                <Tab title='Californium' id='tab-7' />
+            </TabsDesktop>
+            <Switch
+                checked={showSkeleton}
+                label='Скелетонизация контента'
+                onChange={() => setShowSkeleton((p) => !p)}
+            />
+        </Space>
     );
 });
 //MOBILE
 render(() => {
     const [selectedId, setSelectedId] = React.useState('tab-1');
     const [selectedSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');
+    const [showSkeleton, setShowSkeleton] = React.useState(false);
 
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
     const handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);
 
     return (
-        <>
-            <TabsMobile size='xs' selectedId={selectedId} onChange={handleChange}>
+        <Space size={20}>
+            <TabsMobile 
+                size='xs' 
+                selectedId={selectedId} 
+                onChange={handleChange} 
+                showSkeleton={showSkeleton}
+            >
                 <Tab title='Aurum' id='tab-1' />
                 <Tab title='Bercelium' id='tab-2' disabled={true} />
                 <Tab title='Curium' id='tab-3' />
@@ -522,23 +538,27 @@ render(() => {
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
             </TabsMobile>
-            <div style={{ marginTop: 20 }}>
-                <TabsMobile
-                    selectedId={selectedSecondaryId}
-                    onChange={handleSecondaryChange}
-                    view='secondary'
-                    size='xs'
-                >
-                    <Tab title='Aurum' id='tab-1' />
-                    <Tab title='Bercelium' id='tab-2' disabled={true} />
-                    <Tab title='Curium' id='tab-3' />
-                    <Tab title='Neptunium' id='tab-4' />
-                    <Tab title='Plutonuim' id='tab-5' />
-                    <Tab title='Rubidium' id='tab-6' />
-                    <Tab title='Californium' id='tab-7' />
-                </TabsMobile>
-            </div>
-        </>
+            <TabsMobile
+                selectedId={selectedSecondaryId}
+                onChange={handleSecondaryChange}
+                view='secondary'
+                size='xs'
+                showSkeleton={showSkeleton}
+            >
+                <Tab title='Aurum' id='tab-1' />
+                <Tab title='Bercelium' id='tab-2' disabled={true} />
+                <Tab title='Curium' id='tab-3' />
+                <Tab title='Neptunium' id='tab-4' />
+                <Tab title='Plutonuim' id='tab-5' />
+                <Tab title='Rubidium' id='tab-6' />
+                <Tab title='Californium' id='tab-7' />
+            </TabsMobile>
+            <Switch
+                checked={showSkeleton}
+                label='Скелетонизация контента'
+                onChange={() => setShowSkeleton((p) => !p)}
+            />
+        </Space>
     );
 });
 ```
