@@ -34,18 +34,17 @@ import {
 } from '../../utils';
 import { NativeSelect } from '../native-select';
 
+import { getListPopoverDesktopProps } from './components/list-desktop/helpers/get-list-popover-desktop-props';
 import { ListPopoverDesktop } from './components/list-desktop/list-popover-desktop';
 import {
     getListBottomSheetMobileProps,
     getListModalMobileProps,
 } from './components/list-mobile/helpers';
-import { ListBottomSheetMobile } from './components/list-mobile/list-bottom-sheet-mobile';
-import { ListModalMobile } from './components/list-mobile/list-modal-mobile';
+import { ListMobile } from './components/list-mobile/list-mobile';
 import { ComponentProps } from './types/component-types';
 
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
-import { getListPopoverDesktopProps } from './components/list-desktop/helpers/get-list-popover-desktop-props';
 
 const itemToString = (option: OptionShape | null) => (option ? option.key : '');
 
@@ -684,23 +683,16 @@ export const BaseSelect = forwardRef(
                         renderOptionsList={renderOptionsList}
                     />
                 )}
-                {view === 'mobile' && isBottomSheet && !nativeSelect && (
-                    <ListBottomSheetMobile
-                        {...getListBottomSheetMobileProps(props)}
-                        open={open}
-                        menuRef={menuRef}
-                        scrollableContainerRef={scrollableContainerRef}
-                        flatOptions={flatOptions}
-                        renderOptionsList={renderOptionsList}
-                        renderSearch={renderSearch}
-                        closeMenu={closeMenu}
-                        handleEntered={handleEntered}
-                    />
-                )}
 
-                {view === 'mobile' && !isBottomSheet && !nativeSelect && (
-                    <ListModalMobile
-                        {...getListModalMobileProps(props)}
+                {view === 'mobile' && (
+                    <ListMobile
+                        commonProps={
+                            isBottomSheet
+                                ? getListBottomSheetMobileProps(props)
+                                : getListModalMobileProps(props)
+                        }
+                        isBottomSheet={isBottomSheet}
+                        nativeSelect={nativeSelect}
                         open={open}
                         menuRef={menuRef}
                         scrollableContainerRef={scrollableContainerRef}
