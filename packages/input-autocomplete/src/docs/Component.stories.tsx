@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 
 import { Arrow, OptionShape } from '@alfalab/core-components-select/shared';
 import {
@@ -63,6 +63,7 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
             error={text('error', '')}
             success={boolean('success', false)}
             hint={text('hint', '')}
+            zIndexPopover={number('zIndexPopover', 100)}
             allowUnselect={boolean('allowUnselect', true)}
             closeOnSelect={boolean('closeOnSelect', false)}
             Arrow={boolean('Arrow', false) ? Arrow : undefined}

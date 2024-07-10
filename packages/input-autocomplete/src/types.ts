@@ -48,6 +48,11 @@ export interface InputAutocompleteCommonProps
      * Обработчик ввода
      */
     onInput?: (value: string, reason?: OnInputTypeReason) => void;
+
+    /**
+     * z-index поповера
+     */
+    zIndexPopover?: number;
 }
 
 type MobileProps = {
