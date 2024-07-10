@@ -11,6 +11,8 @@ export const getListBottomSheetMobileProps = (props: ComponentProps) => {
         swipeable,
         showSearch,
         bottomSheetProps,
+        isBottomSheet = true,
+        nativeSelect = false,
         onScroll,
     } = props;
 
@@ -23,6 +25,8 @@ export const getListBottomSheetMobileProps = (props: ComponentProps) => {
         swipeable,
         showSearch,
         bottomSheetProps,
+        isBottomSheet,
+        nativeSelect,
         onScroll,
     };
 };

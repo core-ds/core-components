@@ -10,6 +10,8 @@ export const getListModalMobileProps = (props: ComponentProps) => {
         modalFooterProps,
         label,
         placeholder,
+        isBottomSheet = true,
+        nativeSelect = false,
         onScroll,
     } = props;
 
@@ -21,6 +23,8 @@ export const getListModalMobileProps = (props: ComponentProps) => {
         modalFooterProps,
         label,
         placeholder,
+        isBottomSheet,
+        nativeSelect,
         onScroll,
     };
 };

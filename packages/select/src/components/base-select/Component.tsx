@@ -686,13 +686,11 @@ export const BaseSelect = forwardRef(
 
                 {view === 'mobile' && (
                     <ListMobile
-                        commonProps={
+                        baseProps={
                             isBottomSheet
                                 ? getListBottomSheetMobileProps(props)
                                 : getListModalMobileProps(props)
                         }
-                        isBottomSheet={isBottomSheet}
-                        nativeSelect={nativeSelect}
                         open={open}
                         menuRef={menuRef}
                         scrollableContainerRef={scrollableContainerRef}

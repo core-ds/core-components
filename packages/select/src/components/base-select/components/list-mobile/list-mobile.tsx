@@ -7,9 +7,7 @@ import { ListBottomSheetMobile } from './list-bottom-sheet-mobile';
 import { ListModalMobile } from './list-modal-mobile';
 
 type ListMobileProps = {
-    commonProps: ListBottomSheetMobileRestProps | ListModalMobileRestProps;
-    isBottomSheet: boolean;
-    nativeSelect: boolean;
+    baseProps: ListBottomSheetMobileRestProps | ListModalMobileRestProps;
     open: boolean;
     menuRef: RefObject<HTMLDivElement>;
     scrollableContainerRef: RefObject<HTMLDivElement>;
@@ -21,16 +19,20 @@ type ListMobileProps = {
 };
 
 export const ListMobile: FC<ListMobileProps> = (props) => {
-    const { commonProps, isBottomSheet, nativeSelect, ...rest } = props;
+    const { baseProps, ...restProps } = props;
+    const { isBottomSheet, nativeSelect } = baseProps;
 
     if (isBottomSheet && !nativeSelect) {
         return (
-            <ListBottomSheetMobile {...(commonProps as ListBottomSheetMobileRestProps)} {...rest} />
+            <ListBottomSheetMobile
+                {...(baseProps as ListBottomSheetMobileRestProps)}
+                {...restProps}
+            />
         );
     }
 
     if (!isBottomSheet && !nativeSelect) {
-        return <ListModalMobile {...(commonProps as ListModalMobileRestProps)} {...rest} />;
+        return <ListModalMobile {...(baseProps as ListModalMobileRestProps)} {...restProps} />;
     }
 
     return null;
