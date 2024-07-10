@@ -1,5 +1,6 @@
 import React, { FC, ReactNode, RefObject } from 'react';
 
+import { OptionShape } from '@alfalab/core-components-select/typings';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { useListBottomSheetMobileProps } from './hooks';
@@ -10,6 +11,7 @@ type ListMobileProps = {
     open: boolean;
     menuRef: RefObject<HTMLDivElement>;
     scrollableContainerRef: RefObject<HTMLDivElement>;
+    flatOptions: OptionShape[];
     closeMenu: () => void;
     handleEntered: (node: HTMLElement, isAppearing: boolean) => void;
     renderSearch: () => ReactNode;
@@ -29,10 +31,11 @@ export const ListBottomSheetMobile: FC<ListMobileProps> = (props) => {
         bottomSheetProps,
         menuRef,
         scrollableContainerRef,
+        onScroll,
+        flatOptions,
         closeMenu,
         handleEntered,
         renderSearch,
-        onScroll,
         renderOptionsList,
     } = props;
 
@@ -64,7 +67,7 @@ export const ListBottomSheetMobile: FC<ListMobileProps> = (props) => {
                 bottomAddons={
                     <React.Fragment>
                         {renderSearch()}
-                        {bottomSheetProps?.bottomAddons}
+                        {flatOptions.length > 0 && bottomSheetProps?.bottomAddons}
                     </React.Fragment>
                 }
                 containerProps={{

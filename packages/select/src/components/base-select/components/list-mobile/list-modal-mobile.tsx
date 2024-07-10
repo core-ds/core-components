@@ -2,6 +2,7 @@ import React, { FC, ReactNode, RefObject } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { OptionShape } from '@alfalab/core-components-select/typings';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { useListModalMobileProps } from './hooks';
@@ -12,6 +13,7 @@ type ListModalMobileProps = {
     open: boolean;
     menuRef: RefObject<HTMLDivElement>;
     scrollableContainerRef: RefObject<HTMLDivElement>;
+    flatOptions: OptionShape[];
     closeMenu: () => void;
     handleEntered: (node: HTMLElement, isAppearing: boolean) => void;
     renderSearch: () => ReactNode;
@@ -30,8 +32,9 @@ export const ListModalMobile: FC<ListModalMobileProps> = (props) => {
         scrollableContainerRef,
         label,
         placeholder,
-        closeMenu,
         onScroll,
+        flatOptions,
+        closeMenu,
         handleEntered,
         renderSearch,
         renderOptionsList,
@@ -71,7 +74,7 @@ export const ListModalMobile: FC<ListModalMobileProps> = (props) => {
                     bottomAddons={
                         <React.Fragment>
                             {renderSearch()}
-                            {modalHeaderProps?.bottomAddons}
+                            {flatOptions.length > 0 && modalHeaderProps?.bottomAddons}
                         </React.Fragment>
                     }
                 >
