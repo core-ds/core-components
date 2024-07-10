@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, RefObject } from 'react';
 import cn from 'classnames';
 
-import { useListPopoverDesktopProps } from './hooks/use-list-popover-desktop-props';
+import { ListPopoverDesktopRestProps } from './types/types';
 
 import styles from '../../index.module.css';
 
@@ -9,7 +9,7 @@ type ListPopoverDesktopProps = {
     open: boolean;
     fieldRef: RefObject<HTMLInputElement>;
     renderOptionsList: () => ReactNode;
-} & ReturnType<typeof useListPopoverDesktopProps>;
+} & ListPopoverDesktopRestProps;
 
 export const ListPopoverDesktop: FC<ListPopoverDesktopProps> = (props) => {
     const {

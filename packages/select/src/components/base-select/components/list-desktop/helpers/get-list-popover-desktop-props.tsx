@@ -1,7 +1,7 @@
 import { ComponentProps } from '../../../types/component-types';
 
 // отделяем необходимые пропсы для передачи в компонент
-export const useListPopoverDesktopProps = (props: ComponentProps) => {
+export const getListPopoverDesktopProps = (props: ComponentProps) => {
     const {
         Popover,
         popoverProps,

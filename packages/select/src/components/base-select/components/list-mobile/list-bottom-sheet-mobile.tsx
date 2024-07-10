@@ -3,7 +3,7 @@ import React, { FC, ReactNode, RefObject } from 'react';
 import { OptionShape } from '@alfalab/core-components-select/typings';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { useListBottomSheetMobileProps } from './hooks';
+import { ListBottomSheetMobileRestProps } from './types/types';
 
 import mobileStyles from '../../mobile.module.css';
 
@@ -16,7 +16,7 @@ type ListMobileProps = {
     handleEntered: (node: HTMLElement, isAppearing: boolean) => void;
     renderSearch: () => ReactNode;
     renderOptionsList: () => ReactNode;
-} & ReturnType<typeof useListBottomSheetMobileProps>;
+} & ListBottomSheetMobileRestProps;
 
 export const ListBottomSheetMobile: FC<ListMobileProps> = (props) => {
     const {

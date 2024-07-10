@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { OptionShape } from '@alfalab/core-components-select/typings';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { useListModalMobileProps } from './hooks';
+import { ListModalMobileRestProps } from './types/types';
 
 import mobileStyles from '../../mobile.module.css';
 
@@ -18,7 +18,7 @@ type ListModalMobileProps = {
     handleEntered: (node: HTMLElement, isAppearing: boolean) => void;
     renderSearch: () => ReactNode;
     renderOptionsList: () => ReactNode;
-} & ReturnType<typeof useListModalMobileProps>;
+} & ListModalMobileRestProps;
 
 export const ListModalMobile: FC<ListModalMobileProps> = (props) => {
     const {

@@ -34,18 +34,18 @@ import {
 } from '../../utils';
 import { NativeSelect } from '../native-select';
 
-import { useListPopoverDesktopProps } from './components/list-desktop/hooks/use-list-popover-desktop-props';
 import { ListPopoverDesktop } from './components/list-desktop/list-popover-desktop';
 import {
-    useListBottomSheetMobileProps,
-    useListModalMobileProps,
-} from './components/list-mobile/hooks';
+    getListBottomSheetMobileProps,
+    getListModalMobileProps,
+} from './components/list-mobile/helpers';
 import { ListBottomSheetMobile } from './components/list-mobile/list-bottom-sheet-mobile';
 import { ListModalMobile } from './components/list-mobile/list-modal-mobile';
 import { ComponentProps } from './types/component-types';
 
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
+import { getListPopoverDesktopProps } from './components/list-desktop/helpers/get-list-popover-desktop-props';
 
 const itemToString = (option: OptionShape | null) => (option ? option.key : '');
 
@@ -109,10 +109,6 @@ export const BaseSelect = forwardRef(
             bottomSheetProps,
             limitDynamicOptionGroupSize,
         } = props;
-
-        const listBottomSheetMobileProps = useListBottomSheetMobileProps(props);
-        const listModalMobileProps = useListModalMobileProps(props);
-        const listPopoverDesktopProps = useListPopoverDesktopProps(props);
 
         const rootRef = useRef<HTMLDivElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
@@ -682,7 +678,7 @@ export const BaseSelect = forwardRef(
 
                 {view === 'desktop' && !nativeSelect && (
                     <ListPopoverDesktop
-                        {...listPopoverDesktopProps}
+                        {...getListPopoverDesktopProps(props)}
                         open={open}
                         fieldRef={fieldRef}
                         renderOptionsList={renderOptionsList}
@@ -690,7 +686,7 @@ export const BaseSelect = forwardRef(
                 )}
                 {view === 'mobile' && isBottomSheet && !nativeSelect && (
                     <ListBottomSheetMobile
-                        {...listBottomSheetMobileProps}
+                        {...getListBottomSheetMobileProps(props)}
                         open={open}
                         menuRef={menuRef}
                         scrollableContainerRef={scrollableContainerRef}
@@ -704,7 +700,7 @@ export const BaseSelect = forwardRef(
 
                 {view === 'mobile' && !isBottomSheet && !nativeSelect && (
                     <ListModalMobile
-                        {...listModalMobileProps}
+                        {...getListModalMobileProps(props)}
                         open={open}
                         menuRef={menuRef}
                         scrollableContainerRef={scrollableContainerRef}
