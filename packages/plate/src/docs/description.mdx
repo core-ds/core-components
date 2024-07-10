@@ -46,70 +46,53 @@ render(() => {
 Компоненту можно задавать различный цвет фона, добавлять тень или фоновое изображение.
 
 ```jsx live mobileHeight={490}
-render(() => {
-    const css = `
-        :root {
-            --plate-background: rgba(207, 112, 255, 0.1);
-            --plate-border-color: rgba(207, 112, 255);
-        }
-    `;
-    return (
-        <Container>
-            <style>{css}</style>
-            <Plate
-                view='positive'
-                title='Пример уведомления'
-                leftAddons={
-                    <StatusBadge view='positive-checkmark' />
-                }
-                breakpoint={BREAKPOINT}
-            />
-            <Gap size='l' />
-            <Plate
-                view='negative'
-                title='Пример уведомления'
-                leftAddons={
-                   <StatusBadge view='negative-alert' />
-                }
-                breakpoint={BREAKPOINT}
-            />
-            <Gap size='l' />
-            <Plate
-                view='attention'
-                title='Пример уведомления'
-                leftAddons={
-                    <StatusBadge view='attention-alert' />
-                }
-                breakpoint={BREAKPOINT}
-            />
-            <Gap size='l' />
-            <Plate
-                view='common'
-                title='Пример уведомления'
-                leftAddons={
-                    <StatusBadge view='neutral-information' />
-                }
-                breakpoint={BREAKPOINT}
-            />
-            <Gap size='l' />
-            <Plate
-                view='custom'
-                border={true}
-                title='Пример уведомления'
-                leftAddons={<DiamondsMIcon color='#CF70FF' />}
-                breakpoint={BREAKPOINT}
-            />
-            <Gap size='l' />
-            <Plate
-                view='custom'
-                title='Пример уведомления'
-                className='plateGlobal'
-                leftAddons={<DiamondsMIcon />}
-                breakpoint={BREAKPOINT}
-            />
-        </Container>
-    );
-});
+<Container>
+    <Plate
+        view='positive'
+        title='Пример уведомления'
+        leftAddons={<StatusBadge view='positive-checkmark' />}
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='l' />
+    <Plate
+        view='negative'
+        title='Пример уведомления'
+        leftAddons={<StatusBadge view='negative-alert' />}
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='l' />
+    <Plate
+        view='attention'
+        title='Пример уведомления'
+        leftAddons={<StatusBadge view='attention-alert' />}
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='l' />
+    <Plate
+        view='common'
+        title='Пример уведомления'
+        leftAddons={<StatusBadge view='neutral-information' />}
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='l' />
+    <Plate
+        view='custom'
+        background='rgba(207, 112, 255, 0.1)'
+        borderColor='rgba(207, 112, 255)'
+        border={true}
+        title='Пример уведомления'
+        leftAddons={<DiamondsMIcon color='#CF70FF' />}
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='l' />
+    <Plate
+        view='custom'
+        title='Пример уведомления'
+        className='plateGlobal'
+        leftAddons={<DiamondsMIcon />}
+        breakpoint={BREAKPOINT}
+    />
+</Container>
 ```
 
 Ниже представлены различные механики и способы расположения контента.

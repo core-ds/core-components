@@ -1,5 +1,42 @@
 # Change Log
 
+## 6.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.5
+
+## 6.0.5
+
+### Patch Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+-   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
+-   Обновлены зависимости
+    -   popover@6.2.4
+    -   stack@5.0.0
+
+## 6.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.0
+    -   popover@6.2.3
+    -   toast-plate@7.0.4
+
+## 6.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.3
+
 ## 6.0.2
 
 ### Patch Changes

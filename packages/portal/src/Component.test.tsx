@@ -1,8 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { Portal } from './index';
 import { PORTAL_CONTAINER_ATTRIBUTE } from './utils';
+import { PortalContext } from '@alfalab/core-components-shared';
 
 describe('Portal tests', () => {
     it('should render in a different node', () => {
@@ -62,5 +63,24 @@ describe('Portal tests', () => {
         const portalChild = getByText(textInPortal);
 
         expect(document.querySelector('#portal-container')).toContainElement(portalChild);
+    });
+
+    it('render to element based on portal context', () => {
+        const textContent = 'Text content';
+        const getPortalContainer = () => document.querySelector('#portal-container');
+
+        render(
+            <>
+                <div data-test-id='portal-container' id='portal-container'></div>
+                <PortalContext.Provider value={getPortalContainer}>
+                    <Portal>
+                        <span>{textContent}</span>
+                    </Portal>
+                </PortalContext.Provider>
+            </>,
+        );
+
+        const portalChild = screen.queryByText(textContent);
+        expect(screen.queryByTestId('portal-container')).toContainElement(portalChild);
     });
 });

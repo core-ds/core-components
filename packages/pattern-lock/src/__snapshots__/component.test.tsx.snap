@@ -4,30 +4,6 @@ exports[`PatternLock test Snapshot tests should match snapshot 1`] = `
 <div>
   <div
     class="component component"
-  >
-    <div
-      class="message"
-    />
-    <div
-      class="forgotBtn forgotBtn hiddenBtn"
-    />
-  </div>
-</div>
-`;
-
-exports[`PatternLock test Snapshot tests should match snapshot with error prop 1`] = `
-<div>
-  <div
-    class="component component"
-  >
-    <div
-      class="message error"
-    >
-      Error message
-    </div>
-    <div
-      class="forgotBtn forgotBtn hiddenBtn"
-    />
-  </div>
+  />
 </div>
 `;

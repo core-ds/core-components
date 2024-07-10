@@ -1,5 +1,54 @@
 # Change Log
 
+## 8.2.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   bottom-sheet@6.15.7
+
+## 8.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+
+## 8.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.4
+    -   select@17.7.2
+    -   bottom-sheet@6.15.6
+
+## 8.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.3
+    -   bottom-sheet@6.15.5
+    -   form-control@12.2.4
+    -   select@17.7.1
+
+## 8.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.4
+    -   select@17.7.0
+
+## 8.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
 ## 8.2.15
 
 ### Patch Changes

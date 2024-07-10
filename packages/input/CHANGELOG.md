@@ -1,5 +1,39 @@
 # Change Log
 
+## 15.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+
+## 15.0.0
+
+### Major Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+-   Удален тип 'card'
+-   Добавлен трансформер input-type-card, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric'
+
+## 14.4.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   button@11.5.1
+    -   form-control@12.2.4
+
+## 14.4.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+
 ## 14.4.5
 
 ### Patch Changes

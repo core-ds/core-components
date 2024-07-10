@@ -1,0 +1,22 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    max-width: var(--pass-code-max-width);
+    margin: var(--gap-xs) 0;
+}
+
+.message {
+    @mixin paragraph_primary_medium;
+
+    min-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-light-text-primary);
+}
+
+.error {
+    color: var(--color-light-text-negative);
+}

@@ -24,6 +24,8 @@ export const PrimaryTabList = ({
     platform,
     textStyle,
     inlineStyle,
+    showSkeleton,
+    skeletonProps,
 }: TabListProps & Styles & PlatformProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -69,6 +71,8 @@ export const PrimaryTabList = ({
                             {...restTitleProps}
                             focused={focused}
                             styles={styles}
+                            showSkeleton={showSkeleton}
+                            skeletonProps={skeletonProps}
                         />
                     )}
                 </KeyboardFocusable>
@@ -91,6 +95,7 @@ export const PrimaryTabList = ({
             size={textStyle ? undefined : size}
             platform={platform}
             inlineStyle={inlineStyle}
+            showSkeleton={showSkeleton}
         >
             {renderContent()}
         </ScrollableContainer>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/addon-docs';
-import { radios, text, boolean } from '@storybook/addon-knobs';
+import { radios, boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 import { PatternLock } from '@alfalab/core-components-pattern-lock';
 import {
@@ -27,7 +27,7 @@ export const pattern_lock: Story = {
                     <style>
                         {`
                     :root {
-                        --color-light-bg-primary: var(--color-light-bg-secondary);
+                        --color-light-bg-primary: var(--color-light-base-bg-secondary);
                     }`}
                     </style>
                 )}
@@ -38,13 +38,6 @@ export const pattern_lock: Story = {
                         { initial: 'initial', success: 'success', failure: 'failure' },
                         'initial',
                     )}
-                    justifyNodes={radios(
-                        'justifyNodes',
-                        { 'space-around': 'space-around', 'space-between': 'space-between' },
-                        'space-between',
-                    )}
-                    message={text('message', '')}
-                    error={text('error', '')}
                     showForgotCodeBtn={boolean('showForgotCodeBtn', false) as false}
                 />
             </div>

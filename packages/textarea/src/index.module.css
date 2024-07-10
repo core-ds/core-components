@@ -1,5 +1,6 @@
 @import '../../themes/src/default.css';
 @import '../../form-control/src/vars.css';
+@import '../../input/src/vars.css';
 
 :root {
     /* min-height */
@@ -60,6 +61,11 @@
     resize: none;
     -webkit-appearance: none;
     height: inherit;
+
+    &.overflow {
+        color: transparent;
+        caret-color: var(--input-color);
+    }
 }
 
 .overflowHidden.overflowHidden {
@@ -90,10 +96,10 @@
     overflow: auto;
     max-height: 100%;
     & span {
-        color: transparent;
+        color: var(--input-color);
     }
     & .overflow {
-        background-color: var(--color-light-graphic-negative-alpha-40);
+        color: var(--color-light-text-tertiary);
     }
     &::-webkit-scrollbar-thumb {
         background-color: transparent;

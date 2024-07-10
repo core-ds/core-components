@@ -1,5 +1,48 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1278](https://github.com/core-ds/core-components/pull/1278)
+
+-   Добавлено новое свойство position, отвечающее за позиционирование компонента от верхнего или нижнего края экрана
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.5
+
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+-   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
+-   Обновлены зависимости
+    -   stack@5.0.0
+
+## 7.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.0
+    -   toast-plate@7.0.4
+
+## 7.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.3
+
 ## 7.0.2
 
 ### Patch Changes

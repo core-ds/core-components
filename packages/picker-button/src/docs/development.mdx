@@ -1,5 +1,7 @@
-import { ArgsTable } from '@storybook/addon-docs';
-import { PickerButtonDesktop as PickerButtonDesktopTS } from '../desktop';
+import { ArgsTabs } from 'storybook/blocks';
+import { PickerButton } from '../index';
+import { PickerButtonDesktop } from '../desktop';
+import { PickerButtonMobile } from '../mobile';
 
 ## Подключение
 
@@ -13,4 +15,4 @@ import { PickerButtonDesktop } from '@alfalab/core-components/picker-button/desk
 
 ## Свойства
 
-<ArgsTable of={PickerButtonDesktopTS} />
+<ArgsTabs components={{ PickerButton, PickerButtonDesktop, PickerButtonMobile }} />

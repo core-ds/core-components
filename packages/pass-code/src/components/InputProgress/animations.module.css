@@ -1,0 +1,15 @@
+@keyframes dotFilled {
+    50% {
+        width: var(--pass-code-dot-container-width);
+        height: var(--pass-code-dot-container-height);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes dotSuccessFilled {
+    50% {
+        width: var(--pass-code-dot-container-width);
+        height: var(--pass-code-dot-container-height);
+        animation-timing-function: ease-out;
+    }
+}

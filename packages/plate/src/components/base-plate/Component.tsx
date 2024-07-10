@@ -93,6 +93,16 @@ export type BasePlateProps = {
     view?: 'common' | 'negative' | 'positive' | 'attention' | 'custom';
 
     /**
+     * Фон компонента при view=custom
+     */
+    background?: string;
+
+    /**
+     * Цвет бордера у компонента при view=custom
+     */
+    borderColor?: string;
+
+    /**
      * Набор действий
      */
     buttons?: ReactNode | Array<ReactElement<ButtonProps>>;
@@ -180,6 +190,8 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             onToggle,
             rowLimit,
             styles = {},
+            background,
+            borderColor,
         },
         ref,
     ) => {
@@ -271,6 +283,9 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                     },
                     className,
                 )}
+                style={{
+                    ...(view === 'custom' && { background, borderColor }),
+                }}
                 onClick={handleClick}
                 onKeyDown={handleClick}
                 role='alert'

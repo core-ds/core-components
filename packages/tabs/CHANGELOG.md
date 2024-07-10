@@ -1,5 +1,59 @@
 # Change Log
 
+## 8.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.11
+    -   icon-button@6.7.2
+
+## 8.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.10
+
+## 8.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.9
+
+## 8.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   picker-button@11.7.8
+    -   icon-button@6.7.1
+
+## 8.9.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1263](https://github.com/core-ds/core-components/pull/1263)
+
+-   Добавили новые свойства: showSkeleton и skeletonProps, отвечающие за отображение скелетона и дополнительные пропсы для него
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.0
+    -   picker-button@11.7.7
+
+## 8.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.6
+
 ## 8.8.5
 
 ### Patch Changes

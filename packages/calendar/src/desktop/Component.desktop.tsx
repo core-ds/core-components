@@ -15,6 +15,7 @@ import { PeriodSlider } from '../components/period-slider';
 import { YearsTable } from '../components/years-table';
 import { DayAddons, SelectorView, View } from '../typings';
 import { useCalendar } from '../useCalendar';
+import { useRange } from '../useRange';
 import { limitDate } from '../utils';
 
 import styles from './desktop.module.css';
@@ -50,7 +51,19 @@ export type CalendarDesktopProps = {
     /**
      * Выбранная дата (timestamp)
      */
-    value?: number;
+    value?: number | { dateFrom?: number; dateTo?: number };
+
+    /**
+     * Режим выбора дат
+     * @default single
+     */
+    mode?: 'single' | 'range';
+
+    /**
+     * Тип выбора границ в календаре
+     * @default clarification
+     */
+    rangeBehavior?: 'clarification' | 'reset';
 
     /**
      * Открытый месяц (timestamp)
@@ -74,11 +87,13 @@ export type CalendarDesktopProps = {
 
     /**
      * Начало выделенного периода (timestamp)
+     * @deprecated используйте value вместе с mode='range'
      */
     selectedFrom?: number;
 
     /**
      * Конец выделенного периода (timestamp)
+     * @deprecated используйте value вместе с mode='range'
      */
     selectedTo?: number;
 
@@ -110,7 +125,7 @@ export type CalendarDesktopProps = {
     /**
      * Обработчик выбора даты
      */
-    onChange?: (date?: number) => void;
+    onChange?: (date?: number, dateTo?: number) => void;
 
     /**
      * Обработчик нажатия на кнопку месяца
@@ -167,6 +182,8 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             contentClassName,
             defaultView = 'days',
             selectorView = 'full',
+            mode = 'single',
+            rangeBehavior,
             value,
             month: monthTimestamp,
             minDate: minDateTimestamp,
@@ -198,7 +215,19 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
         const firstUpdate = useRef(true);
 
-        const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
+        const range = useRange({
+            mode,
+            value,
+            selectedFrom,
+            selectedTo,
+            rangeBehavior,
+            onChange,
+        });
+
+        const selected = useMemo(
+            () => (range.value ? new Date(range.value) : undefined),
+            [range.value],
+        );
 
         const defaultMonth = useMemo(
             () =>
@@ -251,7 +280,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             events,
             holidays,
             dayAddons,
-            onChange,
+            onChange: range.onChange,
             onMonthChange,
         });
 
@@ -316,12 +345,12 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
         }, [view]);
 
         useDidUpdateEffect(() => {
-            const newMonth = value && startOfMonth(value);
+            const newMonth = range.value && startOfMonth(range.value);
 
             if (newMonth && newMonth.getTime() !== activeMonth.getTime()) {
                 setMonthByDate(newMonth);
             }
-        }, [value]);
+        }, [range.value]);
 
         const shouldUseCustomScrollbar = useCustomWebkitScrollbar();
 
@@ -378,8 +407,8 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                         <DaysTable
                             weeks={weeks}
                             activeMonth={activeMonth}
-                            selectedFrom={selectedFrom}
-                            selectedTo={selectedTo}
+                            selectedFrom={range.selectedFrom}
+                            selectedTo={range.selectedTo}
                             getDayProps={getDayProps}
                             highlighted={highlighted}
                             rangeComplete={rangeComplete}

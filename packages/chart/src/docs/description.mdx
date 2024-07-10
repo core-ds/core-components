@@ -6,8 +6,8 @@ render(() => {
         vertical: false,
         horizontal: true,
         strokeDasharray: 0,
-        stroke: 'var(--color-light-border-primary)',
-        fill: 'var(--color-light-bg-primary)',
+        stroke: 'var(--color-light-neutral-400)',
+        fill: 'var(--color-light-base-bg-primary)',
     };
     const legend = {
         marginTop: 10,
@@ -17,7 +17,7 @@ render(() => {
         offset: 20,
         filterNull: true,
         cursor: {
-            stroke: 'var(--color-light-border-primary)',
+            stroke: 'var(--color-light-neutral-400)',
             strokeWidth: 1,
         },
         isAnimationActive: true,
@@ -231,8 +231,8 @@ render(() => {
 render(() => {
     const formatXAxis = (time) => format(time, 'dd LLL');
     const cartesianGrid = {
-        stroke: 'var(--color-light-border-primary)',
-        fill: 'var(--color-light-bg-primary)',
+        stroke: 'var(--color-light-neutral-400)',
+        fill: 'var(--color-light-base-bg-primary)',
     };
     const composeChart = {
         barSize: 24,
@@ -265,7 +265,7 @@ render(() => {
         offset: 20,
         filterNull: true,
         cursor: {
-            stroke: 'var(--color-light-border-primary)',
+            stroke: 'var(--color-light-neutral-400)',
             strokeWidth: 1,
         },
         isAnimationActive: true,

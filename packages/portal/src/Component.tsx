@@ -1,7 +1,8 @@
 import { forwardRef, ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import { getDefaultPortalContainer, setRef } from './utils';
+import { usePortalContainer } from './hooks/usePortalContainer';
+import { setRef } from './utils';
 
 export type PortalProps = {
     /** Контент */
@@ -17,30 +18,32 @@ export type PortalProps = {
      */
     immediateMount?: boolean;
 };
-export const Portal = forwardRef<Element, PortalProps>(
-    ({ getPortalContainer = getDefaultPortalContainer, immediateMount = false, children }, ref) => {
-        const [mountNode, setMountNode] = useState<Element | null>(() =>
-            typeof window !== 'undefined' && immediateMount ? getPortalContainer() : null,
-        );
+export const Portal = forwardRef<Element, PortalProps>((props, ref) => {
+    const portalContainer = usePortalContainer();
 
-        useEffect(() => {
-            setMountNode(getPortalContainer());
-        }, [getPortalContainer]);
+    const { getPortalContainer = portalContainer, immediateMount = false, children } = props;
 
-        useEffect(() => {
-            if (mountNode) {
-                setRef(ref, mountNode);
+    const [mountNode, setMountNode] = useState<Element | null>(() =>
+        typeof window !== 'undefined' && immediateMount ? getPortalContainer() : null,
+    );
 
-                return () => {
-                    setRef(ref, null);
-                };
-            }
+    useEffect(() => {
+        setMountNode(getPortalContainer());
+    }, [getPortalContainer]);
 
-            return () => null;
-        }, [ref, mountNode]);
+    useEffect(() => {
+        if (mountNode) {
+            setRef(ref, mountNode);
 
-        return mountNode ? createPortal(children, mountNode) : mountNode;
-    },
-);
+            return () => {
+                setRef(ref, null);
+            };
+        }
+
+        return () => null;
+    }, [ref, mountNode]);
+
+    return mountNode ? createPortal(children, mountNode) : mountNode;
+});
 
 Portal.displayName = 'Portal';

@@ -107,6 +107,7 @@ export const BaseSelect = forwardRef(
             isBottomSheet = true,
             modalProps,
             bottomSheetProps,
+            limitDynamicOptionGroupSize,
         } = props;
 
         const listBottomSheetMobileProps = useListBottomSheetMobileProps(props);
@@ -622,6 +623,7 @@ export const BaseSelect = forwardRef(
                         onScroll={onScroll}
                         search={search}
                         multiple={multiple}
+                        limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>

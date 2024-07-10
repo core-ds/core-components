@@ -1,5 +1,37 @@
 # Change Log
 
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1279](https://github.com/core-ds/core-components/pull/1279)
+
+-   Добавлены новые свойства background и borderColor, отвечающие за фон и цвет бордера у компонента при view=custom
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   icon-button@6.7.2
+
+## 7.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+    -   icon-button@6.7.1
+
+## 7.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   icon-button@6.7.0
+
 ## 7.3.10
 
 ### Patch Changes

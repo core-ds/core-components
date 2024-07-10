@@ -113,3 +113,28 @@ describe('Textarea | sprite', () => {
 
     ['default', 'click'].map(testCase);
 });
+
+describe('Textarea | sprite', () => {
+    screenshotTesting({
+        cases: [
+            [
+                'overflow',
+                createSpriteStorybookUrl({
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'Длинное значение в несколько строк. И вдруг, как пошло переполнение',
+                        block: true,
+                        showCounter: true,
+                        maxLength: 35,
+                        minRows: 3,
+                    },
+                    size: { width: 240, height: 150 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: { width: 1024, height: 100 },
+    })();
+});

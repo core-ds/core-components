@@ -1,3 +1,367 @@
+## 47.3.0
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1190](https://github.com/core-ds/core-components/pull/1190)
+
+#### Что изменилось
+- Упрощена работа с периодами. Теперь достаточно использовать только value и onChange. Режим выбора периода управляется пропсой rangeBehavior. Пропсы selectedFrom и selectedTo помечены как deprecated.
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#1273](https://github.com/core-ds/core-components/pull/1273)
+
+#### Что изменилось
+- Добавлено предупреждение в консоль о том, что значение soft для view теперь deprecated
+
+#### Влияние на компоненты
+- Патчи<br />`status`
+
+
+### [#1269](https://github.com/core-ds/core-components/pull/1269)
+
+#### Что изменилось
+- Пункт 'Выбрать все' скрыт, когда список вариантов пуст
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1279](https://github.com/core-ds/core-components/pull/1279)
+
+#### Что изменилось
+- Добавлены новые свойства background и borderColor, отвечающие за фон и цвет бордера у компонента при view=custom
+
+#### Влияние на компоненты
+- Минорное<br />`plate`
+
+
+### [#1278](https://github.com/core-ds/core-components/pull/1278)
+
+#### Что изменилось
+- Добавлено новое свойство position, отвечающее за позиционирование компонента от верхнего или нижнего края экрана
+
+#### Влияние на компоненты
+- Минорное<br />`notification`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+### [#1277](https://github.com/core-ds/core-components/pull/1277)
+
+#### Что изменилось
+- Исправили ширину и высоту для размера '16' с 18px на 16px
+
+#### Влияние на компоненты
+- Минорное<br />`spinner`
+
+
+### [#1272](https://github.com/core-ds/core-components/pull/1272)
+
+#### Что изменилось
+- Исправлено позиционирование инпута для группы тегов
+
+#### Влияние на компоненты
+- Патчи<br />`radio-group`
+
+
+
+## 47.2.0
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1226](https://github.com/core-ds/core-components/pull/1226)
+
+#### Что изменилось
+- SVG флагов оптимизированны по размеру, с сохранением качества графики.
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
+## 47.1.0
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1274](https://github.com/core-ds/core-components/pull/1274)
+
+#### Что изменилось
+- Исправлен расчет высоты контента
+
+#### Влияние на компоненты
+- Патчи<br />`accordion`
+
+<br />
+
+#### Что изменилось
+- Добавлен проп 'limitDynamicOptionGroupSize' для ограчения динамического размера группы вариантов. Если он включен, используется размер, указанный в проп 'size'
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+<br />
+
+#### Что изменилось
+- Добавлен проп 'bodyContentClassName'
+
+#### Влияние на компоненты
+- Минорное<br />`accordion`
+
+
+### [#1282](https://github.com/core-ds/core-components/pull/1282)
+
+#### Что изменилось
+- Исправление сборки для темизаций. В каждую тему снова добавлены импорты переменных.
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
+## 47.0.0
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Удален тип 'card'
+- Добавлен трансформер input-type-card, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric'
+
+#### Влияние на компоненты
+- Мажорное<br />`input`
+
+<br />
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+### [#1191](https://github.com/core-ds/core-components/pull/1191)
+
+#### Что изменилось
+- Релиз содержит ошибку, используйте следующий
+
+#### Влияние на компоненты
+- Мажорное<br />`themes`
+
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+#### Что изменилось
+- При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
+#### Влияние на компоненты
+- Мажорное<br />`stack`
+
+
+- Патчи<br />`base-modal` `notification-manager` `notification` `popover` `toast`<br />
+
+
+### [#1233](https://github.com/core-ds/core-components/pull/1233)
+
+#### Что изменилось
+Редизайн компонентов PassCode и PatternLock
+- Внесены изменения в адаптивность
+- Удалены пропсы для вывода кастомных сообщений и ошибок
+Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
+
+## Обновление
+Для упрощенного перехода между версиями библиотеки, после обновления вам необходимо исправить импорты.
+
+До
+```js
+import { PassCode } from '@alfalab/core-components/pass-code';
+import { PatternLock } from '@alfalab/core-components/pattern-lock';
+```
+После
+```js
+import { PassCodeV1 } from '@alfalab/core-components/pass-code-v1';
+import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
+```
+Таким образом, в вашем приложении продолжат работу старые версии компонентов.
+В дальнейшем поддержка `v1` версий будет прекращена.
+
+#### Влияние на компоненты
+- Мажорное<br />`pass-code` `pass-code-v1` `pattern-lock` `pattern-lock-v1`
+
+
+- Патчи<br />`gap` `vars`
+
+
+
+## 46.5.0
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1215](https://github.com/core-ds/core-components/pull/1215)
+
+#### Что изменилось
+- Добавлена возможность переопределять рендер контейнер для группы элементов использующих Portal
+
+#### Влияние на компоненты
+- Минорное<br />`portal` `shared`
+
+
+
+## 46.4.0
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1250](https://github.com/core-ds/core-components/pull/1250)
+
+#### Что изменилось
+- Изменен элемент наблюдения ResizeObserver с contentRef.current на contentCaseRef.current, теперь контейнер контента динамически изменяет высоту при добавлении контента
+
+#### Влияние на компоненты
+- Патчи<br />`accordion`
+
+
+### [#1256](https://github.com/core-ds/core-components/pull/1256)
+
+#### Что изменилось
+- Исправили стили для кнопки с view=filled
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#1266](https://github.com/core-ds/core-components/pull/1266)
+
+#### Что изменилось
+- Исправление типизации компонента
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#1263](https://github.com/core-ds/core-components/pull/1263)
+
+#### Что изменилось
+- Добавили новые свойства: showSkeleton и skeletonProps, отвечающие за отображение скелетона и дополнительные пропсы для него
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+#### Что изменилось
+- В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet`
+
+
+### [#1252](https://github.com/core-ds/core-components/pull/1252)
+
+#### Что изменилось
+- Добавлено новое свойство align, отвечающее за выравнивание чекбокса или иконки "галочки". По умолчанию элемент выровнен по центру. Для того чтобы изменить выравнивание, необходимо передать компоненту optionProps={{align: 'start'}}
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1259](https://github.com/core-ds/core-components/pull/1259)
+
+#### Что изменилось
+- Обновление vars из последней версии ui-primitives
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1254](https://github.com/core-ds/core-components/pull/1254)
+
+#### Что изменилось
+- Изменили стили для значения поля ввода, когда количество вводимых символов превышает maxLength, если включено переполнение
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#1255](https://github.com/core-ds/core-components/pull/1255)
+
+#### Что изменилось
+- Для предотвращения мерцания компонента в SSR добавлена возможность установки значения по умолчанию для useMatchMedia
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#1253](https://github.com/core-ds/core-components/pull/1253)
+
+#### Что изменилось
+- Удалена темизация click для компонентов Link и IconButton, а также для фона в ToastPlate
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+#### Что изменилось
+- Заменили устаревшие цветовые токены на актуальные
+
+#### Влияние на компоненты
+- Минорное<br />`calendar` `chart` `checkbox` `confirmation-v1` `custom-button`<br /> `filter-tag` `gallery` `icon-button` `indicator` `intl-phone-input`<br /> `pattern-lock` `product-cover` `pure-cell` `select` `themes`<br /> `table` `typography`
+
+
+
+## 46.3.1
+
+<sup><time>26.06.2024</time></sup>
+
+### [#1228](https://github.com/core-ds/core-components/pull/1228)
+
+#### Что изменилось
+- Добавлен пропс contentWrapperClassName
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+### [#1264](https://github.com/core-ds/core-components/pull/1264)
+
+#### Что изменилось
+- Исправлена ширина контента в пустом состоянии
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar`
+
+
+
 ## 46.3.0
 
 <sup><time>21.06.2024</time></sup>

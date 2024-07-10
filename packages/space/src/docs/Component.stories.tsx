@@ -28,7 +28,7 @@ export const space: Story = {
             width: '80px',
             height: '80px',
             borderRadius: '8px',
-            backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
+            backgroundColor: 'var(--color-light-neutral-translucent-200)',
         };
         const stylesGap = {
             display: 'flex',
@@ -37,7 +37,7 @@ export const space: Story = {
             lineHeight: '24px',
             margin: '0 8px',
             borderRadius: '4px',
-            backgroundColor: 'var(--color-light-graphic-link)',
+            backgroundColor: 'var(--color-light-status-info)',
             color: 'var(--color-light-text-primary-inverted)',
         };
         const stylesWrapper = {

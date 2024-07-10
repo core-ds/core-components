@@ -1,5 +1,68 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.0.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   input-autocomplete@12.1.13
+    -   input@15.0.1
+
+## 2.0.20
+
+### Patch Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1226](https://github.com/core-ds/core-components/pull/1226)
+
+-   SVG флагов оптимизированны по размеру, с сохранением качества графики.
+
+## 2.0.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+    -   input-autocomplete@12.1.12
+
+## 2.0.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   input-autocomplete@12.1.11
+    -   select@17.7.2
+
+## 2.0.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   input@14.4.7
+    -   input-autocomplete@12.1.10
+    -   select@17.7.1
+
+## 2.0.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.9
+    -   select@17.7.0
+    -   input@14.4.6
+
+## 2.0.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+    -   input-autocomplete@12.1.8
+
 ## 2.0.14
 
 ### Patch Changes

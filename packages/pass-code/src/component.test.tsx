@@ -8,6 +8,20 @@ jest.mock('react-transition-group', () => ({
 }));
 
 describe('PassCode', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Snapshot tests', () => {
         it('should match snapshot with code length', () => {
             const { container } = render(<PassCode value='' onChange={jest.fn} codeLength={4} />);
@@ -17,14 +31,6 @@ describe('PassCode', () => {
 
         it('should match snapshot with unknown code length', () => {
             const { container } = render(<PassCode value='' onChange={jest.fn} />);
-
-            expect(container).toMatchSnapshot();
-        });
-
-        it('should match snapshot with error prop', () => {
-            const { container } = render(
-                <PassCode value='1234' error='Error message' onChange={jest.fn} />,
-            );
 
             expect(container).toMatchSnapshot();
         });
@@ -52,7 +58,7 @@ describe('PassCode', () => {
             const dti = 'pass-code-dti';
             const cb = jest.fn();
             const { getByTestId, getAllByTestId } = render(
-                <PassCode value='12' onChange={cb} message='message' dataTestId={dti} />,
+                <PassCode value='12' onChange={cb} dataTestId={dti} />,
             );
 
             const testIds = getPassCodeTestIds(dti);
@@ -60,15 +66,8 @@ describe('PassCode', () => {
             expect(getByTestId(testIds.passCode)).toBeInTheDocument();
             expect(getByTestId(testIds.inputProgress)).toBeInTheDocument();
             expect(getByTestId(testIds.keypad)).toBeInTheDocument();
-            expect(getByTestId(testIds.message)).toBeInTheDocument();
             expect(getAllByTestId(testIds.keypadButton).length).toBe(10);
             expect(getByTestId(testIds.backspaceButton)).toBeInTheDocument();
-
-            const { getByTestId: getByTestIdError } = render(
-                <PassCode value='12' onChange={cb} error='error' dataTestId={dti} />,
-            );
-
-            expect(getByTestIdError(testIds.error)).toBeInTheDocument();
         });
 
         it('should set `className` class', () => {
@@ -78,41 +77,6 @@ describe('PassCode', () => {
             );
 
             expect(container.firstElementChild).toHaveClass(className);
-        });
-
-        it('should shown error message', () => {
-            const dataTestId = 'pass-code';
-            const errorMessage = 'Error message';
-            const { getByText, getByTestId } = render(
-                <PassCode
-                    error={errorMessage}
-                    value='1234'
-                    codeLength={4}
-                    onChange={jest.fn}
-                    dataTestId={dataTestId}
-                />,
-            );
-
-            const dots = getByTestId(dataTestId + '-input-progress').childNodes;
-
-            dots.forEach((dot) => expect(dot).toHaveClass('error'));
-            expect(getByText(errorMessage)).toBeInTheDocument();
-        });
-
-        it('should shown message', () => {
-            const dataTestId = 'pass-code';
-            const message = 'message';
-            const { getByText, getByTestId } = render(
-                <PassCode
-                    message={message}
-                    value='1234'
-                    codeLength={4}
-                    onChange={jest.fn}
-                    dataTestId={dataTestId}
-                />,
-            );
-
-            expect(getByText(message)).toBeInTheDocument();
         });
 
         it('should render left addons', () => {
@@ -150,10 +114,10 @@ describe('PassCode', () => {
 
             const dots = getByTestId(dataTestId + '-input-progress').childNodes;
 
-            expect(dots[0]).toHaveClass('filled');
-            expect(dots[1]).toHaveClass('filled');
-            expect(dots[2]).not.toHaveClass('filled');
-            expect(dots[3]).not.toHaveClass('filled');
+            expect(dots[0].childNodes[0]).toHaveClass('animatedFill');
+            expect(dots[1].childNodes[0]).toHaveClass('animatedFill');
+            expect(dots[2].childNodes[0]).not.toHaveClass('animatedFill');
+            expect(dots[3].childNodes[0]).not.toHaveClass('animatedFill');
         });
     });
 

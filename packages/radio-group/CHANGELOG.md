@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.3.3
+
+### Patch Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1272](https://github.com/core-ds/core-components/pull/1272)
+
+-   Исправлено позиционирование инпута для группы тегов
+
 ## 4.3.2
 
 ### Patch Changes

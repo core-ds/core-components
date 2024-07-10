@@ -7,10 +7,10 @@ import { ButtonMobile } from './mobile';
 import { ButtonProps } from './typings';
 
 export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
-    ({ children, breakpoint = 1024, ...restProps }, ref) => {
+    ({ children, breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         const Component = isDesktop ? ButtonDesktop : ButtonMobile;
 

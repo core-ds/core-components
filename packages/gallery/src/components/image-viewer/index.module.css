@@ -5,7 +5,7 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-static-bg-primary-dark);
+    background-color: var(--color-static-neutral-0-inverted);
 }
 
 .swiper {
@@ -38,7 +38,7 @@
 }
 
 .slideLoading {
-    background-color: var(--color-static-bg-secondary-dark);
+    background-color: var(--color-static-neutral-100-inverted);
     border-radius: var(--border-radius-m);
 }
 
@@ -46,7 +46,7 @@
     width: 0;
     height: 0;
     user-select: none;
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-base-bg-primary);
     border-radius: var(--border-radius-m);
 }
 
@@ -55,7 +55,7 @@
     width: auto;
     height: auto;
     user-select: none;
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-base-bg-primary);
 }
 
 .verticalImageFit {
@@ -77,16 +77,16 @@
     width: 96px;
     height: 100%;
     cursor: pointer;
-    color: var(--color-static-graphic-light);
+    color: var(--color-static-neutral-translucent-1300-inverted);
     transition: background-color 0.15s ease-in-out;
     outline: none;
 
     &:hover {
-        background-color: var(--color-static-bg-primary-dark-tint-15);
+        background-color: var(--color-static-neutral-0-inverted-hover);
     }
 
     &:active {
-        background-color: var(--color-static-bg-primary-dark-tint-20);
+        background-color: var(--color-static-neutral-0-inverted-press);
     }
 }
 
@@ -101,7 +101,7 @@
     width: 400px;
     height: 300px;
     border-radius: var(--border-radius-m);
-    background-color: var(--color-static-bg-quaternary-dark);
+    background-color: var(--color-static-neutral-300-inverted);
 }
 
 .brokenImgWrapper {
@@ -122,5 +122,5 @@
 .fullScreenImage {
     width: 100%;
     height: auto;
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-base-bg-primary);
 }

@@ -41,13 +41,13 @@ export const scrollbar: Story = {
         });
         const bgColorMap = {
             default: {
-                background: ['--color-light-bg-tertiary', '--color-light-bg-secondary'],
+                background: ['--color-light-neutral-200', '--color-light-base-bg-secondary'],
                 color: '--color-light-text-tertiary',
             },
             inverted: {
                 background: [
-                    '--color-light-bg-tertiary-inverted',
-                    '--color-light-bg-secondary-inverted',
+                    '--color-light-neutral-200-inverted',
+                    '--color-light-base-bg-secondary-inverted',
                 ],
                 color: '--color-light-text-tertiary-inverted',
             },
@@ -60,7 +60,7 @@ export const scrollbar: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',

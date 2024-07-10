@@ -2,7 +2,6 @@
 @import './amount/click.css';
 @import './checkbox-group/click.css';
 @import './tabs/click.css';
-@import './link/click.css';
 @import './confirmation/click.css';
 @import './calendar/click.css';
 @import './modal/click.css';
@@ -10,7 +9,6 @@
 @import './list/click.css';
 @import './dropzone/click.css';
 @import './bottom-sheet/click.css';
-@import './icon-button/click.css';
 @import './circular-progress-bar/click.css';
 @import './select/click.css';
 @import './progress-bar/click.css';
@@ -32,7 +30,6 @@
     @mixin amount-click;
     @mixin checkbox-group-click;
     @mixin tabs-click;
-    @mixin link-click;
     @mixin confirmation-click;
     @mixin calendar-click;
     @mixin modal-click;
@@ -40,7 +37,6 @@
     @mixin list-click;
     @mixin dropzone-click;
     @mixin bottom-sheet-click;
-    @mixin icon-button-click;
     @mixin circular-progress-bar-click;
     @mixin icon-view-click;
     @mixin system-message-click;

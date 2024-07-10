@@ -21,7 +21,7 @@ figure {
     height: 180px;
     width: 100%;
     border-radius: var(--border-radius-l);
-    background-color: var(--color-light-bg-secondary);
+    background-color: var(--color-light-base-bg-secondary);
     overflow: hidden;
 }
 

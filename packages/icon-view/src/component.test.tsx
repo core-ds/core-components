@@ -119,7 +119,7 @@ describe('IconView', () => {
         });
 
         it('should set background color color-light-bg-secondary by default', () => {
-            const defaultColor = 'var(--color-light-bg-secondary)';
+            const defaultColor = 'var(--color-light-base-bg-secondary)';
 
             const { baseElement } = render(<SuperEllipse />);
 

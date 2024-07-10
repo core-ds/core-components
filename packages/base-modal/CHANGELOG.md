@@ -1,5 +1,36 @@
 # Change Log
 
+## 5.7.9
+
+### Patch Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+-   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
+-   Обновлены зависимости
+    -   stack@5.0.0
+
+## 5.7.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.0
+    -   shared@0.11.0
+
+## 5.7.7
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+-   В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
 ## 5.7.6
 
 ### Patch Changes

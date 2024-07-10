@@ -1,5 +1,90 @@
 # Change Log
 
+## 17.8.1
+
+### Patch Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1269](https://github.com/core-ds/core-components/pull/1269)
+
+-   Пункт 'Выбрать все' скрыт, когда список вариантов пуст
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   input@15.0.1
+    -   bottom-sheet@6.15.7
+    -   modal@9.3.7
+
+## 17.8.0
+
+### Minor Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1274](https://github.com/core-ds/core-components/pull/1274)
+
+-   Добавлен проп 'limitDynamicOptionGroupSize' для ограчения динамического размера группы вариантов. Если он включен, используется размер, указанный в проп 'size'
+
+## 17.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   base-modal@5.7.9
+    -   popover@6.2.4
+    -   bottom-sheet@6.15.6
+    -   modal@9.3.6
+
+## 17.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   base-modal@5.7.8
+    -   popover@6.2.3
+    -   bottom-sheet@6.15.5
+    -   button@11.5.1
+    -   checkbox@4.4.1
+    -   form-control@12.2.4
+    -   input@14.4.7
+    -   modal@9.3.5
+
+## 17.7.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1252](https://github.com/core-ds/core-components/pull/1252)
+
+-   Добавлено новое свойство align, отвечающее за выравнивание чекбокса или иконки "галочки". По умолчанию элемент выровнен по центру. Для того чтобы изменить выравнивание, необходимо передать компоненту optionProps={{align: 'start'}}
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   base-modal@5.7.7
+    -   bottom-sheet@6.15.4
+    -   checkbox@4.4.0
+    -   input@14.4.6
+    -   modal@9.3.4
+
+## 17.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.0.2
+
 ## 17.6.0
 
 ### Minor Changes

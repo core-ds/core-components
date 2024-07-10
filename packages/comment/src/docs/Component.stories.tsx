@@ -25,7 +25,7 @@ export const comment: Story = {
         return (
             <div style={previewStyles}>
                 <style>
-                    {`.comment{background: var(--color-light-specialbg-secondary-transparent)}  `}
+                    {`.comment{background: var(--color-light-neutral-translucent-200)}  `}
                 </style>
                 <Comment rowLimit={rowLimit} className='comment'>
                     {children}

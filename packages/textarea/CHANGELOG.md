@@ -1,5 +1,23 @@
 # Change Log
 
+## 8.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   form-control@12.2.4
+
+## 8.7.3
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1254](https://github.com/core-ds/core-components/pull/1254)
+
+-   Изменили стили для значения поля ввода, когда количество вводимых символов превышает maxLength, если включено переполнение
+
 ## 8.7.2
 
 ### Patch Changes

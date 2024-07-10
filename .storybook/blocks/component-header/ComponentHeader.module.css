@@ -40,9 +40,9 @@
     padding: var(--gap-2xs) var(--gap-xs) var(--gap-2xs) var(--gap-2xl);
     margin-right: var(--gap-xs);
     text-decoration: none;
-    border: 1px solid var(--color-light-bg-tertiary);
+    border: 1px solid var(--color-light-neutral-200);
     border-radius: 6px;
-    color: var(--color-light-text-link);
+    color: var(--color-light-text-info);
     background-position: 10% 50%;
     background-repeat: no-repeat;
 }
@@ -73,10 +73,10 @@
 
 .github:hover,
 .design:hover {
-    background-color: var(--color-light-bg-primary-inverted-alpha-7);
+    background-color: var(--color-light-neutral-200);
 }
 
 .github:active,
 .design:active {
-    background-color: var(--color-light-bg-primary-inverted-alpha-15);
+    background-color: var(--color-light-neutral-300);
 }

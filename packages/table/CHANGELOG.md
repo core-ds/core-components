@@ -1,5 +1,58 @@
 # Change Log
 
+## 2.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   button@11.5.2
+
+## 2.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+
+## 2.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.7.2
+
+## 2.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+    -   select@17.7.1
+
+## 2.5.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   select@17.7.0
+
+## 2.4.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
 ## 2.4.30
 
 ### Patch Changes

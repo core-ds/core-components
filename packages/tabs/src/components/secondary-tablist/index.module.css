@@ -24,26 +24,44 @@
 
 /* sizes */
 
-.xxs .title + .title {
-    margin-left: var(--secondary-tablist-xxs-gaps);
+.xxs {
+    & .title + .title,
+    & .skeleton + .skeleton {
+        margin-left: var(--secondary-tablist-xxs-gaps);
+    }
 }
 
-.xs .title + .title {
-    margin-left: var(--secondary-tablist-xs-gaps);
+.xs {
+    & .title + .title,
+    & .skeleton + .skeleton {
+        margin-left: var(--secondary-tablist-xs-gaps);
+    }
 }
 
-.s .title + .title {
-    margin-left: var(--secondary-tablist-s-gaps);
+.s {
+    & .title + .title,
+    & .skeleton + .skeleton {
+        margin-left: var(--secondary-tablist-s-gaps);
+    }
 }
 
-.m .title + .title {
-    margin-left: var(--secondary-tablist-m-gaps);
+.m {
+    & .title + .title,
+    & .skeleton + .skeleton {
+        margin-left: var(--secondary-tablist-m-gaps);
+    }
 }
 
-.l .title + .title {
-    margin-left: var(--secondary-tablist-l-gaps);
+.l {
+    & .title + .title,
+    & .skeleton + .skeleton {
+        margin-left: var(--secondary-tablist-l-gaps);
+    }
 }
 
-.xl .title + .title {
-    margin-left: var(--secondary-tablist-xl-gaps);
+.xl {
+    & .title + .title,
+    & .skeleton + .skeleton {
+        margin-left: var(--secondary-tablist-xl-gaps);
+    }
 }

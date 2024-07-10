@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1277](https://github.com/core-ds/core-components/pull/1277)
+
+-   Исправили ширину и высоту для размера '16' с 18px на 16px
+
 ## 3.3.1
 
 ### Patch Changes

@@ -1,4 +1,4 @@
 @define-mixin icon-view-click {
     /* theme */
-    --icon-view-color: var(--color-light-graphic-primary);
+    --icon-view-color: var(--color-light-neutral-translucent-1300);
 }

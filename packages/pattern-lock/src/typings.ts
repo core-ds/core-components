@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent } from 'react';
 import { ReactPatternLockProps } from 'react-canvas-pattern-lock';
 
 type ConditionalProps =
@@ -28,19 +28,9 @@ type ConditionalProps =
 
 export type CommonPatternLockProps = {
     /**
-     * Дополнительный класс.
+     * Дополнительный класс
      */
     className?: string;
-
-    /**
-     * Сообщение об ошибке
-     */
-    error?: ReactNode;
-
-    /**
-     * Сообщение над графическим ключом
-     */
-    message?: ReactNode;
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
@@ -50,13 +40,13 @@ export type CommonPatternLockProps = {
     dataTestId?: string;
 
     /**
-     * Следить ли за изменениями значений цветовых токенов.
+     * Следить ли за изменениями значений цветовых токенов
      * @default false
      */
     observeTokens?: boolean;
 
     /**
-     * Параметры MutationObserver для наблюдения за изменениями режима(css custom properties).
+     * Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)
      */
     observerParams?: {
         getTarget?: () => Node;
@@ -67,7 +57,10 @@ export type CommonPatternLockProps = {
      * Дополнительный класс для message/errorMessage
      */
     messageClassName?: string;
-} & Omit<ReactPatternLockProps, 'theme' | 'width' | 'height' | 'rows' | 'cols' | 'hover'> &
+} & Omit<
+    ReactPatternLockProps,
+    'theme' | 'width' | 'height' | 'rows' | 'cols' | 'hover' | 'justifyNodes'
+> &
     ConditionalProps;
 
 export type PrivatePatternLockProps = {
@@ -76,7 +69,7 @@ export type PrivatePatternLockProps = {
      */
     hover?: boolean;
     /**
-     * Стили компонента.
+     * Стили компонента
      */
     styles: { [key: string]: string };
 };
