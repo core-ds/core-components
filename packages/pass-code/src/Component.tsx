@@ -61,6 +61,11 @@ export type BasePassCodeProps = {
     breakpoint?: number;
 
     /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
+
+    /**
      * Стили компонента
      */
     styles?: { [key: string]: string };

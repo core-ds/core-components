@@ -8,10 +8,10 @@ import { PatternLockMobile } from './mobile';
 import { PatternLockProps } from './typings';
 
 export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
-    ({ breakpoint = 1024, ...restProps }, ref) => {
+    ({ breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         const Component = isDesktop ? PatternLockDesktop : PatternLockMobile;
 

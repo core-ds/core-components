@@ -9,7 +9,8 @@ import styles from './index.module.css';
 
 export const TitleResponsive = forwardRef<HTMLHeadingElement | HTMLDivElement, TitleProps>(
     (props, ref) => {
-        const [isDesktop] = useMatchMedia('(min-width: 1024px)');
+        const { defaultMatchMediaValue } = props;
+        const [isDesktop] = useMatchMedia('(min-width: 1024px)', defaultMatchMediaValue);
 
         return (
             <TitleBase
