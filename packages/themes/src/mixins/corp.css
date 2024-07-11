@@ -1,6 +1,5 @@
 @import './button/corp.css';
 @import './tabs/corp.css';
-@import '../breakpoints/breakpoint-768.css';
 
 @define-mixin theme-corp {
     @mixin button-corp;
