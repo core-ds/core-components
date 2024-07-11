@@ -1,5 +1,61 @@
 # Change Log
 
+## 12.1.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   input@15.0.1
+
+## 12.1.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+
+## 12.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   popover@6.2.4
+    -   select@17.7.2
+
+## 12.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   popover@6.2.3
+    -   form-control@12.2.4
+    -   input@14.4.7
+    -   select@17.7.1
+
+## 12.1.9
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1266](https://github.com/core-ds/core-components/pull/1266)
+
+-   Исправление типизации компонента
+
+-   Обновлены зависимости
+    -   select@17.7.0
+    -   input@14.4.6
+
+## 12.1.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
 ## 12.1.7
 
 ### Patch Changes

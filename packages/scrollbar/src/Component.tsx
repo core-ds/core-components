@@ -174,7 +174,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             const maskNode = maskNodeRef.current;
 
             const setMinWidth = throttle(() => {
-                if (!contentNode) return;
+                if (!contentNode || !contentNode.children.length) return;
 
                 if (elementHasAbsPosChild(contentNode)) {
                     /*

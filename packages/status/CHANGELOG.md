@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.4.1
+
+### Patch Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1273](https://github.com/core-ds/core-components/pull/1273)
+
+-   Добавлено предупреждение в консоль о том, что значение soft для view теперь deprecated
+
 ## 3.4.0
 
 ### Minor Changes

@@ -6,7 +6,7 @@
     justify-content: space-between;
     height: 100%;
     width: 100%;
-    background-color: var(--color-static-bg-primary-dark);
+    background-color: var(--color-static-neutral-0-inverted);
 }
 
 .modal {

@@ -148,6 +148,7 @@ export const BaseSelect = forwardRef(
             Popover,
             ModalMobile,
             BottomSheet,
+            limitDynamicOptionGroupSize,
         }: ComponentProps,
         ref,
     ) => {
@@ -574,9 +575,15 @@ export const BaseSelect = forwardRef(
                 searchProps?.componentProps?.onChange?.(event, payload);
             };
 
+            const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+                searchProps.componentProps?.onBlur?.(event);
+                handleFieldBlur(event);
+            };
+
             return (
                 <Search
                     {...searchProps?.componentProps}
+                    onBlur={handleBlur}
                     value={search}
                     onChange={handleChange}
                     dataTestId={getDataTestId(dataTestId, 'search')}
@@ -660,6 +667,7 @@ export const BaseSelect = forwardRef(
                         onScroll={onScroll}
                         search={search}
                         multiple={multiple}
+                        limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
@@ -717,7 +725,7 @@ export const BaseSelect = forwardRef(
                         bottomAddons={
                             <React.Fragment>
                                 {renderSearch()}
-                                {bottomSheetProps?.bottomAddons}
+                                {flatOptions.length > 0 && bottomSheetProps?.bottomAddons}
                             </React.Fragment>
                         }
                         containerProps={{
@@ -771,7 +779,7 @@ export const BaseSelect = forwardRef(
                             bottomAddons={
                                 <React.Fragment>
                                     {renderSearch()}
-                                    {modalHeaderProps?.bottomAddons}
+                                    {flatOptions.length > 0 && modalHeaderProps?.bottomAddons}
                                 </React.Fragment>
                             }
                         >

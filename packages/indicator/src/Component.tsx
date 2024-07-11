@@ -96,7 +96,7 @@ function borderStyles(
 
     return {
         outlineWidth: 2,
-        outlineColor: 'var(--color-light-graphic-primary)',
+        outlineColor: 'var(--color-light-neutral-translucent-1300)',
         outlineStyle: 'solid',
     };
 }

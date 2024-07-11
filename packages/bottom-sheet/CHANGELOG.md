@@ -1,5 +1,42 @@
 # Change Log
 
+## 6.15.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.6
+
+## 6.15.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.9
+
+## 6.15.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   base-modal@5.7.8
+    -   navigation-bar-private@0.1.5
+
+## 6.15.4
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+-   В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+    -   navigation-bar-private@0.1.4
+
 ## 6.15.3
 
 ### Patch Changes

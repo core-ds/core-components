@@ -1,7 +1,7 @@
 @import '../../../../themes/src/default.css';
 
 .cardMack {
-    background-color: var(--color-light-graphic-primary-inverted);
+    background-color: var(--color-light-neutral-translucent-1300-inverted);
     border-radius: var(--border-radius-xs);
 }
 

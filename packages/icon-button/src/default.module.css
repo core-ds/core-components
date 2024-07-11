@@ -14,10 +14,10 @@
     --icon-button-secondary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* transparent */
-    --icon-button-transparent-base-color: var(--color-light-graphic-primary-alpha-30);
-    --icon-button-transparent-hover-color: var(--color-light-graphic-primary-alpha-40);
-    --icon-button-transparent-active-color: var(--color-light-graphic-primary-alpha-50);
-    --icon-button-transparent-disabled-color: var(--color-light-graphic-primary-alpha-40);
+    --icon-button-transparent-base-color: var(--color-light-neutral-translucent-500);
+    --icon-button-transparent-hover-color: var(--color-light-neutral-translucent-500-hover);
+    --icon-button-transparent-active-color: var(--color-light-neutral-translucent-500-press);
+    --icon-button-transparent-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* tertiary */
     --icon-button-tertiary-base-color: var(--color-light-neutral-translucent-500);

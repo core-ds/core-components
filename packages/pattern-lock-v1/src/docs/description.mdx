@@ -1,0 +1,59 @@
+## Пример
+
+Компонент не знает сколько символов в ключе пользователя,
+поэтому ждет пока пользователь отпустит палец и только после этого проверяет ключ.
+После валидации компонент может отобразить состоянии ошибки с еррор месседжем или состояние успеха.
+Корректная комбинация для примера `698751`.
+
+```jsx live mobileHeight={640}
+render(() => {
+    const shouldBeCode = [6, 9, 8, 7, 5, 1];
+    const [currentState, setCurrentState] = React.useState(THEME_STATE.INITIAL);
+    const patternLockInstance = React.useRef();
+    const timerId = React.useRef();
+
+    const handleComplete = (code) => {
+        if (shouldBeCode.join() === code.join()) {
+            setCurrentState(THEME_STATE.SUCCESS);
+        } else {
+            setCurrentState(THEME_STATE.FAILURE);
+        }
+    };
+
+    const handleDragStart = () => {
+        setCurrentState(THEME_STATE.INITIAL);
+    };
+
+    React.useEffect(() => {
+        if (currentState !== THEME_STATE.INITIAL) {
+            // Сбрасываем стейт через сек.
+            timerId.current = setTimeout(() => {
+                setCurrentState(THEME_STATE.INITIAL);
+                patternLockInstance.current.setInitialState();
+            }, 1000);
+        }
+
+        return () => clearTimeout(timerId.current);
+    }, [currentState]);
+
+    return (
+        <Container align='center'>
+            <PatternLockV1
+                ref={patternLockInstance}
+                onComplete={handleComplete}
+                themeState={currentState}
+                onDragStart={handleDragStart}
+                observeTokens={true}
+                error={currentState === THEME_STATE.FAILURE && 'Error message'}
+                showForgotCodeBtn={true}
+                breakpoint={BREAKPOINT}
+            />
+        </Container>
+    );
+});
+```
+
+## Адаптивность
+
+Размер контролов компонента подстраивается под ширину мобильного экрана.
+Для десктопных устройств доступен только один размер.

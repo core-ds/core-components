@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+
+## 2.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   indicator@2.1.0
+    -   typography@4.6.0
+
 ## 2.0.2
 
 ### Patch Changes

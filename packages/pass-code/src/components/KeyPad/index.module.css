@@ -1,33 +1,19 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
-    width: 240px;
-    height: 292px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, var(--size-l-height));
     grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: var(--gap-xl);
-    grid-row-gap: var(--gap-s);
+    grid-column-gap: var(--gap-3xl);
+    grid-row-gap: var(--gap-2s);
+    justify-content: center;
+
     margin: 0 auto;
+    min-width: var(--pass-code-min-width);
 
     & .digit.digit {
         font-size: 36px;
         line-height: 1;
-    }
-}
-
-@media screen and (min-width: 360px) {
-    .component {
-        width: 292px;
-        height: 352px;
-        grid-column-gap: var(--gap-2xl);
-        grid-row-gap: var(--gap-m);
-    }
-}
-
-@media screen and (min-width: 390px) {
-    .component {
-        width: 322px;
-        height: 392px;
     }
 }

@@ -29,16 +29,16 @@
 
     /* transparent */
     --icon-button-inverted-transparent-base-color: var(
-        --color-light-graphic-primary-inverted-alpha-30
+        --color-light-neutral-translucent-500-inverted
     );
     --icon-button-inverted-transparent-hover-color: var(
-        --color-light-graphic-primary-inverted-alpha-40
+        --color-light-neutral-translucent-500-inverted-hover
     );
     --icon-button-inverted-transparent-active-color: var(
-        --color-light-graphic-primary-inverted-alpha-50
+        --color-light-neutral-translucent-500-inverted-press
     );
     --icon-button-inverted-transparent-disabled-color: var(
-        --color-light-graphic-primary-inverted-alpha-40
+        --color-light-neutral-translucent-300-inverted
     );
 
     /* tertiary */

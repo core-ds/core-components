@@ -1,5 +1,61 @@
 # Change Log
 
+## 9.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   input-autocomplete@12.1.13
+
+## 9.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+    -   input-autocomplete@12.1.12
+
+## 9.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.11
+    -   select@17.7.2
+
+## 9.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.10
+    -   select@17.7.1
+
+## 9.9.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.9
+    -   select@17.7.0
+
+## 9.8.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+    -   input-autocomplete@12.1.8
+
 ## 9.8.10
 
 ### Patch Changes

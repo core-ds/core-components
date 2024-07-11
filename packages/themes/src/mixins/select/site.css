@@ -3,5 +3,5 @@
     --select-options-list-offset: 0;
 
     /* select mobile footer */
-    --select-mobile-footer-border-top: 1px solid var(--color-light-border-primary);
+    --select-mobile-footer-border-top: 1px solid var(--color-light-neutral-400);
 }

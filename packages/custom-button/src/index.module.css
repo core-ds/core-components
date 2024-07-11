@@ -44,21 +44,21 @@
 
     &.darkening {
         &:hover:before {
-            background-color: var(--color-light-border-key-alpha-7);
+            background-color: var(--color-light-neutral-translucent-200);
         }
 
         &:active:before {
-            background-color: var(--color-light-border-key-alpha-15);
+            background-color: var(--color-light-neutral-translucent-400);
         }
     }
 
     &.lightening {
         &:hover:before {
-            background-color: var(--color-light-border-key-inverted-alpha-7);
+            background-color: var(--color-light-neutral-translucent-200-inverted);
         }
 
         &:active:before {
-            background-color: var(--color-light-border-key-inverted-alpha-15);
+            background-color: var(--color-light-neutral-translucent-400-inverted);
         }
     }
 

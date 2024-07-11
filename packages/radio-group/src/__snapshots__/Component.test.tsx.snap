@@ -576,7 +576,7 @@ Object {
           class="radioList verticalRadioList"
         >
           <label
-            class="verticalRadio verticalTagLabel"
+            class="verticalRadio verticalTagLabel tagLabel"
           >
             <input
               autocomplete="off"
@@ -596,7 +596,7 @@ Object {
             </button>
           </label>
           <label
-            class="verticalRadio verticalTagLabel"
+            class="verticalRadio verticalTagLabel tagLabel"
           >
             <input
               autocomplete="off"
@@ -616,7 +616,7 @@ Object {
             </button>
           </label>
           <label
-            class="verticalRadio verticalTagLabel"
+            class="verticalRadio verticalTagLabel tagLabel"
           >
             <input
               autocomplete="off"
@@ -652,7 +652,7 @@ Object {
         class="radioList verticalRadioList"
       >
         <label
-          class="verticalRadio verticalTagLabel"
+          class="verticalRadio verticalTagLabel tagLabel"
         >
           <input
             autocomplete="off"
@@ -672,7 +672,7 @@ Object {
           </button>
         </label>
         <label
-          class="verticalRadio verticalTagLabel"
+          class="verticalRadio verticalTagLabel tagLabel"
         >
           <input
             autocomplete="off"
@@ -692,7 +692,7 @@ Object {
           </button>
         </label>
         <label
-          class="verticalRadio verticalTagLabel"
+          class="verticalRadio verticalTagLabel tagLabel"
         >
           <input
             autocomplete="off"

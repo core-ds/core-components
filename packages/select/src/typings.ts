@@ -365,6 +365,11 @@ export type BaseSelectProps = {
         | 'preventFlip'
         | 'dataTestId'
     >;
+
+    /**
+     * Ограничение динамического размера группы вариантов выбора
+     */
+    limitDynamicOptionGroupSize?: boolean;
 };
 
 // TODO: использовать InputProps
@@ -626,6 +631,11 @@ export type OptionsListProps = {
      * Возможность выбрать несколько значений
      */
     multiple?: boolean;
+
+    /**
+     * Ограничение динамического размера группы вариантов выбора
+     */
+    limitDynamicOptionGroupSize?: BaseSelectProps['limitDynamicOptionGroupSize'];
 };
 
 export type OptgroupProps = {
@@ -752,6 +762,11 @@ export type OptionProps = {
     checkmarkPosition?: 'before' | 'after';
 
     /**
+     * Выравнивание чекбокса или иконки "галочки"
+     */
+    align?: 'start' | 'center';
+
+    /**
      * Мобильная верcия option.
      */
     mobile?: boolean;
@@ -787,6 +802,11 @@ export type CheckmarkProps = {
      * Иконка выбранного пункта
      */
     icon?: FC<SVGProps<SVGSVGElement>>;
+
+    /**
+     * Выравнивание чекбокса или иконки "галочки"
+     */
+    align?: 'start' | 'center';
 };
 
 export type SearchProps = InputProps & RefAttributes<HTMLInputElement>;

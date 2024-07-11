@@ -76,17 +76,22 @@
 }
 
 .filled {
-    color: var(--color-dark-text-primary);
-    background-color: var(--color-dark-bg-quaternary);
+    color: var(--color-light-text-primary-inverted);
+    background-color: var(--color-light-neutral-translucent-300-inverted);
+    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
-            background-color: color-mod(var(--color-dark-bg-quaternary) tint(15%));
+            background-color: var(--color-light-neutral-translucent-300-inverted-hover);
         }
     }
 
     &:active {
-        background-color: color-mod(var(--color-dark-bg-quaternary) shade(15%));
+        background-color: var(--color-light-neutral-translucent-300-inverted-press);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-inverted-color);
     }
 }
 
@@ -198,14 +203,12 @@
     }
 
     &.filled {
-        color: color-mod(var(--color-dark-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-dark-bg-quaternary) alpha(30%));
-        border-color: transparent;
+        color: var(--color-light-text-tertiary-inverted);
+        background-color: var(--color-light-neutral-translucent-100-inverted);
 
         &.loading {
-            color: var(--color-dark-text-primary);
-            background-color: var(--color-dark-bg-quaternary);
-            border-color: transparent;
+            color: var(--color-light-text-primary-inverted);
+            background-color: var(--color-light-neutral-translucent-300-inverted);
         }
     }
 

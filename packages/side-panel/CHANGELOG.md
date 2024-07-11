@@ -1,5 +1,39 @@
 # Change Log
 
+## 5.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.6
+
+## 5.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.9
+    -   drawer@5.0.15
+
+## 5.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   base-modal@5.7.8
+    -   navigation-bar-private@0.1.5
+    -   drawer@5.0.14
+
+## 5.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+    -   navigation-bar-private@0.1.4
+    -   drawer@5.0.13
+
 ## 5.3.3
 
 ### Patch Changes

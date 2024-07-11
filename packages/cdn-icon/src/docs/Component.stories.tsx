@@ -18,7 +18,7 @@ export const cdn_icon: Story = {
             <CDNIcon
                 name='glyph_diamonds_m'
                 fallback={<DiamondsMIcon />}
-                color='var(--color-light-graphic-secondary)'
+                color='var(--color-light-neutral-700)'
             />
         );
     },

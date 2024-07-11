@@ -2,8 +2,8 @@
 @import '../vars.css';
 
 .component {
-    max-width: var(--pattern-lock-desktop-max-width);
-    margin: var(--gap-xs) 0 var(--gap-xl) 0;
+    margin: 0 auto;
+    min-width: var(--pattern-lock-min-width);
 }
 
 .forgotBtn {

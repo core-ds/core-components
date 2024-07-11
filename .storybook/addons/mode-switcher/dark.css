@@ -1,15 +1,15 @@
 @import '../../../packages/themes/src/dark.css';
 
 body {
-    background: var(--color-dark-bg-primary);
+    background: var(--color-dark-base-bg-primary);
     color: var(--color-dark-text-primary);
 }
 
 body::-webkit-scrollbar-track-piece {
-    background: var(--color-dark-bg-primary);
+    background: var(--color-dark-base-bg-primary);
 }
 
 #storybook-docs .sbdocs-wrapper {
-    background: var(--color-dark-bg-primary);
+    background: var(--color-dark-base-bg-primary);
     color: var(--color-dark-text-primary);
 }

@@ -123,3 +123,23 @@ describe(
         },
     }),
 );
+
+describe(
+    'Tabs | showSkeleton prop',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Tabs',
+            subComponentName: 'TabsDesktop',
+            testStory: false,
+            knobs: {
+                view: ['primary', 'secondary'],
+                showSkeleton: true,
+            },
+        }),
+        viewport: {
+            width: 500,
+            height: 180,
+        },
+        evaluate: (page) => page.waitForTimeout(500),
+    }),
+);

@@ -15,7 +15,7 @@
         right: 0;
         top: var(--gap-xs);
         bottom: var(--gap-xs);
-        background-color: var(--color-light-graphic-quaternary);
+        background-color: var(--color-light-neutral-400);
     }
 
     & th:after {

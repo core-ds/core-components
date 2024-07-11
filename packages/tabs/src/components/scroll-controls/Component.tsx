@@ -17,10 +17,11 @@ type ScrollControlsProps = {
     view: Exclude<TabsProps['view'], undefined>;
     size: TabsProps['size'];
     containerRef: RefObject<HTMLDivElement>;
+    showSkeleton?: boolean;
 };
 
 export const ScrollControls = forwardRef<HTMLDivElement, ScrollControlsProps>(
-    ({ containerRef, view, size: sizeProp, className }, ref) => {
+    ({ containerRef, view, size: sizeProp, className, showSkeleton }, ref) => {
         const container = containerRef.current;
         const [disabledState, updateDisabledState] = useState(() => getDisabledState(container));
 
@@ -70,13 +71,13 @@ export const ScrollControls = forwardRef<HTMLDivElement, ScrollControlsProps>(
                 <IconButton
                     {...commonButtonProps}
                     icon={ChevronLeftCompactSIcon}
-                    disabled={disabledState.toLeft}
+                    disabled={disabledState.toLeft || showSkeleton}
                     onClick={handleScrollLeft}
                 />
                 <IconButton
                     {...commonButtonProps}
                     icon={ChevronRightCompactSIcon}
-                    disabled={disabledState.toRight}
+                    disabled={disabledState.toRight || showSkeleton}
                     onClick={handleScrollRight}
                 />
             </div>

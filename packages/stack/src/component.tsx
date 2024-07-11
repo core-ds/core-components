@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useContext } from 'react';
 
-import { StackingContext, stackingOrder } from './context';
+import { StackingContext, stackingOrder } from '@alfalab/stack-context';
 
 export type StackProps = {
     /**
