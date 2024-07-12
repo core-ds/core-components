@@ -1,1 +1,7 @@
 @import '../../../themes/src/default.css';
+
+.component {
+    box-sizing: border-box;
+    padding: var(--gap-xs) var(--gap-m) var(--gap-m);
+    min-width: var(--pass-code-min-width);
+}
