@@ -1,8 +1,16 @@
 import { isClient } from '../isClient';
 
+/* eslint-disable vars-on-top, no-var, @typescript-eslint/no-namespace */
+declare global {
+    namespace globalThis {
+        var globalBreakpointDesktop: number;
+    }
+}
+/* eslint-disable vars-on-top, no-var, @typescript-eslint/no-namespace */
+
 const defaultComponentBreakpoint = 1024;
 
-const getCustomBreakpoint = (): number | null => {
+const getCSSCustomBreakpoint = (): number | null => {
     // проверяем глобальный css custom property
     const breakpoint =
         isClient() &&
@@ -14,10 +22,14 @@ const getCustomBreakpoint = (): number | null => {
 };
 
 export function getComponentBreakpoint(): number {
-    const customBreakpoint = getCustomBreakpoint();
+    const cssCustomBreakpoint = getCSSCustomBreakpoint();
 
-    if (customBreakpoint) {
-        return customBreakpoint;
+    if (cssCustomBreakpoint) {
+        return cssCustomBreakpoint;
+    }
+
+    if (globalThis.globalBreakpointDesktop) {
+        return globalThis.globalBreakpointDesktop;
     }
 
     return defaultComponentBreakpoint;
