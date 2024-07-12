@@ -149,13 +149,15 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
 
         const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
             if (platform === 'desktop') {
-                const target = (event.relatedTarget || document.activeElement) as HTMLElement;
+                const target = event.relatedTarget;
 
                 if (
                     inputRef.current !== target &&
                     calendarRef.current?.contains(target) === false
                 ) {
                     closeCalendar();
+                    // снимаем фокус с инпута, чтобы календарь не открылся при возвращении на таб
+                    inputRef.current?.blur();
                 }
             }
         };
