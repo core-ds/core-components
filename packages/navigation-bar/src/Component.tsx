@@ -216,3 +216,5 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
         );
     },
 );
+
+NavigationBar.displayName = 'NavigationBar';
