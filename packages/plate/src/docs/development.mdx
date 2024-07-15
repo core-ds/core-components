@@ -21,3 +21,18 @@ import { PlateDesktop } from '@alfalab/core-components/plate/desktop';
 ## Переменные
 
 <CssVars css={styles} />
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getPlateTestIds`.  
+Импорт из `@alfalab/core-components/plate/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    wrapper: dataTestId,
+    title: `${dataTestId}-title`,
+};
+```
