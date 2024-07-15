@@ -91,17 +91,20 @@ export const BasePatternLock = forwardRef<
                 })}
                 data-test-id={dataTestId}
             >
-                <ReactCanvasPatternLock
-                    {...restProps}
-                    {...params}
-                    ref={ref}
-                    rows={3}
-                    cols={3}
-                    justifyNodes='space-between'
-                    extraBounds={extraBounds}
-                    hover={hover}
-                />
-
+                <div className={commonStyles.canvasContainer}>
+                    <div className={commonStyles.canvasInner}>
+                        <ReactCanvasPatternLock
+                            {...restProps}
+                            {...params}
+                            ref={ref}
+                            rows={3}
+                            cols={3}
+                            justifyNodes='space-between'
+                            extraBounds={extraBounds}
+                            hover={hover}
+                        />
+                    </div>
+                </div>
                 {showForgotCodeBtn && (
                     <ButtonMobile
                         view='transparent'
