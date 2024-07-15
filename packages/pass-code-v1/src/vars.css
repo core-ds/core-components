@@ -1,0 +1,5 @@
+:root {
+    --pass-code-max-width: 500px;
+    --button-bg-color: var(--color-light-neutral-translucent-200);
+    --button-bg-color-active: var(--color-light-neutral-translucent-200-press);
+}

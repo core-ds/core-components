@@ -1,5 +1,172 @@
 # Change Log
 
+## 2.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   button@11.5.2
+
+## 2.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+
+## 2.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.7.2
+
+## 2.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+    -   select@17.7.1
+
+## 2.5.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   select@17.7.0
+
+## 2.4.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
+## 2.4.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+
+## 2.4.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+
+## 2.4.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   select@17.5.0
+    -   pagination@2.3.3
+
+## 2.4.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   select@17.4.5
+
+## 2.4.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.4
+    -   button@11.4.3
+
+## 2.4.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.3
+
+## 2.4.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.2
+
+## 2.4.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+    -   select@17.4.1
+
+## 2.4.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   button@11.4.1
+
+## 2.4.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+
+## 2.4.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   button@11.4.0
+
+## 2.4.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.3
+
+## 2.4.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.2
+
+## 2.4.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+
+## 2.4.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.0
+    -   button@11.3.0
+    -   pagination@2.3.2
+
 ## 2.4.15
 
 ### Patch Changes

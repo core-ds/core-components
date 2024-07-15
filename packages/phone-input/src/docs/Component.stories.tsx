@@ -17,7 +17,7 @@ export const phone_input: Story = {
     render: () => (
         <PhoneInput
             block={boolean('block', false)}
-            size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+            size={select('size', [48, 56, 64, 72], 48)}
             error={text('error', '')}
             hint={text('hint', '')}
             label={text('label', '')}

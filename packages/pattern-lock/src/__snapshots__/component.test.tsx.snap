@@ -3,47 +3,7 @@
 exports[`PatternLock test Snapshot tests should match snapshot 1`] = `
 <div>
   <div
-    class="component"
-  >
-    <div
-      class="gap vertical"
-      data-gap-size="xs"
-    />
-    <div
-      class="message"
-    />
-    <div
-      class="gap vertical"
-      data-gap-size="3xl"
-    />
-    <div
-      class="forgotBtn"
-    />
-  </div>
-</div>
-`;
-
-exports[`PatternLock test Snapshot tests should match snapshot with error prop 1`] = `
-<div>
-  <div
-    class="component"
-  >
-    <div
-      class="gap vertical"
-      data-gap-size="xs"
-    />
-    <div
-      class="message error"
-    >
-      Error message
-    </div>
-    <div
-      class="gap vertical"
-      data-gap-size="3xl"
-    />
-    <div
-      class="forgotBtn"
-    />
-  </div>
+    class="component component"
+  />
 </div>
 `;

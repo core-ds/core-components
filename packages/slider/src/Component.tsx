@@ -80,8 +80,9 @@ export type SliderProps = {
 
     /**
      * Размер
+     * @description s, m deprecated, используйте вместо них 2, 4 соответственно
      */
-    size?: 's' | 'm';
+    size?: 's' | 'm' | 2 | 4;
 
     /**
      * Обработчик поля ввода
@@ -89,12 +90,14 @@ export type SliderProps = {
     onChange?: (payload: { value: number; valueTo?: number }) => void;
 
     /**
+     * @deprecated
      * Обработчик начала перетаскивания ползунка
      */
     onStart?: () => void;
 
     /**
      * Обработчик окончания перетаскивания ползунка
+     * @description https://refreshless.com/nouislider/events-callbacks/#section-change
      */
     onEnd?: () => void;
 
@@ -102,6 +105,13 @@ export type SliderProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+};
+
+export const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-2',
+    m: 'size-4',
+    2: 'size-2',
+    4: 'size-4',
 };
 
 export const Slider: FC<SliderProps> = ({
@@ -114,7 +124,7 @@ export const Slider: FC<SliderProps> = ({
     pips,
     behaviour = 'tap',
     range = { min, max },
-    size = 's',
+    size = 2,
     className,
     onChange,
     onStart,
@@ -139,10 +149,6 @@ export const Slider: FC<SliderProps> = ({
             range,
         });
 
-        slider.on('change', () => {
-            busyRef.current = false;
-        });
-
         // eslint-disable-next-line consistent-return
         return () => slider.destroy();
 
@@ -159,14 +165,15 @@ export const Slider: FC<SliderProps> = ({
             onStart?.();
         });
 
-        slider.on('end', () => {
+        slider.on('change', () => {
+            busyRef.current = false;
             onEnd?.();
         });
 
         // eslint-disable-next-line consistent-return
         return () => {
             slider.off('start');
-            slider.off('end');
+            slider.off('change');
         };
     }, [onStart, onEnd]);
 
@@ -227,7 +234,7 @@ export const Slider: FC<SliderProps> = ({
 
     return (
         <div
-            className={cn(styles.component, className, styles[size])}
+            className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}
             ref={sliderRef}
             data-test-id={dataTestId}
             {...{ disabled }}

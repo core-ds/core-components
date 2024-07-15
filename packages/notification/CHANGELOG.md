@@ -1,5 +1,131 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1278](https://github.com/core-ds/core-components/pull/1278)
+
+-   Добавлено новое свойство position, отвечающее за позиционирование компонента от верхнего или нижнего края экрана
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.5
+
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+-   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
+-   Обновлены зависимости
+    -   stack@5.0.0
+
+## 7.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.0
+    -   toast-plate@7.0.4
+
+## 7.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.3
+
+## 7.0.2
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   portal@3.2.1
+    -   toast-plate@7.0.2
+
+## 7.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.1
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1158](https://github.com/core-ds/core-components/pull/1158)
+
+-   В toast-plate компоненте badge заменен на status-badge
+-   Добавлена возможность принимать кастомные иконки для status-badge
+
+## Миграция для toast-plate компонента
+
+-   Добавлены изменения в пропс getBadgeIcons. Теперь он будет принимать объект в виде:
+
+```
+{
+  'positive-checkmark': {
+      24: AScoresCircleMIcon,
+  },
+  'negative-cross': {
+    ...
+  },
+}
+```
+
+-   `'negative' | 'positive' | 'attention'` - `@deprеcated`
+    Их по-прежнему можно передавать в пропс `badge` (компоненты toast, toast-plate, notification), под капотом они автоматически преобразуютеся в `'negative-cross' | 'positive-checkmark' | 'attention-alert'` соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.0.0
+
+## 6.2.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.3.7
+
+## 6.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.3.6
+
+## 6.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.3.5
+
+## 6.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.3.4
+
 ## 6.2.17
 
 ### Patch Changes

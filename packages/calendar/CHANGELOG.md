@@ -1,5 +1,199 @@
 # Change Log
 
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1190](https://github.com/core-ds/core-components/pull/1190)
+
+-   Упрощена работа с периодами. Теперь достаточно использовать только value и onChange. Режим выбора периода управляется пропсой rangeBehavior. Пропсы selectedFrom и selectedTo помечены как deprecated.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   icon-button@6.7.2
+    -   modal@9.3.7
+
+## 7.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.3.6
+
+## 7.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   button@11.5.1
+    -   modal@9.3.5
+    -   icon-button@6.7.1
+
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   icon-button@6.7.0
+    -   modal@9.3.4
+
+## 7.6.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1227](https://github.com/core-ds/core-components/pull/1227)
+
+-   Повышена специфичность для стилей, отвечающих за внутренний отступ у кнопок выбора года и месяца
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   icon-button@6.6.1
+    -   modal@9.3.3
+
+## 7.6.4
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   icon-button@6.6.0
+    -   modal@9.3.2
+
+## 7.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   button@11.4.3
+    -   modal@9.3.1
+    -   icon-button@6.5.7
+
+## 7.6.2
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1193](https://github.com/core-ds/core-components/pull/1193)
+
+-   Добавили dataTestId к PeriodSlider
+
+-   Обновлены зависимости
+    -   modal@9.3.0
+
+## 7.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.2.4
+
+## 7.6.0
+
+### Minor Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1183](https://github.com/core-ds/core-components/pull/1183)
+
+-   Добавлена возможность изменения текста PeriodSlider для состояния когда ему не переданы даты
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+    -   modal@9.2.3
+    -   icon-button@6.5.6
+
+## 7.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+    -   icon-button@6.5.5
+    -   modal@9.2.2
+
+## 7.5.1
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1135](https://github.com/core-ds/core-components/pull/1135)
+
+-   Исправлена критическая ошибка генерации списка в мобильном календаре с view="month-only" при установке даты больше трех лет назад
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1140](https://github.com/core-ds/core-components/pull/1140)
+
+-   Добавлен обработчик периода `range` для компонента `PeriodSlider`
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   icon-button@6.5.4
+    -   modal@9.2.1
+
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1091](https://github.com/core-ds/core-components/pull/1091)
+
+-   Экспортирован мобильный month-only календарь, пофикшены параметры month/defaultMonth для month-only view
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1111](https://github.com/core-ds/core-components/pull/1111)
+
+-   Добавлен новый пропс onApply, отвечающий за обработку клика по кнопке "Выбрать"
+-   Добавлена возможность передавать dataTestId в компонент ModalMobile и его слоты (для CalendarMobile), а также в кнопки подтверждения и сброса
+
+## 7.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.2.0
+    -   button@11.3.0
+    -   icon-button@6.5.3
+
 ## 7.3.3
 
 ### Patch Changes

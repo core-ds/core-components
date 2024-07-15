@@ -16,11 +16,12 @@ const DEFAULT_CLIP = {
 
 async function testComponent(
     urlParams: Partial<CreateStorybookUrlParams>,
-    viewport = { width: 400, height: 500 },
+    viewport = { width: 340, height: 340 },
     clip = DEFAULT_CLIP,
 ) {
     const pageUrl = createStorybookUrl({
         componentName: 'PatternLock',
+        packageName: 'pattern-lock',
         testStory: false,
         knobs: {},
         ...urlParams,
@@ -57,14 +58,14 @@ describe('PatternLock ', () => {
         await testComponent(
             {
                 wrapperStyles:
-                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 800px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
+                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 670px; height: 600px',
             },
-            { width: 800, height: 600 },
+            { width: 639, height: 440 },
             {
-                x: 88,
-                y: 60,
-                width: 640,
-                height: 480,
+                x: 20,
+                y: 0,
+                width: 639,
+                height: 440,
             },
         );
     });
@@ -74,14 +75,14 @@ describe('PatternLock ', () => {
             {
                 darkMode: true,
                 wrapperStyles:
-                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 800px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
+                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 670px; height: 600px',
             },
-            { width: 800, height: 600 },
+            { width: 639, height: 440 },
             {
-                x: 88,
-                y: 60,
-                width: 640,
-                height: 480,
+                x: 20,
+                y: 0,
+                width: 639,
+                height: 440,
             },
         );
     });
@@ -94,33 +95,5 @@ describe('PatternLock | screenshots', () => {
 
     test('default with forgot code button', async () => {
         await testComponent({ knobs: { showForgotCodeBtn: true } });
-    });
-
-    test('justifyNodes - space-around', async () => {
-        await testComponent({ knobs: { justifyNodes: 'space-around' } });
-    });
-
-    test('error message', async () => {
-        await testComponent({ knobs: { error: 'Error message' } });
-    });
-
-    test('message', async () => {
-        await testComponent({ knobs: { message: 'Message' } });
-    });
-
-    test('m - viewport', async () => {
-        await testComponent({}, { width: 370, height: 500 });
-    });
-
-    test('s - viewport', async () => {
-        await testComponent({}, { width: 320, height: 400 });
-    });
-
-    test('m - viewport with forgot code button', async () => {
-        await testComponent({ knobs: { showForgotCodeBtn: true } }, { width: 370, height: 500 });
-    });
-
-    test('s - viewport with forgot code button', async () => {
-        await testComponent({ knobs: { showForgotCodeBtn: true } }, { width: 320, height: 400 });
     });
 });

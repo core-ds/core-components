@@ -1,5 +1,199 @@
 # Change Log
 
+## 8.2.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   bottom-sheet@6.15.7
+
+## 8.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+
+## 8.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.4
+    -   select@17.7.2
+    -   bottom-sheet@6.15.6
+
+## 8.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.3
+    -   bottom-sheet@6.15.5
+    -   form-control@12.2.4
+    -   select@17.7.1
+
+## 8.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.4
+    -   select@17.7.0
+
+## 8.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
+## 8.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+
+## 8.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+
+## 8.2.13
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.3
+    -   form-control@12.2.3
+    -   popover@6.2.2
+    -   select@17.5.0
+    -   tag@8.2.1
+
+## 8.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.5
+    -   bottom-sheet@6.15.2
+
+## 8.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.4
+    -   bottom-sheet@6.15.1
+    -   form-control@12.2.2
+
+## 8.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.0
+    -   select@17.4.3
+
+## 8.2.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.6
+    -   select@17.4.2
+
+## 8.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.5
+    -   select@17.4.1
+
+## 8.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   bottom-sheet@6.14.4
+
+## 8.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+
+## 8.2.5
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1141](https://github.com/core-ds/core-components/pull/1141)
+
+-   Исправлено определение ширины контента. Ранее, при включенном автокомплите, если было выбрано несколько тегов, и их контент занимал половину ширины поля ввода, при вводе любой буквы, а затем ее удалении, добавлялась и удалялась новая строка. Теперь этой проблемы нет
+
+## 8.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   bottom-sheet@6.14.3
+
+## 8.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.1
+    -   select@17.3.3
+
+## 8.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.2
+
+## 8.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+
+## 8.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.0
+    -   select@17.3.0
+    -   tag@8.2.0
+    -   bottom-sheet@6.14.2
+
 ## 8.1.4
 
 ### Patch Changes

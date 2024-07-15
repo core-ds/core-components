@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.6.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+## 4.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.0.0
+
 ## 4.5.0
 
 ### Minor Changes

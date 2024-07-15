@@ -19,7 +19,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -30,7 +30,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 }}
             >
                 <Spinner
-                    size={select('size', ['xs', 's', 'm'], 's')}
+                    size={select('size', [16, 24, 48], 24)}
                     visible={boolean('visible', true)}
                     colors={colors}
                 />

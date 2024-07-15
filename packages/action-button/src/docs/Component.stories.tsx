@@ -33,7 +33,7 @@ export const action_button: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -49,7 +49,7 @@ export const action_button: Story = {
                     view={select('view', ['primary', 'secondary'], 'primary')}
                     href={text('href', '')}
                     icon={<Icon />}
-                    size={select('size', ['s'], 's')}
+                    size={select('size', [48], 48)}
                     disabled={boolean('disabled', false)}
                     loading={boolean('loading', false)}
                 >

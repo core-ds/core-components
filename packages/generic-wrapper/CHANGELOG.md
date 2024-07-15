@@ -1,5 +1,29 @@
 # @alfalab/core-components-generic-wrapper
 
+## 1.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   gap@1.3.1
+
+## 1.1.2
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1208](https://github.com/core-ds/core-components/pull/1208)
+
+-   Тип GenericWrapperProps был расширен нативными атрибутами, предоставляемыми библиотекой React для элемента HTMLDivElement
+
+## 1.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   gap@1.3.0
+
 ## 1.1.0
 
 ### Minor Changes

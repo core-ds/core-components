@@ -66,7 +66,7 @@ export const ScreenshotsSprite = () => {
                             style={{
                                 ...componentStyles,
                                 backgroundColor: invertedBg
-                                    ? 'var(--color-light-bg-primary-inverted)'
+                                    ? 'var(--color-light-base-bg-primary-inverted)'
                                     : 'transparent',
                             }}
                         >

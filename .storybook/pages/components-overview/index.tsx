@@ -88,7 +88,7 @@ export const ComponentsOverview = () => {
                 onClear={handleClear}
                 value={query}
                 placeholder='Поиск по компонентам'
-                leftAddons={<MagnifierMIcon color='var(--color-light-graphic-secondary)' />}
+                leftAddons={<MagnifierMIcon color='var(--color-light-neutral-700)' />}
                 onChange={handleSearch}
             />
             {hasData ? (

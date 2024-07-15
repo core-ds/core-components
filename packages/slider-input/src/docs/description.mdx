@@ -15,7 +15,7 @@ render(() => {
                 value={value1}
                 label='Label'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 pips={{
                     mode: 'values',
                     values: [min, 10 / 2, 10],
@@ -32,7 +32,7 @@ render(() => {
                 value={value2}
                 label='Label'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 pips={{
                     mode: 'values',
                     values: [min, 10, 100],
@@ -90,7 +90,7 @@ render(() => {
                     sliderValue={value}
                     label='Label'
                     labelView={isMobile() ? 'outer' : 'inner'}
-                    size={isMobile() ? 's' : 'm'}
+                    size={isMobile() ? 48 : 56}
                     pips={pips}
                     min={min}
                     max={max}
@@ -104,15 +104,15 @@ render(() => {
             <Gap size='xl' />
 
             <Space direction='horizontal' wrap={true}>
-                <Button onClick={() => setProps({})} size='xxs' view='secondary'>
+                <Button onClick={() => setProps({})} size={32} view='secondary'>
                     По умолчанию
                 </Button>
-                <Button onClick={() => setProps({ error: 'Error' })} size='xxs' view='secondary'>
+                <Button onClick={() => setProps({ error: 'Error' })} size={32} view='secondary'>
                     Ошибка
                 </Button>
                 <Button
                     onClick={() => setProps({ disabled: true, hint: 'Hint' })}
-                    size='xxs'
+                    size={32}
                     view='secondary'
                 >
                     Заблокирован
@@ -182,7 +182,7 @@ render(() => {
                 label='Первоначальный взнос'
                 Input={AmountInput}
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
             />
         </div>

@@ -28,7 +28,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
         class="wrapper"
         role="dialog"
         style="z-index: 100;"
-        tabindex="0"
+        tabindex="-1"
       >
         <div
           class="component modal appear appearActive"
@@ -38,7 +38,6 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
           >
             <div
               class="wrapper"
-              style="max-height: 744px;"
             >
               <div
                 class="component"
@@ -118,7 +117,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
         class="wrapper"
         role="dialog"
         style="z-index: 100;"
-        tabindex="0"
+        tabindex="-1"
       >
         <div
           class="component modal appear appearActive"
@@ -128,7 +127,6 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
           >
             <div
               class="wrapper"
-              style="max-height: 744px;"
             >
               <div
                 class="component"

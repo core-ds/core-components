@@ -1,5 +1,39 @@
 # Change Log
 
+## 3.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.6.0
+
+## 3.5.2
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+## 3.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.5.1
+
+## 3.5.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1025](https://github.com/core-ds/core-components/pull/1025)
+
+-   Добавлены новые способы указать размеры - 24, 48, 64, 80, 128, 144. Буквенные значения размеров xs, s, m, l, xl, xxl теперь deprecated, используйте вместо них 24, 48, 64, 80, 128, 144 соответственно
+
 ## 3.4.3
 
 ### Patch Changes

@@ -6,369 +6,150 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
     class="component"
   >
     <div
-      class="message"
-    />
-    <div
-      class="gap vertical"
-      data-gap-size="m"
-    />
-    <div
-      class="component"
+      class="inputProgressContainer"
     >
       <div
-        class="dot"
+        class="gap vertical"
+        data-gap-size="size-16"
       />
       <div
-        class="dot"
-      />
+        class="component"
+      >
+        <div
+          class="dotWrapper"
+        >
+          <div
+            class="dot"
+          />
+        </div>
+        <div
+          class="dotWrapper"
+        >
+          <div
+            class="dot"
+          />
+        </div>
+        <div
+          class="dotWrapper"
+        >
+          <div
+            class="dot"
+          />
+        </div>
+        <div
+          class="dotWrapper"
+        >
+          <div
+            class="dot"
+          />
+        </div>
+      </div>
       <div
-        class="dot"
-      />
-      <div
-        class="dot"
+        class="gap vertical"
+        data-gap-size="size-26"
       />
     </div>
     <div
-      class="gap vertical"
-      data-gap-size="4xl"
-    />
-    <div
       class="component"
     >
-      <div
-        class="component"
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            1
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          1
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            2
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          2
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            3
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          3
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            4
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          4
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            5
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          5
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            6
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          6
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            7
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          7
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            8
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          8
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            9
-          </span>
-        </button>
-      </div>
+          9
+        </span>
+      </button>
       <div />
-      <div
-        class="component"
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary iconOnly button secondary digit"
-          type="button"
-        >
-          0
-        </button>
-      </div>
+        0
+      </button>
       <div />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
-<div>
-  <div
-    class="component"
-  >
-    <div
-      class="message error"
-    >
-      Error message
-    </div>
-    <div
-      class="gap vertical"
-      data-gap-size="m"
-    />
-    <div
-      class="component shake"
-    />
-    <div
-      class="gap vertical"
-      data-gap-size="4xl"
-    />
-    <div
-      class="component"
-    >
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            1
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            2
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            3
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            4
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            5
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            6
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            7
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            8
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            9
-          </span>
-        </button>
-      </div>
-      <div />
-      <div
-        class="component"
-      >
-        <button
-          class="component secondary m hug m component secondary component secondary iconOnly button secondary digit"
-          type="button"
-        >
-          0
-        </button>
-      </div>
-      <div
-        class="component"
-      >
-        <button
-          class="component ghost m hug m component ghost component ghost button ghost"
-          type="button"
-        >
-          <span
-            class="text stretchText"
-          >
-            <svg
-              fill="currentColor"
-              focusable="false"
-              height="48"
-              role="img"
-              viewBox="0 0 48 48"
-              width="48"
-            >
-              <path
-                d="M27 22.221l-4.007-4.007-1.765 1.832 3.991 3.962-3.994 3.963 1.77 1.81L27 25.777l4.004 4.004 1.771-1.81-3.996-3.965L32.778 20 31 18.22l-4 4z"
-              />
-              <path
-                clip-rule="evenodd"
-                d="M19.922 11.45a2.99 2.99 0 00-2.132.888l-9.457 9.519a3.022 3.022 0 00-.883 2.142c0 .808.314 1.57.881 2.141l9.46 9.52a2.99 2.99 0 002.131.89H36c2.61 0 4.55-1.922 4.55-4.55V16c0-2.63-1.94-4.55-4.55-4.55H19.922zm-.642 2.368a.889.889 0 01.642-.269H36c.749 0 1.355.26 1.772.678.417.416.678 1.022.678 1.772v16c0 .75-.26 1.356-.678 1.773-.417.417-1.023.677-1.772.677H19.922a.89.89 0 01-.642-.268L9.82 24.66a.921.921 0 01-.27-.662c0-.254.094-.484.272-.662l9.457-9.52z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
     </div>
   </div>
 </div>
@@ -380,159 +161,120 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
     class="component"
   >
     <div
-      class="message"
-    />
-    <div
-      class="gap vertical"
-      data-gap-size="m"
-    />
-    <div
-      class="component"
-    />
-    <div
-      class="gap vertical"
-      data-gap-size="4xl"
-    />
+      class="inputProgressContainer"
+    >
+      <div
+        class="gap vertical"
+        data-gap-size="size-16"
+      />
+      <div
+        class="component"
+      />
+      <div
+        class="gap vertical"
+        data-gap-size="size-26"
+      />
+    </div>
     <div
       class="component"
     >
-      <div
-        class="component"
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            1
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          1
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            2
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          2
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            3
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          3
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            4
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          4
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            5
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          5
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            6
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          6
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            7
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          7
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            8
-          </span>
-        </button>
-      </div>
-      <div
-        class="component"
+          8
+        </span>
+      </button>
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary button secondary digit"
-          type="button"
+        <span
+          class="label stretchText"
         >
-          <span
-            class="text stretchText"
-          >
-            9
-          </span>
-        </button>
-      </div>
+          9
+        </span>
+      </button>
       <div />
-      <div
-        class="component"
+      <button
+        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly button secondary digit"
+        type="button"
       >
-        <button
-          class="component secondary m hug m component secondary component secondary iconOnly button secondary digit"
-          type="button"
-        >
-          0
-        </button>
-      </div>
+        0
+      </button>
       <div />
     </div>
   </div>

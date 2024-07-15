@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapshot 1`] = `
+<div>
+  <div
+    aria-live="polite"
+    class="component"
+    data-test-id="period-slider"
+  >
+    <button
+      aria-label="Предыдущий период"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      data-test-id="period-slider-btn-previous-day"
+      disabled=""
+      type="button"
+    >
+      <span
+        class="label stretchText"
+      >
+        <span
+          class="iconWrapper size-32 center"
+        >
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+    <span
+      class="period empty"
+    >
+      Укажите период
+    </span>
+    <button
+      aria-label="Следующий период"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      data-test-id="period-slider-btn-next-day"
+      disabled=""
+      type="button"
+    >
+      <span
+        class="label stretchText"
+      >
+        <span
+          class="iconWrapper size-32 center"
+        >
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snapshot 1`] = `
+<div>
+  <div
+    aria-live="polite"
+    class="component"
+    data-test-id="period-slider"
+  >
+    <button
+      aria-label="Предыдущий период"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      data-test-id="period-slider-btn-previous-day"
+      disabled=""
+      type="button"
+    >
+      <span
+        class="label stretchText"
+      >
+        <span
+          class="iconWrapper size-32 center"
+        >
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+    <span
+      class="period empty"
+    >
+      Не выбрано
+    </span>
+    <button
+      aria-label="Следующий период"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      data-test-id="period-slider-btn-next-day"
+      disabled=""
+      type="button"
+    >
+      <span
+        class="label stretchText"
+      >
+        <span
+          class="iconWrapper size-32 center"
+        >
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;

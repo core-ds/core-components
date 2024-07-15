@@ -13,11 +13,12 @@ import cn from 'classnames';
 import elementClosest from 'element-closest';
 
 import { Portal } from '@alfalab/core-components-portal';
-import { Stack, stackingOrder } from '@alfalab/core-components-stack';
+import { Stack } from '@alfalab/core-components-stack';
 import {
     ToastPlateDesktop,
     ToastPlateDesktopProps,
 } from '@alfalab/core-components-toast-plate/desktop';
+import { stackingOrder } from '@alfalab/stack-context';
 
 import { useClickOutside } from './utils';
 
@@ -48,6 +49,11 @@ export type NotificationProps = ToastPlateDesktopProps & {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Позиционирование компонента от верхнего или нижнего края экрана
+     */
+    position?: 'top' | 'bottom';
 
     /**
      * Обработчик события истечения времени до закрытия компонента
@@ -86,6 +92,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             usePortal = true,
             zIndex = stackingOrder.TOAST,
             style,
+            position = 'top',
             onClose,
             onCloseTimeout,
             onMouseEnter,
@@ -214,7 +221,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     styles.actionSection,
                                 )}
                                 style={{
-                                    top: offset,
+                                    [position]: offset,
                                     zIndex: computedZIndex,
                                     ...style,
                                 }}
@@ -235,3 +242,5 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         );
     },
 );
+
+Notification.displayName = 'Notification';

@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, SVGProps } from 'react';
+import React, { ComponentType, forwardRef, SVGProps } from 'react';
 import cn from 'classnames';
 
 import type { ButtonProps } from '@alfalab/core-components-button';
@@ -41,12 +41,13 @@ export type PickerButtonDesktopProps = Omit<
                 /**
                  * Иконка, отображающаяся слева от текстового представления пункта
                  */
-                icon?: FC<SVGProps<SVGSVGElement>>;
+                icon?: ComponentType<SVGProps<SVGSVGElement>>;
             }
         >;
 
         /**
          * Размер кнопки
+         * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
          */
         size?: PickerButtonSize;
 
@@ -60,6 +61,11 @@ export type PickerButtonDesktopProps = Omit<
          * @default true
          */
         showArrow?: boolean;
+
+        /**
+         * Кастомная иконка при variant = compact
+         */
+        icon?: ComponentType<SVGProps<SVGSVGElement>>;
     };
 
 export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesktopProps>(
@@ -70,7 +76,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             Option = DefaultOption,
             view,
             loading,
-            size = 'm',
+            size = 56,
             variant = 'default',
             className,
             leftAddons,
@@ -80,6 +86,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             showArrow,
             Field = DefaultField,
             fieldProps = {},
+            icon,
             ...restProps
         },
         ref,
@@ -97,6 +104,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             rightAddons,
             showArrow,
             breakpoint: 1,
+            icon,
         };
 
         return (
@@ -108,7 +116,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
                 ref={ref}
                 Option={Option}
                 Field={Field}
-                size={size === 'm' ? 'm' : 's'}
+                size={size === 'm' || size === 56 ? 56 : 48}
                 fieldProps={{
                     ...fieldDefaultProps,
                     ...(fieldProps as object),

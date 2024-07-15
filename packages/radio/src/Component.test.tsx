@@ -52,16 +52,16 @@ describe('Radio', () => {
             expect(container.firstElementChild).toHaveClass('disabled');
         });
 
-        it('should set size `s` as default size', () => {
+        it('should set size 20 as default size', () => {
             const { container } = render(<Radio />);
 
-            expect(container.firstElementChild).toHaveClass('s');
+            expect(container.firstElementChild).toHaveClass('size-20');
         });
 
         it('should set size', () => {
-            const { container } = render(<Radio size='m' />);
+            const { container } = render(<Radio size={24} />);
 
-            expect(container.firstElementChild).toHaveClass('m');
+            expect(container.firstElementChild).toHaveClass('size-24');
         });
     });
 

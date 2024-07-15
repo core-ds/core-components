@@ -1,5 +1,167 @@
 # Change Log
 
+## 4.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+
+## 4.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   button@11.5.1
+
+## 4.11.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   typography@4.6.0
+    -   comment@2.3.5
+
+## 4.10.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+
+## 4.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+
+## 4.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   typography@4.5.1
+    -   button@11.4.3
+    -   comment@2.3.4
+
+## 4.10.0
+
+### Minor Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1199](https://github.com/core-ds/core-components/pull/1199)
+
+-   В PureCell.AmountTitle заменили компонент Typography.Title на Typography.TitleResponsive
+
+## 4.9.0
+
+### Minor Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1177](https://github.com/core-ds/core-components/pull/1177)
+
+-   Добавлен пропс onClick для компонента PureCell.Graphics
+-   Добавлен пропс onClick для компонента PureCell.Main
+-   Добавлен пропс onClick для компонента PureCell.Addon
+-   Кликабельные области PureCell изолированы в плане всплытия событий (click, hover, active)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.5.1
+    -   button@11.4.2
+
+## 4.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
+## 4.8.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1133](https://github.com/core-ds/core-components/pull/1133)
+
+-   Добавлена возможность изменять верхний и нижний паддинги компонента независимо друг от друга.
+-   Добавлена возможность выставлять значение марджина графики.
+-   Добавлена поддержка 'secondary-large' для текста.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.5.0
+
+## 4.7.1
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1131](https://github.com/core-ds/core-components/pull/1131)
+
+-   Добавили экспорт типа PureCellProps
+
+-   Обновлены зависимости
+    -   button@11.4.0
+
+## 4.7.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1105](https://github.com/core-ds/core-components/pull/1105)
+
+-   Расширили типы для children в подкомпонентах GraphicsElement, MainElement, FooterElement
+
+-   Обновлены зависимости
+    -   amount@3.4.0
+
+## 4.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.3.0
+
 ## 4.6.0
 
 ### Minor Changes

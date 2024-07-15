@@ -1,5 +1,35 @@
 # Change Log
 
+## 4.6.2
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+## 4.6.1
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1100](https://github.com/core-ds/core-components/pull/1100)
+
+-   fix(slider): Исправлена проблема, что событие onEnd не вызывалось когда перемещался ползунок стрелками на клавиатуре или тапом в слайдере
+
+## 4.6.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1029](https://github.com/core-ds/core-components/pull/1029)
+
+-   Добавлены новые способы указать размеры - 4 и 2. Буквенные значения размеров m и s теперь deprecated, используйте вместо них 4 и 2 соответственно
+
 ## 4.5.0
 
 ### Minor Changes

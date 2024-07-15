@@ -10,7 +10,7 @@
             block={true} 
             label='Текст' 
             labelView={isMobile() ? 'outer' : 'inner'}
-            size={isMobile() ? 's' : 'm'}
+            size={isMobile() ? 48 : 56}
             breakpoint={BREAKPOINT} 
         />
         <Gap size='m' />
@@ -19,7 +19,7 @@
             block={true} 
             label='Email' 
             labelView={isMobile() ? 'outer' : 'inner'}
-            size={isMobile() ? 's' : 'm'}
+            size={isMobile() ? 48 : 56}
             breakpoint={BREAKPOINT} 
         />
     </div>
@@ -41,16 +41,16 @@ render(() => {
                     label='Label' 
                     placeholder='Placeholder' 
                     labelView={isMobile() ? 'outer' : 'inner'}
-                    size={isMobile() ? 's' : 'm'}
+                    size={isMobile() ? 48 : 56}
                     breakpoint={BREAKPOINT} 
                     error={error} />
             </div>
             <Gap size='xl' />
-            <Button size='xxs' view='secondary' onClick={() => setError(false)}>
+            <Button size={32} view='secondary' onClick={() => setError(false)}>
                 По умолчанию
             </Button>
             <Gap size='s' direction='horizontal' />
-            <Button size='xxs' view='secondary' onClick={() => setError('Error message')}>
+            <Button size={32} view='secondary' onClick={() => setError('Error message')}>
                 Состояние ошибки
             </Button>
         </div>
@@ -75,7 +75,7 @@ render(() => {
                     placeholder='Placeholder' 
                     label='Label' 
                     labelView={isMobile() ? 'outer' : 'inner'}
-                    size={isMobile() ? 's' : 'm'}
+                    size={isMobile() ? 48 : 56}
                     breakpoint={BREAKPOINT}  
                     {...inputProps} 
                 />
@@ -83,18 +83,18 @@ render(() => {
             <Gap size='xl' />
 
             <Space direction='horizontal' wrap={true}>
-                <Button size='xxs' view='secondary' onClick={() => setInputProps({})}>
+                <Button size={32} view='secondary' onClick={() => setInputProps({})}>
                     По умолчанию
                 </Button>
                 <Button
-                    size='xxs'
+                    size={32}
                     view='secondary'
                     onClick={() => setInputProps({ disabled: true })}
                 >
                     Заблокирован
                 </Button>
                 <Button
-                    size='xxs'
+                    size={32}
                     view='secondary'
                     onClick={() => setInputProps({ readOnly: true })}
                 >
@@ -132,7 +132,7 @@ render(() => {
                 block={true}
                 label={!isMobile() && 'Инпут с плейсхолдером'}
                 placeholder={isMobile() ? 'Инпут с плейсхолдером' : 'Placeholder'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
                 hint='Подсказка под полем'
                 rightAddons={
@@ -202,22 +202,13 @@ render(() => {
                 label='Введите 5 символов'
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
                 success={success}
                 error={hasError}
                 rightAddons={
                     hasError ? (
-                        <Badge
-                            view='icon'
-                            size='m'
-                            iconColor='negative'
-                            content={
-                                <ExclamationCircleMIcon
-                                    style={{ color: 'var(--color-light-graphic-negative)' }}
-                                />
-                            }
-                        />
+                        <StatusBadge view='negative-alert' />
                     ) : undefined
                 }
             />
@@ -244,7 +235,7 @@ render(() => {
                 label='Label'
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
                 clear={true}
                 onClear={() => setValue('')}
@@ -308,7 +299,7 @@ render(() => {
                 label='Label'
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
                 rightAddons={
                     <IconButton
@@ -328,7 +319,7 @@ render(() => {
                 label='Label'
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
                 rightAddons={
                     <div style={styleWrapperIcons}>

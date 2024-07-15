@@ -1,5 +1,35 @@
 # Change Log
 
+## 4.3.3
+
+### Patch Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1272](https://github.com/core-ds/core-components/pull/1272)
+
+-   Исправлено позиционирование инпута для группы тегов
+
+## 4.3.2
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 4.3.1
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1204](https://github.com/core-ds/core-components/pull/1204)
+
+-   Исправлен отступ в компонентах CheckboxGroup и RadioGroup в соответствии с макетом при их вертикальном расположении. Ранее отступ составлял 16px, теперь он уменьшен до 12px
+
 ## 4.3.0
 
 ### Minor Changes

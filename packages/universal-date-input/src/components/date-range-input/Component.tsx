@@ -9,6 +9,8 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import isAfter from 'date-fns/isAfter';
+import isValid from 'date-fns/isValid';
 import startOfMonth from 'date-fns/startOfMonth';
 
 import type { CalendarProps } from '@alfalab/core-components-calendar';
@@ -21,6 +23,7 @@ import { DATE_RANGE_SEPARATOR, DEFAULT_MAX_DATE, DEFAULT_MIN_DATE } from '../../
 import { InnerDateRangeInputProps } from '../../types';
 import {
     formatDate,
+    formatDateRange,
     getValidRange,
     isCompleteDate,
     isCompleteDateRange,
@@ -30,6 +33,14 @@ import {
 } from '../../utils';
 
 import styles from '../../index.module.css';
+
+function getDefaultValue(defaultValue: InnerDateRangeInputProps['defaultValue']) {
+    if (defaultValue && isValid(defaultValue.dateFrom) && isValid(defaultValue.dateTo)) {
+        return formatDateRange(defaultValue);
+    }
+
+    return '';
+}
 
 export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputProps>(
     (
@@ -42,7 +53,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             value: valueProp,
             defaultValue,
             inputWrapperRef: inputWrapperRefProp = null,
-            onComplete,
+            onInputChange,
             onChange,
             onBlur,
             Calendar,
@@ -60,20 +71,22 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             platform,
             onPickerClick,
             rangeBehavior = 'clarification',
+            clear,
+            onClear,
             ...restProps
         },
         ref,
     ) => {
-        const [value, setValue] = useState(defaultValue);
+        const [inputValue, setInputValue] = useState(() => getDefaultValue(defaultValue));
         const [calendarMonth, setCalendarMonth] = useState(calendarProps.defaultMonth);
 
         const lastValidRange = useRef<string>('');
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
-        const uncontrolled = valueProp === undefined;
-        const inputValue = valueProp ?? value ?? '';
         const { offDays } = calendarProps;
         const [from = '', to = ''] = inputValue.split(DATE_RANGE_SEPARATOR);
+        const dateFromProp = valueProp?.dateFrom;
+        const dateToProp = valueProp?.dateTo;
 
         const { validFrom, validTo } = useMemo(
             () => getValidRange({ from, to, offDays, minDate, maxDate }),
@@ -95,9 +108,25 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             }
         }, [validFrom, validTo, open, picker]);
 
+        useEffect(() => {
+            if (dateFromProp !== undefined && dateToProp !== undefined) {
+                setInputValue(
+                    dateFromProp && dateToProp && isValid(dateFromProp) && isValid(dateToProp)
+                        ? formatDateRange({ dateFrom: dateFromProp, dateTo: dateToProp })
+                        : '',
+                );
+            }
+        }, [dateFromProp, dateToProp]);
+
         const getInnerError = () => {
             if (autoCorrection) {
-                return (isCompleteDate(from) && !validFrom) || (isCompleteDate(to) && !validTo)
+                const isCompleteFrom = isCompleteDate(from);
+                const isCompleteTo = isCompleteDate(to);
+                const isComplete = isCompleteFrom && isCompleteTo;
+
+                return (isCompleteFrom && !validFrom) ||
+                    (isCompleteTo && !validTo) ||
+                    (isComplete && isAfter(parseDateString(from), parseDateString(to)))
                     ? 'Эта дата недоступна'
                     : false;
             }
@@ -105,18 +134,24 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             return false;
         };
 
-        const callOnComplete = (val: string) => {
-            const [dateFrom, dateTo] = val.split(DATE_RANGE_SEPARATOR);
+        const callOnChange = (val: string) => {
+            const [dateFrom = '', dateTo = ''] = val.split(DATE_RANGE_SEPARATOR);
 
-            onComplete?.(val, parseDateString(dateFrom), parseDateString(dateTo));
+            onChange?.(
+                {
+                    dateFrom: dateFrom ? parseDateString(dateFrom) : null,
+                    dateTo: dateFrom ? parseDateString(dateTo) : null,
+                },
+                val,
+            );
             lastValidRange.current = val;
         };
 
-        const changeValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
-            onChange?.(event, { value: val });
+        const changeInputValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
+            onInputChange?.(event, { value: val });
 
-            if (uncontrolled) setValue(val);
-            if (isCompleteDateRange(val)) callOnComplete(val);
+            setInputValue(val);
+            if (val === '' || isCompleteDateRange(val)) callOnChange(val);
         };
 
         const handleMonthChange = (date: number) => {
@@ -124,20 +159,27 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             calendarProps?.onMonthChange?.(date);
         };
 
-        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-            changeValue(event.target.value, event);
+        const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+            changeInputValue(event.target.value, event);
         };
 
         const handleCalendarChange: CalendarProps['onChange'] = (date?: number) => {
             const newValue = updateRange({ date, validFrom, validTo, rangeBehavior });
 
-            changeValue(newValue, null);
+            changeInputValue(newValue, null);
             requestAnimationFrame(() => {
                 inputRef.current?.setSelectionRange(newValue.length, newValue.length);
             });
         };
 
+        const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
+            changeInputValue('', null);
+            onClear?.(event);
+        };
+
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+            if (open) return;
+
             onBlur?.(event);
 
             if (autoCorrection) {
@@ -148,7 +190,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
                     const newFrom = validFrom ? formatDate(validFrom) : prevFrom;
                     const newTo = validTo ? formatDate(validTo) : prevTo;
 
-                    changeValue(`${newFrom}${DATE_RANGE_SEPARATOR}${newTo}`, null);
+                    changeInputValue(`${newFrom}${DATE_RANGE_SEPARATOR}${newTo}`, null);
                 }
             }
         };
@@ -193,13 +235,15 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             >
                 <Input
                     {...restProps}
+                    clear={clear && isCompleteDateRange(inputValue)}
+                    onClear={valueProp === undefined ? handleClear : onClear}
                     dataTestId={dataTestId}
                     breakpoint={breakpoint}
                     wrapperRef={mergeRefs([inputWrapperRef, inputWrapperRefProp])}
                     ref={mergeRefs([ref, inputRef])}
                     value={inputValue}
                     inputMode='decimal'
-                    onInput={handleChange}
+                    onInput={handleInputChange}
                     onBlur={handleBlur}
                     error={error || getInnerError()}
                     block={true}

@@ -1,5 +1,50 @@
 # Change Log
 
+## 1.3.1
+
+### Patch Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1233](https://github.com/core-ds/core-components/pull/1233)
+
+Редизайн компонентов PassCode и PatternLock
+
+-   Внесены изменения в адаптивность
+-   Удалены пропсы для вывода кастомных сообщений и ошибок
+    Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
+
+## Обновление
+
+Для упрощенного перехода между версиями библиотеки, после обновления вам необходимо исправить импорты.
+
+До
+
+```js
+import { PassCode } from '@alfalab/core-components/pass-code';
+import { PatternLock } from '@alfalab/core-components/pattern-lock';
+```
+
+После
+
+```js
+import { PassCodeV1 } from '@alfalab/core-components/pass-code-v1';
+import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
+```
+
+Таким образом, в вашем приложении продолжат работу старые версии компонентов.
+В дальнейшем поддержка `v1` версий будет прекращена.
+
+## 1.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1037](https://github.com/core-ds/core-components/pull/1037)
+
+-   Добавлены новые способы указать размеры - 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256. Буквенные значения размеров 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256 соответственно
+
 ## 1.2.0
 
 ### Minor Changes

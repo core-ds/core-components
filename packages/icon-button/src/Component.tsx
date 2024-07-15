@@ -41,6 +41,12 @@ export type IconButtonProps = {
     className?: string;
 
     /**
+     * Включает прозрачный фон
+     * @default false
+     */
+    transparentBg?: boolean;
+
+    /**
      * Выравнивание иконки
      * @default 'center'
      */
@@ -79,6 +85,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             size = 48,
             colors = 'default',
             alignIcon = 'center',
+            transparentBg = false,
             ...restProps
         },
         ref,
@@ -86,7 +93,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         <Button
             {...restProps}
             ref={ref}
-            view='ghost'
+            view='text'
             className={cn(
                 'cc-icon-button',
                 className,
@@ -94,6 +101,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                 colorStyles[colors].component,
                 {
                     [colorStyles[colors].loader]: restProps.loading,
+                    [colorStyles[colors].transparentBg]: transparentBg,
                 },
             )}
             size='s'
@@ -114,3 +122,5 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         </Button>
     ),
 );
+
+IconButton.displayName = 'IconButton';

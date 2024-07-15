@@ -17,7 +17,7 @@ describe('RadioGroup', () => {
             componentName: 'RadioGroup',
             knobs: {
                 label: 'Радио-группа',
-                size: 'm',
+                size: 24,
             },
         },
         'width:800px;transform:scale(2.3)',

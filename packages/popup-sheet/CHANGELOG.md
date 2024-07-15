@@ -1,5 +1,117 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.6
+
+## 1.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.9
+
+## 1.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   base-modal@5.7.8
+    -   navigation-bar-private@0.1.5
+
+## 1.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+    -   navigation-bar-private@0.1.4
+
+## 1.2.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   navigation-bar-private@0.1.3
+
+## 1.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.2
+
+## 1.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   base-modal@5.7.5
+    -   navigation-bar-private@0.1.1
+
+## 1.2.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1175](https://github.com/core-ds/core-components/pull/1175)
+
+-   Внутренний компонент NavigationBar переименован в NavigationBarPrivate
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   navigation-bar-private@0.1.0
+
+## 1.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.3
+
+## 1.1.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.7
+
+## 1.1.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.6
+
+## 1.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.5
+
+## 1.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.4
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,5 +1,132 @@
 # Change Log
 
+## 5.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.6
+
+## 5.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.9
+    -   drawer@5.0.15
+
+## 5.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   base-modal@5.7.8
+    -   navigation-bar-private@0.1.5
+    -   drawer@5.0.14
+
+## 5.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+    -   navigation-bar-private@0.1.4
+    -   drawer@5.0.13
+
+## 5.3.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   drawer@5.0.12
+    -   navigation-bar-private@0.1.3
+
+## 5.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.2
+
+## 5.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   base-modal@5.7.5
+    -   navigation-bar-private@0.1.1
+    -   drawer@5.0.11
+
+## 5.3.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1175](https://github.com/core-ds/core-components/pull/1175)
+
+-   Внутренний компонент NavigationBar переименован в NavigationBarPrivate
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   navigation-bar-private@0.1.0
+    -   drawer@5.0.10
+
+## 5.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.3
+    -   drawer@5.0.9
+
+## 5.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.7
+
+## 5.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.6
+
+## 5.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.5
+
+## 5.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1033](https://github.com/core-ds/core-components/pull/1033)
+
+-   Добавлен новый способ указать размер - 500. Буквенное значение размера s теперь deprecated, используйте вместо него 500
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.4
+
 ## 5.1.2
 
 ### Patch Changes

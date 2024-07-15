@@ -26,3 +26,38 @@
     ))}
 </div>
 ```
+
+## Кастомные иконки
+
+Статусы могут содержать кастомные иконки
+
+```jsx live mobileHeight={520}
+render(() => {
+    const sizes = [16, 20, 24, 32, 40];
+    const customIcons = {
+        'positive-checkmark': {
+            16: AScoresCircleMIcon,
+            20: AScoresCircleMIcon,
+            24: AScoresCircleMIcon,
+            32: AScoresCircleMIcon,
+            40: AScoresCircleMIcon,
+        },
+    };
+    return (
+        <React.Fragment>
+            <Space size={20} align='center' direction={isMobile() ? 'horizontal' : 'vertical'}>
+                {sizes.reverse().map((size) => {
+                    return (
+                        <StatusBadge
+                            key={size}
+                            view={'positive-checkmark'}
+                            size={size}
+                            customIcons={customIcons}
+                        />
+                    );
+                })}
+            </Space>
+        </React.Fragment>
+    );
+});
+```

@@ -1,4 +1,7 @@
 @define-mixin navigation-bar-click {
     /* closer-mobile */
-    --navigation-bar-closer-mobile-color: var(--color-light-graphic-primary);
+    --navigation-bar-closer-mobile-color: var(--color-light-neutral-translucent-1300);
+
+    /* back-arrow */
+    --navigation-bar-back-arrow-mobile-fill: var(--color-light-neutral-translucent-1300);
 }

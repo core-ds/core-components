@@ -32,7 +32,7 @@ export const icon_button: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -52,6 +52,7 @@ export const icon_button: Story = {
                     )}
                     icon={Icon}
                     colors={colors}
+                    transparentBg={boolean('transparentBg', false)}
                     disabled={boolean('disabled', false)}
                     loading={boolean('loading', false)}
                 />

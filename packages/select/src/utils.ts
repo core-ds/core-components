@@ -2,7 +2,7 @@ import { cloneElement, isValidElement, ReactNode, RefObject, useEffect, useRef }
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { BaseSelectProps, GroupShape, OptionShape } from './typings';
+import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
@@ -38,7 +38,8 @@ export const joinOptions = ({
 export function processOptions(
     options: BaseSelectProps['options'],
     selected: BaseSelectProps['selected'] = [],
-    filterFn: (option: OptionShape) => boolean = () => true,
+    filterFn: (option: OptionShape | GroupShape) => boolean = () => true,
+    filterGroup = false,
 ) {
     const flatOptions: OptionShape[] = [];
     const filteredOptions: BaseSelectProps['options'] = [];
@@ -51,14 +52,22 @@ export function processOptions(
 
     const isSelected = (option: OptionShape) => selectedKeys.includes(option.key);
 
-    const process = (option: OptionShape) => {
-        if (isSelected(option)) {
+    const process = (option: OptionShape | GroupShape) => {
+        const isGroupOption = isGroup(option);
+
+        if (!isGroupOption && isSelected(option)) {
             selectedOptions.push(option);
         }
 
         if (!filterFn(option)) return false;
 
-        flatOptions.push(option);
+        if (isGroupOption) {
+            if (filterGroup) {
+                Array.prototype.push.apply(flatOptions, option.options);
+            }
+        } else {
+            flatOptions.push(option);
+        }
 
         return true;
     };
@@ -76,12 +85,17 @@ export function processOptions(
                 if (matched) group.options.push(groupOption);
             });
 
-            if (group.options.length) filteredOptions.push(group);
-        } else {
-            const matched = process(option);
+            if (group.options.length) {
+                filteredOptions.push(group);
 
-            if (matched) filteredOptions.push(option);
+                return;
+            }
+
+            if (!filterGroup) return;
         }
+        const matched = process(option);
+
+        if (matched) filteredOptions.push(option);
     });
 
     return { filteredOptions, flatOptions, selectedOptions };
@@ -113,6 +127,21 @@ type useVisibleOptionsArgs = {
      * Позволяет вызвать пересчет высоты
      */
     invalidate?: unknown;
+
+    /**
+     * Список вариантов выбора
+     */
+    options?: Array<OptionShape | GroupShape>;
+
+    /**
+     * Максимальный размер варианта выбора
+     */
+    size?: Extract<OptionsListProps['size'], number>;
+
+    /**
+     * Учитывать действительное число вариантов выбора
+     */
+    actualOptionsCount?: boolean;
 };
 
 export function useVisibleOptions({
@@ -121,8 +150,14 @@ export function useVisibleOptions({
     styleTargetRef = listRef,
     open,
     invalidate,
+    options,
+    size,
+    actualOptionsCount,
 }: useVisibleOptionsArgs) {
     useEffect(() => {
+        const measureOptionHeight = (element: HTMLElement) =>
+            typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
+
         const list = listRef.current;
         const styleTarget = styleTargetRef.current;
 
@@ -136,10 +171,12 @@ export function useVisibleOptions({
 
             let height = optionsNodes
                 .slice(0, visibleOptions)
-                .reduce((acc, child) => acc + child.clientHeight, 0);
+                .reduce((acc, child) => acc + measureOptionHeight(child), 0);
 
             if (visibleOptions < childCount) {
-                const lastVisibleOptionHeight = optionsNodes[optionsNodes.length - 1].clientHeight;
+                const lastVisibleOptionHeight = measureOptionHeight(
+                    optionsNodes[optionsNodes.length - 1],
+                );
 
                 // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
                 height += Math.round(
@@ -147,17 +184,49 @@ export function useVisibleOptions({
                         ? lastVisibleOptionHeight
                         : lastVisibleOptionHeight / 2,
                 );
+            } else if (
+                visibleOptions > childCount &&
+                actualOptionsCount &&
+                typeof size === 'number'
+            ) {
+                const actualCount = (options ?? []).reduce(
+                    (sum, option) => sum + 1 + (isGroup(option) ? option.options.length : 0),
+                    0,
+                );
+
+                height =
+                    Math.min(
+                        actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
+                        visibleOptions,
+                    ) * size;
+
+                if (visibleOptions < actualCount) {
+                    height += size / 2;
+                }
             }
 
             styleTarget.style.height = `${height}px`;
         }
-    }, [listRef, open, styleTargetRef, visibleOptions, invalidate]);
+    }, [
+        actualOptionsCount,
+        listRef,
+        open,
+        options,
+        size,
+        styleTargetRef,
+        visibleOptions,
+        invalidate,
+    ]);
 }
 
 export function defaultFilterFn(optionText: string, search: string) {
     if (!search) return true;
 
     return optionText.toLowerCase().includes(search.toLowerCase());
+}
+
+export function defaultGroupAccessor(option: GroupShape) {
+    return option.label;
 }
 
 export function defaultAccessor(option: OptionShape) {

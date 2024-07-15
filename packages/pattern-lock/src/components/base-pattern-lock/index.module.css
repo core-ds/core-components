@@ -1,0 +1,24 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: var(--pattern-lock-min-height);
+    padding: var(--gap-m) 0;
+
+    & canvas {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.withForgotBtn {
+    min-height: var(--pattern-lock-with-forgot-btn-min-height);
+}
+
+.forgotBtn {
+    display: block;
+    min-height: var(--size-xs-height);
+}

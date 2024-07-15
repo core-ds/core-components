@@ -1,5 +1,35 @@
 # Change Log
 
+## 3.5.1
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+## 3.5.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+## 3.4.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
 ## 3.3.1
 
 ### Patch Changes

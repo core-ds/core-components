@@ -34,16 +34,16 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass(className);
     });
 
-    it('should set size `s` as default size', () => {
+    it('should set size 48 as default size', () => {
         const { container } = render(<Tag />);
 
-        expect(container.firstElementChild).toHaveClass('s');
+        expect(container.firstElementChild).toHaveClass('size-48');
     });
 
     it('should set size', () => {
-        const { container } = render(<Tag size='l' />);
+        const { container } = render(<Tag size={56} />);
 
-        expect(container.firstElementChild).toHaveClass('l');
+        expect(container.firstElementChild).toHaveClass('size-56');
     });
 
     it('should set `checked` class if prop `checked` is present', () => {

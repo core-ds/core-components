@@ -3,21 +3,21 @@
 :root {
     /* primary */
     --action-button-primary-base-color: var(--color-light-text-primary);
-    --action-button-primary-base-icon-color: var(--color-light-neutral-1500-inverted);
+    --action-button-primary-base-icon-color: var(--color-light-neutral-translucent-1300-inverted);
     --action-button-primary-base-bg-color: var(--color-light-accent-secondary);
     --action-button-primary-hover-color: var(--color-light-accent-secondary-hover);
     --action-button-primary-active-color: var(--color-light-accent-secondary-press);
 
     /* secondary */
     --action-button-secondary-base-color: var(--color-light-text-primary);
-    --action-button-secondary-base-icon-color: var(--color-light-neutral-1500);
+    --action-button-secondary-base-icon-color: var(--color-light-neutral-translucent-1300);
     --action-button-secondary-base-bg-color: var(--color-light-neutral-100);
     --action-button-secondary-hover-color: var(--color-light-neutral-100-hover);
     --action-button-secondary-active-color: var(--color-light-neutral-100-press);
 
     /* spinner */
-    --action-button-spinner-primary-color: var(--color-light-neutral-1500-inverted);
-    --action-button-spinner-default-color: var(--color-light-neutral-1500);
+    --action-button-spinner-primary-color: var(--color-light-neutral-translucent-1300-inverted);
+    --action-button-spinner-default-color: var(--color-light-neutral-translucent-1300);
 
     /* disabled */
     --action-button-disabled-color: var(--color-light-text-tertiary);

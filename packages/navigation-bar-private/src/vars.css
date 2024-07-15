@@ -1,0 +1,9 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* closer-mobile */
+    --navigation-bar-closer-mobile-color: var(--color-light-neutral-translucent-700);
+
+    /* back-arrow */
+    --navigation-bar-back-arrow-mobile-fill: var(--color-light-neutral-translucent-700);
+}

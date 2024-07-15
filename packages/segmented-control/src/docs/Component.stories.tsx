@@ -22,7 +22,7 @@ export const segmented_control: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -33,7 +33,7 @@ export const segmented_control: Story = {
                 }}
             >
                 <SegmentedControl
-                    size={select('size', ['xs', 'xxs'], 'xs')}
+                    size={select('size', [40, 32], 40)}
                     shape={select('shape', ['rounded', 'rectangular'], 'rectangular')}
                     onChange={handleChange}
                     selectedId={selectedId}

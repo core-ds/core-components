@@ -4,14 +4,14 @@
     --modal-footer-default-gap: var(--gap-xl);
 
     /* paddings */
-    --modal-s-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) 36px;
-    --modal-s-content-paddings: 0 var(--gap-4xl);
+    --modal-s-header-paddings: 28px 28px var(--gap-m);
+    --modal-s-content-paddings: var(--gap-m) var(--gap-3xl) var(--gap-xs);
     --modal-s-content-only-bottom-padding: var(--gap-4xl);
-    --modal-s-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
+    --modal-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
 
     /* scroll */
-    --modal-header-highlight-background: var(--color-light-bg-primary);
-    --modal-footer-highlight-background: var(--color-light-bg-secondary);
+    --modal-header-highlight-background: var(--color-light-base-bg-primary);
+    --modal-footer-highlight-background: var(--color-light-base-bg-secondary);
     --modal-footer-highlight-box-shadow: none;
 
     /* desktop */

@@ -10,7 +10,7 @@ import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Closer } from '@alfalab/core-components-navigation-bar/shared';
+import { Closer } from '@alfalab/core-components-navigation-bar-private/shared';
 import { createPaddingStyle, easingFns, getDataTestId } from '@alfalab/core-components-shared';
 
 import { PaddingType } from '../../types';
@@ -233,3 +233,5 @@ export const PopupSheet = forwardRef<HTMLDivElement, PopupSheetProps>(
         );
     },
 );
+
+PopupSheet.displayName = 'PopupSheet';

@@ -27,9 +27,7 @@ export const international_phone_input: Story = {
     render: () => {
         const [value, setValue] = useState('');
 
-        const handleChange: InternationalPhoneInputProps['onChange'] = (e, { value: phone }) => {
-            setValue(phone);
-        };
+        const handleChange: InternationalPhoneInputProps['onChange'] = (phone) => setValue(phone);
 
         return (
             <div style={{ width: '320px' }}>

@@ -28,20 +28,22 @@ export const Footer = ({
         className={styles.footer}
     >
         <ButtonDesktop
-            size='xxs'
+            size={32}
             view='primary'
             onClick={handleApply}
             dataTestId={getDataTestId(dataTestId, 'apply')}
+            className={styles.button}
         >
             Применить
         </ButtonDesktop>
 
         {showClear && selectedDraft.length > 0 && (
             <ButtonDesktop
-                size='xxs'
+                size={32}
                 view='secondary'
                 onClick={handleClear}
                 dataTestId={getDataTestId(dataTestId, 'clear')}
+                className={styles.button}
             >
                 Сбросить
             </ButtonDesktop>

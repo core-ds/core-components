@@ -74,13 +74,13 @@ describe('ProgressBar', () => {
         it('should set default size class', () => {
             const { container } = render(<ProgressBar value={20} />);
 
-            expect(container.querySelector('.container')).toHaveClass('m');
+            expect(container.querySelector('.container')).toHaveClass('size-8');
         });
 
         it('should set size class', () => {
-            const { container } = render(<ProgressBar value={20} size='s' />);
+            const { container } = render(<ProgressBar value={20} size={4} />);
 
-            expect(container.querySelector('.container')).toHaveClass('s');
+            expect(container.querySelector('.container')).toHaveClass('size-4');
         });
     });
 

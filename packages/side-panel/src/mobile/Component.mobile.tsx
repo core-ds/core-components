@@ -25,7 +25,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
     ({ children, className, transitionProps, dataTestId, ...restProps }, ref) => {
         const responsiveContext = useContext(ResponsiveContext);
         const contextValue = useMemo<TResponsiveModalContext>(
-            () => ({ size: 's', view: 'mobile', dataTestId }),
+            () => ({ size: 500, view: 'mobile', dataTestId }),
             [dataTestId],
         );
 

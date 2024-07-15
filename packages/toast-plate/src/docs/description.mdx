@@ -5,7 +5,7 @@ render(() => {
     const isMobile = document.body.clientWidth < 450;
     return (
         <ToastPlate
-            badge='positive'
+            badge='positive-checkmark'
             title='Поздравляем, полный успех'
             hasCloser={true}
             block={true}
@@ -16,6 +16,40 @@ render(() => {
                     Восстановить
                 </Button>
             }
+        />
+    );
+});
+```
+
+
+## Кастомные иконки
+
+Компонент может принимать кастомные иконки
+
+```jsx live
+render(() => {
+    const isMobile = document.body.clientWidth < 450;
+
+    const customIcons = {
+        'positive-checkmark': {
+            24: AScoresCircleMIcon,
+        },
+    };
+
+    return (
+        <ToastPlate
+            badge='positive-checkmark'
+            title='Поздравляем, полный успех'
+            hasCloser={true}
+            block={true}
+            bottomButtonPosition={isMobile}
+            onClose={Function.prototype}
+            actionButton={
+                <Button colors='inverted' view='ghost' size={isMobile ? 'xs' : 's'}>
+                    Восстановить
+                </Button>
+            }
+            getBadgeIcons={customIcons}
         />
     );
 });

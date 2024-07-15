@@ -1,9 +1,26 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { Skeleton } from '@alfalab/core-components/skeleton';
+
 import { useTabs } from '../../hooks/use-tabs';
 import { PlatformProps, SecondaryTabListProps, Styles } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
+
+function getBorderRadius(
+    shape?: SecondaryTabListProps['tagShape'],
+    size?: SecondaryTabListProps['size'],
+    isMobile?: boolean,
+) {
+    if (shape === 'rounded') {
+        return 99;
+    }
+
+    if (size === 'xxs') return isMobile ? 8 : 6;
+    if (size === 'xs' || size === 's') return isMobile ? 12 : 8;
+
+    return isMobile ? 16 : 4;
+}
 
 export const SecondaryTabList = ({
     styles = {},
@@ -19,8 +36,11 @@ export const SecondaryTabList = ({
     dataTestId,
     TagComponent,
     platform,
-    tagShape,
+    tagShape = 'rounded',
     tagView,
+    inlineStyle,
+    showSkeleton,
+    skeletonProps,
 }: SecondaryTabListProps & Styles & PlatformProps) => {
     const { focusedTab, selectedTab, getTabListItemProps } = useTabs({
         titles,
@@ -42,7 +62,7 @@ export const SecondaryTabList = ({
                 {titles.map((item, index) => {
                     if (item.hidden) return null;
 
-                    return (
+                    const renderTab = () => (
                         <TagComponent
                             {...getTabListItemProps(index)}
                             shape={tagShape}
@@ -55,6 +75,27 @@ export const SecondaryTabList = ({
                         >
                             {item.title}
                         </TagComponent>
+                    );
+
+                    return showSkeleton ? (
+                        <Skeleton
+                            {...skeletonProps}
+                            className={cn(styles.skeleton, skeletonProps?.className)}
+                            key={item.id}
+                            visible={true}
+                            style={{
+                                ...skeletonProps?.style,
+                                borderRadius: getBorderRadius(
+                                    tagShape,
+                                    tagSize as SecondaryTabListProps['size'],
+                                    platform === 'mobile',
+                                ),
+                            }}
+                        >
+                            {renderTab()}
+                        </Skeleton>
+                    ) : (
+                        renderTab()
                     );
                 })}
             </div>
@@ -69,10 +110,14 @@ export const SecondaryTabList = ({
             view='secondary'
             size={size}
             platform={platform}
+            inlineStyle={inlineStyle}
+            showSkeleton={showSkeleton}
         >
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
+        <div className={cn(styles.container, containerClassName)} style={inlineStyle}>
+            {renderContent()}
+        </div>
     );
 };

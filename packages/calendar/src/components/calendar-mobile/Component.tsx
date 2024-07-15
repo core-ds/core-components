@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
@@ -10,20 +10,25 @@ import startOfMonth from 'date-fns/startOfMonth';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { CalendarDesktop, CalendarDesktopProps } from '../../desktop';
+import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
+import { useRange } from '../../useRange';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
     generateMonths,
     generateWeeks,
+    isRangeValue,
     limitDate,
     monthName,
     WEEKDAYS,
 } from '../../utils';
 import { DaysTable } from '../days-table';
+
+import { CalendarContentProps, CalendarMobileProps } from './typings';
 
 import backdropTransitionStyles from './backdrop-transitions.module.css';
 import styles from './index.module.css';
@@ -34,46 +39,10 @@ if (typeof window !== 'undefined' && !window.ResizeObserver) {
     window.ResizeObserver = ResizeObserverPolyfill;
 }
 
-export type CalendarMobileProps = CalendarDesktopProps & {
-    /**
-     * Управление видимостью модалки
-     */
-    open: boolean;
-
-    /**
-     * Заголовок календаря
-     */
-    title?: string;
-
-    /**
-     * Обработчик закрытия модалки
-     */
-    onClose?: () => void;
-
-    /**
-     * Обработчик клика на название месяца в мобильном календаре
-     */
-    onMonthTitleClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-
-    /**
-     * Количество лет для генерации в обе стороны от текущего года
-     */
-    yearsAmount?: number;
-
-    /**
-     * Нужно ли рендерить шапку
-     */
-    hasHeader?: boolean;
-
-    /**
-     * Разрешить выбор из недозаполненного диапазона дат.
-     */
-    allowSelectionFromEmptyRange?: boolean;
-};
-
-const CalendarMonthOnlyView = ({
+export const CalendarMonthOnlyView = ({
     value,
-    defaultView,
+    mode = 'single',
+    rangeBehavior = 'clarification',
     month: monthTimestamp,
     minDate: minDateTimestamp,
     maxDate: maxDateTimestamp,
@@ -85,15 +54,20 @@ const CalendarMonthOnlyView = ({
     onMonthTitleClick,
     selectedFrom,
     selectedTo,
-    rangeComplete,
-    onMonthChange,
     yearsAmount = 3,
     dayAddons,
     shape = 'rounded',
     scrollableContainer,
-}: CalendarMobileProps & {
-    scrollableContainer?: HTMLElement;
-}) => {
+}: CalendarContentProps) => {
+    const range = useRange({
+        mode,
+        value,
+        selectedFrom,
+        selectedTo,
+        rangeBehavior,
+        onChange,
+    });
+
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
         [monthTimestamp],
@@ -109,7 +83,12 @@ const CalendarMonthOnlyView = ({
         [maxDateTimestamp],
     );
 
-    const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
+    const selected = useMemo(
+        () => (range.value ? new Date(range.value) : undefined),
+        [range.value],
+    );
+
+    const startingDate = useRef(range.value);
 
     const defaultMonth = useMemo(
         () =>
@@ -127,14 +106,13 @@ const CalendarMonthOnlyView = ({
     const { activeMonth, highlighted, getDayProps } = useCalendar({
         month,
         defaultMonth,
-        view: defaultView,
+        view: 'months',
         minDate,
         maxDate,
         selected,
         offDays,
         events,
-        onChange,
-        onMonthChange,
+        onChange: range.onChange,
         dayAddons,
     });
 
@@ -147,7 +125,7 @@ const CalendarMonthOnlyView = ({
         const prevMonths: Month[] = [];
         const nextMonths: Month[] = [];
 
-        const date = new Date();
+        const date = startingDate.current ? new Date(startingDate.current) : new Date();
         const currentYear = date.getFullYear();
         const currYearMonths = generateMonths(date, {});
 
@@ -177,13 +155,13 @@ const CalendarMonthOnlyView = ({
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [events, offDays, holidays, dayAddons, yearsAmount, minDate, maxDate, selected]);
+    }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
     const initialMonthIndex = useMemo(() => {
-        const date = value || selectedFrom || Date.now();
+        const date = range.value || range.selectedFrom || activeMonth.getTime() || Date.now();
 
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
-    }, [activeMonths, selectedFrom, value]);
+    }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -204,11 +182,10 @@ const CalendarMonthOnlyView = ({
                 withTransition={false}
                 weeks={activeMonths[index].weeks}
                 activeMonth={activeMonth}
-                selectedFrom={selectedFrom}
-                selectedTo={selectedTo}
+                selectedFrom={range.selectedFrom}
+                selectedTo={range.selectedTo}
                 getDayProps={getDayProps}
                 highlighted={highlighted}
-                rangeComplete={rangeComplete}
                 hasHeader={false}
                 responsive={true}
                 shape={shape}
@@ -230,6 +207,20 @@ const CalendarMonthOnlyView = ({
     );
 };
 
+export const CalendarMonthOnlyViewHeader = () => (
+    <table className={styles.dayNames}>
+        <thead>
+            <tr>
+                {WEEKDAYS.map((dayName) => (
+                    <th className={styles.dayName} key={dayName}>
+                        {dayName}
+                    </th>
+                ))}
+            </tr>
+        </thead>
+    </table>
+);
+
 export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
     (
         {
@@ -248,6 +239,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             onClose,
             title = 'Календарь',
             yearsAmount = 3,
+            onApply,
             ...restProps
         },
         ref,
@@ -259,24 +251,16 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (onClose) onClose();
         };
 
+        const handleApply = () => {
+            onApply?.();
+            handleClose?.();
+        };
+
         const handleClear = () => {
             if (onChange) onChange();
         };
 
-        const renderDayNames = () =>
-            monthOnlyView ? (
-                <table className={styles.dayNames}>
-                    <thead>
-                        <tr>
-                            {WEEKDAYS.map((dayName) => (
-                                <th className={styles.dayName} key={dayName}>
-                                    {dayName}
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-                </table>
-            ) : null;
+        const renderDayNames = () => (monthOnlyView ? <CalendarMonthOnlyViewHeader /> : null);
 
         const renderContent = () => {
             const commonProps = {
@@ -291,7 +275,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (monthOnlyView) {
                 return (
                     <CalendarMonthOnlyView
-                        open={open}
                         yearsAmount={yearsAmount}
                         scrollableContainer={modalRef}
                         onMonthTitleClick={onMonthTitleClick}
@@ -306,6 +289,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     responsive={true}
                     className={cn(className, styles.calendar)}
                     contentClassName={styles.content}
+                    dataTestId={getDataTestId(dataTestId, 'mobile')}
                     {...commonProps}
                     {...restProps}
                 />
@@ -313,24 +297,34 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         };
 
         const renderFooter = () => {
-            if (selectedFrom || selectedTo) {
-                let selectButtonDisabled = !selectedFrom || !selectedTo;
+            const valueFrom = isRangeValue(value) ? value.dateFrom : selectedFrom;
+            const valueTo = isRangeValue(value) ? value.dateTo : selectedTo;
+
+            if (valueFrom || valueTo) {
+                let selectButtonDisabled = !valueFrom || !valueTo;
 
                 if (allowSelectionFromEmptyRange) {
-                    selectButtonDisabled = !selectedFrom;
+                    selectButtonDisabled = !valueFrom;
                 }
 
                 return (
                     <React.Fragment>
-                        <ButtonMobile view='secondary' size='m' block={true} onClick={handleClear}>
+                        <ButtonMobile
+                            view='secondary'
+                            size='m'
+                            block={true}
+                            onClick={handleClear}
+                            dataTestId={getDataTestId(dataTestId, 'btn-reset')}
+                        >
                             Сбросить
                         </ButtonMobile>
                         <ButtonMobile
                             view='primary'
                             size='m'
                             block={true}
-                            onClick={handleClose}
+                            onClick={handleApply}
                             disabled={selectButtonDisabled}
+                            dataTestId={getDataTestId(dataTestId, 'btn-apply')}
                         >
                             Выбрать
                         </ButtonMobile>
@@ -340,14 +334,26 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
             if (value) {
                 return (
-                    <ButtonMobile view='primary' size='m' block={true} onClick={handleClose}>
+                    <ButtonMobile
+                        view='primary'
+                        size='m'
+                        block={true}
+                        onClick={handleApply}
+                        dataTestId={getDataTestId(dataTestId, 'btn-apply')}
+                    >
                         Выбрать
                     </ButtonMobile>
                 );
             }
 
             return (
-                <ButtonMobile view='secondary' size='m' block={true} onClick={handleClose}>
+                <ButtonMobile
+                    view='secondary'
+                    size='m'
+                    block={true}
+                    onClick={handleClose}
+                    dataTestId={getDataTestId(dataTestId, 'btn-reset')}
+                >
                     Отмена
                 </ButtonMobile>
             );
@@ -368,6 +374,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     transitionClassNames: backdropTransitionStyles,
                     timeout: 360,
                 }}
+                dataTestId={dataTestId}
             >
                 {hasHeader && (
                     <ModalMobile.Header

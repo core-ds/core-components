@@ -16,14 +16,14 @@ render(() => {
                 <ButtonDesktop disabled={disabled} view='secondary'>
                     Secondary
                 </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='tertiary'>
-                    Tertiary
+                <ButtonDesktop disabled={disabled} view='outlined'>
+                    Outlined
                 </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='link'>
-                    Link
+                <ButtonDesktop disabled={disabled} view='transparent'>
+                    Transparent
                 </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='ghost'>
-                    Ghost
+                <ButtonDesktop disabled={disabled} view='text'>
+                    Text
                 </ButtonDesktop>
             </Space>
 
@@ -55,16 +55,16 @@ render(() => {
                 Secondary
             </ButtonMobile>
             <Gap size='l' />
-            <ButtonMobile block={true} disabled={disabled} view='tertiary'>
-                Tertiary
+            <ButtonMobile block={true} disabled={disabled} view='outlined'>
+                Outlined
             </ButtonMobile>
             <Gap size='l' />
-            <ButtonMobile block={true} disabled={disabled} view='link'>
-                Link
+            <ButtonMobile block={true} disabled={disabled} view='transparent'>
+                Transparent
             </ButtonMobile>
             <Gap size='l' />
-            <ButtonMobile block={true} disabled={disabled} view='ghost'>
-                Ghost
+            <ButtonMobile block={true} disabled={disabled} view='text'>
+                Text
             </ButtonMobile>
             <Gap size='xl' />
             <Switch
@@ -184,7 +184,7 @@ render(() => {
         Ширина задана вручную
     </Button>
     <Gap size='l' />
-    <Button block={true} size='m' nowrap={true} breakpoint={BREAKPOINT}>
+    <Button block={true} size={56} nowrap={true} breakpoint={BREAKPOINT}>
         Занимает всю ширину контейнера
     </Button>
 </div>
@@ -321,6 +321,71 @@ render(() => {
                 />
             </Row>
         </Container>
+    );
+});
+```
+## Размытие фона
+
+Для кнопок можно включить размытие фона, если она полупрозрачная, располагается поверх динамического контента или изображения.
+
+```jsx live expanded
+render(() => {
+    const [checked, setChecked] = React.useState(true);
+    const handleChange = () => setChecked(!checked);
+
+    const wrapper = {
+        position: 'relative',
+        borderRadius: '16px',
+        width: '330px',
+        height: '100px',
+    }
+
+    const image = {
+        width: '100%',
+        height: '100%',
+        borderRadius: 'inherit',
+        objectFit: 'cover',
+    }
+
+    const wrapperButton = {
+        position: 'absolute',
+        display: 'flex',
+        inset: '0px',
+        padding: '20px',
+        justifyContent: 'space-between',
+    }
+
+    return (
+    <>
+        <div style={wrapper}>
+        <img style={image} src='./images/buttonBlur.png' />
+        <div style={wrapperButton}>
+            <Button
+                view='primary'
+                colors='inverted'
+                disabled={true}
+                allowBackdropBlur={checked}
+            >
+                Disabled
+            </Button>
+            <Button
+                view='secondary'
+                colors='inverted'
+                allowBackdropBlur={checked}
+            >
+                Secondary
+            </Button>
+        </div>
+        </div>
+
+        <Row align='middle'>
+            <Switch
+                label='Включить размытие'
+                checked={checked}
+                onChange={handleChange}
+            />
+        </Row>
+    </>
     );
 });
 ```

@@ -1,5 +1,224 @@
 # Change Log
 
+## 12.1.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   input@15.0.1
+
+## 12.1.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+
+## 12.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   popover@6.2.4
+    -   select@17.7.2
+
+## 12.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   popover@6.2.3
+    -   form-control@12.2.4
+    -   input@14.4.7
+    -   select@17.7.1
+
+## 12.1.9
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1266](https://github.com/core-ds/core-components/pull/1266)
+
+-   Исправление типизации компонента
+
+-   Обновлены зависимости
+    -   select@17.7.0
+    -   input@14.4.6
+
+## 12.1.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
+## 12.1.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+
+## 12.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+
+## 12.1.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   form-control@12.2.3
+    -   input@14.4.5
+    -   popover@6.2.2
+    -   select@17.5.0
+
+## 12.1.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.4
+    -   select@17.4.5
+
+## 12.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   select@17.4.4
+    -   form-control@12.2.2
+    -   input@14.4.3
+
+## 12.1.2
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+-   Обновлены зависимости
+    -   input@14.4.2
+    -   select@17.4.3
+
+## 12.1.1
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1197](https://github.com/core-ds/core-components/pull/1197)
+
+-   Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+
+-   Обновлены зависимости
+    -   input@14.4.1
+    -   select@17.4.2
+
+## 12.1.0
+
+### Minor Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1171](https://github.com/core-ds/core-components/pull/1171)
+
+-   Добавлен параметр reason для onInput события
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.0
+    -   select@17.4.1
+
+## 12.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   input@14.3.3
+
+## 12.0.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+
+## 12.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   input@14.3.2
+
+## 12.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.1
+    -   input@14.3.1
+    -   select@17.3.3
+
+## 12.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.2
+
+## 12.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+
+## 12.0.0
+
+### Major Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1043](https://github.com/core-ds/core-components/pull/1043)
+
+-   Тип onInput коллбэка заменен на (value: string) => void
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.0
+    -   input@14.3.0
+    -   select@17.3.0
+
 ## 11.4.1
 
 ### Patch Changes

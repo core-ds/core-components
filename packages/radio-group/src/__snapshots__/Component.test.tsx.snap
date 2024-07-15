@@ -17,7 +17,7 @@ Object {
           class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start my-radio verticalRadio"
+            class="container size-20 start my-radio verticalRadio"
           >
             <input
               type="radio"
@@ -37,7 +37,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start my-second-radio verticalRadio"
+            class="container size-20 start my-second-radio verticalRadio"
           >
             <input
               type="radio"
@@ -57,7 +57,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start verticalRadio"
+            class="container size-20 start verticalRadio"
           >
             <input
               type="radio"
@@ -93,7 +93,7 @@ Object {
         class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start my-radio verticalRadio"
+          class="container size-20 start my-radio verticalRadio"
         >
           <input
             type="radio"
@@ -113,7 +113,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start my-second-radio verticalRadio"
+          class="container size-20 start my-second-radio verticalRadio"
         >
           <input
             type="radio"
@@ -133,7 +133,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start verticalRadio"
+          class="container size-20 start verticalRadio"
         >
           <input
             type="radio"
@@ -226,7 +226,7 @@ Object {
           class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start my-radio verticalRadio"
+            class="container size-20 start my-radio verticalRadio"
           >
             <input
               type="radio"
@@ -246,7 +246,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start my-second-radio verticalRadio"
+            class="container size-20 start my-second-radio verticalRadio"
           >
             <input
               type="radio"
@@ -266,7 +266,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start verticalRadio"
+            class="container size-20 start verticalRadio"
           >
             <input
               type="radio"
@@ -308,7 +308,7 @@ Object {
         class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start my-radio verticalRadio"
+          class="container size-20 start my-radio verticalRadio"
         >
           <input
             type="radio"
@@ -328,7 +328,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start my-second-radio verticalRadio"
+          class="container size-20 start my-second-radio verticalRadio"
         >
           <input
             type="radio"
@@ -348,7 +348,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start verticalRadio"
+          class="container size-20 start verticalRadio"
         >
           <input
             type="radio"
@@ -447,7 +447,7 @@ Object {
           class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start radio-group verticalRadio"
+            class="container size-20 start radio-group verticalRadio"
           >
             <input
               type="radio"
@@ -483,7 +483,7 @@ Object {
         class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start radio-group verticalRadio"
+          class="container size-20 start radio-group verticalRadio"
         >
           <input
             type="radio"
@@ -576,7 +576,7 @@ Object {
           class="radioList verticalRadioList"
         >
           <label
-            class="verticalRadio verticalTagLabel"
+            class="verticalRadio verticalTagLabel tagLabel"
           >
             <input
               autocomplete="off"
@@ -585,7 +585,7 @@ Object {
               value="one"
             />
             <button
-              class="component component component s s outlined outlined rounded outlined my-tag"
+              class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
               tabindex="-1"
               type="button"
               value="one"
@@ -596,7 +596,7 @@ Object {
             </button>
           </label>
           <label
-            class="verticalRadio verticalTagLabel"
+            class="verticalRadio verticalTagLabel tagLabel"
           >
             <input
               autocomplete="off"
@@ -605,7 +605,7 @@ Object {
               value="two"
             />
             <button
-              class="component component component s s outlined outlined rounded outlined"
+              class="component component component size-48 size-48 outlined outlined rounded outlined"
               tabindex="-1"
               type="button"
               value="two"
@@ -616,7 +616,7 @@ Object {
             </button>
           </label>
           <label
-            class="verticalRadio verticalTagLabel"
+            class="verticalRadio verticalTagLabel tagLabel"
           >
             <input
               autocomplete="off"
@@ -625,7 +625,7 @@ Object {
               value="three"
             />
             <button
-              class="component component component s s outlined outlined rounded outlined"
+              class="component component component size-48 size-48 outlined outlined rounded outlined"
               tabindex="-1"
               type="button"
               value="three"
@@ -652,7 +652,7 @@ Object {
         class="radioList verticalRadioList"
       >
         <label
-          class="verticalRadio verticalTagLabel"
+          class="verticalRadio verticalTagLabel tagLabel"
         >
           <input
             autocomplete="off"
@@ -661,7 +661,7 @@ Object {
             value="one"
           />
           <button
-            class="component component component s s outlined outlined rounded outlined my-tag"
+            class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
             tabindex="-1"
             type="button"
             value="one"
@@ -672,7 +672,7 @@ Object {
           </button>
         </label>
         <label
-          class="verticalRadio verticalTagLabel"
+          class="verticalRadio verticalTagLabel tagLabel"
         >
           <input
             autocomplete="off"
@@ -681,7 +681,7 @@ Object {
             value="two"
           />
           <button
-            class="component component component s s outlined outlined rounded outlined"
+            class="component component component size-48 size-48 outlined outlined rounded outlined"
             tabindex="-1"
             type="button"
             value="two"
@@ -692,7 +692,7 @@ Object {
           </button>
         </label>
         <label
-          class="verticalRadio verticalTagLabel"
+          class="verticalRadio verticalTagLabel tagLabel"
         >
           <input
             autocomplete="off"
@@ -701,7 +701,7 @@ Object {
             value="three"
           />
           <button
-            class="component component component s s outlined outlined rounded outlined"
+            class="component component component size-48 size-48 outlined outlined rounded outlined"
             tabindex="-1"
             type="button"
             value="three"

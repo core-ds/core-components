@@ -5,16 +5,25 @@
 После валидации компонент может отобразить состоянии ошибки с еррор месседжем или состояние успеха.
 Корректная комбинация для примера `698751`.
 
-```jsx live mobileHeight={640} mobileOnly
+```jsx live mobileHeight={640}
+const SCREENS = {
+    INITIAL: 'initial',
+    ENTER_CODE: 'ENTER_CODE',
+    SUCCESS: 'success',
+};
 render(() => {
     const shouldBeCode = [6, 9, 8, 7, 5, 1];
     const [currentState, setCurrentState] = React.useState(THEME_STATE.INITIAL);
+    const [screen, setScreen] = React.useState(SCREENS.INITIAL);
+    const [passCodeParams, setPassCodeParams] = React.useState();
     const patternLockInstance = React.useRef();
     const timerId = React.useRef();
+    const containerRef = React.useRef(null);
 
     const handleComplete = (code) => {
         if (shouldBeCode.join() === code.join()) {
             setCurrentState(THEME_STATE.SUCCESS);
+            setTimeout(() => setScreen(SCREENS.SUCCESS), 700);
         } else {
             setCurrentState(THEME_STATE.FAILURE);
         }
@@ -36,20 +45,185 @@ render(() => {
         return () => clearTimeout(timerId.current);
     }, [currentState]);
 
+    const renderMessage = () => {
+        if (passCodeParams === 'codeLength') {
+            return (
+                <div style={{ textAlign: 'center' }}>
+                    <Typography.Text view='primary-medium'>
+                        Введите код из шести знаков
+                    </Typography.Text>
+                    <Gap size={24} />
+                </div>
+            );
+        }
+
+        return null;
+    };
+
+    if (screen === SCREENS.INITIAL) {
+        return (
+            <div
+                style={{
+                    height: 600,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: isMobile() ? 'start' : 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <div style={{ width: 320 }}>
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams('codeLength');
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                       Код длинной 6 знаков
+                    </Button>
+                    <Gap size='m' />
+                    <Button
+                        block
+                        onClick={() => {
+                            setPassCodeParams('maxCodeLength');
+                            setScreen(SCREENS.ENTER_CODE);
+                        }}
+                    >
+                        Длина кода неизвестна заранее
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
+    if (screen === SCREENS.SUCCESS) {
+        return (
+            <div style={{ display: 'flex', flexFlow: 'column nowrap', height: 600 }}>
+                <Gap size='xl' />
+                <Gap size='8xl' />
+                <div
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        ...(isMobile() && { flex: 1 }),
+                    }}
+                >
+                    <div style={{ textAlign: 'center', width: isMobile() ? 315 : 472 }}>
+                        <SuperEllipse
+                            size={80}
+                            backgroundColor='var(--color-light-graphic-positive)'
+                        >
+                            <CheckmarkMIcon style={{ fill: '#fff' }} />
+                        </SuperEllipse>
+
+                        <Gap size='m' />
+
+                        <Typography.Title view='small' font='system'>
+                            Введён корректный пароль
+                        </Typography.Title>
+
+                        <Gap size={16} />
+
+                        <Typography.Text view='primary-medium'>
+                            Это пример экрана, на который попадает пользователь после ввода
+                            корректного пароля
+                        </Typography.Text>
+                    </div>
+
+                    <Gap size={24} />
+
+                    <Button
+                        onClick={() => {
+                            setScreen(SCREENS.INITIAL);
+                        }}
+                        style={{
+                            ...(isMobile() && { width: 320 }),
+                        }}
+                    >
+                        Попробовать ещё раз
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
+    if (isMobile()) {
+        return (
+            <Container align='center'>
+                <div
+                    style={{ height: '600px', boxSizing: 'border-box', paddingTop: '36px' }}
+                    ref={containerRef}
+                >
+                    {renderMessage()}
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'end',
+                            height: passCodeParams === 'maxCodeLength' ? '564px' : '502px',
+                        }}
+                    >
+                        <Toast
+                            title={'Error message'}
+                            open={currentState === THEME_STATE.FAILURE}
+                            anchorElement={containerRef.current}
+                            position='top'
+                            badge='negative-alert'
+                            offset={[0, -56]}
+                            style={{ width: '304px' }}
+                            onClose={() => {}}
+                        />
+                        <PatternLock
+                            ref={patternLockInstance}
+                            onComplete={handleComplete}
+                            themeState={currentState}
+                            onDragStart={handleDragStart}
+                            observeTokens={true}
+                            error={currentState === THEME_STATE.FAILURE && 'Error message'}
+                            showForgotCodeBtn={passCodeParams === 'maxCodeLength'}
+                            breakpoint={BREAKPOINT}
+                        />
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
     return (
-        <PatternLock
-            ref={patternLockInstance}
-            onComplete={handleComplete}
-            themeState={currentState}
-            onDragStart={handleDragStart}
-            observeTokens={true}
-            error={currentState === THEME_STATE.FAILURE && 'Error message'}
-        />
+        <Container align='center'>
+            <div
+                style={{
+                    height: '600px',
+                    boxSizing: 'border-box',
+                    paddingTop: passCodeParams === 'maxCodeLength' ? 129 : 92,
+                }}
+                ref={containerRef}
+            >
+                <Toast
+                    title={'Error message'}
+                    open={currentState === THEME_STATE.FAILURE}
+                    anchorElement={containerRef.current}
+                    position='top'
+                    badge='negative-alert'
+                    offset={[0, -56]}
+                    style={{ width: '304px' }}
+                    onClose={() => {}}
+                />
+                {renderMessage()}
+                <PatternLock
+                    ref={patternLockInstance}
+                    onComplete={handleComplete}
+                    themeState={currentState}
+                    onDragStart={handleDragStart}
+                    observeTokens={true}
+                    error={currentState === THEME_STATE.FAILURE && 'Error message'}
+                    showForgotCodeBtn={true}
+                    breakpoint={BREAKPOINT}
+                />
+            </div>
+        </Container>
     );
 });
 ```
-
-## Адаптивность
-
-Размер контролов компонента подстраивается под ширину мобильного экрана.
-Компонент не предназначен для использования на десктопных устройствах и не имеет соответствующих состояний.

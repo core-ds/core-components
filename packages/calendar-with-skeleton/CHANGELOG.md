@@ -1,5 +1,117 @@
 # Change Log
 
+## 5.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.8.0
+
+## 5.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.7.2
+
+## 5.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.7.1
+
+## 5.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.7.0
+
+## 5.2.15
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   calendar@7.6.5
+
+## 5.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.4
+
+## 5.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.0.0
+    -   calendar@7.6.3
+
+## 5.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.2
+
+## 5.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.1
+
+## 5.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.0
+
+## 5.2.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.2
+
+## 5.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.1
+
+## 5.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.0
+
+## 5.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.4.0
+
+## 5.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.3.4
+
 ## 5.2.4
 
 ### Patch Changes

@@ -1,4 +1,4 @@
 @define-mixin tabs-corp {
     /* theme */
-    --primary-tablist-bottom-border-color: var(--color-light-border-underline);
+    --primary-tablist-bottom-border-color: var(--color-light-neutral-500);
 }

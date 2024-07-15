@@ -9,5 +9,5 @@
 
 .open,
 .open:hover {
-    background-color: var(--color-light-specialbg-component-shade-7);
+    background-color: var(--color-light-neutral-translucent-200-hover);
 }

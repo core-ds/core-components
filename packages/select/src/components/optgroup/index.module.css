@@ -23,8 +23,8 @@
     color: var(--select-optgroup-color);
 }
 
-.l,
-.xl {
+.size-64,
+.size-72 {
     padding-left: var(--select-optgroup-l-left-padding);
     padding-right: var(--select-optgroup-l-right-padding);
 }

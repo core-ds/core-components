@@ -1,5 +1,152 @@
 # Change Log
 
+## 7.3.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.8.0
+    -   calendar-input@10.2.20
+    -   date-input@4.3.33
+
+## 7.3.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.32
+    -   calendar-input@10.2.19
+    -   calendar@7.7.2
+
+## 7.3.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.7.1
+    -   calendar-input@10.2.18
+    -   date-input@4.3.31
+
+## 7.3.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.7.0
+    -   calendar-input@10.2.17
+    -   date-input@4.3.30
+
+## 7.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.5
+    -   calendar-input@10.2.16
+    -   date-input@4.3.29
+
+## 7.3.17
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   calendar@7.6.4
+    -   calendar-input@10.2.15
+    -   date-input@4.3.28
+
+## 7.3.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.3
+    -   calendar-input@10.2.14
+    -   date-input@4.3.27
+
+## 7.3.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.2
+    -   calendar-input@10.2.13
+    -   date-input@4.3.26
+
+## 7.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.25
+    -   calendar-input@10.2.12
+    -   calendar@7.6.1
+
+## 7.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.0
+    -   calendar-input@10.2.11
+    -   date-input@4.3.24
+
+## 7.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.2
+    -   calendar-input@10.2.10
+    -   date-input@4.3.23
+
+## 7.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.1
+    -   calendar-input@10.2.9
+    -   date-input@4.3.22
+
+## 7.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.21
+    -   calendar-input@10.2.8
+
+## 7.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.0
+    -   calendar-input@10.2.7
+
+## 7.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.4.0
+    -   calendar-input@10.2.6
+
+## 7.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.20
+    -   calendar@7.3.4
+    -   calendar-input@10.2.5
+
 ## 7.3.6
 
 ### Patch Changes

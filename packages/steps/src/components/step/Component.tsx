@@ -83,10 +83,28 @@ export type StepProps = {
     isNotLastStep?: boolean;
 
     /**
+     * Маркер того, что шаг растягивается на всю ширину блока
+     * для вертикальной ориентации
+     */
+    fullWidth?: boolean;
+
+    /**
+     * Минимальное расстояние между шагами
+     * @default 24
+     */
+    minSpaceBetweenSteps?: 8 | 16 | 24;
+
+    /**
      * Обработчик нажатия на текущей шаг
      * @param stepNumber - номер шага
      */
     onClick: (stepNumber: number) => void;
+};
+
+const SIZE_TO_CLASSNAME_MAP = {
+    8: 'size-8',
+    16: 'size-16',
+    24: 'size-24',
 };
 
 export const Step: React.FC<StepProps> = ({
@@ -105,6 +123,8 @@ export const Step: React.FC<StepProps> = ({
     interactive,
     isVerticalAlign,
     isNotLastStep,
+    fullWidth,
+    minSpaceBetweenSteps = 24,
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
@@ -166,10 +186,14 @@ export const Step: React.FC<StepProps> = ({
 
     const renderDash = () => (
         <div
-            className={cn(styles.dash, {
-                [styles.vertical]: isVerticalAlign,
-                [styles.completed]: isStepCompleted,
-            })}
+            className={cn(
+                styles.dash,
+                {
+                    [styles.vertical]: isVerticalAlign,
+                    [styles.completed]: isStepCompleted,
+                },
+                styles[SIZE_TO_CLASSNAME_MAP[minSpaceBetweenSteps]],
+            )}
         />
     );
 
@@ -186,6 +210,7 @@ export const Step: React.FC<StepProps> = ({
                 [styles.focused]: focused,
                 [styles.vertical]: isVerticalAlign,
                 [styles.interactive]: interactive,
+                [styles.fullWidth]: fullWidth && isVerticalAlign,
             })}
             onClick={handleButtonClick}
             onKeyDown={handleKeyDown}
@@ -211,6 +236,7 @@ export const Step: React.FC<StepProps> = ({
             <div
                 className={cn(styles.text, {
                     [styles.interactive]: interactive,
+                    [styles.fullWidth]: fullWidth && isVerticalAlign,
                 })}
                 onClick={handleTextClick}
             >

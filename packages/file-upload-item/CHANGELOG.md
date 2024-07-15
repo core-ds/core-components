@@ -1,5 +1,102 @@
 # Change Log
 
+## 5.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.4.0
+    -   icon-button@6.7.2
+
+## 5.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.1
+
+## 5.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.0
+
+## 5.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.6.1
+    -   link@5.2.2
+
+## 5.6.3
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   icon-button@6.6.0
+    -   spinner@3.3.1
+
+## 5.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.7
+
+## 5.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.6
+
+## 5.6.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1168](https://github.com/core-ds/core-components/pull/1168)
+
+-   Для свойства onDelete был добавлен второй параметр, который является опциональным и представляет собой событие event
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.5
+
+## 5.5.0
+
+### Minor Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1129](https://github.com/core-ds/core-components/pull/1129)
+
+-   Добавлено новое свойство "multiline", которое позволяет использовать многострочные названия файлов. Также было удалено отображение нижней границы у компонента, если он является единственным или последним в списке
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.2.1
+    -   icon-button@6.5.4
+
+## 5.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.3.0
+    -   icon-button@6.5.3
+
 ## 5.4.2
 
 ### Patch Changes

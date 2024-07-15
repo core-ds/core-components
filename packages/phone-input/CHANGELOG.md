@@ -1,5 +1,127 @@
 # Change Log
 
+## 7.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.13
+
+## 7.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.12
+
+## 7.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.11
+
+## 7.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.10
+
+## 7.3.10
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   masked-input@6.3.9
+
+## 7.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.8
+
+## 7.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.7
+
+## 7.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.6
+
+## 7.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.5
+
+## 7.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.4
+
+## 7.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.3
+
+## 7.3.3
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1139](https://github.com/core-ds/core-components/pull/1139)
+
+-   Исправлена ошибка при вставке номера телефона без указания кода страны (когда цифра 7 находится на второй позиции). Например, раньше при вставке номера 9706531700 номер форматировался в +7 906 531 70 0. Теперь цифра 7 не удаляется из вставляемого телефона
+
+## 7.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.2
+
+## 7.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.1
+
+## 7.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.0
+
 ## 7.2.20
 
 ### Patch Changes

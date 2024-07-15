@@ -17,6 +17,7 @@ type OptionsListWithApplyProps = OptionsListProps & {
     Header?: FC<HeaderProps>;
     headerProps?: HeaderProps;
     showHeaderWithSelectAll?: boolean;
+    setSelectedDraft?: (selectedDraft: OptionShape[]) => void;
 };
 
 export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithApplyProps>(
@@ -37,6 +38,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             Header = DefaultHeader,
             header,
             headerProps,
+            setSelectedDraft,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
@@ -70,6 +72,13 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             toggleMenu();
         }, [onClear, toggleMenu]);
 
+        const handleSelectedItems = useCallback(
+            (items: OptionShape[]) => {
+                setSelectedDraft?.(items);
+            },
+            [setSelectedDraft],
+        );
+
         useEffect(() => {
             const activeElement = document.activeElement as HTMLElement;
 
@@ -88,7 +97,9 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             return (
                 <React.Fragment>
                     {header}
-                    {showHeaderWithSelectAll && <Header {...headerProps} />}
+                    {showHeaderWithSelectAll && flatOptions.length > 0 && (
+                        <Header {...headerProps} />
+                    )}
                 </React.Fragment>
             );
         };
@@ -104,6 +115,8 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
                 onApply={handleApply}
                 onClear={handleClear}
                 header={renderHeader()}
+                selectedItems={selectedDraft}
+                setSelectedItems={handleSelectedItems}
                 footer={
                     <Footer
                         handleApply={handleApply}

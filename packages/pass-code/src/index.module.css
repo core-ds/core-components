@@ -2,8 +2,12 @@
 @import './vars.css';
 
 .component {
-    max-width: var(--pass-code-max-width);
-    margin: var(--gap-xs) 0;
+    min-height: var(--pass-code-min-height);
+}
+
+.inputProgressContainer {
+    position: relative;
+    flex: 1 0 auto;
 }
 
 .message {
@@ -15,8 +19,4 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--color-light-text-primary);
-}
-
-.error {
-    color: var(--color-light-text-negative);
 }

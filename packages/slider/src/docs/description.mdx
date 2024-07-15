@@ -15,7 +15,7 @@ render(() => {
             <div>Value:{value}</div>
             <br />
             <Slider
-                size='m'
+                size={4}
                 value={value}
                 onChange={handleChange}
                 pips={{
@@ -33,7 +33,7 @@ render(() => {
             <div>Value:{slider}</div>
             <br />
             <Slider
-                size='m'
+                size={4}
                 value={slider}
                 onChange={handleChangeSlider}
                 min={1}
@@ -79,7 +79,7 @@ render(() => {
             </div>
             <Gap size='s' />
             <Slider
-                size='m'
+                size={4}
                 value={sliderTap.value}
                 valueTo={sliderTap.valueTo}
                 onChange={handleChangeSliderTap}
@@ -96,7 +96,7 @@ render(() => {
             </div>
             <Gap size='s' />
             <Slider
-                size='m'
+                size={4}
                 value={slider.value}
                 valueTo={slider.valueTo}
                 behaviour='unconstrained-tap'
@@ -129,7 +129,7 @@ render(() => {
             <div>Value: {value}</div>
             <br />
             <Slider
-                size='m'
+                size={4}
                 value={value}
                 onChange={handleChange}
                 pips={{
@@ -146,7 +146,7 @@ render(() => {
             <br />
             <div>Value: {slider}</div>
             <br />
-            <Slider size='m' value={slider} onChange={handleChangeSlider} />
+            <Slider size={4} value={slider} onChange={handleChangeSlider} />
         </>
     );
 });
@@ -166,10 +166,10 @@ render(() => {
 
     return (
         <>
-            <Slider size='m' value={value} onChange={handleChange} />
+            <Slider size={4} value={value} onChange={handleChange} />
             <br />
             <br />
-            <Slider size='s' value={slider} onChange={handleChangeSlider} />
+            <Slider size={2} value={slider} onChange={handleChangeSlider} />
         </>
     );
 });
@@ -184,9 +184,9 @@ render(() => {
     return (
         <>
             <div style={{ marginBottom: 80 }}>
-                <Slider size='m' value={value} onChange={handleChange} />
+                <Slider size={4} value={value} onChange={handleChange} />
             </div>
-            <Slider size='s' value={slider} onChange={handleChangeSlider} />
+            <Slider size={2} value={slider} onChange={handleChangeSlider} />
         </>
     );
 });

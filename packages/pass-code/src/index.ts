@@ -1,2 +1,2 @@
-export * from './Component';
+export * from './Component.responsive';
 export * from './components/KeyPadButton';

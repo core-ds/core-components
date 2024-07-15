@@ -4,11 +4,8 @@
     --skeleton-display: block;
     --skeleton-default-color: var(--color-light-neutral-translucent-100);
     --skeleton-border-radius: var(--border-radius-m);
-    --skeleton-backdrop-filter: none;
-
-    /* experimental animation switcher */
-    --skeleton-gradient-animation-display: block;
-    --skeleton-bg-animation-display: none;
+    --skeleton-backdrop-filter: blur(20px);
+    --skeleton-bg-animation-display: block;
     --skeleton-bg-animation-color: transparent;
 }
 
@@ -19,11 +16,14 @@
     color: transparent;
     border-radius: var(--skeleton-border-radius);
     overflow: hidden;
-    backdrop-filter: var(--skeleton-backdrop-filter);
     background: var(--skeleton-default-color);
 
     /* Safari overflow fix https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+
+    &.allowBackdropBlur {
+        backdrop-filter: var(--skeleton-backdrop-filter);
+    }
 }
 
 .component > * {
@@ -57,46 +57,11 @@
     }
 }
 
-.animate:after {
-    display: var(--skeleton-gradient-animation-display);
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 500%;
-    height: 100%;
-    transform: translateX(-80%);
-    animation-name: gradient;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    background-image: linear-gradient(
-        to left,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0) 40%,
-        rgba(0, 0, 0, 0.05) 50%,
-        rgba(0, 0, 0, 0) 60%,
-        rgba(0, 0, 0, 0)
-    );
-}
-
-@keyframes gradient {
-    0% {
-        transform: translateX(-80%);
-    }
-    67% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
 @keyframes background {
     0% {
-        background: rgb(182, 188, 195);
+        background: var(--color-light-neutral-translucent-100);
     }
     100% {
-        background: rgb(198, 205, 214);
+        background: var(--color-light-neutral-translucent-300);
     }
 }

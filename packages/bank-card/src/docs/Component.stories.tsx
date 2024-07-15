@@ -26,6 +26,7 @@ export const bank_card: Story = {
             <BankCard
                 backgroundColor={text('backgroundColor', '#EF3124')}
                 bankLogo={logo[select('bankLogo', ['default', 'custom'], 'default')]}
+                maskType={select('maskType', ['default', 'card', 'account-number'], 'default')}
             />
         );
     },

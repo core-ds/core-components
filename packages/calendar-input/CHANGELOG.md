@@ -1,5 +1,133 @@
 # Change Log
 
+## 10.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.8.0
+    -   date-input@4.3.33
+
+## 10.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.4
+    -   date-input@4.3.32
+    -   calendar@7.7.2
+
+## 10.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.3
+    -   calendar@7.7.1
+    -   date-input@4.3.31
+
+## 10.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.7.0
+    -   date-input@4.3.30
+
+## 10.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.5
+    -   popover@6.2.2
+    -   date-input@4.3.29
+
+## 10.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.4
+    -   date-input@4.3.28
+
+## 10.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.3
+    -   date-input@4.3.27
+
+## 10.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.2
+    -   date-input@4.3.26
+
+## 10.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.25
+    -   calendar@7.6.1
+
+## 10.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.0
+    -   date-input@4.3.24
+
+## 10.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.2
+    -   date-input@4.3.23
+
+## 10.2.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.1
+    -   date-input@4.3.22
+
+## 10.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.21
+
+## 10.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.0
+
+## 10.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.4.0
+
+## 10.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.20
+    -   calendar@7.3.4
+
 ## 10.2.4
 
 ### Patch Changes

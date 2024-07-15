@@ -18,12 +18,13 @@ export type ComponentProps = {
         | 'accent'
         | 'primary'
         | 'secondary'
+        | 'outlined'
+        | 'transparent'
+        | 'text'
         | 'tertiary'
-        | 'outlined' // deprecated
         | 'filled' // deprecated
-        | 'transparent' // deprecated
-        | 'link'
-        | 'ghost';
+        | 'link' // deprecated
+        | 'ghost'; // deprecated;
 
     /**
      * Форма кнопки
@@ -54,9 +55,10 @@ export type ComponentProps = {
 
     /**
      * Размер компонента
-     * @default m
+     * @default 56
+     * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -140,4 +142,9 @@ export type ButtonProps = CommonButtonProps & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };

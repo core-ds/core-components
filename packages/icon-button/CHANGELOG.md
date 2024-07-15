@@ -1,5 +1,103 @@
 # Change Log
 
+## 6.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+
+## 6.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+
+## 6.7.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+
+## 6.6.1
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+
+## 6.6.0
+
+### Minor Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1225](https://github.com/core-ds/core-components/pull/1225)
+
+-   Добавлено новое свойство transparentBg, отвечающее за включение прозрачного фона у компонента
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   button@11.4.4
+
+## 6.5.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.3
+
+## 6.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+
+## 6.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
+## 6.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+
+## 6.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.3.0
+
 ## 6.5.2
 
 ### Patch Changes

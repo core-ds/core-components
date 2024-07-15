@@ -1,5 +1,213 @@
 # Change Log
 
+## 8.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.11
+    -   icon-button@6.7.2
+
+## 8.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.10
+
+## 8.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.9
+
+## 8.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   picker-button@11.7.8
+    -   icon-button@6.7.1
+
+## 8.9.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1263](https://github.com/core-ds/core-components/pull/1263)
+
+-   Добавили новые свойства: showSkeleton и skeletonProps, отвечающие за отображение скелетона и дополнительные пропсы для него
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.0
+    -   picker-button@11.7.7
+
+## 8.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.6
+
+## 8.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.5
+
+## 8.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.4
+
+## 8.8.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   icon-button@6.6.1
+    -   picker-button@11.7.3
+    -   tag@8.2.1
+
+## 8.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.5.2
+    -   icon-button@6.6.0
+    -   picker-button@11.7.2
+
+## 8.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   picker-button@11.7.1
+    -   icon-button@6.5.7
+
+## 8.8.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1189](https://github.com/core-ds/core-components/pull/1189)
+
+-   Свойство style перенесено с корневого HTML тега на заголовок табов.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.0
+
+## 8.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.8
+
+## 8.7.1
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1187](https://github.com/core-ds/core-components/pull/1187)
+
+-   В компоненте Tab был расширен тип для свойства title до ReactNode
+
+-   Обновлены зависимости
+    -   icon-button@6.5.6
+    -   picker-button@11.6.7
+
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1165](https://github.com/core-ds/core-components/pull/1165)
+
+-   Добавлено новое свойство style, отвечающее за дополнительные инлайновые стили для враппера
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.6
+    -   icon-button@6.5.5
+
+## 8.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.5
+
+## 8.6.7
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1146](https://github.com/core-ds/core-components/pull/1146)
+
+-   Убран margin-left у rightAddons, если title передали пустую строку
+
+## 8.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.4
+    -   icon-button@6.5.4
+
+## 8.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.3
+
+## 8.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.2
+
+## 8.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.1
+
+## 8.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.0
+    -   tag@8.2.0
+    -   icon-button@6.5.3
+
 ## 8.6.1
 
 ### Patch Changes

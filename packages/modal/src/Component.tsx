@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
+import { SIZE_TO_CLASSNAME_MAP } from './consts';
 import { ResponsiveContext } from './ResponsiveContext';
 import { ModalDesktopProps, View } from './typings';
 
@@ -14,7 +15,7 @@ import transitions from './transitions.module.css';
 export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View }>(
     (
         {
-            size = 's',
+            size = 500,
             fixedPosition,
             fullscreen,
             children,
@@ -60,7 +61,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
                       className: cn(
                           desktopStyles.component,
                           className,
-                          desktopStyles[componentSize],
+                          desktopStyles[SIZE_TO_CLASSNAME_MAP[componentSize]],
                       ),
                       backdropProps: {
                           invisible: componentSize === 'fullscreen',
@@ -96,3 +97,5 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
         );
     },
 );
+
+Modal.displayName = 'Modal';

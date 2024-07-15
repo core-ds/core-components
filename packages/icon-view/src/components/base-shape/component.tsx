@@ -1,7 +1,7 @@
 import React, { ElementType, forwardRef, Fragment, ReactNode } from 'react';
 import cn from 'classnames';
 
-import { useId } from '@alfalab/hooks';
+import { useId, useImageLoadingState } from '@alfalab/hooks';
 
 import { getPath, PathsMap } from './utils';
 
@@ -51,6 +51,11 @@ export type BaseShapeProps = {
      * Сss класс для стилизации общей обёртки
      */
     className?: string;
+
+    /**
+     * Сss класс для стилизации обертки иконки
+     */
+    iconContainerClassName?: string;
 
     /**
      * Слот сверху
@@ -111,10 +116,13 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             pathsMap,
             dataTestId,
             mainSize,
+            iconContainerClassName,
         },
         ref,
     ) => {
         const [width, height] = typeof size === 'object' ? [size.width, size.height] : [size, size];
+        const imageLoadingState = useImageLoadingState({ src: imageUrl || '' });
+        const loadedUrl = imageLoadingState === 'loaded' ? imageUrl : undefined;
 
         const imagePatternId = useId();
 
@@ -158,12 +166,12 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             })}
                         />
 
-                        {imageUrl && (
+                        {loadedUrl && (
                             <Fragment>
                                 <defs>
                                     <pattern id={imagePatternId} width='100%' height='100%'>
                                         <image
-                                            href={imageUrl}
+                                            href={loadedUrl}
                                             width='100%'
                                             height='100%'
                                             preserveAspectRatio='xMidYMid slice'
@@ -234,7 +242,13 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                     {text && <div className={styles.text}>{text}</div>}
 
                     {children && (
-                        <div className={cn(styles.children, styles[`size-${mainSize}`])}>
+                        <div
+                            className={cn(
+                                styles.children,
+                                styles[`size-${mainSize}`],
+                                iconContainerClassName,
+                            )}
+                        >
                             {children}
                         </div>
                     )}
@@ -255,3 +269,5 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         );
     },
 );
+
+BaseShape.displayName = 'BaseShape';

@@ -1,5 +1,140 @@
 # Change Log
 
+## 5.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.2
+    -   tooltip@7.3.18
+
+## 5.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.9
+    -   tooltip@7.3.17
+
+## 5.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.8
+    -   tooltip@7.3.16
+    -   icon-button@6.7.1
+
+## 5.6.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+    -   icon-button@6.7.0
+    -   typography@4.6.0
+    -   tooltip@7.3.15
+
+## 5.5.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   icon-button@6.6.1
+    -   tooltip@7.3.14
+
+## 5.5.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.6.0
+    -   tooltip@7.3.13
+
+## 5.5.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.5.1
+    -   base-modal@5.7.5
+    -   tooltip@7.3.12
+    -   icon-button@6.5.7
+
+## 5.5.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   tooltip@7.3.11
+
+## 5.5.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.3
+    -   tooltip@7.3.10
+
+## 5.5.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.3.9
+    -   icon-button@6.5.6
+
+## 5.5.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.5
+    -   tooltip@7.3.8
+
+## 5.5.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.4
+    -   tooltip@7.3.7
+
+## 5.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.3.6
+
+## 5.5.5
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1117](https://github.com/core-ds/core-components/pull/1117)
+
+-   Исправлено применение стилей, когда картнинки добавляются через время, а открытие галереи происходит с пустым массивом images
+
+## 5.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.3
+    -   tooltip@7.3.5
+
 ## 5.5.3
 
 ### Patch Changes

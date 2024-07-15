@@ -61,12 +61,22 @@ describe('Input', () => {
         expect(getByTestId(testIds.leftAddons)).toBeInTheDocument();
         expect(getByTestId(testIds.rightAddons)).toBeInTheDocument();
         expect(getByTestId(testIds.error)).toBeInTheDocument();
+        expect(getByTestId(testIds.errorIcon)).toBeInTheDocument();
 
         const { getByTestId: getByTestIdHint } = render(
-            <Input block={true} dataTestId={dti} hint='hint' />,
+            <Input
+                block={true}
+                dataTestId={dti}
+                hint='hint'
+                value='value'
+                clear={true}
+                success={true}
+            />,
         );
 
         expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
+        expect(getByTestId(testIds.successIcon)).toBeInTheDocument();
+        expect(getByTestId(testIds.clearIcon)).toBeInTheDocument();
     });
 
     it('should set `aria-label` atribute to input', () => {

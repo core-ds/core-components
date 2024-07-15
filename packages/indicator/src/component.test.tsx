@@ -31,17 +31,17 @@ describe('Indicator', () => {
         });
 
         it('should set `size` class', () => {
-            const size = 's';
+            const size = 20;
             const { container } = render(<Indicator size={size} />);
 
-            expect(container.firstElementChild).toHaveClass(size);
+            expect(container.firstElementChild).toHaveClass(`size-${size}`);
         });
 
-        it('should set `xs` class if value is empty', () => {
-            const size = 'xs';
+        it('should set size-8 class if value is empty', () => {
+            const size = 8;
             const { container } = render(<Indicator />);
 
-            expect(container.firstElementChild).toHaveClass(size);
+            expect(container.firstElementChild).toHaveClass(`size-${size}`);
         });
 
         it('should set `view` class', () => {
@@ -59,7 +59,7 @@ describe('Indicator', () => {
         });
 
         it('should set `backgroundColor` style', () => {
-            const backgroundColor = 'var(--color-light-bg-secondary)';
+            const backgroundColor = 'var(--color-light-base-bg-secondary)';
             const { container } = render(<Indicator backgroundColor={backgroundColor} />);
 
             expect(container.firstElementChild).toHaveStyle({ backgroundColor });
@@ -67,7 +67,7 @@ describe('Indicator', () => {
 
         it('should set `border` styles', () => {
             const border = {
-                color: 'var(--color-light-border-secondary)',
+                color: 'var(--color-light-neutral-300)',
                 width: 1,
                 style: 'solid',
             } as const;

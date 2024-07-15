@@ -7,6 +7,7 @@ import { TabsMobile } from './Component.mobile';
 import { TabsResponsive } from './Component.responsive';
 import { Tab } from '../tab';
 import { TabsProps } from '../../typings';
+import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -64,6 +65,16 @@ describe('Tabs', () => {
         });
     });
 
+    it('should match snapshot with icon as title', () => {
+        const { container } = render(
+            <TabsDesktop selectedId='tab-2'>
+                <Tab title={<DiamondsMIcon />} id='tab-1' />
+                <Tab title={<DiamondsMIcon />} id='tab-2' />
+            </TabsDesktop>,
+        );
+        expect(container).toMatchSnapshot();
+    });
+
     describe('Classes tests', () => {
         it.each(tabVariants)('should set custom class', (Component, view) => {
             const className = 'custom-class';
@@ -99,6 +110,15 @@ describe('Tabs', () => {
             expect(getByTestId(dataTestId).getAttribute('role')).toBe('tablist');
             expect(tabs[1].textContent).toBe('Таб 2');
             expect(tabs[2].textContent).toBe('Таб 3');
+        });
+
+        it.each(tabVariants)('should set custom style', (Component, view) => {
+            const style = { padding: 20 };
+            const { container } = renderTabs(Component, { view, style });
+
+            const firstElement = container.firstChild?.firstChild;
+
+            expect(firstElement).toHaveStyle('padding: 20px');
         });
     });
 

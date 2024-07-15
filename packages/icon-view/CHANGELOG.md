@@ -1,5 +1,35 @@
 # Change Log
 
+## 3.7.1
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 3.7.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1203](https://github.com/core-ds/core-components/pull/1203)
+
+-   Исправлена форма для компонета SuperEllipse в размере 40 (стала более округлой)
+
+## 3.6.2
+
+### Patch Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1120](https://github.com/core-ds/core-components/pull/1120)
+
+-   Загрузка изображений исправлена: теперь если произошла ошибка при загрузке, битое изображение не будет отображаться
+
 ## 3.6.1
 
 ### Patch Changes

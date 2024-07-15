@@ -41,6 +41,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             showArrow,
             Field = DefaultField,
             fieldProps = {},
+            icon,
             breakpoint = 1024,
             ...restProps
         },
@@ -56,6 +57,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             rightAddons,
             showArrow,
             breakpoint,
+            icon,
         };
 
         return (
@@ -70,7 +72,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
                 }}
                 Field={Field}
                 Optgroup={Optgroup}
-                size={size === 'm' ? 'm' : 's'}
+                size={size === 'm' || size === 56 ? 56 : 48}
                 closeOnSelect={true}
                 fieldProps={{
                     ...fieldDefaultProps,

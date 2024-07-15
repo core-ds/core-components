@@ -45,7 +45,7 @@ describe('FormControl | screenshots size prop', () => {
                         componentName: 'FormControl',
                         knobs: {
                             label: 'Label',
-                            size: ['s', 'm', 'l', 'xl'],
+                            size: [48, 56, 64, 72],
                         },
                         size: { width: 350, height: 150 },
                     }),
@@ -69,7 +69,7 @@ describe('FormControl | screenshots block prop', () => {
                     componentName: 'FormControl',
                     knobs: {
                         label: 'Label',
-                        size: 'm',
+                        size: 56,
                         block: [false, true],
                     },
                     size: { width: 350, height: 150 },
@@ -93,7 +93,7 @@ describe('FormControl | screenshots disabled prop', () => {
                         componentName: 'FormControl',
                         knobs: {
                             label: 'Label',
-                            size: 'm',
+                            size: 56,
                             disabled: true,
                             colors,
                         },
@@ -121,7 +121,7 @@ describe('FormControl | screenshots hint and error', () => {
                     createSpriteStorybookUrl({
                         componentName: 'FormControl',
                         knobs: {
-                            size: 'm',
+                            size: 56,
                             hint: ['', 'Hint'],
                             error: ['', 'Error'],
                             value: ['', 'Value'],

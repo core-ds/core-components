@@ -8,6 +8,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus, useMedia } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
+import { SIZE_TO_CLASSNAME_MAP } from './consts';
 import { TextareaProps } from './typings';
 
 import defaultColors from './default.module.css';
@@ -27,7 +28,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {
             autoComplete = 'on',
             autosize = true,
-            size = 's',
+            size = 48,
             colors = 'default',
             block = false,
             bottomAddons,
@@ -58,6 +59,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             maxLength,
             allowOverflow = true,
             nativeScrollbar: nativeScrollbarProp,
+            wrapperRef,
             breakpoint,
             ...restProps
         },
@@ -156,13 +158,14 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const textareaClassNameCalc = cn(
             styles.textarea,
             colorStyles[colors].textarea,
-            styles[size],
+            styles[SIZE_TO_CLASSNAME_MAP[size]],
             {
                 [styles.overflowHidden]: autosize && !maxRows,
                 [styles.customScrollbar]: !nativeScrollbar,
                 [styles.hasInnerLabel]: hasInnerLabel,
                 [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                 [styles.filled]: filled,
+                [styles.overflow]: hasOverflow,
             },
             textareaClassName,
         );
@@ -205,11 +208,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         return (
             <FormControl
+                ref={wrapperRef}
                 className={cn(className)}
                 fieldClassName={cn(fieldClassName, {
                     [styles.focusVisible]: focusVisible,
                 })}
-                inputWrapperClassName={cn(styles.wrapper, styles[size], {
+                inputWrapperClassName={cn(styles.wrapper, styles[SIZE_TO_CLASSNAME_MAP[size]], {
                     [styles.hasInnerLabel]: hasInnerLabel,
                     [styles.resizeVertical]: resize === 'vertical',
                 })}
@@ -254,3 +258,5 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         );
     },
 );
+
+Textarea.displayName = 'Textarea';

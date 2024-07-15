@@ -20,28 +20,30 @@ export const pass_code: Story = {
         const codeLength = number('codeLength', 0, { min: 0, max: 12, range: true });
 
         return (
-            <PassCode
-                value={text('value', '')}
-                onChange={() => {}}
-                maxCodeLength={number('maxCodeLength', 8, { min: 0, max: 12, range: true })}
-                codeLength={codeLength === 0 ? undefined : codeLength}
-                message={text('message', '')}
-                error={text('error', '')}
-                leftAddons={
-                    boolean('leftAddons', false) && (
-                        <KeyPadButton view='ghost' key='left-addon'>
-                            Забыли код?
-                        </KeyPadButton>
-                    )
-                }
-                rightAddons={
-                    boolean('rightAddons', false) && (
-                        <KeyPadButton view='ghost' key='right-addon'>
-                            <SfFaceIdXxlIcon />
-                        </KeyPadButton>
-                    )
-                }
-            />
+            <div style={{ height: '100vh' }}>
+                <PassCode
+                    value={text('value', '')}
+                    onChange={() => {}}
+                    maxCodeLength={number('maxCodeLength', 8, { min: 0, max: 12, range: true })}
+                    codeLength={codeLength === 0 ? undefined : codeLength}
+                    error={boolean('error', false)}
+                    success={boolean('success', false)}
+                    leftAddons={
+                        boolean('leftAddons', false) && (
+                            <KeyPadButton view='text' key='left-addon'>
+                                Забыли код?
+                            </KeyPadButton>
+                        )
+                    }
+                    rightAddons={
+                        boolean('rightAddons', false) && (
+                            <KeyPadButton view='text' key='right-addon'>
+                                <SfFaceIdXxlIcon />
+                            </KeyPadButton>
+                        )
+                    }
+                />
+            </div>
         );
     },
 };

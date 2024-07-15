@@ -41,11 +41,16 @@
     @media (hover: hover) {
         &:hover {
             background-color: var(--button-inverted-outlined-hover-bg-color);
+            border-color: var(--button-inverted-outlined-hover-border-color);
         }
     }
 
     &:active {
         background-color: var(--button-inverted-outlined-active-bg-color);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-inverted-color);
     }
 }
 
@@ -71,33 +76,42 @@
 }
 
 .filled {
-    color: var(--color-dark-text-primary);
-    background-color: var(--color-dark-bg-quaternary);
+    color: var(--color-light-text-primary-inverted);
+    background-color: var(--color-light-neutral-translucent-300-inverted);
+    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
-            background-color: color-mod(var(--color-dark-bg-quaternary) tint(15%));
+            background-color: var(--color-light-neutral-translucent-300-inverted-hover);
         }
     }
 
     &:active {
-        background-color: color-mod(var(--color-dark-bg-quaternary) shade(15%));
+        background-color: var(--color-light-neutral-translucent-300-inverted-press);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-inverted-color);
     }
 }
 
 .transparent {
-    color: var(--color-light-text-primary-inverted);
-    background-color: color-mod(var(--color-light-bg-primary) alpha(10%));
+    color: var(--button-inverted-transparent-base-color);
+    background-color: transparent;
+    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
-            background-color: color-mod(var(--color-light-bg-primary) alpha(20%));
+            background-color: var(--button-inverted-transparent-hover-bg-color);
         }
     }
 
     &:active {
-        /* TODO: какой цвет? */
-        background-color: color-mod(var(--color-light-bg-primary) alpha(5%));
+        background-color: var(--button-inverted-transparent-active-bg-color);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-inverted-color);
     }
 }
 
@@ -115,6 +129,21 @@
     &:active {
         /* TODO: какой цвет? */
         background-color: var(--button-inverted-link-active-bg-color);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-inverted-color);
+    }
+}
+
+.text {
+    background-color: transparent;
+    color: var(--button-inverted-text-base-color);
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--button-inverted-text-hover-color);
+        }
     }
 
     & > .loader {
@@ -158,9 +187,7 @@
     }
 
     &.outlined {
-        color: var(--button-inverted-outlined-disabled-color);
         background-color: var(--button-inverted-outlined-disabled-bg-color);
-        border-color: var(--button-inverted-outlined-disabled-border-color);
 
         &.loading {
             color: var(--button-inverted-outlined-color);
@@ -176,24 +203,20 @@
     }
 
     &.filled {
-        color: color-mod(var(--color-dark-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-dark-bg-quaternary) alpha(30%));
-        border-color: transparent;
+        color: var(--color-light-text-tertiary-inverted);
+        background-color: var(--color-light-neutral-translucent-100-inverted);
 
         &.loading {
-            color: var(--color-dark-text-primary);
-            background-color: var(--color-dark-bg-quaternary);
-            border-color: transparent;
+            color: var(--color-light-text-primary-inverted);
+            background-color: var(--color-light-neutral-translucent-300-inverted);
         }
     }
 
     &.transparent {
-        color: color-mod(var(--color-light-text-primary-inverted) alpha(30%));
-        background-color: color-mod(var(--color-light-bg-primary) alpha(3%));
+        background-color: transparent;
 
         &.loading {
-            color: var(--color-light-text-primary-inverted);
-            background-color: color-mod(var(--color-light-bg-primary) alpha(10%));
+            color: var(--button-inverted-transparent-base-color);
         }
     }
 
@@ -202,6 +225,12 @@
 
         &.loading {
             color: var(--button-inverted-link-base-color);
+        }
+    }
+
+    &.text {
+        &.loading {
+            color: var(--button-inverted-text-base-color);
         }
     }
 

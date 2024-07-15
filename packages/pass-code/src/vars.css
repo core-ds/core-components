@@ -1,5 +1,13 @@
 :root {
-    --pass-code-max-width: 500px;
-    --button-bg-color: var(--color-light-neutral-translucent-200);
-    --button-bg-color-active: var(--color-light-neutral-translucent-200-press);
+    --pass-code-min-width: 304px;
+    --pass-code-min-height: 378px;
+    --pass-code-height: 100%;
+    --pass-code-button-width: var(--size-l-height);
+    --pass-code-button-min-width: var(--size-l-height);
+    --pass-code-button-height: var(--size-l-height);
+    --pass-code-dot-width: 12px;
+    --pass-code-dot-height: 12px;
+    --pass-code-dot-container-width: 14px;
+    --pass-code-dot-container-height: 14px;
+    --pass-code-progress-container-min-height: 14px;
 }

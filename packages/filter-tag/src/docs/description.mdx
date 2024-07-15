@@ -190,7 +190,7 @@ render(() => {
                 selected={selected}
                 Option={BaseOption}
                 label={label}
-                fieldProps={{ size: 'xxs' }}
+                fieldProps={{ size: 32 }}
             />
             <Gap size='m' />
             <SelectDesktop
@@ -202,7 +202,7 @@ render(() => {
                 selected={selectedMultiple}
                 multiple={true}
                 label={label}
-                fieldProps={{ size: 'xxs' }}
+                fieldProps={{ size: 32 }}
             />
             <Gap size='m' />
             <Popover
@@ -228,7 +228,7 @@ render(() => {
 
             <FilterTag
                 ref={handleFilterTagRef}
-                size='xxs'
+                size={32}
                 onClick={handleOpen}
                 onClear={handleClear}
                 checked={selectedRange}
@@ -395,7 +395,7 @@ render(() => {
                 onChange={handleChangeSelected}
                 selected={selected}
                 label={label}
-                fieldProps={{ size: 'xxs' }}
+                fieldProps={{ size: 32 }}
             />
             <Gap size='m' />
             <SelectMobile
@@ -408,7 +408,7 @@ render(() => {
                 selected={selectedMultiple}
                 multiple={true}
                 label={label}
-                fieldProps={{ size: 'xxs' }}
+                fieldProps={{ size: 32 }}
             />
             <Gap size='m' />
             <CalendarMobile
@@ -421,7 +421,7 @@ render(() => {
                 selectorView='month-only'
             />
             <FilterTag
-                size='xxs'
+                size={32}
                 onClick={handleOpen}
                 onClear={handleClear}
                 checked={selectedRange}
@@ -481,7 +481,7 @@ render(() => {
             Field={CustomField}
             onChange={handleChangeSelected}
             selected={selected}
-            fieldProps={{ size: 'xxs' }}
+            fieldProps={{ size: 32 }}
         />
     );
 });
@@ -521,7 +521,7 @@ render(() => {
             Field={CustomField}
             onChange={handleChangeSelected}
             selected={selected}
-            fieldProps={{ size: 'xxs' }}
+            fieldProps={{ size: 32 }}
         />
     );
 });
@@ -545,24 +545,24 @@ render(() => {
         <Container>
             <Row align='middle'>
                 <div style={{ marginRight: 12 }}>
-                    <FilterTag size='xxs' checked={false}>
+                    <FilterTag size={32} checked={false}>
                         {content}
                     </FilterTag>
                 </div>
                 <div>
-                    <FilterTag size='xxs' checked={false} disabled={true}>
+                    <FilterTag size={32} checked={false} disabled={true}>
                         {content}
                     </FilterTag>
                 </div>
             </Row>
             <div style={{ display: 'flex', marginTop: 12 }}>
                 <div style={{ marginRight: 12 }}>
-                    <FilterTag size='xxs' checked={true}>
+                    <FilterTag size={32} checked={true}>
                         {checkedContent}
                     </FilterTag>
                 </div>
                 <div>
-                    <FilterTag size='xxs' checked={true} disabled={true}>
+                    <FilterTag size={32} checked={true} disabled={true}>
                         {checkedContent}
                     </FilterTag>
                 </div>

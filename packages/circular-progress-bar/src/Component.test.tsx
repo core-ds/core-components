@@ -37,7 +37,7 @@ describe('ProgressBar', () => {
         });
 
         it('should use passed `value`', () => {
-            const { container } = render(<CircularProgressBar value={72} size='l' />);
+            const { container } = render(<CircularProgressBar value={72} size={80} />);
 
             expect(container.querySelector('.progressCircle')).toHaveAttribute(
                 'stroke-dashoffset',
@@ -62,7 +62,7 @@ describe('ProgressBar', () => {
         it('should use passed `subtitle`', () => {
             const text = 'test-text';
             const { container } = render(
-                <CircularProgressBar value={72} size='l' subtitle={text} />,
+                <CircularProgressBar value={72} size={80} subtitle={text} />,
             );
 
             expect(container.querySelector('.subtitle')).toHaveTextContent(text);
@@ -86,13 +86,13 @@ describe('ProgressBar', () => {
         it('should use default `size`', () => {
             const { container } = render(<CircularProgressBar value={20} />);
 
-            expect(container.firstElementChild).toHaveClass('m');
+            expect(container.firstElementChild).toHaveClass('size-64');
         });
 
         it('should use passed `size`', () => {
-            const { container } = render(<CircularProgressBar value={20} size='l' />);
+            const { container } = render(<CircularProgressBar value={20} size={80} />);
 
-            expect(container.firstElementChild).toHaveClass('l');
+            expect(container.firstElementChild).toHaveClass('size-80');
         });
 
         it('should set `className` class to root', () => {

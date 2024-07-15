@@ -1,5 +1,49 @@
 # Change Log
 
+## 12.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+
+## 12.2.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 12.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+
+## 12.2.1
+
+### Patch Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1125](https://github.com/core-ds/core-components/pull/1125)
+
+-   Изменили токен цвета фона при возникновении ошибки с neutral-translucent/100 на neutral-translucent/200
+
+## 12.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
 ## 12.1.0
 
 ### Minor Changes

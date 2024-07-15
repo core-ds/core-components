@@ -23,7 +23,7 @@ export const form_control: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -35,7 +35,7 @@ export const form_control: Story = {
             >
                 <FormControl
                     block={boolean('block', true)}
-                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                    size={select('size', [48, 56, 64, 72], 48)}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     filled={boolean('filled', false)}
@@ -62,7 +62,7 @@ export const form_control_mobile: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -74,7 +74,7 @@ export const form_control_mobile: Story = {
             >
                 <FormControlMobile
                     block={boolean('block', true)}
-                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                    size={select('size', [48, 56, 64, 72], 48)}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     filled={boolean('filled', false)}
@@ -101,7 +101,7 @@ export const form_control_desktop: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -113,7 +113,7 @@ export const form_control_desktop: Story = {
             >
                 <FormControlDesktop
                     block={boolean('block', true)}
-                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                    size={select('size', [48, 56, 64, 72], 48)}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     filled={boolean('filled', false)}

@@ -1,5 +1,151 @@
 # @alfalab/core-components-pattern-lock
 
+## 2.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1233](https://github.com/core-ds/core-components/pull/1233)
+
+Редизайн компонентов PassCode и PatternLock
+
+-   Внесены изменения в адаптивность
+-   Удалены пропсы для вывода кастомных сообщений и ошибок
+    Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
+
+## Обновление
+
+Для упрощенного перехода между версиями библиотеки, после обновления вам необходимо исправить импорты.
+
+До
+
+```js
+import { PassCode } from '@alfalab/core-components/pass-code';
+import { PatternLock } from '@alfalab/core-components/pattern-lock';
+```
+
+После
+
+```js
+import { PassCodeV1 } from '@alfalab/core-components/pass-code-v1';
+import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
+```
+
+Таким образом, в вашем приложении продолжат работу старые версии компонентов.
+В дальнейшем поддержка `v1` версий будет прекращена.
+
+## 1.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   button@11.5.1
+
+## 1.8.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+
+## 1.7.4
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+
+## 1.7.3
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовой токен: color-light-graphic-primary -> color-light-neutral-0-inverted
+
+-   Обновлены зависимости
+    -   button@11.4.4
+
+## 1.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   button@11.4.3
+
+## 1.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+
+## 1.7.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1163](https://github.com/core-ds/core-components/pull/1163)
+
+-   Обновили версию react-canvas-pattern-lock. Исправили ховер, теперь, если линию не довести до узла, она исчезает
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
+## 1.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+
+## 1.6.0
+
+### Minor Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1122](https://github.com/core-ds/core-components/pull/1122)
+
+-   Добавлены десктопная и адаптивная версии компонента
+
+## 1.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   gap@1.3.0
+    -   button@11.3.0
+
 ## 1.5.0
 
 ### Minor Changes

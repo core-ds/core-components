@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "44.7.0",
+    "version": "47.3.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -56,23 +56,26 @@
         ]
     },
     "dependencies": {
-        "@alfalab/data": "^1.6.0",
+        "@alfalab/data": "^1.8.0",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "@alfalab/icons-logotype": "^2.27.0",
-        "@alfalab/utils": "^1.14.4",
+        "@alfalab/stack-context": "^1.16.0",
+        "@alfalab/utils": "^1.15.2",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
         "@juggle/resize-observer": "^3.3.1",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
         "@popperjs/core": "^2.11.8",
+        "@types/deep-equal": "^1.0.4",
         "@types/react-transition-group": "^4.4.5",
         "can-use-dom": "^0.1.0",
         "classnames": "^2.3.1",
         "compute-scroll-into-view": "^3.1.0",
         "date-fns": "^2.16.1",
-        "downshift": "^8.2.2",
+        "deep-equal": "^2.2.3",
+        "downshift": "8.4.0",
         "element-closest": "^3.0.2",
         "intersection-observer": "^0.12.0",
         "libphonenumber-js": "^1.10.30",
@@ -83,9 +86,9 @@
         "micromark-extension-gfm-strikethrough": "^0.6.5",
         "nouislider": "^15.6.0",
         "popper-max-size-modifier": "^0.2.0",
-        "react-canvas-pattern-lock": "^1.1.1",
+        "react-canvas-pattern-lock": "^2.0.6",
         "react-div-100vh": "^0.7.0",
-        "react-focus-lock": "^2.9.3",
+        "react-focus-lock": "^2.12.1",
         "react-markdown": "6.0.2",
         "react-merge-refs": "^1.1.0",
         "react-popper": "^2.3.0",
@@ -99,7 +102,7 @@
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^13.19.0"
+        "ui-primitives": "^17.12.0"
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.6.1",

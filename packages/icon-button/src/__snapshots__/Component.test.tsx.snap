@@ -6,12 +6,12 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component ghost s hug s component ghost component ghost cc-icon-button primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
         data-test-id="test-id"
         href="http://example.com"
       >
         <span
-          class="text stretchText"
+          class="label stretchText"
         >
           <span
             class="iconWrapper size-48 center"
@@ -36,12 +36,12 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="component ghost s hug s component ghost component ghost cc-icon-button primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
       data-test-id="test-id"
       href="http://example.com"
     >
       <span
-        class="text stretchText"
+        class="label stretchText"
       >
         <span
           class="iconWrapper size-48 center"
@@ -123,11 +123,11 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component ghost s hug s component ghost component ghost cc-icon-button primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
         type="button"
       >
         <span
-          class="text stretchText"
+          class="label stretchText"
         >
           <span
             class="iconWrapper size-48 center"
@@ -152,11 +152,11 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component ghost s hug s component ghost component ghost cc-icon-button primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
       type="button"
     >
       <span
-        class="text stretchText"
+        class="label stretchText"
       >
         <span
           class="iconWrapper size-48 center"

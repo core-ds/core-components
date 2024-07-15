@@ -97,7 +97,7 @@ export const Slide: FC<SlideProps> = ({
                 alt={getImageAlt(image, index)}
                 className={cn({
                     [styles.smallImage]: small,
-                    [styles.image]: !small,
+                    [styles.image]: !small && meta,
                     [styles.verticalImageFit]: verticalImageFit,
                     [styles.horizontalImageFit]: horizontalImageFit,
                 })}

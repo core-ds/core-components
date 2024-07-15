@@ -5,10 +5,10 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
   class="wrapper"
   role="dialog"
   style="z-index: 100;"
-  tabindex="0"
+  tabindex="-1"
 >
   <div
-    class="component s hidden rightPlacement enterRight enterActive"
+    class="component size-500 hidden rightPlacement enterRight enterActive"
   >
     <div
       class="content"
@@ -17,7 +17,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
         class="content appearRight enterActive"
       >
         <div
-          class="header header hasContent s"
+          class="header header hasContent size-500"
         >
           <div
             class="mainLine"
@@ -30,11 +30,11 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component ghost s hug s component ghost component ghost component"
+                  class="component text size-48 hug size-48 component text component text component"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <div
                       class="flex"
@@ -77,11 +77,11 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component ghost s hug s component ghost component ghost cc-icon-button button primary component"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button primary component"
                     type="button"
                   >
                     <span
-                      class="text stretchText"
+                      class="label stretchText"
                     >
                       <span
                         class="iconWrapper size-48 center"
@@ -118,12 +118,12 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="content s flex withHeader"
+          class="content size-500 flex withHeader"
         >
           Content
         </div>
         <div
-          class="footer s start"
+          class="footer size-500 start"
         >
           <div
             class="component start"
@@ -143,7 +143,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
   class="wrapper"
   role="dialog"
   style="z-index: 100;"
-  tabindex="0"
+  tabindex="-1"
 >
   <div
     class="component appear appearActive"
@@ -168,11 +168,11 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component ghost xxs hug xxs component ghost component ghost component mobileComponent"
+                  class="component text size-32 hug size-32 component text component text component mobileComponent"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <div
                       class="flex"
@@ -215,11 +215,11 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component"
                     type="button"
                   >
                     <span
-                      class="text stretchText"
+                      class="label stretchText"
                     >
                       <span
                         class="iconWrapper size-32 center"

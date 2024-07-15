@@ -36,6 +36,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         clearCodeOnError,
         hideCountdownSection,
         initialScreenHintSlot,
+        errorVisibleDuration,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -133,7 +134,12 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
         if (mobile) {
             return (
-                <ButtonMobile onClick={handleSmsHintLinkClick} view='link' size='xs'>
+                <ButtonMobile
+                    onClick={handleSmsHintLinkClick}
+                    className={styles.smsBtn}
+                    view='text'
+                    size='xs'
+                >
                     {texts.linkToHint}
                 </ButtonMobile>
             );
@@ -179,6 +185,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}
                 clearCodeOnError={clearCodeOnError}
+                errorVisibleDuration={errorVisibleDuration}
                 onErrorAnimationEnd={handleErrorAnimationEnd}
             />
             {!hideCountdownSection && (

@@ -1,5 +1,109 @@
 # Change Log
 
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1279](https://github.com/core-ds/core-components/pull/1279)
+
+-   Добавлены новые свойства background и borderColor, отвечающие за фон и цвет бордера у компонента при view=custom
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   icon-button@6.7.2
+
+## 7.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+    -   icon-button@6.7.1
+
+## 7.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   icon-button@6.7.0
+
+## 7.3.10
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   icon-button@6.6.1
+
+## 7.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   icon-button@6.6.0
+
+## 7.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.3
+    -   icon-button@6.5.7
+
+## 7.3.7
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1201](https://github.com/core-ds/core-components/pull/1201)
+
+-   У кнопок в нижнем аддоне изменился отступ сверху: для десктопа с 20 до 8 пикселей, а на мобильной версии — с 12 до 8 пикселей. Также на десктопе у контейнера Caption был уменьшен верхний отступ с 4 до 0 пикселей
+
+## 7.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+    -   icon-button@6.5.6
+
+## 7.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+    -   icon-button@6.5.5
+
+## 7.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   icon-button@6.5.4
+
+## 7.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.3.0
+    -   icon-button@6.5.3
+
 ## 7.3.2
 
 ### Patch Changes

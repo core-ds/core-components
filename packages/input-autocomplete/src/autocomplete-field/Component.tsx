@@ -2,9 +2,11 @@ import React, { useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { InputProps } from '@alfalab/core-components-input';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
 import type { FieldProps } from '@alfalab/core-components-select/shared';
 
+import { OnInputReason } from '../enums';
 import { InputAutocompleteCommonProps } from '../types';
 
 import styles from './index.module.css';
@@ -47,6 +49,9 @@ export const AutocompleteField = ({
         [onClick],
     );
 
+    const handleInput: InputProps['onChange'] = (_, payload) =>
+        onInput?.(payload.value, OnInputReason.Change);
+
     return (
         <Input
             dataTestId={dataTestId}
@@ -67,7 +72,7 @@ export const AutocompleteField = ({
             error={error}
             success={success}
             hint={hint}
-            onChange={onInput}
+            onChange={handleInput}
             onClick={inputDisabled ? undefined : handleClick}
             onFocus={inputDisabled ? undefined : onFocus}
             autoComplete='off'

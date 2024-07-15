@@ -1,5 +1,203 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   picker-button@11.7.11
+    -   custom-button@3.6.2
+
+## 2.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+    -   picker-button@11.7.10
+
+## 2.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.7.2
+    -   picker-button@11.7.9
+
+## 2.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.7.1
+    -   picker-button@11.7.8
+    -   custom-button@3.6.1
+
+## 2.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.7.0
+    -   custom-button@3.6.0
+    -   picker-button@11.7.7
+
+## 2.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+    -   picker-button@11.7.6
+
+## 2.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+    -   picker-button@11.7.5
+
+## 2.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+    -   picker-button@11.7.4
+
+## 2.2.12
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   custom-button@3.5.6
+    -   picker-button@11.7.3
+    -   select@17.5.0
+
+## 2.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.5
+    -   custom-button@3.5.5
+    -   picker-button@11.7.2
+
+## 2.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.4
+    -   picker-button@11.7.1
+    -   custom-button@3.5.4
+
+## 2.2.9
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+-   Обновлены зависимости
+    -   picker-button@11.7.0
+    -   select@17.4.3
+
+## 2.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.6.8
+    -   select@17.4.2
+
+## 2.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.1
+    -   custom-button@3.5.3
+    -   picker-button@11.6.7
+
+## 2.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   picker-button@11.6.6
+    -   custom-button@3.5.2
+
+## 2.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+    -   picker-button@11.6.5
+
+## 2.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   picker-button@11.6.4
+    -   custom-button@3.5.1
+
+## 2.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.3
+    -   picker-button@11.6.3
+
+## 2.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.2
+    -   picker-button@11.6.2
+
+## 2.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+    -   picker-button@11.6.1
+
+## 2.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 32, 40, 48, 56, 64, 72. Буквенные значения размеров xxs, xs, s, m, l, xl теперь deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.0
+    -   custom-button@3.5.0
+    -   picker-button@11.6.0
+
 ## 2.1.11
 
 ### Patch Changes

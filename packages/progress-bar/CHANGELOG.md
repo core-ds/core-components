@@ -1,5 +1,35 @@
 # Change Log
 
+## 3.3.2
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 3.3.1
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1027](https://github.com/core-ds/core-components/pull/1027)
+
+-   Добавлены новые способы указать размеры - 4 и 8. Буквенные значения размеров s и m теперь deprecated, используйте вместо них 4 и 8 соответственно
+
 ## 3.2.0
 
 ### Minor Changes

@@ -9,12 +9,12 @@
 .enterActive,
 .appearDone,
 .enterDone {
-    background-color: var(--color-light-bg-primary-inverted-alpha-10);
+    background-color: var(--color-light-neutral-translucent-300);
     transition: background-color 80ms linear;
 }
 
 .exit {
-    background-color: var(--color-light-bg-primary-inverted-alpha-10);
+    background-color: var(--color-light-neutral-translucent-300);
 }
 
 .exitActive,

@@ -140,4 +140,8 @@
     }
 }
 
+.safeAreaBottom {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
 @mixin bg-class-list;

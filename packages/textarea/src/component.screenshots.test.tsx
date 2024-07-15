@@ -18,7 +18,7 @@ describe('Textarea ', () =>
             knobs: {
                 label: 'Текстовая область',
                 value: 'Текст',
-                size: 'm',
+                size: 56,
                 block: true,
                 minRows: 2,
             },
@@ -40,7 +40,7 @@ describe('Textarea | sprite', () => {
                         knobs: {
                             value: 'Компонент текстового поля ввода.',
                             block: true,
-                            size: ['s', 'm', 'l', 'xl'],
+                            size: [48, 56, 64, 72],
                             label: ['', 'Лейбл'],
                             labelView: 'inner',
                             placeholder: 'Плейсхолдер',
@@ -55,7 +55,7 @@ describe('Textarea | sprite', () => {
                         knobs: {
                             value: 'Компонент текстового поля ввода.',
                             block: true,
-                            size: ['s', 'm', 'l', 'xl'],
+                            size: [48, 56, 64, 72],
                             label: ['', 'Лейбл'],
                             labelView: 'outer',
                             placeholder: 'Плейсхолдер',
@@ -112,4 +112,29 @@ describe('Textarea | sprite', () => {
         })();
 
     ['default', 'click'].map(testCase);
+});
+
+describe('Textarea | sprite', () => {
+    screenshotTesting({
+        cases: [
+            [
+                'overflow',
+                createSpriteStorybookUrl({
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'Длинное значение в несколько строк. И вдруг, как пошло переполнение',
+                        block: true,
+                        showCounter: true,
+                        maxLength: 35,
+                        minRows: 3,
+                    },
+                    size: { width: 240, height: 150 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: { width: 1024, height: 100 },
+    })();
 });

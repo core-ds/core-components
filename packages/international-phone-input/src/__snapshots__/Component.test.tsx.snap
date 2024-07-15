@@ -3,7 +3,7 @@
 exports[`InternationalPhoneInput should match snapshot 1`] = `
 <div>
   <div
-    class="component component component m m hasLeftAddons"
+    class="component component component size-56 size-56 hasLeftAddons"
   >
     <div
       class="inner inner inner inner filled"
@@ -22,7 +22,7 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="component s"
+              class="component size-48"
             >
               <div
                 aria-controls="downshift-:r0:-menu"
@@ -48,15 +48,15 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
                         d="M0 0h24v24H0z"
                       />
                       <path
-                        d="M22.2 4.1H1.8C.8 4.1 0 5 0 6v3.5h24V5.9c0-1-.8-1.8-1.8-1.8Z"
+                        d="M22.2 4.1H1.8C.8 4.1 0 5 0 6v3.5h24V5.9q-.2-1.7-1.8-1.8"
                         fill="#F5F5F5"
                       />
                       <path
-                        d="M0 18C0 19 .8 20 1.8 20h20.4c1 0 1.8-.8 1.8-1.8v-3.5H0v3.5Z"
+                        d="M0 18c0 1 .8 2 1.8 2h20.4q1.6-.2 1.8-1.8v-3.5H0v3.5Z"
                         fill="#FF4B55"
                       />
                       <path
-                        d="M24 9.4H0v5.2h24V9.4Z"
+                        d="M24 9.4H0v5.2h24z"
                         fill="#41479B"
                       />
                     </svg>

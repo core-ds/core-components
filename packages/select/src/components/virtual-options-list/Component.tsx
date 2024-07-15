@@ -7,7 +7,7 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { isClient } from '@alfalab/core-components-shared';
 
-import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
+import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
@@ -17,9 +17,10 @@ import styles from './index.module.css';
 export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
         {
-            size = 's',
+            size = 48,
             flatOptions = [],
             highlightedIndex = -1,
+            optionGroupClassName,
             className,
             getOptionProps,
             Option,
@@ -36,6 +37,10 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
             setHighlightedIndex,
+            selectedItems,
+            setSelectedItems,
+            search,
+            multiple,
         },
         ref,
     ) => {
@@ -138,7 +143,35 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const renderList = () =>
             rowVirtualizer.virtualItems.map((virtualRow) => {
                 const option = flatOptions[virtualRow.index];
-                const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+                const renderGroup = () => {
+                    const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+
+                    if (!group) return null;
+
+                    const groupSelectedItems = selectedItems?.filter((item) =>
+                        group.options.includes(item),
+                    );
+                    const handleSelectedItems = (items: OptionShape[]) => {
+                        setSelectedItems(
+                            (
+                                selectedItems?.filter((item) => !group.options.includes(item)) ?? []
+                            ).concat(items),
+                        );
+                    };
+
+                    return (
+                        <Optgroup
+                            label={group.label}
+                            size={size}
+                            className={optionGroupClassName}
+                            options={group.options}
+                            selectedItems={groupSelectedItems}
+                            setSelectedItems={handleSelectedItems}
+                            search={search}
+                            multiple={multiple}
+                        />
+                    );
+                };
 
                 return (
                     <div
@@ -151,7 +184,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                             transform: `translateY(${virtualRow.start}px)`,
                         }}
                     >
-                        {group && <Optgroup label={group.label} />}
+                        {renderGroup()}
                         {!isGroup(option) && (
                             <Option {...getOptionProps(option, virtualRow.index)} />
                         )}
@@ -201,7 +234,11 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         return (
             <div
-                className={cn(styles.virtualOptionsList, styles[size], className)}
+                className={cn(
+                    styles.virtualOptionsList,
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    className,
+                )}
                 data-test-id={dataTestId}
             >
                 {header && (

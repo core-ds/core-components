@@ -1,5 +1,143 @@
 # @alfalab/core-components-date-time-input
 
+## 4.3.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.8.0
+    -   icon-button@6.7.2
+    -   input@15.0.1
+
+## 4.3.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   popover@6.2.4
+    -   calendar@7.7.2
+
+## 4.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.3
+    -   calendar@7.7.1
+    -   input@14.4.7
+    -   icon-button@6.7.1
+
+## 4.3.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.7.0
+    -   icon-button@6.7.0
+    -   input@14.4.6
+
+## 4.3.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.5
+    -   icon-button@6.6.1
+    -   input@14.4.5
+    -   popover@6.2.2
+
+## 4.3.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.4
+    -   icon-button@6.6.0
+    -   input@14.4.4
+
+## 4.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.3
+    -   input@14.4.3
+    -   icon-button@6.5.7
+
+## 4.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.2
+    -   input@14.4.2
+
+## 4.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.1
+    -   calendar@7.6.1
+
+## 4.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.6.0
+    -   input@14.4.0
+    -   icon-button@6.5.6
+
+## 4.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.2
+    -   icon-button@6.5.5
+    -   input@14.3.3
+
+## 4.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.1
+    -   icon-button@6.5.4
+    -   input@14.3.2
+
+## 4.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.1
+
+## 4.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.5.0
+
+## 4.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.4.0
+
+## 4.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.0
+    -   calendar@7.3.4
+    -   icon-button@6.5.3
+
 ## 4.3.4
 
 ### Patch Changes

@@ -23,6 +23,9 @@ export const PrimaryTabList = ({
     dataTestId,
     platform,
     textStyle,
+    inlineStyle,
+    showSkeleton,
+    skeletonProps,
 }: TabListProps & Styles & PlatformProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -68,6 +71,8 @@ export const PrimaryTabList = ({
                             {...restTitleProps}
                             focused={focused}
                             styles={styles}
+                            showSkeleton={showSkeleton}
+                            skeletonProps={skeletonProps}
                         />
                     )}
                 </KeyboardFocusable>
@@ -89,11 +94,16 @@ export const PrimaryTabList = ({
             view='primary'
             size={textStyle ? undefined : size}
             platform={platform}
+            inlineStyle={inlineStyle}
+            showSkeleton={showSkeleton}
         >
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        <div className={cn(styles.container, wrapperClassName, containerClassName)}>
+        <div
+            className={cn(styles.container, wrapperClassName, containerClassName)}
+            style={inlineStyle}
+        >
             {renderContent()}
         </div>
     );

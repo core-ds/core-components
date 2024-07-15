@@ -61,6 +61,11 @@ export type SwitchProps = Omit<
     inactive?: boolean;
 
     /**
+     * Отображение ошибки
+     */
+    error?: ReactNode | boolean;
+
+    /**
      * Обработчик переключения компонента
      */
     onChange?: (
@@ -87,6 +92,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             block,
             disabled,
             inactive,
+            error,
             label,
             hint,
             name,
@@ -107,6 +113,8 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 onChange(e, { checked: e.target.checked, name });
             }
         };
+
+        const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
             <label
@@ -132,10 +140,16 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
 
                 <span className={styles.switch} />
 
-                {(label || hint) && (
+                {(label || hint || errorMessage) && (
                     <span className={styles.content}>
                         {label && <span className={styles.label}>{label}</span>}
-                        {hint && <span className={styles.hint}>{hint}</span>}
+                        {hint && !errorMessage && <span className={styles.hint}>{hint}</span>}
+
+                        {errorMessage && (
+                            <span className={styles.errorMessage} role='alert'>
+                                {errorMessage}
+                            </span>
+                        )}
                     </span>
                 )}
 
@@ -149,3 +163,5 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         );
     },
 );
+
+Switch.displayName = 'Switch';

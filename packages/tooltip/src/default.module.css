@@ -2,6 +2,7 @@
 
 :root {
     --tooltip-border-color: var(--color-light-neutral-300);
+    --tooltip-bg-color: var(--color-light-modal-bg-primary);
     --tooltip-hint-bg-color: var(--color-light-modal-bg-primary-inverted);
     --tooltip-hint-text-color: var(--color-light-text-primary-inverted);
     --tooltip-hint-box-shadow: var(--shadow-m-hard);
@@ -20,8 +21,10 @@
 
 .tooltip {
     border: 1px solid var(--tooltip-border-color);
+    background-color: var(--tooltip-bg-color);
 
     & .arrow:after {
         border-color: var(--tooltip-border-color);
+        background-color: var(--tooltip-bg-color);
     }
 }

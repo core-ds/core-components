@@ -29,7 +29,7 @@
     }
 }
 
-.xs {
+.size-40 {
     height: var(--size-xs-height);
 
     & .rounded,
@@ -46,7 +46,7 @@
     }
 }
 
-.xxs {
+.size-32 {
     height: var(--size-xxs-height);
 }
 

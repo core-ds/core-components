@@ -6,6 +6,7 @@
     outline: none;
     box-sizing: border-box;
     position: sticky;
+    justify-content: space-between;
 }
 
 .virtualOptionsListHeader {
@@ -68,9 +69,10 @@
 .emptyPlaceholder {
     padding: var(--gap-m) var(--gap-s);
     color: var(--select-options-list-empty-placeholder-color);
+    flex: 1;
 }
 
-.l .emptyPlaceholder,
-.xl .emptyPlaceholder {
+.size-64 .emptyPlaceholder,
+.size-72 .emptyPlaceholder {
     padding: var(--gap-xl) var(--gap-m);
 }

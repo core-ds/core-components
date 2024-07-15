@@ -33,8 +33,9 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Размер компонента
+     * @description xs, s, m, l deprecated, используйте вместо них 8, 20, 24, 40 соответственно
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: 'xs' | 's' | 'm' | 'l' | 8 | 20 | 24 | 40;
 
     /**
      * Настройки обводки
@@ -59,16 +60,16 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
 
 function getSize(height?: number, value?: IndicatorProps['value']) {
     if (!height) {
-        return typeof value === 'undefined' ? 'xs' : 's';
+        return typeof value === 'undefined' ? 8 : 20;
     }
 
-    if (height <= 8) return 'xs';
-    if (height <= 18) return 's';
-    if (height <= 24) return 'm';
-    if (height <= 32) return 'l';
-    if (height <= 40) return 'xl';
+    if (height <= 8) return 8;
+    if (height <= 16) return 16;
+    if (height <= 20) return 20;
+    if (height <= 24) return 24;
+    if (height <= 40) return 40;
 
-    return 'xxl';
+    return 48;
 }
 
 function formatValue(rawValue: IndicatorProps['value']) {
@@ -95,10 +96,23 @@ function borderStyles(
 
     return {
         outlineWidth: 2,
-        outlineColor: 'var(--color-light-graphic-primary)',
+        outlineColor: 'var(--color-light-neutral-translucent-1300)',
         outlineStyle: 'solid',
     };
 }
+
+export const SIZE_TO_CLASSNAME_MAP = {
+    xs: 'size-8',
+    s: 'size-20',
+    m: 'size-24',
+    l: 'size-40',
+    8: 'size-8',
+    16: 'size-16',
+    20: 'size-20',
+    24: 'size-24',
+    40: 'size-40',
+    48: 'size-48',
+};
 
 export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
     (
@@ -112,19 +126,20 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
             className,
             dataTestId,
             style,
-            size = getSize(height, value),
+            size = getSize(height, value) as keyof typeof SIZE_TO_CLASSNAME_MAP,
             ...restProps
         },
         ref,
     ) => {
-        const showContent = typeof value !== 'undefined' && size !== 'xs';
+        const showContent =
+            typeof value !== 'undefined' && SIZE_TO_CLASSNAME_MAP[size] !== 'size-8';
 
         return (
             <div
                 ref={ref}
                 className={cn(
                     styles.component,
-                    styles[size],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     view && styles[view],
                     border === true && styles.border,
                     className,
@@ -147,3 +162,5 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
         );
     },
 );
+
+Indicator.displayName = 'Indicator';

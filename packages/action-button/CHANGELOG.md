@@ -1,5 +1,76 @@
 # Change Log
 
+## 1.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.4.0
+
+## 1.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+
+## 1.6.4
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 1.6.3
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   spinner@3.3.1
+
+## 1.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+
+## 1.6.1
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+## 1.6.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Для компонента ActionButton добавлен новый способ указать размер - 48. Буквенное значение размера s теперь deprecated, используйте вместо него 48
+-   Для компонента Attach добавлены новые способы указать размеры - 32, 40, 48, 56, 64. Буквенные значения размеров xxs, xs, s, m, l теперь deprecated, используйте вместо них 32 , 40 , 48 , 56 , 64 соответственно
+-   Для компонента FilterTag добавлены новые способы указать размеры - 32, 40, 48. Буквенные значения размеров xxs, xs, s теперь deprecated, используйте вместо них 32, 40, 48 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.3.0
+
 ## 1.5.0
 
 ### Minor Changes

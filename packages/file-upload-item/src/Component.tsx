@@ -96,7 +96,7 @@ export type FileUploadItemProps = {
     /**
      * Обработчик удаления файла
      */
-    onDelete?: (id: string) => void;
+    onDelete?: (id: string, event?: MouseEvent<HTMLElement>) => void;
 
     /**
      * Обработчик восстановления файла
@@ -107,6 +107,11 @@ export type FileUploadItemProps = {
      * Управление активностью кнопок
      */
     disableButtons?: boolean;
+
+    /**
+     * Разрешить многострочное название файла
+     */
+    multiline?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -133,6 +138,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     onDownload,
     onRestore,
     disableButtons,
+    multiline = false,
     dataTestId,
 }) => {
     const handleDownload = (event: MouseEvent<HTMLElement>) => {
@@ -142,8 +148,8 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
         }
     };
 
-    const handleDelete = () => {
-        if (onDelete) onDelete(id);
+    const handleDelete = (event: MouseEvent<HTMLElement>) => {
+        if (onDelete) onDelete(id, event);
     };
 
     const handleRestore = () => {
@@ -180,7 +186,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
 
         return (
             <div className={styles.infoSection}>
-                <div className={styles.name}>{name}</div>
+                <div className={cn(styles.name, { [styles.rowLimit]: !multiline })}>{name}</div>
 
                 {shouldShownError && (
                     <div className={styles.errorWrapper} role='alert'>

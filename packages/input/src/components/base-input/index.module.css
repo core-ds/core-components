@@ -25,19 +25,19 @@
         opacity: 0;
     }
 
-    &.s {
+    &.size-48 {
         height: var(--form-control-s-min-height);
     }
 
-    &.m {
+    &.size-56 {
         height: var(--form-control-m-min-height);
     }
 
-    &.l {
+    &.size-64 {
         height: var(--form-control-l-min-height);
     }
 
-    &.xl {
+    &.size-72 {
         height: var(--form-control-xl-min-height);
     }
 }
@@ -62,10 +62,6 @@ button[class*='eye'] + .errorIcon {
     margin-right: var(--gap-s);
 }
 
-.errorColorIcon {
-    color: var(--color-light-status-negative);
-}
-
 .successIcon {
     display: var(--input-success-icon-display);
 
@@ -76,10 +72,6 @@ button[class*='eye'] + .errorIcon {
 
 button[class*='eye'] + .successIcon {
     margin-right: var(--gap-s);
-}
-
-.successColorIcon {
-    color: var(--color-light-status-positive);
 }
 
 /* DISABLED STATE */

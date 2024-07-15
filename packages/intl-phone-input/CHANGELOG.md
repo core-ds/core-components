@@ -1,5 +1,199 @@
 # Change Log
 
+## 9.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   input-autocomplete@12.1.13
+
+## 9.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+    -   input-autocomplete@12.1.12
+
+## 9.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.11
+    -   select@17.7.2
+
+## 9.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.10
+    -   select@17.7.1
+
+## 9.9.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.9
+    -   select@17.7.0
+
+## 9.8.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+    -   input-autocomplete@12.1.8
+
+## 9.8.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+    -   input-autocomplete@12.1.7
+
+## 9.8.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+    -   input-autocomplete@12.1.6
+
+## 9.8.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.5
+    -   select@17.5.0
+
+## 9.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.5
+    -   input-autocomplete@12.1.4
+
+## 9.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.4
+    -   input-autocomplete@12.1.3
+
+## 9.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.2
+    -   select@17.4.3
+
+## 9.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.1
+    -   select@17.4.2
+
+## 9.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.1.0
+    -   select@17.4.1
+
+## 9.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   input-autocomplete@12.0.6
+
+## 9.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+    -   input-autocomplete@12.0.5
+
+## 9.8.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+## 9.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   input-autocomplete@12.0.4
+
+## 9.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.0.3
+    -   select@17.3.3
+
+## 9.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.2
+    -   input-autocomplete@12.0.2
+
+## 9.7.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+    -   input-autocomplete@12.0.1
+
+## 9.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.0.0
+    -   select@17.3.0
+
 ## 9.6.4
 
 ### Patch Changes

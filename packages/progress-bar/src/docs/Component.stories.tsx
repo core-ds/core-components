@@ -30,7 +30,7 @@ export const progress_bar: Story = {
                 ],
                 'positive',
             )}
-            size={select('size', ['s', 'm'], 'm')}
+            size={select('size', [4, 8], 4)}
         />
     ),
 };

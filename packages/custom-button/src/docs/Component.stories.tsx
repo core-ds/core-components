@@ -13,7 +13,7 @@ const meta: Meta<typeof CustomButton> = {
 
 type Story = StoryObj<typeof CustomButton>;
 
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'] as const;
+const SIZES = [32, 40, 48, 56, 64, 72] as const;
 const CONTENT_COLORS = ['white', 'black', 'static-white', 'static-black'] as const;
 const STATE_TYPES = ['darkening', 'lightening', 'static-darkening', 'static-lightening'] as const;
 
@@ -22,7 +22,7 @@ export const custom_button: Story = {
     render: () => {
         return (
             <CustomButton
-                size={select('size', SIZES, 'm')}
+                size={select('size', SIZES, 56)}
                 backgroundColor={color('backgroundColor', '#FF45C3')}
                 contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                 stateType={select('stateType', STATE_TYPES, 'darkening')}

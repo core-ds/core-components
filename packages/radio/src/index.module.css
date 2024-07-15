@@ -30,7 +30,7 @@
     --radio-checked-disabled-border-color: transparent;
 
     /* icon */
-    --radio-icon-color: var(--color-light-neutral-1500-inverted);
+    --radio-icon-color: var(--color-light-neutral-translucent-1300-inverted);
     --radio-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
@@ -143,7 +143,7 @@
     }
 }
 
-.s .circle {
+.size-20 .circle {
     width: 16px;
     height: 16px;
     margin: var(--gap-2xs) var(--gap-3xs);
@@ -159,7 +159,7 @@
     margin-left: var(--gap-s);
 }
 
-.s .content {
+.size-20 .content {
     margin-left: var(--gap-xs);
 }
 

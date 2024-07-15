@@ -1,5 +1,163 @@
 # Change Log
 
+## 7.9.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.1
+    -   with-suffix@4.1.33
+
+## 7.9.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   with-suffix@4.1.32
+
+## 7.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   with-suffix@4.1.31
+    -   input@14.4.7
+
+## 7.9.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.6
+    -   with-suffix@4.1.30
+
+## 7.9.7
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   input@14.4.5
+    -   with-suffix@4.1.29
+
+## 7.9.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.4
+    -   with-suffix@4.1.28
+
+## 7.9.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.3
+    -   with-suffix@4.1.27
+
+## 7.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.2
+    -   with-suffix@4.1.26
+
+## 7.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.1
+    -   with-suffix@4.1.25
+
+## 7.9.2
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+-   Обновлены зависимости
+    -   input@14.4.0
+    -   with-suffix@4.1.24
+
+## 7.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.3
+    -   with-suffix@4.1.23
+
+## 7.9.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+## 7.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.2
+    -   with-suffix@4.1.22
+
+## 7.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.1
+    -   with-suffix@4.1.21
+
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1116](https://github.com/core-ds/core-components/pull/1116)
+
+-   Добавлено новое свойство transparentMinor, теперь есть возможность отключить полупрозрачность минорной части
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.0
+    -   with-suffix@4.1.20
+
 ## 7.6.3
 
 ### Patch Changes

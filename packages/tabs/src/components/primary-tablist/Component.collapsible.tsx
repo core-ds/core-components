@@ -28,6 +28,8 @@ export const CollapsiblePrimaryTabList = ({
     breakpoint = 1024,
     defaultMatchMediaValue,
     textStyle,
+    showSkeleton,
+    skeletonProps,
 }: TabListProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +56,7 @@ export const CollapsiblePrimaryTabList = ({
                 (options, { toggleRef, ...title }) => {
                     if (title.collapsed) {
                         options.push({
-                            key: title.title,
+                            key: String(title.id),
                             value: title.id,
                             content: (
                                 <Title
@@ -105,6 +107,8 @@ export const CollapsiblePrimaryTabList = ({
                             {...restTitleProps}
                             focused={focused}
                             styles={styles}
+                            showSkeleton={showSkeleton}
+                            skeletonProps={skeletonProps}
                         />
                     )}
                 </KeyboardFocusable>
@@ -123,9 +127,10 @@ export const CollapsiblePrimaryTabList = ({
                             ) : null
                         }
                         size='m'
-                        view='ghost'
+                        view='text'
                         label='Ещё'
                         popoverPosition='bottom-end'
+                        disabled={showSkeleton}
                     />
                 </span>
             ) : null}

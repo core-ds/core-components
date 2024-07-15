@@ -14,7 +14,7 @@ export const CustomSelectField: SelectProps['Field'] = ({ selected, innerProps, 
             <Button
                 {...(restInnerProps as ButtonProps)}
                 size='xxs'
-                view='link'
+                view='transparent'
                 className={cn(styles.field, { [styles.open]: open })}
                 rightAddons={Arrow}
             >

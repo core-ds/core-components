@@ -1,5 +1,123 @@
 # Change Log
 
+## 5.7.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.13
+
+## 5.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.12
+
+## 5.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.11
+
+## 5.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.10
+
+## 5.7.4
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   masked-input@6.3.9
+
+## 5.7.3
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   masked-input@6.3.8
+
+## 5.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.7
+
+## 5.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.6
+
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1202](https://github.com/core-ds/core-components/pull/1202)
+
+-   Добавлена возможность устанавливать тип маски для номера счёта
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.5
+
+## 5.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.4
+
+## 5.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.3
+
+## 5.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.2
+
+## 5.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.1
+
+## 5.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.0
+
 ## 5.6.3
 
 ### Patch Changes

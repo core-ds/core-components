@@ -17,20 +17,27 @@ interface ClearButtonProps {
     disabled?: boolean;
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
     colors: 'default' | 'inverted';
+    dataTestId?: string;
 }
 
 const preventDefault = (e: React.UIEvent<HTMLElement>) => e.preventDefault();
 
-export const ClearButton: React.FC<ClearButtonProps> = ({ colors, disabled, onClick }) => (
+export const ClearButton: React.FC<ClearButtonProps> = ({
+    colors,
+    disabled,
+    onClick,
+    dataTestId,
+}) => (
     <Button
         type='button'
-        view='ghost'
+        view='text'
         disabled={disabled}
         aria-label='Очистить'
         className={styles.clearButton}
         onClick={onClick}
         tabIndex={-1}
         onMouseDown={preventDefault}
+        dataTestId={dataTestId}
     >
         <CrossCircleMIcon className={cn(styles.clearIcon, colorStyles[colors].clearIcon)} />
     </Button>

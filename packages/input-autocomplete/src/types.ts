@@ -1,4 +1,4 @@
-import type { ChangeEvent, FC, RefAttributes } from 'react';
+import type { ComponentType, RefAttributes } from 'react';
 
 import type { InputProps } from '@alfalab/core-components-input';
 import type {
@@ -6,15 +6,23 @@ import type {
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
+type OnInputTypeReason = 'close' | 'change';
+
 export interface InputAutocompleteCommonProps
     extends Omit<
         BaseSelectProps,
-        'autocomplete' | 'Field' | 'nativeSelect' | 'searchProps' | 'showSearch' | 'Search'
+        | 'autocomplete'
+        | 'Field'
+        | 'nativeSelect'
+        | 'searchProps'
+        | 'showSearch'
+        | 'Search'
+        | 'valueRenderer'
     > {
     /**
      * Компонент ввода значения
      */
-    Input?: FC<InputProps & RefAttributes<HTMLInputElement>>;
+    Input?: ComponentType<InputProps & RefAttributes<HTMLInputElement>>;
 
     /**
      * Пропсы, которые будут прокинуты в инпут
@@ -39,7 +47,7 @@ export interface InputAutocompleteCommonProps
     /**
      * Обработчик ввода
      */
-    onInput?: (event: ChangeEvent<HTMLInputElement> | null, payload: { value: string }) => void;
+    onInput?: (value: string, reason?: OnInputTypeReason) => void;
 }
 
 type MobileProps = {

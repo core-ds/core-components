@@ -3,7 +3,14 @@ import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { SIZES, STROKE, TYPOGRAPHY_COLOR, VIEW_TEXT, VIEW_TITLE } from './consts';
+import {
+    SIZE_TO_CLASSNAME_MAP,
+    SIZES,
+    STROKE,
+    TYPOGRAPHY_COLOR,
+    VIEW_TEXT,
+    VIEW_TITLE,
+} from './consts';
 
 import styles from './index.module.css';
 
@@ -52,8 +59,9 @@ export type CircularProgressBarProps = {
 
     /**
      * Размер (xxl — 144×144px, xl — 128×128px, l — 80×80px, m — 64×64px, s — 48×48px, xs — 24×24px)
+     * @description xs, s, m, l, xl, xxl deprecated, используйте вместо них 24, 48, 64 , 80, 128, 144 соответственно
      */
-    size?: 'xxl' | 'xl' | 'l' | 'm' | 's' | 'xs';
+    size?: 'xxl' | 'xl' | 'l' | 'm' | 's' | 'xs' | 24 | 48 | 64 | 80 | 128 | 144;
 
     /**
      * Наличие желоба
@@ -134,7 +142,7 @@ export type CircularProgressBarProps = {
 export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     value,
     view = 'positive',
-    size = 'm',
+    size = 64,
     className,
     dataTestId,
     title = value ? value.toString() : '0',
@@ -239,7 +247,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         <span
             className={cn(
                 styles.iconWrapper,
-                styles[size],
+                styles[SIZE_TO_CLASSNAME_MAP[size]],
                 styles.tertiary,
                 styles[`icon-${contentColor}`],
                 {
@@ -263,7 +271,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
     return (
         <div
-            className={cn(styles.component, styles[size], className, {
+            className={cn(styles.component, styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
                 [styles[`bg-${view}`]]: fillComplete && isComplete,
             })}
             style={{
@@ -278,7 +286,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 xmlns='http://www.w3.org/2000/svg'
             >
                 <circle
-                    className={cn(styles.backgroundCircle, styles[size], {
+                    className={cn(styles.backgroundCircle, styles[SIZE_TO_CLASSNAME_MAP[size]], {
                         [styles.stroke]: !stroke,
                     })}
                     style={{
@@ -290,7 +298,11 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     strokeWidth={STROKE[size]}
                 />
                 <circle
-                    className={cn(styles.progressCircle, styles[view], styles[size])}
+                    className={cn(
+                        styles.progressCircle,
+                        styles[view],
+                        styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    )}
                     style={{
                         ...(progressStrokeColor && { stroke: progressStrokeColor }),
                     }}

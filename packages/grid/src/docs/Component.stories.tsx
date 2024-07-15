@@ -27,7 +27,7 @@ export const grid: Story = {
             lineHeight: '24px',
             borderRadius: '8px',
             color: 'var(--color-light-text-secondary)',
-            background: 'var(--color-light-specialbg-secondary-transparent)',
+            background: 'var(--color-light-neutral-translucent-200)',
         };
         const styleRow = {
             padding: '8px 20px',

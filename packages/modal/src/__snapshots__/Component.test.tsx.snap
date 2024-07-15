@@ -5,16 +5,16 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
   class="wrapper wrapper"
   role="dialog"
   style="z-index: 100;"
-  tabindex="0"
+  tabindex="-1"
 >
   <div
-    class="component s appear appearActive"
+    class="component size-500 appear appearActive"
   >
     <div
       class="content"
     >
       <div
-        class="header hasContent s"
+        class="header hasContent size-500"
       >
         <div
           class="mainLine"
@@ -27,11 +27,11 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component ghost s hug s component ghost component ghost component"
+                class="component text size-48 hug size-48 component text component text component"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <div
                     class="flex"
@@ -74,11 +74,11 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component ghost s hug s component ghost component ghost cc-icon-button button primary component"
+                  class="component text size-48 hug size-48 component text component text cc-icon-button button primary component"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="iconWrapper size-48 center"
@@ -115,12 +115,12 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="content withHeader s"
+        class="content withHeader size-500"
       >
         Content
       </div>
       <div
-        class="footer start s"
+        class="footer start size-500"
       >
         <div
           class="component start"
@@ -139,7 +139,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
   class="wrapper"
   role="dialog"
   style="z-index: 100;"
-  tabindex="0"
+  tabindex="-1"
 >
   <div
     class="component appear appearActive"
@@ -161,11 +161,11 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component ghost xxs hug xxs component ghost component ghost component mobileComponent"
+                class="component text size-32 hug size-32 component text component text component mobileComponent"
                 type="button"
               >
                 <span
-                  class="text stretchText"
+                  class="label stretchText"
                 >
                   <div
                     class="flex"
@@ -208,11 +208,11 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component ghost s hug s component ghost component ghost cc-icon-button button mobile primary component"
+                  class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component"
                   type="button"
                 >
                   <span
-                    class="text stretchText"
+                    class="label stretchText"
                   >
                     <span
                       class="iconWrapper size-32 center"

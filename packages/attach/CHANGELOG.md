@@ -1,5 +1,132 @@
 # Change Log
 
+## 6.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+
+## 6.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+
+## 6.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+
+## 6.6.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1247](https://github.com/core-ds/core-components/pull/1247)
+
+-   Изменили стили типографики для имени файла и текста, отображаемого, когда файл не загружен
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   progress-bar@3.3.2
+
+## 6.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   progress-bar@3.3.1
+
+## 6.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.3
+
+## 6.6.2
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1173](https://github.com/core-ds/core-components/pull/1173)
+
+-   Для компонента Attach с размером 64 исправлен отступ от label. Для остальных размеров сохранены прежние отступы.
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+-   Обновлены зависимости
+    -   button@11.4.2
+
+## 6.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
+## 6.6.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+## 6.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+
+## 6.5.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1108](https://github.com/core-ds/core-components/pull/1108)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
+## 6.4.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Для компонента ActionButton добавлен новый способ указать размер - 48. Буквенное значение размера s теперь deprecated, используйте вместо него 48
+-   Для компонента Attach добавлены новые способы указать размеры - 32, 40, 48, 56, 64. Буквенные значения размеров xxs, xs, s, m, l теперь deprecated, используйте вместо них 32 , 40 , 48 , 56 , 64 соответственно
+-   Для компонента FilterTag добавлены новые способы указать размеры - 32, 40, 48. Буквенные значения размеров xxs, xs, s теперь deprecated, используйте вместо них 32, 40, 48 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   progress-bar@3.3.0
+    -   button@11.3.0
+
 ## 6.3.2
 
 ### Patch Changes

@@ -18,6 +18,6 @@
     text-align: center;
 }
 
-.button {
+.button.button {
     margin-top: var(--gap-2xl);
 }

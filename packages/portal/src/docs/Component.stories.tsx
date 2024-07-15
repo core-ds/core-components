@@ -25,7 +25,7 @@ export const portal: Story = {
             justifyContent: 'center',
             width: 240,
             height: 60,
-            border: '1px solid var(--color-light-border-secondary)',
+            border: '1px solid var(--color-light-neutral-300)',
             padding: 'var(--gap-m)',
         };
         return (

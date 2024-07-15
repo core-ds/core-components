@@ -18,6 +18,8 @@ const TabBarComponent = forwardRef<HTMLDivElement, TabBarProps>(
             dataTestId,
             tabClassNames,
             onChange,
+            accentColor = 'primary',
+            bgColor = 'modal-bg-primary',
             ...restProps
         },
         ref,
@@ -32,10 +34,14 @@ const TabBarComponent = forwardRef<HTMLDivElement, TabBarProps>(
                 data-test-id={dataTestId}
                 {...restProps}
                 ref={ref}
-                className={cn(styles.component, className, { [styles.border]: border })}
+                className={cn(styles.component, styles[bgColor], className, {
+                    [styles.border]: border,
+                })}
             >
                 {Children.map(children, (tab) =>
                     cloneElement(tab, {
+                        bgColor,
+                        accentColor,
                         selected: tab.props.id === selectedId,
                         onChange,
                         tabClassNames,
@@ -46,5 +52,7 @@ const TabBarComponent = forwardRef<HTMLDivElement, TabBarProps>(
         );
     },
 );
+
+TabBarComponent.displayName = 'TabBarComponent';
 
 export const TabBar = Object.assign(TabBarComponent, { Tab });

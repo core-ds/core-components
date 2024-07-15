@@ -1,5 +1,35 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1277](https://github.com/core-ds/core-components/pull/1277)
+
+-   Исправили ширину и высоту для размера '16' с 18px на 16px
+
+## 3.3.1
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1030](https://github.com/core-ds/core-components/pull/1030)
+
+-   Добавлены новые способы указать размеры - 16, 24, 48. Буквенные значения размеров xs, s, m теперь deprecated, используйте вместо них 16, 24, 48 соответственно
+
 ## 3.2.0
 
 ### Minor Changes

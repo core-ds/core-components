@@ -4,7 +4,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="component component s s s hasRightAddons"
+      class="component component size-48 size-48 size-48 hasRightAddons"
     >
       <div
         class="inner inner inner inner"
@@ -26,11 +26,11 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
           class="addons rightAddons addons"
         >
           <button
-            class="component ghost s hug s component ghost component ghost cc-icon-button eye secondary component"
+            class="component text size-48 hug size-48 component text component text cc-icon-button eye secondary component"
             type="button"
           >
             <span
-              class="text stretchText"
+              class="label stretchText"
             >
               <span
                 class="iconWrapper size-48 center"

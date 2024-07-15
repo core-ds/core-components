@@ -3,7 +3,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { Stack, stackingOrder } from '@alfalab/core-components-stack';
+import { Stack } from '@alfalab/core-components-stack';
+import { stackingOrder } from '@alfalab/stack-context';
 
 import { Notification, NotificationElement } from './components';
 
@@ -30,6 +31,11 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Отступ от верхнего края
+     */
+    offset?: number;
 
     /**
      * Удаление нотификации
@@ -62,6 +68,7 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
             dataTestId,
             zIndex = stackingOrder.TOAST,
             style = {},
+            offset,
             onRemoveNotification,
             container,
             ...restProps
@@ -77,12 +84,13 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                         data-test-id={dataTestId}
                         style={{
                             zIndex: computedZIndex,
+                            top: offset,
                             ...style,
                         }}
                         {...restProps}
                     >
                         <TransitionGroup>
-                            {notifications.map((element) => (
+                            {notifications.map((element, index) => (
                                 <CSSTransition
                                     key={element.props.id}
                                     timeout={TIMEOUT}
@@ -91,7 +99,9 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                                 >
                                     <Notification
                                         element={element}
-                                        className={styles.notification}
+                                        className={cn(styles.notification, {
+                                            [styles.withoutMargin]: offset && index === 0,
+                                        })}
                                         onRemoveNotification={onRemoveNotification}
                                     />
                                 </CSSTransition>
@@ -103,3 +113,5 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
         </Stack>
     ),
 );
+
+NotificationManager.displayName = 'NotificationManager';

@@ -36,9 +36,8 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     }
 
     const viewsMap: { [key: string]: string } = {
-        filled: 'secondary',
-        transparent: 'secondary',
-        outlined: 'tertiary',
+        link: 'transparent',
+        ghost: 'text',
     };
 
     // eslint-disable-next-line no-console
@@ -46,8 +45,23 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
         // eslint-disable-next-line prefer-template
         `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
             `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
-            'npx @alfalab/core-components-codemod --transformers=button-views src/**/*.tsx',
+            'npx @alfalab/core-components-codemod --transformers=button-views-45 src/**/*.tsx',
     );
+};
+
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
 };
 
 export const BaseButton = React.forwardRef<
@@ -64,7 +78,7 @@ export const BaseButton = React.forwardRef<
             hint,
             leftAddons,
             rightAddons,
-            size = 'm',
+            size = 56,
             block = false,
             className,
             spinnerClassName,
@@ -81,7 +95,7 @@ export const BaseButton = React.forwardRef<
         },
         ref,
     ) => {
-        if (['outlined', 'filled', 'transparent'].includes(view)) {
+        if (['link', 'ghost'].includes(view)) {
             logWarning(view);
         }
 
@@ -95,7 +109,8 @@ export const BaseButton = React.forwardRef<
 
         const showLoader = loading || !loaderTimePassed;
 
-        const showHint = hint && ['m', 'l', 'xl'].includes(size);
+        const showHint =
+            hint && ['size-56', 'size-64', 'size-72'].includes(SIZE_TO_CLASSNAME_MAP[size]);
 
         const iconOnly = !children;
 
@@ -103,9 +118,9 @@ export const BaseButton = React.forwardRef<
             className: cn(
                 commonStyles.component,
                 commonStyles[view],
-                commonStyles[size],
+                commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                 commonStyles[textResizing],
-                shape === 'rectangular' && styles[size],
+                shape === 'rectangular' && styles[SIZE_TO_CLASSNAME_MAP[size]],
                 shape === 'rounded' && commonStyles[shape],
                 colorStyles[colors].component,
                 colorStyles[colors][view],
@@ -138,7 +153,7 @@ export const BaseButton = React.forwardRef<
                 {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
                     <span
-                        className={cn(commonStyles.text, {
+                        className={cn(commonStyles.label, {
                             [commonStyles.nowrap]: nowrap,
                             [commonStyles.stretchText]:
                                 !(leftAddons || rightAddons) || textResizing === 'fill',

@@ -40,8 +40,9 @@ export type RadioProps = Omit<
 
     /**
      * Размер компонента
+     * @description s и m deprecated, используйте вместо них 20 и 24 соответственно
      */
-    size?: 's' | 'm';
+    size?: 's' | 'm' | 20 | 24;
 
     /**
      * Управление состоянием отмечен/не отмечен
@@ -112,6 +113,13 @@ export type RadioProps = Omit<
     ) => void;
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-20',
+    m: 'size-24',
+    20: 'size-20',
+    24: 'size-24',
+};
+
 export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
     (
         {
@@ -126,7 +134,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             label,
             checked,
             hint,
-            size = 's',
+            size = 20,
             align = 'start',
             addons,
             block,
@@ -150,7 +158,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                 {...labelProps}
                 className={cn(
                     styles.container,
-                    styles[size],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles[align],
                     className,
                     labelProps?.className,
@@ -189,3 +197,5 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         );
     },
 );
+
+Radio.displayName = 'Radio';

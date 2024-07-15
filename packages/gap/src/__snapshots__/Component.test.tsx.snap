@@ -7,14 +7,14 @@ Object {
     <div>
       <div
         class="gap vertical"
-        data-gap-size="l"
+        data-gap-size="size-20"
       />
     </div>
   </body>,
   "container": <div>
     <div
       class="gap vertical"
-      data-gap-size="l"
+      data-gap-size="size-20"
     />
   </div>,
   "debug": [Function],

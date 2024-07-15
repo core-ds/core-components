@@ -1,0 +1,15 @@
+.icon {
+    transition: 300ms transform;
+}
+
+.expanded {
+    transform: rotate(180deg);
+}
+
+.startPosition {
+    transform: rotate(-90deg);
+}
+
+.startPosition.expanded {
+    transform: rotate(0deg);
+}

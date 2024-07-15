@@ -1,9 +1,13 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useCallback, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+import {
+    NavigationBarPrivate,
+    NavigationBarPrivateProps,
+} from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
@@ -11,7 +15,7 @@ import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -20,10 +24,23 @@ export const Header: FC<HeaderProps> = ({
     children,
     contentClassName,
     hasCloser = true,
+    onClose: onHeaderClose,
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted, parentRef, onClose } = useContext(ModalContext);
     const { view, size, dataTestId } = useContext(ResponsiveContext);
+
+    const handleClose = useCallback<NonNullable<NavigationBarPrivateProps['onClose']>>(
+        (...params) => {
+            if (onHeaderClose) {
+                onHeaderClose(...params);
+            }
+            if (onClose) {
+                onClose(...params);
+            }
+        },
+        [onHeaderClose, onClose],
+    );
 
     useEffect(() => {
         setHasHeader(true);
@@ -32,7 +49,7 @@ export const Header: FC<HeaderProps> = ({
     const hasContent = Boolean(title || children);
 
     return (
-        <NavigationBar
+        <NavigationBarPrivate
             dataTestId={getDataTestId(dataTestId, 'header')}
             {...restProps}
             scrollableParentRef={parentRef}
@@ -40,14 +57,14 @@ export const Header: FC<HeaderProps> = ({
             sticky={sticky}
             view={view}
             title={title}
-            onClose={onClose}
+            onClose={handleClose}
             className={cn(className, {
                 [styles.highlighted]: hasContent && sticky && headerHighlighted,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.header]: view === 'desktop',
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
-                [desktopStyles[size]]: view === 'desktop',
+                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
                 [mobileStyles.header]: view === 'mobile',
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
             })}
@@ -57,6 +74,6 @@ export const Header: FC<HeaderProps> = ({
             })}
         >
             {children}
-        </NavigationBar>
+        </NavigationBarPrivate>
     );
 };

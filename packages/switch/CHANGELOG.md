@@ -1,5 +1,49 @@
 # Change Log
 
+## 4.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+
+## 4.2.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 4.2.2
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовой токен: color-static-neutral-1500-inverted -> color-static-neutral-0
+
+## 4.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+
+## 4.2.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1154](https://github.com/core-ds/core-components/pull/1154)
+
+-   Добавлено новое свойство error, отвечающее за отображение ошибки
+
 ## 4.1.2
 
 ### Patch Changes

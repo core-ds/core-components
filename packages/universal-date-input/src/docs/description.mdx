@@ -9,11 +9,9 @@
 render(() => {
     const [radioSelected, setRadioSelected] = React.useState('none');
     const [disableUserInput, setDisableUserInput] = React.useState(false);
-    const [value, setValue] = React.useState('');
+    const [date, setDate] = React.useState(null);
 
-    const handleChange = (_, { value }) => {
-        setValue(value);
-    };
+    const handleChange = (date) => setDate(date);
 
     return (
         <div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>
@@ -23,8 +21,8 @@ render(() => {
                 view='date'
                 label='Дата'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size='m'
-                value={value}
+                size={isMobile() ? 48 : 56}
+                value={date}
                 onChange={handleChange}
                 disableUserInput={disableUserInput}
                 picker={radioSelected !== 'none'}
@@ -35,7 +33,7 @@ render(() => {
                 clear={true}
                 onClear={(e) => {
                     e.stopPropagation();
-                    setValue('');
+                    setDate(null);
                 }}
             />
 
@@ -70,14 +68,17 @@ render(() => {
 Поле ввода с маской. Для ввода без клавиатуры можно использовать календарь. При необходимости ввод с клавиатуры можно запретить.
 
 ```jsx live mobileHeight={720}
+const initialState = {
+    dateFrom: null,
+    dateTo: null,
+};
+
 render(() => {
     const [radioSelected, setRadioSelected] = React.useState('none');
     const [disableUserInput, setDisableUserInput] = React.useState(false);
-    const [value, setValue] = React.useState('');
+    const [range, setRange] = React.useState(initialState);
 
-    const handleChange = (_, { value }) => {
-        setValue(value);
-    };
+    const handleChange = (newRange) => setRange(newRange);
 
     return (
         <div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>
@@ -87,8 +88,8 @@ render(() => {
                 view='date-range'
                 label='Диапазон дат'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                value={value}
-                size='m'
+                value={range}
+                size={isMobile() ? 48 : 56}
                 disableUserInput={disableUserInput}
                 picker={radioSelected !== 'none'}
                 rangeBehavior={radioSelected}
@@ -100,7 +101,7 @@ render(() => {
                 clear={true}
                 onClear={(e) => {
                     e.stopPropagation();
-                    setValue('');
+                    setRange(initialState);
                 }}
             />
 
@@ -135,11 +136,9 @@ render(() => {
 ```jsx live mobileHeight={720}
 render(() => {
     const [picker, setPicker] = React.useState(false);
-    const [value, setValue] = React.useState('');
+    const [date, setDate] = React.useState();
 
-    const handleChange = (_, { value }) => {
-        setValue(value);
-    };
+    const handleChange = (date) => setDate(date);
 
     return (
         <div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>
@@ -149,8 +148,8 @@ render(() => {
                 view='date-time'
                 label='Дата и время'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size='m'
-                value={value}
+                size={isMobile() ? 48 : 56}
+                value={date}
                 onChange={handleChange}
                 picker={picker}
                 Calendar={Calendar}
@@ -160,7 +159,7 @@ render(() => {
                 clear={true}
                 onClear={(e) => {
                     e.stopPropagation();
-                    setValue('');
+                    setDate(null);
                 }}
             />
 
@@ -185,9 +184,7 @@ render(() => {
 render(() => {
     const [value, setValue] = React.useState('');
 
-    const handleChange = (_, { value }) => {
-        setValue(value);
-    };
+    const handleChange = (time) => setValue(time);
 
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
@@ -197,7 +194,39 @@ render(() => {
                 view='time'
                 label='Время'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                size='m'
+                size={isMobile() ? 48 : 56}
+                breakpoint={BREAKPOINT}
+                block={true}
+                clear={true}
+                onClear={(e) => {
+                    e.stopPropagation();
+                    setValue('');
+                }}
+            />
+        </div>
+    );
+});
+```
+
+## Месяц
+
+Поле ввода с маской.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (month) => setValue(month);
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <UniversalDateInput
+                value={value}
+                onChange={handleChange}
+                view='month'
+                label='Месяц'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
                 block={true}
                 clear={true}

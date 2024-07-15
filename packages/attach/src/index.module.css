@@ -31,35 +31,19 @@
     }
 }
 
-/* TODO обновить типографику на новую, когда ее зарелизят */
-.xxs .file,
-.xxs .noFile,
-.xs .file,
-.xs .noFile {
-    @mixin paragraph_component_secondary;
-}
-
-.s .file,
-.s .noFile {
-    @mixin paragraph_component;
-}
-
-.m .file,
-.m .noFile {
-    @mixin paragraph_component;
-}
-
-.l .file,
-.l .noFile {
-    @mixin promo-system_xsmall;
+.size-64 .file,
+.size-64 .noFile {
+    margin-left: var(--gap-s);
 }
 
 .file,
 .noFile {
     display: inline-block;
-    margin-left: 0.5em;
     text-align: center;
     color: var(--color-light-text-secondary);
+    margin-left: var(--gap-xs);
+
+    @mixin paragraph_secondary_large;
 }
 
 .abbreviation {

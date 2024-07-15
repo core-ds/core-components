@@ -1,5 +1,105 @@
 # Change Log
 
+## 5.4.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.1.0
+
+## 5.4.7
+
+### Patch Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+-   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
+-   Обновлены зависимости
+    -   notification@7.0.5
+    -   stack@5.0.0
+
+## 5.4.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.0
+    -   notification@7.0.4
+
+## 5.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.0.3
+
+## 5.4.4
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   notification@7.0.2
+    -   portal@3.2.1
+
+## 5.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.0.1
+
+## 5.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.0.0
+
+## 5.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.2.21
+
+## 5.4.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1169](https://github.com/core-ds/core-components/pull/1169)
+
+-   Добавлено свойство offset, которое определяет отступ от верхнего края
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.2.20
+
+## 5.3.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.2.19
+
+## 5.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.2.18
+
 ## 5.3.17
 
 ### Patch Changes

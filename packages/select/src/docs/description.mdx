@@ -24,7 +24,7 @@ render(() => {
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элемент'
                 label='Одиночный выбор'
@@ -100,7 +100,7 @@ render(() => {
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 placeholder='Выберите элементы'
                 label='Множественный выбор'
                 Option={BaseOption}
@@ -118,7 +118,7 @@ render(() => {
             <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элементы'
                 label='Множественный выбор'
@@ -167,100 +167,6 @@ render(() => {
 });
 ```
 
-## Поиск среди элементов списка
-
-Если список содержит большое количество пунктов, используя `showSearch` можно добавить в шапку дропдауна поиск, с помощью которого пользователь сможет отфильтровать элементы списка.
-
-По умолчанию компонент ищет строковое значение среди полей `content`, `value` и `key` и фильтрует по нему. Переопределить это поведение можно с помощью `searchProps.accessor`.
-
-```jsx live mobileHeight={640}
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState([]);
-    const [selectedSecond, setSelectedSecond] = React.useState([]);
-
-    return (
-        <div style={{ width: 320 }}>
-            <SelectDesktop
-                showSearch={true}
-                selected={selectedFirst}
-                size='m'
-                options={OPTIONS}
-                placeholder='Выберите элемент'
-                label='Одиночный выбор'
-                Option={BaseOption}
-                block={true}
-                onChange={({ selected }) => {
-                    setSelectedFirst(selected);
-                }}
-            />
-            <Gap size='m' />
-            <SelectDesktop
-                allowUnselect={true}
-                size='m'
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                multiple={true}
-                block={true}
-                {...useSelectWithApply({
-                    showSearch: true,
-                    options: OPTIONS,
-                    selected: selectedSecond,
-                    onChange: ({ selectedMultiple }) => {
-                        setSelectedSecond(selectedMultiple.map((option) => option.key));
-                    },
-                })}
-            />
-        </div>
-    );
-});
-//MOBILE
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selected, setSelected] = React.useState([]);
-
-    return (
-        <div style={{ width: '100%' }}>
-            <SelectMobile
-                showSearch={true}
-                multiple={true}
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                block={true}
-                selected={selected}
-                onChange={({ selectedMultiple }) => {
-                    setSelected(selectedMultiple.map((option) => option.key));
-                }}
-            />
-        </div>
-    );
-});
-```
-
 ## Группировка
 
 Пункты списка можно группировать.
@@ -287,7 +193,7 @@ render(() => {
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элемент'
                 label='Сгруппированный список'
@@ -332,6 +238,156 @@ render(() => {
                 selected={selected}
                 onChange={handleChange}
                 block={true}
+            />
+        </div>
+    );
+});
+```
+
+## Поиск среди элементов списка
+
+Если список содержит большое количество пунктов, можно добавить в шапку дропдауна поиск `showSearch`, с помощью которого пользователь сможет отфильтровать элементы списка. Можно искать по названиям групп пунктов c помощью `searchProps.filterGroup`.
+
+```jsx live mobileHeight={640}
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+const GROUP_OPTIONS = [
+    {
+        label: 'nonmetals',
+        options: [
+            { key: '1', content: 'Argon' },
+            { key: '2', content: 'Helium' },
+        ],
+    },
+    {
+        label: 'metals',
+        options: [
+            { key: '3', content: 'Aurum' },
+            { key: '4', content: 'Platinum' },
+        ],
+    },
+];
+
+render(() => {
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
+    const [selectedSecond, setSelectedSecond] = React.useState([]);
+
+    return (
+        <div style={{ width: 320 }}>
+            <SelectDesktop
+                showSearch={true}
+                selected={selectedFirst}
+                size={56}
+                options={OPTIONS}
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
+                Option={BaseOption}
+                block={true}
+                onChange={({ selected }) => {
+                    setSelectedFirst(selected);
+                }}
+            />
+            <Gap size='m' />
+            <SelectDesktop
+                allowUnselect={true}
+                size={56}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                Option={BaseOption}
+                multiple={true}
+                block={true}
+                {...useSelectWithApply({
+                    showSearch: true,
+                    options: OPTIONS,
+                    selected: selectedSecond,
+                    onChange: ({ selectedMultiple }) => {
+                        setSelectedSecond(selectedMultiple.map((option) => option.key));
+                    },
+                })}
+            />
+            <Gap size='m' />
+            <SelectDesktop
+                allowUnselect={true}
+                size={56}
+                options={GROUP_OPTIONS}
+                placeholder='Выберите элемент'
+                label='Сгруппированный список'
+                Option={BaseOption}
+                block={true}
+                showSearch={true}
+                searchProps={{ filterGroup: true }}
+            />
+        </div>
+    );
+});
+//MOBILE
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+const GROUP_OPTIONS = [
+    {
+        label: 'nonmetals',
+        options: [
+            { key: '1', content: 'Argon' },
+            { key: '2', content: 'Helium' },
+        ],
+    },
+    {
+        label: 'metals',
+        options: [
+            { key: '3', content: 'Aurum' },
+            { key: '4', content: 'Platinum' },
+        ],
+    },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState([]);
+
+    return (
+        <div style={{ width: '100%' }}>
+            <SelectMobile
+                showSearch={true}
+                multiple={true}
+                allowUnselect={true}
+                options={OPTIONS}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                Option={BaseOption}
+                block={true}
+                selected={selected}
+                onChange={({ selectedMultiple }) => {
+                    setSelected(selectedMultiple.map((option) => option.key));
+                }}
+            />
+            <Gap size='m' />
+            <SelectMobile
+                allowUnselect={true}
+                size={56}
+                options={GROUP_OPTIONS}
+                placeholder='Выберите элемент'
+                label='Сгруппированный список'
+                Option={BaseOption}
+                block={true}
+                showSearch={true}
+                searchProps={{ filterGroup: true }}
             />
         </div>
     );
@@ -418,7 +474,7 @@ render(() => {
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 placeholder='Выберите счёт'
                 label='Счёт'
                 Option={BaseOption}
@@ -446,7 +502,7 @@ render(() => {
             <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 placeholder='Выберите счёт'
                 Option={BaseOption}
@@ -626,7 +682,7 @@ render(() => {
             block={true}
             optionsListWidth='field'
             Option={BaseOption}
-            size='m'
+            size={56}
             {...useSelectWithApply({
                 options,
                 selected,
@@ -706,7 +762,7 @@ render(() => {
             placeholder='Выберите счёт'
             options={pureCellOptions}
             Option={BaseOption}
-            size='m'
+            size={56}
             valueRenderer={renderSelected}
             block={true}
         />
@@ -814,7 +870,7 @@ render(() => {
                 block={true}
                 optionsListWidth='field'
                 Option={BaseOption}
-                size='m'
+                size={56}
                 options={OPTIONS}
                 multiple={true}
                 showHeaderWithSelectAll={true}
@@ -828,7 +884,7 @@ render(() => {
                 placeholder='Выберите счёт'
                 options={pureCellOptions}
                 Option={BaseOption}
-                size='m'
+                size={56}
                 valueRenderer={renderSelected}
                 block={true}
                 selected={selected}
@@ -894,7 +950,7 @@ render(() => {
         <div style={{ width: isMobile ? '100%' : 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size='m'
+                size={56}
                 options={groups}
                 placeholder='Выберите элемент'
                 label='Одиночный выбор'
@@ -905,7 +961,7 @@ render(() => {
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <MobileSelect
-                size='m'
+                size={56}
                 allowUnselect={true}
                 options={options}
                 placeholder='Выберите элемент'
@@ -963,7 +1019,7 @@ render(() => {
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectDesktop
                 onOpen={handleOpen}
-                size='m'
+                size={56}
                 block={true}
                 placeholder='Выберите один из тысячи'
                 label='Одиночный выбор'
@@ -1029,7 +1085,7 @@ render(() => {
             <style>{`.hideScrollbar {overflow: hidden}`}</style>
             <SelectMobile
                 bottomSheetProps={loading ? { containerClassName: 'hideScrollbar' } : undefined}
-                size='m'
+                size={56}
                 onOpen={handleOpen}
                 block={true}
                 placeholder='Выберите один из тысячи'
@@ -1096,7 +1152,7 @@ render(() => {
                         name='select'
                         optionsListWidth='field'
                         Option={BaseOption}
-                        size='m'
+                        size={56}
                         selected={selected}
                         {...useSelectWithApply({
                             options,
@@ -1106,7 +1162,7 @@ render(() => {
                     />
                 </div>
 
-                <Button size='xs' type='submit'>
+                <Button size={40} type='submit'>
                     Отправить
                 </Button>
 
@@ -1152,7 +1208,7 @@ render(() => {
             <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
                 <SelectMobile
                     allowUnselect={true}
-                    size='m'
+                    size={56}
                     block={true}
                     options={options}
                     placeholder='Выберите элемент'
@@ -1167,7 +1223,7 @@ render(() => {
 
             <Gap size='m' />
 
-            <Button size='xs' type='submit'>
+            <Button size={40} type='submit'>
                 Отправить
             </Button>
 
@@ -1216,7 +1272,7 @@ render(() => {
                 name='select'
                 optionsListWidth='field'
                 Option={BaseOption}
-                size='m'
+                size={56}
                 selected={selected}
                 {...useSelectWithApply({
                     options,
@@ -1253,7 +1309,7 @@ render(() => {
         <div style={{ width: '100%' }}>
             <SelectMobile
                 allowUnselect={true}
-                size='m'
+                size={56}
                 block={true}
                 options={options}
                 placeholder='Выберите элемент'
@@ -1314,10 +1370,10 @@ render(() => {
                     option,
                     innerProps: {
                         style: {
-                            background: 'var(--color-light-bg-positive-muted)',
+                            background: 'var(--color-light-status-muted-positive)',
                             borderBottom:
                                 index + 1 !== options.length
-                                    ? '1px solid var(--color-light-bg-info)'
+                                    ? '1px solid var(--color-light-status-info)'
                                     : 'none',
                         },
                     },
@@ -1327,7 +1383,7 @@ render(() => {
                     <div
                         style={{
                             height: 12,
-                            background: 'var(--color-light-bg-negative-muted)',
+                            background: 'var(--color-light-status-muted-negative)',
                         }}
                     ></div>
                 }
@@ -1335,7 +1391,7 @@ render(() => {
                     <div
                         style={{
                             height: 12,
-                            background: 'var(--color-light-bg-negative-muted)',
+                            background: 'var(--color-light-status-muted-negative)',
                         }}
                     ></div>
                 }

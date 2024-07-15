@@ -193,7 +193,7 @@ render(() => {
                         size='80'
                         mainSize={64}
                         backgroundColor={
-                            value.background ? 'var(--color-light-bg-secondary)' : 'transparent'
+                            value.background ? 'var(--color-light-base-bg-secondary)' : 'transparent'
                         }
                         imageUrl={value.image && './images/imgBg.png'}
                         text={
@@ -264,8 +264,8 @@ render(() => {
                     <SuperEllipse
                         size='80'
                         mainSize={64}
-                        backgroundColor='var(--color-light-bg-secondary)'
-                        border={border && { color: 'var(--color-light-border-primary)' }}
+                        backgroundColor='var(--color-light-base-bg-secondary)'
+                        border={border && { color: 'var(--color-light-neutral-400)' }}
                     >
                         <DiamondsMIcon />
                     </SuperEllipse>
@@ -323,6 +323,12 @@ render(() => {
     const indicatorSmall = topAddons === 'indicatorSmall' && <Indicator view='red' />;
     const indicator = <Indicator value={1} view='red' height={24} />;
 
+    const contentIconView = {
+        icon: <DiamondsMIcon />,
+        emoji: <img src='./images/heart.png' alt='emoji heart'  />,
+        noContent: null,
+    }[content];    
+    
     const topAddonsView = {
         indicator,
         iconView,
@@ -339,7 +345,7 @@ render(() => {
                         indicator={indicatorSmall}
                         bottomAddons={bottomAddons === 'iconView' && iconView}
                     >
-                        {content === 'icon' && <DiamondsMIcon />}
+                        {contentIconView}
                     </SuperEllipse>
                 </Col>
             </Row>
@@ -352,6 +358,7 @@ render(() => {
                     value={content}
                 >
                     <Radio label='Иконка' value='icon' size='m' />
+                    <Radio label='Craftwork Emoji' value='emoji' size='m' />
                     <Radio label='Без контента' value='noContent' size='m' />
                 </RadioGroup>
             </Row>

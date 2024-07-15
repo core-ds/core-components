@@ -21,8 +21,10 @@
     color: var(--link-inverted-primary-color);
     border-bottom-color: var(--link-inverted-primary-color);
 
-    &:hover {
-        color: var(--link-inverted-primary-hover-color);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-inverted-primary-hover-color);
+        }
     }
 
     &:active {
@@ -34,8 +36,10 @@
     color: var(--link-inverted-secondary-color);
     border-bottom-color: var(--link-inverted-secondary-color);
 
-    &:hover {
-        color: var(--link-inverted-secondary-hover-color);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-inverted-secondary-hover-color);
+        }
     }
 
     &:active {
@@ -47,8 +51,10 @@
     color: var(--link-inverted-default-color);
     border-bottom-color: var(--link-inverted-default-color);
 
-    &:hover {
-        color: var(--link-inverted-default-hover-color);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-inverted-default-hover-color);
+        }
     }
 
     &:active {

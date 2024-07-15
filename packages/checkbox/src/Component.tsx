@@ -6,6 +6,7 @@ import React, {
     LabelHTMLAttributes,
     ReactNode,
     Ref,
+    RefObject,
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
@@ -49,8 +50,9 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
 
     /**
      * Размер компонента
+     * @description s и m deprecated, используйте вместо них 20 и 24 соответственно
      */
-    size?: 's' | 'm';
+    size?: 's' | 'm' | 20 | 24;
 
     /**
      * Доп. класс чекбокса
@@ -111,9 +113,21 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     hiddenInput?: boolean;
 
     /**
+     * Реф на инпут
+     */
+    inputRef?: RefObject<HTMLInputElement>;
+
+    /**
      * Пропсы для label
      */
     labelProps?: DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+};
+
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-20',
+    m: 'size-24',
+    20: 'size-20',
+    24: 'size-24',
 };
 
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
@@ -122,7 +136,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             checked,
             label,
             hint,
-            size = 's',
+            size = 20,
             boxClassName,
             contentClassName,
             align = 'start',
@@ -138,6 +152,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             hiddenInput = false,
             labelProps,
             error,
+            inputRef,
             ...restProps
         },
         ref,
@@ -159,7 +174,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 {...labelProps}
                 className={cn(
                     styles.component,
-                    styles[size],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles[align],
                     className,
                     labelProps?.className,
@@ -180,6 +195,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         disabled={disabled || inactive}
                         checked={checked}
                         data-test-id={dataTestId}
+                        ref={inputRef}
                         {...restProps}
                     />
                 )}
@@ -220,3 +236,5 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 Checkbox.defaultProps = {
     indeterminate: false,
 };
+
+Checkbox.displayName = 'Checkbox';

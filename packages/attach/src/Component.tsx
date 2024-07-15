@@ -27,6 +27,7 @@ export type AttachProps = Omit<
 > & {
     /**
      * Содержимое кнопки для выбора файла
+     * @default 'Выберите файл'
      */
     buttonContent?: React.ReactNode;
 
@@ -57,6 +58,7 @@ export type AttachProps = Omit<
 
     /**
      * Текст для случая, когда файл не загружен
+     * @default 'Нет файла'
      */
     noFileText?: string;
 
@@ -67,8 +69,10 @@ export type AttachProps = Omit<
 
     /**
      * Размер компонента
+     * @default 48
+     * @description xxs, xs, s, m, l deprecated, используйте вместо них 32 , 40 , 48 , 56 , 64 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 32 | 40 | 48 | 56 | 64;
 
     /**
      * Возможность прикрепления нескольких файлов
@@ -103,10 +107,23 @@ export type AttachProps = Omit<
 
 const MULTIPLE_TEXTS: [string, string, string] = ['файл', 'файла', 'файлов'];
 
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+};
+
 export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
     (
         {
-            size = 's',
+            size = 48,
             accept,
             buttonContent = 'Выберите файл',
             buttonProps = {},
@@ -139,7 +156,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         const getDefaultLeftAddon = () => {
             let IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 
-            if (['xs', 'xxs'].includes(size)) {
+            if (['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size])) {
                 IconComponent = PaperclipSIcon;
             } else {
                 IconComponent = PaperclipMIcon;
@@ -206,7 +223,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             <div
                 className={cn(
                     styles.component,
-                    styles[size],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     {
                         [styles.disabled]: disabled,
                     },
@@ -271,11 +288,4 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
     },
 );
 
-/**
- * Для отображения в сторибуке
- */
-Attach.defaultProps = {
-    size: 's',
-    buttonContent: 'Выберите файл',
-    noFileText: 'Нет файла',
-};
+Attach.displayName = 'Attach';

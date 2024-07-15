@@ -5,14 +5,14 @@ import { Gap } from './index';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
-        expect(render(<Gap size='l' />)).toMatchSnapshot();
+        expect(render(<Gap size={20} />)).toMatchSnapshot();
     });
 });
 
 describe('Classes tests', () => {
     it('should set custom class', () => {
         const className = 'custom-class';
-        const { container } = render(<Gap size='l' className={className} />);
+        const { container } = render(<Gap size={20} className={className} />);
 
         expect(container.firstElementChild).toHaveClass(className);
     });
@@ -21,7 +21,7 @@ describe('Classes tests', () => {
 describe('Props tests', () => {
     it('should set data-test-id attribute', () => {
         const dataTestId = 'test-id';
-        const { container } = render(<Gap size='l' dataTestId={dataTestId} />);
+        const { container } = render(<Gap size={20} dataTestId={dataTestId} />);
         const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
 
         expect(testIdAttr).toBe(dataTestId);
@@ -29,17 +29,17 @@ describe('Props tests', () => {
 
     it('should render span if prop tag === span ', () => {
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<Gap size='l' dataTestId={dataTestId} tag='span' />);
+        const { getByTestId } = render(<Gap size={20} dataTestId={dataTestId} tag='span' />);
 
         expect(getByTestId(dataTestId).tagName).toBe('SPAN');
     });
 
     it('should set size', () => {
         const dataTestId = 'test-id';
-        const size = 'xl';
+        const size = 24;
         const { getByTestId } = render(<Gap size={size} dataTestId={dataTestId} />);
         const gapEl = getByTestId(dataTestId);
 
-        expect(gapEl).toHaveAttribute('data-gap-size', size);
+        expect(gapEl).toHaveAttribute('data-gap-size', `size-${size}`);
     });
 });

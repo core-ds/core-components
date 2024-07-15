@@ -1,5 +1,35 @@
 # Change Log
 
+## 4.4.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   link@5.2.2
+
+## 4.4.2
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1152](https://github.com/core-ds/core-components/pull/1152)
+
+-   Повышена специфичность стилей label
+
+## 4.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.2.1
+
 ## 4.4.0
 
 ### Minor Changes

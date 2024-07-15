@@ -47,6 +47,16 @@ export type ScrollableContainerProps = {
      *  Размер
      */
     size: TabsProps['size'];
+
+    /**
+     * Дополнительные инлайн стили для заголовка
+     */
+    inlineStyle?: React.CSSProperties;
+
+    /**
+     * Показать скелетон
+     */
+    showSkeleton?: boolean;
 };
 
 const isOverflown = (
@@ -68,6 +78,8 @@ export const ScrollableContainer = ({
     view,
     size,
     platform,
+    inlineStyle,
+    showSkeleton,
 }: ScrollableContainerProps & Pick<TabsProps, 'fullWidthScroll'> & PlatformProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const controlsRef = useRef<HTMLDivElement>(null);
@@ -118,7 +130,10 @@ export const ScrollableContainer = ({
     }, [platform]);
 
     return (
-        <div className={cn(styles.scrollableContainerWrapper, containerWrapperClassName)}>
+        <div
+            className={cn(styles.scrollableContainerWrapper, containerWrapperClassName)}
+            style={inlineStyle}
+        >
             <div
                 ref={containerRef}
                 className={cn(styles.container, containerClassName, {
@@ -134,6 +149,7 @@ export const ScrollableContainer = ({
                     containerRef={containerRef}
                     view={view}
                     size={size}
+                    showSkeleton={showSkeleton}
                 />
             ) : null}
         </div>

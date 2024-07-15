@@ -1,5 +1,37 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.6.0
+
+## 3.2.8
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 3.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.5.1
+
 ## 3.2.6
 
 ### Patch Changes

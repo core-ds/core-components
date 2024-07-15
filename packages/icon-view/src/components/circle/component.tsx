@@ -20,3 +20,5 @@ export type CircleProps = Omit<BaseShapeProps, 'pathsMap' | 'size'> & {
 export const Circle = forwardRef<HTMLDivElement, CircleProps>((props, ref) => (
     <BaseShape {...props} pathsMap={pathsMap} ref={ref} />
 ));
+
+Circle.displayName = 'Circle';

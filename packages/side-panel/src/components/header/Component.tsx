@@ -1,9 +1,13 @@
 import React, { FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+import {
+    NavigationBarPrivate,
+    NavigationBarPrivateProps,
+} from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
@@ -11,7 +15,7 @@ import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -23,7 +27,7 @@ export const Header: FC<HeaderProps> = ({
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
-    const { size = 's', view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
+    const { size = 500, view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
 
     useEffect(() => {
         setHasHeader(true);
@@ -32,7 +36,7 @@ export const Header: FC<HeaderProps> = ({
     const hasContent = Boolean(title || children);
 
     return (
-        <NavigationBar
+        <NavigationBarPrivate
             dataTestId={getDataTestId(dataTestId, 'header')}
             {...restProps}
             scrollableParentRef={componentRef}
@@ -46,7 +50,7 @@ export const Header: FC<HeaderProps> = ({
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
-                [desktopStyles[size]]: view === 'desktop',
+                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
                 [mobileStyles.header]: view === 'mobile',
             })}
@@ -56,6 +60,6 @@ export const Header: FC<HeaderProps> = ({
             })}
         >
             {children}
-        </NavigationBar>
+        </NavigationBarPrivate>
     );
 };

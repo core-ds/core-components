@@ -1,7 +1,7 @@
 import React, {
     ChangeEvent,
     cloneElement,
-    FC,
+    ComponentType,
     forwardRef,
     Fragment,
     isValidElement,
@@ -69,7 +69,7 @@ export type SliderInputProps = Omit<
     /**
      * Компонент поля ввода
      */
-    Input?: FC<Omit<InputProps, 'onChange' | 'value'>>;
+    Input?: ComponentType<Omit<InputProps, 'onChange' | 'value'>>;
 
     /**
      * Кастомные пропсы для поля ввода
@@ -125,6 +125,17 @@ export type SliderInputProps = Omit<
     dataTestId?: string;
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
 export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
     (
         {
@@ -141,7 +152,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             block,
             steps = [],
             sliderValue = +value,
-            size = 's',
+            size = 48,
             label,
             info,
             disabled,
@@ -196,7 +207,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         [styles.hasLabel]: label,
                         [styles.hasError]: Boolean(error),
                     },
-                    styles[size],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     className,
                 )}
                 data-test-id={dataTestId}
@@ -218,7 +229,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         fieldClassName,
                         styles.field,
                         { [styles.disabled]: disabled },
-                        styles[size],
+                        styles[SIZE_TO_CLASSNAME_MAP[size]],
                     )}
                     inputMode='numeric'
                     pattern='[0-9]*'
@@ -239,7 +250,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                 disabled={disabled || readOnly}
                                 className={cn(
                                     styles.slider,
-                                    styles[size],
+                                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                                     { [styles.hidePips]: error || hint },
                                     sliderClassName,
                                 )}
@@ -273,3 +284,5 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         );
     },
 );
+
+SliderInput.displayName = 'SliderInput';

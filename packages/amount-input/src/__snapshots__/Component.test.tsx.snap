@@ -9,7 +9,7 @@ Object {
         class="container bold"
       >
         <div
-          class="component component component hasSuffix s s"
+          class="component component component hasSuffix size-48 size-48"
         >
           <div
             class="inner inner inner inner"
@@ -58,7 +58,7 @@ Object {
       class="container bold"
     >
       <div
-        class="component component component hasSuffix s s"
+        class="component component component hasSuffix size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -164,7 +164,7 @@ Object {
         class="container bold"
       >
         <div
-          class="component component component hasSuffix s s"
+          class="component component component hasSuffix size-48 size-48"
         >
           <div
             class="inner inner inner inner"
@@ -212,7 +212,7 @@ Object {
         class="container bold filled"
       >
         <div
-          class="component component component suffixVisible hasSuffix s s"
+          class="component component component suffixVisible hasSuffix size-48 size-48"
         >
           <div
             class="inner inner inner inner filled"
@@ -265,7 +265,7 @@ Object {
       class="container bold filled"
     >
       <div
-        class="component component component suffixVisible hasSuffix s s"
+        class="component component component suffixVisible hasSuffix size-48 size-48"
       >
         <div
           class="inner inner inner inner filled"

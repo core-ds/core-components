@@ -1,5 +1,129 @@
 # @alfalab/core-components-number-input
 
+## 2.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.2
+    -   input@15.0.1
+
+## 2.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+
+## 2.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   input@14.4.7
+    -   icon-button@6.7.1
+
+## 2.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.0
+    -   input@14.4.6
+
+## 2.3.9
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   icon-button@6.6.1
+    -   input@14.4.5
+
+## 2.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.6.0
+    -   input@14.4.4
+
+## 2.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   input@14.4.3
+    -   icon-button@6.5.7
+
+## 2.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.2
+
+## 2.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.1
+
+## 2.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.0
+    -   icon-button@6.5.6
+
+## 2.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.5
+    -   input@14.3.3
+
+## 2.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.4
+    -   input@14.3.2
+
+## 2.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.1
+
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.0
+    -   icon-button@6.5.3
+
 ## 2.2.0
 
 ### Minor Changes

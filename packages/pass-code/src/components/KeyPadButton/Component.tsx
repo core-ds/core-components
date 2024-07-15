@@ -7,32 +7,32 @@ import styles from './index.module.css';
 
 export type KeyPadButtonProps<T> = {
     /**
-     * Вид кнопки.
+     * Вид кнопки
      */
     view: ButtonMobileProps['view'];
 
     /**
-     * Значение.
+     * Значение
      */
     children: T;
 
     /**
-     * Дополнительный класс.
+     * Дополнительный класс
      */
     className?: string;
 
     /**
-     * Дополнительный класс кнопки.
+     * Дополнительный класс кнопки
      */
     buttonClassName?: string;
 
     /**
-     * Коллбэк нажатия на кнопку.
+     * Коллбэк нажатия на кнопку
      */
     onClick?: (payload: T) => void;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования.
+     * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
@@ -40,21 +40,18 @@ export type KeyPadButtonProps<T> = {
 export function KeyPadButton<T extends ReactNode>({
     children,
     onClick,
-    className,
     view = 'secondary',
     buttonClassName,
     dataTestId,
 }: KeyPadButtonProps<T>) {
     return (
-        <div className={cn(styles.component, className)}>
-            <ButtonMobile
-                className={cn(styles.button, styles[view], buttonClassName)}
-                view={view}
-                onClick={() => onClick?.(children)}
-                dataTestId={dataTestId}
-            >
-                {children}
-            </ButtonMobile>
-        </div>
+        <ButtonMobile
+            className={cn(styles.button, styles[view], buttonClassName)}
+            view={view}
+            onClick={() => onClick?.(children)}
+            dataTestId={dataTestId}
+        >
+            {children}
+        </ButtonMobile>
     );
 }

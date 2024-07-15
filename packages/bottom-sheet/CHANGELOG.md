@@ -1,5 +1,153 @@
 # Change Log
 
+## 6.15.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.6
+
+## 6.15.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.9
+
+## 6.15.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   base-modal@5.7.8
+    -   navigation-bar-private@0.1.5
+
+## 6.15.4
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+-   В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
+-   Обновлены зависимости
+    -   base-modal@5.7.7
+    -   navigation-bar-private@0.1.4
+
+## 6.15.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1240](https://github.com/core-ds/core-components/pull/1240)
+
+-   Исправлена ошибка рендера в ssr
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   navigation-bar-private@0.1.3
+
+## 6.15.2
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1234](https://github.com/core-ds/core-components/pull/1234)
+
+-   Исправлено поведение scrollToArea при первом рендере, когда еще не выполнены расчеты высоты. Теперь scrollToArea при первом рендере ведет себя так же, как и initialActiveAreaIndex.
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.2
+
+## 6.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   base-modal@5.7.5
+    -   navigation-bar-private@0.1.1
+
+## 6.15.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1175](https://github.com/core-ds/core-components/pull/1175)
+
+-   Внутренний компонент NavigationBar переименован в NavigationBarPrivate
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   navigation-bar-private@0.1.0
+
+## 6.14.6
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1188](https://github.com/core-ds/core-components/pull/1188)
+
+-   Исправлено закрытие компонента при горизонтальных свайпах
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1197](https://github.com/core-ds/core-components/pull/1197)
+
+-   Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+
+-   Обновлены зависимости
+    -   base-modal@5.7.3
+
+## 6.14.5
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.7
+
+## 6.14.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.6
+
+## 6.14.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.5
+
+## 6.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.8.4
+
 ## 6.14.1
 
 ### Patch Changes

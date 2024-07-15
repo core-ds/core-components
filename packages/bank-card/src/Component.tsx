@@ -8,6 +8,9 @@ import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
 import { MirXxlIcon } from '@alfalab/icons-logotype/MirXxlIcon';
 import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
 
+import { getDefaultInputLabel } from './helpers/getDefaultInputLabel';
+import { MaskTypeEnum } from './enums';
+import { MaskType } from './types';
 import { validateCardNumber } from './utils';
 
 import styles from './index.module.css';
@@ -52,6 +55,12 @@ export type BankCardProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Тип вводимой маски. Позволяет устанавливать необходимый тип номера (номер карты или номер счёта)
+     * Если параметр не передавать - работает с обоими типами номеров
+     */
+    maskType?: MaskType;
 };
 
 // prettier-ignore
@@ -76,12 +85,13 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         {
             bankLogo = <AlfaBankLIcon />,
             backgroundColor = '#EF3124',
-            inputLabel = 'Номер карты или счёта',
             value,
             className,
             onUsePhoto,
             onChange,
             dataTestId,
+            maskType = MaskTypeEnum.Default,
+            inputLabel = getDefaultInputLabel(maskType),
         },
         ref,
     ) => {
@@ -90,9 +100,18 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         const [brandIcon, setBrandIcon] = useState<ReactNode>(getBrandIcon(value));
 
         const getMask = useCallback(
-            (newValue: string) =>
-                newValue.length <= cardMask.length ? cardMask : accountNumberMask,
-            [],
+            (newValue: string) => {
+                switch (maskType) {
+                    case MaskTypeEnum.Card:
+                        return cardMask;
+                    case MaskTypeEnum.AccountNumber:
+                        return accountNumberMask;
+                    case MaskTypeEnum.Default:
+                    default:
+                        return newValue.length <= cardMask.length ? cardMask : accountNumberMask;
+                }
+            },
+            [maskType],
         );
 
         const handleInputChange = useCallback(
@@ -154,8 +173,4 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
     },
 );
 
-BankCard.defaultProps = {
-    bankLogo: <AlfaBankLIcon />,
-    backgroundColor: '#EF3124',
-    inputLabel: 'Номер карты или счёта',
-};
+BankCard.displayName = 'BankCard';

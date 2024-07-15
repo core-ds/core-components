@@ -1,4 +1,4 @@
 @define-mixin steps-mobile {
-    --steps-dash-border: 2px solid var(--color-light-graphic-primary);
-    --steps-option-svg-color: var(--color-light-graphic-primary);
+    --steps-dash-border: 2px solid var(--color-light-neutral-translucent-1300);
+    --steps-option-svg-color: var(--color-light-neutral-translucent-1300);
 }

@@ -1,5 +1,6 @@
 @import '../../themes/src/default.css';
 @import '../../form-control/src/vars.css';
+@import '../../input/src/vars.css';
 
 :root {
     /* min-height */
@@ -60,6 +61,11 @@
     resize: none;
     -webkit-appearance: none;
     height: inherit;
+
+    &.overflow {
+        color: transparent;
+        caret-color: var(--input-color);
+    }
 }
 
 .overflowHidden.overflowHidden {
@@ -90,10 +96,10 @@
     overflow: auto;
     max-height: 100%;
     & span {
-        color: transparent;
+        color: var(--input-color);
     }
     & .overflow {
-        background-color: var(--color-light-graphic-negative-alpha-40);
+        color: var(--color-light-text-tertiary);
     }
     &::-webkit-scrollbar-thumb {
         background-color: transparent;
@@ -134,35 +140,35 @@
 /* FILLED STATE */
 .textarea.filled.hasInnerLabel {
     padding-top: 0;
-    &.s {
+    &.size-48 {
         min-height: var(--textarea-s-filled-min-height);
     }
-    &.m {
+    &.size-56 {
         min-height: var(--textarea-m-filled-min-height);
     }
-    &.l {
+    &.size-64 {
         min-height: var(--textarea-l-filled-min-height);
     }
-    &.xl {
+    &.size-72 {
         min-height: var(--textarea-xl-filled-min-height);
     }
 }
 
 /* Correct pseudoTextarea size */
 .pseudoTextarea.filled.hasInnerLabel {
-    &.s {
+    &.size-48 {
         min-height: calc(100% - var(--textarea-s-filled-spacer-top));
     }
 
-    &.m {
+    &.size-56 {
         min-height: calc(100% - var(--textarea-m-filled-spacer-top));
     }
 
-    &.l {
+    &.size-64 {
         min-height: calc(100% - var(--textarea-l-filled-spacer-top));
     }
 
-    &.xl {
+    &.size-72 {
         min-height: calc(100% - var(--textarea-xl-filled-spacer-top));
     }
 }
@@ -176,43 +182,43 @@
 
 /* Border нужен для того чтобы растянуть textarea на всю высоту FormControl , если заменить на padding, то лейбл не будет кликабельный */
 .textarea {
-    &.s {
+    &.size-48 {
         border-top: var(--textarea-s-spacer) var(--textarea-spacer-style);
         border-bottom: var(--textarea-s-spacer) var(--textarea-spacer-style);
     }
 
-    &.m {
+    &.size-56 {
         border-top: var(--textarea-m-spacer) var(--textarea-spacer-style);
         border-bottom: var(--textarea-m-spacer) var(--textarea-spacer-style);
     }
 
-    &.l {
+    &.size-64 {
         border-top: var(--textarea-l-spacer) var(--textarea-spacer-style);
         border-bottom: var(--textarea-l-spacer) var(--textarea-spacer-style);
     }
 
-    &.xl {
+    &.size-72 {
         border-top: var(--textarea-xl-spacer) var(--textarea-spacer-style);
         border-bottom: var(--textarea-xl-spacer) var(--textarea-spacer-style);
     }
 
     &.hasInnerLabel {
-        &.s {
+        &.size-48 {
             border-top: var(--textarea-s-filled-spacer-top) var(--textarea-spacer-style);
             border-bottom: var(--textarea-s-filled-spacer-bottom) var(--textarea-spacer-style);
         }
 
-        &.m {
+        &.size-56 {
             border-top: var(--textarea-m-filled-spacer-top) var(--textarea-spacer-style);
             border-bottom: var(--textarea-m-filled-spacer-bottom) var(--textarea-spacer-style);
         }
 
-        &.l {
+        &.size-64 {
             border-top: var(--textarea-l-filled-spacer-top) var(--textarea-spacer-style);
             border-bottom: var(--textarea-l-filled-spacer-bottom) var(--textarea-spacer-style);
         }
 
-        &.xl {
+        &.size-72 {
             border-top: var(--textarea-xl-filled-spacer-top) var(--textarea-spacer-style);
             border-bottom: var(--textarea-xl-filled-spacer-bottom) var(--textarea-spacer-style);
         }

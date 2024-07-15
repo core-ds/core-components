@@ -24,7 +24,7 @@ describe('Tag', () => {
             componentName: 'Tag',
             knobs: {
                 children: 'Тэг',
-                size: 's',
+                size: 48,
                 checked: true,
             },
         },
@@ -45,7 +45,7 @@ describe('Tag | main props', () => {
                         componentName: 'Tag',
                         knobs: {
                             children: 'Оплатить',
-                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                            size: [32, 40, 48, 56, 64, 72],
                             checked: false,
                             disabled: [false, true],
                         },
@@ -58,7 +58,7 @@ describe('Tag | main props', () => {
                         componentName: 'Tag',
                         knobs: {
                             children: 'Оплатить',
-                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                            size: [32, 40, 48, 56, 64, 72],
                             checked: true,
                             disabled: [false, true],
                         },
@@ -110,7 +110,7 @@ describe('Tag | inverted', () => {
                         componentName: 'Tag',
                         knobs: {
                             children: 'Оплатить',
-                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                            size: [32, 40, 48, 56, 64, 72],
                             checked: false,
                             disabled: [false, true],
                             colors: 'inverted',
@@ -124,7 +124,7 @@ describe('Tag | inverted', () => {
                         componentName: 'Tag',
                         knobs: {
                             children: 'Оплатить',
-                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                            size: [32, 40, 48, 56, 64, 72],
                             checked: true,
                             disabled: [false, true],
                             colors: 'inverted',
@@ -150,7 +150,7 @@ describe(
             componentName: 'Tag',
             knobs: {
                 children: 'Оплатить',
-                size: 's',
+                size: 48,
                 checked: true,
                 disabled: [false, true],
             },
@@ -171,7 +171,7 @@ describe(
             componentName: 'Tag',
             knobs: {
                 children: 'Оплатить',
-                size: 's',
+                size: 48,
                 checked: [true, false],
                 disabled: [false, true],
             },

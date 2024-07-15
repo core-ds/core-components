@@ -1,4 +1,4 @@
-import React, { ComponentType, FC, useEffect } from 'react';
+import React, { ComponentType, FC, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
@@ -41,6 +41,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     hideCountdownSection = false,
     breakpoint = 1024,
     initialScreenHintSlot,
+    errorVisibleDuration,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);
@@ -105,13 +106,19 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         onChangeState,
         onChangeScreen,
         clearCodeOnError,
+        errorVisibleDuration,
         initialScreenHintSlot,
         onInputFinished: handleInputFinished,
         onSmsRetryClick: handleSmsRetry,
         onFatalErrorOkButtonClick: handleFatalErrorOkButtonClick,
     };
 
-    const screensMap = getScreensMap ? getScreensMap(confirmationScreens) : confirmationScreens;
+    const customScreen = useMemo(
+        () => getScreensMap && getScreensMap(confirmationScreens),
+        [getScreensMap],
+    );
+
+    const screensMap = customScreen || confirmationScreens;
 
     const CurrentScreen = screensMap[screen];
 

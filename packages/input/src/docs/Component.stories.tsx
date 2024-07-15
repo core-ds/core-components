@@ -24,7 +24,7 @@ export const input: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -43,7 +43,7 @@ export const input: Story = {
                     value={text('value', '')}
                     block={boolean('block', false)}
                     clear={boolean('clear', false)}
-                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                    size={select('size', [48, 56, 64, 72], 48)}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     placeholder={text('placeholder', '')}
@@ -71,7 +71,7 @@ export const input_mobile: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -90,7 +90,7 @@ export const input_mobile: Story = {
                     value={text('value', '')}
                     block={boolean('block', false)}
                     clear={boolean('clear', false)}
-                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                    size={select('size', [48, 56, 64, 72], 48)}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     placeholder={text('placeholder', '')}
@@ -118,7 +118,7 @@ export const input_desktop: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -137,7 +137,7 @@ export const input_desktop: Story = {
                     value={text('value', '')}
                     block={boolean('block', false)}
                     clear={boolean('clear', false)}
-                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                    size={select('size', [48, 56, 64, 72], 48)}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     placeholder={text('placeholder', '')}

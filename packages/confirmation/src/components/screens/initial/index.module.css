@@ -40,6 +40,10 @@
     margin-bottom: var(--gap-s);
 }
 
+.smsBtn.smsBtn {
+    min-height: var(--size-xs-height);
+}
+
 .smsComeLink.smsComeLink {
     @mixin action_primary_small;
 }

@@ -1,0 +1,11 @@
+@import '../../../themes/src/default.css';
+@import '../vars.css';
+
+.component {
+    margin: 0 auto;
+    min-width: var(--pattern-lock-min-width);
+}
+
+.forgotBtn {
+    margin: var(--gap-xl) auto 0;
+}

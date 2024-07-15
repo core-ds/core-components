@@ -7,8 +7,12 @@ import { STORYBOOK_URL } from './setupScreenshotTesting';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type KnobValueType = string | boolean | number | any[];
 
+export type KnobsObj = {
+    [key: string]: KnobValueType;
+};
+
 export type KnobsCombinations = {
-    [key: string]: KnobValueType | KnobValueType[];
+    [key: string]: KnobValueType | KnobValueType[] | KnobsObj;
 };
 
 export type Knobs = {

@@ -1,5 +1,68 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+
+## 2.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   indicator@2.1.0
+    -   typography@4.6.0
+
+## 2.0.2
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   indicator@2.0.2
+
+## 2.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   indicator@2.0.1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1114](https://github.com/core-ds/core-components/pull/1114)
+
+-   Изменили компонент, отвечающий за индикатор таба с Badge на Indicator. Следовательно, изменился тип свойства indicatorProps с BadgeProps на IndicatorProps
+
+## Миграция с предыдущей версии
+
+-   Для того чтобы передать значение в индикатор необходимо заменить content на value. Например: indicatorProps: { content: 100 } -> indicatorProps: { value: 100 }
+
+### Minor Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1114](https://github.com/core-ds/core-components/pull/1114)
+
+-   Добавили новые props accentColor и bgColor, отвечающие за цвет активного таба и фон соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   typography@4.5.1
+
 ## 1.1.0
 
 ### Minor Changes

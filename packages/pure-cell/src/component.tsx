@@ -6,6 +6,7 @@ import React, {
     forwardRef,
     HTMLAttributes,
     useRef,
+    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -22,7 +23,7 @@ import { Category } from './components/category';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { FooterButton } from './components/footer-button';
-import { FooterText } from './components/footer-text';
+import { FooterText, FooterTextProps } from './components/footer-text';
 import { Graphics } from './components/graphics';
 import { Main } from './components/main';
 import { Text } from './components/text';
@@ -34,12 +35,14 @@ export type PureCellContext = {
     /** Направление */
     direction?: 'horizontal' | 'vertical';
     dataTestId?: string;
+    setMainHover?: () => void;
+    unsetMainHover?: () => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PureCellContext = React.createContext<PureCellContext>({});
 
-export type PureCellProps = {
+type BasePureCellProps = {
     /**
      * Направление
      */
@@ -58,7 +61,22 @@ export type PureCellProps = {
     /**
      * Вертикальные отступы
      */
-    verticalPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+    verticalPadding?:
+        | 'airy'
+        | 'default'
+        | 'compact'
+        | 'tiny'
+        | 'none'
+        | {
+              /**
+               * Вертикальный отступ сверху
+               */
+              top?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+              /**
+               * Вертикальный отступ снизу
+               */
+              bottom?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+          };
 
     /**
      * Горизонтальные отступы
@@ -69,6 +87,7 @@ export type PureCellProps = {
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
     tag?: ElementType;
+
     /**
      * Компоненты
      */
@@ -79,12 +98,14 @@ export type PureCellProps = {
      */
     dataTestId?: string;
 };
-type AnchorPureCellProps = PureCellProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type ButtonPureCellProps = PureCellProps & ButtonHTMLAttributes<HTMLButtonElement>;
-type ElementPureCellProps = PureCellProps & HTMLAttributes<HTMLElement>;
-type PureProps = Partial<AnchorPureCellProps | ButtonPureCellProps | ElementPureCellProps>;
+type AnchorPureCellProps = BasePureCellProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type ButtonPureCellProps = BasePureCellProps & ButtonHTMLAttributes<HTMLButtonElement>;
+type ElementPureCellProps = BasePureCellProps & HTMLAttributes<HTMLElement>;
+export type PureCellProps = Partial<
+    AnchorPureCellProps | ButtonPureCellProps | ElementPureCellProps
+>;
 
-const PureCellComponent = forwardRef<HTMLElement, PureProps>(
+const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
     (
         {
             className,
@@ -102,14 +123,46 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
     ) => {
         const cellRef = useRef<HTMLDivElement>(null);
         const [focused] = useFocus(cellRef, 'keyboard');
+        const [hoverState, setHoverState] = useState<boolean>(false);
+        const [activeState, setActiveState] = useState<boolean>(false);
+
+        const setHover = () => setHoverState(true);
+        const unsetHover = () => setHoverState(false);
+        const setActive = () => setActiveState(true);
+
+        const unsetActive = () => setActiveState(false);
+
+        const mouseEvents = {
+            onMouseEnter: setHover,
+            onMouseLeave: unsetHover,
+            onMouseDown: setActive,
+            onMouseUp: unsetActive,
+        };
+
         const addClasses = {
             [styles.component]: true,
             [styles.focused]: focused,
             [styles[direction]]: true,
-            [styles.defaultPadding]: verticalPadding === 'default',
-            [styles[verticalPadding]]: verticalPadding !== 'default',
             [styles[horizontalPadding]]: true,
+            [styles.hover]: hoverState,
+            [styles.active]: activeState,
         };
+
+        const contextState: PureCellContext = {
+            direction,
+            dataTestId,
+            setMainHover: setHover,
+            unsetMainHover: unsetHover,
+        };
+
+        if (typeof verticalPadding === 'string') {
+            addClasses[styles[verticalPadding as string]] = typeof verticalPadding === 'string';
+        }
+
+        if (typeof verticalPadding === 'object') {
+            addClasses[styles[`${verticalPadding.top}Top`]] = !!verticalPadding.top;
+            addClasses[styles[`${verticalPadding.bottom}Bottom`]] = !!verticalPadding.bottom;
+        }
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -126,8 +179,9 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     className={cn(styles.link, addClasses, className)}
                     data-test-id={dataTestId}
                     onClick={onClick}
+                    {...mouseEvents}
                 >
-                    <PureCellContext.Provider value={{ direction, dataTestId }}>
+                    <PureCellContext.Provider value={contextState}>
                         {children}
                     </PureCellContext.Provider>
                 </Component>
@@ -142,8 +196,9 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     className={cn(styles.button, addClasses, className)}
                     data-test-id={dataTestId}
                     onClick={onClick}
+                    {...mouseEvents}
                 >
-                    <PureCellContext.Provider value={{ direction, dataTestId }}>
+                    <PureCellContext.Provider value={contextState}>
                         {children}
                     </PureCellContext.Provider>
                 </Component>
@@ -158,9 +213,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                 className={cn(addClasses, className)}
                 data-test-id={dataTestId}
             >
-                <PureCellContext.Provider value={{ direction, dataTestId }}>
-                    {children}
-                </PureCellContext.Provider>
+                <PureCellContext.Provider value={contextState}>{children}</PureCellContext.Provider>
             </Component>
         );
     },
@@ -180,8 +233,10 @@ export const PureCell = Object.assign(PureCellComponent, {
     AmountTitle,
     Addon,
     Footer,
-    ExtraSubtitle: FooterText,
+    ExtraSubtitle: FooterText as React.FC<FooterTextProps>,
     FooterButton,
     Comment,
     Category,
 });
+
+PureCellComponent.displayName = 'PureCellComponent';

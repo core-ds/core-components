@@ -29,8 +29,9 @@ export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Набор цветов для компонента
@@ -150,11 +151,22 @@ export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
     colorStyles?: StyleColors;
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
 export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlProps>(
     (
         {
             block = false,
-            size = 's',
+            size = 48,
             colors = 'default',
             className,
             fieldClassName,
@@ -191,8 +203,8 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                     commonStyles.component,
                     colorCommonStyles[colors].component,
                     className,
-                    commonStyles[size],
-                    styles[size],
+                    commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     {
                         [commonStyles.block]: block,
                         [commonStyles.hasLeftAddons]: leftAddons,
@@ -230,7 +242,8 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                             [colorCommonStyles[colors].focused]: focused,
                             [commonStyles.hasError]: error,
                             [colorCommonStyles[colors].hasError]: error,
-                            [colorStyles[colors].hasError]: error,
+                            [colorStyles[colors].hasError]:
+                                error && Boolean(colorStyles[colors].hasError),
                         },
                     )}
                     ref={ref}

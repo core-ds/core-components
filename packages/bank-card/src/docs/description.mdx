@@ -23,3 +23,45 @@ render(() => {
     );
 });
 ```
+
+Можно устанавливать тип вводимого счёта:
+- Номер карты
+- Номер счёта
+
+```jsx live
+render(() => {
+    const [value1, setValue1] = React.useState('2201382000000013');
+    const handleChange1 = (event, payload) => setValue1(payload.value);
+
+    const [value2, setValue2] = React.useState('22013820000000131234');
+    const handleChange2 = (event, payload) => setValue2(payload.value);
+
+    return (
+        <>
+            <div>
+                <BankCard value={value1} maskType={'card'} onChange={handleChange1} />
+                <Gap size='xl' />
+                <Button size='xxs' onClick={() => setValue1('2201382000000013')}>
+                    Вставить номер карты
+                </Button>
+                <Gap size='s' direction='horizontal' />
+                <Button size='xxs' onClick={() => setValue1('')}>
+                    Очистить
+                </Button>
+            </div>
+            <br/>
+            <div>
+                <BankCard value={value2} maskType={'account-number'} onChange={handleChange2} />
+                <Gap size='xl' />
+                <Button size='xxs' onClick={() => setValue2('22013820000000131234')}>
+                    Вставить номер карты
+                </Button>
+                <Gap size='s' direction='horizontal' />
+                <Button size='xxs' onClick={() => setValue2('')}>
+                    Очистить
+                </Button>
+            </div>
+        </>
+    );
+});
+```

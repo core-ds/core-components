@@ -7,14 +7,14 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-navigation-bar/*": ["../navigation-bar/src/*"],
+            "@alfalab/core-components-navigation-bar-private/*": ["../navigation-bar-private/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
     "references": [
         { "path": "../base-modal" },
         { "path": "../shared" },
-        { "path": "../navigation-bar" },
+        { "path": "../navigation-bar-private" },
         { "path": "../backdrop" }
     ]
 }

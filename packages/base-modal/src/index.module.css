@@ -1,5 +1,15 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --window-inner-scrollY: 10px; /* fallback value to prevent ci error */
+}
+
+body:global(.is-locked) {
+    margin-top: calc(var(--window-inner-scrollY) * -1);
+    position: fixed;
+    overflow: hidden;
+}
+
 .component {
     position: relative;
     box-sizing: border-box;

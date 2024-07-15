@@ -16,7 +16,7 @@ render(() => {
             <Scrollbar style={{ height: '100%' }} autoHide={false}>
                 {new Array(51).fill(null).map((_, idx) => {
                     const style = getChildStyle(
-                        idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary',
+                        idx % 2 === 0 ? '--color-light-neutral-200' : '--color-light-base-bg-secondary',
                     );
                     return (
                         <div key={idx} style={style}>
@@ -52,7 +52,7 @@ render(() => {
         <Scrollbar style={scrollbarStyle} autoHide={false}>
             {new Array(51).fill(null).map((_, idx) => {
                 const style = getChildStyle(
-                    idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary',
+                    idx % 2 === 0 ? '--color-light-neutral-200' : '--color-light-base-bg-secondary',
                 );
                 return (
                     <div key={idx} style={style}>

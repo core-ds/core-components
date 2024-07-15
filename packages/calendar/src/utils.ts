@@ -22,7 +22,10 @@ import startOfYear from 'date-fns/startOfYear';
 import subDays from 'date-fns/subDays';
 import subMonths from 'date-fns/subMonths';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { DateShift, Day, DayAddons, Month, SpecialDays, SpecialDaysAddon } from './typings';
+import { CalendarProps } from '.';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;
@@ -285,3 +288,23 @@ export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
 
 export const parseDateString = (value: string, dateFormat = DATE_FORMAT) =>
     parse(value, dateFormat, new Date());
+
+export function getCalendarMobileTestIds(dataTestId: string) {
+    return {
+        calendar: dataTestId,
+        content: getDataTestId(dataTestId, 'content'),
+        footer: getDataTestId(dataTestId, 'footer'),
+        header: getDataTestId(dataTestId, 'header'),
+        closer: getDataTestId(dataTestId, 'header-closer'),
+        btnApply: getDataTestId(dataTestId, 'btn-apply'),
+        btnReset: getDataTestId(dataTestId, 'btn-reset'),
+        btnNextDate: getDataTestId(dataTestId, 'slider-btn-next-day'),
+        btnPreviousDate: getDataTestId(dataTestId, 'slider-btn-previous-day'),
+    };
+}
+
+export function isRangeValue(
+    value: CalendarProps['value'],
+): value is { dateFrom?: number | undefined; dateTo?: number | undefined } {
+    return Boolean(value) && typeof value === 'object';
+}

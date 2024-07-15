@@ -1,0 +1,253 @@
+## ProductCover.Single
+
+Используется для отображения карточек и их статусов.
+
+## Размеры
+
+Карточка используется в следующих размерах: 16×24, 32×51, 40×65, 48×76, 96×152, 128×205, 164×264.
+
+```jsx live
+render(() => {
+    const BIG_SIZES = [164, 128, 96, 48];
+    const SMALL_SIZES = [40, 32, 16];
+
+    return (
+        <>
+            <Space direction='horizontal' align='start' size={[20]}>
+                {BIG_SIZES.map((size) => (
+                    <ProductCover.Single
+                        key={String(size)}
+                        size={size}
+                        cardholderName='Cardholder Name'
+                        cardNumber={1234000000001234}
+                        baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                        cardId='RM'
+                        eyeButton={true}
+                    />
+                ))}
+            </Space>
+            <Gap size='l' />
+            <Space direction='horizontal' align='center' size={[20]}>
+                {SMALL_SIZES.map((size) => (
+                    <ProductCover.Single
+                        key={String(size)}
+                        size={size}
+                        cardholderName='Cardholder Name'
+                        cardNumber={1234000000001234}
+                        baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                        cardId='RM'
+                    />
+                ))}
+            </Space>
+        </>
+    );
+});
+```
+
+## Примеры
+
+Компонент позволяет настроить внешний вид банковской карты или продукта.
+Настраивается цвет фона, наличие обводки, тени, оверлея.
+В качестве контента можно передать ссылку на рубашку карты и иконку.
+В нижний слот можно положить кастомный контент.
+
+```jsx live
+const VIEW_SELECT_OPTIONS = [
+    { key: 'card', content: 'Карта' },
+    { key: 'defaultCard', content: 'Карта без рубашки' },
+    { key: 'lightCard', content: 'Заблокированная светлая карта' },
+    { key: 'darkCard', content: 'Заблокированная тёмная карта' },
+    { key: 'product', content: 'Продукт' },
+];
+
+render(() => {
+    const [viewSelected, setViewSelected] = React.useState(VIEW_SELECT_OPTIONS[0].key);
+
+    const baseCard = {
+        cardNumber: 1234000000001234,
+        baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+        layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+        cardId: 'RM',
+    };
+
+    const singleView = {
+        card: baseCard,
+        defaultCard: {},
+        lightCard: {
+            ...baseCard,
+            icon: LockClosedMIcon,
+            overlayProps: {
+                colors: 'inverted',
+                visible: true,
+            },
+            iconColor: 'var(--color-static-text-primary-inverted)',
+        },
+        darkCard: {
+            ...baseCard,
+            icon: LockClosedMIcon,
+            cardId: 'VV',
+            overlayProps: {
+                visible: true,
+            },
+        },
+        product: {
+            icon: SafeBoxMIcon,
+            borderColor: 'var(--color-light-neutral-translucent-300)',
+            iconColor: 'var(--color-light-text-secondary)',
+        },
+    };
+
+    return (
+        <div style={{ width: 320 }}>
+            <Select
+                block={true}
+                options={VIEW_SELECT_OPTIONS}
+                label='Пример'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 48 : 56}
+                selected={viewSelected}
+                onChange={({ selected }) => setViewSelected(selected.key)}
+                Option={BaseOption}
+            />
+            <Gap size={20} />
+            <ProductCover.Single
+                size={40}
+                cardNumber={singleView[viewSelected].cardNumber}
+                baseUrl={singleView[viewSelected].baseUrl}
+                layers={singleView[viewSelected].layers}
+                cardId={singleView[viewSelected].cardId}
+                overlayProps={singleView[viewSelected].overlayProps}
+                icon={singleView[viewSelected].icon}
+                iconColor={singleView[viewSelected].iconColor}
+                borderColor={singleView[viewSelected].borderColor}
+                backgroundColor='var(--color-light-neutral-200)'
+            />
+        </div>
+    );
+});
+```
+
+## Кастомный слот
+
+Компонент содержит кастомный слот в который можно передать любой контент.
+Обычно в него передаётся текстовый контент с маскированным номером карты.
+Слот ограничен размером карточки.
+
+## ProductCover.Stack
+
+Стопка доступна только для некоторых размеров карточек.
+Если карт больше двух, то в качестве контента для нижней карты рекомендуется передавать их количество, а вместо рубашки карты — заглушку.
+Смещение карт относительно друг-друга и размеры самой стопки предустановлены для конкретных размеров карточек.
+
+```jsx live
+render(() => {
+    const [numberOfСards, setNumberOfСards] = React.useState('2');
+    const [sizeAndAlignCard, setSizeAndAlignCard] = React.useState('128-default');
+
+    const onChangeNumberOfСards = (_, payload) => {
+        setNumberOfСards(payload.value);
+    };
+
+    const onChangeSizeCard = (_, payload) => {
+        setSizeAndAlignCard(payload.value);
+    };
+
+    const SIZE_AND_ALIGN = {
+        '128-default': {
+            size: 128,
+            align: 'default',
+            shadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.16)',
+        },
+        '40-default': { size: 40, align: 'default', shadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.10)' },
+        '40-bottom': { size: 40, align: 'bottom', shadow: '0px 2px 2px 0px rgba(0, 0, 0, 0.10)' },
+        '32-default': { size: 32, align: 'default', shadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.10)' },
+        '16-default': { size: 16, align: 'default', shadow: 'none' },
+    };
+
+    const CARD_COUNT = {
+        2: undefined,
+        3: 3,
+    };
+
+    const sizeCard = SIZE_AND_ALIGN[sizeAndAlignCard].size;
+    const alignCard = SIZE_AND_ALIGN[sizeAndAlignCard].align;
+    const shadow = SIZE_AND_ALIGN[sizeAndAlignCard].shadow;
+
+    const firstCard = {
+        cardNumber: 1234000000001234,
+        shadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.20)',
+        baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+        layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+        cardId: 'RM',
+        shadow,
+    };
+
+    const secondCard = {
+        ...(numberOfСards === '2' && {
+            baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+            layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+            cardId: 'RM',
+        }),
+        ...(sizeAndAlignCard === '40-default' && {
+            cardNumber: 1234000000001234,
+        }),
+    };
+
+    return (
+        <Container>
+            <Row>
+                <Col>
+                    <ProductCover.Stack
+                        size={sizeCard}
+                        align={alignCard}
+                        firstCard={firstCard}
+                        secondCard={secondCard}
+                        numberOfСards={sizeCard === 16 ? 3 : CARD_COUNT[numberOfСards]}
+                    />
+                </Col>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    label='Конфигурация'
+                    name='radioGroup'
+                    onChange={onChangeSizeCard}
+                    value={sizeAndAlignCard}
+                >
+                    <Radio label='128х205' value='128-default' size='m' />
+                    <Radio
+                        label='40х65 со смещением в правый нижний угол'
+                        value='40-default'
+                        size='m'
+                    />
+                    <Radio label='40х65 со смещением вниз' value='40-bottom' size='m' />
+                    <Radio
+                        label='32х51 со смещением в правый нижний угол'
+                        value='32-default'
+                        size='m'
+                    />
+                    <Radio
+                        label='16х24 со смещением в правый нижний угол'
+                        value='16-default'
+                        size='m'
+                    />
+                </RadioGroup>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    label='Количество карт'
+                    name='radioGroup'
+                    onChange={onChangeNumberOfСards}
+                    value={numberOfСards}
+                >
+                    <Radio label='Две' value='2' size='m' />
+                    <Radio label='Больше двух' value='3' size='m' />
+                </RadioGroup>
+            </Row>
+        </Container>
+    );
+});
+```

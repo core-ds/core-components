@@ -4,6 +4,7 @@ import differenceInDays from 'date-fns/differenceInDays';
 import dateFnsFormat from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import parse from 'date-fns/parse';
+import startOfDay from 'date-fns/startOfDay';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
@@ -16,6 +17,10 @@ export function parseDateString(value: string, format: string = DATE_FORMAT) {
 export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
     dateFnsFormat(date, dateFormat);
 
+export function formatDateRange(range: { dateFrom: Date | number; dateTo: Date | number }) {
+    return formatDate(range.dateFrom) + DATE_RANGE_SEPARATOR + formatDate(range.dateTo);
+}
+
 export function isCompleteDate(value = '') {
     return value.length === DATE_FORMAT.length;
 }
@@ -24,6 +29,10 @@ export function isCompleteTime(value = '', withTime = false) {
     if (!withTime) return true;
 
     return value.length === 5;
+}
+
+export function isCompleteMonth(value = '') {
+    return value.length === 7;
 }
 
 export function isCompleteDateRange(value = '') {
@@ -42,10 +51,11 @@ export function isValidDate({
     offDays?: Array<Date | number>;
 }) {
     const parsed = isCompleteDate(value) ? parseDateString(value).getTime() : undefined;
+    const minDateStartOfDay = startOfDay(new Date(minDate)).getTime();
 
     if (parsed) {
         return (
-            parsed >= minDate &&
+            parsed >= minDateStartOfDay &&
             parsed <= maxDate &&
             !offDays?.some((offDay) => isSameDay(offDay, parsed))
         );

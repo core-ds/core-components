@@ -18,7 +18,7 @@ describe('BankCard', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     const VISA_VALID_NUMBER = '4111111111111111';
     const MC_VALID_NUMBER = '5500000000000004';
     const MIR_VALID_NUMBER = '2201382000000013';
@@ -31,6 +31,13 @@ describe('BankCard', () => {
             expect(render(<BankCard value='2201 3820 0000 0013' />).container).toMatchSnapshot();
             expect(
                 render(<BankCard value='1234 1234 1234 1234 1234' />).container,
+            ).toMatchSnapshot();
+            expect(
+                render(<BankCard maskType={'card'} value='2201 3820 0000 0013' />).container,
+            ).toMatchSnapshot();
+            expect(
+                render(<BankCard maskType={'account-number'} value='1234 1234 1234 1234 1234' />)
+                    .container,
             ).toMatchSnapshot();
         });
     });
@@ -62,6 +69,17 @@ describe('BankCard', () => {
         expect(input.value).toBe('4444 4444 4444 4444');
     });
 
+    it('should format card number according to mask by maskType prop', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(<BankCard maskType={'card'} dataTestId={dataTestId} />);
+
+        const input = getByTestId(dataTestId) as HTMLInputElement;
+
+        fireEvent.change(input, { target: { value: '44444444444444449999' } });
+
+        expect(input.value).toBe('4444 4444 4444 4444');
+    });
+
     it('should format account number according to mask', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<BankCard dataTestId={dataTestId} />);
@@ -69,6 +87,19 @@ describe('BankCard', () => {
         const input = getByTestId(dataTestId) as HTMLInputElement;
 
         fireEvent.change(input, { target: { value: '44444444444444444444' } });
+
+        expect(input.value).toBe('4444 4444 4444 4444 4444');
+    });
+
+    it('should format account number according to mask by maskType prop', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(
+            <BankCard maskType={'account-number'} dataTestId={dataTestId} />,
+        );
+
+        const input = getByTestId(dataTestId) as HTMLInputElement;
+
+        fireEvent.change(input, { target: { value: '444444444444444444449999' } });
 
         expect(input.value).toBe('4444 4444 4444 4444 4444');
     });

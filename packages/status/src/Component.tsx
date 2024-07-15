@@ -13,13 +13,14 @@ export type StatusProps = {
 
     /**
      *  Вид компонента
+     * @description soft deprecated, используйте вместо него muted-alt
      */
-    view?: 'contrast' | 'soft';
+    view?: 'contrast' | 'soft' | 'muted' | 'muted-alt';
 
     /**
      * Цветовое оформление иконки
      */
-    color?: typeof colors[number];
+    color?: (typeof colors)[number];
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -32,17 +33,37 @@ export type StatusProps = {
     children?: ReactNode;
 };
 
+const logWarning = () => {
+    if (process.env.NODE_ENV !== 'development') {
+        return;
+    }
+
+    // eslint-disable-next-line no-console
+    console.warn(
+        // eslint-disable-next-line prefer-template
+        '@alfalab/core-components/status: view=soft будет удален в следующих мажорных версиях. ' +
+            'Используйте view=muted-alt. Чтобы изменить view=soft на view=muted-alt, можно воспользоваться codemod: ' +
+            'npx @alfalab/core-components-codemod --transformers=status-soft src/**/*.tsx',
+    );
+};
+
 export const Status: FC<StatusProps> = ({
     className,
-    view = 'soft',
+    view = 'muted-alt',
     color = 'green',
     children,
     dataTestId,
-}) => (
-    <span
-        className={cn(styles.component, styles[color], styles[view], className)}
-        data-test-id={dataTestId}
-    >
-        {children}
-    </span>
-);
+}) => {
+    if (view === 'soft') {
+        logWarning();
+    }
+
+    return (
+        <span
+            className={cn(styles.component, styles[color], styles[view], className)}
+            data-test-id={dataTestId}
+        >
+            <span className={styles.ellipsis}>{children}</span>
+        </span>
+    );
+};

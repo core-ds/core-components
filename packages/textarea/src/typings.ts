@@ -26,8 +26,9 @@ export type TextareaIncomeProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Набор цветов для компонента
@@ -155,4 +156,9 @@ export type TextareaIncomeProps = {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Ref для обертки textarea
+     */
+    wrapperRef?: React.Ref<HTMLDivElement> | null;
 };

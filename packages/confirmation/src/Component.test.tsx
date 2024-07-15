@@ -24,6 +24,7 @@ describe('Confirmation', () => {
     const baseProps: DesktopConfirmationProps = {
         screen: 'INITIAL',
         state: 'INITIAL',
+        errorVisibleDuration: 300,
         onChangeScreen: jest.fn(),
         onChangeState: jest.fn(),
         onInputFinished: jest.fn(),

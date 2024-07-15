@@ -1,19 +1,28 @@
-import { FC, SVGProps } from 'react';
+import { ComponentType, SVGProps } from 'react';
 
 import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { MoreMIcon } from '@alfalab/icons-glyph/MoreMIcon';
 import { MoreSIcon } from '@alfalab/icons-glyph/MoreSIcon';
 
-import { PickerButtonSize, PickerButtonVariant } from '../types';
+import { PickerButtonVariant } from '../types';
+
+export const getCompactIcon = (size: string, Icon?: ComponentType<SVGProps<SVGSVGElement>>) => {
+    if (Icon) {
+        return Icon;
+    }
+
+    return size === 'size-32' ? MoreSIcon : MoreMIcon;
+};
 
 export const getIcon = (
     variant: PickerButtonVariant,
-    size: PickerButtonSize,
-): FC<SVGProps<SVGSVGElement>> => {
+    size: string,
+    Icon?: ComponentType<SVGProps<SVGSVGElement>>,
+): ComponentType<SVGProps<SVGSVGElement>> => {
     if (variant === 'compact') {
-        return size === 'xxs' ? MoreSIcon : MoreMIcon;
+        return getCompactIcon(size, Icon);
     }
 
-    return size === 'xxs' || size === 'xs' ? ChevronDownCompactSIcon : ChevronDownMIcon;
+    return ['size-40', 'size-32'].includes(size) ? ChevronDownCompactSIcon : ChevronDownMIcon;
 };

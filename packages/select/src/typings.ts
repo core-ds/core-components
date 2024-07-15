@@ -1,5 +1,6 @@
 import type {
     AriaAttributes,
+    ComponentType,
     FC,
     FocusEvent,
     MouseEvent,
@@ -105,7 +106,7 @@ export type BaseSelectProps = {
     /**
      * Дополнительный класс для поповера
      */
-    popperClassName?: string;
+    popperClassName?: PopoverProps['className'];
 
     /**
      * Список вариантов выбора
@@ -144,13 +145,15 @@ export type BaseSelectProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Размер пунктов меню
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    optionsSize?: 's' | 'm' | 'l' | 'xl';
+    optionsSize?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -248,12 +251,12 @@ export type BaseSelectProps = {
     /**
      * Компонент стрелки
      */
-    Arrow?: FC<ArrowProps> | null | false;
+    Arrow?: ComponentType<ArrowProps> | null | false;
 
     /**
      * Компонент поля
      */
-    Field?: FC<FieldProps>;
+    Field?: ComponentType<FieldProps>;
 
     /**
      * Пропсы, которые будут прокинуты в компонент поля
@@ -273,17 +276,17 @@ export type BaseSelectProps = {
     /**
      * Компонент выпадающего меню
      */
-    OptionsList?: FC<OptionsListProps & RefAttributes<HTMLDivElement>>;
+    OptionsList?: ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>;
 
     /**
      * Компонент группы
      */
-    Optgroup?: FC<OptgroupProps>;
+    Optgroup?: ComponentType<OptgroupProps>;
 
     /**
      * Компонент пункта меню
      */
-    Option?: FC<OptionProps>;
+    Option?: ComponentType<OptionProps>;
 
     /**
      * Включает отображение поиска
@@ -293,7 +296,7 @@ export type BaseSelectProps = {
     /**
      * Компонент поиска
      */
-    Search?: FC<SearchProps>;
+    Search?: ComponentType<SearchProps>;
 
     /**
      * Настройки поиска
@@ -304,6 +307,8 @@ export type BaseSelectProps = {
         filterFn?: (optionText: string, search: string) => boolean;
         value?: string;
         onChange?: (value: string) => void;
+        filterGroup?: boolean;
+        groupAccessor?: (group: GroupShape) => string | undefined;
     };
 
     /**
@@ -345,6 +350,26 @@ export type BaseSelectProps = {
      * Показывать OptionsList, если он пустой
      */
     showEmptyOptionsList?: boolean;
+
+    /**
+     * Дополнительные пропсы для Popover
+     */
+    popoverProps?: Omit<
+        PopoverProps,
+        | 'update'
+        | 'zIndex'
+        | 'position'
+        | 'className'
+        | 'open'
+        | 'anchorElement'
+        | 'preventFlip'
+        | 'dataTestId'
+    >;
+
+    /**
+     * Ограничение динамического размера группы вариантов выбора
+     */
+    limitDynamicOptionGroupSize?: boolean;
 };
 
 // TODO: использовать InputProps
@@ -477,13 +502,14 @@ export type OptionsListProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Компонент пункта меню
      */
-    Option: FC<OptionProps>;
+    Option: ComponentType<OptionProps>;
 
     /**
      * Функция для получения пропсов для ячейки
@@ -595,6 +621,21 @@ export type OptionsListProps = {
      * Указать индекс пункта для hover состояния
      */
     setHighlightedIndex?: (index: number) => void;
+
+    /**
+     * Значение поиска
+     */
+    search?: string;
+
+    /**
+     * Возможность выбрать несколько значений
+     */
+    multiple?: boolean;
+
+    /**
+     * Ограничение динамического размера группы вариантов выбора
+     */
+    limitDynamicOptionGroupSize?: BaseSelectProps['limitDynamicOptionGroupSize'];
 };
 
 export type OptgroupProps = {
@@ -605,8 +646,9 @@ export type OptgroupProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Заголовок группы
@@ -617,6 +659,32 @@ export type OptgroupProps = {
      * Дочерние элементы
      */
     children?: ReactNode;
+
+    /**
+     * Список вариантов выбора в группе
+     */
+    options?: OptionShape[];
+
+    /**
+     * Список выбранных вариантов в группе
+     */
+    selectedItems?: OptionShape[];
+
+    /**
+     * Обработчик выбранных вариантов
+     */
+
+    setSelectedItems?: (items: OptionShape[]) => void;
+
+    /**
+     * Значение поиска
+     */
+    search?: string;
+
+    /**
+     * Возможность выбрать несколько значений
+     */
+    multiple?: boolean;
 };
 
 export type OptionProps = {
@@ -627,8 +695,9 @@ export type OptionProps = {
 
     /**
      * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
 
     /**
      * Контент пункта меню
@@ -693,6 +762,11 @@ export type OptionProps = {
     checkmarkPosition?: 'before' | 'after';
 
     /**
+     * Выравнивание чекбокса или иконки "галочки"
+     */
+    align?: 'start' | 'center';
+
+    /**
      * Мобильная верcия option.
      */
     mobile?: boolean;
@@ -728,6 +802,11 @@ export type CheckmarkProps = {
      * Иконка выбранного пункта
      */
     icon?: FC<SVGProps<SVGSVGElement>>;
+
+    /**
+     * Выравнивание чекбокса или иконки "галочки"
+     */
+    align?: 'start' | 'center';
 };
 
 export type SearchProps = InputProps & RefAttributes<HTMLInputElement>;

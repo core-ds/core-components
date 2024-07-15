@@ -11,5 +11,5 @@
     max-height: 16px;
     border-radius: var(--border-radius-xs);
     margin-top: var(--gap-3xs);
-    background-color: var(--color-light-specialbg-tertiary-transparent);
+    background-color: var(--color-light-neutral-translucent-300);
 }

@@ -5,7 +5,7 @@
     width: 100%;
     transition: background-color 0.2s;
     box-sizing: border-box;
-    background: var(--color-light-bg-primary);
+    background: var(--color-light-base-bg-primary);
 
     &:first-child td {
         border-top: 0;
@@ -22,7 +22,7 @@
     cursor: pointer;
 
     &:hover {
-        background-color: var(--color-light-bg-secondary);
+        background-color: var(--color-light-base-bg-secondary);
     }
 }
 

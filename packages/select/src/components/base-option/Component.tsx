@@ -16,6 +16,7 @@ export const BaseOption: FC<OptionProps> = ({
     multiple,
     Checkmark = BaseCheckmark,
     checkmarkPosition = multiple ? 'before' : 'after',
+    align = 'center',
     innerProps,
     dataTestId,
     mobile = false,
@@ -27,7 +28,18 @@ export const BaseOption: FC<OptionProps> = ({
 
     const renderCheckmark = () => {
         if (Checkmark && showCheckMark) {
-            return <Checkmark disabled={disabled} selected={selected} multiple={multiple} />;
+            return (
+                <Checkmark
+                    className={cn({
+                        [styles.checkmarkBeforeContent]: checkmarkPosition === 'before',
+                        [styles.checkmarkAfterContent]: checkmarkPosition === 'after',
+                    })}
+                    disabled={disabled}
+                    selected={selected}
+                    multiple={multiple}
+                    align={align}
+                />
+            );
         }
 
         return null;

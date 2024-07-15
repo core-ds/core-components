@@ -1,5 +1,81 @@
 # Change Log
 
+## 13.0.1
+
+### Patch Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1282](https://github.com/core-ds/core-components/pull/1282)
+
+-   Исправление сборки для темизаций. В каждую тему снова добавлены импорты переменных.
+
+## 13.0.0
+
+### Major Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1191](https://github.com/core-ds/core-components/pull/1191)
+
+-   Релиз содержит ошибку, используйте следующий
+
+## 12.3.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1253](https://github.com/core-ds/core-components/pull/1253)
+
+-   Удалена темизация click для компонентов Link и IconButton, а также для фона в ToastPlate
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+## 12.2.0
+
+### Minor Changes
+
+<sup><time>28.05.2024</time></sup>
+
+### [#1159](https://github.com/core-ds/core-components/pull/1159)
+
+-   Удалена тема click для компонента Skeleton
+
+## 12.1.3
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1177](https://github.com/core-ds/core-components/pull/1177)
+
+-   Добавлены css переменные --pure-cell-clickable-area-hover-opacity и --pure-cell-clickable-area-active-opacity для PureCell темы click
+
+## 12.1.2
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1098](https://github.com/core-ds/core-components/pull/1098)
+
+-   обновлена темизация click
+
+## 12.1.1
+
+### Patch Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1096](https://github.com/core-ds/core-components/pull/1096)
+
+-   Изменены стили для темы click: в bottom-sheet при скролле у header нет нижнего бордера, у back-arrow в navigation-bar теперь primary цвет
+
 ## 12.1.0
 
 ### Minor Changes

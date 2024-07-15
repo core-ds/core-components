@@ -1,5 +1,88 @@
 # Change Log
 
+## 5.7.9
+
+### Patch Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1207](https://github.com/core-ds/core-components/pull/1207)
+
+-   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+
+-   Обновлены зависимости
+    -   stack@5.0.0
+
+## 5.7.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.0
+    -   shared@0.11.0
+
+## 5.7.7
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1262](https://github.com/core-ds/core-components/pull/1262)
+
+-   В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+
+## 5.7.6
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   portal@3.2.1
+
+## 5.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+
+## 5.7.4
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1216](https://github.com/core-ds/core-components/pull/1216)
+
+-   Исправлено поведение фокуса внутри модального окна
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1178](https://github.com/core-ds/core-components/pull/1178)
+
+-   При открытии модальных окон в iOS, если браузерный navbar был сжат, то в модалке сохранится возможность взаимодействия со скролом. Текущее поведение исправлено, чтобы воспользоваться, нужно передать пропс iOSLock.
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+## 5.7.3
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1195](https://github.com/core-ds/core-components/pull/1195)
+
+-   Обновлена зависимость react-focus-lock
+
 ## 5.7.2
 
 ### Patch Changes

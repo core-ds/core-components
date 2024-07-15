@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-.sheetContent {
+.sheetContent.sheetContent {
     padding: 0;
 
     & .modalContent {
@@ -23,7 +23,7 @@
     flex: 1;
 }
 
-.optionsList {
+.optionsList.optionsList {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@
     padding: var(--gap-xs);
 }
 
-.option {
+.option.option {
     padding: var(--gap-2xs) var(--gap-l) var(--gap-2xs) var(--gap-m);
 
     &:before {
@@ -45,6 +45,6 @@
     }
 }
 
-.optionGroup {
+.optionGroup.optionGroup {
     padding: var(--gap-m) var(--gap-m) var(--gap-xs);
 }

@@ -15,12 +15,7 @@ import { Search as DefaultSearch } from '../components/search';
 import { VirtualOptionsList as DefaultVirtualOptionsList } from '../components/virtual-options-list';
 import { useSelectWithApply } from '../presets/useSelectWithApply/hook';
 import { Header } from '../presets/useSelectWithApply/options-list-with-apply/header/Component';
-import {
-    AnyObject,
-    BottomSheetSelectMobileProps,
-    ModalSelectMobileProps,
-    SelectMobileProps,
-} from '../typings';
+import { AnyObject, SelectMobileProps } from '../typings';
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
@@ -35,8 +30,8 @@ export const SelectMobile = forwardRef(
             circularNavigation = false,
             defaultOpen = false,
             open: openProp,
-            size = 'm',
-            optionsSize = 'm',
+            size = 56,
+            optionsSize = 56,
             fieldProps = {},
             optionProps = {},
             optionsListProps = {},
@@ -46,7 +41,6 @@ export const SelectMobile = forwardRef(
             Option = DefaultOption,
             Search = DefaultSearch,
             selected,
-            isBottomSheet = true,
             options,
             OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
                 ? DefaultVirtualOptionsList
@@ -62,9 +56,6 @@ export const SelectMobile = forwardRef(
         }: SelectMobileProps,
         ref,
     ) => {
-        const typedRestBottomSheetProps = restProps as BottomSheetSelectMobileProps;
-        const typedRestModalProps = restProps as ModalSelectMobileProps;
-
         const applyProps = useSelectWithApply({
             optionsListProps: {
                 ...(optionsListProps as AnyObject),
@@ -108,7 +99,6 @@ export const SelectMobile = forwardRef(
                 Optgroup={Optgroup}
                 Option={Option}
                 Search={Search}
-                isBottomSheet={isBottomSheet}
                 options={options}
                 selected={selected}
                 onChange={onChange}
@@ -117,21 +107,21 @@ export const SelectMobile = forwardRef(
                 searchProps={searchProps}
                 BottomSheet={BottomSheet}
                 ModalMobile={ModalMobile}
-                {...(isBottomSheet
+                optionsListProps={optionsListProps}
+                {...restProps}
+                {...(restProps.isBottomSheet === false
                     ? {
-                          bottomSheetProps: {
+                          modalHeaderProps: {
                               bottomAddons,
-                              ...typedRestBottomSheetProps.bottomSheetProps,
+                              ...restProps.modalHeaderProps,
                           },
                       }
                     : {
-                          modalHeaderProps: {
+                          bottomSheetProps: {
                               bottomAddons,
-                              ...typedRestModalProps.modalHeaderProps,
+                              ...restProps.bottomSheetProps,
                           },
                       })}
-                optionsListProps={optionsListProps}
-                {...restProps}
                 {...(useWithApplyHook && applyProps)}
             />
         );

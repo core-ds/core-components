@@ -7,7 +7,7 @@ describe('MaskedInput ', () =>
             knobs: {
                 label: 'Поле с маской',
                 value: '0000 0000 0000 0000',
-                size: 'm',
+                size: 56,
                 block: true,
             },
         },

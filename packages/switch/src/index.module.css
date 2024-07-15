@@ -5,6 +5,7 @@
     --switch-hint-color: var(--color-light-text-secondary);
     --switch-bg-color: var(--color-light-neutral-translucent-700);
     --switch-border-color: transparent;
+    --switch-error-color: var(--color-light-text-negative);
 
     /* hover */
     --switch-hover-bg-color: var(--color-light-neutral-translucent-700-hover);
@@ -21,7 +22,7 @@
     --switch-disabled-checked-bg-color: var(--switch-disabled-bg-color);
 
     /* icon */
-    --switch-icon-color: var(--color-static-neutral-1500-inverted);
+    --switch-icon-color: var(--color-static-neutral-0);
     --switch-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
@@ -102,6 +103,11 @@
 
 .label:not(:only-child) {
     margin-bottom: var(--gap-2xs);
+}
+
+.errorMessage {
+    @mixin paragraph_component_secondary;
+    color: var(--switch-error-color);
 }
 
 .hint {

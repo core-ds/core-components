@@ -1,5 +1,30 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>28.06.2024</time></sup>
+
+### [#1215](https://github.com/core-ds/core-components/pull/1215)
+
+-   Добавлена возможность переопределять рендер контейнер для группы элементов использующих Portal
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+
+## 3.2.1
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
 ## 3.2.0
 
 ### Minor Changes

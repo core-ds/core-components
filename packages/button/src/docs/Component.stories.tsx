@@ -16,21 +16,21 @@ const meta: Meta<typeof Button> = {
 
 type Story = StoryObj<typeof Button>;
 
-const VIEWS = ['accent', 'primary', 'secondary', 'tertiary', 'link', 'ghost'] as const;
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'] as const;
+const VIEWS = ['accent', 'primary', 'secondary', 'outlined', 'transparent', 'text'] as const;
+const SIZES = [32, 40, 48, 56, 64, 72] as const;
 
 export const button: Story = {
     name: 'Button',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const size = select('size', SIZES, 'm');
-        const addons = ['xxs', 'xs'].includes(size) ? <StarSIcon /> : <StarMIcon />;
+        const size = select('size', SIZES, 56);
+        const addons = [32, 40].includes(size) ? <StarSIcon /> : <StarMIcon />;
         return (
             <div
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -63,14 +63,14 @@ export const button_mobile: Story = {
     name: 'ButtonMobile',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const size = select('size', SIZES, 'm');
-        const addons = ['xxs', 'xs'].includes(size) ? <StarSIcon /> : <StarMIcon />;
+        const size = select('size', SIZES, 56);
+        const addons = [32, 40].includes(size) ? <StarSIcon /> : <StarMIcon />;
         return (
             <div
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',
@@ -103,14 +103,14 @@ export const button_desktop: Story = {
     name: 'ButtonDesktop',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const size = select('size', SIZES, 'm');
-        const addons = ['xxs', 'xs'].includes(size) ? <StarSIcon /> : <StarMIcon />;
+        const size = select('size', SIZES, 56);
+        const addons = [32, 40].includes(size) ? <StarSIcon /> : <StarMIcon />;
         return (
             <div
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '8px',
                     position: 'absolute',

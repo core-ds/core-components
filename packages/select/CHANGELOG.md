@@ -1,5 +1,359 @@
 # Change Log
 
+## 17.8.1
+
+### Patch Changes
+
+<sup><time>05.07.2024</time></sup>
+
+### [#1269](https://github.com/core-ds/core-components/pull/1269)
+
+-   Пункт 'Выбрать все' скрыт, когда список вариантов пуст
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   input@15.0.1
+    -   bottom-sheet@6.15.7
+    -   modal@9.3.7
+
+## 17.8.0
+
+### Minor Changes
+
+<sup><time>04.07.2024</time></sup>
+
+### [#1274](https://github.com/core-ds/core-components/pull/1274)
+
+-   Добавлен проп 'limitDynamicOptionGroupSize' для ограчения динамического размера группы вариантов. Если он включен, используется размер, указанный в проп 'size'
+
+## 17.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   base-modal@5.7.9
+    -   popover@6.2.4
+    -   bottom-sheet@6.15.6
+    -   modal@9.3.6
+
+## 17.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   base-modal@5.7.8
+    -   popover@6.2.3
+    -   bottom-sheet@6.15.5
+    -   button@11.5.1
+    -   checkbox@4.4.1
+    -   form-control@12.2.4
+    -   input@14.4.7
+    -   modal@9.3.5
+
+## 17.7.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1252](https://github.com/core-ds/core-components/pull/1252)
+
+-   Добавлено новое свойство align, отвечающее за выравнивание чекбокса или иконки "галочки". По умолчанию элемент выровнен по центру. Для того чтобы изменить выравнивание, необходимо передать компоненту optionProps={{align: 'start'}}
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   base-modal@5.7.7
+    -   bottom-sheet@6.15.4
+    -   checkbox@4.4.0
+    -   input@14.4.6
+    -   modal@9.3.4
+
+## 17.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.0.2
+
+## 17.6.0
+
+### Minor Changes
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1249](https://github.com/core-ds/core-components/pull/1249)
+
+-   Добавлен поиск по группам значений
+
+### Patch Changes
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1248](https://github.com/core-ds/core-components/pull/1248)
+
+-   увеличена специфичность стилей для кнопок футера
+
+<sup><time>21.06.2024</time></sup>
+
+### [#1257](https://github.com/core-ds/core-components/pull/1257)
+
+-   Корректная передача пропсов для мобильного варианта компонента
+
+## 17.5.1
+
+### Patch Changes
+
+<sup><time>17.06.2024</time></sup>
+
+### [#1251](https://github.com/core-ds/core-components/pull/1251)
+
+-   Повысили специфичность для отступов контента в мобильной селекте
+
+## 17.5.0
+
+### Minor Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1246](https://github.com/core-ds/core-components/pull/1246)
+
+-   Добавлены пропсы в OptGroup для управления выбранными вариантами
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1242](https://github.com/core-ds/core-components/pull/1242)
+
+-   Исправлен сброс чекбоксов при работе с поиском в мультиселекте
+
+-   Обновлены зависимости
+    -   base-modal@5.7.6
+    -   bottom-sheet@6.15.3
+    -   button@11.4.5
+    -   checkbox@4.3.3
+    -   form-control@12.2.3
+    -   input@14.4.5
+    -   modal@9.3.3
+    -   popover@6.2.2
+    -   scrollbar@3.0.1
+
+## 17.4.5
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1239](https://github.com/core-ds/core-components/pull/1239)
+
+-   Исправлено положение футера для виртуального списка опций с поиском (при OptionsList={VirtualOptionsList}). Раньше при вводе в инпут поиска положение футера было сверху, теперь футер снизу
+
+-   Обновлены зависимости
+    -   badge@5.5.2
+    -   button@11.4.4
+    -   checkbox@4.3.2
+    -   input@14.4.4
+    -   bottom-sheet@6.15.2
+    -   modal@9.3.2
+
+## 17.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.0.0
+    -   shared@0.10.0
+    -   base-modal@5.7.5
+    -   bottom-sheet@6.15.1
+    -   button@11.4.3
+    -   checkbox@4.3.1
+    -   form-control@12.2.2
+    -   input@14.4.3
+    -   modal@9.3.1
+
+## 17.4.3
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+-   Обновлены зависимости
+    -   base-modal@5.7.4
+    -   bottom-sheet@6.15.0
+    -   modal@9.3.0
+    -   input@14.4.2
+
+## 17.4.2
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1192](https://github.com/core-ds/core-components/pull/1192)
+
+-   В связи с проблемами поддержки свойства gap в Chrome версии 79, было принято решение заменить его использование для создания отступа между элементами Checkmark и подписью в опциях на свойство margin-right, которое было применено к самому элементу Checkmark
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.6
+    -   input@14.4.1
+    -   base-modal@5.7.3
+    -   modal@9.2.4
+
+## 17.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.5
+    -   button@11.4.2
+    -   input@14.4.0
+    -   modal@9.2.3
+
+## 17.4.0
+
+### Minor Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1153](https://github.com/core-ds/core-components/pull/1153)
+
+-   Добавили возможность прокидки popoverProps в компонент
+
+### Patch Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1157](https://github.com/core-ds/core-components/pull/1157)
+
+-   Изменили логику добавления бордера при скролле в десктопном компоненте. Теперь бордер добавляется к футеру и хедеру только при перекрытии контента
+
+-   Обновлены зависимости
+    -   button@11.4.1
+    -   input@14.3.3
+    -   bottom-sheet@6.14.4
+    -   modal@9.2.2
+
+## 17.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.3.0
+
+## 17.3.4
+
+### Patch Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1137](https://github.com/core-ds/core-components/pull/1137)
+
+-   Зафиксирована версия downshift, т.к. более новые версии ломают поведение компонента
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1138](https://github.com/core-ds/core-components/pull/1138)
+
+-   Увеличена специфичность стилей в мобильном селекте
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   input@14.3.2
+    -   bottom-sheet@6.14.3
+    -   modal@9.2.1
+
+## 17.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.1
+    -   input@14.3.1
+
+## 17.3.2
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1115](https://github.com/core-ds/core-components/pull/1115)
+
+-   Исправлено использование хука useSelectWithApply в респонсив версии
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1104](https://github.com/core-ds/core-components/pull/1104)
+
+-   Добавлена передача optionGroupClassName и size для Optgroup внутри VirtualOptionsList
+
+## 17.3.1
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1106](https://github.com/core-ds/core-components/pull/1106)
+
+-   Повышена специфичность стилей для option в SelectMobile
+
+## 17.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1062](https://github.com/core-ds/core-components/pull/1062)
+
+-   Обновлена зависимость downshift до 8.3.1
+
+### Patch Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1087](https://github.com/core-ds/core-components/pull/1087)
+
+-   Повышена специфичность стилей Checkmark (стили Badge переопределяли стили в Checkmark, из-за чего вместе с точкой отрисовывался и бейдж)
+
+-   Обновлены зависимости
+    -   form-control@12.2.0
+    -   input@14.3.0
+    -   modal@9.2.0
+    -   button@11.3.0
+    -   checkbox@4.2.0
+    -   bottom-sheet@6.14.2
+
 ## 17.2.1
 
 ### Patch Changes

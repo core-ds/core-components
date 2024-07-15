@@ -21,8 +21,10 @@
     color: var(--link-primary-color);
     border-bottom-color: var(--link-primary-color);
 
-    &:hover {
-        color: var(--link-primary-hover-color);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-primary-hover-color);
+        }
     }
 
     &:active {
@@ -34,8 +36,10 @@
     color: var(--link-secondary-color);
     border-bottom-color: var(--link-secondary-color);
 
-    &:hover {
-        color: var(--link-secondary-hover-color);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-secondary-hover-color);
+        }
     }
 
     &:active {
@@ -47,8 +51,10 @@
     color: var(--link-default-color);
     border-bottom-color: var(--link-default-color);
 
-    &:hover {
-        color: var(--link-default-hover-color);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-default-hover-color);
+        }
     }
 
     &:active {

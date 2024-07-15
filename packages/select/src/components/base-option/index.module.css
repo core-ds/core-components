@@ -6,7 +6,6 @@
 
     display: flex;
     align-items: center;
-    gap: var(--gap-s);
     transition: background-color 0.2s ease;
     background: var(--select-option-background);
     color: var(--select-option-color);
@@ -28,7 +27,7 @@
         }
     }
 
-    &.checkmarkAfter {
+    &.checkmarkAfter.checkmarkAfter {
         padding: 0 var(--gap-s) 0 0;
 
         &.mobile {
@@ -60,6 +59,14 @@
     cursor: var(--disabled-cursor);
     background: var(--select-option-disabled-background);
     color: var(--select-option-disabled-color);
+}
+
+.checkmarkBeforeContent {
+    margin-right: var(--gap-s);
+}
+
+.checkmarkAfterContent {
+    margin-left: var(--gap-s);
 }
 
 .content {

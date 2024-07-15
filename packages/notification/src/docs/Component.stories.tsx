@@ -21,7 +21,7 @@ export const notification: Story = {
                 style={{
                     backgroundColor:
                         colors === 'inverted'
-                            ? 'var(--color-light-bg-primary-inverted)'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
                     padding: '10px',
                     position: 'absolute',
@@ -36,14 +36,24 @@ export const notification: Story = {
                     visible={boolean('visible', false)}
                     badge={select(
                         'badge',
-                        ['negative', 'positive', 'attention', undefined],
-                        'positive',
+                        [
+                            'positive-checkmark',
+                            'negative-cross',
+                            'negative-alert',
+                            'negative-block',
+                            'attention-alert',
+                            'neutral-information',
+                            'neutral-operation',
+                            'neutral-cross',
+                            undefined,
+                        ],
+                        'positive-checkmark',
                     )}
                     title={text('title', 'Поздравляем, полный успех')}
                     hasCloser={boolean('hasCloser', true)}
                     actionButton={
                         boolean('renderActionButton', false) ? (
-                            <Button view='link' size='s' colors='inverted'>
+                            <Button view='transparent' size='s' colors='inverted'>
                                 Action Button
                             </Button>
                         ) : null

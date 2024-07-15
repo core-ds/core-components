@@ -1,0 +1,20 @@
+@import '../../themes/src/default.css';
+
+.component {
+    background-clip: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+@each $align in left, right, center {
+    .$(align) {
+        text-align: $(align);
+    }
+}
+
+@each $limit in 1, 2, 3 {
+    .row-limit-$(limit) {
+        @mixin row_limit $(limit);
+        word-break: break-all;
+    }
+}

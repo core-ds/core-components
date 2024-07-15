@@ -1,5 +1,129 @@
 # Change Log
 
+## 13.5.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.4.0
+    -   button@11.5.2
+
+## 13.5.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+
+## 13.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   typography@4.6.0
+
+## 13.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   code-input@3.3.1
+    -   link@5.2.2
+
+## 13.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   spinner@3.3.1
+
+## 13.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.5.1
+    -   button@11.4.3
+
+## 13.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+
+## 13.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
+## 13.5.0
+
+### Minor Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1147](https://github.com/core-ds/core-components/pull/1147)
+
+-   Обновили версии пакетов @alfalab/utils и @alfalab/data
+
+### Patch Changes
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1127](https://github.com/core-ds/core-components/pull/1127)
+
+-   Исправлено выравнивание в мобильном компоненте: изменен вид кнопки "Не приходит сообщение" с link на text. Также исправлено выравнивание номеров телефона на экране "Не приходит сообщение?"
+
+<sup><time>29.03.2024</time></sup>
+
+### [#1143](https://github.com/core-ds/core-components/pull/1143)
+
+-   Исправлен повторный рендеринг кастомного экрана при каждом обновлении таймера. Теперь таймер не вызывает повторный рендеринг
+
+## 13.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   link@5.2.1
+
+## 13.4.0
+
+### Minor Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1119](https://github.com/core-ds/core-components/pull/1119)
+
+-   Добавлена новая пропса errorVisibleDuration, отвечающая за продолжительность отображения ошибки
+-   Увеличено дефолтное время отображения ошибки с 300ms до 1300ms
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1112](https://github.com/core-ds/core-components/pull/1112)
+
+-   Повышена специфичность стилей для кнопки на экране FATAL_ERROR
+
+-   Обновлены зависимости
+    -   code-input@3.3.0
+
+## 13.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.3.0
+    -   spinner@3.3.0
+
 ## 13.3.4
 
 ### Patch Changes

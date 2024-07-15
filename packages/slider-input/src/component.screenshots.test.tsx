@@ -19,7 +19,7 @@ describe('SliderInput ', () =>
                 label: 'Поле со слайдером',
                 value: 5,
                 steps: '[1,10,20]',
-                size: 'm',
+                size: 56,
                 min: 1,
                 max: 20,
                 block: true,
@@ -42,7 +42,7 @@ describe('SliderInput | sprite', () => {
                         knobs: {
                             label: 'Оставшийся срок по кредиту',
                             value: [0, 50, 100],
-                            size: ['s', 'm', 'l', 'xl'],
+                            size: [48, 56, 64, 72],
                         },
                         size: { width: 260, height: 120 },
                     }),

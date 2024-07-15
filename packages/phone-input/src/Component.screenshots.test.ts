@@ -7,7 +7,7 @@ describe('PhoneInput ', () =>
             knobs: {
                 label: 'Телефон',
                 value: '+71234567890',
-                size: 'm',
+                size: 56,
                 block: true,
             },
         },

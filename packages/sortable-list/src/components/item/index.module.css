@@ -8,7 +8,7 @@
 
     &:hover {
         & .icon {
-            color: var(--color-light-neutral-1500);
+            color: var(--color-light-neutral-translucent-1300);
         }
     }
 }
@@ -49,7 +49,7 @@
     animation: pop 200ms ease;
 
     & .icon {
-        color: var(--color-light-neutral-1500);
+        color: var(--color-light-neutral-translucent-1300);
     }
 }
 

@@ -1,5 +1,205 @@
 # Change Log
 
+## 11.7.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.1
+    -   button@11.5.2
+
+## 11.7.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.0
+
+## 11.7.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.4
+    -   select@17.7.2
+
+## 11.7.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.3
+    -   button@11.5.1
+    -   select@17.7.1
+
+## 11.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   select@17.7.0
+
+## 11.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.1
+
+## 11.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.6.0
+
+## 11.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.5.1
+
+## 11.7.3
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+    -   popover@6.2.2
+    -   select@17.5.0
+
+## 11.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   select@17.4.5
+
+## 11.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.4
+    -   button@11.4.3
+
+## 11.7.0
+
+### Minor Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1209](https://github.com/core-ds/core-components/pull/1209)
+
+-   Добавлено новое свойство icon, которое позволяет передать кастомную иконку при использовании типа кнопки compact
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1210](https://github.com/core-ds/core-components/pull/1210)
+
+-   Изменены типы принимаемых компонентов
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1212](https://github.com/core-ds/core-components/pull/1212)
+
+-   Исправлено предупреждение, которое возникало из-за передачи FormControlComponent в компонент Button
+
+-   Обновлены зависимости
+    -   select@17.4.3
+
+## 11.6.8
+
+### Patch Changes
+
+<sup><time>15.05.2024</time></sup>
+
+### [#1197](https://github.com/core-ds/core-components/pull/1197)
+
+-   Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+
+-   Обновлены зависимости
+    -   select@17.4.2
+
+## 11.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+    -   select@17.4.1
+
+## 11.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.4.0
+    -   button@11.4.1
+
+## 11.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.5
+
+## 11.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.4
+    -   button@11.4.0
+
+## 11.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.3
+
+## 11.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.2
+
+## 11.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.1
+
+## 11.6.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 32, 40, 48, 56, 64, 72. Буквенные значения размеров xxs, xs, s, m, l, xl теперь deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.3.0
+    -   button@11.3.0
+
 ## 11.5.4
 
 ### Patch Changes

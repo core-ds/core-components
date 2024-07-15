@@ -1,5 +1,186 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.1.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.1
+
+## 2.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+    -   popover@6.2.4
+
+## 2.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+    -   popover@6.2.3
+    -   input@14.4.7
+
+## 2.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.6
+
+## 2.1.0
+
+### Minor Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1220](https://github.com/core-ds/core-components/pull/1220)
+
+-   Добавлена поддержка формата мм.гггг
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   input@14.4.5
+    -   popover@6.2.2
+
+## 2.0.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.4
+
+## 2.0.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+    -   input@14.4.3
+
+## 2.0.8
+
+### Patch Changes
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1214](https://github.com/core-ds/core-components/pull/1214)
+
+-   Добавлена возможность обработки строковых значений для отображения даты
+
+<sup><time>24.05.2024</time></sup>
+
+### [#1218](https://github.com/core-ds/core-components/pull/1218)
+
+-   Исправлен выбор даты на мобильных устройствах
+
+-   Обновлены зависимости
+    -   input@14.4.2
+
+## 2.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.1
+
+## 2.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.0
+
+## 2.0.5
+
+### Patch Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1170](https://github.com/core-ds/core-components/pull/1170)
+
+-   Устранена проблема, из-за которой невозможно было установить год раньше 1971
+
+-   Обновлены зависимости
+    -   input@14.3.3
+
+## 2.0.4
+
+### Patch Changes
+
+<sup><time>08.04.2024</time></sup>
+
+### [#1162](https://github.com/core-ds/core-components/pull/1162)
+
+-   Исправлена логика обработки значения minDate. Ранее при установке minDate=new Date().getTime() возникала ошибка при выборе текущей даты. Теперь данное поведение исправлено
+
+## 2.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.2
+
+## 2.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.1
+
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>04.03.2024</time></sup>
+
+### [#1110](https://github.com/core-ds/core-components/pull/1110)
+
+-   Исправлена логика обработки значения minDate. Ранее при установке minDate=new Date().getTime() возникала ошибка при выборе текущей даты. Теперь данное поведение исправлено
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1041](https://github.com/core-ds/core-components/pull/1041)
+
+-   Переименованы свойства. onChange стал называться onInputChange, onComplete стал называться onChange
+-   Изменены типы свойств value и onChange.
+-   Исправлена ошибка из-за которой onChange не вызывался в момент очистки инпута
+
+## Миграция с предыдущей версии
+
+-   Меняем onChange на onInputChange. (но от использования onInputChange лучше отказаться, если не нужно посимвольно контролировать пользовательский ввод).
+-   Меняем onComplete на onChange. (Это основной обработчик. Вызывается в момент, когда дата введена полностью, либо полностью стерта. Первый аргумент - дата(или диапазон дат), второй - значение инпута).
+-   value теперь принимает дату(диапазон дат в случае view=data-range), а не строку как раньше.
+
+Примеры всегда можно посмотреть в [сторибуке](https://core-ds.github.io/core-components/master/?path=/docs/universaldateinput--docs)
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.0
+
 ## 1.5.0
 
 ### Minor Changes

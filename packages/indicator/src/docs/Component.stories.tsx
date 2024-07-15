@@ -18,7 +18,7 @@ export const indicator: Story = {
         return (
             <div
                 style={{
-                    backgroundColor: 'var(--color-light-bg-tertiary)',
+                    backgroundColor: 'var(--color-light-neutral-200)',
                     padding: '8px',
                     position: 'absolute',
                     top: 0,
@@ -30,7 +30,7 @@ export const indicator: Story = {
                 <Indicator
                     value={number('value', 1)}
                     height={number('height', undefined)}
-                    size={select('size', ['xs', 's', 'm', 'l'], 's')}
+                    size={select('size', [8, 20, 24, 40], 20)}
                     color={text('color', '')}
                     backgroundColor={text('backgroundColor', '')}
                     border={boolean('border', true)}

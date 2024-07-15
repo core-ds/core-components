@@ -1,5 +1,119 @@
 # Change Log
 
+## 7.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+    -   bottom-sheet@6.15.7
+
+## 7.3.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.4
+    -   bottom-sheet@6.15.6
+
+## 7.3.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.3
+    -   bottom-sheet@6.15.5
+    -   button@11.5.1
+
+## 7.3.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+    -   bottom-sheet@6.15.4
+
+## 7.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.3
+    -   button@11.4.5
+    -   popover@6.2.2
+
+## 7.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+    -   bottom-sheet@6.15.2
+
+## 7.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.1
+    -   button@11.4.3
+
+## 7.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.15.0
+
+## 7.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.6
+
+## 7.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.14.5
+    -   button@11.4.2
+
+## 7.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+    -   bottom-sheet@6.14.4
+
+## 7.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+    -   bottom-sheet@6.14.3
+
+## 7.3.6
+
+### Patch Changes
+
+<sup><time>15.03.2024</time></sup>
+
+### [#1102](https://github.com/core-ds/core-components/pull/1102)
+
+-   Добавлена переменная цвета фона для компонента tooltip
+
+## 7.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.3.0
+    -   bottom-sheet@6.14.2
+
 ## 7.3.4
 
 ### Patch Changes

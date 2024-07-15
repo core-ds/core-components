@@ -1,5 +1,127 @@
 # Change Log
 
+## 5.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.2
+    -   input@15.0.1
+
+## 5.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.0
+
+## 5.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.7
+    -   icon-button@6.7.1
+
+## 5.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.7.0
+    -   input@14.4.6
+
+## 5.2.9
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   icon-button@6.6.1
+    -   input@14.4.5
+
+## 5.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.6.0
+    -   input@14.4.4
+
+## 5.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.3
+    -   icon-button@6.5.7
+
+## 5.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.2
+
+## 5.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.1
+
+## 5.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.4.0
+    -   icon-button@6.5.6
+
+## 5.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.5
+    -   input@14.3.3
+
+## 5.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.5.4
+    -   input@14.3.2
+
+## 5.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.1
+
+## 5.2.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.3.0
+    -   icon-button@6.5.3
+
 ## 5.1.3
 
 ### Patch Changes

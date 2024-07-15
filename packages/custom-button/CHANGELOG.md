@@ -1,5 +1,97 @@
 # Change Log
 
+## 3.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.2
+
+## 3.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.1
+
+## 3.6.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1258](https://github.com/core-ds/core-components/pull/1258)
+
+-   Заменили устаревшие цветовые токены на актуальные
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.0
+
+## 3.5.6
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+-   Обновлены зависимости
+    -   button@11.4.5
+
+## 3.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.4
+
+## 3.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.3
+
+## 3.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.2
+
+## 3.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.1
+
+## 3.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.4.0
+
+## 3.5.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 32, 40, 48, 56, 64, 72. Буквенные значения размеров xxs, xs, s, m, l, xl теперь deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.3.0
+
 ## 3.4.3
 
 ### Patch Changes

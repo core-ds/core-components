@@ -1,5 +1,113 @@
 # Change Log
 
+## 11.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.4.0
+
+## 11.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.11.0
+
+## 11.5.0
+
+### Minor Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1255](https://github.com/core-ds/core-components/pull/1255)
+
+-   Для предотвращения мерцания компонента в SSR добавлена возможность установки значения по умолчанию для useMatchMedia
+
+### Patch Changes
+
+<sup><time>27.06.2024</time></sup>
+
+### [#1256](https://github.com/core-ds/core-components/pull/1256)
+
+-   Исправили стили для кнопки с view=filled
+
+## 11.4.5
+
+### Patch Changes
+
+<sup><time>14.06.2024</time></sup>
+
+### [#1235](https://github.com/core-ds/core-components/pull/1235)
+
+-   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+
+## 11.4.4
+
+### Patch Changes
+
+<sup><time>13.06.2024</time></sup>
+
+### [#1229](https://github.com/core-ds/core-components/pull/1229)
+
+-   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+
+-   Обновлены зависимости
+    -   spinner@3.3.1
+
+## 11.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.10.0
+
+## 11.4.2
+
+### Patch Changes
+
+<sup><time>27.04.2024</time></sup>
+
+### [#1174](https://github.com/core-ds/core-components/pull/1174)
+
+-   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+
+## 11.4.1
+
+### Patch Changes
+
+<sup><time>19.04.2024</time></sup>
+
+### [#1172](https://github.com/core-ds/core-components/pull/1172)
+
+-   Повышена специфичность для стилей, отвечающих за размеры кнопки text
+
+## 11.4.0
+
+### Minor Changes
+
+<sup><time>22.03.2024</time></sup>
+
+### [#1118](https://github.com/core-ds/core-components/pull/1118)
+
+-   Добавлены новые варианты кнопок: outlined, transparent, text. Они заменяют предыдущие варианты: tertiary, link, ghost соответственно. Link, ghost теперь deprecated
+-   Добавлен трансформер button-views-45 для замены предыдущих вариантов (link, ghost) кнопок на новые
+
+## 11.3.0
+
+### Minor Changes
+
+<sup><time>12.02.2024</time></sup>
+
+### [#1021](https://github.com/core-ds/core-components/pull/1021)
+
+-   Добавлены новые способы указать размеры - 32, 40, 48, 56, 64, 72. Буквенные значения размеров xxs, xs, s, m, l, xl теперь deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.3.0
+
 ## 11.2.0
 
 ### Minor Changes

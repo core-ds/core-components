@@ -53,7 +53,7 @@
     user-select: none;
     outline: none;
 
-    &:not(.disabled):hover {
+    &:not(:disabled):hover {
         color: var(--primary-tablist-hover-color);
     }
 }
@@ -187,4 +187,7 @@
     justify-content: center;
     align-items: center;
     margin-left: var(--gap-xs);
+}
+.rightAddonsMarginZero {
+    margin-left: 0;
 }

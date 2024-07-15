@@ -189,6 +189,29 @@ describe('PureCell', () => {
         expect(screen.getByTestId('cell-pure')).toHaveClass('airy');
     });
 
+    it('should use `verticalTopPadding` and `verticalBottomPadding` prop', () => {
+        render(
+            <PureCell verticalPadding={{ top: 'airy', bottom: 'tiny' }} dataTestId='cell-pure'>
+                <PureCell.Graphics>
+                    <StarMIcon />
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
+                            Title
+                        </PureCell.Text>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                            Label
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>,
+        );
+
+        expect(screen.getByTestId('cell-pure')).toHaveClass('airyTop');
+        expect(screen.getByTestId('cell-pure')).toHaveClass('tinyBottom');
+    });
+
     it('should use `horizontalPadding` prop', () => {
         render(
             <PureCell horizontalPadding='both' dataTestId='cell-pure'>
@@ -285,6 +308,103 @@ describe('PureCell', () => {
 
             expect(valueTypography).toHaveClass('component-primary link');
             expect(link.parentElement).toBe(valueTypography);
+        });
+    });
+
+    describe('PureCell.Main', () => {
+        it('should call cb function if it has `onClick` prop ', () => {
+            const cb = jest.fn();
+            const cellCb = jest.fn();
+
+            render(
+                <PureCell onClick={cellCb}>
+                    <PureCell.Graphics dataTestId='cell-pure' onClick={cb}>
+                        <StarMIcon />
+                    </PureCell.Graphics>
+                </PureCell>,
+            );
+
+            fireEvent.click(screen.getByTestId('cell-pure-graphics'));
+
+            expect(cb).toBeCalledTimes(1);
+            expect(cellCb).toBeCalledTimes(0);
+            expect(screen.getByTestId('cell-pure-graphics').tagName).toBe('BUTTON');
+        });
+    });
+
+    describe('PureCell.Graphics', () => {
+        it('should call cb function if it has `onClick` prop ', () => {
+            const cb = jest.fn();
+            const cellCb = jest.fn();
+
+            render(
+                <PureCell onClick={cellCb}>
+                    <PureCell.Content>
+                        <PureCell.Main dataTestId='cell-pure' onClick={cb}>
+                            <PureCell.Text titleColor='primary' view='component-primary'>
+                                Title
+                            </PureCell.Text>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Label
+                            </PureCell.Text>
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>,
+            );
+
+            fireEvent.click(screen.getByTestId('cell-pure-main'));
+
+            expect(cb).toBeCalledTimes(1);
+            expect(cellCb).toBeCalledTimes(0);
+            expect(screen.getByTestId('cell-pure-main').tagName).toBe('BUTTON');
+        });
+    });
+
+    describe('PureCell.Addon', () => {
+        it('should call cb function if it has `onClick` prop ', () => {
+            const cb = jest.fn();
+            const cellCb = jest.fn();
+
+            render(
+                <PureCell onClick={cellCb}>
+                    <PureCell.Content>
+                        <PureCell.Addon dataTestId='cell-pure' onClick={cb}>
+                            <StarMIcon />
+                        </PureCell.Addon>
+                    </PureCell.Content>
+                </PureCell>,
+            );
+
+            fireEvent.click(screen.getByTestId('cell-pure-addon'));
+
+            expect(cb).toBeCalledTimes(1);
+            expect(cellCb).toBeCalledTimes(0);
+            expect(screen.getByTestId('cell-pure-addon').tagName).toBe('BUTTON');
+        });
+    });
+
+    describe('PureCell.FooterButton', () => {
+        it('should call cb function if it has `onClick` prop ', () => {
+            const cb = jest.fn();
+            const cellCb = jest.fn();
+
+            render(
+                <PureCell onClick={cellCb}>
+                    <PureCell.Content>
+                        <PureCell.Footer>
+                            <PureCell.FooterButton dataTestId='cell-pure' onClick={cb}>
+                                Button
+                            </PureCell.FooterButton>
+                        </PureCell.Footer>
+                    </PureCell.Content>
+                </PureCell>,
+            );
+
+            fireEvent.click(screen.getByTestId('cell-pure-button'));
+
+            expect(cb).toBeCalledTimes(1);
+            expect(cellCb).toBeCalledTimes(0);
+            expect(screen.getByTestId('cell-pure-button').tagName).toBe('BUTTON');
         });
     });
 });

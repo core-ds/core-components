@@ -47,8 +47,9 @@ export type BaseFilterTagProps = {
 
     /**
      * Размер компонента
+     * @description xxs, xs, s deprecated, используйте вместо них 32, 40, 48 соответственно
      */
-    size?: 'xxs' | 'xs' | 's';
+    size?: 'xxs' | 'xs' | 's' | 32 | 40 | 48;
 
     /**
      * Дополнительный класс
@@ -59,6 +60,12 @@ export type BaseFilterTagProps = {
      * Показывать крестик для очистки выбора
      */
     showClear?: boolean;
+
+    /**
+     * Растягивает компонент на ширину контейнера
+     * @default false
+     */
+    block?: boolean;
 
     /**
      * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
@@ -88,6 +95,15 @@ const isKeyBoardEvent = (
 ): event is KeyboardEvent<HTMLDivElement> =>
     (event as KeyboardEvent<HTMLDivElement>).key !== undefined;
 
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    s: 'size-48',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+};
+
 export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
     (
         {
@@ -96,12 +112,13 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             disabled,
             open,
             onClick,
-            size = 's',
+            size = 48,
             variant = 'default',
             shape,
             view = 'outlined',
             onClear = () => null,
             showClear = true,
+            block = false,
             className,
             dataTestId,
             styles = {},
@@ -137,10 +154,10 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     className,
                     commonStyles.component,
                     commonStyles[shapeClassName],
-                    commonStyles[size],
+                    commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles.component,
                     styles[shapeClassName],
-                    styles[size],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     {
                         [commonStyles.checked]: checked,
                         [styles.checked]: checked,
@@ -148,6 +165,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         [styles.disabled]: disabled,
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
+                        [commonStyles.block]: block,
                     },
                 )}
                 ref={ref}
@@ -161,8 +179,8 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     className={cn(
                         commonStyles.valueButton,
                         styles.valueButton,
-                        commonStyles[size],
-                        styles[size],
+                        commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                        styles[SIZE_TO_CLASSNAME_MAP[size]],
                         commonStyles[shapeClassName],
                         styles[shapeClassName],
                         commonStyles[view],
@@ -173,12 +191,13 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                             [commonStyles.open]: open,
                             [commonStyles.close]: !showClear,
                             [styles.close]: !showClear,
+                            [commonStyles.block]: block,
                         },
                     )}
                 >
                     <span className={commonStyles.content}>{children}</span>
                     <span className={commonStyles.chevron}>
-                        {size === 'xxs' || size === 'xs' ? (
+                        {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
                             <ChevronDownCompactSIcon />
                         ) : (
                             <ChevronDownMIcon />
@@ -192,8 +211,8 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         className={cn(
                             commonStyles.clear,
                             styles.clear,
-                            commonStyles[size],
-                            styles[size],
+                            commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                            styles[SIZE_TO_CLASSNAME_MAP[size]],
                             styles[shapeClassName],
                             commonStyles[shapeClassName],
                         )}
@@ -202,7 +221,11 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         tabIndex={0}
                     >
                         <span className={commonStyles.iconWrapper}>
-                            {size === 'xxs' ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
+                            {SIZE_TO_CLASSNAME_MAP[size] === 'size-32' ? (
+                                <CrossCircleSIcon />
+                            ) : (
+                                <CrossCircleMIcon />
+                            )}
                         </span>
                     </div>
                 )}

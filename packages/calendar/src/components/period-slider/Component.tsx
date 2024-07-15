@@ -5,6 +5,7 @@ import startOfWeek from 'date-fns/startOfWeek';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 
 import { monthName } from '../../utils';
@@ -106,6 +107,12 @@ export type PeriodSliderProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Отображаемый текст, когда слайдеру не переданы значения c датами value={...}
+     * @default 'Укажите период'
+     */
+    emptyValueText?: string;
 };
 
 export const PeriodSlider: FC<PeriodSliderProps> = ({
@@ -123,7 +130,8 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     onMonthClick,
     onYearClick,
     onPeriodClick,
-    dataTestId,
+    dataTestId = 'period-slider',
+    emptyValueText = 'Укажите период',
 }) => {
     const [valueFrom, valueTo] = useMemo(() => {
         let from: Date;
@@ -188,19 +196,19 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
 
     const renderHeader = () => {
         if (!(valueFrom && valueTo)) {
-            return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
+            return <span className={cn(styles.period, styles.empty)}>{emptyValueText}</span>;
         }
 
         if (periodType === 'month' && isMonthAndYearSelectable) {
             return (
                 <div>
-                    <Button className={styles.period} view='ghost' size='l' onClick={onMonthClick}>
+                    <Button className={styles.period} view='text' size='l' onClick={onMonthClick}>
                         {monthName(valueFrom)}
                     </Button>
                     {yearSelectorValue && (
                         <Button
                             className={cn(styles.yearSelectorButton, styles.period)}
-                            view='ghost'
+                            view='text'
                             size='l'
                             onClick={onYearClick}
                         >
@@ -246,6 +254,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                     onClick={handlePrevArrowClick}
                     disabled={prevArrowDisabled || !valueFrom}
                     aria-label='Предыдущий период'
+                    dataTestId={getDataTestId(dataTestId, 'btn-previous-day')}
                 />
             )}
 
@@ -259,6 +268,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                     onClick={handleNextArrowClick}
                     disabled={nextArrowDisabled || !valueFrom}
                     aria-label='Следующий период'
+                    dataTestId={getDataTestId(dataTestId, 'btn-next-day')}
                 />
             )}
         </div>

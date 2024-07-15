@@ -44,7 +44,13 @@ import type {
     OptionsListProps,
     SearchProps,
 } from '../../typings';
-import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
+import {
+    defaultAccessor,
+    defaultFilterFn,
+    defaultGroupAccessor,
+    isGroup,
+    processOptions,
+} from '../../utils';
 import { NativeSelect } from '../native-select';
 
 import styles from './index.module.css';
@@ -101,7 +107,7 @@ export const BaseSelect = forwardRef(
             name,
             id,
             selected,
-            size = 's',
+            size = 48,
             optionsSize = size,
             error,
             hint,
@@ -135,12 +141,14 @@ export const BaseSelect = forwardRef(
             footer,
             swipeable,
             modalProps,
+            popoverProps,
             modalFooterProps,
             modalHeaderProps,
             bottomSheetProps,
             Popover,
             ModalMobile,
             BottomSheet,
+            limitDynamicOptionGroupSize,
         }: ComponentProps,
         ref,
     ) => {
@@ -149,7 +157,6 @@ export const BaseSelect = forwardRef(
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
         const searchRef = useRef<HTMLInputElement>(null);
-        const alreadyClickedRef = useRef<boolean>(false);
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
         const onOpenRef = useRef(onOpen);
 
@@ -162,10 +169,29 @@ export const BaseSelect = forwardRef(
 
         const accessor = searchProps.accessor || defaultAccessor;
         const filterFn = searchProps.filterFn || defaultFilterFn;
+        const filterGroup = searchProps.filterGroup ?? false;
+        const groupAccessor = searchProps.groupAccessor ?? defaultGroupAccessor;
 
         const { filteredOptions, flatOptions, selectedOptions } = useMemo(
-            () => processOptions(options, selected, (option) => filterFn(accessor(option), search)),
-            [filterFn, accessor, options, search, selected],
+            () =>
+                processOptions(
+                    options,
+                    selected,
+                    (option) => {
+                        if (isGroup(option)) {
+                            const groupAccessorValue = groupAccessor(option);
+
+                            return (
+                                typeof groupAccessorValue === 'string' &&
+                                filterFn(groupAccessorValue, search)
+                            );
+                        }
+
+                        return filterFn(accessor(option), search);
+                    },
+                    filterGroup,
+                ),
+            [options, selected, filterFn, accessor, search, filterGroup, groupAccessor],
         );
 
         const scrollIntoView = (node: HTMLElement) => {
@@ -249,6 +275,26 @@ export const BaseSelect = forwardRef(
             isItemDisabled,
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
             scrollIntoView,
+            onSelectedItemChange: (changes) => {
+                const selectedItem = changes.selectedItem || initiatorRef.current;
+
+                if (selectedItem && !selectedItem.disabled) {
+                    const alreadySelected = selectedItems.includes(selectedItem);
+                    const allowRemove = allowUnselect || (multiple && selectedItems.length > 1);
+
+                    if (alreadySelected && allowRemove) {
+                        removeSelectedItem(selectedItem);
+                    }
+
+                    if (!alreadySelected) {
+                        if (multiple) {
+                            addSelectedItem(selectedItem);
+                        } else {
+                            setSelectedItems([selectedItem]);
+                        }
+                    }
+                }
+            },
             onIsOpenChange: (changes) => {
                 if (onOpenRef.current) {
                     /**
@@ -275,18 +321,10 @@ export const BaseSelect = forwardRef(
                     }
                 }
             },
-            // eslint-disable-next-line complexity
             stateReducer: (state, actionAndChanges) => {
                 const { type, changes } = actionAndChanges;
-                const { selectedItem } = changes;
 
                 switch (type) {
-                    case useCombobox.stateChangeTypes.InputBlur:
-                        if (view === 'mobile') {
-                            return state;
-                        }
-
-                        return changes;
                     case useCombobox.stateChangeTypes.InputKeyDownArrowDown:
                         if (!circularNavigation && state.highlightedIndex === options.length - 1) {
                             return { ...changes, highlightedIndex: state.highlightedIndex };
@@ -301,37 +339,14 @@ export const BaseSelect = forwardRef(
                         return changes;
 
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
-                    case useCombobox.stateChangeTypes.ItemClick:
+                    case useCombobox.stateChangeTypes.ItemClick: {
+                        const { selectedItem } = changes;
+
                         initiatorRef.current = selectedItem || null;
-
-                        if (selectedItem && !selectedItem.disabled && !alreadyClickedRef.current) {
-                            // TODO!!! Проблема downshift + React 18. ItemClick срабатывает дважды. См https://github.com/downshift-js/downshift/issues/1384
-                            if (view === 'mobile' && React.version.indexOf('18') === 0) {
-                                alreadyClickedRef.current = true;
-                                setTimeout(() => {
-                                    alreadyClickedRef.current = false;
-                                });
-                            }
-
-                            const alreadySelected = selectedItems.includes(selectedItem);
-                            const allowRemove =
-                                allowUnselect || (multiple && selectedItems.length > 1);
-
-                            if (alreadySelected && allowRemove) {
-                                removeSelectedItem(selectedItem);
-                            }
-
-                            if (!alreadySelected) {
-                                if (multiple) {
-                                    addSelectedItem(selectedItem);
-                                } else {
-                                    setSelectedItems([selectedItem]);
-                                }
-                            }
-                        }
 
                         return {
                             ...changes,
+                            selectedItem: state.selectedItem === selectedItem ? null : selectedItem,
                             isOpen: !closeOnSelect || (view === 'mobile' && multiple),
                             // при closeOnSelect === false - сохраняем подсвеченный индекс
                             highlightedIndex:
@@ -339,14 +354,32 @@ export const BaseSelect = forwardRef(
                                     ? state.highlightedIndex
                                     : changes.highlightedIndex,
                         };
+                    }
                     default:
                         return changes;
                 }
             },
         });
 
-        const menuProps = getMenuProps({ ref: listRef }, { suppressRefError: true });
+        useEffect(() => {
+            /*
+             * При изменении openProp, состояние внутри downshift в useEnhancedReducer не меняется, поэтому меняем его таким способом
+             * Скорее всего это исправят в будущих версиях downshift
+             */
+            if (openProp !== undefined) {
+                if (openProp) {
+                    openMenu();
+                } else {
+                    closeMenu();
+                }
+            }
+        }, [openProp, openMenu, closeMenu]);
+
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
+        const { ref: menuRef, ...menuProps } = getMenuProps(
+            { ref: listRef },
+            { suppressRefError: true },
+        );
 
         const handleEntered = (node: HTMLElement, isAppearing: boolean) => {
             if (showSearch) searchRef.current?.focus();
@@ -542,9 +575,15 @@ export const BaseSelect = forwardRef(
                 searchProps?.componentProps?.onChange?.(event, payload);
             };
 
+            const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+                searchProps.componentProps?.onBlur?.(event);
+                handleFieldBlur(event);
+            };
+
             return (
                 <Search
                     {...searchProps?.componentProps}
+                    onBlur={handleBlur}
                     value={search}
                     onChange={handleChange}
                     dataTestId={getDataTestId(dataTestId, 'search')}
@@ -593,6 +632,7 @@ export const BaseSelect = forwardRef(
             return (
                 <div
                     {...menuProps}
+                    ref={view === 'desktop' ? menuRef : undefined}
                     className={cn(
                         optionsListClassName,
                         view === 'mobile' && mobileStyles.optionsListWrapper,
@@ -625,6 +665,9 @@ export const BaseSelect = forwardRef(
                         })}
                         emptyPlaceholder={renderEmptyPlaceholder()}
                         onScroll={onScroll}
+                        search={search}
+                        multiple={multiple}
+                        limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
@@ -635,6 +678,7 @@ export const BaseSelect = forwardRef(
             if (!nativeSelect && Popover) {
                 return (
                     <Popover
+                        {...popoverProps}
                         open={open}
                         withTransition={false}
                         anchorElement={fieldRef.current as HTMLElement}
@@ -668,6 +712,7 @@ export const BaseSelect = forwardRef(
                         swipeable={swipeable}
                         initialHeight={showSearch ? 'full' : 'default'}
                         {...bottomSheetProps}
+                        sheetContainerRef={menuRef}
                         scrollableContainerRef={scrollableContainerRef}
                         onClose={() => {
                             closeMenu();
@@ -680,7 +725,7 @@ export const BaseSelect = forwardRef(
                         bottomAddons={
                             <React.Fragment>
                                 {renderSearch()}
-                                {bottomSheetProps?.bottomAddons}
+                                {flatOptions.length > 0 && bottomSheetProps?.bottomAddons}
                             </React.Fragment>
                         }
                         containerProps={{
@@ -704,6 +749,7 @@ export const BaseSelect = forwardRef(
                         open={open}
                         hasCloser={true}
                         {...modalProps}
+                        componentRef={menuRef}
                         onClose={(...args) => {
                             closeMenu();
                             modalProps?.onClose?.(...args);
@@ -733,7 +779,7 @@ export const BaseSelect = forwardRef(
                             bottomAddons={
                                 <React.Fragment>
                                     {renderSearch()}
-                                    {modalHeaderProps?.bottomAddons}
+                                    {flatOptions.length > 0 && modalHeaderProps?.bottomAddons}
                                 </React.Fragment>
                             }
                         >

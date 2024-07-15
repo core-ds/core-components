@@ -44,8 +44,19 @@ type TagListOwnProps = {
     >;
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    s: 'size-48',
+    m: 'size-56',
+    l: 'size-64',
+    xl: 'size-72',
+    48: 'size-48',
+    56: 'size-56',
+    64: 'size-64',
+    72: 'size-72',
+};
+
 export const TagList: FC<Partial<FieldProps> & FormControlProps & TagListOwnProps> = ({
-    size = 'xl',
+    size = 72,
     open,
     disabled,
     placeholder,
@@ -197,7 +208,7 @@ export const TagList: FC<Partial<FieldProps> & FormControlProps & TagListOwnProp
             ref={wrapperRef}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            className={cn(className, styles.component, styles[size])}
+            className={cn(className, styles.component, styles[SIZE_TO_CLASSNAME_MAP[size]])}
         >
             <FormControlComponent
                 {...restProps}
@@ -214,7 +225,7 @@ export const TagList: FC<Partial<FieldProps> & FormControlProps & TagListOwnProp
                 onMouseDown={handleMouseDown}
                 rightAddons={Arrow}
                 onClick={handleClick}
-                addonsClassName={cn(styles.addons, styles[`addons-size-${size}`])}
+                addonsClassName={cn(styles.addons, styles[`addons-${SIZE_TO_CLASSNAME_MAP[size]}`])}
                 label={label}
                 labelClassName={styles.label}
                 labelView={labelView}
@@ -264,7 +275,6 @@ export const TagList: FC<Partial<FieldProps> & FormControlProps & TagListOwnProp
                             onChange={onInput}
                             className={cn(styles.input, {
                                 [styles.focusVisible]: inputFocusVisible,
-                                [styles.block]: inputOnNewLine,
                                 [styles.hidden]: !isOpen && selectedMultiple.length > 0,
                             })}
                             disabled={disabled}

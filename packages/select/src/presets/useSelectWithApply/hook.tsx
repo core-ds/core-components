@@ -1,7 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import deepEqual from 'deep-equal';
 
 import type { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
-import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
+import {
+    defaultAccessor,
+    defaultFilterFn,
+    defaultGroupAccessor,
+    isGroup,
+    processOptions,
+} from '../../utils';
 
 import { OptionsListWithApply } from './options-list-with-apply';
 
@@ -70,7 +77,7 @@ export function useSelectWithApply({
     showClear = true,
     showSelectAll = false,
     showHeaderWithSelectAll = false,
-    showSearch,
+    showSearch = false,
     searchProps = {},
 }: UseSelectWithApplyProps) {
     const [searchState, setSearchState] = useState('');
@@ -82,15 +89,31 @@ export function useSelectWithApply({
 
     const accessor = searchProps.accessor || defaultAccessor;
     const filterFn = searchProps.filterFn || defaultFilterFn;
+    const groupAccessor = searchProps.groupAccessor ?? defaultGroupAccessor;
+    const filterGroup = searchProps.filterGroup ?? false;
 
-    const { flatOptions, selectedOptions } = useMemo(
+    const { flatOptions, filteredOptions, selectedOptions } = useMemo(
         () =>
             processOptions(
                 options,
                 selected,
-                showSearch ? (option) => filterFn(accessor(option), search) : undefined,
+                showSearch
+                    ? (option) => {
+                          if (isGroup(option)) {
+                              const groupAccessorValue = groupAccessor(option);
+
+                              return (
+                                  typeof groupAccessorValue === 'string' &&
+                                  filterFn(groupAccessorValue, search)
+                              );
+                          }
+
+                          return filterFn(accessor(option), search);
+                      }
+                    : undefined,
+                filterGroup,
             ),
-        [filterFn, accessor, options, search, selected, showSearch],
+        [options, selected, showSearch, filterGroup, filterFn, accessor, search, groupAccessor],
     );
 
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
@@ -146,13 +169,19 @@ export function useSelectWithApply({
     const handleClose = () => setSelectedDraft(selectedOptionsRef.current);
 
     useEffect(() => {
-        setSelectedDraft(selectedOptions);
+        // устанавливать selectedDraft если selectedOptions изменились
+        if (!deepEqual(selectedOptionsRef.current, selectedOptions)) {
+            setSelectedDraft(selectedOptions);
+        }
         selectedOptionsRef.current = selectedOptions;
     }, [selectedOptions]);
 
     const memoizedOptions = useMemo(
-        () => (showSelectAll ? [selectAllOption, ...options] : options),
-        [options, showSelectAll],
+        () =>
+            filteredOptions.length && showSelectAll
+                ? [selectAllOption, ...filteredOptions]
+                : filteredOptions,
+        [filteredOptions, showSelectAll],
     );
 
     return {
@@ -165,6 +194,7 @@ export function useSelectWithApply({
             onApply: handleApply,
             onClose: handleClose,
             selectedDraft,
+            setSelectedDraft,
             showHeaderWithSelectAll,
             headerProps: {
                 indeterminate: !!selectedDraft.length && selectedDraft.length < flatOptions.length,
@@ -185,5 +215,18 @@ export function useSelectWithApply({
                   onChange: setSearch,
               }
             : undefined,
+        /* Костыль для респонсив селекта. В мобильную версию хук уже зашит, и это единственный передать в мобилку оригинальные пропсы */
+        originalProps: {
+            options,
+            selected,
+            onChange,
+            OptionsList,
+            optionsListProps,
+            showClear,
+            showSelectAll,
+            showHeaderWithSelectAll,
+            showSearch,
+            searchProps,
+        },
     };
 }

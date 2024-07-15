@@ -1,5 +1,6 @@
 import { FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
 
+import { SkeletonProps } from '@alfalab/core-components/skeleton';
 import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
@@ -119,6 +120,21 @@ export type TabsProps = {
      * Стиль тега (для view secondary только)
      */
     tagView?: TagProps['view'];
+
+    /**
+     * Дополнительные инлайн стили для враппера
+     */
+    style?: React.CSSProperties;
+
+    /**
+     * Показать скелетон
+     */
+    showSkeleton?: boolean;
+
+    /**
+     * Доп. пропсы для скелетона
+     */
+    skeletonProps?: Omit<SkeletonProps, 'visible'>;
 };
 
 export type TabProps = {
@@ -130,7 +146,7 @@ export type TabProps = {
     /**
      * Заголовок таба
      */
-    title: string;
+    title: NonNullable<ReactNode>;
 
     /**
      * Дополнительный класс для контейнера содержимого таба
@@ -179,7 +195,7 @@ export type TabProps = {
 };
 
 export type TabListTitle = {
-    title: string;
+    title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
     rightAddons?: ReactNode;
@@ -206,6 +222,8 @@ export type TabListProps = Pick<
     | 'tagShape'
     | 'tagView'
     | 'textStyle'
+    | 'showSkeleton'
+    | 'skeletonProps'
 > & {
     /**
      * Заголовки табов
@@ -216,6 +234,10 @@ export type TabListProps = Pick<
      * @default 1024
      */
     breakpoint?: number;
+    /**
+     * Дополнительные инлайн стили для заголовка
+     */
+    inlineStyle?: React.CSSProperties;
 };
 
 export type SecondaryTabListProps = TabListProps & {

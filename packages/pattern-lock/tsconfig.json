@@ -7,8 +7,12 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
         }
     },
-    "references": [{ "path": "../gap" }, { "path": "../button" }, { "path": "../shared" }]
+    "references": [
+      { "path": "../button" },
+      { "path": "../shared" },
+      { "path": "../mq" },
+    ]
 }

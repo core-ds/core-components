@@ -37,24 +37,24 @@
     }
 }
 
-.s {
+.size-48 {
     min-height: var(--size-s-height);
 }
 
-.m {
+.size-56 {
     min-height: var(--size-m-height);
 }
 
-.l {
+.size-64 {
     min-height: var(--size-l-height);
 }
 
-.xl {
+.size-72 {
     min-height: var(--size-xl-height);
 }
 
-.l,
-.xl {
+.size-64,
+.size-72 {
     padding-left: var(--select-option-l-left-padding);
     padding-right: var(--select-option-l-right-padding);
 
@@ -90,6 +90,7 @@
     overflow: hidden;
     flex: 1;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .textContent {

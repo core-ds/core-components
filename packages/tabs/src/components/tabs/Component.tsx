@@ -19,7 +19,10 @@ export const Tabs = ({
     breakpoint = 1024,
     tagShape,
     tagView,
+    showSkeleton = false,
+    skeletonProps,
     textStyle,
+    style,
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(
@@ -67,6 +70,9 @@ export const Tabs = ({
                 tagShape={tagShape}
                 tagView={tagView}
                 textStyle={textStyle}
+                inlineStyle={style}
+                showSkeleton={showSkeleton}
+                skeletonProps={skeletonProps}
             />
 
             {tabs.map((tab) => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
