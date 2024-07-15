@@ -6,12 +6,11 @@
     flex-direction: column;
     box-sizing: border-box;
     min-height: var(--pattern-lock-min-height);
-    padding: 0 var(--gap-m);
+    padding: var(--gap-m) 0;
 
     & canvas {
         display: block;
         margin: 0 auto;
-        padding: var(--gap-m) var(--gap-m);
     }
 }
 
