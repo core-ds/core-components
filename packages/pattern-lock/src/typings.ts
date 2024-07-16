@@ -81,6 +81,11 @@ export type PatternLockProps = CommonPatternLockProps & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 export type ObservableTokens = {
     ACCENT_INITIAL: string;

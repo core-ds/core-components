@@ -1,5 +1,29 @@
 # Change Log
 
+## 17.8.2
+
+### Patch Changes
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1284](https://github.com/core-ds/core-components/pull/1284)
+
+-   Исправлен вызов `onBlur` при `showSearch={true}`
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1275](https://github.com/core-ds/core-components/pull/1275)
+
+-   Исправлена верстка компнента Option для корректного расчета высоты списка вариантов выбора
+
+-   Обновлены зависимости
+    -   mq@4.3.0
+    -   bottom-sheet@6.16.0
+    -   button@11.5.3
+    -   form-control@12.2.5
+    -   input@15.0.2
+    -   modal@9.3.8
+
 ## 17.8.1
 
 ### Patch Changes
