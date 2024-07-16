@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+
 import { ReactPatternLockProps } from '@alfalab/react-canvas-pattern-lock';
 
 type ConditionalProps =
