@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+.monospace {
+    font-variant-numeric: tabular-nums;
+}
+
 @each $align in left, right, center {
     .$(align) {
         text-align: $(align);
