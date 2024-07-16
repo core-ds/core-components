@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.3.0
+
 ## 12.2.4
 
 ### Patch Changes
