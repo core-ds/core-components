@@ -1,10 +1,10 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import type { Theme, TPatternLockInstance } from 'react-canvas-pattern-lock';
-import { ReactCanvasPatternLock } from 'react-canvas-pattern-lock';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import type { Theme, TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
+import { ReactCanvasPatternLock } from '@alfalab/react-canvas-pattern-lock';
 
 import {
     DEFAULT_EXTRA_BOUNDS,

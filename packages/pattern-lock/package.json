@@ -18,7 +18,7 @@
         "@alfalab/core-components-button": "^11.5.2",
         "@alfalab/core-components-shared": "^0.11.0",
         "@alfalab/core-components-mq": "^4.2.0",
-        "react-canvas-pattern-lock": "^2.0.6",
+        "@alfalab/react-canvas-pattern-lock": "^1.0.6",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }
