@@ -16,7 +16,6 @@ export const OBSERVABLE_TOKENS: ObservableTokens = {
     ACCENT_SUCCESS: '--color-light-status-positive',
     ACCENT_FAILURE: '--color-light-status-negative',
     PRIMARY: '--color-light-neutral-500',
-    BG: '--color-light-transparent-default',
     RING_BG_INITIAL: '--color-light-neutral-translucent-200',
     SELECTED_RING_BG_INITIAL: '--color-light-neutral-translucent-200-hover',
     SELECTED_RING_BG_SUCCESS: '--color-light-status-muted-positive',

@@ -91,7 +91,6 @@ export type ObservableTokens = {
     SELECTED_RING_BG_SUCCESS: string;
     SELECTED_RING_BG_FAILURE: string;
     PRIMARY: string;
-    BG: string;
     HOVER_INNER: string;
     HOVER_OUTER: string;
 };

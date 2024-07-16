@@ -38,7 +38,7 @@ export const getSizes = (() => {
 export function getTheme(dimens: ThemeParams['dimens']): Theme {
     const baseColors = {
         primary: getColorByToken(OBSERVABLE_TOKENS.PRIMARY),
-        bg: getColorByToken(OBSERVABLE_TOKENS.BG),
+        bg: 'transparent',
         ringBg: getColorByToken(OBSERVABLE_TOKENS.RING_BG_INITIAL),
         hover: {
             inner: getColorByToken(OBSERVABLE_TOKENS.HOVER_INNER),
