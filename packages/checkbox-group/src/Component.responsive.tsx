@@ -12,12 +12,21 @@ export type CheckboxGroupProps = Omit<BaseCheckboxGroupProps, 'styles'> & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
-export const CheckboxGroup: FC<CheckboxGroupProps> = ({ breakpoint = 1024, ...restProps }) => {
+export const CheckboxGroup: FC<CheckboxGroupProps> = ({
+    breakpoint = 1024,
+    defaultMatchMediaValue,
+    ...restProps
+}) => {
     const query = `(min-width: ${breakpoint}px)`;
 
-    const [isDesktop] = useMatchMedia(query);
+    const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
     const Component = isDesktop ? CheckboxGroupDesktop : CheckboxGroupMobile;
 
