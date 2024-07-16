@@ -16,7 +16,7 @@ type Story = StoryObj<typeof Amount>;
 const deprecatedCurrencies = ['RUR'];
 
 // переносим в конец списка все элементы из массива deprecatedCurrencies
-const excludeDeprecatedCurrencies = (currencies: string[]) => {
+const sortDeprecatedCurrencies = (currencies: string[]) => {
     const newCurrencies = [...currencies];
 
     for (let currency of currencies) {
@@ -32,7 +32,7 @@ const excludeDeprecatedCurrencies = (currencies: string[]) => {
 export const amount: Story = {
     name: 'Amount',
     render: () => {
-        const currencyCodes = excludeDeprecatedCurrencies(getAllCurrencyCodes());
+        const currencyCodes = sortDeprecatedCurrencies(getAllCurrencyCodes());
         const value = number('value', 10099);
         const currency = select('currency', currencyCodes, 'RUB');
         const minority = number('minority', 100);
