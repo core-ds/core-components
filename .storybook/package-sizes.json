@@ -16,8 +16,8 @@
     },
     "tooltip": {
         "desktop.js": 48.8,
-        "index.js": 105.6,
-        "mobile.js": 77.1
+        "index.js": 106.2,
+        "mobile.js": 77.6
     },
     "toast": {
         "desktop.js": 67,
@@ -112,14 +112,14 @@
     },
     "select": {
         "desktop.js": 155.4,
-        "index.js": 298.3,
-        "mobile.js": 271.7,
+        "index.js": 298.9,
+        "mobile.js": 272.3,
         "shared.js": 257.3
     },
     "select-with-tags": {
         "desktop.js": 283,
-        "index.js": 306.4,
-        "mobile.js": 280.3
+        "index.js": 307,
+        "mobile.js": 280.9
     },
     "segmented-control": {
         "index.js": 13.7
@@ -163,8 +163,8 @@
     },
     "picker-button": {
         "desktop.js": 278.4,
-        "index.js": 312.2,
-        "mobile.js": 284.3,
+        "index.js": 312.7,
+        "mobile.js": 284.9,
         "shared.js": 3.1
     },
     "phone-input": {
@@ -253,8 +253,8 @@
     },
     "international-phone-input": {
         "desktop.js": 575.9,
-        "index.js": 610.1,
-        "mobile.js": 582,
+        "index.js": 610.6,
+        "mobile.js": 582.6,
         "shared.js": 248.6
     },
     "input": {
@@ -265,8 +265,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 275.7,
-        "index.js": 311,
-        "mobile.js": 283.5,
+        "index.js": 311.6,
+        "mobile.js": 284.1,
         "shared.js": 1.9
     },
     "indicator": {
@@ -337,8 +337,8 @@
     },
     "custom-picker-button": {
         "desktop.js": 280,
-        "index.js": 313.4,
-        "mobile.js": 285.9
+        "index.js": 314,
+        "mobile.js": 286.5
     },
     "custom-button": {
         "index.js": 10
@@ -409,7 +409,7 @@
         "shared.js": 0.6
     },
     "bottom-sheet": {
-        "index.js": 76.4,
+        "index.js": 76.9,
         "shared.js": 0.7
     },
     "base-modal": {
