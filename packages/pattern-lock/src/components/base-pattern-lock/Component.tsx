@@ -67,8 +67,9 @@ export const BasePatternLock = forwardRef<
                             return { theme: getTheme(elementSizes), width, height };
                         }
 
-                        const prevBgColor = prevState.theme[THEME_STATE.INITIAL].colors.bg;
-                        const themeChanged = prevBgColor !== getColorByToken(OBSERVABLE_TOKENS.BG);
+                        const prevBgColor = prevState.theme[THEME_STATE.INITIAL].colors.primary;
+                        const themeChanged =
+                            prevBgColor !== getColorByToken(OBSERVABLE_TOKENS.PRIMARY);
 
                         if (themeChanged) return { ...prevState, theme: getTheme(elementSizes) };
 
