@@ -85,10 +85,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.27.0.tgz#74510f49dbf0790b73b26d494cb77fde5b4cf9d0"
   integrity sha512-n8MAGItrO1C0Z2ZDR8bQzXZQs78lI5f/7jXvzGLOFvNTlO0iRg8Uvx71slAJMJoALH+RQii9DwPrn8PX9hYQ+Q==
 
-"@alfalab/react-canvas-pattern-lock@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@alfalab/react-canvas-pattern-lock/-/react-canvas-pattern-lock-1.0.6.tgz#65d74d6e01c88be1c02935b6734abdc74cc2e7b2"
-  integrity sha512-ZChx3hXV1P71FYJMgU4Mtza5st6xPi8ErMj55vhuYFw1NkYqqYTzPGDSuBY87zxd3kBMjDJW4Vi9dXuT9dOSew==
+"@alfalab/react-canvas-pattern-lock@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@alfalab/react-canvas-pattern-lock/-/react-canvas-pattern-lock-2.0.7.tgz#9f53987072999099f132f448e3f4e8da84360d20"
+  integrity sha512-AddDRwcy08WBcMcvmgpGNbIHUrLzyQy0Tz9TURl0yTTOuUnZ4lDObQPWjk+xLUSEjcMPUxfTsML6DZzpPYT4wg==
   dependencies:
     react-merge-refs "^1.1.0"
     react-use-event-hook "^0.9.6"

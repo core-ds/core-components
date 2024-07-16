@@ -60,7 +60,7 @@
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "@alfalab/icons-logotype": "^2.27.0",
-        "@alfalab/react-canvas-pattern-lock": "^1.0.6",
+        "@alfalab/react-canvas-pattern-lock": "^2.0.7",
         "@alfalab/stack-context": "^1.16.0",
         "@alfalab/utils": "^1.15.2",
         "@dnd-kit/core": "^6.0.7",
