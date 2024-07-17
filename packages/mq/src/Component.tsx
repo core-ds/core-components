@@ -18,6 +18,11 @@ export type MqProps = {
     touch?: boolean;
 
     /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
+
+    /**
      * Дочерние элементы.
      */
     children?: ReactNode;
@@ -28,8 +33,14 @@ export type MqProps = {
     onMatchChange?: (isMatched: boolean) => void;
 };
 
-export const Mq: FC<MqProps> = ({ children, query = '', touch, onMatchChange }) => {
-    const [queryMatches] = useMatchMedia(query);
+export const Mq: FC<MqProps> = ({
+    children,
+    query = '',
+    touch,
+    defaultMatchMediaValue,
+    onMatchChange,
+}) => {
+    const [queryMatches] = useMatchMedia(query, defaultMatchMediaValue);
 
     const touchPass = touch === undefined ? true : touch === SUPPORTS_TOUCH;
 

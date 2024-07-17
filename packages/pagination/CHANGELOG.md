@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.3.0
+
 ## 2.3.3
 
 ### Patch Changes

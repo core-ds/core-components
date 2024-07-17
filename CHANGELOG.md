@@ -1,3 +1,62 @@
+## 47.4.0
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1287](https://github.com/core-ds/core-components/pull/1287)
+
+#### Что изменилось
+- Компонент был обернут в forwardRef
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar`
+
+
+### [#1284](https://github.com/core-ds/core-components/pull/1284)
+
+#### Что изменилось
+- Исправлен вызов `onBlur` при `showSearch={true}`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1275](https://github.com/core-ds/core-components/pull/1275)
+
+#### Что изменилось
+- Исправлена верстка компнента Option для корректного расчета высоты списка вариантов выбора
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1291](https://github.com/core-ds/core-components/pull/1291)
+
+#### Что изменилось
+- Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
+
+#### Влияние на компоненты
+- Минорное<br />`calendar` `checkbox-group` `code-input` `confirmation` `custom-picker-button`<br /> `filter-tag` `mq` `pass-code` `pattern-lock` `plate`<br /> `radio-group` `tag` `toast` `toast-plate` `typography`<br />
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+### [#1289](https://github.com/core-ds/core-components/pull/1289)
+
+#### Что изменилось
+- Добавлен проп для случаев, когда необходима отзывчивость компонента из-за изменении видимой части браузера при открытии клавиатуры устройства
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
 ## 47.3.0
 
 <sup><time>05.07.2024</time></sup>

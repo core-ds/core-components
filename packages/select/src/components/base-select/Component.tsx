@@ -532,9 +532,15 @@ export const BaseSelect = forwardRef(
                 searchProps?.componentProps?.onChange?.(event, payload);
             };
 
+            const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+                searchProps.componentProps?.onBlur?.(event);
+                handleFieldBlur(event);
+            };
+
             return (
                 <Search
                     {...searchProps?.componentProps}
+                    onBlur={handleBlur}
                     value={search}
                     onChange={handleChange}
                     dataTestId={getDataTestId(dataTestId, 'search')}

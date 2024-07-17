@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "47.3.0",
+    "version": "47.4.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -39,7 +39,7 @@
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
         "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
         "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
-        "fill-exports-field": "node ./bin/fill-exports-field.mjs",
+        "write-vars-and-themes-version": "node ./bin/write-vars-and-themes-version.js",
         "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master"
     },
     "browserslist": {
