@@ -10,10 +10,13 @@ import { ToastMobile } from './mobile';
 export type ToastProps = BaseToastProps;
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
-    ({ children, breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
+    (
+        { children, breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps },
+        ref,
+    ) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         const Component = isDesktop ? ToastDesktop : ToastMobile;
 

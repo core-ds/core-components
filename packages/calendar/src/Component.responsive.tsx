@@ -13,11 +13,16 @@ export type ResponsiveCalendarProps = CalendarDesktopProps &
          * @default 1024
          */
         breakpoint?: number;
+
+        /**
+         * Значение по-умолчанию для хука useMatchMedia
+         */
+        defaultMatchMediaValue?: boolean | (() => boolean);
     };
 
 export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarProps>(
-    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
-        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`);
+    ({ breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps }, ref) => {
+        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
         return isDesktop ? (
             <CalendarDesktop {...restProps} ref={ref} />

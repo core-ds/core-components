@@ -16,13 +16,19 @@ export type ResponsiveConfirmationProps = Omit<
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = ({
     breakpoint = getComponentBreakpoint(),
+    defaultMatchMediaValue = true,
     ...restProps
 }) => {
-    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, true);
+    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
     return isDesktop ? (
         <ConfirmationDesktop {...restProps} />

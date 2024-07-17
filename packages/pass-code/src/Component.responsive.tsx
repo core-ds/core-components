@@ -7,10 +7,10 @@ import { PassCodeMobile } from './mobile/PassCodeMobile';
 import { PassCodeProps } from './typings';
 
 export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
-    ({ breakpoint = 1024, ...restProps }, ref) => {
+    ({ breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         const Component = isDesktop ? PassCodeDesktop : PassCodeMobile;
 

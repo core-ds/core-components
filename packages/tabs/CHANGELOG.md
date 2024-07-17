@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.9.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.3.0
+    -   tag@8.3.0
+    -   picker-button@11.7.12
+    -   icon-button@6.7.3
+
 ## 8.9.4
 
 ### Patch Changes

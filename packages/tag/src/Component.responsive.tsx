@@ -13,13 +13,21 @@ export type TagProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'> & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
-    ({ children, breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
+    (
+        { children, breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps },
+        ref,
+    ) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         const Component = isDesktop ? TagDesktop : TagMobile;
 

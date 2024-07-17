@@ -20,6 +20,11 @@ export type CustomPickerButtonResponsiveProps = CustomPickerButtonDesktopProps &
          * @default 1024
          */
         breakpoint?: number;
+
+        /**
+         * Значение по-умолчанию для хука useMatchMedia
+         */
+        defaultMatchMediaValue?: boolean | (() => boolean);
     };
 
 export const CustomPickerButtonResponsive = forwardRef<
@@ -34,12 +39,13 @@ export const CustomPickerButtonResponsive = forwardRef<
             swipeable,
             bottomSheetProps,
             breakpoint = getComponentBreakpoint(),
+            defaultMatchMediaValue,
             ...restProps
         },
         ref,
     ) => {
         const query = `(min-width: ${breakpoint}px)`;
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         return isDesktop ? (
             <CustomPickerButtonDesktop

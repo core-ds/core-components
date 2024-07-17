@@ -13,13 +13,21 @@ export type ToastPlateProps = Omit<BaseToastPlateProps, 'styles'> & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
-    ({ children, breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
+    (
+        { children, breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps },
+        ref,
+    ) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         const Component = isDesktop ? ToastPlateDesktop : ToastPlateMobile;
 

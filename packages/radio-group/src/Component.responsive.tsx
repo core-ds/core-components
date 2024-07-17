@@ -13,13 +13,18 @@ export type RadioGroupProps = Omit<BaseRadioGroupProps, 'styles'> & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
+    ({ breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query);
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
 
         const Component = isDesktop ? RadioGroupDesktop : RadioGroupMobile;
 
