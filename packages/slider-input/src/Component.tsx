@@ -13,6 +13,8 @@ import cn from 'classnames';
 import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
 import { Slider, SliderProps } from '@alfalab/core-components-slider';
 
+import { OnChangeType, OnInputChangeType } from './types/propTypes';
+
 import styles from './index.module.css';
 
 export type SliderInputProps = Omit<
@@ -28,6 +30,13 @@ export type SliderInputProps = Omit<
      * Макс. допустимое число
      */
     max?: number;
+
+    /**
+     * Предотвращает ввод числа если оно больше или меньше допустимого.
+     * При событии blur установится число по верхней границе, если оно больше допустимого, и наоборот - по нижней границе, если число меньше допустимого.
+     * @default false
+     */
+    lockLimit?: boolean;
 
     /**
      * Массив подписей к слайдеру
@@ -94,15 +103,12 @@ export type SliderInputProps = Omit<
     /**
      * Обработчик изменения значения через слайдер или поле ввода
      */
-    onChange?: (
-        event: ChangeEvent<HTMLInputElement> | null,
-        payload: { value: number | '' },
-    ) => void;
+    onChange?: OnChangeType;
 
     /**
      * Обработчик ввода
      */
-    onInputChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number | '' }) => void;
+    onInputChange?: OnInputChangeType;
 
     /**
      * Обработчик изменения слайдера
@@ -149,6 +155,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             min = 0,
             max = 100,
             step = 1,
+            lockLimit = false,
             block,
             steps = [],
             sliderValue = +value,
@@ -197,6 +204,39 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             [getValidInputValue, onChange, onInputChange],
         );
 
+        const lockLimitValidate = useCallback(
+            (
+                event: ChangeEvent<HTMLInputElement>,
+                validValue: ReturnType<typeof getValidInputValue>,
+                callback: OnChangeType | OnInputChangeType,
+            ) => {
+                if (validValue > max) {
+                    callback(event, { value: max });
+                }
+                if (validValue < min) {
+                    callback(event, { value: min });
+                }
+            },
+            [max, min],
+        );
+
+        const handleInputBlur = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                const { value: inputValue } = event.target;
+                const validValue = getValidInputValue(inputValue);
+
+                if (lockLimit) {
+                    if (onChange) {
+                        lockLimitValidate(event, validValue, onChange);
+                    }
+                    if (onInputChange) {
+                        lockLimitValidate(event, validValue, onInputChange);
+                    }
+                }
+            },
+            [getValidInputValue, lockLimit, lockLimitValidate, onChange, onInputChange],
+        );
+
         return (
             <div
                 className={cn(
@@ -218,6 +258,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     ref={ref}
                     value={value.toString()}
                     onChange={handleInputChange}
+                    onBlur={handleInputBlur}
                     block={true}
                     size={size}
                     label={label}
