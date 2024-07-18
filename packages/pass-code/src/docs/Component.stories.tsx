@@ -28,6 +28,7 @@ export const pass_code: Story = {
                     codeLength={codeLength === 0 ? undefined : codeLength}
                     error={boolean('error', false)}
                     success={boolean('success', false)}
+                    disabled={boolean('disabled', false)}
                     leftAddons={
                         boolean('leftAddons', false) && (
                             <KeyPadButton view='text' key='left-addon'>
