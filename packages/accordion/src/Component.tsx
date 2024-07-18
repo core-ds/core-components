@@ -181,10 +181,7 @@ export const Accordion: FC<AccordionProps> = ({
                 className={cn(styles.body, bodyClassName, { [styles.expandedBody]: isExpanded })}
                 style={{ height: isExpanded ? contentHeight : 0 }}
             >
-                <div
-                    className={cn(styles.bodyContent, bodyContentClassName)}
-                    ref={contentRef}
-                >
+                <div className={cn(styles.bodyContent, bodyContentClassName)} ref={contentRef}>
                     {bodyContent}
                 </div>
             </div>
