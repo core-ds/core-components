@@ -171,9 +171,9 @@
         "index.js": 35.8
     },
     "pattern-lock": {
-        "desktop.js": 24.3,
-        "index.js": 26,
-        "mobile.js": 24.3,
+        "desktop.js": 24.5,
+        "index.js": 26.1,
+        "mobile.js": 24.4,
         "shared.js": 0.9
     },
     "pattern-lock-v1": {
@@ -186,7 +186,7 @@
         "index.js": 27.9
     },
     "pass-code": {
-        "index.js": 21.9,
+        "index.js": 22.2,
         "shared.js": 0.8
     },
     "pass-code-v1": {
