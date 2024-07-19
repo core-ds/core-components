@@ -72,6 +72,11 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
      * Пропы для скелетона
      */
     skeletonProps?: TextSkeletonProps;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 type PrivateProps = {

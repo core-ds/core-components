@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1287](https://github.com/core-ds/core-components/pull/1287)
+
+-   Компонент был обернут в forwardRef
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.7.0
+    -   button@11.5.3
+
 ## 1.0.7
 
 ### Patch Changes

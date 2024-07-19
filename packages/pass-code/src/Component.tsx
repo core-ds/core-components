@@ -61,9 +61,19 @@ export type BasePassCodeProps = {
     breakpoint?: number;
 
     /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
+
+    /**
      * Стили компонента
      */
     styles?: { [key: string]: string };
+
+    /**
+     * Отключает ввод и удаление кода
+     */
+    disabled?: boolean;
 };
 
 export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
@@ -80,12 +90,17 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             maxCodeLength = 10,
             codeLength,
             styles = {},
+            disabled,
         },
         ref,
     ) => {
         const passwordLen = codeLength || maxCodeLength;
 
         const handleChange = (digit: number) => {
+            if (disabled) {
+                return;
+            }
+
             const newValue = value.concat(digit.toString());
 
             if (newValue.length <= passwordLen) {
@@ -94,6 +109,10 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
         };
 
         const handleClear = () => {
+            if (disabled) {
+                return;
+            }
+
             if (value.length > 0) {
                 onChange?.(value?.slice(0, -1));
             }

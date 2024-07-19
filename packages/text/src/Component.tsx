@@ -39,6 +39,11 @@ export interface TextProps {
     rowLimit?: 1 | 2 | 3;
 
     /**
+     * Делает цифры моноширинными
+     */
+    monospaceNumbers?: boolean;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -58,6 +63,7 @@ export const Text: FC<TextProps> = ({
     align = 'left',
     rowLimit,
     view = 'paragraph-primary-medium',
+    monospaceNumbers = false,
     color,
     textBackgroundColor,
     className,
@@ -71,6 +77,7 @@ export const Text: FC<TextProps> = ({
             mixin[view],
             {
                 [styles[`row-limit-${rowLimit}`]]: rowLimit,
+                [styles.monospace]: monospaceNumbers,
             },
             className,
         )}
