@@ -4,6 +4,14 @@ exports[`PatternLock test Snapshot tests should match snapshot 1`] = `
 <div>
   <div
     class="component component"
-  />
+  >
+    <div
+      class="canvasContainer"
+    >
+      <div
+        class="canvasInner"
+      />
+    </div>
+  </div>
 </div>
 `;

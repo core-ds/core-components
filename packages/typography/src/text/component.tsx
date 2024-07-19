@@ -25,7 +25,8 @@ type TextBaseProps = {
         | 'component'
         | 'component-primary'
         | 'component-secondary'
-        | 'caps';
+        | 'caps'
+        | 'tagline';
 
     /**
      * Цвет текста

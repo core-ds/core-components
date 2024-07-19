@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { PatternLockMobile as PatternLock } from './mobile';
 import { getPatternLockTestIds } from './utils';
 
-jest.mock('react-canvas-pattern-lock', () => {
+jest.mock('@alfalab/react-canvas-pattern-lock', () => {
     return {
         ReactCanvasPatternLock: jest.fn((props) => null),
     };

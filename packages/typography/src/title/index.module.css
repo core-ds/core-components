@@ -60,16 +60,3 @@
 .margins-xsmall {
     @mixin margin-small;
 }
-
-.rowLimit1 {
-    @mixin row_limit 1;
-    word-break: break-all;
-}
-
-.rowLimit2 {
-    @mixin row_limit 2;
-}
-
-.rowLimit3 {
-    @mixin row_limit 3;
-}

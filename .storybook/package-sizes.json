@@ -37,7 +37,7 @@
         "shared.js": 0.8
     },
     "text": {
-        "index.js": 1.5
+        "index.js": 1.6
     },
     "tag": {
         "desktop.js": 4.8,
@@ -45,14 +45,14 @@
         "mobile.js": 4.8
     },
     "tabs": {
-        "collapsible.js": 286.5,
+        "collapsible.js": 288.3,
         "desktop.js": 36.1,
         "index.js": 37.3,
         "mobile.js": 36.2,
         "shared.js": 29.4
     },
     "table": {
-        "index.js": 166.6
+        "index.js": 168.5
     },
     "tab-bar": {
         "index.js": 10.9,
@@ -111,15 +111,15 @@
         "index.js": 4.5
     },
     "select": {
-        "desktop.js": 155.4,
-        "index.js": 298.9,
-        "mobile.js": 272.3,
-        "shared.js": 257.3
+        "desktop.js": 157.2,
+        "index.js": 300.8,
+        "mobile.js": 274.1,
+        "shared.js": 259.2
     },
     "select-with-tags": {
-        "desktop.js": 283,
-        "index.js": 307,
-        "mobile.js": 280.9
+        "desktop.js": 284.8,
+        "index.js": 308.9,
+        "mobile.js": 282.7
     },
     "segmented-control": {
         "index.js": 13.7
@@ -162,18 +162,18 @@
         "mobile.js": 14.8
     },
     "picker-button": {
-        "desktop.js": 278.4,
-        "index.js": 312.7,
-        "mobile.js": 284.9,
+        "desktop.js": 280.2,
+        "index.js": 314.6,
+        "mobile.js": 286.7,
         "shared.js": 3.1
     },
     "phone-input": {
         "index.js": 35.8
     },
     "pattern-lock": {
-        "desktop.js": 24.3,
-        "index.js": 26,
-        "mobile.js": 24.3,
+        "desktop.js": 24.5,
+        "index.js": 26.1,
+        "mobile.js": 24.4,
         "shared.js": 0.9
     },
     "pattern-lock-v1": {
@@ -186,7 +186,7 @@
         "index.js": 27.9
     },
     "pass-code": {
-        "index.js": 21.9,
+        "index.js": 22.2,
         "shared.js": 0.8
     },
     "pass-code-v1": {
@@ -249,13 +249,13 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 786.7
+        "index.js": 788.5
     },
     "international-phone-input": {
-        "desktop.js": 575.9,
-        "index.js": 610.6,
-        "mobile.js": 582.6,
-        "shared.js": 248.6
+        "desktop.js": 577.8,
+        "index.js": 612.5,
+        "mobile.js": 584.5,
+        "shared.js": 250.5
     },
     "input": {
         "desktop.js": 24.3,
@@ -264,9 +264,9 @@
         "shared.js": 11.6
     },
     "input-autocomplete": {
-        "desktop.js": 275.7,
-        "index.js": 311.6,
-        "mobile.js": 284.1,
+        "desktop.js": 277.5,
+        "index.js": 313.4,
+        "mobile.js": 286,
         "shared.js": 1.9
     },
     "indicator": {
@@ -336,9 +336,9 @@
         "index.js": 69.7
     },
     "custom-picker-button": {
-        "desktop.js": 280,
-        "index.js": 314,
-        "mobile.js": 286.5
+        "desktop.js": 281.9,
+        "index.js": 315.9,
+        "mobile.js": 288.3
     },
     "custom-button": {
         "index.js": 10

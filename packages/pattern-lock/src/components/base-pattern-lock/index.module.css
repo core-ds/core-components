@@ -4,13 +4,26 @@
 .component {
     display: flex;
     flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
     min-height: var(--pattern-lock-min-height);
-    padding: var(--gap-m) 0;
 
     & canvas {
         display: block;
         margin: 0 auto;
+    }
+
+    & .canvasContainer {
+        box-sizing: border-box;
+        padding: var(--gap-m) var(--gap-m);
+        min-width: var(--pattern-lock-min-width);
+        min-height: var(--pattern-lock-min-height);
+
+        & .canvasInner {
+            box-sizing: border-box;
+            padding: 0 var(--gap-m);
+            min-width: var(--pattern-lock-min-height);
+        }
     }
 }
 
