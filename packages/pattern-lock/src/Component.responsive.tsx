@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
-import type { TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
 import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import type { TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
 
 import { PatternLockDesktop } from './desktop';
 import { PatternLockMobile } from './mobile';
