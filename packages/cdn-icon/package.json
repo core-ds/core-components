@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-cdn-icon",
-    "version": "5.2.1",
+    "version": "5.2.2",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -16,5 +16,7 @@
     "dependencies": {
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
-    }
+    },
+    "themesVersion": "13.0.1",
+    "varsVersion": "9.10.0"
 }

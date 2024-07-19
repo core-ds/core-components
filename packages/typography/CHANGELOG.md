@@ -1,5 +1,23 @@
 # Change Log
 
+## 4.8.0
+
+### Minor Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1298](https://github.com/core-ds/core-components/pull/1298)
+
+-   В компонент Typography.Text добавлен новый вариант начертания - tagline
+
+### Patch Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1296](https://github.com/core-ds/core-components/pull/1296)
+
+-   Исправлено поведение компонента Typography.TitleMobile: теперь он корректно учитывает пропс rowLimit и больше не игнорирует его
+
 ## 4.7.0
 
 ### Minor Changes
