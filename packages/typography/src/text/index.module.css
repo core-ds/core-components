@@ -54,6 +54,10 @@
     @mixin paragraph_caps;
 }
 
+.tagline {
+    @mixin paragraph_tagline;
+}
+
 .bold {
     font-weight: bold;
 }
