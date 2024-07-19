@@ -17,6 +17,25 @@ export type PaddingPropType = {
     left?: ReducedGapType;
 };
 
+export type GapType =
+    | 0
+    | 2
+    | 4
+    | 8
+    | 12
+    | 16
+    | 20
+    | 24
+    | 32
+    | 40
+    | 48
+    | 56
+    | 64
+    | 72
+    | 80
+    | 96
+    | 128;
+
 export type GenericWrapperProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Дочерние элементы.
@@ -57,6 +76,11 @@ export type GenericWrapperProps = React.HTMLAttributes<HTMLDivElement> & {
      * Позволяет заполнить всё доступное пространство родительского элемента.
      */
     grow?: boolean;
+
+    /**
+     * Отступы между элементами флекс-контейнера
+     */
+    gap?: GapType;
 };
 
 export const GenericWrapper = ({
@@ -68,6 +92,7 @@ export const GenericWrapper = ({
     dataTestId,
     column = false,
     grow = false,
+    gap,
     ...restProps
 }: GenericWrapperProps) => {
     const paddingStyles = padding && {
@@ -91,6 +116,7 @@ export const GenericWrapper = ({
                 justifyContentStyles,
                 growStyles,
                 className,
+                { [styles[`gap-${gap}`]]: gap },
             )}
             data-test-id={dataTestId}
             {...restProps}
