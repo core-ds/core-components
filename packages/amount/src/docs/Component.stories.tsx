@@ -13,12 +13,28 @@ const meta: Meta<typeof Amount> = {
 
 type Story = StoryObj<typeof Amount>;
 
+const deprecatedCurrencies = ['RUR'];
+
+// переносим в конец списка все элементы из массива deprecatedCurrencies
+const sortDeprecatedCurrencies = (currencies: string[]) => {
+    const newCurrencies = [...currencies];
+
+    for (let currency of currencies) {
+        if (deprecatedCurrencies.includes(currency)) {
+            const index = newCurrencies.findIndex((item) => item === currency);
+            newCurrencies.push(newCurrencies.splice(index, 1)[0]);
+        }
+    }
+
+    return newCurrencies;
+};
+
 export const amount: Story = {
     name: 'Amount',
     render: () => {
-        const currencyCodes = getAllCurrencyCodes();
+        const currencyCodes = sortDeprecatedCurrencies(getAllCurrencyCodes());
         const value = number('value', 10099);
-        const currency = select('currency', currencyCodes, 'RUR');
+        const currency = select('currency', currencyCodes, 'RUB');
         const minority = number('minority', 100);
         const showPlus = boolean('showPlus', false);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
