@@ -1,6 +1,5 @@
-import { Theme, ThemeParams } from 'react-canvas-pattern-lock';
-
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { Theme, ThemeParams } from '@alfalab/react-canvas-pattern-lock';
 
 import { OBSERVABLE_TOKENS, THEME_STATE } from './consts';
 
@@ -39,7 +38,7 @@ export const getSizes = (() => {
 export function getTheme(dimens: ThemeParams['dimens']): Theme {
     const baseColors = {
         primary: getColorByToken(OBSERVABLE_TOKENS.PRIMARY),
-        bg: getColorByToken(OBSERVABLE_TOKENS.BG),
+        bg: 'transparent',
         ringBg: getColorByToken(OBSERVABLE_TOKENS.RING_BG_INITIAL),
         hover: {
             inner: getColorByToken(OBSERVABLE_TOKENS.HOVER_INNER),

@@ -1,10 +1,10 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import type { Theme, TPatternLockInstance } from 'react-canvas-pattern-lock';
-import { ReactCanvasPatternLock } from 'react-canvas-pattern-lock';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import type { Theme, TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
+import { ReactCanvasPatternLock } from '@alfalab/react-canvas-pattern-lock';
 
 import {
     DEFAULT_EXTRA_BOUNDS,
@@ -67,8 +67,9 @@ export const BasePatternLock = forwardRef<
                             return { theme: getTheme(elementSizes), width, height };
                         }
 
-                        const prevBgColor = prevState.theme[THEME_STATE.INITIAL].colors.bg;
-                        const themeChanged = prevBgColor !== getColorByToken(OBSERVABLE_TOKENS.BG);
+                        const prevBgColor = prevState.theme[THEME_STATE.INITIAL].colors.primary;
+                        const themeChanged =
+                            prevBgColor !== getColorByToken(OBSERVABLE_TOKENS.PRIMARY);
 
                         if (themeChanged) return { ...prevState, theme: getTheme(elementSizes) };
 
@@ -91,17 +92,20 @@ export const BasePatternLock = forwardRef<
                 })}
                 data-test-id={dataTestId}
             >
-                <ReactCanvasPatternLock
-                    {...restProps}
-                    {...params}
-                    ref={ref}
-                    rows={3}
-                    cols={3}
-                    justifyNodes='space-between'
-                    extraBounds={extraBounds}
-                    hover={hover}
-                />
-
+                <div className={commonStyles.canvasContainer}>
+                    <div className={commonStyles.canvasInner}>
+                        <ReactCanvasPatternLock
+                            {...restProps}
+                            {...params}
+                            ref={ref}
+                            rows={3}
+                            cols={3}
+                            justifyNodes='space-between'
+                            extraBounds={extraBounds}
+                            hover={hover}
+                        />
+                    </div>
+                </div>
                 {showForgotCodeBtn && (
                     <ButtonMobile
                         view='transparent'

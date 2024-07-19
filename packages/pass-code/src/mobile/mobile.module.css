@@ -2,8 +2,11 @@
 @import '../vars.css';
 
 .component {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: end;
     height: var(--pass-code-height);
+    padding: var(--gap-xs) var(--gap-m) var(--gap-m);
+    min-width: var(--pass-code-min-width);
 }

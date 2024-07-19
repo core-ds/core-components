@@ -1,5 +1,6 @@
 import { MouseEvent } from 'react';
-import { ReactPatternLockProps } from 'react-canvas-pattern-lock';
+
+import { ReactPatternLockProps } from '@alfalab/react-canvas-pattern-lock';
 
 type ConditionalProps =
     | {
@@ -95,7 +96,6 @@ export type ObservableTokens = {
     SELECTED_RING_BG_SUCCESS: string;
     SELECTED_RING_BG_FAILURE: string;
     PRIMARY: string;
-    BG: string;
     HOVER_INNER: string;
     HOVER_OUTER: string;
 };
