@@ -8,6 +8,7 @@ const packages = shell.exec(
         --ignore @alfalab/core-components-codemod \\
         --ignore @alfalab/core-components-vars \\
         --ignore @alfalab/core-components-themes \\
+        --ignore @loadable/component \\
         --all`,
     { silent: true },
 ).stdout;
