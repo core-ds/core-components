@@ -126,6 +126,8 @@ export const BaseSelect = forwardRef(
             onFocus,
             onBlur,
             onScroll,
+            onClear,
+            clear,
             Arrow,
             Field = () => null,
             OptionsList = () => null,
@@ -562,6 +564,11 @@ export const BaseSelect = forwardRef(
             );
         };
 
+        const handleFieldClear = (event: MouseEvent<HTMLButtonElement>) => {
+            setSelectedItems([]);
+            onClear?.(event);
+        };
+
         const renderSearch = () => {
             if (!showSearch) return null;
 
@@ -829,6 +836,8 @@ export const BaseSelect = forwardRef(
                     hint={hint}
                     valueRenderer={valueRenderer}
                     className={fieldClassName}
+                    clear={clear}
+                    onClear={handleFieldClear}
                     innerProps={{
                         onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,

@@ -7,6 +7,7 @@ import { useFocus } from '@alfalab/hooks';
 
 import { FieldProps as BaseFieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
+import { ClearButton } from '../clear-button';
 
 import styles from './index.module.css';
 
@@ -38,6 +39,8 @@ export const Field = ({
     dataTestId,
     fieldClassName,
     FormControlComponent,
+    clear,
+    onClear,
     ...restProps
 }: BaseFieldProps & FormControlProps & FieldProps) => {
     const [focused, setFocused] = useState(false);
@@ -82,6 +85,13 @@ export const Field = ({
                         (Arrow || rightAddons) && (
                             <React.Fragment>
                                 {rightAddons}
+                                {clear && filled ? (
+                                    <ClearButton
+                                        onClick={onClear}
+                                        disabled={disabled}
+                                        dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                                    />
+                                ) : null}
                                 {/* TODO: стоит переделать, но это будет мажорка */}
                                 {Arrow
                                     ? React.cloneElement(Arrow, { className: styles.arrow })

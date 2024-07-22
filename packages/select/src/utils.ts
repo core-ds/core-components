@@ -269,6 +269,7 @@ export function getSelectTestIds(dataTestId: string) {
         fieldRightAddons: getDataTestId(dataTestId, 'field-form-control-right-addons'),
         fieldError: getDataTestId(dataTestId, 'field-form-control-error-message'),
         fieldHint: getDataTestId(dataTestId, 'field-form-control-hint'),
+        fieldClearIcon: getDataTestId(dataTestId, 'field-clear-icon'),
         searchInput: getDataTestId(dataTestId, 'search'),
         searchFormControl: getDataTestId(dataTestId, 'search-form-control'),
         searchInner: getDataTestId(dataTestId, 'search-form-control-inner'),
