@@ -8,14 +8,15 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import loadable from '@loadable/component';
 import {maskitoTransform} from '@maskito/core';
 import {useMaskito} from '@maskito/react';
-import loadable from '@loadable/component';
 
 import type {InputAutocompleteProps} from '@alfalab/core-components-input-autocomplete';
 import {AnyObject, BaseOption} from '@alfalab/core-components-select/shared';
 import type {BaseSelectChangePayload} from '@alfalab/core-components-select/typings';
 
+import {countriesDataExUssr, TCountriesData} from '../../data/country-data';
 import type {BaseInternationalPhoneInputProps, Country} from '../../types';
 import {
     createMaskOptions,
@@ -26,11 +27,9 @@ import {
     initCountries,
 } from '../../utils';
 import {CountrySelect} from '../country-select';
+import {flagSpriteExUssr} from '../flag-icon/flagSprite';
 
 import styles from './index.module.css';
-
-import {countriesDataExUssr, TCountriesData} from '../../data/country-data';
-import {flagSpriteExUssr} from '../flag-icon/flagSprite';
 
 const loadWorldData = async () => {
     const { worldData } = await loadable(
@@ -79,9 +78,7 @@ export const BaseInternationalPhoneInput = forwardRef<
         const [flagSprite, setFlagSprite] = useState(flagSpriteExUssr);
         const [dataType, setDataType] = useState<'exUssr' | 'world'>('exUssr');
 
-        const countriesData = useMemo(() =>
-            initCountries(countriesDataSet, countries),
-        [countries, countriesDataSet, dataType, flagSprite]);
+        const countriesData = useMemo(() => initCountries(countriesDataSet, countries), [countries, countriesDataSet]);
 
         const inputRef = useRef<HTMLInputElement | null>(null);
         const inputWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -102,9 +99,10 @@ export const BaseInternationalPhoneInput = forwardRef<
                     // eslint-disable-next-line no-console
                     console.error(e)
                 });
-                if (worldData) {
-                    setFlagSprite({...flagSpriteExUssr, ...worldData?.flagSpriteWorld})
-                    setCountriesDataSet([...countriesDataExUssr, ...worldData?.countriesDataWorld].sort())
+
+                if (worldData?.flagSpriteWorld && worldData?.countriesDataWorld) {
+                    setFlagSprite({...flagSpriteExUssr, ...worldData.flagSpriteWorld})
+                    setCountriesDataSet([...countriesDataExUssr, ...worldData.countriesDataWorld].sort())
                     setDataType('world');
                 }
 

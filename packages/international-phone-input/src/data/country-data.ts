@@ -21,7 +21,7 @@
 export type TCountriesData = [string, string[], string, string, string?, number?, string[]?];
 
 export const countriesDataExUssr: TCountriesData[] = [
-    ['Абхазия', ['asia', 'ex-ussr'], 'ge-ab', '7840', '... ... .. ..'],
+    // ['Абхазия', ['asia', 'ex-ussr'], 'ge-ab', '7840', '... ... .. ..'],
     ['Армения', ['asia', 'ex-ussr'], 'am', '374', '.. ......'],
     ['Азербайджан', ['asia', 'ex-ussr'], 'az', '994', '.. ... .. ..'],
     ['Беларусь', ['europe', 'ex-ussr'], 'by', '375', '.. ... .. ..'],
