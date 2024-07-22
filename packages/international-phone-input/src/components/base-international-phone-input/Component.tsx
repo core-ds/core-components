@@ -8,14 +8,15 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { maskitoTransform } from '@maskito/core';
-import { useMaskito } from '@maskito/react';
+import {maskitoTransform} from '@maskito/core';
+import {useMaskito} from '@maskito/react';
+import loadable from '@loadable/component';
 
-import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
-import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
+import type {InputAutocompleteProps} from '@alfalab/core-components-input-autocomplete';
+import {AnyObject, BaseOption} from '@alfalab/core-components-select/shared';
+import type {BaseSelectChangePayload} from '@alfalab/core-components-select/typings';
 
-import type { BaseInternationalPhoneInputProps, Country } from '../../types';
+import type {BaseInternationalPhoneInputProps, Country} from '../../types';
 import {
     createMaskOptions,
     filterPhones,
@@ -24,9 +25,21 @@ import {
     getPhoneData,
     initCountries,
 } from '../../utils';
-import { CountrySelect } from '../country-select';
+import {CountrySelect} from '../country-select';
 
 import styles from './index.module.css';
+
+import {countriesDataExUssr, TCountriesData} from '../../data/country-data';
+import {flagSpriteExUssr} from '../flag-icon/flagSprite';
+
+const loadWorldData = async () => {
+    const { worldData } = await loadable(
+        () => import(/* webpackChunkName: "international-phone-input.world-data" */ '../../utils/world-data'),
+       {resolveComponent: m => m.worldData}
+    ).load();
+
+    return worldData
+}
 
 export const BaseInternationalPhoneInput = forwardRef<
     HTMLInputElement,
@@ -57,9 +70,21 @@ export const BaseInternationalPhoneInput = forwardRef<
         },
         ref,
     ) => {
-        const countriesData = useMemo(() => initCountries(countries), [countries]);
-        const inputRef = useRef<HTMLInputElement>(null);
-        const inputWrapperRef = useRef<HTMLDivElement>(null);
+        const [countriesDataSet, setCountriesDataSet] = useState<TCountriesData[]>(
+            [
+                ...countriesDataExUssr,
+                ['Ещё', null, 'more'] as TCountriesData
+            ]
+        );
+        const [flagSprite, setFlagSprite] = useState(flagSpriteExUssr);
+        const [dataType, setDataType] = useState<'exUssr' | 'world'>('exUssr');
+
+        const countriesData = useMemo(() =>
+            initCountries(countriesDataSet, countries),
+        [countries, countriesDataSet, dataType, flagSprite]);
+
+        const inputRef = useRef<HTMLInputElement | null>(null);
+        const inputWrapperRef = useRef<HTMLDivElement | null>(null);
 
         const [open, setOpen] = useState<boolean | undefined>(defaultOpen);
         const [openCountry, setOpenCountry] = useState<boolean | undefined>(
@@ -71,7 +96,21 @@ export const BaseInternationalPhoneInput = forwardRef<
         const filteredOptions = filterPhones(value, options, filterFn);
         const country = countryProp ?? selectedCountry;
 
-        const handleCountryChange = (nextCountry?: Country) => {
+        const handleCountryChange = async (nextCountry?: Country) => {
+            if (dataType === 'exUssr' && nextCountry?.iso2 === 'more') {
+                const worldData = await loadWorldData().catch(e => {
+                    // eslint-disable-next-line no-console
+                    console.error(e)
+                });
+                if (worldData) {
+                    setFlagSprite({...flagSpriteExUssr, ...worldData?.flagSpriteWorld})
+                    setCountriesDataSet([...countriesDataExUssr, ...worldData?.countriesDataWorld].sort())
+                    setDataType('world');
+                }
+
+                return
+            }
+
             if (countryProp === undefined) setSelectedCountry(nextCountry);
             onCountryChange?.(nextCountry);
         };
@@ -81,14 +120,14 @@ export const BaseInternationalPhoneInput = forwardRef<
             [country, clearableCountryCode],
         );
 
-        const maskRef = useMaskito({ options: maskOptions });
+        const maskRef = useMaskito({options: maskOptions});
 
         const changeNumber = (phone: string) => {
             onChange?.(phone);
         };
 
         const updatePhoneData = (phone: string) => {
-            const { nextCountry, nextPhone } = getPhoneData(phone, countriesData, defaultIso2);
+            const {nextCountry, nextPhone} = getPhoneData(phone, countriesData, defaultIso2);
 
             if (nextCountry !== country) {
                 handleCountryChange?.(nextCountry);
@@ -96,7 +135,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             changeNumber(nextPhone);
         };
 
-        const handleSelectCountry = ({ selected }: BaseSelectChangePayload) => {
+        const handleSelectCountry = ({selected}: BaseSelectChangePayload) => {
             const nextCountry = selected?.value as Country;
 
             handleCountryChange?.(nextCountry);
@@ -157,7 +196,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const handlePhoneSelectOpen: InputAutocompleteProps['onOpen'] = (payload) => {
             if (payload.open) {
-                openCountrySelect({ open: false });
+                openCountrySelect({open: false});
             }
 
             openPhoneSelect(payload);
@@ -165,7 +204,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const handleCountrySelectOpen: InputAutocompleteProps['onOpen'] = (payload) => {
             if (payload.open) {
-                openPhoneSelect({ open: false });
+                openPhoneSelect({open: false});
             }
             openCountrySelect(payload);
         };
@@ -184,6 +223,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 country={country}
                 countries={compact ? [] : countriesData}
                 fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
+                flagSprite={flagSprite}
                 onOpen={handleCountrySelectOpen}
                 open={showCountrySelect}
             />
@@ -222,7 +262,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                     ...(restProps.fieldProps as AnyObject),
                     className: inputProps.className,
                     addonsClassName: inputProps.addonsClassName,
-                    ...(view === 'mobile' ? { leftAddons: renderCountrySelect() } : null),
+                    ...(view === 'mobile' ? {leftAddons: renderCountrySelect()} : null),
                 }}
             />
         ) : (

@@ -17,6 +17,7 @@ export const EMPTY_COUNTRY_SELECT_FIELD = {
 
 type SelectFieldProps = FieldProps & {
     size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
+    flagSprite: Record<string, string>;
 };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -36,8 +37,9 @@ export const SelectField: FC<SelectFieldProps> = ({
     size,
     disabled,
     innerProps = {},
+    flagSprite
 }) => {
-    const wrapperRef = useRef<HTMLDivElement>(null);
+    const wrapperRef = useRef<HTMLDivElement | null>(null);
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
 
@@ -56,7 +58,7 @@ export const SelectField: FC<SelectFieldProps> = ({
                     {!selected || selected === EMPTY_COUNTRY_SELECT_FIELD ? (
                         <WorldMagnifierMIcon className={styles.emptyCountryIcon} />
                     ) : (
-                        <FlagIcon country={selected.key} />
+                        <FlagIcon country={selected.key} flagSprite={flagSprite} />
                     )}
                 </span>
                 {Arrow}

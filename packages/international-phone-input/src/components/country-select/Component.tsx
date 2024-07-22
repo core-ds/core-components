@@ -1,4 +1,4 @@
-import React, { ElementType, useCallback, useMemo } from 'react';
+import React, {ElementType, useCallback, useMemo} from 'react';
 
 import {
     BaseOption,
@@ -6,12 +6,12 @@ import {
     OptionsListProps,
     VirtualOptionsList,
 } from '@alfalab/core-components-select/shared';
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
+import {getDataTestId} from '@alfalab/core-components-shared';
+import {WorldMagnifierMIcon} from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
-import { Country } from '../../types';
-import { FlagIcon } from '../flag-icon';
-import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
+import {Country} from '../../types';
+import {FlagIcon} from '../flag-icon';
+import {EMPTY_COUNTRY_SELECT_FIELD, SelectField} from '../select-field';
 
 import styles from './index.module.css';
 
@@ -34,6 +34,7 @@ type CountrySelectProps = SharedCountrySelectProps & {
     countries?: Country[][];
     country?: Country;
     fieldWidth?: number;
+    flagSprite: Record<string, string>;
     view: 'desktop' | 'mobile';
     SelectComponent: ElementType;
 };
@@ -42,26 +43,27 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     hideCountrySelect,
     countries,
     country,
-    dataTestId,
+    dataTestId = '',
     fieldWidth,
     onChange,
     view = 'desktop',
     SelectComponent,
+    flagSprite,
     ...restProps
 }) => {
     const options = useMemo(
         () =>
             countries?.map((areas) => {
-                const { iso2, dialCode, name } = areas[0];
+                const {iso2, dialCode, name} = areas[0];
 
                 return {
                     key: iso2,
                     value: areas[0],
                     content: (
                         <span className={styles.option}>
-                            <FlagIcon country={iso2} className={styles.flag} />
-
-                            <span className={styles.optionTextWrap}>
+                            <FlagIcon country={iso2} className={styles.flag}
+                                      flagSprite={flagSprite}/>
+                            <span className='optionTextWrap'>
                                 <span className={styles.countryName}>{name}</span>
                                 <span className={styles.dialCode}>+{dialCode}</span>
                             </span>
@@ -69,13 +71,13 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     ),
                 };
             }) || [],
-        [countries],
+        [countries, flagSprite],
     );
 
     const renderOptionsList = useCallback(
         (props: OptionsListProps) => (
-            <div style={{ width: fieldWidth || 0 }}>
-                <VirtualOptionsList {...props} optionsListWidth='field' />
+            <div style={{width: fieldWidth || 0}}>
+                <VirtualOptionsList {...props} optionsListWidth='field'/>
             </div>
         ),
         [fieldWidth],
@@ -84,9 +86,9 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     const renderFlagIcon = () => (
         <span className={styles.flagIconWrapper}>
             {country?.iso2 ? (
-                <FlagIcon country={country.iso2} />
+                <FlagIcon country={country.iso2} flagSprite={flagSprite}/>
             ) : (
-                <WorldMagnifierMIcon className={styles.emptyCountryIcon} />
+                <WorldMagnifierMIcon className={styles.emptyCountryIcon}/>
             )}
         </span>
     );
@@ -111,6 +113,9 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                             title: 'Выберите страну',
                         },
                     })}
+                    fieldProps={{
+                        flagSprite
+                    }}
                 />
             </div>
         );

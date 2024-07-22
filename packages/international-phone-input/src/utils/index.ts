@@ -5,10 +5,10 @@ import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-selec
 import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
-import { countriesData } from '../data/country-data';
 import type { AreaItem, Country } from '../types';
+import type {TCountriesData} from "../data/country-data";
 
-export function initCountries(iso2s?: string[]) {
+export function initCountries(countriesData: TCountriesData[], iso2s?: string[]) {
     const filteredCountriesData = Array.isArray(iso2s)
         ? countriesData.filter((country) => iso2s.includes(country[2]))
         : countriesData;
