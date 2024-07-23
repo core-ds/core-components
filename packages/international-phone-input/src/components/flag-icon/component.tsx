@@ -15,7 +15,7 @@ export type FlagIconProps = {
     className?: string;
 
     /**
-     * Массив svg с флагами
+     * Массив svg с флагами.
      */
     flagSprite: Record<string, string>;
 };
