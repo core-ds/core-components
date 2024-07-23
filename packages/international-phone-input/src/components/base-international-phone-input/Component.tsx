@@ -8,7 +8,6 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import loadable from '@loadable/component';
 import {maskitoTransform} from '@maskito/core';
 import {useMaskito} from '@maskito/react';
 
@@ -16,7 +15,7 @@ import type {InputAutocompleteProps} from '@alfalab/core-components-input-autoco
 import {AnyObject, BaseOption} from '@alfalab/core-components-select/shared';
 import type {BaseSelectChangePayload} from '@alfalab/core-components-select/typings';
 
-import {countriesDataExUssr, TCountriesData} from '../../data/country-data';
+import {countriesDataExUssr, TCountriesData} from '../../data/country-data-exussr';
 import type {BaseInternationalPhoneInputProps, Country} from '../../types';
 import {
     createMaskOptions,
@@ -27,18 +26,20 @@ import {
     initCountries,
 } from '../../utils';
 import {CountrySelect} from '../country-select';
-import {flagSpriteExUssr} from '../flag-icon/flagSprite';
+import {flagSpriteExUssr} from '../flag-icon/flag-sprite-exussr';
 
 import styles from './index.module.css';
 
-const loadWorldData = async () => {
-    const { worldData } = await loadable(
-        () => import(/* webpackChunkName: "international-phone-input.world-data" */ '../../utils/world-data'),
-       {resolveComponent: m => m.worldData}
-    ).load();
-
-    return worldData
+interface IWorldDataItems {
+    flagSpriteWorld: Record<string, string>;
+    countriesDataWorld: TCountriesData[];
 }
+
+interface IWorldData {
+    worldData: IWorldDataItems;
+}
+
+const loadWorldData = async (): Promise<IWorldData> => import(/* webpackChunkName: "international-phone-input.world-data" */ '../../utils/world-data')
 
 export const BaseInternationalPhoneInput = forwardRef<
     HTMLInputElement,
@@ -72,8 +73,8 @@ export const BaseInternationalPhoneInput = forwardRef<
         const [countriesDataSet, setCountriesDataSet] = useState<TCountriesData[]>(
             [
                 ...countriesDataExUssr,
-                ['Ещё', null, 'more'] as TCountriesData
-            ]
+                ['Ещё', null, 'more', '']
+            ] as TCountriesData[]
         );
         const [flagSprite, setFlagSprite] = useState(flagSpriteExUssr);
         const [dataType, setDataType] = useState<'exUssr' | 'world'>('exUssr');
@@ -97,7 +98,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             if (dataType === 'exUssr' && nextCountry?.iso2 === 'more') {
                 const worldData = await loadWorldData().catch(e => {
                     // eslint-disable-next-line no-console
-                    console.error(e)
+                    console.error(e);
                 });
 
                 if (worldData?.flagSpriteWorld && worldData?.countriesDataWorld) {
@@ -105,8 +106,6 @@ export const BaseInternationalPhoneInput = forwardRef<
                     setCountriesDataSet([...countriesDataExUssr, ...worldData.countriesDataWorld].sort())
                     setDataType('world');
                 }
-
-                return
             }
 
             if (countryProp === undefined) setSelectedCountry(nextCountry);

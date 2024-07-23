@@ -5,7 +5,7 @@ import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-selec
 import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
-import type {TCountriesData} from '../data/country-data';
+import type {TCountriesData} from '../data/country-data-world';
 import type { AreaItem, Country } from '../types';
 
 export function initCountries(countriesData: TCountriesData[], iso2s?: string[]) {
