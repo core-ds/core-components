@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.2.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.9.1
+
 ## 5.2.20
 
 ### Patch Changes

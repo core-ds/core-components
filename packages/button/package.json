@@ -25,5 +25,7 @@
     },
     "buildThemes": [
         "site"
-    ]
+    ],
+    "themesVersion": "13.0.1",
+    "varsVersion": "9.10.0"
 }

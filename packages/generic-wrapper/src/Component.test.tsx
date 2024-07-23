@@ -45,4 +45,14 @@ describe('GenericWrapper', () => {
 
         expect(screen.getByTestId('data-test-id').classList.contains('className')).toBe(true);
     });
+
+    it('should set class `gap`', () => {
+        const { container } = render(
+            <GenericWrapper gap={2}>
+                <GenericWrapper>test</GenericWrapper>
+            </GenericWrapper>,
+        );
+
+        expect(container.firstElementChild).toHaveClass('gap-2');
+    });
 });

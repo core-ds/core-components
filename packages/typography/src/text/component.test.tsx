@@ -46,6 +46,7 @@ describe('Text', () => {
                 'secondary-small',
                 'component',
                 'caps',
+                'tagline',
             ];
 
             views.forEach((view) => {
