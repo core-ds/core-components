@@ -25,7 +25,7 @@
         "update-usages": "node ./tools/update-usages.js",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
         "lint:css": "stylelint ./packages/**/*.css",
-        "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx --max-warnings 0",
+        "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx --max-warnings 0 --fix",
         "lint:deps": "node ./bin/lint-deps.js",
         "test": "jest --watchAll=false --env=jsdom-sixteen",
         "test:screenshots": "./bin/run-screenshots.sh",

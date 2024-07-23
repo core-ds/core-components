@@ -36,10 +36,10 @@ interface IWorldDataItems {
 }
 
 interface IWorldData {
-    worldData: IWorldDataItems;
+    worldData?: IWorldDataItems;
 }
 
-const loadWorldData = async (): Promise<IWorldData> => import(/* webpackChunkName: "international-phone-input.world-data" */ '../../utils/world-data')
+const loadWorldData = async () => import(/* webpackChunkName: "international-phone-input.world-data" */ '../../utils/world-data')
 
 export const BaseInternationalPhoneInput = forwardRef<
     HTMLInputElement,
@@ -96,15 +96,23 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const handleCountryChange = async (nextCountry?: Country) => {
             if (dataType === 'exUssr' && nextCountry?.iso2 === 'more') {
-                const worldData = await loadWorldData().catch(e => {
+                let result: IWorldData = {};
+
+                try {
+                    result = await loadWorldData()
+                } catch (e) {
                     // eslint-disable-next-line no-console
                     console.error(e);
-                });
+                }
 
-                if (worldData?.flagSpriteWorld && worldData?.countriesDataWorld) {
-                    setFlagSprite({...flagSpriteExUssr, ...worldData.flagSpriteWorld})
-                    setCountriesDataSet([...countriesDataExUssr, ...worldData.countriesDataWorld].sort())
-                    setDataType('world');
+                if (result?.worldData) {
+                    const {worldData} = result;
+
+                    if (worldData?.flagSpriteWorld && worldData?.countriesDataWorld) {
+                        setFlagSprite({...flagSpriteExUssr, ...worldData.flagSpriteWorld})
+                        setCountriesDataSet([...countriesDataExUssr, ...worldData.countriesDataWorld].sort())
+                        setDataType('world');
+                    }
                 }
             }
 
