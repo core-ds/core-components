@@ -39,7 +39,7 @@ export const SelectField: FC<SelectFieldProps> = ({
     innerProps = {},
     flagSprite
 }) => {
-    const wrapperRef = useRef<HTMLDivElement | null>(null);
+    const wrapperRef = useRef<HTMLDivElement>(null);
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
 

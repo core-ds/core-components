@@ -8,15 +8,15 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import {maskitoTransform} from '@maskito/core';
-import {useMaskito} from '@maskito/react';
+import { maskitoTransform } from '@maskito/core';
+import { useMaskito } from '@maskito/react';
 
-import type {InputAutocompleteProps} from '@alfalab/core-components-input-autocomplete';
-import {AnyObject, BaseOption} from '@alfalab/core-components-select/shared';
-import type {BaseSelectChangePayload} from '@alfalab/core-components-select/typings';
+import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
+import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
+import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
 
-import {countriesDataExUssr, TCountriesData} from '../../data/country-data-exussr';
-import type {BaseInternationalPhoneInputProps, Country} from '../../types';
+import { countriesDataExUssr, TCountriesData } from '../../data/country-data-exussr';
+import type { BaseInternationalPhoneInputProps, Country } from '../../types';
 import {
     createMaskOptions,
     filterPhones,
@@ -25,7 +25,7 @@ import {
     getPhoneData,
     initCountries,
 } from '../../utils';
-import {CountrySelect} from '../country-select';
+import { CountrySelect } from '../country-select';
 import {flagSpriteExUssr} from '../flag-icon/flag-sprite-exussr';
 
 import styles from './index.module.css';
@@ -81,8 +81,8 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const countriesData = useMemo(() => initCountries(countriesDataSet, countries), [countries, countriesDataSet]);
 
-        const inputRef = useRef<HTMLInputElement | null>(null);
-        const inputWrapperRef = useRef<HTMLDivElement | null>(null);
+        const inputRef = useRef<HTMLInputElement>(null);
+        const inputWrapperRef = useRef<HTMLDivElement>(null);
 
         const [open, setOpen] = useState<boolean | undefined>(defaultOpen);
         const [openCountry, setOpenCountry] = useState<boolean | undefined>(
@@ -125,14 +125,14 @@ export const BaseInternationalPhoneInput = forwardRef<
             [country, clearableCountryCode],
         );
 
-        const maskRef = useMaskito({options: maskOptions});
+        const maskRef = useMaskito({ options: maskOptions });
 
         const changeNumber = (phone: string) => {
             onChange?.(phone);
         };
 
         const updatePhoneData = (phone: string) => {
-            const {nextCountry, nextPhone} = getPhoneData(phone, countriesData, defaultIso2);
+            const { nextCountry, nextPhone } = getPhoneData(phone, countriesData, defaultIso2);
 
             if (nextCountry !== country) {
                 handleCountryChange?.(nextCountry);
@@ -140,7 +140,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             changeNumber(nextPhone);
         };
 
-        const handleSelectCountry = ({selected}: BaseSelectChangePayload) => {
+        const handleSelectCountry = ({ selected }: BaseSelectChangePayload) => {
             const nextCountry = selected?.value as Country;
 
             handleCountryChange?.(nextCountry);
@@ -201,7 +201,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const handlePhoneSelectOpen: InputAutocompleteProps['onOpen'] = (payload) => {
             if (payload.open) {
-                openCountrySelect({open: false});
+                openCountrySelect({ open: false });
             }
 
             openPhoneSelect(payload);
@@ -209,7 +209,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 
         const handleCountrySelectOpen: InputAutocompleteProps['onOpen'] = (payload) => {
             if (payload.open) {
-                openPhoneSelect({open: false});
+                openPhoneSelect({ open: false });
             }
             openCountrySelect(payload);
         };
@@ -267,7 +267,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                     ...(restProps.fieldProps as AnyObject),
                     className: inputProps.className,
                     addonsClassName: inputProps.addonsClassName,
-                    ...(view === 'mobile' ? {leftAddons: renderCountrySelect()} : null),
+                    ...(view === 'mobile' ? { leftAddons: renderCountrySelect() } : null),
                 }}
             />
         ) : (

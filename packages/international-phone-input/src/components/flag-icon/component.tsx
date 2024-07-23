@@ -23,15 +23,15 @@ export type FlagIconProps = {
 /**
  * Компонент флага в виде иконки.
  */
-export const FlagIcon: FC<FlagIconProps> = ({ country = '', className = '', flagSprite }) =>
+export const FlagIcon: FC<FlagIconProps> = ({ country = '', className, flagSprite }) =>
     flagSprite[country] ? (
         <span
             className={cn(styles.flagIcon, className)}
             data-test-id={`flag-icon-${country}`}
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: flagSprite[country]}}
+            dangerouslySetInnerHTML={{ __html: flagSprite[country] }}
         />
     ) : (
-        <div className={cn(styles.flagPlaceholder, className)}/>
+        <div className={cn(styles.flagPlaceholder, className)} />
     );
 
