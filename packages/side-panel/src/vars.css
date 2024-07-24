@@ -29,11 +29,11 @@
     --side-panel-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --side-panel-header-mobile-content-paddings: var(--gap-s) var(--gap-xs);
-    --side-panel-header-mobile-font-size: 18px;
-    --side-panel-header-mobile-line-height: 24px;
+    --side-panel-header-mobile-content-paddings: 10px var(--gap-xs);
+    --side-panel-header-mobile-font-size: 20px;
+    --side-panel-header-mobile-line-height: 28px;
     --side-panel-header-mobile-font-family: var(--font-family-system);
-    --side-panel-header-mobile-font-weight: bold;
+    --side-panel-header-mobile-font-weight: 600;
 
     /* paddings */
     --side-panel-header-mobile-paddings: var(--gap-2xs) var(--gap-xs);
