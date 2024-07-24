@@ -17,5 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-input": "^15.0.2",
         "tslib": "^2.4.0"
-    }
+    },
+    "themesVersion": "13.0.1",
+    "varsVersion": "9.10.0"
 }

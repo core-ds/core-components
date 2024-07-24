@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "47.4.0",
+    "version": "47.5.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -60,6 +60,7 @@
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "@alfalab/icons-logotype": "^2.27.0",
+        "@alfalab/react-canvas-pattern-lock": "^2.0.7",
         "@alfalab/stack-context": "^1.16.0",
         "@alfalab/utils": "^1.15.2",
         "@dnd-kit/core": "^6.0.7",
@@ -102,7 +103,7 @@
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^17.12.0"
+        "ui-primitives": "^20.8.0"
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.6.1",

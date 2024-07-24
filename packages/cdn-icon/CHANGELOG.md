@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.2.2
+
+### Patch Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1290](https://github.com/core-ds/core-components/pull/1290)
+
+-   Добавлено кэширование иконок, чтобы предотвратить их перезагрузку при повторном монтировании
+
 ## 5.2.1
 
 ### Patch Changes

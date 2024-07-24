@@ -1,5 +1,16 @@
 # @alfalab/core-components-pattern-lock
 
+## 2.2.0
+
+### Minor Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1294](https://github.com/core-ds/core-components/pull/1294)
+
+-   Исправлены отступы компонента
+-   Исправлен фоновый цвет компонента на прозрачный
+
 ## 2.1.0
 
 ### Minor Changes

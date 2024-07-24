@@ -1,5 +1,19 @@
 # Change Log
 
+## 12.1.15
+
+### Patch Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1261](https://github.com/core-ds/core-components/pull/1261)
+
+-   Исправлена фильтрация выбранных элементов в демо
+-   Проведена декомпозиция option list в компоненте base-select
+
+-   Обновлены зависимости
+    -   select@17.8.3
+
 ## 12.1.14
 
 ### Patch Changes

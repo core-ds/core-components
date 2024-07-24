@@ -1,9 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React, {
-    FC,
     FocusEvent,
     forwardRef,
-    ForwardRefExoticComponent,
     KeyboardEvent,
     MouseEvent,
     RefAttributes,
@@ -23,27 +21,10 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { ModalMobileProps } from '@alfalab/core-components-modal/mobile';
-import type {
-    ModalContentProps,
-    ModalFooterProps,
-    ModalHeaderProps,
-} from '@alfalab/core-components-modal/shared';
-import type { PopoverProps } from '@alfalab/core-components-popover';
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import type {
-    AdditionalMobileProps,
-    AnyObject,
-    BaseSelectProps,
-    BottomSheetSelectMobileProps,
-    ModalSelectMobileProps,
-    OptionShape,
-    OptionsListProps,
-    SearchProps,
-} from '../../typings';
+import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
 import {
     defaultAccessor,
     defaultFilterFn,
@@ -53,44 +34,33 @@ import {
 } from '../../utils';
 import { NativeSelect } from '../native-select';
 
+import { getListPopoverDesktopProps } from './components/list-desktop/helpers/get-list-popover-desktop-props';
+import { ListPopoverDesktop } from './components/list-desktop/list-popover-desktop';
+import {
+    getListBottomSheetMobileProps,
+    getListModalMobileProps,
+} from './components/list-mobile/helpers';
+import { ListMobile } from './components/list-mobile/list-mobile';
+import { ComponentProps } from './types/component-types';
+
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
-
-type ComponentProps = BaseSelectProps &
-    AdditionalMobileProps &
-    BottomSheetSelectMobileProps &
-    ModalSelectMobileProps & {
-        isBottomSheet?: boolean;
-        view: 'desktop' | 'mobile';
-        Popover?: ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>;
-        BottomSheet?: React.ForwardRefExoticComponent<
-            BottomSheetProps & React.RefAttributes<HTMLDivElement>
-        >;
-        ModalMobile?: ForwardRefExoticComponent<
-            ModalMobileProps & RefAttributes<HTMLDivElement>
-        > & {
-            Header: FC<ModalHeaderProps>;
-            Footer: FC<ModalFooterProps>;
-            Content: FC<ModalContentProps>;
-        };
-    };
 
 const itemToString = (option: OptionShape | null) => (option ? option.key : '');
 
 const isItemDisabled = (option: OptionShape | null) => Boolean(option?.disabled);
 
-export const BaseSelect = forwardRef(
+export const BaseSelect = forwardRef<unknown, ComponentProps>(
     // TODO: 😭
     // eslint-disable-next-line complexity
-    (
-        {
+    (props, ref) => {
+        const {
             dataTestId,
             className,
             fieldClassName,
             optionGroupClassName,
             optionsListClassName,
             optionClassName,
-            popperClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -101,8 +71,6 @@ export const BaseSelect = forwardRef(
             nativeSelect = false,
             defaultOpen = false,
             open: openProp,
-            popoverPosition = 'bottom-start',
-            preventFlip = true,
             optionsListWidth = 'content',
             name,
             id,
@@ -132,26 +100,15 @@ export const BaseSelect = forwardRef(
             Optgroup = () => null,
             Option = () => null,
             Search = () => null,
-            updatePopover,
-            zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
             view,
             isBottomSheet = true,
-            footer,
-            swipeable,
             modalProps,
-            popoverProps,
-            modalFooterProps,
-            modalHeaderProps,
             bottomSheetProps,
-            Popover,
-            ModalMobile,
-            BottomSheet,
             limitDynamicOptionGroupSize,
-        }: ComponentProps,
-        ref,
-    ) => {
+        } = props;
+        const shouldSearchBlurRef = useRef(true);
         const rootRef = useRef<HTMLDivElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
@@ -479,6 +436,13 @@ export const BaseSelect = forwardRef(
                 index,
                 item: option,
                 onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                onClick: () => {
+                    if (view === 'mobile' || !showSearch || multiple) return;
+                    shouldSearchBlurRef.current = false;
+                    searchRef.current?.blur();
+                    shouldSearchBlurRef.current = true;
+                    fieldRef.current?.focus();
+                },
             }),
             multiple,
             index,
@@ -576,6 +540,7 @@ export const BaseSelect = forwardRef(
             };
 
             const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+                if (!shouldSearchBlurRef.current) return;
                 searchProps.componentProps?.onBlur?.(event);
                 handleFieldBlur(event);
             };
@@ -674,130 +639,6 @@ export const BaseSelect = forwardRef(
             );
         };
 
-        const renderInPopover = () => {
-            if (!nativeSelect && Popover) {
-                return (
-                    <Popover
-                        {...popoverProps}
-                        open={open}
-                        withTransition={false}
-                        anchorElement={fieldRef.current as HTMLElement}
-                        position={popoverPosition}
-                        preventFlip={preventFlip}
-                        popperClassName={cn(styles.popoverInner, popperClassName)}
-                        update={updatePopover}
-                        zIndex={zIndexPopover}
-                    >
-                        {renderOptionsList()}
-                    </Popover>
-                );
-            }
-
-            return null;
-        };
-
-        const renderInBottomSheet = () => {
-            if (!nativeSelect && BottomSheet) {
-                return (
-                    <BottomSheet
-                        dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
-                        open={open}
-                        className={mobileStyles.sheet}
-                        contentClassName={mobileStyles.sheetContent}
-                        containerClassName={mobileStyles.sheetContainer}
-                        title={label || placeholder}
-                        actionButton={footer}
-                        stickyHeader={true}
-                        hasCloser={true}
-                        swipeable={swipeable}
-                        initialHeight={showSearch ? 'full' : 'default'}
-                        {...bottomSheetProps}
-                        sheetContainerRef={menuRef}
-                        scrollableContainerRef={scrollableContainerRef}
-                        onClose={() => {
-                            closeMenu();
-                            bottomSheetProps?.onClose?.();
-                        }}
-                        transitionProps={{
-                            ...bottomSheetProps?.transitionProps,
-                            onEntered: handleEntered,
-                        }}
-                        bottomAddons={
-                            <React.Fragment>
-                                {renderSearch()}
-                                {flatOptions.length > 0 && bottomSheetProps?.bottomAddons}
-                            </React.Fragment>
-                        }
-                        containerProps={{
-                            ...bottomSheetProps?.containerProps,
-                            onScroll,
-                        }}
-                    >
-                        {renderOptionsList()}
-                    </BottomSheet>
-                );
-            }
-
-            return null;
-        };
-
-        const renderInModalMobile = () => {
-            if (!nativeSelect && ModalMobile) {
-                return (
-                    <ModalMobile
-                        dataTestId={getDataTestId(dataTestId, 'modal')}
-                        open={open}
-                        hasCloser={true}
-                        {...modalProps}
-                        componentRef={menuRef}
-                        onClose={(...args) => {
-                            closeMenu();
-                            modalProps?.onClose?.(...args);
-                        }}
-                        contentClassName={cn(
-                            mobileStyles.sheetContent,
-                            modalProps?.contentClassName,
-                        )}
-                        ref={mergeRefs([
-                            scrollableContainerRef,
-                            modalProps?.ref as React.Ref<HTMLDivElement>,
-                        ])}
-                        wrapperProps={{
-                            ...modalProps?.wrapperProps,
-                            onScroll,
-                        }}
-                        transitionProps={{
-                            ...modalProps?.transitionProps,
-                            onEntered: handleEntered,
-                        }}
-                    >
-                        <ModalMobile.Header
-                            hasCloser={true}
-                            sticky={true}
-                            {...modalHeaderProps}
-                            title={undefined}
-                            bottomAddons={
-                                <React.Fragment>
-                                    {renderSearch()}
-                                    {flatOptions.length > 0 && modalHeaderProps?.bottomAddons}
-                                </React.Fragment>
-                            }
-                        >
-                            {modalHeaderProps?.title || label || placeholder}
-                        </ModalMobile.Header>
-
-                        <ModalMobile.Content flex={true} className={mobileStyles.modalContent}>
-                            {renderOptionsList()}
-                        </ModalMobile.Content>
-
-                        {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
-                    </ModalMobile>
-                );
-            }
-
-            return null;
-        };
-
         return (
             <div
                 {...(disabled && { 'aria-disabled': true })}
@@ -848,9 +689,32 @@ export const BaseSelect = forwardRef(
 
                 {name && !nativeSelect && renderValue()}
 
-                {view === 'desktop' && renderInPopover()}
-                {view === 'mobile' && isBottomSheet && renderInBottomSheet()}
-                {view === 'mobile' && !isBottomSheet && renderInModalMobile()}
+                {view === 'desktop' && !nativeSelect && (
+                    <ListPopoverDesktop
+                        {...getListPopoverDesktopProps(props)}
+                        open={open}
+                        fieldRef={fieldRef}
+                        renderOptionsList={renderOptionsList}
+                    />
+                )}
+
+                {view === 'mobile' && (
+                    <ListMobile
+                        baseProps={
+                            isBottomSheet
+                                ? getListBottomSheetMobileProps(props)
+                                : getListModalMobileProps(props)
+                        }
+                        open={open}
+                        menuRef={menuRef}
+                        scrollableContainerRef={scrollableContainerRef}
+                        flatOptions={flatOptions}
+                        renderOptionsList={renderOptionsList}
+                        renderSearch={renderSearch}
+                        closeMenu={closeMenu}
+                        handleEntered={handleEntered}
+                    />
+                )}
             </div>
         );
     },
