@@ -6,7 +6,12 @@ import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
 import { formatAmount, THINSP } from '@alfalab/utils';
 
-import { getAmountValueFromStr, getCurrencyCodeWithFormat, getFormattedValue } from './utils';
+import {
+    getAmountValueFromStr,
+    getCurrencyCodeWithFormat,
+    getFormattedValue,
+    getVisiblePlaceholder,
+} from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -133,6 +138,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onKeyDown,
             transparentMinor = true,
             inputClassName,
+            label,
+            labelView,
             ...restProps
         },
         ref,
@@ -306,7 +313,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     }
                     suffixContainerClassName={styles.suffixContainer}
                     clear={clear}
-                    placeholder={placeholder}
+                    labelView={labelView}
+                    label={label}
+                    placeholder={getVisiblePlaceholder(placeholder, label, labelView)}
                     value={inputValue}
                     colors={colors}
                     className={cn(styles.component, className)}
