@@ -46,7 +46,7 @@ type CommonPhoneInputProps = {
     /**
      * Возможность стереть код страны
      */
-    clearableCountryCode?: boolean;
+    clearableCountryCode?: boolean | 'preserve';
 
     /**
      *  Свойства селекта выбора стран

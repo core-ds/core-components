@@ -4,7 +4,7 @@ import {
     InternationalPhoneInput,
     InternationalPhoneInputProps,
 } from '@alfalab/core-components-international-phone-input';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 const meta: Meta<typeof InternationalPhoneInput> = {
     title: 'Components/InternationalPhoneInput',
@@ -39,7 +39,11 @@ export const international_phone_input: Story = {
                     defaultIso2={text('defaultIso2', 'ru')}
                     options={boolean('options', false) ? OPTIONS : undefined}
                     block={true}
-                    clearableCountryCode={boolean('clearableCountryCode', true)}
+                    clearableCountryCode={select(
+                        'clearableCountryCode',
+                        [true, false, 'preserve'],
+                        true,
+                    )}
                     clear={boolean('clear', false)}
                 />
             </div>
