@@ -2,6 +2,7 @@ import React, {
     ChangeEvent,
     cloneElement,
     ComponentType,
+    FocusEvent,
     forwardRef,
     Fragment,
     isValidElement,
@@ -204,37 +205,33 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             [getValidInputValue, onChange, onInputChange],
         );
 
-        const lockLimitValidate = useCallback(
-            (
-                event: ChangeEvent<HTMLInputElement>,
-                validValue: ReturnType<typeof getValidInputValue>,
-                callback: OnChangeType | OnInputChangeType,
-            ) => {
-                if (validValue > max) {
-                    callback(event, { value: max });
-                }
-                if (validValue < min) {
-                    callback(event, { value: min });
-                }
-            },
-            [max, min],
-        );
-
         const handleInputBlur = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const { value: inputValue } = event.target;
+            (event: FocusEvent) => {
+                const { value: inputValue } = event.target as HTMLInputElement;
                 const validValue = getValidInputValue(inputValue);
+
+                const getEventPayloadValue = (payload: number | '') => {
+                    if (payload > max) {
+                        return max;
+                    }
+
+                    if (payload < min) {
+                        return min;
+                    }
+
+                    return '';
+                };
 
                 if (lockLimit) {
                     if (onChange) {
-                        lockLimitValidate(event, validValue, onChange);
+                        onChange(event, { value: getEventPayloadValue(validValue) });
                     }
                     if (onInputChange) {
-                        lockLimitValidate(event, validValue, onInputChange);
+                        onInputChange(event, { value: getEventPayloadValue(validValue) });
                     }
                 }
             },
-            [getValidInputValue, lockLimit, lockLimitValidate, onChange, onInputChange],
+            [getValidInputValue, lockLimit, max, min, onChange, onInputChange],
         );
 
         return (
