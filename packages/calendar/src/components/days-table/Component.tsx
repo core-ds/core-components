@@ -1,7 +1,8 @@
 /* eslint-disable complexity */
-import React, { FC, RefCallback, useCallback, useRef } from 'react';
+import React, { FC, RefCallback, useCallback, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
+import { getTime } from 'date-fns';
 import isEqual from 'date-fns/isEqual';
 import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
 import isSameDay from 'date-fns/isSameDay';
@@ -80,6 +81,16 @@ export type DaysTableProps = {
      * Рендерит компонент, обернутый в Transition
      */
     withTransition?: boolean;
+
+    /**
+     * При клике на месяц будут выбраны все доступные дни месяца
+     */
+    monthClicked?: boolean;
+
+    /**
+     * Обработчик выбора даты
+     */
+    onChange?: (date?: number, dateTo?: number) => void;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -94,9 +105,13 @@ export const DaysTable: FC<DaysTableProps> = ({
     responsive,
     shape = 'rounded',
     withTransition = true,
+    monthClicked = false,
+    onChange,
 }) => {
     const activeMonthRef = useRef(activeMonth);
     const directionRef = useRef<'right' | 'left' | undefined>();
+    const currentStartMonth = useRef<number>();
+    const currentEndPeriod = useRef<number>();
 
     activeMonthRef.current = activeMonth;
 
@@ -162,6 +177,16 @@ export const DaysTable: FC<DaysTableProps> = ({
             if (!day.disabled) onClick(e);
         };
 
+        if (dayIdx === 0) {
+            currentStartMonth.current = startOfMonth(day.date).getTime();
+        }
+
+        if (isToday(day.date)) {
+            currentEndPeriod.current = getTime(day.date);
+        } else if (!currentEndPeriod.current && isLastDayOfMonth(day.date)) {
+            currentEndPeriod.current = getTime(day.date);
+        }
+
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
             <td
@@ -226,6 +251,13 @@ export const DaysTable: FC<DaysTableProps> = ({
     );
 
     const renderMonth = () => <tbody>{weeks.map(renderWeek)}</tbody>;
+
+    useEffect(() => {
+        if (monthClicked && onChange) {
+            onChange(currentStartMonth.current, currentEndPeriod.current);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [monthClicked]);
 
     return (
         <table
