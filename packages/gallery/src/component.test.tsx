@@ -266,9 +266,7 @@ describe('Gallery', () => {
 
             const description = headerComponent.querySelector('.description') as HTMLElement;
 
-            expect(description.textContent).toBe(
-                `Изображение ${initialSlide + 1} из ${images.length}`,
-            );
+            expect(description.textContent).toBe(`${initialSlide + 1} из ${images.length}`);
         });
 
         it('should open tooltip, if hover on buttons', async () => {

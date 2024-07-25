@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect, useRef } from 'react';
 
 import { GalleryContext } from '../../context';
-import { isSmallImage, TestIds } from '../../utils';
+import { isSmallImage, isVideo, TestIds } from '../../utils';
 import { HeaderInfoBlock } from '../header-info-block';
 
 import * as Buttons from './buttons';
@@ -18,9 +18,15 @@ export const Header: FC = () => {
         getCurrentImage,
         setFullScreen,
         onClose,
+        mutedVideo,
+        setMutedVideo,
     } = useContext(GalleryContext);
 
     const toggleFullScreenButton = useRef<HTMLButtonElement>(null);
+
+    const onMuteButtonClick = () => {
+        setMutedVideo(!mutedVideo);
+    };
 
     const closeFullScreen = () => {
         setFullScreen(false);
@@ -41,9 +47,7 @@ export const Header: FC = () => {
     const canDownload = currentImage?.canDownload ?? true;
     const filename = currentImage?.name || '';
     const description =
-        singleSlide || !images.length
-            ? ''
-            : `Изображение ${currentSlideIndex + 1} из ${images.length}`;
+        singleSlide || !images.length ? '' : `${currentSlideIndex + 1} из ${images.length}`;
 
     const meta = getCurrentImageMeta();
 
@@ -65,11 +69,19 @@ export const Header: FC = () => {
             />
         );
 
+    const renderToggleMuteVideo = () =>
+        mutedVideo ? (
+            <Buttons.UnmuteVideo onClick={onMuteButtonClick} dataTestId={TestIds.UNMUTE_BUTTON} />
+        ) : (
+            <Buttons.MuteVideo onClick={onMuteButtonClick} dataTestId={TestIds.MUTE_BUTTON} />
+        );
+
     return (
         <div className={styles.header}>
             <HeaderInfoBlock filename={filename} description={description} />
 
             <div className={styles.buttons}>
+                {isVideo(currentImage?.src) && renderToggleMuteVideo()}
                 {showFullScreenButton && renderToggleFullScreenButton()}
 
                 {showDownloadButton && (

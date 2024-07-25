@@ -7,6 +7,7 @@
     width: 100%;
     padding: var(--gap-m) var(--gap-xl);
     box-sizing: border-box;
+    z-index: 3;
 }
 
 .buttons {

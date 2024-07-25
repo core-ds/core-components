@@ -1,11 +1,11 @@
-import React, { FC, KeyboardEventHandler, useContext, useRef } from 'react';
+import React, { FC, KeyboardEventHandler, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
-import { getImageAlt } from '@alfalab/core-components-gallery';
 import { useFocus } from '@alfalab/hooks';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage } from '../../types';
+import { getImageAlt, isVideo } from '../../utils';
 
 import { NoImagePaths } from './paths';
 
@@ -23,6 +23,30 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
     const { imagesMeta } = useContext(GalleryContext);
 
     const ref = useRef<HTMLDivElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const video = imagesMeta[index]?.player?.current;
+        const context = canvas?.getContext('2d');
+        const drawPreview = () => {
+            if (video) {
+                context?.drawImage(video, 0, 0, 56, 56);
+            }
+        };
+
+        drawPreview();
+
+        if (isVideo(image.src)) {
+            video?.addEventListener('canplay', drawPreview);
+        }
+
+        return () => {
+            if (isVideo(image.src)) {
+                video?.removeEventListener('canplay', drawPreview);
+            }
+        };
+    }, [image.src, imagesMeta, index]);
 
     const handleClick = () => {
         onSelect(index);
@@ -52,7 +76,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             onKeyDown={handleKeyDown}
             tabIndex={0}
             ref={ref}
-            aria-label={`Перейти к изображению ${index + 1}`}
+            aria-label={`Перейти к ${index + 1} элементу`}
         >
             {isBroken ? (
                 <div className={cn(styles.preview, styles.brokenImageWrapper)}>
@@ -81,7 +105,16 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                         [styles.loading]: !meta,
                     })}
                 >
-                    <img src={image.src} alt={getImageAlt(image, index)} />
+                    {isVideo(image.src) ? (
+                        <canvas
+                            className={styles.canvasPreview}
+                            width={56}
+                            height={56}
+                            ref={canvasRef}
+                        />
+                    ) : (
+                        <img src={image.src} alt={getImageAlt(image, index)} />
+                    )}
                 </div>
             )}
         </div>

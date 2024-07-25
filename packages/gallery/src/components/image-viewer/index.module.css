@@ -28,6 +28,10 @@
     display: none;
 }
 
+.viewContent {
+    display: contents;
+}
+
 .slide {
     position: relative;
     display: flex;
@@ -87,6 +91,28 @@
 
     &:active {
         background-color: var(--color-static-neutral-0-inverted-press);
+    }
+
+    &.left {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        z-index: 2;
+
+        &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &.right {
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        z-index: 2;
+
+        &:active {
+            opacity: 0.7;
+        }
     }
 }
 

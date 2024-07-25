@@ -8,7 +8,8 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"]
+            "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"],
+            "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"]
         }
     },
     "references": [
@@ -16,6 +17,8 @@
         { "path": "../tooltip" },
         { "path": "../icon-button" },
         { "path": "../typography" },
-        { "path": "../base-modal" }
+        { "path": "../base-modal" },
+        { "path": "../icon-view" },
+        { "path": "../button" }
     ]
 }

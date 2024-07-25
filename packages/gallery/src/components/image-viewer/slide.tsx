@@ -4,9 +4,10 @@ import cn from 'classnames';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { GalleryImage, ImageMeta } from '../../types';
-import { getImageAlt, isSmallImage, TestIds } from '../../utils';
+import { getImageAlt, isSmallImage, isVideo, TestIds } from '../../utils';
 
 import { NoImagePaths } from './paths';
+import { Video } from './video';
 
 import styles from './index.module.css';
 
@@ -16,9 +17,16 @@ type SlideInnerProps = {
     withPlaceholder: boolean;
     loading: boolean;
     children: ReactNode;
+    isVideoView?: boolean;
 };
 
-const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceholder }) => {
+const SlideInner: FC<SlideInnerProps> = ({
+    children,
+    broken,
+    loading,
+    withPlaceholder,
+    isVideoView,
+}) => {
     const content = broken ? (
         <div className={styles.brokenImgWrapper}>
             <div className={styles.brokenImgIcon}>
@@ -41,7 +49,7 @@ const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceh
             </div>
 
             <Typography.Text view='primary-small' color='static-secondary-light'>
-                Не удалось загрузить изображение
+                Не удалось загрузить {isVideoView ? 'видео' : 'изображение'}
             </Typography.Text>
         </div>
     ) : (
@@ -84,6 +92,20 @@ export const Slide: FC<SlideProps> = ({
     const small = isSmallImage(meta);
     const verticalImageFit = !small && swiperAspectRatio > imageAspectRatio;
     const horizontalImageFit = !small && swiperAspectRatio <= imageAspectRatio;
+
+    if (isVideo(image.src)) {
+        return (
+            <SlideInner
+                isVideoView={true}
+                active={isActive}
+                broken={broken}
+                withPlaceholder={broken}
+                loading={!meta}
+            >
+                <Video url={image.src} index={index} />
+            </SlideInner>
+        );
+    }
 
     return (
         <SlideInner

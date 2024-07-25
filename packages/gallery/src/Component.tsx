@@ -2,6 +2,7 @@ import React, { FC, useCallback, useEffect, useState } from 'react';
 import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
+import { useMedia } from '@alfalab/hooks';
 
 import { Header, ImageViewer, NavigationBar } from './components';
 import { GalleryContext } from './context';
@@ -68,6 +69,15 @@ export const Gallery: FC<GalleryProps> = ({
     const [swiper, setSwiper] = useState<SwiperCore>();
     const [imagesMeta, setImagesMeta] = useState<ImageMeta[]>([]);
     const [fullScreen, setFullScreen] = useState(false);
+    const [mutedVideo, setMutedVideo] = useState(false);
+
+    const [view] = useMedia<'desktop' | 'mobile'>(
+        [
+            ['mobile', '(max-width: 1023px)'],
+            ['desktop', '(min-width: 1024px)'],
+        ],
+        'desktop',
+    );
 
     const slideTo = useCallback(
         (index: number) => {
@@ -171,6 +181,7 @@ export const Gallery: FC<GalleryProps> = ({
 
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     const galleryContext: GalleryContext = {
+        view,
         singleSlide,
         currentSlideIndex,
         images,
@@ -178,6 +189,8 @@ export const Gallery: FC<GalleryProps> = ({
         fullScreen,
         initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
         setFullScreen,
+        mutedVideo,
+        setMutedVideo,
         setImageMeta,
         slideNext,
         slidePrev,

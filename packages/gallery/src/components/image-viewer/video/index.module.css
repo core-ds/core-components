@@ -1,0 +1,30 @@
+.videoWrapper {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.video {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: var(--border-radius-3xl);
+}
+
+.mobile {
+    border-radius: 0;
+}
+
+.videoButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.videoButtonIcon {
+    --icon-view-bg-color: var(--color-static-neutral-translucent-700);
+    --icon-view-color: var(--color-static-neutral-100);
+}
