@@ -204,11 +204,11 @@ export const CalendarMonthOnlyView = ({
         }
     };
 
-    const getMonthTitle = (index: number, clickableMonth?: boolean) => {
-        if (clickableMonth) {
+    const getMonthTitle = (index: number, isClickableMonth?: boolean) => {
+        if (isClickableMonth) {
             return (
                 <Typography.Text className={styles.monthTitle} view='primary-small' color='primary'>
-                    {`\u00A0${activeMonths[index].title}\u00A0`}
+                    {activeMonths[index].title}
                 </Typography.Text>
             );
         }
