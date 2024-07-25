@@ -18,6 +18,7 @@ import setYear from 'date-fns/setYear';
 import startOfMonth from 'date-fns/startOfMonth';
 import subYears from 'date-fns/subYears';
 
+import { ResetCurrentClickedMonth } from './components/calendar-mobile';
 import { DateShift, Day, DayAddons, Month, View } from './typings';
 import {
     addonArrayToHashTable,
@@ -30,7 +31,6 @@ import {
     MONTHS_IN_YEAR,
     simulateTab,
 } from './utils';
-import { ResetCurrentClickedMonth } from './components/calendar-mobile';
 
 export type UseCalendarProps = {
     /**

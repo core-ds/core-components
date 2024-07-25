@@ -10,11 +10,11 @@ import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
+import { isAfter } from 'date-fns';
 import endOfDay from 'date-fns/endOfDay';
 import isSameMonth from 'date-fns/isSameMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
-import { isAfter } from 'date-fns';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
