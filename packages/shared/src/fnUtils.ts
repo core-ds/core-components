@@ -1,7 +1,7 @@
 /**
  * Возвращает true, если значение равно null или undefined
  */
-function isNil(value: unknown) {
+function isNil<T>(value: T): value is T & (null | undefined) {
     return value == null;
 }
 
