@@ -177,6 +177,14 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             if (integersOnly) {
                 [enteredValue] = enteredValue.split(',');
             }
+
+            // Эта проверка нужна для того, чтобы обрабатывать значение, переданное в input, длина которого превышает integerLength
+            const integer = integersOnly ? enteredValue : enteredValue.split(',')[0];
+
+            if (integer.length > integerLength) {
+                enteredValue = enteredValue.slice(0, integerLength);
+            }
+
             // Сокращение минимальной длины мажорной части числа до 0 позволяет ввести "," => "0,"
             const isCorrectEnteredValue = RegExp(
                 `(^${positiveOnly ? '' : '-?'}[0-9]{0,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
