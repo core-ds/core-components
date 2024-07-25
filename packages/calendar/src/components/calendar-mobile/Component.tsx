@@ -105,7 +105,7 @@ export const CalendarMonthOnlyView = ({
 
     const maxDate = useMemo(() => {
         // блокируем последующие дни после текущего
-        if (clickableMonth) {
+        if (clickableMonth && !maxDateTimestamp) {
             return new Date();
         }
 
