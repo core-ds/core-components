@@ -1,4 +1,11 @@
-import React, { forwardRef, Ref, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    RefObject,
+    useImperativeHandle,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
@@ -7,10 +14,12 @@ import endOfDay from 'date-fns/endOfDay';
 import isSameMonth from 'date-fns/isSameMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
+import { isAfter } from 'date-fns';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { Typography } from '@alfalab/core-components-typography';
 
 import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
@@ -67,7 +76,11 @@ export const CalendarMonthOnlyView = ({
      * TODO Вынести компонент CalendarMonthOnlyView в отдельный файл
      */
     clickableMonth?: boolean;
-    resetCurrentClickedMonth?: Ref<ResetCurrentClickedMonth>;
+
+    /**
+     * Ref для сброса заголовка clickableMonth
+     */
+    resetCurrentClickedMonth?: RefObject<ResetCurrentClickedMonth>;
 }) => {
     const [currentActiveMonth, setCurrentActiveMonth] = useState('');
 
@@ -90,10 +103,14 @@ export const CalendarMonthOnlyView = ({
         [minDateTimestamp],
     );
 
-    const maxDate = useMemo(
-        () => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined),
-        [maxDateTimestamp],
-    );
+    const maxDate = useMemo(() => {
+        // блокируем последующие дни после текущего
+        if (clickableMonth) {
+            return new Date();
+        }
+
+        return maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined;
+    }, [maxDateTimestamp, clickableMonth]);
 
     const selected = useMemo(
         () => (range.value ? new Date(range.value) : undefined),
@@ -126,6 +143,7 @@ export const CalendarMonthOnlyView = ({
         events,
         onChange: range.onChange,
         dayAddons,
+        ...(clickableMonth && { resetCurrentClickedMonth }),
     });
 
     const activeMonths = useMemo(() => {
@@ -188,6 +206,7 @@ export const CalendarMonthOnlyView = ({
 
     const renderMonth = (index: number) => {
         const monthClicked = currentActiveMonth === activeMonths[index].title;
+        const isAfterDate = isAfter(activeMonths[index].date, activeMonth);
 
         return (
             <div className={styles.daysTable} id={`month-${index}`}>
@@ -202,16 +221,30 @@ export const CalendarMonthOnlyView = ({
                         {activeMonths[index].title}
                     </span>
                 ) : (
+                    // todo вынести все в компоненты, чтобы не добавлять кучу проверок на пропс clickableMonth
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                     <span
                         className={cn(styles.month, {
-                            [styles.clickableMonth]: clickableMonth,
-                            [styles.rectangular]: shape === 'rectangular',
-                            [styles.active]: monthClicked,
+                            ...(clickableMonth && {
+                                [styles.clickableMonth]: true,
+                                [styles.rectangular]: shape === 'rectangular',
+                                [styles.active]: monthClicked,
+                                [styles.disabled]: isAfterDate,
+                            }),
                         })}
-                        onClick={() => handleClickMonth(index)}
+                        {...(clickableMonth && { onClick: () => handleClickMonth(index) })}
                     >
-                        {`\u00A0${activeMonths[index].title}\u00A0`}
+                        {clickableMonth ? (
+                            <Typography.Text
+                                className={styles.monthTitle}
+                                view='primary-small'
+                                color='primary'
+                            >
+                                {`\u00A0${activeMonths[index].title}\u00A0`}
+                            </Typography.Text>
+                        ) : (
+                            `\u00A0${activeMonths[index].title}\u00A0`
+                        )}
                     </span>
                 )}
                 <DaysTable

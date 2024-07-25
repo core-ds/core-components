@@ -57,8 +57,19 @@
         }
 
         &.active {
-            color: var(--color-light-text-primary-inverted);
             background-color: var(--color-light-accent-secondary);
+
+            & .monthTitle {
+                color: var(--color-light-text-primary-inverted);
+            }
+        }
+
+        &.disabled {
+            pointer-events: none;
+
+            & .monthTitle {
+                color: var(--color-light-text-tertiary);
+            }
         }
     }
 }
