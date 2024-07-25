@@ -10,8 +10,8 @@ import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
-import { isAfter } from 'date-fns';
 import endOfDay from 'date-fns/endOfDay';
+import isAfter from 'date-fns/isAfter';
 import isSameMonth from 'date-fns/isSameMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
@@ -204,6 +204,18 @@ export const CalendarMonthOnlyView = ({
         }
     };
 
+    const getMonthTitle = (index: number, clickableMonth?: boolean) => {
+        if (clickableMonth) {
+            return (
+                <Typography.Text className={styles.monthTitle} view='primary-small' color='primary'>
+                    {`\u00A0${activeMonths[index].title}\u00A0`}
+                </Typography.Text>
+            );
+        }
+
+        return `\u00A0${activeMonths[index].title}\u00A0`;
+    };
+
     const renderMonth = (index: number) => {
         const monthClicked = currentActiveMonth === activeMonths[index].title;
         const isAfterDate = isAfter(activeMonths[index].date, activeMonth);
@@ -221,7 +233,6 @@ export const CalendarMonthOnlyView = ({
                         {activeMonths[index].title}
                     </span>
                 ) : (
-                    // todo вынести все в компоненты, чтобы не добавлять кучу проверок на пропс clickableMonth
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                     <span
                         className={cn(styles.month, {
@@ -234,17 +245,7 @@ export const CalendarMonthOnlyView = ({
                         })}
                         {...(clickableMonth && { onClick: () => handleClickMonth(index) })}
                     >
-                        {clickableMonth ? (
-                            <Typography.Text
-                                className={styles.monthTitle}
-                                view='primary-small'
-                                color='primary'
-                            >
-                                {`\u00A0${activeMonths[index].title}\u00A0`}
-                            </Typography.Text>
-                        ) : (
-                            `\u00A0${activeMonths[index].title}\u00A0`
-                        )}
+                        {getMonthTitle(index, clickableMonth)}
                     </span>
                 )}
                 <DaysTable

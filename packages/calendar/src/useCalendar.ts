@@ -18,7 +18,6 @@ import setYear from 'date-fns/setYear';
 import startOfMonth from 'date-fns/startOfMonth';
 import subYears from 'date-fns/subYears';
 
-import { ResetCurrentClickedMonth } from './components/calendar-mobile';
 import { DateShift, Day, DayAddons, Month, View } from './typings';
 import {
     addonArrayToHashTable,
@@ -96,7 +95,7 @@ export type UseCalendarProps = {
     /**
      * Ref для сброса заголовка clickableMonth
      */
-    resetCurrentClickedMonth?: RefObject<ResetCurrentClickedMonth>;
+    resetCurrentClickedMonth?: RefObject<{ resetCurrentClickedMonth: () => void }>;
 };
 
 export function useCalendar({
