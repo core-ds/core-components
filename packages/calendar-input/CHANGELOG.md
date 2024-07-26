@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.2.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.35
+
 ## 10.2.22
 
 ### Patch Changes
