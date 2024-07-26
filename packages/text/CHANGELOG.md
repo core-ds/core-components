@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1299](https://github.com/core-ds/core-components/pull/1299)
+
+-   Добавлено новое свойство monospaceNumbers, которое делает цифры моноширинными
+
 ## 1.0.0
 
 ### Major Changes

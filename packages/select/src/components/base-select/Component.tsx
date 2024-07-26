@@ -50,10 +50,10 @@ const itemToString = (option: OptionShape | null) => (option ? option.key : '');
 
 const isItemDisabled = (option: OptionShape | null) => Boolean(option?.disabled);
 
-export const BaseSelect = forwardRef(
+export const BaseSelect = forwardRef<unknown, ComponentProps>(
     // TODO: 😭
     // eslint-disable-next-line complexity
-    (props: ComponentProps, ref) => {
+    (props, ref) => {
         const {
             dataTestId,
             className,
@@ -108,7 +108,7 @@ export const BaseSelect = forwardRef(
             bottomSheetProps,
             limitDynamicOptionGroupSize,
         } = props;
-
+        const shouldSearchBlurRef = useRef(true);
         const rootRef = useRef<HTMLDivElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
@@ -436,6 +436,13 @@ export const BaseSelect = forwardRef(
                 index,
                 item: option,
                 onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                onClick: () => {
+                    if (view === 'mobile' || !showSearch || multiple) return;
+                    shouldSearchBlurRef.current = false;
+                    searchRef.current?.blur();
+                    shouldSearchBlurRef.current = true;
+                    fieldRef.current?.focus();
+                },
             }),
             multiple,
             index,
@@ -533,6 +540,7 @@ export const BaseSelect = forwardRef(
             };
 
             const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+                if (!shouldSearchBlurRef.current) return;
                 searchProps.componentProps?.onBlur?.(event);
                 handleFieldBlur(event);
             };

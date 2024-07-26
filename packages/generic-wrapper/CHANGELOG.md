@@ -1,5 +1,15 @@
 # @alfalab/core-components-generic-wrapper
 
+## 1.2.0
+
+### Minor Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1300](https://github.com/core-ds/core-components/pull/1300)
+
+-   Добавлено новое свойство gap, отвечающее за отступы между элементами флекс-контейнера
+
 ## 1.1.3
 
 ### Patch Changes

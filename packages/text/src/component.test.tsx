@@ -70,6 +70,12 @@ describe('Text', () => {
                 expect(container.firstElementChild).toHaveClass(`${view}`);
             });
         });
+
+        it('should set class `monospace`', () => {
+            const { container } = render(<Text monospaceNumbers={true} />);
+
+            expect(container.firstElementChild).toHaveClass('monospace');
+        });
     });
 
     describe('Attributes tests', () => {

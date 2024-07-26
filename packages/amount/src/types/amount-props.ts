@@ -9,7 +9,8 @@ export type AmountProps = {
     value: number;
 
     /**
-     * Валюта
+     * Валюта<br>
+     * Значение RUR - @deprecated
      */
     currency?: CurrencyCodes;
 

@@ -1,5 +1,19 @@
 # Change Log
 
+## 11.7.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.4
+
+## 11.7.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.3
+
 ## 11.7.12
 
 ### Patch Changes

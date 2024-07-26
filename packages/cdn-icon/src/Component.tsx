@@ -38,6 +38,9 @@ enum LoadingStatus {
     FAILURE,
 }
 
+// Кэшируем загруженные иконки, чтобы предотвратить их повторную загрузку при каждом монтировании
+const cache: Record<string, string> = {};
+
 export const CDNIcon: React.FC<CDNIconProps> = ({
     name,
     color,
@@ -46,21 +49,27 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     baseUrl = 'https://alfabank.servicecdn.ru/icons',
     fallback,
 }) => {
+    const url = `${baseUrl}/${name}.svg`;
+
     const [loadingStatus, setLoadingStatus] = useState<LoadingStatus>(LoadingStatus.INITIAL);
-    const [icon, setIcon] = useState('');
+    const [icon, setIcon] = useState(cache[url]);
 
     const monoIcon = !name.includes('_color');
 
     useEffect(() => {
+        if (icon) return undefined;
+
         const xhr = new XMLHttpRequest();
 
-        xhr.open('GET', `${baseUrl}/${name}.svg`);
+        xhr.open('GET', url);
         xhr.send();
         xhr.onload = function onload() {
             setLoadingStatus(LoadingStatus.SUCCESS);
             const svg = xhr.response;
 
             if (svg.startsWith('<svg')) {
+                cache[url] = svg;
+
                 setIcon(svg);
             }
         };
@@ -70,7 +79,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
         };
 
         return () => xhr.abort();
-    }, [name, baseUrl]);
+    }, [url, icon]);
 
     return (
         <span

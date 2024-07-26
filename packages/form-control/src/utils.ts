@@ -8,5 +8,6 @@ export function getFormControlTestIds(dataTestId: string) {
         rightAddons: getDataTestId(dataTestId, 'right-addons'),
         error: getDataTestId(dataTestId, 'error-message'),
         hint: getDataTestId(dataTestId, 'hint'),
+        label: getDataTestId(dataTestId, 'label'),
     };
 }

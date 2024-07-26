@@ -1,5 +1,12 @@
 # Change Log
 
+## 13.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.8.0
+
 ## 13.6.0
 
 ### Minor Changes

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import { getFormControlTestIds } from './utils';
 
 import { FormControlDesktop as FormControl } from './desktop';
@@ -83,6 +83,22 @@ describe('FormControl', () => {
         );
 
         expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
+
+        cleanup();
+
+        const { getByTestId: getByTestIdOuterLabel } = render(
+            <FormControl labelView='outer' label='test-label' dataTestId={dti} />,
+        );
+
+        expect(getByTestIdOuterLabel(testIds.label)).toBeInTheDocument();
+
+        cleanup();
+
+        const { getByTestId: getByTestIdInnerLabel } = render(
+            <FormControl labelView='inner' label='test-label' dataTestId={dti} />,
+        );
+
+        expect(getByTestIdInnerLabel(testIds.label)).toBeInTheDocument();
     });
 
     describe('Classes tests', () => {

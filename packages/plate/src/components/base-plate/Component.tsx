@@ -13,6 +13,7 @@ import cn from 'classnames';
 
 import { ButtonProps } from '@alfalab/core-components-button';
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
@@ -304,6 +305,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                     >
                         {title && (
                             <div
+                                data-test-id={getDataTestId(dataTestId, 'title')}
                                 className={cn(commonStyles[titleView], {
                                     [styles[titleView]]: Boolean(styles[titleView]),
                                 })}

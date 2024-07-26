@@ -25,6 +25,11 @@
     margin-bottom: var(--gap-m);
 }
 
+.h4 {
+    margin-top: var(--gap-xs);
+    margin-bottom: var(--gap-2xs);
+}
+
 .code {
     margin-bottom: var(--gap-m);
 }
