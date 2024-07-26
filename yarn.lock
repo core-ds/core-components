@@ -7,6 +7,27 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
+"@alfalab/core-components-button@^11.5.3":
+  version "11.5.3"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-11.5.3.tgz#49327b4d7a227e9d42c4d4e546aa27872c1c7ff3"
+  integrity sha512-I56eMibfuNQqo3Ivn++UMNVVAHslfG30tEvtER6HU9h+vOkyge70InXMNk0hDaa2gu4B5+nOlBI8iIEU65CduA==
+  dependencies:
+    "@alfalab/core-components-mq" "^4.3.0"
+    "@alfalab/core-components-shared" "^0.11.0"
+    "@alfalab/core-components-spinner" "^3.4.0"
+    "@alfalab/hooks" "^1.13.0"
+    classnames "^2.3.1"
+    react-merge-refs "^1.1.0"
+    tslib "^2.4.0"
+
+"@alfalab/core-components-mq@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-mq/-/core-components-mq-4.3.0.tgz#77ebbcd8e2f587d1457082fd48f3b417b3c92563"
+  integrity sha512-kE559ibpBRt6so7auyR9n1gAkdxjN/LkGaLbzXvrA0zTLgSZNkWRN2bkk/zVHBAJNktfT7csPk5OMBvfOr2jhA==
+  dependencies:
+    "@alfalab/hooks" "^1.13.0"
+    tslib "^2.4.0"
+
 "@alfalab/core-components@>=35.1.0":
   version "44.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components/-/core-components-44.2.0.tgz#3e7366bc60f6a7b18853961ae6be1af80333528a"

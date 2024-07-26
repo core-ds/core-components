@@ -17,8 +17,6 @@
         { "path": "../tooltip" },
         { "path": "../icon-button" },
         { "path": "../typography" },
-        { "path": "../base-modal" },
-        { "path": "../icon-view" },
         { "path": "../button" }
     ]
 }
