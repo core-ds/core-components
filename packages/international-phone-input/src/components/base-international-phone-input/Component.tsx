@@ -35,7 +35,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 >(
     (
         {
-            clearableCountryCode: clearableCountryCodeFromProps = false,
+            clearableCountryCode: clearableCountryCodeFromProps = true,
             value,
             country: countryProp,
             filterFn,
