@@ -1,0 +1,1 @@
+export { getPlateTestIds } from '../utils';

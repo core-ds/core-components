@@ -5,6 +5,7 @@ import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon'
 import userEvent from '@testing-library/user-event';
 import { PlateDesktop as Plate, PlateDesktopProps as PlateProps } from './desktop';
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
+import { getPlateTestIds } from './utils';
 
 describe('Plate', () => {
     Object.defineProperty(window, 'matchMedia', {
@@ -43,9 +44,13 @@ describe('Plate', () => {
 
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<Plate dataTestId={dataTestId} />);
+        const { getByTestId } = render(<Plate dataTestId={dataTestId} title='Test title' />);
 
-        expect(getByTestId(dataTestId).tagName).toBe('DIV');
+        const testIds = getPlateTestIds(dataTestId);
+
+        expect(getByTestId(testIds.wrapper)).toBeInTheDocument();
+        expect(getByTestId(testIds.wrapper).tagName).toBe('DIV');
+        expect(getByTestId(testIds.title)).toBeInTheDocument();
     });
 
     it('should render buttons size=32, first view=secondary, others view=link', () => {
