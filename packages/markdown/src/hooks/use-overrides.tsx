@@ -48,6 +48,17 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {props.children}
                 </Title>
             ),
+            h4: (props) => (
+                <Title
+                    font={font}
+                    className={cn(styles.h4, 'h4')}
+                    tag='h4'
+                    view='xsmall'
+                    color='primary'
+                >
+                    {props.children}
+                </Title>
+            ),
             p: (props) => (
                 <Typography.Text className='p' tag='p' view='primary-medium' color='primary'>
                     {props.children}
