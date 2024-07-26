@@ -1,3 +1,35 @@
+## 47.6.0
+
+<sup><time>26.07.2024</time></sup>
+
+### [#1305](https://github.com/core-ds/core-components/pull/1305)
+
+#### Что изменилось
+- Добавление заголовка h4
+
+#### Влияние на компоненты
+- Минорное<br />`markdown`
+
+
+### [#1286](https://github.com/core-ds/core-components/pull/1286)
+
+#### Что изменилось
+- Добавлены data-test-id для внутренних элементов компонентов Plate и FormControl
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `plate`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
 ## 47.5.0
 
 <sup><time>19.07.2024</time></sup>
