@@ -1,4 +1,4 @@
-import React, { ElementType, MouseEvent, ReactNode } from 'react';
+import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
@@ -114,6 +114,11 @@ export type FileUploadItemProps = {
     multiline?: boolean;
 
     /**
+     * Указывает, где открыть скачиваемый документ
+     */
+    target?: HTMLAttributeAnchorTarget;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -139,6 +144,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     onRestore,
     disableButtons,
     multiline = false,
+    target,
     dataTestId,
 }) => {
     const handleDownload = (event: MouseEvent<HTMLElement>) => {
@@ -249,6 +255,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                     onClick={handleDownload}
                     disabled={disableButtons}
                     download={download}
+                    target={target}
                 />
             )}
 
