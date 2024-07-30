@@ -690,6 +690,11 @@ export type OptgroupProps = {
      * Возможность выбрать несколько значений
      */
     multiple?: boolean;
+
+    /**
+     * Контрол для древовидного списка вариантов выбора
+     */
+    expandControl?: ReactNode;
 };
 
 export type OptionProps = {

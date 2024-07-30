@@ -1,137 +1,173 @@
-## Стандартный вид компонента
-
-По умолчанию селект вызывает [Popover](?path=/docs/popover--docs) с вариантами выбора.
-На мобильных устройствах варианты выбора отображаются в [BottomSheet](?path=/docs/bottomsheet--docs).
-
-## Одиночный выбор
+## Анимация
 
 Список селекта с единичным выбором закрывается сразу после выбора одного из значений.
 
 ```jsx live mobileHeight={640}
 const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
+            {
+                key: '1',
+                label: "Группа 1",
+                options: [
+                    { key: "407088103003214636781", content: "Валютный счёт $ ··6781", value: "USD ··6781" },
+            { key: "4070181020000100593", content: "Рублёвый счёт ₽ ··0593", value: "RUB ··0593" },],
+            },
+            {
+                key: '2',
+                label: "Группа 2",
+                options: [
+                    { key: "407008100000000171123", content: "Рублёвый счёт ₽ ··7103", value: "RUB ··7103" },
+            { key: "4081781066800168421", content: "Рублёвый счёт ₽ ··0128", value: "RUB ··0128" },]
+            },
+            {
+                key: '3',
+                label: "Группа 3",
+                options: [
+                    { key: "40832810700000000124", content: "Валютный счёт € ··0212", value: "EUR ··0212" },]
+            },
+            {
+                key: '4',
+                label: "Группа 4",
+                options: [
+                    { key: "40708810300024636124", content: "Валютный счёт $ ··6782", value: "USD ··6781" },
+            { key: "40701810200000000124", content: "Рублёвый счёт ₽ ··0523", value: "RUB ··0593" },],
+            },
+            {
+                key: '5',
+                label: "Группа 5",
+                options: [
+                    { key: "407008100000000173213", content: "Рублёвый счёт ₽ ··7102", value: "RUB ··7103" },
+            { key: "4081781066800112328", content: "Рублёвый счёт ₽ ··0122", value: "RUB ··0128" },]
+            },
+            {
+                key: '6',
+                label: "Группа 6",
+                options: [
+                    { key: "40832810700000000442", content: "Валютный счёт € ··0211", value: "EUR ··0212" },]
+            },
+            {
+                key: '7',
+                label: "Группа 7",
+                options: [
+                    { key: "4070881030002465567781", content: "Валютный счёт $ ··6783", value: "USD ··6781" },
+            { key: "40701810200000000593", content: "Рублёвый счёт ₽ ··0590", value: "RUB ··0593" },],
+            },
+            {
+                key: '8',
+                label: "Группа 8",
+                options: [
+                    { key: "407008100000000765763", content: "Рублёвый счёт ₽ ··7100", value: "RUB ··7103" },
+            { key: "4081781066800168085689", content: "Рублёвый счёт ₽ ··0120", value: "RUB ··0128" },]
+            },
+            {
+                key: '9',
+                label: "Группа 9",
+                options: [
+                    { key: "408328107000000006575", content: "Валютный счёт € ··0219", value: "EUR ··0212" },]
+            },
+            {
+                key: '10',
+                label: "Группа 10",
+                options: [
+                    { key: "40708810300024636756567", content: "Валютный счёт $ ··6788", value: "USD ··6781" },
+            { key: "40701810200000000500860", content: "Рублёвый счёт ₽ ··0598", value: "RUB ··0593" },],
+            },
+            {
+                key: '11',
+                label: "Группа 11",
+                options: [
+                    { key: "40700810000000017102343", content: "Рублёвый счёт ₽ ··7108", value: "RUB ··7103" },
+            { key: "408178106680016801624", content: "Рублёвый счёт ₽ ··0127", value: "RUB ··0128" },]
+            },
+            {
+                key: '12',
+                label: "Группа 12",
+                options: [
+                    { key: "40832810700000000242552", content: "Валютный счёт € ··0245", value: "EUR ··0212" },]
+            },
+        ]
 
-render(() => {
-    return (
-        <div style={{ width: 320 }}>
-            <SelectDesktop
-                allowUnselect={true}
-                size={56}
-                options={OPTIONS}
-                placeholder='Выберите элемент'
-                label='Одиночный выбор'
-                Option={BaseOption}
-                block={true}
-            />
-        </div>
-    );
-});
-//MOBILE
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
+const TreeOptgroup = ({
+    label,
+    children,
+    search,
+    selectedItems = [],
+    setSelectedItems,
+    options = [],
+    expandControl,
+    size
+}) => {
+    const multiple = true;
 
-render(() => {
-    const [selected, setSelected] = React.useState();
-
-    const handleChange = ({ selected }) => {
-        setSelected(selected);
+    const handleCheckboxChange = () => {
+        if (selectedItems.length === options.length) {
+            setSelectedItems([]);
+        } else {
+            setSelectedItems(options);
+        }
     };
 
-    return (
-        <div style={{ width: '100%' }}>
-            <SelectMobile
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Выберите элемент'
-                label='Одиночный выбор'
-                Option={BaseOption}
-                block={true}
-                selected={selected}
-                onChange={handleChange}
-            />
+
+   return (
+        <div style={{height: size, display: 'flex', alignItems: 'center'}}>
+            { multiple ? (
+        <React.Fragment>
+                {expandControl}
+                <Checkbox
+                    label={ (
+                        <Typography.Text view="primary-medium">
+                            { label }
+                        </Typography.Text>
+                    ) }
+                    checked={ selectedItems.length === options.length  && selectedItems.length > 0 }
+                    onChange={ handleCheckboxChange }
+                    size={24}
+                    indeterminate={ selectedItems.length > 0 && selectedItems.length < options.length }
+                />
+
+        </React.Fragment>
+            )
+                : (
+                    <Typography.Text view="primary-medium">
+                        { label }
+                    </Typography.Text>
+                ) }
         </div>
     );
-});
-```
+};
 
-## Множественный выбор
-
-В мультиселекте допустимы два паттерна:
-
-1. С подтверждением — изменения будут приняты только после нажатия на кнопку подтверждения.
-2. Без подтверждения — изменения принимаются в момент выбора.
-
-<br />
-На мобильных устройствах рекомендуется использовать только паттерн с подтверждением выбора.
-
-```jsx live mobileHeight={640}
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
+function Example () {
     const [selectedFirst, setSelectedFirst] = React.useState([]);
-    const [selectedSecond, setSelectedSecond] = React.useState([]);
+
+
 
     return (
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
-                size={56}
                 placeholder='Выберите элементы'
                 label='Множественный выбор'
                 Option={BaseOption}
                 multiple={true}
+                Optgroup={TreeOptgroup}
                 block={true}
+                // visibleOptions={12}
                 {...useSelectWithApply({
                     options: OPTIONS,
                     selected: selectedFirst,
+                    showSearch: true,
+                    searchProps: {filterGroup: true},
+                    OptionsList: TreeOptionsList,
                     onChange: ({ selectedMultiple }) => {
                         setSelectedFirst(selectedMultiple.map((option) => option.key));
                     },
                 })}
             />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <SelectDesktop
-                selected={selectedSecond}
-                allowUnselect={true}
-                size={56}
-                options={OPTIONS}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                multiple={true}
-                block={true}
-                onChange={({ selectedMultiple }) => {
-                    setSelectedSecond(selectedMultiple.map((option) => option.key));
-                }}
-            />
         </div>
     );
-});
+}
+render(
+    <Example />
+)
 //MOBILE
 const OPTIONS = [
     { key: '1', content: 'Neptunium' },
@@ -144,82 +180,6 @@ const OPTIONS = [
     { key: '8', content: 'Fermium' },
 ];
 
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState([]);
-
-    return (
-        <div style={{ width: '100%' }}>
-            <SelectMobile
-                multiple={true}
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                block={true}
-                selected={selectedFirst}
-                onChange={({ selectedMultiple }) => {
-                    setSelectedFirst(selectedMultiple.map((option) => option.key));
-                }}
-            />
-        </div>
-    );
-});
-```
-
-## Группировка
-
-Пункты списка можно группировать.
-
-```jsx live mobileHeight={640}
-const OPTIONS = [
-    {
-        label: 'nonmetals',
-        options: [
-            { key: '1', content: 'Hydrogen' },
-            { key: '2', content: 'Helium' },
-        ],
-    },
-    {
-        label: 'metals',
-        options: [
-            { key: '3', content: 'Aurum' },
-            { key: '4', content: 'Platinum' },
-        ],
-    },
-];
-render(() => {
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <SelectDesktop
-                allowUnselect={true}
-                size={56}
-                options={OPTIONS}
-                placeholder='Выберите элемент'
-                label='Сгруппированный список'
-                Option={BaseOption}
-                block={true}
-            />
-        </div>
-    );
-});
-//MOBILE
-const OPTIONS = [
-    {
-        label: 'nonmetals',
-        options: [
-            { key: '1', content: 'Hydrogen' },
-            { key: '2', content: 'Helium' },
-        ],
-    },
-    {
-        label: 'metals',
-        options: [
-            { key: '3', content: 'Aurum' },
-            { key: '4', content: 'Platinum' },
-        ],
-    },
-];
 render(() => {
     const [selected, setSelected] = React.useState();
 
@@ -228,1196 +188,277 @@ render(() => {
     };
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: '100%' }}>
             <SelectMobile
                 allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Выберите элемент'
-                label='Сгруппированный список'
-                Option={BaseOption}
-                selected={selected}
-                onChange={handleChange}
-                block={true}
-            />
-        </div>
-    );
-});
-```
-
-## Поиск среди элементов списка
-
-Если список содержит большое количество пунктов, можно добавить в шапку дропдауна поиск `showSearch`, с помощью которого пользователь сможет отфильтровать элементы списка. Можно искать по названиям групп пунктов c помощью `searchProps.filterGroup`.
-
-```jsx live mobileHeight={640}
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-const GROUP_OPTIONS = [
-    {
-        label: 'nonmetals',
-        options: [
-            { key: '1', content: 'Argon' },
-            { key: '2', content: 'Helium' },
-        ],
-    },
-    {
-        label: 'metals',
-        options: [
-            { key: '3', content: 'Aurum' },
-            { key: '4', content: 'Platinum' },
-        ],
-    },
-];
-
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState([]);
-    const [selectedSecond, setSelectedSecond] = React.useState([]);
-
-    return (
-        <div style={{ width: 320 }}>
-            <SelectDesktop
-                showSearch={true}
-                selected={selectedFirst}
-                size={56}
                 options={OPTIONS}
                 placeholder='Выберите элемент'
                 label='Одиночный выбор'
                 Option={BaseOption}
                 block={true}
-                onChange={({ selected }) => {
-                    setSelectedFirst(selected);
-                }}
-            />
-            <Gap size='m' />
-            <SelectDesktop
-                allowUnselect={true}
-                size={56}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                multiple={true}
-                block={true}
-                {...useSelectWithApply({
-                    showSearch: true,
-                    options: OPTIONS,
-                    selected: selectedSecond,
-                    onChange: ({ selectedMultiple }) => {
-                        setSelectedSecond(selectedMultiple.map((option) => option.key));
-                    },
-                })}
-            />
-            <Gap size='m' />
-            <SelectDesktop
-                allowUnselect={true}
-                size={56}
-                options={GROUP_OPTIONS}
-                placeholder='Выберите элемент'
-                label='Сгруппированный список'
-                Option={BaseOption}
-                block={true}
-                showSearch={true}
-                searchProps={{ filterGroup: true }}
+                selected={selected}
+                onChange={handleChange}
             />
         </div>
     );
 });
-//MOBILE
+```
+
+## Accordion
+
+Список селекта с единичным выбором закрывается сразу после выбора одного из значений.
+
+```jsx live mobileHeight={640}
 const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-const GROUP_OPTIONS = [
     {
-        label: 'nonmetals',
+        label: 'Группа 1',
         options: [
-            { key: '1', content: 'Argon' },
-            { key: '2', content: 'Helium' },
+            {
+                key: '407088103003214636781',
+                content: 'Валютный счёт $ ··6781',
+                value: 'USD ··6781',
+            },
+            { key: '4070181020000100593', content: 'Рублёвый счёт ₽ ··0593', value: 'RUB ··0593' },
         ],
     },
     {
-        label: 'metals',
+        label: 'Группа 2',
         options: [
-            { key: '3', content: 'Aurum' },
-            { key: '4', content: 'Platinum' },
+            {
+                key: '407008100000000171123',
+                content: 'Рублёвый счёт ₽ ··7103',
+                value: 'RUB ··7103',
+            },
+            { key: '4081781066800168421', content: 'Рублёвый счёт ₽ ··0128', value: 'RUB ··0128' },
+        ],
+    },
+    {
+        label: 'Группа 3',
+        options: [
+            { key: '40832810700000000124', content: 'Валютный счёт € ··0212', value: 'EUR ··0212' },
+        ],
+    },
+    {
+        label: 'Группа 4',
+        options: [
+            { key: '40708810300024636124', content: 'Валютный счёт $ ··6782', value: 'USD ··6781' },
+            { key: '40701810200000000124', content: 'Рублёвый счёт ₽ ··0523', value: 'RUB ··0593' },
+        ],
+    },
+    {
+        label: 'Группа 5',
+        options: [
+            {
+                key: '407008100000000173213',
+                content: 'Рублёвый счёт ₽ ··7102',
+                value: 'RUB ··7103',
+            },
+            { key: '4081781066800112328', content: 'Рублёвый счёт ₽ ··0122', value: 'RUB ··0128' },
+        ],
+    },
+    {
+        label: 'Группа 6',
+        options: [
+            { key: '40832810700000000442', content: 'Валютный счёт € ··0211', value: 'EUR ··0212' },
+        ],
+    },
+    {
+        label: 'Группа 7',
+        options: [
+            {
+                key: '4070881030002465567781',
+                content: 'Валютный счёт $ ··6783',
+                value: 'USD ··6781',
+            },
+            { key: '40701810200000000593', content: 'Рублёвый счёт ₽ ··0590', value: 'RUB ··0593' },
+        ],
+    },
+    {
+        label: 'Группа 8',
+        options: [
+            {
+                key: '407008100000000765763',
+                content: 'Рублёвый счёт ₽ ··7100',
+                value: 'RUB ··7103',
+            },
+            {
+                key: '4081781066800168085689',
+                content: 'Рублёвый счёт ₽ ··0120',
+                value: 'RUB ··0128',
+            },
+        ],
+    },
+    {
+        label: 'Группа 9',
+        options: [
+            {
+                key: '408328107000000006575',
+                content: 'Валютный счёт € ··0219',
+                value: 'EUR ··0212',
+            },
+        ],
+    },
+    {
+        label: 'Группа 10',
+        options: [
+            {
+                key: '40708810300024636756567',
+                content: 'Валютный счёт $ ··6788',
+                value: 'USD ··6781',
+            },
+            {
+                key: '40701810200000000500860',
+                content: 'Рублёвый счёт ₽ ··0598',
+                value: 'RUB ··0593',
+            },
+        ],
+    },
+    {
+        label: 'Группа 11',
+        options: [
+            {
+                key: '40700810000000017102343',
+                content: 'Рублёвый счёт ₽ ··7108',
+                value: 'RUB ··7103',
+            },
+            {
+                key: '408178106680016801624',
+                content: 'Рублёвый счёт ₽ ··0127',
+                value: 'RUB ··0128',
+            },
+        ],
+    },
+    {
+        label: 'Группа 12',
+        options: [
+            {
+                key: '40832810700000000242552',
+                content: 'Валютный счёт € ··0245',
+                value: 'EUR ··0212',
+            },
         ],
     },
 ];
-
-render(() => {
-    const [selected, setSelected] = React.useState([]);
-
-    return (
-        <div style={{ width: '100%' }}>
-            <SelectMobile
-                showSearch={true}
-                multiple={true}
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                Option={BaseOption}
-                block={true}
-                selected={selected}
-                onChange={({ selectedMultiple }) => {
-                    setSelected(selectedMultiple.map((option) => option.key));
-                }}
-            />
-            <Gap size='m' />
-            <SelectMobile
-                allowUnselect={true}
-                size={56}
-                options={GROUP_OPTIONS}
-                placeholder='Выберите элемент'
-                label='Сгруппированный список'
-                Option={BaseOption}
-                block={true}
-                showSearch={true}
-                searchProps={{ filterGroup: true }}
-            />
-        </div>
-    );
-});
-```
-
-## Подписи у пунктов
-
-Элементы списка могут содержать лейбл или подпись. В данных примерах подпись, расположенная над значением,
-замещает лейбл селекта, а подпись, расположенная под значением, не влияет на отображение селекта.
-Подобное поведение является рекомендуемым и может потребовать кастомизации элементов выпадающего списка и самого поля селекта.
-
-```jsx live mobileHeight={640}
-const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {
-    return (
-        <GenericWrapper alignItems='center' padding={padding}>
-            <GenericWrapper column>
-                <Typography.Text view='component-primary'>
-                    <Amount
-                        value={amount}
-                        minority={100}
-                        currency='RUR'
-                        view='withZeroMinorPart'
-                        transparentMinor={false}
-                    />
-                </Typography.Text>
-                <Typography.Text color='secondary' view='primary-small'>
-                    {text}
-                </Typography.Text>
-            </GenericWrapper>
-        </GenericWrapper>
-    );
-};
-
-const renderOption = ({ amount, padding, text }) => (
-    <GenericWrapper alignItems='center' padding={padding}>
-        <GenericWrapper column>
-            <Typography.Text color='secondary' view='primary-small'>
-                {text}
-            </Typography.Text>
-            <Typography.Text view='component-primary'>
-                <Amount
-                    value={amount}
-                    minority={100}
-                    currency='RUR'
-                    view='withZeroMinorPart'
-                    transparentMinor={false}
+const GroupedOption2 = ({
+    label,
+    children,
+    search,
+    selectedItems = [],
+    setSelectedItems,
+    options = [],
+    size,
+}) => {
+    const multiple = true;
+    const [open, setOpen] = React.useState(false);
+    React.useEffect(() => {
+        if (search === undefined) {
+            return;
+        }
+        if (!search) {
+            setOpen(false);
+        }
+        if (search) {
+            setOpen(true);
+        }
+    }, [search]);
+    const handleExpandChange = () => {
+        setOpen(!open);
+    };
+    const handleCheckboxChange = () => {
+        if (selectedItems.length === options.length) {
+            setSelectedItems([]);
+        } else {
+            setSelectedItems(options);
+        }
+    };
+    const header = (
+        <div style={{height: size, display: 'flex', alignItems: 'center'}}>
+            {multiple ? (
+                <Checkbox
+                    label={<Typography.Text view='primary-medium'>{label}</Typography.Text>}
+                    checked={selectedItems.length === options.length && selectedItems.length > 0}
+                    onChange={handleCheckboxChange}
+                    size={24}
+                    indeterminate={
+                        selectedItems.length > 0 && selectedItems.length < options.length
+                    }
                 />
-            </Typography.Text>
-        </GenericWrapper>
-    </GenericWrapper>
-);
-
-const DATA = [
-    {
-        amount: 3405116,
-        text: 'Зарплатный счёт',
-    },
-    {
-        amount: 600024,
-        text: 'Накопительный счёт',
-    },
-];
-
-const OPTIONS = DATA.map(({ amount, text }, idx) => ({
-    key: idx,
-    content: renderOption({ text, amount, padding: { top: 'xs', bottom: 'xs', left: 's' } }),
-}));
-
-const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
-    key: idx,
-    content: renderOptionWithAmountOnTop({
-        text,
-        amount,
-        padding: { top: 'xs', bottom: 'xs', left: 's' },
-    }),
-}));
-
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState([]);
-    const [selectedSecond, setSelectedSecond] = React.useState([]);
-
-    return (
-        <div style={{ width: 320 }}>
-            <SelectDesktop
-                allowUnselect={true}
-                size={56}
-                placeholder='Выберите счёт'
-                label='Счёт'
-                Option={BaseOption}
-                block={true}
-                selected={selectedFirst}
-                options={OPTIONS_WITH_AMOUNT_ON_TOP}
-                valueRenderer={({ selected }) => {
-                    if (!selected) return '';
-
-                    const { amount } = DATA[selected.key];
-
-                    return (
-                        <Amount
-                            value={amount}
-                            minority={100}
-                            currency='RUR'
-                            view='withZeroMinorPart'
-                            transparentMinor={false}
-                        />
-                    );
-                }}
-                onChange={({ selected }) => setSelectedFirst(selected)}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <SelectDesktop
-                selected={selectedSecond}
-                allowUnselect={true}
-                size={56}
-                options={OPTIONS}
-                placeholder='Выберите счёт'
-                Option={BaseOption}
-                block={true}
-                valueRenderer={({ selected }) => {
-                    if (!selected) return '';
-
-                    const { text, amount } = DATA[selected.key];
-
-                    return renderOption({
-                        text,
-                        amount,
-                        padding: { top: 'xs', bottom: 'xs' },
-                    });
-                }}
-                onChange={({ selected }) => {
-                    setSelectedSecond(selected);
-                }}
-            />
+            ) : (
+                <Typography.Text view='primary-medium'>{label}</Typography.Text>
+            )}
         </div>
     );
-});
-//MOBILE
-const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {
-    return (
-        <GenericWrapper alignItems='center' padding={padding}>
-            <GenericWrapper column>
-                <Typography.Text view='component-primary'>
-                    <Amount
-                        value={amount}
-                        minority={100}
-                        currency='RUR'
-                        view='withZeroMinorPart'
-                        transparentMinor={false}
-                    />
-                </Typography.Text>
-                <Typography.Text color='secondary' view='primary-small'>
-                    {text}
-                </Typography.Text>
-            </GenericWrapper>
-        </GenericWrapper>
-    );
-};
-
-const renderOption = ({ amount, padding, text }) => (
-    <GenericWrapper alignItems='center' padding={padding}>
-        <GenericWrapper column>
-            <Typography.Text color='secondary' view='primary-small'>
-                {text}
-            </Typography.Text>
-            <Typography.Text view='component-primary'>
-                <Amount
-                    value={amount}
-                    minority={100}
-                    currency='RUR'
-                    view='withZeroMinorPart'
-                    transparentMinor={false}
-                />
-            </Typography.Text>
-        </GenericWrapper>
-    </GenericWrapper>
-);
-
-const DATA = [
-    {
-        amount: 3405116,
-        text: 'Зарплатный счёт',
-    },
-    {
-        amount: 600024,
-        text: 'Накопительный счёт',
-    },
-];
-
-const OPTIONS = DATA.map(({ amount, text }, idx) => ({
-    key: idx,
-    content: renderOption({ text, amount, padding: { top: 's', bottom: 's', left: 'm' } }),
-}));
-
-const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
-    key: idx,
-    content: renderOptionWithAmountOnTop({
-        text,
-        amount,
-        padding: { top: 's', bottom: 's', left: 'm' },
-    }),
-}));
-
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState([]);
-    const [selectedSecond, setSelectedSecond] = React.useState([]);
 
     return (
-        <div style={{ width: '100%' }}>
-            <SelectMobile
-                allowUnselect={true}
-                options={OPTIONS_WITH_AMOUNT_ON_TOP}
-                placeholder='Выберите счёт'
-                label='Счёт'
-                Option={BaseOption}
-                block={true}
-                selected={selectedFirst}
-                onChange={({ selected }) => setSelectedFirst(selected)}
-                valueRenderer={({ selected }) => {
-                    if (!selected) return '';
-
-                    const { amount } = DATA[selected.key];
-
-                    return (
-                        <Amount
-                            value={amount}
-                            minority={100}
-                            currency='RUR'
-                            view='withZeroMinorPart'
-                            transparentMinor={false}
-                        />
-                    );
-                }}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <SelectMobile
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Выберите счёт'
-                Option={BaseOption}
-                block={true}
-                selected={selectedSecond}
-                onChange={({ selected }) => setSelectedSecond(selected)}
-                valueRenderer={({ selected }) => {
-                    if (!selected) return '';
-
-                    const { text, amount } = DATA[selected.key];
-
-                    return renderOption({
-                        text,
-                        amount,
-                        padding: { top: 'xs', bottom: 'xs' },
-                    });
-                }}
-            />
-        </div>
-    );
-});
-```
-
-## Другие примеры кастомизации
-
-Примеры ниже содержат кастомную вёрстку пунктов выпадающего списка и кастомную шапку выпадающего списка.
-
-```jsx live mobileHeight={640}
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
-
-    const [selected, setSelected] = React.useState([]);
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map((option) => option.key));
-    };
-
-    const selectWithHeader = (
-        <SelectDesktop
-            allowUnselect={true}
-            placeholder='Выберите элементы'
-            label='Множественный выбор'
-            block={true}
-            optionsListWidth='field'
-            Option={BaseOption}
-            size={56}
-            {...useSelectWithApply({
-                options,
-                selected,
-                showHeaderWithSelectAll: true,
-                onChange: handleChange,
-            })}
-        />
-    );
-
-    const renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {
-        return (
-            <GenericWrapper alignItems='center' padding={padding}>
-                <GenericWrapper>
-                    <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
-                </GenericWrapper>
-                <Gap size='m' direction='horizontal' />
-                <GenericWrapper>
-                    <GenericWrapper column>
-                        <Typography.Text color='secondary' view='primary-small'>
-                            {text}
-                        </Typography.Text>
-                        <Gap size='3xs' />
-                        <Typography.Text>
-                            <Amount
-                                value={amount}
-                                minority={100}
-                                currency='RUR'
-                                view='withZeroMinorPart'
-                                transparentMinor={true}
-                            />
-                        </Typography.Text>
-                    </GenericWrapper>
-                </GenericWrapper>
-            </GenericWrapper>
-        );
-    };
-
-    const renderSelected = ({ selected }) => {
-        return selected
-            ? renderOption({
-                  ...selected.value,
-                  padding: undefined,
-                  iconSize: 40,
-              })
-            : undefined;
-    };
-
-    const data = [
-        {
-            key: 'Account1',
-            value: {
-                text: 'Зарплатный счёт',
-                amount: 3405161,
-                icon: <StarMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
-            },
-        },
-        {
-            key: 'Account2',
-            value: {
-                text: 'Накопительный счёт',
-                amount: 6000024,
-                icon: <SafeBoxMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
-            },
-        },
-    ];
-
-    const pureCellOptions = data.map((item) => ({
-        ...item,
-        content: renderOption(item.value),
-    }));
-
-    const selectWithPureCell = (
-        <SelectDesktop
-            allowUnselect={true}
-            placeholder='Выберите счёт'
-            options={pureCellOptions}
-            Option={BaseOption}
-            size={56}
-            valueRenderer={renderSelected}
-            block={true}
-        />
-    );
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            {selectWithHeader}
-            <div style={{ height: 'var(--gap-m)' }} />
-            {selectWithPureCell}
-        </div>
-    );
-});
-//MOBILE
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState();
-    const [selected, setSelected] = React.useState();
-
-    const handleChange = ({ selected }) => {
-        setSelected(selected);
-    };
-
-    const renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {
-        return (
-            <GenericWrapper alignItems='center' padding={padding}>
-                <GenericWrapper>
-                    <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
-                </GenericWrapper>
-                <Gap size='m' direction='horizontal' />
-                <GenericWrapper>
-                    <GenericWrapper column>
-                        <Typography.Text color='secondary' view='primary-small'>
-                            {text}
-                        </Typography.Text>
-                        <Gap size='3xs' />
-                        <Typography.Text>
-                            <Amount
-                                value={amount}
-                                minority={100}
-                                currency='RUR'
-                                view='withZeroMinorPart'
-                                transparentMinor={true}
-                            />
-                        </Typography.Text>
-                    </GenericWrapper>
-                </GenericWrapper>
-            </GenericWrapper>
-        );
-    };
-
-    const renderSelected = ({ selected }) => {
-        return selected
-            ? renderOption({
-                  ...selected.value,
-                  padding: undefined,
-                  iconSize: 40,
-              })
-            : undefined;
-    };
-
-    const data = [
-        {
-            key: 'Account1',
-            value: {
-                text: 'Зарплатный счёт',
-                amount: 3405161,
-                icon: <StarMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
-            },
-        },
-        {
-            key: 'Account2',
-            value: {
-                text: 'Накопительный счёт',
-                amount: 6000024,
-                icon: <SafeBoxMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
-            },
-        },
-    ];
-
-    const pureCellOptions = data.map((item) => ({
-        ...item,
-        content: renderOption(item.value),
-    }));
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <SelectMobile
-                selected={selectedFirst}
-                allowUnselect={true}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                block={true}
-                optionsListWidth='field'
-                Option={BaseOption}
-                size={56}
-                options={OPTIONS}
-                multiple={true}
-                showHeaderWithSelectAll={true}
-                onChange={({ selectedMultiple }) =>
-                    setSelectedFirst(selectedMultiple.map((option) => option.key))
-                }
-            />
-            <Gap size='m' />
-            <SelectMobile
-                allowUnselect={true}
-                placeholder='Выберите счёт'
-                options={pureCellOptions}
-                Option={BaseOption}
-                size={56}
-                valueRenderer={renderSelected}
-                block={true}
-                selected={selected}
-                onChange={handleChange}
-            />
-        </div>
-    );
-});
-```
-
-## Формат отображения списков
-
-В редких кейсах может потребоваться использовать селект с нативным выпадающим списком или
-открывать его в [Modal](?path=/docs/modal--docs)
-вместо [BottomSheet](?path=/docs/bottomsheet--docs).
-
-```jsx live mobileHeight={640}
-const groups = [
-    {
-        label: 'Группа №1',
-        options: [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-        ],
-    },
-    {
-        label: 'Группа №2',
-        options: [
-            { key: '3', content: 'Berkelium' },
-            { key: '4', content: 'Californium' },
-        ],
-    },
-];
-
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selectedNative, setSelectedNative] = React.useState();
-    const [selectedModal, setSelectedModal] = React.useState();
-
-    const handleChangeNative = ({ selected }) => {
-        setSelectedNative(selected);
-    };
-
-    const handleChangeModal = ({ selected }) => {
-        setSelectedModal(selected);
-    };
-
-    const isMobile = document.body.clientWidth < 450;
-
-    const MobileSelect = isMobile ? SelectModalMobile : Select;
-
-    return (
-        <div style={{ width: isMobile ? '100%' : 320 }}>
-            <SelectDesktop
-                allowUnselect={true}
-                size={56}
-                options={groups}
-                placeholder='Выберите элемент'
-                label='Одиночный выбор'
-                nativeSelect={true}
-                block={true}
-                selected={selectedNative}
-                onChange={handleChangeNative}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <MobileSelect
-                size={56}
-                allowUnselect={true}
-                options={options}
-                placeholder='Выберите элемент'
-                label='Одиночный выбор'
-                block={true}
-                Option={BaseOption}
-                selected={selectedModal}
-                onChange={handleChangeModal}
-            />
-        </div>
-    );
-});
-```
-
-## Длинные списки и ленивая загрузка
-
-Для рендера большого количества данных используйте `OptionsList={VirtualOptionsList}`. На время подгрузки можно использовать скелетон.
-
-```jsx live mobileHeight={640}
-render(() => {
-    const optionsForVirtualList = React.useMemo(
-        () =>
-            new Array(1000).fill().map((_, index) => {
-                const variableSizeText = `Вы восхитительны!`;
-
-                return {
-                    key: index.toString(),
-                    content: `${index}. ${variableSizeText}`,
-                };
-            }),
-        [],
-    );
-
-    const [loading, setLoading] = React.useState(true);
-
-    const loadingProps = useSelectWithLoading({
-        loading,
-        Option: (props) => (
-            <BaseOption
-                {...props}
-                option={{
-                    ...props.option,
-                    content: <div style={{ padding: 'var(--gap-s)' }}>{props.option.content}</div>,
-                }}
-            />
-        ),
-    });
-
-    const handleOpen = () => {
-        setLoading(true);
-        setTimeout(() => setLoading(false), 2000);
-    };
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <SelectDesktop
-                onOpen={handleOpen}
-                size={56}
-                block={true}
-                placeholder='Выберите один из тысячи'
-                label='Одиночный выбор'
-                options={optionsForVirtualList}
-                OptionsList={VirtualOptionsList}
-                circularNavigation={true}
-                allowUnselect={true}
-                optionsListWidth='field'
-                Option={BaseOption}
-                {...loadingProps}
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [selected, setSelected] = React.useState();
-
-    const handleChange = ({ selected }) => {
-        setSelected(selected);
-    };
-
-    const optionsForVirtualList = React.useMemo(
-        () =>
-            new Array(1000).fill().map((_, index) => {
-                const variableSizeText = `Вы восхитительны!`;
-
-                return {
-                    key: index.toString(),
-                    content: `${index}. ${variableSizeText}`,
-                };
-            }),
-        [],
-    );
-
-    const [loading, setLoading] = React.useState(true);
-
-    const loadingProps = useSelectWithLoading({
-        visibleOptions: 15,
-        loading,
-        Option: (props) => (
-            <BaseOption
-                {...props}
-                option={{
-                    ...props.option,
-                    content: (
-                        <div style={{ padding: 'var(--gap-m) var(--gap-s)' }}>
-                            {props.option.content}
-                        </div>
-                    ),
-                }}
-            />
-        ),
-    });
-
-    const handleOpen = () => {
-        setLoading(true);
-        setTimeout(() => setLoading(false), 2000);
-    };
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <style>{`.hideScrollbar {overflow: hidden}`}</style>
-            <SelectMobile
-                bottomSheetProps={loading ? { containerClassName: 'hideScrollbar' } : undefined}
-                size={56}
-                onOpen={handleOpen}
-                block={true}
-                placeholder='Выберите один из тысячи'
-                label='Одиночный выбор'
-                options={optionsForVirtualList}
-                OptionsList={VirtualOptionsList}
-                circularNavigation={true}
-                allowUnselect={true}
-                Option={BaseOption}
-                selected={selected}
-                onChange={handleChange}
-                {...loadingProps}
-            />
-        </div>
-    );
-});
-```
-
-### Использование в форме
-
-Чтобы использовать селект внутри формы — следует указать атрибут `name`.
-
-```jsx live mobileHeight={640}
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
-
-    const [serialized, setSerialized] = React.useState();
-    const [selected, setSelected] = React.useState([]);
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-
-        const form = event.target;
-        const formData = new FormData(form);
-
-        setSerialized(new URLSearchParams(formData).toString());
-    };
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map((option) => option.key));
-    };
-
-    return (
-        <form onSubmit={onSubmit}>
-            <Space>
-                <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                    <SelectDesktop
-                        allowUnselect={true}
-                        placeholder='Выберите элементы'
-                        label='Множественный выбор'
-                        block={true}
-                        name='select'
-                        optionsListWidth='field'
-                        Option={BaseOption}
-                        size={56}
-                        selected={selected}
-                        {...useSelectWithApply({
-                            options,
-                            selected,
-                            onChange: handleChange,
-                        })}
-                    />
-                </div>
-
-                <Button size={40} type='submit'>
-                    Отправить
-                </Button>
-
-                <div>serialized: {serialized}</div>
-            </Space>
-        </form>
-    );
-});
-//MOBILE
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
-
-    const [serialized, setSerialized] = React.useState();
-    const [selected, setSelected] = React.useState([]);
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-
-        const form = event.target;
-        const formData = new FormData(form);
-
-        setSerialized(new URLSearchParams(formData).toString());
-    };
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map((option) => option.key));
-    };
-
-    return (
-        <form onSubmit={onSubmit}>
-            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                <SelectMobile
-                    allowUnselect={true}
-                    size={56}
-                    block={true}
-                    options={options}
-                    placeholder='Выберите элемент'
-                    label='Множественный выбор'
-                    name='select'
-                    multiple={true}
-                    onChange={handleChange}
-                    selected={selected}
-                    Option={BaseOption}
-                />
-            </div>
-
-            <Gap size='m' />
-
-            <Button size={40} type='submit'>
-                Отправить
-            </Button>
-
-            <Gap size='m' />
-
-            <div>serialized: {serialized}</div>
-        </form>
-    );
-});
-```
-
-## OptionShape вместо ключей для выбранных пунктов
-
-Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
-В этом случае просто передавайте их через свойство `selected`.
-
-```jsx live mobileHeight={640}
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
-
-    const [selected, setSelected] = React.useState([]);
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple);
-    };
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <SelectDesktop
-                allowUnselect={true}
-                placeholder='Выберите элементы'
-                label='Множественный выбор'
-                block={true}
-                name='select'
-                optionsListWidth='field'
-                Option={BaseOption}
-                size={56}
-                selected={selected}
-                {...useSelectWithApply({
-                    options,
-                    selected,
-                    onChange: handleChange,
-                })}
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
-
-    const [selected, setSelected] = React.useState([]);
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple);
-    };
-
-    return (
-        <div style={{ width: '100%' }}>
-            <SelectMobile
-                allowUnselect={true}
-                size={56}
-                block={true}
-                options={options}
-                placeholder='Выберите элемент'
-                label='Множественный выбор'
-                name='select'
-                multiple={true}
-                onChange={handleChange}
-                selected={selected}
-                Option={BaseOption}
-            />
-        </div>
-    );
-});
-```
-
-## Другие селекты
-
-На основе селекта построены такие компоненты как [PickerButton](?path=/docs/pickerbutton--docs) и
-[InputAutocomplete](?path=/docs/inputautocomplete--docs).
-
-## Морфология поля ввода
-
-Компонент является оберткой над [FormControl](?path=/docs/formcontrol--docs), поэтому наследует все доступные для него настройки.
-
-## Строение списка
-
-Список состоит из трех частей: `Header`, `Body`, `Footer`. Каждая часть содержит слот в который можно передать кастомный контент.
-
-```jsx live
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-        ],
-        [],
-    );
-
-    return (
-        <div
-            style={{
-                width: document.body.clientWidth < 450 ? '100%' : 320,
-                paddingTop: 'var(--select-options-list-top-padding)',
-                paddingBottom: 'var(--select-options-list-bottom-padding)',
-                boxShadow: 'var(--select-options-list-box-shadow)',
-                borderRadius: 'var(--select-options-list-border-radius)',
-                background: 'var(--select-option-background)',
-                overflow: 'hidden',
-            }}
+        <Accordion
+            controlPosition='start'
+            expanded={open}
+            onExpandedChange={handleExpandChange}
+            header={header}
         >
-            <OptionsList
+            {children}
+        </Accordion>
+    );
+};
+function Example() {
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
+    return (
+        <div style={{ width: 320 }}>
+            <SelectDesktop
+                allowUnselect={true}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
                 Option={BaseOption}
-                getOptionProps={(option, index) => ({
-                    index,
-                    option,
-                    innerProps: {
-                        style: {
-                            background: 'var(--color-light-status-muted-positive)',
-                            borderBottom:
-                                index + 1 !== options.length
-                                    ? '1px solid var(--color-light-status-info)'
-                                    : 'none',
-                        },
+                multiple={true}
+                Optgroup={GroupedOption2}
+                block={true}
+                limitDynamicOptionGroupSize={true}
+                {...useSelectWithApply({
+                    options: OPTIONS,
+                    selected: selectedFirst,
+                    showSearch: true,
+                    OptionsList: OptionsList,
+                    onChange: ({ selectedMultiple }) => {
+                        setSelectedFirst(selectedMultiple.map((option) => option.key));
                     },
                 })}
-                options={options}
-                header={
-                    <div
-                        style={{
-                            height: 12,
-                            background: 'var(--color-light-status-muted-negative)',
-                        }}
-                    ></div>
-                }
-                footer={
-                    <div
-                        style={{
-                            height: 12,
-                            background: 'var(--color-light-status-muted-negative)',
-                        }}
-                    ></div>
-                }
+            />
+        </div>
+    );
+}
+render(<Example />);
+//MOBILE
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <SelectMobile
+                allowUnselect={true}
+                options={OPTIONS}
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
+                Option={BaseOption}
+                block={true}
+                selected={selected}
+                onChange={handleChange}
             />
         </div>
     );
 });
 ```
-
-## Ширина списка
-
-По умолчанию ширину выпадающего меню задает контент пунктов.
-Если контент слишком длинный, с помощью свойства `optionsListWidth='field'` можно установить ширину списка равной ширине инициирующего контрола,
-а лишний контент перенесётся или обрежется. При необходимости можно задать кастомную ширину списка.
-
-## Высота списка
-
-Максимальную высоту списка можно настраивать с помощью свойства `visibleOptions`. По умолчанию она равна 5,5 ячейкам (`visibleOptions=5`).
-Если ячеек на единицу больше переданного параметра, то они отобразятся без скролла.
-
-## Позиционирование списка
-
-По умолчанию список располагается под вызвавшим его контролом.
-При необходимости положение выпадающего списка можно изменить с помощью свойства `popoverPosition`.
-
-## Строение ячейки
-
-Для кастомных списков можно использовать ячейку [PureCell](?path=/docs/purecell--docs) с расширением в виде контрола.
-Благодаря гибкой настройке такой ячейки можно получить необходимую конфигурацию элементов списка.

@@ -1,18 +1,20 @@
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { isClient } from '@alfalab/core-components-shared';
+import { fnUtils, isClient } from '@alfalab/core-components-shared';
+import ChevronDownMIcon from '@alfalab/icons-glyph/ChevronDownMIcon';
 
 import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
-import styles from '../virtual-options-list/index.module.css';
+import virtualOptionsListStyles from '../virtual-options-list/index.module.css';
+import styles from './index.module.css';
 
 export const TreeOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
@@ -52,7 +54,7 @@ export const TreeOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     ? options
                           .filter(isGroup)
                           .map(({ key }) => key)
-                          .filter((key): key is string => !!key)
+                          .filter((key) => !fnUtils.isNil(key))
                     : [],
             );
         }, [options, search]);
@@ -159,91 +161,175 @@ export const TreeOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         const resetHighlightedIndex = () => setHighlightedIndex?.(-1);
 
-        const renderList = () =>
-            rowVirtualizer.virtualItems.map((virtualRow) => {
-                const option = allFlatOptions[virtualRow.index];
-                const renderGroup = (groupOption: GroupShape) => {
-                    const groupSelectedItems = selectedItems?.filter((item) =>
-                        groupOption.options.includes(item),
-                    );
-                    const handleSelectedItems = (items: OptionShape[]) => {
-                        setSelectedItems(
-                            (
-                                selectedItems?.filter(
-                                    (item) => !groupOption.options.includes(item),
-                                ) ?? []
-                            ).concat(items),
-                        );
-                    };
-
-                    const isGroupExpanded = groupOption.key
-                        ? expandedGroupKeys.includes(groupOption.key)
-                        : false;
-
-                    const handleGroupExpand = (expanded: boolean) => {
-                        setExpandedGroupKeys((nextExpandedGroupKeys) => {
-                            const { key } = groupOption;
-
-                            if (!key) {
-                                throw new Error(
-                                    'TreeOptionsList needs a group with `key` specified',
-                                );
-                            }
-
-                            return expanded
-                                ? nextExpandedGroupKeys.concat(key)
-                                : nextExpandedGroupKeys.filter((groupKey) => !(groupKey === key));
-                        });
-                    };
-
-                    return (
-                        <Optgroup
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-expect-error
-                            expanded={isGroupExpanded}
-                            onExpand={handleGroupExpand}
-                            label={groupOption.label}
-                            size={size}
-                            className={optionGroupClassName}
-                            options={groupOption.options}
-                            selectedItems={groupSelectedItems}
-                            setSelectedItems={handleSelectedItems}
-                            search={search}
-                            multiple={multiple}
-                        />
+        const renderList = () => {
+            const renderGroup = (groupOption: GroupShape) => {
+                const groupSelectedItems = selectedItems?.filter((item) =>
+                    groupOption.options.includes(item),
+                );
+                const handleSelectedItems = (items: OptionShape[]) => {
+                    setSelectedItems(
+                        (
+                            selectedItems?.filter((item) => !groupOption.options.includes(item)) ??
+                            []
+                        ).concat(items),
                     );
                 };
 
+                const isGroupExpanded =
+                    !fnUtils.isNil(groupOption.key) && expandedGroupKeys.includes(groupOption.key);
+
+                const handleGroupExpand = () => {
+                    setExpandedGroupKeys((prevExpandedGroupKeys) => {
+                        const { key } = groupOption;
+
+                        if (fnUtils.isNil(key)) {
+                            throw new Error('TreeOptionsList needs a group with `key` specified');
+                        }
+
+                        return prevExpandedGroupKeys.includes(key)
+                            ? prevExpandedGroupKeys.filter((groupKey) => !(groupKey === key))
+                            : prevExpandedGroupKeys.concat(key);
+                    });
+                };
+
                 return (
-                    <div
-                        key={virtualRow.key}
-                        ref={virtualRow.measureRef}
-                        className={cn(styles.virtualRow, {
-                            [styles.highlighted]: highlightedIndex === virtualRow.index,
-                        })}
-                        style={{
-                            transform: `translateY(${virtualRow.start}px)`,
-                        }}
-                        onMouseEnter={isGroup(option) ? resetHighlightedIndex : undefined}
-                    >
-                        {isGroup(option) ? (
-                            renderGroup(option)
-                        ) : (
-                            <Option {...getOptionProps(option, flatOptions.indexOf(option))} />
-                        )}
-                    </div>
+                    <Optgroup
+                        expandControl={
+                            <ChevronDownMIcon
+                                className={cn(styles.expandIcon, {
+                                    [styles.expanded]: isGroupExpanded,
+                                })}
+                                onClick={handleGroupExpand}
+                            />
+                        }
+                        label={groupOption.label}
+                        size={size}
+                        className={optionGroupClassName}
+                        options={groupOption.options}
+                        selectedItems={groupSelectedItems}
+                        setSelectedItems={handleSelectedItems}
+                        search={search}
+                        multiple={multiple}
+                    />
                 );
-            });
+            };
+
+            const renderOption = (
+                option: OptionShape | GroupShape,
+                highlighted: boolean,
+                attrs?: React.HTMLAttributes<HTMLDivElement> &
+                    React.ClassAttributes<HTMLDivElement>,
+            ) => (
+                <div
+                    key={attrs?.key}
+                    ref={attrs?.ref}
+                    className={cn(virtualOptionsListStyles.virtualRow, {
+                        [virtualOptionsListStyles.highlighted]: highlighted,
+                    })}
+                    style={attrs?.style}
+                    onMouseEnter={isGroup(option) ? resetHighlightedIndex : undefined}
+                >
+                    {isGroup(option) ? (
+                        renderGroup(option)
+                    ) : (
+                        <Option {...getOptionProps(option, flatOptions.indexOf(option))} />
+                    )}
+                </div>
+            );
+            const result: ReactNode[] = [];
+
+            let i = 0;
+
+            while (i < rowVirtualizer.virtualItems.length) {
+                // eslint-disable-next-line no-plusplus
+                const virtualRow = rowVirtualizer.virtualItems[i++];
+                const option = allFlatOptions[virtualRow.index];
+
+                result.push(
+                    renderOption(option, virtualRow.index === highlightedIndex, {
+                        key: option.key,
+                        ref: virtualRow.measureRef,
+                        style: {
+                            transform: `translateY(${virtualRow.start}px)`,
+                            transition: 'transform 400ms cubic-bezier(0, 0.1, 0.5, 1)',
+                        },
+                    }),
+                );
+
+                if (isGroup(option)) {
+                    const isExpanded =
+                        !fnUtils.isNil(option.key) && expandedGroupKeys.includes(option.key);
+
+                    // eslint-disable-next-line no-continue
+                    if (!isExpanded) continue;
+
+                    const height = isExpanded
+                        ? rowVirtualizer.virtualItems[
+                              Math.min(
+                                  i + option.options.length - 1,
+                                  rowVirtualizer.virtualItems.length - 1,
+                              )
+                          ].end - virtualRow.end
+                        : 0;
+
+                    const children =
+                        isExpanded &&
+                        option.options
+                            .slice(0, rowVirtualizer.virtualItems.length - virtualRow.index - 1)
+                            .map(
+                                // eslint-disable-next-line @typescript-eslint/no-loop-func
+                                () => {
+                                    // eslint-disable-next-line no-plusplus
+                                    const row = rowVirtualizer.virtualItems[i++];
+                                    const childOption = allFlatOptions[row.index];
+                                    const start = row.start - virtualRow.end;
+
+                                    return renderOption(
+                                        childOption,
+                                        row.index === highlightedIndex,
+                                        {
+                                            key: childOption.key,
+                                            ref: row.measureRef,
+                                            style: {
+                                                transform: `translateY(${start}px)`,
+                                                transition:
+                                                    'transform 400ms cubic-bezier(0, 0.1, 0.5, 1)',
+                                            },
+                                        },
+                                    );
+                                },
+                            );
+
+                    result.push(
+                        <div
+                            key={`${virtualRow.key}_options`}
+                            style={{
+                                width: '100%',
+                                position: 'absolute',
+                                transform: `translateY(${virtualRow.end}px)`,
+                                height,
+                                visibility: isExpanded ? undefined : 'hidden',
+                                transition: 'transform 400ms cubic-bezier(0, 0.1, 0.5, 1)',
+                            }}
+                        >
+                            {children}
+                        </div>,
+                    );
+                }
+            }
+
+            return result;
+        };
 
         const contentNodeProps = {
-            className: styles.inner,
+            className: virtualOptionsListStyles.inner,
             style: { height: `${rowVirtualizer.totalSize}px` },
             ref: listRef,
         };
 
         const renderWithCustomScrollbar = () => (
             <Scrollbar
-                className={styles.scrollable}
+                className={virtualOptionsListStyles.scrollable}
                 ref={scrollbarRef}
                 horizontalAutoStretch={optionsListWidth === 'content'}
                 scrollableNodeProps={{ onScroll, ref: parentRef }}
@@ -257,7 +343,7 @@ export const TreeOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             if (visibleOptions) {
                 return (
                     <div
-                        className={styles.scrollable}
+                        className={virtualOptionsListStyles.scrollable}
                         ref={mergeRefs([parentRef, ref])}
                         onScroll={onScroll}
                     >
@@ -276,15 +362,15 @@ export const TreeOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         return (
             <div
                 className={cn(
-                    styles.virtualOptionsList,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    virtualOptionsListStyles.virtualOptionsList,
+                    virtualOptionsListStyles[SIZE_TO_CLASSNAME_MAP[size]],
                     className,
                 )}
                 data-test-id={dataTestId}
             >
                 {header && (
                     <div
-                        className={styles.virtualOptionsListHeader}
+                        className={virtualOptionsListStyles.virtualOptionsListHeader}
                         onMouseEnter={resetHighlightedIndex}
                     >
                         {header}
@@ -294,14 +380,16 @@ export const TreeOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
                 {emptyPlaceholder && options.length === 0 && (
-                    <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+                    <div className={virtualOptionsListStyles.emptyPlaceholder}>
+                        {emptyPlaceholder}
+                    </div>
                 )}
 
                 {showFooter && footer && (
                     <div
                         onMouseEnter={resetHighlightedIndex}
-                        className={cn(styles.virtualOptionsListFooter, {
-                            [styles.withBorder]:
+                        className={cn(virtualOptionsListStyles.virtualOptionsListFooter, {
+                            [virtualOptionsListStyles.withBorder]:
                                 visibleOptions && allFlatOptions.length > visibleOptions,
                         })}
                     >
