@@ -307,6 +307,13 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         }
 
         useEffect(() => {
+            if (fnUtils.isNil(popperElement)) return fnUtils.noop;
+            resizeObserverRef.current?.observe(popperElement);
+
+            return () => resizeObserverRef.current?.unobserve(popperElement);
+        }, [popperElement]);
+
+        useEffect(() => {
             if (!useAnchorWidth || fnUtils.isNil(referenceElement)) return fnUtils.noop;
             resizeObserverRef.current?.observe(referenceElement);
 
