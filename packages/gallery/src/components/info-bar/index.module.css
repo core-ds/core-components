@@ -1,0 +1,21 @@
+.description {
+    align-self: center;
+    margin-bottom: var(--gap-xs);
+}
+
+.videoButtons {
+    padding: 0 var(--gap-xs);
+    position: relative;
+    height: 48px;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.right {
+    position: absolute;
+    right: 0;
+}

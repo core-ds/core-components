@@ -1,0 +1,21 @@
+.headerMobile {
+    position: relative;
+    height: 72px;
+    z-index: 3;
+    padding: var(--gap-s) var(--gap-xs);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftButton,
+.rightButtons {
+    display: flex;
+    align-items: center;
+}
+
+.description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

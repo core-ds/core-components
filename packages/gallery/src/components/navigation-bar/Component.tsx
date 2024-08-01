@@ -1,4 +1,5 @@
 import React, { FC, KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
+import cn from 'classnames';
 
 import { GalleryContext } from '../../context';
 import { getImageKey, TestIds } from '../../utils';
@@ -87,7 +88,7 @@ export const NavigationBar: FC = () => {
                         active={active}
                         index={index}
                         onSelect={handlePreviewSelect}
-                        className={styles.preview}
+                        className={cn(styles.preview)}
                     />
                 );
             })}

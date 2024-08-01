@@ -7,25 +7,4 @@
     width: 100%;
     padding: var(--gap-m) var(--gap-xl);
     box-sizing: border-box;
-    z-index: 3;
-}
-
-.buttons {
-    display: flex;
-    padding-left: var(--gap-2xl);
-
-    & path {
-        color: var(--color-static-neutral-translucent-1300-inverted);
-    }
-}
-
-/* TODO: применять static цвет через prop IconButton'а */
-.iconButton {
-    &:hover path {
-        color: var(--color-static-neutral-100-hover);
-    }
-
-    &:active path {
-        color: var(--color-static-neutral-100-press);
-    }
 }

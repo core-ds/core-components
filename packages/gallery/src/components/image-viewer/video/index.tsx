@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import Hls from 'hls.js';
 
@@ -20,9 +20,8 @@ type Props = {
 export const Video = ({ url, index, className }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
 
-    const [isPlaying, setIsPlaying] = useState(false);
-
-    const { setImageMeta, mutedVideo, view } = useContext(GalleryContext);
+    const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo } =
+        useContext(GalleryContext);
 
     useEffect(() => {
         if (playerRef.current) {
@@ -61,15 +60,18 @@ export const Video = ({ url, index, className }: Props) => {
 
     const handleClick = (event: React.MouseEvent) => {
         event.stopPropagation();
+        setPlayingVideo(!playingVideo);
+    };
+
+    useEffect(() => {
         if (playerRef.current) {
-            if (isPlaying) {
-                playerRef.current.pause();
-                setIsPlaying(false);
+            if (playingVideo) {
+                playerRef.current.play();
             } else {
-                playerRef.current.play().then(() => setIsPlaying(true));
+                playerRef.current.pause();
             }
         }
-    };
+    }, [playingVideo]);
 
     return (
         <div className={styles.videoWrapper}>
@@ -83,11 +85,13 @@ export const Video = ({ url, index, className }: Props) => {
             >
                 <track kind='captions' />
             </video>
-            <Button className={styles.videoButton} view='text' onClick={handleClick}>
-                <Circle className={styles.videoButtonIcon} size={64}>
-                    {isPlaying ? <PauseCompactMIcon /> : <PlayCompactMIcon />}
-                </Circle>
-            </Button>
+            {view === 'desktop' && (
+                <Button className={styles.videoButton} view='text' onClick={handleClick}>
+                    <Circle className={styles.videoButtonIcon} size={64}>
+                        {playingVideo ? <PauseCompactMIcon /> : <PlayCompactMIcon />}
+                    </Circle>
+                </Button>
+            )}
         </div>
     );
 };

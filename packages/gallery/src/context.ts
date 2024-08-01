@@ -11,9 +11,11 @@ export type GalleryContext = {
     imagesMeta: ImageMeta[];
     fullScreen: boolean;
     mutedVideo: boolean;
+    playingVideo: boolean;
     initialSlide: number;
     setFullScreen: (fullScreen: boolean) => void;
     setMutedVideo: (muteVideo: boolean) => void;
+    setPlayingVideo: (muteVideo: boolean) => void;
     setImageMeta: (meta: ImageMeta, index: number) => void;
     slideTo: (index: number) => void;
     slideNext: () => void;
@@ -37,7 +39,9 @@ export const GalleryContext = createContext<GalleryContext>({
     imagesMeta: [],
     fullScreen: false,
     mutedVideo: false,
+    playingVideo: false,
     setMutedVideo: mockFn,
+    setPlayingVideo: mockFn,
     initialSlide: 0,
     setFullScreen: mockFn,
     setImageMeta: mockFn,

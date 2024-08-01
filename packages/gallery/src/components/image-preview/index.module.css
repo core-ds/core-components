@@ -3,12 +3,17 @@
 .component {
     display: flex;
     padding: var(--gap-2xs);
+    z-index: 3;
 
     overflow: hidden;
     transition: border 0.15s ease-in-out;
     outline: none;
     & .image {
         opacity: 0.3;
+    }
+
+    &.mobile {
+        padding: 0;
     }
 }
 
@@ -25,6 +30,12 @@
     border-radius: var(--border-radius-l);
     cursor: pointer;
     user-select: none;
+
+    &.mobile {
+        width: 36px;
+        height: 46px;
+        border-radius: var(--border-radius-m);
+    }
 }
 
 .image {
@@ -68,6 +79,11 @@
 .brokenIcon {
     width: 40px;
     height: 40px;
+
+    &.mobile {
+        width: 36px;
+        height: 46px;
+    }
 }
 
 .focused {
@@ -76,4 +92,7 @@
 
 .canvasPreview {
     border-radius: var(--border-radius-l);
+    &.mobile {
+        border-radius: var(--border-radius-m);
+    }
 }

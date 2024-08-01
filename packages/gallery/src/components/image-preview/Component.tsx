@@ -20,7 +20,9 @@ type Props = {
 };
 
 export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect, className }) => {
-    const { imagesMeta } = useContext(GalleryContext);
+    const { imagesMeta, view } = useContext(GalleryContext);
+
+    const isMobile = view === 'mobile';
 
     const ref = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -68,7 +70,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         <div
             className={cn(
                 styles.component,
-                { [styles.active]: active, [styles.focused]: focused },
+                { [styles.active]: active, [styles.focused]: focused, [styles.mobile]: isMobile },
                 className,
             )}
             onClick={handleClick}
@@ -79,16 +81,26 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             aria-label={`Перейти к ${index + 1} элементу`}
         >
             {isBroken ? (
-                <div className={cn(styles.preview, styles.brokenImageWrapper)}>
-                    <div className={styles.brokenIcon}>
+                <div
+                    className={cn(
+                        styles.preview,
+                        { [styles.mobile]: isMobile },
+                        styles.brokenImageWrapper,
+                    )}
+                >
+                    <div className={cn(styles.brokenIcon)}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
-                            width='40'
-                            height='40'
-                            viewBox='0 0 40 40'
+                            width={isMobile ? 36 : 56}
+                            height={isMobile ? 46 : 56}
+                            viewBox={`0 0 ${isMobile ? 36 : 56} ${isMobile ? 46 : 56}`}
                             fill='none'
                         >
-                            <rect width='40' height='40' fill='none' />
+                            <rect
+                                width={isMobile ? 36 : 56}
+                                height={isMobile ? 46 : 56}
+                                fill='none'
+                            />
                             <path
                                 fillRule='evenodd'
                                 clipRule='evenodd'
@@ -103,13 +115,15 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                 <div
                     className={cn(styles.preview, styles.image, {
                         [styles.loading]: !meta,
+                        [styles.mobile]: isMobile,
                     })}
                 >
                     {isVideo(image.src) ? (
                         <canvas
-                            className={styles.canvasPreview}
-                            width={56}
-                            height={56}
+                            className={cn(styles.canvasPreview, { [styles.mobile]: isMobile })}
+                            data-testid='canvas'
+                            width={isMobile ? 36 : 56}
+                            height={isMobile ? 46 : 56}
                             ref={canvasRef}
                         />
                     ) : (

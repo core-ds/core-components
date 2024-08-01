@@ -4,6 +4,8 @@ import SwiperCore from 'swiper';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useMedia } from '@alfalab/hooks';
 
+import { HeaderMobile } from './components/header-mobile/Component';
+import { InfoBar } from './components/info-bar/Component';
 import { Header, ImageViewer, NavigationBar } from './components';
 import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
@@ -70,6 +72,7 @@ export const Gallery: FC<GalleryProps> = ({
     const [imagesMeta, setImagesMeta] = useState<ImageMeta[]>([]);
     const [fullScreen, setFullScreen] = useState(false);
     const [mutedVideo, setMutedVideo] = useState(false);
+    const [playingVideo, setPlayingVideo] = useState(false);
 
     const [view] = useMedia<'desktop' | 'mobile'>(
         [
@@ -189,6 +192,8 @@ export const Gallery: FC<GalleryProps> = ({
         fullScreen,
         initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
         setFullScreen,
+        playingVideo,
+        setPlayingVideo,
         mutedVideo,
         setMutedVideo,
         setImageMeta,
@@ -212,11 +217,12 @@ export const Gallery: FC<GalleryProps> = ({
                 Backdrop={Backdrop}
             >
                 <div className={styles.container}>
-                    <Header />
+                    {view === 'desktop' ? <Header /> : <HeaderMobile />}
 
                     <ImageViewer />
 
                     {showNavigationBar && <NavigationBar />}
+                    {view === 'mobile' && <InfoBar />}
                 </div>
             </BaseModal>
         </GalleryContext.Provider>

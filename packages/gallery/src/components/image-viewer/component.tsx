@@ -126,7 +126,7 @@ export const ImageViewer: FC = () => {
             },
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
-                [styles.viewContent]: fullScreen && isVideo(currentImage?.src),
+                [styles.mobile]: isMobile,
             }),
             controller: { control: swiper },
             a11y: {
@@ -137,7 +137,15 @@ export const ImageViewer: FC = () => {
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
         }),
-        [fullScreen, currentImage?.src, swiper, initialSlide, setSwiper, handleSlideChange],
+        [
+            fullScreen,
+            currentImage?.src,
+            isMobile,
+            swiper,
+            initialSlide,
+            setSwiper,
+            handleSlideChange,
+        ],
     );
 
     const showControls = !singleSlide && !fullScreen && !!images.length;
@@ -151,7 +159,8 @@ export const ImageViewer: FC = () => {
         /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         <div
             className={cn(styles.component, {
-                [styles.singleSlide]: singleSlide && !isVideo(currentImage?.src),
+                [styles.singleSlide]: singleSlide,
+                [styles.mobile]: isMobile,
             })}
             onClick={handleWrapperClick}
         >
