@@ -9,6 +9,7 @@ import React, {
     useEffect,
     useMemo,
     useRef,
+    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
@@ -113,7 +114,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         } = props;
         const shouldSearchBlurRef = useRef(true);
         const rootRef = useRef<HTMLDivElement>(null);
-        const fieldRef = useRef<HTMLInputElement>(null);
+        const [fieldRef, setFieldRef] = useState<HTMLInputElement | null>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
         const searchRef = useRef<HTMLInputElement>(null);
@@ -335,7 +336,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             }
         }, [openProp, openMenu, closeMenu]);
 
-        const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
+        const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, setFieldRef]) }));
         const { ref: menuRef, ...menuProps } = getMenuProps(
             { ref: listRef },
             { suppressRefError: true },
@@ -361,7 +362,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (view === 'desktop') {
-                const isNextFocusInsideField = fieldRef.current?.contains(
+                const isNextFocusInsideField = fieldRef?.contains(
                     (event.relatedTarget || document.activeElement) as HTMLElement,
                 );
 
@@ -444,7 +445,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     shouldSearchBlurRef.current = false;
                     searchRef.current?.blur();
                     shouldSearchBlurRef.current = true;
-                    fieldRef.current?.focus();
+                    fieldRef?.focus();
                 },
             }),
             multiple,
@@ -704,7 +705,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     <ListPopoverDesktop
                         {...getListPopoverDesktopProps(props)}
                         open={open}
-                        fieldRef={fieldRef}
+                        popoverAnchorElement={fieldRef}
                         renderOptionsList={renderOptionsList}
                     />
                 )}

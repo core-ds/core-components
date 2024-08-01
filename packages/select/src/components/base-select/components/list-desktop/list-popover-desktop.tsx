@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, RefObject } from 'react';
+import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { ListPopoverDesktopRestProps } from './types/types';
@@ -7,7 +7,7 @@ import styles from '../../index.module.css';
 
 type ListPopoverDesktopProps = {
     open: boolean;
-    fieldRef: RefObject<HTMLInputElement>;
+    popoverAnchorElement: HTMLElement | null;
     renderOptionsList: () => ReactNode;
 } & ListPopoverDesktopRestProps;
 
@@ -16,7 +16,7 @@ export const ListPopoverDesktop: FC<ListPopoverDesktopProps> = (props) => {
         Popover,
         open,
         popoverProps,
-        fieldRef,
+        popoverAnchorElement,
         popoverPosition = 'bottom-start',
         preventFlip = true,
         popperClassName,
@@ -31,7 +31,7 @@ export const ListPopoverDesktop: FC<ListPopoverDesktopProps> = (props) => {
                 {...popoverProps}
                 open={open}
                 withTransition={false}
-                anchorElement={fieldRef.current as HTMLElement}
+                anchorElement={popoverAnchorElement}
                 position={popoverPosition}
                 preventFlip={preventFlip}
                 popperClassName={cn(styles.popoverInner, popperClassName)}
