@@ -18,8 +18,8 @@ import cn from 'classnames';
 import maxSize from 'popper-max-size-modifier';
 
 import { Portal } from '@alfalab/core-components-portal';
+import { fnUtils, isClient } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 import { stackingOrder } from '@alfalab/stack-context';
 
 import styles from './index.module.css';
@@ -119,6 +119,7 @@ export type PopoverProps = {
 
     /**
      * Хранит функцию, с помощью которой можно обновить положение компонента
+     * @deprecated
      */
     update?: MutableRefObject<(() => void) | undefined>;
 
@@ -214,7 +215,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             children,
             getPortalContainer,
             transition = DEFAULT_TRANSITION,
-            anchorElement,
+            anchorElement: referenceElement,
             useAnchorWidth,
             offset = DEFAULT_OFFSET,
             withArrow = false,
@@ -226,7 +227,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             className,
             open,
             dataTestId,
-            update,
             transitionDuration = `${transition.timeout}ms`,
             zIndex = stackingOrder.POPOVER,
             fallbackPlacements,
@@ -235,14 +235,13 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         },
         ref,
     ) => {
-        const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
         const [popperElement, setPopperElement] = useState<RefElement>(null);
         const [arrowElement, setArrowElement] = useState<RefElement>(null);
+        const resizeObserverRef = useRef<ResizeObserver | null>(null);
 
-        const updatePopperRef = useRef<() => void>();
+        const updatePopperRef = useRef<(() => void) | null>(null);
 
         const popperRef = useRef<HTMLDivElement>(null);
-        const innerRef = useRef<HTMLDivElement>(null);
 
         const popperModifiers = useMemo(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
@@ -294,44 +293,25 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             modifiers: popperModifiers,
         });
 
-        if (updatePopper) {
+        if (!(updatePopperRef.current === updatePopper)) {
             updatePopperRef.current = updatePopper;
         }
 
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            setReferenceElement(anchorElement);
-        }, [anchorElement]);
+        if (isClient() && fnUtils.isNil(resizeObserverRef.current)) {
+            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
+            const updatePopperCallback = () => {
+                updatePopperRef.current?.();
+            };
+
+            resizeObserverRef.current = new ResizeObserver(updatePopperCallback);
+        }
 
         useEffect(() => {
-            if (updatePopper) {
-                updatePopper();
-            }
-        }, [updatePopper, arrowElement, children]);
+            if (!useAnchorWidth || fnUtils.isNil(referenceElement)) return fnUtils.noop;
+            resizeObserverRef.current?.observe(referenceElement);
 
-        useEffect(() => {
-            if (update && updatePopper) {
-                // eslint-disable-next-line no-param-reassign
-                update.current = updatePopper;
-            }
-        });
-
-        useEffect(() => {
-            if (useAnchorWidth) {
-                const updatePopoverWidth = () => updatePopperRef.current?.();
-                const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-                const observer = new ResizeObserver(updatePopoverWidth);
-
-                if (anchorElement) {
-                    observer.observe(anchorElement);
-                }
-
-                return () => {
-                    observer.disconnect();
-                };
-            }
-
-            return () => ({});
-        }, [anchorElement, useAnchorWidth]);
+            return () => resizeObserverRef.current?.unobserve(referenceElement);
+        }, [referenceElement, useAnchorWidth]);
 
         const renderContent = (computedZIndex: number) => (
             <div
@@ -346,7 +326,14 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 className={cn(styles.component, className)}
                 {...attributes.popper}
             >
-                <div className={cn(styles.inner, popperClassName)} ref={innerRef}>
+                <div
+                    className={cn(styles.inner, popperClassName)}
+                    style={
+                        transitionDuration === `${DEFAULT_TRANSITION.timeout}ms`
+                            ? undefined
+                            : { transitionDuration }
+                    }
+                >
                     <div className={cn({ [styles.scrollableContent]: availableHeight })}>
                         {children}
                     </div>
@@ -373,19 +360,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                                 nodeRef={popperRef}
                                 {...transition}
                                 in={open}
-                                onEntering={(node: HTMLElement, isAppearing: boolean) => {
-                                    // Меняем transition-duration только в случае, если передано значение отличное от дефолтного.
-                                    if (
-                                        innerRef.current &&
-                                        transitionDuration !== `${DEFAULT_TRANSITION.timeout}ms`
-                                    ) {
-                                        innerRef.current.style.setProperty(
-                                            'transition-duration',
-                                            transitionDuration,
-                                        );
-                                    }
-                                    transition?.onEntering?.(node, isAppearing);
-                                }}
                             >
                                 {renderContent(computedZIndex)}
                             </CSSTransition>

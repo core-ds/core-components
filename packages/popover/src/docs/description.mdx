@@ -23,16 +23,8 @@ render(() => {
         4: 'right',
     };
 
-    // updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера
-    const updatePopover = React.useRef();
-
     const onClick = () => {
         setCount((count) => count + 1);
-
-        if (updatePopover.current) {
-            // Обновляем положение поповера
-            updatePopover.current();
-        }
         if (count === 4) {
             setCount(0);
         }
@@ -44,7 +36,7 @@ render(() => {
         }
     };
     const popoverChildren = (
-        <>{count !== 0 && <div style={{ padding: '15px', width: '156px' }}>Popover</div>}</>
+        <>{count !== 0 && <div style={{ padding: '15px', minWidth: '156px' }}>Popover</div>}</>
     );
 
     return (
@@ -62,7 +54,6 @@ render(() => {
                 useAnchorWidth={true}
                 position={position[count]}
                 open={count !== 0}
-                update={updatePopover}
                 offset={[0, 4]}
             >
                 {popoverChildren}
