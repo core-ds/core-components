@@ -1,5 +1,39 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.4
+    -   picker-button@11.7.14
+
+## 2.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.3
+    -   picker-button@11.7.13
+
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1291](https://github.com/core-ds/core-components/pull/1291)
+
+-   Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.2
+    -   mq@4.3.0
+    -   picker-button@11.7.12
+    -   custom-button@3.6.3
+
 ## 2.2.20
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 15.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.2.6
+
+## 15.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.3.0
+    -   button@11.5.3
+    -   form-control@12.2.5
+
 ## 15.0.1
 
 ### Patch Changes

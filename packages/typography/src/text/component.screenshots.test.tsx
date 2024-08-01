@@ -42,6 +42,7 @@ describe(
                             'component-primary',
                             'caps',
                             'component-secondary',
+                            'tagline',
                         ],
                         weight: ['regular', 'medium', 'bold'],
                     },

@@ -5,12 +5,6 @@ import { List } from '@alfalab/core-components/list';
 import { Typography } from '@alfalab/core-components/typography';
 import { Space } from '@alfalab/core-components/space';
 
-## Используемые шрифты
-
-Большинство интерфейсов использует только системные шрифты: `--font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif`. Они не требуют подключения.
-
-Некоторые продукты используют заголовки, набранные шрифтами Styrene A или Styrene B (Styrene UI). Их необходимо подключать к проекту.
-
 ## Наборы стилей
 
 1. Headline — набор из пяти уровней заголовков для десктопной версии интерфейса.
@@ -21,11 +15,18 @@ import { Space } from '@alfalab/core-components/space';
 6. Action — набор интерфейсных стилей с Font Weight = 500.
 7. Accent — набор интерфейсных стилей с Font Weight = 700.
 
-## Адаптивность
+## Адаптивность заголовков
 
 На базовом уровне адаптивность типографики достигается через адаптивность заголовочных стилей.
 Каждому десктопному заголовочному стилю поставлен в соответствие мобильный.
-Чтобы смена происходила автоматически, используйте [Typography.TitleResponsive](/docs/typography--typography-title-responsive), для ручного управления — [Typography.Title](/docs/typography--typography-title).
+Чтобы смена происходила автоматически, используйте [Typography.TitleResponsive](/docs/typography--typography-title-responsive), для ручного управления — [Typography.Title](/docs/typography--typography-title) и [Typography.TitleMobile](/docs/typography--typography-title-mobile).
+
+## Заголовки
+
+В большинстве продуктов используются заголовки, набранные системным шрифтом.
+В этом случае для заголовков нужно использовать опцию `font='system'`.
+Если в вашем продукте используются заголовки, набранные шрифтом Styrene, то нужно использовать дефолтное значение опции `font='styrene'`.
+Инструкцию по использованию системных шрифтов и подключению шрифта styrene см. на вкладке Разработчику.
 
 ```jsx live
 const OPTIONS = [
@@ -49,8 +50,9 @@ render(() => {
             <SelectDesktop
                 allowUnselect={true}
                 block={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
+                Option={BaseOption}
                 onChange={handleChange}
                 selected={selected}
             />
@@ -93,8 +95,9 @@ render(() => {
             <SelectMobile
                 allowUnselect={true}
                 block={true}
-                size='m'
+                size={56}
                 options={OPTIONS}
+                Option={BaseOption}
                 onChange={handleChange}
                 selected={selected}
             />
@@ -109,6 +112,78 @@ render(() => {
                     >
                         {view}
                     </Typography.TitleMobile>
+                    <Gap size='m' />
+                </React.Fragment>
+            ))}
+        </div>
+    );
+});
+```
+
+## Текст
+
+Текст использует только системные шрифты и имеет модификаторы веса.
+Для всех стилей доступна опция, делающая цифры моноширинными
+
+```jsx live mobileHeight={480}
+const OPTIONS = [
+    { key: '1', content: 'Weight: Regular', value: 'regular' },
+    { key: '2', content: 'Weight: Medium', value: 'medium' },
+    { key: '3', content: 'Weight: Bold', value: 'bold' },
+];
+
+const VIEW_TYPES = {
+    'primary-large': 'PrimaryLarge',
+    'primary-medium': 'PrimaryMedium',
+    'primary-small': 'PrimarySmall',
+    'secondary-large': 'SecondaryLarge',
+    'secondary-medium': 'SecondaryMedium',
+    'secondary-small': 'SecondarySmall',
+    'component-primary': 'ComponentPrimary',
+    'component-secondary': 'ComponentSecondary',
+    caps: 'Caps',
+};
+
+render(() => {
+    const [selected, setSelected] = React.useState(OPTIONS[0]);
+    const [monospaceNumbers, setMonospaceNumbers] = React.useState(false);
+
+    const handleChange = ({ selected }) => {
+        if (selected) {
+            setSelected(selected);
+        }
+    };
+
+    return (
+        <div style={{ width: 320 }}>
+            <Select
+                allowUnselect={true}
+                block={true}
+                size={56}
+                options={OPTIONS}
+                Option={BaseOption}
+                onChange={handleChange}
+                selected={selected}
+                breakpoint={BREAKPOINT}
+            />
+            <Gap size='m' />
+            <Switch 
+                checked={monospaceNumbers} 
+                onChange={() => setMonospaceNumbers(!monospaceNumbers)} 
+                label='MonospaceNumbers' 
+            />
+            <Gap size='xl' />
+            {Object.keys(VIEW_TYPES).map((view) => (
+                <React.Fragment key={view}>
+                    <Typography.Text
+                        weight={selected.value}
+                        view={view.toLowerCase()}
+                        key={view}
+                        tag='div'
+                        monospaceNumbers={monospaceNumbers}
+                    >
+                        {VIEW_TYPES[view]} 123456
+                    </Typography.Text>
                     <Gap size='m' />
                 </React.Fragment>
             ))}

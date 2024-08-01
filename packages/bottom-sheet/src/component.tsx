@@ -21,6 +21,7 @@ import { Header, HeaderProps } from './components/header/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 import { horizontalDirections } from './consts/swipeConsts';
 import { ShouldSkipSwipingParams } from './types/swipeTypes';
+import { useVisibleViewportSize } from './hooks';
 import type { BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
@@ -103,10 +104,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             swipeableMarkerClassName,
             backButtonProps,
             iOSLock = false,
+            virtualKeyboard = false,
         },
         ref,
     ) => {
-        const fullHeight = use100vh() || 0;
+        const windowHeight = use100vh() ?? 0;
+        const visibleViewportSize = useVisibleViewportSize(virtualKeyboard);
+        const fullHeight = virtualKeyboard ? visibleViewportSize?.height ?? 0 : windowHeight;
+
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
 
@@ -123,10 +128,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 ? document?.documentElement?.clientHeight || window?.innerHeight
                 : 0;
 
-            const viewHeight = os.isIOS() ? iOSViewHeight : fullHeight;
+            const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp]);
+        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
@@ -544,6 +549,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     ? `${lastMagneticArea}px`
                     : 'unset',
             maxHeight: isFirstRender ? 0 : `${lastMagneticArea}px`,
+            marginBottom:
+                virtualKeyboard && visibleViewportSize && windowHeight > visibleViewportSize.height
+                    ? windowHeight - visibleViewportSize.height - visibleViewportSize.offsetTop
+                    : undefined,
         });
 
         const renderMarker = () => {

@@ -27,5 +27,7 @@
     },
     "devDependencies": {
         "@types/lodash.throttle": "^4.1.7"
-    }
+    },
+    "themesVersion": "13.0.1",
+    "varsVersion": "9.10.0"
 }

@@ -1,5 +1,32 @@
 # @alfalab/core-components-pass-code
 
+## 2.2.0
+
+### Minor Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1294](https://github.com/core-ds/core-components/pull/1294)
+
+-   Исправлены отступы компонента
+-   Добавлен пропс `disabled` для запрета ввода/удаления кода
+
+## 2.1.0
+
+### Minor Changes
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1291](https://github.com/core-ds/core-components/pull/1291)
+
+-   Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.3.0
+    -   button@11.5.3
+
 ## 2.0.1
 
 ### Patch Changes

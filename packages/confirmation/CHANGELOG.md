@@ -1,5 +1,30 @@
 # Change Log
 
+## 13.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.8.0
+
+## 13.6.0
+
+### Minor Changes
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1291](https://github.com/core-ds/core-components/pull/1291)
+
+-   Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   code-input@3.4.0
+    -   mq@4.3.0
+    -   typography@4.7.0
+    -   button@11.5.3
+
 ## 13.5.8
 
 ### Patch Changes

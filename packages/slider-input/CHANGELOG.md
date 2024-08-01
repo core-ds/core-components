@@ -1,5 +1,19 @@
 # Change Log
 
+## 8.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.3
+
+## 8.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.2
+
 ## 8.2.14
 
 ### Patch Changes

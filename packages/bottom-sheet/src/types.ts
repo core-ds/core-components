@@ -347,4 +347,9 @@ export type BottomSheetProps = {
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS
      */
     iOSLock?: boolean;
+
+    /**
+     * Учитывать высоту виртуальной клавиатуры
+     */
+    virtualKeyboard?: boolean;
 };

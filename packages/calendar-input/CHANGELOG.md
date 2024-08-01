@@ -1,5 +1,27 @@
 # Change Log
 
+## 10.2.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.35
+
+## 10.2.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.9.1
+
+## 10.2.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.9.0
+    -   date-input@4.3.34
+
 ## 10.2.20
 
 ### Patch Changes

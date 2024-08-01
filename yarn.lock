@@ -7,27 +7,6 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@alfalab/core-components-button@^11.5.3":
-  version "11.5.3"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-11.5.3.tgz#49327b4d7a227e9d42c4d4e546aa27872c1c7ff3"
-  integrity sha512-I56eMibfuNQqo3Ivn++UMNVVAHslfG30tEvtER6HU9h+vOkyge70InXMNk0hDaa2gu4B5+nOlBI8iIEU65CduA==
-  dependencies:
-    "@alfalab/core-components-mq" "^4.3.0"
-    "@alfalab/core-components-shared" "^0.11.0"
-    "@alfalab/core-components-spinner" "^3.4.0"
-    "@alfalab/hooks" "^1.13.0"
-    classnames "^2.3.1"
-    react-merge-refs "^1.1.0"
-    tslib "^2.4.0"
-
-"@alfalab/core-components-mq@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-mq/-/core-components-mq-4.3.0.tgz#77ebbcd8e2f587d1457082fd48f3b417b3c92563"
-  integrity sha512-kE559ibpBRt6so7auyR9n1gAkdxjN/LkGaLbzXvrA0zTLgSZNkWRN2bkk/zVHBAJNktfT7csPk5OMBvfOr2jhA==
-  dependencies:
-    "@alfalab/hooks" "^1.13.0"
-    tslib "^2.4.0"
-
 "@alfalab/core-components@>=35.1.0":
   version "44.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components/-/core-components-44.2.0.tgz#3e7366bc60f6a7b18853961ae6be1af80333528a"
@@ -105,6 +84,14 @@
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.27.0.tgz#74510f49dbf0790b73b26d494cb77fde5b4cf9d0"
   integrity sha512-n8MAGItrO1C0Z2ZDR8bQzXZQs78lI5f/7jXvzGLOFvNTlO0iRg8Uvx71slAJMJoALH+RQii9DwPrn8PX9hYQ+Q==
+
+"@alfalab/react-canvas-pattern-lock@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@alfalab/react-canvas-pattern-lock/-/react-canvas-pattern-lock-2.0.7.tgz#9f53987072999099f132f448e3f4e8da84360d20"
+  integrity sha512-AddDRwcy08WBcMcvmgpGNbIHUrLzyQy0Tz9TURl0yTTOuUnZ4lDObQPWjk+xLUSEjcMPUxfTsML6DZzpPYT4wg==
+  dependencies:
+    react-merge-refs "^1.1.0"
+    react-use-event-hook "^0.9.6"
 
 "@alfalab/rollup-plugin-postcss@^3.6.1":
   version "3.6.1"
@@ -21171,10 +21158,10 @@ ui-primitives@^13.19.0:
   resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-13.19.0.tgz#1a7bfd2da12e49ae2b72b1705e86fadcd311cf8f"
   integrity sha512-MIrL0P4izg0wDVEZtHOHpxB41oD6gBpL504lRnkUoFc+UXa10NWIBqPLh0dOR4HU25Qjrg4n3knF4aR7SfbzhA==
 
-ui-primitives@^17.12.0:
-  version "17.12.0"
-  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-17.12.0.tgz#3d012fb05df36111564388a44b278e3c20104d74"
-  integrity sha512-m60qB0LrWFrldp91RZb1GnkO/+2EKyIJo5JAUEgOJTd39xfNd7mnoJiUQ+E/NeurO82cJkhFFayE+YRWp0KcMQ==
+ui-primitives@^20.8.0:
+  version "20.8.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-20.8.0.tgz#30d73527924a213c92ede8d6990a21b1ca4f8f20"
+  integrity sha512-1yHxst0bWDErpjWZB5FNqv8eqg7hh523yIP8WtDdzc7TIaQhgL4YAwCwcHyWgClqs7djVudPnUUE5YGJwSrIkw==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

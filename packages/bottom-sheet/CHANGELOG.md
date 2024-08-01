@@ -1,5 +1,27 @@
 # Change Log
 
+## 6.16.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.8
+
+## 6.16.0
+
+### Minor Changes
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1289](https://github.com/core-ds/core-components/pull/1289)
+
+-   Добавлен проп для случаев, когда необходима отзывчивость компонента из-за изменении видимой части браузера при открытии клавиатуры устройства
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.7
+
 ## 6.15.7
 
 ### Patch Changes

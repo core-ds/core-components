@@ -61,6 +61,14 @@
     font-weight: 700;
 }
 
+@define-mixin accent_tagline {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+}
+
 @define-mixin action_caps {
     font-size: 12px;
     line-height: 16px;
@@ -115,6 +123,14 @@
     font-size: 11px;
     line-height: 16px;
     font-weight: 500;
+}
+
+@define-mixin action_tagline {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
 }
 
 @define-mixin headline-mobile_large {
@@ -351,6 +367,14 @@
     font-size: 11px;
     line-height: 16px;
     font-weight: 400;
+}
+
+@define-mixin paragraph_tagline {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
 }
 
 @define-mixin promo-mobile_large {

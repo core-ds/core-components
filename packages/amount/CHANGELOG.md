@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.5.2
+
+### Patch Changes
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1297](https://github.com/core-ds/core-components/pull/1297)
+
+-   Обновлена документация
+-   RUR для пропса currency - deprecated
+-   Для разработчиков добавлен warning при использовании валюты RUR
+
 ## 3.5.1
 
 ### Patch Changes

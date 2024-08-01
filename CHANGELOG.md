@@ -1,3 +1,219 @@
+## 47.6.0
+
+<sup><time>26.07.2024</time></sup>
+
+### [#1305](https://github.com/core-ds/core-components/pull/1305)
+
+#### Что изменилось
+- Добавление заголовка h4
+
+#### Влияние на компоненты
+- Минорное<br />`markdown`
+
+
+### [#1286](https://github.com/core-ds/core-components/pull/1286)
+
+#### Что изменилось
+- Добавлены data-test-id для внутренних элементов компонентов Plate и FormControl
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `plate`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
+## 47.5.0
+
+<sup><time>19.07.2024</time></sup>
+
+### [#1261](https://github.com/core-ds/core-components/pull/1261)
+
+#### Что изменилось
+- Исправлена фильтрация выбранных элементов в демо
+- Проведена декомпозиция option list в компоненте base-select
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete` `select`
+
+
+### [#1300](https://github.com/core-ds/core-components/pull/1300)
+
+#### Что изменилось
+- Добавлено новое свойство gap, отвечающее за отступы между элементами флекс-контейнера
+
+#### Влияние на компоненты
+- Минорное<br />`generic-wrapper`
+
+
+### [#1298](https://github.com/core-ds/core-components/pull/1298)
+
+#### Что изменилось
+- Добавлены миксины accent_tagline, action_tagline, paragraph_tagline
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+<br />
+
+#### Что изменилось
+- В компонент Typography.Text добавлен новый вариант начертания - tagline
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1297](https://github.com/core-ds/core-components/pull/1297)
+
+#### Что изменилось
+- Обновлена документация
+- RUR для пропса currency - deprecated
+- Для разработчиков добавлен warning при использовании валюты RUR
+
+#### Влияние на компоненты
+- Патчи<br />`amount`
+
+
+### [#1299](https://github.com/core-ds/core-components/pull/1299)
+
+#### Что изменилось
+- Добавлено новое свойство monospaceNumbers, которое делает цифры моноширинными
+
+#### Влияние на компоненты
+- Минорное<br />`text`
+
+
+### [#1294](https://github.com/core-ds/core-components/pull/1294)
+
+#### Что изменилось
+- Исправлены отступы компонента
+- Добавлен пропс `disabled` для запрета ввода/удаления кода
+
+#### Влияние на компоненты
+- Минорное<br />`pass-code`
+
+<br />
+
+#### Что изменилось
+- Исправлены отступы компонента
+- Исправлен фоновый цвет компонента на прозрачный
+
+#### Влияние на компоненты
+- Минорное<br />`pattern-lock`
+
+
+### [#1301](https://github.com/core-ds/core-components/pull/1301)
+
+#### Что изменилось
+- Исправлен скролл при клике на вариант выбора в браузере Safari
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1290](https://github.com/core-ds/core-components/pull/1290)
+
+#### Что изменилось
+- Добавлено кэширование иконок, чтобы предотвратить их перезагрузку при повторном монтировании
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+### [#1303](https://github.com/core-ds/core-components/pull/1303)
+
+#### Что изменилось
+- Добавлены новые имена для переменных gap
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1296](https://github.com/core-ds/core-components/pull/1296)
+
+#### Что изменилось
+- Исправлено поведение компонента Typography.TitleMobile: теперь он корректно учитывает пропс rowLimit и больше не игнорирует его
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
+## 47.4.0
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1287](https://github.com/core-ds/core-components/pull/1287)
+
+#### Что изменилось
+- Компонент был обернут в forwardRef
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar`
+
+
+### [#1284](https://github.com/core-ds/core-components/pull/1284)
+
+#### Что изменилось
+- Исправлен вызов `onBlur` при `showSearch={true}`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1275](https://github.com/core-ds/core-components/pull/1275)
+
+#### Что изменилось
+- Исправлена верстка компнента Option для корректного расчета высоты списка вариантов выбора
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1291](https://github.com/core-ds/core-components/pull/1291)
+
+#### Что изменилось
+- Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
+
+#### Влияние на компоненты
+- Минорное<br />`calendar` `checkbox-group` `code-input` `confirmation` `custom-picker-button`<br /> `filter-tag` `mq` `pass-code` `pattern-lock` `plate`<br /> `radio-group` `tag` `toast` `toast-plate` `typography`<br />
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+### [#1289](https://github.com/core-ds/core-components/pull/1289)
+
+#### Что изменилось
+- Добавлен проп для случаев, когда необходима отзывчивость компонента из-за изменении видимой части браузера при открытии клавиатуры устройства
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
 ## 47.3.0
 
 <sup><time>05.07.2024</time></sup>

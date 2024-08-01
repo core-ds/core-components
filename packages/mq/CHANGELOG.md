@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.3.0
+
+### Minor Changes
+
+<sup><time>16.07.2024</time></sup>
+
+### [#1291](https://github.com/core-ds/core-components/pull/1291)
+
+-   Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
+
 ## 4.2.0
 
 ### Minor Changes

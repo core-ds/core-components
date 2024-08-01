@@ -214,6 +214,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
             >
                 {label && labelView === 'outer' && (
                     <span
+                        data-test-id={getDataTestId(dataTestId, 'label')}
                         className={cn(
                             commonStyles.above,
                             styles.above,
@@ -276,7 +277,12 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                                         labelClassName,
                                     )}
                                 >
-                                    <span className={commonStyles.labelInner}>{label}</span>
+                                    <span
+                                        data-test-id={getDataTestId(dataTestId, 'label')}
+                                        className={commonStyles.labelInner}
+                                    >
+                                        {label}
+                                    </span>
                                 </div>
                             </React.Fragment>
                         )}

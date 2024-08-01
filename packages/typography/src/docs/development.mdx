@@ -1,18 +1,26 @@
-import { ArgsTable } from '@storybook/addon-docs';
-import { Typography as TypographyTS } from '../component';
+import { ArgsTabs } from 'storybook/blocks';
+import { Typography } from '../component';
 
 ## Подключение
 
-Актуальный набор текстовых стилей доступен в двух вариантах:
-1. Компоненты Typography.Title, Typography.TitleResponsive и Typography.Text
-2. Миксины в core-components/vars/typography.css
+Актуальный набор текстовых стилей доступен в нескольких вариантах:
 
-Если в макете используется шрифт San Francisco или Roboto, подключать его дополнительно не нужно. Дизайнер ожидает, 
-что на фронте в зависимости от платформы будет использоваться системный шрифт.
+1. Компоненты Typography.Title, Typography.TitleMobile, Typography.TitleResponsive и Typography.Text
+2. Миксины в core-components/vars/typography.css
 
 ```jsx
 import { Typography } from '@alfalab/core-components/typography';
 
+@import '@alfalab/core-components/vars/typography.css';
+```
+
+## Системные шрифты
+
+Если в макете используется шрифт San Francisco или Roboto, подключать его дополнительно не нужно.
+Дизайнер ожидает, что на фронте в зависимости от платформы будет использоваться системный шрифт этой платформы.
+Для использования необходимо назначить для body свойство  font-family со значением var(--font-family-system).
+
+```jsx
 @import '@alfalab/core-components/vars/typography.css';
 ```
 
@@ -54,40 +62,27 @@ CDN alfabank.servicecdn.ru — ненадёжный вариант, можно �
 
 ## Чтение макетов
 
-При выделении любого текстового элемента в Figma, в правом сайдбаре можно увидеть название стиля. 
-В скобках указан соответствующий компонент.  
+При выделении любого текстового элемента в Figma, нажмите на название стиля и вставьте его в [конвертер токенов](/docs/token-converter--docs),
+чтобы получить возможные варианты реализации этого стиля в коде.
 
-<div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '16px',
-    width: '100%', 
-    height: '271px',
-    background: '#FAFAFA',
-    borderRadius: '16px', 
-    }}>
-    <img
-        src='./images/typography_figma-element.png'
-        width={388}
-        alt='Пример текстового элемента в Figma'
-    />
+<div
+    data-role="wrapper"
+    style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'start',
+        marginTop: '24px',
+        height: '340',
+        background: '#F2F3F5',
+        borderRadius: '16px',
+        padding: '32px',
+        gap: '14px',
+    }}
+>
+    <img src='./images/typography_figma-element.png' alt='Пример текстового элемента в Figma' />
+    <img src='./images/typography_figma-converter.png' alt='Пример конвертера' />
 </div>
-
-```jsx
-<Typography.Title view='small'>Заголовок</Title>
-```
-
-При необходимости используйте миксин:
-
-```css
-@import '@alfalab/core-components/vars/typography.css';
-
-.item {
-    @mixin headline_small;
-}
-```
 
 ## Свойства
 
-<ArgsTable components={TypographyTS} />
+<ArgsTabs components={Typography} />

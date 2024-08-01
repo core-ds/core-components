@@ -1,5 +1,32 @@
 # @alfalab/core-components-markdown
 
+## 1.3.0
+
+### Minor Changes
+
+<sup><time>26.07.2024</time></sup>
+
+### [#1305](https://github.com/core-ds/core-components/pull/1305)
+
+-   Добавление заголовка h4
+
+## 1.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.8.0
+    -   list@3.3.10
+
+## 1.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.3.0
+    -   typography@4.7.0
+    -   list@3.3.9
+
 ## 1.2.10
 
 ### Patch Changes
