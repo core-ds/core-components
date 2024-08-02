@@ -1,20 +1,26 @@
+import type { TMainSize } from "./component";
+type TNames = 'top' | 'bottom' | 'topBottom' | 'none' | 'indicator' | 'indicatorBottom';
+
+export type TRatio = {
+    [name in TNames]?: TMainSize | number;
+}
+
 type SizePathsMap = {
-    [size: number]: {
+    [size in TMainSize | number]: {
         top?: string;
         bottom?: string;
         topBottom?: string;
         none: string;
         indicator?: string;
         indicatorBottom?: string;
+        ratio?: TRatio
     };
 };
 
 type GetPathParams = {
-    size: number;
     hasTopAddons: boolean;
     hasBottomAddons: boolean;
     hasIndicator: boolean;
-    pathsMap: SizePathsMap;
 };
 
 export type PathsMap = {
@@ -22,32 +28,33 @@ export type PathsMap = {
     border: SizePathsMap;
 };
 
-export const getPath = ({
-    size,
+export const getPath = (name: TNames, size: TMainSize | number, pathsMap: SizePathsMap): string =>
+    pathsMap?.[size]?.[name] || '';
+
+export const getPathName = ({
     hasTopAddons,
     hasBottomAddons,
     hasIndicator,
-    pathsMap,
-}: GetPathParams): string => {
-    if (hasBottomAddons && hasTopAddons) {
-        return pathsMap[size].topBottom || '';
-    }
-
-    if (hasBottomAddons && hasIndicator) {
-        return pathsMap[size].indicatorBottom || '';
-    }
-
+}: GetPathParams): TNames => {
     if (hasBottomAddons) {
-        return pathsMap[size].bottom || '';
+        if (hasTopAddons) {
+            return 'topBottom';
+        }
+
+        if (hasIndicator) {
+            return 'indicatorBottom';
+        }
+
+        return 'bottom';
     }
 
     if (hasTopAddons) {
-        return pathsMap[size].top || '';
+        return 'top';
     }
 
     if (hasIndicator) {
-        return pathsMap[size].indicator || '';
+        return 'indicator';
     }
 
-    return pathsMap[size].none;
+    return 'none';
 };

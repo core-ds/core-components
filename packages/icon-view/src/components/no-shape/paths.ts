@@ -1,34 +1,19 @@
+// значение из 128, оно подходит всем
+const value = {
+    none: 'M0 0 H128 V128 H0 Z',
+}
+
 export const shapePaths = {
-    16: {
-        none: 'M0 0 H16 V16 H0 Z',
-    },
-    20: {
-        none: 'M0 0 H20 V20 H0 Z',
-    },
-    24: {
-        none: 'M0 0 H24 V24 H0 Z',
-    },
-    32: {
-        none: 'M0 0 H32 V32 H0 Z',
-    },
-    40: {
-        none: 'M0 0 H40 V40 H0 Z',
-    },
-    48: {
-        none: 'M0 0 H48 V48 H0 Z',
-    },
-    56: {
-        none: 'M0 0 H56 V56 H0 Z',
-    },
-    64: {
-        none: 'M0 0 H64 V64 H0 Z',
-    },
-    80: {
-        none: 'M0 0 H80 V80 H0 Z',
-    },
-    128: {
-        none: 'M0 0 H128 V128 H0 Z',
-    },
+    16: value,
+    20: value,
+    24: value,
+    32: value,
+    40: value,
+    48: value,
+    56: value,
+    64: value,
+    80: value,
+    128: value,
 };
 
 export const pathsMap = {
