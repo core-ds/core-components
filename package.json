@@ -175,7 +175,6 @@
         "husky": "^4.3.8",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.6.3",
-        "jest-environment-jsdom-sixteen": "^1.0.3",
         "jest-image-snapshot": "^6.1.0",
         "json": "^10.0.0",
         "lerna": "^6.1.0",
@@ -299,9 +298,6 @@
             "pre-commit": "yarn lint-staged && yarn test",
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
-    },
-    "jest": {
-        "testEnvironment": "jest-environment-jsdom-sixteen"
     },
     "config": {
         "commitizen": {
