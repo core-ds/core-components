@@ -196,7 +196,7 @@ describe('SelectWithTags', () => {
     });
 
     describe('Tags tests', () => {
-        xit('should render tag if click on option, delete tag if click on cross', async () => {
+        it('should render tag if click on option, delete tag if click on cross', async () => {
             const getOptions = () => document.querySelectorAll('[role="option"]');
 
             const { container } = render(
