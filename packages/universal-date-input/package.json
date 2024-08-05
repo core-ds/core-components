@@ -30,5 +30,5 @@
         "@alfalab/core-components-calendar": "^7.9.1"
     },
     "themesVersion": "13.0.1",
-    "varsVersion": "9.10.0"
+    "varsVersion": "9.11.0"
 }
