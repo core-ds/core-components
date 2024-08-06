@@ -22,5 +22,5 @@
         "@alfalab/core-components-typography": "^4.8.0"
     },
     "themesVersion": "13.0.1",
-    "varsVersion": "9.11.0"
+    "varsVersion": "9.11.1"
 }
