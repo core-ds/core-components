@@ -8,6 +8,7 @@
 
 .spinner {
     display: none;
+    transform: rotate(-90deg);
     animation: spin_animation var(--spinner-animation-duration) infinite
         var(--spinner-animation-timing-function);
 }
@@ -34,10 +35,16 @@
 
 @keyframes spin_animation {
     from {
-        transform: rotate(0);
+        transform: rotate(-90deg);
     }
 
     to {
-        transform: rotate(360deg);
+        transform: rotate(270deg);
     }
+}
+
+.gradient {
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(transparent, currentColor);
 }
