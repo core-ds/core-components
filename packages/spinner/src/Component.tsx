@@ -88,7 +88,7 @@ export const SIZE_TO_CLASSNAME_MAP = {
 };
 
 export const Spinner: FC<SpinnerProps> = ({
-    size: sizeProp = 24,
+    size: sizeFromProps = 24,
     colors = 'default',
     visible,
     id,
@@ -96,25 +96,23 @@ export const Spinner: FC<SpinnerProps> = ({
     dataTestId,
 }) => {
     const uniqId = useId();
-    const { size, padding, lineWidth } = CONFIG[sizeProp];
-
-    const xStart = padding + lineWidth / 2;
-    const xEnd = size - xStart;
-    const y = size / 2;
-    const r = y - xStart;
-
-    const topGradientId = `${uniqId}_top`;
-    const bottomGradientId = `${uniqId}_bottom`;
+    const { size, padding, lineWidth } = CONFIG[sizeFromProps];
+    const spinnerSize = size - padding * 2;
+    const spinnerOrigin = spinnerSize / 2 + padding;
+    const spinnerRadius = spinnerSize / 2 - lineWidth / 2;
+    const rotationAngle /* deg */ = Math.ceil(
+        (Math.asin(lineWidth / 2 / spinnerRadius) * 180) / Math.PI,
+    );
+    const gap /* deg */ = 2;
 
     return (
         <svg
             viewBox={`0 0 ${size} ${size}`}
-            fill='none'
             xmlns='http://www.w3.org/2000/svg'
             className={cn(
                 styles.spinner,
                 colorStyles[colors].component,
-                styles[SIZE_TO_CLASSNAME_MAP[sizeProp]],
+                styles[SIZE_TO_CLASSNAME_MAP[sizeFromProps]],
                 className,
                 {
                     [styles.visible]: visible,
@@ -124,31 +122,31 @@ export const Spinner: FC<SpinnerProps> = ({
             id={id}
         >
             <defs>
-                <linearGradient id={topGradientId} x1='0.05'>
-                    <stop offset='0.1' stopOpacity='0' stopColor='currentColor' />
-                    <stop offset='1' stopOpacity='0.3' stopColor='currentColor' />
-                </linearGradient>
-                <linearGradient id={bottomGradientId} x1='0.05'>
-                    <stop offset='0' stopOpacity='1' stopColor='currentColor' />
-                    <stop offset='1' stopOpacity='0.3' stopColor='currentColor' />
-                </linearGradient>
+                <mask id={uniqId}>
+                    <circle
+                        cx={spinnerOrigin}
+                        cy={spinnerOrigin}
+                        r={spinnerRadius}
+                        strokeWidth={lineWidth}
+                        stroke='#fff'
+                        strokeLinecap='round'
+                        pathLength='360'
+                        strokeDasharray={`${Math.min(270, 360 - rotationAngle * 2) - gap} ${
+                            rotationAngle * 2 + gap
+                        }`}
+                    />
+                </mask>
             </defs>
-
-            <g strokeWidth={lineWidth}>
-                <path
-                    stroke={`url(#${topGradientId})`}
-                    d={`M${xStart},${y} A${r},${r} 0 0 1 ${xEnd},${y}`}
+            <foreignObject x='0' y='0' width={size} height={size} mask={`url(#${uniqId})`}>
+                <div
+                    className={styles.gradient}
+                    style={{
+                        transform: `rotate(${
+                            Math.min(90 - rotationAngle, rotationAngle) - gap / 2
+                        }deg)`,
+                    }}
                 />
-                <path
-                    stroke={`url(#${bottomGradientId})`}
-                    d={`M${xEnd},${y} A${r},${r} 0 0 1 ${xStart},${y}`}
-                />
-                <path
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    d={`M${xStart},${y} A${r},${r} 0 0 1 ${xStart} ${y}`}
-                />
-            </g>
+            </foreignObject>
         </svg>
     );
 };
