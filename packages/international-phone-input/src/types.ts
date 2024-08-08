@@ -46,6 +46,7 @@ type CommonPhoneInputProps = {
     /**
      * Возможность стереть код страны
      * @default true
+     * @description Используйте `'preserve'` для сохранения кода страны при автозаполнении (актуально для Safari). При этом код страны можно удалить в случае использования `true`
      */
     clearableCountryCode?: boolean | 'preserve';
 
