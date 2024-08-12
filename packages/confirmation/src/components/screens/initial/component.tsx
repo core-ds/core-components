@@ -34,6 +34,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         timeLeft,
         phone,
         clearCodeOnError,
+        clearStateOnError,
         hideCountdownSection,
         initialScreenHintSlot,
         errorVisibleDuration,
@@ -74,7 +75,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
     };
 
     const handleErrorAnimationEnd = () => {
-        if (clearCodeOnError && state !== 'INITIAL') {
+        if (clearStateOnError && state !== 'INITIAL') {
             onChangeState('INITIAL');
         }
     };

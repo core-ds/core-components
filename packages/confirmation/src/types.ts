@@ -63,8 +63,15 @@ export type ConfirmationProps = {
 
     /**
      * Флаг - нужно ли очищать код при возникновении ошибки
+     * @default true
      */
     clearCodeOnError?: boolean;
+
+    /**
+     * Флаг - нужно ли очищать состояние при возникновении ошибки
+     * @default true
+     */
+    clearStateOnError?: boolean;
 
     /**
      * Функция обновления состояния компонента
@@ -154,6 +161,7 @@ export type TConfirmationContext = Required<
         | 'blockSmsRetry'
         | 'onTempBlockFinished'
         | 'clearCodeOnError'
+        | 'clearStateOnError'
         | 'initialScreenHintSlot'
         | 'errorVisibleDuration'
     > & {
