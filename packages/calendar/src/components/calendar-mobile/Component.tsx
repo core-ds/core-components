@@ -416,7 +416,11 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 );
             }
 
-            if (value) {
+            /**
+             * value может быть числом и объектом, для текущего кейса проверяем на typeof number
+             * иначе может приводить к багу, когда выводится кнопка "Выбрать" для дефолтного значения календаря
+             */
+            if (value && typeof value === 'number') {
                 return (
                     <ButtonMobile
                         view='primary'
