@@ -3,8 +3,9 @@
 exports[`Snapshots tests should display correctly 1`] = `
 <div>
   <svg
-    class="spinner component size-24"
-    viewBox="0 0 24 24"
+    class="spinner component"
+    style="padding: 2px; height: 20px; width: 20px;"
+    viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
     <defs>
@@ -12,27 +13,227 @@ exports[`Snapshots tests should display correctly 1`] = `
         id="1"
       >
         <circle
-          cx="12"
-          cy="12"
+          cx="50%"
+          cy="50%"
           pathLength="360"
           r="9"
           stroke="#fff"
-          stroke-dasharray="268 16"
+          stroke-dasharray="263 97"
+          stroke-dashoffset="-7"
           stroke-linecap="round"
           stroke-width="2"
         />
       </mask>
     </defs>
     <foreignobject
-      height="24"
+      height="20"
       mask="url(#1)"
-      width="24"
+      width="20"
       x="0"
       y="0"
     >
       <div
         class="gradient"
-        style="transform: rotate(6deg);"
+      />
+    </foreignobject>
+  </svg>
+</div>
+`;
+
+exports[`Spinner props should render preset 16 correctly 1`] = `
+<div>
+  <svg
+    class="spinner component preset16 visible"
+    style="height: 14px; width: 14px;"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <mask
+        id="1"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          pathLength="360"
+          r="6"
+          stroke="#fff"
+          stroke-dasharray="260 100"
+          stroke-dashoffset="-10"
+          stroke-linecap="round"
+          stroke-width="2"
+        />
+      </mask>
+    </defs>
+    <foreignobject
+      height="14"
+      mask="url(#1)"
+      width="14"
+      x="0"
+      y="0"
+    >
+      <div
+        class="gradient"
+      />
+    </foreignobject>
+  </svg>
+</div>
+`;
+
+exports[`Spinner props should render preset 24 correctly 1`] = `
+<div>
+  <svg
+    class="spinner component preset24 visible"
+    style="height: 20px; width: 20px;"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <mask
+        id="1"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          pathLength="360"
+          r="9"
+          stroke="#fff"
+          stroke-dasharray="263 97"
+          stroke-dashoffset="-7"
+          stroke-linecap="round"
+          stroke-width="2"
+        />
+      </mask>
+    </defs>
+    <foreignobject
+      height="20"
+      mask="url(#1)"
+      width="20"
+      x="0"
+      y="0"
+    >
+      <div
+        class="gradient"
+      />
+    </foreignobject>
+  </svg>
+</div>
+`;
+
+exports[`Spinner props should render preset 48 correctly 1`] = `
+<div>
+  <svg
+    class="spinner component preset48 visible"
+    style="height: 40px; width: 40px;"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <mask
+        id="1"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          pathLength="360"
+          r="18"
+          stroke="#fff"
+          stroke-dasharray="263 97"
+          stroke-dashoffset="-7"
+          stroke-linecap="round"
+          stroke-width="4"
+        />
+      </mask>
+    </defs>
+    <foreignobject
+      height="40"
+      mask="url(#1)"
+      width="40"
+      x="0"
+      y="0"
+    >
+      <div
+        class="gradient"
+      />
+    </foreignobject>
+  </svg>
+</div>
+`;
+
+exports[`Spinner props should support \`size\` and \`lineWidth\` 1`] = `
+<div>
+  <svg
+    class="spinner component visible"
+    style="height: 48px; width: 48px;"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <mask
+        id="1"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          pathLength="360"
+          r="23"
+          stroke="#fff"
+          stroke-dasharray="267 93"
+          stroke-dashoffset="-3"
+          stroke-linecap="round"
+          stroke-width="2"
+        />
+      </mask>
+    </defs>
+    <foreignobject
+      height="48"
+      mask="url(#1)"
+      width="48"
+      x="0"
+      y="0"
+    >
+      <div
+        class="gradient"
+      />
+    </foreignobject>
+  </svg>
+</div>
+`;
+
+exports[`Spinner props should support \`style\` 1`] = `
+<div>
+  <svg
+    class="spinner component visible"
+    style="padding: 2px; color: rgb(236, 45, 32); height: 48px; width: 48px;"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <mask
+        id="1"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          pathLength="360"
+          r="21"
+          stroke="#fff"
+          stroke-dasharray="261 99"
+          stroke-dashoffset="-9"
+          stroke-linecap="round"
+          stroke-width="6"
+        />
+      </mask>
+    </defs>
+    <foreignobject
+      height="48"
+      mask="url(#1)"
+      width="48"
+      x="0"
+      y="0"
+    >
+      <div
+        class="gradient"
       />
     </foreignobject>
   </svg>
