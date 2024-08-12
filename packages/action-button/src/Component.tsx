@@ -149,7 +149,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                     )}
                 >
                     {showLoader ? (
-                        <Spinner
+                        <Spinner.Preset
                             dataTestId={getDataTestId(dataTestId, 'loader')}
                             visible={true}
                             className={cn(styles.loader, colorStyles[colors].loader)}

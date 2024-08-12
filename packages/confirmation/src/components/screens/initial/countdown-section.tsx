@@ -50,7 +50,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
                     [styles.typographyTheme]: !mobile,
                 })}
             >
-                <Spinner visible={true} />
+                <Spinner.Preset visible={true} />
 
                 <span className={styles.loaderText}>
                     {state === 'CODE_CHECKING' ? texts.codeChecking : texts.codeSending}

@@ -305,7 +305,8 @@ Object {
       >
         <svg
           class="spinner component size-24 loader loader loader visible"
-          viewBox="0 0 24 24"
+          style="height: 20px; width: 20px;"
+          viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
@@ -313,27 +314,27 @@ Object {
               id=":r1:"
             >
               <circle
-                cx="12"
-                cy="12"
+                cx="50%"
+                cy="50%"
                 pathLength="360"
                 r="9"
                 stroke="#fff"
-                stroke-dasharray="268 16"
+                stroke-dasharray="263 97"
+                stroke-dashoffset="-7"
                 stroke-linecap="round"
                 stroke-width="2"
               />
             </mask>
           </defs>
           <foreignobject
-            height="24"
+            height="20"
             mask="url(#:r1:)"
-            width="24"
+            width="20"
             x="0"
             y="0"
           >
             <div
               class="gradient"
-              style="transform: rotate(6deg);"
             />
           </foreignobject>
         </svg>
@@ -349,7 +350,8 @@ Object {
     >
       <svg
         class="spinner component size-24 loader loader loader visible"
-        viewBox="0 0 24 24"
+        style="height: 20px; width: 20px;"
+        viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -357,27 +359,27 @@ Object {
             id=":r1:"
           >
             <circle
-              cx="12"
-              cy="12"
+              cx="50%"
+              cy="50%"
               pathLength="360"
               r="9"
               stroke="#fff"
-              stroke-dasharray="268 16"
+              stroke-dasharray="263 97"
+              stroke-dashoffset="-7"
               stroke-linecap="round"
               stroke-width="2"
             />
           </mask>
         </defs>
         <foreignobject
-          height="24"
+          height="20"
           mask="url(#:r1:)"
-          width="24"
+          width="20"
           x="0"
           y="0"
         >
           <div
             class="gradient"
-            style="transform: rotate(6deg);"
           />
         </foreignobject>
       </svg>

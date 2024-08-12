@@ -1,8 +1,4 @@
-@import '../../vars/src/index.css';
-
-:root {
-    --spinner-inverted-color: var(--color-light-neutral-translucent-1300-inverted);
-}
+@import './vars.css';
 
 .component {
     color: var(--spinner-inverted-color);
