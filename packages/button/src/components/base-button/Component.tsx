@@ -165,7 +165,7 @@ export const BaseButton = React.forwardRef<
                 )}
 
                 {showLoader && (
-                    <Spinner
+                    <Spinner.Preset
                         dataTestId={getDataTestId(dataTestId, 'loader')}
                         visible={true}
                         className={cn(
