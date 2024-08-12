@@ -82,7 +82,7 @@ export const CalendarMonthOnlyView = ({
      */
     resetCurrentClickedMonth?: RefObject<ResetCurrentClickedMonth>;
 }) => {
-    const [currentActiveMonth, setCurrentActiveMonth] = useState('');
+    const [activeMonthLabel, setActiveMonthLabel] = useState('');
 
     const range = useRange({
         mode,
@@ -193,11 +193,11 @@ export const CalendarMonthOnlyView = ({
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
-    const handleClickMonth = (index: number) => {
-        if (activeMonths[index].title !== currentActiveMonth || currentActiveMonth === '') {
-            setCurrentActiveMonth(activeMonths[index].title);
+    const handleClickMonthLabel = (index: number) => {
+        if (activeMonths[index].title !== activeMonthLabel || activeMonthLabel === '') {
+            setActiveMonthLabel(activeMonths[index].title);
         } else {
-            setCurrentActiveMonth('');
+            setActiveMonthLabel('');
             if (onChange) {
                 onChange();
             }
@@ -217,7 +217,7 @@ export const CalendarMonthOnlyView = ({
     };
 
     const renderMonth = (index: number) => {
-        const monthClicked = currentActiveMonth === activeMonths[index].title;
+        const monthClicked = activeMonthLabel === activeMonths[index].title;
         const isAfterDate = isAfter(activeMonths[index].date, activeMonth);
 
         return (
@@ -243,7 +243,7 @@ export const CalendarMonthOnlyView = ({
                                 [styles.disabled]: isAfterDate,
                             }),
                         })}
-                        {...(clickableMonth && { onClick: () => handleClickMonth(index) })}
+                        {...(clickableMonth && { onClick: () => handleClickMonthLabel(index) })}
                     >
                         {getMonthTitle(index, clickableMonth)}
                     </span>
@@ -268,7 +268,7 @@ export const CalendarMonthOnlyView = ({
 
     useImperativeHandle(resetCurrentClickedMonth, () => ({
         resetCurrentClickedMonth: () => {
-            setCurrentActiveMonth('');
+            setActiveMonthLabel('');
         },
     }));
 
