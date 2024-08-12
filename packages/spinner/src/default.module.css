@@ -1,8 +1,4 @@
-@import '../../vars/src/index.css';
-
-:root {
-    --spinner-default-color: var(--color-light-neutral-translucent-1300);
-}
+@import './vars.css';
 
 .component {
     color: var(--spinner-default-color);

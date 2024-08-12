@@ -1,4 +1,4 @@
-const req = require.context('../../', true, /^\.\/(.*)\/src\/(index|(desktop|mobile)\/index).ts$/);
+const req = require.context('../../', true, /^\.\/(.*)\/src\/(index|(desktop|mobile|preset)\/index).ts$/);
 
 const packages = req.keys().reduce((acc, key) => {
     const packageName = key.split('/')[1];
