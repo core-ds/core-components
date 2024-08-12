@@ -1,11 +1,11 @@
-import { ChangeEvent, FocusEvent } from 'react';
+import { ChangeEvent } from 'react';
 
 export type OnChangeType = (
-    event: ChangeEvent<HTMLInputElement> | FocusEvent | null,
+    event: ChangeEvent<HTMLInputElement> | null,
     payload: { value: number | '' },
 ) => void;
 
 export type OnInputChangeType = (
-    event: ChangeEvent<HTMLInputElement> | FocusEvent,
+    event: ChangeEvent<HTMLInputElement> | null,
     payload: { value: number | '' },
 ) => void;

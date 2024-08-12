@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-slider-input': minor
+'@alfalab/core-components-slider-input': major
 ---
 
 Добавлен пропс `lockLimit`, который предотвращает ввод числа если оно больше или меньше допустимого.

@@ -224,10 +224,14 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
 
                 if (lockLimit) {
                     if (onChange) {
-                        onChange(event, { value: getEventPayloadValue(validValue) });
+                        onChange(null, {
+                            value: getEventPayloadValue(validValue),
+                        });
                     }
                     if (onInputChange) {
-                        onInputChange(event, { value: getEventPayloadValue(validValue) });
+                        onInputChange(null, {
+                            value: getEventPayloadValue(validValue),
+                        });
                     }
                 }
             },
