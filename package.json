@@ -310,5 +310,6 @@
     },
     "resolutions": {
         "es5-ext": "0.10.53"
-    }
+    },
+    "packageManager": "yarn@1.22.22"
 }
