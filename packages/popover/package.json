@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popover",
-    "version": "6.2.4",
+    "version": "6.2.5",
     "description": "Popover component",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "^3.3.0",
+        "@alfalab/core-components-portal": "^3.3.1",
         "@alfalab/core-components-stack": "^5.0.0",
         "@alfalab/hooks": "^1.13.0",
         "@juggle/resize-observer": "^3.3.1",

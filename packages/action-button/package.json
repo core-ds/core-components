@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-action-button",
-    "version": "1.6.6",
+    "version": "1.6.7",
     "description": "Action Button component",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-spinner": "^3.4.0",
-        "@alfalab/core-components-shared": "^0.11.0",
+        "@alfalab/core-components-shared": "^0.12.0",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "react-merge-refs": "1.1.0",

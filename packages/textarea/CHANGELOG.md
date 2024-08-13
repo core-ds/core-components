@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   form-control@12.2.7
+
 ## 8.7.6
 
 ### Patch Changes
