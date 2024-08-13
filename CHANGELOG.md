@@ -1,3 +1,17 @@
+## 47.9.0
+
+<sup><time>13.08.2024</time></sup>
+
+### [#1320](https://github.com/core-ds/core-components/pull/1320)
+
+#### Что изменилось
+- Добавлена функция автозаполнения номера телефона. Для сохранения кода страны при автозаполнении (актуально для Safari) используйте `clearableCountryCode={'preserve'}`, при этом код страны можно удалить как и в случае `clearableCountryCode={true}`.
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input` `shared`
+
+
+
 ## 47.8.0
 
 <sup><time>06.08.2024</time></sup>
