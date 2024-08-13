@@ -6,6 +6,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
     <div
       class="component component"
       data-test-id="test-id-component"
+      title="title"
     >
       <div
         class="wrapper"
@@ -99,6 +100,7 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
   <div>
     <div
       class="component component"
+      title="title"
     >
       <div
         class="wrapper"
