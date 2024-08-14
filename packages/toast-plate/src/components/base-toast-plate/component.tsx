@@ -180,7 +180,9 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                 )}
                 ref={ref}
                 data-test-id={getDataTestId(dataTestId, 'component')}
-                title={title}
+                role='alert'
+                aria-live='assertive'
+                aria-atomic='true'
                 {...restProps}
             >
                 <div className={commonStyles.wrapper}>
