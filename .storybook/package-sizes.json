@@ -20,13 +20,13 @@
         "mobile.js": 77.6
     },
     "toast": {
-        "desktop.js": 67,
-        "index.js": 67.5,
-        "mobile.js": 67
+        "desktop.js": 67.1,
+        "index.js": 67.6,
+        "mobile.js": 67.1
     },
     "toast-plate": {
         "desktop.js": 21.6,
-        "index.js": 21.9,
+        "index.js": 22,
         "mobile.js": 21.6
     },
     "time-input": {
@@ -174,7 +174,7 @@
     "pattern-lock": {
         "desktop.js": 24.5,
         "index.js": 26.1,
-        "mobile.js": 24.4,
+        "mobile.js": 24.5,
         "shared.js": 0.9
     },
     "pattern-lock-v1": {
@@ -184,10 +184,10 @@
         "shared.js": 1.2
     },
     "password-input": {
-        "index.js": 28
+        "index.js": 28.2
     },
     "pass-code": {
-        "index.js": 22.2,
+        "index.js": 22.5,
         "shared.js": 0.8
     },
     "pass-code-v1": {
