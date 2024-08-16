@@ -132,6 +132,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             breakpoint = 1024,
             onKeyDown,
             transparentMinor = true,
+            inputClassName,
             ...restProps
         },
         ref,
@@ -310,7 +311,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     colors={colors}
                     className={cn(styles.component, className)}
                     focusedClassName={focusedClassName}
-                    inputClassName={styles.input}
+                    inputClassName={cn(styles.input, inputClassName)}
                     onChange={handleChange}
                     onClear={handleClear}
                     onBlur={handleBlur}
