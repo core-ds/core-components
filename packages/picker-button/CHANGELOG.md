@@ -1,5 +1,21 @@
 # Change Log
 
+## 11.7.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.5.4
+    -   select@17.8.5
+    -   popover@6.2.5
+
+## 11.7.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.8.4
+
 ## 11.7.13
 
 ### Patch Changes

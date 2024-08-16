@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.1
+
 ## 6.2.4
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-date-input",
-    "version": "4.3.34",
+    "version": "4.3.36",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,11 +14,11 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^15.0.2",
+        "@alfalab/core-components-input": "^15.0.4",
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.0.1",
-    "varsVersion": "9.10.0"
+    "varsVersion": "9.11.1"
 }

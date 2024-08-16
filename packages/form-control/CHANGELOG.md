@@ -1,5 +1,22 @@
 # Change Log
 
+## 12.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+
+## 12.2.6
+
+### Patch Changes
+
+<sup><time>26.07.2024</time></sup>
+
+### [#1286](https://github.com/core-ds/core-components/pull/1286)
+
+-   Добавлены data-test-id для внутренних элементов компонентов Plate и FormControl
+
 ## 12.2.5
 
 ### Patch Changes
