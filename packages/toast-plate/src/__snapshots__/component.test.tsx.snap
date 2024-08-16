@@ -4,8 +4,11 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
 <body>
   <div>
     <div
+      aria-atomic="true"
+      aria-live="assertive"
       class="component component"
       data-test-id="test-id-component"
+      role="alert"
     >
       <div
         class="wrapper"
@@ -65,7 +68,10 @@ exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] 
 <body>
   <div>
     <div
+      aria-atomic="true"
+      aria-live="assertive"
       class="component component"
+      role="alert"
     >
       <div
         class="wrapper"
@@ -98,7 +104,10 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
 <body>
   <div>
     <div
+      aria-atomic="true"
+      aria-live="assertive"
       class="component component"
+      role="alert"
     >
       <div
         class="wrapper"

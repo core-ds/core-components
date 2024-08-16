@@ -16,7 +16,10 @@ exports[`Toast Snapshots tests should match snapshot when open 1`] = `
     alfa-portal-container=""
   >
     <div
+      aria-atomic="true"
+      aria-live="assertive"
       class="component component fixed toastPlate"
+      role="alert"
       style="z-index: 1000;"
     >
       <div
@@ -64,7 +67,10 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
           class=""
         >
           <div
+            aria-atomic="true"
+            aria-live="assertive"
             class="component component"
+            role="alert"
           >
             <div
               class="wrapper"
@@ -119,7 +125,10 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
           class=""
         >
           <div
+            aria-atomic="true"
+            aria-live="assertive"
             class="component component"
+            role="alert"
           >
             <div
               class="wrapper"
