@@ -148,8 +148,6 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
         const borderDPath = getPath(polygonName, maxDimension, pathsMap.border);
 
-        // const ratio = pathsMap.shape[maxDimension]?.ratio?.[polygonName]
-
         return (
             <div
                 className={cn(
