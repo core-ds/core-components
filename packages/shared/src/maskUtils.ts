@@ -95,8 +95,8 @@ const countDigits = (value: string): number => value.replace(/\D/g, '').length;
  */
 function insertionPhonePreprocessor(
     mask: Array<string | RegExp>,
-    countryCode = '',
-    clearableCountryCode?: boolean,
+    countryCode: string | undefined,
+    clearableCountryCode: boolean | undefined,
 ): MaskitoPreprocessor {
     const completePhoneLength = mask.filter(
         (item) => `${item}` === `${/\d/}` || /[0-9]/.test(`${item}`),
@@ -138,8 +138,38 @@ function insertionPhonePreprocessor(
     };
 }
 
+/**
+ * Препроцессор необходим для сохранения кода страны при автозаполнении
+ */
+function preserveCountryCodePreprocessor(
+    countryCode: string | undefined,
+    preserveCountryCode: boolean,
+): MaskitoPreprocessor {
+    return ({ elementState, data }) => {
+        if (!preserveCountryCode || fnUtils.isNil(countryCode)) {
+            return { elementState, data };
+        }
+
+        const { value, selection } = elementState;
+
+        if (value.length > 0 && !value.startsWith('+')) {
+            const nextValue = countryCode.concat(value);
+
+            return {
+                elementState: {
+                    value: nextValue,
+                    selection,
+                },
+            };
+        }
+
+        return { elementState };
+    };
+}
+
 export const maskUtils = {
     insertionPhonePreprocessor,
     prefixPostprocessor,
     caretGuard,
+    preserveCountryCodePreprocessor,
 };

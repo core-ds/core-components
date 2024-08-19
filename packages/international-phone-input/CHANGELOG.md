@@ -1,5 +1,23 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.1.0
+
+### Minor Changes
+
+<sup><time>13.08.2024</time></sup>
+
+### [#1320](https://github.com/core-ds/core-components/pull/1320)
+
+-   Добавлена функция автозаполнения номера телефона. Для сохранения кода страны при автозаполнении (актуально для Safari) используйте `clearableCountryCode={'preserve'}`, при этом код страны можно удалить как и в случае `clearableCountryCode={true}`.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   input@15.0.4
+    -   input-autocomplete@12.1.17
+    -   select@17.8.5
+
 ## 2.0.24
 
 ### Patch Changes

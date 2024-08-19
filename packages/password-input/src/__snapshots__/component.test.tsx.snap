@@ -27,6 +27,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
         >
           <button
             class="component text size-48 hug size-48 component text component text cc-icon-button eye secondary component"
+            title="Показать введённые цифры"
             type="button"
           >
             <span

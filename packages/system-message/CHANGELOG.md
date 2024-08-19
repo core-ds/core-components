@@ -1,5 +1,12 @@
 # @alfalab/core-components-system-message
 
+## 2.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+
 ## 2.3.3
 
 ### Patch Changes

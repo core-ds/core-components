@@ -1,5 +1,21 @@
 # Change Log
 
+## 6.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.1.2
+
+## 6.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.1
+    -   popover@6.2.5
+    -   toast-plate@7.1.1
+
 ## 6.1.0
 
 ### Minor Changes

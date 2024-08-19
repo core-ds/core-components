@@ -36,6 +36,11 @@ export type KeyPadButtonProps<T> = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Заголовок кнопки
+     */
+    title?: string;
 };
 
 export function KeyPadButton<T extends ReactNode>({
@@ -44,6 +49,7 @@ export function KeyPadButton<T extends ReactNode>({
     view = 'secondary',
     buttonClassName,
     dataTestId,
+    title,
 }: KeyPadButtonProps<T>) {
     return (
         <ButtonMobile
@@ -53,6 +59,7 @@ export function KeyPadButton<T extends ReactNode>({
             view={view}
             onClick={() => onClick?.(children)}
             dataTestId={dataTestId}
+            {...(title && { title })}
         >
             {children}
         </ButtonMobile>

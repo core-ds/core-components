@@ -38,11 +38,17 @@ render(() => {
                 Код выбранной страны: {selectedCountry && selectedCountry.iso2}
             </Typography.Text>
             <Gap size='xl' />
-            <Switch
-                checked={clearableCountryCode}
+            <RadioGroup
                 label='Разрешить удаление кода страны'
-                onChange={() => setClearableCountryCode((prevState) => !prevState)}
-            />
+                direction='vertical'
+                name='radioGroup'
+                onChange={(_, { value }) => setClearableCountryCode(value === 'preserve' ? value : value === 'true')}
+                value={`${clearableCountryCode}`}
+            >
+                <Radio size='m' label='Нет' value='false' />
+                <Radio size='m' label='Да' value='true' />
+                <Radio size='m' label='Сохранить' value='preserve' />
+            </RadioGroup>
             <Gap size='m' />
             <Switch
                 checked={autocomplete}
