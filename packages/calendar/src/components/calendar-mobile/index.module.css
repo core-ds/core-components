@@ -48,7 +48,7 @@
     &.clickableMonth {
         padding: 10px var(--gap-m);
         align-self: flex-start;
-        border-radius: 999px;
+        border-radius: var(--border-radius-pill);
         background-color: var(--color-light-neutral-translucent-100);
         cursor: pointer;
         text-transform: unset;
