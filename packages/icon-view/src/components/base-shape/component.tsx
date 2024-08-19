@@ -144,19 +144,11 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             hasIndicator,
         });
 
-        const shapeDPath = getPath(
-            polygonName,
-            maxDimension,
-            pathsMap.shape
-        );
+        const shapeDPath = getPath(polygonName, maxDimension, pathsMap.shape);
 
-        const borderDPath = getPath(
-            polygonName,
-            maxDimension,
-            pathsMap.border,
-        );
+        const borderDPath = getPath(polygonName, maxDimension, pathsMap.border);
 
-        const ratio = pathsMap.shape[maxDimension]?.ratio?.[polygonName]
+        // const ratio = pathsMap.shape[maxDimension]?.ratio?.[polygonName]
 
         return (
             <div
@@ -172,7 +164,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                     <svg
                         width={width}
                         height={height}
-                        viewBox={ratio ? `0 0 ${ratio} ${ratio}` : `0 0 ${width} ${height}`}
+                        viewBox={`0 0 ${width} ${height}`}
                         xmlns='http://www.w3.org/2000/svg'
                         focusable={false}
                     >

@@ -1,9 +1,6 @@
-import type { TMainSize } from "./component";
-type TNames = 'top' | 'bottom' | 'topBottom' | 'none' | 'indicator' | 'indicatorBottom';
+import type { TMainSize } from './component';
 
-export type TRatio = {
-    [name in TNames]?: TMainSize | number;
-}
+export type TNames = 'top' | 'bottom' | 'topBottom' | 'none' | 'indicator' | 'indicatorBottom';
 
 type SizePathsMap = {
     [size in TMainSize | number]: {
@@ -13,7 +10,6 @@ type SizePathsMap = {
         none: string;
         indicator?: string;
         indicatorBottom?: string;
-        ratio?: TRatio
     };
 };
 

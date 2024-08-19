@@ -29,19 +29,10 @@ export const super_ellipse: Story = {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
-        const size = select(
-            'size',
-            [16, 20, 24, 32, 40, 48, 56, 64, 80, 128],
-            64,
-        );
+        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], 64);
         const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
-        const sizeAddons =
-            size === 128 ? 40 : size === 80 || size === 64 || size === 56 ? 24 : 20;
-
-        // 16, 20, 24, 32, 40, 48  |  56, 64, 80  |  128
-        // 40 | 24 | 20
-
-        const backgroundColor = text('backgroundColor', 'grey');
+        const sizeAddons = size === 128 ? 40 : size === 80 || size === 64 || size === 56 ? 24 : 20;
+        const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
         const addonsIcon = (
             <Circle size={sizeAddons}>
@@ -86,18 +77,11 @@ export const circle: Story = {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
-        const size = select(
-            'size',
-            [16, 20, 24, 32, 40, 48, 56, 64, 80, 128],
-            64,
-        );
+        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], 64);
         const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
-        const sizeAddons =
-            size === 128 ? 40 : size === 80 || size === 64 || size === 56 ? 24 : 20;
+        const sizeAddons = size === 128 ? 40 : size === 80 || size === 64 || size === 56 ? 24 : 20;
         const addonsIcon = (
-            <Circle size={sizeAddons}>
-                {size === 20 ? <DiamondsSIcon /> : <DiamondsMIcon />}
-            </Circle>
+            <Circle size={sizeAddons}>{size === 20 ? <DiamondsSIcon /> : <DiamondsMIcon />}</Circle>
         );
         return (
             <Circle
@@ -154,11 +138,7 @@ export const rectangle: Story = {
 export const no_shape: Story = {
     name: 'NoShape',
     render: () => {
-        const size = select(
-            'size',
-            [16, 20, 24, 32, 40, 48, 56, 64, 80, 128],
-            64,
-        );
+        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], 64);
         const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         return (
