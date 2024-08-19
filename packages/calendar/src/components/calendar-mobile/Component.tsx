@@ -211,7 +211,11 @@ export const CalendarMonthOnlyView = ({
         if (onChange) {
             const { firstAvailableDayOfMonth, lastAvailableDayOfMonth } = activeMonths[index];
 
-            onChange(firstAvailableDayOfMonth, lastAvailableDayOfMonth);
+            if (isActiveMonthLabel(index)) {
+                onChange();
+            } else {
+                onChange(firstAvailableDayOfMonth, lastAvailableDayOfMonth);
+            }
         }
     };
 
