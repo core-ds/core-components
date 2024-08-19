@@ -6,10 +6,10 @@ import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import isAfter from 'date-fns/isAfter';
 import isSameMonth from 'date-fns/isSameMonth';
+import isThisMonth from 'date-fns/isThisMonth';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import isThisMonth from 'date-fns/isThisMonth';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
@@ -170,9 +170,12 @@ export const CalendarMonthOnlyView = ({
                 dayAddonsMap,
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
-            // первый день месяца в timestamp
-            startOfMonth: startOfMonth(new Date(item.date)).getTime(),
-            // последний доступный день месяца в timestamp. представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
+            /** первый доступный день месяца в timestamp */
+            firstAvailableDayOfMonth: startOfMonth(new Date(item.date)).getTime(),
+            /**
+             * последний доступный день месяца в timestamp
+             * представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
+             */
             lastAvailableDayOfMonth: isThisMonth(item.date)
                 ? startOfDay(new Date()).getTime()
                 : lastDayOfMonth(new Date(item.date)).getTime(),
@@ -188,12 +191,13 @@ export const CalendarMonthOnlyView = ({
     // заголовок должен становиться активным если выбран весь доступный период в месяце
     const isActiveMonthLabel = (currentMonthIndex: number) => {
         if (value && isRangeValue(value)) {
-            const { startOfMonth, lastAvailableDayOfMonth } = activeMonths[initialMonthIndex];
+            const { firstAvailableDayOfMonth, lastAvailableDayOfMonth } =
+                activeMonths[initialMonthIndex];
             const { dateFrom, dateTo } = value;
 
             if (
                 initialMonthIndex === currentMonthIndex &&
-                startOfMonth === dateFrom &&
+                firstAvailableDayOfMonth === dateFrom &&
                 lastAvailableDayOfMonth === dateTo
             ) {
                 return true;
@@ -205,9 +209,9 @@ export const CalendarMonthOnlyView = ({
 
     const handleClickMonthLabel = (index: number) => {
         if (onChange) {
-            const { startOfMonth, lastAvailableDayOfMonth } = activeMonths[index];
+            const { firstAvailableDayOfMonth, lastAvailableDayOfMonth } = activeMonths[index];
 
-            onChange(startOfMonth, lastAvailableDayOfMonth);
+            onChange(firstAvailableDayOfMonth, lastAvailableDayOfMonth);
         }
     };
 
