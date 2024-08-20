@@ -5,6 +5,7 @@ import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observe
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import isAfter from 'date-fns/isAfter';
+import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
 import isThisMonth from 'date-fns/isThisMonth';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
@@ -170,15 +171,13 @@ export const CalendarMonthOnlyView = ({
                 dayAddonsMap,
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
-            /** первый доступный день месяца в timestamp */
-            firstAvailableDayOfMonth: startOfMonth(new Date(item.date)).getTime(),
             /**
              * последний доступный день месяца в timestamp
              * представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
              */
             lastAvailableDayOfMonth: isThisMonth(item.date)
                 ? startOfDay(new Date()).getTime()
-                : lastDayOfMonth(new Date(item.date)).getTime(),
+                : lastDayOfMonth(item.date).getTime(),
         }));
     }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
@@ -189,16 +188,21 @@ export const CalendarMonthOnlyView = ({
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
     // заголовок должен становиться активным если выбран весь доступный период в месяце
-    const isActiveMonthLabel = (currentMonthIndex: number) => {
+    const isMonthActive = (currentMonthIndex: number) => {
         if (value && isRangeValue(value)) {
-            const { firstAvailableDayOfMonth, lastAvailableDayOfMonth } =
+            const { lastAvailableDayOfMonth, date: initialMonthDate } =
                 activeMonths[initialMonthIndex];
+            const { date: currentMonthDate } = activeMonths[currentMonthIndex];
+
+            const firstAvailableDayOfMonth = startOfMonth(initialMonthDate).getTime();
             const { dateFrom, dateTo } = value;
 
             if (
-                initialMonthIndex === currentMonthIndex &&
-                firstAvailableDayOfMonth === dateFrom &&
-                lastAvailableDayOfMonth === dateTo
+                dateFrom &&
+                dateTo &&
+                isSameMonth(initialMonthDate, currentMonthDate) &&
+                isSameDay(firstAvailableDayOfMonth, dateFrom) &&
+                isSameDay(lastAvailableDayOfMonth, dateTo)
             ) {
                 return true;
             }
@@ -209,9 +213,10 @@ export const CalendarMonthOnlyView = ({
 
     const handleClickMonthLabel = (index: number) => {
         if (onChange) {
-            const { firstAvailableDayOfMonth, lastAvailableDayOfMonth } = activeMonths[index];
+            const { lastAvailableDayOfMonth, date } = activeMonths[index];
+            const firstAvailableDayOfMonth = startOfMonth(date).getTime();
 
-            if (isActiveMonthLabel(index)) {
+            if (isMonthActive(index)) {
                 onChange();
             } else {
                 onChange(firstAvailableDayOfMonth, lastAvailableDayOfMonth);
@@ -253,7 +258,7 @@ export const CalendarMonthOnlyView = ({
                             ...(clickableMonth && {
                                 [styles.clickableMonth]: true,
                                 [styles.rectangular]: shape === 'rectangular',
-                                [styles.active]: isActiveMonthLabel(index),
+                                [styles.active]: isMonthActive(index),
                                 [styles.disabled]: isAfterDate,
                             }),
                         })}
