@@ -86,6 +86,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             fieldProps = {},
             optionsListProps = {},
             optionProps = {},
+            groupOptionProps = {},
             searchProps = {},
             showSearch = false,
             valueRenderer,
@@ -621,6 +622,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         selectedItems={selectedItems}
                         setSelectedItems={setSelectedItems}
                         toggleMenu={toggleMenu}
+                        groupOptionProps={groupOptionProps}
                         getOptionProps={getOptionProps}
                         visibleOptions={view === 'desktop' ? visibleOptions : 0}
                         dataTestId={getDataTestId(dataTestId, 'options-list')}

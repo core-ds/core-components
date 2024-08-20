@@ -23,6 +23,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             optionGroupClassName,
             className,
             getOptionProps,
+            groupOptionProps = {},
             Option,
             open,
             options = [],
@@ -169,6 +170,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                             setSelectedItems={handleSelectedItems}
                             search={search}
                             multiple={multiple}
+                            {...groupOptionProps}
                         />
                     );
                 };
