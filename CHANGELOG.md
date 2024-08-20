@@ -1,3 +1,35 @@
+## 47.12.0
+
+<sup><time>20.08.2024</time></sup>
+
+### [#1336](https://github.com/core-ds/core-components/pull/1336)
+
+#### Что изменилось
+- Добавили пропс groupOptionsProp для прокидки дополнительных пропсов в компонент Optgroup
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1338](https://github.com/core-ds/core-components/pull/1338)
+
+#### Что изменилось
+- Исправлено отображение имени файла в состоянии ошибки
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#1334](https://github.com/core-ds/core-components/pull/1334)
+
+#### Что изменилось
+- Корректно проставляется `inputClassName`
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+
 ## 47.11.0
 
 <sup><time>16.08.2024</time></sup>
