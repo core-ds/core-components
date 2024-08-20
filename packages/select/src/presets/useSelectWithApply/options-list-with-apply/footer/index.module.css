@@ -1,4 +1,4 @@
-@import '../../../../../../themes/src/default.css';
+@import '../../../../../../vars/src/index.css';
 
 .footer {
     background-color: var(--color-light-base-bg-primary);

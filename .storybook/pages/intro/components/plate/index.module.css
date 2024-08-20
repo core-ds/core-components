@@ -1,4 +1,4 @@
-@import '../../../../../packages/themes/src/default.css';
+@import '../../../../../packages/vars/src/index.css';
 
 .plate {
     padding: var(--gap-m) var(--gap-l);

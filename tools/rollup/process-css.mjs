@@ -24,7 +24,7 @@ async function generateCssFile(source, options) {
             plugins[importPluginIdx] = require('postcss-import')({
                 warnOnEmpty: false,
                 load: async (filename, importOptions) => {
-                    if (filename.includes('/themes/src/default.css')) {
+                    if (filename.includes('/vars/src/index.css')) {
                         // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
                         // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
                         // https://github.com/postcss/postcss-import/issues/84

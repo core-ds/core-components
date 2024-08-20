@@ -1,0 +1,13 @@
+:root {
+    --focus-color: var(--color-light-status-info);
+    --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
+        sans-serif;
+    --disabled-cursor: not-allowed;
+    --arrow-transform: rotate(180deg);
+    --size-xxs-height: 32px;
+    --size-xs-height: 40px;
+    --size-s-height: 48px;
+    --size-m-height: 56px;
+    --size-l-height: 64px;
+    --size-xl-height: 72px;
+}

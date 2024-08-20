@@ -1,4 +1,4 @@
-@import '../../../packages/themes/src/default.css';
+@import '../../../packages/vars/src/index.css';
 
 .tabsTypes {
     margin-top: var(--gap-xl);

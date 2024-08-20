@@ -1,4 +1,4 @@
-@import '../../../themes/src/default.css';
+@import '../../../vars/src/index.css';
 
 :root {
     --text-paragraph-margin-bottom: 0 0 var(--gap-s);

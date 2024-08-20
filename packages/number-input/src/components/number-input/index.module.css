@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .size-48 {
     margin-right: var(--gap-xs-neg);
