@@ -3,6 +3,7 @@
 @import './form-control/corp.css';
 @import './code-input/corp.css';
 @import './icon-button/corp.css';
+@import './select/corp.css';
 
 @define-mixin theme-corp {
     @mixin button-corp;
@@ -10,4 +11,5 @@
     @mixin form-control-corp;
     @mixin code-input-corp;
     @mixin icon-button-corp;
+    @mixin select-corp;
 }
