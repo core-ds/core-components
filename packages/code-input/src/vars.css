@@ -9,4 +9,14 @@
     --code-input-bg-color: var(--form-control-bg-color);
     --code-input-mobile-bg-color: var(--color-light-neutral-translucent-100);
     --code-input-error-bg-color: var(--color-light-status-muted-negative);
+    --code-input-box-shadow: none;
+
+    /* border */
+    --code-input-border-radius: var(--border-radius-4);
+
+    /* hover */
+    --code-input-box-shadow-hover: none;
+
+    /* error */
+    --code-input-error-box-shadow: none;
 }
