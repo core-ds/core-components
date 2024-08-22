@@ -1,7 +1,7 @@
 import { Ref, useEffect, useRef, useState } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 
-import { isClient } from '@alfalab/core-components-shared';
+import { fnUtils, isClient } from '@alfalab/core-components-shared';
 
 function createUseMeasureHook<T extends HTMLElement, U>(
     measure: (element: T) => U,
@@ -28,15 +28,13 @@ function createUseMeasureHook<T extends HTMLElement, U>(
             });
         }
 
-        // eslint-disable-next-line consistent-return
         useEffect(() => {
-            if (element) {
-                resizeObserver.current?.observe(element);
+            if (fnUtils.isNil(element)) return fnUtils.noop;
+            resizeObserver.current?.observe(element);
 
-                return () => {
-                    resizeObserver.current?.unobserve(element);
-                };
-            }
+            return () => {
+                resizeObserver.current?.unobserve(element);
+            };
         }, [element]);
 
         useEffect(() => resizeObserver.current?.disconnect(), []);
