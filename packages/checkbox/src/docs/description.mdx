@@ -4,14 +4,14 @@
 
 ```jsx live
 render(() => {
-   const [checked, setChecked] = React.useState({
-        checkbox24: true,
-        checkbox20: true,
+    const [checked, setChecked] = React.useState({
+        checkbox_24: true,
+        checkbox_20: true,
     });
 
-   const [switchChecked, setSwitchChecked] = React.useState(true);
-   const [error, setError] = React.useState(false);
-   const [disabled, setDisabled] = React.useState(false);
+    const [switchChecked, setSwitchChecked] = React.useState(true);
+    const [error, setError] = React.useState(false);
+    const [disabled, setDisabled] = React.useState(false);
 
     const handleChange = (name) => (event) => {
         setChecked((prevState) => ({
@@ -20,48 +20,62 @@ render(() => {
         }));
     };
 
-
     return (
         <React.Fragment>
-            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320, minHeight: '108px', marginBottom: '20px' }}>
-                <div style={{minHeight: '46px'}}>
+            <div
+                style={{
+                    width: document.body.clientWidth < 450 ? '100%' : 320,
+                    minHeight: '108px',
+                }}
+            >
+                <div style={{ minHeight: '46px' }}>
                     <Checkbox
                         block={true}
                         size={24}
-                        onChange={handleChange('checkbox24')}
-                        checked={checked.checkbox24}
+                        onChange={handleChange('checkbox_24')}
+                        checked={checked.checkbox_24}
                         disabled={disabled}
                         label='Согласен с условиями'
-                        {...(switchChecked && {hint: 'И внимательно их прочитал'})}
-                        {...(error && {error: 'Error message'})}
+                        {...(switchChecked && { hint: 'И внимательно их прочитал' })}
+                        {...(error && { error: 'Error message' })}
                     />
                 </div>
-                <div style={{margin: '20px 0 0 8px'}}>
+                <Gap size='20' />
+                <div style={{ marginLeft: '8px' }}>
                     <Checkbox
                         block={true}
                         size={20}
-                        onChange={handleChange('checkbox20')}
-                        checked={checked.checkbox20}
+                        onChange={handleChange('checkbox_20')}
+                        checked={checked.checkbox_20}
                         disabled={disabled}
                         label='Согласен с условиями'
-                        {...(switchChecked && {hint: 'И внимательно их прочитал'})}
-                        {...(error && {error: 'Error message'})}
+                        {...(switchChecked && { hint: 'И внимательно их прочитал' })}
+                        {...(error && { error: 'Error message' })}
                     />
                 </div>
             </div>
+            <Gap size='20' />
             <Divider />
-            <div style={{margin: '20px 0'}}>
-                <Switch
-                    block={true}
-                    checked={switchChecked}
-                    label='Подпись под лейблом'
-                    onChange={() => setSwitchChecked((prevState) => !prevState)}
-                />
-            </div>
+            <Gap size='20' />
+            <Switch
+                block={true}
+                checked={switchChecked}
+                label='Подпись под лейблом'
+                onChange={() => setSwitchChecked((prevState) => !prevState)}
+            />
+            <Gap size='20' />
 
-            <Button view="secondary" size="32"  onClick={() => setError((prevState) => !prevState)}>Ошибка</Button>
-            <span style={{marginLeft: '8px'}}>
-                <Button view="secondary" size="32" onClick={() => setDisabled((prevState) => !prevState)}>Заблокирован</Button>
+            <Button view='secondary' size='32' onClick={() => setError((prevState) => !prevState)}>
+                Ошибка
+            </Button>
+            <span style={{ marginLeft: '8px' }}>
+                <Button
+                    view='secondary'
+                    size='32'
+                    onClick={() => setDisabled((prevState) => !prevState)}
+                >
+                    Заблокирован
+                </Button>
             </span>
         </React.Fragment>
     );
