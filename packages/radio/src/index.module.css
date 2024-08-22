@@ -146,7 +146,6 @@
 .size-20 .circle {
     width: 16px;
     height: 16px;
-    margin: var(--gap-2xs) var(--gap-3xs);
 
     &:before {
         border-width: 4px;
@@ -161,6 +160,10 @@
 
 .size-20 .content {
     margin-left: var(--gap-xs);
+
+    & .label {
+        @mixin paragraph_component;
+    }
 }
 
 .start {

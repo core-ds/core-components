@@ -1,25 +1,100 @@
 ## Размеры
 
-Стандартный размер компонента — m. Размер s устарел и не рекомендован к использованию.
+Компонент поддерживате два размера, 24 и 20 px
 
 ```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(false);
+    const [selectedOptions, setSelectedOptions] = React.useState({
+        group_1: 'checkbox24_1',
+        group_2: 'checkbox20_1',
+    });
+    const [switchChecked, setSwitchChecked] = React.useState(true);
+    const [disabled, setDisabled] = React.useState(false);
 
-    const handleChange = () => {
-        setChecked(!checked);
+    const handleChange = (group, name) => () => {
+        setSelectedOptions((prevOptions) => ({
+            ...prevOptions,
+            [group]: name,
+        }));
     };
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Radio
-                size={24}
-                onChange={handleChange}
-                checked={checked}
-                label='Вариант выбора'
+        <React.Fragment>
+            <div
+                style={{
+                    width: document.body.clientWidth < 450 ? '100%' : 320,
+                }}
+            >
+                <div style={{ minHeight: '46px' }}>
+                    <Radio
+                        size={24}
+                        onChange={handleChange('group_1', 'checkbox24_1')}
+                        checked={selectedOptions.group_1 === 'checkbox24_1'}
+                        label='Согласен с условиями'
+                        disabled={disabled}
+                        {...(switchChecked && { hint: 'И внимательно их прочитал' })}
+                        block={true}
+                    />
+                </div>
+
+                <Gap size='16' />
+                <div style={{ minHeight: '46px' }}>
+                    <Radio
+                        size={24}
+                        onChange={handleChange('group_1', 'checkbox24_2')}
+                        checked={selectedOptions.group_1 === 'checkbox24_2'}
+                        label='Согласен с условиями'
+                        disabled={disabled}
+                        {...(switchChecked && { hint: 'И внимательно их прочитал' })}
+                        block={true}
+                    />
+                </div>
+
+                <Gap size='20' />
+                <div style={{ marginLeft: '8px' }}>
+                    <div style={{ minHeight: '42px' }}>
+                        <Radio
+                            size={20}
+                            onChange={handleChange('group_2', 'checkbox20_1')}
+                            checked={selectedOptions.group_2 === 'checkbox20_1'}
+                            label='Согласен с условиями'
+                            disabled={disabled}
+                            {...(switchChecked && { hint: 'И внимательно их прочитал' })}
+                            block={true}
+                        />
+                    </div>
+                    <Gap size='12' />
+                    <div style={{ minHeight: '42px' }}>
+                        <Radio
+                            size={20}
+                            onChange={handleChange('group_2', 'checkbox20_2')}
+                            checked={selectedOptions.group_2 === 'checkbox20_2'}
+                            label='Согласен с условиями'
+                            disabled={disabled}
+                            {...(switchChecked && { hint: 'И внимательно их прочитал' })}
+                            block={true}
+                        />
+                    </div>
+                </div>
+            </div>
+            <Gap size='32' />
+            <Divider />
+            <Gap size='20' />
+            <Switch
                 block={true}
+                checked={switchChecked}
+                label='Подпись под лейблом'
+                onChange={() => setSwitchChecked((prevState) => !prevState)}
             />
-        </div>
+            <Gap size='20' />
+            <Button
+                view='secondary'
+                size='32'
+                onClick={() => setDisabled((prevState) => !prevState)}
+            >
+                Заблокирован
+            </Button>
+        </React.Fragment>
     );
 });
 ```
@@ -27,8 +102,7 @@ render(() => {
 ## Состояния
 
 Радиокнопка может находиться в выбранном и невыбранном состоянии.
-Если радиокнопка заблокирована, но пользователь может совершить какие-то действия чтобы её разблокировать,
-используется состояние «неактивна». Если кнопка заблокирована и её нельзя разблокировать, то используется состояние «недоступна».
+Если радиокнопка заблокирована, используется состояние «недоступна».
 
 ```jsx live
 render(() => {
