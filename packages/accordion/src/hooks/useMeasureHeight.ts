@@ -1,6 +1,8 @@
 import { Ref, useEffect, useRef, useState } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 
+import { isClient } from '@alfalab/core-components-shared';
+
 function createUseMeasureHook<T extends HTMLElement, U>(
     measure: (element: T) => U,
 ): () => [U | undefined, Ref<T>];
@@ -17,7 +19,7 @@ function createUseMeasureHook<T extends HTMLElement, U>(
         const [measurement, setMeasurement] = useState(initial);
         const resizeObserver = useRef<ResizeObserver | null>(null);
 
-        if (!resizeObserver.current) {
+        if (isClient() && !resizeObserver.current) {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
 
             resizeObserver.current = new ResizeObserver(([{ target }]) => {
