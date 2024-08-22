@@ -1,24 +1,69 @@
 ## Размеры
 
-Стандартный размер компонента — m. Размер s устарел и не рекомендован к использованию.
+Компонент поддерживате два размера, 24 и 20 px
 
 ```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(false);
+   const [checked, setChecked] = React.useState({
+        checkbox24: true,
+        checkbox20: true,
+    });
 
-    const handleChange = () => setChecked(!checked);
+   const [switchChecked, setSwitchChecked] = React.useState(true);
+   const [error, setError] = React.useState(false);
+   const [disabled, setDisabled] = React.useState(false);
+
+    const handleChange = (name) => (event) => {
+        setChecked((prevState) => ({
+            ...prevState,
+            [name]: event.target.checked,
+        }));
+    };
+
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Checkbox
-                block={true}
-                size={24}
-                onChange={handleChange}
-                checked={checked}
-                label='Согласен с условиями'
-                hint='И внимательно их прочитал'
-            />
-        </div>
+        <React.Fragment>
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320, minHeight: '108px', marginBottom: '20px' }}>
+                <div style={{minHeight: '46px'}}>
+                    <Checkbox
+                        block={true}
+                        size={24}
+                        onChange={handleChange('checkbox24')}
+                        checked={checked.checkbox24}
+                        disabled={disabled}
+                        label='Согласен с условиями'
+                        {...(switchChecked && {hint: 'И внимательно их прочитал'})}
+                        {...(error && {error: 'Error message'})}
+                    />
+                </div>
+                <div style={{margin: '20px 0 0 8px'}}>
+                    <Checkbox
+                        block={true}
+                        size={20}
+                        onChange={handleChange('checkbox20')}
+                        checked={checked.checkbox20}
+                        disabled={disabled}
+                        label='Согласен с условиями'
+                        {...(switchChecked && {hint: 'И внимательно их прочитал'})}
+                        {...(error && {error: 'Error message'})}
+                    />
+                </div>
+            </div>
+            <Divider />
+            <div style={{margin: '20px 0'}}>
+                <Switch
+                    block={true}
+                    checked={switchChecked}
+                    label='Подпись под лейблом'
+                    onChange={() => setSwitchChecked((prevState) => !prevState)}
+                />
+            </div>
+
+            <Button view="secondary" size="32"  onClick={() => setError((prevState) => !prevState)}>Ошибка</Button>
+            <span style={{marginLeft: '8px'}}>
+                <Button view="secondary" size="32" onClick={() => setDisabled((prevState) => !prevState)}>Заблокирован</Button>
+            </span>
+        </React.Fragment>
     );
 });
 ```
@@ -26,8 +71,7 @@ render(() => {
 ## Состояния
 
 Чекбокс может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть неопределённым.
-Если чекбокс заблокирован, но пользователь может совершить какие-то действия чтобы его разблокировать, используется состояние «неактивен».
-Если чекбокс заблокирован и его нельзя разблокировать, то используется состояние «недоступен».
+Если чекбокс заблокирован, используется состояние «недоступен».
 
 ```jsx live
 render(() => {
