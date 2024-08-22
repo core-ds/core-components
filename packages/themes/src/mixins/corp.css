@@ -4,6 +4,7 @@
 @import './code-input/corp.css';
 @import './icon-button/corp.css';
 @import './select/corp.css';
+@import './tag/corp.css';
 
 @define-mixin theme-corp {
     @mixin button-corp;
@@ -12,4 +13,5 @@
     @mixin code-input-corp;
     @mixin icon-button-corp;
     @mixin select-corp;
+    @mixin tag-corp;
 }
