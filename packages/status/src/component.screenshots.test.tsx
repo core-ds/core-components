@@ -1,4 +1,9 @@
-import { createPreview, generateTestCases, setupScreenshotTesting } from '../../screenshot-utils';
+import {
+    createPreview,
+    createSpriteStorybookUrl,
+    generateTestCases,
+    setupScreenshotTesting,
+} from '../../screenshot-utils';
 
 import { colors } from './Component';
 
@@ -36,5 +41,27 @@ describe(
             },
         }),
         screenshotOpts: { clip },
+    }),
+);
+
+describe(
+    'Status | size, shape, uppercase',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Status',
+                    knobs: {
+                        children: 'Label',
+                        view: ['muted-alt'],
+                        color: ['blue'],
+                        size: [20, 24, 32, 40],
+                        shape: ['rectangular', 'rounded'],
+                        uppercase: [true, false],
+                    },
+                }),
+            ],
+        ],
     }),
 );
