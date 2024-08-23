@@ -1,3 +1,26 @@
+## 47.12.1
+
+<sup><time>23.08.2024</time></sup>
+
+### [#1344](https://github.com/core-ds/core-components/pull/1344)
+
+#### Что изменилось
+- Исправление SSR
+
+#### Влияние на компоненты
+- Патчи<br />`accordion`
+
+
+### [#1342](https://github.com/core-ds/core-components/pull/1342)
+
+#### Что изменилось
+- Экспорт типа TextMaskConfig для фикса ошибки ts
+
+#### Влияние на компоненты
+- Патчи<br />`masked-input`
+
+
+
 ## 47.12.0
 
 <sup><time>20.08.2024</time></sup>
