@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
+import { colors, sizes } from './consts';
 
-export const colors = ['green', 'orange', 'red', 'blue', 'grey', 'teal', 'purple'] as const;
+import styles from './index.module.css';
 
 export type StatusProps = {
     /**
@@ -36,10 +36,10 @@ export type StatusProps = {
      * Размер компонента
      * @default 20
      */
-    size?: 20 | 24 | 32 | 40;
+    size?: (typeof sizes)[number];
 
     /**
-     * Форма кнопки
+     * Форма компонента
      * @default rectangular
      */
     shape?: 'rounded' | 'rectangular';

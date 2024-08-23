@@ -5,7 +5,7 @@ import {
     setupScreenshotTesting,
 } from '../../screenshot-utils';
 
-import { colors } from './Component';
+import { colors, sizes } from './consts';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -56,7 +56,7 @@ describe(
                         children: 'Label',
                         view: ['muted-alt'],
                         color: ['blue'],
-                        size: [20, 24, 32, 40],
+                        size: [...sizes],
                         shape: ['rectangular', 'rounded'],
                         uppercase: [true, false],
                     },

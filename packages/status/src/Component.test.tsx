@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { Status, colors } from './index';
+import { Status } from './index';
+import { colors, sizes } from './consts';
 
 describe('Status', () => {
     describe('Snapshots tests', () => {
@@ -50,7 +51,7 @@ describe('Status', () => {
             expect(container.firstElementChild).toHaveClass(color);
         });
 
-        it.each([20, 24, 32, 40] as const)('should set size="%s"', (size) => {
+        it.each(sizes)('should set size="%s"', (size) => {
             const { container } = render(<Status size={size}>Label</Status>);
 
             expect(container.firstElementChild).toHaveClass(`size-${size}`);
