@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { select, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { Status, colors } from '@alfalab/core-components-status';
 
 const meta: Meta<typeof Status> = {
@@ -17,6 +17,9 @@ export const status: Story = {
         <Status
             color={select('color', colors, 'green')}
             view={select('view', ['muted-alt', 'contrast', 'muted'], 'muted-alt')}
+            size={select('size', [20, 24, 32, 40], 20)}
+            shape={select('shape', ['rectangular', 'rounded'], 'rectangular')}
+            uppercase={boolean('uppercase', true)}
         >
             {text('children', 'Label')}
         </Status>

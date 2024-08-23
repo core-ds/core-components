@@ -31,6 +31,24 @@ export type StatusProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Размер компонента
+     * @default 20
+     */
+    size?: 20 | 24 | 32 | 40;
+
+    /**
+     * Форма кнопки
+     * @default rectangular
+     */
+    shape?: 'rounded' | 'rectangular';
+
+    /**
+     * Текст компонента в верхнем регистре
+     * @default true
+     */
+    uppercase?: boolean;
 };
 
 const logWarning = () => {
@@ -53,6 +71,9 @@ export const Status: FC<StatusProps> = ({
     color = 'green',
     children,
     dataTestId,
+    size = 20,
+    shape = 'rectangular',
+    uppercase = true,
 }) => {
     if (view === 'soft') {
         logWarning();
@@ -60,7 +81,17 @@ export const Status: FC<StatusProps> = ({
 
     return (
         <span
-            className={cn(styles.component, styles[color], styles[view], className)}
+            className={cn(
+                styles.component,
+                styles[color],
+                styles[view],
+                styles[`size-${size}`],
+                styles[shape],
+                className,
+                {
+                    [styles.uppercase]: uppercase,
+                },
+            )}
             data-test-id={dataTestId}
         >
             <span className={styles.ellipsis}>{children}</span>
