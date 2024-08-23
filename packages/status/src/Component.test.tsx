@@ -29,13 +29,25 @@ describe('Status', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set `view=muted-alt, color=green, size=20, shape=rectangular, uppercase=true` by default', () => {
+        it('should set `view=muted-alt, color=green` by default', () => {
             const { container } = render(<Status />);
 
             expect(container.firstElementChild).toHaveClass('muted-alt');
             expect(container.firstElementChild).toHaveClass('green');
+        });
+
+        it('should set size=20 by default', () => {
+            const { container } = render(<Status />);
             expect(container.firstElementChild).toHaveClass('size-20');
+        });
+
+        it('should set shape=rectangular by default', () => {
+            const { container } = render(<Status />);
             expect(container.firstElementChild).toHaveClass('rectangular');
+        });
+
+        it('should set uppercase=true by default', () => {
+            const { container } = render(<Status />);
             expect(container.firstElementChild).toHaveClass('uppercase');
         });
 
