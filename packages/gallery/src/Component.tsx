@@ -218,9 +218,7 @@ export const Gallery: FC<GalleryProps> = ({
             >
                 <div className={styles.container}>
                     {view === 'desktop' ? <Header /> : <HeaderMobile />}
-
                     <ImageViewer />
-
                     {showNavigationBar && <NavigationBar />}
                     {view === 'mobile' && <InfoBar />}
                 </div>

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, SyntheticEvent } from 'react';
+import React, { FC, ReactNode, SyntheticEvent, useContext } from 'react';
 import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
@@ -10,6 +10,7 @@ import { NoImagePaths } from './paths';
 import { Video } from './video';
 
 import styles from './index.module.css';
+import { GalleryContext } from '../../context';
 
 type SlideInnerProps = {
     active: boolean;
@@ -88,6 +89,8 @@ export const Slide: FC<SlideProps> = ({
     handleLoad,
     handleLoadError,
 }) => {
+    const { view } = useContext(GalleryContext);
+
     const broken = Boolean(meta?.broken);
     const small = isSmallImage(meta);
     const verticalImageFit = !small && swiperAspectRatio > imageAspectRatio;
@@ -120,6 +123,7 @@ export const Slide: FC<SlideProps> = ({
                 className={cn({
                     [styles.smallImage]: small,
                     [styles.image]: !small && meta,
+                    [styles.mobile]: view === 'mobile',
                     [styles.verticalImageFit]: verticalImageFit,
                     [styles.horizontalImageFit]: horizontalImageFit,
                 })}

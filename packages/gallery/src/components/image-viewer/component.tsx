@@ -106,11 +106,11 @@ export const ImageViewer: FC = () => {
 
             const isImg = eventTarget.tagName === 'IMG';
 
-            if (!isImg && !isPlaceholder && !isArrow) {
+            if (!isImg && !isPlaceholder && !isArrow && !isMobile) {
                 onClose();
             }
         },
-        [onClose],
+        [isMobile, onClose],
     );
 
     useEffect(() => {
@@ -126,6 +126,7 @@ export const ImageViewer: FC = () => {
             },
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
+                [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
                 [styles.mobile]: isMobile,
             }),
             controller: { control: swiper },
@@ -148,7 +149,7 @@ export const ImageViewer: FC = () => {
         ],
     );
 
-    const showControls = !singleSlide && !fullScreen && !!images.length;
+    const showControls = !singleSlide && !fullScreen && !isMobile && !!images.length;
 
     const swiperWidth = swiper?.width || 1;
     const swiperHeight = swiper?.height || swiper?.width || 1;
@@ -168,7 +169,6 @@ export const ImageViewer: FC = () => {
                 <div
                     className={cn(styles.arrow, {
                         [styles.focused]: leftArrowFocused,
-                        [styles.left]: isMobile,
                     })}
                     onClick={handlePrevClick}
                     role='button'
@@ -232,7 +232,6 @@ export const ImageViewer: FC = () => {
                 <div
                     className={cn(styles.arrow, {
                         [styles.focused]: rightArrowFocused,
-                        [styles.right]: isMobile,
                     })}
                     onClick={handleNextClick}
                     role='button'

@@ -24,6 +24,9 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
 
     const isMobile = view === 'mobile';
 
+    const previewWidth = isMobile ? 36 : 56;
+    const previewHeight = isMobile ? 46 : 56;
+
     const ref = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -91,16 +94,12 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                     <div className={cn(styles.brokenIcon)}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
-                            width={isMobile ? 36 : 56}
-                            height={isMobile ? 46 : 56}
-                            viewBox={`0 0 ${isMobile ? 36 : 56} ${isMobile ? 46 : 56}`}
+                            width={previewWidth}
+                            height={previewHeight}
+                            viewBox={`0 0 ${previewWidth} ${previewHeight}`}
                             fill='none'
                         >
-                            <rect
-                                width={isMobile ? 36 : 56}
-                                height={isMobile ? 46 : 56}
-                                fill='none'
-                            />
+                            <rect fill='none' />
                             <path
                                 fillRule='evenodd'
                                 clipRule='evenodd'
@@ -122,8 +121,8 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                         <canvas
                             className={cn(styles.canvasPreview, { [styles.mobile]: isMobile })}
                             data-testid='canvas'
-                            width={isMobile ? 36 : 56}
-                            height={isMobile ? 46 : 56}
+                            width={previewWidth}
+                            height={previewHeight}
                             ref={canvasRef}
                         />
                     ) : (

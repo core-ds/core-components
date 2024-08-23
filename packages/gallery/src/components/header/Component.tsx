@@ -21,6 +21,9 @@ export const Header: FC = () => {
         setMutedVideo,
     } = useContext(GalleryContext);
 
+    const currentImage = getCurrentImage();
+    const meta = getCurrentImageMeta();
+
     const toggleFullScreenButton = useRef<HTMLButtonElement>(null);
 
     const onMuteButtonClick = () => {
@@ -41,14 +44,10 @@ export const Header: FC = () => {
         }
     }, [fullScreen]);
 
-    const currentImage = getCurrentImage();
-
     const canDownload = currentImage?.canDownload ?? true;
     const filename = currentImage?.name || '';
     const description =
         singleSlide || !images.length ? '' : `${currentSlideIndex + 1} из ${images.length}`;
-
-    const meta = getCurrentImageMeta();
 
     const showFullScreenButton = !isSmallImage(meta) && !meta?.broken;
     const showDownloadButton = !meta?.broken && canDownload;
