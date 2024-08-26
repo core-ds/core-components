@@ -21,6 +21,7 @@ import {
     filterPhones,
     findCountry,
     getClear,
+    getInitialValueFromCountry,
     getPhoneData,
     initCountries,
 } from '../../utils';
@@ -34,7 +35,7 @@ export const BaseInternationalPhoneInput = forwardRef<
 >(
     (
         {
-            clearableCountryCode,
+            clearableCountryCode: clearableCountryCodeFromProps = true,
             value,
             country: countryProp,
             filterFn,
@@ -76,9 +77,11 @@ export const BaseInternationalPhoneInput = forwardRef<
             onCountryChange?.(nextCountry);
         };
 
+        const preserveCountryCode = clearableCountryCodeFromProps === 'preserve';
+        const clearableCountryCode = preserveCountryCode || clearableCountryCodeFromProps;
         const maskOptions = useMemo(
-            () => createMaskOptions(country, clearableCountryCode),
-            [country, clearableCountryCode],
+            () => createMaskOptions(country, clearableCountryCode, preserveCountryCode),
+            [country, clearableCountryCode, preserveCountryCode],
         );
 
         const maskRef = useMaskito({ options: maskOptions });
@@ -102,7 +105,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             handleCountryChange?.(nextCountry);
 
             if (nextCountry) {
-                changeNumber(`+${nextCountry.dialCode}`);
+                changeNumber(getInitialValueFromCountry(nextCountry.countryCode));
             }
 
             requestAnimationFrame(() => inputRef.current?.focus());
@@ -117,8 +120,8 @@ export const BaseInternationalPhoneInput = forwardRef<
             );
         };
 
-        const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-            updatePhoneData(e.target.value);
+        const handleInput = ({ target: { value: inputValue } }: ChangeEvent<HTMLInputElement>) => {
+            updatePhoneData(inputValue);
         };
 
         const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
@@ -130,7 +133,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 changeNumber('');
                 handleCountryChange(nextCountry);
             } else {
-                changeNumber(`+${country?.countryCode}` || '');
+                changeNumber(country ? getInitialValueFromCountry(country.countryCode) : '');
             }
         };
 

@@ -1,3 +1,82 @@
+## 47.9.0
+
+<sup><time>13.08.2024</time></sup>
+
+### [#1320](https://github.com/core-ds/core-components/pull/1320)
+
+#### Что изменилось
+- Добавлена функция автозаполнения номера телефона. Для сохранения кода страны при автозаполнении (актуально для Safari) используйте `clearableCountryCode={'preserve'}`, при этом код страны можно удалить как и в случае `clearableCountryCode={true}`.
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input` `shared`
+
+
+
+## 47.8.0
+
+<sup><time>06.08.2024</time></sup>
+
+### [#1328](https://github.com/core-ds/core-components/pull/1328)
+
+#### Что изменилось
+- Добавлен пропущенный размер радиуса скругления `--border-radius-32`
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
+## 47.7.0
+
+<sup><time>05.08.2024</time></sup>
+
+### [#1327](https://github.com/core-ds/core-components/pull/1327)
+
+#### Что изменилось
+Добавлены новые переменные радиусов скругления:
+- `--border-radius-0`
+- `--border-radius-4`
+- `--border-radius-6`
+- `--border-radius-8`
+- `--border-radius-10`
+- `--border-radius-12`
+- `--border-radius-16`
+- `--border-radius-20`
+- `--border-radius-24`
+- `--border-radius-36`
+
+Переменные, помеченые как `deprecated`:
+- `--border-radius-xs`
+- `--border-radius-s`
+- `--border-radius-m`
+- `--border-radius-l`
+- `--border-radius-xl`
+- `--border-radius-xxl`
+- `--border-radius-3xl`
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
 ## 47.6.0
 
 <sup><time>26.07.2024</time></sup>

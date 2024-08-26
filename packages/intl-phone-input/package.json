@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-intl-phone-input",
-    "version": "9.9.7",
+    "version": "9.9.8",
     "description": "Phone input for international phones",
     "keywords": [],
     "license": "MIT",
@@ -14,8 +14,8 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input-autocomplete": "12.1.16",
-        "@alfalab/core-components-select": "^17.8.4",
+        "@alfalab/core-components-input-autocomplete": "12.1.17",
+        "@alfalab/core-components-select": "^17.8.5",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "@alfalab/utils": "^1.15.2",
@@ -25,5 +25,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.0.1",
-    "varsVersion": "9.10.0"
+    "varsVersion": "9.11.1"
 }

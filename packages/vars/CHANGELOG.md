@@ -1,5 +1,46 @@
 # Change Log
 
+## 9.11.1
+
+### Patch Changes
+
+<sup><time>06.08.2024</time></sup>
+
+### [#1328](https://github.com/core-ds/core-components/pull/1328)
+
+-   Добавлен пропущенный размер радиуса скругления `--border-radius-32`
+
+## 9.11.0
+
+### Minor Changes
+
+<sup><time>05.08.2024</time></sup>
+
+### [#1327](https://github.com/core-ds/core-components/pull/1327)
+
+Добавлены новые переменные радиусов скругления:
+
+-   `--border-radius-0`
+-   `--border-radius-4`
+-   `--border-radius-6`
+-   `--border-radius-8`
+-   `--border-radius-10`
+-   `--border-radius-12`
+-   `--border-radius-16`
+-   `--border-radius-20`
+-   `--border-radius-24`
+-   `--border-radius-36`
+
+Переменные, помеченые как `deprecated`:
+
+-   `--border-radius-xs`
+-   `--border-radius-s`
+-   `--border-radius-m`
+-   `--border-radius-l`
+-   `--border-radius-xl`
+-   `--border-radius-xxl`
+-   `--border-radius-3xl`
+
 ## 9.10.0
 
 ### Minor Changes

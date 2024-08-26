@@ -13,12 +13,10 @@ import type {
 export const InternationalPhoneInputMobile = forwardRef<
     HTMLInputElement,
     InternationalPhoneInputMobileProps
->(({ value, clearableCountryCode = true, ...restProps }, ref) => (
+>((props, ref) => (
     <BaseInternationalPhoneInput
-        selected={value}
-        {...restProps}
-        clearableCountryCode={clearableCountryCode}
-        value={value}
+        selected={props.value}
+        {...props}
         view='mobile'
         ref={ref}
         SelectComponent={SelectMobile}

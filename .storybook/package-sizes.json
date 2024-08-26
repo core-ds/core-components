@@ -108,7 +108,7 @@
         "shared.js": 45
     },
     "shared": {
-        "index.js": 4.5
+        "index.js": 4.8
     },
     "select": {
         "desktop.js": 157.4,
@@ -253,9 +253,9 @@
         "index.js": 788.7
     },
     "international-phone-input": {
-        "desktop.js": 577.9,
-        "index.js": 612.7,
-        "mobile.js": 584.7,
+        "desktop.js": 578.2,
+        "index.js": 612.9,
+        "mobile.js": 584.9,
         "shared.js": 250.7
     },
     "input": {
