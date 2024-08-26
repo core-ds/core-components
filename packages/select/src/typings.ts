@@ -342,6 +342,16 @@ export type BaseSelectProps = {
     onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
 
     /**
+     * Обработчик нажатия на крестик для очистки поля
+     */
+    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Флаг, показать крестик для очистки поля
+     */
+    clear?: boolean;
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение поповера
      */
     updatePopover?: PopoverProps['update'];
@@ -914,3 +924,20 @@ export type SelectProps = BaseSelectProps &
          */
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
+
+export type ClearButtonProps = {
+    /**
+     * Обработчик нажатия на крестик для очистки поля
+     */
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Флаг, поле заблокировано
+     */
+    disabled?: boolean;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+};
