@@ -4,6 +4,7 @@
     --amount-input-inverted-minor-part-and-currency-color: var(
         --color-light-text-secondary-inverted
     );
+    --amount-input-disabled: var(--color-light-text-tertiary);
 }
 
 .minorPartAndCurrency {
@@ -11,6 +12,6 @@
 
     &.disabled,
     &.readOnly {
-        color: var(--input-disabled-color);
+        color: var(--amount-input-disabled);
     }
 }

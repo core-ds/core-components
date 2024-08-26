@@ -2,6 +2,7 @@
 
 :root {
     --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
+    --amount-input-disabled: var(--color-light-text-tertiary);
 }
 
 .minorPartAndCurrency {
@@ -9,6 +10,6 @@
 
     &.disabled,
     &.readOnly {
-        color: var(--input-disabled-color);
+        color: var(--amount-input-disabled);
     }
 }
