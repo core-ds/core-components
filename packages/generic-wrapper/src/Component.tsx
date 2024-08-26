@@ -7,7 +7,24 @@ import styles from './index.module.css';
 
 export type ReducedGapType = Omit<
     GapProps['size'],
-    '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | '5xl'
+    | '6xl'
+    | '7xl'
+    | '8xl'
+    | 1
+    | 26
+    | 28
+    | 32
+    | 40
+    | 48
+    | 64
+    | 72
+    | 96
+    | 128
+    | 256
 >;
 
 export type PaddingPropType = {
@@ -49,6 +66,8 @@ export type GenericWrapperProps = React.HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Внутренние отступы
+     * @description 3xs, 2xs, xs, s, m, l, xl deprecated,
+     * используйте 0, 2, 4, 8, 12, 16, 20, 24
      */
     padding?: PaddingPropType;
 
