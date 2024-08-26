@@ -20,7 +20,7 @@ type Props = {
 export const Video = ({ url, index, className }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
 
-    const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo } =
+    const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo, setHideNavigation } =
         useContext(GalleryContext);
 
     useEffect(() => {
@@ -63,6 +63,10 @@ export const Video = ({ url, index, className }: Props) => {
         setPlayingVideo(!playingVideo);
     };
 
+    const handleWrapperClick = () => {
+        setHideNavigation(false);
+    };
+
     useEffect(() => {
         if (playerRef.current) {
             if (playingVideo) {
@@ -74,7 +78,8 @@ export const Video = ({ url, index, className }: Props) => {
     }, [playingVideo]);
 
     return (
-        <div className={styles.videoWrapper}>
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+        <div onClick={handleWrapperClick} className={styles.videoWrapper}>
             <video
                 ref={playerRef}
                 className={classNames(

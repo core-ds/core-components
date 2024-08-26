@@ -20,6 +20,10 @@
     &.mobile {
         max-height: calc(100vh - 210px);
     }
+
+    &.mobileVideo {
+        max-height: 100vh;
+    }
 }
 
 .singleSlide .swiper {

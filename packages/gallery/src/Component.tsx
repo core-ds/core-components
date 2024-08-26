@@ -1,4 +1,5 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import cn from 'classnames';
 import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -73,6 +74,9 @@ export const Gallery: FC<GalleryProps> = ({
     const [fullScreen, setFullScreen] = useState(false);
     const [mutedVideo, setMutedVideo] = useState(false);
     const [playingVideo, setPlayingVideo] = useState(false);
+    const [hideNavigation, setHideNavigation] = useState(false);
+
+    const timer = useRef<ReturnType<typeof setTimeout>>();
 
     const [view] = useMedia<'desktop' | 'mobile'>(
         [
@@ -81,6 +85,8 @@ export const Gallery: FC<GalleryProps> = ({
         ],
         'desktop',
     );
+
+    const isCurrentVideo = !!imagesMeta[currentSlideIndex]?.player?.current;
 
     const slideTo = useCallback(
         (index: number) => {
@@ -165,6 +171,26 @@ export const Gallery: FC<GalleryProps> = ({
     );
 
     useEffect(() => {
+        if (timer.current) {
+            clearTimeout(timer.current);
+        }
+        if (isCurrentVideo && !hideNavigation) {
+            timer.current = setTimeout(() => {
+                setHideNavigation(true);
+            }, 2000);
+        }
+        if (!isCurrentVideo) {
+            setHideNavigation(false);
+        }
+
+        return () => {
+            if (timer.current) {
+                clearTimeout(timer.current);
+            }
+        };
+    }, [hideNavigation, isCurrentVideo]);
+
+    useEffect(() => {
         if (!uncontrolled && !swiper?.destroyed) {
             swiper?.slideTo(currentSlideIndex);
         }
@@ -182,31 +208,54 @@ export const Gallery: FC<GalleryProps> = ({
 
     const showNavigationBar = !singleSlide && !fullScreen;
 
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
-    const galleryContext: GalleryContext = {
-        view,
-        singleSlide,
-        currentSlideIndex,
-        images,
-        imagesMeta,
-        fullScreen,
-        initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
-        setFullScreen,
-        playingVideo,
-        setPlayingVideo,
-        mutedVideo,
-        setMutedVideo,
-        setImageMeta,
-        slideNext,
-        slidePrev,
-        slideTo,
-        getSwiper: () => swiper,
-        setSwiper,
-        onClose: handleClose,
-        setCurrentSlideIndex,
-        getCurrentImage: () => images[currentSlideIndex],
-        getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
-    };
+    const galleryContext = useMemo<GalleryContext>(
+        () => ({
+            view,
+            singleSlide,
+            currentSlideIndex,
+            images,
+            imagesMeta,
+            fullScreen,
+            initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
+            setFullScreen,
+            playingVideo,
+            setPlayingVideo,
+            mutedVideo,
+            setMutedVideo,
+            hideNavigation,
+            setHideNavigation,
+            setImageMeta,
+            slideNext,
+            slidePrev,
+            slideTo,
+            getSwiper: () => swiper,
+            setSwiper,
+            onClose: handleClose,
+            setCurrentSlideIndex,
+            getCurrentImage: () => images[currentSlideIndex],
+            getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+        }),
+        [
+            currentSlideIndex,
+            fullScreen,
+            handleClose,
+            hideNavigation,
+            images,
+            imagesMeta,
+            initialSlide,
+            mutedVideo,
+            playingVideo,
+            setCurrentSlideIndex,
+            setImageMeta,
+            singleSlide,
+            slideNext,
+            slidePrev,
+            slideTo,
+            swiper,
+            uncontrolled,
+            view,
+        ],
+    );
 
     return (
         <GalleryContext.Provider value={galleryContext}>
@@ -219,8 +268,15 @@ export const Gallery: FC<GalleryProps> = ({
                 <div className={styles.container}>
                     {view === 'desktop' ? <Header /> : <HeaderMobile />}
                     <ImageViewer />
-                    {showNavigationBar && <NavigationBar />}
-                    {view === 'mobile' && <InfoBar />}
+                    <nav
+                        className={cn({
+                            [styles.navigationVideo]: isCurrentVideo,
+                            [styles.hideNavigation]: hideNavigation,
+                        })}
+                    >
+                        {showNavigationBar && <NavigationBar />}
+                        {view === 'mobile' && <InfoBar />}
+                    </nav>
                 </div>
             </BaseModal>
         </GalleryContext.Provider>

@@ -1,3 +1,5 @@
+@import '../../../../themes/src/default.css';
+
 .buttons {
     display: flex;
     padding-left: var(--gap-2xl);

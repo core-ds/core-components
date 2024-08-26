@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
+import { GalleryContext } from '../../context';
 import { GalleryImage, ImageMeta } from '../../types';
 import { getImageAlt, isSmallImage, isVideo, TestIds } from '../../utils';
 
@@ -10,7 +11,6 @@ import { NoImagePaths } from './paths';
 import { Video } from './video';
 
 import styles from './index.module.css';
-import { GalleryContext } from '../../context';
 
 type SlideInnerProps = {
     active: boolean;

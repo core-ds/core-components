@@ -1,3 +1,5 @@
+@import '../../../../themes/src/default.css';
+
 .headerMobile {
     position: relative;
     height: 72px;
@@ -6,6 +8,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &.video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 96%;
+        background-color: var(--color-static-neutral-0-inverted);
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+.hide {
+    transform: translateY(-96px);
 }
 
 .leftButton,

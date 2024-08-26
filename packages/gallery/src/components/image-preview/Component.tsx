@@ -36,7 +36,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         const context = canvas?.getContext('2d');
         const drawPreview = () => {
             if (video) {
-                context?.drawImage(video, 0, 0, 56, 56);
+                context?.drawImage(video, 0, 0, video.videoWidth / 12, video.videoHeight / 12);
             }
         };
 
@@ -87,7 +87,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                 <div
                     className={cn(
                         styles.preview,
-                        { [styles.mobile]: isMobile },
+                        { [styles.mobile]: isMobile, [styles.active]: active },
                         styles.brokenImageWrapper,
                     )}
                 >
@@ -96,17 +96,26 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                             xmlns='http://www.w3.org/2000/svg'
                             width={previewWidth}
                             height={previewHeight}
-                            viewBox={`0 0 ${previewWidth} ${previewHeight}`}
+                            viewBox={`${isMobile ? -6 : 0} ${
+                                isMobile ? -12 : 0
+                            } ${previewWidth} ${previewHeight}`}
                             fill='none'
                         >
                             <rect fill='none' />
                             <path
                                 fillRule='evenodd'
                                 clipRule='evenodd'
-                                d={NoImagePaths.baseImage}
+                                d={isMobile ? NoImagePaths.mobileImage : NoImagePaths.baseImage}
                                 fill='#89898A'
                             />
-                            <path d={NoImagePaths.triangleImage} fill='#89898A' />
+                            <path
+                                d={
+                                    isMobile
+                                        ? NoImagePaths.mobileTriangle
+                                        : NoImagePaths.triangleImage
+                                }
+                                fill='#89898A'
+                            />
                         </svg>
                     </div>
                 </div>

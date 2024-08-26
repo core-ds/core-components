@@ -70,9 +70,10 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color-static-neutral-300-inverted);
+    opacity: 0.3;
 
-    &:hover {
-        opacity: 0.7;
+    &.active {
+        opacity: 1;
     }
 }
 

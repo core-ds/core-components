@@ -1,5 +1,7 @@
+@import '../../../../themes/src/default.css';
+
 .description {
-    align-self: center;
+    text-align: center;
     margin-bottom: var(--gap-xs);
 }
 

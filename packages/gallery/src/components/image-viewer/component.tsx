@@ -128,6 +128,7 @@ export const ImageViewer: FC = () => {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
                 [styles.mobile]: isMobile,
+                [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             }),
             controller: { control: swiper },
             a11y: {
