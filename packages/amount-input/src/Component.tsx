@@ -318,6 +318,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             <span
                                 className={cn({
                                     [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
+                                    [colorStyles[colors].disabled]: restProps.disabled,
+                                    [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
                                 {minorPart !== undefined && `,${minorPart}`}

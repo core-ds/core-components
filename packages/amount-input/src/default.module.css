@@ -6,4 +6,9 @@
 
 .minorPartAndCurrency {
     color: var(--amount-input-minor-part-and-currency-color);
+
+    &.disabled,
+    &.readOnly {
+        color: var(--input-disabled-color);
+    }
 }
