@@ -1,5 +1,15 @@
 # @alfalab/core-components-generic-wrapper
 
+## 1.3.0
+
+### Minor Changes
+
+<sup><time>26.08.2024</time></sup>
+
+### [#1321](https://github.com/core-ds/core-components/pull/1321)
+
+-   Добавлен новый способ указания внутреннего отступа: 0, 2, 4, 8, 12, 16, 20, 24. Буквенные значения внутренних отступов 3xs, 2xs, xs, s, m, l, xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24 соответственно
+
 ## 1.2.0
 
 ### Minor Changes
