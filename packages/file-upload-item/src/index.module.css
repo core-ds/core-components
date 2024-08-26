@@ -95,13 +95,8 @@
 }
 
 .errorWrapper {
-    margin-top: var(--gap-s);
+    margin-top: var(--gap-2xs);
     color: var(--color-light-text-negative);
-
-    @media (--small-only) {
-        flex: 1 0 100%;
-        margin-top: var(--gap-3xs);
-    }
 }
 
 .restore {
