@@ -483,6 +483,35 @@ describe('AmountInput', () => {
         expect(input.value).toBe('0,01');
     });
 
+    describe('should drop decimal comma when blur for view=default', () => {
+        const testCases = [
+            {
+                initialValue: 123456,
+                eventValue: '1234,',
+                expectValue: `1${MMSP}234`,
+            },
+            {
+                initialValue: 123456,
+                eventValue: '1234,5',
+                expectValue: `1${MMSP}234,5`,
+            },
+            {
+                initialValue: 123456,
+                eventValue: '1234',
+                expectValue: `1${MMSP}234`,
+            },
+        ];
+
+        it.each(testCases)(`test case № %#`, (testCase) => {
+            const input = renderAmountInput(testCase.initialValue, null);
+
+            fireEvent.change(input, { target: { value: testCase.eventValue } });
+            fireEvent.blur(input);
+
+            expect(input.value).toBe(testCase.expectValue);
+        });
+    });
+
     describe('should fill minor part with view="withZeroMinorPart"', () => {
         const testCases = [
             {
