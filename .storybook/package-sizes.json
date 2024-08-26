@@ -45,14 +45,14 @@
         "mobile.js": 4.8
     },
     "tabs": {
-        "collapsible.js": 288.6,
+        "collapsible.js": 288.8,
         "desktop.js": 36.1,
         "index.js": 37.3,
         "mobile.js": 36.2,
         "shared.js": 29.4
     },
     "table": {
-        "index.js": 168.7
+        "index.js": 169.2
     },
     "tab-bar": {
         "index.js": 10.9,
@@ -111,15 +111,15 @@
         "index.js": 4.8
     },
     "select": {
-        "desktop.js": 157.5,
-        "index.js": 301.1,
-        "mobile.js": 274.4,
-        "shared.js": 259.5
+        "desktop.js": 158,
+        "index.js": 301.6,
+        "mobile.js": 274.9,
+        "shared.js": 260
     },
     "select-with-tags": {
-        "desktop.js": 285.1,
-        "index.js": 309.1,
-        "mobile.js": 283
+        "desktop.js": 285.3,
+        "index.js": 309.3,
+        "mobile.js": 283.1
     },
     "segmented-control": {
         "index.js": 13.7
@@ -163,9 +163,9 @@
         "shared.js": 0.6
     },
     "picker-button": {
-        "desktop.js": 280.5,
-        "index.js": 314.9,
-        "mobile.js": 287,
+        "desktop.js": 280.6,
+        "index.js": 315.4,
+        "mobile.js": 287.5,
         "shared.js": 3.1
     },
     "phone-input": {
@@ -250,13 +250,13 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 788.8
+        "index.js": 789.3
     },
     "international-phone-input": {
-        "desktop.js": 578.3,
-        "index.js": 613,
-        "mobile.js": 585.1,
-        "shared.js": 250.8
+        "desktop.js": 578.9,
+        "index.js": 613.5,
+        "mobile.js": 585.6,
+        "shared.js": 250.9
     },
     "input": {
         "desktop.js": 24.3,
@@ -265,9 +265,9 @@
         "shared.js": 11.6
     },
     "input-autocomplete": {
-        "desktop.js": 277.8,
-        "index.js": 313.7,
-        "mobile.js": 286.3,
+        "desktop.js": 277.9,
+        "index.js": 314.2,
+        "mobile.js": 286.8,
         "shared.js": 1.9
     },
     "indicator": {
@@ -337,9 +337,9 @@
         "index.js": 69.8
     },
     "custom-picker-button": {
-        "desktop.js": 282.1,
-        "index.js": 316.2,
-        "mobile.js": 288.6
+        "desktop.js": 282.3,
+        "index.js": 316.7,
+        "mobile.js": 289.1
     },
     "custom-button": {
         "index.js": 10
