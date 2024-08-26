@@ -100,7 +100,7 @@ render(() => {
     return (
         <Container>
             <Button block={true} onClick={() => setOpen(true)}>
-                Показать календарь
+                Открыть календарь
             </Button>
             <CalendarMobile
                 value={value}
@@ -683,6 +683,57 @@ render(() => {
                 Показать скелетон
             </Button>
         </>
+    );
+});
+```
+
+## Выбор месяцев
+
+Для быстрого выбора месяцев можно использовать опцию `clickableMonth`.
+
+```jsx live mobileHeight={640} mobileOnly
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState();
+
+    const [firstRadioValue, setFirstRadioValue] = React.useState('rounded');
+
+    React.useEffect(() => {
+        setValue();
+    }, [firstRadioValue]);
+
+    const onFirstRadioChange = React.useCallback((_, payload) => {
+        setFirstRadioValue(payload.value);
+    }, []);
+
+    return (
+        <Container>
+            <Button block={true} onClick={() => setOpen(true)}>
+                Открыть календарь
+            </Button>
+            <CalendarMobile
+                mode={'range'}
+                selectorView={'month-only'}
+                shape={firstRadioValue}
+                clickableMonth={true}
+                value={value}
+                onChange={(dateFrom, dateTo) =>  setValue({dateFrom, dateTo})}
+                onClose={() => setOpen(false)}
+                open={open}
+            />
+            <div style={{ marginTop: '32px' }}>
+                <RadioGroup
+                    label='Форма'
+                    direction='vertical'
+                    name='radioGroup'
+                    onChange={onFirstRadioChange}
+                    value={firstRadioValue}
+                >
+                    <Radio size='m' label='Круглая' value='rounded' />
+                    <Radio size='m' label='Прямоугольная' value='rectangular' />
+                </RadioGroup>
+            </div>
+        </Container>
     );
 });
 ```

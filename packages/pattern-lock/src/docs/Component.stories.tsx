@@ -39,6 +39,7 @@ export const pattern_lock: Story = {
                         'initial',
                     )}
                     showForgotCodeBtn={boolean('showForgotCodeBtn', false) as false}
+                    disabled={boolean('disabled', false)}
                 />
             </div>
         );

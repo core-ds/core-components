@@ -139,6 +139,12 @@
         border-top-right-radius: var(--calendar-day-border-radius);
         border-bottom-right-radius: var(--calendar-day-border-radius);
     }
+
+    &.shapeRectangular:before {
+        width: calc(50% + 22px);
+        border-top-right-radius: var(--border-radius-m);
+        border-bottom-right-radius: var(--border-radius-m);
+    }
 }
 
 .rangeStart {
@@ -148,6 +154,12 @@
         width: calc(50% + 20px);
         border-top-left-radius: var(--calendar-day-border-radius);
         border-bottom-left-radius: var(--calendar-day-border-radius);
+    }
+
+    &.shapeRectangular:before {
+        width: calc(50% + 22px);
+        border-top-left-radius: var(--border-radius-m);
+        border-bottom-left-radius: var(--border-radius-m);
     }
 }
 

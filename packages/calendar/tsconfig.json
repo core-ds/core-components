@@ -16,6 +16,7 @@
         { "path": "../icon-button" },
         { "path": "../modal" },
         { "path": "../mq" },
-        { "path": "../shared" }
+        { "path": "../shared" },
+        { "path": "../typography" },
     ]
 }

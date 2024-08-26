@@ -25,6 +25,8 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
     >
       <div>
         <div
+          aria-atomic="true"
+          aria-live="assertive"
           class="component component hasCloser notificationComponent isVisible notification"
           id="1"
           role="alert"
@@ -86,6 +88,8 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
       </div>
       <div>
         <div
+          aria-atomic="true"
+          aria-live="assertive"
           class="component component hasCloser notificationComponent isVisible notification"
           id="2"
           role="alert"
@@ -147,6 +151,8 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
       </div>
       <div>
         <div
+          aria-atomic="true"
+          aria-live="assertive"
           class="component component hasCloser notificationComponent isVisible notification"
           id="3"
           role="alert"

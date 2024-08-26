@@ -586,6 +586,11 @@ describe('AmountInput', () => {
         });
     });
 
+    it('should has passed `inputClassName` too', () => {
+        const input = renderAmountInput(null, 'RUR', { inputClassName: 'foo' });
+        expect(input).toHaveClass('foo');
+    });
+
     /**
      * + тест на адекватность (снапшот)
      * + тест на дефолтные значения (нужно разобраться про label)

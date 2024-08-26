@@ -82,6 +82,11 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                             icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
                             onClick={handleButtonClick}
                             disabled={disabled}
+                            title={
+                                isPasswordVisible
+                                    ? 'Скрыть введённые цифры'
+                                    : 'Показать введённые цифры'
+                            }
                         />
                     </React.Fragment>
                 }

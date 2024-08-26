@@ -9,7 +9,7 @@ import styles from './index.module.css';
 
 // TODO: заставить rollup добавлять кастомные декларации в сборку
 type Mask = Array<string | RegExp>;
-type TextMaskConfig = {
+export type TextMaskConfig = {
     currentCaretPosition: number;
     rawValue: string;
     previousConformedValue: string;
