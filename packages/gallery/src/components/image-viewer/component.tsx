@@ -163,6 +163,7 @@ export const ImageViewer: FC = () => {
             className={cn(styles.component, {
                 [styles.singleSlide]: singleSlide,
                 [styles.mobile]: isMobile,
+                [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             })}
             onClick={handleWrapperClick}
         >

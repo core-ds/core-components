@@ -34,6 +34,10 @@
         max-height: calc(100vh - 174px);
         padding: 0;
     }
+
+    &.mobileVideo {
+        max-height: 100vh;
+    }
 }
 
 .hidden {
