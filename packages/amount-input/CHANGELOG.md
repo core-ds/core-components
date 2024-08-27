@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.9.15
+
+### Patch Changes
+
+<sup><time>20.08.2024</time></sup>
+
+### [#1334](https://github.com/core-ds/core-components/pull/1334)
+
+-   Корректно проставляется `inputClassName`
+
 ## 7.9.14
 
 ### Patch Changes

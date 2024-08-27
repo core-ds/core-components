@@ -34,7 +34,6 @@ export type BaseToastProps = ToastPlateProps &
         PopoverProps,
         | 'fallbackPlacements'
         | 'position'
-        | 'offset'
         | 'open'
         | 'getPortalContainer'
         | 'preventFlip'
@@ -78,6 +77,14 @@ export type BaseToastProps = ToastPlateProps &
          * По-дефолту рендерит компонент ToastPlate
          */
         ToastPlate?: typeof ToastPlateComponent;
+
+        /**
+         * Смещение поповера.
+         * Если позиционирование top, bottom, то [x, y].
+         * Если позиционирование left, right то [y, x].
+         * Необходимо использовать вместе с anchorElement
+         */
+        offset?: [number, number];
     };
 
 const noop = () => {};
