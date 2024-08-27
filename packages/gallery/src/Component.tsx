@@ -270,8 +270,8 @@ export const Gallery: FC<GalleryProps> = ({
                     <ImageViewer />
                     <nav
                         className={cn({
-                            [styles.navigationVideo]: isCurrentVideo,
-                            [styles.hideNavigation]: hideNavigation,
+                            [styles.navigationVideo]: isCurrentVideo && view === 'mobile',
+                            [styles.hideNavigation]: hideNavigation && view === 'mobile',
                         })}
                     >
                         {showNavigationBar && <NavigationBar />}
