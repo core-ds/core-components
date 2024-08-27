@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "8.9.7",
+    "version": "8.9.10",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -16,12 +16,12 @@
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^4.1.0",
         "@alfalab/core-components-tag": "^8.3.0",
-        "@alfalab/core-components-picker-button": "^11.7.14",
+        "@alfalab/core-components-picker-button": "^11.7.17",
         "@alfalab/core-components-badge": "^5.5.2",
         "@alfalab/core-components-mq": "^4.3.0",
         "@alfalab/hooks": "^1.13.0",
-        "@alfalab/core-components-shared": "^0.11.0",
-        "@alfalab/core-components-icon-button": "^6.7.3",
+        "@alfalab/core-components-shared": "^0.12.0",
+        "@alfalab/core-components-icon-button": "^6.7.4",
         "@alfalab/core-components-skeleton": "^5.0.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.3.1",
@@ -35,5 +35,5 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "themesVersion": "13.0.1",
-    "varsVersion": "9.10.0"
+    "varsVersion": "9.11.1"
 }

@@ -47,6 +47,11 @@ export type BasePassCodeProps = {
     rightAddons?: ReactNode;
 
     /**
+     * Заголовок для правого слота
+     */
+    rightAddonsTitle?: string;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для враппера используется модификатор -wrapper, ошибки -error,
      * сообщения над клавиатурой -message, блока с кодом -input-progress,
@@ -84,6 +89,7 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             className,
             leftAddons,
             rightAddons,
+            rightAddonsTitle,
             error,
             success,
             onChange,
@@ -141,6 +147,7 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
                     dataTestId={dataTestId}
                     leftAddons={leftAddons}
                     rightAddons={rightAddons}
+                    rightAddonsTitle={rightAddonsTitle}
                     onClick={handleChange}
                     onClear={handleClear}
                     showClear={Boolean(value)}

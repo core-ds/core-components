@@ -44,6 +44,35 @@
     text-transform: uppercase;
     color: var(--color-light-text-primary);
     margin-bottom: var(--gap-xs);
+
+    &.clickableMonth {
+        padding: 10px var(--gap-m);
+        align-self: flex-start;
+        border-radius: 999px;
+        background-color: var(--color-light-neutral-translucent-100);
+        cursor: pointer;
+        text-transform: unset;
+
+        &.rectangular {
+            border-radius: var(--border-radius-l);
+        }
+
+        &.active {
+            background-color: var(--color-light-accent-secondary);
+
+            & .monthTitle {
+                color: var(--color-light-text-primary-inverted);
+            }
+        }
+
+        &.disabled {
+            pointer-events: none;
+
+            & .monthTitle {
+                color: var(--color-light-text-tertiary);
+            }
+        }
+    }
 }
 
 .daysTable {

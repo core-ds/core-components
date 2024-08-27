@@ -1,5 +1,30 @@
 # Change Log
 
+## 12.1.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.10.0
+
+## 12.1.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.9.0
+
+## 12.1.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   form-control@12.2.7
+    -   input@15.0.4
+    -   select@17.8.5
+    -   popover@6.2.5
+
 ## 12.1.16
 
 ### Patch Changes

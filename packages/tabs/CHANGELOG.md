@@ -1,5 +1,28 @@
 # Change Log
 
+## 8.9.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.17
+
+## 8.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.16
+
+## 8.9.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   icon-button@6.7.4
+    -   picker-button@11.7.15
+
 ## 8.9.7
 
 ### Patch Changes

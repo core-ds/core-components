@@ -58,6 +58,12 @@ export type CommonPatternLockProps = {
      * Дополнительный класс для message/errorMessage
      */
     messageClassName?: string;
+
+    /**
+     * Отключает ввод паттерна
+     * @default false
+     */
+    disabled?: boolean;
 } & Omit<
     ReactPatternLockProps,
     'theme' | 'width' | 'height' | 'rows' | 'cols' | 'hover' | 'justifyNodes'

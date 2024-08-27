@@ -1,5 +1,40 @@
 # Change Log
 
+## 17.10.0
+
+### Minor Changes
+
+<sup><time>26.08.2024</time></sup>
+
+### [#1307](https://github.com/core-ds/core-components/pull/1307)
+
+-   Добавили новые свойства clear и onClear, отвечающие за отображение крестика и обработку нажатия на крестик для очистки поля
+
+## 17.9.0
+
+### Minor Changes
+
+<sup><time>20.08.2024</time></sup>
+
+### [#1336](https://github.com/core-ds/core-components/pull/1336)
+
+-   Добавили пропс groupOptionsProp для прокидки дополнительных пропсов в компонент Optgroup
+
+## 17.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   base-modal@5.7.10
+    -   bottom-sheet@6.16.2
+    -   button@11.5.4
+    -   checkbox@4.4.2
+    -   form-control@12.2.7
+    -   input@15.0.4
+    -   modal@9.3.10
+    -   popover@6.2.5
+
 ## 17.8.4
 
 ### Patch Changes

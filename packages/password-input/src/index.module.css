@@ -5,8 +5,8 @@
 }
 
 .size-72 {
-    & .eye:last-child {
-        margin-right: var(--gap-m-neg);
+    & .addons {
+        padding-right: 0;
     }
 
     & .eye {

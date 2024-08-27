@@ -1,3 +1,230 @@
+## 47.13.0
+
+<sup><time>26.08.2024</time></sup>
+
+### [#1307](https://github.com/core-ds/core-components/pull/1307)
+
+#### Что изменилось
+- Добавили новые свойства clear и onClear, отвечающие за отображение крестика и обработку нажатия на крестик для очистки поля
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1321](https://github.com/core-ds/core-components/pull/1321)
+
+#### Что изменилось
+- Добавлен новый способ указания внутреннего отступа: 0, 2, 4, 8, 12, 16, 20, 24. Буквенные значения внутренних отступов 3xs, 2xs, xs, s, m, l, xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24 соответственно
+
+#### Влияние на компоненты
+- Минорное<br />`generic-wrapper`
+
+
+### [#1313](https://github.com/core-ds/core-components/pull/1313)
+
+#### Что изменилось
+- Дополнили описание свойства offset
+
+#### Влияние на компоненты
+- Патчи<br />`toast`
+
+
+### [#1323](https://github.com/core-ds/core-components/pull/1323)
+
+#### Что изменилось
+- Добавлено новое свойство target, которое определяет, где открывать скачиваемый документ
+
+#### Влияние на компоненты
+- Минорное<br />`file-upload-item`
+
+
+### [#1316](https://github.com/core-ds/core-components/pull/1316)
+
+#### Что изменилось
+- Исправлены стили отображения ошибки для размера 72
+
+#### Влияние на компоненты
+- Патчи<br />`password-input`
+
+
+
+## 47.12.1
+
+<sup><time>23.08.2024</time></sup>
+
+### [#1344](https://github.com/core-ds/core-components/pull/1344)
+
+#### Что изменилось
+- Исправление SSR
+
+#### Влияние на компоненты
+- Патчи<br />`accordion`
+
+
+### [#1342](https://github.com/core-ds/core-components/pull/1342)
+
+#### Что изменилось
+- Экспорт типа TextMaskConfig для фикса ошибки ts
+
+#### Влияние на компоненты
+- Патчи<br />`masked-input`
+
+
+
+## 47.12.0
+
+<sup><time>20.08.2024</time></sup>
+
+### [#1336](https://github.com/core-ds/core-components/pull/1336)
+
+#### Что изменилось
+- Добавили пропс groupOptionsProp для прокидки дополнительных пропсов в компонент Optgroup
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1338](https://github.com/core-ds/core-components/pull/1338)
+
+#### Что изменилось
+- Исправлено отображение имени файла в состоянии ошибки
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#1334](https://github.com/core-ds/core-components/pull/1334)
+
+#### Что изменилось
+- Корректно проставляется `inputClassName`
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+
+## 47.11.0
+
+<sup><time>16.08.2024</time></sup>
+
+### [#1333](https://github.com/core-ds/core-components/pull/1333)
+
+#### Что изменилось
+#### pattern-lock
+- Добавлен пропс `disabled`, который позволяет отключать взаимодействие с компонентом
+
+#### pass-code
+- Добавлен атрибут `title` с описанием кнопки удаления введенных символов
+- Добавлен пропс `rightAddonsTitle`, который позволяет добавлять атрибут `title` для передаваемого аддона
+
+#### toast-plate
+- Добавлены атрибуты для улучшения доступности компонента
+
+#### password-input
+- Добавлен атрибут `title` с описанием кнопки скрытия / показа введенного пароля
+
+#### Влияние на компоненты
+- Минорное<br />`pass-code` `pattern-lock`
+
+
+- Патчи<br />`password-input` `toast-plate`
+
+
+
+## 47.10.0
+
+<sup><time>16.08.2024</time></sup>
+
+### [#1319](https://github.com/core-ds/core-components/pull/1319)
+
+#### Что изменилось
+- Добавлен пропс `clickableMonth`. При клике на заголовок месяца будет выделен весь доступный период. Доступен только для мобильного компонента
+- Исправлено поведение кнопок в футере для мобильного компонента
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+
+## 47.9.0
+
+<sup><time>13.08.2024</time></sup>
+
+### [#1320](https://github.com/core-ds/core-components/pull/1320)
+
+#### Что изменилось
+- Добавлена функция автозаполнения номера телефона. Для сохранения кода страны при автозаполнении (актуально для Safari) используйте `clearableCountryCode={'preserve'}`, при этом код страны можно удалить как и в случае `clearableCountryCode={true}`.
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input` `shared`
+
+
+
+## 47.8.0
+
+<sup><time>06.08.2024</time></sup>
+
+### [#1328](https://github.com/core-ds/core-components/pull/1328)
+
+#### Что изменилось
+- Добавлен пропущенный размер радиуса скругления `--border-radius-32`
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
+## 47.7.0
+
+<sup><time>05.08.2024</time></sup>
+
+### [#1327](https://github.com/core-ds/core-components/pull/1327)
+
+#### Что изменилось
+Добавлены новые переменные радиусов скругления:
+- `--border-radius-0`
+- `--border-radius-4`
+- `--border-radius-6`
+- `--border-radius-8`
+- `--border-radius-10`
+- `--border-radius-12`
+- `--border-radius-16`
+- `--border-radius-20`
+- `--border-radius-24`
+- `--border-radius-36`
+
+Переменные, помеченые как `deprecated`:
+- `--border-radius-xs`
+- `--border-radius-s`
+- `--border-radius-m`
+- `--border-radius-l`
+- `--border-radius-xl`
+- `--border-radius-xxl`
+- `--border-radius-3xl`
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
 ## 47.6.0
 
 <sup><time>26.07.2024</time></sup>

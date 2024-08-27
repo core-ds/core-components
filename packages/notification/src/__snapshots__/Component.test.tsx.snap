@@ -8,6 +8,8 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
   >
     <div>
       <div
+        aria-atomic="true"
+        aria-live="assertive"
         class="component component hasCloser notificationComponent"
         data-test-id="test-id-component"
         style="top: 108px; z-index: 1000;"

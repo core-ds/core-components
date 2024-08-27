@@ -1,5 +1,15 @@
 # @alfalab/core-components-shared
 
+## 0.12.0
+
+### Minor Changes
+
+<sup><time>13.08.2024</time></sup>
+
+### [#1320](https://github.com/core-ds/core-components/pull/1320)
+
+-   Добавлена функция автозаполнения номера телефона. Для сохранения кода страны при автозаполнении (актуально для Safari) используйте `clearableCountryCode={'preserve'}`, при этом код страны можно удалить как и в случае `clearableCountryCode={true}`.
+
 ## 0.11.0
 
 ### Minor Changes

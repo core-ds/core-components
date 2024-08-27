@@ -1,11 +1,25 @@
 :root {
-    --border-radius-xs: 2px;
-    --border-radius-s: 4px;
-    --border-radius-m: 8px;
-    --border-radius-l: 12px;
-    --border-radius-xl: 16px;
-    --border-radius-xxl: 20px;
-    --border-radius-3xl: 24px;
+    --border-radius-xs: 2px; /* deprecated */
+    --border-radius-s: 4px; /* deprecated */
+    --border-radius-m: 8px; /* deprecated */
+    --border-radius-l: 12px; /* deprecated */
+    --border-radius-xl: 16px; /* deprecated */
+    --border-radius-xxl: 20px; /* deprecated */
+    --border-radius-3xl: 24px; /* deprecated */
     --border-radius-circle: 50%;
     --border-radius-pill: 99px;
+
+    /* новые значения, используйте их */
+    --border-radius-0: 0;
+    --border-radius-4: 4px;
+    --border-radius-6: 6px;
+    --border-radius-8: 8px;
+    --border-radius-10: 10px;
+    --border-radius-12: 12px;
+    --border-radius-16: 16px;
+    --border-radius-20: 20px;
+    --border-radius-24: 24px;
+    --border-radius-32: 32px;
+    --border-radius-36: 36px;
+    --border-radius-64: 64px;
 }

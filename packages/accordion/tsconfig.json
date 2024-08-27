@@ -9,5 +9,8 @@
             "@alfalab/core-components-*": ["../*/src"],
         }
     },
-    "references": [{ "path": "../typography" }]
+    "references": [
+        { "path": "../typography",  },
+        { "path": "../shared" }
+    ]
 }
