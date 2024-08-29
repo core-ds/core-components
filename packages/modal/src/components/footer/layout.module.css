@@ -9,15 +9,15 @@
     }
 
     &.gap-16 > *:not(:last-child):not(:only-child) {
-        margin-bottom: var(--gap-m);
+        margin-bottom: var(--gap-16);
     }
 
     &.gap-24 > *:not(:last-child):not(:only-child) {
-        margin-bottom: var(--gap-xl);
+        margin-bottom: var(--gap-24);
     }
 
     &.gap-32 > *:not(:last-child):not(:only-child) {
-        margin-bottom: var(--gap-2xl);
+        margin-bottom: var(--gap-32);
     }
 }
 
@@ -47,14 +47,14 @@
     }
 
     &.gap-16 > *:not(:last-child):not(:only-child) {
-        margin-right: var(--gap-m);
+        margin-right: var(--gap-16);
     }
 
     &.gap-24 > *:not(:last-child):not(:only-child) {
-        margin-right: var(--gap-xl);
+        margin-right: var(--gap-24);
     }
 
     &.gap-32 > *:not(:last-child):not(:only-child) {
-        margin-right: var(--gap-2xl);
+        margin-right: var(--gap-32);
     }
 }

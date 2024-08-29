@@ -7,6 +7,6 @@
     flex-direction: column;
     justify-content: end;
     height: var(--pass-code-height);
-    padding: var(--gap-xs) var(--gap-m) var(--gap-m);
+    padding: var(--gap-8) var(--gap-16) var(--gap-16);
     min-width: var(--pass-code-min-width);
 }

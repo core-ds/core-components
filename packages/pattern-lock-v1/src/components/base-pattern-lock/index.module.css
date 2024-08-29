@@ -16,7 +16,7 @@
     @mixin paragraph_primary_medium;
 
     text-align: center;
-    padding: 0 var(--gap-m) var(--gap-3xl);
+    padding: 0 var(--gap-16) var(--gap-40);
     min-height: 24px;
     overflow: hidden;
     text-overflow: ellipsis;

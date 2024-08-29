@@ -1,9 +1,9 @@
 @import '../../../../themes/src/default.css';
 
 .size-48 {
-    margin-right: var(--gap-xs-neg);
+    margin-right: var(--gap-8-neg);
 }
 
 .size-56 {
-    margin-right: var(--gap-2xs-neg);
+    margin-right: var(--gap-4-neg);
 }
