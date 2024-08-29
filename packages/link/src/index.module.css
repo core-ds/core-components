@@ -57,11 +57,11 @@
 }
 
 .addons:first-child {
-    margin-right: var(--gap-2xs);
+    margin-right: var(--gap-4);
 }
 
 .addons:last-child {
-    margin-left: var(--gap-2xs);
+    margin-left: var(--gap-4);
 }
 
 .addons:only-child {

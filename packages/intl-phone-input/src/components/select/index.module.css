@@ -14,11 +14,11 @@
 
 .flag {
     flex-shrink: 0;
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .countryName {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .dialCode {
