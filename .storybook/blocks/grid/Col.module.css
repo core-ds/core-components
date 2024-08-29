@@ -1,6 +1,6 @@
 .col {
     flex: 0 1 auto;
-    margin: 0 var(--gap-xs) 0 0;
+    margin: 0 var(--gap-8) 0 0;
 }
 
 .col:last-child {

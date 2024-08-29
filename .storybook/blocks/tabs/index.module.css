@@ -1,12 +1,12 @@
 @import '../../../packages/themes/src/default.css';
 
 .tabs {
-    margin-top: var(--gap-2xl);
-    padding-bottom: var(--gap-m);
+    margin-top: var(--gap-32);
+    padding-bottom: var(--gap-16);
 }
 
 @media (--tablet-m) {
     .tabs {
-        margin-top: var(--gap-4xl);
+        margin-top: var(--gap-48);
     }
 }

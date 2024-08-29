@@ -1,7 +1,7 @@
 .component {
     position: fixed;
-    right: var(--gap-l);
-    bottom: var(--gap-3xl);
+    right: var(--gap-20);
+    bottom: var(--gap-40);
     background-color: var(--color-light-base-bg-primary-inverted);
     border-radius: var(--border-radius-circle);
     opacity: 0;

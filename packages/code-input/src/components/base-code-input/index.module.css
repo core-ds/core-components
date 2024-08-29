@@ -8,7 +8,7 @@
 .error {
     @mixin paragraph_primary_small;
 
-    margin-top: var(--gap-xs);
+    margin-top: var(--gap-8);
     color: var(--color-light-text-negative);
 }
 

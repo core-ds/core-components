@@ -22,7 +22,7 @@
         width: var(--calendar-inner-width);
 
         & > div:first-child {
-            padding: var(--gap-m) 0 var(--gap-s);
+            padding: var(--gap-16) 0 var(--gap-12);
         }
     }
 }

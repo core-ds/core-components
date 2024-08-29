@@ -52,7 +52,7 @@
 
 .addons {
     margin-left: auto;
-    padding-left: var(--gap-m);
+    padding-left: var(--gap-16);
     line-height: 24px;
 }
 
@@ -68,7 +68,7 @@
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    margin: var(--gap-3xs);
+    margin: var(--gap-2);
     color: var(--color-light-neutral-translucent-1300-inverted);
     background-color: var(--checkbox-bg-color);
     border: 1.5px solid var(--checkbox-border-color);
@@ -168,11 +168,11 @@
 
 .content {
     flex-grow: 1;
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
 }
 
 .size-20 .content {
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 
     & .label {
         @mixin paragraph_component;
@@ -186,7 +186,7 @@
 }
 
 .label:not(:only-child) {
-    margin-bottom: var(--gap-2xs);
+    margin-bottom: var(--gap-4);
 }
 
 .errorMessage {
