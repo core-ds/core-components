@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    padding: var(--gap-xl) var(--gap-m) var(--gap-2xl);
+    padding: var(--gap-24) var(--gap-16) var(--gap-32);
     border-top: 1px solid var(--color-light-neutral-400);
     box-sizing: border-box;
 }
@@ -18,8 +18,8 @@
 
 .tag.tag {
     flex-shrink: 0;
-    margin-right: var(--gap-xs);
-    padding: 0 var(--gap-xs);
+    margin-right: var(--gap-8);
+    padding: 0 var(--gap-8);
     min-width: 32px;
 
     &:last-child {
@@ -36,7 +36,7 @@
 }
 
 .menu {
-    margin: var(--gap-2xs) 0;
+    margin: var(--gap-4) 0;
 }
 
 .option {

@@ -8,7 +8,7 @@
     flex-direction: column;
     flex: 1 0 0;
     align-items: center;
-    padding: var(--gap-xs) 0;
+    padding: var(--gap-8) 0;
     color: var(--color-light-neutral-translucent-700);
 }
 
@@ -43,7 +43,7 @@
 .indicator {
     position: absolute;
     top: 3px;
-    left: calc(50% + var(--gap-2xs));
+    left: calc(50% + var(--gap-4));
     height: 16px;
     min-width: 16px;
 }

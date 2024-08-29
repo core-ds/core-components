@@ -10,8 +10,8 @@
     --slider-input-m-border-bottom-radius: var(--border-radius-m);
     --slider-input-l-border-bottom-radius: var(--border-radius-m);
     --slider-input-xl-border-bottom-radius: var(--border-radius-l);
-    --slider-input-progress-margin-horizontal: var(--gap-s);
-    --slider-input-xl-progress-margin-horizontal: var(--gap-m);
+    --slider-input-progress-margin-horizontal: var(--gap-12);
+    --slider-input-xl-progress-margin-horizontal: var(--gap-16);
     --slider-input-progress-border-radius: var(--border-radius-s);
     --slider-input-progress-bg-color: var(--color-light-neutral-700);
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
@@ -112,7 +112,7 @@
 
     display: flex;
     justify-content: space-between;
-    margin-top: var(--gap-xs);
+    margin-top: var(--gap-8);
     color: var(--slider-input-steps-color);
 }
 
