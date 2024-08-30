@@ -129,17 +129,16 @@
         content: '';
         position: absolute;
         background-color: var(--radio-icon-color);
-        background-clip: padding-box;
-        border-width: 6px;
-        border-style: solid;
-        border-color: transparent;
         border-radius: var(--border-radius-circle);
-        left: 0;
+        left: 50%;
         right: 0;
-        top: 0;
+        top: 50%;
         bottom: 0;
         transition: opacity 0.2s ease;
         opacity: 0;
+        width: 6px;
+        height: 6px;
+        transform: translate(-50%, -50%);
     }
 }
 

@@ -37,7 +37,7 @@ render(() => {
                     />
                 </div>
 
-                <Gap size='16' />
+                <Gap size='20' />
                 <div style={{ minHeight: '46px' }}>
                     <Radio
                         size={24}
@@ -50,7 +50,7 @@ render(() => {
                     />
                 </div>
 
-                <Gap size='20' />
+                <Gap size='32' />
                 <div style={{ marginLeft: '8px' }}>
                     <div style={{ minHeight: '42px' }}>
                         <Radio
@@ -87,13 +87,12 @@ render(() => {
                 onChange={() => setSwitchChecked((prevState) => !prevState)}
             />
             <Gap size='20' />
-            <Button
-                view='secondary'
-                size='32'
+            <Switch
+                block={true}
+                checked={disabled}
+                label='Заблокирован'
                 onClick={() => setDisabled((prevState) => !prevState)}
-            >
-                Заблокирован
-            </Button>
+            />
         </React.Fragment>
     );
 });
@@ -109,7 +108,7 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Radio size={24} label='Выбрана' checked={true} block={true} />
-            <Gap size='m' />
+            <Gap size='20' />
             <Radio
                 size={24}
                 label='Выбрана и недоступна'
@@ -117,9 +116,9 @@ render(() => {
                 checked={true}
                 block={true}
             />
-            <Gap size='xl' />
+            <Gap size='20' />
             <Radio size={24} label='По умолчанию' block={true} />
-            <Gap size='m' />
+            <Gap size='20' />
             <Radio size={24} label='По умолчанию и недоступна' disabled={true} block={true} />
         </div>
     );
