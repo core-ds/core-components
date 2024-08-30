@@ -105,7 +105,7 @@ export const Slide: FC<SlideProps> = ({
                 withPlaceholder={broken}
                 loading={!meta}
             >
-                <Video url={image.src} index={index} />
+                <Video url={image.src} index={index} isActive={isActive} />
             </SlideInner>
         );
     }

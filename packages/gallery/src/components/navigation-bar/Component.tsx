@@ -1,5 +1,4 @@
 import React, { FC, KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
-import cn from 'classnames';
 
 import { GalleryContext } from '../../context';
 import { getImageKey, TestIds } from '../../utils';
@@ -12,7 +11,7 @@ const MIN_SCROLL_STEP = 24;
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper } =
+    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper, setPlayingVideo } =
         useContext(GalleryContext);
 
     const swiper = getSwiper();
@@ -21,6 +20,7 @@ export const NavigationBar: FC = () => {
         setCurrentSlideIndex?.(index);
 
         if (swiper) {
+            setPlayingVideo(true);
             swiper.slideTo(index);
         }
     };
@@ -88,7 +88,7 @@ export const NavigationBar: FC = () => {
                         active={active}
                         index={index}
                         onSelect={handlePreviewSelect}
-                        className={cn(styles.preview)}
+                        className={styles.preview}
                     />
                 );
             })}

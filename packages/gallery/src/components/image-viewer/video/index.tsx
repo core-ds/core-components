@@ -1,33 +1,27 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { MouseEvent, ReactEventHandler, useContext, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import Hls from 'hls.js';
 
 import { Circle } from '@alfalab/core-components/icon-view/circle';
-import { Button } from '@alfalab/core-components-button';
-import PauseCompactMIcon from '@alfalab/icons-glyph/PauseCompactMIcon';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
 
 import { GalleryContext } from '../../../context';
+import { GALLERY_EVENTS } from '../../../utils/constants';
 
 import styles from './index.module.css';
 
 type Props = {
     url: string;
     index: number;
+    isActive: boolean;
     className?: string;
 };
 
-export const Video = ({ url, index, className }: Props) => {
+export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
 
     const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo, setHideNavigation } =
         useContext(GalleryContext);
-
-    useEffect(() => {
-        if (playerRef.current) {
-            playerRef.current.muted = mutedVideo;
-        }
-    }, [mutedVideo]);
 
     useEffect(() => {
         setImageMeta({ player: playerRef }, index);
@@ -46,8 +40,6 @@ export const Video = ({ url, index, className }: Props) => {
             if (playerRef.current) {
                 hls.attachMedia(playerRef.current);
             }
-        } else if (playerRef.current) {
-            playerRef.current.src = url;
         }
 
         return () => {
@@ -58,30 +50,52 @@ export const Video = ({ url, index, className }: Props) => {
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [url, index]);
 
-    const handleClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
+    const handleWrapperClick = (e: MouseEvent) => {
+        e.stopPropagation();
+        setHideNavigation(false);
         setPlayingVideo(!playingVideo);
     };
 
-    const handleWrapperClick = () => {
-        setHideNavigation(false);
-    };
-
     useEffect(() => {
-        if (playerRef.current) {
+        if (playerRef.current && isActive) {
             if (playingVideo) {
                 playerRef.current.play();
             } else {
                 playerRef.current.pause();
             }
         }
-    }, [playingVideo]);
+        if (playerRef.current && !isActive) {
+            playerRef.current.pause();
+            playerRef.current.currentTime = 0;
+        }
+    }, [isActive, playingVideo]);
+
+    const onPlay: ReactEventHandler<HTMLVideoElement> = (e) => {
+        const customEvent = new CustomEvent(GALLERY_EVENTS.ON_PLAY, {
+            detail: { player: e.target },
+        });
+
+        dispatchEvent(customEvent);
+    };
+
+    const onPause: ReactEventHandler<HTMLVideoElement> = (e) => {
+        const customEvent = new CustomEvent(GALLERY_EVENTS.ON_PAUSE, {
+            detail: { player: e.target },
+        });
+
+        dispatchEvent(customEvent);
+    };
 
     return (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
         <div onClick={handleWrapperClick} className={styles.videoWrapper}>
             <video
+                onPlay={onPlay}
+                onPause={onPause}
                 ref={playerRef}
+                playsInline={true}
+                muted={mutedVideo}
+                src={Hls.isSupported() ? undefined : url}
                 className={classNames(
                     styles.video,
                     { [styles.mobile]: view === 'mobile' },
@@ -90,12 +104,12 @@ export const Video = ({ url, index, className }: Props) => {
             >
                 <track kind='captions' />
             </video>
-            {view === 'desktop' && (
-                <Button className={styles.videoButton} view='text' onClick={handleClick}>
-                    <Circle className={styles.videoButtonIcon} size={64}>
-                        {playingVideo ? <PauseCompactMIcon /> : <PlayCompactMIcon />}
+            {view === 'desktop' && !playingVideo && (
+                <div className={styles.videoButton}>
+                    <Circle size={64}>
+                        <PlayCompactMIcon />
                     </Circle>
-                </Button>
+                </div>
             )}
         </div>
     );

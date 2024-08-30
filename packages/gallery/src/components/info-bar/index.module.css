@@ -2,11 +2,11 @@
 
 .description {
     text-align: center;
-    margin-bottom: var(--gap-xs);
+    margin-bottom: var(--gap-8);
 }
 
 .videoButtons {
-    padding: 0 var(--gap-xs);
+    padding: 0 var(--gap-8);
     position: relative;
     height: 48px;
 }

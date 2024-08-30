@@ -10,3 +10,18 @@ export const TestIds = {
     MUTE_BUTTON: 'mute-button',
     UNMUTE_BUTTON: 'unmute-button',
 };
+
+export const PREVIEW_WIDTH_MOBILE = 36;
+export const PREVIEW_HEIGHT_MOBILE = 46;
+
+export const PREVIEW_WIDTH_DESKTOP = 56;
+export const PREVIEW_HEIGHT_DESKTOP = 56;
+
+export const PREVIEW_VIDEO_MULTIPLIER = 12;
+
+export const GALLERY_EVENTS = {
+    ON_PLAY: 'Gallery:OnPlay',
+    ON_PAUSE: 'Gallery:OnPause',
+    ON_MUTE: 'Gallery:OnMute',
+    ON_UNMUTE: 'Gallery:OnUnmute',
+};

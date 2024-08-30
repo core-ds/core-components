@@ -43,7 +43,6 @@
 
     & > img {
         display: block;
-        background-color: var(--color-light-base-bg-primary);
         width: 100%;
         height: 100%;
         border-radius: inherit;

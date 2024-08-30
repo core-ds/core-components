@@ -126,7 +126,7 @@ export const ImageViewer: FC = () => {
             },
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
-                [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
+                [styles.fullScreenVideo]: fullScreen && !singleSlide && isVideo(currentImage?.src),
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             }),
@@ -142,6 +142,7 @@ export const ImageViewer: FC = () => {
         [
             fullScreen,
             currentImage?.src,
+            singleSlide,
             isMobile,
             swiper,
             initialSlide,

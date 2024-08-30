@@ -62,7 +62,6 @@
     width: 0;
     height: 0;
     user-select: none;
-    background-color: var(--color-light-base-bg-primary);
     border-radius: var(--border-radius-m);
 
     &.mobile {
@@ -75,7 +74,6 @@
     width: auto;
     height: auto;
     user-select: none;
-    background-color: var(--color-light-base-bg-primary);
 }
 
 .verticalImageFit {

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { isVideo, TestIds } from '@alfalab/core-components-gallery';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
+import { isVideo, TestIds } from '../../utils';
 import * as Buttons from '../buttons';
 
 import styles from './index.module.css';
@@ -12,7 +12,6 @@ import styles from './index.module.css';
 export const HeaderMobile = () => {
     const {
         onClose,
-        singleSlide,
         images,
         currentSlideIndex,
         getCurrentImage,
@@ -23,8 +22,7 @@ export const HeaderMobile = () => {
     const currentImage = getCurrentImage();
     const meta = getCurrentImageMeta();
 
-    const description =
-        singleSlide || !images.length ? '' : `${currentSlideIndex + 1} из ${images.length}`;
+    const description = images.length > 1 && `${currentSlideIndex + 1} из ${images.length}`;
 
     const canDownload = currentImage?.canDownload ?? true;
     const showDownloadButton = !meta?.broken && canDownload;

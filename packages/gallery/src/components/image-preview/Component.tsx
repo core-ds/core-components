@@ -5,7 +5,15 @@ import { useFocus } from '@alfalab/hooks';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage } from '../../types';
-import { getImageAlt, isVideo } from '../../utils';
+import {
+    getImageAlt,
+    isVideo,
+    PREVIEW_HEIGHT_DESKTOP,
+    PREVIEW_HEIGHT_MOBILE,
+    PREVIEW_VIDEO_MULTIPLIER,
+    PREVIEW_WIDTH_DESKTOP,
+    PREVIEW_WIDTH_MOBILE,
+} from '../../utils';
 
 import { NoImagePaths } from './paths';
 
@@ -24,8 +32,8 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
 
     const isMobile = view === 'mobile';
 
-    const previewWidth = isMobile ? 36 : 56;
-    const previewHeight = isMobile ? 46 : 56;
+    const previewWidth = isMobile ? PREVIEW_WIDTH_MOBILE : PREVIEW_WIDTH_DESKTOP;
+    const previewHeight = isMobile ? PREVIEW_HEIGHT_MOBILE : PREVIEW_HEIGHT_DESKTOP;
 
     const ref = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -36,7 +44,13 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         const context = canvas?.getContext('2d');
         const drawPreview = () => {
             if (video) {
-                context?.drawImage(video, 0, 0, video.videoWidth / 12, video.videoHeight / 12);
+                context?.drawImage(
+                    video,
+                    0,
+                    0,
+                    video.videoWidth / PREVIEW_VIDEO_MULTIPLIER,
+                    video.videoHeight / PREVIEW_VIDEO_MULTIPLIER,
+                );
             }
         };
 
@@ -69,21 +83,9 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
 
     const isBroken = Boolean(meta?.broken);
 
-    return (
-        <div
-            className={cn(
-                styles.component,
-                { [styles.active]: active, [styles.focused]: focused, [styles.mobile]: isMobile },
-                className,
-            )}
-            onClick={handleClick}
-            role='button'
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
-            ref={ref}
-            aria-label={`Перейти к ${index + 1} элементу`}
-        >
-            {isBroken ? (
+    const renderPreview = () => {
+        if (isBroken) {
+            return (
                 <div
                     className={cn(
                         styles.preview,
@@ -119,26 +121,72 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                         </svg>
                     </div>
                 </div>
-            ) : (
+            );
+        }
+
+        if (image.previewSrc) {
+            return (
                 <div
                     className={cn(styles.preview, styles.image, {
                         [styles.loading]: !meta,
                         [styles.mobile]: isMobile,
                     })}
                 >
-                    {isVideo(image.src) ? (
-                        <canvas
-                            className={cn(styles.canvasPreview, { [styles.mobile]: isMobile })}
-                            data-testid='canvas'
-                            width={previewWidth}
-                            height={previewHeight}
-                            ref={canvasRef}
-                        />
-                    ) : (
-                        <img src={image.src} alt={getImageAlt(image, index)} />
-                    )}
+                    <img src={image.previewSrc} alt={getImageAlt(image, index)} />
                 </div>
+            );
+        }
+
+        if (isVideo(image.src)) {
+            return (
+                <div
+                    className={cn(styles.preview, styles.image, {
+                        [styles.loading]: !meta,
+                        [styles.mobile]: isMobile,
+                    })}
+                >
+                    <canvas
+                        className={cn(styles.canvasPreview, { [styles.mobile]: isMobile })}
+                        data-testid='canvas'
+                        width={previewWidth}
+                        height={previewHeight}
+                        ref={canvasRef}
+                    />
+                </div>
+            );
+        }
+
+        return (
+            <div
+                className={cn(styles.preview, styles.image, {
+                    [styles.loading]: !meta,
+                    [styles.mobile]: isMobile,
+                })}
+            >
+                <img src={image.src} alt={getImageAlt(image, index)} />
+            </div>
+        );
+    };
+
+    return (
+        <div
+            className={cn(
+                styles.component,
+                {
+                    [styles.active]: active,
+                    [styles.focused]: focused,
+                    [styles.mobile]: isMobile,
+                },
+                className,
             )}
+            onClick={handleClick}
+            role='button'
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            ref={ref}
+            aria-label={`Перейти к ${index + 1} элементу`}
+        >
+            {renderPreview()}
         </div>
     );
 };
