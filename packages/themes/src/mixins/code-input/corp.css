@@ -1,5 +1,7 @@
 @define-mixin code-input-corp {
+    /* box-shadow */
     --code-input-box-shadow: 0 0 0 1px var(--color-light-neutral-translucent-100) inset;
+    --code-input-disabled-box-shadow: none;
 
     /* border */
     --code-input-border-radius: var(--border-radius-6);
