@@ -1,9 +1,7 @@
 const ignoredModules = ['simplebar'];
 
-module.exports = {
+const baseConfig = {
     preset: 'ts-jest/presets/js-with-ts',
-    testEnvironment: 'jest-environment-jsdom-sixteen',
-    setupFilesAfterEnv: ['./packages/setupTests.ts'],
     modulePathIgnorePatterns: ['dist'],
     globalSetup: './packages/globalSetup.ts',
     globals: {
@@ -21,9 +19,26 @@ module.exports = {
         '@alfalab/core-components-(.*)$': '<rootDir>/packages/$1/src',
         '\\.css$': 'identity-obj-proxy',
     },
-    testMatch: ['**/*.test.ts?(x)', '!**/*.screenshots.test.ts?(x)'],
     testPathIgnorePatterns: ['codemod'],
     transformIgnorePatterns: [`node_modules/(?!${ignoredModules.join('|')})`],
-    coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
-    coveragePathIgnorePatterns: ['index.ts'],
+}
+
+module.exports = {
+    projects: [
+        {
+            ...baseConfig,
+            displayName: 'csr', /* client side rendering */
+            testEnvironment: 'jest-environment-jsdom-sixteen',
+            setupFilesAfterEnv: ['./packages/setupTests.ts'],
+            testMatch: ['**/*.test.ts?(x)', '!**/*.(screenshots|ssr).test.ts?(x)'],
+            coveragePathIgnorePatterns: ['index.ts'],
+            coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
+        },
+        {
+            ...baseConfig,
+            displayName: 'ssr', /* server side rendering */
+            testEnvironment: 'node',
+            testMatch: ['**/*.ssr.test.ts?(x)'],
+        }
+    ],
 };

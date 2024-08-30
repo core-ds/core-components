@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.1.3
+
+### Patch Changes
+
+<sup><time>26.08.2024</time></sup>
+
+### [#1313](https://github.com/core-ds/core-components/pull/1313)
+
+-   Дополнили описание свойства offset
+
 ## 6.1.2
 
 ### Patch Changes
