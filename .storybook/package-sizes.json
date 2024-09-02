@@ -1,6 +1,6 @@
 {
     "with-suffix": {
-        "index.js": 3.2
+        "index.js": 3.3
     },
     "universal-date-input": {
         "desktop.js": 139.4,
@@ -432,7 +432,7 @@
         "index.js": 26.5
     },
     "amount-input": {
-        "index.js": 53.9
+        "index.js": 54.1
     },
     "alert": {
         "index.js": 15.5
