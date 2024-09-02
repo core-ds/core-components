@@ -1,5 +1,4 @@
 @import '../../../../../../themes/src/default.css';
-@import './vars.css';
 
 .footer {
     background-color: var(--color-light-base-bg-primary);
@@ -7,6 +6,6 @@
     outline: none;
 
     & > .button + .button {
-        margin-left: var(--select-option-list-footer-button-gap);
+        margin-left: var(--gap-xs);
     }
 }

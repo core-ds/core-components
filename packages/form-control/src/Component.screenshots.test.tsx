@@ -141,27 +141,3 @@ describe('FormControl | screenshots hint and error', () => {
         ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
-
-describe('FormControl | screenshots theme corp', () => {
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'FormControl',
-                    knobs: {
-                        block: true,
-                        size: [48, 56, 64, 72],
-                        disabled: [false, true],
-                        error: ['', 'Error'],
-                    },
-                    size: { width: 350, height: 150 },
-                }),
-            ],
-        ],
-        screenshotOpts: {
-            fullPage: true,
-        },
-        theme: 'corp',
-    })();
-});

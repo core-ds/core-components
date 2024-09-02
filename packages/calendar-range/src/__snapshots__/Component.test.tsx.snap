@@ -48,7 +48,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
               data-test-id="period-slider-btn-previous-day"
               type="button"
             >
@@ -81,7 +81,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
               data-test-id="period-slider-btn-next-day"
               type="button"
             >
@@ -964,7 +964,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
               data-test-id="period-slider-btn-previous-day"
               type="button"
             >
@@ -997,7 +997,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
               data-test-id="period-slider-btn-next-day"
               type="button"
             >
