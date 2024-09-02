@@ -36,11 +36,11 @@
     --modal-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --modal-header-mobile-content-paddings: var(--gap-s) var(--gap-xs);
-    --modal-header-mobile-font-size: 18px;
-    --modal-header-mobile-line-height: 24px;
+    --modal-header-mobile-content-paddings: 10px var(--gap-xs);
+    --modal-header-mobile-font-size: 20px;
+    --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-system);
-    --modal-header-mobile-font-weight: bold;
+    --modal-header-mobile-font-weight: 600;
 
     /* paddings */
     --modal-header-mobile-paddings: var(--gap-2xs) var(--gap-xs);
