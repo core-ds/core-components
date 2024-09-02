@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
-import { colors, sizes } from './consts';
-
 import styles from './index.module.css';
+
+export const colors = ['green', 'orange', 'red', 'blue', 'grey', 'teal', 'purple'] as const;
 
 export type StatusProps = {
     /**
@@ -31,24 +31,6 @@ export type StatusProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
-
-    /**
-     * Размер компонента
-     * @default 20
-     */
-    size?: (typeof sizes)[number];
-
-    /**
-     * Форма компонента
-     * @default rectangular
-     */
-    shape?: 'rounded' | 'rectangular';
-
-    /**
-     * Текст компонента в верхнем регистре
-     * @default true
-     */
-    uppercase?: boolean;
 };
 
 const logWarning = () => {
@@ -71,9 +53,6 @@ export const Status: FC<StatusProps> = ({
     color = 'green',
     children,
     dataTestId,
-    size = 20,
-    shape = 'rectangular',
-    uppercase = true,
 }) => {
     if (view === 'soft') {
         logWarning();
@@ -81,17 +60,7 @@ export const Status: FC<StatusProps> = ({
 
     return (
         <span
-            className={cn(
-                styles.component,
-                styles[color],
-                styles[view],
-                styles[`size-${size}`],
-                styles[shape],
-                className,
-                {
-                    [styles.uppercase]: uppercase,
-                },
-            )}
+            className={cn(styles.component, styles[color], styles[view], className)}
             data-test-id={dataTestId}
         >
             <span className={styles.ellipsis}>{children}</span>
