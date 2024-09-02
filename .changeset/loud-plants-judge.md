@@ -17,6 +17,7 @@
 '@alfalab/core-components-select': minor
 '@alfalab/core-components-side-panel': minor
 '@alfalab/core-components-themes': minor
+'@alfalab/core-components-universal-date-input': minor
 ---
 
 Обновление темы corp

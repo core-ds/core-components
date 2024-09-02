@@ -5,6 +5,7 @@
 @import './icon-button/corp.css';
 @import './select/corp.css';
 @import './tag/corp.css';
+@import './universal-date-input/corp.css';
 
 @define-mixin theme-corp {
     @mixin button-corp;
@@ -14,4 +15,5 @@
     @mixin icon-button-corp;
     @mixin select-corp;
     @mixin tag-corp;
+    @mixin universal-date-input-corp;
 }
