@@ -171,13 +171,6 @@ export const CalendarMonthOnlyView = ({
                 dayAddonsMap,
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
-            /**
-             * последний доступный день месяца в timestamp
-             * представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
-             */
-            lastAvailableDayOfMonth: isThisMonth(item.date)
-                ? startOfDay(new Date()).getTime()
-                : lastDayOfMonth(item.date).getTime(),
         }));
     }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
@@ -190,11 +183,17 @@ export const CalendarMonthOnlyView = ({
     // заголовок должен становиться активным если выбран весь доступный период в месяце
     const isMonthActive = (currentMonthIndex: number) => {
         if (value && isRangeValue(value)) {
-            const { lastAvailableDayOfMonth, date: initialMonthDate } =
-                activeMonths[initialMonthIndex];
+            const { date: initialMonthDate } = activeMonths[initialMonthIndex];
             const { date: currentMonthDate } = activeMonths[currentMonthIndex];
 
             const firstAvailableDayOfMonth = startOfMonth(initialMonthDate).getTime();
+            /**
+             * последний доступный день месяца в timestamp
+             * представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
+             */
+            const lastAvailableDayOfMonth = isThisMonth(initialMonthDate)
+                ? startOfDay(new Date()).getTime()
+                : lastDayOfMonth(initialMonthDate).getTime();
             const { dateFrom, dateTo } = value;
 
             if (
@@ -213,8 +212,11 @@ export const CalendarMonthOnlyView = ({
 
     const handleClickMonthLabel = (index: number) => {
         if (onChange) {
-            const { lastAvailableDayOfMonth, date } = activeMonths[index];
+            const { date } = activeMonths[index];
             const firstAvailableDayOfMonth = startOfMonth(date).getTime();
+            const lastAvailableDayOfMonth = isThisMonth(date)
+                ? startOfDay(new Date()).getTime()
+                : lastDayOfMonth(date).getTime();
 
             if (isMonthActive(index)) {
                 onChange();
