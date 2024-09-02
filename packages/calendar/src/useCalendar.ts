@@ -1,13 +1,4 @@
-import {
-    KeyboardEvent,
-    MouseEvent,
-    Ref,
-    RefObject,
-    useCallback,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import { KeyboardEvent, MouseEvent, Ref, useCallback, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import addMonths from 'date-fns/addMonths';
 import addYears from 'date-fns/addYears';
@@ -91,11 +82,6 @@ export type UseCalendarProps = {
      * Дополнительный контент под числом
      */
     dayAddons?: DayAddons[];
-
-    /**
-     * Ref для сброса заголовка clickableMonth
-     */
-    resetCurrentClickedMonth?: RefObject<{ resetCurrentClickedMonth: () => void }>;
 };
 
 export function useCalendar({
@@ -111,7 +97,6 @@ export function useCalendar({
     dayAddons,
     onMonthChange,
     onChange,
-    resetCurrentClickedMonth,
 }: UseCalendarProps) {
     const [monthState, setMonthState] = useState(defaultMonth);
     const [highlighted, setHighlighted] = useState<Date | number>();
@@ -355,9 +340,6 @@ export function useCalendar({
         }
 
         handleDayMouseLeave();
-
-        // сбрасываем выбранный месяц если выбираем дату вручную
-        resetCurrentClickedMonth?.current?.resetCurrentClickedMonth();
     };
 
     const daysControls = useMemo(

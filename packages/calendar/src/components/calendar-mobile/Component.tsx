@@ -1,18 +1,14 @@
-import React, {
-    forwardRef,
-    RefObject,
-    useImperativeHandle,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import React, { forwardRef, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import isAfter from 'date-fns/isAfter';
+import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
+import isThisMonth from 'date-fns/isThisMonth';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
@@ -37,7 +33,7 @@ import {
 } from '../../utils';
 import { DaysTable } from '../days-table';
 
-import { CalendarContentProps, CalendarMobileProps, ResetCurrentClickedMonth } from './typings';
+import { CalendarContentProps, CalendarMobileProps } from './typings';
 
 import backdropTransitionStyles from './backdrop-transitions.module.css';
 import styles from './index.module.css';
@@ -68,7 +64,6 @@ export const CalendarMonthOnlyView = ({
     shape = 'rounded',
     scrollableContainer,
     clickableMonth,
-    resetCurrentClickedMonth,
 }: CalendarContentProps & {
     /**
      * FIXME нужно сделать для компонента CalendarMonthOnlyView отдельный тип пропсов, т.к. тип CalendarContentProps intersection для типа CalendarMobileProps
@@ -76,14 +71,7 @@ export const CalendarMonthOnlyView = ({
      * TODO Вынести компонент CalendarMonthOnlyView в отдельный файл
      */
     clickableMonth?: boolean;
-
-    /**
-     * Ref для сброса заголовка clickableMonth
-     */
-    resetCurrentClickedMonth?: RefObject<ResetCurrentClickedMonth>;
 }) => {
-    const [activeMonthLabel, setActiveMonthLabel] = useState('');
-
     const range = useRange({
         mode,
         value,
@@ -143,7 +131,6 @@ export const CalendarMonthOnlyView = ({
         events,
         onChange: range.onChange,
         dayAddons,
-        ...(clickableMonth && { resetCurrentClickedMonth }),
     });
 
     const activeMonths = useMemo(() => {
@@ -193,18 +180,53 @@ export const CalendarMonthOnlyView = ({
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
+    // заголовок должен становиться активным если выбран весь доступный период в месяце
+    const isMonthActive = (currentMonthIndex: number) => {
+        if (value && isRangeValue(value)) {
+            const { date: initialMonthDate } = activeMonths[initialMonthIndex];
+            const { date: currentMonthDate } = activeMonths[currentMonthIndex];
+
+            const firstAvailableDayOfMonth = startOfMonth(initialMonthDate).getTime();
+            /**
+             * последний доступный день месяца в timestamp
+             * представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
+             */
+            const lastAvailableDayOfMonth = isThisMonth(initialMonthDate)
+                ? startOfDay(new Date()).getTime()
+                : lastDayOfMonth(initialMonthDate).getTime();
+            const { dateFrom, dateTo } = value;
+
+            if (
+                dateFrom &&
+                dateTo &&
+                isSameMonth(initialMonthDate, currentMonthDate) &&
+                isSameDay(firstAvailableDayOfMonth, dateFrom) &&
+                isSameDay(lastAvailableDayOfMonth, dateTo)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    };
+
     const handleClickMonthLabel = (index: number) => {
-        if (activeMonths[index].title !== activeMonthLabel || activeMonthLabel === '') {
-            setActiveMonthLabel(activeMonths[index].title);
-        } else {
-            setActiveMonthLabel('');
-            if (onChange) {
+        if (onChange) {
+            const { date } = activeMonths[index];
+            const firstAvailableDayOfMonth = startOfMonth(date).getTime();
+            const lastAvailableDayOfMonth = isThisMonth(date)
+                ? startOfDay(new Date()).getTime()
+                : lastDayOfMonth(date).getTime();
+
+            if (isMonthActive(index)) {
                 onChange();
+            } else {
+                onChange(firstAvailableDayOfMonth, lastAvailableDayOfMonth);
             }
         }
     };
 
-    const getMonthTitle = (index: number, isClickableMonth?: boolean) => {
+    const getMonthLabel = (index: number, isClickableMonth?: boolean) => {
         if (isClickableMonth) {
             return (
                 <Typography.Text className={styles.monthTitle} view='primary-small' color='primary'>
@@ -217,7 +239,6 @@ export const CalendarMonthOnlyView = ({
     };
 
     const renderMonth = (index: number) => {
-        const monthClicked = activeMonthLabel === activeMonths[index].title;
         const isAfterDate = isAfter(activeMonths[index].date, activeMonth);
 
         return (
@@ -239,13 +260,13 @@ export const CalendarMonthOnlyView = ({
                             ...(clickableMonth && {
                                 [styles.clickableMonth]: true,
                                 [styles.rectangular]: shape === 'rectangular',
-                                [styles.active]: monthClicked,
+                                [styles.active]: isMonthActive(index),
                                 [styles.disabled]: isAfterDate,
                             }),
                         })}
                         {...(clickableMonth && { onClick: () => handleClickMonthLabel(index) })}
                     >
-                        {getMonthTitle(index, clickableMonth)}
+                        {getMonthLabel(index, clickableMonth)}
                     </span>
                 )}
                 <DaysTable
@@ -259,18 +280,10 @@ export const CalendarMonthOnlyView = ({
                     hasHeader={false}
                     responsive={true}
                     shape={shape}
-                    monthClicked={monthClicked}
-                    onChange={onChange}
                 />
             </div>
         );
     };
-
-    useImperativeHandle(resetCurrentClickedMonth, () => ({
-        resetCurrentClickedMonth: () => {
-            setActiveMonthLabel('');
-        },
-    }));
 
     return (
         <Virtuoso
@@ -325,7 +338,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         ref,
     ) => {
         const [modalRef, setModalRef] = useState<HTMLElement>();
-        const resetCurrentClickedMonth = useRef<ResetCurrentClickedMonth>(null);
         const monthOnlyView = selectorView === 'month-only';
 
         const handleClose = () => {
@@ -339,7 +351,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
         const handleClear = () => {
             if (onChange) onChange();
-            resetCurrentClickedMonth?.current?.resetCurrentClickedMonth();
         };
 
         const renderDayNames = () => (monthOnlyView ? <CalendarMonthOnlyViewHeader /> : null);
@@ -361,7 +372,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         scrollableContainer={modalRef}
                         onMonthTitleClick={onMonthTitleClick}
                         clickableMonth={clickableMonth}
-                        resetCurrentClickedMonth={resetCurrentClickedMonth}
                         {...commonProps}
                         {...restProps}
                     />
