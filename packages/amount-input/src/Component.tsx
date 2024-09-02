@@ -267,6 +267,24 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             [onClear],
         );
 
+        /**
+         * Отбросить десятичный разделитель если находится в конце числа
+         * 123, => 123
+         */
+        const dropDecimalSeparator = (event: FocusEvent<HTMLInputElement>) => {
+            if (inputValue.endsWith(',')) {
+                const pattern = /[,\s]/g; // пробелы и запятые
+                const newValue = Number(inputValue.replace(pattern, '')) * minority;
+                const formatted = getFormattedAmount(newValue);
+
+                setInputValue(formatted);
+                onChange?.(event, {
+                    value: newValue,
+                    valueString: formatted,
+                });
+            }
+        };
+
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
             if (view === 'withZeroMinorPart') {
                 const newValue = getAmountValueFromStr(inputValue, minority);
@@ -282,6 +300,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         });
                     }
                 }
+            }
+
+            if (view === 'default') {
+                dropDecimalSeparator(event);
             }
 
             onBlur?.(event);
@@ -303,6 +325,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             <span
                                 className={cn({
                                     [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
+                                    [colorStyles[colors].disabled]: restProps.disabled,
+                                    [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
                                 {minorPart !== undefined && `,${minorPart}`}

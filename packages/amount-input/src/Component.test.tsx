@@ -483,6 +483,22 @@ describe('AmountInput', () => {
         expect(input.value).toBe('0,01');
     });
 
+    describe('should drop decimal comma when blur for view=default', () => {
+        it.each`
+            initialValue | eventValue  | expectValue
+            ${123456}    | ${'1234,'}  | ${`1${MMSP}234`}
+            ${123456}    | ${'1234,5'} | ${`1${MMSP}234,5`}
+            ${123456}    | ${'1234'}   | ${`1${MMSP}234`}
+        `('drop decimal if value is $eventValue', ({ initialValue, eventValue, expectValue }) => {
+            const input = renderAmountInput(initialValue, null);
+
+            fireEvent.change(input, { target: { value: eventValue } });
+            fireEvent.blur(input);
+
+            expect(input.value).toBe(expectValue);
+        });
+    });
+
     describe('should fill minor part with view="withZeroMinorPart"', () => {
         const testCases = [
             {
