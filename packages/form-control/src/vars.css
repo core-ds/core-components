@@ -11,7 +11,6 @@
     --form-control-inverted-color: var(--color-light-text-primary-inverted);
     --form-control-inverted-label-color: var(--color-light-text-secondary-inverted);
     --form-control-inverted-hint-color: var(--color-light-text-secondary-inverted);
-    --form-control-box-shadow: none;
 
     /* disabled */
     --form-control-disabled-bg-color: var(--color-light-neutral-translucent-100);
@@ -40,7 +39,6 @@
     /* hover */
     --form-control-hover-bg-color: var(--color-light-neutral-translucent-100);
     --form-control-inverted-hover-bg-color: var(--color-light-neutral-translucent-100-inverted);
-    --form-control-box-shadow-hover: none;
 
     /* error */
     --form-control-error-color: var(--color-light-text-negative);
