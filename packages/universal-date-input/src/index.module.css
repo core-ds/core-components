@@ -1,10 +1,6 @@
 @import '../../themes/src/default.css';
 @import '../../calendar/src/vars.css';
-
-:root {
-    --calendar-icon-color: var(--color-light-neutral-translucent-700);
-    --calendar-popover-border-radius: var(--border-radius-m);
-}
+@import './vars.css';
 
 .wrapper {
     display: inline-block;
