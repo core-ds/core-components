@@ -209,7 +209,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                       role="listbox"
                     >
                       <div
-                        class="optionsList size-48 optionsList"
+                        class="optionsList size-56 optionsList"
                       >
                         <div
                           class="component component scrollable scrollbar"
