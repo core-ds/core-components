@@ -54,7 +54,7 @@
         text-transform: unset;
 
         &.rectangular {
-            border-radius: var(--border-radius-l);
+            border-radius: var(--border-radius-12);
         }
 
         &.active {

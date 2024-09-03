@@ -7,11 +7,11 @@
 
     /* border-radius desktop */
     --button-xxs-size-border-radius: 6px;
-    --button-xs-size-border-radius: var(--border-radius-m);
-    --button-s-size-border-radius: var(--border-radius-m);
-    --button-m-size-border-radius: var(--border-radius-l);
-    --button-l-size-border-radius: var(--border-radius-l);
-    --button-xl-size-border-radius: var(--border-radius-l);
+    --button-xs-size-border-radius: var(--border-radius-8);
+    --button-s-size-border-radius: var(--border-radius-8);
+    --button-m-size-border-radius: var(--border-radius-12);
+    --button-l-size-border-radius: var(--border-radius-12);
+    --button-xl-size-border-radius: var(--border-radius-12);
 
     /* primary */
     --button-primary-base-bg-color: var(--color-light-accent-secondary);
@@ -200,12 +200,12 @@
     --button-spinner-inverted-primary-color: var(--color-light-neutral-translucent-1300);
 
     /* border-radius mobile */
-    --button-xxs-size-mobile-border-radius: var(--border-radius-m);
-    --button-xs-size-mobile-border-radius: var(--border-radius-l);
-    --button-s-size-mobile-border-radius: var(--border-radius-l);
-    --button-m-size-mobile-border-radius: var(--border-radius-xl);
-    --button-l-size-mobile-border-radius: var(--border-radius-xl);
-    --button-xl-size-mobile-border-radius: var(--border-radius-xl);
+    --button-xxs-size-mobile-border-radius: var(--border-radius-8);
+    --button-xs-size-mobile-border-radius: var(--border-radius-12);
+    --button-s-size-mobile-border-radius: var(--border-radius-12);
+    --button-m-size-mobile-border-radius: var(--border-radius-16);
+    --button-l-size-mobile-border-radius: var(--border-radius-16);
+    --button-xl-size-mobile-border-radius: var(--border-radius-16);
 
     /* primary mobile */
     --button-primary-mobile-base-bg-color: var(--color-light-accent-secondary);

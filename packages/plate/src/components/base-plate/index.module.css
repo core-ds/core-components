@@ -4,7 +4,7 @@
     /* border */
     --plate-border-left: 2px;
     --plate-border-width: 1px;
-    --plate-border-radius: var(--border-radius-l);
+    --plate-border-radius: var(--border-radius-12);
 
     /* width limit */
 

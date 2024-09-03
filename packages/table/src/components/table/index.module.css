@@ -8,7 +8,7 @@
     padding: var(--gap-0) var(--gap-16) var(--gap-16);
     background: var(--color-light-base-bg-primary);
     box-shadow: var(--shadow-xs-hard);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     overflow: auto;
 }
 

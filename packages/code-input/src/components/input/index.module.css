@@ -12,7 +12,7 @@
     margin-right: var(--gap-8);
     padding: var(--gap-0);
     border: none;
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-4);
     box-sizing: border-box;
     outline: none;
     color: var(--code-input-text-color);

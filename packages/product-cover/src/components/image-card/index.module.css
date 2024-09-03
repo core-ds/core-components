@@ -2,7 +2,7 @@
 
 .cardMack {
     background-color: var(--color-light-neutral-translucent-1300-inverted);
-    border-radius: var(--border-radius-xs);
+    border-radius: var(--border-radius-2);
 }
 
 .cardImage {

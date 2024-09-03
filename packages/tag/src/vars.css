@@ -11,10 +11,10 @@
     --tag-border-color-checked-disabled: transparent;
     --tag-border-width: 1px;
     --tag-border-radius: var(--border-radius-pill);
-    --tag-alt-border-radius: var(--border-radius-s);
+    --tag-alt-border-radius: var(--border-radius-4);
     --tag-rectangular-xxs-border-radius: 6px;
-    --tag-rectangular-xs-border-radius: var(--border-radius-m);
-    --tag-rectangular-s-border-radius: var(--border-radius-m);
+    --tag-rectangular-xs-border-radius: var(--border-radius-8);
+    --tag-rectangular-s-border-radius: var(--border-radius-8);
     --tag-rounded-xxs-border-radius: var(--border-radius-pill);
     --tag-rounded-xs-border-radius: var(--border-radius-pill);
     --tag-rounded-s-border-radius: var(--border-radius-pill);
@@ -95,10 +95,10 @@
     --tag-inverted-text-color-checked-disabled: var(--color-light-text-tertiary-inverted);
 
     /* mobile */
-    --tag-alt-mobile-border-radius: var(--border-radius-xl);
-    --tag-rectangular-mobile-xxs-border-radius: var(--border-radius-m);
-    --tag-rectangular-mobile-xs-border-radius: var(--border-radius-l);
-    --tag-rectangular-mobile-s-border-radius: var(--border-radius-l);
+    --tag-alt-mobile-border-radius: var(--border-radius-16);
+    --tag-rectangular-mobile-xxs-border-radius: var(--border-radius-8);
+    --tag-rectangular-mobile-xs-border-radius: var(--border-radius-12);
+    --tag-rectangular-mobile-s-border-radius: var(--border-radius-12);
     --tag-filled-mobile-background-color: var(--color-light-neutral-translucent-100);
     --tag-filled-mobile-background-color-hover: var(--color-light-neutral-translucent-100);
     --tag-filled-mobile-background-color-active: var(--color-light-neutral-translucent-100-press);

@@ -64,7 +64,7 @@
 
 .defaultMarker {
     height: 4px;
-    border-radius: var(--border-radius-xxl);
+    border-radius: var(--border-radius-20);
     background-color: var(--color-light-neutral-translucent-300);
 }
 

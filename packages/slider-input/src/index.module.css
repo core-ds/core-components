@@ -6,13 +6,13 @@
     --slider-input-steps-color: var(--color-light-text-secondary);
     --slider-input-info-color: var(--color-light-text-secondary);
     --slider-input-font-weight: 700;
-    --slider-input-s-border-bottom-radius: var(--border-radius-m);
-    --slider-input-m-border-bottom-radius: var(--border-radius-m);
-    --slider-input-l-border-bottom-radius: var(--border-radius-m);
-    --slider-input-xl-border-bottom-radius: var(--border-radius-l);
+    --slider-input-s-border-bottom-radius: var(--border-radius-8);
+    --slider-input-m-border-bottom-radius: var(--border-radius-8);
+    --slider-input-l-border-bottom-radius: var(--border-radius-8);
+    --slider-input-xl-border-bottom-radius: var(--border-radius-12);
     --slider-input-progress-margin-horizontal: var(--gap-12);
     --slider-input-xl-progress-margin-horizontal: var(--gap-16);
-    --slider-input-progress-border-radius: var(--border-radius-s);
+    --slider-input-progress-border-radius: var(--border-radius-4);
     --slider-input-progress-bg-color: var(--color-light-neutral-700);
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
     --slider-input-origin-width: calc(100% - 16px);

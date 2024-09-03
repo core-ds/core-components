@@ -20,7 +20,7 @@ figure {
     justify-content: center;
     height: 180px;
     width: 100%;
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
     background-color: var(--color-light-base-bg-secondary);
     overflow: hidden;
 }

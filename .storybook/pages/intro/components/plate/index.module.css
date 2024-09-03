@@ -3,7 +3,7 @@
 .plate {
     padding: var(--gap-16) var(--gap-20);
     background-color: var(--color-light-base-bg-secondary);
-    border-radius: var(--border-radius-xxl);
+    border-radius: var(--border-radius-20);
     color: var(--color-light-text-primary);
     text-decoration: none;
     transition: background-color 0.2s ease;

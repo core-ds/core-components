@@ -139,7 +139,7 @@ a[href='#storybook-preview-wrapper'] {
 .search-field input {
     width: 100%;
     height: 100%;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     background-color: var(--color-light-neutral-translucent-300);
     font-family: var(--font-family);
     border: 0;
@@ -481,7 +481,7 @@ ol {
     line-height: 1.5;
     font-family: Consolas, Liberation Mono, Menlo, monospace;
     background-color: rgba(11, 31, 53, 0.05);
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-4);
     white-space: pre-wrap;
 }
 
@@ -528,7 +528,7 @@ img.sbdocs-img {
     max-width: 100%;
     height: auto;
     border: 1px solid rgba(11, 31, 53, 0.1);
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-4);
 }
 
 body[data-theme$='-inverted'] iframe,

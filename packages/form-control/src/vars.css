@@ -81,10 +81,10 @@
     --form-control-font-family: var(--font-family);
 
     /* border-radius */
-    --form-control-s-border-radius: var(--border-radius-m);
-    --form-control-m-border-radius: var(--border-radius-m);
-    --form-control-l-border-radius: var(--border-radius-m);
-    --form-control-xl-border-radius: var(--border-radius-l);
+    --form-control-s-border-radius: var(--border-radius-8);
+    --form-control-m-border-radius: var(--border-radius-8);
+    --form-control-l-border-radius: var(--border-radius-8);
+    --form-control-xl-border-radius: var(--border-radius-12);
 
     /* paddings mobile */
     --form-control-mobile-sub-paddings: var(--gap-0) var(--gap-4);

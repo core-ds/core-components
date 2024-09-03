@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
     background: var(--color-light-neutral-translucent-100);
 
     opacity: 0;
