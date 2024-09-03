@@ -64,7 +64,7 @@ function createExporter(buildName) {
 /** формирует файлы деклараций d.ts */
 function execTsc(destJsPath) {
     return function () {
-        console.log('create d.ts for', destJsPath);
+        console.log(`create d.ts => ${destJsPath.split('/packages')[1]}`);
 
         shell.exec(
             `tsc --typeRoots [] --declaration --emitDeclarationOnly --allowJs ${destJsPath}`,
@@ -118,7 +118,7 @@ function buildPalettesCustomCSSProperties() {
 
                 ensureDirectoryExist(destJsPath);
 
-                console.log(`build [ ${palette} - ${buildName} ] module`);
+                console.log(`build [ ${palette} => ${buildName} ]`);
 
                 return postcss()
                     .use(
