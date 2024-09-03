@@ -158,7 +158,7 @@ describe('AmountInput', () => {
     });
 
     it("should replace entered '.' with ','", () => {
-        const input = renderAmountInput(null, null, { positiveOnly: false });
+        const input = renderAmountInput(null, null, { positiveOnly: false, integerLength: 12 });
 
         fireEvent.change(input, { target: { value: '-0.' } });
         expect(input.value).toBe('-0,');
@@ -180,7 +180,7 @@ describe('AmountInput', () => {
     });
 
     it('should allow input correct amounts', () => {
-        const input = renderAmountInput(0);
+        const input = renderAmountInput(0, null, { integerLength: 12 });
 
         fireEvent.change(input, { target: { value: '123456' } });
         expect(input.value).toBe(`123${MMSP}456`);
@@ -208,7 +208,7 @@ describe('AmountInput', () => {
     });
 
     it('should allow input correct amounts when positiveOnly is false', () => {
-        const input = renderAmountInput(0, null, { positiveOnly: false });
+        const input = renderAmountInput(0, null, { positiveOnly: false, integerLength: 13 });
 
         fireEvent.change(input, { target: { value: '-' } });
         expect(input.value).toBe('-');
