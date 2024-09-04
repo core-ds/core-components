@@ -22,6 +22,10 @@
     @mixin _confirmation-text;
 }
 
+.typographyThemeMobile.typographyThemeMobile {
+    color: var(--color-light-text-secondary);
+}
+
 .phonesWrap {
     display: flex;
     flex-direction: column;
