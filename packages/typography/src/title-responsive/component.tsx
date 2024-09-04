@@ -2,23 +2,26 @@ import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { TitleBase, TitleProps } from '../title/component';
+import { Title, TitleProps } from '../title';
+import { TitleMobile } from '../title-mobile';
 
-import commonStyles from '../title/common.module.css';
-import styles from './index.module.css';
+export type TitleResponsiveProps = TitleProps & {
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
+};
 
-export const TitleResponsive = forwardRef<HTMLHeadingElement | HTMLDivElement, TitleProps>(
-    (props, ref) => {
-        const { defaultMatchMediaValue } = props;
-        const [isDesktop] = useMatchMedia('(min-width: 1024px)', defaultMatchMediaValue);
+export const TitleResponsive = forwardRef<
+    HTMLHeadingElement | HTMLDivElement,
+    TitleResponsiveProps
+>(({ defaultMatchMediaValue, breakpoint = 1024, ...restProps }, ref) => {
+    const query = `(min-width: ${breakpoint}px)`;
 
-        return (
-            <TitleBase
-                {...props}
-                styles={Object.assign(commonStyles, styles)}
-                ref={ref}
-                platform={isDesktop ? 'desktop' : 'mobile'}
-            />
-        );
-    },
-);
+    const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
+
+    const Component = isDesktop ? Title : TitleMobile;
+
+    return <Component {...restProps} ref={ref} />;
+});

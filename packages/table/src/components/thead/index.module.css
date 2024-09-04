@@ -13,8 +13,8 @@
 
         width: 1px;
         right: 0;
-        top: var(--gap-xs);
-        bottom: var(--gap-xs);
+        top: var(--gap-8);
+        bottom: var(--gap-8);
         background-color: var(--color-light-neutral-400);
     }
 

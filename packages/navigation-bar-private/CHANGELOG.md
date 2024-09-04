@@ -1,5 +1,20 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.1.10
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   typography@4.9.0
+    -   button@11.5.5
+    -   icon-button@6.7.5
+
 ## 0.1.9
 
 ### Patch Changes

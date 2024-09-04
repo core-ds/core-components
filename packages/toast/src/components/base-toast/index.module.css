@@ -27,7 +27,7 @@
 
 .fixed {
     position: fixed;
-    bottom: var(--gap-2xl);
+    bottom: var(--gap-32);
 
     &.enter {
         opacity: 0;

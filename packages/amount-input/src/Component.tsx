@@ -6,7 +6,12 @@ import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
 import { formatAmount, THINSP } from '@alfalab/utils';
 
-import { getAmountValueFromStr, getCurrencyCodeWithFormat, getFormattedValue } from './utils';
+import {
+    getAmountValueFromStr,
+    getCurrencyCodeWithFormat,
+    getFormattedValue,
+    getVisiblePlaceholder,
+} from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -133,6 +138,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onKeyDown,
             transparentMinor = true,
             inputClassName,
+            label,
+            labelView,
             ...restProps
         },
         ref,
@@ -178,6 +185,14 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             if (integersOnly) {
                 [enteredValue] = enteredValue.split(',');
             }
+
+            // Эта проверка нужна для того, чтобы обрабатывать значение, переданное в input, длина которого превышает integerLength
+            const integer = integersOnly ? enteredValue : enteredValue.split(',')[0];
+
+            if (integer.length > integerLength) {
+                enteredValue = enteredValue.slice(0, integerLength);
+            }
+
             // Сокращение минимальной длины мажорной части числа до 0 позволяет ввести "," => "0,"
             const isCorrectEnteredValue = RegExp(
                 `(^${positiveOnly ? '' : '-?'}[0-9]{0,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
@@ -260,6 +275,24 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             [onClear],
         );
 
+        /**
+         * Отбросить десятичный разделитель если находится в конце числа
+         * 123, => 123
+         */
+        const dropDecimalSeparator = (event: FocusEvent<HTMLInputElement>) => {
+            if (inputValue.endsWith(',')) {
+                const pattern = /[,\s]/g; // пробелы и запятые
+                const newValue = Number(inputValue.replace(pattern, '')) * minority;
+                const formatted = getFormattedAmount(newValue);
+
+                setInputValue(formatted);
+                onChange?.(event, {
+                    value: newValue,
+                    valueString: formatted,
+                });
+            }
+        };
+
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
             if (view === 'withZeroMinorPart') {
                 const newValue = getAmountValueFromStr(inputValue, minority);
@@ -275,6 +308,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         });
                     }
                 }
+            }
+
+            if (view === 'default') {
+                dropDecimalSeparator(event);
             }
 
             onBlur?.(event);
@@ -296,6 +333,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             <span
                                 className={cn({
                                     [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
+                                    [colorStyles[colors].disabled]: restProps.disabled,
+                                    [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
                                 {minorPart !== undefined && `,${minorPart}`}
@@ -306,7 +345,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     }
                     suffixContainerClassName={styles.suffixContainer}
                     clear={clear}
-                    placeholder={placeholder}
+                    labelView={labelView}
+                    label={label}
+                    placeholder={getVisiblePlaceholder(placeholder, label, labelView)}
                     value={inputValue}
                     colors={colors}
                     className={cn(styles.component, className)}

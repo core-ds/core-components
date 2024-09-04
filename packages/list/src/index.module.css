@@ -10,7 +10,7 @@
 
 .lowerAlpha {
     list-style-type: lower-alpha;
-    padding-left: var(--gap-l);
+    padding-left: var(--gap-20);
 }
 
 .decimal {

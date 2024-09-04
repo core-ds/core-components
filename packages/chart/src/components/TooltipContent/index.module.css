@@ -5,7 +5,7 @@
     border: 1px solid var(--color-light-neutral-400);
     box-shadow: var(--shadow-l);
     border-radius: var(--border-radius-m);
-    padding: var(--gap-s) var(--gap-m);
+    padding: var(--gap-12) var(--gap-16);
     pointer-events: none;
     position: relative;
 }

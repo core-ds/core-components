@@ -66,7 +66,13 @@ describe('Checkbox', () => {
             expect(container.firstElementChild).toHaveClass('size-20');
         });
 
-        it('should set size', () => {
+        it('should set size 20', () => {
+            const { container } = render(<Checkbox size={20} />);
+
+            expect(container.firstElementChild).toHaveClass('size-20');
+        });
+
+        it('should set size 24', () => {
             const { container } = render(<Checkbox size={24} />);
 
             expect(container.firstElementChild).toHaveClass('size-24');

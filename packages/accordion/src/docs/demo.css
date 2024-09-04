@@ -17,7 +17,7 @@
 .accordion-body {
     background-color: rgba(55, 120, 251, 0.1);
     box-sizing: border-box;
-    border-radius: var(--gap-xs);
+    border-radius: var(--gap-8);
     border: 1px dashed rgb(55, 120, 251);
     height: 24px;
 }

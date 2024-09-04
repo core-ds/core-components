@@ -10,7 +10,7 @@
     border-left: var(--checkbox-group-error-border-left);
 
     &.tag {
-        padding-left: var(--gap-xs);
+        padding-left: var(--gap-8);
     }
 }
 
@@ -24,7 +24,7 @@
 }
 
 .vertical .checkbox {
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-12);
 
     &:last-child {
         margin-bottom: 0;
@@ -33,16 +33,16 @@
 
 .horizontal .checkboxList {
     flex-wrap: wrap;
-    margin-bottom: var(--gap-xs-neg);
+    margin-bottom: var(--gap-8-neg);
 }
 
 .horizontal .checkbox {
-    margin-right: var(--gap-xl);
-    margin-bottom: var(--gap-xs);
+    margin-right: var(--gap-24);
+    margin-bottom: var(--gap-8);
 }
 
 .horizontal .tagLabel {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .horizontal .checkbox:last-child,
@@ -51,12 +51,12 @@
 }
 
 .label {
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-12);
 }
 
 .sub {
     @mixin paragraph_component_secondary;
-    margin-top: var(--gap-s);
+    margin-top: var(--gap-12);
 }
 
 .errorMessage {

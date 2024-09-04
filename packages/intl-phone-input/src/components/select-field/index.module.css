@@ -13,7 +13,7 @@
     align-items: center;
     width: 24px;
     height: 24px;
-    margin-right: var(--gap-2xs);
+    margin-right: var(--gap-4);
 }
 
 .emptyCountryIcon {
@@ -29,13 +29,13 @@
     display: flex;
     align-items: center;
     height: 100%;
-    padding-left: var(--gap-s);
+    padding-left: var(--gap-12);
     outline: none;
 }
 
 .l .inner,
 .xl .inner {
-    padding-left: var(--gap-m);
+    padding-left: var(--gap-16);
 }
 
 .focusVisible {

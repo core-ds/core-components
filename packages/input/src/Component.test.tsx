@@ -240,6 +240,20 @@ describe('Input', () => {
 
             expect(queryByLabelText(label)).not.toBeInTheDocument();
         });
+
+        it('should show clear button if input is disableUserInput', () => {
+            const label = 'Очистить';
+
+            const { queryByLabelText, rerender } = render(
+                <Input clear={true} disableUserInput={true} />,
+            );
+
+            expect(queryByLabelText(label)).not.toBeInTheDocument();
+
+            rerender(<Input clear={true} value='123' disableUserInput={true} />);
+
+            expect(queryByLabelText(label)).toBeInTheDocument();
+        });
     });
 
     describe('when component is uncontrolled', () => {
@@ -328,6 +342,22 @@ describe('Input', () => {
             );
 
             expect(queryByLabelText(label)).not.toBeInTheDocument();
+        });
+
+        it('should show clear button if input is disableUserInput', async () => {
+            const dataTestId = 'test-id';
+            const label = 'Очистить';
+
+            const { queryByLabelText } = render(
+                <Input
+                    clear={true}
+                    dataTestId={dataTestId}
+                    defaultValue='123'
+                    disableUserInput={true}
+                />,
+            );
+
+            expect(queryByLabelText(label)).toBeInTheDocument();
         });
     });
 

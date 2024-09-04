@@ -119,7 +119,7 @@ describe(
         }),
         evaluate: (page: Page) => {
             return page.mouse
-                .move(30, 30)
+                .move(26, 26)
                 .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
         },
         screenshotOpts: {

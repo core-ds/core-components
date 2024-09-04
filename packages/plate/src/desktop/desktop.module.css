@@ -2,13 +2,13 @@
 
 .bold {
     @mixin headline-system_xsmall;
-    padding: 5px var(--gap-s) 5px var(--gap-2xs);
+    padding: 5px var(--gap-12) 5px var(--gap-4);
 }
 
 .description {
-    padding: 0 var(--gap-s) var(--gap-2xs) var(--gap-2xs);
+    padding: 0 var(--gap-12) var(--gap-4) var(--gap-4);
 }
 
 .footer {
-    padding: var(--gap-xs) 0 var(--gap-2xs) var(--gap-2xs);
+    padding: var(--gap-8) 0 var(--gap-4) var(--gap-4);
 }

@@ -1,7 +1,7 @@
 @import '../../vars.css';
 
 .header.header {
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
 }
 
 .typography.typography.typography {

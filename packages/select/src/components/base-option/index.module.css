@@ -20,26 +20,26 @@
     }
 
     &.checkmarkBefore {
-        padding: 0 0 0 var(--gap-s);
+        padding: 0 0 0 var(--gap-12);
 
         &.mobile {
-            padding-left: var(--gap-m);
+            padding-left: var(--gap-16);
         }
     }
 
     &.checkmarkAfter.checkmarkAfter {
-        padding: 0 var(--gap-s) 0 0;
+        padding: 0 var(--gap-12) 0 0;
 
         &.mobile {
-            padding-right: var(--gap-l);
+            padding-right: var(--gap-20);
         }
     }
 
     &.textContent {
-        padding: var(--gap-s);
+        padding: var(--gap-12);
 
         &.mobile {
-            padding: var(--gap-m) var(--gap-l) var(--gap-m) var(--gap-m);
+            padding: var(--gap-16) var(--gap-20) var(--gap-16) var(--gap-16);
         }
     }
 }
@@ -62,11 +62,11 @@
 }
 
 .checkmarkBeforeContent {
-    margin-right: var(--gap-s);
+    margin-right: var(--gap-12);
 }
 
 .checkmarkAfterContent {
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
 }
 
 .content {

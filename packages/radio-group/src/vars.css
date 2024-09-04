@@ -8,7 +8,7 @@
     --radio-group-list-padding-left: 0;
 
     /* mobile */
-    --radio-group-mobile-sub-padding-left: var(--gap-2xs);
-    --radio-group-mobile-list-padding-left: var(--gap-3xs);
+    --radio-group-mobile-sub-padding-left: var(--gap-4);
+    --radio-group-mobile-list-padding-left: var(--gap-2);
     --radio-group-mobile-label-color: var(--color-light-text-secondary);
 }

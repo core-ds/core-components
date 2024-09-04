@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.7.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.3.0
+
 ## 5.7.10
 
 ### Patch Changes

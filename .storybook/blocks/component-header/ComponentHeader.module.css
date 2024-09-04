@@ -8,21 +8,21 @@
 }
 
 .title {
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
 }
 
 .titleMobile {
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-12);
 }
 
 .text {
     max-width: 560px;
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
 }
 
 .info {
     display: flex;
-    margin-top: var(--gap-s);
+    margin-top: var(--gap-12);
 }
 
 .commonLink {
@@ -37,8 +37,8 @@
 
 .links a {
     display: block;
-    padding: var(--gap-2xs) var(--gap-xs) var(--gap-2xs) var(--gap-2xl);
-    margin-right: var(--gap-xs);
+    padding: var(--gap-4) var(--gap-8) var(--gap-4) var(--gap-32);
+    margin-right: var(--gap-8);
     text-decoration: none;
     border: 1px solid var(--color-light-neutral-200);
     border-radius: 6px;
@@ -58,13 +58,13 @@
 .links > .github {
     display: flex;
     align-items: center;
-    padding-left: var(--gap-xs);
+    padding-left: var(--gap-8);
 }
 
 .github > svg {
     width: 16px;
     height: 16px;
-    padding-right: var(--gap-xs);
+    padding-right: var(--gap-8);
 }
 
 .design {

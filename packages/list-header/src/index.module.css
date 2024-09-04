@@ -5,8 +5,8 @@
 }
 
 .component {
-    margin: var(--gap-xl) var(--gap-s-neg) var(--gap-m);
-    padding: var(--gap-xs) var(--gap-s);
+    margin: var(--gap-24) var(--gap-12-neg) var(--gap-16);
+    padding: var(--gap-8) var(--gap-12);
 }
 
 .description {

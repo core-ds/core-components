@@ -1,5 +1,20 @@
 # Change Log
 
+## 1.8.5
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   button@11.5.5
+    -   link@5.2.3
+    -   loader@3.1.1
+
 ## 1.8.4
 
 ### Patch Changes

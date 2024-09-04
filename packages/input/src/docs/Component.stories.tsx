@@ -56,6 +56,7 @@ export const input: Story = {
                     leftAddons={boolean('leftAddons', false) && <StarMIcon />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                     readOnly={boolean('readOnly', false)}
+                    disableUserInput={boolean('disableUserInput', false)}
                 />
             </div>
         );

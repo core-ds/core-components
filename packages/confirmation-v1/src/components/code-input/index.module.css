@@ -9,7 +9,7 @@
     flex-shrink: 0;
     width: 36px;
     height: 48px;
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
     padding: 0;
     background-color: var(--confirmation-input-bg-color);
     border: none;
@@ -29,7 +29,7 @@
     }
 
     &.center {
-        margin: 0 var(--gap-2xs);
+        margin: 0 var(--gap-4);
     }
 
     &.disabled {
