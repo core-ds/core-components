@@ -15,7 +15,7 @@
     }
 
     & td {
-        padding: var(--gap-2xs) 0 0;
+        padding: var(--gap-4) 0 0;
     }
 }
 
@@ -316,7 +316,7 @@
         flex-direction: column;
         justify-content: flex-end;
         height: inherit;
-        padding: 0 var(--gap-3xs);
+        padding: 0 var(--gap-2);
     }
 }
 

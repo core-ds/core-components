@@ -25,7 +25,7 @@
 
 .year {
     flex-basis: 35%;
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 
     @media (max-width: 374px) {
         width: 90px;
@@ -40,7 +40,7 @@
 }
 
 .upDownIcon {
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 
     @media (max-width: 374px) {
         margin-left: auto;
