@@ -17,6 +17,8 @@
     );
     --calendar-select-button-today-border-color: var(--color-light-neutral-translucent-1300);
     --calendar-select-button-selected-background: var(--color-light-accent-secondary);
+    --calendar-select-button-border-radius: var(--border-radius-s);
+    --calendar-select-button-box-shadow: none;
 
     /* Шапка */
     --calendar-month-only-header-font-family: var(--font-family-system);

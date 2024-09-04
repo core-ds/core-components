@@ -10,6 +10,7 @@
         padding: 0 var(--gap-xs);
         background-color: transparent;
         border-radius: var(--border-radius-l);
+        box-shadow: var(--calendar-select-button-box-shadow);
 
         &:not(:disabled):hover {
             background-color: var(--color-light-transparent-default-hover);
