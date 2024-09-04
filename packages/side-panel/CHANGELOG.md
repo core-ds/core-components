@@ -1,5 +1,26 @@
 # Change Log
 
+## 5.3.11
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1311](https://github.com/core-ds/core-components/pull/1311)
+
+-   Обновили стили для заголовка в мобильной версии компонента
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.1.10
+    -   base-modal@5.7.11
+    -   drawer@5.0.17
+
 ## 5.3.10
 
 ### Patch Changes

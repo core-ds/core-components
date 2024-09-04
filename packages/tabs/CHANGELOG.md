@@ -1,5 +1,41 @@
 # Change Log
 
+## 8.9.11
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1322](https://github.com/core-ds/core-components/pull/1322)
+
+-   Поправлен импорт компонента skeleton
+
+-   Обновлены зависимости
+    -   tag@8.3.1
+    -   badge@5.5.3
+    -   picker-button@11.7.18
+    -   icon-button@6.7.5
+
+## 8.9.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.17
+
+## 8.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.7.16
+
 ## 8.9.8
 
 ### Patch Changes

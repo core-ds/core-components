@@ -6,7 +6,7 @@
         width: 100%;
 
         @media (max-width: 374px) {
-            padding-top: var(--gap-xs);
+            padding-top: var(--gap-8);
         }
 
         &.responsive {
@@ -15,7 +15,7 @@
             }
 
             & .button {
-                width: calc(33.333% - var(--gap-2xs) / 1.5);
+                width: calc(33.333% - var(--gap-4) / 1.5);
             }
         }
 
@@ -36,7 +36,7 @@
                     width: var(--calendar-mobile-select-button-width);
 
                     &:nth-child(3n) {
-                        margin-right: var(--gap-2xs);
+                        margin-right: var(--gap-4);
                     }
 
                     &:nth-child(2n) {
@@ -53,8 +53,8 @@
     }
 
     & .button {
-        margin-right: var(--gap-2xs);
-        margin-bottom: var(--gap-xs);
+        margin-right: var(--gap-4);
+        margin-bottom: var(--gap-8);
 
         &:nth-child(3n) {
             margin-right: 0;

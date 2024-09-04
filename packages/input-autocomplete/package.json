@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input-autocomplete",
-    "version": "12.1.17",
+    "version": "12.1.20",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,10 +14,10 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^12.2.7",
-        "@alfalab/core-components-input": "^15.0.4",
+        "@alfalab/core-components-form-control": "^12.2.8",
+        "@alfalab/core-components-input": "^15.0.5",
         "@alfalab/core-components-popover": "^6.2.5",
-        "@alfalab/core-components-select": "^17.8.5",
+        "@alfalab/core-components-select": "^17.10.1",
         "@alfalab/core-components-shared": "^0.12.0",
         "@alfalab/core-components-mq": "^4.3.0",
         "@alfalab/hooks": "^1.13.0",
@@ -29,6 +29,6 @@
     "devDependencies": {
         "@types/lodash.throttle": "^4.1.7"
     },
-    "themesVersion": "13.0.1",
+    "themesVersion": "13.0.2",
     "varsVersion": "9.11.1"
 }

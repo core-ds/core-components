@@ -3,11 +3,11 @@
 
 .component {
     max-width: var(--pattern-lock-v1-desktop-max-width);
-    margin: var(--gap-xs) 0 var(--gap-xl) 0;
+    margin: var(--gap-8) 0 var(--gap-24) 0;
 }
 
 .forgotBtn {
-    margin: var(--gap-xl) auto 0;
+    margin: var(--gap-24) auto 0;
 }
 
 .hiddenBtn {

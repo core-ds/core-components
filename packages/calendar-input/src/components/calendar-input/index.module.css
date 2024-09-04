@@ -39,7 +39,7 @@
     color: var(--calendar-input-icon-color);
 
     &:not(:only-child) {
-        margin-right: var(--gap-2xs);
+        margin-right: var(--gap-4);
     }
 }
 

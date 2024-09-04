@@ -129,6 +129,15 @@ describe('Backdrop', () => {
         expect(cb).toBeCalledTimes(1);
     });
 
+    it('should set `transparent` class', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(
+            <Backdrop open={true} transparent={true} dataTestId={dataTestId} />,
+        );
+
+        expect(getByTestId(dataTestId)).toHaveClass('transparent');
+    });
+
     it('should unmount without errors', () => {
         const { unmount } = render(<Backdrop open={true} />);
 

@@ -253,11 +253,11 @@
 .size-48,
 .size-56 {
     & .addons:first-child {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
     }
 
     & .addons:last-child {
-        margin-left: var(--gap-xs);
+        margin-left: var(--gap-8);
     }
 
     & .addons:only-child {
@@ -268,11 +268,11 @@
 .size-64,
 .size-72 {
     & .addons:first-child {
-        margin-right: var(--gap-s);
+        margin-right: var(--gap-12);
     }
 
     & .addons:last-child {
-        margin-left: var(--gap-s);
+        margin-left: var(--gap-12);
     }
 
     & .addons:only-child {

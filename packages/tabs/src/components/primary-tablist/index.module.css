@@ -24,8 +24,8 @@
 }
 
 .fullWidthScroll {
-    min-width: calc(100% - 2 * var(--gap-m));
-    margin: 0 var(--gap-m);
+    min-width: calc(100% - 2 * var(--gap-16));
+    margin: 0 var(--gap-16);
 }
 
 .container {
@@ -33,8 +33,8 @@
     overflow: hidden;
 
     /* focus-outline fix */
-    margin: var(--gap-2xs-neg) 0 var(--gap-2xs-neg) var(--gap-2xs-neg);
-    padding: var(--gap-2xs) 0 var(--gap-2xs) var(--gap-2xs);
+    margin: var(--gap-4-neg) 0 var(--gap-4-neg) var(--gap-4-neg);
+    padding: var(--gap-4) 0 var(--gap-4) var(--gap-4);
 }
 
 .title {
@@ -186,7 +186,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 }
 .rightAddonsMarginZero {
     margin-left: 0;

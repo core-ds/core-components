@@ -7,8 +7,8 @@
     --calendar-mobile-inner-half-width: calc(var(--calendar-mobile-inner-width) / 2);
 
     /* Кнопки выбора месяцев и годов */
-    --calendar-select-button-gap: calc(var(--gap-xs) / 3);
-    --calendar-mobile-select-button-gap: calc(var(--gap-2xs) / 2);
+    --calendar-select-button-gap: calc(var(--gap-8) / 3);
+    --calendar-mobile-select-button-gap: calc(var(--gap-4) / 2);
     --calendar-mobile-select-button-width: calc(
         var(--calendar-mobile-inner-half-width) - var(--calendar-mobile-select-button-gap)
     );

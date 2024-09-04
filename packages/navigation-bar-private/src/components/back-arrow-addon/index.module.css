@@ -29,7 +29,7 @@
 .mobileComponent {
     height: 32px;
     min-width: 32px;
-    margin: 0 var(--gap-xs);
+    margin: 0 var(--gap-8);
     backdrop-filter: none;
     background: none;
 }
@@ -44,11 +44,11 @@
     align-items: center;
     justify-content: center;
     height: 48px;
-    margin: 0 var(--gap-xs) 0 var(--gap-s);
+    margin: 0 var(--gap-8) 0 var(--gap-12);
     border-radius: var(--border-radius-circle);
 
     & + .text {
-        margin-right: var(--gap-s);
+        margin-right: var(--gap-12);
     }
 }
 
@@ -60,7 +60,7 @@
     margin: 0;
 
     & + .text {
-        margin: 0 var(--gap-s) 0 var(--gap-xs);
+        margin: 0 var(--gap-12) 0 var(--gap-8);
     }
 
     & svg > path {

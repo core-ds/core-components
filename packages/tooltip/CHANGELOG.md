@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.3.22
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.16.3
+    -   button@11.5.5
+
 ## 7.3.21
 
 ### Patch Changes

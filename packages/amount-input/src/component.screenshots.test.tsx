@@ -58,6 +58,30 @@ describe(
                     },
                 }),
             ],
+            [
+                'sprite disabled prop',
+                createSpriteStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        value: 123456,
+                        minority: 100,
+                        colors: ['default', 'inverted'],
+                        disabled: [false, true],
+                    },
+                }),
+            ],
+            [
+                'sprite readOnly prop',
+                createSpriteStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        value: 123456,
+                        minority: 100,
+                        colors: ['default', 'inverted'],
+                        readOnly: [false, true],
+                    },
+                }),
+            ],
         ],
     }),
 );

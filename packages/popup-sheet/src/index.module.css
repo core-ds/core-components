@@ -3,8 +3,8 @@
 .component {
     position: fixed;
     bottom: 0;
-    margin: auto var(--gap-xs) var(--gap-xs);
-    width: calc(100% - 2 * var(--gap-xs));
+    margin: auto var(--gap-8) var(--gap-8);
+    width: calc(100% - 2 * var(--gap-8));
     max-width: 600px;
     border-radius: 36px;
     overflow: hidden;

@@ -274,6 +274,11 @@ export type BaseSelectProps = {
     optionProps?: unknown;
 
     /**
+     * Пропсы, которые будут прокинуты в компонент группового пункта меню
+     */
+    groupOptionProps?: AnyObject;
+
+    /**
      * Компонент выпадающего меню
      */
     OptionsList?: ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>;
@@ -335,6 +340,16 @@ export type BaseSelectProps = {
      * Обработчик скрола
      */
     onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Обработчик нажатия на крестик для очистки поля
+     */
+    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Флаг, показать крестик для очистки поля
+     */
+    clear?: boolean;
 
     /**
      * Хранит функцию, с помощью которой можно обновить положение поповера
@@ -515,6 +530,11 @@ export type OptionsListProps = {
      * Функция для получения пропсов для ячейки
      */
     getOptionProps: (option: OptionShape, index: number) => OptionProps;
+
+    /**
+     * Пропсы, которые будут прокинуты в компонент группового пункта меню
+     */
+    groupOptionProps?: AnyObject;
 
     /**
      * Список выбранных пунктов
@@ -904,3 +924,20 @@ export type SelectProps = BaseSelectProps &
          */
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
+
+export type ClearButtonProps = {
+    /**
+     * Обработчик нажатия на крестик для очистки поля
+     */
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Флаг, поле заблокировано
+     */
+    disabled?: boolean;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+};

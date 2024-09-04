@@ -1,5 +1,39 @@
 # Change Log
 
+## 5.7.1
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1354](https://github.com/core-ds/core-components/pull/1354)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   link@5.2.3
+    -   icon-button@6.7.5
+
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>26.08.2024</time></sup>
+
+### [#1323](https://github.com/core-ds/core-components/pull/1323)
+
+-   Добавлено новое свойство target, которое определяет, где открывать скачиваемый документ
+
+## 5.6.10
+
+### Patch Changes
+
+<sup><time>20.08.2024</time></sup>
+
+### [#1338](https://github.com/core-ds/core-components/pull/1338)
+
+-   Исправлено отображение имени файла в состоянии ошибки
+
 ## 5.6.9
 
 ### Patch Changes

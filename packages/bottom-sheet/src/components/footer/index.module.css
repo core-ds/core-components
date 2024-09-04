@@ -2,7 +2,7 @@
 @import '../../vars.css';
 
 .footer {
-    padding: var(--gap-m) var(--gap-m);
+    padding: var(--gap-16) var(--gap-16);
     background-color: var(--color-light-modal-bg-primary);
 }
 

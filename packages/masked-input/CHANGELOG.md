@@ -1,5 +1,22 @@
 # Change Log
 
+## 6.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.5
+
+## 6.3.17
+
+### Patch Changes
+
+<sup><time>23.08.2024</time></sup>
+
+### [#1342](https://github.com/core-ds/core-components/pull/1342)
+
+-   Экспорт типа TextMaskConfig для фикса ошибки ts
+
 ## 6.3.16
 
 ### Patch Changes

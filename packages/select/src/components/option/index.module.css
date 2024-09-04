@@ -94,6 +94,6 @@
 }
 
 .textContent {
-    padding-top: var(--gap-s);
-    padding-bottom: var(--gap-s);
+    padding-top: var(--gap-12);
+    padding-bottom: var(--gap-12);
 }

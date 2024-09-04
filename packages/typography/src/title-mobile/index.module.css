@@ -40,3 +40,23 @@
 .system-xsmall {
     @mixin headline-system-mobile_xsmall;
 }
+
+.margins-xlarge {
+    @mixin margin-large;
+}
+
+.margins-large {
+    @mixin margin-small;
+}
+
+.margins-medium {
+    @mixin margin-small;
+}
+
+.margins-small {
+    @mixin margin-small;
+}
+
+.margins-xsmall {
+    @mixin margin-small;
+}
