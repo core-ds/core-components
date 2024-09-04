@@ -53,7 +53,7 @@
     position: absolute;
     display: flex;
     align-items: center;
-    left: var(--gap-s);
+    left: var(--gap-12);
     right: 0;
     transform-origin: left top;
     transform: translateY(-50%);
@@ -76,11 +76,11 @@
 }
 
 .leftAddons {
-    padding-left: var(--gap-s);
+    padding-left: var(--gap-12);
 }
 
 .rightAddons {
-    padding-right: var(--gap-s);
+    padding-right: var(--gap-12);
 }
 
 .sub {
@@ -92,7 +92,7 @@
     @mixin paragraph_component_secondary;
 
     display: block;
-    margin-bottom: calc(var(--gap-s) / 2);
+    margin-bottom: calc(var(--gap-12) / 2);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -145,7 +145,7 @@
 }
 
 .size-72 .label {
-    left: var(--gap-m);
+    left: var(--gap-16);
 }
 
 .size-72 .input > * {
@@ -157,23 +157,23 @@
 }
 
 .size-72 .leftAddons {
-    padding-left: var(--gap-m);
+    padding-left: var(--gap-16);
 }
 
 .size-72 .rightAddons {
-    padding-right: var(--gap-m);
+    padding-right: var(--gap-16);
 }
 
 .size-72.hasLeftAddons .label {
-    left: var(--gap-s);
+    left: var(--gap-12);
 }
 
 .size-72.hasLeftAddons .input > * {
-    padding-left: var(--gap-s);
+    padding-left: var(--gap-12);
 }
 
 .size-72.hasRightAddons .input > * {
-    padding-right: var(--gap-s);
+    padding-right: var(--gap-12);
 }
 
 .size-72 .label {
