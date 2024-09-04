@@ -3,7 +3,7 @@
 
 .component {
     max-width: var(--pass-code-max-width);
-    margin: var(--gap-xs) 0;
+    margin: var(--gap-8) 0;
 }
 
 .message {

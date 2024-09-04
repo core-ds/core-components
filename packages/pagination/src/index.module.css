@@ -11,7 +11,7 @@
 
 .defaultView {
     & > * {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
 
         &:last-child {
             margin-right: 0;

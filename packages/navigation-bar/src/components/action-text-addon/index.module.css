@@ -5,5 +5,5 @@
 }
 
 .text {
-    padding: var(--gap-xs) var(--gap-m);
+    padding: var(--gap-8) var(--gap-16);
 }
