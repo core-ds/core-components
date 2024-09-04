@@ -84,10 +84,16 @@
     }
 }
 
+/* сбрасывает синюю подсветку при нажатии */
+@define-mixin reset-tap-highlight-color {
+    -webkit-tap-highlight-color: transparent;
+}
+
 @define-mixin button-reset {
+    @mixin reset-tap-highlight-color;
+
     box-sizing: border-box;
     background-color: transparent;
-    -webkit-tap-highlight-color: transparent;
     outline: none;
     border: 0;
     margin: 0;
