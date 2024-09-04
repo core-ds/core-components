@@ -1,5 +1,26 @@
 # Change Log
 
+## 2.5.11
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1348](https://github.com/core-ds/core-components/pull/1348)
+
+-   Исправлено выравнивание текста для TSortableHeadCell
+
+-   Обновлены зависимости
+    -   select@17.10.1
+    -   button@11.5.5
+    -   pagination@2.3.5
+
 ## 2.5.10
 
 ### Patch Changes

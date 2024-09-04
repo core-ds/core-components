@@ -1,5 +1,20 @@
 # @alfalab/core-components-date-time-input
 
+## 4.3.26
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1354](https://github.com/core-ds/core-components/pull/1354)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   input@15.0.5
+    -   calendar@7.10.1
+    -   icon-button@6.7.5
+
 ## 4.3.25
 
 ### Patch Changes

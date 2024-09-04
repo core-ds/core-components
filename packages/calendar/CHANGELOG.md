@@ -1,5 +1,28 @@
 # Change Log
 
+## 7.10.1
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+-   Обновлены наименования переменных отступов
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1337](https://github.com/core-ds/core-components/pull/1337)
+
+-   При ручном выборе всего доступного периода в месяце, заголовок будет выделяться автоматически
+-   Внутренние улучшения кода компонента
+
+-   Обновлены зависимости
+    -   modal@9.3.11
+    -   typography@4.9.0
+    -   button@11.5.5
+    -   icon-button@6.7.5
+
 ## 7.10.0
 
 ### Minor Changes
