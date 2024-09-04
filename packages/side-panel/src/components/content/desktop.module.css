@@ -4,6 +4,6 @@
     padding: var(--side-panel-s-content-paddings);
 
     &:last-child {
-        padding-bottom: var(--gap-2xl);
+        padding-bottom: var(--gap-32);
     }
 }

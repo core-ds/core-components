@@ -1,5 +1,5 @@
 @import '../../../themes/src/default.css';
 
 .component {
-    padding-top: var(--gap-4xl);
+    padding-top: var(--gap-48);
 }

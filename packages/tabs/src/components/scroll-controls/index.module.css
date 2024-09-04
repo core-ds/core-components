@@ -22,12 +22,12 @@
     }
 
     .button:first-child {
-        padding-left: var(--gap-xs);
-        margin-right: var(--gap-xs);
+        padding-left: var(--gap-8);
+        margin-right: var(--gap-8);
     }
 
     &.xl .button:first-child {
-        margin-right: var(--gap-2xs);
+        margin-right: var(--gap-4);
     }
 }
 
@@ -51,7 +51,7 @@
         width: 76px;
 
         .button:first-child {
-            margin-right: var(--gap-2xs);
+            margin-right: var(--gap-4);
         }
     }
 }

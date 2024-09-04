@@ -1,8 +1,8 @@
 @define-mixin tabs-site {
     /* theme */
-    --primary-tablist-m-gaps: var(--gap-4xl);
+    --primary-tablist-m-gaps: var(--gap-48);
     --primary-tablist-m-font-weight: 500;
-    --primary-tablist-l-gaps: var(--gap-4xl);
+    --primary-tablist-l-gaps: var(--gap-48);
     --primary-tablist-l-font-weight: 500;
     --primary-tablist-bottom-border-color: var(--color-light-neutral-500);
 }
