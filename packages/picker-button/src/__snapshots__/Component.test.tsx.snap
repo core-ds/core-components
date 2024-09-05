@@ -333,7 +333,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             />
                           </div>
                           <div
-                            class="mask"
+                            class="mask mask"
                             style=""
                           >
                             <div
@@ -1450,7 +1450,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             />
                           </div>
                           <div
-                            class="mask"
+                            class="mask mask"
                             style=""
                           >
                             <div
@@ -2567,7 +2567,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             />
                           </div>
                           <div
-                            class="mask"
+                            class="mask mask"
                             style=""
                           >
                             <div
