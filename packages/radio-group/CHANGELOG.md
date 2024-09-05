@@ -1,5 +1,24 @@
 # Change Log
 
+## 4.5.0
+
+### Minor Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1343](https://github.com/core-ds/core-components/pull/1343)
+
+-   Стилевые исправления компонентов
+-   Обновление документации
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
 ## 4.4.0
 
 ### Minor Changes

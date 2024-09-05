@@ -9,24 +9,24 @@
 
     &.size-164 {
         border-radius: var(--border-radius-xxl);
-        padding: var(--gap-s) var(--gap-m);
+        padding: var(--gap-12) var(--gap-16);
     }
     &.size-128 {
         border-radius: var(--border-radius-xl);
-        padding: var(--gap-xs) var(--gap-s);
+        padding: var(--gap-8) var(--gap-12);
     }
     &.size-96 {
         border-radius: var(--border-radius-l);
-        padding: 6px var(--gap-s);
+        padding: 6px var(--gap-12);
     }
     &.size-48,
     &.size-40 {
         border-radius: 6px;
-        padding: var(--gap-3xs) var(--gap-2xs);
+        padding: var(--gap-2) var(--gap-4);
     }
     &.size-32 {
         border-radius: var(--border-radius-s);
-        padding: 0 var(--gap-3xs);
+        padding: 0 var(--gap-2);
     }
     &.size-16 {
         border-radius: var(--border-radius-xs);

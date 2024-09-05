@@ -23,8 +23,8 @@ render(() => {
     return (
         <Container>
             <Row>
-                <div style={{ backgroundColor: 'rgba(55, 120, 251, 0.1)', padding: '16px' }}>
-                    <GenericWrapper gap={20} column={direction === 'vertical'}>
+                <div style={{ backgroundColor: 'rgba(55, 120, 251, 0.1)'}}>
+                    <GenericWrapper padding={{ top: 16, right: 16, bottom: 16, left: 16 }} gap={20} column={direction === 'vertical'}>
                         <GenericWrapper>{addon}</GenericWrapper>
                         <GenericWrapper>{addon}</GenericWrapper>
                         <GenericWrapper>{addon}</GenericWrapper>

@@ -6,8 +6,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: var(--gap-xl);
-    grid-row-gap: var(--gap-s);
+    grid-column-gap: var(--gap-24);
+    grid-row-gap: var(--gap-12);
     margin: 0 auto;
 
     & .digit.digit {
@@ -20,8 +20,8 @@
     .component {
         width: 292px;
         height: 352px;
-        grid-column-gap: var(--gap-2xl);
-        grid-row-gap: var(--gap-m);
+        grid-column-gap: var(--gap-32);
+        grid-row-gap: var(--gap-16);
     }
 }
 

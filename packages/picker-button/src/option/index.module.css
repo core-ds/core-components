@@ -7,7 +7,7 @@
 
 .icon {
     display: flex;
-    margin-right: var(--gap-s);
+    margin-right: var(--gap-12);
 }
 
 .content {

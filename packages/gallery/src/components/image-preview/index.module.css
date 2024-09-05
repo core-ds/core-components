@@ -2,7 +2,7 @@
 
 .component {
     display: flex;
-    padding: var(--gap-2xs);
+    padding: var(--gap-4);
     border: 2px solid rgba(0, 0, 0, 0);
     border-radius: var(--border-radius-l);
     overflow: hidden;

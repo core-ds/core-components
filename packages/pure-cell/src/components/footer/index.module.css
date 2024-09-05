@@ -3,13 +3,13 @@
 .component {
     grid-column: 1/3;
     display: grid;
-    grid-row-gap: var(--gap-xs);
+    grid-row-gap: var(--gap-8);
 
     &.none {
         margin-top: 0;
     }
 
     &.default {
-        margin-top: var(--gap-xs);
+        margin-top: var(--gap-8);
     }
 }

@@ -17,7 +17,7 @@
     align-items: center;
     width: 24px;
     height: 24px;
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
 }
 
 .emptyCountryIcon {

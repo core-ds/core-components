@@ -3,7 +3,7 @@
 .component {
     display: flex;
     overflow: hidden;
-    padding: var(--gap-3xs) 0;
+    padding: var(--gap-2) 0;
 }
 
 .categoryName {
@@ -15,12 +15,12 @@
 }
 
 .categoryPercent {
-    padding: 0 var(--gap-xs);
+    padding: 0 var(--gap-8);
     background-color: var(--color-light-base-bg-secondary);
     border-radius: var(--border-radius-xl);
-    margin-left: var(--gap-2xs);
+    margin-left: var(--gap-4);
 }
 
 .rightAddon {
-    margin-left: var(--gap-2xs);
+    margin-left: var(--gap-4);
 }

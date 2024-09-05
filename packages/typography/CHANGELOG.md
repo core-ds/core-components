@@ -1,5 +1,23 @@
 # Change Log
 
+## 4.9.0
+
+### Minor Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1351](https://github.com/core-ds/core-components/pull/1351)
+
+-   Добавлено новое свойство breakpoint, отвечающее за контрольную точку, с которой начинается desktop версия
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
 ## 4.8.0
 
 ### Minor Changes

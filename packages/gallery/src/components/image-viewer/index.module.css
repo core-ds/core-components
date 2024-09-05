@@ -15,13 +15,13 @@
 
     /* 168px - высота хэдера и футера */
     max-height: calc(100vh - 168px);
-    padding: var(--gap-2xl) var(--gap-m);
+    padding: var(--gap-32) var(--gap-16);
     box-sizing: border-box;
 }
 
 .singleSlide .swiper {
     max-height: calc(100vh - 80px);
-    padding: var(--gap-2xl);
+    padding: var(--gap-32);
 }
 
 .hidden {

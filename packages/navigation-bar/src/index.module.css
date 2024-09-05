@@ -1,7 +1,7 @@
 @import '../../vars/src/index.css';
 
 .component {
-    padding: var(--gap-xs) var(--gap-2xs);
+    padding: var(--gap-8) var(--gap-4);
     box-sizing: border-box;
     width: 100%;
 }
@@ -44,7 +44,7 @@
     color: var(--color-light-text-primary);
 
     &.left {
-        padding: 0 var(--gap-m);
+        padding: 0 var(--gap-16);
     }
 
     & > .title,

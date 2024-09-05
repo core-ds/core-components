@@ -5,11 +5,11 @@
     display: flex;
     box-sizing: border-box;
     width: 100%;
-    padding: var(--gap-m) var(--gap-m);
+    padding: var(--gap-16) var(--gap-16);
     background-color: var(--color-light-modal-bg-primary);
 
     & .button:first-of-type {
-        margin-right: var(--gap-m);
+        margin-right: var(--gap-16);
     }
 }
 

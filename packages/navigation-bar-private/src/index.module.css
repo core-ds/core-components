@@ -43,8 +43,8 @@
     &.withCompactTitle {
         @mixin action_component;
         align-self: center;
-        padding-top: var(--gap-2xs);
-        padding-bottom: var(--gap-2xs);
+        padding-top: var(--gap-4);
+        padding-bottom: var(--gap-4);
 
         & > .children,
         & > .title {
@@ -54,11 +54,11 @@
     }
 
     &.contentOnBotDesktop.contentOnBotDesktop {
-        padding-top: var(--gap-s);
+        padding-top: var(--gap-12);
     }
 
     &.contentOnBotMobile.contentOnBotMobile {
-        padding-top: var(--gap-s);
+        padding-top: var(--gap-12);
     }
 }
 

@@ -1,5 +1,27 @@
 # Change Log
 
+## 12.1.20
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1354](https://github.com/core-ds/core-components/pull/1354)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   input@15.0.5
+    -   select@17.10.1
+    -   form-control@12.2.8
+
+## 12.1.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.10.0
+
 ## 12.1.18
 
 ### Patch Changes

@@ -3,14 +3,14 @@
 .component {
     position: fixed;
     top: 0;
-    right: var(--gap-s);
+    right: var(--gap-12);
     display: flex;
     flex-direction: column;
 }
 
 .component .notification {
-    width: calc(100vw - var(--gap-xl));
-    margin-top: var(--gap-s);
+    width: calc(100vw - var(--gap-24));
+    margin-top: var(--gap-12);
     will-change: transform;
 
     &.withoutMargin {
@@ -35,7 +35,7 @@
 
 @media (--tablet-s) {
     .component {
-        right: var(--gap-4xl);
+        right: var(--gap-48);
     }
 
     .component .notification {

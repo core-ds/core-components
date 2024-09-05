@@ -26,7 +26,7 @@ div[data-mode='dark'] .intro {
     position: absolute;
     top: 0;
     right: 0;
-    padding: var(--gap-l);
+    padding: var(--gap-20);
     font-family: var(--font-family-styrene);
     color: var(--color-light-text-primary);
 }
@@ -44,12 +44,12 @@ div[data-mode='dark'] .intro {
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
 
-    margin: var(--gap-xl) auto 0;
+    margin: var(--gap-24) auto 0;
     max-width: 288px;
 }
 
 .ghButton {
-    margin-top: var(--gap-xl);
+    margin-top: var(--gap-24);
 }
 
 .introFooter {
@@ -93,20 +93,20 @@ div[data-mode='dark'] .intro {
 .whereToStart {
     @mixin headline-mobile_large;
 
-    margin-top: var(--gap-3xl);
+    margin-top: var(--gap-40);
 }
 
 .plates {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: var(--gap-xs);
-    margin-top: var(--gap-l);
+    grid-gap: var(--gap-8);
+    margin-top: var(--gap-20);
 }
 
 @media screen and (min-width: 600px) {
     .page {
         margin-top: -28px;
-        padding-bottom: var(--gap-5xl);
+        padding-bottom: var(--gap-64);
     }
 
     .intro {
@@ -127,12 +127,12 @@ div[data-mode='dark'] .intro {
     .desc {
         @mixin promo-mobile_small;
 
-        margin: var(--gap-2xl) auto 0;
+        margin: var(--gap-32) auto 0;
         max-width: 438px;
     }
 
     .ghButton {
-        margin-top: var(--gap-2xl);
+        margin-top: var(--gap-32);
     }
 
     .introFooter {
@@ -151,12 +151,12 @@ div[data-mode='dark'] .intro {
     .whereToStart {
         @mixin headline_large;
 
-        margin-top: var(--gap-4xl);
+        margin-top: var(--gap-48);
     }
 
     .plates {
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: var(--gap-l);
-        margin-top: var(--gap-xl);
+        grid-gap: var(--gap-20);
+        margin-top: var(--gap-24);
     }
 }

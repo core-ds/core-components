@@ -17,14 +17,14 @@
 .errorHeader {
     @mixin _confirmation-title;
 
-    margin-bottom: var(--gap-2xl);
+    margin-bottom: var(--gap-32);
     color: var(--confirmation-title-color);
 }
 
 .errorText {
     @mixin _confirmation-text;
 
-    margin-bottom: var(--gap-2xl);
+    margin-bottom: var(--gap-32);
     color: var(--confirmation-text-color);
 }
 
@@ -37,7 +37,7 @@
 .phoneHintText {
     @mixin _confirmation-text;
 
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
     color: var(--confirmation-text-color);
 }
 
@@ -46,11 +46,11 @@
 
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--gap-4xl);
+    margin-bottom: var(--gap-48);
 }
 
 .phoneWrap {
-    margin-bottom: var(--gap-xs);
+    margin-bottom: var(--gap-8);
 
     &:last-child {
         margin-bottom: 0;

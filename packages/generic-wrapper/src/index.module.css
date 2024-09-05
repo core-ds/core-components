@@ -57,25 +57,25 @@
     flex-grow: 1;
 }
 
-@each $size in 3xs, 2xs, xs, s, m, l, xl {
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 0, 2, 4, 8, 12, 16, 20, 24 {
     .padding-top-$(size) {
         padding-top: var(--gap-$(size));
     }
 }
 
-@each $size in 3xs, 2xs, xs, s, m, l, xl {
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 0, 2, 4, 8, 12, 16, 20, 24 {
     .padding-right-$(size) {
         padding-right: var(--gap-$(size));
     }
 }
 
-@each $size in 3xs, 2xs, xs, s, m, l, xl {
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 0, 2, 4, 8, 12, 16, 20, 24 {
     .padding-bottom-$(size) {
         padding-bottom: var(--gap-$(size));
     }
 }
 
-@each $size in 3xs, 2xs, xs, s, m, l, xl {
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 0, 2, 4, 8, 12, 16, 20, 24 {
     .padding-left-$(size) {
         padding-left: var(--gap-$(size));
     }

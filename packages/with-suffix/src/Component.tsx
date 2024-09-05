@@ -87,6 +87,8 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const visibleValue = uncontrolled ? stateValue : value;
 
+            const isInverted = restProps.colors === 'inverted';
+
             return (
                 <Fragment>
                     <Input
@@ -114,6 +116,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                                     className={cn(styles.suffix, {
                                         [styles.disabled]: disabled,
                                         [styles.readOnly]: readOnly,
+                                        [styles.inverted]: isInverted,
                                     })}
                                 >
                                     {suffix}

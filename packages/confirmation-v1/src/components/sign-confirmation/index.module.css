@@ -20,7 +20,7 @@
 .header {
     @mixin _confirmation-title;
 
-    margin-bottom: var(--gap-3xl);
+    margin-bottom: var(--gap-40);
     color: var(--confirmation-title-color);
 }
 
@@ -30,7 +30,7 @@
 }
 
 .smsComeLinkWrap {
-    margin-top: var(--gap-l);
+    margin-top: var(--gap-20);
 }
 
 .smsComeLink {
@@ -40,20 +40,20 @@
 .error {
     @mixin paragraph_primary_small;
 
-    margin-top: var(--gap-xs);
+    margin-top: var(--gap-8);
     color: var(--confirmation-error-color);
 }
 
 .loaderWrap {
     display: flex;
     align-items: center;
-    margin: var(--gap-3xl) 0 var(--gap-xs);
+    margin: var(--gap-40) 0 var(--gap-8);
 }
 
 .loaderText {
     @mixin _confirmation-text;
 
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
     color: var(--confirmation-text-color);
 }
 

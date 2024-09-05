@@ -7,12 +7,12 @@
 :global(.cc-picker-button) {
     &.optionsPopover {
         &.sideGap {
-            padding: 0 var(--gap-xs);
+            padding: 0 var(--gap-8);
         }
     }
 
     & .option {
-        padding: 0 var(--gap-m);
+        padding: 0 var(--gap-16);
 
         &:before {
             /* Удаляем разделители у опций выпадающего списка. */

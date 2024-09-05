@@ -1,7 +1,7 @@
 @import '../../../packages/vars/src/index.css';
 
 .tabsTypes {
-    margin-top: var(--gap-xl);
+    margin-top: var(--gap-24);
 }
 
 .error {
@@ -11,6 +11,6 @@
     height: 200px;
     border: 1px solid var(--color-light-neutral-300);
     border-radius: var(--border-radius-s);
-    margin-top: var(--gap-xl);
+    margin-top: var(--gap-24);
     color: var(--color-light-text-secondary);
 }

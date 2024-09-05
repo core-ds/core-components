@@ -51,7 +51,7 @@
 
 .addons {
     margin-left: auto;
-    padding-left: var(--gap-m);
+    padding-left: var(--gap-16);
     line-height: 24px;
 }
 
@@ -64,7 +64,7 @@
     border-radius: var(--border-radius-xl);
     width: 36px;
     height: 20px;
-    margin: var(--gap-3xs);
+    margin: var(--gap-2);
     flex-shrink: 0;
     background-color: var(--switch-bg-color);
     border: 2px solid var(--switch-border-color);
@@ -91,7 +91,7 @@
 }
 
 .content {
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
     flex-grow: 1;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .label:not(:only-child) {
-    margin-bottom: var(--gap-2xs);
+    margin-bottom: var(--gap-4);
 }
 
 .errorMessage {
@@ -123,7 +123,7 @@
 }
 
 .reversed .content {
-    margin-right: var(--gap-m);
+    margin-right: var(--gap-16);
     margin-left: 0;
 }
 
@@ -131,7 +131,7 @@
     margin-left: 0;
     padding-left: 0;
     margin-right: auto;
-    padding-right: var(--gap-m);
+    padding-right: var(--gap-16);
 }
 
 /* Checked state */

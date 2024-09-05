@@ -25,5 +25,5 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    margin-top: var(--gap-2xs);
+    margin-top: var(--gap-4);
 }

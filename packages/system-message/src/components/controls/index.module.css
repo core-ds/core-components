@@ -10,7 +10,7 @@
     flex-flow: column nowrap;
 
     & > * {
-        margin-bottom: var(--gap-m);
+        margin-bottom: var(--gap-16);
     }
 
     & > *:last-child,
@@ -23,7 +23,7 @@
     flex-flow: row nowrap;
 
     & > * {
-        margin-right: var(--gap-m);
+        margin-right: var(--gap-16);
     }
 
     & > *:last-child,

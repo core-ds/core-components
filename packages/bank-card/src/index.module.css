@@ -35,8 +35,8 @@
     left: 0;
     display: flex;
     align-items: center;
-    padding-left: var(--gap-l);
-    padding-right: var(--gap-l);
+    padding-left: var(--gap-20);
+    padding-right: var(--gap-20);
     border-radius: var(--border-radius-l);
     box-sizing: border-box;
 }
@@ -75,7 +75,7 @@
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: 0 !important;
-    padding-bottom: var(--gap-2xs) !important;
+    padding-bottom: var(--gap-4) !important;
 
     @media (max-width: 360px) {
         font-size: 16px;
@@ -120,11 +120,11 @@
     user-select: none;
     cursor: pointer;
     outline: none;
-    margin-bottom: var(--gap-2xs);
+    margin-bottom: var(--gap-4);
     align-self: flex-end;
 
     /* В макете иконка прилегает к правому краю поля, а по дизайн-системе там должен быть отступ */
-    margin-right: calc(var(--gap-s) * -1);
+    margin-right: calc(var(--gap-12) * -1);
 
     & svg {
         fill: var(--color-light-neutral-translucent-1300);

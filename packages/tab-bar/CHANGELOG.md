@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.0.8
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   typography@4.9.0
+    -   indicator@2.1.1
+
 ## 2.0.7
 
 ### Patch Changes

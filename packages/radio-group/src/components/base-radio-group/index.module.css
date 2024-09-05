@@ -6,11 +6,11 @@
 }
 
 .error {
-    padding-left: var(--gap-s);
+    padding-left: var(--gap-12);
     border-left: 1px solid var(--color-light-status-negative);
 
     &.tag {
-        padding-left: var(--gap-xs);
+        padding-left: var(--gap-8);
     }
 }
 
@@ -25,11 +25,11 @@
 
 .horizontalRadioList {
     flex-wrap: wrap;
-    margin-bottom: var(--gap-xs-neg);
+    margin-bottom: var(--gap-8-neg);
 }
 
 .verticalRadio {
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-12);
 
     &:last-child {
         margin-bottom: 0;
@@ -37,12 +37,12 @@
 }
 
 .horizontalRadio {
-    margin-right: var(--gap-xl);
-    margin-bottom: var(--gap-xs);
+    margin-right: var(--gap-24);
+    margin-bottom: var(--gap-8);
 }
 
 .horizontalTagLabel {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .horizontalRadio:last-child,
@@ -51,12 +51,12 @@
 }
 
 .label {
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-12);
 }
 
 .sub {
     @mixin paragraph_component_secondary;
-    margin-top: var(--gap-s);
+    margin-top: var(--gap-12);
 }
 
 .errorMessage {

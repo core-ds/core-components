@@ -15,7 +15,7 @@
 }
 
 .text.text {
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
 }
 
 .typographyTheme.typographyTheme {
@@ -25,11 +25,11 @@
 .phonesWrap {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
 }
 
 .phoneWrap {
-    margin-bottom: var(--gap-xs);
+    margin-bottom: var(--gap-8);
 
     &:last-child {
         margin-bottom: 0;
@@ -41,7 +41,7 @@
 }
 
 .hintButton {
-    margin-top: var(--gap-2xl);
+    margin-top: var(--gap-32);
 }
 
 .phoneContentMobile {

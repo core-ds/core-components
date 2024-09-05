@@ -10,7 +10,7 @@
     & div {
         height: 4px;
         width: 4px;
-        margin-right: var(--gap-2xs);
+        margin-right: var(--gap-4);
         border-radius: 100%;
         background-color: currentColor;
         animation-name: blink;

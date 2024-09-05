@@ -14,7 +14,7 @@
 .skeleton {
     display: flex;
     flex-direction: column;
-    padding: var(--gap-m);
+    padding: var(--gap-16);
     pointer-events: all;
     box-sizing: border-box;
     position: absolute;
@@ -29,12 +29,12 @@
 
 .header {
     height: 48px;
-    margin-bottom: var(--gap-l);
+    margin-bottom: var(--gap-20);
 }
 
 .weekDays {
     height: 12px;
-    margin-bottom: var(--gap-m);
+    margin-bottom: var(--gap-16);
 }
 
 .row {

@@ -30,7 +30,7 @@
     display: var(--select-checkmark-before-display);
 
     &.multiple {
-        margin-right: var(--gap-s);
+        margin-right: var(--gap-12);
         display: var(--select-checkmark-before-display-multiple);
     }
 }

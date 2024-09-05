@@ -1,7 +1,7 @@
 @import '../../../../../packages/vars/src/index.css';
 
 .plate {
-    padding: var(--gap-m) var(--gap-l);
+    padding: var(--gap-16) var(--gap-20);
     background-color: var(--color-light-base-bg-secondary);
     border-radius: var(--border-radius-xxl);
     color: var(--color-light-text-primary);
@@ -41,7 +41,7 @@
 
 @media screen and (min-width: 600px) {
     .plate {
-        padding: var(--gap-xl) 30px;
+        padding: var(--gap-24) 30px;
     }
 
     .title {
@@ -49,6 +49,6 @@
     }
 
     .description {
-        margin-top: var(--gap-xs);
+        margin-top: var(--gap-8);
     }
 }
