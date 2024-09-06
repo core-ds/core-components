@@ -280,7 +280,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         const [autofilled, setAutofilled] = useState(false);
 
         // отображаем крестик только для заполненного и активного инпута
-        const clearButtonVisible = clear && filled && !disabled && !readOnly;
+        const clearButtonVisible = clear && filled && !disabled && !readOnlyProp;
         const hasInnerLabel = label && labelView === 'inner';
 
         const handleInputFocus = useCallback(

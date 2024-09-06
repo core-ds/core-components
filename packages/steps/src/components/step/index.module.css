@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 :root {
     --steps-option-svg-color: var(--color-light-status-positive);
@@ -34,11 +34,11 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: var(--gap-2xs);
+    margin-right: var(--gap-4);
 
     &.vertical {
         flex-direction: column;
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
     }
 }
 
@@ -55,7 +55,7 @@
     border-radius: var(--border-radius-circle);
 
     &.vertical {
-        margin-top: var(--gap-xs);
+        margin-top: var(--gap-8);
     }
 }
 
@@ -63,7 +63,7 @@
     flex: 1 1 auto;
     min-width: 24px;
     border-top: 2px solid var(--color-light-neutral-translucent-300);
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 
     &.size-16 {
         min-width: 16px;
@@ -81,7 +81,7 @@
         min-width: unset;
         min-height: 24px;
         margin-right: 0;
-        margin-top: var(--gap-xs);
+        margin-top: var(--gap-8);
         border-left: 2px solid var(--color-light-neutral-translucent-300);
         border-top: none;
 
@@ -103,9 +103,9 @@
     @mixin paragraph_primary_medium;
 
     transition: background 0.2s;
-    padding: var(--gap-xs);
+    padding: var(--gap-8);
     color: var(--color-light-text-primary);
-    border-radius: var(--gap-xs);
+    border-radius: var(--gap-8);
     height: min-content;
 
     &.interactive:not(.disabled) {
@@ -120,8 +120,8 @@
 }
 
 .focused {
-    outline: var(--gap-3xs) solid var(--focus-color);
-    outline-offset: var(--gap-3xs);
+    outline: var(--gap-2) solid var(--focus-color);
+    outline-offset: var(--gap-2);
 }
 
 .selected {

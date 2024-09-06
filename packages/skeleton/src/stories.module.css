@@ -1,5 +1,5 @@
 .example-1 {
-    margin-top: var(--gap-m);
+    margin-top: var(--gap-16);
 }
 
 .example-1:first-child {

@@ -33,6 +33,11 @@ const pkg = require(currentPkg);
 
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
 
+const externals = [
+    ...externalsWithEntryPoints(Object.keys(pkg.dependencies || {})),
+    ...Object.keys(pkg.peerDependencies || {}),
+];
+
 const baseConfig = {
     cache: false,
     input: [
@@ -42,10 +47,7 @@ const baseConfig = {
         '!src/**/*.d.ts',
     ],
     plugins: [wildcardExternal(['@alfalab/core-components-*/**'])],
-    external: [
-        ...externalsWithEntryPoints(Object.keys(pkg.dependencies || {})),
-        ...Object.keys(pkg.peerDependencies || {}),
-    ],
+    external: externals,
 };
 
 const multiInputPlugin = multiInput.default();
@@ -196,9 +198,50 @@ const cssm = {
             }),
         }),
         json(),
-        processCss(),
+        processCss({ folder: 'cssm' }),
         assetsCopyPlugin('dist/cssm'),
     ],
+};
+
+/**
+ * Сборка ES2020 с esm модулями.
+ * Css-модули поставляются как есть, не компилируются.
+ * Отключен импорт базовых токенов.
+ */
+const moderncssm = {
+    ...baseConfig,
+    output: [
+        {
+            dir: 'dist/moderncssm',
+            format: 'esm',
+            generatedCode: 'es2015',
+            plugins: [
+                addCssImports({ currentPackageDir }),
+                coreComponentsResolver({ importFrom: 'moderncssm' }),
+                packagesTypingResolver(),
+            ],
+            hoistTransitiveImports: false,
+        },
+    ],
+    plugins: [
+        ...baseConfig.plugins,
+        multiInputPlugin,
+        typescript({
+            outDir: 'dist/moderncssm',
+            tsconfig: (resolvedConfig) => ({
+                ...resolvedConfig,
+                target: ScriptTarget.ES2020,
+                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+            }),
+        }),
+        json(),
+        processCss({
+            folder: 'moderncssm',
+            noCommonVars: true,
+        }),
+        assetsCopyPlugin('dist/moderncssm'),
+    ],
+    external: (id) => externals.includes(id) || id.endsWith('.module.css'),
 };
 
 /**
@@ -241,7 +284,9 @@ const rootDir = `../../dist/${currentComponentName}`;
  */
 const root = {
     input: ['dist/**/*.js'],
-    external: baseConfig.external,
+    external: (id, parentId) =>
+        externals.includes(id) ||
+        (parentId.includes('dist/moderncssm') && id.endsWith('.module.css')),
     plugins: [
         ...baseConfig.plugins,
         multiInput.default({
@@ -271,7 +316,14 @@ const root = {
 const configs = (
     process.env.BUILD_MODERN_ONLY === 'true'
         ? [modern, root]
-        : [es5, modern, esm, currentComponentName !== 'themes' && cssm, root]
+        : [
+              es5,
+              modern,
+              esm,
+              currentComponentName !== 'themes' && cssm,
+              currentComponentName !== 'themes' && moderncssm,
+              root,
+          ]
 ).filter(Boolean);
 
 export default configs;

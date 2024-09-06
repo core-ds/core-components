@@ -1,11 +1,11 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
     display: grid;
     grid-template-columns: repeat(3, var(--size-l-height));
     grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: var(--gap-3xl);
+    grid-column-gap: var(--gap-40);
     grid-row-gap: var(--gap-2s);
     justify-content: center;
 

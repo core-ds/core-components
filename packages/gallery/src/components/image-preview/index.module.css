@@ -1,13 +1,13 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
-    padding: var(--gap-2xs);
+    padding: var(--gap-4);
     z-index: 3;
-
     overflow: hidden;
     transition: border 0.15s ease-in-out;
     outline: none;
+
     & .image {
         opacity: 0.3;
     }

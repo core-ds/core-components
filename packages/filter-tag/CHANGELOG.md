@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.5.1
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1354](https://github.com/core-ds/core-components/pull/1354)
+
+-   Обновлены наименования переменных отступов
+
 ## 5.5.0
 
 ### Minor Changes

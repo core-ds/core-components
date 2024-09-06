@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../../../calendar/src/vars.css';
 
 :root {
@@ -39,7 +39,7 @@
     color: var(--calendar-input-icon-color);
 
     &:not(:only-child) {
-        margin-right: var(--gap-2xs);
+        margin-right: var(--gap-4);
     }
 }
 

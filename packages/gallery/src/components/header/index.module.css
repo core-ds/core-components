@@ -1,10 +1,10 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .header {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
     width: 100%;
-    padding: var(--gap-m) var(--gap-xl);
+    padding: var(--gap-16) var(--gap-24);
     box-sizing: border-box;
 }

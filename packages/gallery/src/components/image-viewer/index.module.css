@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
@@ -14,7 +14,7 @@
 
     /* 168px - высота хэдера и футера */
     max-height: calc(100vh - 168px);
-    padding: var(--gap-2xl) var(--gap-m);
+    padding: var(--gap-32) var(--gap-16);
     box-sizing: border-box;
 
     &.mobile {
@@ -28,7 +28,7 @@
 
 .singleSlide .swiper {
     max-height: calc(100vh - 80px);
-    padding: var(--gap-2xl);
+    padding: var(--gap-32);
 
     &.mobile {
         max-height: calc(100vh - 174px);

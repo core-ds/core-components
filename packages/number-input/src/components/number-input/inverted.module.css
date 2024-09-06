@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .steppers {
     background-color: var(--color-light-neutral-translucent-0-inverted);

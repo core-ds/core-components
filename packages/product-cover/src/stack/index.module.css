@@ -1,4 +1,4 @@
-@import '../../../themes/src/default.css';
+@import '../../../vars/src/index.css';
 
 .wrapper {
     display: flex;
@@ -37,7 +37,7 @@
 
 .componentStack {
     &.size-128 {
-        padding-left: var(--gap-xs);
+        padding-left: var(--gap-8);
     }
 }
 
@@ -45,40 +45,40 @@
     z-index: 4;
 
     &.size-32 {
-        margin-top: var(--gap-2xs);
+        margin-top: var(--gap-4);
     }
 
     &.size-40.bottom {
         margin-left: -7px;
-        margin-top: var(--gap-2xs);
+        margin-top: var(--gap-4);
     }
 }
 
 .wrapperSecondCard {
     &.size-128 {
         width: 213px;
-        padding-left: var(--gap-xs);
+        padding-left: var(--gap-8);
         margin-top: 18px;
         margin-left: -221px;
     }
 
     &.size-40 {
-        margin-top: var(--gap-m);
+        margin-top: var(--gap-16);
         margin-left: -54px;
     }
 
     &.size-32 {
-        margin-top: var(--gap-s);
+        margin-top: var(--gap-12);
         margin-left: -47px;
     }
 
     &.size-16 {
-        margin-top: var(--gap-2xs);
-        margin-left: var(--gap-l-neg);
+        margin-top: var(--gap-4);
+        margin-left: var(--gap-20-neg);
     }
 
     &.size-40.bottom {
-        margin-top: var(--gap-m);
+        margin-top: var(--gap-16);
         margin-left: -58px;
     }
 }

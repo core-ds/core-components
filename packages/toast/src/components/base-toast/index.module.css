@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../../../toast-plate/src/vars.css';
 
 :root {
@@ -27,7 +27,7 @@
 
 .fixed {
     position: fixed;
-    bottom: var(--gap-2xl);
+    bottom: var(--gap-32);
 
     &.enter {
         opacity: 0;

@@ -68,3 +68,13 @@ export function getCurrencyCodeWithFormat(
 
     return codeFormat === 'symbolic' ? getCurrencySymbol(currency) : currency;
 }
+
+export const getVisiblePlaceholder = (
+    placeholder: string,
+    label: React.ReactNode,
+    labelView?: string,
+) => {
+    if (!label) return placeholder;
+
+    return labelView === 'outer' ? placeholder : undefined;
+};

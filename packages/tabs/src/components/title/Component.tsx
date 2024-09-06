@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import cn from 'classnames';
 
-import { Skeleton, SkeletonProps } from '@alfalab/core-components/skeleton';
+import { Skeleton, SkeletonProps } from '@alfalab/core-components-skeleton';
 
 import { Styles, TabListTitle } from '../../typings';
 

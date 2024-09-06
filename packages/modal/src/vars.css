@@ -1,11 +1,11 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --modal-border-radius: var(--border-radius-l);
-    --modal-vertical-padding: var(--gap-3xl);
+    --modal-vertical-padding: var(--gap-40);
     --modal-header-background: var(--color-light-modal-bg-primary);
     --modal-footer-background: var(--color-light-modal-bg-primary);
-    --modal-footer-default-gap: var(--gap-m);
+    --modal-footer-default-gap: var(--gap-16);
 
     /* sizes */
     --modal-s-width: 500px;
@@ -15,9 +15,9 @@
 
     /* paddings */
     --modal-s-header-paddings: 28px 28px 0;
-    --modal-s-content-paddings: var(--gap-3xl) var(--gap-3xl) 0;
-    --modal-s-content-only-bottom-padding: var(--gap-3xl);
-    --modal-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
+    --modal-s-content-paddings: var(--gap-40) var(--gap-40) 0;
+    --modal-s-content-only-bottom-padding: var(--gap-40);
+    --modal-s-footer-paddings: var(--gap-24) var(--gap-40) var(--gap-40);
 
     /* scroll */
     --modal-header-highlight-background: var(--color-light-modal-bg-primary);
@@ -26,22 +26,22 @@
     --modal-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
 
     /* desktop */
-    --modal-s-header-desktop-content-paddings: var(--gap-s);
+    --modal-s-header-desktop-content-paddings: var(--gap-12);
     --modal-s-header-desktop-font-size: 22px;
     --modal-s-header-desktop-line-height: 26px;
-    --modal-l-header-desktop-content-paddings: 6px var(--gap-s) var(--gap-m);
+    --modal-l-header-desktop-content-paddings: 6px var(--gap-12) var(--gap-16);
     --modal-l-header-desktop-font-size: 30px;
     --modal-l-header-desktop-line-height: 36px;
     --modal-header-desktop-font-weight: bold;
     --modal-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --modal-header-mobile-content-paddings: var(--gap-s) var(--gap-xs);
-    --modal-header-mobile-font-size: 18px;
-    --modal-header-mobile-line-height: 24px;
+    --modal-header-mobile-content-paddings: 10px var(--gap-8);
+    --modal-header-mobile-font-size: 20px;
+    --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-system);
-    --modal-header-mobile-font-weight: bold;
+    --modal-header-mobile-font-weight: 600;
 
     /* paddings */
-    --modal-header-mobile-paddings: var(--gap-2xs) var(--gap-xs);
+    --modal-header-mobile-paddings: var(--gap-4) var(--gap-8);
 }

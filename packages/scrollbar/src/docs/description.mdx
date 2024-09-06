@@ -12,7 +12,7 @@ render(() => {
         background: `var(${bgColor})`,
     });
     return (
-        <div style={{ height: 240, margin: 'var(--gap-l-neg)' }}>
+        <div style={{ height: 240, margin: 'var(--gap-20-neg)' }}>
             <Scrollbar style={{ height: '100%' }} autoHide={false}>
                 {new Array(51).fill(null).map((_, idx) => {
                     const style = getChildStyle(
@@ -35,7 +35,7 @@ render(() => {
     const scrollbarStyle = {
         whiteSpace: 'nowrap',
         overflow: 'auto',
-        margin: 'var(--gap-l-neg)',
+        margin: 'var(--gap-20-neg)',
     };
     const getChildStyle = (bgColor) => ({
         display: 'inline-block',

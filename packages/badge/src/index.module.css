@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --badge-icon-bg-color: var(--color-light-neutral-translucent-1300-inverted);
@@ -12,13 +12,13 @@
     box-sizing: border-box;
 
     &.s {
-        padding: var(--gap-3xs);
+        padding: var(--gap-2);
         width: 20px;
         height: 20px;
     }
 
     &.m {
-        padding: var(--gap-3xs);
+        padding: var(--gap-2);
         width: 24px;
         height: 24px;
     }
@@ -73,7 +73,7 @@
 .s {
     height: 16px;
     min-width: 16px;
-    padding: 0 var(--gap-2xs);
+    padding: 0 var(--gap-4);
 }
 
 .m {
@@ -90,27 +90,27 @@
 
 .heightS {
     @mixin accent_secondary_small;
-    padding: 0 var(--gap-2xs);
+    padding: 0 var(--gap-4);
 }
 
 .heightM {
     @mixin accent_primary_small;
-    padding: 0 var(--gap-2xs);
+    padding: 0 var(--gap-4);
 }
 
 .heightL {
     @mixin accent_primary_small;
-    padding: 0 var(--gap-xs);
+    padding: 0 var(--gap-8);
 }
 
 .heightXL {
     @mixin accent_primary_medium;
-    padding: 0 var(--gap-s);
+    padding: 0 var(--gap-12);
 }
 
 .heightXXL {
     @mixin accent_primary_medium;
-    padding: 0 var(--gap-m);
+    padding: 0 var(--gap-16);
 }
 
 .heightS.outlineCount {

@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1352](https://github.com/core-ds/core-components/pull/1352)
+
+-   Добавлено новое свойство transparent, отвечающее за прозрачность бэкдропа. Свойство invisible помечено как deprecated
+
 ## 3.2.0
 
 ### Minor Changes

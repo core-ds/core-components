@@ -1,8 +1,8 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .headerWrapper {
-    padding: var(--gap-s) var(--gap-xs) var(--gap-2xs);
+    padding: var(--gap-12) var(--gap-8) var(--gap-4);
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     z-index: 1;
@@ -42,7 +42,7 @@
 }
 
 .title {
-    padding: var(--gap-s) var(--gap-xs);
+    padding: 10px var(--gap-8);
     width: 100%;
     font-size: var(--bottom-sheet-title-font-size);
     font-weight: var(--bottom-sheet-title-font-weight);

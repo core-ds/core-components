@@ -14,11 +14,11 @@
     }
 
     &.default {
-        padding-left: var(--gap-m);
+        padding-left: var(--gap-16);
     }
 
     &.addonPadding {
-        padding-left: var(--gap-m);
+        padding-left: var(--gap-16);
     }
 
     &.auto {

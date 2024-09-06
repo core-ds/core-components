@@ -1,5 +1,26 @@
 # Change Log
 
+## 17.10.1
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.16.3
+    -   modal@9.3.11
+    -   input@15.0.5
+    -   scrollbar@3.0.3
+    -   badge@5.5.3
+    -   button@11.5.5
+    -   checkbox@4.5.0
+    -   form-control@12.2.8
+    -   base-modal@5.7.11
+
 ## 17.10.0
 
 ### Minor Changes

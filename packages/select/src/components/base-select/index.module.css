@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -67,9 +67,9 @@
 }
 
 .search {
-    margin: var(--gap-s) var(--gap-s) 0;
+    margin: var(--gap-12) var(--gap-12) 0;
 
     &:last-child {
-        margin-bottom: var(--gap-s);
+        margin-bottom: var(--gap-12);
     }
 }

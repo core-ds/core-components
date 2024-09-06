@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Skeleton } from '@alfalab/core-components/skeleton';
+import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import { useTabs } from '../../hooks/use-tabs';
 import { PlatformProps, SecondaryTabListProps, Styles } from '../../typings';

@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import '../../form-control/src/vars.css';
 
 :root {

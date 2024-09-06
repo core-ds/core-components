@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 :root {
     /* border */
@@ -23,7 +23,7 @@
     color: var(--color-light-text-primary);
     width: 100%;
     min-height: 56px;
-    padding: var(--gap-s);
+    padding: var(--gap-12);
     outline: none;
 
     &:before {
@@ -135,13 +135,13 @@
 .leftAddons,
 .rightAddons {
     display: inline-flex;
-    padding: var(--gap-2xs);
+    padding: var(--gap-4);
 }
 
 .leftAddons {
     flex-shrink: 0;
     min-width: 24px;
-    margin-right: var(--gap-2xs);
+    margin-right: var(--gap-4);
 }
 
 .subAddons {
@@ -161,7 +161,7 @@
 
 .light {
     @mixin paragraph_primary_small;
-    padding: 6px var(--gap-s) 6px var(--gap-2xs);
+    padding: 6px var(--gap-12) 6px var(--gap-4);
 }
 
 .foldable .content {
@@ -186,7 +186,7 @@
     margin-right: auto;
 
     &.withoutTitle {
-        padding-top: var(--gap-3xs);
+        padding-top: var(--gap-2);
     }
 }
 
@@ -206,7 +206,7 @@
     opacity: 1;
     transition: opacity 0.2s ease;
     cursor: pointer;
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
 
     &:hover {
         opacity: 0.7;
@@ -232,13 +232,13 @@
 
 .subAddons .button {
     &:not(:first-child) {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
     }
 }
 
 .containerButton .button {
     &:not(:last-child) {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
     }
 }
 

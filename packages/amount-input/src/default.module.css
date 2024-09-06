@@ -1,9 +1,15 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
+    --amount-input-disabled: var(--color-light-text-tertiary);
 }
 
 .minorPartAndCurrency {
     color: var(--amount-input-minor-part-and-currency-color);
+
+    &.disabled,
+    &.readOnly {
+        color: var(--amount-input-disabled);
+    }
 }

@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --form-control-border-bottom: 0;
@@ -64,12 +64,12 @@
     --form-control-bg-backdrop-filter: unset;
 
     /* paddings */
-    --form-control-paddings: 0 var(--gap-s);
-    --form-control-xl-paddings: 0 var(--gap-m);
-    --form-control-labeled-s-paddings: 24px var(--gap-s) 4px;
-    --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
-    --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
-    --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
+    --form-control-paddings: 0 var(--gap-12);
+    --form-control-xl-paddings: 0 var(--gap-16);
+    --form-control-labeled-s-paddings: 24px var(--gap-12) 4px;
+    --form-control-labeled-m-paddings: 28px var(--gap-12) 8px;
+    --form-control-labeled-l-paddings: 32px var(--gap-12) 12px;
+    --form-control-labeled-xl-paddings: 38px var(--gap-16) 14px;
     --form-control-sub-paddings: 0;
 
     /* disabled */
@@ -85,7 +85,7 @@
     --form-control-xl-border-radius: var(--border-radius-l);
 
     /* paddings mobile */
-    --form-control-mobile-sub-paddings: 0 var(--gap-2xs);
+    --form-control-mobile-sub-paddings: 0 var(--gap-4);
 
     /* border-radius mobile */
     --form-control-mobile-s-border-radius: 10px;

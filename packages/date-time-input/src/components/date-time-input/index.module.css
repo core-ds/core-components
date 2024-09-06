@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../../../calendar/src/vars.css';
 
 :root {
@@ -32,6 +32,6 @@
 }
 
 .calendarIcon {
-    margin-right: var(--gap-s-neg);
+    margin-right: var(--gap-12-neg);
     height: 100%;
 }

@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .flagIcon {
     max-width: 24px;
@@ -10,6 +10,6 @@
     height: 16px;
     max-height: 16px;
     border-radius: var(--border-radius-xs);
-    margin-top: var(--gap-3xs);
+    margin-top: var(--gap-2);
     background-color: var(--color-light-neutral-translucent-300);
 }

@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.2.18
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   input@15.0.5
+
 ## 8.2.17
 
 ### Patch Changes

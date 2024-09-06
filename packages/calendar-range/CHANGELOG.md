@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.3.28
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   calendar-input@10.2.26
+    -   calendar@7.10.1
+    -   date-input@4.3.37
+
 ## 7.3.27
 
 ### Patch Changes

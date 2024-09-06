@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-code-input",
-    "version": "3.4.0",
+    "version": "3.4.1",
     "description": "Code input",
     "keywords": [],
     "license": "MIT",
@@ -19,6 +19,6 @@
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.0.1",
+    "themesVersion": "13.0.2",
     "varsVersion": "9.11.1"
 }

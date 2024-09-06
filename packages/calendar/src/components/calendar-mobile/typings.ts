@@ -16,10 +16,6 @@ type OmittedCalendarContentProps =
     | 'responsive'
     | 'showCurrentYearSelector';
 
-export type ResetCurrentClickedMonth = {
-    resetCurrentClickedMonth: () => void;
-};
-
 export type CalendarContentProps = {
     /**
      * Обработчик клика на название месяца в мобильном календаре

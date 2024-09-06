@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .wrapper {
     display: flex;
@@ -13,7 +13,7 @@
 .inner {
     display: flex;
     flex: 1;
-    margin: 0 var(--gap-3xs);
+    margin: 0 var(--gap-2);
 }
 
 .segment {
@@ -65,9 +65,9 @@
 .selectedBox {
     box-sizing: border-box;
     position: absolute;
-    top: var(--gap-3xs);
-    bottom: var(--gap-3xs);
-    left: var(--gap-3xs);
+    top: var(--gap-2);
+    bottom: var(--gap-2);
+    left: var(--gap-2);
     box-shadow: var(--shadow-s);
     transition: width 0.2s ease, transform 0.2s ease;
 }

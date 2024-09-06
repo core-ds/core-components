@@ -21,7 +21,7 @@ const WRAPPER_STYLES = {
     borderRadius: 8,
     boxShadow: 'var(--shadow-m)',
     background: 'var(--color-light-base-bg-primary)',
-    padding: 'var(--gap-m)',
+    padding: 'var(--gap-16)',
 };
 
 export const calendar_range: Story = {

@@ -1,11 +1,17 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --amount-input-inverted-minor-part-and-currency-color: var(
         --color-light-text-secondary-inverted
     );
+    --amount-input-inverted-disabled: var(--color-light-text-tertiary-inverted);
 }
 
 .minorPartAndCurrency {
     color: var(--amount-input-inverted-minor-part-and-currency-color);
+
+    &.disabled,
+    &.readOnly {
+        color: var(--amount-input-inverted-disabled);
+    }
 }
