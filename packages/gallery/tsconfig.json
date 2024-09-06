@@ -18,6 +18,5 @@
         { "path": "../icon-button" },
         { "path": "../typography" },
         { "path": "../base-modal" },
-        { "path": "../button" }
     ]
 }
