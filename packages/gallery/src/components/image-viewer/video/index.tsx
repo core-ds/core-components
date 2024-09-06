@@ -1,5 +1,5 @@
 import React, { MouseEvent, ReactEventHandler, useContext, useEffect, useRef } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import Hls from 'hls.js';
 
 import { Circle } from '@alfalab/core-components/icon-view/circle';
@@ -19,9 +19,12 @@ type Props = {
 
 export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
+    const timer = useRef<ReturnType<typeof setTimeout>>();
 
     const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo, setHideNavigation } =
         useContext(GalleryContext);
+
+    const isMobile = view === 'mobile';
 
     useEffect(() => {
         setImageMeta({ player: playerRef }, index);
@@ -30,6 +33,16 @@ export const Video = ({ url, index, className, isActive }: Props) => {
 
     useEffect(() => {
         const hls = new Hls();
+
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') {
+                // Если вкладка стала видимой, пробуем восстановить видео
+                if (playerRef.current && !playerRef.current.src) {
+                    hls.loadSource(url);
+                    hls.attachMedia(playerRef.current);
+                }
+            }
+        };
 
         if (Hls.isSupported()) {
             hls.on(Hls.Events.ERROR, () => {
@@ -42,17 +55,29 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             }
         }
 
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
         return () => {
             if (hls) {
                 hls.destroy();
             }
+            if (timer.current) {
+                clearTimeout(timer.current);
+            }
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
         };
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [url, index]);
 
     const handleWrapperClick = (e: MouseEvent) => {
         e.stopPropagation();
-        setHideNavigation(false);
+
+        if (isMobile) {
+            setHideNavigation(false);
+
+            return;
+        }
+
         setPlayingVideo(!playingVideo);
     };
 
@@ -76,6 +101,14 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         });
 
         dispatchEvent(customEvent);
+
+        if (timer.current) {
+            clearTimeout(timer.current);
+        }
+
+        timer.current = setTimeout(() => {
+            setHideNavigation(true);
+        }, 3000);
     };
 
     const onPause: ReactEventHandler<HTMLVideoElement> = (e) => {
@@ -84,6 +117,11 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         });
 
         dispatchEvent(customEvent);
+        if (timer.current) {
+            clearTimeout(timer.current);
+            timer.current = undefined;
+        }
+        setHideNavigation(false);
     };
 
     return (
@@ -95,19 +133,16 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                 ref={playerRef}
                 playsInline={true}
                 muted={mutedVideo}
+                loop={true}
                 src={Hls.isSupported() ? undefined : url}
-                className={classNames(
-                    styles.video,
-                    { [styles.mobile]: view === 'mobile' },
-                    className,
-                )}
+                className={cn(styles.video, { [styles.mobile]: view === 'mobile' }, className)}
             >
                 <track kind='captions' />
             </video>
             {view === 'desktop' && !playingVideo && (
                 <div className={styles.videoButton}>
-                    <Circle size={64}>
-                        <PlayCompactMIcon />
+                    <Circle size={64} shapeClassName={styles.iconShape}>
+                        <PlayCompactMIcon className={styles.icon} />
                     </Circle>
                 </div>
             )}

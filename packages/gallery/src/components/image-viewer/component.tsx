@@ -136,6 +136,7 @@ export const ImageViewer: FC = () => {
             },
             initialSlide,
             simulateTouch: false,
+            zoom: { maxRatio: 4 },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
         }),

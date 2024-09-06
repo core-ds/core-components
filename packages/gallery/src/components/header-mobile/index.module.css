@@ -11,9 +11,8 @@
 
     &.video {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 96%;
+        width: 100%;
+        padding: 0;
         background-color: var(--color-static-neutral-0-inverted);
         transition: transform 0.3s ease-in-out;
     }

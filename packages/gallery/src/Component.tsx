@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import SwiperCore from 'swiper';
 
@@ -50,6 +50,11 @@ export type GalleryProps = {
     onSlideIndexChange?: (index: number) => void;
 };
 
+const DEFAULT_FULL_SCREEN = false;
+const DEFAULT_MUTED_VIDEO = true;
+const DEFAULT_PLAYING_VIDEO = true;
+const DEFAULT_HIDE_NAVIGATION = false;
+
 const Backdrop = () => null;
 
 export const Gallery: FC<GalleryProps> = ({
@@ -69,12 +74,10 @@ export const Gallery: FC<GalleryProps> = ({
 
     const [swiper, setSwiper] = useState<SwiperCore>();
     const [imagesMeta, setImagesMeta] = useState<ImageMeta[]>([]);
-    const [fullScreen, setFullScreen] = useState<boolean>(false);
-    const [mutedVideo, setMutedVideo] = useState<boolean>(false);
-    const [playingVideo, setPlayingVideo] = useState<boolean>(true);
-    const [hideNavigation, setHideNavigation] = useState<boolean>(false);
-
-    const timer = useRef<ReturnType<typeof setTimeout>>();
+    const [fullScreen, setFullScreen] = useState<boolean>(DEFAULT_FULL_SCREEN);
+    const [mutedVideo, setMutedVideo] = useState<boolean>(DEFAULT_MUTED_VIDEO);
+    const [playingVideo, setPlayingVideo] = useState<boolean>(DEFAULT_PLAYING_VIDEO);
+    const [hideNavigation, setHideNavigation] = useState<boolean>(DEFAULT_HIDE_NAVIGATION);
 
     const [view] = useMedia<'desktop' | 'mobile'>(
         [
@@ -171,23 +174,10 @@ export const Gallery: FC<GalleryProps> = ({
         [fullScreen, open, slideNext, slidePrev],
     );
 
-    useEffect(() => {
-        if (isCurrentVideo && !hideNavigation) {
-            if (timer.current) clearTimeout(timer.current);
-            timer.current = setTimeout(() => {
-                setHideNavigation(true);
-            }, 2000);
-        }
-        if (!isCurrentVideo) {
-            setHideNavigation(false);
-        }
-
-        return () => {
-            if (timer.current) {
-                clearTimeout(timer.current);
-            }
-        };
-    }, [hideNavigation, isCurrentVideo]);
+    const onUnmount = useCallback(() => {
+        setPlayingVideo(DEFAULT_PLAYING_VIDEO);
+        setMutedVideo(DEFAULT_MUTED_VIDEO);
+    }, [setPlayingVideo]);
 
     useEffect(() => {
         if (!uncontrolled && !swiper?.destroyed) {
@@ -242,6 +232,7 @@ export const Gallery: FC<GalleryProps> = ({
                 className={styles.modal}
                 onEscapeKeyDown={handleEscapeKeyDown}
                 Backdrop={Backdrop}
+                onUnmount={onUnmount}
             >
                 <div className={styles.container}>
                     {view === 'desktop' ? <Header /> : <HeaderMobile />}

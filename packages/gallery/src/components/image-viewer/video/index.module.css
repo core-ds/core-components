@@ -1,4 +1,4 @@
-@import '../../../../../themes/src/default.css';
+@import '../../../../../vars/src/index.css';
 
 .videoWrapper {
     display: flex;
@@ -19,12 +19,18 @@
 }
 
 .videoButton {
-    --icon-view-bg-color: var(--color-static-neutral-translucent-700);
-    --icon-view-color: var(--color-static-neutral-100);
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    color: green;
+}
+
+.icon {
+    color: var(--color-static-neutral-0);
+}
+
+.iconShape {
+    fill: var(--color-static-neutral-translucent-700);
 }
