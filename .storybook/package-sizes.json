@@ -274,10 +274,10 @@
         "index.js": 2.2
     },
     "icon-view": {
-        "circle.js": 32.5,
-        "no-shape.js": 5.5,
-        "rectangle.js": 18,
-        "super-ellipse.js": 62.2
+        "circle.js": 32.3,
+        "no-shape.js": 5.3,
+        "rectangle.js": 17.7,
+        "super-ellipse.js": 61.9
     },
     "icon-button": {
         "index.js": 10.4
