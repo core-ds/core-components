@@ -2,4 +2,8 @@
 '@alfalab/core-components-icon-view': patch
 ---
 
-small refactoring: inner utils, types, fix story
+Небольшой рефакторинг:
+
+- оптимизация утилит (исправление копипасты и дубликаций)
+- уточнение типов (исправление копипасты, вынос общего типа)
+- уточнения в css (исправление shadow names)
