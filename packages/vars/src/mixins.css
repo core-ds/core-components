@@ -29,7 +29,7 @@
     }
 
     &::-webkit-scrollbar-thumb:vertical {
-        border-radius: var(--border-radius-circle) / 6px;
+        border-radius: var(--border-radius-circle) / var(--border-radius-6);
         min-height: 40px;
     }
 
@@ -39,7 +39,7 @@
     }
 
     &::-webkit-scrollbar-thumb:horizontal {
-        border-radius: 6px / var(--border-radius-circle);
+        border-radius: var(--border-radius-6) / var(--border-radius-circle);
         min-width: 40px;
     }
 

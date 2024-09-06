@@ -21,7 +21,7 @@
     }
     &.size-48,
     &.size-40 {
-        border-radius: 6px;
+        border-radius: var(--border-radius-6);
         padding: var(--gap-2) var(--gap-4);
     }
     &.size-32 {
