@@ -4,7 +4,7 @@ exports[`IconView Snapshots tests should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -32,7 +32,7 @@ exports[`IconView Snapshots tests should match snapshot with addons 1`] = `
 <body>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -65,7 +65,7 @@ exports[`IconView Snapshots tests should match snapshot with addons 2`] = `
 <body>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -93,7 +93,7 @@ exports[`IconView Snapshots tests should match snapshot with addons 2`] = `
   </div>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -126,7 +126,7 @@ exports[`IconView Snapshots tests should match snapshot with addons 3`] = `
 <body>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -154,7 +154,7 @@ exports[`IconView Snapshots tests should match snapshot with addons 3`] = `
   </div>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -182,7 +182,7 @@ exports[`IconView Snapshots tests should match snapshot with addons 3`] = `
   </div>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -220,7 +220,7 @@ exports[`IconView Snapshots tests should match snapshot with border 1`] = `
 <body>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -252,7 +252,7 @@ exports[`IconView Snapshots tests should match snapshot with image 1`] = `
 <body>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
@@ -298,7 +298,7 @@ exports[`IconView Snapshots tests should match snapshot with text 1`] = `
 <body>
   <div>
     <div
-      class="componentWrapper size_64"
+      class="componentWrapper wrapperSize_64"
     >
       <div
         class="component"
