@@ -34,7 +34,7 @@ export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
 });
 
 /**
- * Заменяет импорты компонентов для сборки modern/cssm/esm
+ * Заменяет импорты компонентов для сборки modern/cssm/moderncssm/esm
  */
 export const coreComponentsResolver = ({ importFrom }) => ({
     name: 'core-components-resolver',

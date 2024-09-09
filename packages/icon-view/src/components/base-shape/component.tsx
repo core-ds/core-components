@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
-import { getPath, PathsMap } from './utils';
+import { getPath, getPathName, PathsMap } from './utils';
 
 import styles from './index.module.css';
 
@@ -14,11 +14,13 @@ type Border = {
     style?: 'solid' | 'dashed';
 };
 
+export type TMainSize = 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 80 | 128;
+
 export type BaseShapeProps = {
     /**
      * Размер компонента
      */
-    size?: number | { width: number; height: number };
+    size?: TMainSize | number | { width: TMainSize | number; height: TMainSize | number };
 
     /**
      * Цвет заливки
@@ -95,7 +97,7 @@ export type BaseShapeProps = {
     /**
      * Размер основного слота
      */
-    mainSize?: 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 80 | 128;
+    mainSize?: TMainSize;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
@@ -134,11 +136,23 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
         const hasIndicator = Boolean(indicator) && width < 128;
 
+        const maxDimension = Math.max(width, height);
+
+        const polygonName = getPathName({
+            hasTopAddons,
+            hasBottomAddons,
+            hasIndicator,
+        });
+
+        const shapeDPath = getPath(polygonName, maxDimension, pathsMap.shape);
+
+        const borderDPath = getPath(polygonName, maxDimension, pathsMap.border);
+
         return (
             <div
                 className={cn(
                     styles.componentWrapper,
-                    styles[`size_${Math.max(width, height)}`],
+                    styles[`wrapperSize_${maxDimension}`],
                     className,
                 )}
                 ref={ref}
@@ -157,13 +171,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             style={{
                                 fill: backgroundColor,
                             }}
-                            d={getPath({
-                                size: Math.max(width, height),
-                                hasTopAddons,
-                                hasBottomAddons,
-                                hasIndicator,
-                                pathsMap: pathsMap.shape,
-                            })}
+                            d={shapeDPath}
                         />
 
                         {loadedUrl && (
@@ -183,13 +191,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                     style={{
                                         fill: `url(#${imagePatternId})`,
                                     }}
-                                    d={getPath({
-                                        size: Math.max(width, height),
-                                        hasTopAddons,
-                                        hasBottomAddons,
-                                        hasIndicator,
-                                        pathsMap: pathsMap.shape,
-                                    })}
+                                    d={shapeDPath}
                                 />
                             </Fragment>
                         )}
@@ -206,13 +208,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                     style={{
                                         fill: `url(#${svgPatternId})`,
                                     }}
-                                    d={getPath({
-                                        size: Math.max(width, height),
-                                        hasTopAddons,
-                                        hasBottomAddons,
-                                        hasIndicator,
-                                        pathsMap: pathsMap.shape,
-                                    })}
+                                    d={shapeDPath}
                                 />
                             </Fragment>
                         )}
@@ -228,13 +224,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                           }
                                         : undefined
                                 }
-                                d={getPath({
-                                    size: Math.max(width, height),
-                                    hasTopAddons,
-                                    hasBottomAddons,
-                                    hasIndicator,
-                                    pathsMap: pathsMap.border,
-                                })}
+                                d={borderDPath}
                             />
                         )}
                     </svg>
@@ -245,7 +235,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         <div
                             className={cn(
                                 styles.children,
-                                styles[`size-${mainSize}`],
+                                styles[`childrenSize_${mainSize}`],
                                 iconContainerClassName,
                             )}
                         >

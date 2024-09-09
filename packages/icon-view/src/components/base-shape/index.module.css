@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 :root {
     --icon-view-color: var(--color-light-neutral-translucent-700);
@@ -72,7 +72,7 @@
     line-height: 0;
 }
 
-.size_128 {
+.wrapperSize_128 {
     width: 128px;
     height: 128px;
 
@@ -97,7 +97,7 @@
     }
 }
 
-.size_80 {
+.wrapperSize_80 {
     width: 80px;
     height: 80px;
 
@@ -127,7 +127,7 @@
     }
 }
 
-.size_64 {
+.wrapperSize_64 {
     width: 64px;
     height: 64px;
 
@@ -157,7 +157,7 @@
     }
 }
 
-.size_56 {
+.wrapperSize_56 {
     width: 56px;
     height: 56px;
 
@@ -187,7 +187,7 @@
     }
 }
 
-.size_48 {
+.wrapperSize_48 {
     width: 48px;
     height: 48px;
 
@@ -217,7 +217,7 @@
     }
 }
 
-.size_40 {
+.wrapperSize_40 {
     width: 40px;
     height: 40px;
 
@@ -247,7 +247,7 @@
     }
 }
 
-.size_32 {
+.wrapperSize_32 {
     width: 32px;
     height: 32px;
 
@@ -262,7 +262,7 @@
     }
 }
 
-.size_24 {
+.wrapperSize_24 {
     width: 24px;
     height: 24px;
 
@@ -277,7 +277,7 @@
     }
 }
 
-.size_20 {
+.wrapperSize_20 {
     width: 20px;
     height: 20px;
 
@@ -292,7 +292,7 @@
     }
 }
 
-.size_16 {
+.wrapperSize_16 {
     width: 16px;
     height: 16px;
 
@@ -310,7 +310,7 @@
 /* prettier-ignore */
 @each $size in 16, 20, 24, 32, 40, 48, 56, 64, 80, 128 {
     .children {
-        &.size-$(size) {
+        &.childrenSize_$(size) {
             width: $(size)px;
             height: $(size)px;
         }

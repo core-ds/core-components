@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import '../../calendar/src/vars.css';
 @import './vars.css';
 

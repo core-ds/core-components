@@ -1,4 +1,4 @@
-@import '../../../packages/themes/src/default.css';
+@import '../../../packages/vars/src/index.css';
 
 .page {
     margin-top: -44px;

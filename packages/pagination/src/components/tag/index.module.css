@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 button.tag.tag {
     color: var(--color-light-text-secondary);
