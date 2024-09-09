@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import './vars.css';
 
 .backdrop {
@@ -32,4 +32,8 @@
 .exitDone {
     background-color: var(--backdrop-hidden-background);
     transition: background-color 200ms ease-out;
+}
+
+.transparent {
+    background-color: var(--backdrop-hidden-background);
 }

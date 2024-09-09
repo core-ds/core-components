@@ -1,7 +1,7 @@
 @import '../../../packages/vars/src/index.css';
 
 .cssVars {
-    margin: var(--gap-xl) 0;
+    margin: var(--gap-24) 0;
 
     & > div {
         margin: 0;

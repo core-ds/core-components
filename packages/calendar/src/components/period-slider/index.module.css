@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -51,5 +51,5 @@
 }
 
 .yearSelectorButton {
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 }

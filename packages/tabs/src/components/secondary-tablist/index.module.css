@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -7,15 +7,15 @@
 }
 
 .fullWidthScroll {
-    margin: 0 var(--gap-m);
+    margin: 0 var(--gap-16);
 }
 
 .container {
     overflow: hidden;
 
     /* focus-outline fix */
-    margin: var(--gap-2xs-neg) 0 var(--gap-2xs-neg) var(--gap-2xs-neg);
-    padding: var(--gap-2xs) 0 var(--gap-2xs) var(--gap-2xs);
+    margin: var(--gap-4-neg) 0 var(--gap-4-neg) var(--gap-4-neg);
+    padding: var(--gap-4) 0 var(--gap-4) var(--gap-4);
 }
 
 .title {

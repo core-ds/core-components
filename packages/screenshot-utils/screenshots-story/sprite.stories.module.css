@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .container {
     display: flex;
@@ -7,7 +7,7 @@
 }
 
 .item {
-    margin: var(--gap-2xs);
+    margin: var(--gap-4);
     border-radius: 3px;
 }
 
@@ -16,5 +16,5 @@
     display: block;
     font-size: 9px;
     color: var(--color-light-text-secondary);
-    margin-bottom: var(--gap-xs);
+    margin-bottom: var(--gap-8);
 }

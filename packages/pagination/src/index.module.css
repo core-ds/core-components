@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     @mixin paragraph_primary_small;
@@ -11,7 +11,7 @@
 
 .defaultView {
     & > * {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
 
         &:last-child {
             margin-right: 0;

@@ -1,5 +1,21 @@
 # Change Log
 
+## 8.2.28
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.16.3
+    -   select@17.10.1
+    -   tag@8.3.1
+    -   form-control@12.2.8
+
 ## 8.2.27
 
 ### Patch Changes

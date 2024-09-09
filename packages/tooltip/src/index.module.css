@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --tooltip-max-width: 368px;
@@ -6,7 +6,7 @@
 
 .component {
     @mixin paragraph_primary_small;
-    padding: var(--gap-m);
+    padding: var(--gap-16);
     max-width: var(--tooltip-max-width);
 }
 
@@ -17,7 +17,7 @@
 
 .hint .component {
     @mixin paragraph_secondary_large;
-    padding: var(--gap-xs);
+    padding: var(--gap-8);
 }
 
 .hint {

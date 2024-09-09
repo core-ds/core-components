@@ -1,5 +1,20 @@
 # @alfalab/core-components-markdown
 
+## 1.3.2
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   typography@4.9.0
+    -   link@5.2.3
+    -   list@3.3.11
+
 ## 1.3.1
 
 ### Patch Changes

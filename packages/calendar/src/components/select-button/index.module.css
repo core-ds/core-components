@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 :global(.cc-calendar) {
@@ -7,7 +7,7 @@
 
         height: 40px;
         position: relative;
-        padding: 0 var(--gap-xs);
+        padding: 0 var(--gap-8);
         background-color: transparent;
         border-radius: var(--border-radius-l);
 

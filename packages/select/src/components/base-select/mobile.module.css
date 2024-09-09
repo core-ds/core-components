@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .sheet {
@@ -34,11 +34,11 @@
 }
 
 .search {
-    padding: var(--gap-xs);
+    padding: var(--gap-8);
 }
 
 .option.option {
-    padding: var(--gap-2xs) var(--gap-l) var(--gap-2xs) var(--gap-m);
+    padding: var(--gap-4) var(--gap-20) var(--gap-4) var(--gap-16);
 
     &:before {
         display: none;
@@ -46,5 +46,5 @@
 }
 
 .optionGroup.optionGroup {
-    padding: var(--gap-m) var(--gap-m) var(--gap-xs);
+    padding: var(--gap-16) var(--gap-16) var(--gap-8);
 }

@@ -1,19 +1,19 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --side-panel-border-radius: var(--border-radius-l);
-    --side-panel-vertical-padding: var(--gap-3xl);
+    --side-panel-vertical-padding: var(--gap-40);
     --side-panel-header-background: var(--color-light-modal-bg-primary);
     --side-panel-footer-background: var(--color-light-modal-bg-primary);
-    --side-panel-footer-default-gap: var(--gap-m);
+    --side-panel-footer-default-gap: var(--gap-16);
 
     /* sizes */
     --side-panel-s-width: 500px;
 
     /* paddings */
     --side-panel-s-header-paddings: 28px 28px 0;
-    --side-panel-s-content-paddings: var(--gap-3xl) var(--gap-3xl) 0;
-    --side-panel-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
+    --side-panel-s-content-paddings: var(--gap-40) var(--gap-40) 0;
+    --side-panel-s-footer-paddings: var(--gap-24) var(--gap-40) var(--gap-40);
 
     /* scroll */
     --side-panel-header-highlight-background: var(--color-light-modal-bg-primary);
@@ -22,19 +22,19 @@
     --side-panel-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
 
     /* desktop */
-    --side-panel-s-header-desktop-content-paddings: 6px var(--gap-s) var(--gap-m);
+    --side-panel-s-header-desktop-content-paddings: 6px var(--gap-12) var(--gap-16);
     --side-panel-s-header-desktop-font-size: 30px;
     --side-panel-s-header-desktop-line-height: 36px;
     --side-panel-header-desktop-font-weight: bold;
     --side-panel-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --side-panel-header-mobile-content-paddings: 10px var(--gap-xs);
+    --side-panel-header-mobile-content-paddings: 10px var(--gap-8);
     --side-panel-header-mobile-font-size: 20px;
     --side-panel-header-mobile-line-height: 28px;
     --side-panel-header-mobile-font-family: var(--font-family-system);
     --side-panel-header-mobile-font-weight: 600;
 
     /* paddings */
-    --side-panel-header-mobile-paddings: var(--gap-2xs) var(--gap-xs);
+    --side-panel-header-mobile-paddings: var(--gap-4) var(--gap-8);
 }

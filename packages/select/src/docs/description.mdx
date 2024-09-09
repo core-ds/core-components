@@ -114,7 +114,7 @@ render(() => {
                     },
                 })}
             />
-            <div style={{ height: 'var(--gap-m)' }} />
+            <div style={{ height: 'var(--gap-16)' }} />
             <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
@@ -498,7 +498,7 @@ render(() => {
                 }}
                 onChange={({ selected }) => setSelectedFirst(selected)}
             />
-            <div style={{ height: 'var(--gap-m)' }} />
+            <div style={{ height: 'var(--gap-16)' }} />
             <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
@@ -622,7 +622,7 @@ render(() => {
                     );
                 }}
             />
-            <div style={{ height: 'var(--gap-m)' }} />
+            <div style={{ height: 'var(--gap-16)' }} />
             <SelectMobile
                 allowUnselect={true}
                 options={OPTIONS}
@@ -771,7 +771,7 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             {selectWithHeader}
-            <div style={{ height: 'var(--gap-m)' }} />
+            <div style={{ height: 'var(--gap-16)' }} />
             {selectWithPureCell}
         </div>
     );
@@ -959,7 +959,7 @@ render(() => {
                 selected={selectedNative}
                 onChange={handleChangeNative}
             />
-            <div style={{ height: 'var(--gap-m)' }} />
+            <div style={{ height: 'var(--gap-16)' }} />
             <MobileSelect
                 size={56}
                 allowUnselect={true}
@@ -1004,7 +1004,7 @@ render(() => {
                 {...props}
                 option={{
                     ...props.option,
-                    content: <div style={{ padding: 'var(--gap-s)' }}>{props.option.content}</div>,
+                    content: <div style={{ padding: 'var(--gap-12)' }}>{props.option.content}</div>,
                 }}
             />
         ),
@@ -1066,7 +1066,7 @@ render(() => {
                 option={{
                     ...props.option,
                     content: (
-                        <div style={{ padding: 'var(--gap-m) var(--gap-s)' }}>
+                        <div style={{ padding: 'var(--gap-16) var(--gap-12)' }}>
                             {props.option.content}
                         </div>
                     ),

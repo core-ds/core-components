@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .accordion {
     width: 100%;
@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: var(--gap-2xs);
+    margin-left: var(--gap-4);
 }
 
 .body {
@@ -37,12 +37,12 @@
 }
 
 .bodyContent {
-    padding-top: var(--gap-s);
+    padding-top: var(--gap-12);
 }
 
 .endPosition {
     order: 2;
-    margin-left: var(--gap-2xs);
+    margin-left: var(--gap-4);
 }
 
 .startPosition {

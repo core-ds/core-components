@@ -1,10 +1,10 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
     flex-direction: column;
     z-index: 2;
-    gap: var(--gap-3xs);
+    gap: var(--gap-2);
 }
 
 .cardholderName {

@@ -19,5 +19,5 @@
 }
 
 .clearButton + * {
-    margin-left: var(--gap-2xs);
+    margin-left: var(--gap-4);
 }

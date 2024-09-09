@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --radio-hint-color: var(--color-light-text-secondary);
@@ -122,7 +122,7 @@
     box-sizing: border-box;
     border-radius: var(--border-radius-circle);
     position: relative;
-    margin: var(--gap-3xs);
+    margin: var(--gap-2);
     transition: background-color 0.2s ease, border 0.2s ease;
 
     &:before {
@@ -154,11 +154,11 @@
 .content {
     display: flex;
     flex-direction: column;
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
 }
 
 .size-20 .content {
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 
     & .label {
         @mixin paragraph_component;
@@ -175,7 +175,7 @@
 
 .addons {
     margin-left: auto;
-    padding-left: var(--gap-m);
+    padding-left: var(--gap-16);
     line-height: 24px;
 }
 
@@ -190,6 +190,6 @@
 
 .hint {
     @mixin paragraph_component_secondary;
-    margin-top: var(--gap-2xs);
+    margin-top: var(--gap-4);
     color: var(--radio-hint-color);
 }

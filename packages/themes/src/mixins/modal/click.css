@@ -1,13 +1,13 @@
 @define-mixin modal-click {
     /* sizes */
-    --modal-vertical-padding: var(--gap-4xl);
-    --modal-footer-default-gap: var(--gap-xl);
+    --modal-vertical-padding: var(--gap-48);
+    --modal-footer-default-gap: var(--gap-24);
 
     /* paddings */
-    --modal-s-header-paddings: 28px 28px var(--gap-m);
-    --modal-s-content-paddings: var(--gap-m) var(--gap-3xl) var(--gap-xs);
-    --modal-s-content-only-bottom-padding: var(--gap-4xl);
-    --modal-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
+    --modal-s-header-paddings: 28px 28px var(--gap-16);
+    --modal-s-content-paddings: var(--gap-16) var(--gap-40) var(--gap-8);
+    --modal-s-content-only-bottom-padding: var(--gap-48);
+    --modal-s-footer-paddings: var(--gap-24) var(--gap-40) var(--gap-40);
 
     /* scroll */
     --modal-header-highlight-background: var(--color-light-base-bg-primary);
@@ -15,15 +15,15 @@
     --modal-footer-highlight-box-shadow: none;
 
     /* desktop */
-    --modal-s-header-desktop-content-paddings: var(--gap-xs) var(--gap-s) 0;
+    --modal-s-header-desktop-content-paddings: var(--gap-8) var(--gap-12) 0;
     --modal-s-header-desktop-font-size: 24px;
     --modal-s-header-desktop-line-height: 32px;
     --modal-header-desktop-font-weight: 500;
     --modal-header-desktop-font-family: var(--font-family-styrene);
 
     /* mobile */
-    --modal-header-mobile-paddings: 0 var(--gap-xs);
-    --modal-header-mobile-content-paddings: 10px var(--gap-xs) 10px var(--gap-xs);
+    --modal-header-mobile-paddings: 0 var(--gap-8);
+    --modal-header-mobile-content-paddings: 10px var(--gap-8) 10px var(--gap-8);
     --modal-header-mobile-font-size: 20px;
     --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-styrene);

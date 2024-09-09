@@ -11,7 +11,7 @@ figure {
 
 .caption {
     display: inline-flex;
-    padding: var(--gap-xs) 0;
+    padding: var(--gap-8) 0;
 }
 
 .imageWrapper {
@@ -33,7 +33,7 @@ figure {
 }
 
 .withSafeZone {
-    padding: var(--gap-l);
+    padding: var(--gap-20);
 }
 
 .fallbackText {

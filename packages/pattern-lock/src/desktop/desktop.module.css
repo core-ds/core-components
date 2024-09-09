@@ -1,4 +1,4 @@
-@import '../../../themes/src/default.css';
+@import '../../../vars/src/index.css';
 @import '../vars.css';
 
 .component {
@@ -7,7 +7,7 @@
 }
 
 .forgotBtn {
-    margin: var(--gap-xs) auto 0;
+    margin: var(--gap-8) auto 0;
 }
 
 .hiddenBtn {

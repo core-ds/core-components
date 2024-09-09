@@ -9,11 +9,11 @@
 
     & h2 {
         @mixin headline-mobile_small;
-        margin: var(--gap-4xl) 0 0;
+        margin: var(--gap-48) 0 0;
     }
 
     & h2:first-of-type {
-        margin: var(--gap-xl) 0 0;
+        margin: var(--gap-24) 0 0;
     }
 
     & h2:not(:first-of-type):before {
@@ -22,13 +22,13 @@
         height: 1px;
         background-color: var(--color-light-neutral-300);
         position: relative;
-        bottom: var(--gap-xl);
+        bottom: var(--gap-24);
     }
 
     & h3,
     & h4 {
         @mixin headline-mobile_xsmall;
-        margin: var(--gap-m) 0 0;
+        margin: var(--gap-16) 0 0;
     }
 
     & ul,
@@ -36,7 +36,7 @@
     & sup {
         display: block;
         @mixin paragraph_primary_medium;
-        margin: var(--gap-s) 0 0;
+        margin: var(--gap-12) 0 0;
     }
 }
 
@@ -44,20 +44,20 @@
     .changelog {
         & h2 {
             @mixin headline_small;
-            margin: var(--gap-5xl) 0 0;
+            margin: var(--gap-64) 0 0;
         }
 
         & h2:first-of-type {
-            margin: var(--gap-2xl) 0 0;
+            margin: var(--gap-32) 0 0;
         }
 
         & h2:not(:first-of-type):before {
-            bottom: var(--gap-2xl);
+            bottom: var(--gap-32);
         }
 
         & h3 {
             @mixin headline_xsmall;
-            margin: var(--gap-m) 0 0;
+            margin: var(--gap-16) 0 0;
         }
     }
 }

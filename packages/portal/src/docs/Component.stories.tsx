@@ -26,7 +26,7 @@ export const portal: Story = {
             width: 240,
             height: 60,
             border: '1px solid var(--color-light-neutral-300)',
-            padding: 'var(--gap-m)',
+            padding: 'var(--gap-16)',
         };
         return (
             <Space>

@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../../../calendar/src/vars.css';
 
 .component {
@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     width: 16px;
-    margin: 0 var(--gap-xs);
+    margin: 0 var(--gap-8);
 
     &:after {
         content: '';
