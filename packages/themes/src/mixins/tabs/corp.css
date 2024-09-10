@@ -2,4 +2,7 @@
     /* theme */
     --primary-tablist-bottom-border-color: var(--color-light-neutral-translucent-300);
     --primary-tablist-m-font-weight: 500;
+
+    /* mobile */
+    --primary-tablist-mobile-font-weight: 500;
 }
