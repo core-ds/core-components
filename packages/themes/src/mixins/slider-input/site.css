@@ -9,5 +9,5 @@
     --slider-input-progress-bg-color: var(--color-light-neutral-300);
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-300);
     --slider-input-origin-width: 100%;
-    --slider-input-origin-right: 0;
+    --slider-input-origin-right: var(--gap-0);
 }

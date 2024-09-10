@@ -11,7 +11,7 @@
     }
 
     & .option {
-        padding: 0;
+        padding: var(--gap-0);
     }
 
     & .scrollControls {
@@ -19,11 +19,11 @@
             box-sizing: content-box;
             width: $lh;
             height: $lh;
-            padding: 0;
+            padding: var(--gap-0);
         }
 
         & button:first-child {
-            margin: 0 0 0 calc($lh / 2);
+            margin: var(--gap-0) var(--gap-0) var(--gap-0) calc($lh / 2);
         }
     }
 }

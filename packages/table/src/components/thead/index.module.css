@@ -12,7 +12,7 @@
         display: block;
 
         width: 1px;
-        right: 0;
+        right: var(--gap-0);
         top: var(--gap-8);
         bottom: var(--gap-8);
         background-color: var(--color-light-neutral-400);

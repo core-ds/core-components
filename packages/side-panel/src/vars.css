@@ -11,8 +11,8 @@
     --side-panel-s-width: 500px;
 
     /* paddings */
-    --side-panel-s-header-paddings: 28px 28px 0;
-    --side-panel-s-content-paddings: var(--gap-40) var(--gap-40) 0;
+    --side-panel-s-header-paddings: 28px 28px var(--gap-0);
+    --side-panel-s-content-paddings: var(--gap-40) var(--gap-40) var(--gap-0);
     --side-panel-s-footer-paddings: var(--gap-24) var(--gap-40) var(--gap-40);
 
     /* scroll */

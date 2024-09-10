@@ -5,5 +5,5 @@
 }
 
 .sticky {
-    bottom: 0;
+    bottom: var(--gap-0);
 }

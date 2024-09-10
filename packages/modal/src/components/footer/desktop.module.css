@@ -9,7 +9,7 @@
     bottom: calc(var(--modal-vertical-padding) * -1);
 
     &.fullscreen {
-        bottom: 0;
+        bottom: var(--gap-0);
     }
 }
 

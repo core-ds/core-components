@@ -16,7 +16,7 @@
     --slider-input-progress-bg-color: var(--color-light-neutral-700);
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
     --slider-input-origin-width: calc(100% - 16px);
-    --slider-input-origin-right: 8px;
+    --slider-input-origin-right: var(--gap-8);
 }
 
 .component {
@@ -128,26 +128,26 @@
 
 .size-48.hasLabel .info:first-child {
     padding: var(--form-control-labeled-s-paddings);
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: var(--gap-0);
+    padding-right: var(--gap-0);
 }
 
 .size-56.hasLabel .info:first-child {
     padding: var(--form-control-labeled-m-paddings);
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: var(--gap-0);
+    padding-right: var(--gap-0);
 }
 
 .size-64.hasLabel .info:first-child {
     padding: var(--form-control-labeled-l-paddings);
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: var(--gap-0);
+    padding-right: var(--gap-0);
 }
 
 .size-72.hasLabel .info:first-child {
     padding: var(--form-control-labeled-xl-paddings);
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: var(--gap-0);
+    padding-right: var(--gap-0);
 }
 
 .focused .info,

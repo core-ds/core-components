@@ -6,7 +6,7 @@
 
 .size-72 {
     & .addons {
-        padding-right: 0;
+        padding-right: var(--gap-0);
     }
 
     & .eye {
@@ -15,5 +15,5 @@
 }
 
 .addons {
-    padding-right: 0;
+    padding-right: var(--gap-0);
 }

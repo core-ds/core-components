@@ -89,7 +89,7 @@
     flex-grow: 1;
     flex-basis: 50px;
     min-width: 50px;
-    padding: 0;
+    padding: var(--gap-0);
     margin: var(--gap-4);
     background-color: transparent;
     outline: none;
@@ -113,7 +113,7 @@
 
 .hidden {
     max-height: 0;
-    margin: 0;
+    margin: var(--gap-0);
 }
 
 .focusVisible {
@@ -148,22 +148,22 @@
 
 .component.size-48 .label {
     top: 5px;
-    left: 12px;
+    left: var(--gap-12);
 }
 
 .component.size-56 .label {
-    top: 8px;
-    left: 12px;
+    top: var(--gap-8);
+    left: var(--gap-12);
 }
 
 .component.size-64.label {
     top: 10px;
-    left: 16px;
+    left: var(--gap-16);
 }
 
 .component.size-72 .label {
     top: 14px;
-    left: 16px;
+    left: var(--gap-16);
 }
 
 .component .label {

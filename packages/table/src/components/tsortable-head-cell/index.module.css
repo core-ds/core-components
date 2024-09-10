@@ -27,7 +27,7 @@
     flex-direction: row-reverse;
 
     & .icon {
-        margin-left: 0;
+        margin-left: var(--gap-0);
         margin-right: var(--gap-8);
     }
 }

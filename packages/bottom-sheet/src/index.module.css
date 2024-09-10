@@ -2,7 +2,7 @@
 @import './vars.css';
 
 .modal {
-    bottom: 0;
+    bottom: var(--gap-0);
     width: 100%;
     max-width: 600px;
     pointer-events: none;
@@ -55,11 +55,11 @@
 .marker {
     position: fixed;
     top: var(--gap-4);
-    right: 0;
-    left: 0;
+    right: var(--gap-0);
+    left: var(--gap-0);
     z-index: 1000;
     width: 36px;
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 }
 
 .defaultMarker {
@@ -74,7 +74,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 0 var(--gap-16);
+    padding: var(--gap-0) var(--gap-16);
     color: var(--color-light-text-primary);
     background-color: inherit;
     border-radius: inherit;

@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     height: 20px;
-    padding: 0 var(--gap-8);
+    padding: var(--gap-0) var(--gap-8);
     border-radius: var(--border-radius-s);
     text-align: center;
     text-transform: uppercase;
@@ -20,7 +20,7 @@
     }
 
     &:empty {
-        padding: 0;
+        padding: var(--gap-0);
     }
 }
 
