@@ -19,6 +19,8 @@
     --calendar-select-button-selected-background: var(--color-light-accent-secondary);
     --calendar-select-button-border-radius: var(--border-radius-s);
     --calendar-select-button-box-shadow: none;
+    --calendar-mobile-select-button-box-shadow: none;
+    --calendar-select-button-background-color: var(--color-light-neutral-translucent-300);
 
     /* Шапка */
     --calendar-month-only-header-font-family: var(--font-family-system);
