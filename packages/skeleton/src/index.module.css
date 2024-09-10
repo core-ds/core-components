@@ -1,13 +1,4 @@
-@import '../../vars/src/index.css';
-
-:root {
-    --skeleton-display: block;
-    --skeleton-default-color: var(--color-light-neutral-translucent-100);
-    --skeleton-border-radius: var(--border-radius-m);
-    --skeleton-backdrop-filter: blur(20px);
-    --skeleton-bg-animation-display: block;
-    --skeleton-bg-animation-color: transparent;
-}
+@import './vars.css';
 
 .component {
     position: relative;
@@ -16,7 +7,6 @@
     color: transparent;
     border-radius: var(--skeleton-border-radius);
     overflow: hidden;
-    background: var(--skeleton-default-color);
 
     /* Safari overflow fix https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -42,7 +32,6 @@
 
 .animate:before {
     display: var(--skeleton-bg-animation-display);
-    animation-name: background;
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -54,14 +43,5 @@
 @supports (backdrop-filter: blur(1px)) {
     .animate:before {
         opacity: 0.4;
-    }
-}
-
-@keyframes background {
-    0% {
-        background: var(--color-light-neutral-translucent-100);
-    }
-    100% {
-        background: var(--color-light-neutral-translucent-300);
     }
 }

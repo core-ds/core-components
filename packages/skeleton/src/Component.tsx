@@ -1,7 +1,14 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type SkeletonProps = {
     /**
@@ -38,6 +45,12 @@ export type SkeletonProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 };
 
 export const Skeleton: React.FC<SkeletonProps> = ({
@@ -48,14 +61,17 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     children,
     style,
     allowBackdropBlur,
+    colors = 'default',
 }) => {
     if (visible) {
         return (
             <div
                 className={cn(
                     styles.component,
+                    colorStyles[colors].component,
                     {
                         [styles.animate]: animate,
+                        [colorStyles[colors].animate]: animate,
                         [styles.allowBackdropBlur]: allowBackdropBlur,
                     },
                     className,
