@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-date-time-input",
-    "version": "4.3.26",
+    "version": "4.4.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,10 +15,10 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^7.10.1",
-        "@alfalab/core-components-input": "^15.0.5",
-        "@alfalab/core-components-icon-button": "^6.7.5",
-        "@alfalab/core-components-popover": "^6.2.5",
+        "@alfalab/core-components-calendar": "^7.11.0",
+        "@alfalab/core-components-input": "^15.1.0",
+        "@alfalab/core-components-icon-button": "^6.8.0",
+        "@alfalab/core-components-popover": "^6.3.0",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.3.1",
@@ -26,6 +26,6 @@
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.0.2",
-    "varsVersion": "9.11.1"
+    "themesVersion": "13.1.0",
+    "varsVersion": "9.12.0"
 }
