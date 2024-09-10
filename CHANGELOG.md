@@ -1,3 +1,39 @@
+## 47.15.0
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1362](https://github.com/core-ds/core-components/pull/1362)
+
+#### Что изменилось
+- Обновили corp темизацию в компоненте Tabs
+
+#### Влияние на компоненты
+- Минорное<br />`tabs` `themes`
+
+
+### [#1339](https://github.com/core-ds/core-components/pull/1339)
+
+#### Что изменилось
+Небольшой рефакторинг:
+
+- оптимизация утилит (исправление копипасты и дубликаций)
+- уточнение типов (исправление копипасты, вынос общего типа)
+- уточнения в css (исправление shadow names)
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+#### Что изменилось
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+#### Влияние на компоненты
+- Минорное<br />`accordion` `action-button` `alert` `amount` `amount-input`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `custom-picker-button` `date-input` `date-range-input`<br /> `date-time-input` `divider` `drawer` `dropzone` `file-upload-item`<br /> `filter-tag` `form-control` `gallery` `gap` `generic-wrapper`<br /> `icon-button` `icon-view` `indicator` `input` `input-autocomplete`<br /> `international-phone-input` `intl-phone-input` `link` `list` `list-header`<br /> `loader` `markdown` `modal` `navigation-bar` `navigation-bar-private`<br /> `notification` `notification-manager` `number-input` `pagination` `pass-code`<br /> `pass-code-v1` `password-input` `pattern-lock` `pattern-lock-v1` `picker-button`<br /> `plate` `popover` `popup-sheet` `product-cover` `progress-bar`<br /> `pure-cell` `radio` `radio-group` `scrollbar` `segmented-control`<br /> `select` `select-with-tags` `side-panel` `skeleton` `slider`<br /> `slider-input` `sortable-list` `space` `spinner` `status`<br /> `status-badge` `stepped-progress-bar` `steps` `switch` `system-message`<br /> `tab-bar` `table` `tabs` `tag` `text`<br /> `textarea` `toast` `toast-plate` `tooltip` `typography`<br /> `underlay` `universal-date-input` `vars` `with-suffix`
+
+
+
 ## 47.14.0
 
 <sup><time>04.09.2024</time></sup>
