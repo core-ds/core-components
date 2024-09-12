@@ -1,10 +1,13 @@
 import React, { Fragment, MouseEvent, useContext } from 'react';
-import { Link } from '@alfalab/core-components-link';
-import styles from '../../index.module.css';
+
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { PointerDownSIcon } from '@alfalab/icons-glyph/PointerDownSIcon';
+import { Link } from '@alfalab/core-components-link';
 import { CrossSIcon } from '@alfalab/icons-glyph/CrossSIcon';
+import { PointerDownSIcon } from '@alfalab/icons-glyph/PointerDownSIcon';
+
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
+
+import styles from '../../index.module.css';
 
 export const RightAddon = () => {
     const {

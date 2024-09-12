@@ -3,15 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
 import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
 
-import {
-    getQueryParam,
-    stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
-
-const WRAPPER_STYLES = {
-    background: 'var(--color-light-modal-bg-primary)',
-};
-
 const meta: Meta<typeof FileUploadItem> = {
     title: 'Components/FileUploadItem',
     component: FileUploadItem,
@@ -23,38 +14,11 @@ type Story = StoryObj<typeof FileUploadItem>;
 export const file_upload_item: Story = {
     name: 'FileUploadItem',
     render: () => {
-        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
-        const isPreview = Object.keys(previewStyles).length > 0;
-        return isPreview ? (
-            <div style={{ width: 432, ...previewStyles }}>
-                <div style={isPreview ? WRAPPER_STYLES : undefined}>
-                    <FileUploadItem
-                        name={'Название файла.pdf'}
-                        uploadDate='22.01.2023'
-                        size={4096}
-                        downloadLink='link'
-                        showDelete={true}
-                    />
-                    <FileUploadItem
-                        name={'Название файла.docx'}
-                        uploadDate='22.01.2023'
-                        size={8192}
-                        downloadLink='link'
-                        showDelete={true}
-                    />
-                    <FileUploadItem
-                        name={'Название файла.docx'}
-                        uploadDate='22.01.2023'
-                        size={9216}
-                        downloadLink='link'
-                        showDelete={true}
-                    />
-                </div>
-            </div>
-        ) : (
+        return (
             <div style={{ width: 456 }}>
                 <FileUploadItem
-                    name={text('name', 'Довольно длинное название файла.pdf')}
+                    title={text('title', 'Прикрепите файл')}
+                    subtitle={text('subtitle', 'Нет файла')}
                     uploadDate={text('uploadDate', '22.01.2018')}
                     downloadLink={text('downloadLink', '')}
                     error={text('error', '')}
@@ -71,6 +35,35 @@ export const file_upload_item: Story = {
                     <FileUploadItem.LeftAddon />
                     <FileUploadItem.Content />
                     <FileUploadItem.RightAddon />
+                </FileUploadItem>
+            </div>
+        );
+    },
+};
+
+export const file_upload_item_left_addon: Story = {
+    name: 'FileUploadItem.LeftAddon',
+    render: () => {
+        return (
+            <div style={{ width: 456 }}>
+                <FileUploadItem
+                    fileType={select(
+                        'fileType',
+                        [
+                            'attach',
+                            'pdf',
+                            'doc',
+                            'xls',
+                            '1c',
+                            'document',
+                            'deleted-image',
+                            'deleted-document',
+                        ],
+                        'attach',
+                    )}
+                    iconStyle={select('iconStyle', ['gray', 'colored'], 'gray')}
+                >
+                    <FileUploadItem.LeftAddon />
                 </FileUploadItem>
             </div>
         );

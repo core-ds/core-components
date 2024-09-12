@@ -5,16 +5,16 @@ import {
     MouseEvent,
     ReactNode,
 } from 'react';
-import { FileStatuses } from '../types';
-import { fileIcon } from '../utils';
+
+import { FileStatuses, FileTypes } from '../types';
 
 type TFileUploadItemContext = {
     showRestore?: boolean;
     uploadStatus?: FileStatuses;
-    icon?: ElementType<{ className?: string }>;
     error?: ReactNode;
     multiline?: boolean;
-    name?: string;
+    title?: string;
+    subtitle?: string;
     uploadPercent?: number;
     uploadDate?: string;
     size?: string | number;
@@ -27,15 +27,18 @@ type TFileUploadItemContext = {
     disableButtons?: boolean;
     target?: HTMLAttributeAnchorTarget;
     showDelete?: boolean;
+    fileType: FileTypes;
+    customIcon?: ElementType<{ className?: string }>;
+    iconStyle?: 'gray' | 'colored';
 };
 
 export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     showRestore: false,
     uploadStatus: 'ERROR',
-    icon: fileIcon(''),
     error: null,
     multiline: false,
-    name: '',
+    title: '',
+    subtitle: '',
     uploadPercent: 0,
     uploadDate: '',
     size: 0,
@@ -48,4 +51,7 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     disableButtons: false,
     target: undefined,
     showDelete: false,
+    fileType: 'attach',
+    iconStyle: 'gray',
+    customIcon: undefined,
 });

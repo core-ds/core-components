@@ -1,14 +1,13 @@
 import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent, ReactNode } from 'react';
 import cn from 'classnames';
 
-import { fileIcon } from './utils';
+import { Content } from './components/content';
+import { LeftAddon } from './components/left-addon';
+import { RightAddon } from './components/right-addon';
+import { FileUploadItemContext } from './context/file-upload-item-context';
+import { FileStatuses, FileTypes } from './types';
 
 import styles from './index.module.css';
-import { LeftAddon } from './components/left-addon';
-import { FileUploadItemContext } from './context/file-upload-item-context';
-import { FileStatuses } from './types';
-import { Content } from './components/content';
-import { RightAddon } from './components/right-addon';
 
 export type FileUploadItemProps = {
     /**
@@ -22,9 +21,14 @@ export type FileUploadItemProps = {
     id?: string;
 
     /**
-     * Имя файла с расширением
+     * Имя файла / заголовок
      */
-    name?: string;
+    title?: string;
+
+    /**
+     * Подзаголовок файла
+     */
+    subtitle?: string;
 
     /**
      * Размер файла
@@ -78,11 +82,6 @@ export type FileUploadItemProps = {
     children?: React.ReactNode;
 
     /**
-     * Компонент кастомной иконки
-     */
-    icon?: ElementType<{ className?: string }>;
-
-    /**
      * Обработчик загрузки файла
      */
     onDownload?: (id: string) => void;
@@ -116,15 +115,32 @@ export type FileUploadItemProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Тип загружаемого файла
+     * @default attach
+     */
+    fileType?: FileTypes;
+
+    /**
+     * Цвет заполнения иконки
+     * @default Gray
+     */
+    iconStyle?: 'gray' | 'colored';
+
+    /**
+     * Кастомная иконка
+     */
+    customIcon?: ElementType<{ className?: string }>;
 };
 
 export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     className,
     children,
     id = '0',
-    name = '',
+    title = '',
+    subtitle,
     size,
-    icon: Icon = fileIcon(name),
     uploadDate,
     downloadLink,
     download,
@@ -140,43 +156,47 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     multiline = false,
     target,
     dataTestId,
-}) => {
-    return (
-        <div
-            className={cn(
-                className,
-                styles.component,
-                uploadStatus && styles[uploadStatus.toLocaleLowerCase()],
-            )}
-            data-test-id={dataTestId}
+    fileType = 'attach',
+    customIcon,
+    iconStyle = 'gray',
+}) => (
+    <div
+        className={cn(
+            className,
+            styles.component,
+            uploadStatus && styles[uploadStatus.toLocaleLowerCase()],
+        )}
+        data-test-id={dataTestId}
+    >
+        <FileUploadItemContext.Provider
+            value={{
+                showRestore,
+                uploadStatus,
+                error,
+                multiline,
+                title,
+                subtitle,
+                uploadPercent,
+                uploadDate,
+                size,
+                id,
+                onDownload,
+                onDelete,
+                onRestore,
+                downloadLink,
+                download,
+                disableButtons,
+                target,
+                showDelete,
+                fileType,
+                customIcon,
+                iconStyle,
+            }}
         >
-            <FileUploadItemContext.Provider
-                value={{
-                    showRestore,
-                    uploadStatus,
-                    icon: Icon,
-                    error,
-                    multiline,
-                    name,
-                    uploadPercent,
-                    uploadDate,
-                    size,
-                    id,
-                    onDownload,
-                    onDelete,
-                    onRestore,
-                    downloadLink,
-                    download,
-                    disableButtons,
-                    target,
-                    showDelete,
-                }}
-            >
-                {children}
-            </FileUploadItemContext.Provider>
-        </div>
-    );
-};
+            {children}
+        </FileUploadItemContext.Provider>
+    </div>
+);
 
 export const FileUploadItem = Object.assign(FileUploadItemComponent, {
     LeftAddon,
