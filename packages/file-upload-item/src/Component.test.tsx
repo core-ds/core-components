@@ -1,7 +1,8 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import { FileUploadItem, FileStatuses } from '.';
+import { FileUploadItem } from '.';
+import { FileStatuses } from './types';
 
 export const fileProps = {
     name: 'Довольно длинное название файла.pdf',
@@ -30,27 +31,49 @@ describe('FileUploadItem', () => {
 
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
-            expect(render(<FileUploadItem {...fileProps} />)).toMatchSnapshot();
+            expect(
+                render(
+                    <FileUploadItem {...fileProps}>
+                        <FileUploadItem.Content />
+                        <FileUploadItem.RightAddon />
+                    </FileUploadItem>,
+                ),
+            ).toMatchSnapshot();
         });
     });
 
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
-        const { queryByTestId } = render(<FileUploadItem dataTestId={dataTestId} />);
+        const { queryByTestId } = render(
+            <FileUploadItem dataTestId={dataTestId}>
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>,
+        );
 
         expect(queryByTestId(dataTestId)).toBeInTheDocument();
     });
 
     it('should set `className` class', () => {
         const className = 'test-class';
-        const { container } = render(<FileUploadItem className={className} />);
+        const { container } = render(
+            <FileUploadItem className={className}>
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>,
+        );
 
         expect(container.firstElementChild).toHaveClass(className);
     });
 
     it('should set `className` class', () => {
         const className = 'test-class';
-        const { container } = render(<FileUploadItem className={className} />);
+        const { container } = render(
+            <FileUploadItem className={className}>
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>,
+        );
 
         expect(container.firstElementChild).toHaveClass(className);
     });
@@ -58,7 +81,10 @@ describe('FileUploadItem', () => {
     it('should use custom icon', () => {
         const dataTestId = 'test-id';
         const { queryByTestId } = render(
-            <FileUploadItem icon={() => <div data-test-id={dataTestId} />} />,
+            <FileUploadItem icon={() => <div data-test-id={dataTestId} />}>
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>,
         );
 
         expect(queryByTestId(dataTestId)).toBeInTheDocument();
@@ -69,7 +95,10 @@ describe('FileUploadItem', () => {
             const cb = jest.fn();
             const fileId = 'id';
             const { getByLabelText } = render(
-                <FileUploadItem showDelete={true} onDelete={cb} id={fileId} />,
+                <FileUploadItem showDelete={true} onDelete={cb} id={fileId}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>,
             );
 
             fireEvent.click(getByLabelText('удалить'));
@@ -82,7 +111,10 @@ describe('FileUploadItem', () => {
             const cb = jest.fn();
             const fileId = 'id';
             const { getByText } = render(
-                <FileUploadItem showRestore={true} onRestore={cb} id={fileId} />,
+                <FileUploadItem showRestore={true} onRestore={cb} id={fileId}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>,
             );
 
             fireEvent.click(getByText('Восстановить'));
@@ -95,7 +127,10 @@ describe('FileUploadItem', () => {
             const cb = jest.fn();
             const fileId = 'id';
             const { baseElement } = render(
-                <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId} />,
+                <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>,
             );
 
             const downloadButton = baseElement.querySelector('a') as HTMLAnchorElement;
@@ -108,7 +143,12 @@ describe('FileUploadItem', () => {
     });
 
     it('should unmount without errors', () => {
-        const { unmount } = render(<FileUploadItem />);
+        const { unmount } = render(
+            <FileUploadItem>
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>,
+        );
 
         expect(unmount).not.toThrowError();
     });

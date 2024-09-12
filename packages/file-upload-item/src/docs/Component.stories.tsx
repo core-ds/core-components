@@ -52,7 +52,7 @@ export const file_upload_item: Story = {
                 </div>
             </div>
         ) : (
-            <div style={{ width: 500 }}>
+            <div style={{ width: 456 }}>
                 <FileUploadItem
                     name={text('name', 'Довольно длинное название файла.pdf')}
                     uploadDate={text('uploadDate', '22.01.2018')}
@@ -61,13 +61,17 @@ export const file_upload_item: Story = {
                     size={number('size', 500000000)}
                     uploadStatus={select(
                         'uploadStatus',
-                        ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
-                        undefined,
+                        ['INITIAL', 'ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
+                        'INITIAL',
                     )}
                     uploadPercent={number('uploadPercent', undefined)}
                     showDelete={boolean('showDelete', false)}
                     showRestore={boolean('showRestore', false)}
-                />
+                >
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
             </div>
         );
     },
