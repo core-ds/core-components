@@ -12,7 +12,6 @@ export const Content = () => {
         showRestore,
         uploadStatus,
         error,
-        multiline = false,
         title,
         subtitle,
         uploadPercent = 0,
@@ -38,18 +37,12 @@ export const Content = () => {
                 </Typography.Text>
             )}
 
-            {shouldShownError && (
-                <div className={styles.errorWrapper} role='alert'>
-                    {errorContent}
-                </div>
-            )}
+            {shouldShownError && <div role='alert'>{errorContent}</div>}
 
-            {uploadStatus === 'UPLOADING' && (
-                <span className={styles.uploadPercent}>{`${Math.round(uploadPercent)}%`}</span>
-            )}
+            {uploadStatus === 'UPLOADING' && <span>{`${Math.round(uploadPercent)}%`}</span>}
 
             {showMeta && (
-                <div className={styles.meta}>
+                <div>
                     {uploadDate && <span key={uploadDate}>{uploadDate}</span>}
 
                     {size && (

@@ -102,11 +102,6 @@ export type FileUploadItemProps = {
     disableButtons?: boolean;
 
     /**
-     * Разрешить многострочное название файла
-     */
-    multiline?: boolean;
-
-    /**
      * Указывает, где открыть скачиваемый документ
      */
     target?: HTMLAttributeAnchorTarget;
@@ -132,6 +127,13 @@ export type FileUploadItemProps = {
      * Кастомная иконка
      */
     customIcon?: ElementType<{ className?: string }>;
+
+    /**
+     * Шкала прогресса
+     * от 0 до 360
+     * @default 0
+     */
+    progressBar?: number;
 };
 
 export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
@@ -153,12 +155,12 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     onDownload,
     onRestore,
     disableButtons,
-    multiline = false,
     target,
     dataTestId,
     fileType = 'attach',
     customIcon,
     iconStyle = 'gray',
+    progressBar = 0,
 }) => (
     <div
         className={cn(
@@ -169,11 +171,11 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
         data-test-id={dataTestId}
     >
         <FileUploadItemContext.Provider
+            // eslint-disable-next-line react/jsx-no-constructed-context-values
             value={{
                 showRestore,
                 uploadStatus,
                 error,
-                multiline,
                 title,
                 subtitle,
                 uploadPercent,
@@ -191,6 +193,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                 fileType,
                 customIcon,
                 iconStyle,
+                progressBar,
             }}
         >
             {children}

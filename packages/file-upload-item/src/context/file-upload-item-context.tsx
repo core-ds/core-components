@@ -12,7 +12,6 @@ type TFileUploadItemContext = {
     showRestore?: boolean;
     uploadStatus?: FileStatuses;
     error?: ReactNode;
-    multiline?: boolean;
     title?: string;
     subtitle?: string;
     uploadPercent?: number;
@@ -30,13 +29,13 @@ type TFileUploadItemContext = {
     fileType: FileTypes;
     customIcon?: ElementType<{ className?: string }>;
     iconStyle?: 'gray' | 'colored';
+    progressBar?: number;
 };
 
 export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     showRestore: false,
     uploadStatus: 'ERROR',
     error: null,
-    multiline: false,
     title: '',
     subtitle: '',
     uploadPercent: 0,
@@ -54,4 +53,5 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     fileType: 'attach',
     iconStyle: 'gray',
     customIcon: undefined,
+    progressBar: 0,
 });

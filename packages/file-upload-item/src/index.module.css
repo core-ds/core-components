@@ -1,28 +1,11 @@
 @import '../../vars/src/index.css';
 
 .component {
+    box-sizing: border-box;
     display: flex;
     align-items: flex-start;
     width: 100%;
     min-height: 48px;
-    color: var(--color-light-text-secondary);
-    box-shadow: 0 -1px 0 0 var(--color-light-neutral-300) inset;
-    box-sizing: border-box;
-
-    & svg {
-        display: block;
-    }
-
-    &:last-child {
-        box-shadow: none;
-    }
-}
-
-.delete,
-.download {
-    height: 24px;
-    width: 24px;
-    margin-left: var(--gap-8);
 }
 
 .restore {

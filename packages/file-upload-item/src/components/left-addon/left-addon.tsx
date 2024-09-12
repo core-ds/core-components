@@ -1,77 +1,43 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import cn from 'classnames';
 
 import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
-import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
-import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
-import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
-import { DocumentImageOffMIcon } from '@alfalab/icons-glyph/DocumentImageOffMIcon';
-import { DocumentMIcon } from '@alfalab/icons-glyph/DocumentMIcon';
-import { DocumentOffMIcon } from '@alfalab/icons-glyph/DocumentOffMIcon';
-import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
-import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
-import { FileTypes } from '../../types';
-import { FileTypeMap } from '../const/file-type-map';
+import { isErrorStatus, isSuccessStatus, isUploadingStatus } from '../../utils';
+
+import { LeftAddonIcon } from './components/left-addon-icon';
+
+import styles from './index.module.css';
 
 export const LeftAddon = () => {
-    const { fileType, iconStyle, customIcon: CustomIcon } = useContext(FileUploadItemContext);
+    const { uploadStatus, progressBar } = useContext(FileUploadItemContext);
+    const progressRef = useRef<HTMLDivElement>(null);
+    const shouldShowProgress =
+        isUploadingStatus(uploadStatus) ||
+        isSuccessStatus(uploadStatus) ||
+        isErrorStatus(uploadStatus);
 
-    const isColoredIcon = iconStyle === 'colored';
-
-    const getIcon = (fileType: FileTypes) => {
-        if (CustomIcon) {
-            return <CustomIcon />;
+    useEffect(() => {
+        if (progressRef.current) {
+            progressRef.current.style.maskImage = `conic-gradient(red ${progressBar}deg, transparent 0)`;
         }
-
-        switch (fileType) {
-            case FileTypeMap.pdf:
-                return (
-                    <DocumentPdfMIcon
-                        {...(isColoredIcon && { color: 'var(--color-light-decorative-red)' })}
-                    />
-                );
-            case FileTypeMap.doc:
-            case FileTypeMap.docx:
-                return (
-                    <DocumentDocMIcon
-                        {...(isColoredIcon && { color: 'var(--color-light-decorative-blue)' })}
-                    />
-                );
-            case FileTypeMap.xls:
-            case FileTypeMap.xlsx:
-                return (
-                    <DocumentExcelMIcon
-                        {...(isColoredIcon && { color: 'var(--color-light-decorative-green)' })}
-                    />
-                );
-            case FileTypeMap['1c']:
-                return (
-                    <Document1CMIcon
-                        {...(isColoredIcon && { color: 'var(--color-light-decorative-orange)' })}
-                    />
-                );
-            case FileTypeMap.document:
-                return (
-                    <DocumentMIcon
-                        {...(isColoredIcon && {
-                            color: 'var(--color-light-neutral-translucent-1300)',
-                        })}
-                    />
-                );
-            case FileTypeMap['deleted-document']:
-                return <DocumentOffMIcon />;
-            case FileTypeMap['deleted-image']:
-                return <DocumentImageOffMIcon />;
-            case FileTypeMap.attach:
-            default:
-                return <PaperclipMIcon />;
-        }
-    };
+    }, [progressBar]);
 
     return (
-        <SuperEllipse size={48} backgroundColor='var(--color-light-neutral-translucent-100)'>
-            {getIcon(fileType)}
-        </SuperEllipse>
+        <div className={styles.container}>
+            <SuperEllipse size={48} backgroundColor='var(--color-light-neutral-translucent-100)'>
+                <LeftAddonIcon />
+            </SuperEllipse>
+            {shouldShowProgress && (
+                <div
+                    ref={progressRef}
+                    className={cn(styles.progress, {
+                        [styles.success]: isSuccessStatus(uploadStatus),
+                        [styles.error]: isErrorStatus(uploadStatus),
+                    })}
+                />
+            )}
+        </div>
     );
 };

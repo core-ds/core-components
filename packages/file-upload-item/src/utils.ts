@@ -1,8 +1,5 @@
-import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
-import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
-import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
-import { DocumentTxtMIcon } from '@alfalab/icons-glyph/DocumentTxtMIcon';
-import { DocumentUnknownMIcon } from '@alfalab/icons-glyph/DocumentUnknownMIcon';
+import { UploadStatusMap } from './components/const/upload-status-map';
+import { FileStatuses } from './types';
 
 export function humanFileSize(size: string | number) {
     const units = ['Б', 'КБ', 'МБ', 'ГБ'];
@@ -20,27 +17,6 @@ export function humanFileSize(size: string | number) {
     return `${Number(humanSize)} ${units[factor]}`;
 }
 
-export const getExtension = (filename: string) => filename.toLowerCase().split('.').pop();
-
-export function fileIcon(filename: string) {
-    const extension = getExtension(filename);
-
-    switch (extension) {
-        case 'png':
-        case 'jpg':
-        case 'jpeg':
-        case 'svg':
-        case 'tif':
-        case 'tiff':
-            return DocumentImageMIcon;
-        case 'doc':
-        case 'docx':
-            return DocumentDocMIcon;
-        case 'pdf':
-            return DocumentPdfMIcon;
-        case 'txt':
-            return DocumentTxtMIcon;
-        default:
-            return DocumentUnknownMIcon;
-    }
-}
+export const isSuccessStatus = (status?: FileStatuses) => status === UploadStatusMap.SUCCESS;
+export const isErrorStatus = (status?: FileStatuses) => status === UploadStatusMap.ERROR;
+export const isUploadingStatus = (status?: FileStatuses) => status === UploadStatusMap.UPLOADING;

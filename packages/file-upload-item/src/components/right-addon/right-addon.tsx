@@ -7,8 +7,6 @@ import { PointerDownSIcon } from '@alfalab/icons-glyph/PointerDownSIcon';
 
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
 
-import styles from '../../index.module.css';
-
 export const RightAddon = () => {
     const {
         showRestore,
@@ -43,7 +41,7 @@ export const RightAddon = () => {
     return (
         <Fragment>
             {showRestore && (
-                <Link pseudo={true} className={styles.restore} onClick={handleRestore}>
+                <Link pseudo={true} onClick={handleRestore}>
                     Восстановить
                 </Link>
             )}
@@ -52,7 +50,6 @@ export const RightAddon = () => {
                 <IconButton
                     size='xxs'
                     icon={PointerDownSIcon}
-                    className={styles.download}
                     aria-label='скачать'
                     href={downloadLink}
                     onClick={handleDownload}
@@ -68,7 +65,6 @@ export const RightAddon = () => {
                     icon={CrossSIcon}
                     onClick={handleDelete}
                     disabled={disableButtons}
-                    className={styles.delete}
                     aria-label='удалить'
                 />
             )}

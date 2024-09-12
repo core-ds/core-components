@@ -23,9 +23,10 @@ export const file_upload_item: Story = {
                     downloadLink={text('downloadLink', '')}
                     error={text('error', '')}
                     size={number('size', 500000000)}
+                    progressBar={number('progressBar', 270)}
                     uploadStatus={select(
                         'uploadStatus',
-                        ['INITIAL', 'ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
+                        ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
                         'INITIAL',
                     )}
                     uploadPercent={number('uploadPercent', undefined)}
@@ -62,6 +63,12 @@ export const file_upload_item_left_addon: Story = {
                         'attach',
                     )}
                     iconStyle={select('iconStyle', ['gray', 'colored'], 'gray')}
+                    progressBar={number('progressBar', 270)}
+                    uploadStatus={select(
+                        'uploadStatus',
+                        ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
+                        'INITIAL',
+                    )}
                 >
                     <FileUploadItem.LeftAddon />
                 </FileUploadItem>
