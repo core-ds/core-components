@@ -1,64 +1,458 @@
-## Примеры
+## Типы файлов
+
+Для разных типов файлов можно использовать различные иконки.
 
 ```jsx live mobileHeight={500}
-<>
-    <FileUploadItem
-        name='Довольно длинное название файла.pdf'
-        uploadDate='22.01.2018'
-        size={500000000}
-        showDelete={false}
-        showRestore={true}
-    />
-    <FileUploadItem
-        name='Название файла.pdf'
-        uploadDate='22.01.2018'
-        size={45000}
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='С кастомной иконкой.pdf'
-        uploadDate='22.01.2018'
-        size={50000}
-        showDelete={true}
-        icon={DiamondsMIcon}
-    />
-        <FileUploadItem
-        name='Название файла.pdf'
-        uploadDate='22.01.2018'
-        uploadPercent={23.5678}
-        uploadStatus='UPLOADING'
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.txt'
-        uploadDate='22.01.2018'
-        size={157290000}
-        downloadLink='/link'
-        uploadStatus='SUCCESS'
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.jpg'
-        uploadDate='22.01.2018'
-        size={45000}
-        uploadStatus='ERROR'
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.png'
-        uploadDate='22.01.2018'
-        size={450000000}
-        uploadStatus='ERROR'
-        error={
-            <>
-                <p style={{ margin: 0, marginBottom: '8px' }}>Размер больше 500 Кб</p>
-                <p style={{ margin: 0 }}>
-                    Недопустимый формат файла. Загрузите файл в одном из этих форматов: .txt, .xml,
-                    .csv
-                </p>
-            </>
+render(() => {
+    const radioButtons = [
+        { title: 'Нет файла', extension: 'Нет файла' },
+        { title: 'Пример.docx', extension: 'DocX' },
+        { title: 'Пример.pdf', extension: 'PDF' },
+        { title: 'Пример.xls', extension: 'XLS' },
+        { title: 'Пример.1c', extension: '1C' },
+        { title: 'Фото газеты.jpg', extension: 'Img' },
+        { title: 'Пример.fig', extension: 'Другой тип' },
+        { title: '2 файла', extension: 'Несколько файлов' },
+    ];
+
+    const [status, setStatus] = React.useState('INITIAL');
+    const [title, setTitle] = React.useState('Прикрепите файл');
+    const [checked, setChecked] = React.useState(0);
+    const [progressBar, setProgressBar] = React.useState(0);
+    const [switchChecked, setSwitchChecked] = React.useState(false);
+
+    const handleChange = (index) => () => {
+        setChecked(index);
+        setProgressBar(0);
+        setTitle(radioButtons[index].title);
+        setStatus(index === 0 ? 'INITIAL' : 'UPLOADED');
+    };
+
+    const handleDelete = () => {
+        setChecked(0);
+        setTitle(radioButtons[0].title);
+        setStatus('INITIAL');
+    };
+
+    const handleSwitchChange = () => {
+        setSwitchChecked(prev => !prev)
+    }
+
+    const isImg = radioButtons[checked].extension === 'Img';
+
+    return (
+        <React.Fragment>
+            <div style={{ maxWidth: 360 }}>
+                <FileUploadItem
+                    title={title}
+                    subtitle='Нет файла'
+                    uploadStatus={status}
+                    size={2097152} // 2mb
+                    uploadDate={new Date().toLocaleDateString()}
+                    progressBar={progressBar}
+                    {...(checked !== 0 && { showDelete: true })}
+                    {...(isImg && { imageUrl: './images/gagarin_yu_a.png' })}
+                    {...(switchChecked && {iconStyle: 'colored'})}
+                    onDelete={handleDelete}
+                >
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
+            </div>
+            <Gap size={20} />
+            Контент
+            <Gap size={12} />
+            {radioButtons.map((button, index) => (
+                <React.Fragment key={button.title}>
+                    <Radio
+                        key={button.title}
+                        block={true}
+                        size={24}
+                        onChange={handleChange(index)}
+                        checked={checked === index}
+                        label={button.extension}
+                    />
+                    <Gap size={12} />
+                </React.Fragment>
+            ))}
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                checked={switchChecked}
+                label='Цветные иконки'
+                onChange={handleSwitchChange}
+            />
+        </React.Fragment>
+    );
+});
+```
+
+## Загрузка файла
+
+Результатом загрузки может быть как успех, так и ошибка.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [status, setStatus] = React.useState('INITIAL');
+    const [title, setTitle] = React.useState('Прикрепите файл');
+    const [progressBar, setProgressBar] = React.useState(0);
+    const [error, setError] = React.useState('');
+
+    const distance = 360;
+    const duration = 500;
+    let startAnimation = null;
+
+    const measure = (timestamp, status) => {
+        if (!startAnimation) {
+            startAnimation = timestamp;
         }
-        showDelete={true}
-    />
-</>
+
+        const progress = (timestamp - startAnimation) / duration;
+        const progressValue = progress * distance;
+        setProgressBar(progressValue);
+
+        if (progress < 1) {
+            return requestAnimationFrame((t) => measure(t, status));
+        }
+
+        if (status === 'SUCCESS') {
+            setStatus(status);
+        } else if (status === 'ERROR') {
+            setStatus('ERROR');
+            setError('Описание первой ошибки');
+        } else if (status === 'MULTI_ERROR') {
+            setStatus('ERROR');
+            setError(['Описание первой ошибки', 'Описание второй ошибки']);
+        }
+    };
+
+    const handleSuccessClick = () => {
+        setError('');
+        setProgressBar(0);
+        setStatus('UPLOADING');
+        setTitle('Пример.docx');
+        requestAnimationFrame((t) => measure(t, 'SUCCESS'));
+    };
+
+    const handleError = () => {
+        setProgressBar(0);
+        setStatus('UPLOADING');
+        requestAnimationFrame((t) => measure(t, 'ERROR'));
+    };
+
+    const handleMultiError = () => {
+        setProgressBar(0);
+        setStatus('UPLOADING');
+        requestAnimationFrame((t) => measure(t, 'MULTI_ERROR'));
+    };
+
+    return (
+        <React.Fragment>
+            <FileUploadItem
+                title={title}
+                subtitle='Нет файла'
+                uploadStatus={status}
+                progressBar={progressBar}
+                uploadDate='22.07.2024'
+                size={2097152} // 2mb
+                error={error}
+            >
+                <FileUploadItem.LeftAddon />
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>
+            <Gap size={20} />
+            <div>
+                <Button size={32} onClick={handleSuccessClick}>
+                    Успех
+                </Button>
+                <Gap size={8} direction='horizontal' />
+                <Button size={32} onClick={handleError}>
+                    Ошибка
+                </Button>
+                <Gap size={8} direction='horizontal' />
+                <Button size={32} onClick={handleMultiError}>
+                    Несколько ошибок
+                </Button>
+            </div>
+        </React.Fragment>
+    );
+});
+```
+
+## Действия с загруженным файлом
+
+Загруженный файл можно скачать или удалить, а удалённый восстановить.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [isRestore, showIsRestore] = React.useState({
+        element_1: false,
+        element_2: false,
+    });
+
+    const handleDelete = (element) => () => {
+        showIsRestore((prev) => ({
+            ...prev,
+            [element]: true,
+        }));
+    };
+
+    const handleRestore = (element) => () => {
+        showIsRestore((prev) => ({
+            ...prev,
+            [element]: false,
+        }));
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: 360 }}>
+                <FileUploadItem
+                    title='hello-world.docx'
+                    size={2097152}
+                    uploadDate='22.07.2024'
+                    uploadStatus={'UPLOADED'}
+                    showDelete={true}
+                    downloadLink='./txt/hello-world.docx'
+                    showRestore={isRestore.element_1}
+                    onDelete={handleDelete('element_1')}
+                    onRestore={handleRestore('element_1')}
+                >
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
+                <Gap size={20} />
+                <FileUploadItem
+                    title='gagarin_yu_a.png.png'
+                    size={27262976}
+                    uploadDate='01.05.1998'
+                    uploadStatus={'UPLOADED'}
+                    showDelete={true}
+                    downloadLink='./images/gagarin_yu_a.png'
+                    showRestore={isRestore.element_2}
+                    onDelete={handleDelete('element_2')}
+                    onRestore={handleRestore('element_2')}
+                    {...(!isRestore.element_2 && { imageUrl: './images/gagarin_yu_a.png' })}
+                    {...(isRestore.element_2 && { customIcon: () => <DocumentImageOffMIcon /> })}
+                >
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
+            </div>
+        </React.Fragment>
+    );
+});
+```
+
+## Примеры использования
+
+Использование в качестве кнопки для прикрепления файла. Прогресс загрузки файла может отображаться самой кнопкой. Такой подход хорошо подходит, когда нужно загрузить один файл.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [status, setStatus] = React.useState('INITIAL');
+    const [title, setTitle] = React.useState('Прикрепите файл');
+    const [size, setSize] = React.useState(0);
+    const [imageUrl, setImageUrl] = React.useState(null);
+    const [isImage, setIsImage] = React.useState(false);
+    const [isShowDelete, setIsShowDelete] = React.useState(false);
+    const inputRef = React.useRef(null);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setStatus('SUCCESS');
+        setTitle(file.name);
+        setSize(file.size);
+        setImageUrl('');
+        setIsShowDelete(true);
+
+        // если тип фала image, добавляем картинку как иконку
+        if (file && file.type.includes('image')) {
+            setIsImage(true);
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+                setImageUrl(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleDelete = () => {
+        setStatus('INITIAL');
+        setImageUrl('');
+        setTitle('Прикрепите файл');
+        setIsShowDelete(false);
+        inputRef.current.value = null;
+    };
+
+    return (
+        <React.Fragment>
+            <input
+                type='file'
+                id='file-upload-item-id'
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+                ref={inputRef}
+            />
+            <FileUploadItem
+                title={title}
+                subtitle='Нет файла'
+                uploadStatus={status}
+                uploadDate={new Date().toLocaleDateString()}
+                size={size}
+                showDelete={isShowDelete}
+                onDelete={handleDelete}
+                {...(isImage && { imageUrl })}
+            >
+                <label htmlFor='file-upload-item-id' style={{ display: 'flex', width: 320 }}>
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                </label>
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>
+        </React.Fragment>
+    );
+});
+```
+
+Использование в качестве элемента списка файлов. Здесь, прогресс загрузки отображает не кнопка, а отдельный элемент, который появляется после выбора файла. Такой подход хорошо подходит, когда нужно загрузить несколько файлов.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [files, setFiles] = React.useState([]);
+
+    const distance = 360;
+    const duration = 500;
+    let startAnimation = null;
+
+    const measure = (timestamp, index) => {
+        if (!startAnimation) {
+            startAnimation = timestamp;
+        }
+
+        const progress = (timestamp - startAnimation) / duration;
+        const progressValue = progress * distance;
+
+        setFiles((prevFiles) => {
+            const newFiles = [...prevFiles];
+            newFiles[index].progress = progressValue;
+            return newFiles;
+        });
+
+        if (progress < 1) {
+            return requestAnimationFrame((t) => measure(t, index));
+        }
+
+        setFiles((prevFiles) => {
+            const newFiles = [...prevFiles];
+            newFiles[index].status = 'SUCCESS';
+            return newFiles;
+        });
+    };
+
+    const handleFileChange = (event) => {
+        const selectedFiles = Array.from(event.target.files);
+        const newFiles = selectedFiles.map((file) => ({
+            file,
+            progress: 0,
+            status: 'UPLOADING',
+        }));
+
+        setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+
+        newFiles.forEach((file, index) =>
+            requestAnimationFrame((t) => measure(t, index + files.length)),
+        );
+
+        event.target.value = null;
+    };
+
+    const handleDelete = (name) => () => {
+        setFiles((prevFiles) => [...prevFiles.filter((item) => item.file.name !== name)]);
+    };
+
+    return (
+        <React.Fragment>
+            <input
+                type='file'
+                multiple='multiple'
+                id='multi-file-input-id'
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+            />
+            {files.map((item) => {
+                return (
+                    <div key={item.file.name} style={{ width: isMobile() ? 320 : 360 }}>
+                        <FileUploadItem
+                            title={item.file.name}
+                            size={item.file.size}
+                            uploadDate={new Date(item.file.lastModifiedDate).toLocaleDateString()}
+                            uploadStatus={item.status}
+                            progressBar={item.progress}
+                            showDelete={true}
+                            onDelete={handleDelete(item.file.name)}
+                        >
+                            <FileUploadItem.LeftAddon />
+                            <FileUploadItem.Content />
+                            <FileUploadItem.RightAddon />
+                        </FileUploadItem>
+                        <Gap size={20} />
+                    </div>
+                );
+            })}
+            <FileUploadItem title='Прикрепите файл' subtitle='Нет файла' uploadStatus='INITIAL'>
+                <label htmlFor='multi-file-input-id' style={{ display: 'flex', width: 320 }}>
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </label>
+            </FileUploadItem>
+        </React.Fragment>
+    );
+});
+```
+
+## Кастомизация
+
+Каждый слот компонента может быть кастомизирован.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const commonStyles = {
+        height: 48,
+        border: '1px dashed var(--color-light-status-info)',
+        borderRadius: '8px',
+        backgroundColor: 'var(--color-light-status-muted-alt-info)',
+    };
+
+    const leftAddonStyles = {
+        width: 48,
+        ...commonStyles,
+    };
+
+    const contentStyles = {
+        width: 232,
+        ...commonStyles,
+    };
+
+    const rightAddonStyles = {
+        width: 80,
+        ...commonStyles,
+    };
+
+    return (
+        <FileUploadItem>
+            <div style={leftAddonStyles}></div>
+            <div style={contentStyles}></div>
+            <div style={rightAddonStyles}></div>
+        </FileUploadItem>
+    );
+});
 ```

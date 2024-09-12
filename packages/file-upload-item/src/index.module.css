@@ -1,125 +1,14 @@
 @import '../../vars/src/index.css';
 
 .component {
-    @mixin paragraph_secondary_large;
-
+    box-sizing: border-box;
     display: flex;
     align-items: flex-start;
     width: 100%;
-    padding: var(--gap-8);
-    color: var(--color-light-text-secondary);
-    box-shadow: 0 -1px 0 0 var(--color-light-neutral-300) inset;
-    box-sizing: border-box;
-
-    & svg {
-        display: block;
-    }
-
-    &:last-child {
-        box-shadow: none;
-    }
-}
-
-.infoSection {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    margin-top: var(--gap-4);
-    margin-left: var(--gap-12);
-    min-width: 40%;
-}
-
-.info {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-    overflow: hidden;
-}
-
-.icon {
-    display: block;
-    flex-shrink: 0;
-    color: var(--color-light-neutral-translucent-1300);
-}
-
-.errorIcon {
-    flex-shrink: 0;
-    color: var(--color-light-status-negative);
-}
-
-.successIcon {
-    flex-shrink: 0;
-    color: var(--color-light-status-positive);
-}
-
-.name {
-    color: var(--color-light-text-primary);
-
-    & a {
-        display: block;
-        margin-bottom: 1px;
-    }
-
-    &.rowLimit {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-
-.meta {
-    display: flex;
-    white-space: nowrap;
-    margin-right: var(--gap-4);
-    margin-left: 36px;
-    padding: var(--gap-4) var(--gap-0);
-
-    & > * {
-        margin-right: var(--gap-12);
-
-        &:last-child {
-            margin-right: var(--gap-0);
-        }
-    }
-}
-
-.size {
-    text-align: right;
-}
-
-.delete,
-.download {
-    height: 24px;
-    width: 24px;
-    margin-left: var(--gap-8);
-}
-
-.errorWrapper {
-    margin-top: var(--gap-4);
-    color: var(--color-light-text-negative);
+    min-height: 48px;
 }
 
 .restore {
-    @mixin paragraph_primary_small;
-
     margin-left: var(--gap-12);
     margin-top: var(--gap-2);
-}
-
-.spinnerWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-}
-
-.spinner {
-    width: 20px;
-    height: 20px;
-}
-
-.uploadPercent {
-    margin-top: var(--gap-4);
-    margin-left: var(--gap-24);
 }

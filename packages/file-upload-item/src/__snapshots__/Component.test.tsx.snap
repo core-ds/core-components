@@ -6,205 +6,225 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component success"
+        class="component initial"
       >
         <div
-          class="info"
+          class="container"
         >
-          <svg
-            class="successIcon"
-            fill="currentColor"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-              fill-rule="evenodd"
-            />
-          </svg>
           <div
-            class="infoSection"
+            class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
           >
             <div
-              class="name rowLimit"
+              class="icon-view__component_1avi8"
+              style="width: 48px; height: 48px;"
             >
-              Довольно длинное название файла.pdf
+              <svg
+                focusable="false"
+                height="48"
+                viewBox="0 0 48 48"
+                width="48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="icon-view__bg_1avi8"
+                  d="M0.780288 12.3158C1.65342 6.21531 6.21531 1.65342 12.3158 0.780288C15.4298 0.334589 19.3246 0 24 0C28.6754 0 32.5702 0.334589 35.6842 0.780288C41.7847 1.65342 46.3466 6.21531 47.2197 12.3158C47.6654 15.4298 48 19.3246 48 24C48 28.6754 47.6654 32.5702 47.2197 35.6842C46.3466 41.7847 41.7847 46.3466 35.6842 47.2197C32.5702 47.6654 28.6754 48 24 48C19.3246 48 15.4298 47.6654 12.3158 47.2197C6.21531 46.3466 1.65342 41.7847 0.780288 35.6842C0.334589 32.5702 0 28.6754 0 24C0 19.3246 0.334589 15.4298 0.780288 12.3158Z"
+                  style="fill: var(--color-light-neutral-translucent-100);"
+                />
+              </svg>
+              <div
+                class="icon-view__children_1avi8"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12.78 3.63a4.507 4.507 0 016.373 6.373l-7.42 7.42a2.705 2.705 0 11-3.826-3.825l6.905-6.905 1.273 1.273-6.905 6.905a.905.905 0 001.28 1.28l7.42-7.42a2.707 2.707 0 10-3.827-3.829l-7.415 7.414a4.52 4.52 0 106.393 6.393l3.093-3.094a11.167 11.167 0 014.365-2.698l.57 1.708a9.368 9.368 0 00-3.662 2.263l-3.094 3.093a6.32 6.32 0 11-8.937-8.938L12.78 3.63z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
           <div
-            class="meta"
+            class="progress"
           >
-            <span>
-              22.01.2018
-            </span>
-            <span
-              class="size"
+            <svg
+              fill="none"
+              height="56"
+              width="56"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              43.95 КБ
-            </span>
+              <mask
+                height="56"
+                id="b"
+                maskUnits="userSpaceOnUse"
+                style="mask-type: alpha;"
+                width="56"
+                x="0"
+                y="0"
+              >
+                <mask
+                  fill="#fff"
+                  id="a"
+                >
+                  <path
+                    d="M15.855.814C19.13.345 23.178 0 28 0c4.822 0 8.87.345 12.145.814 7.916 1.133 13.908 7.125 15.041 15.041C55.655 19.13 56 23.178 56 28c0 4.822-.345 8.87-.814 12.145-1.133 7.916-7.125 13.908-15.041 15.041C36.87 55.655 32.822 56 28 56c-4.822 0-8.87-.345-12.145-.814C7.94 54.053 1.947 48.061.814 40.145.345 36.87 0 32.822 0 28c0-4.822.345-8.87.814-12.145C1.947 7.94 7.939 1.947 15.855.814Z"
+                  />
+                </mask>
+                <path
+                  d="m15.855.814.284 1.98-.284-1.98Zm24.29 0-.284 1.98.284-1.98Zm15.041 15.041-1.98.284 1.98-.284Zm0 24.29-1.98-.284 1.98.284ZM40.145 55.186l-.284-1.98.284 1.98Zm-24.29 0 .284-1.98-.284 1.98ZM.814 40.145l1.98-.284-1.98.284Zm0-24.29-1.98-.283 1.98.283ZM28-2c-4.918 0-9.061.352-12.428.834l.567 3.96C19.319 2.338 23.274 2 28 2v-4Zm12.428.834C37.061-1.648 32.918-2 28-2v4c4.726 0 8.68.338 11.861.794l.567-3.96Zm16.738 16.738C55.907 6.776 49.224.092 40.428-1.166l-.567 3.96C46.9 3.8 52.2 9.102 53.206 16.139l3.96-.567ZM58 28c0-4.918-.352-9.061-.834-12.428l-3.96.567C53.662 19.319 54 23.274 54 28h4Zm-.834 12.428C57.648 37.061 58 32.918 58 28h-4c0 4.726-.338 8.68-.794 11.861l3.96.567ZM40.428 57.166c8.796-1.259 15.48-7.942 16.738-16.738l-3.96-.567C52.2 46.9 46.898 52.2 39.861 53.206l.567 3.96ZM28 58c4.918 0 9.061-.352 12.428-.834l-.567-3.96C36.681 53.662 32.726 54 28 54v4Zm-12.428-.834c3.367.482 7.51.834 12.428.834v-4c-4.726 0-8.68-.338-11.861-.794l-.567 3.96ZM-1.166 40.428c1.259 8.796 7.942 15.48 16.738 16.738l.567-3.96C9.102 52.2 3.8 46.898 2.794 39.861l-3.96.567ZM-2 28c0 4.918.352 9.061.834 12.428l3.96-.567C2.338 36.681 2 32.726 2 28h-4Zm.834-12.428C-1.648 18.939-2 23.082-2 28h4c0-4.726.338-8.68.794-11.861l-3.96-.567ZM15.572-1.166C6.776.093.092 6.776-1.166 15.572l3.96.567C3.8 9.102 9.102 3.8 16.139 2.794l-.567-3.96Z"
+                  fill="#000"
+                  mask="url(#a)"
+                />
+              </mask>
+              <g
+                mask="url(#b)"
+              >
+                <circle
+                  cx="28"
+                  cy="28"
+                  fill="transparent"
+                  r="32"
+                />
+              </g>
+            </svg>
           </div>
         </div>
-        <a
-          aria-label="скачать"
-          class="component text size-48 hug size-48 component text component text cc-icon-button download primary component"
-          download="новое_название_файла"
-          href="/link"
+        <div
+          class="container"
         >
           <span
-            class="label stretchText"
+            class="title primary component"
           >
-            <span
-              class="iconWrapper size-24 center"
-            >
-              <svg
-                class="icon"
-                fill="currentColor"
-                focusable="false"
-                height="16"
-                role="img"
-                viewBox="0 0 16 16"
-                width="16"
-              >
-                <path
-                  d="M10.963 6.623L8.667 8.87V2H7.333v6.87L5.037 6.622l-.932.954L8 11.387l3.895-3.81-.932-.954zM13.333 14v-1.333H2.667V14h10.666z"
-                />
-              </svg>
-            </span>
+            title
           </span>
-        </a>
-        <button
-          aria-label="удалить"
-          class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component"
-          type="button"
-        >
           <span
-            class="label stretchText"
+            class="subtitle secondary primary-small"
           >
-            <span
-              class="iconWrapper size-24 center"
-            >
-              <svg
-                class="icon"
-                fill="currentColor"
-                focusable="false"
-                height="16"
-                role="img"
-                viewBox="0 0 16 16"
-                width="16"
-              >
-                <path
-                  d="M7.057 8L4 11l1 1 3-3.057L11 12l1-1-3.057-3L12 5l-1-1-3 3.057L5 4 4 5l3.057 3z"
-                />
-              </svg>
-            </span>
+            subtitle
           </span>
-        </button>
+        </div>
+        <div
+          class="container"
+        />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="component success"
+      class="component initial"
     >
       <div
-        class="info"
+        class="container"
       >
-        <svg
-          class="successIcon"
-          fill="currentColor"
-          focusable="false"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-            fill-rule="evenodd"
-          />
-        </svg>
         <div
-          class="infoSection"
+          class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
         >
           <div
-            class="name rowLimit"
+            class="icon-view__component_1avi8"
+            style="width: 48px; height: 48px;"
           >
-            Довольно длинное название файла.pdf
+            <svg
+              focusable="false"
+              height="48"
+              viewBox="0 0 48 48"
+              width="48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="icon-view__bg_1avi8"
+                d="M0.780288 12.3158C1.65342 6.21531 6.21531 1.65342 12.3158 0.780288C15.4298 0.334589 19.3246 0 24 0C28.6754 0 32.5702 0.334589 35.6842 0.780288C41.7847 1.65342 46.3466 6.21531 47.2197 12.3158C47.6654 15.4298 48 19.3246 48 24C48 28.6754 47.6654 32.5702 47.2197 35.6842C46.3466 41.7847 41.7847 46.3466 35.6842 47.2197C32.5702 47.6654 28.6754 48 24 48C19.3246 48 15.4298 47.6654 12.3158 47.2197C6.21531 46.3466 1.65342 41.7847 0.780288 35.6842C0.334589 32.5702 0 28.6754 0 24C0 19.3246 0.334589 15.4298 0.780288 12.3158Z"
+                style="fill: var(--color-light-neutral-translucent-100);"
+              />
+            </svg>
+            <div
+              class="icon-view__children_1avi8"
+            >
+              <svg
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M12.78 3.63a4.507 4.507 0 016.373 6.373l-7.42 7.42a2.705 2.705 0 11-3.826-3.825l6.905-6.905 1.273 1.273-6.905 6.905a.905.905 0 001.28 1.28l7.42-7.42a2.707 2.707 0 10-3.827-3.829l-7.415 7.414a4.52 4.52 0 106.393 6.393l3.093-3.094a11.167 11.167 0 014.365-2.698l.57 1.708a9.368 9.368 0 00-3.662 2.263l-3.094 3.093a6.32 6.32 0 11-8.937-8.938L12.78 3.63z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
-          class="meta"
+          class="progress"
         >
-          <span>
-            22.01.2018
-          </span>
-          <span
-            class="size"
+          <svg
+            fill="none"
+            height="56"
+            width="56"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            43.95 КБ
-          </span>
+            <mask
+              height="56"
+              id="b"
+              maskUnits="userSpaceOnUse"
+              style="mask-type: alpha;"
+              width="56"
+              x="0"
+              y="0"
+            >
+              <mask
+                fill="#fff"
+                id="a"
+              >
+                <path
+                  d="M15.855.814C19.13.345 23.178 0 28 0c4.822 0 8.87.345 12.145.814 7.916 1.133 13.908 7.125 15.041 15.041C55.655 19.13 56 23.178 56 28c0 4.822-.345 8.87-.814 12.145-1.133 7.916-7.125 13.908-15.041 15.041C36.87 55.655 32.822 56 28 56c-4.822 0-8.87-.345-12.145-.814C7.94 54.053 1.947 48.061.814 40.145.345 36.87 0 32.822 0 28c0-4.822.345-8.87.814-12.145C1.947 7.94 7.939 1.947 15.855.814Z"
+                />
+              </mask>
+              <path
+                d="m15.855.814.284 1.98-.284-1.98Zm24.29 0-.284 1.98.284-1.98Zm15.041 15.041-1.98.284 1.98-.284Zm0 24.29-1.98-.284 1.98.284ZM40.145 55.186l-.284-1.98.284 1.98Zm-24.29 0 .284-1.98-.284 1.98ZM.814 40.145l1.98-.284-1.98.284Zm0-24.29-1.98-.283 1.98.283ZM28-2c-4.918 0-9.061.352-12.428.834l.567 3.96C19.319 2.338 23.274 2 28 2v-4Zm12.428.834C37.061-1.648 32.918-2 28-2v4c4.726 0 8.68.338 11.861.794l.567-3.96Zm16.738 16.738C55.907 6.776 49.224.092 40.428-1.166l-.567 3.96C46.9 3.8 52.2 9.102 53.206 16.139l3.96-.567ZM58 28c0-4.918-.352-9.061-.834-12.428l-3.96.567C53.662 19.319 54 23.274 54 28h4Zm-.834 12.428C57.648 37.061 58 32.918 58 28h-4c0 4.726-.338 8.68-.794 11.861l3.96.567ZM40.428 57.166c8.796-1.259 15.48-7.942 16.738-16.738l-3.96-.567C52.2 46.9 46.898 52.2 39.861 53.206l.567 3.96ZM28 58c4.918 0 9.061-.352 12.428-.834l-.567-3.96C36.681 53.662 32.726 54 28 54v4Zm-12.428-.834c3.367.482 7.51.834 12.428.834v-4c-4.726 0-8.68-.338-11.861-.794l-.567 3.96ZM-1.166 40.428c1.259 8.796 7.942 15.48 16.738 16.738l.567-3.96C9.102 52.2 3.8 46.898 2.794 39.861l-3.96.567ZM-2 28c0 4.918.352 9.061.834 12.428l3.96-.567C2.338 36.681 2 32.726 2 28h-4Zm.834-12.428C-1.648 18.939-2 23.082-2 28h4c0-4.726.338-8.68.794-11.861l-3.96-.567ZM15.572-1.166C6.776.093.092 6.776-1.166 15.572l3.96.567C3.8 9.102 9.102 3.8 16.139 2.794l-.567-3.96Z"
+                fill="#000"
+                mask="url(#a)"
+              />
+            </mask>
+            <g
+              mask="url(#b)"
+            >
+              <circle
+                cx="28"
+                cy="28"
+                fill="transparent"
+                r="32"
+              />
+            </g>
+          </svg>
         </div>
       </div>
-      <a
-        aria-label="скачать"
-        class="component text size-48 hug size-48 component text component text cc-icon-button download primary component"
-        download="новое_название_файла"
-        href="/link"
+      <div
+        class="container"
       >
         <span
-          class="label stretchText"
+          class="title primary component"
         >
-          <span
-            class="iconWrapper size-24 center"
-          >
-            <svg
-              class="icon"
-              fill="currentColor"
-              focusable="false"
-              height="16"
-              role="img"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <path
-                d="M10.963 6.623L8.667 8.87V2H7.333v6.87L5.037 6.622l-.932.954L8 11.387l3.895-3.81-.932-.954zM13.333 14v-1.333H2.667V14h10.666z"
-              />
-            </svg>
-          </span>
+          title
         </span>
-      </a>
-      <button
-        aria-label="удалить"
-        class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component"
-        type="button"
-      >
         <span
-          class="label stretchText"
+          class="subtitle secondary primary-small"
         >
-          <span
-            class="iconWrapper size-24 center"
-          >
-            <svg
-              class="icon"
-              fill="currentColor"
-              focusable="false"
-              height="16"
-              role="img"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <path
-                d="M7.057 8L4 11l1 1 3-3.057L11 12l1-1-3.057-3L12 5l-1-1-3 3.057L5 4 4 5l3.057 3z"
-              />
-            </svg>
-          </span>
+          subtitle
         </span>
-      </button>
+      </div>
+      <div
+        class="container"
+      />
     </div>
   </div>,
   "debug": [Function],

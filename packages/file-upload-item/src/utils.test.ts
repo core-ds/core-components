@@ -1,4 +1,12 @@
-import { humanFileSize } from './utils';
+import {
+    getExtension,
+    humanFileSize,
+    isErrorStatus,
+    isInitialStatus,
+    isSuccessStatus,
+    isUploadedStatus,
+    isUploadingStatus,
+} from './utils';
 
 describe('humanFileSize', () => {
     const cases = [
@@ -20,5 +28,29 @@ describe('humanFileSize', () => {
 
     it.each(cases)('humanFileSize(%i)', (a, expected) => {
         expect(humanFileSize(a)).toBe(expected);
+    });
+});
+
+describe('getExtension', () => {
+    it('should docx', () => {
+        expect(getExtension('Имя файла.docx')).toBe('docx');
+    });
+});
+
+describe('check sattuses', () => {
+    it('should initial status', () => {
+        expect(isInitialStatus('INITIAL')).toBeTruthy();
+    });
+    it('should success status', () => {
+        expect(isSuccessStatus('SUCCESS')).toBeTruthy();
+    });
+    it('should error status', () => {
+        expect(isErrorStatus('ERROR')).toBeTruthy();
+    });
+    it('should uploading status', () => {
+        expect(isUploadingStatus('UPLOADING')).toBeTruthy();
+    });
+    it('should uploaded status', () => {
+        expect(isUploadedStatus('UPLOADED')).toBeTruthy();
     });
 });
