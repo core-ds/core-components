@@ -1,0 +1,18 @@
+@import './vars.css';
+
+.component {
+    background: var(--skeleton-default-color);
+}
+
+.animate:before {
+    animation-name: background;
+}
+
+@keyframes background {
+    0% {
+        background: var(--color-light-neutral-translucent-100);
+    }
+    100% {
+        background: var(--color-light-neutral-translucent-300);
+    }
+}

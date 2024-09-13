@@ -914,25 +914,25 @@ exports[`Calendar Render tests should render skeleton when calendarVisible=\`fal
       class="skeleton"
     >
       <div
-        class="component animate header"
+        class="component component animate header"
       />
       <div
-        class="component animate weekDays"
+        class="component component animate weekDays"
       />
       <div
-        class="component animate row"
+        class="component component animate row"
       />
       <div
-        class="component animate row"
+        class="component component animate row"
       />
       <div
-        class="component animate row"
+        class="component component animate row"
       />
       <div
-        class="component animate row"
+        class="component component animate row"
       />
       <div
-        class="component animate row"
+        class="component component animate row"
       />
     </div>
   </div>
