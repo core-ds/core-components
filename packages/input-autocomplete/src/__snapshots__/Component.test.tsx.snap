@@ -227,7 +227,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               />
                             </div>
                             <div
-                              class="mask"
+                              class="mask mask"
                               style=""
                             >
                               <div
