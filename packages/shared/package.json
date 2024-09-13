@@ -20,6 +20,6 @@
     "devDependencies": {
         "@maskito/core": "^1.7.0"
     },
-    "themesVersion": "13.0.2",
-    "varsVersion": "9.11.1"
+    "themesVersion": "13.1.0",
+    "varsVersion": "9.12.0"
 }

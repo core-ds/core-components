@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --modal-border-radius: var(--border-radius-l);
@@ -14,8 +14,8 @@
     --modal-xl-width: 1140px;
 
     /* paddings */
-    --modal-s-header-paddings: 28px 28px 0;
-    --modal-s-content-paddings: var(--gap-40) var(--gap-40) 0;
+    --modal-s-header-paddings: 28px 28px var(--gap-0);
+    --modal-s-content-paddings: var(--gap-40) var(--gap-40) var(--gap-0);
     --modal-s-content-only-bottom-padding: var(--gap-40);
     --modal-s-footer-paddings: var(--gap-24) var(--gap-40) var(--gap-40);
 

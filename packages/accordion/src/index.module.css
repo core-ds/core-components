@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .accordion {
     width: 100%;
@@ -46,5 +46,5 @@
 }
 
 .startPosition {
-    margin-left: 0;
+    margin-left: var(--gap-0);
 }

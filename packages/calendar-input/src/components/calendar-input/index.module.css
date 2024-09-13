@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../../../calendar/src/vars.css';
 
 :root {
@@ -46,8 +46,8 @@
 .nativeInput {
     opacity: 0;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
     width: 100%;
     height: 100%;
     appearance: none;

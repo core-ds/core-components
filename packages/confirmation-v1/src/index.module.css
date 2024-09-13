@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import './vars.css';
 
 .component {
@@ -53,7 +53,7 @@
     margin-bottom: var(--gap-8);
 
     &:last-child {
-        margin-bottom: 0;
+        margin-bottom: var(--gap-0);
     }
 }
 

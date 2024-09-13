@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .headerWrapper {
@@ -18,7 +18,7 @@
 
 .sticky {
     position: sticky;
-    top: 0;
+    top: var(--gap-0);
 }
 
 .highlighted {

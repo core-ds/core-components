@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .bar {
     background: var(--color-light-neutral-translucent-300);

@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.1.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1362](https://github.com/core-ds/core-components/pull/1362)
+
+-   Обновили corp темизацию в компоненте Tabs
+
 ## 13.0.2
 
 ### Patch Changes

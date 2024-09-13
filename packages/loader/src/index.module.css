@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     width: 24px;
@@ -33,7 +33,7 @@
     & div:nth-child(3) {
         animation-delay: 300ms;
         transform-origin: 85% 50%;
-        margin-right: 0;
+        margin-right: var(--gap-0);
     }
 }
 

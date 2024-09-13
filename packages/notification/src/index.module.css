@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --notification-desktop-content-width: 278px;
@@ -47,6 +47,6 @@
 .actionSection {
     min-width: 104px;
     min-height: 48px;
-    padding: 0 var(--gap-8);
-    margin: var(--gap-12-neg) 0;
+    padding: var(--gap-0) var(--gap-8);
+    margin: var(--gap-12-neg) var(--gap-0);
 }

@@ -5,7 +5,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin: 0;
+    margin: var(--gap-0);
     font-family: var(--font-family);
     text-decoration: none;
     border-width: var(--tag-border-width);
@@ -41,7 +41,7 @@
     }
 
     &:only-child {
-        margin: 0;
+        margin: var(--gap-0);
     }
 }
 
@@ -70,7 +70,7 @@
 .size-32 {
     min-width: 60px;
     min-height: var(--size-xxs-height);
-    padding: 0 var(--gap-16);
+    padding: var(--gap-0) var(--gap-16);
     font-size: 14px;
     line-height: 20px;
     font-weight: normal;
@@ -79,7 +79,7 @@
 .size-40 {
     min-width: 72px;
     min-height: var(--size-xs-height);
-    padding: 0 var(--gap-20);
+    padding: var(--gap-0) var(--gap-20);
     font-size: 14px;
     line-height: 20px;
     font-weight: normal;
@@ -88,7 +88,7 @@
 .size-48 {
     min-width: 80px;
     min-height: var(--size-s-height);
-    padding: 0 var(--gap-24);
+    padding: var(--gap-0) var(--gap-24);
     font-size: 16px;
     line-height: 20px;
     font-weight: normal;
@@ -98,21 +98,21 @@
     @mixin action_component;
     min-width: 96px;
     min-height: var(--size-m-height);
-    padding: 0 28px;
+    padding: var(--gap-0) 28px;
 }
 
 .size-64 {
     @mixin action_primary_large;
     min-width: 120px;
     min-height: var(--size-l-height);
-    padding: 0 var(--gap-32);
+    padding: var(--gap-0) var(--gap-32);
 }
 
 .size-72 {
     @mixin action_primary_large;
     min-width: 120px;
     min-height: var(--size-xl-height);
-    padding: 0 36px;
+    padding: var(--gap-0) 36px;
 }
 
 .withRightAddons {

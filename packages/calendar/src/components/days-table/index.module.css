@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .daysTable {
@@ -11,11 +11,11 @@
     }
 
     & th {
-        padding: 0;
+        padding: var(--gap-0);
     }
 
     & td {
-        padding: var(--gap-4) 0 0;
+        padding: var(--gap-4) var(--gap-0) var(--gap-0);
     }
 }
 
@@ -108,8 +108,8 @@
         content: '';
         display: block;
         position: absolute;
-        left: 0;
-        bottom: 0;
+        left: var(--gap-0);
+        bottom: var(--gap-0);
         width: 100%;
         height: var(--calendar-day-size);
     }
@@ -150,7 +150,7 @@
 .rangeStart {
     &:before {
         left: auto;
-        right: 0;
+        right: var(--gap-0);
         width: calc(50% + 20px);
         border-top-left-radius: var(--calendar-day-border-radius);
         border-bottom-left-radius: var(--calendar-day-border-radius);
@@ -177,7 +177,7 @@
         display: block;
         width: 100%;
         height: var(--calendar-day-size);
-        bottom: 0;
+        bottom: var(--gap-0);
         pointer-events: none;
     }
 }
@@ -198,7 +198,7 @@
         }
 
         &:after {
-            right: 0;
+            right: var(--gap-0);
         }
     }
 }
@@ -219,7 +219,7 @@
         }
 
         &:after {
-            left: 0;
+            left: var(--gap-0);
         }
     }
 }
@@ -316,7 +316,7 @@
         flex-direction: column;
         justify-content: flex-end;
         height: inherit;
-        padding: 0 var(--gap-2);
+        padding: var(--gap-0) var(--gap-2);
     }
 }
 
@@ -335,7 +335,7 @@
 .dot {
     display: block;
     position: absolute;
-    bottom: 4px;
+    bottom: var(--gap-4);
     width: 4px;
     min-height: 4px;
     left: 50%;
@@ -351,7 +351,7 @@
 .daysEnter {
     opacity: 0;
     position: absolute;
-    left: 0;
+    left: var(--gap-0);
 }
 
 .daysEnterActive {
@@ -373,7 +373,7 @@
 }
 
 .bottomAddon {
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 
     &.selected,
     &.selected > * {

@@ -1,12 +1,12 @@
 #docs-root > .sbdocs-wrapper {
     max-width: 720px;
-    padding: 0 calc(min(12px, 8vw)) 48px;
-    margin: 48px auto 0 !important;
+    padding: var(--gap-0) calc(min(12px, 8vw)) var(--gap-48);
+    margin: var(--gap-48) auto var(--gap-0) !important;
     box-sizing: border-box;
 }
 
 div.lib {
-    margin-top: 0;
+    margin-top: var(--gap-0);
 }
 
 #docs-root {
@@ -25,9 +25,9 @@ div.lib {
     width: 100%;
     font-size: 40px;
     font-weight: 700;
-    margin: 0 0 20px;
+    margin: var(--gap-0) var(--gap-0) var(--gap-20);
     line-height: 54px;
-    padding: 0;
+    padding: var(--gap-0);
     box-shadow: none;
     font-family: inherit;
 }
@@ -43,7 +43,7 @@ div.lib {
     font-weight: 600;
 
     position: relative;
-    padding: 3px 2px;
+    padding: 3px var(--gap-2);
     max-width: 100%;
     white-space: pre-wrap;
     word-break: break-word;

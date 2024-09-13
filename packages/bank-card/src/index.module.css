@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 /* purgecss ignore */
 .component {
@@ -29,10 +29,10 @@
 
 .content {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: var(--gap-0);
+    right: var(--gap-0);
+    bottom: var(--gap-0);
+    left: var(--gap-0);
     display: flex;
     align-items: center;
     padding-left: var(--gap-20);
@@ -42,7 +42,7 @@
 }
 
 .label {
-    left: 0;
+    left: var(--gap-0);
     transform: translateY(-1px);
     color: var(--color-light-text-secondary);
     font-size: 20px;
@@ -74,7 +74,7 @@
     caret-color: var(--color-light-neutral-translucent-1300);
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
-    padding-left: 0 !important;
+    padding-left: var(--gap-0) !important;
     padding-bottom: var(--gap-4) !important;
 
     @media (max-width: 360px) {
@@ -84,8 +84,8 @@
 
 .bankLogo {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: var(--gap-20);
+    left: var(--gap-20);
 
     & svg {
         max-height: 32px;
@@ -100,8 +100,8 @@
 
 .brandLogo {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: var(--gap-20);
+    right: var(--gap-20);
 
     & svg {
         display: block;
@@ -111,8 +111,8 @@
 
 .usePhoto {
     display: block;
-    margin: 0;
-    padding: 0;
+    margin: var(--gap-0);
+    padding: var(--gap-0);
     text-decoration: none;
     background-color: transparent;
     border: 0;

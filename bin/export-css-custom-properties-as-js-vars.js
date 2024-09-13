@@ -9,7 +9,7 @@ const distPath = '../packages/vars/dist';
 
 fs.mkdirSync(path.resolve(__dirname, distPath), { recursive: true });
 
-const BUILDS = ['es5', 'cssm', 'esm', 'modern'];
+const BUILDS = ['es5', 'cssm', 'moderncssm', 'esm', 'modern'];
 
 function ensureDirectoryExist(filePath) {
     const dirname = path.dirname(filePath);
@@ -30,7 +30,9 @@ function createExporter(buildName) {
         const contents = Object.keys(variables).reduce(function (buffer, key) {
             return (
                 buffer +
-                (['es5', 'cssm'].includes(buildName) ? 'module.exports.' : 'export const ') +
+                (['es5', 'cssm', 'moderncssm'].includes(buildName)
+                    ? 'module.exports.'
+                    : 'export const ') +
                 key +
                 ' = ' +
                 JSON.stringify(variables[key]).replace(/(^|{|,)"(.+?)":/g, '$1$2:') +

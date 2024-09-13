@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     position: static;
@@ -22,5 +22,5 @@
 }
 
 .dialCode {
-    color: var(--text-secondary-color);
+    color: var(--color-light-text-secondary);
 }

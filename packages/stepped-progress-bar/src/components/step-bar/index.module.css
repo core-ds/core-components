@@ -8,7 +8,7 @@
 }
 
 .bar:last-child {
-    margin-right: 0;
+    margin-right: var(--gap-0);
 }
 
 @each $background in positive, attention, negative, link, tertiary, secondary, primary, accent {

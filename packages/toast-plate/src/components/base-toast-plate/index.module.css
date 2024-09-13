@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -12,7 +12,7 @@
 
     &.hasCloser {
         /* 2×16 + 24 */
-        padding-right: 56px;
+        padding-right: var(--gap-56);
     }
 }
 
@@ -50,7 +50,7 @@
     flex-shrink: 0;
 
     &:not(.hasCloser) {
-        padding-right: 0;
+        padding-right: var(--gap-0);
     }
 
     &.bottomButton {
@@ -66,7 +66,7 @@
 }
 
 .contentTitle {
-    padding: var(--gap-2) 0;
+    padding: var(--gap-2) var(--gap-0);
 }
 
 .children {

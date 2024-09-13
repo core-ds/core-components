@@ -1,5 +1,7 @@
+@import '../../../../vars/src/index.css';
+
 .component {
     & .addons {
-        padding-left: 0;
+        padding-left: var(--gap-0);
     }
 }

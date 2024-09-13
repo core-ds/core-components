@@ -82,7 +82,7 @@ export function compiledDarkmodeGenerator(dist) {
             const generationConfig = ['mobile-dark-bluetint'];
 
             const componentStyles = await globby([`${dist}/**/*.css`], {
-                ignore: ['**/cssm/**', '**/esm/**', '**/modern/**', '**/src/**'],
+                ignore: ['**/cssm/**', '**/moderncssm/**', '**/esm/**', '**/modern/**', '**/src/**'],
             });
 
             const saveTheme = async (css, fileName) => {

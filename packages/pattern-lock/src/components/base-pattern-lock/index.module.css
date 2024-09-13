@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -10,7 +10,7 @@
 
     & canvas {
         display: block;
-        margin: 0 auto;
+        margin: var(--gap-0) auto;
     }
 
     & .canvasContainer {
@@ -21,7 +21,7 @@
 
         & .canvasInner {
             box-sizing: border-box;
-            padding: 0 var(--gap-16);
+            padding: var(--gap-0) var(--gap-16);
             min-width: var(--pattern-lock-min-height);
         }
     }

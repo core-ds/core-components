@@ -1,5 +1,5 @@
 @import '../../vars.css';
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
@@ -10,7 +10,7 @@
     width: 36px;
     height: 48px;
     margin-right: var(--gap-8);
-    padding: 0;
+    padding: var(--gap-0);
     background-color: var(--confirmation-input-bg-color);
     border: none;
     border-radius: var(--border-radius-s);
@@ -29,7 +29,7 @@
     }
 
     &.center {
-        margin: 0 var(--gap-4);
+        margin: var(--gap-0) var(--gap-4);
     }
 
     &.disabled {

@@ -1,8 +1,8 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     position: sticky;
-    left: 0;
+    left: var(--gap-0);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -19,11 +19,11 @@
 .tag.tag {
     flex-shrink: 0;
     margin-right: var(--gap-8);
-    padding: 0 var(--gap-8);
+    padding: var(--gap-0) var(--gap-8);
     min-width: 32px;
 
     &:last-child {
-        margin-right: 0;
+        margin-right: var(--gap-0);
     }
 
     &.tagActive {
@@ -36,7 +36,7 @@
 }
 
 .menu {
-    margin: var(--gap-4) 0;
+    margin: var(--gap-4) var(--gap-0);
 }
 
 .option {

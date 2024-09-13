@@ -1,5 +1,30 @@
 # Change Log
 
+## 8.10.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1362](https://github.com/core-ds/core-components/pull/1362)
+
+-   Обновили corp темизацию в компоненте Tabs
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.0
+    -   icon-button@6.8.0
+    -   picker-button@11.8.0
+    -   skeleton@5.1.0
+    -   tag@8.4.0
+
 ## 8.9.11
 
 ### Patch Changes

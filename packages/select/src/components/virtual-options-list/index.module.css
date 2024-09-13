@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .virtualOptionsList {
@@ -16,7 +16,7 @@
 
 .virtualOptionsListFooter {
     position: sticky;
-    bottom: 0;
+    bottom: var(--gap-0);
     box-sizing: border-box;
     border-top: 1px solid transparent;
 
@@ -38,8 +38,8 @@
 
 .virtualRow {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
     width: 100%;
 
     &:before {
@@ -48,7 +48,7 @@
         z-index: 1;
         left: var(--select-option-left-padding);
         right: var(--select-option-right-padding);
-        top: 0;
+        top: var(--gap-0);
         height: 1px;
         background: var(--select-option-divider-background);
         display: var(--select-option-divider-display);

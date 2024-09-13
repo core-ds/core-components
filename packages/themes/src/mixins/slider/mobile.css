@@ -1,4 +1,4 @@
 @define-mixin slider-mobile {
     --slider-origin-width: calc(100% - 16px);
-    --slider-origin-right: 8px;
+    --slider-origin-right: var(--gap-8);
 }

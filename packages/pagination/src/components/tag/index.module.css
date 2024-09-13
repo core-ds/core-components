@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 button.tag.tag {
     color: var(--color-light-text-secondary);
@@ -9,7 +9,7 @@ button.tag.tag {
     min-height: auto;
     width: 32px;
     height: 32px;
-    padding: 0;
+    padding: var(--gap-0);
 
     &:disabled:not(.checked) {
         opacity: 0.3;

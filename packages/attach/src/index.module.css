@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     display: inline-flex;
@@ -13,8 +13,8 @@
 
 .label {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
     overflow: hidden;
     z-index: 2;
     cursor: inherit;
@@ -51,8 +51,8 @@
 }
 
 .clear {
-    margin: 0 0 0 5px;
-    padding: 0;
+    margin: var(--gap-0) var(--gap-0) var(--gap-0) 5px;
+    padding: var(--gap-0);
     cursor: pointer;
     outline: none;
     user-select: none;

@@ -1,5 +1,24 @@
 # Change Log
 
+## 8.3.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.0
+    -   form-control@12.3.0
+    -   popover@6.3.0
+    -   select@17.11.0
+    -   tag@8.4.0
+
 ## 8.2.28
 
 ### Patch Changes

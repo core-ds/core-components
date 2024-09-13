@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .wrapper {
     display: flex;
@@ -13,7 +13,7 @@
 .inner {
     display: flex;
     flex: 1;
-    margin: 0 var(--gap-2);
+    margin: var(--gap-0) var(--gap-2);
 }
 
 .segment {

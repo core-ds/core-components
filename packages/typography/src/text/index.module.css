@@ -1,16 +1,16 @@
-@import '../../../themes/src/default.css';
+@import '../../../vars/src/index.css';
 
 :root {
-    --text-paragraph-margin-bottom: 0 0 var(--gap-12);
+    --text-paragraph-margin-bottom: var(--gap-0) var(--gap-0) var(--gap-12);
 }
 
 .paragraph {
-    margin: 0;
-    padding: 0;
+    margin: var(--gap-0);
+    padding: var(--gap-0);
 }
 
 .paragraphWithMargins {
-    padding: 0;
+    padding: var(--gap-0);
     margin: var(--text-paragraph-margin-bottom);
 }
 

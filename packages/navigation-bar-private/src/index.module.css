@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .header {
     width: 100%;
@@ -22,7 +22,7 @@
 
 .mainLineSticky {
     position: sticky;
-    top: 0;
+    top: var(--gap-0);
 }
 
 .mainLineWithImageBg {

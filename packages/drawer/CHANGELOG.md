@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.0
+
 ## 5.0.17
 
 ### Patch Changes

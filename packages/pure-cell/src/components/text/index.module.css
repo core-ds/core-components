@@ -1,7 +1,7 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .horizontal {
-    padding: var(--gap-2) 0;
+    padding: var(--gap-2) var(--gap-0);
 }
 
 .rowLimit1 {
@@ -18,7 +18,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin: var(--gap-2) 0;
+    margin: var(--gap-2) var(--gap-0);
     word-break: break-word;
 }
 

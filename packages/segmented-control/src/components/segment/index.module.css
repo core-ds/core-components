@@ -1,13 +1,13 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .segment {
     flex: 1;
     z-index: 1;
     display: flex;
-    margin: 0;
+    margin: var(--gap-0);
     align-items: center;
     justify-content: center;
-    padding: 0 var(--gap-8);
+    padding: var(--gap-0) var(--gap-8);
     border: none;
     background-color: transparent;
     position: relative;
@@ -23,10 +23,10 @@
         position: absolute;
         transition: opacity 0.2s ease;
         width: 1px;
-        top: 8px;
+        top: var(--gap-8);
         border-radius: 0.5px;
-        bottom: 8px;
-        left: 0;
+        bottom: var(--gap-8);
+        left: var(--gap-0);
     }
 }
 

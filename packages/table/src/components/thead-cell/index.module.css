@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     @mixin paragraph_caps;
@@ -34,7 +34,7 @@
 }
 
 .stickyHeader {
-    top: 0;
+    top: var(--gap-0);
     position: sticky;
     box-shadow: inset 0 -1px 0 0 rgba(11, 31, 53, 0.16);
     border: none;

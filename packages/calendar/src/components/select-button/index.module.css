@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 :global(.cc-calendar) {
@@ -7,9 +7,10 @@
 
         height: 40px;
         position: relative;
-        padding: 0 var(--gap-8);
+        padding: var(--gap-0) var(--gap-8);
         background-color: transparent;
         border-radius: var(--border-radius-l);
+        box-shadow: var(--calendar-select-button-box-shadow);
 
         &:not(:disabled):hover {
             background-color: var(--color-light-transparent-default-hover);
@@ -17,7 +18,7 @@
         }
 
         &.filled {
-            background-color: var(--color-light-neutral-translucent-300);
+            background-color: var(--calendar-select-button-background-color);
 
             &:not(:disabled):hover {
                 background-color: var(--color-light-neutral-translucent-300-hover);

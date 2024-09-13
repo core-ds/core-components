@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 :root {
     --list-marker-color: var(--color-light-text-primary);
@@ -10,7 +10,7 @@
     display: flex;
 
     &:first-child {
-        margin-top: 0;
+        margin-top: var(--gap-0);
     }
 
     &.reversed:first-child {
@@ -18,7 +18,7 @@
     }
 
     &.reversed:last-child {
-        margin-top: 0;
+        margin-top: var(--gap-0);
     }
 
     &.unorderedItem {
@@ -40,7 +40,7 @@
 
     &.disc {
         justify-content: center;
-        padding: 0 var(--gap-4);
+        padding: var(--gap-0) var(--gap-4);
     }
 }
 

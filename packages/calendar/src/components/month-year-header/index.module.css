@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -11,7 +11,7 @@
 
 :global(.cc-calendar) {
     & .button.button {
-        border-radius: var(--border-radius-s);
+        border-radius: var(--calendar-select-button-border-radius);
     }
 }
 

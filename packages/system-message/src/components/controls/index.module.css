@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
@@ -15,7 +15,7 @@
 
     & > *:last-child,
     & > *:only-child {
-        margin-bottom: 0;
+        margin-bottom: var(--gap-0);
     }
 }
 
@@ -28,7 +28,7 @@
 
     & > *:last-child,
     & > *:only-child {
-        margin-right: 0;
+        margin-right: var(--gap-0);
     }
 }
 

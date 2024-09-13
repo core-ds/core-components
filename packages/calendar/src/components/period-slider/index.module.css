@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -32,14 +32,14 @@
 
 .arrow {
     position: absolute;
-    top: 4px;
+    top: var(--gap-4);
 
     &:first-child {
-        left: 0;
+        left: var(--gap-0);
     }
 
     &:last-child {
-        right: 0;
+        right: var(--gap-0);
         transform: rotateY(180deg);
     }
 }

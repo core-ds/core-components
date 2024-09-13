@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-list-header",
-    "version": "3.2.8",
+    "version": "3.3.0",
     "description": "ListHeader component",
     "keywords": [],
     "license": "MIT",
@@ -11,13 +11,13 @@
         "directory": "dist"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.9.0",
+        "@alfalab/core-components-typography": "^4.10.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "themesVersion": "13.0.2",
-    "varsVersion": "9.11.1"
+    "themesVersion": "13.1.0",
+    "varsVersion": "9.12.0"
 }
