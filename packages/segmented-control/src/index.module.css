@@ -41,7 +41,7 @@
         border-radius: var(--border-radius-12);
 
         & .selectedBox {
-            border-radius: 10px;
+            border-radius: var(--border-radius-10);
         }
     }
 }
@@ -55,7 +55,7 @@
 }
 
 .rectangular {
-    border-radius: 10px;
+    border-radius: var(--border-radius-10);
 
     & .selectedBox {
         border-radius: var(--border-radius-8);
