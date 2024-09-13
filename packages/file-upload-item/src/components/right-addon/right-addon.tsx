@@ -1,73 +1,68 @@
-import React, { Fragment, MouseEvent, useContext } from 'react';
+import React from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { Link } from '@alfalab/core-components-link';
-import { CrossSIcon } from '@alfalab/icons-glyph/CrossSIcon';
-import { PointerDownSIcon } from '@alfalab/icons-glyph/PointerDownSIcon';
 
-import { FileUploadItemContext } from '../../context/file-upload-item-context';
+import ArrowsCwCompactMIcon from '@alfalab/icons-glyph/ArrowsCwCompactMIcon';
+import ArrowDownLineDownCompactMIcon from '@alfalab/icons-glyph/ArrowDownLineDownCompactMIcon';
+import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
+
+import styles from './right-addon.module.css';
+import { useRightAddon } from './hooks/useRightAddon';
 
 export const RightAddon = () => {
     const {
-        showRestore,
-        id = '0',
         downloadLink,
-        download,
+        showRestore,
         disableButtons,
+        download,
         target,
         showDelete,
-        onDownload,
-        onDelete,
-        onRestore,
-    } = useContext(FileUploadItemContext);
-
-    const handleDownload = (event: MouseEvent<HTMLElement>) => {
-        if (onDownload) {
-            event.preventDefault();
-            onDownload(id);
-        }
-    };
-
-    const handleDelete = (event: MouseEvent<HTMLElement>) => {
-        if (onDelete) onDelete(id, event);
-    };
-
-    const handleRestore = () => {
-        if (onRestore) onRestore(id);
-    };
+        handleDownload,
+        handleDelete,
+        handleRestore,
+    } = useRightAddon();
 
     const showDownload = Boolean(downloadLink) && !showRestore;
 
     return (
-        <Fragment>
+        <div className={styles.container}>
             {showRestore && (
-                <Link pseudo={true} onClick={handleRestore}>
-                    Восстановить
-                </Link>
+                <IconButton
+                    className={styles.icon}
+                    size='xxs'
+                    aria-label='Восстановить'
+                    icon={<ArrowsCwCompactMIcon color='var(--color-light-text-tertiary)' />}
+                    disabled={disableButtons}
+                    onClick={handleRestore}
+                />
             )}
 
             {showDownload && (
                 <IconButton
+                    className={styles.icon}
                     size='xxs'
-                    icon={PointerDownSIcon}
                     aria-label='скачать'
-                    href={downloadLink}
-                    onClick={handleDownload}
+                    icon={
+                        <ArrowDownLineDownCompactMIcon color='var(--color-light-text-tertiary)' />
+                    }
                     disabled={disableButtons}
+                    href={downloadLink}
                     download={download}
                     target={target}
+                    onClick={handleDownload}
                 />
             )}
 
             {showDelete && !showRestore && (
                 <IconButton
+                    className={styles.icon}
                     size='xxs'
-                    icon={CrossSIcon}
-                    onClick={handleDelete}
-                    disabled={disableButtons}
                     aria-label='удалить'
+                    icon={<CrossMIcon color='var(--color-light-text-tertiary)' />}
+                    disabled={disableButtons}
+                    onClick={handleDelete}
                 />
             )}
-        </Fragment>
+        </div>
     );
 };
