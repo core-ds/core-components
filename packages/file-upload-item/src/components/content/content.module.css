@@ -6,8 +6,7 @@
         margin-bottom: var(--gap-4);
     }
 
-    & .title,
-    & .subtitle {
+    & .title {
         display: block;
 
         &.truncate {
@@ -15,9 +14,5 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-    }
-
-    & .size {
-        margin-right: var(--gap-8);
     }
 }

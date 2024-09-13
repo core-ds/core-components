@@ -7,9 +7,9 @@ import { DocumentMIcon } from '@alfalab/icons-glyph/DocumentMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
+import { FileTypeMap } from '../../../../const/file-type-map';
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 import { getExtension, isInitialStatus } from '../../../../utils';
-import { FileTypeMap } from '../../../const/file-type-map';
 
 export const LeftAddonIcon = () => {
     const {

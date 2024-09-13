@@ -1,0 +1,13 @@
+.subtitle {
+    display: block;
+
+    &.truncate {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.size {
+    margin-right: var(--gap-8);
+}

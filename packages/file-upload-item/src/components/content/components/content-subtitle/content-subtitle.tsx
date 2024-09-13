@@ -8,7 +8,7 @@ import { humanFileSize, isUploadingStatus } from '../../../../utils';
 import { isError } from '../../utils/isError';
 import { ContentError } from '../content-error/content-error';
 
-import styles from '../../index.module.css';
+import styles from './content-subtitle.module.css';
 
 export const ContentSubtitle = () => {
     const { showRestore, uploadStatus, error, subtitle, uploadDate, size, truncate, progressBar } =

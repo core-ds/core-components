@@ -8,7 +8,7 @@ import { isErrorStatus, isSuccessStatus, isUploadingStatus } from '../../utils';
 
 import { LeftAddonIcon } from './components/left-addon-icon';
 
-import styles from './index.module.css';
+import styles from './left-addon.module.css';
 
 export const LeftAddon = () => {
     const { uploadStatus, progressBar } = useContext(FileUploadItemContext);

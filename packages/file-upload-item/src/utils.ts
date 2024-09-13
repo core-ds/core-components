@@ -1,4 +1,4 @@
-import { UploadStatusMap } from './components/const/upload-status-map';
+import { UploadStatusMap } from './const/upload-status-map';
 import { FileStatuses } from './types';
 
 export function humanFileSize(size: string | number) {

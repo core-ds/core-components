@@ -7,7 +7,7 @@ import { FileUploadItemContext } from '../../context/file-upload-item-context';
 
 import { ContentSubtitle } from './components/content-subtitle/content-subtitle';
 
-import styles from './index.module.css';
+import styles from './content.module.css';
 
 export const Content = () => {
     const { title, customContent: CustomContent, truncate } = useContext(FileUploadItemContext);
