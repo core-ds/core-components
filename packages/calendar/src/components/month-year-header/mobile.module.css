@@ -1,0 +1,7 @@
+@import '../../vars.css';
+
+:global(.cc-calendar) {
+    & .button.button {
+        box-shadow: var(--calendar-mobile-select-button-box-shadow);
+    }
+}

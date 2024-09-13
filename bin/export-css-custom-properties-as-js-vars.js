@@ -30,7 +30,9 @@ function createExporter(buildName) {
         const contents = Object.keys(variables).reduce(function (buffer, key) {
             return (
                 buffer +
-                (['es5', 'cssm', 'moderncssm'].includes(buildName) ? 'module.exports.' : 'export const ') +
+                (['es5', 'cssm', 'moderncssm'].includes(buildName)
+                    ? 'module.exports.'
+                    : 'export const ') +
                 key +
                 ' = ' +
                 JSON.stringify(variables[key]).replace(/(^|{|,)"(.+?)":/g, '$1$2:') +
