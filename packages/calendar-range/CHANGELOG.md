@@ -1,5 +1,28 @@
 # Change Log
 
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   calendar@7.12.0
+    -   calendar-input@10.3.1
+    -   date-input@4.4.1
+
 ## 7.4.0
 
 ### Minor Changes

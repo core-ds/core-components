@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.11.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1376](https://github.com/core-ds/core-components/pull/1376)
+
+-   Исправлена ошибка 'Pattern attribute value is not a valid regular expression: invalid character in character class'
+
+-   Обновлены зависимости
+    -   with-suffix@4.2.1
+    -   input@15.1.1
+
 ## 7.11.0
 
 ### Minor Changes

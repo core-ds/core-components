@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.4.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
 ## 3.4.0
 
 ### Minor Changes

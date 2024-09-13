@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.7.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   tooltip@7.4.1
+    -   icon-button@6.9.0
+    -   typography@4.10.1
+    -   base-modal@5.8.1
+
 ## 5.7.0
 
 ### Minor Changes

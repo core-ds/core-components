@@ -1,5 +1,18 @@
 # Change Log
 
+## 4.4.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   input@15.1.1
+
 ## 4.4.0
 
 ### Minor Changes

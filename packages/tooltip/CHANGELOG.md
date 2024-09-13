@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.4.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   bottom-sheet@6.17.1
+    -   popover@6.3.1
+
 ## 7.4.0
 
 ### Minor Changes
