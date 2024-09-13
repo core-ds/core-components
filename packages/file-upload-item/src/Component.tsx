@@ -1,4 +1,4 @@
-import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent, ReactNode } from 'react';
+import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
 import cn from 'classnames';
 
 import { Content } from './components/content';
@@ -69,7 +69,7 @@ export type FileUploadItemProps = {
     /**
      * Сообщение об ошибке
      */
-    error?: ReactNode;
+    error?: string | string[];
 
     /**
      * Дочерние элементы

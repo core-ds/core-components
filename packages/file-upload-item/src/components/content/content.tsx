@@ -7,6 +7,8 @@ import { FileUploadItemContext } from '../../context/file-upload-item-context';
 import { humanFileSize } from '../../utils';
 
 import styles from './index.module.css';
+import { isError } from './utils/isError';
+import { contentError } from './components/content-error';
 
 export const Content = () => {
     const {
@@ -21,8 +23,7 @@ export const Content = () => {
         truncate,
     } = useContext(FileUploadItemContext);
 
-    const shouldShownError = uploadStatus === 'ERROR' || !!error;
-    const errorContent = uploadStatus === 'ERROR' && !error ? 'Не удалось загрузить файл' : error;
+    const shouldShownError = uploadStatus === 'ERROR' || isError(error);
     const showMeta = !showRestore && (!uploadStatus || uploadStatus === 'SUCCESS');
 
     if (CustomContent) {
@@ -43,7 +44,7 @@ export const Content = () => {
                 </Typography.Text>
             )}
 
-            {subtitle && (
+            {subtitle && !shouldShownError && (
                 <Typography.Text
                     className={cn(styles.subtitle, {
                         [styles.truncate]: truncate,
@@ -55,7 +56,7 @@ export const Content = () => {
                 </Typography.Text>
             )}
 
-            {shouldShownError && <div role='alert'>{errorContent}</div>}
+            {shouldShownError && contentError(error)}
 
             {showMeta && (
                 <div>
