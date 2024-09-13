@@ -62,11 +62,6 @@ export type FileUploadItemProps = {
     showRestore?: boolean;
 
     /**
-     * Процент загрузки файла
-     */
-    uploadPercent?: number;
-
-    /**
      * Статус загрузки файла
      */
     uploadStatus?: FileStatuses;
@@ -134,6 +129,17 @@ export type FileUploadItemProps = {
      * @default 0
      */
     progressBar?: number;
+
+    /**
+     * Кастомный контент
+     */
+    customContent?: ElementType;
+
+    /**
+     * Отсечение контента
+     * @default false
+     */
+    truncate?: boolean;
 };
 
 export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
@@ -147,7 +153,6 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     downloadLink,
     download,
     uploadStatus,
-    uploadPercent = 0,
     error,
     showDelete,
     showRestore,
@@ -161,6 +166,8 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     customIcon,
     iconStyle = 'gray',
     progressBar = 0,
+    customContent,
+    truncate,
 }) => (
     <div
         className={cn(
@@ -178,7 +185,6 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                 error,
                 title,
                 subtitle,
-                uploadPercent,
                 uploadDate,
                 size,
                 id,
@@ -194,6 +200,8 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                 customIcon,
                 iconStyle,
                 progressBar,
+                customContent,
+                truncate,
             }}
         >
             {children}

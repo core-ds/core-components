@@ -1,12 +1,19 @@
 .container {
     padding: var(--gap-2) 0 0 var(--gap-16);
+    width: 100%;
 
     & .title {
-        display: block;
         margin-bottom: var(--gap-4);
     }
 
+    & .title,
     & .subtitle {
         display: block;
+
+        &.truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }

@@ -14,7 +14,6 @@ type TFileUploadItemContext = {
     error?: ReactNode;
     title?: string;
     subtitle?: string;
-    uploadPercent?: number;
     uploadDate?: string;
     size?: string | number;
     id?: string;
@@ -30,6 +29,8 @@ type TFileUploadItemContext = {
     customIcon?: ElementType<{ className?: string }>;
     iconStyle?: 'gray' | 'colored';
     progressBar?: number;
+    customContent?: ElementType;
+    truncate?: boolean;
 };
 
 export const FileUploadItemContext = createContext<TFileUploadItemContext>({
@@ -38,7 +39,6 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     error: null,
     title: '',
     subtitle: '',
-    uploadPercent: 0,
     uploadDate: '',
     size: 0,
     id: '0',
@@ -54,4 +54,6 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     iconStyle: 'gray',
     customIcon: undefined,
     progressBar: 0,
+    customContent: undefined,
+    truncate: false,
 });

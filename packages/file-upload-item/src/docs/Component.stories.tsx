@@ -29,9 +29,9 @@ export const file_upload_item: Story = {
                         ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
                         'INITIAL',
                     )}
-                    uploadPercent={number('uploadPercent', undefined)}
                     showDelete={boolean('showDelete', false)}
                     showRestore={boolean('showRestore', false)}
+                    truncate={boolean('truncate', false)}
                 >
                     <FileUploadItem.LeftAddon />
                     <FileUploadItem.Content />
