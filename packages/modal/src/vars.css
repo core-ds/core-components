@@ -1,7 +1,7 @@
 @import '../../vars/src/index.css';
 
 :root {
-    --modal-border-radius: var(--border-radius-l);
+    --modal-border-radius: var(--border-radius-12);
     --modal-vertical-padding: var(--gap-40);
     --modal-header-background: var(--color-light-modal-bg-primary);
     --modal-footer-background: var(--color-light-modal-bg-primary);

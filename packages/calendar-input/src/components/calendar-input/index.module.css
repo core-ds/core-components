@@ -3,7 +3,7 @@
 
 :root {
     --calendar-input-icon-color: var(--color-light-neutral-translucent-700);
-    --calendar-input-popover-border-radius: var(--border-radius-m);
+    --calendar-input-popover-border-radius: var(--border-radius-8);
 }
 
 .component {

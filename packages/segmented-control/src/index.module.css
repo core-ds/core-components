@@ -34,11 +34,11 @@
 
     & .rounded,
     &:has(.rounded) {
-        border-radius: var(--border-radius-xxl);
+        border-radius: var(--border-radius-20);
     }
 
     &:has(.rectangular) {
-        border-radius: var(--border-radius-l);
+        border-radius: var(--border-radius-12);
 
         & .selectedBox {
             border-radius: 10px;
@@ -51,14 +51,14 @@
 }
 
 .rounded {
-    border-radius: var(--border-radius-xl);
+    border-radius: var(--border-radius-16);
 }
 
 .rectangular {
     border-radius: 10px;
 
     & .selectedBox {
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-8);
     }
 }
 

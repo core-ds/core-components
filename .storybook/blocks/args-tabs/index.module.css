@@ -10,7 +10,7 @@
     align-items: center;
     height: 200px;
     border: 1px solid var(--color-light-neutral-300);
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-4);
     margin-top: var(--gap-24);
     color: var(--color-light-text-secondary);
 }

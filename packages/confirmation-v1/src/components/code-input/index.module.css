@@ -13,7 +13,7 @@
     padding: var(--gap-0);
     background-color: var(--confirmation-input-bg-color);
     border: none;
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-4);
     box-sizing: border-box;
     outline: none;
     color: var(--confirmation-input-text-color);

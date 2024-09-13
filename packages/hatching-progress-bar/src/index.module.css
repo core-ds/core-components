@@ -4,7 +4,7 @@
     background: var(--color-light-neutral-translucent-300);
     display: flex;
     overflow: hidden;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     height: 8px;
     position: relative;
 }
