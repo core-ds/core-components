@@ -53,21 +53,6 @@ export const file_upload_item_left_addon: Story = {
                         ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
                         'INITIAL',
                     )}
-                    fileType={select(
-                        'fileType',
-                        [
-                            'attach',
-                            'pdf',
-                            'doc',
-                            'xls',
-                            '1c',
-                            'document',
-                            'deleted-image',
-                            'deleted-document',
-                        ],
-                        'attach',
-                    )}
-                    iconStyle={select('iconStyle', ['gray', 'colored'], 'gray')}
                     progressBar={number('progressBar', 270)}
                 >
                     <FileUploadItem.LeftAddon />

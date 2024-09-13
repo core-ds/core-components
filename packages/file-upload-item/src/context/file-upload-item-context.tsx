@@ -1,6 +1,6 @@
 import { createContext, ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
 
-import { FileStatuses, FileTypes } from '../types';
+import { FileStatuses } from '../types';
 
 type TFileUploadItemContext = {
     showRestore?: boolean;
@@ -19,7 +19,6 @@ type TFileUploadItemContext = {
     disableButtons?: boolean;
     target?: HTMLAttributeAnchorTarget;
     showDelete?: boolean;
-    fileType: FileTypes;
     customIcon?: ElementType<{ className?: string }>;
     iconStyle?: 'gray' | 'colored';
     progressBar?: number;
@@ -44,7 +43,6 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     disableButtons: false,
     target: undefined,
     showDelete: false,
-    fileType: 'attach',
     iconStyle: 'gray',
     customIcon: undefined,
     progressBar: 0,

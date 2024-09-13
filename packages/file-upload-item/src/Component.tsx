@@ -5,7 +5,7 @@ import { Content } from './components/content';
 import { LeftAddon } from './components/left-addon';
 import { RightAddon } from './components/right-addon';
 import { FileUploadItemContext } from './context/file-upload-item-context';
-import { FileStatuses, FileTypes } from './types';
+import { FileStatuses } from './types';
 
 import styles from './index.module.css';
 
@@ -107,12 +107,6 @@ export type FileUploadItemProps = {
     dataTestId?: string;
 
     /**
-     * Тип загружаемого файла
-     * @default attach
-     */
-    fileType?: FileTypes;
-
-    /**
      * Цвет заполнения иконки
      * @default gray
      */
@@ -162,7 +156,6 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     disableButtons,
     target,
     dataTestId,
-    fileType = 'attach',
     customIcon,
     iconStyle = 'gray',
     progressBar = 0,
@@ -196,7 +189,6 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                 disableButtons,
                 target,
                 showDelete,
-                fileType,
                 customIcon,
                 iconStyle,
                 progressBar,

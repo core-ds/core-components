@@ -3,21 +3,31 @@ import React, { useContext } from 'react';
 import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
 import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
 import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
-import { DocumentImageOffMIcon } from '@alfalab/icons-glyph/DocumentImageOffMIcon';
 import { DocumentMIcon } from '@alfalab/icons-glyph/DocumentMIcon';
-import { DocumentOffMIcon } from '@alfalab/icons-glyph/DocumentOffMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
-import { FileUploadItemContext } from '../../../context/file-upload-item-context';
-import { FileTypeMap } from '../../const/file-type-map';
+import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
+import { getExtension, isInitialStatus } from '../../../../utils';
+import { FileTypeMap } from '../../../const/file-type-map';
 
 export const LeftAddonIcon = () => {
-    const { fileType, iconStyle, customIcon: CustomIcon } = useContext(FileUploadItemContext);
+    const {
+        title = '',
+        uploadStatus,
+        iconStyle,
+        customIcon: CustomIcon,
+    } = useContext(FileUploadItemContext);
+
     const isColoredIcon = iconStyle === 'colored';
+    const fileType = getExtension(title);
 
     if (CustomIcon) {
         return <CustomIcon />;
+    }
+
+    if (isInitialStatus(uploadStatus)) {
+        return <PaperclipMIcon />;
     }
 
     switch (fileType) {
@@ -47,7 +57,7 @@ export const LeftAddonIcon = () => {
                     {...(isColoredIcon && { color: 'var(--color-light-decorative-orange)' })}
                 />
             );
-        case FileTypeMap.document:
+        default:
             return (
                 <DocumentMIcon
                     {...(isColoredIcon && {
@@ -55,12 +65,5 @@ export const LeftAddonIcon = () => {
                     })}
                 />
             );
-        case FileTypeMap['deleted-document']:
-            return <DocumentOffMIcon />;
-        case FileTypeMap['deleted-image']:
-            return <DocumentImageOffMIcon />;
-        case FileTypeMap.attach:
-        default:
-            return <PaperclipMIcon />;
     }
 };

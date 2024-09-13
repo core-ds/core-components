@@ -17,6 +17,9 @@ export function humanFileSize(size: string | number) {
     return `${Number(humanSize)} ${units[factor]}`;
 }
 
+export const getExtension = (filename: string) => filename.toLowerCase().split('.').pop();
+
+export const isInitialStatus = (status?: FileStatuses) => status === UploadStatusMap.INITIAL;
 export const isSuccessStatus = (status?: FileStatuses) => status === UploadStatusMap.SUCCESS;
 export const isErrorStatus = (status?: FileStatuses) => status === UploadStatusMap.ERROR;
 export const isUploadingStatus = (status?: FileStatuses) => status === UploadStatusMap.UPLOADING;
