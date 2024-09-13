@@ -5,9 +5,9 @@
     @mixin paragraph_component;
 
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: var(--gap-0);
+    top: var(--gap-0);
+    bottom: var(--gap-0);
     align-items: center;
     display: none;
     pointer-events: none;

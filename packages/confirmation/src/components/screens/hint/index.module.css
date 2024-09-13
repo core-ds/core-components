@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: flex-start;
     & span:last-of-type {
-        margin-bottom: 0;
+        margin-bottom: var(--gap-0);
     }
 }
 
@@ -32,7 +32,7 @@
     margin-bottom: var(--gap-8);
 
     &:last-child {
-        margin-bottom: 0;
+        margin-bottom: var(--gap-0);
     }
 }
 

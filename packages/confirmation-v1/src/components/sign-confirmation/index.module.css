@@ -47,7 +47,7 @@
 .loaderWrap {
     display: flex;
     align-items: center;
-    margin: var(--gap-40) 0 var(--gap-8);
+    margin: var(--gap-40) var(--gap-0) var(--gap-8);
 }
 
 .loaderText {

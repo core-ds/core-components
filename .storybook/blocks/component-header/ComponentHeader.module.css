@@ -1,6 +1,6 @@
 .component {
     position: relative;
-    margin: 0;
+    margin: var(--gap-0);
 }
 
 .component h1 {
@@ -48,7 +48,7 @@
 }
 
 .usageLink * {
-    border-bottom: 0;
+    border-bottom: var(--gap-0);
 }
 
 .links {

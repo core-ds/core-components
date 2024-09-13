@@ -1,8 +1,8 @@
 @import '../../vars/src/index.css';
 
 .list {
-    margin: 0;
-    padding: 0;
+    margin: var(--gap-0);
+    padding: var(--gap-0);
     color: var(--color-light-text-primary);
 
     @mixin paragraph_primary_medium;

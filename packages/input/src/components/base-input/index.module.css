@@ -9,7 +9,7 @@
     height: 100%;
     background: none;
     border: none;
-    margin: 0;
+    margin: var(--gap-0);
     outline: none;
     text-overflow: ellipsis;
     box-sizing: border-box;

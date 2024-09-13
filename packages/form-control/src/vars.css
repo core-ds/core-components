@@ -64,13 +64,13 @@
     --form-control-bg-backdrop-filter: unset;
 
     /* paddings */
-    --form-control-paddings: 0 var(--gap-12);
-    --form-control-xl-paddings: 0 var(--gap-16);
-    --form-control-labeled-s-paddings: 24px var(--gap-12) 4px;
-    --form-control-labeled-m-paddings: 28px var(--gap-12) 8px;
-    --form-control-labeled-l-paddings: 32px var(--gap-12) 12px;
+    --form-control-paddings: var(--gap-0) var(--gap-12);
+    --form-control-xl-paddings: var(--gap-0) var(--gap-16);
+    --form-control-labeled-s-paddings: var(--gap-24) var(--gap-12) var(--gap-4);
+    --form-control-labeled-m-paddings: 28px var(--gap-12) var(--gap-8);
+    --form-control-labeled-l-paddings: var(--gap-32) var(--gap-12) var(--gap-12);
     --form-control-labeled-xl-paddings: 38px var(--gap-16) 14px;
-    --form-control-sub-paddings: 0;
+    --form-control-sub-paddings: var(--gap-0);
 
     /* disabled */
     --form-control-disabled-opacity: 1;
@@ -85,7 +85,7 @@
     --form-control-xl-border-radius: var(--border-radius-l);
 
     /* paddings mobile */
-    --form-control-mobile-sub-paddings: 0 var(--gap-4);
+    --form-control-mobile-sub-paddings: var(--gap-0) var(--gap-4);
 
     /* border-radius mobile */
     --form-control-mobile-s-border-radius: 10px;

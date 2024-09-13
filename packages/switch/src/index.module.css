@@ -29,8 +29,8 @@
 .component {
     display: inline-flex;
     align-items: flex-start;
-    margin: 0;
-    padding: 0;
+    margin: var(--gap-0);
+    padding: var(--gap-0);
     border: 0;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -79,10 +79,10 @@
 .switch:before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 16px;
+    top: var(--gap-0);
+    left: var(--gap-0);
+    bottom: var(--gap-0);
+    right: var(--gap-16);
     display: block;
     border-radius: var(--border-radius-circle);
     background-color: var(--switch-icon-color);
@@ -124,12 +124,12 @@
 
 .reversed .content {
     margin-right: var(--gap-16);
-    margin-left: 0;
+    margin-left: var(--gap-0);
 }
 
 .reversed .addons {
-    margin-left: 0;
-    padding-left: 0;
+    margin-left: var(--gap-0);
+    padding-left: var(--gap-0);
     margin-right: auto;
     padding-right: var(--gap-16);
 }

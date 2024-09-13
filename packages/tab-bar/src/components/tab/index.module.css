@@ -8,7 +8,7 @@
     flex-direction: column;
     flex: 1 0 0;
     align-items: center;
-    padding: var(--gap-8) 0;
+    padding: var(--gap-8) var(--gap-0);
     color: var(--color-light-neutral-translucent-700);
 }
 

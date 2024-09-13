@@ -23,10 +23,10 @@
 .component:before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
+    right: var(--gap-0);
+    bottom: var(--gap-0);
     background: var(--skeleton-bg-animation-color);
 }
 

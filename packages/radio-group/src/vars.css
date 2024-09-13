@@ -4,8 +4,8 @@
     --radio-group-error-color: var(--color-light-text-negative);
     --radio-group-hint-color: var(--color-light-text-secondary);
     --radio-group-label-color: var(--color-light-text-primary);
-    --radio-group-sub-padding-left: 0;
-    --radio-group-list-padding-left: 0;
+    --radio-group-sub-padding-left: var(--gap-0);
+    --radio-group-list-padding-left: var(--gap-0);
 
     /* mobile */
     --radio-group-mobile-sub-padding-left: var(--gap-4);

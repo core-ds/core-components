@@ -2,7 +2,7 @@
 
 .component {
     position: fixed;
-    bottom: 0;
+    bottom: var(--gap-0);
     margin: auto var(--gap-8) var(--gap-8);
     width: calc(100% - 2 * var(--gap-8));
     max-width: 600px;
@@ -12,8 +12,8 @@
 
 .closer {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: var(--gap-8);
+    right: var(--gap-8);
 
     & > button {
         backdrop-filter: none;

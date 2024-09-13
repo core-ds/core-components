@@ -4,10 +4,10 @@
 .backdrop {
     z-index: -1;
     position: fixed;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    left: 0;
+    right: var(--gap-0);
+    bottom: var(--gap-0);
+    top: var(--gap-0);
+    left: var(--gap-0);
     -webkit-tap-highlight-color: transparent; /* убирает хайлайт */
 }
 

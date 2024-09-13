@@ -8,7 +8,7 @@
 
 .sticky {
     position: sticky;
-    top: 0;
+    top: var(--gap-0);
     z-index: 1;
 }
 
@@ -44,7 +44,7 @@
     color: var(--color-light-text-primary);
 
     &.left {
-        padding: 0 var(--gap-16);
+        padding: var(--gap-0) var(--gap-16);
     }
 
     & > .title,

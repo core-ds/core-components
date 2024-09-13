@@ -7,7 +7,7 @@
     z-index: 0;
 
     &.withHeader {
-        padding-top: 0;
+        padding-top: var(--gap-0);
     }
 }
 

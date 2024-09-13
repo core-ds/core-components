@@ -80,7 +80,7 @@
     &.vertical {
         min-width: unset;
         min-height: 24px;
-        margin-right: 0;
+        margin-right: var(--gap-0);
         margin-top: var(--gap-8);
         border-left: 2px solid var(--color-light-neutral-translucent-300);
         border-top: none;

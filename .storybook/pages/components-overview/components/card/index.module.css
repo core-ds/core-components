@@ -1,5 +1,5 @@
 figure {
-    margin: 0;
+    margin: var(--gap-0);
 }
 
 .card {
@@ -11,7 +11,7 @@ figure {
 
 .caption {
     display: inline-flex;
-    padding: var(--gap-8) 0;
+    padding: var(--gap-8) var(--gap-0);
 }
 
 .imageWrapper {

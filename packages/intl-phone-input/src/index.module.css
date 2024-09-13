@@ -1,13 +1,13 @@
 @import '../../vars/src/index.css';
 
 .addons {
-    padding-left: 0;
+    padding-left: var(--gap-0);
 }
 
 .l,
 .xl {
     & .addons {
-        padding-left: 0;
+        padding-left: var(--gap-0);
     }
 }
 
