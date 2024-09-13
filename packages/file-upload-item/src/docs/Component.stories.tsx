@@ -17,6 +17,11 @@ export const file_upload_item: Story = {
         return (
             <div style={{ width: 456 }}>
                 <FileUploadItem
+                    uploadStatus={select(
+                        'uploadStatus',
+                        ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
+                        'INITIAL',
+                    )}
                     title={text('title', 'Прикрепите файл')}
                     subtitle={text('subtitle', 'Нет файла')}
                     uploadDate={text('uploadDate', '22.01.2018')}
@@ -24,11 +29,6 @@ export const file_upload_item: Story = {
                     error={text('error', '')}
                     size={number('size', 500000000)}
                     progressBar={number('progressBar', 270)}
-                    uploadStatus={select(
-                        'uploadStatus',
-                        ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
-                        'INITIAL',
-                    )}
                     showDelete={boolean('showDelete', false)}
                     showRestore={boolean('showRestore', false)}
                     truncate={boolean('truncate', false)}
@@ -48,6 +48,11 @@ export const file_upload_item_left_addon: Story = {
         return (
             <div style={{ width: 456 }}>
                 <FileUploadItem
+                    uploadStatus={select(
+                        'uploadStatus',
+                        ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
+                        'INITIAL',
+                    )}
                     fileType={select(
                         'fileType',
                         [
@@ -64,11 +69,6 @@ export const file_upload_item_left_addon: Story = {
                     )}
                     iconStyle={select('iconStyle', ['gray', 'colored'], 'gray')}
                     progressBar={number('progressBar', 270)}
-                    uploadStatus={select(
-                        'uploadStatus',
-                        ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
-                        'INITIAL',
-                    )}
                 >
                     <FileUploadItem.LeftAddon />
                 </FileUploadItem>
