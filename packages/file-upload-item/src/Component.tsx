@@ -114,7 +114,7 @@ export type FileUploadItemProps = {
 
     /**
      * Цвет заполнения иконки
-     * @default Gray
+     * @default gray
      */
     iconStyle?: 'gray' | 'colored';
 

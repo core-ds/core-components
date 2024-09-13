@@ -16,4 +16,8 @@
             text-overflow: ellipsis;
         }
     }
+
+    & .size {
+        margin-right: var(--gap-8);
+    }
 }

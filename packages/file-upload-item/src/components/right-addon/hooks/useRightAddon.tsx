@@ -1,4 +1,5 @@
 import { MouseEvent, useContext } from 'react';
+
 import { FileUploadItemContext } from '../../../context/file-upload-item-context';
 
 export const useRightAddon = () => {

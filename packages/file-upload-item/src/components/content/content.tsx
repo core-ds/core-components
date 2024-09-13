@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
-
-import { Typography } from '@alfalab/core-components-typography';
 import cn from 'classnames';
 
+import { Typography } from '@alfalab/core-components-typography';
+
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
-import { humanFileSize } from '../../utils';
+import { humanFileSize, isUploadingStatus } from '../../utils';
+
+import { contentError } from './components/content-error';
+import { isError } from './utils/isError';
 
 import styles from './index.module.css';
-import { isError } from './utils/isError';
-import { contentError } from './components/content-error';
 
 export const Content = () => {
     const {
@@ -21,10 +22,11 @@ export const Content = () => {
         size,
         customContent: CustomContent,
         truncate,
+        progressBar,
     } = useContext(FileUploadItemContext);
 
     const shouldShownError = uploadStatus === 'ERROR' || isError(error);
-    const showMeta = !showRestore && (!uploadStatus || uploadStatus === 'SUCCESS');
+    const showMeta = !showRestore && uploadStatus === 'SUCCESS';
 
     if (CustomContent) {
         return <CustomContent />;
@@ -44,7 +46,7 @@ export const Content = () => {
                 </Typography.Text>
             )}
 
-            {subtitle && !shouldShownError && (
+            {subtitle && !shouldShownError && !showMeta && !isUploadingStatus(uploadStatus) && (
                 <Typography.Text
                     className={cn(styles.subtitle, {
                         [styles.truncate]: truncate,
@@ -56,16 +58,29 @@ export const Content = () => {
                 </Typography.Text>
             )}
 
+            {isUploadingStatus(uploadStatus) && progressBar && (
+                <Typography.Text view='primary-small' color='secondary'>
+                    Загрузка {Math.floor(progressBar / (360 / 100))}%
+                </Typography.Text>
+            )}
+
             {shouldShownError && contentError(error)}
 
             {showMeta && (
                 <div>
-                    {uploadDate && <span key={uploadDate}>{uploadDate}</span>}
-
                     {size && (
-                        <span key={size} className={styles.size}>
+                        <Typography.Text
+                            className={styles.size}
+                            view='primary-small'
+                            color='secondary'
+                        >
                             {humanFileSize(size)}
-                        </span>
+                        </Typography.Text>
+                    )}
+                    {uploadDate && (
+                        <Typography.Text view='primary-small' color='secondary'>
+                            {uploadDate}
+                        </Typography.Text>
                     )}
                 </div>
             )}

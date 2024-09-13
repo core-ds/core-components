@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
-
-import ArrowsCwCompactMIcon from '@alfalab/icons-glyph/ArrowsCwCompactMIcon';
 import ArrowDownLineDownCompactMIcon from '@alfalab/icons-glyph/ArrowDownLineDownCompactMIcon';
+import ArrowsCwCompactMIcon from '@alfalab/icons-glyph/ArrowsCwCompactMIcon';
 import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
 
-import styles from './right-addon.module.css';
 import { useRightAddon } from './hooks/useRightAddon';
+
+import styles from './right-addon.module.css';
 
 export const RightAddon = () => {
     const {
