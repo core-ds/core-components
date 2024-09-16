@@ -5,23 +5,33 @@ import { Typography } from '@alfalab/core-components-typography';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 import { humanFileSize, isUploadingStatus } from '../../../../utils';
-import { isError } from '../../utils/isError';
 import { ContentError } from '../content-error/content-error';
+
+import { useContentSubtitle } from './hooks/useContentSubtitle';
 
 import styles from './content-subtitle.module.css';
 
 export const ContentSubtitle = () => {
-    const { showRestore, uploadStatus, error, subtitle, uploadDate, size, truncate, progressBar } =
+    const { uploadStatus, subtitle, uploadDate, size, truncate } =
         useContext(FileUploadItemContext);
 
-    const shouldShownError = uploadStatus === 'ERROR' || isError(error);
-    const showMeta = !showRestore && uploadStatus === 'SUCCESS';
+    const {
+        shouldShownError,
+        showMeta,
+        progressBarAvailableSteps,
+        progressBarAvailablePercents,
+        validProgressBar,
+    } = useContentSubtitle();
 
     // uploading status
-    if (isUploadingStatus(uploadStatus) && progressBar) {
+    if (isUploadingStatus(uploadStatus)) {
         return (
             <Typography.Text view='primary-small' color='secondary'>
-                Загрузка {Math.floor(progressBar / (360 / 100))}%
+                Загрузка{'\u00A0'}
+                {Math.floor(
+                    validProgressBar / (progressBarAvailableSteps / progressBarAvailablePercents),
+                )}
+                %
             </Typography.Text>
         );
     }
