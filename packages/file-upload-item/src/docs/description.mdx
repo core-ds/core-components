@@ -158,6 +158,7 @@ render(() => {
         setStatus('SUCCESS');
         setTitle(file.name);
         setSize(file.size);
+        setImageUrl('');
 
         // если тип фала image, добавляем картинку как иконку
         if (file && file.type.includes('image')) {
@@ -320,6 +321,44 @@ render(() => {
                 </FileUploadItem>
             </div>
         </React.Fragment>
+    );
+});
+```
+
+## Кастомизация
+
+Каждый слот компонента может быть кастомизирован.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const commonStyles = {
+        height: 48,
+        border: '1px dashed var(--color-light-status-info)',
+        borderRadius: '8px',
+        backgroundColor: 'var(--color-light-status-muted-alt-info)',
+    };
+
+    const leftAddonStyles = {
+        width: 48,
+        ...commonStyles,
+    };
+
+    const contentStyles = {
+        width: 232,
+        ...commonStyles,
+    };
+
+    const rightAddonStyles = {
+        width: 80,
+        ...commonStyles,
+    };
+
+    return (
+        <FileUploadItem>
+            <div style={leftAddonStyles}></div>
+            <div style={contentStyles}></div>
+            <div style={rightAddonStyles}></div>
+        </FileUploadItem>
     );
 });
 ```
