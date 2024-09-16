@@ -13,7 +13,7 @@
         height: 56px;
 
         background-image: url('./icons/progress.svg');
-        mask-image: conic-gradient(red 270deg, transparent 0);
+        mask-image: conic-gradient(red 0, transparent 0);
 
         &.success {
             animation: successAnimation 400ms ease-in forwards;

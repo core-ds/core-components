@@ -1,4 +1,8 @@
 @keyframes successAnimation {
+    0% {
+        background-image: url('./icons/progress-transparent.svg');
+    }
+
     50% {
         background-image: url('./icons/progress-success.svg');
     }

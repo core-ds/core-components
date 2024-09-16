@@ -18,7 +18,7 @@ export const ContentSubtitle = () => {
     const {
         shouldShownError,
         showMeta,
-        progressBarAvailableSteps,
+        progressBarDistance,
         progressBarAvailablePercents,
         validProgressBar,
     } = useContentSubtitle();
@@ -29,7 +29,7 @@ export const ContentSubtitle = () => {
             <Typography.Text view='primary-small' color='secondary'>
                 Загрузка{'\u00A0'}
                 {Math.floor(
-                    validProgressBar / (progressBarAvailableSteps / progressBarAvailablePercents),
+                    validProgressBar / (progressBarDistance / progressBarAvailablePercents),
                 )}
                 %
             </Typography.Text>

@@ -59,3 +59,84 @@ render(() => {
     );
 });
 ```
+
+## Загрузка файла
+
+Результатом загрузки может быть как успех, так и ошибка.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [status, setStatus] = React.useState('INITIAL');
+    const [title, setTitle] = React.useState('Прикрепите файл');
+    const [subtitle, setSubtitle] = React.useState('Нет файла');
+    const [progressBar, setProgressBar] = React.useState(0);
+    const [error, setError] = React.useState('');
+
+    const distance = 360;
+    const duration = 1000;
+    let startAnimation = null;
+
+    const handleSuccessClick = () => {
+        setError('');
+        setProgressBar(0);
+        setStatus('UPLOADING');
+        setTitle('Пример.docx');
+        requestAnimationFrame(function measure(timestamp) {
+            if (!startAnimation) {
+                startAnimation = timestamp;
+            }
+
+            const progress = (timestamp - startAnimation) / duration;
+            const progressValue = progress * distance;
+            setProgressBar(progressValue);
+
+            if (progress < 1) {
+                return requestAnimationFrame(measure);
+            }
+            setStatus('SUCCESS');
+        });
+    };
+
+    const handleError = () => {
+        setStatus('ERROR');
+        setError('Описание первой ошибки');
+    };
+
+    const handleMultiError = () => {
+        setStatus('ERROR');
+        setError(['Описание первой ошибки', 'Описание второй ошибки']);
+    };
+
+    return (
+        <React.Fragment>
+            <FileUploadItem
+                title={title}
+                subtitle={subtitle}
+                uploadStatus={status}
+                progressBar={progressBar}
+                uploadDate='22.07.2024'
+                size={2097152} // 2mb
+                error={error}
+            >
+                <FileUploadItem.LeftAddon />
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>
+            <Gap size={20} />
+            <div>
+                <Button size={32} onClick={handleSuccessClick}>
+                    Успех
+                </Button>
+                <Gap size={8} direction='horizontal' />
+                <Button size={32} onClick={handleError}>
+                    Ошибка
+                </Button>
+                <Gap size={8} direction='horizontal' />
+                <Button size={32} onClick={handleMultiError}>
+                    Несколько ошибок
+                </Button>
+            </div>
+        </React.Fragment>
+    );
+});
+```

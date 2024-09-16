@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
+import { progressBarDistance } from '../../../../../const/progress-bar';
 import { FileUploadItemContext } from '../../../../../context/file-upload-item-context';
 import { isError } from '../../../utils/isError';
 
@@ -9,7 +10,6 @@ export const useContentSubtitle = () => {
     const shouldShownError = uploadStatus === 'ERROR' || isError(error);
     const showMeta = !showRestore && uploadStatus === 'SUCCESS';
 
-    const progressBarAvailableSteps = 360;
     const progressBarAvailablePercents = 100;
 
     const validateProgressBarValue = (progressValue?: number) => {
@@ -17,8 +17,8 @@ export const useContentSubtitle = () => {
             return 0;
         }
 
-        if (progressValue > progressBarAvailableSteps) {
-            return progressBarAvailableSteps;
+        if (progressValue > progressBarDistance) {
+            return progressBarDistance;
         }
         if (progressValue < 0) {
             return 0;
@@ -32,7 +32,7 @@ export const useContentSubtitle = () => {
     return {
         shouldShownError,
         showMeta,
-        progressBarAvailableSteps,
+        progressBarDistance,
         progressBarAvailablePercents,
         validProgressBar,
     };
