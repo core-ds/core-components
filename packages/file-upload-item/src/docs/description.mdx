@@ -140,3 +140,64 @@ render(() => {
     );
 });
 ```
+
+## Примеры использования
+
+Использование в качестве кнопки для прикрепления файла. Прогресс загрузки файла может отображаться самой кнопкой. Такой подход хорошо подходит, когда нужно загрузить один файл.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [status, setStatus] = React.useState('INITIAL');
+    const [title, setTitle] = React.useState('Прикрепите файл');
+    const [size, setSize] = React.useState(0);
+    const [imageUrl, setImageUrl] = React.useState(null);
+    const [isImage, setIsImage] = React.useState(false);
+
+    const inputRef = React.useRef(null);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setStatus('SUCCESS');
+        setTitle(file.name);
+        setSize(file.size);
+
+        // если тип фала image, добавляем картинку как иконку
+        if (file && file.type.includes('image')) {
+            setIsImage(true);
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+                setImageUrl(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    };
+
+    return (
+        <React.Fragment>
+            <input
+                ref={inputRef}
+                type='file'
+                id='file-upload-item-id'
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+            />
+            <label htmlFor='file-upload-item-id'>
+                <FileUploadItem
+                    title={title}
+                    subtitle='Нет файла'
+                    uploadStatus={status}
+                    uploadDate={new Date().toLocaleDateString()}
+                    size={size}
+                    {...(isImage && { imageUrl })}
+                >
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
+            </label>
+        </React.Fragment>
+    );
+});
+```
