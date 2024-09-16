@@ -24,6 +24,7 @@ type TFileUploadItemContext = {
     progressBar?: number;
     customContent?: ElementType;
     truncate?: boolean;
+    imageUrl?: string;
 };
 
 export const FileUploadItemContext = createContext<TFileUploadItemContext>({
@@ -48,4 +49,5 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     progressBar: 0,
     customContent: undefined,
     truncate: false,
+    imageUrl: undefined,
 });

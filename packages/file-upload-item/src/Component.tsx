@@ -134,6 +134,11 @@ export type FileUploadItemProps = {
      * @default false
      */
     truncate?: boolean;
+
+    /**
+     * Фоновое изображение. Имеет приоритет над иконкой и заливкой
+     */
+    imageUrl?: string;
 };
 
 export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
@@ -161,6 +166,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     progressBar = 0,
     customContent,
     truncate,
+    imageUrl,
 }) => (
     <div
         className={cn(
@@ -194,6 +200,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                 progressBar,
                 customContent,
                 truncate,
+                imageUrl,
             }}
         >
             {children}

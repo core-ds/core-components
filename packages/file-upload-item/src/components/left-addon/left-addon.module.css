@@ -1,3 +1,5 @@
+@import './animations.module.css';
+
 .container {
     position: relative;
 
@@ -14,7 +16,7 @@
         mask-image: conic-gradient(red 270deg, transparent 0);
 
         &.success {
-            background-image: url('./icons/progress-success.svg');
+            animation: successAnimation 400ms ease-in forwards;
         }
 
         &.error {

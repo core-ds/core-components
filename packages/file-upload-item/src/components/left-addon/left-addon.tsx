@@ -11,7 +11,7 @@ import { LeftAddonIcon } from './components/left-addon-icon';
 import styles from './left-addon.module.css';
 
 export const LeftAddon = () => {
-    const { uploadStatus, progressBar } = useContext(FileUploadItemContext);
+    const { uploadStatus, progressBar, imageUrl } = useContext(FileUploadItemContext);
     const progressRef = useRef<HTMLDivElement>(null);
     const shouldShowProgress =
         isUploadingStatus(uploadStatus) ||
@@ -26,7 +26,11 @@ export const LeftAddon = () => {
 
     return (
         <div className={styles.container}>
-            <SuperEllipse size={48} backgroundColor='var(--color-light-neutral-translucent-100)'>
+            <SuperEllipse
+                size={48}
+                backgroundColor='var(--color-light-neutral-translucent-100)'
+                {...(imageUrl && { imageUrl })}
+            >
                 <LeftAddonIcon />
             </SuperEllipse>
             {shouldShowProgress && (

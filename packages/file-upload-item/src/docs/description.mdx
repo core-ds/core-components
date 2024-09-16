@@ -1,64 +1,61 @@
-## Примеры
+## Типы файлов
+
+Для разных типов файлов можно использовать различные иконки.
 
 ```jsx live mobileHeight={500}
-<>
-    <FileUploadItem
-        name='Довольно длинное название файла.pdf'
-        uploadDate='22.01.2018'
-        size={500000000}
-        showDelete={false}
-        showRestore={true}
-    />
-    <FileUploadItem
-        name='Название файла.pdf'
-        uploadDate='22.01.2018'
-        size={45000}
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='С кастомной иконкой.pdf'
-        uploadDate='22.01.2018'
-        size={50000}
-        showDelete={true}
-        icon={DiamondsMIcon}
-    />
-        <FileUploadItem
-        name='Название файла.pdf'
-        uploadDate='22.01.2018'
-        uploadPercent={23.5678}
-        uploadStatus='UPLOADING'
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.txt'
-        uploadDate='22.01.2018'
-        size={157290000}
-        downloadLink='/link'
-        uploadStatus='SUCCESS'
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.jpg'
-        uploadDate='22.01.2018'
-        size={45000}
-        uploadStatus='ERROR'
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.png'
-        uploadDate='22.01.2018'
-        size={450000000}
-        uploadStatus='ERROR'
-        error={
-            <>
-                <p style={{ margin: 0, marginBottom: '8px' }}>Размер больше 500 Кб</p>
-                <p style={{ margin: 0 }}>
-                    Недопустимый формат файла. Загрузите файл в одном из этих форматов: .txt, .xml,
-                    .csv
-                </p>
-            </>
-        }
-        showDelete={true}
-    />
-</>
+render(() => {
+    const radioButtons = [
+        'Нет файла',
+        'Docx',
+        'PDF',
+        'Xls',
+        '1C',
+        'Img',
+        'Другой тип',
+        'Несколько файлов',
+    ];
+
+    const [status, setStatus] = React.useState('INITIAL');
+    const [title, setTitle] = React.useState(radioButtons[0]);
+    const [checked, setChecked] = React.useState(0);
+
+    const handleChange = (index) => () => {
+        setChecked(index);
+        setStatus(index === 0 ? 'INITIAL' : 'SUCCESS');
+        setTitle(radioButtons[index]);
+    };
+
+    const isImg = radioButtons[checked] === 'Img';
+
+    return (
+        <React.Fragment>
+            <FileUploadItem
+                title={title}
+                subtitle='Нет файла'
+                uploadStatus={status}
+                {...(isImg && { imageUrl: './images/gagarin_yu_a.png' })}
+            >
+                <FileUploadItem.LeftAddon />
+                <FileUploadItem.Content />
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>
+            <Gap size={20} />
+            Контент
+            <Gap size={12} />
+            {radioButtons.map((button, index) => (
+                <React.Fragment>
+                    <Radio
+                        key={button}
+                        block={true}
+                        size={24}
+                        onChange={handleChange(index)}
+                        checked={checked === index}
+                        label={button}
+                    />
+                    <Gap size={12} />
+                </React.Fragment>
+            ))}
+        </React.Fragment>
+    );
+});
 ```

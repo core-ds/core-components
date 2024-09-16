@@ -17,7 +17,12 @@ export const LeftAddonIcon = () => {
         uploadStatus,
         iconStyle,
         customIcon: CustomIcon,
+        imageUrl,
     } = useContext(FileUploadItemContext);
+
+    if (imageUrl) {
+        return null;
+    }
 
     const isColoredIcon = iconStyle === 'colored';
     const fileType = getExtension(title);
