@@ -153,8 +153,6 @@ render(() => {
     const [imageUrl, setImageUrl] = React.useState(null);
     const [isImage, setIsImage] = React.useState(false);
 
-    const inputRef = React.useRef(null);
-
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         setStatus('SUCCESS');
@@ -177,7 +175,6 @@ render(() => {
     return (
         <React.Fragment>
             <input
-                ref={inputRef}
                 type='file'
                 id='file-upload-item-id'
                 onChange={handleFileChange}
@@ -197,6 +194,131 @@ render(() => {
                     <FileUploadItem.RightAddon />
                 </FileUploadItem>
             </label>
+        </React.Fragment>
+    );
+});
+```
+
+Использование в качестве элемента списка файлов. Здесь, прогресс загрузки отображает не кнопка, а отдельный элемент, который появляется после выбора файла. Такой подход хорошо подходит, когда нужно загрузить несколько файлов.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const label_ref_1 = React.useRef(null);
+    const label_ref_2 = React.useRef(null);
+    const label_ref_3 = React.useRef(null);
+
+    const [list, setList] = React.useState([
+        {
+            id: 1,
+            title: 'Прикрепите файл',
+            status: 'INITIAL',
+            size: 0,
+            display: 'none',
+            imageUrl: '',
+        },
+        {
+            id: 2,
+            title: 'Прикрепите файл',
+            status: 'INITIAL',
+            size: 0,
+            display: 'none',
+            imageUrl: '',
+        },
+        {
+            id: 3,
+            title: 'Прикрепите файл',
+            status: 'INITIAL',
+            size: 0,
+            display: 'none',
+            imageUrl: '',
+        },
+    ]);
+
+    const refList = [label_ref_1, label_ref_2, label_ref_3];
+
+    const handleFileChange = (index) => (e) => {
+        const file = e.target.files[0];
+
+        if (file && file.type.includes('image')) {
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+                setList((prevList) =>
+                    prevList.map((item) =>
+                        item.id === index
+                            ? {
+                                  ...item,
+                                  imageUrl: reader.result,
+                              }
+                            : item,
+                    ),
+                );
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        setList((prevList) =>
+            prevList.map((item) =>
+                item.id === index
+                    ? {
+                          ...item,
+                          display: 'block',
+                          status: 'SUCCESS',
+                          title: file.name,
+                          size: file.size,
+                          imageUrl: '',
+                      }
+                    : item,
+            ),
+        );
+    };
+
+    const handlePickerClick = () => {
+        const id = list.find((item) => item.display === 'none').id;
+        refList[id - 1].current.click();
+    };
+
+    return (
+        <React.Fragment>
+            {list.map((listItem) => {
+                return (
+                    <label
+                        htmlFor={`file-upload-item-id-${listItem.id}`}
+                        ref={refList[listItem.id - 1]}
+                        {...(list.find((item) => item.id === 1) && {
+                            style: { display: list[listItem.id - 1].display },
+                        })}
+                    >
+                        <input
+                            type='file'
+                            id={`file-upload-item-id-${listItem.id}`}
+                            onChange={handleFileChange(listItem.id)}
+                            style={{ display: 'none' }}
+                        />
+                        <FileUploadItem
+                            title={list[listItem.id - 1].title}
+                            uploadStatus={list[listItem.id - 1].status}
+                            uploadDate={new Date().toLocaleDateString()}
+                            size={list[listItem.id - 1].size}
+                            imageUrl={list[listItem.id - 1].imageUrl}
+                        >
+                            <FileUploadItem.LeftAddon />
+                            <FileUploadItem.Content />
+                            <FileUploadItem.RightAddon />
+                        </FileUploadItem>
+                        <Gap size={20} />
+                    </label>
+                );
+            })}
+
+            <div onClick={handlePickerClick}>
+                <FileUploadItem title='Прикрепите файл' uploadStatus='INITIAL'>
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
+            </div>
         </React.Fragment>
     );
 });

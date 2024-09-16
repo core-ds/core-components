@@ -10,14 +10,23 @@ import { ContentSubtitle } from './components/content-subtitle/content-subtitle'
 import styles from './content.module.css';
 
 export const Content = () => {
-    const { title, customContent: CustomContent, truncate } = useContext(FileUploadItemContext);
+    const {
+        title,
+        customContent: CustomContent,
+        truncate,
+        subtitle,
+    } = useContext(FileUploadItemContext);
 
     if (CustomContent) {
         return <CustomContent />;
     }
 
     return (
-        <div className={styles.container}>
+        <div
+            className={cn(styles.container, {
+                [styles.single]: !subtitle,
+            })}
+        >
             {title && (
                 <Typography.Text
                     className={cn(styles.title, {

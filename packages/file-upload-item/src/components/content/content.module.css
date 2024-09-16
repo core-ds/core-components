@@ -2,6 +2,18 @@
     padding: var(--gap-2) 0 0 var(--gap-16);
     width: 100%;
 
+    &.single {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 0;
+        min-height: 48px;
+
+        & .title {
+            margin-bottom: 0;
+        }
+    }
+
     & .title {
         margin-bottom: var(--gap-4);
     }
