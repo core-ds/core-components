@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.13.1
+
+### Patch Changes
+
+<sup><time>17.09.2024</time></sup>
+
+### [#1364](https://github.com/core-ds/core-components/pull/1364)
+
+-   Убрана синяя браузерная подсветка при тапе
+
 ## 9.13.0
 
 ### Minor Changes

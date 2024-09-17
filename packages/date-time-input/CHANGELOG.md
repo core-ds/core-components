@@ -1,5 +1,14 @@
 # @alfalab/core-components-date-time-input
 
+## 4.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.12.1
+    -   icon-button@6.9.1
+    -   input@15.1.2
+
 ## 4.4.1
 
 ### Patch Changes
