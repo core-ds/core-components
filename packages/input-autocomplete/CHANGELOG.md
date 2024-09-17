@@ -1,5 +1,30 @@
 # Change Log
 
+## 12.3.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+-   Исправлен расчет высоты списка опций
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   form-control@12.4.0
+    -   input@15.1.1
+    -   popover@6.3.1
+    -   shared@0.12.1
+
 ## 12.2.0
 
 ### Minor Changes

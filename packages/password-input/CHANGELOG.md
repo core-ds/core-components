@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.4.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   icon-button@6.9.0
+    -   input@15.1.1
+
 ## 5.3.0
 
 ### Minor Changes

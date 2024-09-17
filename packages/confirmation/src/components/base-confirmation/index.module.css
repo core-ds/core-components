@@ -3,6 +3,6 @@
 .component {
     width: 100%;
     max-width: 388px;
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
     color: var(--color-light-text-secondary);
 }

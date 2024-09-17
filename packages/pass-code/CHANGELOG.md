@@ -1,5 +1,19 @@
 # @alfalab/core-components-pass-code
 
+## 2.4.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   shared@0.12.1
+
 ## 2.4.0
 
 ### Minor Changes

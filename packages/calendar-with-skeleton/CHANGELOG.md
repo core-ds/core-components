@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.3.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   skeleton@5.2.0
+    -   calendar@7.12.0
+
 ## 5.3.0
 
 ### Minor Changes

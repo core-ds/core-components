@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.7.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1375](https://github.com/core-ds/core-components/pull/1375)
+
+-   Добавили новое свойство trimZero - обрезает ноль в минорной части. Например: 1.60 - 1.6
+
 ## 3.6.0
 
 ### Minor Changes

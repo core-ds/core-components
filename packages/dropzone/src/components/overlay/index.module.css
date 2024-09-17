@@ -2,17 +2,17 @@
 
 .overlay {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: var(--gap-0);
+    bottom: var(--gap-0);
+    left: var(--gap-0);
+    right: var(--gap-0);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
     background: var(--color-light-neutral-translucent-100);
 
     opacity: 0;

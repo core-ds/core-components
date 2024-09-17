@@ -1,11 +1,24 @@
 @import '../../vars/src/index.css';
+@import './vars.css';
 
-:root {
-    --icon-button-xxs-size: 24px;
-    --icon-button-xs-size: 32px;
-    --icon-button-40-size: 40px;
-    --icon-button-s-size: 48px;
-    --icon-button-56-size: 56px;
+.border-24 {
+    border-radius: var(--icon-button-24-size-border-radius);
+}
+
+.border-32 {
+    border-radius: var(--icon-button-32-size-border-radius);
+}
+
+.border-40 {
+    border-radius: var(--icon-button-40-size-border-radius);
+}
+
+.border-48 {
+    border-radius: var(--icon-button-48-size-border-radius);
+}
+
+.border-56 {
+    border-radius: var(--icon-button-56-size-border-radius);
 }
 
 .size-24 {
@@ -39,7 +52,7 @@
 
     &.center {
         justify-content: center;
-        margin: 0 auto;
+        margin: var(--gap-0) auto;
     }
 
     &.left {

@@ -59,4 +59,10 @@ export type AmountProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Обрезать ноль в минорной части. Например: 1.70 -> 1.7
+     * @default false
+     */
+    trimZero?: boolean;
 };

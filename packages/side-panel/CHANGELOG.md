@@ -1,5 +1,35 @@
 # Change Log
 
+## 5.5.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.3.0
+    -   base-modal@5.8.1
+    -   drawer@5.1.1
+    -   shared@0.12.1
+
 ## 5.4.0
 
 ### Minor Changes

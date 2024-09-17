@@ -23,7 +23,7 @@
     border-radius: 0;
     cursor: pointer;
     transition: opacity 0.15s ease-in-out;
-    padding: 0;
+    padding: var(--gap-0);
 
     &.hover {
         opacity: 0.8;
@@ -49,27 +49,27 @@
     }
 }
 .none {
-    padding: 0;
+    padding: var(--gap-0);
 }
 
 .airy {
-    padding: var(--gap-16) 0;
+    padding: var(--gap-16) var(--gap-0);
 }
 
 .default {
-    padding: var(--gap-12) 0;
+    padding: var(--gap-12) var(--gap-0);
 }
 
 .compact {
-    padding: var(--gap-8) 0;
+    padding: var(--gap-8) var(--gap-0);
 }
 
 .tiny {
-    padding: var(--gap-4) 0;
+    padding: var(--gap-4) var(--gap-0);
 }
 
 .noneTop {
-    padding-top: 0;
+    padding-top: var(--gap-0);
 }
 
 .airyTop {
@@ -89,7 +89,7 @@
 }
 
 .noneBottom {
-    padding-bottom: 0;
+    padding-bottom: var(--gap-0);
 }
 
 .airyBottom {

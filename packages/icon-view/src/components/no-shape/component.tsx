@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactNode } from 'react';
 
-import {BaseShape, BaseShapeProps, TMainSize} from '../base-shape';
+import { BaseShape, BaseShapeProps, TMainSize } from '../base-shape';
 
 import { pathsMap } from './paths';
 

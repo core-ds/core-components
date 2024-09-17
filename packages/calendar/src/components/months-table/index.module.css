@@ -17,6 +17,7 @@
 
             & .button {
                 width: calc(33.333% - var(--gap-4) / 1.5);
+                box-shadow: none;
             }
         }
 
@@ -32,7 +33,7 @@
                     }
 
                     &:nth-child(2n) {
-                        margin-right: 0;
+                        margin-right: var(--gap-0);
                     }
 
                     height: 36px;
@@ -46,7 +47,7 @@
         margin-bottom: var(--gap-8);
 
         &:nth-child(3n) {
-            margin-right: 0;
+            margin-right: var(--gap-0);
         }
 
         @media (max-width: 374px) {

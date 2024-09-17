@@ -3,7 +3,7 @@
 :root {
     --bottom-sheet-in-transition: transform 0.5s cubic-bezier(0.09, 0.91, 0.18, 0.99);
     --bottom-sheet-out-transition: transform 0.3s ease;
-    --bottom-sheet-top-radius: var(--border-radius-xl);
+    --bottom-sheet-top-radius: var(--border-radius-16);
     --bottom-sheet-shadow: none;
 
     /* header */

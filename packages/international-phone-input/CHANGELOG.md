@@ -1,5 +1,27 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.2.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   input-autocomplete@12.3.0
+    -   input@15.1.1
+    -   shared@0.12.1
+
 ## 2.2.0
 
 ### Minor Changes

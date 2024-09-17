@@ -1,15 +1,17 @@
+@import '../../../../vars/src/index.css';
+
 .enter {
     opacity: 0;
     width: 0;
     height: 0;
-    margin: 0;
+    margin: var(--gap-0);
 }
 
 .enterActive {
     opacity: 1;
     width: 12px;
     height: 12px;
-    margin: 0 6px;
+    margin: var(--gap-0) 6px;
     transition: all 0.15s ease-in;
 }
 
@@ -17,14 +19,14 @@
     opacity: 1;
     width: 12px;
     height: 12px;
-    margin: 0 6px;
+    margin: var(--gap-0) 6px;
 }
 
 .exitActive {
     opacity: 0;
     width: 0;
     height: 0;
-    margin: 0;
+    margin: var(--gap-0);
     transition: all 0.15s ease-in;
 }
 

@@ -1,5 +1,18 @@
 # @alfalab/core-components-steps
 
+## 1.7.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   badge@5.6.1
+
 ## 1.7.0
 
 ### Minor Changes

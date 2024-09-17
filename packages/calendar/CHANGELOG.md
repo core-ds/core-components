@@ -1,5 +1,36 @@
 # Change Log
 
+## 7.12.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   icon-button@6.9.0
+    -   modal@9.5.0
+    -   typography@4.10.1
+    -   shared@0.12.1
+
 ## 7.11.0
 
 ### Minor Changes

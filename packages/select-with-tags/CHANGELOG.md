@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.3.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   tag@8.4.1
+    -   form-control@12.4.0
+    -   bottom-sheet@6.17.1
+    -   popover@6.3.1
+
 ## 8.3.0
 
 ### Minor Changes

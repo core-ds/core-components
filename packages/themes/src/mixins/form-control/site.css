@@ -1,13 +1,13 @@
 @define-mixin form-control-site {
     /* theme */
-    --form-control-s-border-radius: 4px 4px 0 0;
-    --form-control-m-border-radius: 4px 4px 0 0;
-    --form-control-l-border-radius: 4px 4px 0 0;
-    --form-control-xl-border-radius: 4px 4px 0 0;
-    --form-control-mobile-s-border-radius: 4px 4px 0 0;
-    --form-control-mobile-m-border-radius: 4px 4px 0 0;
-    --form-control-mobile-l-border-radius: 4px 4px 0 0;
-    --form-control-mobile-xl-border-radius: 4px 4px 0 0;
+    --form-control-s-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+    --form-control-m-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+    --form-control-l-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+    --form-control-xl-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+    --form-control-mobile-s-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+    --form-control-mobile-m-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+    --form-control-mobile-l-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+    --form-control-mobile-xl-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-mobile-sub-paddings: 0;
     --form-control-bg-backdrop-filter: blur(20px);
     --form-control-border-bottom: 1px solid var(--color-light-neutral-500);

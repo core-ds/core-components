@@ -114,7 +114,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             );
         };
 
-        useVisibleOptions({
+        const measured = useVisibleOptions({
             ...(!nativeScrollbar && { styleTargetRef: scrollbarRef }),
             visibleOptions,
             listRef,
@@ -165,6 +165,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     horizontalAutoStretch={optionsListWidth === 'content'}
                     scrollableNodeProps={scrollableNodeProps}
                     contentNodeProps={{ ref: listRef }}
+                    maskProps={{ className: measured ? undefined : styles.mask }}
                 >
                     {renderListItems()}
                 </Scrollbar>

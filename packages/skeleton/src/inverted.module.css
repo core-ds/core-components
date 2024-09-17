@@ -1,0 +1,18 @@
+@import './vars.css';
+
+.component {
+    background: var(--skeleton-inverted-default-color);
+}
+
+.animate:before {
+    animation-name: background-inverted;
+}
+
+@keyframes background-inverted {
+    0% {
+        background: var(--color-light-neutral-translucent-100-inverted);
+    }
+    100% {
+        background: var(--color-light-neutral-translucent-300-inverted);
+    }
+}

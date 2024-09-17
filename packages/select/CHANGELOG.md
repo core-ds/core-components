@@ -1,5 +1,55 @@
 # Change Log
 
+## 17.12.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+-   Исправлен расчет высоты списка опций
+
+-   Обновлены зависимости
+    -   skeleton@5.2.0
+    -   button@11.7.0
+    -   form-control@12.4.0
+    -   modal@9.5.0
+    -   scrollbar@3.1.1
+    -   input@15.1.1
+    -   bottom-sheet@6.17.1
+    -   checkbox@4.6.1
+    -   popover@6.3.1
+    -   badge@5.6.1
+    -   base-modal@5.8.1
+    -   shared@0.12.1
+
 ## 17.11.0
 
 ### Minor Changes

@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0 auto;
-    padding: 0;
+    margin: var(--gap-0) auto;
+    padding: var(--gap-0);
 
     &.stretch {
         align-items: stretch;

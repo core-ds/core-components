@@ -37,6 +37,6 @@
     top: calc(var(--modal-vertical-padding) * -1);
 
     &.fullscreen {
-        top: 0;
+        top: var(--gap-0);
     }
 }

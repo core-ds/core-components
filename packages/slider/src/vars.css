@@ -13,7 +13,7 @@
     --slider-progress-s-height: 2px;
     --slider-progress-m-height: 4px;
     --slider-progress-s-border-radius: 0;
-    --slider-progress-m-border-radius: var(--border-radius-s);
+    --slider-progress-m-border-radius: var(--border-radius-4);
     --slider-progress-background: var(--color-light-neutral-translucent-300);
     --slider-progress-hover-background: var(--color-light-neutral-translucent-300);
     --slider-clickable-area-size: 16px;
@@ -21,5 +21,5 @@
 
     /* Отступы по бокам — на мобилке thumb не должен заходить за края контрола */
     --slider-origin-width: 100%;
-    --slider-origin-right: 0;
+    --slider-origin-right: var(--gap-0);
 }

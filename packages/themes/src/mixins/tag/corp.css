@@ -1,0 +1,13 @@
+@define-mixin tag-corp {
+    /* border */
+    --tag-rectangular-xxs-border-radius: var(--border-radius-10);
+    --tag-rectangular-xs-border-radius: var(--border-radius-12);
+    --tag-rectangular-s-border-radius: var(--border-radius-12);
+    --tag-alt-border-radius: var(--border-radius-16);
+
+    /* border mobile */
+    --tag-rectangular-mobile-xxs-border-radius: var(--border-radius-10);
+    --tag-rectangular-mobile-xs-border-radius: var(--border-radius-12);
+    --tag-rectangular-mobile-s-border-radius: var(--border-radius-12);
+    --tag-alt-mobile-border-radius: var(--border-radius-16);
+}

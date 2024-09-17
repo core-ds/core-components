@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, formatAmount } from '@alfalab/utils';
 
 import { logWarning } from './utils/logWarning';
+import { trimTrailingZeros } from './utils/trimTrailingZeros';
 import { AmountProps } from './types';
 
 import styles from './index.module.css';
@@ -23,6 +24,7 @@ export const Amount: React.FC<AmountProps> = ({
     rightAddons,
     showPlus = false,
     className,
+    trimZero = false,
     dataTestId,
 }) => {
     const { majorPart, minorPart, currencySymbol, currencySeparator } = formatAmount({
@@ -55,7 +57,7 @@ export const Amount: React.FC<AmountProps> = ({
                 })}
             >
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
-                {minorPart}
+                {trimZero ? trimTrailingZeros(minorPart) : minorPart}
                 {currency ? `${currencySeparator}${currencySymbol ?? currency}` : null}
                 {rightAddons}
             </span>

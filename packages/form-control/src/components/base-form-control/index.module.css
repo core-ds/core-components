@@ -23,7 +23,7 @@
     display: block;
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: var(--gap-0);
     height: 0;
     transition: transform 0.2s ease, border 0.2s ease;
     transform-origin: bottom;
@@ -54,7 +54,7 @@
     display: flex;
     align-items: center;
     left: var(--gap-12);
-    right: 0;
+    right: var(--gap-0);
     transform-origin: left top;
     transform: translateY(-50%);
     transition-duration: 200ms;
