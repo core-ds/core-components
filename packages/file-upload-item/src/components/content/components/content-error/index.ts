@@ -1,1 +1,1 @@
-export { contentError } from './content-error';
+export { ContentError } from './content-error';

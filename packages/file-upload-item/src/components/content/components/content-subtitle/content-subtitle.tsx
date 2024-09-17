@@ -5,7 +5,7 @@ import { Typography } from '@alfalab/core-components-typography';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 import { humanFileSize, isUploadingStatus } from '../../../../utils';
-import { ContentError } from '../content-error/content-error';
+import { ContentError } from '../content-error';
 
 import { useContentSubtitle } from './hooks/useContentSubtitle';
 

@@ -3,7 +3,7 @@
 .container {
     position: relative;
 
-    .progress {
+    & .progress {
         position: absolute;
         top: var(--gap-4-neg);
         left: var(--gap-4-neg);

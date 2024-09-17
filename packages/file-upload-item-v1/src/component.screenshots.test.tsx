@@ -9,10 +9,11 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('FileUploadItem', () =>
+describe('FileUploadItemV1', () =>
     createPreview(
         {
-            componentName: 'FileUploadItem',
+            packageName: 'file-upload-item-v1',
+            componentName: 'FileUploadItemV1',
             testStory: false,
             knobs: {
                 name: 'Название файла.xlsx',
@@ -27,10 +28,11 @@ describe('FileUploadItem', () =>
     ));
 
 describe(
-    'FileUploadItem | name with statuses',
+    'FileUploadItemV1 | name with statuses',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'FileUploadItem',
+            packageName: 'file-upload-item-v1',
+            componentName: 'FileUploadItemV1',
             knobs: {
                 name: ['photo.jpg'],
                 uploadStatus: ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
@@ -46,10 +48,11 @@ describe(
 );
 
 describe(
-    'FileUploadItem | meta',
+    'FileUploadItemV1 | meta',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'FileUploadItem',
+            packageName: 'file-upload-item-v1',
+            componentName: 'FileUploadItemV1',
             knobs: {
                 name: ['photo.jpg'],
                 uploadDate: ['22.01.2018'],
@@ -64,10 +67,11 @@ describe(
 );
 
 describe(
-    'FileUploadItem | hide meta when uploadStatus !== SUCCESS',
+    'FileUploadItemV1 | hide meta when uploadStatus !== SUCCESS',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'FileUploadItem',
+            packageName: 'file-upload-item-v1',
+            componentName: 'FileUploadItemV1',
             knobs: {
                 name: ['photo.jpg'],
                 uploadDate: ['22.01.2018'],
@@ -85,10 +89,11 @@ describe(
 );
 
 describe(
-    'FileUploadItem | hide meta when showRestore === true',
+    'FileUploadItemV1 | hide meta when showRestore === true',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'FileUploadItem',
+            packageName: 'file-upload-item-v1',
+            componentName: 'FileUploadItemV1',
             knobs: {
                 name: ['photo.jpg'],
                 uploadDate: ['22.01.2018'],
@@ -101,10 +106,11 @@ describe(
 );
 
 describe(
-    'FileUploadItem | ellipsis',
+    'FileUploadItemV1 | ellipsis',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'FileUploadItem',
+            packageName: 'file-upload-item-v1',
+            componentName: 'FileUploadItemV1',
             knobs: {
                 name: [
                     'very-long-file-name-123-very-long-file-name-123-very-long-file-name-123.jpg',
