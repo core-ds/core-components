@@ -61,6 +61,12 @@ export type SegmentedControlProps = {
      * Дополнительные инлайн стили для враппера
      */
     style?: React.CSSProperties;
+
+    /**
+     * Отключает пользовательский ввод
+     * @default false
+     */
+    disabled?: boolean;
 };
 
 const MAX_SEGMENTS = 5;
@@ -82,6 +88,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     colors = 'default',
     dataTestId,
     style,
+    disabled = false,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -135,6 +142,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         colorStyles[colors].wrapper,
                         styles[shape],
                         styles[SIZE_TO_CLASSNAME_MAP[size]],
+                        {
+                            [styles.disabled]: disabled,
+                        },
                     )}
                 >
                     <div className={cn(styles.container)}>
