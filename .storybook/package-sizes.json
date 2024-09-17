@@ -346,10 +346,10 @@
         "index.js": 10
     },
     "confirmation": {
-        "desktop.js": 30.4,
-        "index.js": 30.8,
-        "mobile.js": 30.5,
-        "shared.js": 28.8
+        "desktop.js": 30.7,
+        "index.js": 31.1,
+        "mobile.js": 30.8,
+        "shared.js": 29.1
     },
     "confirmation-v1": {
         "index.js": 45.1
