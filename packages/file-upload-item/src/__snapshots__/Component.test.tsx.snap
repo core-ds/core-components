@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileUploadItem Snapshots tests should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="component initial"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
+          >
+            <div
+              class="icon-view__component_1avi8"
+              style="width: 48px; height: 48px;"
+            >
+              <svg
+                focusable="false"
+                height="48"
+                viewBox="0 0 48 48"
+                width="48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="icon-view__bg_1avi8"
+                  d="M0.780288 12.3158C1.65342 6.21531 6.21531 1.65342 12.3158 0.780288C15.4298 0.334589 19.3246 0 24 0C28.6754 0 32.5702 0.334589 35.6842 0.780288C41.7847 1.65342 46.3466 6.21531 47.2197 12.3158C47.6654 15.4298 48 19.3246 48 24C48 28.6754 47.6654 32.5702 47.2197 35.6842C46.3466 41.7847 41.7847 46.3466 35.6842 47.2197C32.5702 47.6654 28.6754 48 24 48C19.3246 48 15.4298 47.6654 12.3158 47.2197C6.21531 46.3466 1.65342 41.7847 0.780288 35.6842C0.334589 32.5702 0 28.6754 0 24C0 19.3246 0.334589 15.4298 0.780288 12.3158Z"
+                  style="fill: var(--color-light-neutral-translucent-100);"
+                />
+              </svg>
+              <div
+                class="icon-view__children_1avi8"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12.78 3.63a4.507 4.507 0 016.373 6.373l-7.42 7.42a2.705 2.705 0 11-3.826-3.825l6.905-6.905 1.273 1.273-6.905 6.905a.905.905 0 001.28 1.28l7.42-7.42a2.707 2.707 0 10-3.827-3.829l-7.415 7.414a4.52 4.52 0 106.393 6.393l3.093-3.094a11.167 11.167 0 014.365-2.698l.57 1.708a9.368 9.368 0 00-3.662 2.263l-3.094 3.093a6.32 6.32 0 11-8.937-8.938L12.78 3.63z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="container"
+        >
+          <span
+            class="title primary component"
+          >
+            title
+          </span>
+          <span
+            class="subtitle secondary primary-small"
+          >
+            subtitle
+          </span>
+        </div>
+        <div
+          class="container"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component initial"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
+        >
+          <div
+            class="icon-view__component_1avi8"
+            style="width: 48px; height: 48px;"
+          >
+            <svg
+              focusable="false"
+              height="48"
+              viewBox="0 0 48 48"
+              width="48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="icon-view__bg_1avi8"
+                d="M0.780288 12.3158C1.65342 6.21531 6.21531 1.65342 12.3158 0.780288C15.4298 0.334589 19.3246 0 24 0C28.6754 0 32.5702 0.334589 35.6842 0.780288C41.7847 1.65342 46.3466 6.21531 47.2197 12.3158C47.6654 15.4298 48 19.3246 48 24C48 28.6754 47.6654 32.5702 47.2197 35.6842C46.3466 41.7847 41.7847 46.3466 35.6842 47.2197C32.5702 47.6654 28.6754 48 24 48C19.3246 48 15.4298 47.6654 12.3158 47.2197C6.21531 46.3466 1.65342 41.7847 0.780288 35.6842C0.334589 32.5702 0 28.6754 0 24C0 19.3246 0.334589 15.4298 0.780288 12.3158Z"
+                style="fill: var(--color-light-neutral-translucent-100);"
+              />
+            </svg>
+            <div
+              class="icon-view__children_1avi8"
+            >
+              <svg
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M12.78 3.63a4.507 4.507 0 016.373 6.373l-7.42 7.42a2.705 2.705 0 11-3.826-3.825l6.905-6.905 1.273 1.273-6.905 6.905a.905.905 0 001.28 1.28l7.42-7.42a2.707 2.707 0 10-3.827-3.829l-7.415 7.414a4.52 4.52 0 106.393 6.393l3.093-3.094a11.167 11.167 0 014.365-2.698l.57 1.708a9.368 9.368 0 00-3.662 2.263l-3.094 3.093a6.32 6.32 0 11-8.937-8.938L12.78 3.63z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <span
+          class="title primary component"
+        >
+          title
+        </span>
+        <span
+          class="subtitle secondary primary-small"
+        >
+          subtitle
+        </span>
+      </div>
+      <div
+        class="container"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

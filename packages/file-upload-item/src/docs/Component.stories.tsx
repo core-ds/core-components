@@ -28,7 +28,7 @@ export const file_upload_item: Story = {
                     downloadLink={text('downloadLink', '')}
                     error={text('error', '')}
                     size={number('size', 500000000)}
-                    progressBar={number('progressBar', 270)}
+                    progressBar={number('progressBar', 0)}
                     showDelete={boolean('showDelete', false)}
                     showRestore={boolean('showRestore', false)}
                     truncate={boolean('truncate', false)}
@@ -53,7 +53,7 @@ export const file_upload_item_left_addon: Story = {
                         ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
                         'INITIAL',
                     )}
-                    progressBar={number('progressBar', 270)}
+                    progressBar={number('progressBar', 0)}
                 >
                     <FileUploadItem.LeftAddon />
                 </FileUploadItem>

@@ -30,7 +30,7 @@ export const RightAddon = () => {
                 <IconButton
                     className={styles.icon}
                     size='xxs'
-                    aria-label='Восстановить'
+                    aria-label='восстановить'
                     icon={<ArrowsCwCompactMIcon color='var(--color-light-text-tertiary)' />}
                     disabled={disableButtons}
                     onClick={handleRestore}
