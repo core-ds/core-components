@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -8,11 +8,11 @@
     box-sizing: border-box;
     border-radius: var(--toast-plate-border-radius);
     min-height: 56px;
-    padding: var(--gap-m);
+    padding: var(--gap-16);
 
     &.hasCloser {
         /* 2×16 + 24 */
-        padding-right: 56px;
+        padding-right: var(--gap-56);
     }
 }
 
@@ -50,7 +50,7 @@
     flex-shrink: 0;
 
     &:not(.hasCloser) {
-        padding-right: 0;
+        padding-right: var(--gap-0);
     }
 
     &.bottomButton {
@@ -62,11 +62,11 @@
     display: flex;
     align-items: flex-start;
     flex-shrink: 0;
-    padding-right: var(--gap-s);
+    padding-right: var(--gap-12);
 }
 
 .contentTitle {
-    padding: var(--gap-3xs) 0;
+    padding: var(--gap-2) var(--gap-0);
 }
 
 .children {
@@ -76,21 +76,21 @@
 }
 
 .title + .children {
-    margin-top: var(--gap-2xs);
+    margin-top: var(--gap-4);
 }
 
 .closeButtonWrapper {
     position: absolute;
-    top: var(--gap-2xs);
-    bottom: var(--gap-2xs);
-    right: var(--gap-2xs);
+    top: var(--gap-4);
+    bottom: var(--gap-4);
+    right: var(--gap-4);
 
     &:before {
         display: var(--toast-plate-action-divider-display);
         position: absolute;
         right: 51px;
-        top: var(--gap-s);
-        bottom: var(--gap-s);
+        top: var(--gap-12);
+        bottom: var(--gap-12);
         width: 1px;
         content: '';
     }

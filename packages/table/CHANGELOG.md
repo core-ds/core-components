@@ -1,5 +1,72 @@
 # Change Log
 
+## 2.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+    -   select@17.12.1
+
+## 2.6.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   pagination@2.4.1
+    -   select@17.12.0
+    -   button@11.7.0
+
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.6.0
+    -   pagination@2.4.0
+    -   select@17.11.0
+
+## 2.5.11
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1348](https://github.com/core-ds/core-components/pull/1348)
+
+-   Исправлено выравнивание текста для TSortableHeadCell
+
+-   Обновлены зависимости
+    -   select@17.10.1
+    -   button@11.5.5
+    -   pagination@2.3.5
+
 ## 2.5.10
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-@import '../../../themes/src/default.css';
+@import '../../../vars/src/index.css';
 
 .skeletonText.skeletonText {
     border-radius: var(--border-radius-pill);
@@ -9,7 +9,7 @@
 }
 
 .center > div {
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 }
 
 .right > div {

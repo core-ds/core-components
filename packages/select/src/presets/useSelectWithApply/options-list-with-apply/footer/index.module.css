@@ -1,11 +1,12 @@
-@import '../../../../../../themes/src/default.css';
+@import '../../../../../../vars/src/index.css';
+@import './vars.css';
 
 .footer {
     background-color: var(--color-light-base-bg-primary);
-    padding: var(--gap-s);
+    padding: var(--gap-12);
     outline: none;
 
     & > .button + .button {
-        margin-left: var(--gap-xs);
+        margin-left: var(--select-option-list-footer-button-gap);
     }
 }

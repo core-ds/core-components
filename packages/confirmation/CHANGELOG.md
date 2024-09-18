@@ -1,5 +1,69 @@
 # Change Log
 
+## 13.7.2
+
+### Patch Changes
+
+<sup><time>17.09.2024</time></sup>
+
+### [#1366](https://github.com/core-ds/core-components/pull/1366)
+
+-   Исправлены стили цветов
+
+-   Обновлены зависимости
+    -   button@11.7.1
+
+## 13.7.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   code-input@3.6.0
+    -   typography@4.10.1
+    -   link@5.3.1
+
+## 13.7.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.6.0
+    -   code-input@3.5.0
+    -   link@5.3.0
+    -   spinner@3.5.0
+    -   typography@4.10.0
+
+## 13.6.3
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   typography@4.9.0
+    -   button@11.5.5
+    -   code-input@3.4.1
+    -   link@5.2.3
+
 ## 13.6.2
 
 ### Patch Changes

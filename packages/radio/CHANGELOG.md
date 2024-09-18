@@ -1,5 +1,47 @@
 # Change Log
 
+## 4.3.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   shared@0.12.1
+
+## 4.3.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+## 4.2.0
+
+### Minor Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1343](https://github.com/core-ds/core-components/pull/1343)
+
+-   Стилевые исправления компонентов
+-   Обновление документации
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
 ## 4.1.5
 
 ### Patch Changes

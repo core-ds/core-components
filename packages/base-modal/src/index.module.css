@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --window-inner-scrollY: 10px; /* fallback value to prevent ci error */
@@ -20,10 +20,10 @@ body:global(.is-locked) {
 
 .wrapper {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
+    right: var(--gap-0);
+    bottom: var(--gap-0);
 
     overflow: auto;
     display: flex;

@@ -1,5 +1,52 @@
 # @alfalab/core-components-number-input
 
+## 2.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.9.1
+    -   input@15.1.2
+
+## 2.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.9.0
+    -   input@15.1.1
+    -   shared@0.12.1
+
+## 2.4.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.8.0
+    -   input@15.1.0
+
+## 2.3.17
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   input@15.0.5
+    -   icon-button@6.7.5
+
 ## 2.3.16
 
 ### Patch Changes

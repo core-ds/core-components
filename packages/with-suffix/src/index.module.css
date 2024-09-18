@@ -1,13 +1,13 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import '../../input/src/vars.css';
 
 .suffixContainer {
     @mixin paragraph_component;
 
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: var(--gap-0);
+    top: var(--gap-0);
+    bottom: var(--gap-0);
     align-items: center;
     display: none;
     pointer-events: none;
@@ -35,8 +35,16 @@ input:focus:not(:read-only) + .suffixContainer,
 
 .disabled {
     color: var(--input-disabled-color);
+
+    &.inverted {
+        color: var(--input-inverted-disabled-color);
+    }
 }
 
 .readOnly {
     color: var(--input-read-only-color);
+
+    &.inverted {
+        color: var(--input-inverted-read-only-color);
+    }
 }

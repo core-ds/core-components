@@ -50,7 +50,7 @@ Object {
         </div>
         <a
           aria-label="скачать"
-          class="component text size-48 hug size-48 component text component text cc-icon-button download primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button download primary component border-24"
           download="новое_название_файла"
           href="/link"
         >
@@ -78,7 +78,7 @@ Object {
         </a>
         <button
           aria-label="удалить"
-          class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component border-24"
           type="button"
         >
           <span
@@ -152,7 +152,7 @@ Object {
       </div>
       <a
         aria-label="скачать"
-        class="component text size-48 hug size-48 component text component text cc-icon-button download primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button download primary component border-24"
         download="новое_название_файла"
         href="/link"
       >
@@ -180,7 +180,7 @@ Object {
       </a>
       <button
         aria-label="удалить"
-        class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button delete primary component border-24"
         type="button"
       >
         <span

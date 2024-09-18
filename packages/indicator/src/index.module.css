@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     position: relative;
@@ -50,7 +50,7 @@
 
     & .content {
         @mixin accent_secondary_small;
-        padding: 0 var(--gap-2xs);
+        padding: var(--gap-0) var(--gap-4);
     }
 }
 
@@ -60,7 +60,7 @@
 
     & .content {
         @mixin accent_secondary_medium;
-        padding: 0 var(--gap-2xs);
+        padding: var(--gap-0) var(--gap-4);
     }
 }
 
@@ -70,7 +70,7 @@
 
     & .content {
         @mixin accent_primary_small;
-        padding: 0 var(--gap-2xs);
+        padding: var(--gap-0) var(--gap-4);
     }
 }
 
@@ -80,13 +80,13 @@
 
     & .content {
         @mixin accent_primary_medium;
-        padding: 0 var(--gap-s);
+        padding: var(--gap-0) var(--gap-12);
     }
 }
 
 .size-48 {
     & .content {
         @mixin accent_primary_medium;
-        padding: 0 var(--gap-m);
+        padding: var(--gap-0) var(--gap-16);
     }
 }

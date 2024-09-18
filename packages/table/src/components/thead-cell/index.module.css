@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     @mixin paragraph_caps;
@@ -6,18 +6,18 @@
     line-height: 20px;
     text-align: left;
     color: var(--color-light-text-primary);
-    padding: var(--gap-2xl) var(--gap-s) var(--gap-2xs);
+    padding: var(--gap-32) var(--gap-12) var(--gap-4);
     border-bottom: 1px solid var(--color-light-neutral-400);
     background: var(--color-light-base-bg-primary);
     vertical-align: top;
     box-sizing: border-box;
 
     &:first-child {
-        padding-left: var(--gap-m);
+        padding-left: var(--gap-16);
     }
 
     &:last-child {
-        padding-right: var(--gap-m);
+        padding-right: var(--gap-16);
     }
 
     &:not(.stickyHeader) {
@@ -34,7 +34,7 @@
 }
 
 .stickyHeader {
-    top: 0;
+    top: var(--gap-0);
     position: sticky;
     box-shadow: inset 0 -1px 0 0 rgba(11, 31, 53, 0.16);
     border: none;

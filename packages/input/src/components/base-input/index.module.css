@@ -9,7 +9,7 @@
     height: 100%;
     background: none;
     border: none;
-    margin: 0;
+    margin: var(--gap-0);
     outline: none;
     text-overflow: ellipsis;
     box-sizing: border-box;
@@ -50,7 +50,7 @@
     display: var(--input-error-icon-display);
 
     &:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-left: var(--gap-4);
     }
 }
 
@@ -59,19 +59,19 @@
 }
 
 button[class*='eye'] + .errorIcon {
-    margin-right: var(--gap-s);
+    margin-right: var(--gap-12);
 }
 
 .successIcon {
     display: var(--input-success-icon-display);
 
     &:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-left: var(--gap-4);
     }
 }
 
 button[class*='eye'] + .successIcon {
-    margin-right: var(--gap-s);
+    margin-right: var(--gap-12);
 }
 
 /* DISABLED STATE */

@@ -1,4 +1,4 @@
-@import '../../../themes/src/default.css';
+@import '../../../vars/src/index.css';
 @import '../../../calendar/src/vars.css';
 
 .component {
@@ -13,7 +13,7 @@
     }
 
     & *[class*='calendarIcon_'] {
-        margin-right: 0;
+        margin-right: var(--gap-0);
     }
 }
 
@@ -22,7 +22,7 @@
         width: var(--calendar-inner-width);
 
         & > div:first-child {
-            padding: var(--gap-m) 0 var(--gap-s);
+            padding: var(--gap-16) var(--gap-0) var(--gap-12);
         }
     }
 }

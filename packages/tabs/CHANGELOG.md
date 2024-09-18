@@ -1,5 +1,78 @@
 # Change Log
 
+## 8.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.9.1
+    -   picker-button@11.9.1
+
+## 8.10.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   skeleton@5.2.0
+    -   tag@8.4.1
+    -   icon-button@6.9.0
+    -   picker-button@11.9.0
+    -   badge@5.6.1
+    -   shared@0.12.1
+
+## 8.10.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1362](https://github.com/core-ds/core-components/pull/1362)
+
+-   Обновили corp темизацию в компоненте Tabs
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.0
+    -   icon-button@6.8.0
+    -   picker-button@11.8.0
+    -   skeleton@5.1.0
+    -   tag@8.4.0
+
+## 8.9.11
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1322](https://github.com/core-ds/core-components/pull/1322)
+
+-   Поправлен импорт компонента skeleton
+
+-   Обновлены зависимости
+    -   tag@8.3.1
+    -   badge@5.5.3
+    -   picker-button@11.7.18
+    -   icon-button@6.7.5
+
 ## 8.9.10
 
 ### Patch Changes

@@ -1,5 +1,73 @@
 # Change Log
 
+## 11.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+    -   select@17.12.1
+
+## 11.9.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+-   Исправлен расчет высоты списка опций
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   button@11.7.0
+    -   popover@6.3.1
+
+## 11.8.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.6.0
+    -   popover@6.3.0
+    -   select@17.11.0
+
+## 11.7.18
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   select@17.10.1
+    -   button@11.5.5
+
 ## 11.7.17
 
 ### Patch Changes

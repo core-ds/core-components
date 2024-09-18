@@ -14,7 +14,8 @@ import cn from 'classnames';
 
 import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
-import { CheckmarkCompactMIcon } from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
+
+import { getIcon } from './utils/getIcon';
 
 import styles from './index.module.css';
 
@@ -200,8 +201,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     />
                 )}
                 <span className={cn(styles.box, boxClassName)}>
-                    {checked && <CheckmarkCompactMIcon className={styles.checkedIcon} />}
-
+                    {checked && getIcon(size)}
                     {indeterminate && !checked && <span className={styles.indeterminateLine} />}
                 </span>
 

@@ -5,17 +5,21 @@
     flex-direction: column;
 }
 
+.phone.phone {
+    color: var(--color-light-text-primary);
+    margin-bottom: var(--gap-32);
+}
+
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
 }
 
-.phone.phone {
-    color: var(--color-light-text-primary);
-    margin-bottom: var(--gap-2xl);
+.typographyThemeMobile.typographyThemeMobile {
+    color: var(--color-light-text-secondary);
 }
 
 .compact {
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
 }
 
 .loaderWrap {
@@ -37,7 +41,7 @@
 }
 
 .codeInput {
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-12);
 }
 
 .smsBtn.smsBtn {
@@ -50,24 +54,24 @@
 
 .countdownContainer.countdownContainer {
     color: var(--color-light-text-secondary);
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
 }
 
 .countdownMobile.countdownMobile {
-    margin-bottom: var(--gap-l);
+    margin-bottom: var(--gap-20);
 }
 .countdownLoaderMobile.countdownLoaderMobile {
-    margin-bottom: var(--gap-m);
+    margin-bottom: var(--gap-16);
 }
 
 .getCodeButton {
     position: relative;
-    top: var(--gap-2xs-neg);
-    margin-bottom: var(--gap-m);
+    top: var(--gap-4-neg);
+    margin-bottom: var(--gap-16);
 }
 
 .getCodeButtonMobile {
-    margin-bottom: 0;
+    margin-bottom: var(--gap-0);
 }
 
 .containerInput {

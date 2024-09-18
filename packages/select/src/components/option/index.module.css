@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .option {
@@ -25,7 +25,7 @@
         position: absolute;
         left: var(--select-option-left-padding);
         right: var(--select-option-right-padding);
-        top: 0;
+        top: var(--gap-0);
         height: 1px;
         background: var(--select-option-divider-background);
         display: var(--select-option-divider-display);
@@ -90,10 +90,9 @@
     overflow: hidden;
     flex: 1;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .textContent {
-    padding-top: var(--gap-s);
-    padding-bottom: var(--gap-s);
+    padding-top: var(--gap-12);
+    padding-bottom: var(--gap-12);
 }

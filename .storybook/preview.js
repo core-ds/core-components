@@ -40,7 +40,7 @@ addons.setConfig({
         bgColor: 'var(--color-light-base-bg-secondary)',
         previewBgColor: 'var(--color-light-base-bg-primary)',
         borderColor: 'var(--color-light-neutral-400)',
-        borderRadius: 'var(--border-radius-xl)',
+        borderRadius: 'var(--border-radius-16)',
         hintColor: 'var(--color-light-text-secondary)',
         iconColor: 'var(--color-light-base-bg-primary-inverted)',
         errorsBg: 'var(--color-light-status-muted-negative)',

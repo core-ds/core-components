@@ -7,8 +7,8 @@
     --calendar-mobile-inner-half-width: calc(var(--calendar-mobile-inner-width) / 2);
 
     /* Кнопки выбора месяцев и годов */
-    --calendar-select-button-gap: calc(var(--gap-xs) / 3);
-    --calendar-mobile-select-button-gap: calc(var(--gap-2xs) / 2);
+    --calendar-select-button-gap: calc(var(--gap-8) / 3);
+    --calendar-mobile-select-button-gap: calc(var(--gap-4) / 2);
     --calendar-mobile-select-button-width: calc(
         var(--calendar-mobile-inner-half-width) - var(--calendar-mobile-select-button-gap)
     );
@@ -17,6 +17,10 @@
     );
     --calendar-select-button-today-border-color: var(--color-light-neutral-translucent-1300);
     --calendar-select-button-selected-background: var(--color-light-accent-secondary);
+    --calendar-select-button-border-radius: var(--border-radius-4);
+    --calendar-select-button-box-shadow: none;
+    --calendar-mobile-select-button-box-shadow: none;
+    --calendar-select-button-background-color: var(--color-light-neutral-translucent-300);
 
     /* Шапка */
     --calendar-month-only-header-font-family: var(--font-family-system);

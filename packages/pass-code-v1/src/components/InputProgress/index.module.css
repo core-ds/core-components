@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     height: 12px;
@@ -9,7 +9,7 @@
 }
 
 .dot {
-    margin: 0 6px;
+    margin: var(--gap-0) 6px;
     width: 12px;
     height: 12px;
     background: var(--color-light-neutral-translucent-300);

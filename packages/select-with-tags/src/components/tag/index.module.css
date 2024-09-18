@@ -1,9 +1,9 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../../../tag/src/vars.css';
 
 .tag {
-    padding: 0 0 0 var(--gap-xs);
-    margin: var(--gap-3xs);
+    padding: var(--gap-0) var(--gap-0) var(--gap-0) var(--gap-8);
+    margin: var(--gap-2);
     cursor: default;
 
     &:not(.tagNoClose):active:not(:disabled) {
@@ -27,8 +27,8 @@
 }
 
 .tagNoClose {
-    padding-right: var(--gap-xs);
-    padding-left: var(--gap-xs);
+    padding-right: var(--gap-8);
+    padding-left: var(--gap-8);
 }
 
 .tagContentWrap {
@@ -43,7 +43,7 @@
 }
 
 .tagCross {
-    padding: 0 6px;
+    padding: var(--gap-0) 6px;
     height: 100%;
 
     & > svg {

@@ -76,9 +76,6 @@ const processRootTheme = (cssFile) => {
 };
 
 (async () => {
-    // Удаляем файл с дефолтной темой, его публиковать не нужно
-    shell.rm('dist/default.css');
-
     // Переходим в папку с мисинами и парсим темы
     shell.cd('dist/mixins');
 

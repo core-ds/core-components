@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     position: relative;
@@ -9,8 +9,8 @@
     width: 80px;
     min-height: 80px;
     max-height: 100px;
-    padding: 0;
-    margin: 0;
+    padding: var(--gap-0);
+    margin: var(--gap-0);
     background: none;
     border: none;
     cursor: pointer;
@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-12);
     border-radius: var(--border-radius-circle);
     transition: background-color 0.2s ease;
     line-height: 0;
@@ -65,9 +65,9 @@
 
 .loader {
     position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    left: var(--gap-0);
+    right: var(--gap-0);
+    margin: var(--gap-0) auto;
 }
 
 .focused {

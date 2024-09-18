@@ -1,5 +1,5 @@
 @import '../../vars.css';
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     @mixin _confirmation-text;
@@ -7,36 +7,36 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: var(--gap-3xl);
+    margin-top: var(--gap-40);
     color: var(--confirmation-text-color);
 }
 
 .hasError {
     & .getCodeButton {
-        margin-top: 0;
+        margin-top: var(--gap-0);
     }
 
     & .info {
-        margin-top: 0;
+        margin-top: var(--gap-0);
     }
 
     & .customContent {
-        margin-bottom: var(--gap-2xl);
+        margin-bottom: var(--gap-32);
     }
 }
 
 .info {
-    margin: var(--gap-2xs) 0;
+    margin: var(--gap-4) var(--gap-0);
 }
 
 .loaderWrap {
     display: flex;
     align-items: center;
-    margin-bottom: var(--gap-xs);
+    margin-bottom: var(--gap-8);
 }
 
 .loader {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .center {
@@ -53,9 +53,9 @@
 }
 
 .getCodeButton {
-    margin-top: var(--gap-2xl);
+    margin-top: var(--gap-32);
 }
 
 .noAttemptsLeftMessage {
-    margin: var(--gap-2xs) 0 var(--gap-xs);
+    margin: var(--gap-4) var(--gap-0) var(--gap-8);
 }

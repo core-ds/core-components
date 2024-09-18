@@ -1,5 +1,65 @@
 # Change Log
 
+## 5.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.9.1
+    -   input@15.1.2
+
+## 5.4.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   icon-button@6.9.0
+    -   input@15.1.1
+
+## 5.3.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.8.0
+    -   input@15.1.0
+
+## 5.2.19
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   input@15.0.5
+    -   icon-button@6.7.5
+
 ## 5.2.18
 
 ### Patch Changes

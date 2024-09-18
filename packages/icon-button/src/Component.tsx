@@ -9,6 +9,8 @@ import cn from 'classnames';
 
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 
+import { transformSize } from './helpers/transformSize';
+
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -99,12 +101,13 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                 className,
                 colorStyles[colors][view],
                 colorStyles[colors].component,
+                styles[`border-${transformSize(size)}`],
                 {
                     [colorStyles[colors].loader]: restProps.loading,
                     [colorStyles[colors].transparentBg]: transparentBg,
                 },
             )}
-            size='s'
+            size='s' /** todo рассмотреть возможность динамического изменения размера */
         >
             <span
                 className={cn(

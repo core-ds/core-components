@@ -1,5 +1,53 @@
 # Change Log
 
+## 3.6.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1361](https://github.com/core-ds/core-components/pull/1361)
+
+-   Добавлен пропс `size`. Теперь помимо дефолтного значения `20` можно также установить `24, 32, 40`
+-   Для значения `20` изменены скругления
+-   Добавлен пропс `shape`. С помощью него можно задать тип скругления компонента - `rectangular, rounded`
+-   Добавлен пропс `uppercase`. Изначально текст в компоненте всегда указывался в верхнем регистре - теперь регистр можно менять. Для обратной совместимости оставили по умолчанию `uppercase=true`
+-   Внутренние улучшения кода компонента
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+## 3.5.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+## 3.4.2
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
 ## 3.4.1
 
 ### Patch Changes

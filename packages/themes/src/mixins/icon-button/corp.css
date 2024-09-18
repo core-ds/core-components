@@ -1,0 +1,10 @@
+@define-mixin icon-button-corp {
+    /* border */
+    --icon-button-24-size-border-radius: var(--border-radius-8);
+    --icon-button-32-size-border-radius: var(--border-radius-10);
+    --icon-button-40-size-border-radius: var(--border-radius-12);
+    --icon-button-48-size-border-radius: var(--border-radius-12);
+    --icon-button-56-size-border-radius: var(--border-radius-16);
+    --icon-button-64-size-border-radius: var(--border-radius-16);
+    --icon-button-72-size-border-radius: var(--border-radius-16);
+}

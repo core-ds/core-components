@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .legendContent {
     display: flex;
@@ -8,18 +8,18 @@
 
 .legendWrap {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin: var(--gap-0);
+    padding: var(--gap-0);
 }
 
 .legendItem {
-    margin-right: var(--gap-2xl);
+    margin-right: var(--gap-32);
     cursor: pointer;
     display: inline-block;
 }
 
 .legendItem:last-child {
-    margin-right: 0;
+    margin-right: var(--gap-0);
 }
 
 .legendUnactive {

@@ -1,11 +1,11 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     width: fit-content;
-    padding: 10px var(--gap-m);
+    padding: 10px var(--gap-16);
     background-color: var(--color-light-neutral-100);
-    border-radius: var(--border-radius-s) var(--border-radius-xxl) var(--border-radius-xxl)
-        var(--border-radius-xxl);
+    border-radius: var(--border-radius-4) var(--border-radius-20) var(--border-radius-20)
+        var(--border-radius-20);
 }
 
 .rowLimit2 {

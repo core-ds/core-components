@@ -1,8 +1,10 @@
+@import '../../../vars/src/index.css';
+
 .component {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
     box-sizing: border-box;
 }
 

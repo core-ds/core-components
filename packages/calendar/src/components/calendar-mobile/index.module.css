@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 @import '../../../../modal/src/vars.css';
 
@@ -22,12 +22,12 @@
     width: 100%;
     position: sticky;
     background: var(--modal-header-background);
-    top: 0;
+    top: var(--gap-0);
     height: 32px;
-    padding: 0 6px;
+    padding: var(--gap-0) 6px;
 
     &.withHeader {
-        top: 48px;
+        top: var(--gap-48);
     }
 }
 
@@ -43,18 +43,18 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     color: var(--color-light-text-primary);
-    margin-bottom: var(--gap-xs);
+    margin-bottom: var(--gap-8);
 
     &.clickableMonth {
-        padding: 10px var(--gap-m);
+        padding: 10px var(--gap-16);
         align-self: flex-start;
-        border-radius: 999px;
+        border-radius: var(--border-radius-pill);
         background-color: var(--color-light-neutral-translucent-100);
         cursor: pointer;
         text-transform: unset;
 
         &.rectangular {
-            border-radius: var(--border-radius-l);
+            border-radius: var(--border-radius-12);
         }
 
         &.active {
@@ -78,7 +78,7 @@
 .daysTable {
     display: flex;
     flex-direction: column;
-    margin-top: var(--gap-2xl);
+    margin-top: var(--gap-32);
 }
 
 .dayName {
@@ -93,12 +93,12 @@
 }
 
 .virtuoso {
-    margin: 0 var(--gap-m);
+    margin: var(--gap-0) var(--gap-16);
 }
 
 .contentModal {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: var(--gap-0);
+    padding-left: var(--gap-0);
 }
 
 .content.content {

@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 :root {
     --icon-view-color: var(--color-light-neutral-translucent-700);
@@ -41,8 +41,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 0;
-    top: 0;
+    left: var(--gap-0);
+    top: var(--gap-0);
     overflow: hidden;
     text-align: center;
 }
@@ -87,13 +87,13 @@
     }
 
     & .topAddons {
-        top: -8px;
-        right: -8px;
+        top: var(--gap-8-neg);
+        right: var(--gap-8-neg);
     }
 
     & .bottomAddons {
-        bottom: -8px;
-        right: -8px;
+        bottom: var(--gap-8-neg);
+        right: var(--gap-8-neg);
     }
 }
 
@@ -152,8 +152,8 @@
     }
 
     & .indicator {
-        top: -8px;
-        right: -16px;
+        top: var(--gap-8-neg);
+        right: var(--gap-8-neg);
     }
 }
 
@@ -172,18 +172,18 @@
     }
 
     & .topAddons {
-        top: -8px;
+        top: var(--gap-8-neg);
         right: -6px;
     }
 
     & .bottomAddons {
-        bottom: -8px;
+        bottom: var(--gap-8-neg);
         right: -6px;
     }
 
     & .indicator {
         top: -6px;
-        right: -12px;
+        right: var(--gap-12-neg);
     }
 }
 
@@ -257,8 +257,8 @@
     }
 
     & .indicator {
-        top: -2px;
-        right: -2px;
+        top: var(--gap-2-neg);
+        right: var(--gap-2-neg);
     }
 }
 
@@ -272,8 +272,8 @@
     }
 
     & .indicator {
-        top: -2px;
-        right: -2px;
+        top: var(--gap-2-neg);
+        right: var(--gap-2-neg);
     }
 }
 
@@ -302,8 +302,8 @@
     }
 
     & .indicator {
-        top: -4px;
-        right: -4px;
+        top: var(--gap-4-neg);
+        right: var(--gap-4-neg);
     }
 }
 

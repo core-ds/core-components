@@ -9,7 +9,7 @@
     white-space: pre-line;
 
     &.vertical {
-        grid-row-gap: var(--gap-3xs);
+        grid-row-gap: var(--gap-2);
         justify-content: center;
         align-items: center;
 
@@ -23,7 +23,7 @@
 
     &.button {
         @mixin button-reset;
-        padding: 0;
+        padding: var(--gap-0);
         transition: opacity 0.15s ease-in-out;
         min-width: auto;
 

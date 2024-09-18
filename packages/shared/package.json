@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-shared",
-    "version": "0.12.0",
+    "version": "0.12.1",
     "description": "Shared package for core-components",
     "keywords": [],
     "license": "MIT",
@@ -20,6 +20,6 @@
     "devDependencies": {
         "@maskito/core": "^1.7.0"
     },
-    "themesVersion": "13.0.1",
-    "varsVersion": "9.11.1"
+    "themesVersion": "13.2.0",
+    "varsVersion": "9.13.1"
 }

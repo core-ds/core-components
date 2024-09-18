@@ -158,7 +158,7 @@ describe('AmountInput', () => {
     });
 
     it("should replace entered '.' with ','", () => {
-        const input = renderAmountInput(null, null, { positiveOnly: false });
+        const input = renderAmountInput(null, null, { positiveOnly: false, integerLength: 12 });
 
         fireEvent.change(input, { target: { value: '-0.' } });
         expect(input.value).toBe('-0,');
@@ -180,7 +180,7 @@ describe('AmountInput', () => {
     });
 
     it('should allow input correct amounts', () => {
-        const input = renderAmountInput(0);
+        const input = renderAmountInput(0, null, { integerLength: 12 });
 
         fireEvent.change(input, { target: { value: '123456' } });
         expect(input.value).toBe(`123${MMSP}456`);
@@ -208,7 +208,7 @@ describe('AmountInput', () => {
     });
 
     it('should allow input correct amounts when positiveOnly is false', () => {
-        const input = renderAmountInput(0, null, { positiveOnly: false });
+        const input = renderAmountInput(0, null, { positiveOnly: false, integerLength: 13 });
 
         fireEvent.change(input, { target: { value: '-' } });
         expect(input.value).toBe('-');
@@ -481,6 +481,22 @@ describe('AmountInput', () => {
         });
 
         expect(input.value).toBe('0,01');
+    });
+
+    describe('should drop decimal comma when blur for view=default', () => {
+        it.each`
+            initialValue | eventValue  | expectValue
+            ${123456}    | ${'1234,'}  | ${`1${MMSP}234`}
+            ${123456}    | ${'1234,5'} | ${`1${MMSP}234,5`}
+            ${123456}    | ${'1234'}   | ${`1${MMSP}234`}
+        `('drop decimal if value is $eventValue', ({ initialValue, eventValue, expectValue }) => {
+            const input = renderAmountInput(initialValue, null);
+
+            fireEvent.change(input, { target: { value: eventValue } });
+            fireEvent.blur(input);
+
+            expect(input.value).toBe(expectValue);
+        });
     });
 
     describe('should fill minor part with view="withZeroMinorPart"', () => {

@@ -1,5 +1,5 @@
 @import '../../vars.css';
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
@@ -10,7 +10,7 @@
 .title {
     @mixin _confirmation-title;
 
-    margin-bottom: var(--gap-3xl);
+    margin-bottom: var(--gap-40);
 }
 
 .description {
@@ -21,11 +21,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: var(--gap-2xs);
+    margin-top: var(--gap-4);
 }
 
 .loader {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .timePassed {
@@ -34,11 +34,11 @@
 }
 
 .getCodeButton {
-    margin-top: var(--gap-2xl);
+    margin-top: var(--gap-32);
 }
 
 .alertIcon {
     text-align: center;
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-24);
     color: var(--color-static-status-red);
 }

@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
@@ -10,12 +10,12 @@
     flex-flow: column nowrap;
 
     & > * {
-        margin-bottom: var(--gap-m);
+        margin-bottom: var(--gap-16);
     }
 
     & > *:last-child,
     & > *:only-child {
-        margin-bottom: 0;
+        margin-bottom: var(--gap-0);
     }
 }
 
@@ -23,12 +23,12 @@
     flex-flow: row nowrap;
 
     & > * {
-        margin-right: var(--gap-m);
+        margin-right: var(--gap-16);
     }
 
     & > *:last-child,
     & > *:only-child {
-        margin-right: 0;
+        margin-right: var(--gap-0);
     }
 }
 
