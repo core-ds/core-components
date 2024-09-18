@@ -2,6 +2,10 @@
 
 .wrapper {
     display: flex;
+
+    &.disabled {
+        pointer-events: none;
+    }
 }
 
 .container {

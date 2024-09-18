@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.9.1
+
 ## 5.9.0
 
 ### Minor Changes

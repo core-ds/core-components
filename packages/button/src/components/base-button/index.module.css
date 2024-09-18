@@ -2,6 +2,8 @@
 @import '../../vars.css';
 
 .component {
+    @mixin reset-tap-highlight-color;
+
     position: relative;
     display: inline-flex;
     vertical-align: middle;

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pure-cell",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-amount": "^3.7.0",
-        "@alfalab/core-components-button": "^11.7.0",
+        "@alfalab/core-components-button": "^11.7.1",
         "@alfalab/core-components-typography": "^4.10.1",
         "@alfalab/core-components-comment": "^2.4.1",
         "@alfalab/core-components-shared": "^0.12.1",
@@ -27,5 +27,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.2.0",
-    "varsVersion": "9.13.0"
+    "varsVersion": "9.13.1"
 }
