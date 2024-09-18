@@ -14,11 +14,11 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.10.0",
         "@alfalab/core-components-icon-button": "^6.9.0",
         "@alfalab/core-components-link": "^5.3.1",
         "@alfalab/core-components-spinner": "^3.5.0",
         "@alfalab/icons-glyph": "^2.189.0",
+        "@alfalab/core-components-typography": "^4.10.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     },
