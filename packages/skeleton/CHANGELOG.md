@@ -1,5 +1,39 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1372](https://github.com/core-ds/core-components/pull/1372)
+
+-   Добавлено новое свойство colors, отвечающее за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
 ## 5.0.0
 
 ### Major Changes

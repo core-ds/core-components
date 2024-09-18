@@ -27,7 +27,10 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
             <Typography.Text
                 view='primary-medium'
                 color='primary'
-                className={cn({ [styles.typographyTheme]: !mobile })}
+                className={cn({
+                    [styles.typographyTheme]: !mobile,
+                    [styles.typographyThemeMobile]: mobile,
+                })}
             >
                 {texts.fatalErrorDescription}
             </Typography.Text>

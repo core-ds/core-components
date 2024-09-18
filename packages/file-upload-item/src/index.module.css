@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     @mixin paragraph_secondary_large;
@@ -6,7 +6,7 @@
     display: flex;
     align-items: flex-start;
     width: 100%;
-    padding: var(--gap-xs);
+    padding: var(--gap-8);
     color: var(--color-light-text-secondary);
     box-shadow: 0 -1px 0 0 var(--color-light-neutral-300) inset;
     box-sizing: border-box;
@@ -24,8 +24,8 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin-top: var(--gap-2xs);
-    margin-left: var(--gap-s);
+    margin-top: var(--gap-4);
+    margin-left: var(--gap-12);
     min-width: 40%;
 }
 
@@ -70,15 +70,15 @@
 .meta {
     display: flex;
     white-space: nowrap;
-    margin-right: var(--gap-2xs);
+    margin-right: var(--gap-4);
     margin-left: 36px;
-    padding: var(--gap-2xs) 0;
+    padding: var(--gap-4) var(--gap-0);
 
     & > * {
-        margin-right: var(--gap-s);
+        margin-right: var(--gap-12);
 
         &:last-child {
-            margin-right: 0;
+            margin-right: var(--gap-0);
         }
     }
 }
@@ -91,24 +91,19 @@
 .download {
     height: 24px;
     width: 24px;
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 }
 
 .errorWrapper {
-    margin-top: var(--gap-s);
+    margin-top: var(--gap-4);
     color: var(--color-light-text-negative);
-
-    @media (--small-only) {
-        flex: 1 0 100%;
-        margin-top: var(--gap-3xs);
-    }
 }
 
 .restore {
     @mixin paragraph_primary_small;
 
-    margin-left: var(--gap-s);
-    margin-top: var(--gap-3xs);
+    margin-left: var(--gap-12);
+    margin-top: var(--gap-2);
 }
 
 .spinnerWrapper {
@@ -125,6 +120,6 @@
 }
 
 .uploadPercent {
-    margin-top: var(--gap-2xs);
-    margin-left: var(--gap-xl);
+    margin-top: var(--gap-4);
+    margin-left: var(--gap-24);
 }

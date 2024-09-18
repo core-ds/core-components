@@ -1,5 +1,41 @@
 # Change Log
 
+## 3.1.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+-   Исправлен расчет высоты списка опций
+
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+## 3.0.3
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
 ## 3.0.2
 
 ### Patch Changes

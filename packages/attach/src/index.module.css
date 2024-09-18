@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     display: inline-flex;
@@ -13,8 +13,8 @@
 
 .label {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
     overflow: hidden;
     z-index: 2;
     cursor: inherit;
@@ -33,7 +33,7 @@
 
 .size-64 .file,
 .size-64 .noFile {
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
 }
 
 .file,
@@ -41,7 +41,7 @@
     display: inline-block;
     text-align: center;
     color: var(--color-light-text-secondary);
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-8);
 
     @mixin paragraph_secondary_large;
 }
@@ -51,8 +51,8 @@
 }
 
 .clear {
-    margin: 0 0 0 5px;
-    padding: 0;
+    margin: var(--gap-0) var(--gap-0) var(--gap-0) 5px;
+    padding: var(--gap-0);
     cursor: pointer;
     outline: none;
     user-select: none;
@@ -67,7 +67,7 @@
 }
 
 .progressBar {
-    margin-top: var(--gap-2xs);
+    margin-top: var(--gap-4);
 }
 
 .disabled .noFile,

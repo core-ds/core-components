@@ -1,8 +1,8 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import './vars.css';
 
 .modal {
-    bottom: 0;
+    bottom: var(--gap-0);
     width: 100%;
     max-width: 600px;
     pointer-events: none;
@@ -54,17 +54,17 @@
 
 .marker {
     position: fixed;
-    top: var(--gap-2xs);
-    right: 0;
-    left: 0;
+    top: var(--gap-4);
+    right: var(--gap-0);
+    left: var(--gap-0);
     z-index: 1000;
     width: 36px;
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 }
 
 .defaultMarker {
     height: 4px;
-    border-radius: var(--border-radius-xxl);
+    border-radius: var(--border-radius-20);
     background-color: var(--color-light-neutral-translucent-300);
 }
 
@@ -74,18 +74,18 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 0 var(--gap-m);
+    padding: var(--gap-0) var(--gap-16);
     color: var(--color-light-text-primary);
     background-color: inherit;
     border-radius: inherit;
 }
 
 .noHeader {
-    padding-top: var(--gap-m);
+    padding-top: var(--gap-16);
 }
 
 .noFooter {
-    padding-bottom: var(--gap-m);
+    padding-bottom: var(--gap-16);
 }
 
 .scrollLocked {

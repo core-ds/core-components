@@ -16,7 +16,7 @@ import {
 
 <Story name='GenericWrapper'>
     {() => {
-        const gapSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl'];
+        const gapSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', 0, 2, 4, 8, 12, 16, 20, 24];
         const alignItems = select('alignItems', ['end', 'start', 'center', 'baseline'], 'start');
         const justifyContent = select(
             'justifyContent',
@@ -24,10 +24,10 @@ import {
             undefined,
         );
         const column = boolean('column', false);
-        const paddingTop = select('padding.top', gapSizes, 'l');
-        const paddingRight = select('padding.right', gapSizes, 'l');
-        const paddingBottom = select('padding.bottom', gapSizes, 'l');
-        const paddingLeft = select('padding.left', gapSizes, 'l');
+        const paddingTop = select('padding.top', gapSizes, 20);
+        const paddingRight = select('padding.right', gapSizes, 20);
+        const paddingBottom = select('padding.bottom', gapSizes, 20);
+        const paddingLeft = select('padding.left', gapSizes, 20);
         const gapDirection = radios(
             'gapDirection',
             {

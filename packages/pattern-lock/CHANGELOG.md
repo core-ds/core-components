@@ -1,5 +1,87 @@
 # @alfalab/core-components-pattern-lock
 
+## 2.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+
+## 2.4.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   shared@0.12.1
+
+## 2.4.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.6.0
+
+## 2.3.1
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   button@11.5.5
+
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>16.08.2024</time></sup>
+
+### [#1333](https://github.com/core-ds/core-components/pull/1333)
+
+#### pattern-lock
+
+-   Добавлен пропс `disabled`, который позволяет отключать взаимодействие с компонентом
+
+#### pass-code
+
+-   Добавлен атрибут `title` с описанием кнопки удаления введенных символов
+-   Добавлен пропс `rightAddonsTitle`, который позволяет добавлять атрибут `title` для передаваемого аддона
+
+#### toast-plate
+
+-   Добавлены атрибуты для улучшения доступности компонента
+
+#### password-input
+
+-   Добавлен атрибут `title` с описанием кнопки скрытия / показа введенного пароля
+
+## 2.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   button@11.5.4
+
 ## 2.2.0
 
 ### Minor Changes

@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --notification-desktop-content-width: 278px;
@@ -6,17 +6,17 @@
 
 .notificationComponent {
     visibility: hidden;
-    right: var(--gap-s);
+    right: var(--gap-12);
     transform: translate(0, -500px);
-    width: calc(100% - var(--gap-xl));
-    max-width: calc(100vw - var(--gap-xl));
+    width: calc(100% - var(--gap-24));
+    max-width: calc(100vw - var(--gap-24));
     user-select: none;
     transition: transform 0.4s ease-out;
 
     @media screen and (min-width: 600px) {
-        right: var(--gap-4xl);
+        right: var(--gap-48);
         width: auto;
-        transform: translate(calc(100% + var(--gap-4xl)), 0);
+        transform: translate(calc(100% + var(--gap-48)), 0);
     }
 
     &.isVisible {
@@ -29,7 +29,7 @@
         transform: translate(100vw, 0);
 
         @media screen and (min-width: 600px) {
-            transform: translate(calc(100% + var(--gap-4xl)), 0);
+            transform: translate(calc(100% + var(--gap-48)), 0);
         }
     }
 }
@@ -47,6 +47,6 @@
 .actionSection {
     min-width: 104px;
     min-height: 48px;
-    padding: 0 var(--gap-xs);
-    margin: var(--gap-s-neg) 0;
+    padding: var(--gap-0) var(--gap-8);
+    margin: var(--gap-12-neg) var(--gap-0);
 }

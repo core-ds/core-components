@@ -1,5 +1,61 @@
 # Change Log
 
+## 13.2.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1373](https://github.com/core-ds/core-components/pull/1373)
+
+-   Обновили темизацию в коровской темизации в компоненте Tabs в мобильной версии
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+## 13.1.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1362](https://github.com/core-ds/core-components/pull/1362)
+
+-   Обновили corp темизацию в компоненте Tabs
+
+## 13.0.2
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
 ## 13.0.1
 
 ### Patch Changes

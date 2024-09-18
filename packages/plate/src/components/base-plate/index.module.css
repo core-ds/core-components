@@ -1,10 +1,10 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 :root {
     /* border */
     --plate-border-left: 2px;
     --plate-border-width: 1px;
-    --plate-border-radius: var(--border-radius-l);
+    --plate-border-radius: var(--border-radius-12);
 
     /* width limit */
 
@@ -23,7 +23,7 @@
     color: var(--color-light-text-primary);
     width: 100%;
     min-height: 56px;
-    padding: var(--gap-s);
+    padding: var(--gap-12);
     outline: none;
 
     &:before {
@@ -31,8 +31,8 @@
         width: var(--plate-border-left);
         position: absolute;
         height: 100%;
-        top: 0;
-        left: 0;
+        top: var(--gap-0);
+        left: var(--gap-0);
     }
 }
 
@@ -65,10 +65,10 @@
 .shadow:after {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: var(--gap-0);
+    bottom: var(--gap-0);
+    left: var(--gap-0);
+    right: var(--gap-0);
     width: 100%;
     height: 100%;
     display: block;
@@ -135,13 +135,13 @@
 .leftAddons,
 .rightAddons {
     display: inline-flex;
-    padding: var(--gap-2xs);
+    padding: var(--gap-4);
 }
 
 .leftAddons {
     flex-shrink: 0;
     min-width: 24px;
-    margin-right: var(--gap-2xs);
+    margin-right: var(--gap-4);
 }
 
 .subAddons {
@@ -161,7 +161,7 @@
 
 .light {
     @mixin paragraph_primary_small;
-    padding: 6px var(--gap-s) 6px var(--gap-2xs);
+    padding: 6px var(--gap-12) 6px var(--gap-4);
 }
 
 .foldable .content {
@@ -186,7 +186,7 @@
     margin-right: auto;
 
     &.withoutTitle {
-        padding-top: var(--gap-3xs);
+        padding-top: var(--gap-2);
     }
 }
 
@@ -206,7 +206,7 @@
     opacity: 1;
     transition: opacity 0.2s ease;
     cursor: pointer;
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-12);
 
     &:hover {
         opacity: 0.7;
@@ -232,13 +232,13 @@
 
 .subAddons .button {
     &:not(:first-child) {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
     }
 }
 
 .containerButton .button {
     &:not(:last-child) {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
     }
 }
 

@@ -172,6 +172,12 @@ export type CalendarDesktopProps = {
      * @default false
      */
     showCurrentYearSelector?: boolean;
+
+    /**
+     * CalendarDesktop используется в мобильной и десктопной версии
+     * Пропс позволяет определить платформу
+     */
+    mobile?: boolean;
 };
 
 export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
@@ -206,6 +212,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             dayAddons,
             shape = 'rounded',
             showCurrentYearSelector = false,
+            mobile,
         },
         ref,
     ) => {
@@ -383,6 +390,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                             <MonthYearHeader
                                 className={styles.monthYear}
                                 value={activeMonth}
+                                mobile={mobile}
                                 onMonthClick={handleMonthClick}
                                 onYearClick={handleYearClick}
                             />

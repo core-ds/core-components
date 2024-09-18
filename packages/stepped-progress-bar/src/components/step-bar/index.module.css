@@ -2,13 +2,13 @@
 
 .bar {
     width: 100%;
-    height: var(--gap-2xs);
-    margin-right: var(--gap-2xs);
-    border-radius: var(--border-radius-xs);
+    height: var(--gap-4);
+    margin-right: var(--gap-4);
+    border-radius: var(--border-radius-2);
 }
 
 .bar:last-child {
-    margin-right: 0;
+    margin-right: var(--gap-0);
 }
 
 @each $background in positive, attention, negative, link, tertiary, secondary, primary, accent {

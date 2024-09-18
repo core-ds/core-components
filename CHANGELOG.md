@@ -1,3 +1,594 @@
+## 47.17.0
+
+<sup><time>17.09.2024</time></sup>
+
+### [#1364](https://github.com/core-ds/core-components/pull/1364)
+
+#### Что изменилось
+- Убрана синяя браузерная подсветка при тапе
+
+#### Влияние на компоненты
+- Патчи<br />`button` `vars`
+
+
+### [#1367](https://github.com/core-ds/core-components/pull/1367)
+
+#### Что изменилось
+- Добавлен пропс блокировки компонента
+
+#### Влияние на компоненты
+- Минорное<br />`segmented-control`
+
+
+### [#1366](https://github.com/core-ds/core-components/pull/1366)
+
+#### Что изменилось
+- Исправлены стили цветов
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+
+## 47.16.0
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1361](https://github.com/core-ds/core-components/pull/1361)
+
+#### Что изменилось
+- Добавлен пропс `size`. Теперь помимо дефолтного значения `20` можно также установить `24, 32, 40`
+- Для значения `20` изменены скругления
+- Добавлен пропс `shape`. С помощью него можно задать тип скругления компонента - `rectangular, rounded`
+- Добавлен пропс `uppercase`. Изначально текст в компоненте всегда указывался в верхнем регистре - теперь регистр можно менять. Для обратной совместимости оставили по умолчанию `uppercase=true`
+- Внутренние улучшения кода компонента
+
+#### Влияние на компоненты
+- Минорное<br />`status`
+
+
+### [#1365](https://github.com/core-ds/core-components/pull/1365)
+
+#### Что изменилось
+- Добавили возможность импортировать функцию getNotificationTestIds из @alfalab/core-components/notification/shared
+
+#### Влияние на компоненты
+- Патчи<br />`notification`
+
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+#### Что изменилось
+- Обновлены наименования переменных скругления
+
+#### Влияние на компоненты
+- Патчи<br />`pagination` `plate` `product-cover` `progress-bar` `pure-cell`<br /> `segmented-control` `select` `side-panel` `skeleton` `slider-input`<br /> `slider` `status` `stepped-progress-bar` `switch` `table`<br /> `tag` `themes` `toast-plate` `tooltip` `universal-date-input`<br />
+
+<br />
+
+#### Что изменилось
+- Обновлены наименования переменных скругления
+
+#### Влияние на компоненты
+- Патчи<br />`bank-card` `bottom-sheet` `button` `calendar-input` `calendar`<br /> `card-image` `chart` `checkbox` `code-input` `comment`<br /> `confirmation-v1` `date-range-input` `date-time-input` `dropzone` `form-control`<br /> `gallery` `hatching-progress-bar` `international-phone-input` `intl-phone-input` `markdown`<br /> `modal`
+
+<br />
+
+#### Что изменилось
+- Добавлена новая переменная скругления: --border-radius-2
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+#### Что изменилось
+- Обновление темы corp
+
+#### Влияние на компоненты
+- Минорное<br />`button` `calendar` `calendar-range` `code-input` `custom-button`<br /> `file-upload-item` `form-control` `icon-button` `input-autocomplete` `modal`<br /> `navigation-bar-private` `notification` `notification-manager` `password-input` `picker-button`<br /> `select` `side-panel` `themes` `universal-date-input`
+
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+#### Что изменилось
+- Заменили числовые значения на переменные отступов
+
+#### Влияние на компоненты
+- Патчи<br />`radio` `radio-group` `scrollbar` `segmented-control` `select-with-tags`<br /> `select` `side-panel` `skeleton` `slider-input` `slider`<br /> `status` `stepped-progress-bar` `steps` `switch` `system-message`<br /> `tab-bar` `table` `tabs` `tag` `text`<br /> `textarea` `themes` `toast-plate` `typography` `vars`<br /> `with-suffix`
+
+<br />
+
+#### Что изменилось
+- Заменили числовые значения на переменные отступов
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `gallery` `grid` `hatching-progress-bar` `icon-button`<br /> `icon-view` `indicator` `input` `international-phone-input` `intl-phone-input`<br /> `link` `list` `loader` `markdown` `modal`<br /> `navigation-bar` `navigation-bar-private` `notification` `notification-manager` `pagination`<br /> `pass-code` `pass-code-v1` `password-input` `pattern-lock` `pattern-lock-v1`<br /> `picker-button` `plate` `popup-sheet` `product-cover` `pure-cell`<br />
+
+<br />
+
+#### Что изменилось
+- Заменили числовые значения на переменные отступов
+
+#### Влияние на компоненты
+- Патчи<br />`accordion` `action-button` `attach` `backdrop` `badge`<br /> `bank-card` `base-modal` `bottom-sheet` `button` `calendar-input`<br /> `calendar-range` `calendar-with-skeleton` `calendar` `chart` `checkbox-group`<br /> `circular-progress-bar` `code-input` `confirmation` `confirmation-v1` `custom-button`<br /> `date-input` `divider` `drawer` `dropzone` `file-upload-item`<br /> `filter-tag`
+
+
+### [#1375](https://github.com/core-ds/core-components/pull/1375)
+
+#### Что изменилось
+- Добавили новое свойство trimZero - обрезает ноль в минорной части. Например: 1.60 - 1.6
+
+#### Влияние на компоненты
+- Минорное<br />`amount`
+
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+#### Что изменилось
+- Заменили числовые значения скругления на переменные
+
+#### Влияние на компоненты
+- Патчи<br />`bank-card` `bottom-sheet` `button` `filter-tag` `form-control`<br /> `modal` `popover` `popup-sheet` `product-cover` `pure-cell`<br /> `segmented-control` `select` `slider` `tag` `themes`<br /> `vars`
+
+
+### [#1373](https://github.com/core-ds/core-components/pull/1373)
+
+#### Что изменилось
+- Обновили темизацию в коровской темизации в компоненте Tabs в мобильной версии
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#1372](https://github.com/core-ds/core-components/pull/1372)
+
+#### Что изменилось
+- Добавлено новое свойство colors, отвечающее за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+#### Влияние на компоненты
+- Минорное<br />`skeleton`
+
+
+### [#1376](https://github.com/core-ds/core-components/pull/1376)
+
+#### Что изменилось
+- Исправлена ошибка 'Pattern attribute value is not a valid regular expression: invalid character in character class'
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+#### Что изменилось
+- Исправлен расчет высоты списка опций
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete` `picker-button` `scrollbar` `select` `shared`<br />
+
+
+
+## 47.15.0
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1362](https://github.com/core-ds/core-components/pull/1362)
+
+#### Что изменилось
+- Обновили corp темизацию в компоненте Tabs
+
+#### Влияние на компоненты
+- Минорное<br />`tabs` `themes`
+
+
+### [#1339](https://github.com/core-ds/core-components/pull/1339)
+
+#### Что изменилось
+Небольшой рефакторинг:
+
+- оптимизация утилит (исправление копипасты и дубликаций)
+- уточнение типов (исправление копипасты, вынос общего типа)
+- уточнения в css (исправление shadow names)
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+#### Что изменилось
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+#### Влияние на компоненты
+- Минорное<br />`accordion` `action-button` `alert` `amount` `amount-input`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `custom-picker-button` `date-input` `date-range-input`<br /> `date-time-input` `divider` `drawer` `dropzone` `file-upload-item`<br /> `filter-tag` `form-control` `gallery` `gap` `generic-wrapper`<br /> `icon-button` `icon-view` `indicator` `input` `input-autocomplete`<br /> `international-phone-input` `intl-phone-input` `link` `list` `list-header`<br /> `loader` `markdown` `modal` `navigation-bar` `navigation-bar-private`<br /> `notification` `notification-manager` `number-input` `pagination` `pass-code`<br /> `pass-code-v1` `password-input` `pattern-lock` `pattern-lock-v1` `picker-button`<br /> `plate` `popover` `popup-sheet` `product-cover` `progress-bar`<br /> `pure-cell` `radio` `radio-group` `scrollbar` `segmented-control`<br /> `select` `select-with-tags` `side-panel` `skeleton` `slider`<br /> `slider-input` `sortable-list` `space` `spinner` `status`<br /> `status-badge` `stepped-progress-bar` `steps` `switch` `system-message`<br /> `tab-bar` `table` `tabs` `tag` `text`<br /> `textarea` `toast` `toast-plate` `tooltip` `typography`<br /> `underlay` `universal-date-input` `vars` `with-suffix`
+
+
+
+## 47.14.0
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1311](https://github.com/core-ds/core-components/pull/1311)
+
+#### Что изменилось
+- Обновили стили для заголовка в мобильной версии компонента
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet` `modal` `side-panel`
+
+
+### [#1324](https://github.com/core-ds/core-components/pull/1324)
+
+#### Что изменилось
+- Кнопка "Очистить" оборажается в случае `clear={true}` и `disableUserInput={true}`
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+### [#1309](https://github.com/core-ds/core-components/pull/1309)
+
+#### Что изменилось
+- Исправлена логика отображения placeholder. Теперь, если передано свойство label и labelView='inner', то placeholder не будет отображаться
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input`
+
+
+### [#1350](https://github.com/core-ds/core-components/pull/1350)
+
+#### Что изменилось
+- Повысили специфичность для отступов компонента
+
+#### Влияние на компоненты
+- Патчи<br />`steps`
+
+
+### [#1352](https://github.com/core-ds/core-components/pull/1352)
+
+#### Что изменилось
+- Добавлено новое свойство transparent, отвечающее за прозрачность бэкдропа. Свойство invisible помечено как deprecated
+
+#### Влияние на компоненты
+- Минорное<br />`backdrop`
+
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+#### Что изменилось
+- Обновлены наименования переменных отступов
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar` `segmented-control` `select-with-tags` `select` `side-panel`<br /> `slider-input` `status` `stepped-progress-bar` `steps` `switch`<br /> `system-message` `tab-bar` `table` `tabs` `tag`<br /> `themes` `toast-plate` `toast` `tooltip` `typography`<br />
+
+
+### [#1351](https://github.com/core-ds/core-components/pull/1351)
+
+#### Что изменилось
+- Добавлено новое свойство breakpoint, отвечающее за контрольную точку, с которой начинается desktop версия
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+#### Что изменилось
+- Обновлены наименования переменных отступов
+
+#### Влияние на компоненты
+- Патчи<br />`accordion` `action-button` `attach` `badge` `bank-card`<br /> `bottom-sheet` `button` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `calendar` `chart` `checkbox` `checkbox-group` `code-input`<br /> `collapse` `comment` `confirmation` `confirmation-v1` `custom-picker-button`<br />
+
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+#### Что изменилось
+- Обновлены наименования переменных отступов
+
+#### Влияние на компоненты
+- Патчи<br />`markdown` `modal` `navigation-bar-private` `navigation-bar` `notification-manager`<br /> `notification` `number-input` `pagination` `pass-code-v1` `pass-code`<br /> `password-input` `pattern-lock-v1` `pattern-lock` `picker-button` `plate`<br /> `popup-sheet` `product-cover` `pure-cell` `radio` `radio-group`<br />
+
+
+### [#1322](https://github.com/core-ds/core-components/pull/1322)
+
+#### Что изменилось
+- Поправлен импорт компонента skeleton
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#1318](https://github.com/core-ds/core-components/pull/1318)
+
+#### Что изменилось
+- Исправлена ​​логика обработки value, длина которого превышает integerLength
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+### [#1343](https://github.com/core-ds/core-components/pull/1343)
+
+#### Что изменилось
+- Стилевые исправления компонентов
+- Обновление документации
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox` `checkbox-group` `radio` `radio-group`
+
+
+### [#1348](https://github.com/core-ds/core-components/pull/1348)
+
+#### Что изменилось
+- Исправлено выравнивание текста для TSortableHeadCell
+
+#### Влияние на компоненты
+- Патчи<br />`table`
+
+
+### [#1337](https://github.com/core-ds/core-components/pull/1337)
+
+#### Что изменилось
+- При ручном выборе всего доступного периода в месяце, заголовок будет выделяться автоматически
+- Внутренние улучшения кода компонента
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#1354](https://github.com/core-ds/core-components/pull/1354)
+
+#### Что изменилось
+- Обновлены наименования переменных отступов
+
+#### Влияние на компоненты
+- Патчи<br />`date-range-input` `date-time-input` `divider` `dropzone` `file-upload-item`<br /> `filter-tag` `form-control` `gallery` `grid` `indicator`<br /> `input-autocomplete` `input` `international-phone-input` `intl-phone-input` `link`<br /> `list-header` `list` `loader`
+
+
+### [#1349](https://github.com/core-ds/core-components/pull/1349)
+
+#### Что изменилось
+- При событии `blur` для `view=default` будет очищаться запятая, если она является последним символом
+- Для состояний `disabled` и `readOnly` исправлены цвета. Дробная часть числа будет окрашена в соответствие с целой частью числа
+- Исправлены `inverted` цвета
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input`
+
+
+- Патчи<br />`with-suffix`
+
+
+
+## 47.13.0
+
+<sup><time>26.08.2024</time></sup>
+
+### [#1307](https://github.com/core-ds/core-components/pull/1307)
+
+#### Что изменилось
+- Добавили новые свойства clear и onClear, отвечающие за отображение крестика и обработку нажатия на крестик для очистки поля
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1321](https://github.com/core-ds/core-components/pull/1321)
+
+#### Что изменилось
+- Добавлен новый способ указания внутреннего отступа: 0, 2, 4, 8, 12, 16, 20, 24. Буквенные значения внутренних отступов 3xs, 2xs, xs, s, m, l, xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24 соответственно
+
+#### Влияние на компоненты
+- Минорное<br />`generic-wrapper`
+
+
+### [#1313](https://github.com/core-ds/core-components/pull/1313)
+
+#### Что изменилось
+- Дополнили описание свойства offset
+
+#### Влияние на компоненты
+- Патчи<br />`toast`
+
+
+### [#1323](https://github.com/core-ds/core-components/pull/1323)
+
+#### Что изменилось
+- Добавлено новое свойство target, которое определяет, где открывать скачиваемый документ
+
+#### Влияние на компоненты
+- Минорное<br />`file-upload-item`
+
+
+### [#1316](https://github.com/core-ds/core-components/pull/1316)
+
+#### Что изменилось
+- Исправлены стили отображения ошибки для размера 72
+
+#### Влияние на компоненты
+- Патчи<br />`password-input`
+
+
+
+## 47.12.1
+
+<sup><time>23.08.2024</time></sup>
+
+### [#1344](https://github.com/core-ds/core-components/pull/1344)
+
+#### Что изменилось
+- Исправление SSR
+
+#### Влияние на компоненты
+- Патчи<br />`accordion`
+
+
+### [#1342](https://github.com/core-ds/core-components/pull/1342)
+
+#### Что изменилось
+- Экспорт типа TextMaskConfig для фикса ошибки ts
+
+#### Влияние на компоненты
+- Патчи<br />`masked-input`
+
+
+
+## 47.12.0
+
+<sup><time>20.08.2024</time></sup>
+
+### [#1336](https://github.com/core-ds/core-components/pull/1336)
+
+#### Что изменилось
+- Добавили пропс groupOptionsProp для прокидки дополнительных пропсов в компонент Optgroup
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1338](https://github.com/core-ds/core-components/pull/1338)
+
+#### Что изменилось
+- Исправлено отображение имени файла в состоянии ошибки
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#1334](https://github.com/core-ds/core-components/pull/1334)
+
+#### Что изменилось
+- Корректно проставляется `inputClassName`
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+
+## 47.11.0
+
+<sup><time>16.08.2024</time></sup>
+
+### [#1333](https://github.com/core-ds/core-components/pull/1333)
+
+#### Что изменилось
+#### pattern-lock
+- Добавлен пропс `disabled`, который позволяет отключать взаимодействие с компонентом
+
+#### pass-code
+- Добавлен атрибут `title` с описанием кнопки удаления введенных символов
+- Добавлен пропс `rightAddonsTitle`, который позволяет добавлять атрибут `title` для передаваемого аддона
+
+#### toast-plate
+- Добавлены атрибуты для улучшения доступности компонента
+
+#### password-input
+- Добавлен атрибут `title` с описанием кнопки скрытия / показа введенного пароля
+
+#### Влияние на компоненты
+- Минорное<br />`pass-code` `pattern-lock`
+
+
+- Патчи<br />`password-input` `toast-plate`
+
+
+
+## 47.10.0
+
+<sup><time>16.08.2024</time></sup>
+
+### [#1319](https://github.com/core-ds/core-components/pull/1319)
+
+#### Что изменилось
+- Добавлен пропс `clickableMonth`. При клике на заголовок месяца будет выделен весь доступный период. Доступен только для мобильного компонента
+- Исправлено поведение кнопок в футере для мобильного компонента
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+
+## 47.9.0
+
+<sup><time>13.08.2024</time></sup>
+
+### [#1320](https://github.com/core-ds/core-components/pull/1320)
+
+#### Что изменилось
+- Добавлена функция автозаполнения номера телефона. Для сохранения кода страны при автозаполнении (актуально для Safari) используйте `clearableCountryCode={'preserve'}`, при этом код страны можно удалить как и в случае `clearableCountryCode={true}`.
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input` `shared`
+
+
+
+## 47.8.0
+
+<sup><time>06.08.2024</time></sup>
+
+### [#1328](https://github.com/core-ds/core-components/pull/1328)
+
+#### Что изменилось
+- Добавлен пропущенный размер радиуса скругления `--border-radius-32`
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
+## 47.7.0
+
+<sup><time>05.08.2024</time></sup>
+
+### [#1327](https://github.com/core-ds/core-components/pull/1327)
+
+#### Что изменилось
+Добавлены новые переменные радиусов скругления:
+- `--border-radius-0`
+- `--border-radius-4`
+- `--border-radius-6`
+- `--border-radius-8`
+- `--border-radius-10`
+- `--border-radius-12`
+- `--border-radius-16`
+- `--border-radius-20`
+- `--border-radius-24`
+- `--border-radius-36`
+
+Переменные, помеченые как `deprecated`:
+- `--border-radius-xs`
+- `--border-radius-s`
+- `--border-radius-m`
+- `--border-radius-l`
+- `--border-radius-xl`
+- `--border-radius-xxl`
+- `--border-radius-3xl`
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1231](https://github.com/core-ds/core-components/pull/1231)
+
+#### Что изменилось
+- Добавлен кодмод, который заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input
+
+#### Влияние на компоненты
+- Минорное<br />`codemod`
+
+
+
 ## 47.6.0
 
 <sup><time>26.07.2024</time></sup>

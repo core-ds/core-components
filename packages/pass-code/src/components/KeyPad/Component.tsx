@@ -24,6 +24,11 @@ export type KeyPadProps = {
     rightAddons?: ReactNode;
 
     /**
+     * Заголовок для правого слота
+     */
+    rightAddonsTitle?: string;
+
+    /**
      * Идентификатор для автоматизированного тестирования.
      */
     dataTestId?: string;
@@ -49,6 +54,7 @@ const CELLS = new Array(CELL_COUNT).fill(null).map((_, i) => {
 export const KeyPad: React.FC<KeyPadProps> = ({
     leftAddons,
     rightAddons,
+    rightAddonsTitle,
     onClick,
     onClear,
     showClear,
@@ -70,13 +76,20 @@ export const KeyPad: React.FC<KeyPadProps> = ({
                             onClick={onClear}
                             view='text'
                             dataTestId={getDataTestId(dataTestId, 'backspace-button')}
+                            title='Удалить последний символ'
                         >
                             <BackspaceXxlIcon />
                         </KeyPadButton>
                     );
                 }
 
-                if (rightAddons) return rightAddons;
+                if (rightAddons) {
+                    if (rightAddonsTitle) {
+                        return <div title={rightAddonsTitle}>{rightAddons}</div>;
+                    }
+
+                    return rightAddons;
+                }
 
                 return <div key='right-addon-empty' />;
             }

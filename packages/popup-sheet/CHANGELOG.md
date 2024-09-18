@@ -1,5 +1,75 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.3.1
+
+## 1.3.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.3.0
+    -   backdrop@3.4.1
+    -   base-modal@5.8.1
+    -   shared@0.12.1
+
+## 1.3.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.4.0
+    -   base-modal@5.8.0
+    -   navigation-bar-private@0.2.0
+
+## 1.2.11
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1355](https://github.com/core-ds/core-components/pull/1355)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   backdrop@3.3.0
+    -   navigation-bar-private@0.1.10
+    -   base-modal@5.7.11
+
+## 1.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   base-modal@5.7.10
+    -   navigation-bar-private@0.1.9
+
 ## 1.2.9
 
 ### Patch Changes

@@ -177,6 +177,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                     [styles.rangeStart]: rangeStart,
                     [styles.rangeEnd]: rangeEnd,
                     [styles.cursorPointer]: !day.disabled,
+                    [styles.shapeRectangular]: shape === 'rectangular',
                 })}
                 align='center'
                 ref={(node) => {

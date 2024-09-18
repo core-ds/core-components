@@ -1,14 +1,14 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
-    padding: var(--gap-xs) var(--gap-2xs);
+    padding: var(--gap-8) var(--gap-4);
     box-sizing: border-box;
     width: 100%;
 }
 
 .sticky {
     position: sticky;
-    top: 0;
+    top: var(--gap-0);
     z-index: 1;
 }
 
@@ -44,7 +44,7 @@
     color: var(--color-light-text-primary);
 
     &.left {
-        padding: 0 var(--gap-m);
+        padding: var(--gap-0) var(--gap-16);
     }
 
     & > .title,

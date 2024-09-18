@@ -1,5 +1,68 @@
 # Change Log
 
+## 8.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.2
+
+## 8.3.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   slider@4.7.1
+    -   input@15.1.1
+
+## 8.3.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.0
+    -   slider@4.7.0
+
+## 8.2.18
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1356](https://github.com/core-ds/core-components/pull/1356)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   input@15.0.5
+
+## 8.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.4
+
 ## 8.2.16
 
 ### Patch Changes

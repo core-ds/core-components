@@ -1,20 +1,7 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import { Accordion, AccordionProps } from '.';
-
-const control = (
-    <div
-        style={{
-            backgroundColor: 'rgba(55, 120, 251, 0.1)',
-            border: '1px dashed rgb(55, 120, 251)',
-            boxSizing: 'border-box',
-            borderRadius: '8px',
-            height: '24px',
-            width: '24px',
-        }}
-    />
-);
 
 const renderComponent = (props: Partial<AccordionProps> = {}) =>
     render(

@@ -34,6 +34,7 @@ export const BasePatternLock = forwardRef<
             messageClassName,
             hover,
             styles = {},
+            disabled = false,
             ...restProps
         },
         ref,
@@ -89,6 +90,7 @@ export const BasePatternLock = forwardRef<
                 className={cn(commonStyles.component, styles.component, className, {
                     [commonStyles.hidden]: !params,
                     [commonStyles.withForgotBtn]: showForgotCodeBtn,
+                    [commonStyles.disabled]: disabled,
                 })}
                 data-test-id={dataTestId}
             >

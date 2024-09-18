@@ -75,6 +75,7 @@ export const select: Story = {
         const defaultOpen = boolean('defaultOpen', false);
         const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
         const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
+        const clear = boolean('clear', true);
         return (
             <div style={{ backgroundColor: 'transparent' }}>
                 <SelectDesktop
@@ -99,6 +100,7 @@ export const select: Story = {
                     defaultOpen={defaultOpen}
                     popoverPosition={popoverPosition}
                     optionsListWidth={optionsListWidth}
+                    clear={clear}
                 />
             </div>
         );
@@ -127,6 +129,7 @@ export const select_mobile: Story = {
         const labelView = selectKnob('labelView', ['inner', 'outer'], 'inner');
         const defaultOpen = boolean('defaultOpen', false);
         const swipeable = boolean('swipeable', true);
+        const clear = boolean('clear', true);
         return (
             <div style={{ backgroundColor: 'transparent' }}>
                 <SelectMobile
@@ -148,6 +151,7 @@ export const select_mobile: Story = {
                     labelView={labelView}
                     defaultOpen={defaultOpen}
                     swipeable={swipeable}
+                    clear={clear}
                 />
             </div>
         );
@@ -179,6 +183,7 @@ export const select_responsive: Story = {
         const defaultOpen = boolean('defaultOpen', false);
         const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
         const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
+        const clear = boolean('clear', true);
         return (
             <div style={{ backgroundColor: 'transparent' }}>
                 <SelectResponsive
@@ -203,6 +208,7 @@ export const select_responsive: Story = {
                     defaultOpen={defaultOpen}
                     popoverPosition={popoverPosition}
                     optionsListWidth={optionsListWidth}
+                    clear={clear}
                 />
             </div>
         );
@@ -230,6 +236,7 @@ export const select_modal_mobile: Story = {
         const label = text('label', 'Элемент');
         const labelView = selectKnob('labelView', ['inner', 'outer'], 'inner');
         const defaultOpen = boolean('defaultOpen', false);
+        const clear = boolean('clear', true);
         return (
             <div style={{ backgroundColor: 'transparent' }}>
                 <SelectModalMobile
@@ -250,6 +257,7 @@ export const select_modal_mobile: Story = {
                     label={label}
                     labelView={labelView}
                     defaultOpen={defaultOpen}
+                    clear={clear}
                 />
             </div>
         );

@@ -164,14 +164,17 @@ describe('Select', () => {
                 <Select
                     open={true}
                     showSearch={true}
-                    options={[{ key: 'Fermium' }]}
+                    options={options}
                     fieldProps={{ hint: 'hint' }}
                     searchProps={{ componentProps: { hint: 'hint' } }}
+                    selected={options[1].key}
+                    clear={true}
                     dataTestId={testId}
                 />,
             );
 
             expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldClearIcon)).toBeInTheDocument();
             expect(getByTestIdHint(testIds.searchHint)).toBeInTheDocument();
         });
 
@@ -238,14 +241,17 @@ describe('Select', () => {
                         <Component
                             open={true}
                             showSearch={true}
-                            options={[{ key: 'Fermium' }]}
+                            options={options}
                             fieldProps={{ hint: 'hint' }}
                             searchProps={{ componentProps: { hint: 'hint' } }}
                             dataTestId={testId}
+                            clear={true}
+                            selected={options[1].key}
                         />,
                     );
 
                     expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
+                    expect(getByTestId(testIds.fieldClearIcon)).toBeInTheDocument();
                     expect(getByTestIdHint(testIds.searchHint)).toBeInTheDocument();
                 });
             });

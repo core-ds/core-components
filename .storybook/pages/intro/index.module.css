@@ -1,4 +1,4 @@
-@import '../../../packages/themes/src/default.css';
+@import '../../../packages/vars/src/index.css';
 
 .page {
     margin-top: -44px;
@@ -9,7 +9,7 @@
     text-align: center;
     width: 100%;
     height: 390px;
-    border-radius: var(--border-radius-xxl);
+    border-radius: var(--border-radius-20);
     background-color: var(--color-light-base-bg-secondary);
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,9 +24,9 @@ div[data-mode='dark'] .intro {
     @mixin paragraph_primary_medium;
 
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: var(--gap-l);
+    top: var(--gap-0);
+    right: var(--gap-0);
+    padding: var(--gap-20);
     font-family: var(--font-family-styrene);
     color: var(--color-light-text-primary);
 }
@@ -44,19 +44,19 @@ div[data-mode='dark'] .intro {
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
 
-    margin: var(--gap-xl) auto 0;
+    margin: var(--gap-24) auto var(--gap-0);
     max-width: 288px;
 }
 
 .ghButton {
-    margin-top: var(--gap-xl);
+    margin-top: var(--gap-24);
 }
 
 .introFooter {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: var(--gap-0);
+    left: var(--gap-0);
+    right: var(--gap-0);
     height: 65px;
     display: flex;
     align-items: center;
@@ -74,7 +74,7 @@ div[data-mode='dark'] .intro {
 
 .maintainers {
     display: flex;
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 }
 
 .maintainer {
@@ -93,20 +93,20 @@ div[data-mode='dark'] .intro {
 .whereToStart {
     @mixin headline-mobile_large;
 
-    margin-top: var(--gap-3xl);
+    margin-top: var(--gap-40);
 }
 
 .plates {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: var(--gap-xs);
-    margin-top: var(--gap-l);
+    grid-gap: var(--gap-8);
+    margin-top: var(--gap-20);
 }
 
 @media screen and (min-width: 600px) {
     .page {
         margin-top: -28px;
-        padding-bottom: var(--gap-5xl);
+        padding-bottom: var(--gap-64);
     }
 
     .intro {
@@ -121,18 +121,18 @@ div[data-mode='dark'] .intro {
     .logo {
         width: 304px;
         height: 65px;
-        margin-top: 80px;
+        margin-top: var(--gap-80);
     }
 
     .desc {
         @mixin promo-mobile_small;
 
-        margin: var(--gap-2xl) auto 0;
+        margin: var(--gap-32) auto var(--gap-0);
         max-width: 438px;
     }
 
     .ghButton {
-        margin-top: var(--gap-2xl);
+        margin-top: var(--gap-32);
     }
 
     .introFooter {
@@ -151,12 +151,12 @@ div[data-mode='dark'] .intro {
     .whereToStart {
         @mixin headline_large;
 
-        margin-top: var(--gap-4xl);
+        margin-top: var(--gap-48);
     }
 
     .plates {
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: var(--gap-l);
-        margin-top: var(--gap-xl);
+        grid-gap: var(--gap-20);
+        margin-top: var(--gap-24);
     }
 }

@@ -29,6 +29,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             scrollbarClassName,
             Option,
             getOptionProps,
+            groupOptionProps = {},
             options = [],
             Optgroup = DefaultOptgroup,
             dataTestId,
@@ -106,13 +107,14 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     setSelectedItems={handleSelectedItems}
                     search={search}
                     multiple={multiple}
+                    {...groupOptionProps}
                 >
                     {group.options.map((option) => renderOption(option, counter()))}
                 </Optgroup>
             );
         };
 
-        useVisibleOptions({
+        const measured = useVisibleOptions({
             ...(!nativeScrollbar && { styleTargetRef: scrollbarRef }),
             visibleOptions,
             listRef,
@@ -163,6 +165,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     horizontalAutoStretch={optionsListWidth === 'content'}
                     scrollableNodeProps={scrollableNodeProps}
                     contentNodeProps={{ ref: listRef }}
+                    maskProps={{ className: measured ? undefined : styles.mask }}
                 >
                     {renderListItems()}
                 </Scrollbar>

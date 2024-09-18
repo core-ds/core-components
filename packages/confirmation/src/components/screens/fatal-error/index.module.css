@@ -9,6 +9,10 @@
     @mixin _confirmation-text;
 }
 
+.typographyThemeMobile.typographyThemeMobile {
+    color: var(--color-light-text-secondary);
+}
+
 .left {
     align-items: flex-start;
 }
@@ -19,5 +23,5 @@
 }
 
 .button.button {
-    margin-top: var(--gap-2xl);
+    margin-top: var(--gap-32);
 }

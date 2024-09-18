@@ -9,6 +9,8 @@ import styles from './index.module.css';
 export type BackdropProps = Partial<TransitionProps> & {
     /**
      * Прозрачный бэкдроп
+     * @deprecated данное свойство больше не используется, временно оставлено для обратной совместимости
+     * Используйте свойство transparent
      */
     invisible?: boolean;
 
@@ -43,6 +45,12 @@ export type BackdropProps = Partial<TransitionProps> & {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Управляет прозрачностью бэкдроп
+     * @default false
+     */
+    transparent?: boolean;
 };
 
 export const Backdrop: React.FC<BackdropProps> = ({
@@ -54,6 +62,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
     onClose,
     dataTestId,
     transitionClassNames = styles,
+    transparent = false,
     ...restProps
 }) => {
     const nodeRef = useRef(null);
@@ -73,7 +82,9 @@ export const Backdrop: React.FC<BackdropProps> = ({
                 aria-hidden={true}
                 onClick={onClose}
                 data-test-id={dataTestId}
-                className={cn(styles.backdrop, className)}
+                className={cn(styles.backdrop, className, {
+                    [styles.transparent]: transparent,
+                })}
             >
                 {children}
             </div>

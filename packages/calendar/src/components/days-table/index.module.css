@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .daysTable {
@@ -11,11 +11,11 @@
     }
 
     & th {
-        padding: 0;
+        padding: var(--gap-0);
     }
 
     & td {
-        padding: var(--gap-2xs) 0 0;
+        padding: var(--gap-4) var(--gap-0) var(--gap-0);
     }
 }
 
@@ -49,7 +49,7 @@
     }
 
     &.rectangular {
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-8);
         width: 44px;
     }
 
@@ -108,8 +108,8 @@
         content: '';
         display: block;
         position: absolute;
-        left: 0;
-        bottom: 0;
+        left: var(--gap-0);
+        bottom: var(--gap-0);
         width: 100%;
         height: var(--calendar-day-size);
     }
@@ -139,15 +139,27 @@
         border-top-right-radius: var(--calendar-day-border-radius);
         border-bottom-right-radius: var(--calendar-day-border-radius);
     }
+
+    &.shapeRectangular:before {
+        width: calc(50% + 22px);
+        border-top-right-radius: var(--border-radius-8);
+        border-bottom-right-radius: var(--border-radius-8);
+    }
 }
 
 .rangeStart {
     &:before {
         left: auto;
-        right: 0;
+        right: var(--gap-0);
         width: calc(50% + 20px);
         border-top-left-radius: var(--calendar-day-border-radius);
         border-bottom-left-radius: var(--calendar-day-border-radius);
+    }
+
+    &.shapeRectangular:before {
+        width: calc(50% + 22px);
+        border-top-left-radius: var(--border-radius-8);
+        border-bottom-left-radius: var(--border-radius-8);
     }
 }
 
@@ -165,7 +177,7 @@
         display: block;
         width: 100%;
         height: var(--calendar-day-size);
-        bottom: 0;
+        bottom: var(--gap-0);
         pointer-events: none;
     }
 }
@@ -186,7 +198,7 @@
         }
 
         &:after {
-            right: 0;
+            right: var(--gap-0);
         }
     }
 }
@@ -207,7 +219,7 @@
         }
 
         &:after {
-            left: 0;
+            left: var(--gap-0);
         }
     }
 }
@@ -304,7 +316,7 @@
         flex-direction: column;
         justify-content: flex-end;
         height: inherit;
-        padding: 0 var(--gap-3xs);
+        padding: var(--gap-0) var(--gap-2);
     }
 }
 
@@ -323,7 +335,7 @@
 .dot {
     display: block;
     position: absolute;
-    bottom: 4px;
+    bottom: var(--gap-4);
     width: 4px;
     min-height: 4px;
     left: 50%;
@@ -339,7 +351,7 @@
 .daysEnter {
     opacity: 0;
     position: absolute;
-    left: 0;
+    left: var(--gap-0);
 }
 
 .daysEnterActive {
@@ -361,7 +373,7 @@
 }
 
 .bottomAddon {
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 
     &.selected,
     &.selected > * {

@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .component {
@@ -9,10 +9,10 @@
     flex-shrink: 0;
     width: 36px;
     height: 48px;
-    margin-right: var(--gap-xs);
-    padding: 0;
+    margin-right: var(--gap-8);
+    padding: var(--gap-0);
     border: none;
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-4);
     box-sizing: border-box;
     outline: none;
     color: var(--code-input-text-color);
@@ -22,7 +22,7 @@
     font-family: var(--code-input-font-family);
 
     &:last-child {
-        margin-right: 0;
+        margin-right: var(--gap-0);
     }
 
     &.hasError {

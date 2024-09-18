@@ -25,6 +25,8 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
     >
       <div>
         <div
+          aria-atomic="true"
+          aria-live="assertive"
           class="component component hasCloser notificationComponent isVisible notification"
           id="1"
           role="alert"
@@ -55,7 +57,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component text size-48 hug size-48 component text component text cc-icon-button closeButton closeButton primary component"
+                class="component text size-48 hug size-48 component text component text cc-icon-button closeButton closeButton primary component border-48"
                 type="button"
               >
                 <span
@@ -86,6 +88,8 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
       </div>
       <div>
         <div
+          aria-atomic="true"
+          aria-live="assertive"
           class="component component hasCloser notificationComponent isVisible notification"
           id="2"
           role="alert"
@@ -116,7 +120,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component text size-48 hug size-48 component text component text cc-icon-button closeButton closeButton primary component"
+                class="component text size-48 hug size-48 component text component text cc-icon-button closeButton closeButton primary component border-48"
                 type="button"
               >
                 <span
@@ -147,6 +151,8 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
       </div>
       <div>
         <div
+          aria-atomic="true"
+          aria-live="assertive"
           class="component component hasCloser notificationComponent isVisible notification"
           id="3"
           role="alert"
@@ -177,7 +183,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component text size-48 hug size-48 component text component text cc-icon-button closeButton closeButton primary component"
+                class="component text size-48 hug size-48 component text component text cc-icon-button closeButton closeButton primary component border-48"
                 type="button"
               >
                 <span

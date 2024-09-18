@@ -1,5 +1,91 @@
 # Change Log
 
+## 7.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.2
+    -   with-suffix@4.2.2
+
+## 7.11.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1376](https://github.com/core-ds/core-components/pull/1376)
+
+-   Исправлена ошибка 'Pattern attribute value is not a valid regular expression: invalid character in character class'
+
+-   Обновлены зависимости
+    -   with-suffix@4.2.1
+    -   input@15.1.1
+
+## 7.11.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.0
+    -   with-suffix@4.2.0
+
+## 7.10.0
+
+### Minor Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1309](https://github.com/core-ds/core-components/pull/1309)
+
+-   Исправлена логика отображения placeholder. Теперь, если передано свойство label и labelView='inner', то placeholder не будет отображаться
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1349](https://github.com/core-ds/core-components/pull/1349)
+
+-   При событии `blur` для `view=default` будет очищаться запятая, если она является последним символом
+-   Для состояний `disabled` и `readOnly` исправлены цвета. Дробная часть числа будет окрашена в соответствие с целой частью числа
+-   Исправлены `inverted` цвета
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1318](https://github.com/core-ds/core-components/pull/1318)
+
+-   Исправлена ​​логика обработки value, длина которого превышает integerLength
+
+-   Обновлены зависимости
+    -   input@15.0.5
+    -   with-suffix@4.1.37
+
+## 7.9.15
+
+### Patch Changes
+
+<sup><time>20.08.2024</time></sup>
+
+### [#1334](https://github.com/core-ds/core-components/pull/1334)
+
+-   Корректно проставляется `inputClassName`
+
+## 7.9.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.4
+    -   with-suffix@4.1.36
+
 ## 7.9.13
 
 ### Patch Changes

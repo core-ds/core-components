@@ -4,7 +4,7 @@ import alfaTheme from './theme';
 import { STORY_RENDERED, STORY_MISSING, STORY_ERRORED } from '@storybook/core-events';
 import { renderLabel } from './render-label';
 
-import '../packages/themes/src/default.css';
+import '../packages/vars/src/index.css';
 import { setManagerMetricsConnection } from './addons/utils';
 
 if (process.env.NODE_ENV !== 'development') {

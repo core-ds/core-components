@@ -1,10 +1,10 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
-    padding: var(--gap-2xs);
+    padding: var(--gap-4);
     border: 2px solid rgba(0, 0, 0, 0);
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
     overflow: hidden;
     transition: border 0.15s ease-in-out;
     outline: none;
@@ -22,7 +22,7 @@
     width: 56px;
     height: 56px;
     flex-shrink: 0;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     cursor: pointer;
     user-select: none;
 }

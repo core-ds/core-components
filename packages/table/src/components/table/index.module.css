@@ -1,14 +1,14 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     box-sizing: border-box;
 }
 
 .wrapper {
-    padding: 0 var(--gap-m) var(--gap-m);
+    padding: var(--gap-0) var(--gap-16) var(--gap-16);
     background: var(--color-light-base-bg-primary);
     box-shadow: var(--shadow-xs-hard);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     overflow: auto;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .hasPagination {
-    padding-bottom: 0;
+    padding-bottom: var(--gap-0);
 }
 
 .table {
@@ -29,7 +29,7 @@
     & td:first-child,
     & th:first-child {
         & label > *[class^='box'] {
-            margin-top: 0;
+            margin-top: var(--gap-0);
         }
     }
 }

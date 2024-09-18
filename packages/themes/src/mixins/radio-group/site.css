@@ -1,5 +1,5 @@
 @define-mixin radio-group-site {
     /* mobile */
-    --radio-group-mobile-sub-padding-left: 0;
-    --radio-group-mobile-list-padding-left: 0;
+    --radio-group-mobile-sub-padding-left: var(--gap-0);
+    --radio-group-mobile-list-padding-left: var(--gap-0);
 }

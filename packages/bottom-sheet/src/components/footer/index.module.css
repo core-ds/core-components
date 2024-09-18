@@ -1,14 +1,14 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .footer {
-    padding: var(--gap-m) var(--gap-m);
+    padding: var(--gap-16) var(--gap-16);
     background-color: var(--color-light-modal-bg-primary);
 }
 
 .sticky {
     position: sticky;
-    bottom: 0;
+    bottom: var(--gap-0);
     z-index: 1;
 }
 

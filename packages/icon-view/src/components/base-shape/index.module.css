@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 :root {
     --icon-view-color: var(--color-light-neutral-translucent-700);
@@ -41,8 +41,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 0;
-    top: 0;
+    left: var(--gap-0);
+    top: var(--gap-0);
     overflow: hidden;
     text-align: center;
 }
@@ -72,7 +72,7 @@
     line-height: 0;
 }
 
-.size_128 {
+.wrapperSize_128 {
     width: 128px;
     height: 128px;
 
@@ -87,17 +87,17 @@
     }
 
     & .topAddons {
-        top: -8px;
-        right: -8px;
+        top: var(--gap-8-neg);
+        right: var(--gap-8-neg);
     }
 
     & .bottomAddons {
-        bottom: -8px;
-        right: -8px;
+        bottom: var(--gap-8-neg);
+        right: var(--gap-8-neg);
     }
 }
 
-.size_80 {
+.wrapperSize_80 {
     width: 80px;
     height: 80px;
 
@@ -127,7 +127,7 @@
     }
 }
 
-.size_64 {
+.wrapperSize_64 {
     width: 64px;
     height: 64px;
 
@@ -152,12 +152,12 @@
     }
 
     & .indicator {
-        top: -8px;
-        right: -16px;
+        top: var(--gap-8-neg);
+        right: var(--gap-8-neg);
     }
 }
 
-.size_56 {
+.wrapperSize_56 {
     width: 56px;
     height: 56px;
 
@@ -172,22 +172,22 @@
     }
 
     & .topAddons {
-        top: -8px;
+        top: var(--gap-8-neg);
         right: -6px;
     }
 
     & .bottomAddons {
-        bottom: -8px;
+        bottom: var(--gap-8-neg);
         right: -6px;
     }
 
     & .indicator {
         top: -6px;
-        right: -12px;
+        right: var(--gap-12-neg);
     }
 }
 
-.size_48 {
+.wrapperSize_48 {
     width: 48px;
     height: 48px;
 
@@ -217,7 +217,7 @@
     }
 }
 
-.size_40 {
+.wrapperSize_40 {
     width: 40px;
     height: 40px;
 
@@ -247,7 +247,7 @@
     }
 }
 
-.size_32 {
+.wrapperSize_32 {
     width: 32px;
     height: 32px;
 
@@ -257,12 +257,12 @@
     }
 
     & .indicator {
-        top: -2px;
-        right: -2px;
+        top: var(--gap-2-neg);
+        right: var(--gap-2-neg);
     }
 }
 
-.size_24 {
+.wrapperSize_24 {
     width: 24px;
     height: 24px;
 
@@ -272,12 +272,12 @@
     }
 
     & .indicator {
-        top: -2px;
-        right: -2px;
+        top: var(--gap-2-neg);
+        right: var(--gap-2-neg);
     }
 }
 
-.size_20 {
+.wrapperSize_20 {
     width: 20px;
     height: 20px;
 
@@ -292,7 +292,7 @@
     }
 }
 
-.size_16 {
+.wrapperSize_16 {
     width: 16px;
     height: 16px;
 
@@ -302,15 +302,15 @@
     }
 
     & .indicator {
-        top: -4px;
-        right: -4px;
+        top: var(--gap-4-neg);
+        right: var(--gap-4-neg);
     }
 }
 
 /* prettier-ignore */
 @each $size in 16, 20, 24, 32, 40, 48, 56, 64, 80, 128 {
     .children {
-        &.size-$(size) {
+        &.childrenSize_$(size) {
             width: $(size)px;
             height: $(size)px;
         }

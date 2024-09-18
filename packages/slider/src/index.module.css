@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import './vars.css';
 
 .component {
@@ -36,7 +36,7 @@
     & :global(.noUi-origin) {
         width: var(--slider-origin-width);
         position: absolute;
-        top: 0;
+        top: var(--gap-0);
         right: var(--slider-origin-right);
         height: 0;
     }
@@ -55,8 +55,8 @@
         background: var(--slider-progress-color);
         position: absolute;
         z-index: 1;
-        top: 0;
-        right: 0;
+        top: var(--gap-0);
+        right: var(--gap-0);
         width: 100%;
         height: 100%;
         transform-style: flat;
@@ -104,7 +104,7 @@
         position: absolute;
         white-space: nowrap;
         text-align: center;
-        top: 0;
+        top: var(--gap-0);
         transform: translateX(-50%);
 
         &:nth-child(2) {

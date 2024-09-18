@@ -14,8 +14,12 @@
     @mixin _confirmation-text;
 }
 
+.typographyThemeMobile.typographyThemeMobile {
+    color: var(--color-light-text-secondary);
+}
+
 .description.description {
-    margin-bottom: var(--gap-xs);
+    margin-bottom: var(--gap-8);
 }
 
 .countdownWrap {
@@ -24,5 +28,5 @@
 }
 
 .loader {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }

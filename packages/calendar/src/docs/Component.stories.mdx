@@ -19,10 +19,9 @@ import {
 export const WRAPPER_STYLES = {
     display: 'inline-block',
     border: '1px solid var(--color-light-neutral-300)',
-    borderRadius: 8,
     boxShadow: 'var(--shadow-m)',
     background: 'var(--color-light-base-bg-primary)',
-    margin: 'var(--gap-xs)',
+    margin: 'var(--gap-8)',
     width: 312,
 };
 
@@ -57,6 +56,29 @@ export const MONTHS = {
         const selectorView = select('selectorView', ['full', 'month-only'], 'full');
         const defaultView = select('defaultView', ['days', 'months', 'years'], 'days');
         const defaultMonth = select('defaultMonth', MONTHS, 'none');
+
+        const getBorderRadiusByTheme = (theme) => {
+            if (theme === 'corp') {
+                return 16;
+            }
+
+            return 8;
+        }
+
+        const updateBorderRadius = (e) => {
+            setBorderRadius(getBorderRadiusByTheme(e.detail.theme))
+        }
+
+        React.useEffect(() => {
+            document.body.addEventListener('theme-change', updateBorderRadius);
+
+            return () => {
+                document.body.removeEventListener('theme-change', updateBorderRadius);
+            }
+        }, []);
+
+        const [borderRadius, setBorderRadius] = React.useState(getBorderRadiusByTheme(localStorage.getItem('selectedTheme') || 'default'));
+
         const renderContent = () => {
             if (device === 'desktop') {
                 return (
@@ -68,7 +90,7 @@ export const MONTHS = {
                             ...stylesStringToObj(getQueryParam('wrapperStyles')),
                         }}
                     >
-                        <div style={WRAPPER_STYLES}>
+                        <div style={{ ...WRAPPER_STYLES, borderRadius }}>
                             <Calendar
                                 defaultMonth={
                                     defaultMonth === 'none' ? undefined : Number(defaultMonth)

@@ -1,9 +1,9 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 @import './vars.css';
 
 .component {
     max-width: var(--pass-code-max-width);
-    margin: var(--gap-xs) 0;
+    margin: var(--gap-8) var(--gap-0);
 }
 
 .message {

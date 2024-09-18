@@ -10,6 +10,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.0.1",
-    "varsVersion": "9.10.0"
+    "themesVersion": "13.2.0",
+    "varsVersion": "9.13.1"
 }

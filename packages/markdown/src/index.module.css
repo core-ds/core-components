@@ -1,37 +1,37 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component > :first-child,
 .component > p:first-child > :first-child {
-    margin-top: 0;
+    margin-top: var(--gap-0);
 }
 
 .component > *:only-child,
 .component > p:only-child > *:only-child {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: var(--gap-0);
+    margin-bottom: var(--gap-0);
 }
 
 .h1 {
-    margin-bottom: var(--gap-m);
+    margin-bottom: var(--gap-16);
 }
 
 .h2 {
-    margin-top: var(--gap-2xl);
-    margin-bottom: var(--gap-m);
+    margin-top: var(--gap-32);
+    margin-bottom: var(--gap-16);
 }
 
 .h3 {
-    margin-top: var(--gap-m);
-    margin-bottom: var(--gap-m);
+    margin-top: var(--gap-16);
+    margin-bottom: var(--gap-16);
 }
 
 .h4 {
-    margin-top: var(--gap-xs);
-    margin-bottom: var(--gap-2xs);
+    margin-top: var(--gap-8);
+    margin-bottom: var(--gap-4);
 }
 
 .code {
-    margin-bottom: var(--gap-m);
+    margin-bottom: var(--gap-16);
 }
 
 .blockquote > p {
@@ -40,26 +40,26 @@
 }
 
 .list > li {
-    margin-top: 0;
-    margin-bottom: var(--gap-s);
+    margin-top: var(--gap-0);
+    margin-bottom: var(--gap-12);
 }
 
 .list > li:only-child {
-    margin-bottom: 0;
+    margin-bottom: var(--gap-0);
 }
 
 .list > li p {
-    margin: 0;
-    padding: 0 !important;
+    margin: var(--gap-0);
+    padding: var(--gap-0) !important;
 }
 
 .imageContainer {
-    margin-top: var(--gap-m);
-    margin-bottom: var(--gap-xl);
+    margin-top: var(--gap-16);
+    margin-bottom: var(--gap-24);
 }
 
 .image {
     display: block;
     width: 100%;
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
 }

@@ -1,11 +1,11 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .optgroup {
     position: relative;
     display: flex;
     align-items: center;
-    padding: var(--gap-s) var(--select-optgroup-right-padding) var(--gap-2xs)
+    padding: var(--gap-12) var(--select-optgroup-right-padding) var(--gap-4)
         var(--select-optgroup-left-padding);
     box-sizing: border-box;
     background: var(--select-optgroup-background);

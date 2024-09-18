@@ -75,6 +75,11 @@ export type ScrollbarProps = {
         React.HTMLAttributes<HTMLDivElement>,
         HTMLDivElement
     >;
+
+    /**
+     * HTML-aтрибуты маски.
+     */
+    maskProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
 const classNames = {
@@ -100,7 +105,6 @@ function getElementWindow(element: Element) {
 }
 
 function elementHasAbsPosChild(element: Element) {
-    let hasAbsPosChild = false;
     const elementWindow = getElementWindow(element);
 
     for (let i = 0; i < element.children.length; i++) {
@@ -108,12 +112,11 @@ function elementHasAbsPosChild(element: Element) {
         const childStyle = elementWindow.getComputedStyle(child);
 
         if (childStyle.position === 'absolute') {
-            hasAbsPosChild = true;
-            break;
+            return true;
         }
     }
 
-    return hasAbsPosChild;
+    return false;
 }
 
 export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
@@ -130,6 +133,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             clickOnTrack = true,
             horizontalAutoStretch = false,
             widthPropName = 'minWidth',
+            maskProps,
             ...htmlAttributes
         },
         ref,
@@ -235,7 +239,11 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     <div className={classNames.heightAutoObserverWrapperEl}>
                         <div className={classNames.heightAutoObserverEl} />
                     </div>
-                    <div className={classNames.mask} ref={maskNodeRef}>
+                    <div
+                        {...maskProps}
+                        className={cn(classNames.mask, maskProps?.className)}
+                        ref={mergeRefs([maskNodeRef, ...(maskProps?.ref ? [maskProps.ref] : [])])}
+                    >
                         <div className={classNames.offset}>
                             <div
                                 {...scrollableNodeProps}

@@ -141,8 +141,8 @@ function prepareDefaultFormat(countryCode?: string, clearableCountryCode?: boole
 }
 
 export function createPhoneMaskExpression(
-    country?: Country,
-    clearableCountryCode?: boolean,
+    country: Country | undefined,
+    clearableCountryCode: boolean,
 ): Array<RegExp | string> {
     const { countryCode, format } = country || {};
 
@@ -154,27 +154,27 @@ export function createPhoneMaskExpression(
         '+',
         ...(clearableCountryCode ? countryCode.split('').map(() => /\d/) : countryCode.split('')),
         ' ',
-        ...format.split('').map((item) => (item === '.' ? /\d/ : item)),
+        ...format.split('').map(itemToMask),
     ];
 }
 
 export function createMaskOptions(
-    country?: Country,
-    clearableCountryCode?: boolean,
+    country: Country | undefined,
+    clearableCountryCode: boolean,
+    preserveCountryCode: boolean,
 ): MaskitoOptions {
-    const prefixLen =
-        !clearableCountryCode && country?.countryCode ? country.countryCode.length + 1 : 0;
-
+    const countryCode = country?.countryCode;
+    const prefix = countryCode ? getInitialValueFromCountry(countryCode) : '';
+    const prefixLen = !clearableCountryCode && prefix ? prefix.length : 0;
     const mask = createPhoneMaskExpression(country, clearableCountryCode);
 
     return {
         mask,
         preprocessors: [
-            maskUtils.insertionPhonePreprocessor(mask, country?.countryCode, clearableCountryCode),
+            maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
+            maskUtils.preserveCountryCodePreprocessor(countryCode, preserveCountryCode),
         ],
-        postprocessors: [
-            maskUtils.prefixPostprocessor(prefixLen ? `+${country?.countryCode}` : ''),
-        ],
+        postprocessors: [maskUtils.prefixPostprocessor(prefixLen > 0 ? prefix : '')],
         plugins: [
             maskUtils.caretGuard((value, [from, to]) => [
                 from === to ? prefixLen : 0,
@@ -306,4 +306,8 @@ export function getInternationalPhoneInputMobileTestIds(dataTestId: string) {
         searchError: getDataTestId(dataTestId, 'search-form-control-error-message'),
         searchHint: getDataTestId(dataTestId, 'search-form-control-hint'),
     };
+}
+
+export function getInitialValueFromCountry(countryCode: string) {
+    return `+${countryCode}`;
 }

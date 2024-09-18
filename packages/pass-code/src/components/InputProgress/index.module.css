@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 @import './animations.module.css';
 
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 5px;
+    margin: var(--gap-0) 5px;
 
     & .dot {
         margin: unset;
@@ -23,7 +23,7 @@
 }
 
 .dot {
-    margin: 0 6px;
+    margin: var(--gap-0) 6px;
     width: var(--pass-code-dot-width);
     height: var(--pass-code-dot-height);
     background: var(--color-light-neutral-translucent-300);

@@ -1,5 +1,107 @@
 # Change Log
 
+## 7.12.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+    -   icon-button@6.9.1
+    -   modal@9.5.1
+
+## 7.12.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   icon-button@6.9.0
+    -   modal@9.5.0
+    -   typography@4.10.1
+    -   shared@0.12.1
+
+## 7.11.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.6.0
+    -   icon-button@6.8.0
+    -   modal@9.4.0
+    -   typography@4.10.0
+
+## 7.10.1
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+-   Обновлены наименования переменных отступов
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1337](https://github.com/core-ds/core-components/pull/1337)
+
+-   При ручном выборе всего доступного периода в месяце, заголовок будет выделяться автоматически
+-   Внутренние улучшения кода компонента
+
+-   Обновлены зависимости
+    -   modal@9.3.11
+    -   typography@4.9.0
+    -   button@11.5.5
+    -   icon-button@6.7.5
+
+## 7.10.0
+
+### Minor Changes
+
+<sup><time>16.08.2024</time></sup>
+
+### [#1319](https://github.com/core-ds/core-components/pull/1319)
+
+-   Добавлен пропс `clickableMonth`. При клике на заголовок месяца будет выделен весь доступный период. Доступен только для мобильного компонента
+-   Исправлено поведение кнопок в футере для мобильного компонента
+
+## 7.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   button@11.5.4
+    -   modal@9.3.10
+    -   icon-button@6.7.4
+
 ## 7.9.1
 
 ### Patch Changes

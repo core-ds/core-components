@@ -1,4 +1,4 @@
-@import '../../../themes/src/default.css';
+@import '../../../vars/src/index.css';
 @import '../vars.css';
 
 .component {
@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 var(--gap-m) var(--gap-m);
+    padding: var(--gap-0) var(--gap-16) var(--gap-16);
     box-sizing: border-box;
     flex-grow: 1;
     overflow: hidden;
@@ -44,7 +44,7 @@
         @mixin custom-scrollbar;
 
         display: block;
-        padding-right: var(--gap-2xs);
+        padding-right: var(--gap-4);
         overflow: hidden auto;
         scrollbar-gutter: stable;
     }
@@ -68,7 +68,7 @@
     @media (max-width: 374px) {
         justify-content: space-between;
         width: var(--calendar-mobile-inner-width);
-        margin: 0 auto;
+        margin: var(--gap-0) auto;
     }
 }
 
@@ -78,6 +78,6 @@
     @media (max-width: 374px) {
         justify-content: space-between;
         width: var(--calendar-mobile-inner-width);
-        margin: 0 auto;
+        margin: var(--gap-0) auto;
     }
 }

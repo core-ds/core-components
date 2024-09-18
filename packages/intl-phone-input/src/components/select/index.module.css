@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     position: static;
@@ -14,13 +14,13 @@
 
 .flag {
     flex-shrink: 0;
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .countryName {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-8);
 }
 
 .dialCode {
-    color: var(--text-secondary-color);
+    color: var(--color-light-text-secondary);
 }

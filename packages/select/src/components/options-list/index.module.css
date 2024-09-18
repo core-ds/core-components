@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .optionsList {
@@ -20,7 +20,7 @@
 
 .optionsListFooter {
     position: sticky;
-    bottom: 0;
+    bottom: var(--gap-0);
     box-sizing: border-box;
     border-top: 1px solid transparent;
     transition: border-color 0.2s ease;
@@ -35,12 +35,16 @@
     width: 100%;
 }
 
+.mask {
+    min-width: 4000px;
+}
+
 .emptyPlaceholder {
-    padding: var(--gap-m) var(--gap-s);
+    padding: var(--gap-16) var(--gap-12);
     color: var(--select-options-list-empty-placeholder-color);
 }
 
 .size-64 .emptyPlaceholder,
 .size-72 .emptyPlaceholder {
-    padding: var(--gap-xl) var(--gap-m);
+    padding: var(--gap-24) var(--gap-16);
 }

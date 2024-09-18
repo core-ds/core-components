@@ -1,9 +1,9 @@
 @define-mixin checkbox-group-click {
     /* theme */
-    --checkbox-group-error-padding-left: 0;
+    --checkbox-group-error-padding-left: var(--gap-0);
     --checkbox-group-error-border-left: none;
 
     /* mobile */
-    --checkbox-group-mobile-sub-padding-left: 0;
-    --checkbox-group-mobile-list-padding-left: 0;
+    --checkbox-group-mobile-sub-padding-left: var(--gap-0);
+    --checkbox-group-mobile-list-padding-left: var(--gap-0);
 }

@@ -4,13 +4,18 @@ import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
+import isAfter from 'date-fns/isAfter';
+import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
+import isThisMonth from 'date-fns/isThisMonth';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { Typography } from '@alfalab/core-components-typography';
 
 import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
@@ -58,7 +63,15 @@ export const CalendarMonthOnlyView = ({
     dayAddons,
     shape = 'rounded',
     scrollableContainer,
-}: CalendarContentProps) => {
+    clickableMonth,
+}: CalendarContentProps & {
+    /**
+     * FIXME нужно сделать для компонента CalendarMonthOnlyView отдельный тип пропсов, т.к. тип CalendarContentProps intersection для типа CalendarMobileProps
+     * FIXME это приводит к тому, что в доку сторибука попадают типы пропсов, которые нужны для работы компонента CalendarMonthOnlyView, но не нужны для компонента CalendarMobile
+     * TODO Вынести компонент CalendarMonthOnlyView в отдельный файл
+     */
+    clickableMonth?: boolean;
+}) => {
     const range = useRange({
         mode,
         value,
@@ -78,10 +91,14 @@ export const CalendarMonthOnlyView = ({
         [minDateTimestamp],
     );
 
-    const maxDate = useMemo(
-        () => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined),
-        [maxDateTimestamp],
-    );
+    const maxDate = useMemo(() => {
+        // блокируем последующие дни после текущего
+        if (clickableMonth && !maxDateTimestamp) {
+            return new Date();
+        }
+
+        return maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined;
+    }, [maxDateTimestamp, clickableMonth]);
 
     const selected = useMemo(
         () => (range.value ? new Date(range.value) : undefined),
@@ -163,35 +180,110 @@ export const CalendarMonthOnlyView = ({
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
-    const renderMonth = (index: number) => (
-        <div className={styles.daysTable} id={`month-${index}`}>
-            {onMonthTitleClick ? (
-                /* eslint-disable-next-line jsx-a11y/click-events-have-key-events */
-                <span
-                    className={styles.month}
-                    onClick={onMonthTitleClick}
-                    tabIndex={0}
-                    role='button'
-                >
+    // заголовок должен становиться активным если выбран весь доступный период в месяце
+    const isMonthActive = (currentMonthIndex: number) => {
+        if (value && isRangeValue(value)) {
+            const { date: initialMonthDate } = activeMonths[initialMonthIndex];
+            const { date: currentMonthDate } = activeMonths[currentMonthIndex];
+
+            const firstAvailableDayOfMonth = startOfMonth(initialMonthDate).getTime();
+            /**
+             * последний доступный день месяца в timestamp
+             * представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
+             */
+            const lastAvailableDayOfMonth = isThisMonth(initialMonthDate)
+                ? startOfDay(new Date()).getTime()
+                : lastDayOfMonth(initialMonthDate).getTime();
+            const { dateFrom, dateTo } = value;
+
+            if (
+                dateFrom &&
+                dateTo &&
+                isSameMonth(initialMonthDate, currentMonthDate) &&
+                isSameDay(firstAvailableDayOfMonth, dateFrom) &&
+                isSameDay(lastAvailableDayOfMonth, dateTo)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    };
+
+    const handleClickMonthLabel = (index: number) => {
+        if (onChange) {
+            const { date } = activeMonths[index];
+            const firstAvailableDayOfMonth = startOfMonth(date).getTime();
+            const lastAvailableDayOfMonth = isThisMonth(date)
+                ? startOfDay(new Date()).getTime()
+                : lastDayOfMonth(date).getTime();
+
+            if (isMonthActive(index)) {
+                onChange();
+            } else {
+                onChange(firstAvailableDayOfMonth, lastAvailableDayOfMonth);
+            }
+        }
+    };
+
+    const getMonthLabel = (index: number, isClickableMonth?: boolean) => {
+        if (isClickableMonth) {
+            return (
+                <Typography.Text className={styles.monthTitle} view='primary-small' color='primary'>
                     {activeMonths[index].title}
-                </span>
-            ) : (
-                <span className={styles.month}> {activeMonths[index].title} </span>
-            )}
-            <DaysTable
-                withTransition={false}
-                weeks={activeMonths[index].weeks}
-                activeMonth={activeMonth}
-                selectedFrom={range.selectedFrom}
-                selectedTo={range.selectedTo}
-                getDayProps={getDayProps}
-                highlighted={highlighted}
-                hasHeader={false}
-                responsive={true}
-                shape={shape}
-            />
-        </div>
-    );
+                </Typography.Text>
+            );
+        }
+
+        return `\u00A0${activeMonths[index].title}\u00A0`;
+    };
+
+    const renderMonth = (index: number) => {
+        const isAfterDate = isAfter(activeMonths[index].date, activeMonth);
+
+        return (
+            <div className={styles.daysTable} id={`month-${index}`}>
+                {onMonthTitleClick ? (
+                    /* eslint-disable-next-line jsx-a11y/click-events-have-key-events */
+                    <span
+                        className={styles.month}
+                        onClick={onMonthTitleClick}
+                        tabIndex={0}
+                        role='button'
+                    >
+                        {activeMonths[index].title}
+                    </span>
+                ) : (
+                    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+                    <span
+                        className={cn(styles.month, {
+                            ...(clickableMonth && {
+                                [styles.clickableMonth]: true,
+                                [styles.rectangular]: shape === 'rectangular',
+                                [styles.active]: isMonthActive(index),
+                                [styles.disabled]: isAfterDate,
+                            }),
+                        })}
+                        {...(clickableMonth && { onClick: () => handleClickMonthLabel(index) })}
+                    >
+                        {getMonthLabel(index, clickableMonth)}
+                    </span>
+                )}
+                <DaysTable
+                    withTransition={false}
+                    weeks={activeMonths[index].weeks}
+                    activeMonth={activeMonth}
+                    selectedFrom={range.selectedFrom}
+                    selectedTo={range.selectedTo}
+                    getDayProps={getDayProps}
+                    highlighted={highlighted}
+                    hasHeader={false}
+                    responsive={true}
+                    shape={shape}
+                />
+            </div>
+        );
+    };
 
     return (
         <Virtuoso
@@ -240,6 +332,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             title = 'Календарь',
             yearsAmount = 3,
             onApply,
+            clickableMonth,
             ...restProps
         },
         ref,
@@ -278,6 +371,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         yearsAmount={yearsAmount}
                         scrollableContainer={modalRef}
                         onMonthTitleClick={onMonthTitleClick}
+                        clickableMonth={clickableMonth}
                         {...commonProps}
                         {...restProps}
                     />
@@ -290,6 +384,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     className={cn(className, styles.calendar)}
                     contentClassName={styles.content}
                     dataTestId={getDataTestId(dataTestId, 'mobile')}
+                    mobile={true}
                     {...commonProps}
                     {...restProps}
                 />
@@ -332,7 +427,11 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 );
             }
 
-            if (value) {
+            /**
+             * value может быть числом и объектом, для текущего кейса проверяем на typeof number
+             * иначе может приводить к багу, когда выводится кнопка "Выбрать" для дефолтного значения календаря
+             */
+            if (value && typeof value === 'number') {
                 return (
                     <ButtonMobile
                         view='primary'

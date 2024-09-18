@@ -1,8 +1,8 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/index.css';
 @import '../../../../calendar/src/vars.css';
 
 :root {
-    --calendar-popover-border-radius: var(--border-radius-m);
+    --calendar-popover-border-radius: var(--border-radius-8);
 }
 
 .component {
@@ -32,6 +32,6 @@
 }
 
 .calendarIcon {
-    margin-right: var(--gap-s-neg);
+    margin-right: var(--gap-12-neg);
     height: 100%;
 }

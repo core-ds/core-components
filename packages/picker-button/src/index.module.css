@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .container {
     min-width: auto;
@@ -7,12 +7,12 @@
 :global(.cc-picker-button) {
     &.optionsPopover {
         &.sideGap {
-            padding: 0 var(--gap-xs);
+            padding: var(--gap-0) var(--gap-8);
         }
     }
 
     & .option {
-        padding: 0 var(--gap-m);
+        padding: var(--gap-0) var(--gap-16);
 
         &:before {
             /* Удаляем разделители у опций выпадающего списка. */

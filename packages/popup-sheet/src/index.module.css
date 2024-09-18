@@ -1,19 +1,19 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 .component {
     position: fixed;
-    bottom: 0;
-    margin: auto var(--gap-xs) var(--gap-xs);
-    width: calc(100% - 2 * var(--gap-xs));
+    bottom: var(--gap-0);
+    margin: auto var(--gap-8) var(--gap-8);
+    width: calc(100% - 2 * var(--gap-8));
     max-width: 600px;
-    border-radius: 36px;
+    border-radius: var(--border-radius-36);
     overflow: hidden;
 }
 
 .closer {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: var(--gap-8);
+    right: var(--gap-8);
 
     & > button {
         backdrop-filter: none;

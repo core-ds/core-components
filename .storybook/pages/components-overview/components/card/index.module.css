@@ -1,5 +1,5 @@
 figure {
-    margin: 0;
+    margin: var(--gap-0);
 }
 
 .card {
@@ -11,7 +11,7 @@ figure {
 
 .caption {
     display: inline-flex;
-    padding: var(--gap-xs) 0;
+    padding: var(--gap-8) var(--gap-0);
 }
 
 .imageWrapper {
@@ -20,7 +20,7 @@ figure {
     justify-content: center;
     height: 180px;
     width: 100%;
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
     background-color: var(--color-light-base-bg-secondary);
     overflow: hidden;
 }
@@ -33,7 +33,7 @@ figure {
 }
 
 .withSafeZone {
-    padding: var(--gap-l);
+    padding: var(--gap-20);
 }
 
 .fallbackText {

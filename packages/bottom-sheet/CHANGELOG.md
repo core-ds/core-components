@@ -1,5 +1,87 @@
 # Change Log
 
+## 6.17.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.3.1
+
+## 6.17.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.3.0
+    -   backdrop@3.4.1
+    -   base-modal@5.8.1
+    -   shared@0.12.1
+
+## 6.17.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.4.0
+    -   base-modal@5.8.0
+    -   navigation-bar-private@0.2.0
+
+## 6.16.3
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1311](https://github.com/core-ds/core-components/pull/1311)
+
+-   Обновили стили для заголовка в мобильной версии компонента
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   backdrop@3.3.0
+    -   navigation-bar-private@0.1.10
+    -   base-modal@5.7.11
+
+## 6.16.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   base-modal@5.7.10
+    -   navigation-bar-private@0.1.9
+
 ## 6.16.1
 
 ### Patch Changes

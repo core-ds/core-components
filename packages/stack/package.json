@@ -18,6 +18,6 @@
         "tslib": "^2.4.0",
         "@alfalab/stack-context": "^1.16.0"
     },
-    "themesVersion": "13.0.1",
-    "varsVersion": "9.10.0"
+    "themesVersion": "13.2.0",
+    "varsVersion": "9.13.1"
 }

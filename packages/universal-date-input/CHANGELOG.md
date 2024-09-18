@@ -1,5 +1,67 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.2
+
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   input@15.1.1
+    -   popover@6.3.1
+    -   shared@0.12.1
+
+## 2.2.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.0
+    -   popover@6.3.0
+
+## 2.1.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.0.5
+
+## 2.1.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.0
+    -   input@15.0.4
+    -   popover@6.2.5
+
 ## 2.1.6
 
 ### Patch Changes

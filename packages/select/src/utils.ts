@@ -1,6 +1,14 @@
-import { cloneElement, isValidElement, ReactNode, RefObject, useEffect, useRef } from 'react';
+import {
+    cloneElement,
+    isValidElement,
+    ReactNode,
+    RefObject,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
 
 import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
 
@@ -154,6 +162,9 @@ export function useVisibleOptions({
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
+    const [, runIfMounted] = useIsMounted();
+    const [measured, setMeasured] = useState(false);
+
     useEffect(() => {
         const measureOptionHeight = (element: HTMLElement) =>
             typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
@@ -205,8 +216,19 @@ export function useVisibleOptions({
                 }
             }
 
+            const prevHeight = styleTarget.style.height;
+
             styleTarget.style.height = `${height}px`;
+
+            setMeasured(true);
+
+            return () => {
+                styleTarget.style.height = prevHeight;
+                runIfMounted(() => setMeasured(false));
+            };
         }
+
+        return fnUtils.noop;
     }, [
         actualOptionsCount,
         listRef,
@@ -216,7 +238,10 @@ export function useVisibleOptions({
         styleTargetRef,
         visibleOptions,
         invalidate,
+        runIfMounted,
     ]);
+
+    return measured;
 }
 
 export function defaultFilterFn(optionText: string, search: string) {
@@ -269,6 +294,7 @@ export function getSelectTestIds(dataTestId: string) {
         fieldRightAddons: getDataTestId(dataTestId, 'field-form-control-right-addons'),
         fieldError: getDataTestId(dataTestId, 'field-form-control-error-message'),
         fieldHint: getDataTestId(dataTestId, 'field-form-control-hint'),
+        fieldClearIcon: getDataTestId(dataTestId, 'field-clear-icon'),
         searchInput: getDataTestId(dataTestId, 'search'),
         searchFormControl: getDataTestId(dataTestId, 'search-form-control'),
         searchInner: getDataTestId(dataTestId, 'search-form-control-inner'),

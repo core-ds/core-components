@@ -1,5 +1,40 @@
 # Change Log
 
+## 4.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.3.1
+
+## 4.5.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.3.0
+
+## 4.4.4
+
+### Patch Changes
+
+<sup><time>04.09.2024</time></sup>
+
+### [#1353](https://github.com/core-ds/core-components/pull/1353)
+
+-   Обновлены наименования переменных отступов
+
+-   Обновлены зависимости
+    -   link@5.2.3
+
 ## 4.4.3
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
 
 :root {
     --form-control-border-bottom: 0;
@@ -11,6 +11,7 @@
     --form-control-inverted-color: var(--color-light-text-primary-inverted);
     --form-control-inverted-label-color: var(--color-light-text-secondary-inverted);
     --form-control-inverted-hint-color: var(--color-light-text-secondary-inverted);
+    --form-control-box-shadow: none;
 
     /* disabled */
     --form-control-disabled-bg-color: var(--color-light-neutral-translucent-100);
@@ -39,6 +40,7 @@
     /* hover */
     --form-control-hover-bg-color: var(--color-light-neutral-translucent-100);
     --form-control-inverted-hover-bg-color: var(--color-light-neutral-translucent-100-inverted);
+    --form-control-box-shadow-hover: none;
 
     /* error */
     --form-control-error-color: var(--color-light-text-negative);
@@ -60,17 +62,17 @@
     --form-control-m-min-height: var(--size-m-height);
     --form-control-l-min-height: var(--size-l-height);
     --form-control-xl-min-height: var(--size-xl-height);
-    --form-control-border-radius: 4px 4px 0 0;
+    --form-control-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-bg-backdrop-filter: unset;
 
     /* paddings */
-    --form-control-paddings: 0 var(--gap-s);
-    --form-control-xl-paddings: 0 var(--gap-m);
-    --form-control-labeled-s-paddings: 24px var(--gap-s) 4px;
-    --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
-    --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
-    --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
-    --form-control-sub-paddings: 0;
+    --form-control-paddings: var(--gap-0) var(--gap-12);
+    --form-control-xl-paddings: var(--gap-0) var(--gap-16);
+    --form-control-labeled-s-paddings: var(--gap-24) var(--gap-12) var(--gap-4);
+    --form-control-labeled-m-paddings: 28px var(--gap-12) var(--gap-8);
+    --form-control-labeled-l-paddings: var(--gap-32) var(--gap-12) var(--gap-12);
+    --form-control-labeled-xl-paddings: 38px var(--gap-16) 14px;
+    --form-control-sub-paddings: var(--gap-0);
 
     /* disabled */
     --form-control-disabled-opacity: 1;
@@ -79,19 +81,19 @@
     --form-control-font-family: var(--font-family);
 
     /* border-radius */
-    --form-control-s-border-radius: var(--border-radius-m);
-    --form-control-m-border-radius: var(--border-radius-m);
-    --form-control-l-border-radius: var(--border-radius-m);
-    --form-control-xl-border-radius: var(--border-radius-l);
+    --form-control-s-border-radius: var(--border-radius-8);
+    --form-control-m-border-radius: var(--border-radius-8);
+    --form-control-l-border-radius: var(--border-radius-8);
+    --form-control-xl-border-radius: var(--border-radius-12);
 
     /* paddings mobile */
-    --form-control-mobile-sub-paddings: 0 var(--gap-2xs);
+    --form-control-mobile-sub-paddings: var(--gap-0) var(--gap-4);
 
     /* border-radius mobile */
-    --form-control-mobile-s-border-radius: 10px;
-    --form-control-mobile-m-border-radius: 10px;
-    --form-control-mobile-l-border-radius: 10px;
-    --form-control-mobile-xl-border-radius: 10px;
+    --form-control-mobile-s-border-radius: var(--border-radius-10);
+    --form-control-mobile-m-border-radius: var(--border-radius-10);
+    --form-control-mobile-l-border-radius: var(--border-radius-10);
+    --form-control-mobile-xl-border-radius: var(--border-radius-10);
 
     /* color mobile */
     --form-control-mobile-bg-color: var(--color-light-neutral-translucent-100);

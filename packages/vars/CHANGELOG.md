@@ -1,5 +1,90 @@
 # Change Log
 
+## 9.13.1
+
+### Patch Changes
+
+<sup><time>17.09.2024</time></sup>
+
+### [#1364](https://github.com/core-ds/core-components/pull/1364)
+
+-   Убрана синяя браузерная подсветка при тапе
+
+## 9.13.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Добавлена новая переменная скругления: --border-radius-2
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+## 9.12.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+## 9.11.1
+
+### Patch Changes
+
+<sup><time>06.08.2024</time></sup>
+
+### [#1328](https://github.com/core-ds/core-components/pull/1328)
+
+-   Добавлен пропущенный размер радиуса скругления `--border-radius-32`
+
+## 9.11.0
+
+### Minor Changes
+
+<sup><time>05.08.2024</time></sup>
+
+### [#1327](https://github.com/core-ds/core-components/pull/1327)
+
+Добавлены новые переменные радиусов скругления:
+
+-   `--border-radius-0`
+-   `--border-radius-4`
+-   `--border-radius-6`
+-   `--border-radius-8`
+-   `--border-radius-10`
+-   `--border-radius-12`
+-   `--border-radius-16`
+-   `--border-radius-20`
+-   `--border-radius-24`
+-   `--border-radius-36`
+
+Переменные, помеченые как `deprecated`:
+
+-   `--border-radius-xs`
+-   `--border-radius-s`
+-   `--border-radius-m`
+-   `--border-radius-l`
+-   `--border-radius-xl`
+-   `--border-radius-xxl`
+-   `--border-radius-3xl`
+
 ## 9.10.0
 
 ### Minor Changes
