@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { Status } from './index';
-import { colors, sizes } from './consts';
+import { COLORS, SIZES } from './consts';
 
 describe('Status', () => {
     describe('Snapshots tests', () => {
@@ -57,13 +57,13 @@ describe('Status', () => {
             expect(container.firstElementChild).toHaveClass(view);
         });
 
-        it.each(colors)('should set color="%s"', (color) => {
+        it.each(COLORS)('should set color="%s"', (color) => {
             const { container } = render(<Status color={color}>Label</Status>);
 
             expect(container.firstElementChild).toHaveClass(color);
         });
 
-        it.each(sizes)('should set size="%s"', (size) => {
+        it.each(SIZES)('should set size="%s"', (size) => {
             const { container } = render(<Status size={size}>Label</Status>);
 
             expect(container.firstElementChild).toHaveClass(`size-${size}`);
@@ -73,6 +73,11 @@ describe('Status', () => {
             const { container } = render(<Status shape={shape}>Label</Status>);
 
             expect(container.firstElementChild).toHaveClass(shape);
+        });
+
+        it('should set uppercase as default', () => {
+            const { container } = render(<Status>Label</Status>);
+            expect(container.firstElementChild).toHaveClass('uppercase');
         });
 
         it('should set uppercase', () => {
