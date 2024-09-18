@@ -1,0 +1,45 @@
+@import './vars.css';
+
+.switch {
+    background-color: var(--switch-bg-color);
+
+    &:hover {
+        background-color: var(--switch-hover-bg-color);
+    }
+}
+
+.label {
+    color: var(--switch-label-color);
+}
+
+.hint {
+    color: var(--switch-hint-color);
+}
+
+.checked .switch {
+    background-color: var(--switch-checked-bg-color);
+
+    &:hover {
+        background-color: var(--switch-checked-hover-bg-color);
+    }
+}
+
+.disabled .label {
+    color: var(--switch-disabled-color);
+}
+
+.disabled .hint {
+    color: var(--switch-disabled-color);
+}
+
+.disabled .switch {
+    background-color: var(--switch-disabled-bg-color);
+
+    &:before {
+        background-color: var(--switch-icon-disabled-color);
+    }
+}
+
+.disabled.checked .switch {
+    background-color: var(--switch-disabled-checked-bg-color);
+}

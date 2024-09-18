@@ -13,6 +13,7 @@ import Changelog from '../../CHANGELOG.md?raw';
 
 <Story name='Switch'>
     {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         const disabled = boolean('disabled', false);
@@ -41,6 +42,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 label={label}
                 hint={hint}
                 error={error}
+                colors={colors}
                 onChange={handleChange}
             />
         );
