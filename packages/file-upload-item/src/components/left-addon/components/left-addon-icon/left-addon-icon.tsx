@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
 import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
 import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
+import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
 import { DocumentMIcon } from '@alfalab/icons-glyph/DocumentMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
@@ -24,9 +25,6 @@ export const LeftAddonIcon = () => {
         return null;
     }
 
-    const isColoredIcon = iconStyle === 'colored';
-    const fileType = getExtension(title);
-
     if (CustomIcon) {
         return <CustomIcon />;
     }
@@ -34,6 +32,9 @@ export const LeftAddonIcon = () => {
     if (isInitialStatus(uploadStatus)) {
         return <PaperclipMIcon />;
     }
+
+    const isColoredIcon = iconStyle === 'colored';
+    const fileType = getExtension(title);
 
     switch (fileType) {
         case FileTypeMap.pdf:
@@ -62,6 +63,13 @@ export const LeftAddonIcon = () => {
                     {...(isColoredIcon && { color: 'var(--color-light-decorative-orange)' })}
                 />
             );
+        case FileTypeMap.png:
+        case FileTypeMap.jpg:
+        case FileTypeMap.jpeg:
+        case FileTypeMap.svg:
+        case FileTypeMap.tif:
+        case FileTypeMap.tiff:
+            return <DocumentImageMIcon />;
         default:
             return (
                 <DocumentMIcon

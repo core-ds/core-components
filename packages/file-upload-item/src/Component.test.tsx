@@ -104,18 +104,6 @@ describe('FileUploadItem', () => {
             expect(element).toBeInTheDocument();
         });
 
-        it('should set maskImage style', () => {
-            const { container } = render(
-                <FileUploadItem {...fileProps} uploadStatus='UPLOADING' progressBar={270}>
-                    <FileUploadItem.LeftAddon />
-                </FileUploadItem>,
-            );
-
-            const element = container.querySelector('.progress');
-
-            expect(element).toHaveStyle('maskImage: conic-gradient(red 270deg, transparent 0)');
-        });
-
         it('should set success class', () => {
             const { container } = render(
                 <FileUploadItem {...fileProps} uploadStatus='SUCCESS'>

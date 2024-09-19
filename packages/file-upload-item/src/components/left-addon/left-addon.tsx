@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import cn from 'classnames';
 
 import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
@@ -18,11 +18,9 @@ export const LeftAddon = () => {
         isSuccessStatus(uploadStatus) ||
         isErrorStatus(uploadStatus);
 
-    useEffect(() => {
-        if (progressRef.current) {
-            progressRef.current.style.maskImage = `conic-gradient(red ${progressBar}deg, transparent 0)`;
-        }
-    }, [progressBar]);
+    if (progressRef.current) {
+        progressRef.current.style.maskImage = `conic-gradient(red ${progressBar}deg, transparent 0)`;
+    }
 
     return (
         <div className={styles.container}>

@@ -1,6 +1,7 @@
 export const UploadStatusMap = {
-    INITIAL: 'INITIAL',
-    UPLOADING: 'UPLOADING',
-    SUCCESS: 'SUCCESS',
-    ERROR: 'ERROR',
+    INITIAL: 'INITIAL', // базовое состояние компонента
+    UPLOADING: 'UPLOADING', // состояние с отображением динамической шкалы загрузки
+    UPLOADED: 'UPLOADED', // состояние загруженного файла без отображения шкалы загрузки
+    SUCCESS: 'SUCCESS', // состояние загруженного файла с отображением зеленой шкалы загрузки
+    ERROR: 'ERROR', // состояние ошибки с отображением красной шкалы загрузки
 } as const;
