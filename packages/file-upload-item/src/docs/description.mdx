@@ -187,7 +187,7 @@ render(() => {
     };
 
     const handleRestore = (element) => () => {
-                showIsRestore((prev) => ({
+        showIsRestore((prev) => ({
             ...prev,
             [element]: false,
         }));
@@ -246,6 +246,8 @@ render(() => {
     const [size, setSize] = React.useState(0);
     const [imageUrl, setImageUrl] = React.useState(null);
     const [isImage, setIsImage] = React.useState(false);
+    const [isShowDelete, setIsShowDelete] = React.useState(false);
+    const inputRef = React.useRef(null);
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -253,6 +255,7 @@ render(() => {
         setTitle(file.name);
         setSize(file.size);
         setImageUrl('');
+        setIsShowDelete(true);
 
         // если тип фала image, добавляем картинку как иконку
         if (file && file.type.includes('image')) {
@@ -267,6 +270,14 @@ render(() => {
         }
     };
 
+    const handleDelete = () => {
+        setStatus('INITIAL');
+        setImageUrl('');
+        setTitle('Прикрепите файл');
+        setIsShowDelete(false);
+        inputRef.current.value = null;
+    };
+
     return (
         <React.Fragment>
             <input
@@ -274,21 +285,24 @@ render(() => {
                 id='file-upload-item-id'
                 onChange={handleFileChange}
                 style={{ display: 'none' }}
+                ref={inputRef}
             />
-            <label htmlFor='file-upload-item-id'>
-                <FileUploadItem
-                    title={title}
-                    subtitle='Нет файла'
-                    uploadStatus={status}
-                    uploadDate={new Date().toLocaleDateString()}
-                    size={size}
-                    {...(isImage && { imageUrl })}
-                >
+            <FileUploadItem
+                title={title}
+                subtitle='Нет файла'
+                uploadStatus={status}
+                uploadDate={new Date().toLocaleDateString()}
+                size={size}
+                showDelete={isShowDelete}
+                onDelete={handleDelete}
+                {...(isImage && { imageUrl })}
+            >
+                <label htmlFor='file-upload-item-id' style={{ display: 'flex', width: 320 }}>
                     <FileUploadItem.LeftAddon />
                     <FileUploadItem.Content />
-                    <FileUploadItem.RightAddon />
-                </FileUploadItem>
-            </label>
+                </label>
+                <FileUploadItem.RightAddon />
+            </FileUploadItem>
         </React.Fragment>
     );
 });
