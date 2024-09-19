@@ -58,7 +58,7 @@ render(() => {
             Контент
             <Gap size={12} />
             {radioButtons.map((button, index) => (
-                <React.Fragment>
+                <React.Fragment key={button.title}>
                     <Radio
                         key={button.title}
                         block={true}
@@ -302,6 +302,103 @@ render(() => {
                     <FileUploadItem.Content />
                 </label>
                 <FileUploadItem.RightAddon />
+            </FileUploadItem>
+        </React.Fragment>
+    );
+});
+```
+
+Использование в качестве элемента списка файлов. Здесь, прогресс загрузки отображает не кнопка, а отдельный элемент, который появляется после выбора файла. Такой подход хорошо подходит, когда нужно загрузить несколько файлов.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [files, setFiles] = React.useState([]);
+
+    const distance = 360;
+    const duration = 500;
+    let startAnimation = null;
+
+    const measure = (timestamp, index) => {
+        if (!startAnimation) {
+            startAnimation = timestamp;
+        }
+
+        const progress = (timestamp - startAnimation) / duration;
+        const progressValue = progress * distance;
+
+        setFiles((prevFiles) => {
+            const newFiles = [...prevFiles];
+            newFiles[index].progress = progressValue;
+            return newFiles;
+        });
+
+        if (progress < 1) {
+            return requestAnimationFrame((t) => measure(t, index));
+        }
+
+        setFiles((prevFiles) => {
+            const newFiles = [...prevFiles];
+            newFiles[index].status = 'SUCCESS';
+            return newFiles;
+        });
+    };
+
+    const handleFileChange = (event) => {
+        const selectedFiles = Array.from(event.target.files);
+        const newFiles = selectedFiles.map((file) => ({
+            file,
+            progress: 0,
+            status: 'UPLOADING',
+        }));
+
+        setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+
+        newFiles.forEach((file, index) =>
+            requestAnimationFrame((t) => measure(t, index + files.length)),
+        );
+
+        event.target.value = null;
+    };
+
+    const handleDelete = (name) => () => {
+        setFiles((prevFiles) => [...prevFiles.filter((item) => item.file.name !== name)]);
+    };
+
+    return (
+        <React.Fragment>
+            <input
+                type='file'
+                multiple='multiple'
+                id='multi-file-input-id'
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+            />
+            {files.map((item) => {
+                return (
+                    <div key={item.file.name} style={{ width: 360 }}>
+                        <FileUploadItem
+                            title={item.file.name}
+                            size={item.file.size}
+                            uploadDate={new Date(item.file.lastModifiedDate).toLocaleDateString()}
+                            uploadStatus={item.status}
+                            progressBar={item.progress}
+                            showDelete={true}
+                            onDelete={handleDelete(item.file.name)}
+                        >
+                            <FileUploadItem.LeftAddon />
+                            <FileUploadItem.Content />
+                            <FileUploadItem.RightAddon />
+                        </FileUploadItem>
+                        <Gap size={20} />
+                    </div>
+                );
+            })}
+            <FileUploadItem title='Прикрепите файл' subtitle='Нет файла' uploadStatus='INITIAL'>
+                <FileUploadItem.LeftAddon />
+                <label htmlFor='multi-file-input-id'>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </label>
             </FileUploadItem>
         </React.Fragment>
     );
