@@ -3,22 +3,24 @@ import React, {
     forwardRef,
     MutableRefObject,
     ReactNode,
-    useEffect,
     useMemo,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
-import { BasePlacement, ModifierArguments, Obj, VariationPlacement } from '@popperjs/core';
+import {
+    arrow,
+    autoUpdate,
+    flip,
+    offset as offsetMiddleware,
+    Placement,
+    useFloating,
+} from '@floating-ui/react-dom';
 import cn from 'classnames';
-import maxSize from 'popper-max-size-modifier';
 
 import { Portal } from '@alfalab/core-components-portal';
-import { fnUtils, isClient } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/stack-context';
 
@@ -26,12 +28,7 @@ import styles from './index.module.css';
 
 type RefElement = HTMLElement | null;
 
-export type Position = BasePlacement | VariationPlacement;
-
-type PopperModifier = {
-    name: string;
-    options: Obj;
-};
+export type Position = Placement;
 
 export type PopoverProps = {
     /**
@@ -66,7 +63,8 @@ export type PopoverProps = {
     preventOverflow?: boolean;
 
     /**
-     *  Позволяет поповеру подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана
+     * Позволяет поповеру подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана
+     * @deprecated Отсутствует необходимость использования
      */
     availableHeight?: boolean;
 
@@ -119,7 +117,7 @@ export type PopoverProps = {
 
     /**
      * Хранит функцию, с помощью которой можно обновить положение компонента
-     * @deprecated
+     * @deprecated Отсутствует необходимость использования
      */
     update?: MutableRefObject<(() => void) | undefined>;
 
@@ -157,39 +155,12 @@ const CSS_TRANSITION_CLASS_NAMES = {
     exitActive: styles.exitActive,
 };
 
-const availableHieghtModifier = {
-    name: 'availableHeight',
-    enabled: true,
-    phase: 'beforeWrite',
-    requires: ['maxSize'],
-    fn({
-        state: {
-            modifiersData,
-            elements: { popper },
-        },
-    }: ModifierArguments<Obj>) {
-        const { height } = modifiersData.maxSize;
-
-        const content = popper.querySelector(`.${styles.scrollableContent}`) as HTMLElement;
-
-        if (content && !content.style.maxHeight) {
-            content.style.maxHeight = `${height}px`;
-        }
-    },
-};
-
-const DEFAULT_OFFSET = [0, 0];
+const DEFAULT_OFFSET: [number, number] = [0, 0];
 
 // Минимальное расстояние стрелки до края поповера
 const MIN_DISTANCE_TO_EDGE = 24;
 
-function getArrowPadding({
-    placement,
-}: {
-    popper: { height: number; width: number };
-    reference: { height: number; width: number };
-    placement: Position;
-}) {
+function getArrowPadding(placement: Position) {
     if (placement === 'right-end' || placement === 'left-end') {
         return { top: MIN_DISTANCE_TO_EDGE, right: 0, bottom: 0, left: 0 };
     }
@@ -216,7 +187,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             getPortalContainer,
             transition = DEFAULT_TRANSITION,
             anchorElement: referenceElement,
-            useAnchorWidth,
+            useAnchorWidth = false,
             offset = DEFAULT_OFFSET,
             withArrow = false,
             withTransition = true,
@@ -235,103 +206,53 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         },
         ref,
     ) => {
-        const [popperElement, setPopperElement] = useState<RefElement>(null);
-        const [arrowElement, setArrowElement] = useState<RefElement>(null);
-        const resizeObserverRef = useRef<ResizeObserver | null>(null);
-
-        const updatePopperRef = useRef<(() => void) | null>(null);
-
+        const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);
         const popperRef = useRef<HTMLDivElement>(null);
 
-        const popperModifiers = useMemo(() => {
-            const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
+        const floatingMiddlewares = useMemo(() => {
+            const [crossAxis, mainAxis] = offset;
+            const middlewares = [offsetMiddleware({ mainAxis, crossAxis })];
 
             if (withArrow) {
-                modifiers.push({
-                    name: 'arrow',
-                    options: {
-                        element: arrowElement,
-                        padding: getArrowPadding,
-                    },
-                });
+                middlewares.push(
+                    arrow(
+                        (state) => ({
+                            element: arrowElement,
+                            padding: getArrowPadding(state.placement),
+                        }),
+                        [arrowElement],
+                    ),
+                );
             }
 
-            if (preventFlip) {
-                modifiers.push({ name: 'flip', options: { fallbackPlacements: [] } });
+            if (preventFlip || fallbackPlacements || preventOverflow) {
+                middlewares.push(
+                    flip({ flipAlignment: preventFlip, fallbackPlacements, mainAxis: false }),
+                );
             }
 
-            if (fallbackPlacements) {
-                modifiers.push({ name: 'flip', options: { fallbackPlacements } });
-            }
+            return middlewares;
+        }, [offset, withArrow, preventFlip, fallbackPlacements, preventOverflow, arrowElement]);
 
-            if (preventOverflow) {
-                modifiers.push({ name: 'preventOverflow', options: { mainAxis: false } });
-            }
-
-            if (availableHeight) {
-                modifiers.push({ ...maxSize, options: {} });
-                modifiers.push({ ...availableHieghtModifier, options: {} });
-            }
-
-            return modifiers;
-        }, [
-            offset,
-            withArrow,
-            preventFlip,
-            fallbackPlacements,
-            preventOverflow,
-            availableHeight,
-            arrowElement,
-        ]);
-
-        const {
-            styles: popperStyles,
-            attributes,
-            update: updatePopper,
-        } = usePopper(referenceElement, popperElement, {
+        const { floatingStyles, refs, middlewareData, placement } = useFloating<HTMLElement>({
             placement: position,
-            modifiers: popperModifiers,
+            elements: { reference: referenceElement },
+            whileElementsMounted: autoUpdate,
+            middleware: floatingMiddlewares,
         });
-
-        if (!(updatePopperRef.current === updatePopper)) {
-            updatePopperRef.current = updatePopper;
-        }
-
-        if (isClient() && fnUtils.isNil(resizeObserverRef.current)) {
-            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-            const updatePopperCallback = () => {
-                updatePopperRef.current?.();
-            };
-
-            resizeObserverRef.current = new ResizeObserver(updatePopperCallback);
-        }
-
-        useEffect(() => {
-            if (fnUtils.isNil(popperElement)) return fnUtils.noop;
-            resizeObserverRef.current?.observe(popperElement);
-
-            return () => resizeObserverRef.current?.unobserve(popperElement);
-        }, [popperElement]);
-
-        useEffect(() => {
-            if (!useAnchorWidth || fnUtils.isNil(referenceElement)) return fnUtils.noop;
-            resizeObserverRef.current?.observe(referenceElement);
-
-            return () => resizeObserverRef.current?.unobserve(referenceElement);
-        }, [referenceElement, useAnchorWidth]);
 
         const renderContent = (computedZIndex: number) => (
             <div
-                ref={mergeRefs([ref, popperRef, setPopperElement])}
+                ref={mergeRefs([ref, popperRef, refs.setFloating])}
                 style={{
                     zIndex: computedZIndex,
                     width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
-                    ...popperStyles.popper,
-                    ...(popperStyles.popper?.transform ? null : { visibility: 'hidden' }),
+                    ...floatingStyles,
+                    ...(floatingStyles.transform ? null : { visibility: 'hidden' }),
                 }}
                 data-test-id={dataTestId}
                 className={cn(styles.component, className)}
-                {...attributes.popper}
+                data-popper-placement={placement}
             >
                 <div
                     className={cn(styles.inner, popperClassName)}
@@ -344,11 +265,14 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     <div className={cn({ [styles.scrollableContent]: availableHeight })}>
                         {children}
                     </div>
-
                     {withArrow && (
                         <div
                             ref={setArrowElement}
-                            style={popperStyles.arrow}
+                            style={{
+                                transform: `translate(${middlewareData.arrow?.x ?? 0}px, ${
+                                    middlewareData.arrow?.y ?? 0
+                                }px)`,
+                            }}
                             className={cn(styles.arrow, arrowClassName)}
                         />
                     )}
