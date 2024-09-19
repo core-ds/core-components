@@ -31,7 +31,7 @@ render(() => {
         setChecked(0);
         setTitle(radioButtons[0].title);
         setStatus('INITIAL');
-    }
+    };
 
     const isImg = radioButtons[checked].extension === 'Img';
 
@@ -90,35 +90,48 @@ render(() => {
     const duration = 500;
     let startAnimation = null;
 
+    const measure = (timestamp, status) => {
+        if (!startAnimation) {
+            startAnimation = timestamp;
+        }
+
+        const progress = (timestamp - startAnimation) / duration;
+        const progressValue = progress * distance;
+        setProgressBar(progressValue);
+
+        if (progress < 1) {
+            return requestAnimationFrame((t) => measure(t, status));
+        }
+
+        if (status === 'SUCCESS') {
+            setStatus(status);
+        } else if (status === 'ERROR') {
+            setStatus('ERROR');
+            setError('Описание первой ошибки');
+        } else if (status === 'MULTI_ERROR') {
+            setStatus('ERROR');
+            setError(['Описание первой ошибки', 'Описание второй ошибки']);
+        }
+    };
+
     const handleSuccessClick = () => {
         setError('');
         setProgressBar(0);
         setStatus('UPLOADING');
         setTitle('Пример.docx');
-        requestAnimationFrame(function measure(timestamp) {
-            if (!startAnimation) {
-                startAnimation = timestamp;
-            }
-
-            const progress = (timestamp - startAnimation) / duration;
-            const progressValue = progress * distance;
-            setProgressBar(progressValue);
-
-            if (progress < 1) {
-                return requestAnimationFrame(measure);
-            }
-            setStatus('SUCCESS');
-        });
+        requestAnimationFrame((t) => measure(t, 'SUCCESS'));
     };
 
     const handleError = () => {
-        setStatus('ERROR');
-        setError('Описание первой ошибки');
+        setProgressBar(0);
+        setStatus('UPLOADING');
+        requestAnimationFrame((t) => measure(t, 'ERROR'));
     };
 
     const handleMultiError = () => {
-        setStatus('ERROR');
-        setError(['Описание первой ошибки', 'Описание второй ошибки']);
+        setProgressBar(0);
+        setStatus('UPLOADING');
+        requestAnimationFrame((t) => measure(t, 'MULTI_ERROR'));
     };
 
     return (

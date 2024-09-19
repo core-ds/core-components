@@ -7,20 +7,25 @@ import { FileUploadItemContext } from '../../context/file-upload-item-context';
 import { isErrorStatus, isSuccessStatus, isUploadingStatus } from '../../utils';
 
 import { LeftAddonIcon } from './components/left-addon-icon';
+import { ProgressBar } from './components/progress-bar';
 
 import styles from './left-addon.module.css';
 
 export const LeftAddon = () => {
-    const { uploadStatus, progressBar, imageUrl } = useContext(FileUploadItemContext);
+    const { uploadStatus = 'INITIAL', progressBar, imageUrl } = useContext(FileUploadItemContext);
     const progressRef = useRef<HTMLDivElement>(null);
-    const shouldShowProgress =
-        isUploadingStatus(uploadStatus) ||
-        isSuccessStatus(uploadStatus) ||
-        isErrorStatus(uploadStatus);
 
     if (progressRef.current) {
         progressRef.current.style.maskImage = `conic-gradient(red ${progressBar}deg, transparent 0)`;
     }
+
+    const colors = {
+        INITIAL: '#transparent',
+        UPLOADED: 'transparent',
+        UPLOADING: '#BABBC2',
+        SUCCESS: '#0CC44D',
+        ERROR: '#FF4837',
+    };
 
     return (
         <div className={styles.container}>
@@ -31,15 +36,16 @@ export const LeftAddon = () => {
             >
                 <LeftAddonIcon />
             </SuperEllipse>
-            {shouldShowProgress && (
-                <div
-                    ref={progressRef}
-                    className={cn(styles.progress, {
-                        [styles.success]: isSuccessStatus(uploadStatus),
-                        [styles.error]: isErrorStatus(uploadStatus),
-                    })}
-                />
-            )}
+            <div
+                ref={progressRef}
+                className={cn(styles.progress, {
+                    [styles.uploading]: isUploadingStatus(uploadStatus),
+                    [styles.success]: isSuccessStatus(uploadStatus),
+                    [styles.error]: isErrorStatus(uploadStatus),
+                })}
+            >
+                <ProgressBar color={colors[uploadStatus]} />
+            </div>
         </div>
     );
 };

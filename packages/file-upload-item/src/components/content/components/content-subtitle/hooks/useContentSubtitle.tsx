@@ -3,12 +3,14 @@ import { useContext } from 'react';
 import { progressBarDistance } from '../../../../../const/progress-bar';
 import { FileUploadItemContext } from '../../../../../context/file-upload-item-context';
 import { isError } from '../../../utils/isError';
+import { isErrorStatus, isSuccessStatus, isUploadedStatus } from '../../../../../utils';
 
 export const useContentSubtitle = () => {
     const { showRestore, uploadStatus, error, progressBar } = useContext(FileUploadItemContext);
 
-    const shouldShownError = uploadStatus === 'ERROR' || isError(error);
-    const showMeta = !showRestore && uploadStatus === 'SUCCESS';
+    const shouldShownError = isErrorStatus(uploadStatus) || isError(error);
+    const showMeta =
+        !showRestore && (isSuccessStatus(uploadStatus) || isUploadedStatus(uploadStatus));
 
     const progressBarAvailablePercents = 100;
 

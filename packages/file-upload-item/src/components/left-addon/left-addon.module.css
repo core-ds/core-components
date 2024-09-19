@@ -1,5 +1,4 @@
 @import '../../../../vars/src/index.css';
-@import './animations.module.css';
 
 .container {
     position: relative;
@@ -13,20 +12,17 @@
         width: 56px;
         height: 56px;
 
-        background-image: url('./icons/progress.svg');
-        mask-image: conic-gradient(red 0, transparent 0);
+        mask-image: conic-gradient(black 0, transparent 0);
 
-        &.success {
-            animation: successAnimation 400ms ease-in forwards;
-        }
-
-        &.error {
-            background-image: url('./icons/progress-error.svg');
+        &.uploading {
+            opacity: 1;
         }
 
         &.success,
         &.error {
-            mask-image: conic-gradient(red 360deg, transparent 0);
+            transition: opacity 400ms ease-in;
+            opacity: 0;
+            mask-image: conic-gradient(black 360deg, transparent 0);
         }
     }
 }

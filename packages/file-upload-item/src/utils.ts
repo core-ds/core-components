@@ -23,3 +23,4 @@ export const isInitialStatus = (status?: FileStatuses) => status === UploadStatu
 export const isSuccessStatus = (status?: FileStatuses) => status === UploadStatusMap.SUCCESS;
 export const isErrorStatus = (status?: FileStatuses) => status === UploadStatusMap.ERROR;
 export const isUploadingStatus = (status?: FileStatuses) => status === UploadStatusMap.UPLOADING;
+export const isUploadedStatus = (status?: FileStatuses) => status === UploadStatusMap.UPLOADED;

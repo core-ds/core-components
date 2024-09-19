@@ -4,6 +4,7 @@ import {
     isErrorStatus,
     isInitialStatus,
     isSuccessStatus,
+    isUploadedStatus,
     isUploadingStatus,
 } from './utils';
 
@@ -48,5 +49,8 @@ describe('check sattuses', () => {
     });
     it('should uploading status', () => {
         expect(isUploadingStatus('UPLOADING')).toBeTruthy();
+    });
+    it('should uploaded status', () => {
+        expect(isUploadedStatus('UPLOADED')).toBeTruthy();
     });
 });
