@@ -5,6 +5,7 @@ import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
 import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
 import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
 import { DocumentMIcon } from '@alfalab/icons-glyph/DocumentMIcon';
+import DocumentOffMIcon from '@alfalab/icons-glyph/DocumentOffMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
@@ -12,6 +13,7 @@ import { FileTypeMap } from '../../../../const/file-type-map';
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 import { getExtension, isInitialStatus } from '../../../../utils';
 
+/* eslint-disable complexity */
 export const LeftAddonIcon = () => {
     const {
         title = '',
@@ -19,6 +21,7 @@ export const LeftAddonIcon = () => {
         iconStyle,
         customIcon: CustomIcon,
         imageUrl,
+        showRestore,
     } = useContext(FileUploadItemContext);
 
     if (imageUrl) {
@@ -31,6 +34,10 @@ export const LeftAddonIcon = () => {
 
     if (isInitialStatus(uploadStatus)) {
         return <PaperclipMIcon />;
+    }
+
+    if (showRestore) {
+        return <DocumentOffMIcon />;
     }
 
     const isColoredIcon = iconStyle === 'colored';

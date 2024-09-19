@@ -168,6 +168,73 @@ render(() => {
 });
 ```
 
+## Действия с загруженным файлом
+
+Загруженный файл можно скачать или удалить, а удалённый восстановить.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [isRestore, showIsRestore] = React.useState({
+        element_1: false,
+        element_2: false,
+    });
+
+    const handleDelete = (element) => () => {
+        showIsRestore((prev) => ({
+            ...prev,
+            [element]: true,
+        }));
+    };
+
+    const handleRestore = (element) => () => {
+                showIsRestore((prev) => ({
+            ...prev,
+            [element]: false,
+        }));
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: 360 }}>
+                <FileUploadItem
+                    title='hello-world.docx'
+                    size={2097152}
+                    uploadDate='22.07.2024'
+                    uploadStatus={'UPLOADED'}
+                    showDelete={true}
+                    downloadLink='./txt/hello-world.docx'
+                    showRestore={isRestore.element_1}
+                    onDelete={handleDelete('element_1')}
+                    onRestore={handleRestore('element_1')}
+                >
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
+                <Gap size={20} />
+                <FileUploadItem
+                    title='gagarin_yu_a.png.png'
+                    size={27262976}
+                    uploadDate='01.05.1998'
+                    uploadStatus={'UPLOADED'}
+                    showDelete={true}
+                    downloadLink='./images/gagarin_yu_a.png'
+                    showRestore={isRestore.element_2}
+                    onDelete={handleDelete('element_2')}
+                    onRestore={handleRestore('element_2')}
+                    {...(!isRestore.element_2 && { imageUrl: './images/gagarin_yu_a.png' })}
+                    {...(isRestore.element_2 && { customIcon: () => <DocumentImageOffMIcon /> })}
+                >
+                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.RightAddon />
+                </FileUploadItem>
+            </div>
+        </React.Fragment>
+    );
+});
+```
+
 ## Примеры использования
 
 Использование в качестве кнопки для прикрепления файла. Прогресс загрузки файла может отображаться самой кнопкой. Такой подход хорошо подходит, когда нужно загрузить один файл.

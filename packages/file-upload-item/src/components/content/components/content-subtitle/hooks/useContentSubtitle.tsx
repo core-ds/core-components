@@ -2,8 +2,8 @@ import { useContext } from 'react';
 
 import { progressBarDistance } from '../../../../../const/progress-bar';
 import { FileUploadItemContext } from '../../../../../context/file-upload-item-context';
-import { isError } from '../../../utils/isError';
 import { isErrorStatus, isSuccessStatus, isUploadedStatus } from '../../../../../utils';
+import { isError } from '../../../utils/isError';
 
 export const useContentSubtitle = () => {
     const { showRestore, uploadStatus, error, progressBar } = useContext(FileUploadItemContext);

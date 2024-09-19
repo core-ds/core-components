@@ -28,5 +28,9 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        &.restore {
+            color: var(--color-light-text-tertiary);
+        }
     }
 }

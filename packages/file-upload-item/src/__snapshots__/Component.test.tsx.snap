@@ -89,7 +89,7 @@ Object {
                 <circle
                   cx="28"
                   cy="28"
-                  fill="#transparent"
+                  fill="transparent"
                   r="32"
                 />
               </g>
@@ -201,7 +201,7 @@ Object {
               <circle
                 cx="28"
                 cy="28"
-                fill="#transparent"
+                fill="transparent"
                 r="32"
               />
             </g>

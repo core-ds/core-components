@@ -12,7 +12,7 @@ import { useContentSubtitle } from './hooks/useContentSubtitle';
 import styles from './content-subtitle.module.css';
 
 export const ContentSubtitle = () => {
-    const { uploadStatus, subtitle, uploadDate, size, truncate } =
+    const { uploadStatus, subtitle, uploadDate, size, truncate, showRestore } =
         useContext(FileUploadItemContext);
 
     const {
@@ -56,6 +56,14 @@ export const ContentSubtitle = () => {
                     </Typography.Text>
                 )}
             </div>
+        );
+    }
+
+    if (showRestore) {
+        return (
+            <Typography.Text view='primary-small' color='tertiary'>
+                Файл удален
+            </Typography.Text>
         );
     }
 

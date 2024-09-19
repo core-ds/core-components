@@ -15,6 +15,7 @@ export const Content = () => {
         customContent: CustomContent,
         truncate,
         subtitle,
+        showRestore,
     } = useContext(FileUploadItemContext);
 
     if (CustomContent) {
@@ -31,6 +32,7 @@ export const Content = () => {
                 <Typography.Text
                     className={cn(styles.title, {
                         [styles.truncate]: truncate,
+                        [styles.restore]: showRestore,
                     })}
                     view='component'
                     color='primary'
