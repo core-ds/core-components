@@ -2,4 +2,4 @@
 '@alfalab/core-components-icon-view': patch
 ---
 
-small refactoring: inner utils, types, fix story
+Произвёл автоматическую оптимизацию кривых (по размеру) пакета 'icon-view'
