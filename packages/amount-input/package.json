@@ -19,7 +19,8 @@
         "@alfalab/data": "^1.8.0",
         "@alfalab/utils": "^1.15.2",
         "classnames": "^2.3.1",
-        "tslib": "^2.4.0"
+        "tslib": "^2.4.0",
+        "@alfalab/core-components-shared": "^0.11.0"
     },
     "themesVersion": "13.3.0",
     "varsVersion": "9.13.1"

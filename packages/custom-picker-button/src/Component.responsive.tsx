@@ -7,6 +7,7 @@ import type {
     AdditionalMobileProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './desktop';
 import { CustomPickerButtonMobile } from './mobile';
@@ -37,7 +38,7 @@ export const CustomPickerButtonResponsive = forwardRef<
             footer,
             swipeable,
             bottomSheetProps,
-            breakpoint = 1024,
+            breakpoint = getComponentBreakpoint(),
             defaultMatchMediaValue,
             ...restProps
         },
