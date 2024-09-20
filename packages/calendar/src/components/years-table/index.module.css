@@ -16,7 +16,6 @@
 
             & .button {
                 width: calc(33.333% - var(--gap-4) / 1.5);
-                box-shadow: none;
             }
         }
 

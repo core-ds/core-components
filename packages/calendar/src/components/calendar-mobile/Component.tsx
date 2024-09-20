@@ -384,7 +384,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     className={cn(className, styles.calendar)}
                     contentClassName={styles.content}
                     dataTestId={getDataTestId(dataTestId, 'mobile')}
-                    mobile={true}
                     {...commonProps}
                     {...restProps}
                 />
