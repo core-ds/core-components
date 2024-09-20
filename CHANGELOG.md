@@ -1,3 +1,17 @@
+## 47.18.0
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+#### Что изменилось
+- Откат обновления темизации corp из версии 47.16.0
+
+#### Влияние на компоненты
+- Минорное<br />`button` `calendar` `calendar-range` `code-input` `custom-button`<br /> `file-upload-item` `form-control` `icon-button` `input-autocomplete` `modal`<br /> `navigation-bar-private` `notification` `notification-manager` `password-input` `picker-button`<br /> `select` `side-panel` `themes` `universal-date-input`
+
+
+
 ## 47.17.0
 
 <sup><time>17.09.2024</time></sup>
