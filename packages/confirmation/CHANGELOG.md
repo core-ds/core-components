@@ -1,5 +1,22 @@
 # Change Log
 
+## 13.8.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+    -   code-input@3.8.0
+    -   shared@0.13.0
+
 ## 13.7.3
 
 ### Patch Changes

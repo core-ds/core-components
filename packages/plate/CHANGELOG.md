@@ -1,5 +1,21 @@
 # Change Log
 
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+    -   icon-button@6.10.1
+
 ## 7.6.3
 
 ### Patch Changes

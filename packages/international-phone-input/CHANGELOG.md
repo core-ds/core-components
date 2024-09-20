@@ -1,5 +1,23 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.5.0
+    -   input@15.2.0
+    -   select@17.14.0
+    -   shared@0.13.0
+
 ## 2.2.3
 
 ### Patch Changes

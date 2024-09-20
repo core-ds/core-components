@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+
 ## 6.10.0
 
 ### Minor Changes
