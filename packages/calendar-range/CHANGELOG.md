@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.6.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.13.0
+    -   calendar-input@10.3.3
+    -   date-input@4.4.3
+
 ## 7.5.1
 
 ### Patch Changes

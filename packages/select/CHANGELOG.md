@@ -1,5 +1,24 @@
 # Change Log
 
+## 17.13.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+    -   form-control@12.5.0
+    -   modal@9.6.0
+    -   input@15.1.3
+    -   bottom-sheet@6.17.3
+
 ## 17.12.1
 
 ### Patch Changes

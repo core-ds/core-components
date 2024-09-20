@@ -18,6 +18,6 @@
     "dependencies": {
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.2.0",
+    "themesVersion": "13.3.0",
     "varsVersion": "9.13.1"
 }

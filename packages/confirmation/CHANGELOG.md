@@ -1,5 +1,13 @@
 # Change Log
 
+## 13.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+    -   code-input@3.7.0
+
 ## 13.7.2
 
 ### Patch Changes

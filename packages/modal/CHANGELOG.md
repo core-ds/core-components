@@ -1,5 +1,20 @@
 # Change Log
 
+## 9.6.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.4.0
+
 ## 9.5.1
 
 ### Patch Changes

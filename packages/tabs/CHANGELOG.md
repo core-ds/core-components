@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.10.0
+    -   picker-button@11.10.0
+
 ## 8.10.2
 
 ### Patch Changes
