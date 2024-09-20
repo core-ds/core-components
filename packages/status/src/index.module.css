@@ -2,16 +2,14 @@
 @import '../../vars/src/colors-decorative.css';
 
 .component {
-    @mixin accent_secondary_small;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 20px;
-    padding: 0 var(--gap-8);
-    border-radius: var(--border-radius-s);
+    height: initial;
+    padding: 0;
+    border-radius: 0;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: initial;
     letter-spacing: 0.5px;
 
     & .ellipsis {
@@ -20,7 +18,52 @@
     }
 
     &:empty {
-        padding: 0;
+        padding: var(--gap-0);
+    }
+
+    &.size-20 {
+        @mixin action_secondary_medium;
+        height: 20px;
+        padding: 0 var(--gap-8);
+        border-radius: var(--border-radius-6);
+    }
+
+    &.size-24 {
+        @mixin action_secondary_medium;
+        height: 24px;
+        padding: 0 var(--gap-12);
+        border-radius: var(--border-radius-6);
+    }
+
+    &.size-32 {
+        @mixin action_primary_small;
+        height: 32px;
+        padding: 0 var(--gap-16);
+        border-radius: var(--border-radius-10);
+    }
+
+    &.size-40 {
+        @mixin action_primary_small;
+        height: 40px;
+        padding: 0 var(--gap-20);
+        border-radius: var(--border-radius-12);
+    }
+
+    &.rounded {
+        border-radius: var(--border-radius-pill);
+    }
+
+    &.uppercase {
+        &.size-20,
+        &.size-24 {
+            @mixin accent_secondary_small;
+            text-transform: uppercase;
+        }
+
+        &.size-32,
+        &.size-40 {
+            @mixin accent_caps;
+        }
     }
 }
 

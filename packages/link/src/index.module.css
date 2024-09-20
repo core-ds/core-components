@@ -34,8 +34,8 @@
 }
 
 .pseudo {
-    margin: 0;
-    padding: 0;
+    margin: var(--gap-0);
+    padding: var(--gap-0);
     background-color: transparent;
     border: none;
     box-shadow: none;
@@ -65,6 +65,6 @@
 }
 
 .addons:only-child {
-    margin-right: 0;
-    margin-left: 0;
+    margin-right: var(--gap-0);
+    margin-left: var(--gap-0);
 }

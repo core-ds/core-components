@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { SegmentedControl, Segment } from '@alfalab/core-components-segmented-control';
 
 const meta: Meta<typeof SegmentedControl> = {
@@ -38,6 +38,7 @@ export const segmented_control: Story = {
                     onChange={handleChange}
                     selectedId={selectedId}
                     colors={colors}
+                    disabled={boolean('disabled', false)}
                 >
                     <Segment id={1} title={'Сегмент 1'}>
                         Сегмент 1

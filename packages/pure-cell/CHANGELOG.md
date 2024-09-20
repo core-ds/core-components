@@ -1,5 +1,75 @@
 # Change Log
 
+## 4.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.8.0
+    -   button@11.9.0
+    -   shared@0.13.0
+
+## 4.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+
+## 4.12.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+
+## 4.12.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   typography@4.10.1
+    -   amount@3.7.0
+    -   comment@2.4.1
+    -   shared@0.12.1
+
+## 4.12.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.6.0
+    -   button@11.6.0
+    -   comment@2.4.0
+    -   typography@4.10.0
+
 ## 4.11.6
 
 ### Patch Changes

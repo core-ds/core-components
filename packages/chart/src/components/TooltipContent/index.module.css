@@ -4,7 +4,7 @@
     background-color: var(--color-light-base-bg-primary);
     border: 1px solid var(--color-light-neutral-400);
     box-shadow: var(--shadow-l);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     padding: var(--gap-12) var(--gap-16);
     pointer-events: none;
     position: relative;
@@ -14,8 +14,8 @@
     position: relative;
     z-index: 5;
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    padding: var(--gap-0);
+    margin: var(--gap-0);
 }
 
 .tooltipItem {
@@ -24,7 +24,7 @@
 
 .tooltipArrow {
     position: absolute;
-    left: 0;
+    left: var(--gap-0);
     top: 50%;
     transform: translate(-50%, -50%) scale(1, 1) rotate(45deg);
     width: 10px;
@@ -36,8 +36,8 @@
 .tooltipArrow:before {
     content: '';
     position: absolute;
-    left: -2px;
-    top: -2px;
+    left: var(--gap-2-neg);
+    top: var(--gap-2-neg);
     width: 0;
     height: 0;
     border-style: solid;

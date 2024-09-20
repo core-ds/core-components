@@ -2,15 +2,15 @@
 
 .cardMack {
     background-color: var(--color-light-neutral-translucent-1300-inverted);
-    border-radius: var(--border-radius-xs);
+    border-radius: var(--border-radius-2);
 }
 
 .cardImage {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
+    bottom: var(--gap-0);
+    right: var(--gap-0);
     z-index: 1;
     max-width: 100%;
     height: 100%;

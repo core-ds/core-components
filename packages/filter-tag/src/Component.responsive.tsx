@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { BaseFilterTagProps } from './components/base-filter-tag';
 import { FilterTagDesktop } from './desktop';
@@ -20,7 +21,10 @@ export type FilterTagProps = Omit<BaseFilterTagProps, 'styles'> & {
 };
 
 export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
-    ({ children, breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+    (
+        { children, breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps },
+        ref,
+    ) => {
         const query = `(min-width: ${breakpoint}px)`;
 
         const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);

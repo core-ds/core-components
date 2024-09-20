@@ -1,5 +1,71 @@
 # Change Log
 
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+    -   shared@0.13.0
+    -   bottom-sheet@6.17.4
+    -   popover@6.3.2
+
+## 7.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+    -   bottom-sheet@6.17.3
+
+## 7.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+    -   bottom-sheet@6.17.2
+
+## 7.4.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   button@11.7.0
+    -   bottom-sheet@6.17.1
+    -   popover@6.3.1
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.0
+    -   button@11.6.0
+    -   popover@6.3.0
+
 ## 7.3.22
 
 ### Patch Changes

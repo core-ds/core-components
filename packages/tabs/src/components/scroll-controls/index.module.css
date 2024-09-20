@@ -39,12 +39,12 @@
         content: '';
         display: block;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: var(--gap-0);
+        left: var(--gap-0);
         width: 1px;
         background-color: transparent;
         transition: background-color 0.3s ease;
-        bottom: 0;
+        bottom: var(--gap-0);
     }
 
     &.xs {

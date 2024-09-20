@@ -9,7 +9,7 @@
 }
 
 .center > div {
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 }
 
 .right > div {

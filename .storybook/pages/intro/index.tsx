@@ -9,7 +9,7 @@ import packageJson from '../../../package.json';
 
 import styles from './index.module.css';
 
-const MAINTAINERS = ['reme3d2y', 'Valeri8888', 'AleksMaifet', 'Oladii', 'SiebenSieben'];
+const MAINTAINERS = ['reme3d2y', 'Oladii', 'SiebenSieben', 'hextion', 'fulcanellee'];
 const MAINTAINERS_COUNT = MAINTAINERS.length;
 const PHOTO_SIZE = 40;
 const PHOTO_OFFSET = 9;
@@ -79,7 +79,11 @@ export const Intro = () => {
                     target='_blank'
                     rel='noopener noreferrer'
                     leftAddons={
-                        <GithubIcon fill='var(--color-light-base-bg-primary)' width={20} height={20} />
+                        <GithubIcon
+                            fill='var(--color-light-base-bg-primary)'
+                            width={20}
+                            height={20}
+                        />
                     }
                 >
                     View on GitHub

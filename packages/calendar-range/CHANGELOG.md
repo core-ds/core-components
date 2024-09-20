@@ -1,5 +1,80 @@
 # Change Log
 
+## 7.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar-input@10.4.0
+    -   calendar@7.14.0
+    -   date-input@4.4.4
+
+## 7.6.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.13.0
+    -   calendar-input@10.3.3
+    -   date-input@4.4.3
+
+## 7.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.12.1
+    -   calendar-input@10.3.2
+    -   date-input@4.4.2
+
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   calendar@7.12.0
+    -   calendar-input@10.3.1
+    -   date-input@4.4.1
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.11.0
+    -   calendar-input@10.3.0
+    -   date-input@4.4.0
+
 ## 7.3.28
 
 ### Patch Changes

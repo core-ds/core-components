@@ -42,7 +42,7 @@
     word-break: break-word;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin: 0 6px;
+    margin: var(--gap-0) 6px;
 }
 
 .subtitle {
@@ -119,7 +119,7 @@
 
     & .title {
         max-height: 16px;
-        margin: 0;
+        margin: var(--gap-0);
     }
 }
 
@@ -133,7 +133,7 @@
 
     & .title {
         max-height: 16px;
-        margin: 0;
+        margin: var(--gap-0);
     }
 }
 

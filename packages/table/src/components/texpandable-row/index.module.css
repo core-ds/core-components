@@ -16,9 +16,9 @@
 
 .expandable {
     & td {
-        margin: 0;
-        padding-top: 0;
-        padding-bottom: 0;
+        margin: var(--gap-0);
+        padding-top: var(--gap-0);
+        padding-bottom: var(--gap-0);
         border: none;
         height: auto;
     }

@@ -11,7 +11,7 @@
 }
 
 .popper {
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     box-sizing: border-box;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .hint {
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-4);
 }
 
 .target {

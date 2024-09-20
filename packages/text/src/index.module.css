@@ -2,8 +2,8 @@
 
 .component {
     background-clip: content-box;
-    margin: 0;
-    padding: 0;
+    margin: var(--gap-0);
+    padding: var(--gap-0);
 }
 
 .monospace {

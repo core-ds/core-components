@@ -5,14 +5,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    padding: var(--gap-0);
 }
 
 .button.button {
     @mixin action_component_secondary;
 
     border-radius: var(--border-radius-circle);
-    padding: 0;
+    padding: var(--gap-0);
     min-width: 64px;
     width: 64px;
     height: 64px;

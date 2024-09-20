@@ -1,5 +1,19 @@
 # Change Log
 
+## 3.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.13.0
+
+## 3.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.12.1
+
 ## 3.3.1
 
 ### Patch Changes

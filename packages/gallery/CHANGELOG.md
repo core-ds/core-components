@@ -1,5 +1,70 @@
 # Change Log
 
+## 5.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.5.0
+    -   icon-button@6.10.1
+    -   base-modal@5.8.2
+
+## 5.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.10.0
+    -   tooltip@7.4.3
+
+## 5.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.9.1
+    -   tooltip@7.4.2
+
+## 5.7.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   tooltip@7.4.1
+    -   icon-button@6.9.0
+    -   typography@4.10.1
+    -   base-modal@5.8.1
+
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.0
+    -   icon-button@6.8.0
+    -   tooltip@7.4.0
+    -   typography@4.10.0
+
 ## 5.6.7
 
 ### Patch Changes

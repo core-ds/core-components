@@ -9,6 +9,10 @@
     @mixin _confirmation-text;
 }
 
+.typographyThemeMobile.typographyThemeMobile {
+    color: var(--color-light-text-secondary);
+}
+
 .left {
     align-items: flex-start;
 }

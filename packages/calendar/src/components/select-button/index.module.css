@@ -7,7 +7,7 @@
 
         height: 40px;
         position: relative;
-        padding: 0 var(--gap-8);
+        padding: var(--gap-0) var(--gap-8);
         background-color: transparent;
         border-radius: var(--border-radius-l);
         box-shadow: var(--calendar-select-button-box-shadow);

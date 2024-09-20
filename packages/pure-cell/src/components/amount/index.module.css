@@ -1,6 +1,6 @@
 @import '../../../../vars/src/index.css';
 
 .component {
-    padding: var(--gap-2) 0;
+    padding: var(--gap-2) var(--gap-0);
     display: flex;
 }

@@ -1,5 +1,132 @@
 # Change Log
 
+## 17.14.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+    -   checkbox@4.7.0
+    -   form-control@12.6.0
+    -   input@15.2.0
+    -   modal@9.7.0
+    -   shared@0.13.0
+    -   base-modal@5.8.2
+    -   bottom-sheet@6.17.4
+    -   popover@6.3.2
+
+## 17.13.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+    -   form-control@12.5.0
+    -   modal@9.6.0
+    -   input@15.1.3
+    -   bottom-sheet@6.17.3
+
+## 17.12.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+    -   input@15.1.2
+    -   bottom-sheet@6.17.2
+    -   modal@9.5.1
+
+## 17.12.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+-   Исправлен расчет высоты списка опций
+
+-   Обновлены зависимости
+    -   skeleton@5.2.0
+    -   button@11.7.0
+    -   form-control@12.4.0
+    -   modal@9.5.0
+    -   scrollbar@3.1.1
+    -   input@15.1.1
+    -   bottom-sheet@6.17.1
+    -   checkbox@4.6.1
+    -   popover@6.3.1
+    -   badge@5.6.1
+    -   base-modal@5.8.1
+    -   shared@0.12.1
+
+## 17.11.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.0
+    -   base-modal@5.8.0
+    -   bottom-sheet@6.17.0
+    -   button@11.6.0
+    -   checkbox@4.6.0
+    -   form-control@12.3.0
+    -   input@15.1.0
+    -   modal@9.4.0
+    -   popover@6.3.0
+    -   scrollbar@3.1.0
+    -   skeleton@5.1.0
+
 ## 17.10.1
 
 ### Patch Changes

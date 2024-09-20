@@ -3,7 +3,7 @@
 
 :root {
     --calendar-input-icon-color: var(--color-light-neutral-translucent-700);
-    --calendar-input-popover-border-radius: var(--border-radius-m);
+    --calendar-input-popover-border-radius: var(--border-radius-8);
 }
 
 .component {
@@ -46,8 +46,8 @@
 .nativeInput {
     opacity: 0;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
     width: 100%;
     height: 100%;
     appearance: none;
