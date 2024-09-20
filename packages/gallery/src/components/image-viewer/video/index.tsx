@@ -34,19 +34,21 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     useEffect(() => {
         const hls = new Hls();
 
-        const handleVisibilityChange = () => {
-            if (document.visibilityState === 'visible') {
-                // Если вкладка стала видимой, пробуем восстановить видео
-                if (playerRef.current && !playerRef.current.src) {
-                    hls.loadSource(url);
-                    hls.attachMedia(playerRef.current);
-                }
-            }
-        };
-
         if (Hls.isSupported()) {
-            hls.on(Hls.Events.ERROR, () => {
-                setImageMeta({ player: { current: null }, broken: true }, index);
+            hls.on(Hls.Events.ERROR, (_, data) => {
+                if (data.fatal) {
+                    switch (data.type) {
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            hls.recoverMediaError();
+                            break;
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            setImageMeta({ player: { current: null }, broken: true }, index);
+                            break;
+                        default:
+                            hls.destroy();
+                            break;
+                    }
+                }
             });
 
             hls.loadSource(url);
@@ -55,8 +57,6 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             }
         }
 
-        document.addEventListener('visibilitychange', handleVisibilityChange);
-
         return () => {
             if (hls) {
                 hls.destroy();
@@ -64,7 +64,6 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             if (timer.current) {
                 clearTimeout(timer.current);
             }
-            document.removeEventListener('visibilitychange', handleVisibilityChange);
         };
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [url, index]);
@@ -74,6 +73,15 @@ export const Video = ({ url, index, className, isActive }: Props) => {
 
         if (isMobile) {
             setHideNavigation(false);
+
+            if (playingVideo) {
+                if (timer.current) {
+                    clearTimeout(timer.current);
+                }
+                timer.current = setTimeout(() => {
+                    setHideNavigation(true);
+                }, 3000);
+            }
 
             return;
         }
