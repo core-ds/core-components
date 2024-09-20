@@ -6,17 +6,17 @@
 }
 
 .sheetContent.sheetContent {
-    padding: 0;
+    padding: var(--gap-0);
 
     & .modalContent {
-        padding: 0;
+        padding: var(--gap-0);
         display: flex;
         flex-direction: column;
     }
 }
 
 .sheetContainer {
-    padding: 0;
+    padding: var(--gap-0);
 }
 
 .optionsListWrapper {

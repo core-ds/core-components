@@ -5,7 +5,7 @@
     @mixin action_component_secondary;
 
     border-radius: var(--border-radius-circle);
-    padding: 0;
+    padding: var(--gap-0);
     min-width: var(--pass-code-button-min-width);
     width: var(--pass-code-button-width);
     height: var(--pass-code-button-height);

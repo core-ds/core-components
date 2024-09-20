@@ -27,14 +27,14 @@
     width: 56px;
     height: 56px;
     flex-shrink: 0;
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
     cursor: pointer;
     user-select: none;
 
     &.mobile {
         width: 36px;
         height: 46px;
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-8);
     }
 }
 

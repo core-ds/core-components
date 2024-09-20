@@ -1,5 +1,78 @@
 # Change Log
 
+## 9.6.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.4.0
+
+## 9.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.3.1
+
+## 9.5.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1369](https://github.com/core-ds/core-components/pull/1369)
+
+-   Заменили числовые значения скругления на переменные
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.3.0
+    -   base-modal@5.8.1
+    -   shared@0.12.1
+
+## 9.4.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.0
+    -   navigation-bar-private@0.2.0
+
 ## 9.3.11
 
 ### Patch Changes

@@ -2,14 +2,14 @@
 
 button.tag.tag {
     color: var(--color-light-text-secondary);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     border: none;
     flex-shrink: 0;
     min-width: auto;
     min-height: auto;
     width: 32px;
     height: 32px;
-    padding: 0;
+    padding: var(--gap-0);
 
     &:disabled:not(.checked) {
         opacity: 0.3;

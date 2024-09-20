@@ -8,7 +8,7 @@
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: var(--gap-24);
     grid-row-gap: var(--gap-12);
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 
     & .digit.digit {
         font-size: 36px;

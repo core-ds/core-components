@@ -55,17 +55,17 @@
 
 .slideLoading {
     background-color: var(--color-static-neutral-100-inverted);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
 }
 
 .image {
     width: 0;
     height: 0;
     user-select: none;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
 
     &.mobile {
-        border-radius: 0;
+        border-radius: var(--border-radius-0);
     }
 }
 
@@ -118,7 +118,7 @@
     align-items: center;
     width: 400px;
     height: 300px;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     background-color: var(--color-static-neutral-300-inverted);
 }
 

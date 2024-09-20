@@ -10,7 +10,7 @@
     }
 
     &.none {
-        padding-left: 0;
+        padding-left: var(--gap-0);
     }
 
     &.default {
@@ -40,7 +40,7 @@
 
 .button {
     @mixin button-reset;
-    padding: 0;
+    padding: var(--gap-0);
     transition: opacity 0.15s ease-in-out;
 
     &:hover {

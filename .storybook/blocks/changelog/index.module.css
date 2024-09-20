@@ -9,11 +9,11 @@
 
     & h2 {
         @mixin headline-mobile_small;
-        margin: var(--gap-48) 0 0;
+        margin: var(--gap-48) var(--gap-0) var(--gap-0);
     }
 
     & h2:first-of-type {
-        margin: var(--gap-24) 0 0;
+        margin: var(--gap-24) var(--gap-0) var(--gap-0);
     }
 
     & h2:not(:first-of-type):before {
@@ -28,7 +28,7 @@
     & h3,
     & h4 {
         @mixin headline-mobile_xsmall;
-        margin: var(--gap-16) 0 0;
+        margin: var(--gap-16) var(--gap-0) var(--gap-0);
     }
 
     & ul,
@@ -36,7 +36,7 @@
     & sup {
         display: block;
         @mixin paragraph_primary_medium;
-        margin: var(--gap-12) 0 0;
+        margin: var(--gap-12) var(--gap-0) var(--gap-0);
     }
 }
 
@@ -44,11 +44,11 @@
     .changelog {
         & h2 {
             @mixin headline_small;
-            margin: var(--gap-64) 0 0;
+            margin: var(--gap-64) var(--gap-0) var(--gap-0);
         }
 
         & h2:first-of-type {
-            margin: var(--gap-32) 0 0;
+            margin: var(--gap-32) var(--gap-0) var(--gap-0);
         }
 
         & h2:not(:first-of-type):before {
@@ -57,7 +57,7 @@
 
         & h3 {
             @mixin headline_xsmall;
-            margin: var(--gap-16) 0 0;
+            margin: var(--gap-16) var(--gap-0) var(--gap-0);
         }
     }
 }

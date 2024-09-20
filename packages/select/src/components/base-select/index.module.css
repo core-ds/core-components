@@ -34,10 +34,10 @@
 
 .optionsListBorder {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: var(--gap-0);
+    right: var(--gap-0);
+    bottom: var(--gap-0);
+    left: var(--gap-0);
     box-shadow: inset 0 0 0 1px var(--color-light-neutral-300);
     border-radius: inherit;
     pointer-events: none;
@@ -47,9 +47,9 @@
     opacity: 0;
     overflow: hidden;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    top: var(--gap-0);
+    bottom: var(--gap-0);
+    left: var(--gap-0);
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -67,7 +67,7 @@
 }
 
 .search {
-    margin: var(--gap-12) var(--gap-12) 0;
+    margin: var(--gap-12) var(--gap-12) var(--gap-0);
 
     &:last-child {
         margin-bottom: var(--gap-12);

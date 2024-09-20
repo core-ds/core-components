@@ -11,14 +11,15 @@
 
     /* новые значения, используйте их */
     --border-radius-0: 0;
-    --border-radius-4: 4px;
+    --border-radius-2: var(--border-radius-xs);
+    --border-radius-4: var(--border-radius-s);
     --border-radius-6: 6px;
-    --border-radius-8: 8px;
+    --border-radius-8: var(--border-radius-m);
     --border-radius-10: 10px;
-    --border-radius-12: 12px;
-    --border-radius-16: 16px;
-    --border-radius-20: 20px;
-    --border-radius-24: 24px;
+    --border-radius-12: var(--border-radius-l);
+    --border-radius-16: var(--border-radius-xl);
+    --border-radius-20: var(--border-radius-xxl);
+    --border-radius-24: var(--border-radius-3xl);
     --border-radius-32: 32px;
     --border-radius-36: 36px;
     --border-radius-64: 64px;

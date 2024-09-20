@@ -19,7 +19,7 @@
 
 .horizontal:not(:last-child) {
     &.none {
-        margin-right: 0;
+        margin-right: var(--gap-0);
     }
 
     &.airy {
@@ -41,7 +41,7 @@
 
 .vertical:not(:last-child) {
     &.none {
-        margin-bottom: 0;
+        margin-bottom: var(--gap-0);
     }
     &.airy {
         margin-bottom: var(--gap-16);
@@ -62,7 +62,7 @@
 
 .button {
     @mixin button-reset;
-    padding: 0;
+    padding: var(--gap-0);
     transition: opacity 0.15s ease-in-out;
     min-width: auto;
 

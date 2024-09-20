@@ -7,12 +7,12 @@
     overflow: hidden;
 
     &.size-4 {
-        border-radius: var(--border-radius-s);
+        border-radius: var(--border-radius-4);
         height: 4px;
     }
 
     &.size-8 {
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-8);
         height: 8px;
     }
 }

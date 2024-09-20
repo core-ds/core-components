@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider",
-    "version": "4.6.2",
+    "version": "4.7.1",
     "description": "Slider component",
     "keywords": [],
     "license": "MIT",
@@ -19,6 +19,6 @@
         "nouislider": "^15.6.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.0.2",
-    "varsVersion": "9.11.1"
+    "themesVersion": "13.3.0",
+    "varsVersion": "9.13.1"
 }

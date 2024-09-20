@@ -22,7 +22,7 @@
 
 .mainLineSticky {
     position: sticky;
-    top: 0;
+    top: var(--gap-0);
 }
 
 .mainLineWithImageBg {

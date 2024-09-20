@@ -1,5 +1,73 @@
 # Change Log
 
+## 12.4.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.5.0
+    -   select@17.13.0
+    -   input@15.1.3
+
+## 12.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.2
+    -   select@17.12.1
+
+## 12.3.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+-   Исправлен расчет высоты списка опций
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   form-control@12.4.0
+    -   input@15.1.1
+    -   popover@6.3.1
+    -   shared@0.12.1
+
+## 12.2.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.3.0
+    -   input@15.1.0
+    -   popover@6.3.0
+    -   select@17.11.0
+
 ## 12.1.20
 
 ### Patch Changes

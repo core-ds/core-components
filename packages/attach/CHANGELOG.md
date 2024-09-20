@@ -1,5 +1,41 @@
 # Change Log
 
+## 6.6.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+
+## 6.6.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+
+## 6.6.13
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   progress-bar@3.4.1
+    -   button@11.7.0
+
+## 6.6.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.6.0
+    -   progress-bar@3.4.0
+
 ## 6.6.11
 
 ### Patch Changes

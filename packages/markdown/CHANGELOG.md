@@ -1,5 +1,44 @@
 # @alfalab/core-components-markdown
 
+## 1.4.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   typography@4.10.1
+    -   link@5.3.1
+    -   list@3.4.1
+    -   shared@0.12.1
+
+## 1.4.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.3.0
+    -   list@3.4.0
+    -   typography@4.10.0
+
 ## 1.3.2
 
 ### Patch Changes

@@ -2,13 +2,13 @@
 
 .component > :first-child,
 .component > p:first-child > :first-child {
-    margin-top: 0;
+    margin-top: var(--gap-0);
 }
 
 .component > *:only-child,
 .component > p:only-child > *:only-child {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: var(--gap-0);
+    margin-bottom: var(--gap-0);
 }
 
 .h1 {
@@ -40,17 +40,17 @@
 }
 
 .list > li {
-    margin-top: 0;
+    margin-top: var(--gap-0);
     margin-bottom: var(--gap-12);
 }
 
 .list > li:only-child {
-    margin-bottom: 0;
+    margin-bottom: var(--gap-0);
 }
 
 .list > li p {
-    margin: 0;
-    padding: 0 !important;
+    margin: var(--gap-0);
+    padding: var(--gap-0) !important;
 }
 
 .imageContainer {
@@ -61,5 +61,5 @@
 .image {
     display: block;
     width: 100%;
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-12);
 }

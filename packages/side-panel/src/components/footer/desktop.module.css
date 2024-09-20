@@ -1,7 +1,7 @@
 @import '../../vars.css';
 
 .sticky {
-    bottom: 0;
+    bottom: var(--gap-0);
 }
 
 .size-500 {

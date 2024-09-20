@@ -9,7 +9,7 @@
     grid-row-gap: var(--gap-2s);
     justify-content: center;
 
-    margin: 0 auto;
+    margin: var(--gap-0) auto;
 
     & .digit.digit {
         font-size: 36px;

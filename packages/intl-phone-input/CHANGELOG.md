@@ -1,5 +1,57 @@
 # Change Log
 
+## 9.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.4.0
+    -   select@17.13.0
+
+## 9.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.12.1
+    -   input-autocomplete@12.3.1
+
+## 9.10.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   input-autocomplete@12.3.0
+
+## 9.10.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.2.0
+    -   select@17.11.0
+
 ## 9.9.11
 
 ### Patch Changes

@@ -16,6 +16,7 @@
         { "path": "../popover" },
         { "path": "../portal" },
         { "path": "../stack" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../shared" },
     ]
 }

@@ -1,5 +1,54 @@
 # Change Log
 
+## 7.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.10.0
+
+## 7.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.9.1
+
+## 7.2.1
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1358](https://github.com/core-ds/core-components/pull/1358)
+
+-   Обновлены наименования переменных скругления
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+-   Обновлены зависимости
+    -   icon-button@6.9.0
+
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.8.0
+    -   status-badge@1.2.0
+
 ## 7.1.3
 
 ### Patch Changes
