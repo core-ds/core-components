@@ -1,3 +1,26 @@
+## 47.19.0
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+#### Что изменилось
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input` `amount` `button` `calendar-input` `calendar`<br /> `checkbox-group` `checkbox` `code-input` `confirmation` `custom-picker-button`<br /> `date-range-input` `date-time-input` `filter-tag` `form-control` `input-autocomplete`<br /> `input` `international-phone-input` `markdown` `modal` `number-input`<br /> `pattern-lock` `picker-button` `plate` `radio-group` `select-with-tags`<br /> `select` `shared` `side-panel` `system-message` `tabs`<br /> `tag` `themes` `toast-plate` `toast` `tooltip`<br /> `universal-date-input`
+
+
+### [#1380](https://github.com/core-ds/core-components/pull/1380)
+
+#### Что изменилось
+- Уменьшена жирность текста для lowercase режима у всех размеров
+
+#### Влияние на компоненты
+- Патчи<br />`status`
+
+
+
 ## 47.18.0
 
 <sup><time>20.09.2024</time></sup>
