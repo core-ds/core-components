@@ -229,6 +229,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             setHighlightedIndex,
         } = useCombobox<OptionShape>({
             id,
+            inputId: id,
             isOpen: openProp,
             items: flatOptions,
             itemToString,

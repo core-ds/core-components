@@ -260,7 +260,7 @@ describe('Select', () => {
         it('should set `id` attribute', () => {
             const id = 'select-id';
             const { container } = render(<Select {...baseProps} id={id} />);
-            expect(container.querySelector(`#${id}-input`)).toBeInTheDocument();
+            expect(container.querySelector(`#${id}`)).toBeInTheDocument();
         });
 
         it('should set `name` attribute only if has selected option', () => {
