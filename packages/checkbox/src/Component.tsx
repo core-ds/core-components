@@ -15,8 +15,6 @@ import cn from 'classnames';
 import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
-import { getIcon } from './utils/getIcon';
-
 import styles from './index.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
@@ -189,22 +187,19 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}
             >
-                {!hiddenInput && (
-                    <input
-                        type='checkbox'
-                        onChange={handleChange}
-                        disabled={disabled || inactive}
-                        checked={checked}
-                        data-test-id={dataTestId}
-                        ref={inputRef}
-                        {...restProps}
-                    />
-                )}
                 <span className={cn(styles.box, boxClassName)}>
-                    {checked && getIcon(size)}
-                    {indeterminate && !checked && <span className={styles.indeterminateLine} />}
+                    {!hiddenInput && (
+                        <input
+                            type='checkbox'
+                            onChange={handleChange}
+                            disabled={disabled || inactive}
+                            checked={checked}
+                            data-test-id={dataTestId}
+                            ref={inputRef}
+                            {...restProps}
+                        />
+                    )}
                 </span>
-
                 {(label || hint || errorMessage) && (
                     <span className={cn(styles.content, contentClassName)}>
                         {label && <span className={styles.label}>{label}</span>}
@@ -218,7 +213,6 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         )}
                     </span>
                 )}
-
                 {addons && (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                     <span className={styles.addons} onClick={dom.preventDefault}>

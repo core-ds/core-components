@@ -8,12 +8,13 @@ Object {
       <label
         class="component size-20 start"
       >
-        <input
-          type="checkbox"
-        />
         <span
           class="box"
-        />
+        >
+          <input
+            type="checkbox"
+          />
+        </span>
         <span
           class="content"
         >
@@ -35,12 +36,13 @@ Object {
     <label
       class="component size-20 start"
     >
-      <input
-        type="checkbox"
-      />
       <span
         class="box"
-      />
+      >
+        <input
+          type="checkbox"
+        />
+      </span>
       <span
         class="content"
       >
@@ -119,12 +121,13 @@ Object {
       <label
         class="component size-20 start"
       >
-        <input
-          type="checkbox"
-        />
         <span
           class="box"
-        />
+        >
+          <input
+            type="checkbox"
+          />
+        </span>
         <span
           class="content"
         >
@@ -147,12 +150,13 @@ Object {
     <label
       class="component size-20 start"
     >
-      <input
-        type="checkbox"
-      />
       <span
         class="box"
-      />
+      >
+        <input
+          type="checkbox"
+        />
+      </span>
       <span
         class="content"
       >
@@ -232,14 +236,11 @@ Object {
       <label
         class="component size-20 start indeterminate"
       >
-        <input
-          type="checkbox"
-        />
         <span
           class="box"
         >
-          <span
-            class="indeterminateLine"
+          <input
+            type="checkbox"
           />
         </span>
         <span
@@ -263,14 +264,11 @@ Object {
     <label
       class="component size-20 start indeterminate"
     >
-      <input
-        type="checkbox"
-      />
       <span
         class="box"
       >
-        <span
-          class="indeterminateLine"
+        <input
+          type="checkbox"
         />
       </span>
       <span

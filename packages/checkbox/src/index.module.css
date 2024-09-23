@@ -62,9 +62,6 @@
 
 .box {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-shrink: 0;
     width: 20px;
     height: 20px;
@@ -75,11 +72,6 @@
     border-radius: var(--border-radius-4);
     transition: background-color 0.2s ease, border-color 0.2s ease;
     box-sizing: border-box;
-    overflow: hidden;
-
-    & svg {
-        color: var(--checkbox-icon-color);
-    }
 }
 
 .size-20 .box {
@@ -100,6 +92,20 @@
 .checked .box {
     background-color: var(--checkbox-checked-bg-color);
     border-color: var(--checkbox-checked-border-color);
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%) rotate(45deg);
+        height: 9px;
+        width: 5px;
+        border: 2px solid var(--checkbox-icon-color);
+        border-top: none;
+        border-left: none;
+        box-sizing: border-box;
+    }
 }
 
 .checked:hover:not(.disabled) .box {
@@ -115,6 +121,17 @@
 .indeterminate .box {
     background-color: var(--checkbox-checked-bg-color);
     border-color: var(--checkbox-checked-border-color);
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 2px;
+        background-color: var(--checkbox-icon-indeterminate-color);
+    }
 }
 
 .indeterminate:hover:not(.disabled) .box {
@@ -140,8 +157,8 @@
     background-color: var(--checkbox-checked-disabled-bg-color);
     border-color: var(--checkbox-checked-disabled-border-color);
 
-    & svg {
-        color: var(--checkbox-icon-disabled-color);
+    &:after {
+        border-color: var(--checkbox-icon-disabled-color);
     }
 }
 
@@ -149,7 +166,7 @@
     background-color: var(--checkbox-checked-disabled-bg-color);
     border-color: var(--checkbox-checked-disabled-border-color);
 
-    & .indeterminateLine {
+    &:after {
         background-color: var(--checkbox-icon-disabled-color);
     }
 }
@@ -201,15 +218,11 @@
     color: var(--checkbox-hint-color);
 }
 
-.indeterminateLine {
-    position: absolute;
-    width: 10px;
-    height: 2px;
-    background-color: var(--checkbox-icon-indeterminate-color);
-}
-
 .component input {
     position: absolute;
     z-index: -1;
     opacity: 0;
+    inset: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
