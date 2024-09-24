@@ -1,3 +1,52 @@
+## 47.20.0
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1317](https://github.com/core-ds/core-components/pull/1317)
+
+#### Что изменилось
+Добавлена поддержка видео: теперь в images можно передавать видео в формате m3u8.
+
+При воспроизведении, паузе, выключения звука и выключения звука трекаются кастомные эвенты. Подписаться на них можно с помощью
+```window.addEventListener(GALLERY_EVENTS.ON_PLAY, handler)```
+GALLERY_EVENTS экспортируется из `@alfalab/core-components-gallery`
+
+Также изменено отображение в мобильной версии.
+Было: ![img.png](img.png)
+Стало: ![img_1.png](img_1.png)
+
+#### Влияние на компоненты
+- Минорное<br />`gallery`
+
+
+### [#1388](https://github.com/core-ds/core-components/pull/1388)
+
+#### Что изменилось
+- Исправлен скролл `VirtualOptionsList`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1384](https://github.com/core-ds/core-components/pull/1384)
+
+#### Что изменилось
+- Произвёл автоматическую оптимизацию кривых (по размеру) пакета 'icon-view'
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1390](https://github.com/core-ds/core-components/pull/1390)
+
+#### Что изменилось
+- Исправлен `Checkbox` размером 20
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox`
+
+
+
 ## 47.19.0
 
 <sup><time>20.09.2024</time></sup>
