@@ -1,5 +1,18 @@
 # Change Log
 
+## 17.14.1
+
+### Patch Changes
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1388](https://github.com/core-ds/core-components/pull/1388)
+
+-   Исправлен скролл `VirtualOptionsList`
+
+-   Обновлены зависимости
+    -   checkbox@4.7.1
+
 ## 17.14.0
 
 ### Minor Changes

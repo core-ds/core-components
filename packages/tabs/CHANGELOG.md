@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.1
+
 ## 8.11.0
 
 ### Minor Changes
