@@ -5,10 +5,7 @@ import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observe
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import isAfter from 'date-fns/isAfter';
-import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
-import isThisMonth from 'date-fns/isThisMonth';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
@@ -26,6 +23,8 @@ import {
     dateArrayToHashTable,
     generateMonths,
     generateWeeks,
+    getMonthEndTimestamp,
+    getMonthStartTimestamp,
     isRangeValue,
     limitDate,
     monthName,
@@ -180,49 +179,59 @@ export const CalendarMonthOnlyView = ({
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
-    // заголовок должен становиться активным если выбран весь доступный период в месяце
-    const isMonthActive = (currentMonthIndex: number) => {
-        if (value && isRangeValue(value)) {
-            const { date: initialMonthDate } = activeMonths[initialMonthIndex];
-            const { date: currentMonthDate } = activeMonths[currentMonthIndex];
-
-            const firstAvailableDayOfMonth = startOfMonth(initialMonthDate).getTime();
-            /**
-             * последний доступный день месяца в timestamp
-             * представлен в виде последнего календарного дня, либо в виде текущей даты для актуального месяца
-             */
-            const lastAvailableDayOfMonth = isThisMonth(initialMonthDate)
-                ? startOfDay(new Date()).getTime()
-                : lastDayOfMonth(initialMonthDate).getTime();
-            const { dateFrom, dateTo } = value;
-
-            if (
-                dateFrom &&
-                dateTo &&
-                isSameMonth(initialMonthDate, currentMonthDate) &&
-                isSameDay(firstAvailableDayOfMonth, dateFrom) &&
-                isSameDay(lastAvailableDayOfMonth, dateTo)
-            ) {
-                return true;
-            }
+    const isMonthActive = (currentMonthIndex: number): boolean => {
+        if (!value || !isRangeValue(value) || !value.dateFrom || !value.dateTo) {
+            return false;
         }
 
-        return false;
+        const { dateFrom, dateTo } = value;
+
+        const { date: currentMonthDate } = activeMonths[currentMonthIndex];
+        const monthStartTimestamp = getMonthStartTimestamp(currentMonthDate);
+        const monthEndTimestamp = getMonthEndTimestamp(currentMonthDate);
+
+        // Проверяем, что выбранный диапазон полностью покрывает месяц
+        return dateFrom <= monthStartTimestamp && dateTo >= monthEndTimestamp;
     };
 
     const handleClickMonthLabel = (index: number) => {
-        if (onChange) {
-            const { date } = activeMonths[index];
-            const firstAvailableDayOfMonth = startOfMonth(date).getTime();
-            const lastAvailableDayOfMonth = isThisMonth(date)
-                ? startOfDay(new Date()).getTime()
-                : lastDayOfMonth(date).getTime();
+        if (!onChange) return;
 
-            if (isMonthActive(index)) {
-                onChange();
-            } else {
-                onChange(firstAvailableDayOfMonth, lastAvailableDayOfMonth);
-            }
+        const { date } = activeMonths[index];
+        const clickedMonthStartTimestamp = getMonthStartTimestamp(date);
+        const clickedMonthEndTimestamp = getMonthEndTimestamp(date);
+
+        if (!value || !isRangeValue(value) || !value.dateFrom || !value.dateTo) {
+            onChange(clickedMonthStartTimestamp, clickedMonthEndTimestamp);
+
+            return;
+        }
+
+        const { dateFrom, dateTo } = value;
+        const selectedRangeStartDate = new Date(dateFrom);
+        const selectedRangeEndDate = new Date(dateTo);
+        const selectedRangeStartTimestamp = getMonthStartTimestamp(selectedRangeStartDate);
+        const selectedRangeEndTimestamp = getMonthEndTimestamp(selectedRangeEndDate);
+
+        const isSingleMonthSelected =
+            isSameMonth(selectedRangeStartDate, selectedRangeEndDate) &&
+            dateFrom <= selectedRangeStartTimestamp &&
+            dateTo >= selectedRangeEndTimestamp;
+
+        const isSameMonthClicked = isSameMonth(selectedRangeStartDate, date);
+        const isClickedMonthInsideRange =
+            clickedMonthEndTimestamp >= selectedRangeStartTimestamp &&
+            clickedMonthStartTimestamp <= selectedRangeEndTimestamp;
+
+        if (isSingleMonthSelected && isSameMonthClicked) {
+            onChange();
+        } else if (isClickedMonthInsideRange) {
+            onChange(clickedMonthStartTimestamp, clickedMonthEndTimestamp);
+        } else {
+            const newDateFrom = Math.min(selectedRangeStartTimestamp, clickedMonthStartTimestamp);
+            const newDateTo = Math.max(selectedRangeEndTimestamp, clickedMonthEndTimestamp);
+
+            onChange(newDateFrom, newDateTo);
         }
     };
 
