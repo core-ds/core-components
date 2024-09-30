@@ -1,0 +1,60 @@
+@import '../../vars.css';
+
+.column {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(:last-child):not(:only-child) {
+        margin-bottom: var(--side-panel-footer-default-gap);
+    }
+
+    &.gap-16 > *:not(:last-child):not(:only-child) {
+        margin-bottom: var(--gap-16);
+    }
+
+    &.gap-24 > *:not(:last-child):not(:only-child) {
+        margin-bottom: var(--gap-24);
+    }
+
+    &.gap-32 > *:not(:last-child):not(:only-child) {
+        margin-bottom: var(--gap-32);
+    }
+}
+
+.start {
+    justify-content: flex-start;
+}
+
+.center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+
+    & > * {
+        flex: 1;
+    }
+}
+
+.start,
+.center,
+.space-between {
+    display: flex;
+
+    & > *:not(:last-child):not(:only-child) {
+        margin-right: var(--side-panel-footer-default-gap);
+    }
+
+    &.gap-16 > *:not(:last-child):not(:only-child) {
+        margin-right: var(--gap-16);
+    }
+
+    &.gap-24 > *:not(:last-child):not(:only-child) {
+        margin-right: var(--gap-24);
+    }
+
+    &.gap-32 > *:not(:last-child):not(:only-child) {
+        margin-right: var(--gap-32);
+    }
+}

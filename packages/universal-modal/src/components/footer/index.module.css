@@ -1,0 +1,18 @@
+@import '../../vars.css';
+
+.footer {
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.sticky {
+    background: var(--side-panel-footer-background);
+    position: sticky;
+    z-index: 1;
+}
+
+.highlighted {
+    background: var(--side-panel-footer-highlight-background);
+    box-shadow: var(--side-panel-footer-highlight-box-shadow);
+}

@@ -1,0 +1,17 @@
+@import '../../vars.css';
+
+.header {
+    padding: var(--side-panel-header-mobile-paddings);
+}
+
+.sticky {
+    top: var(--gap-0);
+}
+
+.content {
+    font-size: var(--side-panel-header-mobile-font-size);
+    line-height: var(--side-panel-header-mobile-line-height);
+    font-family: var(--side-panel-header-mobile-font-family);
+    font-weight: var(--side-panel-header-mobile-font-weight);
+    padding: var(--side-panel-header-mobile-content-paddings);
+}

@@ -1,0 +1,16 @@
+@import '../../vars.css';
+
+.content {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 0;
+
+    &.withHeader {
+        padding-top: var(--gap-0);
+    }
+}
+
+.flex {
+    flex: 1 1 auto;
+}

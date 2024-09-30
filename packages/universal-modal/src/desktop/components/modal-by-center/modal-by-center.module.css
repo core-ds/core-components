@@ -1,0 +1,9 @@
+:root {
+    --modal-side-gap: 12px;
+}
+
+.component {
+    width: 500px;
+    height: calc(100% - var(--modal-side-gap) * 2);
+    border-radius: var(--border-radius-24);
+}

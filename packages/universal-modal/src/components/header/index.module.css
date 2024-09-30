@@ -1,0 +1,66 @@
+@import '../../vars.css';
+
+.header {
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+
+    &:not(.hasContent) {
+        pointer-events: none;
+    }
+}
+
+.highlighted {
+    background: var(--side-panel-header-highlight-background);
+    box-shadow: var(--side-panel-header-highlight-box-shadow);
+}
+
+.sticky {
+    position: sticky;
+    z-index: 1;
+
+    &.hasContent {
+        background: var(--side-panel-header-background);
+    }
+}
+
+.header.backgroundImage {
+    background: center no-repeat;
+    background-size: cover;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.title {
+    word-break: break-word;
+}
+
+.addon {
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+}
+
+.closer {
+    margin-left: auto;
+}
+
+.right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.trim {
+    overflow: hidden;
+
+    & .title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

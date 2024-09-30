@@ -1,0 +1,23 @@
+@import '../../../vars.css';
+
+:root {
+    --modal-side-gap: 12px;
+}
+
+.hidden {
+    overflow-x: hidden;
+}
+
+.component {
+    top: var(--modal-side-gap);
+    height: calc(100% - var(--modal-side-gap) * 2);
+    border-radius: var(--border-radius-24);
+
+    &.left {
+        left: var(--modal-side-gap);
+    }
+
+    &.right {
+        right: var(--modal-side-gap);
+    }
+}

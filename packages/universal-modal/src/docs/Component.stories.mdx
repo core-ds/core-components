@@ -1,0 +1,152 @@
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { SidePanelMobile } from '@alfalab/core-components-universal-modal/mobile';
+import { UniversalModalDesktop } from '@alfalab/core-components-universal-modal/desktop';
+import { UniversalModalResponsive } from '@alfalab/core-components-universal-modal/Component.responsive';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
+
+<Meta title='Components/UniversalModal' id='UniversalModal' />
+
+export const Text = () => (
+    <p style={{ margin: '0 0 16px' }}>
+        Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
+        Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
+        потенциально нарушающие требования Федерального закона «О противодействии легализации
+        (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+    </p>
+);
+
+export const Content = ({ isPreview }) => {
+    const [showMore, setShowMore] = React.useState(false);
+    return isPreview ? (
+        <>Пример текстового контента.</>
+    ) : (
+        <>
+            <Text />
+            {(showMore || boolean('showMore')) && (
+                <>
+                    <Text />
+                    <Text />
+                    <Text />
+                    <Text />
+                    <Text />
+                </>
+            )}
+            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+                {showMore ? 'Скрыть' : 'Показать еще'}
+            </Button>
+        </>
+    );
+};
+
+export let SidePanelComponent = UniversalModalDesktop;
+
+<Story name='UniversalModal'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        const component = select(
+            'SidePanelComponent',
+            ['UniversalModalResponsive', 'UniversalModalDesktop', 'SidePanelMobile'],
+            'UniversalModalDesktop',
+        );
+        const horizontalAlign = select('horizontalAlign', ['right', 'left', 'center'], 'right');
+
+        const header = boolean('header', true);
+        const headerTitle = text('header.title');
+        const headerAlign = select('header.align', ['left', 'center'], 'left');
+        const hasCloser = boolean('header.hasCloser', true);
+        const trim = boolean('header.trim', true);
+        const stickyHeader = boolean('header.sticky', false);
+        const stickyFooter = boolean('footer.sticky', false);
+        const footerLayout = select(
+            'footer.layout',
+            ['start', 'center', 'space-between', 'column'],
+            'start',
+        );
+        const SidePanelComponent = React.useMemo(() => {
+            return {
+                UniversalModalResponsive: UniversalModalResponsive,
+                UniversalModalDesktop: UniversalModalDesktop,
+                SidePanelMobile: SidePanelMobile,
+            }[component];
+        }, [component]);
+        const props =
+            SidePanelComponent !== SidePanelMobile
+                ? {
+                      size: select('size', [500], 500),
+                  }
+                : {};
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        const isMobile = SidePanelComponent === SidePanelMobile;
+        const FooterButton = isMobile ? ButtonMobile : ButtonDesktop;
+        return (
+            <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
+                {!isPreview && (
+                    <Button type='button' size='xs' onClick={handleModalOpen}>
+                        Открыть сайд-панель
+                    </Button>
+                )}
+                <SidePanelComponent
+                    open={open || boolean('open')}
+                    onClose={handleModalOpen}
+                    horizontalAlign={horizontalAlign}
+                    {...props}
+                >
+                    {header && (
+                        <SidePanelComponent.Header
+                            sticky={stickyHeader}
+                            hasCloser={hasCloser}
+                            title={headerTitle}
+                            trim={trim}
+                            align={headerAlign}
+                        />
+                    )}
+                    <SidePanelComponent.Content>
+                        <Content isPreview={isPreview} />
+                    </SidePanelComponent.Content>
+                    {stickyFooter && (
+                        <SidePanelComponent.Footer sticky={stickyFooter}>
+                            <SidePanelComponent.Controls
+                                layout={footerLayout}
+                                primary={
+                                    <FooterButton size={isMobile ? 'm' : 's'} view='primary'>
+                                        {isPreview ? 'Кнопка' : 'Сохранить'}
+                                    </FooterButton>
+                                }
+                                secondary={
+                                    <FooterButton size={isMobile ? 'm' : 's'} view='secondary'>
+                                        {isPreview ? 'Кнопка' : 'Отмена'}
+                                    </FooterButton>
+                                }
+                            />
+                        </SidePanelComponent.Footer>
+                    )}
+                </SidePanelComponent>
+            </div>
+        );
+    })}
+</Story>
+
+{/* Docs */}
+
+<ComponentHeader name='UniversalModal' />
+
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>
