@@ -195,6 +195,8 @@ export const CalendarMonthOnlyView = ({
     };
 
     const handleClickMonthLabel = (index: number) => {
+        // eslint-disable-next-line no-console
+        console.log(handleClickMonthLabel, onChange);
         if (!onChange) return;
 
         const { date } = activeMonths[index];
@@ -346,6 +348,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         },
         ref,
     ) => {
+        // eslint-disable-next-line no-console
+        console.log('CalendarMobile');
         const [modalRef, setModalRef] = useState<HTMLElement>();
         const monthOnlyView = selectorView === 'month-only';
 
