@@ -62,7 +62,8 @@ export let SidePanelComponent = UniversalModalDesktop;
             ['UniversalModalResponsive', 'UniversalModalDesktop', 'SidePanelMobile'],
             'UniversalModalDesktop',
         );
-        const horizontalAlign = select('horizontalAlign', ['right', 'left', 'center'], 'right');
+        const horizontalAlign = select('horizontalAlign', ['left', 'center', 'right'], 'center');
+        const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
         const width = text('width', '500');
         const height = text('height', 'fullHeight');
 
@@ -106,6 +107,7 @@ export let SidePanelComponent = UniversalModalDesktop;
                     open={open || boolean('open')}
                     onClose={handleModalOpen}
                     horizontalAlign={horizontalAlign}
+                    verticalAlign={verticalAlign}
                     width={width}
                     height={height}
                     {...props}

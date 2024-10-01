@@ -15,10 +15,16 @@ export type BaseUniversalModalProps = {
     hasCloser?: boolean;
 
     /**
-     * Расположение по горизонтали и сторона с которой модал “выезжает” при открытии.
-     * @default right
+     * Расположение по горизонтали и сторона с которой модал “выезжает” при открытии
+     * @default center
      */
-    horizontalAlign?: 'left' | 'right' | 'center';
+    horizontalAlign?: 'left' | 'center' | 'right';
+
+    /**
+     * Расположение модального окна по вертикали
+     * @default center
+     */
+    verticalAlign?: 'top' | 'center' | 'bottom';
 
     /**
      * Ширина модального окна

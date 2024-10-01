@@ -20,6 +20,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, UniversalModalDesktopPro
             children,
             width = 500,
             height = 'fullHeight',
+            verticalAlign = 'center',
             ...restProps
         } = props;
 
@@ -38,7 +39,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, UniversalModalDesktopPro
                     classNames: transitionsCenter,
                     ...transitionProps,
                 }}
-                className={cn(className, styles.component)}
+                className={cn(className, styles.component, styles[verticalAlign])}
                 scrollHandler='content'
                 open={open}
             >

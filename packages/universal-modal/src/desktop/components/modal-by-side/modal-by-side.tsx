@@ -9,12 +9,14 @@ import { UniversalModalDesktopProps } from '../../types/props';
 import { useHeight } from '../hooks/useHeight';
 import { useWidth } from '../hooks/useWidth';
 
+import { useCenterTop } from './hooks/useCenterTop';
+
 import styles from './modal-by-side.module.css';
 import transitions from './transitions.desktop.module.css';
 
 export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
-        horizontalAlign = 'right',
+        horizontalAlign = 'center',
         dataTestId,
         wrapperClassName,
         className,
@@ -22,6 +24,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         size = 500,
         width = 500,
         height = 'fullHeight',
+        verticalAlign = 'center',
         contentTransitionProps,
         children,
         ...restProps
@@ -42,6 +45,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
 
     useWidth(width, restProps.open, componentRef);
     useHeight(height, restProps.open, componentRef);
+    useCenterTop(verticalAlign, restProps.open, componentRef);
 
     if (horizontalAlign === 'right' || horizontalAlign === 'left') {
         return (
@@ -58,6 +62,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                     styles.hidden,
                     styles.component,
                     styles[horizontalAlign],
+                    styles[verticalAlign],
                 )}
                 backdropProps={backdropProps}
                 contentTransitionProps={{

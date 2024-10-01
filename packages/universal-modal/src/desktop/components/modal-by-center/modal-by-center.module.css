@@ -1,3 +1,5 @@
+@import '../../../vars.css';
+
 :root {
     --modal-side-gap: 12px;
 }
@@ -8,4 +10,12 @@
     min-height: 264px;
     height: calc(100% - var(--modal-side-gap) * 2);
     border-radius: var(--border-radius-24);
+
+    &.top {
+        margin-top: var(--gap-12);
+    }
+
+    &.bottom {
+        margin-bottom: var(--gap-12);
+    }
 }
