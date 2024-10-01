@@ -4,17 +4,11 @@
     background-color: var(--form-control-bg-color);
 }
 
-.inner:not(.focused):not(.hasError):not(.disabled) {
-    box-shadow: var(--form-control-box-shadow);
-
-    &:hover {
-        box-shadow: var(--form-control-box-shadow-hover);
-    }
-}
-
 .inner.hasError {
     background-color: var(--form-control-error-bg-color);
 }
+
+/* DISABLED STATE */
 
 .disabled.hasError {
     box-shadow: var(--form-control-error-disabled-shadow);

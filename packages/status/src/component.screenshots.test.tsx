@@ -5,7 +5,7 @@ import {
     setupScreenshotTesting,
 } from '../../screenshot-utils';
 
-import { colors, sizes } from './consts';
+import { COLORS, SIZES } from './consts';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -37,7 +37,7 @@ describe(
             knobs: {
                 children: 'Label',
                 view: ['muted-alt', 'contrast', 'muted'],
-                color: [...colors],
+                color: [...COLORS],
             },
         }),
         screenshotOpts: { clip },
@@ -56,12 +56,40 @@ describe(
                         children: 'Label',
                         view: ['muted-alt'],
                         color: ['blue'],
-                        size: [...sizes],
+                        size: [...SIZES],
                         shape: ['rectangular', 'rounded'],
                         uppercase: [true, false],
                     },
                 }),
             ],
         ],
+    }),
+);
+
+describe(
+    'Status | views, uppercase',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Status',
+                    knobs: {
+                        children: 'Label',
+                        uppercase: [true, false],
+                        view: ['muted-alt', 'contrast', 'muted'],
+                        color: 'blue',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: {
+                x: 0,
+                y: 0,
+                width: 1024,
+                height: 200,
+            },
+        },
     }),
 );

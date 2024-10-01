@@ -12,5 +12,9 @@
             "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
-    "references": [{ "path": "../input" }, { "path": "../with-suffix" }]
+    "references": [
+      { "path": "../input" },
+      { "path": "../with-suffix" },
+      {"path": "../shared"},
+    ]
 }

@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.10.1
+
+## 5.10.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.10.0
+
 ## 5.9.1
 
 ### Patch Changes

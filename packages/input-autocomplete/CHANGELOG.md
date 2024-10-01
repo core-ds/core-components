@@ -1,5 +1,48 @@
 # Change Log
 
+## 12.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.1
+
+## 12.5.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.6.0
+    -   input@15.2.0
+    -   select@17.14.0
+    -   shared@0.13.0
+    -   popover@6.3.2
+
+## 12.4.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.5.0
+    -   select@17.13.0
+    -   input@15.1.3
+
 ## 12.3.1
 
 ### Patch Changes

@@ -1,5 +1,46 @@
 # Change Log
 
+## 11.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.1
+
+## 11.11.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+    -   select@17.14.0
+    -   shared@0.13.0
+    -   popover@6.3.2
+
+## 11.10.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+    -   select@17.13.0
+
 ## 11.9.1
 
 ### Patch Changes

@@ -1,3 +1,89 @@
+## 47.20.0
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1317](https://github.com/core-ds/core-components/pull/1317)
+
+#### Что изменилось
+Добавлена поддержка видео: теперь в images можно передавать видео в формате m3u8.
+
+При воспроизведении, паузе, выключения звука и выключения звука трекаются кастомные эвенты. Подписаться на них можно с помощью
+```window.addEventListener(GALLERY_EVENTS.ON_PLAY, handler)```
+GALLERY_EVENTS экспортируется из `@alfalab/core-components-gallery`
+
+Также изменено отображение в мобильной версии.
+Было: ![img.png](img.png)
+Стало: ![img_1.png](img_1.png)
+
+#### Влияние на компоненты
+- Минорное<br />`gallery`
+
+
+### [#1388](https://github.com/core-ds/core-components/pull/1388)
+
+#### Что изменилось
+- Исправлен скролл `VirtualOptionsList`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1384](https://github.com/core-ds/core-components/pull/1384)
+
+#### Что изменилось
+- Произвёл автоматическую оптимизацию кривых (по размеру) пакета 'icon-view'
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1390](https://github.com/core-ds/core-components/pull/1390)
+
+#### Что изменилось
+- Исправлен `Checkbox` размером 20
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox`
+
+
+
+## 47.19.0
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+#### Что изменилось
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input` `amount` `button` `calendar-input` `calendar`<br /> `checkbox-group` `checkbox` `code-input` `confirmation` `custom-picker-button`<br /> `date-range-input` `date-time-input` `filter-tag` `form-control` `input-autocomplete`<br /> `input` `international-phone-input` `markdown` `modal` `number-input`<br /> `pattern-lock` `picker-button` `plate` `radio-group` `select-with-tags`<br /> `select` `shared` `side-panel` `system-message` `tabs`<br /> `tag` `themes` `toast-plate` `toast` `tooltip`<br /> `universal-date-input`
+
+
+### [#1380](https://github.com/core-ds/core-components/pull/1380)
+
+#### Что изменилось
+- Уменьшена жирность текста для lowercase режима у всех размеров
+
+#### Влияние на компоненты
+- Патчи<br />`status`
+
+
+
+## 47.18.0
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+#### Что изменилось
+- Откат обновления темизации corp из версии 47.16.0
+
+#### Влияние на компоненты
+- Минорное<br />`button` `calendar` `calendar-range` `code-input` `custom-button`<br /> `file-upload-item` `form-control` `icon-button` `input-autocomplete` `modal`<br /> `navigation-bar-private` `notification` `notification-manager` `password-input` `picker-button`<br /> `select` `side-panel` `themes` `universal-date-input`
+
+
+
 ## 47.17.0
 
 <sup><time>17.09.2024</time></sup>
