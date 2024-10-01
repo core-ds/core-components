@@ -7,3 +7,48 @@
 .weight {
     font-weight: inherit;
 }
+
+.skeleton {
+    background: var(--color-light-neutral-translucent-400);
+    border-radius: var(--border-radius-8);
+    display: inline-block;
+}
+
+.skeleton-xsmall {
+    height: 16px;
+    width: 88px;
+}
+.skeleton-small {
+    height: 18px;
+    width: 100px;
+}
+.skeleton-medium {
+    height: 24px;
+    width: 120px;
+}
+.skeleton-large {
+    height: 28px;
+    width: 136px;
+}
+.skeleton-xlarge {
+    height: 32px;
+    width: 156px;
+}
+.skeletonWrapper {
+    display: flex;
+}
+.skeletonWrapper-xsmall {
+    padding: var(--gap-4) var(--gap-0);
+}
+.skeletonWrapper-small {
+    padding: var(--gap-8) var(--gap-0);
+}
+.skeletonWrapper-medium {
+    padding: var(--gap-8) var(--gap-0);
+}
+.skeletonWrapper-large {
+    padding: var(--gap-12) var(--gap-0);
+}
+.skeletonWrapper-xlarge {
+    padding: var(--gap-16) var(--gap-0);
+}

@@ -4,3 +4,16 @@
     padding: var(--gap-2) var(--gap-0);
     display: flex;
 }
+
+.skeleton {
+    background: var(--color-light-neutral-translucent-400);
+    border-radius: var(--border-radius-8);
+    display: inline-block;
+    height: 24px;
+    width: 120px;
+}
+
+.skeletonWrapper {
+    display: flex;
+    padding: var(--gap-8) var(--gap-0);
+}
