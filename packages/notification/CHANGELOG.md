@@ -1,5 +1,28 @@
 # Change Log
 
+## 7.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.0
+    -   portal@3.3.3
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.2.3
+
 ## 7.3.1
 
 ### Patch Changes

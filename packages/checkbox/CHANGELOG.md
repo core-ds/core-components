@@ -1,5 +1,30 @@
 # Change Log
 
+## 4.7.1
+
+### Patch Changes
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1390](https://github.com/core-ds/core-components/pull/1390)
+
+-   Исправлен `Checkbox` размером 20
+
+## 4.7.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.13.0
+
 ## 4.6.1
 
 ### Patch Changes

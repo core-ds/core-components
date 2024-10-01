@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.8.2
+
+### Patch Changes
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1384](https://github.com/core-ds/core-components/pull/1384)
+
+-   Произвёл автоматическую оптимизацию кривых (по размеру) пакета 'icon-view'
+
 ## 3.8.1
 
 ### Patch Changes

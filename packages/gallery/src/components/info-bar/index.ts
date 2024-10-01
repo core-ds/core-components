@@ -1,0 +1,1 @@
+export { InfoBar } from './Component';

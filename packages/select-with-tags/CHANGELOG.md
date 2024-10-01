@@ -1,5 +1,41 @@
 # Change Log
 
+## 8.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.1
+
+## 8.4.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.6.0
+    -   select@17.14.0
+    -   shared@0.13.0
+    -   tag@8.5.0
+    -   bottom-sheet@6.17.4
+    -   popover@6.3.2
+
+## 8.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.5.0
+    -   select@17.13.0
+    -   bottom-sheet@6.17.3
+
 ## 8.3.2
 
 ### Patch Changes

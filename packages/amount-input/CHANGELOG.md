@@ -1,5 +1,30 @@
 # Change Log
 
+## 7.12.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.2.0
+    -   shared@0.13.0
+    -   with-suffix@4.2.4
+
+## 7.11.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.1.3
+    -   with-suffix@4.2.3
+
 ## 7.11.2
 
 ### Patch Changes

@@ -19,10 +19,27 @@ const images = [
         src: './images/gallery_4.jpg',
     },
     {
+        name: 'Alfa promo.m3u8',
+        src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
+    },
+    {
         name: 'Битое изображение.jpg',
         src: 'https://picsum.photos',
     },
 ];
+
+const video = [
+    {
+        name: 'Alfa promo.m3u8',
+        src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
+    },
+];
+
+const imagesQuantityMapper = {
+    some: images,
+    one: [images[0]],
+    'one video': video,
+};
 
 render(() => {
     const [open, setOpen] = React.useState(false);
@@ -42,18 +59,19 @@ render(() => {
                 onClose={() => {
                     setOpen(false);
                 }}
-                images={imagesQuantity === 'some' ? images : [images[0]]}
+                images={imagesQuantityMapper[imagesQuantity]}
             />
             <Gap size='xl' />
             <RadioGroup
-                label='Количество изображений'
+                label='Количество медиа'
                 direction='vertical'
                 name='radioGroup'
                 onChange={onImagesQuantityChange}
                 value={imagesQuantity}
             >
                 <Radio size='m' label='Несколько' value='some' />
-                <Radio size='m' label='Одно' value='one' />
+                <Radio size='m' label='Одно изображение' value='one' />
+                <Radio size='m' label='Одно видео' value='one video' />
             </RadioGroup>
         </div>
     );

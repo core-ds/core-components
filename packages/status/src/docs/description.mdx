@@ -64,35 +64,35 @@
 <Container>
     <div style={{ display: 'flex' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {colors.map((color) => (
-                <>
+            {COLORS.map((color) => (
+                <React.Fragment key={color}>
                     <Status view='contrast' color={color} key={color} size='24' uppercase={false}>
                         Label
                     </Status>
                     <Gap size='12' />
-                </>
+                </React.Fragment>
             ))}
         </div>
         <Gap size='12' direction='horizontal' />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {colors.map((color) => (
-                <>
+            {COLORS.map((color) => (
+                <React.Fragment key={color}>
                     <Status view='muted-alt' color={color} key={color} size='24' uppercase={false}>
                         Label
                     </Status>
                     <Gap size='12' />
-                </>
+                </React.Fragment>
             ))}
         </div>
         <Gap size='12' direction='horizontal' />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {colors.map((color) => (
-                <>
-                    <Status view='muted' color={color} key={color} size='24' uppercase={false}>
+            {COLORS.map((color) => (
+                <React.Fragment key={color}>
+                    <Status view='muted' color={color} size='24' uppercase={false}>
                         Label
                     </Status>
                     <Gap size='12' />
-                </>
+                </React.Fragment>
             ))}
         </div>
     </div>
