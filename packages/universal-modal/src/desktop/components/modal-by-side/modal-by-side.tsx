@@ -6,24 +6,29 @@ import { Drawer } from '@alfalab/core-components-drawer';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../../consts';
 import { UniversalModalDesktopProps } from '../../types/props';
+import { useHeight } from '../hooks/useHeight';
+import { useWidth } from '../hooks/useWidth';
 
 import styles from './modal-by-side.module.css';
 import transitions from './transitions.desktop.module.css';
 
 export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
-        horizontalAlign,
+        horizontalAlign = 'right',
         dataTestId,
         wrapperClassName,
         className,
         backdropProps,
         size = 500,
+        width = 500,
+        height = 'fullHeight',
         contentTransitionProps,
         children,
         ...restProps
     } = props;
 
     const modalRef = useRef<HTMLElement>(null);
+    const componentRef = useRef<HTMLDivElement>(null);
 
     const enterCn = cn({
         [transitions.appearRight]: horizontalAlign === 'right',
@@ -35,12 +40,16 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         [transitions.exitActiveLeft]: horizontalAlign === 'left',
     });
 
+    useWidth(width, restProps.open, componentRef);
+    useHeight(height, restProps.open, componentRef);
+
     if (horizontalAlign === 'right' || horizontalAlign === 'left') {
         return (
             <Drawer
                 {...restProps}
                 dataTestId={dataTestId}
                 ref={mergeRefs([ref, modalRef])}
+                componentRef={componentRef}
                 placement={horizontalAlign}
                 wrapperClassName={wrapperClassName}
                 className={cn(

@@ -19,7 +19,6 @@ const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModal
             className,
             wrapperClassName,
             backdropProps,
-            horizontalAlign = 'right',
             dataTestId,
             transitionProps,
             ...restProps
@@ -34,16 +33,16 @@ const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModal
         );
 
         const renderContent = () => {
-            if (horizontalAlign === 'center') {
+            if (restProps.horizontalAlign === 'center') {
                 return (
-                    <ModalByCenter {...restProps} ref={ref} horizontalAlign={horizontalAlign}>
+                    <ModalByCenter {...restProps} ref={ref}>
                         <div>{children}</div>
                     </ModalByCenter>
                 );
             }
 
             return (
-                <ModalBySide {...restProps} ref={ref} horizontalAlign={horizontalAlign}>
+                <ModalBySide {...restProps} ref={ref}>
                     {React.Children.map(children, (child) =>
                         isValidElement(child) ? cloneElement(child, { size }) : child,
                     )}

@@ -7,25 +7,15 @@ import { getComponentBreakpoint, isClient } from '@alfalab/core-components-share
 
 import { Controls } from './components/controls';
 import { Header } from './components/header/Component';
+import { BaseUniversalModalProps } from './desktop/types/props';
 import { UniversalModalDesktop } from './desktop';
 import { SidePanelMobile } from './mobile';
 import { ResponsiveContext } from './ResponsiveContext';
 import { TResponsiveModalContext } from './typings';
 
 export type UniversalModalResponsiveProps = BaseModalProps &
+    BaseUniversalModalProps &
     Pick<DrawerProps, 'contentTransitionProps' | 'placement' | 'nativeScrollbar'> & {
-        /**
-         * Ширина модального окна
-         * @default "s"
-         */
-        size?: 's' | 500;
-
-        /**
-         * Управление наличием закрывающего крестика
-         * @default false
-         */
-        hasCloser?: boolean;
-
         /**
          * Контрольная точка, с нее начинается desktop версия
          * @default 1024
@@ -36,12 +26,6 @@ export type UniversalModalResponsiveProps = BaseModalProps &
          * Значение по-умолчанию для хука useMatchMedia
          */
         defaultMatchMediaValue?: boolean | (() => boolean);
-
-        /**
-         * Расположение по горизонтали и сторона с которой модал “выезжает” при открытии.
-         * @default right
-         */
-        horizontalAlign: 'left' | 'right' | 'center';
     };
 
 function createResponsive<DesktopType extends FC, MobileType extends FC>(
@@ -68,7 +52,6 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
             size = 500,
             defaultMatchMediaValue,
             dataTestId,
-            horizontalAlign,
             ...restProps
         },
         ref,
@@ -89,13 +72,7 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
 
         return (
             <ResponsiveContext.Provider value={contextValue}>
-                <Component
-                    ref={ref}
-                    size={size}
-                    dataTestId={dataTestId}
-                    horizontalAlign={horizontalAlign}
-                    {...restProps}
-                >
+                <Component ref={ref} size={size} dataTestId={dataTestId} {...restProps}>
                     {children}
                 </Component>
             </ResponsiveContext.Provider>

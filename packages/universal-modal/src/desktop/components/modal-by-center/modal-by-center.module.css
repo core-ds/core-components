@@ -3,7 +3,9 @@
 }
 
 .component {
+    min-width: 500px;
     width: 500px;
+    min-height: 264px;
     height: calc(100% - var(--modal-side-gap) * 2);
     border-radius: var(--border-radius-24);
 }
