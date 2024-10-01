@@ -27,7 +27,6 @@ import {
 } from '../../utils';
 
 import styles from '../../index.module.css';
-import desktopStyles from './date-input.desktop.module.css';
 
 function getDefaultValue(defaultValue?: Date | number | string, withTime?: boolean) {
     if (defaultValue !== undefined) {
@@ -256,7 +255,6 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                         popperClassName={cn(
                             styles.calendarContainer,
                             popoverProps?.popperClassName,
-                            desktopStyles.calendarContainer,
                         )}
                         withTransition={false}
                     >

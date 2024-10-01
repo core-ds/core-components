@@ -1,9 +1,11 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
+import cn from 'classnames';
 import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
+import { useMedia } from '@alfalab/hooks';
 
-import { Header, ImageViewer, NavigationBar } from './components';
+import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
 
@@ -48,6 +50,11 @@ export type GalleryProps = {
     onSlideIndexChange?: (index: number) => void;
 };
 
+const DEFAULT_FULL_SCREEN = false;
+const DEFAULT_MUTED_VIDEO = true;
+const DEFAULT_PLAYING_VIDEO = true;
+const DEFAULT_HIDE_NAVIGATION = false;
+
 const Backdrop = () => null;
 
 export const Gallery: FC<GalleryProps> = ({
@@ -67,7 +74,22 @@ export const Gallery: FC<GalleryProps> = ({
 
     const [swiper, setSwiper] = useState<SwiperCore>();
     const [imagesMeta, setImagesMeta] = useState<ImageMeta[]>([]);
-    const [fullScreen, setFullScreen] = useState(false);
+    const [fullScreen, setFullScreen] = useState<boolean>(DEFAULT_FULL_SCREEN);
+    const [mutedVideo, setMutedVideo] = useState<boolean>(DEFAULT_MUTED_VIDEO);
+    const [playingVideo, setPlayingVideo] = useState<boolean>(DEFAULT_PLAYING_VIDEO);
+    const [hideNavigation, setHideNavigation] = useState<boolean>(DEFAULT_HIDE_NAVIGATION);
+
+    const [view] = useMedia<'desktop' | 'mobile'>(
+        [
+            ['mobile', '(max-width: 1023px)'],
+            ['desktop', '(min-width: 1024px)'],
+        ],
+        'desktop',
+    );
+
+    const isMobile = view === 'mobile';
+
+    const isCurrentVideo = !!imagesMeta[currentSlideIndex]?.player?.current;
 
     const slideTo = useCallback(
         (index: number) => {
@@ -75,6 +97,7 @@ export const Gallery: FC<GalleryProps> = ({
                 setCurrentSlideIndex?.(index);
 
                 if (swiper) {
+                    setPlayingVideo(true);
                     swiper.slideTo(index);
                 }
             }
@@ -151,6 +174,11 @@ export const Gallery: FC<GalleryProps> = ({
         [fullScreen, open, slideNext, slidePrev],
     );
 
+    const onUnmount = useCallback(() => {
+        setPlayingVideo(DEFAULT_PLAYING_VIDEO);
+        setMutedVideo(DEFAULT_MUTED_VIDEO);
+    }, [setPlayingVideo]);
+
     useEffect(() => {
         if (!uncontrolled && !swiper?.destroyed) {
             swiper?.slideTo(currentSlideIndex);
@@ -171,6 +199,7 @@ export const Gallery: FC<GalleryProps> = ({
 
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     const galleryContext: GalleryContext = {
+        view,
         singleSlide,
         currentSlideIndex,
         images,
@@ -178,6 +207,12 @@ export const Gallery: FC<GalleryProps> = ({
         fullScreen,
         initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
         setFullScreen,
+        playingVideo,
+        setPlayingVideo,
+        mutedVideo,
+        setMutedVideo,
+        hideNavigation,
+        setHideNavigation,
         setImageMeta,
         slideNext,
         slidePrev,
@@ -197,13 +232,20 @@ export const Gallery: FC<GalleryProps> = ({
                 className={styles.modal}
                 onEscapeKeyDown={handleEscapeKeyDown}
                 Backdrop={Backdrop}
+                onUnmount={onUnmount}
             >
                 <div className={styles.container}>
-                    <Header />
-
+                    {view === 'desktop' ? <Header /> : <HeaderMobile />}
                     <ImageViewer />
-
-                    {showNavigationBar && <NavigationBar />}
+                    <nav
+                        className={cn({
+                            [styles.navigationVideo]: isCurrentVideo && isMobile,
+                            [styles.hideNavigation]: hideNavigation && isMobile,
+                        })}
+                    >
+                        {showNavigationBar && <NavigationBar />}
+                        {view === 'mobile' && <InfoBar />}
+                    </nav>
                 </div>
             </BaseModal>
         </GalleryContext.Provider>

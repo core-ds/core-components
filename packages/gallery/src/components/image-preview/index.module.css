@@ -3,18 +3,23 @@
 .component {
     display: flex;
     padding: var(--gap-4);
-    border: 2px solid rgba(0, 0, 0, 0);
-    border-radius: var(--border-radius-12);
+    z-index: 3;
     overflow: hidden;
     transition: border 0.15s ease-in-out;
     outline: none;
+
+    & .image {
+        opacity: 0.3;
+    }
+
+    &.mobile {
+        padding: 0;
+    }
 }
 
 .active {
-    border-color: var(--color-static-overlay-white-xhigh);
-
     & > .image {
-        opacity: 0.7;
+        opacity: 1;
     }
 }
 
@@ -22,9 +27,15 @@
     width: 56px;
     height: 56px;
     flex-shrink: 0;
-    border-radius: var(--border-radius-8);
+    border-radius: var(--border-radius-12);
     cursor: pointer;
     user-select: none;
+
+    &.mobile {
+        width: 36px;
+        height: 46px;
+        border-radius: var(--border-radius-8);
+    }
 }
 
 .image {
@@ -32,7 +43,6 @@
 
     & > img {
         display: block;
-        background-color: var(--color-light-base-bg-primary);
         width: 100%;
         height: 100%;
         border-radius: inherit;
@@ -59,9 +69,10 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color-static-neutral-300-inverted);
+    opacity: 0.3;
 
-    &:hover {
-        opacity: 0.7;
+    &.active {
+        opacity: 1;
     }
 }
 
@@ -72,4 +83,12 @@
 
 .focused {
     @mixin focus-outline;
+}
+
+.canvasPreview {
+    border-radius: var(--border-radius-12);
+
+    &.mobile {
+        border-radius: var(--border-radius-8);
+    }
 }

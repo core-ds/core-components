@@ -1,2 +1,2 @@
 export * from './Component';
-export { colors } from './consts';
+export { COLORS } from './consts';

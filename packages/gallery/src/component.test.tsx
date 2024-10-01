@@ -3,6 +3,21 @@ import React, { useState } from 'react';
 import { fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
 import { Gallery, TestIds } from '.';
 
+const mockMatchMedia = (matches: boolean, query: string) => {
+    window.matchMedia = jest.fn().mockImplementation((q) => {
+        return {
+            matches: q === query ? matches : !matches,
+            media: q,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        };
+    });
+};
+
 const images = [
     {
         name: 'Горизонтальное изображение.jpg',
@@ -55,20 +70,8 @@ const waitForExitFullscreen = async (baseElement: HTMLElement) => {
     });
 };
 
-describe('Gallery', () => {
-    Object.defineProperty(window, 'matchMedia', {
-        writable: true,
-        value: jest.fn().mockImplementation((query) => ({
-            matches: true,
-            media: query,
-            onchange: null,
-            addListener: jest.fn(), // Deprecated
-            removeListener: jest.fn(), // Deprecated
-            addEventListener: jest.fn(),
-            removeEventListener: jest.fn(),
-            dispatchEvent: jest.fn(),
-        })),
-    });
+describe('Gallery desktop', () => {
+    mockMatchMedia(true, '(min-width: 1024px)');
 
     describe('Switch images tests', () => {
         it('should show next image, if clicked on button next', async () => {
@@ -266,9 +269,7 @@ describe('Gallery', () => {
 
             const description = headerComponent.querySelector('.description') as HTMLElement;
 
-            expect(description.textContent).toBe(
-                `Изображение ${initialSlide + 1} из ${images.length}`,
-            );
+            expect(description.textContent).toBe(`${initialSlide + 1} из ${images.length}`);
         });
 
         it('should open tooltip, if hover on buttons', async () => {

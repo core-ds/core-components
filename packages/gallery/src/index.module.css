@@ -1,6 +1,8 @@
 @import '../../vars/src/index.css';
 
 .container {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -11,7 +13,21 @@
 
 .modal {
     flex-grow: 1;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: transparent;
+}
+
+.navigationVideo {
+    background-color: var(--color-static-neutral-0-inverted);
+    z-index: 3;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hideNavigation {
+    transform: translateY(106px);
 }

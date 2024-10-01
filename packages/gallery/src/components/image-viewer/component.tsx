@@ -19,7 +19,7 @@ import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIco
 import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHeavyMIcon';
 
 import { GalleryContext } from '../../context';
-import { getImageAlt, getImageKey, TestIds } from '../../utils';
+import { getImageAlt, getImageKey, isVideo, TestIds } from '../../utils';
 
 import { Slide } from './slide';
 
@@ -37,14 +37,17 @@ export const ImageViewer: FC = () => {
         currentSlideIndex,
         initialSlide,
         onClose,
-        getCurrentImage,
         setImageMeta,
         setCurrentSlideIndex,
         getSwiper,
         setSwiper,
         slidePrev,
         slideNext,
+        getCurrentImage,
+        view,
     } = useContext(GalleryContext);
+
+    const isMobile = view === 'mobile';
 
     const leftArrowRef = useRef<HTMLDivElement>(null);
     const rightArrowRef = useRef<HTMLDivElement>(null);
@@ -53,6 +56,7 @@ export const ImageViewer: FC = () => {
     const [rightArrowFocused] = useFocus(rightArrowRef, 'keyboard');
 
     const swiper = getSwiper();
+    const currentImage = getCurrentImage();
 
     const handleSlideChange = useCallback(() => {
         setCurrentSlideIndex?.(swiper?.activeIndex ?? initialSlide);
@@ -102,11 +106,11 @@ export const ImageViewer: FC = () => {
 
             const isImg = eventTarget.tagName === 'IMG';
 
-            if (!isImg && !isPlaceholder && !isArrow) {
+            if (!isImg && !isPlaceholder && !isArrow && !isMobile) {
                 onClose();
             }
         },
-        [onClose],
+        [isMobile, onClose],
     );
 
     useEffect(() => {
@@ -120,32 +124,49 @@ export const ImageViewer: FC = () => {
             fadeEffect: {
                 crossFade: true,
             },
-            className: cn(styles.swiper, { [styles.hidden]: fullScreen }),
+            className: cn(styles.swiper, {
+                [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
+                [styles.fullScreenVideo]: fullScreen && !singleSlide && isVideo(currentImage?.src),
+                [styles.mobile]: isMobile,
+                [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
+            }),
             controller: { control: swiper },
             a11y: {
                 slideRole: 'img',
             },
             initialSlide,
             simulateTouch: false,
+            zoom: { maxRatio: 4 },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
         }),
-        [swiper, fullScreen, initialSlide, handleSlideChange, setSwiper],
+        [
+            fullScreen,
+            currentImage?.src,
+            singleSlide,
+            isMobile,
+            swiper,
+            initialSlide,
+            setSwiper,
+            handleSlideChange,
+        ],
     );
 
-    const showControls = !singleSlide && !fullScreen && !!images.length;
+    const showControls = !singleSlide && !fullScreen && !isMobile && !!images.length;
 
     const swiperWidth = swiper?.width || 1;
     const swiperHeight = swiper?.height || swiper?.width || 1;
 
     const swiperAspectRatio = swiperWidth / swiperHeight;
 
-    const currentImage = getCurrentImage();
-
     return (
         /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         <div
-            className={cn(styles.component, { [styles.singleSlide]: singleSlide })}
+            className={cn(styles.component, {
+                [styles.singleSlide]: singleSlide,
+                [styles.mobile]: isMobile,
+                [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
+            })}
             onClick={handleWrapperClick}
         >
             {showControls && (
@@ -165,7 +186,7 @@ export const ImageViewer: FC = () => {
                 </div>
             )}
 
-            {fullScreen && (
+            {fullScreen && !isVideo(currentImage?.src) && (
                 <img
                     src={currentImage?.src}
                     alt={currentImage ? getImageAlt(currentImage, currentSlideIndex) : ''}

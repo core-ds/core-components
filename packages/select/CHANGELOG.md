@@ -1,5 +1,60 @@
 # Change Log
 
+## 17.14.1
+
+### Patch Changes
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1388](https://github.com/core-ds/core-components/pull/1388)
+
+-   Исправлен скролл `VirtualOptionsList`
+
+-   Обновлены зависимости
+    -   checkbox@4.7.1
+
+## 17.14.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+    -   checkbox@4.7.0
+    -   form-control@12.6.0
+    -   input@15.2.0
+    -   modal@9.7.0
+    -   shared@0.13.0
+    -   base-modal@5.8.2
+    -   bottom-sheet@6.17.4
+    -   popover@6.3.2
+
+## 17.13.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+    -   form-control@12.5.0
+    -   modal@9.6.0
+    -   input@15.1.3
+    -   bottom-sheet@6.17.3
+
 ## 17.12.1
 
 ### Patch Changes

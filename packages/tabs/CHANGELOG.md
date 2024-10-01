@@ -1,5 +1,38 @@
 # Change Log
 
+## 8.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.1
+
+## 8.11.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.0
+    -   shared@0.13.0
+    -   tag@8.5.0
+    -   icon-button@6.10.1
+
+## 8.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.10.0
+    -   picker-button@11.10.0
+
 ## 8.10.2
 
 ### Patch Changes

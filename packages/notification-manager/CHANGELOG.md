@@ -1,5 +1,28 @@
 # Change Log
 
+## 5.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.3
+    -   notification@7.4.1
+
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.4.0
+
 ## 5.6.1
 
 ### Patch Changes

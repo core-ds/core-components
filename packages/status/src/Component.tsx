@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
-import { colors, sizes } from './consts';
+import { COLORS, SIZES } from './consts';
 
 import styles from './index.module.css';
 
@@ -20,7 +20,7 @@ export type StatusProps = {
     /**
      * Цветовое оформление иконки
      */
-    color?: (typeof colors)[number];
+    color?: (typeof COLORS)[number];
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -36,7 +36,7 @@ export type StatusProps = {
      * Размер компонента
      * @default 20
      */
-    size?: (typeof sizes)[number];
+    size?: (typeof SIZES)[number];
 
     /**
      * Форма компонента

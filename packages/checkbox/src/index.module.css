@@ -76,10 +76,11 @@
     transition: background-color 0.2s ease, border-color 0.2s ease;
     box-sizing: border-box;
     overflow: hidden;
+}
 
-    & svg {
-        color: var(--checkbox-icon-color);
-    }
+.checkedIcon {
+    position: absolute;
+    color: var(--checkbox-icon-color);
 }
 
 .size-20 .box {
@@ -140,7 +141,7 @@
     background-color: var(--checkbox-checked-disabled-bg-color);
     border-color: var(--checkbox-checked-disabled-border-color);
 
-    & svg {
+    .checkedIcon {
         color: var(--checkbox-icon-disabled-color);
     }
 }

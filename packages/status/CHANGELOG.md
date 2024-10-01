@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.6.1
+
+### Patch Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1380](https://github.com/core-ds/core-components/pull/1380)
+
+-   Уменьшена жирность текста для lowercase режима у всех размеров
+
 ## 3.6.0
 
 ### Minor Changes

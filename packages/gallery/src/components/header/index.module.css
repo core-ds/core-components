@@ -8,23 +8,3 @@
     padding: var(--gap-16) var(--gap-24);
     box-sizing: border-box;
 }
-
-.buttons {
-    display: flex;
-    padding-left: var(--gap-32);
-
-    & path {
-        color: var(--color-static-neutral-translucent-1300-inverted);
-    }
-}
-
-/* TODO: применять static цвет через prop IconButton'а */
-.iconButton {
-    &:hover path {
-        color: var(--color-static-neutral-100-hover);
-    }
-
-    &:active path {
-        color: var(--color-static-neutral-100-press);
-    }
-}

@@ -1,12 +1,14 @@
-import React, { FC, ReactNode, SyntheticEvent } from 'react';
+import React, { FC, ReactNode, SyntheticEvent, useContext } from 'react';
 import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
+import { GalleryContext } from '../../context';
 import { GalleryImage, ImageMeta } from '../../types';
-import { getImageAlt, isSmallImage, TestIds } from '../../utils';
+import { getImageAlt, isSmallImage, isVideo, TestIds } from '../../utils';
 
 import { NoImagePaths } from './paths';
+import { Video } from './video';
 
 import styles from './index.module.css';
 
@@ -16,9 +18,16 @@ type SlideInnerProps = {
     withPlaceholder: boolean;
     loading: boolean;
     children: ReactNode;
+    isVideoView?: boolean;
 };
 
-const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceholder }) => {
+const SlideInner: FC<SlideInnerProps> = ({
+    children,
+    broken,
+    loading,
+    withPlaceholder,
+    isVideoView,
+}) => {
     const content = broken ? (
         <div className={styles.brokenImgWrapper}>
             <div className={styles.brokenImgIcon}>
@@ -41,7 +50,7 @@ const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceh
             </div>
 
             <Typography.Text view='primary-small' color='static-secondary-light'>
-                Не удалось загрузить изображение
+                Не удалось загрузить {isVideoView ? 'видео' : 'изображение'}
             </Typography.Text>
         </div>
     ) : (
@@ -80,10 +89,26 @@ export const Slide: FC<SlideProps> = ({
     handleLoad,
     handleLoadError,
 }) => {
+    const { view } = useContext(GalleryContext);
+
     const broken = Boolean(meta?.broken);
     const small = isSmallImage(meta);
     const verticalImageFit = !small && swiperAspectRatio > imageAspectRatio;
     const horizontalImageFit = !small && swiperAspectRatio <= imageAspectRatio;
+
+    if (isVideo(image.src)) {
+        return (
+            <SlideInner
+                isVideoView={true}
+                active={isActive}
+                broken={broken}
+                withPlaceholder={broken}
+                loading={!meta}
+            >
+                <Video url={image.src} index={index} isActive={isActive} />
+            </SlideInner>
+        );
+    }
 
     return (
         <SlideInner
@@ -98,6 +123,7 @@ export const Slide: FC<SlideProps> = ({
                 className={cn({
                     [styles.smallImage]: small,
                     [styles.image]: !small && meta,
+                    [styles.mobile]: view === 'mobile',
                     [styles.verticalImageFit]: verticalImageFit,
                     [styles.horizontalImageFit]: horizontalImageFit,
                 })}

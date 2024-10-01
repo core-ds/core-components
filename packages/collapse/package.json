@@ -21,6 +21,6 @@
         "lodash.debounce": "^4.0.8",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.2.0",
+    "themesVersion": "13.4.0",
     "varsVersion": "9.13.1"
 }

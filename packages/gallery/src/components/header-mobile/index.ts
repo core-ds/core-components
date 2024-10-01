@@ -1,0 +1,1 @@
+export { HeaderMobile } from './Component';

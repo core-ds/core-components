@@ -3,18 +3,4 @@
 
 .component {
     background-color: var(--code-input-bg-color);
-    box-shadow: var(--code-input-box-shadow);
-    border-radius: var(--code-input-border-radius);
-
-    &.disabled {
-        box-shadow: var(--code-input-disabled-box-shadow);
-    }
-
-    &.hasError {
-        box-shadow: var(--code-input-error-box-shadow);
-    }
-
-    &:not(.disabled):not(.hasError):hover {
-        box-shadow: var(--code-input-box-shadow-hover);
-    }
 }

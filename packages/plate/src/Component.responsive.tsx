@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { BasePlateProps } from './components/base-plate';
 import { PlateDesktop } from './desktop';
@@ -20,7 +21,10 @@ export type PlateProps = Omit<BasePlateProps, 'styles'> & {
 };
 
 export const Plate = forwardRef<HTMLDivElement, PlateProps>(
-    ({ children, breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+    (
+        { children, breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps },
+        ref,
+    ) => {
         const query = `(min-width: ${breakpoint}px)`;
 
         const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
