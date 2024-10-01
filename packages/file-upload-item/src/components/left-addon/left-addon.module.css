@@ -2,6 +2,7 @@
 
 .container {
     position: relative;
+    cursor: pointer;
 
     & .progress {
         position: absolute;

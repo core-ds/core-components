@@ -6,9 +6,9 @@
 render(() => {
     const radioButtons = [
         { title: 'Нет файла', extension: 'Нет файла' },
-        { title: 'Пример.docx', extension: 'Docx' },
+        { title: 'Пример.docx', extension: 'DocX' },
         { title: 'Пример.pdf', extension: 'PDF' },
-        { title: 'Пример.xls', extension: 'Xls' },
+        { title: 'Пример.xls', extension: 'XLS' },
         { title: 'Пример.1c', extension: '1C' },
         { title: 'Фото газеты.jpg', extension: 'Img' },
         { title: 'Пример.fig', extension: 'Другой тип' },
@@ -19,6 +19,7 @@ render(() => {
     const [title, setTitle] = React.useState('Прикрепите файл');
     const [checked, setChecked] = React.useState(0);
     const [progressBar, setProgressBar] = React.useState(0);
+    const [switchChecked, setSwitchChecked] = React.useState(false);
 
     const handleChange = (index) => () => {
         setChecked(index);
@@ -32,6 +33,10 @@ render(() => {
         setTitle(radioButtons[0].title);
         setStatus('INITIAL');
     };
+
+    const handleSwitchChange = () => {
+        setSwitchChecked(prev => !prev)
+    }
 
     const isImg = radioButtons[checked].extension === 'Img';
 
@@ -47,6 +52,7 @@ render(() => {
                     progressBar={progressBar}
                     {...(checked !== 0 && { showDelete: true })}
                     {...(isImg && { imageUrl: './images/gagarin_yu_a.png' })}
+                    {...(switchChecked && {iconStyle: 'colored'})}
                     onDelete={handleDelete}
                 >
                     <FileUploadItem.LeftAddon />
@@ -70,6 +76,14 @@ render(() => {
                     <Gap size={12} />
                 </React.Fragment>
             ))}
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                checked={switchChecked}
+                label='Цветные иконки'
+                onChange={handleSwitchChange}
+            />
         </React.Fragment>
     );
 });
@@ -158,7 +172,7 @@ render(() => {
                 <Button size={32} onClick={handleError}>
                     Ошибка
                 </Button>
-                <Gap size={8} direction='horizontal' />
+                <Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />
                 <Button size={32} onClick={handleMultiError}>
                     Несколько ошибок
                 </Button>
@@ -375,7 +389,7 @@ render(() => {
             />
             {files.map((item) => {
                 return (
-                    <div key={item.file.name} style={{ width: 360 }}>
+                    <div key={item.file.name} style={{ width: isMobile() ? 320 : 360 }}>
                         <FileUploadItem
                             title={item.file.name}
                             size={item.file.size}
@@ -394,8 +408,8 @@ render(() => {
                 );
             })}
             <FileUploadItem title='Прикрепите файл' subtitle='Нет файла' uploadStatus='INITIAL'>
-                <FileUploadItem.LeftAddon />
-                <label htmlFor='multi-file-input-id'>
+                <label htmlFor='multi-file-input-id' style={{ display: 'flex', width: 320 }}>
+                    <FileUploadItem.LeftAddon />
                     <FileUploadItem.Content />
                     <FileUploadItem.RightAddon />
                 </label>

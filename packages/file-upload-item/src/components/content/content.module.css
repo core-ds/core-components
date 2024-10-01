@@ -3,6 +3,7 @@
 .container {
     padding: var(--gap-2) 0 0 var(--gap-16);
     width: 100%;
+    cursor: pointer;
 
     &.single {
         display: flex;

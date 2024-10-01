@@ -183,6 +183,23 @@ describe('FileUploadItem', () => {
             expect(element).toBeInTheDocument();
         });
 
+        it('should set deleted file', () => {
+            render(
+                <FileUploadItem
+                    title='title'
+                    subtitle='subtitle'
+                    uploadStatus='DELETED'
+                    showRestore={true}
+                >
+                    <FileUploadItem.Content />
+                </FileUploadItem>,
+            );
+
+            const element = screen.getByText('Файл удален');
+
+            expect(element).toBeInTheDocument();
+        });
+
         it('should set subtitle', () => {
             const subtitle = 'subtitle';
 
