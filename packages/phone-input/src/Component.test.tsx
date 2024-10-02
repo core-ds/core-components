@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { PhoneInput } from './index';
@@ -34,6 +34,36 @@ describe('PhoneInput', () => {
             await userEvent.type(inputElement, '{backspace}');
             expect(inputElement.value).toBe('+7 ');
         });
+
+        it('with clearableCountryCode === true', async () => {
+            const { getByTestId } = render(
+                <PhoneInput dataTestId={dataTestId} clearableCountryCode={true} />,
+            );
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.type(inputElement, '2');
+
+            expect(inputElement.value).toBe('+7 2');
+
+            await userEvent.type(inputElement, '{backspace>10}');
+
+            expect(inputElement.value).toBe('');
+        });
+
+        it('with clearableCountryCode === false', async () => {
+            const { getByTestId } = render(
+                <PhoneInput dataTestId={dataTestId} clearableCountryCode={false} />,
+            );
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.type(inputElement, '2');
+
+            expect(inputElement.value).toBe('+7 2');
+
+            await userEvent.type(inputElement, '{backspace>10}');
+
+            expect(inputElement.value).toBe('+7 ');
+        });
         /*
          * TODO: хотелось бы добавить тестов на проверку удаления цифр в номере,
          * но не нашел способа двигать каретку
@@ -41,7 +71,7 @@ describe('PhoneInput', () => {
     });
 
     describe('should update input by value prop', () => {
-        it('with clearableCountryCode === true', () => {
+        it('with clearableCountryCode === true', async () => {
             const { getByTestId, rerender } = render(
                 <PhoneInput dataTestId={dataTestId} clearableCountryCode={true} />,
             );
@@ -54,8 +84,8 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 99');
         });
 
-        it('with clearableCountryCode === false', () => {
-            const { getByTestId, rerender } = render(
+        it('with clearableCountryCode === false', async () => {
+            const { getByTestId, rerender, debug } = render(
                 <PhoneInput dataTestId={dataTestId} clearableCountryCode={false} />,
             );
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
