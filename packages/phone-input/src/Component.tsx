@@ -98,7 +98,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                  * Это происходит потому что цифра 7 есть уже в маске
                  */
                 if (rawValue[1] === '7') {
-                    const masked = conformToMask(`+7 ${rawValue}`, mask, config);
+                    const masked = conformToMask(`+7${rawValue}`, mask, config);
 
                     return masked.conformedValue;
                 }
@@ -146,7 +146,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 defaultValue={clearableCountryCode ? restProps.defaultValue : countryPrefix}
                 mask={mask}
                 onBeforeDisplay={handleBeforeDisplay}
-                keepCharPositions={true}
                 type='tel'
                 ref={mergeRefs([ref, inputRef])}
             />

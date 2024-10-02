@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { PhoneInput } from './index';
@@ -71,7 +71,7 @@ describe('PhoneInput', () => {
     });
 
     describe('should update input by value prop', () => {
-        it('with clearableCountryCode === true', async () => {
+        it('with clearableCountryCode === true', () => {
             const { getByTestId, rerender } = render(
                 <PhoneInput dataTestId={dataTestId} clearableCountryCode={true} />,
             );
@@ -84,8 +84,8 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 99');
         });
 
-        it('with clearableCountryCode === false', async () => {
-            const { getByTestId, rerender, debug } = render(
+        it('with clearableCountryCode === false', () => {
+            const { getByTestId, rerender } = render(
                 <PhoneInput dataTestId={dataTestId} clearableCountryCode={false} />,
             );
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
