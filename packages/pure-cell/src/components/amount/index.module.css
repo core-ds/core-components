@@ -5,7 +5,7 @@
     display: flex;
 }
 
-.skeleton {
+.hidden {
     background: var(--color-light-neutral-translucent-400);
     border-radius: var(--border-radius-8);
     display: inline-block;
@@ -13,7 +13,7 @@
     width: 120px;
 }
 
-.skeletonWrapper {
+.hiddenWrapper {
     display: flex;
     padding: var(--gap-8) var(--gap-0);
 }

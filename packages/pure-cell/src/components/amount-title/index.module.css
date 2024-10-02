@@ -8,47 +8,47 @@
     font-weight: inherit;
 }
 
-.skeleton {
+.hidden {
     background: var(--color-light-neutral-translucent-400);
     border-radius: var(--border-radius-8);
     display: inline-block;
 }
 
-.skeleton-xsmall {
+.hidden-xsmall {
     height: 16px;
     width: 88px;
 }
-.skeleton-small {
+.hidden-small {
     height: 18px;
     width: 100px;
 }
-.skeleton-medium {
+.hidden-medium {
     height: 24px;
     width: 120px;
 }
-.skeleton-large {
+.hidden-large {
     height: 28px;
     width: 136px;
 }
-.skeleton-xlarge {
+.hidden-xlarge {
     height: 32px;
     width: 156px;
 }
-.skeletonWrapper {
+.hiddenWrapper {
     display: flex;
 }
-.skeletonWrapper-xsmall {
+.hiddenWrapper-xsmall {
     padding: var(--gap-4) var(--gap-0);
 }
-.skeletonWrapper-small {
+.hiddenWrapper-small {
     padding: var(--gap-8) var(--gap-0);
 }
-.skeletonWrapper-medium {
+.hiddenWrapper-medium {
     padding: var(--gap-8) var(--gap-0);
 }
-.skeletonWrapper-large {
+.hiddenWrapper-large {
     padding: var(--gap-12) var(--gap-0);
 }
-.skeletonWrapper-xlarge {
+.hiddenWrapper-xlarge {
     padding: var(--gap-16) var(--gap-0);
 }

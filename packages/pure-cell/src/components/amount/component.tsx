@@ -52,8 +52,8 @@ export const Amount: React.FC<Props> = ({
 
     if (hidden) {
         return (
-            <div className={styles.skeletonWrapper}>
-                <div className={styles.skeleton} />
+            <div className={styles.hiddenWrapper}>
+                <div className={styles.hidden} />
             </div>
         );
     }
