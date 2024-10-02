@@ -3,7 +3,7 @@ import React, {
     FC,
     FocusEvent,
     forwardRef,
-    Ref,
+    RefAttributes,
     useEffect,
     useMemo,
     useState,
@@ -84,7 +84,7 @@ export interface NumberInputProps
     /**
      *  Компонент инпута
      */
-    Input: FC<InputProps & { ref?: Ref<HTMLInputElement> }>;
+    Input: FC<InputProps & RefAttributes<HTMLInputElement>>;
 
     /**
      * Обработчик события изменения значения
