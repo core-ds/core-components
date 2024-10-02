@@ -83,11 +83,8 @@ export interface TabBarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onCha
     bgColor?: 'modal-bg-primary' | 'modal-bg-alt-primary';
 }
 
-type AdditionalTabProps = Record<string, unknown>;
-
-export interface TabProps
-    extends Omit<AllHTMLAttributes<unknown>, 'onChange' | 'label'>,
-        AdditionalTabProps {
+export interface TabProps extends Omit<AllHTMLAttributes<unknown>, 'onChange' | 'label'> {
+    [p: string]: unknown;
     /**
      * Кастомный компонент таба.
      * @default button
