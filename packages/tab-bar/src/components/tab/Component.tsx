@@ -9,7 +9,7 @@ import { PrivateTabProps, TabProps } from '../../types';
 
 import styles from './index.module.css';
 
-const TabComponent = forwardRef(
+const TabComponent = forwardRef<any, PrivateTabProps & TabProps>(
     (
         {
             showIndicator,
@@ -31,7 +31,7 @@ const TabComponent = forwardRef(
             accentColor = 'primary',
             bgColor = 'modal-bg-primary',
             ...restProps
-        }: PrivateTabProps & TabProps,
+        },
         ref,
     ) => {
         const handleClick = (event: MouseEvent) => {
@@ -68,7 +68,9 @@ const TabComponent = forwardRef(
                 onClick={handleClick}
             >
                 <div className={cn(styles.icon, commonIconClassName, iconClassName)}>
-                    {isValidElement(icon) ? cloneElement(icon, { selected }) : icon}
+                    {isValidElement<{ selected: boolean }>(icon)
+                        ? cloneElement(icon, { selected })
+                        : icon}
                 </div>
 
                 <Typography.Text
@@ -78,7 +80,9 @@ const TabComponent = forwardRef(
                         [styles.labelSelected]: selected,
                     })}
                 >
-                    {isValidElement(label) ? cloneElement(label, { selected }) : label}
+                    {isValidElement<{ selected: boolean }>(label)
+                        ? cloneElement(label, { selected })
+                        : label}
                 </Typography.Text>
 
                 {showIndicator && (
