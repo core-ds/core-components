@@ -55,9 +55,9 @@ render(() => {
                     {...(switchChecked && {iconStyle: 'colored'})}
                     onDelete={handleDelete}
                 >
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>
             </div>
             <Gap size={20} />
@@ -159,9 +159,9 @@ render(() => {
                 size={2097152} // 2mb
                 error={error}
             >
-                <FileUploadItem.LeftAddon />
+                <FileUploadItem.StatusControl />
                 <FileUploadItem.Content />
-                <FileUploadItem.RightAddon />
+                <FileUploadItem.ActionsControl />
             </FileUploadItem>
             <Gap size={20} />
             <div>
@@ -221,9 +221,9 @@ render(() => {
                     onDelete={handleDelete('element_1')}
                     onRestore={handleRestore('element_1')}
                 >
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>
                 <Gap size={20} />
                 <FileUploadItem
@@ -239,9 +239,9 @@ render(() => {
                     {...(!isRestore.element_2 && { imageUrl: './images/gagarin_yu_a.png' })}
                     {...(isRestore.element_2 && { customIcon: () => <DocumentImageOffMIcon /> })}
                 >
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>
             </div>
         </React.Fragment>
@@ -312,10 +312,10 @@ render(() => {
                 {...(isImage && { imageUrl })}
             >
                 <label htmlFor='file-upload-item-id' style={{ display: 'flex', width: 320 }}>
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
                 </label>
-                <FileUploadItem.RightAddon />
+                <FileUploadItem.ActionsControl />
             </FileUploadItem>
         </React.Fragment>
     );
@@ -399,9 +399,9 @@ render(() => {
                             showDelete={true}
                             onDelete={handleDelete(item.file.name)}
                         >
-                            <FileUploadItem.LeftAddon />
+                            <FileUploadItem.StatusControl />
                             <FileUploadItem.Content />
-                            <FileUploadItem.RightAddon />
+                            <FileUploadItem.ActionsControl />
                         </FileUploadItem>
                         <Gap size={20} />
                     </div>
@@ -409,9 +409,9 @@ render(() => {
             })}
             <FileUploadItem title='Прикрепите файл' subtitle='Нет файла' uploadStatus='INITIAL'>
                 <label htmlFor='multi-file-input-id' style={{ display: 'flex', width: 320 }}>
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </label>
             </FileUploadItem>
         </React.Fragment>

@@ -6,27 +6,19 @@ import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
 import { isErrorStatus, isSuccessStatus, isUploadingStatus } from '../../utils';
 
-import { LeftAddonIcon } from './components/left-addon-icon';
-import { ProgressBar } from './components/progress-bar';
+import { StatusControlIcon } from './components/status-control-icon';
+import { StatusControlProgressBar } from './components/status-control-progress-bar';
+import { colors } from './constants/colors';
 
-import styles from './left-addon.module.css';
+import styles from './status-control.module.css';
 
-export const LeftAddon = () => {
+export const StatusControl = () => {
     const { uploadStatus = 'INITIAL', progressBar, imageUrl } = useContext(FileUploadItemContext);
     const progressRef = useRef<HTMLDivElement>(null);
 
     if (progressRef.current) {
         progressRef.current.style.maskImage = `conic-gradient(red ${progressBar}deg, transparent 0)`;
     }
-
-    const colors = {
-        INITIAL: 'transparent',
-        UPLOADED: 'transparent',
-        DELETED: 'transparent',
-        UPLOADING: '#BABBC2',
-        SUCCESS: '#0CC44D',
-        ERROR: '#FF4837',
-    };
 
     return (
         <div className={styles.container}>
@@ -35,7 +27,7 @@ export const LeftAddon = () => {
                 backgroundColor='var(--color-light-neutral-translucent-100)'
                 {...(imageUrl && { imageUrl })}
             >
-                <LeftAddonIcon />
+                <StatusControlIcon />
             </SuperEllipse>
             <div
                 ref={progressRef}
@@ -45,7 +37,7 @@ export const LeftAddon = () => {
                     [styles.error]: isErrorStatus(uploadStatus),
                 })}
             >
-                <ProgressBar color={colors[uploadStatus]} />
+                <StatusControlProgressBar color={colors[uploadStatus]} />
             </div>
         </div>
     );

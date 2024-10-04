@@ -30,9 +30,9 @@ describe('FileUploadItem', () => {
             expect(
                 render(
                     <FileUploadItem {...fileProps}>
-                        <FileUploadItem.LeftAddon />
+                        <FileUploadItem.StatusControl />
                         <FileUploadItem.Content />
-                        <FileUploadItem.RightAddon />
+                        <FileUploadItem.ActionsControl />
                     </FileUploadItem>,
                 ),
             ).toMatchSnapshot();
@@ -58,7 +58,7 @@ describe('FileUploadItem', () => {
 
         const { queryByTestId } = render(
             <FileUploadItem customIcon={() => <div data-test-id={dataTestId} />}>
-                <FileUploadItem.LeftAddon />
+                <FileUploadItem.StatusControl />
             </FileUploadItem>,
         );
 
@@ -95,7 +95,7 @@ describe('FileUploadItem', () => {
         it('should set progress class', () => {
             const { container } = render(
                 <FileUploadItem {...fileProps} uploadStatus='UPLOADING'>
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                 </FileUploadItem>,
             );
 
@@ -107,7 +107,7 @@ describe('FileUploadItem', () => {
         it('should set success class', () => {
             const { container } = render(
                 <FileUploadItem {...fileProps} uploadStatus='SUCCESS'>
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                 </FileUploadItem>,
             );
 
@@ -119,7 +119,7 @@ describe('FileUploadItem', () => {
         it('should set error class', () => {
             const { container } = render(
                 <FileUploadItem {...fileProps} uploadStatus='ERROR'>
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                 </FileUploadItem>,
             );
 
@@ -219,7 +219,7 @@ describe('FileUploadItem', () => {
         it('should set default error', () => {
             render(
                 <FileUploadItem title='title' subtitle='subtitle' uploadStatus='ERROR'>
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
                 </FileUploadItem>,
             );
@@ -239,7 +239,7 @@ describe('FileUploadItem', () => {
                     uploadStatus='ERROR'
                     error={error}
                 >
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
                 </FileUploadItem>,
             );
@@ -258,7 +258,7 @@ describe('FileUploadItem', () => {
                     uploadStatus='ERROR'
                     error={error}
                 >
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
                 </FileUploadItem>,
             );
@@ -275,7 +275,7 @@ describe('FileUploadItem', () => {
         it('should set `delete` element', () => {
             render(
                 <FileUploadItem showDelete={true}>
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>,
             );
 
@@ -287,7 +287,7 @@ describe('FileUploadItem', () => {
         it('should set `restore` element', () => {
             render(
                 <FileUploadItem showRestore={true}>
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>,
             );
 
@@ -299,7 +299,7 @@ describe('FileUploadItem', () => {
         it('should set `download` element', () => {
             render(
                 <FileUploadItem showRestore={false} downloadLink='/link'>
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>,
             );
 
@@ -315,7 +315,7 @@ describe('FileUploadItem', () => {
             const fileId = 'id';
             const { getByLabelText } = render(
                 <FileUploadItem showDelete={true} onDelete={cb} id={fileId}>
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>,
             );
 
@@ -330,7 +330,7 @@ describe('FileUploadItem', () => {
             const fileId = 'id';
             const { getByLabelText } = render(
                 <FileUploadItem showRestore={true} onRestore={cb} id={fileId}>
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>,
             );
 
@@ -345,7 +345,7 @@ describe('FileUploadItem', () => {
             const fileId = 'id';
             const { baseElement } = render(
                 <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId}>
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>,
             );
 
@@ -361,9 +361,9 @@ describe('FileUploadItem', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(
             <FileUploadItem>
-                <FileUploadItem.LeftAddon />
+                <FileUploadItem.StatusControl />
                 <FileUploadItem.Content />
-                <FileUploadItem.RightAddon />
+                <FileUploadItem.ActionsControl />
             </FileUploadItem>,
         );
 

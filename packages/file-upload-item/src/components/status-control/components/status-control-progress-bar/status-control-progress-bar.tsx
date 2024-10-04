@@ -4,7 +4,7 @@ type ProgressBarProps = {
     color: string;
 };
 
-export const ProgressBar: FC<ProgressBarProps> = ({ color = '#BABBC2' }) => (
+export const StatusControlProgressBar: FC<ProgressBarProps> = ({ color = '#BABBC2' }) => (
     <svg width='56' height='56' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <mask
             id='b'

@@ -33,9 +33,9 @@ export const file_upload_item: Story = {
                     showRestore={boolean('showRestore', false)}
                     truncate={boolean('truncate', false)}
                 >
-                    <FileUploadItem.LeftAddon />
+                    <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
-                    <FileUploadItem.RightAddon />
+                    <FileUploadItem.ActionsControl />
                 </FileUploadItem>
             </div>
         );
@@ -43,19 +43,12 @@ export const file_upload_item: Story = {
 };
 
 export const file_upload_item_left_addon: Story = {
-    name: 'FileUploadItem.LeftAddon',
+    name: 'FileUploadItem.StatusControl',
     render: () => {
         return (
             <div style={{ width: 456 }}>
-                <FileUploadItem
-                    uploadStatus={select(
-                        'uploadStatus',
-                        ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
-                        'INITIAL',
-                    )}
-                    progressBar={number('progressBar', 0)}
-                >
-                    <FileUploadItem.LeftAddon />
+                <FileUploadItem uploadStatus={'UPLOADING'} progressBar={number('progressBar', 0)}>
+                    <FileUploadItem.StatusControl />
                 </FileUploadItem>
             </div>
         );

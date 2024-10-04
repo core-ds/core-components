@@ -14,7 +14,7 @@ import { FileUploadItemContext } from '../../../../context/file-upload-item-cont
 import { getExtension, isInitialStatus } from '../../../../utils';
 
 /* eslint-disable complexity */
-export const LeftAddonIcon = () => {
+export const StatusControlIcon = () => {
     const {
         title = '',
         uploadStatus,

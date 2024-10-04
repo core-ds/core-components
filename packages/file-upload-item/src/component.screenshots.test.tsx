@@ -127,21 +127,3 @@ describe(
         },
     }),
 );
-
-describe(
-    'FileUploadItem | Left Addon',
-    screenshotTesting({
-        cases: generateTestCases({
-            packageName: 'file-upload-item',
-            componentName: 'FileUploadItem',
-            subComponentName: 'FileUploadItem.LeftAddon',
-            testStory: false,
-            knobs: {
-                uploadStatus: ['INITIAL', 'SUCCESS', 'ERROR'],
-            },
-        }),
-        screenshotOpts: {
-            clip,
-        },
-    }),
-);

@@ -1,9 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { ActionsControl } from './components/actions-control';
 import { Content } from './components/content';
-import { LeftAddon } from './components/left-addon';
-import { RightAddon } from './components/right-addon';
+import { StatusControl } from './components/status-control';
 import { FileUploadItemContext } from './context/file-upload-item-context';
 import { FileUploadItemProps } from './types/file-upload-item-props';
 
@@ -77,7 +77,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
 );
 
 export const FileUploadItem = Object.assign(FileUploadItemComponent, {
-    LeftAddon,
+    StatusControl,
     Content,
-    RightAddon,
+    ActionsControl,
 });
