@@ -1,5 +1,13 @@
 # Change Log
 
+## 17.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.5
+    -   modal@9.7.1
+
 ## 17.14.1
 
 ### Patch Changes
