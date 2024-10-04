@@ -11,9 +11,12 @@
     border: none;
     margin: var(--gap-0);
     outline: none;
-    text-overflow: ellipsis;
     box-sizing: border-box;
     -webkit-appearance: none;
+
+    &.inputEllipsis {
+        text-overflow: ellipsis;
+    }
 }
 
 .input::placeholder {

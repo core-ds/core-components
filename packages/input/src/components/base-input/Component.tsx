@@ -16,7 +16,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { FormControlProps } from '@alfalab/core-components-form-control';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, isChrome79 } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus } from '@alfalab/hooks';
 
@@ -388,6 +388,36 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             );
         };
 
+        const getTextWidth = (text: typeof value, font: string) => {
+            if (text && font) {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+
+                if (context) {
+                    context.font = font;
+
+                    return context.measureText(text).width;
+                }
+            }
+
+            return null;
+        };
+
+        if (isChrome79() && inputRef.current) {
+            const inputElement = inputRef.current;
+            const { paddingRight, paddingLeft, font } = window.getComputedStyle(inputElement);
+            const inputComputedPaddingsWidth = parseFloat(paddingRight) + parseFloat(paddingLeft);
+
+            const textWidth = getTextWidth(value, font);
+            const inputWidth = inputElement.clientWidth - inputComputedPaddingsWidth;
+
+            if (textWidth && inputWidth < textWidth) {
+                inputElement.style.textOverflow = 'ellipsis';
+            } else {
+                inputElement.removeAttribute('style');
+            }
+        }
+
         return FormControlComponent ? (
             <FormControlComponent
                 ref={wrapperRef}
@@ -429,6 +459,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [styles.inputEllipsis]: !isChrome79(),
                         },
                         inputClassName,
                     )}

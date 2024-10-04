@@ -59,7 +59,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input input size-56 hasInnerLabel inputEllipsis input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -176,7 +176,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input input size-56 hasInnerLabel inputEllipsis input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -291,7 +291,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input input size-56 hasInnerLabel inputEllipsis input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -406,7 +406,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input input size-56 hasInnerLabel inputEllipsis input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -505,7 +505,7 @@ exports[`BankCard Snapshots tests should match snapshots 5`] = `
               >
                 <input
                   aria-label="Номер карты"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input input size-56 hasInnerLabel inputEllipsis input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -620,7 +620,7 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
               >
                 <input
                   aria-label="Номер счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input input size-56 hasInnerLabel inputEllipsis input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
