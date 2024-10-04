@@ -27,6 +27,11 @@ type Props = {
     color?: Color;
 
     /**
+     * Скрыть денежное значение
+     */
+    hidden?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для typography используется модификатор -amount-text, для компонента Amount -amount
      */
@@ -39,10 +44,19 @@ export const Amount: React.FC<Props> = ({
     color = 'primary',
     minority,
     minorUnits = 100,
+    hidden,
     dataTestId,
     ...restProps
 }) => {
     const pureCellContext = useContext(PureCellContext);
+
+    if (hidden) {
+        return (
+            <div className={styles.hiddenWrapper}>
+                <div className={styles.hidden} />
+            </div>
+        );
+    }
 
     return (
         <Typography.Text
