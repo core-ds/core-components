@@ -29,6 +29,11 @@ export type UseSelectWithApplyProps = {
     onChange: BaseSelectProps['onChange'];
 
     /**
+     * Дополнительный обработчик клика на чекбокс выбрать все
+     */
+    onSelectAllClick?: (selectedMultiple: OptionShape[]) => void;
+
+    /**
      * Компонент выпадающего меню
      */
     OptionsList?: BaseSelectProps['OptionsList'];
@@ -72,6 +77,7 @@ export function useSelectWithApply({
     options,
     selected,
     onChange = () => null,
+    onSelectAllClick = () => null,
     OptionsList,
     optionsListProps = {},
     showClear = true,
@@ -125,6 +131,7 @@ export function useSelectWithApply({
             selected: selectedDraft[0],
             selectedMultiple: selectedDraft,
             initiator: null,
+            name: 'apply-footer',
         });
     };
 
@@ -134,11 +141,15 @@ export function useSelectWithApply({
             selected: null,
             selectedMultiple: [],
             initiator: null,
+            name: 'reset-footer',
         });
     };
 
     const handleToggleAll = () => {
-        setSelectedDraft(flatOptions.length === selectedDraft.length ? [] : flatOptions);
+        const optionsToSet = flatOptions.length === selectedDraft.length ? [] : flatOptions;
+
+        onSelectAllClick(optionsToSet);
+        setSelectedDraft(optionsToSet);
     };
 
     const handleChange: Required<BaseSelectProps>['onChange'] = ({ initiator, ...restArgs }) => {
