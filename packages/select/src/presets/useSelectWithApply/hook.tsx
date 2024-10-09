@@ -208,6 +208,7 @@ export function useSelectWithApply({
             setSelectedDraft,
             showHeaderWithSelectAll,
             headerProps: {
+                ...(optionsListProps as AnyObject)?.headerProps,
                 indeterminate: !!selectedDraft.length && selectedDraft.length < flatOptions.length,
                 checked: selectedDraft.length === flatOptions.length,
                 onChange: handleToggleAll,
