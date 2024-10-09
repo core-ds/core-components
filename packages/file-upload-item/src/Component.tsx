@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Link } from '@alfalab/core-components-link';
-import { Spinner } from '@alfalab/core-components-spinner';
+import { SpinnerPreset } from '@alfalab/core-components-spinner/preset';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
@@ -176,7 +176,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
             case 'UPLOADING':
                 return (
                     <div className={styles.spinnerWrapper}>
-                        <Spinner.Preset visible={true} className={styles.spinner} />
+                        <SpinnerPreset visible={true} className={styles.spinner} />
                     </div>
                 );
             default: {

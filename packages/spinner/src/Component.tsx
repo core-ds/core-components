@@ -4,19 +4,18 @@ import cn from 'classnames';
 import { devWarning, fnUtils } from '@alfalab/core-components-shared';
 import { useId } from '@alfalab/hooks';
 
-import { SpinnerPresetProps, SpinnerProps } from './types';
+import { SpinnerProps } from './types';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
-import presetStyles from './preset.module.css';
 
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
 
-export const Spinner: FC<SpinnerProps> & { Preset: FC<SpinnerPresetProps> } = ({
+export const Spinner: FC<SpinnerProps> = ({
     size,
     lineWidth,
     style,
@@ -75,25 +74,3 @@ export const Spinner: FC<SpinnerProps> & { Preset: FC<SpinnerPresetProps> } = ({
         </svg>
     );
 };
-
-const PRESET_CONFIG = {
-    16: [2, 14, 'size-16'],
-    24: [2, 20, 'size-24'],
-    48: [4, 40, 'size-48'],
-} as const;
-
-// export needed in 'docs/development.mdx'
-export const SpinnerPreset: FC<SpinnerPresetProps> = ({ preset = 24, className, ...restProps }) => {
-    const [lineWidth, size, styleKey] = PRESET_CONFIG[preset];
-
-    return (
-        <Spinner
-            {...restProps}
-            lineWidth={lineWidth}
-            size={size}
-            className={cn(presetStyles[styleKey], className)}
-        />
-    );
-};
-
-Spinner.Preset = SpinnerPreset;

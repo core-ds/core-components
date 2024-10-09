@@ -1,20 +1,20 @@
 import React from 'react';
 
-import { Spinner } from '@alfalab/core-components-spinner';
+import { SpinnerPreset } from '@alfalab/core-components/spinner/preset';
 
 export const Component = () => {
     const someProps = { size: 48 };
 
     return (
         <React.Fragment>
-            <Spinner.Preset preset={16} />
-            <Spinner.Preset preset={24} />
-            <Spinner.Preset preset={48} />
-            <Spinner.Preset preset={16} />
-            <Spinner.Preset preset={24} />
-            <Spinner.Preset preset={48} />
-            <Spinner.Preset visible={true} />
-            <Spinner.Preset {...someProps} />
+            <SpinnerPreset preset={16} />
+            <SpinnerPreset preset={24} />
+            <SpinnerPreset preset={48} />
+            <SpinnerPreset preset={16} />
+            <SpinnerPreset preset={24} />
+            <SpinnerPreset preset={48} />
+            <SpinnerPreset visible={true} />
+            <SpinnerPreset {...someProps} />
         </React.Fragment>
     );
 };

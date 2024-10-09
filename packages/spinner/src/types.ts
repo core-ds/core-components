@@ -43,11 +43,3 @@ export interface SpinnerProps {
      */
     style?: CSSProperties;
 }
-
-export type SpinnerPresetProps = Omit<SpinnerProps, 'size' | 'lineWidth'> & {
-    /**
-     * Преднастроенный вариант
-     * @default 24
-     */
-    preset?: 16 | 24 | 48;
-};

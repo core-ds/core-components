@@ -56,11 +56,11 @@ describe(
     }),
 );
 
-describe('Spinner.Preset', () =>
+describe('SpinnerPreset', () =>
     createPreview(
         {
-            componentName: 'Spinner',
-            subComponentName: 'Preset',
+            packageName: 'spinner',
+            componentName: 'SpinnerPreset',
             knobs: {
                 preset: 48,
                 visible: true,
@@ -70,14 +70,14 @@ describe('Spinner.Preset', () =>
     ));
 
 describe(
-    'Spinner.Preset | main props',
+    'SpinnerPreset | main props',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
-                    componentName: 'Spinner',
-                    subComponentName: 'Preset',
+                    packageName: 'spinner',
+                    componentName: 'SpinnerPreset',
                     knobs: {
                         preset: [24, 48, 16],
                         visible: [false, true],
