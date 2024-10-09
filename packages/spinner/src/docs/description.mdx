@@ -10,7 +10,7 @@ render(
         <Row align='middle'>
             {PRESETS.map((preset) => (
                 <div key={preset} style={{ marginRight: 20 }}>
-                    <Spinner.Preset visible={true} preset={preset} />
+                    <SpinnerPreset visible={true} preset={preset} />
                 </div>
             ))}
         </Row>
@@ -50,7 +50,7 @@ render(
             </Button>
         </div>
         <div>
-            <Button leftAddons={<Spinner.Preset visible={true} />} size={56}>
+            <Button leftAddons={<SpinnerPreset visible={true} />} size={56}>
                 Дела делаются
             </Button>
         </div>
@@ -61,7 +61,7 @@ render(
             Label
         </Button>
         <br/>
-        <Button block={true} leftAddons={<Spinner.Preset visible={true} />} size={56}>
+        <Button block={true} leftAddons={<SpinnerPreset visible={true} />} size={56}>
             Дела делаются
         </Button>
     </Container>

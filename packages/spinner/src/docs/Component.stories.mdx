@@ -41,7 +41,7 @@ import Changelog from '../../CHANGELOG.md?raw';
     })}
 </Story>
 
-<Story name='Spinner.Preset'>
+<Story name='SpinnerPreset'>
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
@@ -59,7 +59,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                     bottom: 0,
                 }}
             >
-                <Spinner.Preset
+                <SpinnerPreset
                     preset={select('preset', [16, 24, 48], 24)}
                     visible={boolean('visible', true)}
                     colors={colors}

@@ -15,8 +15,8 @@
     - `size` - теперь отвечает за размер кольца спиннера;
     - `lineWidth` - толщина линии спиннера;
     - `style` - позволяет регулировать отступы, цвет и т.п.
-* Добавлен преднастроенный вариант спиннера `Spinner.Preset`.
-* Добавлен `codemod` для бесшовной миграции со старого `Spinner` на `Spinner.Preset`:
+* Добавлен преднастроенный вариант спиннера `SpinnerPreset`.
+* Добавлен `codemod` для бесшовной миграции со старого `Spinner` на `SpinnerPreset`:
     ```bash
     npx @alfalab/core-components-codemod --transformers=spinner --glob='src/**/*.tsx'
     ```
