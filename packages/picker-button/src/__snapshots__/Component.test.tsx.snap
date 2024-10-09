@@ -315,7 +315,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     role="listbox"
                   >
                     <div
-                      class="optionsList size-48 optionsList"
+                      class="optionsList size-56 optionsList"
                     >
                       <div
                         class="component component scrollable scrollbar"
@@ -1432,7 +1432,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     role="listbox"
                   >
                     <div
-                      class="optionsList size-48 optionsList"
+                      class="optionsList size-56 optionsList"
                     >
                       <div
                         class="component component scrollable scrollbar"
@@ -2549,7 +2549,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     role="listbox"
                   >
                     <div
-                      class="optionsList size-48 optionsList"
+                      class="optionsList size-56 optionsList"
                     >
                       <div
                         class="component component scrollable scrollbar"
