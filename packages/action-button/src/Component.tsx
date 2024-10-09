@@ -9,7 +9,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Spinner } from '@alfalab/core-components-spinner';
+import { SpinnerPreset } from '@alfalab/core-components-spinner/preset';
 import { useFocus } from '@alfalab/hooks';
 
 import { useLoader } from './hooks';
@@ -149,7 +149,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                     )}
                 >
                     {showLoader ? (
-                        <Spinner.Preset
+                        <SpinnerPreset
                             dataTestId={getDataTestId(dataTestId, 'loader')}
                             visible={true}
                             className={cn(styles.loader, colorStyles[colors].loader)}

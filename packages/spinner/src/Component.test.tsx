@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { devWarning } from '@alfalab/core-components-shared';
 
 import { Spinner } from './index';
+import { SpinnerPreset } from './preset';
 
 jest.mock('@alfalab/hooks', () => ({ useId: () => 1 }));
 
@@ -102,7 +103,7 @@ describe('Spinner props', () => {
 
 describe('SpinnerPreset', () => {
     test.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
-        const { container } = render(<Spinner.Preset visible preset={preset} />);
+        const { container } = render(<SpinnerPreset visible preset={preset} />);
         expect(container).toMatchSnapshot();
     });
 });

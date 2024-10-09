@@ -100,7 +100,7 @@ const spinnerTransform: Transform = (fileInfo, api) => {
 
             jsxOpeningElement.replaceWith((path) =>
                 j.jsxOpeningElement(
-                    j.jsxIdentifier('Spinner.Preset'),
+                    j.jsxIdentifier('SpinnerPreset'),
                     path.node.attributes,
                     path.node.selfClosing,
                 ),
@@ -110,11 +110,22 @@ const spinnerTransform: Transform = (fileInfo, api) => {
                 .find(j.JSXClosingElement, {
                     name: { name: 'Spinner' },
                 })
-                .replaceWith(j.jsxClosingElement(j.jsxIdentifier('Spinner.Preset')));
+                .replaceWith(j.jsxClosingElement(j.jsxIdentifier('SpinnerPreset')));
 
             return path.node;
         });
     });
+
+    source
+        .find(j.ImportDeclaration, {
+            source: { value: '@alfalab/core-components/spinner' },
+        })
+        .replaceWith(
+            j.importDeclaration(
+                [j.importSpecifier(j.identifier('SpinnerPreset'))],
+                j.stringLiteral('@alfalab/core-components/spinner/preset'),
+            ),
+        );
 
     return source.toSource({
         quote: 'single',

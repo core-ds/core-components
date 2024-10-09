@@ -6,7 +6,7 @@
 export default function (depsArr) {
     return depsArr.reduce((acc, dep) => {
         if (dep.startsWith('@alfalab/core-components-')) {
-            acc.push(dep, dep + '/mobile', dep + '/desktop', dep + '/shared');
+            acc.push(dep, dep + '/mobile', dep + '/desktop', dep + '/shared', dep + '/preset');
         } else {
             acc.push(dep);
         }

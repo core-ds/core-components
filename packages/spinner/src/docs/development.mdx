@@ -1,11 +1,18 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { Spinner, SpinnerPreset } from '../Component';
+import { Spinner } from '../Component';
+import { SpinnerPreset } from '../preset';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключениe
 
 ```jsx
 import { Spinner } from '@alfalab/core-components/spinner';
+```
+
+или преднастроенный вариант
+
+```jsx
+import { SpinnerPreset } from '@alfalab/core-components/spinner/preset';
 ```
 
 ## Использование
@@ -17,12 +24,12 @@ import { Spinner } from '@alfalab/core-components/spinner';
 или
 
 ```jsx
-<Spinner.Preset preset={48} {...restProps} />
+<SpinnerPreset preset={48} {...restProps} />
 ```
 
 ## Свойства
 
-<ArgsTabs components={{ Spinner: Spinner, 'Spinner.Preset': SpinnerPreset }} />
+<ArgsTabs components={{ Spinner, SpinnerPreset }} />
 
 ## Переменные
 
