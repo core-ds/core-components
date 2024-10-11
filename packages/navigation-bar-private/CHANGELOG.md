@@ -1,5 +1,15 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.4.3
+
+### Patch Changes
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1389](https://github.com/core-ds/core-components/pull/1389)
+
+-   Изменен тип у компонента navigation-bar-private для пропса title со string на ReactNode
+
 ## 0.4.2
 
 ### Patch Changes
