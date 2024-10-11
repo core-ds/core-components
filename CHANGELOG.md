@@ -1,3 +1,48 @@
+## 47.22.0
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1399](https://github.com/core-ds/core-components/pull/1399)
+
+#### Что изменилось
+- Изменена логика отрисовки image тэга - теперь image рендерится всегда и скрывается только в случае ошибки загрузки
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1405](https://github.com/core-ds/core-components/pull/1405)
+
+#### Что изменилось
+1. Добавлен пропс `onSelectAllClick` в хук `useSelectWithApply`
+2. Исправлена прокидка пропса `headerProps` в компонент `Header` хуке `useSelectWithApply`
+3. Добавлен параметр `name` в обработчик `onChange` для кнопок "Применить" и "Сбросить"
+4. Добавлен пропс `dataTestId` для чекбокса "Выбрать все"
+5. Исправлена ситуация с пустым списком опций и отображаемым футером
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1371](https://github.com/core-ds/core-components/pull/1371)
+
+#### Что изменилось
+- Исправлено удаление номера в режиме clearableCountryCode
+
+#### Влияние на компоненты
+- Минорное<br />`phone-input`
+
+
+### [#1389](https://github.com/core-ds/core-components/pull/1389)
+
+#### Что изменилось
+- Изменен тип у компонента navigation-bar-private для пропса title со string на ReactNode
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar-private`
+
+
+
 ## 47.21.0
 
 <sup><time>04.10.2024</time></sup>
