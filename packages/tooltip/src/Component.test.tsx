@@ -1,4 +1,4 @@
-import React, { ForwardRefRenderFunction } from 'react';
+import React, { ForwardRefRenderFunction, SyntheticEvent } from 'react';
 import {
     render,
     fireEvent,
@@ -374,5 +374,29 @@ describe('Props test', () => {
         const lastMockCall = mockCalls[mockCalls.length - 1];
 
         expect(lastMockCall[0]).toMatchObject({ anchorElement: anchor });
+    });
+    it('should call `onTargetClick`', async () => {
+        const childrenText = 'Click me';
+        const contentText = 'I am tooltip';
+        const onTargetClick = jest.fn();
+
+        const { getByText, findByText } = await renderTooltip({
+            children: <div>{childrenText}</div>,
+            content: <div>{contentText}</div>,
+            trigger: 'click',
+            onTargetClick,
+        });
+
+        const children = getByText(childrenText);
+
+        fireEvent.click(children);
+
+        const content = await findByText(contentText);
+
+        expect(content).toBeInTheDocument();
+
+        expect(onTargetClick).toBeCalledTimes(1);
+
+        expect(onTargetClick).toBeCalledWith(expect.anything());
     });
 });
