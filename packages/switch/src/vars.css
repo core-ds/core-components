@@ -1,0 +1,37 @@
+:root {
+    --switch-label-color: var(--color-light-text-primary);
+    --switch-hint-color: var(--color-light-text-secondary);
+    --switch-bg-color: var(--color-light-neutral-translucent-700);
+    --switch-border-color: transparent;
+    --switch-error-color: var(--color-light-text-negative);
+
+    /* inverted */
+    --switch-label-inverted-color: var(--color-light-text-primary-inverted);
+    --switch-hint-inverted-color: var(--color-light-text-secondary-inverted);
+    --switch-checked-bg-inverted-color: var(--color-light-status-positive-inverted);
+    --switch-checked-hover-bg-inverted-color: var(--color-light-status-positive-inverted-hover);
+    --switch-bg-inverted-color: var(--color-light-neutral-translucent-700-inverted);
+
+    /* hover */
+    --switch-hover-bg-color: var(--color-light-neutral-translucent-700-hover);
+    --switch-hover-bg-inverted-color: var(--color-light-neutral-translucent-700-inverted-hover);
+
+    /* checked */
+    --switch-checked-bg-color: var(--color-light-status-positive);
+    --switch-checked-hover-bg-color: var(--color-light-status-positive-hover);
+
+    /* disabled */
+    --switch-disabled-color: var(--color-light-text-secondary);
+    --switch-disabled-inverted-color: var(--color-light-text-secondary-inverted);
+    --switch-disabled-bg-color: var(--color-light-neutral-translucent-200);
+    --switch-disabled-bg-inverted-color: var(--color-light-neutral-translucent-200-inverted);
+
+    /* disabled checked */
+    --switch-disabled-checked-bg-color: var(--switch-disabled-bg-color);
+    --switch-disabled-checked-bg-inverted-color: var(--switch-disabled-bg-inverted-color);
+
+    /* icon */
+    --switch-icon-color: var(--color-static-neutral-0);
+    --switch-icon-disabled-color: var(--color-light-neutral-translucent-500);
+    --switch-icon-disabled-inverted-color: var(--color-light-neutral-translucent-500-inverted);
+}

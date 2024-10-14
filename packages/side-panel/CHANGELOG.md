@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.4.3
+
+## 5.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.4.2
+
 ## 5.7.0
 
 ### Minor Changes

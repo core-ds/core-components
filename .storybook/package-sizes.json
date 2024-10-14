@@ -17,7 +17,7 @@
     "tooltip": {
         "desktop.js": 48.8,
         "index.js": 106.6,
-        "mobile.js": 78
+        "mobile.js": 78.1
     },
     "toast": {
         "desktop.js": 67.4,
@@ -65,7 +65,7 @@
         "shared.js": 3
     },
     "switch": {
-        "index.js": 4.8
+        "index.js": 5
     },
     "steps": {
         "index.js": 9.1
@@ -112,14 +112,14 @@
     },
     "select": {
         "desktop.js": 158.9,
-        "index.js": 303.2,
-        "mobile.js": 276.5,
-        "shared.js": 261.7
+        "index.js": 303.3,
+        "mobile.js": 276.6,
+        "shared.js": 261.8
     },
     "select-with-tags": {
-        "desktop.js": 286.8,
-        "index.js": 310.8,
-        "mobile.js": 284.7
+        "desktop.js": 286.9,
+        "index.js": 310.9,
+        "mobile.js": 284.8
     },
     "segmented-control": {
         "index.js": 13.7
@@ -136,7 +136,7 @@
         "mobile.js": 4.3
     },
     "pure-cell": {
-        "index.js": 46.1,
+        "index.js": 46.4,
         "shared.js": 1.1
     },
     "progress-bar": {
@@ -163,9 +163,9 @@
         "shared.js": 0.6
     },
     "picker-button": {
-        "desktop.js": 282.2,
-        "index.js": 317,
-        "mobile.js": 289.1,
+        "desktop.js": 282.3,
+        "index.js": 317.1,
+        "mobile.js": 289.2,
         "shared.js": 3.1
     },
     "phone-input": {
@@ -223,7 +223,7 @@
     },
     "modal": {
         "desktop.js": 67.9,
-        "index.js": 68,
+        "index.js": 68.1,
         "mobile.js": 67.9,
         "shared.js": 45.1
     },
@@ -242,7 +242,7 @@
         "index.js": 8.9
     },
     "list-header": {
-        "index.js": 7.6
+        "index.js": 7.7
     },
     "link": {
         "index.js": 4.3
@@ -251,12 +251,12 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 790.9
+        "index.js": 791
     },
     "international-phone-input": {
-        "desktop.js": 580.4,
-        "index.js": 615.1,
-        "mobile.js": 587.1,
+        "desktop.js": 580.5,
+        "index.js": 615.2,
+        "mobile.js": 587.3,
         "shared.js": 252.5
     },
     "input": {
@@ -267,8 +267,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 279.5,
-        "index.js": 315.8,
-        "mobile.js": 288.3,
+        "index.js": 316,
+        "mobile.js": 288.5,
         "shared.js": 2
     },
     "indicator": {
@@ -326,7 +326,7 @@
     },
     "date-time-input": {
         "desktop.js": 143.6,
-        "index.js": 245,
+        "index.js": 245.1,
         "mobile.js": 243.7
     },
     "date-range-input": {
@@ -339,15 +339,15 @@
     },
     "custom-picker-button": {
         "desktop.js": 283.9,
-        "index.js": 318.2,
-        "mobile.js": 290.7
+        "index.js": 318.4,
+        "mobile.js": 290.8
     },
     "custom-button": {
         "index.js": 10.3
     },
     "confirmation": {
         "desktop.js": 31,
-        "index.js": 31.3,
+        "index.js": 31.4,
         "mobile.js": 31.1,
         "shared.js": 29.4
     },
@@ -378,7 +378,7 @@
         "mobile.js": 2.6
     },
     "chart": {
-        "index.js": 441
+        "index.js": 441.1
     },
     "cdn-icon": {
         "index.js": 1.8
@@ -411,7 +411,7 @@
         "shared.js": 0.6
     },
     "bottom-sheet": {
-        "index.js": 77.3,
+        "index.js": 77.4,
         "shared.js": 0.8
     },
     "base-modal": {

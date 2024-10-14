@@ -1,5 +1,33 @@
 # Change Log
 
+## 17.15.0
+
+### Minor Changes
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1405](https://github.com/core-ds/core-components/pull/1405)
+
+1. Добавлен пропс `onSelectAllClick` в хук `useSelectWithApply`
+2. Исправлена прокидка пропса `headerProps` в компонент `Header` хуке `useSelectWithApply`
+3. Добавлен параметр `name` в обработчик `onChange` для кнопок "Применить" и "Сбросить"
+4. Добавлен пропс `dataTestId` для чекбокса "Выбрать все"
+5. Исправлена ситуация с пустым списком опций и отображаемым футером
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.6
+    -   modal@9.7.2
+
+## 17.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.5
+    -   modal@9.7.1
+
 ## 17.14.1
 
 ### Patch Changes

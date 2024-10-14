@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.5.2
+
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   tooltip@7.5.1
+
 ## 5.8.0
 
 ### Minor Changes

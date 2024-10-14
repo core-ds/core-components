@@ -34,6 +34,36 @@ describe('PhoneInput', () => {
             await userEvent.type(inputElement, '{backspace}');
             expect(inputElement.value).toBe('+7 ');
         });
+
+        it('with clearableCountryCode === true', async () => {
+            const { getByTestId } = render(
+                <PhoneInput dataTestId={dataTestId} clearableCountryCode={true} />,
+            );
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.type(inputElement, '2');
+
+            expect(inputElement.value).toBe('+7 2');
+
+            await userEvent.type(inputElement, '{backspace>10}');
+
+            expect(inputElement.value).toBe('');
+        });
+
+        it('with clearableCountryCode === false', async () => {
+            const { getByTestId } = render(
+                <PhoneInput dataTestId={dataTestId} clearableCountryCode={false} />,
+            );
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.type(inputElement, '2');
+
+            expect(inputElement.value).toBe('+7 2');
+
+            await userEvent.type(inputElement, '{backspace>10}');
+
+            expect(inputElement.value).toBe('+7 ');
+        });
         /*
          * TODO: хотелось бы добавить тестов на проверку удаления цифр в номере,
          * но не нашел способа двигать каретку
