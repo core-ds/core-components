@@ -23,6 +23,7 @@
         "lodash.throttle": "^4.1.1",
         "react-merge-refs": "1.1.0",
         "simplebar": "^5.3.8",
+        "simplebar-react": "^3.2.6",
         "tslib": "^2.4.0"
     },
     "devDependencies": {
