@@ -1,8 +1,13 @@
 import React, {
     CSSProperties,
     forwardRef,
+    ForwardRefExoticComponent,
+    ForwardRefRenderFunction,
     MutableRefObject,
+    PropsWithoutRef,
     ReactNode,
+    RefAttributes,
+    RefObject,
     useMemo,
     useRef,
     useState,
@@ -26,11 +31,11 @@ import { stackingOrder } from '@alfalab/stack-context';
 
 import styles from './index.module.css';
 
-type RefElement = HTMLElement | null;
-
 export type Position = Placement;
 
-export type PopoverProps = {
+type RefElement = HTMLDivElement;
+
+export type PopoverProps<AnchorElement extends HTMLElement = HTMLElement> = {
     /**
      * Управление состоянием поповера (открыт/закрыт)
      */
@@ -39,7 +44,7 @@ export type PopoverProps = {
     /**
      * Элемент, относительного которого появляется поповер
      */
-    anchorElement: RefElement;
+    anchorElement: AnchorElement | null | RefObject<AnchorElement>;
 
     /**
      * Использовать ширину родительского элемента
@@ -144,7 +149,7 @@ export type PopoverProps = {
     children?: ReactNode;
 };
 
-const DEFAULT_TRANSITION: PopoverProps['transition'] = {
+const DEFAULT_TRANSITION: NonNullable<PopoverProps['transition']> = {
     timeout: 150,
 };
 
@@ -180,13 +185,13 @@ function getArrowPadding(placement: Position) {
     return 0;
 }
 
-export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-    (
+function PopoverRender<AnchorElement extends HTMLElement = HTMLElement>(
+    ...[
         {
             children,
             getPortalContainer,
             transition = DEFAULT_TRANSITION,
-            anchorElement: referenceElement,
+            anchorElement,
             useAnchorWidth = false,
             offset = DEFAULT_OFFSET,
             withArrow = false,
@@ -205,103 +210,120 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             availableHeight = false,
         },
         ref,
-    ) => {
-        const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);
-        const popperRef = useRef<HTMLDivElement>(null);
+    ]: Parameters<ForwardRefRenderFunction<RefElement, PopoverProps<AnchorElement>>>
+): ReturnType<ForwardRefRenderFunction<RefElement, PopoverProps<AnchorElement>>> {
+    const [arrowElement, setArrowElement] = useState<RefElement | null>(null);
+    const popperRef = useRef<RefElement>(null);
+    const referenceElement =
+        anchorElement instanceof HTMLElement ? anchorElement : anchorElement?.current;
 
-        const floatingMiddlewares = useMemo(() => {
-            const [crossAxis, mainAxis] = offset;
-            const middlewares = [offsetMiddleware({ mainAxis, crossAxis })];
+    const floatingMiddlewares = useMemo(() => {
+        const [crossAxis, mainAxis] = offset;
+        const middlewares = [offsetMiddleware({ mainAxis, crossAxis })];
 
-            if (withArrow) {
-                middlewares.push(
-                    arrow(
-                        (state) => ({
-                            element: arrowElement,
-                            padding: getArrowPadding(state.placement),
-                        }),
-                        [arrowElement],
-                    ),
-                );
-            }
+        if (withArrow) {
+            middlewares.push(
+                arrow(
+                    (state) => ({
+                        element: arrowElement,
+                        padding: getArrowPadding(state.placement),
+                    }),
+                    [arrowElement],
+                ),
+            );
+        }
 
-            if (preventFlip || fallbackPlacements || preventOverflow) {
-                middlewares.push(
-                    flip({ flipAlignment: preventFlip, fallbackPlacements, mainAxis: false }),
-                );
-            }
+        if (preventFlip || fallbackPlacements || preventOverflow) {
+            middlewares.push(
+                flip({ flipAlignment: preventFlip, fallbackPlacements, mainAxis: false }),
+            );
+        }
 
-            return middlewares;
-        }, [offset, withArrow, preventFlip, fallbackPlacements, preventOverflow, arrowElement]);
+        return middlewares;
+    }, [offset, withArrow, preventFlip, fallbackPlacements, preventOverflow, arrowElement]);
 
-        const { floatingStyles, refs, middlewareData, placement } = useFloating<HTMLElement>({
-            placement: position,
-            elements: { reference: referenceElement },
-            whileElementsMounted: autoUpdate,
-            middleware: floatingMiddlewares,
-        });
+    const { floatingStyles, refs, middlewareData, placement } = useFloating<HTMLElement>({
+        placement: position,
+        elements: { reference: referenceElement },
+        whileElementsMounted: autoUpdate,
+        middleware: floatingMiddlewares,
+    });
 
-        const renderContent = (computedZIndex: number) => (
+    const renderContent = (computedZIndex: number) => (
+        <div
+            ref={mergeRefs([ref, popperRef, refs.setFloating])}
+            style={{
+                zIndex: computedZIndex,
+                width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
+                ...floatingStyles,
+                ...(floatingStyles.transform ? null : { visibility: 'hidden' }),
+            }}
+            data-test-id={dataTestId}
+            className={cn(styles.component, className)}
+            data-popper-placement={placement}
+        >
             <div
-                ref={mergeRefs([ref, popperRef, refs.setFloating])}
-                style={{
-                    zIndex: computedZIndex,
-                    width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
-                    ...floatingStyles,
-                    ...(floatingStyles.transform ? null : { visibility: 'hidden' }),
-                }}
-                data-test-id={dataTestId}
-                className={cn(styles.component, className)}
-                data-popper-placement={placement}
+                className={cn(styles.inner, popperClassName)}
+                style={
+                    transitionDuration === `${DEFAULT_TRANSITION.timeout}ms`
+                        ? undefined
+                        : { transitionDuration }
+                }
             >
-                <div
-                    className={cn(styles.inner, popperClassName)}
-                    style={
-                        transitionDuration === `${DEFAULT_TRANSITION.timeout}ms`
-                            ? undefined
-                            : { transitionDuration }
-                    }
-                >
-                    <div className={cn({ [styles.scrollableContent]: availableHeight })}>
-                        {children}
-                    </div>
-                    {withArrow && (
-                        <div
-                            ref={setArrowElement}
-                            style={{
-                                transform: `translate(${middlewareData.arrow?.x ?? 0}px, ${
-                                    middlewareData.arrow?.y ?? 0
-                                }px)`,
-                            }}
-                            className={cn(styles.arrow, arrowClassName)}
-                        />
-                    )}
+                <div className={cn({ [styles.scrollableContent]: availableHeight })}>
+                    {children}
                 </div>
-            </div>
-        );
-
-        return (
-            <Stack value={zIndex}>
-                {(computedZIndex) => (
-                    <Portal getPortalContainer={getPortalContainer}>
-                        {withTransition ? (
-                            <CSSTransition
-                                unmountOnExit={true}
-                                classNames={CSS_TRANSITION_CLASS_NAMES}
-                                nodeRef={popperRef}
-                                {...transition}
-                                in={open}
-                            >
-                                {renderContent(computedZIndex)}
-                            </CSSTransition>
-                        ) : (
-                            open && renderContent(computedZIndex)
-                        )}
-                    </Portal>
+                {withArrow && (
+                    <div
+                        ref={setArrowElement}
+                        style={{
+                            transform: `translate(${middlewareData.arrow?.x ?? 0}px, ${
+                                middlewareData.arrow?.y ?? 0
+                            }px)`,
+                        }}
+                        className={cn(styles.arrow, arrowClassName)}
+                    />
                 )}
-            </Stack>
-        );
-    },
-);
+            </div>
+        </div>
+    );
+
+    return (
+        <Stack value={zIndex}>
+            {(computedZIndex) => (
+                <Portal getPortalContainer={getPortalContainer}>
+                    {withTransition ? (
+                        <CSSTransition
+                            unmountOnExit={true}
+                            classNames={CSS_TRANSITION_CLASS_NAMES}
+                            nodeRef={popperRef}
+                            {...transition}
+                            in={open}
+                        >
+                            {renderContent(computedZIndex)}
+                        </CSSTransition>
+                    ) : (
+                        open && renderContent(computedZIndex)
+                    )}
+                </Portal>
+            )}
+        </Stack>
+    );
+}
+
+export const Popover = forwardRef(PopoverRender) as ForwardRefExoticComponent<
+    PropsWithoutRef<PopoverProps> & RefAttributes<RefElement>
+> &
+    (<AnchorElement extends HTMLElement = HTMLElement>(
+        ...params: Parameters<
+            ForwardRefExoticComponent<
+                PropsWithoutRef<PopoverProps<AnchorElement>> & RefAttributes<RefElement>
+            >
+        >
+    ) => ReturnType<
+        ForwardRefExoticComponent<
+            PropsWithoutRef<PopoverProps<AnchorElement>> & RefAttributes<RefElement>
+        >
+    >);
 
 Popover.displayName = 'Popover';
