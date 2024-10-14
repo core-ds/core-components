@@ -26,6 +26,7 @@
         { "path": "../mq" },
         { "path": "../scrollbar" },
         { "path": "../badge" },
-        { "path": "../shared" }
+        { "path": "../shared" },
+        { "path": "../list" }
     ]
 }

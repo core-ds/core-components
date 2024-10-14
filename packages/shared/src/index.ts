@@ -13,3 +13,6 @@ export * from './context/PortalContext';
 export * from './warning';
 export * from './object';
 export * from './type-checks';
+export * from './array';
+export * from './stub';
+export * from './refs';

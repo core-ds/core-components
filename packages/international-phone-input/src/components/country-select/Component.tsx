@@ -3,6 +3,7 @@ import React, { ElementType, useCallback, useMemo } from 'react';
 import {
     BaseOption,
     BaseSelectProps,
+    NextVirtualOptionsList,
     OptionsListProps,
     VirtualOptionsList,
 } from '@alfalab/core-components-select/shared';
@@ -75,7 +76,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     const renderOptionsList = useCallback(
         (props: OptionsListProps) => (
             <div style={{ width: fieldWidth || 0 }}>
-                <VirtualOptionsList {...props} optionsListWidth='field' />
+                <NextVirtualOptionsList {...props} optionsListWidth='field' />
             </div>
         ),
         [fieldWidth],
@@ -105,7 +106,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
                     onChange={onChange}
                     Field={SelectField}
-                    OptionsList={view === 'mobile' ? VirtualOptionsList : renderOptionsList}
+                    OptionsList={view === 'mobile' ? NextVirtualOptionsList : renderOptionsList}
                     {...(view === 'mobile' && {
                         bottomSheetProps: {
                             title: 'Выберите страну',

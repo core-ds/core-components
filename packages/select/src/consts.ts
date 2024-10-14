@@ -11,3 +11,15 @@ export const SIZE_TO_CLASSNAME_MAP = {
     64: 'size-64',
     72: 'size-72',
 };
+
+export const SIZE_TO_NUMBER_MAP = {
+    s: 48,
+    m: 56,
+    l: 64,
+    xl: 72,
+    40: 40,
+    48: 48,
+    56: 56,
+    64: 64,
+    72: 72,
+};

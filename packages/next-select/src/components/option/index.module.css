@@ -1,0 +1,99 @@
+@import '../../vars.css';
+
+.option {
+    @mixin paragraph_component;
+
+    display: flex;
+    align-items: center;
+    padding-left: var(--select-option-left-padding);
+    padding-right: var(--select-option-right-padding);
+    transition: background-color 0.2s ease;
+    background: var(--select-option-background);
+    color: var(--select-option-color);
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+
+    width: 100%;
+
+    &:not(.disabled):active {
+        background: var(--select-option-active-background);
+        color: var(--select-option-active-color);
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: var(--select-option-left-padding);
+        right: var(--select-option-right-padding);
+        top: var(--gap-0);
+        height: 1px;
+        background: var(--select-option-divider-background);
+        display: var(--select-option-divider-display);
+        transition: opacity 0.2s ease;
+    }
+
+    &:first-child:before {
+        display: none;
+    }
+}
+
+.size48 {
+    min-height: var(--size-s-height);
+}
+
+.size56 {
+    min-height: var(--size-m-height);
+}
+
+.size64 {
+    min-height: var(--size-l-height);
+}
+
+.size72 {
+    min-height: var(--size-xl-height);
+}
+
+.size64,
+.size72 {
+    padding-left: var(--select-option-l-left-padding);
+    padding-right: var(--select-option-l-right-padding);
+
+    &:before {
+        left: var(--select-option-l-left-padding);
+        right: var(--select-option-l-right-padding);
+    }
+}
+
+.selected {
+    background: var(--select-option-selected-background);
+    color: var(--select-option-selected-color);
+    cursor: default;
+}
+
+.highlighted {
+    background: var(--select-option-hover-background);
+    color: var(--select-option-hover-color);
+
+    &:before,
+    & + .option:before {
+        opacity: 0;
+    }
+}
+
+.disabled {
+    cursor: var(--disabled-cursor);
+    background: var(--select-option-disabled-background);
+    color: var(--select-option-disabled-color);
+}
+
+.content {
+    overflow: hidden;
+    flex: 1;
+    text-overflow: ellipsis;
+}
+
+.textContent {
+    padding-top: var(--gap-12);
+    padding-bottom: var(--gap-12);
+}

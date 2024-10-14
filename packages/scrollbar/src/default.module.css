@@ -1,9 +1,4 @@
-@import '../../vars/src/index.css';
-
-:root {
-    --scrollbar-background-color: var(--color-light-neutral-translucent-500);
-    --scrollbar-background-color-active: var(--color-light-neutral-translucent-500-press);
-}
+@import './vars.css';
 
 .component {
     & :global(.scrollbar) {

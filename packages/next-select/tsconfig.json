@@ -1,0 +1,26 @@
+{
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-*": ["../*/src"]
+        }
+    },
+    "references": [
+        { "path": "../shared" },
+        { "path": "../accordion" },
+        { "path": "../checkbox" },
+        { "path": "../scrollbar" },
+        { "path": "../form-control" },
+        { "path": "../button" },
+        { "path": "../select" },
+        { "path": "../popover" },
+        { "path": "../list" }
+    ]
+}
