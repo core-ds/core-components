@@ -3,6 +3,7 @@ import type {
     ComponentType,
     FC,
     FocusEvent,
+    KeyboardEvent,
     MouseEvent,
     ReactElement,
     ReactNode,
@@ -476,6 +477,7 @@ export type FieldProps = {
         onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
         onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
         onClick?: (event: MouseEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onKeyDown?: (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => void;
         tabIndex?: number;
         id: string;
     } & RefAttributes<HTMLDivElement | HTMLInputElement> &

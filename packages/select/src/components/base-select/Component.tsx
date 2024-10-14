@@ -360,6 +360,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         };
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+            console.log('blur');
+
             if (view === 'desktop') {
                 const isNextFocusInsideField = fieldRef.current?.contains(
                     (event.relatedTarget || document.activeElement) as HTMLElement,

@@ -27,7 +27,7 @@ lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/export-css-c
 
 # собираю все подпакеты с компонентами
 lerna exec --concurrency $CONCURRENCY \
-    --ignore @alfalab/core-components-codemod \
+    --scope @alfalab/core-components-input \
     -- $(pwd)/bin/rollup.sh
 
 # копирую package.json в сборку корневого пакета
