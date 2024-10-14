@@ -15,8 +15,8 @@
         "index.js": 7.4
     },
     "tooltip": {
-        "desktop.js": 48.8,
-        "index.js": 106.6,
+        "desktop.js": 48.9,
+        "index.js": 106.7,
         "mobile.js": 78.1
     },
     "toast": {
@@ -299,7 +299,7 @@
         "index.js": 1.8
     },
     "gallery": {
-        "index.js": 623.6
+        "index.js": 623.7
     },
     "form-control": {
         "desktop.js": 4.1,
