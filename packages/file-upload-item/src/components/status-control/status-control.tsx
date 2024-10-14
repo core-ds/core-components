@@ -22,11 +22,7 @@ export const StatusControl = () => {
 
     return (
         <div className={styles.container}>
-            <SuperEllipse
-                size={48}
-                backgroundColor='var(--color-light-neutral-translucent-100)'
-                {...(imageUrl && { imageUrl })}
-            >
+            <SuperEllipse size={48} {...(imageUrl && { imageUrl })}>
                 <StatusControlIcon />
             </SuperEllipse>
             <div
