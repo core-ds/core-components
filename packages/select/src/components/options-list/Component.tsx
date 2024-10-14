@@ -202,7 +202,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
                 {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
-                {showFooter && footer && flatOptions.length !== 0 && (
+                {showFooter && footer && (
                     <div
                         onMouseEnter={resetHighlightedIndex}
                         className={cn(styles.optionsListFooter, {
