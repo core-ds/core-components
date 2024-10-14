@@ -52,7 +52,7 @@
         "shared.js": 29.7
     },
     "table": {
-        "index.js": 170.2
+        "index.js": 170.1
     },
     "tab-bar": {
         "index.js": 11,
@@ -114,7 +114,7 @@
         "desktop.js": 158.9,
         "index.js": 303.3,
         "mobile.js": 276.6,
-        "shared.js": 261.9
+        "shared.js": 261.8
     },
     "select-with-tags": {
         "desktop.js": 286.9,
@@ -266,7 +266,7 @@
         "shared.js": 11.9
     },
     "input-autocomplete": {
-        "desktop.js": 279.6,
+        "desktop.js": 279.5,
         "index.js": 316,
         "mobile.js": 288.5,
         "shared.js": 2
