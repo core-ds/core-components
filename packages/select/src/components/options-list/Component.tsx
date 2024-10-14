@@ -114,14 +114,16 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             );
         };
 
+        const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
+
         const measured = useVisibleOptions({
             ...(!nativeScrollbar && { styleTargetRef: scrollbarRef }),
             visibleOptions,
             listRef,
             open,
             options,
-            actualOptionsCount: limitDynamicOptionGroupSize,
-            size: limitDynamicOptionGroupSize
+            actualOptionsCount,
+            size: actualOptionsCount
                 ? (() => {
                       switch (typeof size) {
                           case 'string':
