@@ -38,6 +38,7 @@ export const slider_input: Story = {
                 info={text('info', '')}
                 error={text('error', '')}
                 readOnly={boolean('readOnly', false)}
+                lockLimit={boolean('lockLimit', false)}
             />
         );
     },
