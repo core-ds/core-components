@@ -1,0 +1,29 @@
+{
+    "name": "@alfalab/core-components-next-select",
+    "version": "0.0.1",
+    "description": "NextSelect component",
+    "keywords": [],
+    "license": "MIT",
+    "main": "index.js",
+    "module": "./esm/index.js",
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "dependencies": {
+        "@alfalab/core-components-button": "^11.10.0",
+        "@alfalab/core-components-form-control": "^12.7.0",
+        "@alfalab/core-components-list": "^3.4.7",
+        "@alfalab/core-components-popover": "^6.3.2",
+        "@alfalab/core-components-select": "^17.16.0",
+        "@alfalab/core-components-scrollbar": "^3.1.1",
+        "classnames": "^2.5.1",
+        "memoize-one": "^6.0.0",
+        "tslib": "^2.4.0"
+    },
+    "themesVersion": "13.4.0",
+    "varsVersion": "9.13.1"
+}

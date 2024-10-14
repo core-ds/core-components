@@ -4,6 +4,8 @@ import cn from 'classnames';
 import throttle from 'lodash.throttle';
 import SimpleBar from 'simplebar/src/simplebar';
 
+import { getElementWindow } from '@alfalab/core-components-shared';
+
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -109,10 +111,6 @@ const classNames = {
     dragging: 'dragging',
     visible: 'visible',
 };
-
-function getElementWindow(element: Element) {
-    return element.ownerDocument.defaultView ?? window;
-}
 
 function elementHasAbsPosChild(element: Element) {
     const elementWindow = getElementWindow(element);

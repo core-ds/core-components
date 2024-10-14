@@ -111,7 +111,7 @@ export const Accordion: FC<AccordionProps> = ({
 
     const isStartPosition = controlPosition === 'start';
 
-    const [contentHeight, contentRef] = useMeasureHeight();
+    const [contentHeight, contentRef] = useMeasureHeight<HTMLDivElement>();
 
     const controlContent =
         control === undefined ? (

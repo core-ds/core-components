@@ -11,7 +11,6 @@ import React, {
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import { compute } from 'compute-scroll-into-view';
 import {
@@ -21,8 +20,7 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import { getDataTestId, useElementWidth } from '@alfalab/core-components-shared';
 
 import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
 import {
@@ -112,7 +110,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             limitDynamicOptionGroupSize,
         } = props;
         const shouldSearchBlurRef = useRef(true);
-        const rootRef = useRef<HTMLDivElement>(null);
+        const [rootElementWidth, rootRef] = useElementWidth<HTMLDivElement>(view === 'desktop');
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
@@ -471,43 +469,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
-        const calcOptionsListWidth = useCallback(() => {
-            if (view === 'desktop' && listRef.current) {
-                const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
-
-                const optionsListMinWidth = rootRef.current
-                    ? rootRef.current.getBoundingClientRect().width
-                    : 0;
-
-                listRef.current.setAttribute('style', '');
-                listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
-            }
-        }, [view, optionsListWidth]);
-
-        useEffect(() => {
-            if (view === 'desktop') {
-                const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-                const observer = new ResizeObserver(calcOptionsListWidth);
-
-                if (rootRef.current) {
-                    observer.observe(rootRef.current);
-                }
-
-                return () => {
-                    observer.disconnect();
-                };
-            }
-
-            return fnUtils.noop;
-        }, [view, calcOptionsListWidth, open, optionsListWidth]);
-
-        useLayoutEffect_SAFE_FOR_SSR(calcOptionsListWidth, [
-            open,
-            optionsListWidth,
-            filteredOptions,
-            selectedItems,
-        ]);
-
         const renderValue = () =>
             selectedItems.map((option) => (
                 <input type='hidden' name={name} value={option.key} key={option.key} />
@@ -609,6 +570,11 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 <div
                     {...menuProps}
                     ref={view === 'desktop' ? menuRef : undefined}
+                    style={
+                        view === 'desktop' && optionsListWidth === 'field'
+                            ? { width: rootElementWidth }
+                            : { minWidth: rootElementWidth }
+                    }
                     className={cn(
                         optionsListClassName,
                         view === 'mobile' && mobileStyles.optionsListWrapper,
@@ -645,6 +611,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         search={search}
                         multiple={multiple}
                         limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
+                        fieldWidth={rootElementWidth}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
