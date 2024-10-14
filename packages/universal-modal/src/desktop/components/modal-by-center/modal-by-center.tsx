@@ -21,6 +21,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, UniversalModalDesktopPro
             width = 500,
             height = 'fullHeight',
             verticalAlign = 'center',
+            overlay = true,
             ...restProps
         } = props;
 
@@ -39,9 +40,14 @@ export const ModalByCenter = forwardRef<HTMLDivElement, UniversalModalDesktopPro
                     classNames: transitionsCenter,
                     ...transitionProps,
                 }}
-                className={cn(className, styles.component, styles[verticalAlign])}
+                className={cn(className, styles.component, styles[verticalAlign], {
+                    [styles.overlayHidden]: !overlay,
+                })}
                 scrollHandler='content'
                 open={open}
+                backdropProps={{
+                    transparent: !overlay,
+                }}
             >
                 <div>{children}</div>
             </BaseModal>

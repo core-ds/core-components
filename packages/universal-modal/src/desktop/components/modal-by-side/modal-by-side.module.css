@@ -1,32 +1,29 @@
 @import '../../../vars.css';
 
-:root {
-    --modal-side-gap: 12px;
-}
-
 .hidden {
     overflow-x: hidden;
 }
 
 .component {
-    top: var(--modal-side-gap);
+    top: 0;
     min-width: 500px;
     width: 500px;
     min-height: 264px;
-    height: calc(100% - var(--modal-side-gap) * 2);
+    height: 100%;
     border-radius: var(--border-radius-24);
     will-change: transform;
+    margin: var(--gap-s);
 
     &.left {
-        left: var(--modal-side-gap);
+        left: 0;
     }
 
     &.right {
-        right: var(--modal-side-gap);
+        right: 0;
     }
 
     &.bottom {
         top: unset;
-        bottom: var(--modal-side-gap);
+        bottom: 0;
     }
 }

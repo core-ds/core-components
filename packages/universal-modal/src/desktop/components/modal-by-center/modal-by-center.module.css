@@ -1,14 +1,10 @@
 @import '../../../vars.css';
 
-:root {
-    --modal-side-gap: 12px;
-}
-
 .component {
     min-width: 500px;
     width: 500px;
     min-height: 264px;
-    height: calc(100% - var(--modal-side-gap) * 2);
+    height: 100%;
     border-radius: var(--border-radius-24);
 
     &.top {
@@ -17,5 +13,9 @@
 
     &.bottom {
         margin-bottom: var(--gap-12);
+    }
+
+    &.overlayHidden {
+        box-shadow: var(--shadow-m);
     }
 }

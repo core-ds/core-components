@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { boolean, select, text, number } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
@@ -66,6 +66,7 @@ export let SidePanelComponent = UniversalModalDesktop;
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
         const width = text('width', '500');
         const height = text('height', 'fullHeight');
+        const overlay = boolean('overlay', true);
 
         const header = boolean('header', true);
         const headerTitle = text('header.title');
@@ -110,6 +111,7 @@ export let SidePanelComponent = UniversalModalDesktop;
                     verticalAlign={verticalAlign}
                     width={width}
                     height={height}
+                    overlay={overlay}
                     {...props}
                 >
                     {header && (

@@ -41,6 +41,12 @@ export type BaseUniversalModalProps = {
      * @default fullHeight
      */
     height: number | 'fullHeight';
+
+    /**
+     * Наличие оверлея
+     * @default true
+     */
+    overlay?: boolean;
 };
 
 export type UniversalModalDesktopProps = BaseModalProps &

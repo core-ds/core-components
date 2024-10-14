@@ -1,15 +1,14 @@
-import React, { cloneElement, forwardRef, isValidElement, useRef } from 'react';
+import React, { cloneElement, forwardRef, isValidElement, useEffect, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Drawer } from '@alfalab/core-components-drawer';
+import { isClient } from '@alfalab/core-components-shared';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../../consts';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { useHeight } from '../hooks/useHeight';
 import { useWidth } from '../hooks/useWidth';
-
-import { useCenterTop } from './hooks/useCenterTop';
 
 import styles from './modal-by-side.module.css';
 import transitions from './transitions.desktop.module.css';
@@ -17,6 +16,7 @@ import transitions from './transitions.desktop.module.css';
 export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
         horizontalAlign = 'center',
+        verticalAlign = 'center',
         dataTestId,
         wrapperClassName,
         className,
@@ -24,7 +24,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         size = 500,
         width = 500,
         height = 'fullHeight',
-        verticalAlign = 'center',
         contentTransitionProps,
         children,
         ...restProps
@@ -45,7 +44,22 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
 
     useWidth(width, restProps.open, componentRef);
     useHeight(height, restProps.open, componentRef);
-    useCenterTop(verticalAlign, restProps.open, componentRef);
+
+    // Устанавливает боковое модальное окно вертикально по центру (transform приводит к артефактам из-за CSSTransition)
+    useEffect(() => {
+        if (verticalAlign === 'center' && componentRef.current) {
+            const { offsetHeight } = componentRef.current;
+            let computedMarginTop = '0';
+
+            if (isClient()) {
+                computedMarginTop = window.getComputedStyle(componentRef.current).marginTop;
+            }
+
+            componentRef.current.style.top = `calc(50% - ${
+                offsetHeight / 2
+            }px - ${computedMarginTop})`;
+        }
+    }, [restProps.open, verticalAlign, componentRef]);
 
     if (horizontalAlign === 'right' || horizontalAlign === 'left') {
         return (
