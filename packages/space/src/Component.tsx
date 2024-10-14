@@ -1,4 +1,4 @@
-import React, { Children, forwardRef, ReactElement, ReactNode } from 'react';
+import React, { Children, forwardRef, isValidElement, ReactNode } from 'react';
 import cn from 'classnames';
 
 import Item from './Item';
@@ -121,7 +121,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         <Item
             className={itemClassName}
             dividerClassName={styles.divider}
-            key={(child as ReactElement).key}
+            key={isValidElement(child) ? child.key : `${itemClassName}-${i}`}
             direction={direction}
             horizontalSize={horizontalSize}
             verticalSize={verticalSize}
