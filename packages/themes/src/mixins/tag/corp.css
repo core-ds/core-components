@@ -1,13 +1,15 @@
 @define-mixin tag-corp {
     /* border */
-    --tag-rectangular-xxs-border-radius: var(--border-radius-10);
-    --tag-rectangular-xs-border-radius: var(--border-radius-12);
-    --tag-rectangular-s-border-radius: var(--border-radius-12);
-    --tag-alt-border-radius: var(--border-radius-16);
+    --tag-rectangular-xxs-border-radius: var(--border-radius-8); /* 32 */
+    --tag-rectangular-xs-border-radius: var(--border-radius-10); /* 40 */
+    --tag-rectangular-s-border-radius: var(--border-radius-10); /* 48 */
+    --tag-rectangular-m-border-radius: var(--border-radius-12); /* 56 */
+    --tag-rectangular-l-border-radius: var(--border-radius-14); /* 64 */
+    --tag-rectangular-xl-border-radius: var(--border-radius-14); /* 72 */
 
     /* border mobile */
-    --tag-rectangular-mobile-xxs-border-radius: var(--border-radius-10);
-    --tag-rectangular-mobile-xs-border-radius: var(--border-radius-12);
-    --tag-rectangular-mobile-s-border-radius: var(--border-radius-12);
+    --tag-rectangular-mobile-xxs-border-radius: var(--border-radius-8); /* 32 */
+    --tag-rectangular-mobile-xs-border-radius: var(--border-radius-12); /* 40 */
+    --tag-rectangular-mobile-s-border-radius: var(--border-radius-12); /* 48 */
     --tag-alt-mobile-border-radius: var(--border-radius-16);
 }
