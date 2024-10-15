@@ -1,4 +1,5 @@
 @import '../../../vars/src/index.css';
+@import './vars.css';
 
 .bold {
     @mixin headline-system_xsmall;

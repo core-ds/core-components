@@ -1,11 +1,9 @@
+@import '../../../../vars/src/index.css';
+
 :root {
     /* border */
     --plate-border-left: 2px;
     --plate-border-width: 1px;
-    --plate-rounded-border-radius-desktop: var(--border-radius-12);
-    --plate-rounded-border-radius-mobile: var(--border-radius-12);
-    --plate-rounded-shadow-border-radius-desktop: var(--border-radius-12);
-    --plate-rounded-shadow-border-radius-mobile: var(--border-radius-12);
 
     /* width limit */
     --plate-width-limit: 560px;
