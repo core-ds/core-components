@@ -3412,7 +3412,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
           data-test-id="period-slider-btn-previous-day"
           type="button"
         >
@@ -3445,7 +3445,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
           data-test-id="period-slider-btn-next-day"
           type="button"
         >

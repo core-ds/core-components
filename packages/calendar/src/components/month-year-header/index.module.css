@@ -11,7 +11,7 @@
 
 :global(.cc-calendar) {
     & .button.button {
-        border-radius: var(--border-radius-s);
+        border-radius: var(--calendar-select-button-border-radius);
     }
 }
 

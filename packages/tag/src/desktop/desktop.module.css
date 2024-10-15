@@ -13,9 +13,15 @@
         border-radius: var(--tag-rectangular-s-border-radius);
     }
 
-    &.size-56,
-    &.size-64,
+    &.size-56 {
+        border-radius: var(--tag-rectangular-m-border-radius);
+    }
+
+    &.size-64 {
+        border-radius: var(--tag-rectangular-l-border-radius);
+    }
+
     &.size-72 {
-        border-radius: var(--tag-alt-border-radius);
+        border-radius: var(--tag-rectangular-xl-border-radius);
     }
 }

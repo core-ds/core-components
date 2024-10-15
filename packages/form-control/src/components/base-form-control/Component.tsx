@@ -237,10 +237,14 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                             [commonStyles.disabled]: disabled || readOnly,
                             [colorCommonStyles[colors].disabled]: disabled || readOnly,
                             [colorStyles[colors].disabled]: disabled || readOnly,
+
                             [commonStyles.filled]: filled,
                             [commonStyles.hasInnerLabel]: label && labelView === 'inner',
+
                             [commonStyles.focused]: focused,
                             [colorCommonStyles[colors].focused]: focused,
+                            [colorStyles[colors].focused]: focused,
+
                             [commonStyles.hasError]: error,
                             [colorCommonStyles[colors].hasError]: error,
                             [colorStyles[colors].hasError]:

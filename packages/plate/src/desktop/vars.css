@@ -1,0 +1,4 @@
+:root {
+    --plate-rounded-border-radius-desktop: var(--border-radius-12);
+    --plate-rounded-shadow-border-radius-desktop: var(--border-radius-12);
+}

@@ -1,0 +1,4 @@
+@define-mixin plate-corp {
+    --plate-rounded-border-radius-desktop: var(--gap-16);
+    --plate-rounded-shadow-border-radius-desktop: var(--gap-16);
+}

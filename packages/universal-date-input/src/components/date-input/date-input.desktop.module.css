@@ -1,0 +1,5 @@
+@import '../../vars.css';
+
+.calendarContainer {
+    border-radius: var(--calendar-popover-border-radius);
+}

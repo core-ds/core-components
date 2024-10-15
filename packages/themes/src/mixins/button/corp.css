@@ -34,4 +34,15 @@
     --button-spinner-inverted-static-color: var(--color-light-neutral-translucent-1300);
     --button-spinner-primary-color: var(--color-static-neutral-translucent-1300-inverted);
     --button-spinner-inverted-primary-color: var(--color-static-neutral-translucent-1300-inverted);
+
+    /* border-radius desktop */
+    --button-xxs-size-border-radius: var(--border-radius-8);
+    --button-xs-size-border-radius: var(--border-radius-10);
+    --button-s-size-border-radius: var(--border-radius-10);
+    --button-m-size-border-radius: var(--border-radius-12);
+    --button-l-size-border-radius: var(--border-radius-14);
+    --button-xl-size-border-radius: var(--border-radius-14);
+
+    /* border-radius mobile */
+    --button-xxs-size-mobile-border-radius: var(--border-radius-8);
 }

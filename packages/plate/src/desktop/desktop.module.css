@@ -1,4 +1,5 @@
 @import '../../../vars/src/index.css';
+@import './vars.css';
 
 .bold {
     @mixin headline-system_xsmall;
@@ -11,4 +12,12 @@
 
 .footer {
     padding: var(--gap-8) var(--gap-0) var(--gap-4) var(--gap-4);
+}
+
+.rounded {
+    border-radius: var(--plate-rounded-border-radius-desktop);
+
+    &.shadow:after {
+        border-radius: var(--plate-rounded-shadow-border-radius-desktop);
+    }
 }

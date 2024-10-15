@@ -12,9 +12,16 @@
     --tag-border-width: 1px;
     --tag-border-radius: var(--border-radius-pill);
     --tag-alt-border-radius: var(--border-radius-4);
+
+    /* rectangular border-radius */
     --tag-rectangular-xxs-border-radius: var(--border-radius-6);
     --tag-rectangular-xs-border-radius: var(--border-radius-8);
     --tag-rectangular-s-border-radius: var(--border-radius-8);
+    --tag-rectangular-m-border-radius: var(--tag-alt-border-radius);
+    --tag-rectangular-l-border-radius: var(--tag-alt-border-radius);
+    --tag-rectangular-xl-border-radius: var(--tag-alt-border-radius);
+
+    /* rounded border-radius */
     --tag-rounded-xxs-border-radius: var(--border-radius-pill);
     --tag-rounded-xs-border-radius: var(--border-radius-pill);
     --tag-rounded-s-border-radius: var(--border-radius-pill);

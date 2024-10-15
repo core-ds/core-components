@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
         data-test-id="test-id"
         href="http://example.com"
       >
@@ -36,7 +36,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
       data-test-id="test-id"
       href="http://example.com"
     >
@@ -123,7 +123,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
+        class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
         type="button"
       >
         <span
@@ -152,7 +152,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component text size-48 hug size-48 component text component text cc-icon-button primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
       type="button"
     >
       <span

@@ -277,10 +277,15 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                         [commonStyles.focused]: focused,
                         [commonStyles.isHidden]: hasCloser && isHidden,
                         [commonStyles.isFolded]: foldable && folded,
+
                         [commonStyles.rounded]: rounded,
+                        [styles.rounded]: rounded,
+
                         [commonStyles.rect]: !rounded,
                         [commonStyles.noBorder]: !border,
+
                         [commonStyles.shadow]: shadow,
+                        [styles.shadow]: shadow,
                     },
                     className,
                 )}

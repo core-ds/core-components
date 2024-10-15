@@ -1,0 +1,3 @@
+@define-mixin calendar-corp {
+    --calendar-select-button-border-radius: var(--border-radius-10);
+}
