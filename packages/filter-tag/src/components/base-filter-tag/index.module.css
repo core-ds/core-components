@@ -203,6 +203,7 @@
     }
 
     &.checked {
+        border-width: 0;
         color: var(--tag-text-color-checked);
         background-color: var(--tag-background-color-checked);
 
@@ -234,6 +235,7 @@
 
         &:not(:disabled) {
             padding-right: var(--gap-0);
+            border-right-width: 0;
 
             &.close {
                 &.size-32 {
