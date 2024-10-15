@@ -107,7 +107,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                     [colorStyles[colors].transparentBg]: transparentBg,
                 },
             )}
-            size='s' /** todo рассмотреть возможность динамического изменения размера */
+            size='s'
         >
             <span
                 className={cn(
