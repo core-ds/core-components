@@ -10,7 +10,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Spinner } from '@alfalab/core-components-spinner';
+import { SpinnerPreset } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
 import { CommonButtonProps, ComponentProps, PrivateButtonProps } from '../../typings';
@@ -165,7 +165,7 @@ export const BaseButton = React.forwardRef<
                 )}
 
                 {showLoader && (
-                    <Spinner
+                    <SpinnerPreset
                         dataTestId={getDataTestId(dataTestId, 'loader')}
                         visible={true}
                         className={cn(

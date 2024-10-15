@@ -1,18 +1,30 @@
-import { ArgsTable } from '@storybook/addon-docs';
-import { CssVars } from 'storybook/blocks';
-import { Spinner as SpinnerTS } from '../Component';
-import styles from '!!raw-loader!../index.module.css';
+import { ArgsTabs, CssVars } from 'storybook/blocks';
+import { Spinner } from '../Component';
+import { SpinnerPreset } from '../preset';
+import vars from '!!raw-loader!../vars.css';
 
-## Подключение
+## Подключениe
 
 ```jsx
-import { Spinner } from '@alfalab/core-components/spinner';
+import { Spinner, SpinnerPreset } from '@alfalab/core-components/spinner';
+```
+
+## Использование
+
+```jsx
+<Spinner size={20} lineWidth={2} {...restProps} />
+```
+
+или
+
+```jsx
+<SpinnerPreset preset={48} {...restProps} />
 ```
 
 ## Свойства
 
-<ArgsTable of={SpinnerTS} />
+<ArgsTabs components={{ Spinner, SpinnerPreset }} />
 
 ## Переменные
 
-<CssVars css={styles} />
+<CssVars css={vars} />

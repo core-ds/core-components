@@ -1,0 +1,13 @@
+@import '../../vars/src/index.css';
+
+:root {
+    --spinner-display-visible: inline-block;
+    --spinner-animation-duration: 0.8s;
+    --spinner-animation-timing-function: linear;
+
+    /* default */
+    --spinner-default-color: var(--color-light-neutral-translucent-1300);
+
+    /* inverted */
+    --spinner-inverted-color: var(--color-light-neutral-translucent-1300-inverted);
+}

@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
+import { devWarning, fnUtils } from '@alfalab/core-components-shared';
 import { useId } from '@alfalab/hooks';
+
+import { SpinnerProps } from './types';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -12,143 +15,62 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SpinnerProps = {
-    /**
-     * Управление видимостью компонента
-     */
-    visible?: boolean;
-
-    /**
-     * Размер компонента
-     * @description xs, s, m deprecated, используйте вместо них 16, 24, 48 соответственно
-     */
-    size?: 'xs' | 's' | 'm' | 16 | 24 | 48;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Идентификатор компонента в DOM
-     */
-    id?: string;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Палитра, в контексте которой используется спиннер
-     */
-    colors?: 'default' | 'inverted';
-};
-
-const CONFIG = {
-    xs: {
-        padding: 1,
-        lineWidth: 2,
-        size: 18,
-    },
-    s: {
-        padding: 2,
-        lineWidth: 2,
-        size: 24,
-    },
-    m: {
-        padding: 4,
-        lineWidth: 4,
-        size: 48,
-    },
-    16: {
-        padding: 1,
-        lineWidth: 2,
-        size: 18,
-    },
-    24: {
-        padding: 2,
-        lineWidth: 2,
-        size: 24,
-    },
-    48: {
-        padding: 4,
-        lineWidth: 4,
-        size: 48,
-    },
-} as const;
-
-export const SIZE_TO_CLASSNAME_MAP = {
-    xs: 'size-16',
-    s: 'size-24',
-    m: 'size-48',
-    16: 'size-16',
-    24: 'size-24',
-    48: 'size-48',
-};
-
 export const Spinner: FC<SpinnerProps> = ({
-    size: sizeProp = 24,
-    colors = 'default',
+    size,
+    lineWidth,
+    style,
     visible,
     id,
     className,
     dataTestId,
+    colors = 'default',
 }) => {
+    const color = style?.color;
+
+    if (!fnUtils.isNil(color)) {
+        devWarning(
+            `[Spinner]: Палитра, в контексте которой используется спиннер (проп 'colors') игнорируется. Используется цвет 'style.color' ${color}`,
+        );
+    }
     const uniqId = useId();
-    const { size, padding, lineWidth } = CONFIG[sizeProp];
-
-    const xStart = padding + lineWidth / 2;
-    const xEnd = size - xStart;
-    const y = size / 2;
-    const r = y - xStart;
-
-    const topGradientId = `${uniqId}_top`;
-    const bottomGradientId = `${uniqId}_bottom`;
+    const radius = size / 2 - lineWidth / 2;
+    const rotationAngle /* deg */ = Math.ceil((Math.asin(lineWidth / 2 / radius) * 180) / Math.PI);
+    const gap /* deg */ = 90;
+    const pathLength /* deg */ = 360;
+    const strokeDasharray = `${pathLength - gap - rotationAngle} ${gap + rotationAngle}`;
+    const gradient = `conic-gradient(from ${rotationAngle}deg, transparent ${
+        gap - rotationAngle * 2
+    }deg, currentColor)`;
 
     return (
         <svg
-            viewBox={`0 0 ${size} ${size}`}
-            fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            className={cn(
-                styles.spinner,
-                colorStyles[colors].component,
-                styles[SIZE_TO_CLASSNAME_MAP[sizeProp]],
-                className,
-                {
-                    [styles.visible]: visible,
-                },
-            )}
+            viewBox={`0 0 ${size} ${size}`}
+            style={{ ...style, height: size, width: size }}
+            className={cn(styles.spinner, colorStyles[colors].component, className, {
+                [styles.visible]: visible,
+            })}
             data-test-id={dataTestId}
             id={id}
         >
             <defs>
-                <linearGradient id={topGradientId} x1='0.05'>
-                    <stop offset='0.1' stopOpacity='0' stopColor='currentColor' />
-                    <stop offset='1' stopOpacity='0.3' stopColor='currentColor' />
-                </linearGradient>
-                <linearGradient id={bottomGradientId} x1='0.05'>
-                    <stop offset='0' stopOpacity='1' stopColor='currentColor' />
-                    <stop offset='1' stopOpacity='0.3' stopColor='currentColor' />
-                </linearGradient>
+                <mask id={uniqId}>
+                    <circle
+                        cx='50%'
+                        cy='50%'
+                        r={radius}
+                        strokeWidth={lineWidth}
+                        strokeLinecap='round'
+                        stroke='#fff'
+                        strokeDashoffset={-rotationAngle}
+                        strokeDasharray={strokeDasharray}
+                        pathLength={pathLength}
+                    />
+                </mask>
             </defs>
-
-            <g strokeWidth={lineWidth}>
-                <path
-                    stroke={`url(#${topGradientId})`}
-                    d={`M${xStart},${y} A${r},${r} 0 0 1 ${xEnd},${y}`}
-                />
-                <path
-                    stroke={`url(#${bottomGradientId})`}
-                    d={`M${xEnd},${y} A${r},${r} 0 0 1 ${xStart},${y}`}
-                />
-                <path
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    d={`M${xStart},${y} A${r},${r} 0 0 1 ${xStart} ${y}`}
-                />
-            </g>
+            <foreignObject x='0' y='0' width={size} height={size} mask={`url(#${uniqId})`}>
+                <div className={styles.gradient} style={{ backgroundImage: gradient }} />
+            </foreignObject>
         </svg>
     );
 };
