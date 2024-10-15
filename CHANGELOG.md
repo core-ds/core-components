@@ -1,3 +1,62 @@
+## 47.23.0
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1407](https://github.com/core-ds/core-components/pull/1407)
+
+#### Что изменилось
+- Откат изменений скрытия футера при пустых опциях
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1415](https://github.com/core-ds/core-components/pull/1415)
+
+#### Что изменилось
+- Добавлен обработчик `onTargetClick`, вызываемый при нажатии на цель `Tooltip`
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+### [#1414](https://github.com/core-ds/core-components/pull/1414)
+
+#### Что изменилось
+- Для дочернего компонента-обертки Space -> Item прокидываем key который передали или сгенерировал react
+
+#### Влияние на компоненты
+- Патчи<br />`space`
+
+
+### [#1410](https://github.com/core-ds/core-components/pull/1410)
+
+#### Что изменилось
+- Исправлен расчет высоты пустого списка опций с включенным `limitDynamicOptionGroupSize`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1381](https://github.com/core-ds/core-components/pull/1381)
+
+#### Что изменилось
+- Добавлены `inverted` цвета
+
+#### Влияние на компоненты
+- Минорное<br />`switch`
+
+
+### [#1382](https://github.com/core-ds/core-components/pull/1382)
+
+#### Что изменилось
+- Исправлено скругление картинок до `16px`
+
+#### Влияние на компоненты
+- Патчи<br />`markdown`
+
+
+
 ## 47.22.0
 
 <sup><time>11.10.2024</time></sup>
