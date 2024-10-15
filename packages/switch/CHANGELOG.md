@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.4.0
+
+### Minor Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1381](https://github.com/core-ds/core-components/pull/1381)
+
+-   Добавлены `inverted` цвета
+
 ## 4.3.2
 
 ### Patch Changes

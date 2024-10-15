@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.3.1
+
+### Patch Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1414](https://github.com/core-ds/core-components/pull/1414)
+
+-   Для дочернего компонента-обертки Space -> Item прокидываем key который передали или сгенерировал react
+
 ## 3.3.0
 
 ### Minor Changes
