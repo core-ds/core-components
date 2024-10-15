@@ -12,3 +12,11 @@
 .footer {
     padding: var(--gap-8) var(--gap-0) var(--gap-4) var(--gap-4);
 }
+
+.rounded {
+    border-radius: var(--plate-rounded-border-radius-mobile);
+
+    &.shadow:after {
+        border-radius: var(--plate-rounded-shadow-border-radius-mobile);
+    }
+}
