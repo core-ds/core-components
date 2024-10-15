@@ -1,10 +1,9 @@
 import React, { FC, useContext, useEffect, useRef } from 'react';
 
 import { GalleryContext } from '../../context';
-import { isSmallImage, TestIds } from '../../utils';
+import { GALLERY_EVENTS, isSmallImage, isVideo, TestIds } from '../../utils';
+import * as Buttons from '../buttons';
 import { HeaderInfoBlock } from '../header-info-block';
-
-import * as Buttons from './buttons';
 
 import styles from './index.module.css';
 
@@ -18,9 +17,31 @@ export const Header: FC = () => {
         getCurrentImage,
         setFullScreen,
         onClose,
+        mutedVideo,
+        setMutedVideo,
     } = useContext(GalleryContext);
 
+    const currentImage = getCurrentImage();
+    const meta = getCurrentImageMeta();
+
     const toggleFullScreenButton = useRef<HTMLButtonElement>(null);
+
+    const onMuteButtonClick = () => {
+        if (mutedVideo) {
+            const customEvent = new CustomEvent(GALLERY_EVENTS.ON_UNMUTE, {
+                detail: { player: meta?.player?.current },
+            });
+
+            dispatchEvent(customEvent);
+        } else {
+            const customEvent = new CustomEvent(GALLERY_EVENTS.ON_MUTE, {
+                detail: { player: meta?.player?.current },
+            });
+
+            dispatchEvent(customEvent);
+        }
+        setMutedVideo(!mutedVideo);
+    };
 
     const closeFullScreen = () => {
         setFullScreen(false);
@@ -36,16 +57,10 @@ export const Header: FC = () => {
         }
     }, [fullScreen]);
 
-    const currentImage = getCurrentImage();
-
     const canDownload = currentImage?.canDownload ?? true;
     const filename = currentImage?.name || '';
     const description =
-        singleSlide || !images.length
-            ? ''
-            : `Изображение ${currentSlideIndex + 1} из ${images.length}`;
-
-    const meta = getCurrentImageMeta();
+        singleSlide || !images.length ? '' : `${currentSlideIndex + 1} из ${images.length}`;
 
     const showFullScreenButton = !isSmallImage(meta) && !meta?.broken;
     const showDownloadButton = !meta?.broken && canDownload;
@@ -65,11 +80,19 @@ export const Header: FC = () => {
             />
         );
 
+    const renderToggleMuteVideo = () =>
+        mutedVideo ? (
+            <Buttons.UnmuteVideo onClick={onMuteButtonClick} dataTestId={TestIds.UNMUTE_BUTTON} />
+        ) : (
+            <Buttons.MuteVideo onClick={onMuteButtonClick} dataTestId={TestIds.MUTE_BUTTON} />
+        );
+
     return (
         <div className={styles.header}>
             <HeaderInfoBlock filename={filename} description={description} />
 
             <div className={styles.buttons}>
+                {isVideo(currentImage?.src) && renderToggleMuteVideo()}
                 {showFullScreenButton && renderToggleFullScreenButton()}
 
                 {showDownloadButton && (

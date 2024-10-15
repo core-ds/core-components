@@ -1,3 +1,120 @@
+## 47.22.0
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1399](https://github.com/core-ds/core-components/pull/1399)
+
+#### Что изменилось
+- Изменена логика отрисовки image тэга - теперь image рендерится всегда и скрывается только в случае ошибки загрузки
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1405](https://github.com/core-ds/core-components/pull/1405)
+
+#### Что изменилось
+1. Добавлен пропс `onSelectAllClick` в хук `useSelectWithApply`
+2. Исправлена прокидка пропса `headerProps` в компонент `Header` хуке `useSelectWithApply`
+3. Добавлен параметр `name` в обработчик `onChange` для кнопок "Применить" и "Сбросить"
+4. Добавлен пропс `dataTestId` для чекбокса "Выбрать все"
+5. Исправлена ситуация с пустым списком опций и отображаемым футером
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1371](https://github.com/core-ds/core-components/pull/1371)
+
+#### Что изменилось
+- Исправлено удаление номера в режиме clearableCountryCode
+
+#### Влияние на компоненты
+- Минорное<br />`phone-input`
+
+
+### [#1389](https://github.com/core-ds/core-components/pull/1389)
+
+#### Что изменилось
+- Изменен тип у компонента navigation-bar-private для пропса title со string на ReactNode
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar-private`
+
+
+
+## 47.21.0
+
+<sup><time>04.10.2024</time></sup>
+
+### [#1397](https://github.com/core-ds/core-components/pull/1397)
+
+#### Что изменилось
+- Для Amount и AmountTitle добавлено состояние hidden, когда значение скрывается скелетоном
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1401](https://github.com/core-ds/core-components/pull/1401)
+
+#### Что изменилось
+- Добавлен `opacity` во время показа скелетона. Это позволяет избежать моргания компонента в ssr.
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
+## 47.20.0
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1317](https://github.com/core-ds/core-components/pull/1317)
+
+#### Что изменилось
+Добавлена поддержка видео: теперь в images можно передавать видео в формате m3u8.
+
+При воспроизведении, паузе, выключения звука и выключения звука трекаются кастомные эвенты. Подписаться на них можно с помощью
+```window.addEventListener(GALLERY_EVENTS.ON_PLAY, handler)```
+GALLERY_EVENTS экспортируется из `@alfalab/core-components-gallery`
+
+Также изменено отображение в мобильной версии.
+Было: ![img.png](img.png)
+Стало: ![img_1.png](img_1.png)
+
+#### Влияние на компоненты
+- Минорное<br />`gallery`
+
+
+### [#1388](https://github.com/core-ds/core-components/pull/1388)
+
+#### Что изменилось
+- Исправлен скролл `VirtualOptionsList`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1384](https://github.com/core-ds/core-components/pull/1384)
+
+#### Что изменилось
+- Произвёл автоматическую оптимизацию кривых (по размеру) пакета 'icon-view'
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1390](https://github.com/core-ds/core-components/pull/1390)
+
+#### Что изменилось
+- Исправлен `Checkbox` размером 20
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox`
+
+
+
 ## 47.19.0
 
 <sup><time>20.09.2024</time></sup>

@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.7.1
+
+### Patch Changes
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1390](https://github.com/core-ds/core-components/pull/1390)
+
+-   Исправлен `Checkbox` размером 20
+
 ## 4.7.0
 
 ### Minor Changes

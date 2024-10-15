@@ -1,5 +1,38 @@
 # Change Log
 
+## 5.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.5.2
+
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   tooltip@7.5.1
+
+## 5.8.0
+
+### Minor Changes
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1317](https://github.com/core-ds/core-components/pull/1317)
+
+Добавлена поддержка видео: теперь в images можно передавать видео в формате m3u8.
+
+При воспроизведении, паузе, выключения звука и выключения звука трекаются кастомные эвенты. Подписаться на них можно с помощью
+`window.addEventListener(GALLERY_EVENTS.ON_PLAY, handler)`
+GALLERY_EVENTS экспортируется из `@alfalab/core-components-gallery`
+
+Также изменено отображение в мобильной версии.
+Было: ![img.png](img.png)
+Стало: ![img_1.png](img_1.png)
+
 ## 5.7.4
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import type { MutableRefObject, ReactElement, ReactNode } from 'react';
+import type { MouseEvent, MutableRefObject, ReactElement, ReactNode } from 'react';
 import React from 'react';
 
 import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
@@ -145,6 +145,8 @@ export type TooltipDesktopProps = {
      * @default div
      */
     targetTag?: 'div' | 'span';
+
+    onTargetClick?: (event: MouseEvent<HTMLElement>) => void;
 };
 
 export type TooltipMobileProps = Omit<Partial<BottomSheetProps>, 'actionButton'> &

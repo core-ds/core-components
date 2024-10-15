@@ -1,5 +1,25 @@
 # Change Log
 
+## 3.8.3
+
+### Patch Changes
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1399](https://github.com/core-ds/core-components/pull/1399)
+
+-   Изменена логика отрисовки image тэга - теперь image рендерится всегда и скрывается только в случае ошибки загрузки
+
+## 3.8.2
+
+### Patch Changes
+
+<sup><time>24.09.2024</time></sup>
+
+### [#1384](https://github.com/core-ds/core-components/pull/1384)
+
+-   Произвёл автоматическую оптимизацию кривых (по размеру) пакета 'icon-view'
+
 ## 3.8.1
 
 ### Patch Changes

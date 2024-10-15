@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.13.0
+
+### Minor Changes
+
+<sup><time>04.10.2024</time></sup>
+
+### [#1397](https://github.com/core-ds/core-components/pull/1397)
+
+-   Для Amount и AmountTitle добавлено состояние hidden, когда значение скрывается скелетоном
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   comment@2.4.2
+
 ## 4.12.4
 
 ### Patch Changes

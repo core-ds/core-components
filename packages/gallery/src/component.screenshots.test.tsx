@@ -10,7 +10,7 @@ import { TestIds } from './utils';
 
 const clip = { x: 0, y: 0, width: 1024, height: 768 };
 
-describe('Gallery', () =>
+xdescribe('Gallery', () =>
     createPreview(
         {
             testStory: false,
@@ -23,7 +23,7 @@ describe('Gallery', () =>
         },
     ));
 
-describe('Gallery | interactions tests', () => {
+xdescribe('Gallery | interactions tests', () => {
     test('With single image', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'Gallery',

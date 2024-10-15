@@ -53,6 +53,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     anchor = null,
     colors = 'default',
     useAnchorWidth,
+    onTargetClick,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -125,7 +126,9 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
         };
     }, [clickedOutside, close]);
 
-    const handleTargetClick = () => {
+    const handleTargetClick = (event: React.MouseEvent<HTMLElement>) => {
+        event.persist();
+        onTargetClick?.(event);
         toggle();
     };
 

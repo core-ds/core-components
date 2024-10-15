@@ -1,0 +1,35 @@
+@import '../../../../vars/src/index.css';
+
+.headerMobile {
+    position: relative;
+    height: 72px;
+    z-index: 3;
+    padding: var(--gap-12) var(--gap-8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.video {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        background-color: var(--color-static-neutral-0-inverted);
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+.hide {
+    transform: translateY(-96px);
+}
+
+.leftButton,
+.rightButtons {
+    display: flex;
+    align-items: center;
+}
+
+.description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -9,7 +9,7 @@ import { isClient } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
-import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
+import { isGroup, lastIndexOf, usePrevious, useVirtualVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
@@ -117,7 +117,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [rowVirtualizer.virtualItems.length, flatOptions]);
 
-        useVisibleOptions({
+        useVirtualVisibleOptions({
             visibleOptions,
             invalidate: visibleOptionsInvalidateKey,
             listRef,

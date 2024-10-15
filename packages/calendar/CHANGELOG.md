@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.7.2
+
+## 7.14.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   modal@9.7.1
+
 ## 7.14.0
 
 ### Minor Changes

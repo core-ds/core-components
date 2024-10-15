@@ -17,6 +17,16 @@ import { Gallery } from '@alfalab/core-components/gallery';
     titleView='light'
 />
 
+Чтобы использовать эвенты видео, необходимо сделать импорт кастомных эвентов
+```jsx
+import { GALLERY_EVENTS } from '@alfalab/core-components/gallery';
+```
+
+И подписаться на них
+```jsx
+window.addEventListener(GALLERY_EVENTS.ON_PLAY, handler)
+```
+
 ## Свойства
 
 <ArgsTable of={Gallery} />
