@@ -1,5 +1,99 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+    -   picker-button@11.11.4
+
+## 2.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+    -   picker-button@11.11.3
+
+## 2.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.2
+    -   picker-button@11.11.2
+
+## 2.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.1
+    -   picker-button@11.11.1
+
+## 2.5.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.0
+    -   select@17.14.0
+    -   shared@0.13.0
+    -   custom-button@3.9.1
+
+## 2.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.9.0
+    -   picker-button@11.10.0
+    -   select@17.13.0
+
+## 2.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.8.1
+    -   picker-button@11.9.1
+    -   select@17.12.1
+
+## 2.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   custom-button@3.8.0
+    -   picker-button@11.9.0
+
+## 2.4.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.7.0
+    -   picker-button@11.8.0
+    -   select@17.11.0
+
 ## 2.3.6
 
 ### Patch Changes

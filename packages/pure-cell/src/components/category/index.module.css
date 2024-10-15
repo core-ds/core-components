@@ -3,7 +3,7 @@
 .component {
     display: flex;
     overflow: hidden;
-    padding: var(--gap-2) 0;
+    padding: var(--gap-2) var(--gap-0);
 }
 
 .categoryName {
@@ -15,9 +15,9 @@
 }
 
 .categoryPercent {
-    padding: 0 var(--gap-8);
+    padding: var(--gap-0) var(--gap-8);
     background-color: var(--color-light-base-bg-secondary);
-    border-radius: var(--border-radius-xl);
+    border-radius: var(--border-radius-16);
     margin-left: var(--gap-4);
 }
 

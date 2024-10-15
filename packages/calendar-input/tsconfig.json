@@ -18,6 +18,7 @@
         { "path": "../calendar" },
         { "path": "../date-input" },
         { "path": "../popover" },
-        { "path": "../modal" }
+        { "path": "../modal" },
+        { "path": "../shared" },
     ]
 }

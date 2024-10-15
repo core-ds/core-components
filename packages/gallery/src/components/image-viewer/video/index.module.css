@@ -1,0 +1,36 @@
+@import '../../../../../vars/src/index.css';
+
+.videoWrapper {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.video {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: var(--border-radius-24);
+}
+
+.mobile {
+    border-radius: 0;
+}
+
+.videoButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: green;
+}
+
+.icon {
+    color: var(--color-static-neutral-0);
+}
+
+.iconShape {
+    fill: var(--color-static-neutral-translucent-700);
+}

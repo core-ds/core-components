@@ -4,6 +4,7 @@ import type {
     AdditionalMobileProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 import { useMedia } from '@alfalab/hooks';
 
 import { PickerButtonDesktop, PickerButtonDesktopProps } from './desktop';
@@ -27,7 +28,7 @@ export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonR
             footer,
             swipeable,
             bottomSheetProps,
-            breakpoint = 1024,
+            breakpoint = getComponentBreakpoint(),
             ...restProps
         },
         ref,

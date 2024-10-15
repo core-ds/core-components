@@ -1,38 +1,100 @@
-## Примеры
+## Размеры
+
+Кнопка доступна в размерах 40, 32, 24, 20.
 
 ```jsx live
 <Container>
-    <div>
-        {colors.map((color) => (
-            <>
-                <Status view='contrast' color={color} key={color}>
-                    Label
-                </Status>
-                <Gap size='l' direction='horizontal' />
-            </>
-        ))}
+    <div style={{ display: 'flex' }}>
+        <Status size='40' uppercase={false}>
+            Всё в порядке
+        </Status>
+        <Gap size='12' direction='horizontal' />
+        <Status size='32' uppercase={false}>
+            Всё в порядке
+        </Status>
+        <Gap size='12' direction='horizontal' />
+        <Status size='24' uppercase={false}>
+            Всё в порядке
+        </Status>
+        <Gap size='12' direction='horizontal' />
+        <Status size='20' uppercase={false}>
+            Всё в порядке
+        </Status>
     </div>
-    <Gap size='l' />
-    <div>
-        {colors.map((color) => (
-            <>
-                <Status view='muted-alt' color={color} key={color}>
-                    Label
-                </Status>
-                <Gap size='l' direction='horizontal' />
-            </>
-        ))}
+</Container>
+```
+
+## Форма
+
+Для статуса доступно два варианта скругления углов.
+
+```jsx live
+<Container>
+    <div style={{ display: 'flex' }}>
+        <Status size='40' uppercase={false}>
+            Всё в порядке
+        </Status>
+        <Gap size='12' direction='horizontal' />
+        <Status size='40' uppercase={false} shape='rounded'>
+            Всё в порядке
+        </Status>
     </div>
-    <Gap size='l' />
-    <div>
-        {colors.map((color) => (
-            <>
-                <Status view='muted' color={color} key={color}>
-                    Label
-                </Status>
-                <Gap size='l' direction='horizontal' />
-            </>
-        ))}
+</Container>
+```
+
+## Стиль лейбла
+
+Для лейбла можно включить опцию `uppercase`.
+
+```jsx live
+<Container>
+    <div style={{ display: 'flex' }}>
+        <Status size='40' uppercase={false}>
+            Всё в порядке
+        </Status>
+        <Gap size='12' direction='horizontal' />
+        <Status size='40'>Всё в порядке</Status>
+    </div>
+</Container>
+```
+
+## Цвета
+
+```jsx live
+<Container>
+    <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {COLORS.map((color) => (
+                <React.Fragment key={color}>
+                    <Status view='contrast' color={color} key={color} size='24' uppercase={false}>
+                        Label
+                    </Status>
+                    <Gap size='12' />
+                </React.Fragment>
+            ))}
+        </div>
+        <Gap size='12' direction='horizontal' />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {COLORS.map((color) => (
+                <React.Fragment key={color}>
+                    <Status view='muted-alt' color={color} key={color} size='24' uppercase={false}>
+                        Label
+                    </Status>
+                    <Gap size='12' />
+                </React.Fragment>
+            ))}
+        </div>
+        <Gap size='12' direction='horizontal' />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {COLORS.map((color) => (
+                <React.Fragment key={color}>
+                    <Status view='muted' color={color} size='24' uppercase={false}>
+                        Label
+                    </Status>
+                    <Gap size='12' />
+                </React.Fragment>
+            ))}
+        </div>
     </div>
 </Container>
 ```

@@ -1,5 +1,25 @@
 # Change Log
 
+## 3.3.1
+
+### Patch Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1414](https://github.com/core-ds/core-components/pull/1414)
+
+-   Для дочернего компонента-обертки Space -> Item прокидываем key который передали или сгенерировал react
+
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
 ## 3.2.1
 
 ### Patch Changes

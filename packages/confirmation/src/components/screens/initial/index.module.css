@@ -5,13 +5,17 @@
     flex-direction: column;
 }
 
+.phone.phone {
+    color: var(--color-light-text-primary);
+    margin-bottom: var(--gap-32);
+}
+
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
 }
 
-.phone.phone {
-    color: var(--color-light-text-primary);
-    margin-bottom: var(--gap-32);
+.typographyThemeMobile.typographyThemeMobile {
+    color: var(--color-light-text-secondary);
 }
 
 .compact {
@@ -67,7 +71,7 @@
 }
 
 .getCodeButtonMobile {
-    margin-bottom: 0;
+    margin-bottom: var(--gap-0);
 }
 
 .containerInput {

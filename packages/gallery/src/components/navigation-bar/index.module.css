@@ -16,9 +16,13 @@
     }
 }
 
+.previews {
+    display: flex;
+}
+
 .preview {
     flex-shrink: 0;
-    margin: 0 var(--gap-2);
+    margin: var(--gap-0) var(--gap-2);
 
     &:first-child {
         margin-left: auto;

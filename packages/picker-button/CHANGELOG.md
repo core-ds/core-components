@@ -1,5 +1,121 @@
 # Change Log
 
+## 11.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+
+## 11.11.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+
+## 11.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.2
+
+## 11.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.1
+
+## 11.11.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.9.0
+    -   select@17.14.0
+    -   shared@0.13.0
+    -   popover@6.3.2
+
+## 11.10.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1386](https://github.com/core-ds/core-components/pull/1386)
+
+-   Откат обновления темизации corp из версии 47.16.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.8.0
+    -   select@17.13.0
+
+## 11.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.7.1
+    -   select@17.12.1
+
+## 11.9.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1360](https://github.com/core-ds/core-components/pull/1360)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1370](https://github.com/core-ds/core-components/pull/1370)
+
+-   Заменили числовые значения на переменные отступов
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1368](https://github.com/core-ds/core-components/pull/1368)
+
+-   Исправлен расчет высоты списка опций
+
+-   Обновлены зависимости
+    -   select@17.12.0
+    -   button@11.7.0
+    -   popover@6.3.1
+
+## 11.8.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.6.0
+    -   popover@6.3.0
+    -   select@17.11.0
+
 ## 11.7.18
 
 ### Patch Changes

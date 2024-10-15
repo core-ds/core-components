@@ -1,5 +1,35 @@
 # Change Log
 
+## 3.8.0
+
+### Minor Changes
+
+<sup><time>20.09.2024</time></sup>
+
+### [#1213](https://github.com/core-ds/core-components/pull/1213)
+
+-   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+
+## 3.7.0
+
+### Minor Changes
+
+<sup><time>13.09.2024</time></sup>
+
+### [#1375](https://github.com/core-ds/core-components/pull/1375)
+
+-   Добавили новое свойство trimZero - обрезает ноль в минорной части. Например: 1.60 - 1.6
+
+## 3.6.0
+
+### Minor Changes
+
+<sup><time>10.09.2024</time></sup>
+
+### [#1347](https://github.com/core-ds/core-components/pull/1347)
+
+-   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+
 ## 3.5.2
 
 ### Patch Changes

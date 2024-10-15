@@ -1,3 +1,5 @@
+@import '../../vars/src/index.css';
+
 .component {
     display: flex;
     flex-flow: column nowrap;
@@ -21,6 +23,6 @@
     }
 
     & .both {
-        margin: auto 0;
+        margin: auto var(--gap-0);
     }
 }

@@ -72,13 +72,13 @@
     white-space: nowrap;
     margin-right: var(--gap-4);
     margin-left: 36px;
-    padding: var(--gap-4) 0;
+    padding: var(--gap-4) var(--gap-0);
 
     & > * {
         margin-right: var(--gap-12);
 
         &:last-child {
-            margin-right: 0;
+            margin-right: var(--gap-0);
         }
     }
 }

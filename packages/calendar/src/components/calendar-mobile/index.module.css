@@ -22,12 +22,12 @@
     width: 100%;
     position: sticky;
     background: var(--modal-header-background);
-    top: 0;
+    top: var(--gap-0);
     height: 32px;
-    padding: 0 6px;
+    padding: var(--gap-0) 6px;
 
     &.withHeader {
-        top: 48px;
+        top: var(--gap-48);
     }
 }
 
@@ -54,7 +54,7 @@
         text-transform: unset;
 
         &.rectangular {
-            border-radius: var(--border-radius-l);
+            border-radius: var(--border-radius-12);
         }
 
         &.active {
@@ -93,12 +93,12 @@
 }
 
 .virtuoso {
-    margin: 0 var(--gap-16);
+    margin: var(--gap-0) var(--gap-16);
 }
 
 .contentModal {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: var(--gap-0);
+    padding-left: var(--gap-0);
 }
 
 .content.content {

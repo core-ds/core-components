@@ -171,7 +171,10 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 <Typography.Text
                     view='primary-medium'
                     color='primary'
-                    className={cn(styles.phone, { [styles.typographyTheme]: !mobile })}
+                    className={cn(styles.phone, {
+                        [styles.typographyTheme]: !mobile,
+                        [styles.typographyThemeMobile]: mobile,
+                    })}
                 >
                     Код отправлен на {phone}
                 </Typography.Text>

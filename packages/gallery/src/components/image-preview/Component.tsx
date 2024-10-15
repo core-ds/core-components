@@ -1,11 +1,19 @@
-import React, { FC, KeyboardEventHandler, useContext, useRef } from 'react';
+import React, { FC, KeyboardEventHandler, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
-import { getImageAlt } from '@alfalab/core-components-gallery';
 import { useFocus } from '@alfalab/hooks';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage } from '../../types';
+import {
+    getImageAlt,
+    isVideo,
+    PREVIEW_HEIGHT_DESKTOP,
+    PREVIEW_HEIGHT_MOBILE,
+    PREVIEW_VIDEO_MULTIPLIER,
+    PREVIEW_WIDTH_DESKTOP,
+    PREVIEW_WIDTH_MOBILE,
+} from '../../utils';
 
 import { NoImagePaths } from './paths';
 
@@ -20,9 +28,44 @@ type Props = {
 };
 
 export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect, className }) => {
-    const { imagesMeta } = useContext(GalleryContext);
+    const { imagesMeta, view } = useContext(GalleryContext);
+
+    const isMobile = view === 'mobile';
+
+    const previewWidth = isMobile ? PREVIEW_WIDTH_MOBILE : PREVIEW_WIDTH_DESKTOP;
+    const previewHeight = isMobile ? PREVIEW_HEIGHT_MOBILE : PREVIEW_HEIGHT_DESKTOP;
 
     const ref = useRef<HTMLDivElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const video = imagesMeta[index]?.player?.current;
+        const context = canvas?.getContext('2d');
+        const drawPreview = () => {
+            if (video) {
+                context?.drawImage(
+                    video,
+                    0,
+                    0,
+                    video.videoWidth / PREVIEW_VIDEO_MULTIPLIER,
+                    video.videoHeight / PREVIEW_VIDEO_MULTIPLIER,
+                );
+            }
+        };
+
+        drawPreview();
+
+        if (isVideo(image.src)) {
+            video?.addEventListener('canplay', drawPreview);
+        }
+
+        return () => {
+            if (isVideo(image.src)) {
+                video?.removeEventListener('canplay', drawPreview);
+            }
+        };
+    }, [image.src, imagesMeta, index]);
 
     const handleClick = () => {
         onSelect(index);
@@ -40,11 +83,100 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
 
     const isBroken = Boolean(meta?.broken);
 
+    const renderPreview = () => {
+        if (isBroken) {
+            return (
+                <div
+                    className={cn(
+                        styles.preview,
+                        { [styles.mobile]: isMobile, [styles.active]: active },
+                        styles.brokenImageWrapper,
+                    )}
+                >
+                    <div className={cn(styles.brokenIcon)}>
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width={previewWidth}
+                            height={previewHeight}
+                            viewBox={`${isMobile ? -6 : 0} ${
+                                isMobile ? -12 : 0
+                            } ${previewWidth} ${previewHeight}`}
+                            fill='none'
+                        >
+                            <rect fill='none' />
+                            <path
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d={isMobile ? NoImagePaths.mobileImage : NoImagePaths.baseImage}
+                                fill='#89898A'
+                            />
+                            <path
+                                d={
+                                    isMobile
+                                        ? NoImagePaths.mobileTriangle
+                                        : NoImagePaths.triangleImage
+                                }
+                                fill='#89898A'
+                            />
+                        </svg>
+                    </div>
+                </div>
+            );
+        }
+
+        if (image.previewSrc) {
+            return (
+                <div
+                    className={cn(styles.preview, styles.image, {
+                        [styles.loading]: !meta,
+                        [styles.mobile]: isMobile,
+                    })}
+                >
+                    <img src={image.previewSrc} alt={getImageAlt(image, index)} />
+                </div>
+            );
+        }
+
+        if (isVideo(image.src)) {
+            return (
+                <div
+                    className={cn(styles.preview, styles.image, {
+                        [styles.loading]: !meta,
+                        [styles.mobile]: isMobile,
+                    })}
+                >
+                    <canvas
+                        className={cn(styles.canvasPreview, { [styles.mobile]: isMobile })}
+                        data-testid='canvas'
+                        width={previewWidth}
+                        height={previewHeight}
+                        ref={canvasRef}
+                    />
+                </div>
+            );
+        }
+
+        return (
+            <div
+                className={cn(styles.preview, styles.image, {
+                    [styles.loading]: !meta,
+                    [styles.mobile]: isMobile,
+                })}
+            >
+                <img src={image.src} alt={getImageAlt(image, index)} />
+            </div>
+        );
+    };
+
     return (
         <div
             className={cn(
                 styles.component,
-                { [styles.active]: active, [styles.focused]: focused },
+                {
+                    [styles.active]: active,
+                    [styles.focused]: focused,
+                    [styles.mobile]: isMobile,
+                },
                 className,
             )}
             onClick={handleClick}
@@ -52,38 +184,9 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             onKeyDown={handleKeyDown}
             tabIndex={0}
             ref={ref}
-            aria-label={`Перейти к изображению ${index + 1}`}
+            aria-label={`Перейти к ${index + 1} элементу`}
         >
-            {isBroken ? (
-                <div className={cn(styles.preview, styles.brokenImageWrapper)}>
-                    <div className={styles.brokenIcon}>
-                        <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            width='40'
-                            height='40'
-                            viewBox='0 0 40 40'
-                            fill='none'
-                        >
-                            <rect width='40' height='40' fill='none' />
-                            <path
-                                fillRule='evenodd'
-                                clipRule='evenodd'
-                                d={NoImagePaths.baseImage}
-                                fill='#89898A'
-                            />
-                            <path d={NoImagePaths.triangleImage} fill='#89898A' />
-                        </svg>
-                    </div>
-                </div>
-            ) : (
-                <div
-                    className={cn(styles.preview, styles.image, {
-                        [styles.loading]: !meta,
-                    })}
-                >
-                    <img src={image.src} alt={getImageAlt(image, index)} />
-                </div>
-            )}
+            {renderPreview()}
         </div>
     );
 };

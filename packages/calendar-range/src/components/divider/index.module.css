@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     width: 16px;
-    margin: 0 var(--gap-8);
+    margin: var(--gap-0) var(--gap-8);
 
     &:after {
         content: '';
@@ -21,7 +21,7 @@
     position: relative;
 
     /* FormControl .above height + margin-bottom */
-    top: 24px;
+    top: var(--gap-24);
 }
 
 .s {

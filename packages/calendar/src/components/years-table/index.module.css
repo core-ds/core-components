@@ -22,7 +22,7 @@
         &:not(.responsive) {
             & .inner {
                 width: var(--calendar-inner-width);
-                margin: 0 auto;
+                margin: var(--gap-0) auto;
 
                 @media (max-width: 374px) {
                     width: var(--calendar-mobile-inner-width);
@@ -40,7 +40,7 @@
                     }
 
                     &:nth-child(2n) {
-                        margin-right: 0;
+                        margin-right: var(--gap-0);
                     }
                 }
             }
@@ -57,7 +57,7 @@
         margin-bottom: var(--gap-8);
 
         &:nth-child(3n) {
-            margin-right: 0;
+            margin-right: var(--gap-0);
         }
 
         @media (max-width: 374px) {

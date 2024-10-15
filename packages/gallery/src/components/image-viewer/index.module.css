@@ -4,7 +4,6 @@
     display: flex;
     flex-grow: 1;
     justify-content: center;
-    align-items: center;
     background-color: var(--color-static-neutral-0-inverted);
 }
 
@@ -17,11 +16,28 @@
     max-height: calc(100vh - 168px);
     padding: var(--gap-32) var(--gap-16);
     box-sizing: border-box;
+
+    &.mobile {
+        max-height: calc(100vh - 210px);
+    }
+
+    &.mobileVideo {
+        max-height: 100vh;
+    }
 }
 
 .singleSlide .swiper {
     max-height: calc(100vh - 80px);
     padding: var(--gap-32);
+
+    &.mobile {
+        max-height: calc(100vh - 174px);
+        padding: 0;
+    }
+
+    &.mobileVideo {
+        max-height: 100vh;
+    }
 }
 
 .hidden {
@@ -39,15 +55,18 @@
 
 .slideLoading {
     background-color: var(--color-static-neutral-100-inverted);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
 }
 
 .image {
     width: 0;
     height: 0;
     user-select: none;
-    background-color: var(--color-light-base-bg-primary);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
+
+    &.mobile {
+        border-radius: var(--border-radius-0);
+    }
 }
 
 .smallImage {
@@ -55,7 +74,6 @@
     width: auto;
     height: auto;
     user-select: none;
-    background-color: var(--color-light-base-bg-primary);
 }
 
 .verticalImageFit {
@@ -100,7 +118,7 @@
     align-items: center;
     width: 400px;
     height: 300px;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-8);
     background-color: var(--color-static-neutral-300-inverted);
 }
 
@@ -123,4 +141,9 @@
     width: 100%;
     height: auto;
     background-color: var(--color-light-base-bg-primary);
+}
+
+.fullScreenVideo {
+    width: calc(100% - 192px);
+    max-height: calc(100vh - 82px);
 }

@@ -40,7 +40,10 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
             <Typography.Text
                 view='primary-medium'
                 color='primary'
-                className={cn(styles.description, { [styles.typographyTheme]: !mobile })}
+                className={cn(styles.description, {
+                    [styles.typographyTheme]: !mobile,
+                    [styles.typographyThemeMobile]: mobile,
+                })}
             >
                 {texts.tempBlockDescription}
             </Typography.Text>

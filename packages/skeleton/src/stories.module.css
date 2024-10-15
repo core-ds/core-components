@@ -3,7 +3,7 @@
 }
 
 .example-1:first-child {
-    margin-top: 0;
+    margin-top: var(--gap-0);
 }
 
 .wrapper {
@@ -15,23 +15,23 @@
     position: absolute;
     width: 48px;
     height: 48px;
-    left: 0;
-    top: 0;
+    left: var(--gap-0);
+    top: var(--gap-0);
 }
 
 .example-3 {
     position: absolute;
     width: 200px;
     height: 24px;
-    left: 72px;
-    top: 0;
+    left: var(--gap-72);
+    top: var(--gap-0);
 }
 
 .example-4 {
     position: absolute;
     width: 124px;
     height: 16px;
-    left: 72px;
+    left: var(--gap-72);
     top: 44px;
 }
 
@@ -47,7 +47,7 @@
     position: absolute;
     width: 260px;
     height: 16px;
-    left: 72px;
+    left: var(--gap-72);
     top: 76px;
 }
 

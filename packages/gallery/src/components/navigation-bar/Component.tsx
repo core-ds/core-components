@@ -11,7 +11,7 @@ const MIN_SCROLL_STEP = 24;
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper } =
+    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper, setPlayingVideo } =
         useContext(GalleryContext);
 
     const swiper = getSwiper();
@@ -20,6 +20,7 @@ export const NavigationBar: FC = () => {
         setCurrentSlideIndex?.(index);
 
         if (swiper) {
+            setPlayingVideo(true);
             swiper.slideTo(index);
         }
     };

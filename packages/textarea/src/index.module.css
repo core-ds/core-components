@@ -55,7 +55,7 @@
     min-height: 100%;
     background: none;
     border: none;
-    margin: 0;
+    margin: var(--gap-0);
     outline: none;
     box-sizing: border-box;
     resize: none;
@@ -86,8 +86,8 @@
 
 .pseudoTextarea {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
     width: 100%;
     box-sizing: border-box;
     word-wrap: break-word;
@@ -113,8 +113,8 @@
 }
 
 .textarea.hasInnerLabel.hasInnerLabel {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: var(--gap-0);
+    padding-bottom: var(--gap-0);
 }
 
 /* DISABLED STATE */
@@ -139,7 +139,7 @@
 
 /* FILLED STATE */
 .textarea.filled.hasInnerLabel {
-    padding-top: 0;
+    padding-top: var(--gap-0);
     &.size-48 {
         min-height: var(--textarea-s-filled-min-height);
     }

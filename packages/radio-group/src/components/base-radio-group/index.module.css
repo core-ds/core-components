@@ -32,7 +32,7 @@
     margin-bottom: var(--gap-12);
 
     &:last-child {
-        margin-bottom: 0;
+        margin-bottom: var(--gap-0);
     }
 }
 
@@ -47,7 +47,7 @@
 
 .horizontalRadio:last-child,
 .horizontalTagLabel:last-child {
-    margin-right: 0;
+    margin-right: var(--gap-0);
 }
 
 .label {
@@ -70,8 +70,8 @@
 .hiddenInput {
     position: absolute;
     z-index: -1;
-    top: 0;
-    left: 0;
+    top: var(--gap-0);
+    left: var(--gap-0);
     opacity: 0;
 
     &:focus ~ button {

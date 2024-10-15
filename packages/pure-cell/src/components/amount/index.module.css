@@ -1,6 +1,19 @@
 @import '../../../../vars/src/index.css';
 
 .component {
-    padding: var(--gap-2) 0;
+    padding: var(--gap-2) var(--gap-0);
     display: flex;
+}
+
+.hidden {
+    background: var(--color-light-neutral-translucent-400);
+    border-radius: var(--border-radius-8);
+    display: inline-block;
+    height: 24px;
+    width: 120px;
+}
+
+.hiddenWrapper {
+    display: flex;
+    padding: var(--gap-8) var(--gap-0);
 }

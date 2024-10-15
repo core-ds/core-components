@@ -6,13 +6,13 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component animate"
+        class="component component animate"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="component animate"
+      class="component component animate"
     />
   </div>,
   "debug": [Function],

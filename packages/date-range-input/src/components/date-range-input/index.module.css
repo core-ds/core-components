@@ -2,7 +2,7 @@
 @import '../../../../calendar/src/vars.css';
 
 :root {
-    --calendar-popover-border-radius: var(--border-radius-m);
+    --calendar-popover-border-radius: var(--border-radius-8);
 }
 
 .component {

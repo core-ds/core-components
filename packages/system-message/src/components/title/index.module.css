@@ -5,7 +5,7 @@
 }
 
 .component {
-    margin: 0;
+    margin: var(--gap-0);
     text-align: center;
     color: var(--color-light-text-primary);
     font-family: var(--sys-message-title-font-family);

@@ -6,7 +6,7 @@
 }
 
 .component {
-    top: 0;
+    top: var(--gap-0);
     height: 100%;
     width: var(--drawer-width);
     flex: 1;
@@ -23,12 +23,12 @@
 }
 
 .rightPlacement {
-    right: 0;
+    right: var(--gap-0);
     align-self: flex-end;
 }
 
 .leftPlacement {
-    left: 0;
+    left: var(--gap-0);
     align-self: flex-start;
 }
 

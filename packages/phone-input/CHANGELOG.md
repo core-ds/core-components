@@ -1,5 +1,50 @@
 # Change Log
 
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1371](https://github.com/core-ds/core-components/pull/1371)
+
+-   Исправлено удаление номера в режиме clearableCountryCode
+
+## 7.3.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.23
+
+## 7.3.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.22
+
+## 7.3.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.21
+
+## 7.3.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.20
+
+## 7.3.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.19
+
 ## 7.3.19
 
 ### Patch Changes

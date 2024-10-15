@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
+import { COLORS, SIZES } from './consts';
 
-export const colors = ['green', 'orange', 'red', 'blue', 'grey', 'teal', 'purple'] as const;
+import styles from './index.module.css';
 
 export type StatusProps = {
     /**
@@ -20,7 +20,7 @@ export type StatusProps = {
     /**
      * Цветовое оформление иконки
      */
-    color?: (typeof colors)[number];
+    color?: (typeof COLORS)[number];
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -31,6 +31,24 @@ export type StatusProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Размер компонента
+     * @default 20
+     */
+    size?: (typeof SIZES)[number];
+
+    /**
+     * Форма компонента
+     * @default rectangular
+     */
+    shape?: 'rounded' | 'rectangular';
+
+    /**
+     * Текст компонента в верхнем регистре
+     * @default true
+     */
+    uppercase?: boolean;
 };
 
 const logWarning = () => {
@@ -53,6 +71,9 @@ export const Status: FC<StatusProps> = ({
     color = 'green',
     children,
     dataTestId,
+    size = 20,
+    shape = 'rectangular',
+    uppercase = true,
 }) => {
     if (view === 'soft') {
         logWarning();
@@ -60,7 +81,17 @@ export const Status: FC<StatusProps> = ({
 
     return (
         <span
-            className={cn(styles.component, styles[color], styles[view], className)}
+            className={cn(
+                styles.component,
+                styles[color],
+                styles[view],
+                styles[`size-${size}`],
+                styles[shape],
+                className,
+                {
+                    [styles.uppercase]: uppercase,
+                },
+            )}
             data-test-id={dataTestId}
         >
             <span className={styles.ellipsis}>{children}</span>

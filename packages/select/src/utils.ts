@@ -1,6 +1,14 @@
-import { cloneElement, isValidElement, ReactNode, RefObject, useEffect, useRef } from 'react';
+import {
+    cloneElement,
+    isValidElement,
+    ReactNode,
+    RefObject,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
 
 import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
 
@@ -144,7 +152,8 @@ type useVisibleOptionsArgs = {
     actualOptionsCount?: boolean;
 };
 
-export function useVisibleOptions({
+// copy-paste of original `useVisibleOptions` before https://github.com/core-ds/core-components/pull/1368
+export function useVirtualVisibleOptions({
     visibleOptions,
     listRef,
     styleTargetRef = listRef,
@@ -217,6 +226,98 @@ export function useVisibleOptions({
         visibleOptions,
         invalidate,
     ]);
+}
+
+export function useVisibleOptions({
+    visibleOptions,
+    listRef,
+    styleTargetRef = listRef,
+    open,
+    invalidate,
+    options,
+    size,
+    actualOptionsCount,
+}: useVisibleOptionsArgs) {
+    const [, runIfMounted] = useIsMounted();
+    const [measured, setMeasured] = useState(false);
+
+    useEffect(() => {
+        const measureOptionHeight = (element: HTMLElement) =>
+            typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
+
+        const list = listRef.current;
+        const styleTarget = styleTargetRef.current;
+
+        if (open && list && styleTarget && visibleOptions > 0) {
+            const childCount = list.children.length;
+            const optionsNodes = ([] as HTMLElement[]).slice.call(
+                list.children,
+                0,
+                visibleOptions + 1,
+            );
+
+            let height = optionsNodes
+                .slice(0, visibleOptions)
+                .reduce((acc, child) => acc + measureOptionHeight(child), 0);
+
+            if (visibleOptions < childCount) {
+                const lastVisibleOptionHeight = measureOptionHeight(
+                    optionsNodes[optionsNodes.length - 1],
+                );
+
+                // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
+                height += Math.round(
+                    childCount - visibleOptions === 1
+                        ? lastVisibleOptionHeight
+                        : lastVisibleOptionHeight / 2,
+                );
+            } else if (
+                visibleOptions > childCount &&
+                actualOptionsCount &&
+                typeof size === 'number'
+            ) {
+                const actualCount = (options ?? []).reduce(
+                    (sum, option) => sum + 1 + (isGroup(option) ? option.options.length : 0),
+                    0,
+                );
+
+                height =
+                    Math.min(
+                        actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
+                        visibleOptions,
+                    ) * size;
+
+                if (visibleOptions < actualCount) {
+                    height += size / 2;
+                }
+            }
+
+            const prevHeight = styleTarget.style.height;
+
+            styleTarget.style.height = `${height}px`;
+
+            setMeasured(true);
+
+            return () => {
+                styleTarget.style.height = prevHeight;
+                runIfMounted(() => setMeasured(false));
+            };
+        }
+
+        return fnUtils.noop;
+    }, [
+        actualOptionsCount,
+        listRef,
+        open,
+        options,
+        size,
+        styleTargetRef,
+        visibleOptions,
+        invalidate,
+        runIfMounted,
+    ]);
+
+    return measured;
 }
 
 export function defaultFilterFn(optionText: string, search: string) {

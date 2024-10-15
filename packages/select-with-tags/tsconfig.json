@@ -18,6 +18,7 @@
         { "path": "../select" },
         { "path": "../input" },
         { "path": "../tag" },
-        { "path": "../popover" }
+        { "path": "../popover" },
+        { "path": "../shared" },
     ]
 }

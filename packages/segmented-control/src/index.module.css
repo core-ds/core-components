@@ -2,6 +2,10 @@
 
 .wrapper {
     display: flex;
+
+    &.disabled {
+        pointer-events: none;
+    }
 }
 
 .container {
@@ -13,7 +17,7 @@
 .inner {
     display: flex;
     flex: 1;
-    margin: 0 var(--gap-2);
+    margin: var(--gap-0) var(--gap-2);
 }
 
 .segment {
@@ -34,14 +38,14 @@
 
     & .rounded,
     &:has(.rounded) {
-        border-radius: var(--border-radius-xxl);
+        border-radius: var(--border-radius-20);
     }
 
     &:has(.rectangular) {
-        border-radius: var(--border-radius-l);
+        border-radius: var(--border-radius-12);
 
         & .selectedBox {
-            border-radius: 10px;
+            border-radius: var(--border-radius-10);
         }
     }
 }
@@ -51,14 +55,14 @@
 }
 
 .rounded {
-    border-radius: var(--border-radius-xl);
+    border-radius: var(--border-radius-16);
 }
 
 .rectangular {
-    border-radius: 10px;
+    border-radius: var(--border-radius-10);
 
     & .selectedBox {
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-8);
     }
 }
 

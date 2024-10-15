@@ -12,8 +12,8 @@
 }
 
 .fullscreen {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: var(--gap-0);
+    padding-bottom: var(--gap-0);
 
     & .component {
         flex: 1;

@@ -1,4 +1,11 @@
 @define-mixin tabs-corp {
     /* theme */
-    --primary-tablist-bottom-border-color: var(--color-light-neutral-500);
+    --primary-tablist-bottom-border-color: var(--color-light-neutral-translucent-300);
+    --primary-tablist-m-font-weight: 500;
+
+    /* mobile */
+    --primary-tablist-mobile-font-weight: 500;
+    --primary-tablist-mobile-padding: 0 0 var(--gap-16);
+    --primary-tablist-mobile-font-size: 18px;
+    --primary-tablist-mobile-gaps: var(--gap-32);
 }
