@@ -1,6 +1,65 @@
 ## Анатомия
 
-SidePanel построен как Compound Components. Состоит из Header, Content, Footer, содержащих в себе кастомизируемые слоты.
-Чтобы во время скролла заголовок и кнопки оставались неподвижны, их нужно расположить в `header` и `footer`.
-Текст и изображения всегда располагаются в `content` части.
+```jsx live mobileHeight={720}
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [horizontalAlign, setHorizontalAlign] = React.useState('center');
+    const [verticalAlign, setVerticalAlign] = React.useState('center');
+    const [overlay, setOverlay] = React.useState(true);
 
+    const horizontalOptions = [
+        { key: 'left', content: 'Left' },
+        { key: 'center', content: 'Center' },
+        { key: 'right', content: 'Right' },
+    ];
+    const verticalOptions = [
+        { key: 'top', content: 'Top' },
+        { key: 'center', content: 'Center' },
+        { key: 'bottom', content: 'Bottom' },
+    ];
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+
+            <div style={{ display: 'flex' }}>
+                <SelectDesktop
+                    size={56}
+                    options={horizontalOptions}
+                    selected={horizontalAlign}
+                    label='Положение по горизонтали'
+                    onChange={({ selected }) => setHorizontalAlign(selected.key)}
+                />
+                <Gap size={12} direction={'horizontal'} />
+                <SelectDesktop
+                    size={56}
+                    options={verticalOptions}
+                    selected={verticalAlign}
+                    label='Положение по вертикали'
+                    onChange={({ selected }) => setVerticalAlign(selected.key)}
+                />
+            </div>
+            <Gap size={20} />
+            <Switch
+                label='Overlay'
+                checked={overlay}
+                onChange={() => setOverlay((prev) => !prev)}
+            />
+
+            <UniversalModalDesktop
+                open={open}
+                width={300}
+                height={300}
+                horizontalAlign={horizontalAlign}
+                verticalAlign={verticalAlign}
+                onClose={() => setOpen(false)}
+                overlay={overlay}
+            >
+            </UniversalModalDesktop>
+        </React.Fragment>
+    );
+});
+```

@@ -4,8 +4,9 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { UniversalModalDesktopProps } from '../../types/props';
-import { useHeight } from '../hooks/useHeight';
-import { useWidth } from '../hooks/useWidth';
+import { useModalHeight } from '../hooks/useModalHeight';
+import { useModalMargin } from '../hooks/useModalMargin';
+import { useModalWidth } from '../hooks/useModalWidth';
 
 import styles from './modal-by-center.module.css';
 import transitionsCenter from './transitions-center.module.css';
@@ -22,13 +23,15 @@ export const ModalByCenter = forwardRef<HTMLDivElement, UniversalModalDesktopPro
             height = 'fullHeight',
             verticalAlign = 'center',
             overlay = true,
+            margin = ['auto'],
             ...restProps
         } = props;
 
         const componentRef = useRef<HTMLDivElement>(null);
 
-        useWidth(width, open, componentRef);
-        useHeight(height, open, componentRef);
+        useModalMargin(margin, open, componentRef);
+        useModalWidth(width, open, componentRef);
+        useModalHeight(height, open, componentRef);
 
         return (
             <BaseModal
@@ -48,6 +51,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, UniversalModalDesktopPro
                 backdropProps={{
                     transparent: !overlay,
                 }}
+                disableBlockingScroll={!overlay}
             >
                 <div>{children}</div>
             </BaseModal>

@@ -7,8 +7,9 @@ import { isClient } from '@alfalab/core-components-shared';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../../consts';
 import { UniversalModalDesktopProps } from '../../types/props';
-import { useHeight } from '../hooks/useHeight';
-import { useWidth } from '../hooks/useWidth';
+import { useModalHeight } from '../hooks/useModalHeight';
+import { useModalMargin } from '../hooks/useModalMargin';
+import { useModalWidth } from '../hooks/useModalWidth';
 
 import styles from './modal-by-side.module.css';
 import transitions from './transitions.desktop.module.css';
@@ -26,6 +27,8 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         height = 'fullHeight',
         contentTransitionProps,
         children,
+        margin = [12],
+        overlay = true,
         ...restProps
     } = props;
 
@@ -33,8 +36,8 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
     const componentRef = useRef<HTMLDivElement>(null);
 
     const enterCn = cn({
-        [transitions.appearRight]: horizontalAlign === 'right',
-        [transitions.appearLeft]: horizontalAlign === 'left',
+        [transitions.enterRight]: horizontalAlign === 'right',
+        [transitions.enterLeft]: horizontalAlign === 'left',
     });
 
     const exitCn = cn({
@@ -42,12 +45,16 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         [transitions.exitActiveLeft]: horizontalAlign === 'left',
     });
 
-    useWidth(width, restProps.open, componentRef);
-    useHeight(height, restProps.open, componentRef);
+    useModalMargin(margin, restProps.open, componentRef);
+    useModalWidth(width, restProps.open, componentRef);
+    useModalHeight(height, restProps.open, componentRef);
 
-    // Устанавливает боковое модальное окно вертикально по центру (transform приводит к артефактам из-за CSSTransition)
+    /**
+     * устанавливает боковое модальное окно вертикально по центру
+     * transform приводит к артефактам из-за CSSTransition, поэтому рассчитываем через высоту
+     */
     useEffect(() => {
-        if (verticalAlign === 'center' && componentRef.current) {
+        if (verticalAlign === 'center' && height !== 'fullHeight' && componentRef.current) {
             const { offsetHeight } = componentRef.current;
             let computedMarginTop = '0';
 
@@ -59,7 +66,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 offsetHeight / 2
             }px - ${computedMarginTop})`;
         }
-    }, [restProps.open, verticalAlign, componentRef]);
+    }, [restProps.open, verticalAlign, componentRef, height]);
 
     if (horizontalAlign === 'right' || horizontalAlign === 'left') {
         return (
@@ -77,8 +84,13 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                     styles.component,
                     styles[horizontalAlign],
                     styles[verticalAlign],
+                    {
+                        [styles.overlayHidden]: !overlay,
+                    },
                 )}
-                backdropProps={backdropProps}
+                backdropProps={{
+                    transparent: !overlay,
+                }}
                 contentTransitionProps={{
                     classNames: {
                         appear: enterCn,
@@ -91,6 +103,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                     },
                     ...contentTransitionProps,
                 }}
+                disableBlockingScroll={!overlay}
             >
                 {React.Children.map(children, (child) =>
                     isValidElement(child) ? cloneElement(child, { size }) : child,

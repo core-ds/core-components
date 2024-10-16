@@ -1,6 +1,8 @@
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
 
+type TMargin = number | 'auto';
+
 export type BaseUniversalModalProps = {
     /**
      * Ширина модального окна
@@ -40,13 +42,23 @@ export type BaseUniversalModalProps = {
      * minHeight - 264
      * @default fullHeight
      */
-    height: number | 'fullHeight';
+    height?: number | 'fullHeight';
 
     /**
      * Наличие оверлея
      * @default true
      */
     overlay?: boolean;
+
+    /**
+     * Устанавливает отступы модального окна
+     * По умолчанию для бокового модала 12px, для центрального auto
+     */
+    margin?:
+        | [TMargin, TMargin, TMargin, TMargin]
+        | [TMargin, TMargin, TMargin]
+        | [TMargin, TMargin]
+        | [TMargin];
 };
 
 export type UniversalModalDesktopProps = BaseModalProps &

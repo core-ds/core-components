@@ -3,7 +3,7 @@ import { MutableRefObject, useEffect } from 'react';
 import { isClient } from '@alfalab/core-components-shared';
 
 /** Устанавливает необходимую ширину модального окна */
-export const useWidth = (
+export const useModalWidth = (
     width: number | 'fullWidth',
     open: boolean,
     componentRef: MutableRefObject<HTMLDivElement | null>,
