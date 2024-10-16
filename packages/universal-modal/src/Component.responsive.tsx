@@ -1,33 +1,16 @@
 import React, { FC, forwardRef, useContext, useMemo } from 'react';
 
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { DrawerProps } from '@alfalab/core-components-drawer';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 import { getComponentBreakpoint, isClient } from '@alfalab/core-components-shared';
 
 import { Controls } from './components/controls';
 import { Header } from './components/header/Component';
-import { BaseUniversalModalProps } from './desktop/types/props';
 import { UniversalModalDesktop } from './desktop';
 import { SidePanelMobile } from './mobile';
 import { ResponsiveContext } from './ResponsiveContext';
-import { TResponsiveModalContext } from './typings';
+import { TResponsiveModalContext, UniversalModalResponsiveProps } from './typings';
 
-export type UniversalModalResponsiveProps = BaseModalProps &
-    BaseUniversalModalProps &
-    Pick<DrawerProps, 'contentTransitionProps' | 'placement' | 'nativeScrollbar'> & {
-        /**
-         * Контрольная точка, с нее начинается desktop версия
-         * @default 1024
-         */
-        breakpoint?: number;
-
-        /**
-         * Значение по-умолчанию для хука useMatchMedia
-         */
-        defaultMatchMediaValue?: boolean | (() => boolean);
-    };
-
+// todo refactor createResponsive
 function createResponsive<DesktopType extends FC, MobileType extends FC>(
     desktop: DesktopType,
     mobile: MobileType,
@@ -49,7 +32,6 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
         {
             children,
             breakpoint = getComponentBreakpoint(),
-            size = 500,
             defaultMatchMediaValue,
             dataTestId,
             ...restProps
@@ -64,15 +46,15 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
         const view = isDesktop ? 'desktop' : 'mobile';
 
         const contextValue = useMemo<TResponsiveModalContext>(
-            () => ({ view, size, dataTestId }),
-            [view, size, dataTestId],
+            () => ({ view, dataTestId }),
+            [view, dataTestId],
         );
 
         const Component = isDesktop ? UniversalModalDesktop : SidePanelMobile;
 
         return (
             <ResponsiveContext.Provider value={contextValue}>
-                <Component ref={ref} size={size} dataTestId={dataTestId} {...restProps}>
+                <Component ref={ref} dataTestId={dataTestId} {...restProps}>
                     {children}
                 </Component>
             </ResponsiveContext.Provider>

@@ -1,15 +1,9 @@
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
 
-type TMargin = number | 'auto';
+import { TMargin } from './typings';
 
 export type BaseUniversalModalProps = {
-    /**
-     * Ширина модального окна
-     * @default "s"
-     */
-    size?: 's' | 500; // todo remove
-
     /**
      * Управление наличием закрывающего крестика
      * @default false
@@ -61,6 +55,12 @@ export type BaseUniversalModalProps = {
         | [TMargin];
 };
 
-export type UniversalModalDesktopProps = BaseModalProps &
-    BaseUniversalModalProps &
-    Pick<DrawerProps, 'nativeScrollbar' | 'contentTransitionProps'>;
+export type UniversalModalDesktopProps = BaseUniversalModalProps &
+    Pick<BaseModalProps, 'children' | 'dataTestId' | 'open'>;
+
+export type ModalBySideProps = UniversalModalDesktopProps &
+    Pick<DrawerProps, 'contentTransitionProps'> &
+    Pick<BaseModalProps, 'wrapperClassName' | 'className'>;
+
+export type ModalByCenterProps = UniversalModalDesktopProps &
+    Pick<BaseModalProps, 'transitionProps' | 'className'>;

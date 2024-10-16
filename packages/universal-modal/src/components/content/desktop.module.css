@@ -1,9 +1,0 @@
-@import '../../vars.css';
-
-.size-500 {
-    padding: var(--side-panel-s-content-paddings);
-
-    &:last-child {
-        padding-bottom: var(--gap-32);
-    }
-}

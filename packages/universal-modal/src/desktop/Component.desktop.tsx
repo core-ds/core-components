@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, isValidElement, useContext } from 'react';
+import React, { forwardRef, useContext } from 'react';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
 import { Controls, ControlsProps } from '../components/controls';
@@ -12,24 +12,12 @@ import { ModalBySide } from './components/modal-by-side';
 import { UniversalModalDesktopProps } from './types/props';
 
 const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
-    (
-        {
-            size = 500,
-            children,
-            className,
-            wrapperClassName,
-            backdropProps,
-            dataTestId,
-            transitionProps,
-            ...restProps
-        },
-        ref,
-    ) => {
+    ({ children, dataTestId, ...restProps }, ref) => {
         const responsiveContext = useContext(ResponsiveContext);
 
         const contextValue = React.useMemo<TResponsiveModalContext>(
-            () => ({ size, view: 'desktop', dataTestId }),
-            [size, dataTestId],
+            () => ({ view: 'desktop', dataTestId }),
+            [dataTestId],
         );
 
         const renderContent = () => {
@@ -43,9 +31,7 @@ const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModal
 
             return (
                 <ModalBySide {...restProps} ref={ref}>
-                    {React.Children.map(children, (child) =>
-                        isValidElement(child) ? cloneElement(child, { size }) : child,
-                    )}
+                    <div>{children}</div>
                 </ModalBySide>
             );
         };

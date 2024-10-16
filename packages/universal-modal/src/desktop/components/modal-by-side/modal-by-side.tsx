@@ -5,8 +5,7 @@ import cn from 'classnames';
 import { Drawer } from '@alfalab/core-components-drawer';
 import { isClient } from '@alfalab/core-components-shared';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../../consts';
-import { UniversalModalDesktopProps } from '../../types/props';
+import { ModalBySideProps } from '../../types/props';
 import { useModalHeight } from '../hooks/useModalHeight';
 import { useModalMargin } from '../hooks/useModalMargin';
 import { useModalWidth } from '../hooks/useModalWidth';
@@ -14,15 +13,13 @@ import { useModalWidth } from '../hooks/useModalWidth';
 import styles from './modal-by-side.module.css';
 import transitions from './transitions.desktop.module.css';
 
-export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
+export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
         horizontalAlign = 'center',
         verticalAlign = 'center',
         dataTestId,
         wrapperClassName,
         className,
-        backdropProps,
-        size = 500,
         width = 500,
         height = 'fullHeight',
         contentTransitionProps,
@@ -50,7 +47,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
     useModalHeight(height, restProps.open, componentRef);
 
     /**
-     * устанавливает боковое модальное окно вертикально по центру
+     * Устанавливает боковое модальное окно вертикально по центру
      * transform приводит к артефактам из-за CSSTransition, поэтому рассчитываем через высоту
      */
     useEffect(() => {
@@ -79,7 +76,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 wrapperClassName={wrapperClassName}
                 className={cn(
                     className,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles.hidden,
                     styles.component,
                     styles[horizontalAlign],
@@ -106,7 +102,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 disableBlockingScroll={!overlay}
             >
                 {React.Children.map(children, (child) =>
-                    isValidElement(child) ? cloneElement(child, { size }) : child,
+                    isValidElement(child) ? cloneElement(child) : child,
                 )}
             </Drawer>
         );
