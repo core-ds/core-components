@@ -1,0 +1,6 @@
+@import '../../vars.css';
+
+.element {
+    transition: transform var(--page-indicator-animation-duration) linear;
+    will-change: transition;
+}
