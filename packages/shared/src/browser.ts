@@ -32,7 +32,18 @@ function isWebkitBased() {
     return window.navigator.userAgent.toLowerCase().indexOf('webkit') > -1;
 }
 
+function getChromeVersion() {
+    if (!isClient()) {
+        return false;
+    }
+
+    const match = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+
+    return match ? parseInt(match[2], 10) : false;
+}
+
 export const browser = {
     getScrollbarSize,
     isWebkitBased,
+    getChromeVersion,
 };

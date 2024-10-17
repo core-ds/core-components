@@ -11,3 +11,4 @@ export * from './dom';
 export * from './exhaustiveCheck';
 export * from './context/PortalContext';
 export * from './getComponentBreakpoint';
+export * from './isChrome79/isChrome79';
