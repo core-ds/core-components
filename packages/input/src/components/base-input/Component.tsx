@@ -285,7 +285,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
-                if (!readOnly) {
+                if (!readOnlyProp || disableUserInput) {
                     setFocused(true);
                 }
 
@@ -293,7 +293,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     onFocus(event);
                 }
             },
-            [onFocus, readOnly],
+            [onFocus, readOnlyProp, disableUserInput],
         );
 
         const handleInputBlur = useCallback(
@@ -424,8 +424,11 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                         styles.input,
                         colorCommonStyles[colors].input,
                         {
+                            [styles.disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].disableUserInput]: disableUserInput,
+
                             [colorCommonStyles[colors].error]: error,
+
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,

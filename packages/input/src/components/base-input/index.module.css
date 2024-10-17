@@ -83,7 +83,8 @@ button[class*='eye'] + .successIcon {
 
 /* FOCUS STATE */
 
-.input:focus.hasInnerLabel::placeholder {
+.input:focus.hasInnerLabel::placeholder,
+.input:focus.hasInnerLabel.disableUserInput::placeholder {
     opacity: 1;
 }
 
