@@ -6,7 +6,6 @@
     min-height: 264px;
     height: 100%;
     border-radius: var(--border-radius-24);
-    overflow: auto;
 
     &.top {
         margin-top: var(--gap-12);
@@ -18,5 +17,22 @@
 
     &.overlayHidden {
         box-shadow: var(--shadow-m);
+    }
+
+    & .container {
+        height: 100%;
+    }
+
+    & .content {
+        padding: var(--gap-32) var(--gap-32) 0;
+    }
+
+    & .scrollbarWrapper {
+        height: 100%;
+
+        & .verticalBarContainer {
+            top: var(--gap-16);
+            height: calc(100% - 2 * 16px);
+        }
     }
 }

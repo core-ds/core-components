@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import { getHeaderPresetComponent } from '../../../presets/getHeaderPresetComponent';
 import { ModalByCenterProps } from '../../types/props';
@@ -54,10 +55,20 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             }}
             disableBlockingScroll={!overlay}
         >
-            <div>
-                {getHeaderPresetComponent(preset)}
-                <div>{children}</div>
+            <div className={styles.container}>
+                <Scrollbar
+                    className={styles.scrollbarWrapper}
+                    verticalBarClassName={styles.verticalBarContainer}
+                >
+                    {getHeaderPresetComponent(preset)}
+                    <div className={styles.content}>{children}</div>
+                </Scrollbar>
             </div>
         </BaseModal>
     );
 });
+
+/*
+ * todo сделать скороллбар для боковой панели
+ * todo настроить паддинги сверхку
+ */

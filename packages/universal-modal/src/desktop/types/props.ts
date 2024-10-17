@@ -1,11 +1,7 @@
-import { ElementType } from 'react';
-
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
 
-import { PresetTypes } from '../../constants/presetTypes';
-
-import { TMargin } from './typings';
+import { TMargin, TPreset } from './typings';
 
 export type BaseUniversalModalProps = {
     /**
@@ -57,12 +53,6 @@ export type BaseUniversalModalProps = {
         | [TMargin, TMargin, TMargin]
         | [TMargin, TMargin]
         | [TMargin];
-
-    preset?: {
-        type: (typeof PresetTypes)[keyof typeof PresetTypes];
-        title?: string;
-        component: ElementType;
-    };
 };
 
 export type UniversalModalDesktopProps = BaseUniversalModalProps &
@@ -70,7 +60,9 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
 
 export type ModalBySideProps = UniversalModalDesktopProps &
     Pick<DrawerProps, 'contentTransitionProps'> &
-    Pick<BaseModalProps, 'wrapperClassName' | 'className'>;
+    Pick<BaseModalProps, 'wrapperClassName' | 'className'> &
+    TPreset;
 
 export type ModalByCenterProps = UniversalModalDesktopProps &
-    Pick<BaseModalProps, 'transitionProps' | 'className'>;
+    Pick<BaseModalProps, 'transitionProps' | 'className'> &
+    TPreset;

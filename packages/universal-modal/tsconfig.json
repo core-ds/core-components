@@ -17,6 +17,7 @@
         { "path": "../icon-button" },
         { "path": "../mq" },
         { "path": "../navigation-bar-private" },
-        { "path": "../shared" }
+        { "path": "../shared" },
+        { "path": "../scrollbar" }
     ]
 }

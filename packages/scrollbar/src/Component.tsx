@@ -80,6 +80,11 @@ export type ScrollbarProps = {
      * HTML-aтрибуты маски.
      */
     maskProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+    /**
+     * Дополнительный класс контейнера вертикальной полосы прокрутки
+     */
+    verticalBarClassName?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
 const classNames = {
@@ -134,6 +139,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             horizontalAutoStretch = false,
             widthPropName = 'minWidth',
             maskProps,
+            verticalBarClassName,
             ...htmlAttributes
         },
         ref,
@@ -277,7 +283,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                 <div className={cn(classNames.track, classNames.horizontal)}>
                     <div className={classNames.scrollbar} />
                 </div>
-                <div className={cn(classNames.track, classNames.vertical)}>
+                <div className={cn(classNames.track, classNames.vertical, verticalBarClassName)}>
                     <div className={classNames.scrollbar} />
                 </div>
             </div>

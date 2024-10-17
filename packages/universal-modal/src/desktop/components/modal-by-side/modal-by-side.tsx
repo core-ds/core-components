@@ -104,9 +104,11 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 disableBlockingScroll={!overlay}
             >
                 {getHeaderPresetComponent(preset)}
-                {React.Children.map(children, (child) =>
-                    isValidElement(child) ? cloneElement(child) : child,
-                )}
+                <div className={styles.content}>
+                    {React.Children.map(children, (child) =>
+                        isValidElement(child) ? cloneElement(child) : child,
+                    )}
+                </div>
             </Drawer>
         );
     }
