@@ -1,5 +1,9 @@
+import { ElementType } from 'react';
+
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
+
+import { PresetTypes } from '../../constants/presetTypes';
 
 import { TMargin } from './typings';
 
@@ -53,6 +57,12 @@ export type BaseUniversalModalProps = {
         | [TMargin, TMargin, TMargin]
         | [TMargin, TMargin]
         | [TMargin];
+
+    preset?: {
+        type: (typeof PresetTypes)[keyof typeof PresetTypes];
+        title?: string;
+        component: ElementType;
+    };
 };
 
 export type UniversalModalDesktopProps = BaseUniversalModalProps &

@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { Drawer } from '@alfalab/core-components-drawer';
 import { isClient } from '@alfalab/core-components-shared';
 
+import { getHeaderPresetComponent } from '../../../presets/getHeaderPresetComponent';
 import { ModalBySideProps } from '../../types/props';
 import { useModalHeight } from '../hooks/useModalHeight';
 import { useModalMargin } from '../hooks/useModalMargin';
@@ -26,6 +27,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         children,
         margin = [12],
         overlay = true,
+        preset,
         ...restProps
     } = props;
 
@@ -101,6 +103,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 }}
                 disableBlockingScroll={!overlay}
             >
+                {getHeaderPresetComponent(preset)}
                 {React.Children.map(children, (child) =>
                     isValidElement(child) ? cloneElement(child) : child,
                 )}

@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
+import { getHeaderPresetComponent } from '../../../presets/getHeaderPresetComponent';
 import { ModalByCenterProps } from '../../types/props';
 import { useModalHeight } from '../hooks/useModalHeight';
 import { useModalMargin } from '../hooks/useModalMargin';
@@ -23,6 +24,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
         verticalAlign = 'center',
         overlay = true,
         margin = ['auto'],
+        preset,
         ...restProps
     } = props;
 
@@ -52,7 +54,10 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             }}
             disableBlockingScroll={!overlay}
         >
-            <div>{children}</div>
+            <div>
+                {getHeaderPresetComponent(preset)}
+                <div>{children}</div>
+            </div>
         </BaseModal>
     );
 });
