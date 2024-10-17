@@ -3,8 +3,8 @@ import React from 'react';
 import { Button } from '@alfalab/core-components-button';
 import ArrowLeftMediumMIcon from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 
-import { PresetTypes } from '../constants/presetTypes';
-import { ModalByCenterProps } from '../desktop/types/props';
+import { PresetTypes } from '../../../constants/presetTypes';
+import { ModalByCenterProps } from '../../types/props';
 
 export const getHeaderPresetComponent = (preset: ModalByCenterProps['preset']) => {
     if (preset) {

@@ -1,9 +1,5 @@
 @import '../../../vars.css';
 
-.hidden {
-    overflow-x: hidden;
-}
-
 .component {
     top: 0;
     min-width: 500px;
@@ -12,6 +8,7 @@
     height: 100%;
     border-radius: var(--border-radius-24);
     will-change: transform;
+    overflow-x: hidden;
 
     &.left {
         left: 0;
@@ -28,5 +25,9 @@
 
     &.overlayHidden {
         box-shadow: var(--shadow-m);
+    }
+
+    & .drawerContent {
+        height: 100%;
     }
 }

@@ -26,6 +26,11 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
      * Пропсы для анимации контента (CSSTransition)
      */
     contentTransitionProps?: Partial<TransitionProps>;
+
+    /**
+     * Дополнительный класс для контента
+     */
+    contentClassName?: string;
 };
 
 export const DrawerContext = BaseModalContext;
@@ -75,6 +80,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
             contentTransitionProps,
             nativeScrollbar = true,
             placement = 'right',
+            contentClassName,
             ...restProps
         },
         ref,
@@ -126,7 +132,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                     appear={true}
                     in={open}
                 >
-                    <div className={styles.content}>{children}</div>
+                    <div className={cn(styles.content, contentClassName)}>{children}</div>
                 </CSSTransition>
             </BaseModal>
         );

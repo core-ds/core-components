@@ -1,11 +1,11 @@
-import React, { cloneElement, forwardRef, isValidElement, useEffect, useRef } from 'react';
+import React, { forwardRef, useEffect, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Drawer } from '@alfalab/core-components-drawer';
 import { isClient } from '@alfalab/core-components-shared';
 
-import { getHeaderPresetComponent } from '../../../presets/getHeaderPresetComponent';
+import { BaseUniversalModalContent } from '../../../components/base-universal-modal-content/base-universal-modal-content';
 import { ModalBySideProps } from '../../types/props';
 import { useModalHeight } from '../hooks/useModalHeight';
 import { useModalMargin } from '../hooks/useModalMargin';
@@ -28,6 +28,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         margin = [12],
         overlay = true,
         preset,
+        header,
         ...restProps
     } = props;
 
@@ -78,7 +79,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 wrapperClassName={wrapperClassName}
                 className={cn(
                     className,
-                    styles.hidden,
                     styles.component,
                     styles[horizontalAlign],
                     styles[verticalAlign],
@@ -102,11 +102,11 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                     ...contentTransitionProps,
                 }}
                 disableBlockingScroll={!overlay}
+                contentClassName={styles.drawerContent}
             >
-                {getHeaderPresetComponent(preset)}
-                {React.Children.map(children, (child) =>
-                    isValidElement(child) ? cloneElement(child) : child,
-                )}
+                <BaseUniversalModalContent preset={preset} header={header}>
+                    {children}
+                </BaseUniversalModalContent>
             </Drawer>
         );
     }

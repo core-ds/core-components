@@ -1,4 +1,4 @@
-## Анатомия
+## Dev Mode
 
 ```jsx live mobileHeight={720}
 render(() => {
@@ -6,6 +6,8 @@ render(() => {
     const [horizontalAlign, setHorizontalAlign] = React.useState('center');
     const [verticalAlign, setVerticalAlign] = React.useState('center');
     const [overlay, setOverlay] = React.useState(true);
+    const [customHeader, setCustomHeader] = React.useState(false);
+    const [headerPreset, setHeaderPreset] = React.useState('key_0');
 
     const horizontalOptions = [
         { key: 'left', content: 'Left' },
@@ -16,6 +18,13 @@ render(() => {
         { key: 'top', content: 'Top' },
         { key: 'center', content: 'Center' },
         { key: 'bottom', content: 'Bottom' },
+    ];
+
+    const headerPresetOptions = [
+        { key: 'key_0', content: 'Initital' },
+        { key: 'key_1', content: 'Type 1' },
+        { key: 'key_2', content: 'Type 2' },
+        { key: 'key_3', content: 'Type 3' },
     ];
 
     const presetProps1 = getHeaderWithNavigationWithoutTitle();
@@ -45,13 +54,29 @@ render(() => {
                     label='Положение по вертикали'
                     onChange={({ selected }) => setVerticalAlign(selected.key)}
                 />
+                <Gap size={12} direction={'horizontal'} />
+                <SelectDesktop
+                    size={56}
+                    options={headerPresetOptions}
+                    selected={headerPreset}
+                    label='Пресет'
+                    onChange={({ selected }) => setHeaderPreset(selected.key)}
+                />
             </div>
             <Gap size={20} />
-            <Switch
-                label='Overlay'
-                checked={overlay}
-                onChange={() => setOverlay((prev) => !prev)}
-            />
+            <div style={{ display: 'flex' }}>
+                <Switch
+                    label='Overlay'
+                    checked={overlay}
+                    onChange={() => setOverlay((prev) => !prev)}
+                />
+                <Gap size={12} direction={'horizontal'} />
+                <Switch
+                    label='Custom Header'
+                    checked={customHeader}
+                    onChange={() => setCustomHeader((prev) => !prev)}
+                />
+            </div>
 
             <UniversalModalDesktop
                 open={open}
@@ -61,6 +86,12 @@ render(() => {
                 verticalAlign={verticalAlign}
                 onClose={() => setOpen(false)}
                 overlay={overlay}
+                {...(headerPreset === 'key_1' && presetProps1)}
+                {...(headerPreset === 'key_2' && presetProps2)}
+                {...(headerPreset === 'key_3' && presetProps3)}
+                {...(customHeader && {
+                    header: <UniversalModalResponsive.Header title={'CUSTOM HEADER'} />,
+                })}
             >
                 ---------------------------------------------------------------------
                 1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312

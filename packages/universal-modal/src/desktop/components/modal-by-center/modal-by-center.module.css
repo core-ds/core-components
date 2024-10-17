@@ -6,7 +6,7 @@
     min-height: 264px;
     height: 100%;
     border-radius: var(--border-radius-24);
-    overflow: auto;
+    overflow-x: hidden;
 
     &.top {
         margin-top: var(--gap-12);
@@ -18,5 +18,9 @@
 
     &.overlayHidden {
         box-shadow: var(--shadow-m);
+    }
+
+    & .container {
+        height: 100%;
     }
 }
