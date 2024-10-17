@@ -39,15 +39,15 @@
         }
 
         &:not(.disabled).size-32 {
-            min-width: 84px;
+            min-width: 80px;
         }
 
         &:not(.disabled).size-40 {
-            min-width: 104px;
+            min-width: 100px;
         }
 
         &:not(.disabled).size-48 {
-            min-width: 116px;
+            min-width: 112px;
         }
 
         @media (hover: hover) {
@@ -91,11 +91,9 @@
     font-family: var(--font-family);
     color: var(--tag-text-color);
     background-color: var(--tag-outlined-background-color);
-    border-width: var(--tag-border-width);
-    border-color: var(--tag-border-color);
-    border-style: solid;
     transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     margin: var(--gap-0);
+    border: var(--tag-border-width) solid var(--tag-border-color);
 
     &.block {
         width: inherit;
@@ -125,17 +123,17 @@
     }
 
     &.size-32 {
-        min-width: 60px;
+        min-width: 52px;
         min-height: var(--size-xxs-height);
     }
 
     &.size-40 {
-        min-width: 72px;
+        min-width: 64px;
         min-height: var(--size-xs-height);
     }
 
     &.size-48 {
-        min-width: 80px;
+        min-width: 72px;
         min-height: var(--size-s-height);
     }
 
@@ -172,8 +170,8 @@
 
     &.size-48 {
         @mixin paragraph_primary_medium;
-        padding-right: var(--gap-12);
-        padding-left: var(--gap-24);
+        padding-right: var(--gap-8);
+        padding-left: var(--gap-20);
 
         & .chevron {
             margin: var(--gap-0) var(--gap-8);
@@ -182,8 +180,8 @@
 
     &.size-40 {
         @mixin paragraph_primary_small;
-        padding-right: var(--gap-8);
-        padding-left: var(--gap-20);
+        padding-right: var(--gap-4);
+        padding-left: var(--gap-16);
 
         & .chevron {
             margin: var(--gap-0) var(--gap-12) var(--gap-0) 6px;
@@ -192,8 +190,8 @@
 
     &.size-32 {
         @mixin paragraph_primary_small;
-        padding-right: var(--gap-4);
-        padding-left: var(--gap-16);
+        padding-right: var(--gap-0);
+        padding-left: var(--gap-12);
 
         & .chevron {
             margin: var(--gap-0) var(--gap-8) var(--gap-0) 6px;
@@ -238,6 +236,20 @@
         &:not(:disabled) {
             padding-right: var(--gap-0);
             border-right-width: 0;
+
+            &.close {
+                &.size-32 {
+                    padding-right: var(--gap-0);
+                }
+
+                &.size-40 {
+                    padding-right: var(--gap-4);
+                }
+
+                &.size-48 {
+                    padding-right: var(--gap-8);
+                }
+            }
         }
 
         @media (hover: hover) {

@@ -68,27 +68,27 @@
 }
 
 .size-32 {
-    min-width: 60px;
+    min-width: 52px;
     min-height: var(--size-xxs-height);
-    padding: var(--gap-0) var(--gap-16);
+    padding: var(--gap-0) var(--gap-12);
     font-size: 14px;
     line-height: 20px;
     font-weight: normal;
 }
 
 .size-40 {
-    min-width: 72px;
+    min-width: 64px;
     min-height: var(--size-xs-height);
-    padding: var(--gap-0) var(--gap-20);
+    padding: var(--gap-0) var(--gap-16);
     font-size: 14px;
     line-height: 20px;
     font-weight: normal;
 }
 
 .size-48 {
-    min-width: 80px;
+    min-width: 72px;
     min-height: var(--size-s-height);
-    padding: var(--gap-0) var(--gap-24);
+    padding: var(--gap-0) var(--gap-20);
     font-size: 16px;
     line-height: 20px;
     font-weight: normal;
@@ -96,74 +96,74 @@
 
 .size-56 {
     @mixin action_component;
-    min-width: 96px;
+    min-width: 88px;
     min-height: var(--size-m-height);
-    padding: var(--gap-0) 28px;
+    padding: var(--gap-0) var(--gap-24);
 }
 
 .size-64 {
     @mixin action_primary_large;
-    min-width: 120px;
+    min-width: 112px;
     min-height: var(--size-l-height);
-    padding: var(--gap-0) var(--gap-32);
+    padding: var(--gap-0) var(--gap-28);
 }
 
 .size-72 {
     @mixin action_primary_large;
-    min-width: 120px;
+    min-width: 112px;
     min-height: var(--size-xl-height);
-    padding: var(--gap-0) 36px;
+    padding: var(--gap-0) var(--gap-32);
 }
 
 .withRightAddons {
     &.size-32 {
-        padding-right: var(--gap-12);
+        padding-right: var(--gap-8);
     }
 
     &.size-40 {
-        padding-right: var(--gap-16);
+        padding-right: var(--gap-12);
     }
 
     &.size-48 {
-        padding-right: var(--gap-20);
+        padding-right: var(--gap-16);
     }
 
     &.size-56 {
-        padding-right: var(--gap-24);
+        padding-right: var(--gap-20);
     }
 
     &.size-64 {
-        padding-right: 28px;
+        padding-right: var(--gap-24);
     }
 
     &.size-72 {
-        padding-right: var(--gap-32);
+        padding-right: var(--gap-28);
     }
 }
 
 .withLeftAddons {
     &.size-32 {
-        padding-left: var(--gap-12);
+        padding-left: var(--gap-8);
     }
 
     &.size-40 {
-        padding-left: var(--gap-16);
+        padding-left: var(--gap-12);
     }
 
     &.size-48 {
-        padding-left: var(--gap-20);
+        padding-left: var(--gap-16);
     }
 
     &.size-56 {
-        padding-left: var(--gap-24);
+        padding-left: var(--gap-20);
     }
 
     &.size-64 {
-        padding-left: 28px;
+        padding-left: var(--gap-24);
     }
 
     &.size-72 {
-        padding-left: var(--gap-32);
+        padding-left: var(--gap-28);
     }
 }
 
