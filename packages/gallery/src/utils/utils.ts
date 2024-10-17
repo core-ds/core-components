@@ -17,4 +17,5 @@ export const isSmallImage = (meta?: ImageMeta) => {
     return false;
 };
 
-export const isVideo = (url: string | undefined) => /(.*?)(\.webm|\.mp4|\.m3u8)$/.test(url ?? '');
+export const isVideo = (url: string | undefined) =>
+    ['.webm', '.mp4', '.m3u8'].some((item) => url?.endsWith(item));
