@@ -478,8 +478,9 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         useEffect(() => {
             if (open && isExited) {
                 if (!disableBlockingScroll) {
-                    const shouldIOSLock = iOSLock && os.isIOS();
                     const el = getContainer();
+
+                    const shouldIOSLock = iOSLock && os.isIOS();
 
                     handleContainer(el, shouldIOSLock);
                     if (shouldIOSLock) {
