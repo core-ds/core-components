@@ -26,7 +26,7 @@ import { browser, os } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/stack-context';
 
-import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
+import { isScrollLocked, lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
     handleContainer,
     hasScrollbar,
@@ -476,10 +476,9 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         useEffect(() => {
-            const shouldIOSLock = iOSLock && os.isIOS();
-
             if (open && isExited) {
                 if (!disableBlockingScroll) {
+                    const shouldIOSLock = iOSLock && os.isIOS();
                     const el = getContainer();
 
                     handleContainer(el, shouldIOSLock);
@@ -497,7 +496,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 setExited(false);
             }
 
-            if (!open && shouldIOSLock) {
+            if (!open && isScrollLocked()) {
                 unlockScroll();
             }
         }, [getContainer, open, disableBlockingScroll, isExited, iOSLock]);
