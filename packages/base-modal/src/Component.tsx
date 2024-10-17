@@ -476,11 +476,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         useEffect(() => {
+            const shouldIOSLock = iOSLock && os.isIOS();
+
             if (open && isExited) {
                 if (!disableBlockingScroll) {
                     const el = getContainer();
-
-                    const shouldIOSLock = iOSLock && os.isIOS();
 
                     handleContainer(el, shouldIOSLock);
                     if (shouldIOSLock) {
@@ -495,6 +495,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 }
 
                 setExited(false);
+            }
+
+            if (!open && shouldIOSLock) {
+                unlockScroll();
             }
         }, [getContainer, open, disableBlockingScroll, isExited, iOSLock]);
 
