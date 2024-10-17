@@ -1,0 +1,37 @@
+@import '../../../../vars/src/index.css';
+
+.container {
+    padding: var(--gap-2) 0 0 var(--gap-16);
+    width: 100%;
+    cursor: pointer;
+
+    &.single {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 0;
+        min-height: 48px;
+
+        & .title {
+            margin-bottom: 0;
+        }
+    }
+
+    & .title {
+        margin-bottom: var(--gap-4);
+    }
+
+    & .title {
+        display: block;
+
+        &.truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &.restore {
+            color: var(--color-light-text-tertiary);
+        }
+    }
+}
