@@ -95,7 +95,7 @@ Object {
         style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
       >
         <div
-          class="inner popper tooltip tooltip"
+          class="inner popper tooltip tooltip popper"
         >
           <div
             class=""
@@ -203,7 +203,7 @@ Object {
         style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
       >
         <div
-          class="inner popper hint hint"
+          class="inner popper hint hint hint"
         >
           <div
             class=""

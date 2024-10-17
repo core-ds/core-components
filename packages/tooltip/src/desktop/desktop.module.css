@@ -1,0 +1,9 @@
+@import '../../../vars/src/index.css';
+
+.popper {
+    border-radius: var(--border-radius-12);
+}
+
+.hint {
+    border-radius: var(--border-radius-8);
+}
