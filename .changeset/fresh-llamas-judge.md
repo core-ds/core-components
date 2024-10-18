@@ -22,7 +22,6 @@
 "@alfalab/core-components-checkbox-group": patch
 "@alfalab/core-components-circular-progress-bar": patch
 "@alfalab/core-components-code-input": patch
-"@alfalab/core-components-codemod": patch
 "@alfalab/core-components-collapse": patch
 "@alfalab/core-components-comment": patch
 "@alfalab/core-components-confirmation": patch
