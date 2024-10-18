@@ -32,7 +32,8 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
     const componentRef = useRef<HTMLDivElement>(null);
 
     useModalMargin(margin, open, componentRef);
-    useModalWidth(width, open, componentRef);
+    const { currentWidth } = useModalWidth(width, open, componentRef);
+
     useModalHeight(height, open, componentRef);
 
     return (
@@ -56,7 +57,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             disableBlockingScroll={!overlay}
         >
             <div className={styles.container}>
-                <BaseUniversalModalContent preset={preset} header={header}>
+                <BaseUniversalModalContent preset={preset} header={header} width={currentWidth}>
                     {children}
                 </BaseUniversalModalContent>
             </div>

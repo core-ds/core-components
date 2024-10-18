@@ -85,6 +85,11 @@ export type ScrollbarProps = {
      * Дополнительный класс контейнера вертикальной полосы прокрутки
      */
     verticalBarClassName?: string;
+
+    /**
+     * Обработчик изменения скролла
+     */
+    onContentScroll?: (e: Event) => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 const classNames = {
@@ -140,6 +145,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             widthPropName = 'minWidth',
             maskProps,
             verticalBarClassName,
+            onContentScroll,
             ...htmlAttributes
         },
         ref,
@@ -167,10 +173,17 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     scrollableNode: scrollableNodeRef.current,
                     contentNode: contentNodeRef.current,
                 });
+
+                if (onContentScroll) {
+                    instance.getScrollElement().addEventListener('scroll', onContentScroll);
+                }
             }
 
             return () => {
                 if (instance) {
+                    if (onContentScroll) {
+                        instance.getScrollElement().removeEventListener('scroll', onContentScroll);
+                    }
                     instance.unMount();
                     instance = null;
                 }

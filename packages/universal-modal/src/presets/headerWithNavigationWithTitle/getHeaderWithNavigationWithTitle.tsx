@@ -1,5 +1,3 @@
-import { UniversalModalDesktop } from '@alfalab/core-components-universal-modal';
-
 import { PresetTypes } from '../../constants/presetTypes';
 
 type GetHeaderWithNavigationWithTitleProps = {
@@ -12,7 +10,6 @@ export const getHeaderWithNavigationWithTitle = ({
     header: undefined,
     preset: {
         type: PresetTypes.HeaderWithNavigationWithTitle,
-        component: UniversalModalDesktop.Header,
         title,
     },
 });

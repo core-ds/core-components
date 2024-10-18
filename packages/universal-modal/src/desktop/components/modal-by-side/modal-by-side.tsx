@@ -46,7 +46,8 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
     });
 
     useModalMargin(margin, restProps.open, componentRef);
-    useModalWidth(width, restProps.open, componentRef);
+    const { currentWidth } = useModalWidth(width, restProps.open, componentRef);
+
     useModalHeight(height, restProps.open, componentRef);
 
     /**
@@ -104,7 +105,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 disableBlockingScroll={!overlay}
                 contentClassName={styles.drawerContent}
             >
-                <BaseUniversalModalContent preset={preset} header={header}>
+                <BaseUniversalModalContent preset={preset} header={header} width={currentWidth}>
                     {children}
                 </BaseUniversalModalContent>
             </Drawer>

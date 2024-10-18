@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect } from 'react';
+import { MutableRefObject, useEffect, useState } from 'react';
 
 import { isClient } from '@alfalab/core-components-shared';
 
@@ -9,6 +9,7 @@ export const useModalWidth = (
     componentRef: MutableRefObject<HTMLDivElement | null>,
 ) => {
     const ref = componentRef;
+    const [currentWidth, setCurrentWidth] = useState<number>(0);
 
     useEffect(() => {
         if (ref.current) {
@@ -28,7 +29,12 @@ export const useModalWidth = (
 
             if (!Number.isNaN(parseFloat(String(computedWidth)))) {
                 ref.current.style.width = `${parseFloat(String(computedWidth))}px`;
+                setCurrentWidth(computedWidth);
             }
         }
     }, [open, width, ref]);
+
+    return {
+        currentWidth,
+    };
 };

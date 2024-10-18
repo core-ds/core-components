@@ -1,10 +1,10 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import cn from 'classnames';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
-import { getComponentHeader } from '../../desktop/components/utils/getCustomHeader';
+import { ModalHeader } from '../../desktop/components/modal-header/modalHeader';
 import { ModalByCenterProps } from '../../desktop/types/props';
 
 import styles from './base-universal-modal-content.module.css';
@@ -12,6 +12,7 @@ import styles from './base-universal-modal-content.module.css';
 type BaseUniversalModalContentProps = {
     preset: ModalByCenterProps['preset'];
     header: ReactNode;
+    width: number;
 } & Pick<BaseModalProps, 'children'>;
 
 /**
@@ -19,14 +20,27 @@ type BaseUniversalModalContentProps = {
  * Этот компонент содержит общий код передаваемый в эти сущности.
  */
 export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (props) => {
-    const { preset, header, children } = props;
+    const { preset, header, children, width } = props;
+    const [scrollPosition, setScrollPosition] = useState<number>(0);
+
+    const handleScroll = (e: Event) => {
+        const target = e.target as HTMLDivElement;
+
+        setScrollPosition(target.scrollTop);
+    };
 
     return (
         <Scrollbar
             className={styles.scrollbarWrapper}
             verticalBarClassName={styles.verticalBarContainer}
+            onContentScroll={handleScroll}
         >
-            {getComponentHeader(preset, header)}
+            <ModalHeader
+                preset={preset}
+                header={header}
+                scrollPosition={scrollPosition}
+                width={width}
+            />
             <div
                 className={cn(styles.content, {
                     [styles.resetPaddingTop]: preset || header,
