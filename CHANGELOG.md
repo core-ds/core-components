@@ -1,3 +1,144 @@
+## 47.24.0
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1359](https://github.com/core-ds/core-components/pull/1359)
+
+#### Что изменилось
+- В сборку добавлено создание js-файлов для цветовых палитр. Это позволяет импортировать js-стили конкретной палитры.
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+
+## 47.23.0
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1407](https://github.com/core-ds/core-components/pull/1407)
+
+#### Что изменилось
+- Откат изменений скрытия футера при пустых опциях
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1415](https://github.com/core-ds/core-components/pull/1415)
+
+#### Что изменилось
+- Добавлен обработчик `onTargetClick`, вызываемый при нажатии на цель `Tooltip`
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+### [#1414](https://github.com/core-ds/core-components/pull/1414)
+
+#### Что изменилось
+- Для дочернего компонента-обертки Space -> Item прокидываем key который передали или сгенерировал react
+
+#### Влияние на компоненты
+- Патчи<br />`space`
+
+
+### [#1410](https://github.com/core-ds/core-components/pull/1410)
+
+#### Что изменилось
+- Исправлен расчет высоты пустого списка опций с включенным `limitDynamicOptionGroupSize`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1381](https://github.com/core-ds/core-components/pull/1381)
+
+#### Что изменилось
+- Добавлены `inverted` цвета
+
+#### Влияние на компоненты
+- Минорное<br />`switch`
+
+
+### [#1382](https://github.com/core-ds/core-components/pull/1382)
+
+#### Что изменилось
+- Исправлено скругление картинок до `16px`
+
+#### Влияние на компоненты
+- Патчи<br />`markdown`
+
+
+
+## 47.22.0
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1399](https://github.com/core-ds/core-components/pull/1399)
+
+#### Что изменилось
+- Изменена логика отрисовки image тэга - теперь image рендерится всегда и скрывается только в случае ошибки загрузки
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1405](https://github.com/core-ds/core-components/pull/1405)
+
+#### Что изменилось
+1. Добавлен пропс `onSelectAllClick` в хук `useSelectWithApply`
+2. Исправлена прокидка пропса `headerProps` в компонент `Header` хуке `useSelectWithApply`
+3. Добавлен параметр `name` в обработчик `onChange` для кнопок "Применить" и "Сбросить"
+4. Добавлен пропс `dataTestId` для чекбокса "Выбрать все"
+5. Исправлена ситуация с пустым списком опций и отображаемым футером
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1371](https://github.com/core-ds/core-components/pull/1371)
+
+#### Что изменилось
+- Исправлено удаление номера в режиме clearableCountryCode
+
+#### Влияние на компоненты
+- Минорное<br />`phone-input`
+
+
+### [#1389](https://github.com/core-ds/core-components/pull/1389)
+
+#### Что изменилось
+- Изменен тип у компонента navigation-bar-private для пропса title со string на ReactNode
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar-private`
+
+
+
+## 47.21.0
+
+<sup><time>04.10.2024</time></sup>
+
+### [#1397](https://github.com/core-ds/core-components/pull/1397)
+
+#### Что изменилось
+- Для Amount и AmountTitle добавлено состояние hidden, когда значение скрывается скелетоном
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1401](https://github.com/core-ds/core-components/pull/1401)
+
+#### Что изменилось
+- Добавлен `opacity` во время показа скелетона. Это позволяет избежать моргания компонента в ssr.
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
 ## 47.20.0
 
 <sup><time>24.09.2024</time></sup>

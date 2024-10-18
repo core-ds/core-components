@@ -23,6 +23,11 @@ type Props = {
     titleProps?: TitleProps;
 
     /**
+     * Скрыть денежное значение
+     */
+    hidden?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для typography используется модификатор -amount-title, для компонента Amount -core-amount-title
      */
@@ -32,26 +37,35 @@ type Props = {
 export const AmountTitle: React.FC<Props> = ({
     minority,
     minorUnits = 100,
+    hidden,
     className,
     color = 'primary',
     dataTestId,
-    titleProps = {},
+    titleProps: titlePropsFromProps = {},
     ...restProps
 }) => {
     const pureCellContext = useContext(PureCellContext);
 
-    const titleDefaultProps = {
+    const titleProps = {
         tag: 'h4',
         view: 'small',
         color,
-        ...titleProps,
+        ...titlePropsFromProps,
     } as Omit<TitleProps, 'className' | 'dataTestId'>;
+
+    if (hidden) {
+        return (
+            <div className={cn(styles.hiddenWrapper, styles[`hiddenWrapper-${titleProps.view}`])}>
+                <div className={cn(styles.hidden, styles[`hidden-${titleProps.view}`])} />
+            </div>
+        );
+    }
 
     return (
         <Typography.TitleResponsive
-            {...titleDefaultProps}
+            {...titleProps}
             dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-title')}
-            className={cn(styles.component, titleProps.className)}
+            className={cn(styles.component, titlePropsFromProps?.className)}
         >
             <CoreAmount
                 minority={minority || minorUnits}

@@ -5,7 +5,16 @@ import cn from 'classnames';
 import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
+import { Colors } from './types/colors';
+
+import defaultStyles from './default.module.css';
 import styles from './index.module.css';
+import invertedStyles from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultStyles,
+    inverted: invertedStyles,
+};
 
 type Align = 'start' | 'center';
 
@@ -80,6 +89,12 @@ export type SwitchProps = Omit<
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: Colors;
 };
 
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
@@ -100,6 +115,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             className,
             onChange,
             dataTestId,
+            colors = 'default',
             ...restProps
         },
         ref,
@@ -120,7 +136,11 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             <label
                 className={cn(styles.component, styles[align], className, {
                     [styles.disabled]: disabled || inactive,
+                    [colorStyles[colors].disabled]: disabled || inactive,
+
                     [styles.checked]: checked,
+                    [colorStyles[colors].checked]: checked,
+
                     [styles.reversed]: reversed,
                     [styles.focused]: focused,
                     [styles.block]: block,
@@ -138,12 +158,20 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     {...restProps}
                 />
 
-                <span className={styles.switch} />
+                <span className={cn(styles.switch, colorStyles[colors].switch)} />
 
                 {(label || hint || errorMessage) && (
                     <span className={styles.content}>
-                        {label && <span className={styles.label}>{label}</span>}
-                        {hint && !errorMessage && <span className={styles.hint}>{hint}</span>}
+                        {label && (
+                            <span className={cn(styles.label, colorStyles[colors].label)}>
+                                {label}
+                            </span>
+                        )}
+                        {hint && !errorMessage && (
+                            <span className={cn(styles.hint, colorStyles[colors].hint)}>
+                                {hint}
+                            </span>
+                        )}
 
                         {errorMessage && (
                             <span className={styles.errorMessage} role='alert'>

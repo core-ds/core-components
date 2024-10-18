@@ -1,5 +1,23 @@
 # @alfalab/core-components-markdown
 
+## 1.5.2
+
+### Patch Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1382](https://github.com/core-ds/core-components/pull/1382)
+
+-   Исправлено скругление картинок до `16px`
+
+## 1.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   list@3.4.2
+
 ## 1.5.0
 
 ### Minor Changes

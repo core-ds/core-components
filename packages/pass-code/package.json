@@ -26,5 +26,5 @@
         "@alfalab/core-components-mq": "^4.3.0"
     },
     "themesVersion": "13.4.0",
-    "varsVersion": "9.13.1"
+    "varsVersion": "9.14.0"
 }

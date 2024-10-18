@@ -124,7 +124,6 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
     ) => {
         const [width, height] = typeof size === 'object' ? [size.width, size.height] : [size, size];
         const imageLoadingState = useImageLoadingState({ src: imageUrl || '' });
-        const loadedUrl = imageLoadingState === 'loaded' ? imageUrl : undefined;
 
         const imagePatternId = useId();
 
@@ -174,12 +173,12 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             d={shapeDPath}
                         />
 
-                        {loadedUrl && (
+                        {imageUrl && imageLoadingState !== 'error' && (
                             <Fragment>
                                 <defs>
                                     <pattern id={imagePatternId} width='100%' height='100%'>
                                         <image
-                                            href={loadedUrl}
+                                            href={imageUrl}
                                             width='100%'
                                             height='100%'
                                             preserveAspectRatio='xMidYMid slice'

@@ -10,9 +10,16 @@ export type HeaderProps = {
     indeterminate?: boolean;
     onChange?: CheckboxProps['onChange'];
     mobile?: boolean;
+    dataTestId?: string;
 };
 
-export const Header: React.FC<HeaderProps> = ({ onChange, checked, indeterminate, mobile }) => (
+export const Header: React.FC<HeaderProps> = ({
+    onChange,
+    checked,
+    indeterminate,
+    mobile,
+    dataTestId,
+}) => (
     <div className={cn({ [styles.desktop]: !mobile, [styles.mobile]: mobile })}>
         <Checkbox
             block={true}
@@ -21,6 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ onChange, checked, indeterminate
             onChange={onChange}
             checked={checked}
             label='Выбрать все'
+            dataTestId={dataTestId}
         />
     </div>
 );

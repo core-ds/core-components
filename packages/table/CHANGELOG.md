@@ -1,5 +1,26 @@
 # Change Log
 
+## 2.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+
+## 2.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+
+## 2.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.2
+
 ## 2.6.5
 
 ### Patch Changes
