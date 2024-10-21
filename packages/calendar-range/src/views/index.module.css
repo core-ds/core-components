@@ -19,7 +19,7 @@
 
 .static {
     & .calendar {
-        width: var(--calendar-inner-width);
+        width: 100%;
 
         & > div:first-child {
             padding: var(--gap-16) var(--gap-0) var(--gap-12);

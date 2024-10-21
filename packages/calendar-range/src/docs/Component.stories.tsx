@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { select } from '@storybook/addon-knobs';
+import { number, select } from '@storybook/addon-knobs';
 import { CalendarRange } from '@alfalab/core-components-calendar-range';
 import {
     getQueryParam,
@@ -37,6 +37,7 @@ export const calendar_range: Story = {
                             ['static', 'popover'],
                             'static',
                         )}
+                        calendarContainerWidth={number('calendarContainerWidth', 280)}
                     />
                 </div>
             </div>

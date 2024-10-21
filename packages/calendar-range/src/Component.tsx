@@ -101,6 +101,12 @@ export type CalendarRangeProps = {
      * Возвращать невалидную дату для кастомной валидации
      */
     returnInvalidDates?: boolean;
+
+    /**
+     * Ширина контейнера календаря
+     * @default 280
+     */
+    calendarContainerWidth?: number;
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
