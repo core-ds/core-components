@@ -81,7 +81,6 @@
 "@alfalab/core-components-pure-cell": patch
 "@alfalab/core-components-radio": patch
 "@alfalab/core-components-radio-group": patch
-"@alfalab/core-components-screenshot-utils": patch
 "@alfalab/core-components-scrollbar": patch
 "@alfalab/core-components-segmented-control": patch
 "@alfalab/core-components-select": patch
@@ -112,11 +111,9 @@
 "@alfalab/core-components-toast": patch
 "@alfalab/core-components-toast-plate": patch
 "@alfalab/core-components-tooltip": patch
-"@alfalab/core-components-types": patch
 "@alfalab/core-components-typography": patch
 "@alfalab/core-components-underlay": patch
 "@alfalab/core-components-universal-date-input": patch
-"@alfalab/core-components-utils": patch
 "@alfalab/core-components-vars": patch
 "@alfalab/core-components-with-suffix": patch
 ---
