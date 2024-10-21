@@ -6,10 +6,10 @@ import { Drawer } from '@alfalab/core-components-drawer';
 import { isClient } from '@alfalab/core-components-shared';
 
 import { BaseUniversalModalContent } from '../../../components/base-universal-modal-content/base-universal-modal-content';
+import { useModalHeight } from '../../hooks/useModalHeight';
+import { useModalMargin } from '../../hooks/useModalMargin';
+import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
-import { useModalHeight } from '../hooks/useModalHeight';
-import { useModalMargin } from '../hooks/useModalMargin';
-import { useModalWidth } from '../hooks/useModalWidth';
 
 import styles from './modal-by-side.module.css';
 import transitions from './transitions.desktop.module.css';
@@ -29,6 +29,8 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         overlay = true,
         preset,
         header,
+        footer,
+        footerPreset,
         ...restProps
     } = props;
 
@@ -105,7 +107,13 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 disableBlockingScroll={!overlay}
                 contentClassName={styles.drawerContent}
             >
-                <BaseUniversalModalContent preset={preset} header={header} width={currentWidth}>
+                <BaseUniversalModalContent
+                    preset={preset}
+                    header={header}
+                    width={currentWidth}
+                    footer={footer}
+                    footerPreset={footerPreset}
+                >
                     {children}
                 </BaseUniversalModalContent>
             </Drawer>

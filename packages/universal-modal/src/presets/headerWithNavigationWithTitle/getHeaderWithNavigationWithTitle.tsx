@@ -1,4 +1,4 @@
-import { PresetTypes } from '../../constants/presetTypes';
+import { HeaderPresetTypes } from '../../constants/headerPresetTypes';
 
 type GetHeaderWithNavigationWithTitleProps = {
     title: string;
@@ -9,7 +9,7 @@ export const getHeaderWithNavigationWithTitle = ({
 }: GetHeaderWithNavigationWithTitleProps) => ({
     header: undefined,
     preset: {
-        type: PresetTypes.HeaderWithNavigationWithTitle,
+        type: HeaderPresetTypes.HeaderWithNavigationWithTitle,
         title,
     },
 });

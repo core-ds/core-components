@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 
 import { ModalByCenterProps } from '../../types/props';
-import { HeaderPreset } from '../modal-header-preset/headerPreset';
+import { ModalHeaderPreset } from '../modal-header-preset/modalHeaderPreset';
 
 type ModalHeaderProps = {
     preset: ModalByCenterProps['preset'];
@@ -14,7 +14,7 @@ export const ModalHeader: FC<ModalHeaderProps> = (props) => {
     const { preset, header, scrollPosition, width } = props;
 
     if (preset) {
-        return <HeaderPreset preset={preset} scrollPosition={scrollPosition} width={width} />;
+        return <ModalHeaderPreset preset={preset} scrollPosition={scrollPosition} width={width} />;
     }
 
     if (header) {

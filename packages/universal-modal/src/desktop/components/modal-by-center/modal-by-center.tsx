@@ -4,10 +4,10 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { BaseUniversalModalContent } from '../../../components/base-universal-modal-content/base-universal-modal-content';
+import { useModalHeight } from '../../hooks/useModalHeight';
+import { useModalMargin } from '../../hooks/useModalMargin';
+import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalByCenterProps } from '../../types/props';
-import { useModalHeight } from '../hooks/useModalHeight';
-import { useModalMargin } from '../hooks/useModalMargin';
-import { useModalWidth } from '../hooks/useModalWidth';
 
 import styles from './modal-by-center.module.css';
 import transitionsCenter from './transitions-center.module.css';
@@ -26,6 +26,8 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
         margin = ['auto'],
         preset,
         header,
+        footer,
+        footerPreset,
         ...restProps
     } = props;
 
@@ -57,7 +59,13 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             disableBlockingScroll={!overlay}
         >
             <div className={styles.container}>
-                <BaseUniversalModalContent preset={preset} header={header} width={currentWidth}>
+                <BaseUniversalModalContent
+                    preset={preset}
+                    header={header}
+                    width={currentWidth}
+                    footer={footer}
+                    footerPreset={footerPreset}
+                >
                     {children}
                 </BaseUniversalModalContent>
             </div>

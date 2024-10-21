@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
+import { ModalFooter } from '../../desktop/components/modal-footer/modalFooter';
 import { ModalHeader } from '../../desktop/components/modal-header/modalHeader';
 import { ModalByCenterProps } from '../../desktop/types/props';
 
@@ -11,7 +12,9 @@ import styles from './base-universal-modal-content.module.css';
 
 type BaseUniversalModalContentProps = {
     preset: ModalByCenterProps['preset'];
+    footerPreset: ModalByCenterProps['footerPreset'];
     header: ReactNode;
+    footer: ReactNode;
     width: number;
 } & Pick<BaseModalProps, 'children'>;
 
@@ -20,7 +23,7 @@ type BaseUniversalModalContentProps = {
  * Этот компонент содержит общий код передаваемый в эти сущности.
  */
 export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (props) => {
-    const { preset, header, children, width } = props;
+    const { preset, header, footerPreset, footer, children, width } = props;
     const [scrollPosition, setScrollPosition] = useState<number>(0);
 
     const handleScroll = (e: Event) => {
@@ -48,6 +51,12 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
             >
                 {children}
             </div>
+            <ModalFooter
+                preset={footerPreset}
+                footer={footer}
+                scrollPosition={scrollPosition}
+                width={width}
+            />
         </Scrollbar>
     );
 };

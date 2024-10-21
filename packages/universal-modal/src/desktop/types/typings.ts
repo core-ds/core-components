@@ -1,13 +1,22 @@
 import { ElementType } from 'react';
 
-import { PresetTypes } from '../../constants/presetTypes';
+import { FooterPresetTypes } from '../../constants/footerPresetTypes';
+import { HeaderPresetTypes } from '../../constants/headerPresetTypes';
 
 export type TMargin = number | 'auto';
 
-export type TPreset = {
+export type TModalHeaderPreset = {
     preset?: {
-        type: (typeof PresetTypes)[keyof typeof PresetTypes];
+        type: (typeof HeaderPresetTypes)[keyof typeof HeaderPresetTypes];
         title?: string;
         component: ElementType;
+    };
+};
+
+export type TModalFooterPreset = {
+    footerPreset?: {
+        type: (typeof FooterPresetTypes)[keyof typeof FooterPresetTypes];
+        labelLeft?: string;
+        labelRight?: string;
     };
 };

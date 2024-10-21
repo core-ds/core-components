@@ -6,8 +6,12 @@ render(() => {
     const [horizontalAlign, setHorizontalAlign] = React.useState('center');
     const [verticalAlign, setVerticalAlign] = React.useState('center');
     const [overlay, setOverlay] = React.useState(true);
+
     const [customHeader, setCustomHeader] = React.useState(false);
     const [headerPreset, setHeaderPreset] = React.useState('key_2');
+
+    const [customFooter, setCustomFooter] = React.useState(false);
+    const [footerPreset, setFooterPreset] = React.useState('key_1');
 
     const horizontalOptions = [
         { key: 'left', content: 'Left' },
@@ -27,9 +31,17 @@ render(() => {
         { key: 'key_3', content: 'Type 3' },
     ];
 
+    const footerPresetOptions = [
+        { key: 'key_0', content: 'Initital' },
+        { key: 'key_1', content: 'Type 1' },
+    ];
+
     const presetProps1 = getHeaderWithNavigationWithoutTitle();
     const presetProps2 = getHeaderWithNavigationWithTitle({ title: 'title' });
     const presetProps3 = getHeaderWithTitle({ title: 'title' });
+    const footerProps1 = getFooterWithContent({ labelLeft: 'LabelLeft', labelRight: 'labelRight' });
+
+    console.warn('c', customFooter)
 
     return (
         <React.Fragment>
@@ -59,8 +71,16 @@ render(() => {
                     size={56}
                     options={headerPresetOptions}
                     selected={headerPreset}
-                    label='Пресет'
+                    label='Пресет хэдера'
                     onChange={({ selected }) => setHeaderPreset(selected.key)}
+                />
+                <Gap size={12} direction={'horizontal'} />
+                <SelectDesktop
+                    size={56}
+                    options={footerPresetOptions}
+                    selected={footerPreset}
+                    label='Пресет футера'
+                    onChange={({ selected }) => setFooterPreset(selected.key)}
                 />
             </div>
             <Gap size={20} />
@@ -76,12 +96,18 @@ render(() => {
                     checked={customHeader}
                     onChange={() => setCustomHeader((prev) => !prev)}
                 />
+                <Gap size={12} direction={'horizontal'} />
+                <Switch
+                    label='Custom Footer'
+                    checked={customFooter}
+                    onChange={() => setCustomFooter((prev) => !prev)}
+                />
             </div>
 
             <UniversalModalDesktop
                 open={open}
-                width={500}
-                height={300}
+                width={501}
+                height={500}
                 horizontalAlign={horizontalAlign}
                 verticalAlign={verticalAlign}
                 onClose={() => setOpen(false)}
@@ -91,6 +117,10 @@ render(() => {
                 {...(headerPreset === 'key_3' && presetProps3)}
                 {...(customHeader && {
                     header: <UniversalModalResponsive.Header title={'CUSTOM HEADER'} />,
+                })}
+                {...(footerPreset === 'key_1' && footerProps1)}
+                {...(customFooter && {
+                    footer:  <UniversalModalResponsive.Footer>Custom Footer</UniversalModalResponsive.Footer>,
                 })}
             >
                 ---------------------------------------------------------------------

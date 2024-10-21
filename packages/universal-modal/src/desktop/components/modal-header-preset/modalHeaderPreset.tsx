@@ -6,24 +6,24 @@ import { Typography } from '@alfalab/core-components-typography';
 import ArrowLeftMediumMIcon from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 
 import { Header } from '../../../components/header/Component';
-import { HEADER_MEDIUM_BREAKPOINT, PresetTypes } from '../../../constants/presetTypes';
-import { ModalByCenterProps } from '../../types/props';
+import { HEADER_MEDIUM_BREAKPOINT, HeaderPresetTypes } from '../../../constants/headerPresetTypes';
+import { TModalHeaderPreset } from '../../types/typings';
 
-import styles from './headerPreset.module.css';
+import styles from './modalHeaderPreset.module.css';
 
 type HeaderPresetProps = {
-    preset: ModalByCenterProps['preset'];
+    preset: TModalHeaderPreset['preset'];
     scrollPosition: number;
     width: number;
 };
 
-export const HeaderPreset: FC<HeaderPresetProps> = (props) => {
+export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
     const { preset, scrollPosition, width } = props;
 
     if (preset) {
         const { type } = preset;
 
-        if (type === PresetTypes.HeaderWithNavigationWithoutTitle) {
+        if (type === HeaderPresetTypes.HeaderWithNavigationWithoutTitle) {
             return (
                 <Header
                     className={styles.container}
@@ -45,7 +45,7 @@ export const HeaderPreset: FC<HeaderPresetProps> = (props) => {
             );
         }
 
-        if (type === PresetTypes.HeaderWithNavigationWithTitle) {
+        if (type === HeaderPresetTypes.HeaderWithNavigationWithTitle) {
             const { title } = preset;
 
             return (
@@ -75,7 +75,7 @@ export const HeaderPreset: FC<HeaderPresetProps> = (props) => {
             );
         }
 
-        if (type === PresetTypes.HeaderWithTitle) {
+        if (type === HeaderPresetTypes.HeaderWithTitle) {
             const { title } = preset;
 
             return (

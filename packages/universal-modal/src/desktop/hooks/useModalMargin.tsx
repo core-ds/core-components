@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from 'react';
 
-import { BaseUniversalModalProps } from '../../types/props';
+import { BaseUniversalModalProps } from '../types/props';
 
 /** Преобразует переданный массив отступов [12, 12] => '12px 12px' и передаем стиль модалке */
 export const useModalMargin = (

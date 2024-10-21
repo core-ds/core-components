@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
 
-import { TMargin, TPreset } from './typings';
+import { TMargin, TModalFooterPreset, TModalHeaderPreset } from './typings';
 
 export type BaseUniversalModalProps = {
     /**
@@ -57,9 +57,14 @@ export type BaseUniversalModalProps = {
         | [TMargin];
 
     /**
-     * Слот для кастомного хэдера. Этот пропс не будет работать если вы используете пресеты для хэдера.
+     * Слот для кастомного хэдера. Этот пропс не будет работать если вы используете пресеты для хэдера
      */
     header?: ReactNode;
+
+    /**
+     * Слот для кастомного футера. Этот пропс не будет работать если вы используете пресеты для футера
+     */
+    footer?: ReactNode;
 };
 
 export type UniversalModalDesktopProps = BaseUniversalModalProps &
@@ -68,8 +73,10 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
 export type ModalBySideProps = UniversalModalDesktopProps &
     Pick<DrawerProps, 'contentTransitionProps'> &
     Pick<BaseModalProps, 'wrapperClassName' | 'className'> &
-    TPreset;
+    TModalHeaderPreset &
+    TModalFooterPreset;
 
 export type ModalByCenterProps = UniversalModalDesktopProps &
     Pick<BaseModalProps, 'transitionProps' | 'className'> &
-    TPreset;
+    TModalHeaderPreset &
+    TModalFooterPreset;

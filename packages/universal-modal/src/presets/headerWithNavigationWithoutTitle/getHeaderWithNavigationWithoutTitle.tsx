@@ -1,8 +1,8 @@
-import { PresetTypes } from '../../constants/presetTypes';
+import { HeaderPresetTypes } from '../../constants/headerPresetTypes';
 
 export const getHeaderWithNavigationWithoutTitle = () => ({
     header: undefined,
     preset: {
-        type: PresetTypes.HeaderWithNavigationWithoutTitle,
+        type: HeaderPresetTypes.HeaderWithNavigationWithoutTitle,
     },
 });

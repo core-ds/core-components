@@ -1,4 +1,4 @@
-import { PresetTypes } from '../../constants/presetTypes';
+import { HeaderPresetTypes } from '../../constants/headerPresetTypes';
 
 type GetHeaderWithTitleProps = {
     title: string;
@@ -7,7 +7,7 @@ type GetHeaderWithTitleProps = {
 export const getHeaderWithTitle = ({ title }: GetHeaderWithTitleProps) => ({
     header: undefined,
     preset: {
-        type: PresetTypes.HeaderWithTitle,
+        type: HeaderPresetTypes.HeaderWithTitle,
         title,
     },
 });
