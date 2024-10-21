@@ -18,6 +18,7 @@
         "@alfalab/core-components-calendar": "^7.14.2",
         "@alfalab/core-components-calendar-input": "^10.4.2",
         "@alfalab/core-components-date-input": "^4.4.4",
+        "@alfalab/core-components-shared": "^0.13.0",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "date-fns": "^2.16.1",
