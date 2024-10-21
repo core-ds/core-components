@@ -5,6 +5,7 @@ import React, {
     Fragment,
     HTMLAttributes,
     InputHTMLAttributes,
+    KeyboardEvent,
     MouseEvent,
     ReactNode,
     RefAttributes,
@@ -320,6 +321,28 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             [onChange, uncontrolled],
         );
 
+        const handleKeyDown = useCallback(
+            (e: KeyboardEvent<HTMLInputElement>) => {
+                /**
+                 * По умолчанию в input[type=number] можно вводить числа типа 2e5 (200 000)
+                 * Это ломает некоторое поведение, поэтому запрещаем ввод символов [eE]
+                 * @see DS-6808
+                 */
+                const { key } = e;
+
+                if (key === 'e' || key === 'E') {
+                    e.preventDefault();
+
+                    return;
+                }
+
+                if (restProps.onKeyDown) {
+                    restProps.onKeyDown(e);
+                }
+            },
+            [restProps],
+        );
+
         const handleClear = useCallback(
             (event: MouseEvent<HTMLButtonElement>) => {
                 if (!clearButtonVisible) return;
@@ -436,6 +459,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
                     onChange={handleInputChange}
+                    onKeyDown={handleKeyDown}
                     onAnimationStart={handleAnimationStart}
                     ref={mergeRefs([ref, inputRef])}
                     type={type}
