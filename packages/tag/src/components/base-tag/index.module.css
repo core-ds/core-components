@@ -105,7 +105,7 @@
     @mixin action_primary_large;
     min-width: 112px;
     min-height: var(--size-l-height);
-    padding: var(--gap-0) var(--gap-28);
+    padding: var(--gap-0) 28px;
 }
 
 .size-72 {
@@ -137,7 +137,7 @@
     }
 
     &.size-72 {
-        padding-right: var(--gap-28);
+        padding-right: 28px;
     }
 }
 
@@ -163,7 +163,7 @@
     }
 
     &.size-72 {
-        padding-left: var(--gap-28);
+        padding-left: 28px;
     }
 }
 
