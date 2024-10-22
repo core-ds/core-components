@@ -1,5 +1,21 @@
 # Change Log
 
+## 17.15.1
+
+### Patch Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1407](https://github.com/core-ds/core-components/pull/1407)
+
+-   Откат изменений скрытия футера при пустых опциях
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1410](https://github.com/core-ds/core-components/pull/1410)
+
+-   Исправлен расчет высоты пустого списка опций с включенным `limitDynamicOptionGroupSize`
+
 ## 17.15.0
 
 ### Minor Changes

@@ -15,12 +15,18 @@ import mixins from '!!raw-loader!../mixins.css';
 @import '@alfalab/core-components/vars';
 ```
 
-Все CSS-переменные можно также экспортировать в виде JS-переменных:
+Все CSS-переменные можно также импортировать в виде JS-переменных:
 
 ```typescript
 import * as vars from '@alfalab/core-components/vars';
 
 vars.gap2xl === '32px'; //true
+```
+
+В корневом файле `/vars/index.js` находятся не все доступные палитры. В этом случае вы можете импортировать цвет напрямую из JS-файла
+
+```typescript
+import {colorLightDecorativeOrange} from '@alfalab/core-components/vars/colors-decorative.module';
 ```
 
 Для использования в проекте, добавьте один из [подготовленных бандлов](https://github.com/core-ds/core-components/tree/master/packages/vars/src/bundle) продуктов в один из корневых файлов CSS:

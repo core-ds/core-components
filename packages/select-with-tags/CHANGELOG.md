@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+
 ## 8.4.3
 
 ### Patch Changes
