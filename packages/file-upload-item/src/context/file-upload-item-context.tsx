@@ -1,10 +1,8 @@
 import { createContext, ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
 
-import { FileStatuses } from '../types';
-
 type TFileUploadItemContext = {
     showRestore?: boolean;
-    uploadStatus?: FileStatuses;
+    uploadStatus?: string;
     error?: string | string[];
     title?: string;
     subtitle?: string;

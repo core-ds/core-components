@@ -37,20 +37,20 @@ describe('getExtension', () => {
     });
 });
 
-describe('check sattuses', () => {
+describe('check statuses', () => {
     it('should initial status', () => {
-        expect(isInitialStatus('INITIAL')).toBeTruthy();
+        expect(isInitialStatus('INITIAL')).toBe(true);
     });
     it('should success status', () => {
-        expect(isSuccessStatus('SUCCESS')).toBeTruthy();
+        expect(isSuccessStatus('SUCCESS')).toBe(true);
     });
     it('should error status', () => {
-        expect(isErrorStatus('ERROR')).toBeTruthy();
+        expect(isErrorStatus('ERROR')).toBe(true);
     });
     it('should uploading status', () => {
-        expect(isUploadingStatus('UPLOADING')).toBeTruthy();
+        expect(isUploadingStatus('UPLOADING')).toBe(true);
     });
     it('should uploaded status', () => {
-        expect(isUploadedStatus('UPLOADED')).toBeTruthy();
+        expect(isUploadedStatus('UPLOADED')).toBe(true);
     });
 });

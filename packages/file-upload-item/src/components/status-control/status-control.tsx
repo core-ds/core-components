@@ -8,7 +8,6 @@ import { isErrorStatus, isSuccessStatus, isUploadingStatus } from '../../utils';
 
 import { StatusControlIcon } from './components/status-control-icon';
 import { StatusControlProgressBar } from './components/status-control-progress-bar';
-import { colors } from './constants/colors';
 
 import styles from './status-control.module.css';
 
@@ -19,6 +18,9 @@ export const StatusControl = () => {
     if (progressRef.current) {
         progressRef.current.style.maskImage = `conic-gradient(red ${progressBar}deg, transparent 0)`;
     }
+
+    const isTransparentProgressBar = () =>
+        uploadStatus === 'INITIAL' || uploadStatus === 'UPLOADED' || uploadStatus === 'DELETED';
 
     return (
         <div className={styles.container}>
@@ -33,7 +35,14 @@ export const StatusControl = () => {
                     [styles.error]: isErrorStatus(uploadStatus),
                 })}
             >
-                <StatusControlProgressBar color={colors[uploadStatus]} />
+                <StatusControlProgressBar
+                    className={cn({
+                        [styles.progressBarTransparent]: isTransparentProgressBar(),
+                        [styles.progressBarUploading]: uploadStatus === 'UPLOADING',
+                        [styles.progressBarSuccess]: uploadStatus === 'SUCCESS',
+                        [styles.progressBarError]: uploadStatus === 'ERROR',
+                    })}
+                />
             </div>
         </div>
     );

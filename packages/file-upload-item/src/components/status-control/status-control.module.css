@@ -26,4 +26,20 @@
             mask-image: conic-gradient(black 360deg, transparent 0);
         }
     }
+
+    & .progressBarTransparent {
+        fill: transparent;
+    }
+
+    & .progressBarUploading {
+        fill: var(--color-light-neutral-500);
+    }
+
+    & .progressBarSuccess {
+        fill: var(--color-light-status-positive);
+    }
+
+    & .progressBarError {
+        fill: var(--color-light-status-negative);
+    }
 }

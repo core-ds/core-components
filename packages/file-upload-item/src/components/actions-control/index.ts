@@ -1,1 +1,1 @@
-export { ActionsControl } from './actions-control';
+export { Actions } from './actions';

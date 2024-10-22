@@ -29,7 +29,7 @@ export const DownloadButton = () => {
             className={styles.icon}
             size='xxs'
             aria-label='скачать'
-            icon={<ArrowDownLineDownCompactMIcon color='var(--color-light-text-tertiary)' />}
+            icon={<ArrowDownLineDownCompactMIcon className={styles.downloadIconColor} />}
             disabled={disableButtons}
             href={downloadLink}
             download={download}

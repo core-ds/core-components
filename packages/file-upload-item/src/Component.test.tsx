@@ -2,12 +2,11 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { FileUploadItem } from '.';
-import { FileStatuses } from './types';
 
 export const fileProps = {
     title: 'title',
     subtitle: 'subtitle',
-    uploadStatus: 'INITIAL' as FileStatuses,
+    uploadStatus: 'INITIAL',
 };
 
 describe('FileUploadItem', () => {
@@ -32,7 +31,7 @@ describe('FileUploadItem', () => {
                     <FileUploadItem {...fileProps}>
                         <FileUploadItem.StatusControl />
                         <FileUploadItem.Content />
-                        <FileUploadItem.ActionsControl />
+                        <FileUploadItem.Actions />
                     </FileUploadItem>,
                 ),
             ).toMatchSnapshot();
@@ -275,7 +274,7 @@ describe('FileUploadItem', () => {
         it('should set `delete` element', () => {
             render(
                 <FileUploadItem showDelete={true}>
-                    <FileUploadItem.ActionsControl />
+                    <FileUploadItem.Actions />
                 </FileUploadItem>,
             );
 
@@ -287,7 +286,7 @@ describe('FileUploadItem', () => {
         it('should set `restore` element', () => {
             render(
                 <FileUploadItem showRestore={true}>
-                    <FileUploadItem.ActionsControl />
+                    <FileUploadItem.Actions />
                 </FileUploadItem>,
             );
 
@@ -299,7 +298,7 @@ describe('FileUploadItem', () => {
         it('should set `download` element', () => {
             render(
                 <FileUploadItem showRestore={false} downloadLink='/link'>
-                    <FileUploadItem.ActionsControl />
+                    <FileUploadItem.Actions />
                 </FileUploadItem>,
             );
 
@@ -315,7 +314,7 @@ describe('FileUploadItem', () => {
             const fileId = 'id';
             const { getByLabelText } = render(
                 <FileUploadItem showDelete={true} onDelete={cb} id={fileId}>
-                    <FileUploadItem.ActionsControl />
+                    <FileUploadItem.Actions />
                 </FileUploadItem>,
             );
 
@@ -330,7 +329,7 @@ describe('FileUploadItem', () => {
             const fileId = 'id';
             const { getByLabelText } = render(
                 <FileUploadItem showRestore={true} onRestore={cb} id={fileId}>
-                    <FileUploadItem.ActionsControl />
+                    <FileUploadItem.Actions />
                 </FileUploadItem>,
             );
 
@@ -345,7 +344,7 @@ describe('FileUploadItem', () => {
             const fileId = 'id';
             const { baseElement } = render(
                 <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId}>
-                    <FileUploadItem.ActionsControl />
+                    <FileUploadItem.Actions />
                 </FileUploadItem>,
             );
 
@@ -363,7 +362,7 @@ describe('FileUploadItem', () => {
             <FileUploadItem>
                 <FileUploadItem.StatusControl />
                 <FileUploadItem.Content />
-                <FileUploadItem.ActionsControl />
+                <FileUploadItem.Actions />
             </FileUploadItem>,
         );
 

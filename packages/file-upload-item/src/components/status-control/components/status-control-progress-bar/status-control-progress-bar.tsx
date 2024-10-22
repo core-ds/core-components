@@ -1,11 +1,17 @@
 import React, { FC } from 'react';
 
 type ProgressBarProps = {
-    color: string;
+    className: string;
 };
 
-export const StatusControlProgressBar: FC<ProgressBarProps> = ({ color = '#BABBC2' }) => (
-    <svg width='56' height='56' fill='none' xmlns='http://www.w3.org/2000/svg'>
+export const StatusControlProgressBar: FC<ProgressBarProps> = ({ className }) => (
+    <svg
+        width='56'
+        height='56'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className={className}
+    >
         <mask
             id='b'
             style={{ maskType: 'alpha' }}
@@ -25,7 +31,7 @@ export const StatusControlProgressBar: FC<ProgressBarProps> = ({ color = '#BABBC
             />
         </mask>
         <g mask='url(#b)'>
-            <circle cx='28' cy='28' r='32' fill={color} />
+            <circle cx='28' cy='28' r='32' />
         </g>
     </svg>
 );

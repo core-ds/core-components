@@ -54,6 +54,7 @@ Object {
             class="progress"
           >
             <svg
+              class="progressBarTransparent"
               fill="none"
               height="56"
               width="56"
@@ -88,7 +89,6 @@ Object {
                 <circle
                   cx="28"
                   cy="28"
-                  fill="transparent"
                   r="32"
                 />
               </g>
@@ -165,6 +165,7 @@ Object {
           class="progress"
         >
           <svg
+            class="progressBarTransparent"
             fill="none"
             height="56"
             width="56"
@@ -199,7 +200,6 @@ Object {
               <circle
                 cx="28"
                 cy="28"
-                fill="transparent"
                 r="32"
               />
             </g>

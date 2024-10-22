@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { progressBarDistance } from '../../../../const/progress-bar';
+import { MAX_PROGRESS_BAR_VALUE } from '../../../../const/progress-bar';
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 import {
     humanFileSize,
@@ -33,7 +33,7 @@ export const ContentSubtitle = () => {
             return 0;
         }
 
-        return Math.min(Math.max(progressValue, 0), progressBarDistance);
+        return Math.min(Math.max(progressValue, 0), MAX_PROGRESS_BAR_VALUE);
     };
 
     const validProgressBar = validateProgressBarValue(progressBar);
@@ -44,7 +44,7 @@ export const ContentSubtitle = () => {
             <Typography.Text view='primary-small' color='secondary'>
                 Загрузка{'\u00A0'}
                 {Math.floor(
-                    validProgressBar / (progressBarDistance / progressBarAvailablePercents),
+                    validProgressBar / (MAX_PROGRESS_BAR_VALUE / progressBarAvailablePercents),
                 )}
                 %
             </Typography.Text>

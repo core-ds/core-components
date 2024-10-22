@@ -7,3 +7,15 @@
         height: 48px;
     }
 }
+
+.deleteIconColor {
+    fill: var(--color-light-text-tertiary);
+}
+
+.downloadIconColor {
+    fill: var(--color-light-text-tertiary);
+}
+
+.restoreIconColor {
+    fill: var(--color-light-text-tertiary);
+}

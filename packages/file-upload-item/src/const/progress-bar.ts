@@ -1,1 +1,1 @@
-export const progressBarDistance = 360;
+export const MAX_PROGRESS_BAR_VALUE = 360;

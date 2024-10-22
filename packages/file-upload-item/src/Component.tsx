@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ActionsControl } from './components/actions-control';
+import { Actions } from './components/actions-control';
 import { Content } from './components/content';
 import { StatusControl } from './components/status-control';
 import { FileUploadItemContext } from './context/file-upload-item-context';
@@ -79,5 +79,5 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
 export const FileUploadItem = Object.assign(FileUploadItemComponent, {
     StatusControl,
     Content,
-    ActionsControl,
+    Actions,
 });

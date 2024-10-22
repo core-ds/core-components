@@ -21,7 +21,7 @@ export const RestoreButton = () => {
             className={styles.icon}
             size='xxs'
             aria-label='восстановить'
-            icon={<ArrowsCwCompactMIcon color='var(--color-light-text-tertiary)' />}
+            icon={<ArrowsCwCompactMIcon className={styles.restoreIconColor} />}
             disabled={disableButtons}
             onClick={handleRestore}
         />

@@ -1,7 +1,5 @@
 import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
 
-import { FileStatuses } from '.';
-
 export type FileUploadItemProps = {
     /**
      * Дополнительный класс
@@ -57,7 +55,7 @@ export type FileUploadItemProps = {
     /**
      * Статус загрузки файла
      */
-    uploadStatus?: FileStatuses;
+    uploadStatus?: string;
 
     /**
      * Сообщение об ошибке

@@ -35,7 +35,7 @@ export const file_upload_item: Story = {
                 >
                     <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
-                    <FileUploadItem.ActionsControl />
+                    <FileUploadItem.Actions />
                 </FileUploadItem>
             </div>
         );

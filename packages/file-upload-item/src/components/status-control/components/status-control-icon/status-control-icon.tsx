@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import cn from 'classnames';
 
 import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
 import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
@@ -9,9 +10,10 @@ import DocumentOffMIcon from '@alfalab/icons-glyph/DocumentOffMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
-import { FileTypeMap } from '../../../../const/file-type-map';
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 import { getExtension, isInitialStatus } from '../../../../utils';
+
+import styles from './status-control-icon.module.css';
 
 /* eslint-disable complexity */
 export const StatusControlIcon = () => {
@@ -44,46 +46,30 @@ export const StatusControlIcon = () => {
     const fileType = getExtension(title);
 
     switch (fileType) {
-        case FileTypeMap.pdf:
+        case 'pdf':
+        case 'ppt':
+        case 'pptx':
+            return <DocumentPdfMIcon className={cn({ [styles.iconPDFColored]: isColoredIcon })} />;
+        case 'doc':
+        case 'docx':
+            return <DocumentDocMIcon className={cn({ [styles.iconDOCColored]: isColoredIcon })} />;
+        case 'xls':
+        case 'xlsx':
             return (
-                <DocumentPdfMIcon
-                    {...(isColoredIcon && { color: 'var(--color-light-decorative-red)' })}
-                />
+                <DocumentExcelMIcon className={cn({ [styles.iconExcelColored]: isColoredIcon })} />
             );
-        case FileTypeMap.doc:
-        case FileTypeMap.docx:
-            return (
-                <DocumentDocMIcon
-                    {...(isColoredIcon && { color: 'var(--color-light-decorative-blue)' })}
-                />
-            );
-        case FileTypeMap.xls:
-        case FileTypeMap.xlsx:
-            return (
-                <DocumentExcelMIcon
-                    {...(isColoredIcon && { color: 'var(--color-light-decorative-green)' })}
-                />
-            );
-        case FileTypeMap['1c']:
-            return (
-                <Document1CMIcon
-                    {...(isColoredIcon && { color: 'var(--color-light-decorative-orange)' })}
-                />
-            );
-        case FileTypeMap.png:
-        case FileTypeMap.jpg:
-        case FileTypeMap.jpeg:
-        case FileTypeMap.svg:
-        case FileTypeMap.tif:
-        case FileTypeMap.tiff:
+        case '1c':
+            return <Document1CMIcon className={cn({ [styles.icon1CColored]: isColoredIcon })} />;
+        case 'png':
+        case 'jpg':
+        case 'jpeg':
+        case 'svg':
+        case 'tif':
+        case 'tiff':
             return <DocumentImageMIcon />;
         default:
             return (
-                <DocumentMIcon
-                    {...(isColoredIcon && {
-                        color: 'var(--color-light-neutral-translucent-1300)',
-                    })}
-                />
+                <DocumentMIcon className={cn({ [styles.iconDocumentColored]: isColoredIcon })} />
             );
     }
 };

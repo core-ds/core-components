@@ -8,7 +8,7 @@ import { RestoreButton } from './components/restore-button';
 
 import styles from './actions-control.module.css';
 
-export const ActionsControl = () => {
+export const Actions = () => {
     const { showRestore, downloadLink, showDelete } = useContext(FileUploadItemContext);
 
     return (
