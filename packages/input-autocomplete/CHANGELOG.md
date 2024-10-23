@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+
 ## 12.5.4
 
 ### Patch Changes
