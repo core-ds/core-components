@@ -13,7 +13,6 @@ import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
 
 import styles from './modal-by-side.module.css';
-import transitions from './transitions.desktop.module.css';
 
 export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -37,16 +36,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
 
     const modalRef = useRef<HTMLElement>(null);
     const componentRef = useRef<HTMLDivElement>(null);
-
-    const enterCn = cn({
-        [transitions.enterRight]: horizontalAlign === 'right',
-        [transitions.enterLeft]: horizontalAlign === 'left',
-    });
-
-    const exitCn = cn({
-        [transitions.exitActiveRight]: horizontalAlign === 'right',
-        [transitions.exitActiveLeft]: horizontalAlign === 'left',
-    });
 
     useModalMargin(margin, restProps.open, componentRef);
     const { currentWidth } = useModalWidth(width, restProps.open, componentRef);
@@ -92,20 +81,12 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                     transparent: !overlay,
                 }}
                 contentTransitionProps={{
-                    classNames: {
-                        appear: enterCn,
-                        enter: enterCn,
-                        appearActive: transitions.enterActive,
-                        enterActive: transitions.enterActive,
-                        exit: transitions.exit,
-                        exitActive: exitCn,
-                        exitDone: exitCn,
-                    },
                     ...contentTransitionProps,
                 }}
                 disableBlockingScroll={!overlay}
                 contentClassName={styles.drawerContent}
                 onWheel={handleWheel}
+                transitionProps={{ timeout: 200 }}
             >
                 <BaseUniversalModalContent
                     preset={preset}
