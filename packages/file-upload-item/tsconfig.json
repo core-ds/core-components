@@ -10,5 +10,10 @@
             "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
-    "references": [{ "path": "../icon-button" }, { "path": "../link" }, { "path": "../spinner" }]
+    "references": [
+      { "path": "../icon-button" },
+      { "path": "../link" },
+      { "path": "../spinner" },
+      { "path": "../typography" },
+    ]
 }

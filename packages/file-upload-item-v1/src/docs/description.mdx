@@ -1,0 +1,64 @@
+## Примеры
+
+```jsx live mobileHeight={500}
+<>
+    <FileUploadItemV1
+        name='Довольно длинное название файла.pdf'
+        uploadDate='22.01.2018'
+        size={500000000}
+        showDelete={false}
+        showRestore={true}
+    />
+    <FileUploadItemV1
+        name='Название файла.pdf'
+        uploadDate='22.01.2018'
+        size={45000}
+        showDelete={true}
+    />
+    <FileUploadItemV1
+        name='С кастомной иконкой.pdf'
+        uploadDate='22.01.2018'
+        size={50000}
+        showDelete={true}
+        icon={DiamondsMIcon}
+    />
+        <FileUploadItemV1
+        name='Название файла.pdf'
+        uploadDate='22.01.2018'
+        uploadPercent={23.5678}
+        uploadStatus='UPLOADING'
+        showDelete={true}
+    />
+    <FileUploadItemV1
+        name='Название файла.txt'
+        uploadDate='22.01.2018'
+        size={157290000}
+        downloadLink='/link'
+        uploadStatus='SUCCESS'
+        showDelete={true}
+    />
+    <FileUploadItemV1
+        name='Название файла.jpg'
+        uploadDate='22.01.2018'
+        size={45000}
+        uploadStatus='ERROR'
+        showDelete={true}
+    />
+    <FileUploadItemV1
+        name='Название файла.png'
+        uploadDate='22.01.2018'
+        size={450000000}
+        uploadStatus='ERROR'
+        error={
+            <>
+                <p style={{ margin: 0, marginBottom: '8px' }}>Размер больше 500 Кб</p>
+                <p style={{ margin: 0 }}>
+                    Недопустимый формат файла. Загрузите файл в одном из этих форматов: .txt, .xml,
+                    .csv
+                </p>
+            </>
+        }
+        showDelete={true}
+    />
+</>
+```

@@ -1,0 +1,51 @@
+import { createContext, ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
+
+type TFileUploadItemContext = {
+    showRestore?: boolean;
+    uploadStatus?: string;
+    error?: string | string[];
+    title?: string;
+    subtitle?: string;
+    uploadDate?: string;
+    size?: string | number;
+    id?: string;
+    onDownload?: (id: string) => void;
+    onDelete?: (id: string, event?: MouseEvent<HTMLElement>) => void;
+    onRestore?: (id: string) => void;
+    downloadLink?: string;
+    download?: string | true;
+    disableButtons?: boolean;
+    target?: HTMLAttributeAnchorTarget;
+    showDelete?: boolean;
+    customIcon?: ElementType<{ className?: string }>;
+    iconStyle?: 'gray' | 'colored';
+    progressBar?: number;
+    customContent?: ElementType;
+    truncate?: boolean;
+    imageUrl?: string;
+};
+
+export const FileUploadItemContext = createContext<TFileUploadItemContext>({
+    showRestore: false,
+    uploadStatus: 'INITIAL',
+    error: undefined,
+    title: '',
+    subtitle: '',
+    uploadDate: '',
+    size: 0,
+    id: '0',
+    onDownload: undefined,
+    onDelete: undefined,
+    onRestore: undefined,
+    downloadLink: '',
+    download: '',
+    disableButtons: false,
+    target: undefined,
+    showDelete: false,
+    iconStyle: 'gray',
+    customIcon: undefined,
+    progressBar: 0,
+    customContent: undefined,
+    truncate: false,
+    imageUrl: undefined,
+});

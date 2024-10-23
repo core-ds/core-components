@@ -1,0 +1,23 @@
+@import '../../../../vars/src/index.css';
+
+.container {
+    display: flex;
+    max-width: 144px;
+
+    & .icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.deleteIconColor {
+    fill: var(--color-light-text-tertiary);
+}
+
+.downloadIconColor {
+    fill: var(--color-light-text-tertiary);
+}
+
+.restoreIconColor {
+    fill: var(--color-light-text-tertiary);
+}
