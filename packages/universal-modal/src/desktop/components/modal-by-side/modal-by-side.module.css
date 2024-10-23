@@ -10,15 +10,15 @@
     will-change: transform;
     overflow-x: hidden;
 
-    &.left {
+    &.horizontalLeft {
         left: 0;
     }
 
-    &.right {
+    &.horizontalRight {
         right: 0;
     }
 
-    &.bottom {
+    &.verticalBottom {
         top: unset;
         bottom: 0;
     }

@@ -68,15 +68,12 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 componentRef={componentRef}
                 placement={horizontalAlign}
                 wrapperClassName={wrapperClassName}
-                className={cn(
-                    className,
-                    styles.component,
-                    styles[horizontalAlign],
-                    styles[verticalAlign],
-                    {
-                        [styles.overlayHidden]: !overlay,
-                    },
-                )}
+                className={cn(className, styles.component, styles[verticalAlign], {
+                    [styles.horizontalLeft]: horizontalAlign === 'left',
+                    [styles.horizontalRight]: horizontalAlign === 'right',
+                    [styles.verticalBottom]: verticalAlign === 'bottom',
+                    [styles.overlayHidden]: !overlay,
+                })}
                 backdropProps={{
                     transparent: !overlay,
                 }}
