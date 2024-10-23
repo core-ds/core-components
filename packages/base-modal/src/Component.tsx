@@ -12,6 +12,7 @@ import React, {
     useMemo,
     useRef,
     useState,
+    WheelEvent,
 } from 'react';
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
@@ -208,6 +209,9 @@ export type BaseModalProps = {
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
      */
     iOSLock?: boolean;
+
+    /** Хэндлер события прокрутки колесиком  */
+    onWheel?: (e: WheelEvent<HTMLElement>) => void;
 };
 
 export type BaseModalContext = {
@@ -276,6 +280,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             componentRef = null,
             usePortal = true,
             iOSLock = false,
+            onWheel,
         },
         ref,
     ) => {
@@ -586,6 +591,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 onKeyDown={handleKeyDown}
                                 onMouseDown={handleBackdropMouseDown}
                                 onMouseUp={handleBackdropMouseUp}
+                                onWheel={onWheel}
                                 tabIndex={-1}
                                 data-test-id={dataTestId}
                                 style={{

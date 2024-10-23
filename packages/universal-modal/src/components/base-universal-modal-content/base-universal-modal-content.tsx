@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
@@ -16,6 +16,7 @@ type BaseUniversalModalContentProps = {
     header: ReactNode;
     footer: ReactNode;
     width: number;
+    wheelDeltaY: number;
 } & Pick<BaseModalProps, 'children'>;
 
 /**
@@ -23,8 +24,9 @@ type BaseUniversalModalContentProps = {
  * Этот компонент содержит общий код передаваемый в эти сущности.
  */
 export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (props) => {
-    const { preset, header, footerPreset, footer, children, width } = props;
+    const { preset, header, footerPreset, footer, children, width, wheelDeltaY } = props;
     const [scrollPosition, setScrollPosition] = useState<number>(0);
+    const scrollableNodeRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = (e: Event) => {
         const target = e.target as HTMLDivElement;
@@ -32,10 +34,19 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
         setScrollPosition(target.scrollTop);
     };
 
+    useEffect(() => {
+        if (scrollableNodeRef.current) {
+            scrollableNodeRef.current.scrollBy({
+                top: wheelDeltaY,
+            });
+        }
+    }, [wheelDeltaY]);
+
     return (
         <Scrollbar
             className={styles.scrollbarWrapper}
             verticalBarClassName={styles.verticalBarContainer}
+            scrollableNodeProps={{ ref: scrollableNodeRef }}
             onContentScroll={handleScroll}
         >
             <ModalHeader

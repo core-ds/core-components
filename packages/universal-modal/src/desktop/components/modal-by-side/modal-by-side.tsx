@@ -8,6 +8,7 @@ import { isClient } from '@alfalab/core-components-shared';
 import { BaseUniversalModalContent } from '../../../components/base-universal-modal-content/base-universal-modal-content';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalMargin } from '../../hooks/useModalMargin';
+import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
 
@@ -51,11 +52,9 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
     const { currentWidth } = useModalWidth(width, restProps.open, componentRef);
 
     useModalHeight(height, restProps.open, componentRef);
+    const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
-    /**
-     * Устанавливает боковое модальное окно вертикально по центру
-     * transform приводит к артефактам из-за CSSTransition, поэтому рассчитываем через высоту
-     */
+    // устанавливает боковое модальное окно вертикально по центру
     useEffect(() => {
         if (verticalAlign === 'center' && height !== 'fullHeight' && componentRef.current) {
             const { offsetHeight } = componentRef.current;
@@ -106,6 +105,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 }}
                 disableBlockingScroll={!overlay}
                 contentClassName={styles.drawerContent}
+                onWheel={handleWheel}
             >
                 <BaseUniversalModalContent
                     preset={preset}
@@ -113,6 +113,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                     width={currentWidth}
                     footer={footer}
                     footerPreset={footerPreset}
+                    wheelDeltaY={wheelDeltaY}
                 >
                     {children}
                 </BaseUniversalModalContent>

@@ -6,6 +6,7 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { BaseUniversalModalContent } from '../../../components/base-universal-modal-content/base-universal-modal-content';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalMargin } from '../../hooks/useModalMargin';
+import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalByCenterProps } from '../../types/props';
 
@@ -37,6 +38,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
     const { currentWidth } = useModalWidth(width, open, componentRef);
 
     useModalHeight(height, open, componentRef);
+    const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     return (
         <BaseModal
@@ -57,6 +59,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
                 transparent: !overlay,
             }}
             disableBlockingScroll={!overlay}
+            onWheel={handleWheel}
         >
             <div className={styles.container}>
                 <BaseUniversalModalContent
@@ -65,6 +68,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
                     width={currentWidth}
                     footer={footer}
                     footerPreset={footerPreset}
+                    wheelDeltaY={wheelDeltaY}
                 >
                     {children}
                 </BaseUniversalModalContent>
