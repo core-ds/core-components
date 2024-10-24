@@ -15,6 +15,8 @@ export const unlockScroll = () => {
     window.scrollTo(0, scrollY);
 };
 
+export const isScrollLocked = () => document.body.classList.contains('is-locked');
+
 export const syncHeight = () => {
     document.body.style.setProperty('--window-inner-scrollY', `${window.scrollY}px`);
 };
