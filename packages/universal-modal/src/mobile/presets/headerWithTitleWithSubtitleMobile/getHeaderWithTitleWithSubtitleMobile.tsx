@@ -5,7 +5,7 @@ type GetHeaderWithTitleWithSubtitleProps = {
     subtitle: string;
 };
 
-export const getHeaderWithTitleWithSubtitle = ({
+export const getHeaderWithTitleWithSubtitleMobile = ({
     title,
     subtitle,
 }: GetHeaderWithTitleWithSubtitleProps) => ({

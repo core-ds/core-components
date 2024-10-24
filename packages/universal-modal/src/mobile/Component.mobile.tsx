@@ -15,10 +15,22 @@ import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
+import { ModalFooterMobile } from './components/modal-footer/modalFooter';
 
 const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
     (
-        { children, className, transitionProps, dataTestId, header, preset, onClose, ...restProps },
+        {
+            children,
+            className,
+            transitionProps,
+            dataTestId,
+            header,
+            footer,
+            preset,
+            footerPreset,
+            onClose,
+            ...restProps
+        },
         ref,
     ) => {
         const responsiveContext = useContext(ResponsiveContext);
@@ -71,6 +83,11 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                         onClose={onClose}
                     />
                     <div className={styles.mobileContent}>{children}</div>
+                    <ModalFooterMobile
+                        preset={footerPreset}
+                        footer={footer}
+                        hasScroll={hasScroll}
+                    />
                 </div>
             </BaseModal>
         );

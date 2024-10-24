@@ -1,3 +1,4 @@
+import { FooterPresetTypesMobile } from '../constants/footerPresetTypesMobile';
 import { HeaderPresetTypesMobile } from '../constants/headerPresetTypesMobile';
 
 export type TModalHeaderPresetMobile = {
@@ -5,5 +6,14 @@ export type TModalHeaderPresetMobile = {
         type: (typeof HeaderPresetTypesMobile)[keyof typeof HeaderPresetTypesMobile];
         title?: string;
         subtitle?: string;
+    };
+};
+
+export type TModalFooterPresetMobile = {
+    footerPreset?: {
+        type: (typeof FooterPresetTypesMobile)[keyof typeof FooterPresetTypesMobile];
+        labelLeft?: string;
+        labelRight?: string;
+        layout: 'row' | 'column';
     };
 };

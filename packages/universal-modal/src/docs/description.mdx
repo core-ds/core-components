@@ -205,6 +205,9 @@ render(() => {
     const [customHeader, setCustomHeader] = React.useState(false);
     const [headerPreset, setHeaderPreset] = React.useState('key_1');
 
+    const [customFooter, setCustomFooter] = React.useState(false);
+    const [footerPreset, setFooterPreset] = React.useState('key_0');
+
     const headerPresetOptions = [
         { key: 'key_0', content: 'Initital' },
         { key: 'key_1', content: 'Type 1' },
@@ -214,11 +217,28 @@ render(() => {
         { key: 'key_5', content: 'Type 5' },
     ];
 
+    const footerPresetOptions = [
+        { key: 'key_0', content: 'Initital' },
+        { key: 'key_1', content: 'Type 1' },
+    ];
+
     const presetProps1 = getHeaderWithNavigationWithoutTitleMobile();
     const presetProps2 = getHeaderWithBackArrowWithCenterTitleMobile({ title: 'foobar' });
-    const presetProps3 = getHeaderWithTitleWithSubtitle({ title: 'foobar2', subtitle: '2fobarsibtitle' });
-    const presetProps4= getHeaderWithCentralTitle({ title: 'foobar3' });
-    const presetProps5 = getHeaderWithCentralTitleWithSubtitle({ title: 'foobar4', subtitle: '4fobarsibtitle' });
+    const presetProps3 = getHeaderWithTitleWithSubtitleMobile({
+        title: 'foobar2',
+        subtitle: '2fobarsibtitle',
+    });
+    const presetProps4 = getHeaderWithCentralTitleMobile({ title: 'foobar3' });
+    const presetProps5 = getHeaderWithCentralTitleWithSubtitleMobile({
+        title: 'foobar4',
+        subtitle: '4fobarsibtitle',
+    });
+
+    const footerProps1 = getFooterWithContentMobile({
+        labelLeft: 'LabelLeft',
+        labelRight: 'labelRight',
+        layout: 'row',
+    });
 
     const handleClose = () => {
         setOpen(false);
@@ -234,6 +254,14 @@ render(() => {
                     selected={headerPreset}
                     label='Пресет хэдера'
                     onChange={({ selected }) => setHeaderPreset(selected.key)}
+                />
+                <Gap size={12} direction={'horizontal'} />
+                <SelectDesktop
+                    size={56}
+                    options={footerPresetOptions}
+                    selected={footerPreset}
+                    label='Пресет футера'
+                    onChange={({ selected }) => setFooterPreset(selected.key)}
                 />
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -254,6 +282,14 @@ render(() => {
                 {...(headerPreset === 'key_5' && presetProps5)}
                 {...(customHeader && {
                     header: <UniversalModalMobile.Header title={'CUSTOM HEADER'} />,
+                })}
+                {...(footerPreset === 'key_1' && footerProps1)}
+                {...(customFooter && {
+                    footer: (
+                        <UniversalModalResponsive.Footer>
+                            Custom Footer
+                        </UniversalModalResponsive.Footer>
+                    ),
                 })}
             >
                 ----------------------------------------------------------- 12skdfmsdlfs;fsldm;lmd3
