@@ -539,7 +539,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
         >
           <a
             class="component primary withoutUnderline phoneLink"
-            href="tel:+78002000000"
+            href="tel:88002000000"
           >
             <span
               class="text"

@@ -105,3 +105,12 @@ export const useConfirmation = ({ state, screen, blockSmsRetry }: UseConfirmatio
         setConfirmationBlockSmsRetry,
     };
 };
+
+const NON_NUMBER_OR_PLUS_REGEXP = new RegExp(/[^\d+]/g);
+
+/**
+ * @returns ссылку для набора номера
+ */
+export function getPhoneHref(phone: string): string {
+    return `tel:${phone.replace(NON_NUMBER_OR_PLUS_REGEXP, '')}`;
+}
