@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+
 ## 4.13.0
 
 ### Minor Changes

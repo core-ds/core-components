@@ -1,5 +1,22 @@
 # Change Log
 
+## 12.6.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.7.0
+    -   select@17.16.0
+    -   input@15.2.1
+
 ## 12.5.5
 
 ### Patch Changes

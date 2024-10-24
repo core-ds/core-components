@@ -1,5 +1,21 @@
 # Change Log
 
+## 5.9.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.7.0
+    -   icon-button@6.11.0
+
 ## 5.8.3
 
 ### Patch Changes
