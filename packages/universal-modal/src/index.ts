@@ -4,6 +4,8 @@ export { UniversalModalResponsiveProps } from './typings';
 export { UniversalModalDesktop } from './desktop/Component.desktop';
 export { UniversalModalDesktopProps } from './desktop/types/props';
 
-export { UniversalModalMobile, UniversalModalMobileProps } from './mobile/Component.mobile';
+export { UniversalModalMobile } from './mobile/Component.mobile';
+export { UniversalModalMobileProps } from './mobile/types/props';
 
 export * from './presets';
+export * from './mobile/presets';

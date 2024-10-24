@@ -7,6 +7,10 @@
     overflow-x: hidden;
     overflow-y: auto;
     max-width: 600px;
+
+    & .content {
+        overflow: auto;
+    }
 }
 
 .component.component {

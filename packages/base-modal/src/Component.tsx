@@ -13,6 +13,7 @@ import React, {
     useRef,
     useState,
     WheelEvent,
+    SyntheticEvent,
 } from 'react';
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
@@ -210,8 +211,15 @@ export type BaseModalProps = {
      */
     iOSLock?: boolean;
 
-    /** Хэндлер события прокрутки колесиком  */
+    /**
+     * Хэндлер события прокрутки колесиком
+     */
     onWheel?: (e: WheelEvent<HTMLElement>) => void;
+
+    /**
+     * Хэндлер события скролла контентной области
+     */
+    onContentScroll?: (e: SyntheticEvent) => void;
 };
 
 export type BaseModalContext = {
@@ -281,6 +289,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             usePortal = true,
             iOSLock = false,
             onWheel,
+            onContentScroll,
         },
         ref,
     ) => {
@@ -628,6 +637,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                                 contentClassName,
                                                 contentProps?.className,
                                             )}
+                                            onScroll={(e) => {
+                                                if (onContentScroll) {
+                                                    onContentScroll(e);
+                                                }
+                                            }}
                                         >
                                             {children}
                                         </div>

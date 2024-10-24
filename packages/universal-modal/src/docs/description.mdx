@@ -150,11 +150,45 @@ render(() => {
 render(() => {
     const [open, setOpen] = React.useState(false);
 
+    const [customHeader, setCustomHeader] = React.useState(false);
+    const [headerPreset, setHeaderPreset] = React.useState('key_0');
+
+    const headerPresetOptions = [
+        { key: 'key_0', content: 'Initital' },
+        { key: 'key_1', content: 'Type 1' },
+        { key: 'key_2', content: 'Type 2' },
+        { key: 'key_3', content: 'Type 3' },
+    ];
+
+    const presetProps1 = getHeaderWithNavigationWithoutTitleMobile();
+
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <SelectDesktop
+                    size={56}
+                    options={headerPresetOptions}
+                    selected={headerPreset}
+                    label='Пресет хэдера'
+                    onChange={({ selected }) => setHeaderPreset(selected.key)}
+                />
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <Switch
+                    label='Custom Header'
+                    checked={customHeader}
+                    onChange={() => setCustomHeader((prev) => !prev)}
+                />
+                <Gap size={12} direction={'horizontal'} />
+            </div>
             <UniversalModalMobile
                 open={open}
+                onClose={() => setOpen(false)}
+                {...(headerPreset === 'key_1' && presetProps1)}
+                {...(customHeader && {
+                    header: <UniversalModalMobile.Header title={'CUSTOM HEADER'} />,
+                })}
             >
                 ----------------------------------------------------------- 12skdfmsdlfs;fsldm;lmd3
                 s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3

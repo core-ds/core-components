@@ -1,7 +1,7 @@
-import React, { forwardRef, useContext, useMemo } from 'react';
+import React, { forwardRef, useContext, useMemo, SyntheticEvent, useState } from 'react';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
+import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content/Component.mobile';
 import { Controls, ControlsProps } from '../components/controls';
@@ -10,24 +10,26 @@ import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
+import { ModalHeaderMobile } from './components/modal-header/modalHeader';
+import { UniversalModalMobileProps } from './types/props';
+
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
 
-export type UniversalModalMobileProps = BaseModalProps & {
-    /**
-     * Управление наличием закрывающего крестика
-     * @default false
-     */
-    hasCloser?: boolean;
-};
-
 const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
-    ({ children, className, transitionProps, dataTestId, ...restProps }, ref) => {
+    ({ children, className, transitionProps, dataTestId, header, preset, ...restProps }, ref) => {
         const responsiveContext = useContext(ResponsiveContext);
         const contextValue = useMemo<TResponsiveModalContext>(
-            () => ({ size: 500, view: 'mobile', dataTestId }),
+            () => ({ view: 'mobile', dataTestId }),
             [dataTestId],
         );
+        const [hiddenTitle, setHiddenTitle] = useState<boolean>(false);
+
+        const handleContentScroll = (e: SyntheticEvent) => {
+            const target = e.target as HTMLDivElement;
+
+            setHiddenTitle(target.scrollTop > 5);
+        };
 
         const renderContent = () => (
             <BaseModal
@@ -40,7 +42,10 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                 }}
                 className={cn(className, styles.component)}
                 scrollHandler='content'
+                contentClassName={styles.content}
+                onContentScroll={handleContentScroll}
             >
+                <ModalHeaderMobile preset={preset} header={header} hiddenTitle={hiddenTitle} />
                 <div className={styles.mobileContent}>{children}</div>
             </BaseModal>
         );

@@ -1,10 +1,10 @@
 import React, { FC, ReactNode } from 'react';
 
-import { ModalByCenterProps } from '../../types/props';
+import { TModalHeaderPreset } from '../../types/typings';
 import { ModalHeaderPreset } from '../modal-header-preset/modalHeaderPreset';
 
 type ModalHeaderProps = {
-    preset: ModalByCenterProps['preset'];
+    preset: TModalHeaderPreset['preset'];
     header: ReactNode;
     scrollPosition: number;
     width: number;

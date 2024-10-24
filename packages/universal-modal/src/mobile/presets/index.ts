@@ -1,0 +1,1 @@
+export { getHeaderWithNavigationWithoutTitleMobile } from './headerWithNavigationWithoutTitleMobile/getHeaderWithNavigationWithoutTitleMobile';
