@@ -40,7 +40,6 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                             </Typography.Text>
                         </Button>
                     }
-                    closerClassName={styles.closeButton}
                 />
             );
         }
@@ -67,7 +66,6 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                             </Typography.Text>
                         </Button>
                     }
-                    closerClassName={styles.closeButton}
                     contentClassName={cn(styles.title, {
                         [styles.medium]: width >= HEADER_MEDIUM_BREAKPOINT,
                     })}
@@ -85,7 +83,6 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                     })}
                     sticky={true}
                     title={title}
-                    closerClassName={styles.closeButton}
                     contentClassName={cn(styles.title, {
                         [styles.medium]: width >= HEADER_MEDIUM_BREAKPOINT,
                     })}

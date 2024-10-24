@@ -16,9 +16,9 @@
         { "path": "../button" },
         { "path": "../icon-button" },
         { "path": "../mq" },
-        { "path": "../navigation-bar-private" },
+        { "path": "../navigation-bar" },
         { "path": "../shared" },
         { "path": "../scrollbar" },
-        { "path": "../typography" }
+        { "path": "../typography" },
     ]
 }

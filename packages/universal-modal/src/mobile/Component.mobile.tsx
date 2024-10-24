@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useMemo, SyntheticEvent, useState } from 'react';
+import React, { forwardRef, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -17,19 +17,37 @@ import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
 
 const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
-    ({ children, className, transitionProps, dataTestId, header, preset, ...restProps }, ref) => {
+    (
+        { children, className, transitionProps, dataTestId, header, preset, onClose, ...restProps },
+        ref,
+    ) => {
         const responsiveContext = useContext(ResponsiveContext);
         const contextValue = useMemo<TResponsiveModalContext>(
             () => ({ view: 'mobile', dataTestId }),
             [dataTestId],
         );
-        const [hiddenTitle, setHiddenTitle] = useState<boolean>(false);
+        const [hasScroll, setHasScroll] = useState<boolean>(false);
+        const baseModalComponentRef = useRef<HTMLDivElement>(null);
 
-        const handleContentScroll = (e: SyntheticEvent) => {
+        const handleContentScroll = (e: Event) => {
             const target = e.target as HTMLDivElement;
 
-            setHiddenTitle(target.scrollTop > 5);
+            setHasScroll(target.scrollTop > 5);
         };
+
+        useEffect(() => {
+            const element = baseModalComponentRef.current;
+
+            if (element) {
+                element.addEventListener('scroll', handleContentScroll);
+            }
+
+            return () => {
+                if (element) {
+                    element.removeEventListener('scroll', handleContentScroll);
+                }
+            };
+        });
 
         const renderContent = () => (
             <BaseModal
@@ -43,10 +61,17 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                 className={cn(className, styles.component)}
                 scrollHandler='content'
                 contentClassName={styles.content}
-                onContentScroll={handleContentScroll}
+                componentRef={baseModalComponentRef}
             >
-                <ModalHeaderMobile preset={preset} header={header} hiddenTitle={hiddenTitle} />
-                <div className={styles.mobileContent}>{children}</div>
+                <div>
+                    <ModalHeaderMobile
+                        preset={preset}
+                        header={header}
+                        hasScroll={hasScroll}
+                        onClose={onClose}
+                    />
+                    <div className={styles.mobileContent}>{children}</div>
+                </div>
             </BaseModal>
         );
 

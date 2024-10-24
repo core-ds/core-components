@@ -1,10 +1,7 @@
 import React, { FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import {
-    NavigationBarPrivate,
-    NavigationBarPrivateProps,
-} from '@alfalab/core-components-navigation-bar-private';
+import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
@@ -14,7 +11,7 @@ import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'>;
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -22,10 +19,9 @@ export const Header: FC<HeaderProps> = ({
     contentClassName,
     title,
     sticky,
-    hasCloser = true,
     ...restProps
 }) => {
-    const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
+    const { setHasHeader, headerHighlighted } = useContext(ModalContext);
     const { view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
 
     useEffect(() => {
@@ -35,15 +31,11 @@ export const Header: FC<HeaderProps> = ({
     const hasContent = Boolean(title || children);
 
     return (
-        <NavigationBarPrivate
+        <NavigationBar
             dataTestId={getDataTestId(dataTestId, 'header')}
             {...restProps}
-            scrollableParentRef={componentRef}
-            view={view}
             sticky={sticky}
             title={title}
-            hasCloser={hasCloser}
-            onClose={onClose}
             className={cn(styles.header, className, {
                 [styles.highlighted]: hasContent && sticky && headerHighlighted,
                 [styles.sticky]: sticky,
@@ -58,6 +50,6 @@ export const Header: FC<HeaderProps> = ({
             })}
         >
             {children}
-        </NavigationBarPrivate>
+        </NavigationBar>
     );
 };

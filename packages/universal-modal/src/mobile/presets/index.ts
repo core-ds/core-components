@@ -1,1 +1,2 @@
 export { getHeaderWithNavigationWithoutTitleMobile } from './headerWithNavigationWithoutTitleMobile/getHeaderWithNavigationWithoutTitleMobile';
+export { getHeaderWithBackArrowWithCenterTitleMobile } from './headerWithBackArrowWithCenterTitleMobile/getHeaderWithBackArrowWithCenterTitleMobile';
