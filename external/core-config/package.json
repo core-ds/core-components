@@ -1,0 +1,17 @@
+{
+    "name": "@alfalab/core-config",
+    "version": "0.0.0",
+    "description": "Глобальный конфиг для настройки core-components",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "license": "MIT",
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "build": "tsc"
+    }
+}

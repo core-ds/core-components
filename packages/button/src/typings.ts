@@ -144,7 +144,13 @@ export type ButtonProps = CommonButtonProps & {
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    ssrView?: 'desktop' | 'mobile';
+
+    /**
      * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте ssrView
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
