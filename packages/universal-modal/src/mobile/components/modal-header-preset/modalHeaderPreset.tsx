@@ -9,6 +9,8 @@ import { Header } from '../../../components/header/Component';
 import { HeaderPresetTypesMobile } from '../../constants/headerPresetTypesMobile';
 import { TModalHeaderPresetMobile } from '../../types/typings';
 
+import styles from './modalHeaderPreset.module.css';
+
 type HeaderPresetProps = {
     preset: TModalHeaderPresetMobile['preset'];
     hasScroll: boolean;
@@ -54,6 +56,50 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
                     {...(!hasScroll && { bottomAddons: title })}
                     {...(hasScroll && { title })}
                     align='center'
+                    border={hasScroll}
+                    bottomAddonsClassName={styles.withBackArrowWithCenterTitle}
+                />
+            );
+        }
+
+        if (type === HeaderPresetTypesMobile.HEADER_WITH_TITLE_WITH_SUBTITLE) {
+            const { title, subtitle } = preset;
+
+            return (
+                <Header
+                    sticky={true}
+                    title={title}
+                    subtitle={subtitle}
+                    rightAddons={<ActionIconAddon action='close' onClick={onClose} />}
+                    border={hasScroll}
+                    align='left'
+                    contentWrapperClassName={styles.withTitleWithSubtitleContentWrapper}
+                />
+            );
+        }
+
+        if (type === HeaderPresetTypesMobile.HEADER_WITH_CENTRAL_TITLE) {
+            const { title } = preset;
+
+            return (
+                <Header
+                    sticky={true}
+                    title={title}
+                    rightAddons={<ActionIconAddon action='close' onClick={onClose} />}
+                    border={hasScroll}
+                />
+            );
+        }
+
+        if (type === HeaderPresetTypesMobile.HEADER_WITH_CENTRAL_TITLE_WITH_SUBTITLE) {
+            const { title, subtitle } = preset;
+
+            return (
+                <Header
+                    sticky={true}
+                    title={title}
+                    subtitle={subtitle}
+                    rightAddons={<ActionIconAddon action='close' onClick={onClose} />}
                     border={hasScroll}
                 />
             );

@@ -210,10 +210,15 @@ render(() => {
         { key: 'key_1', content: 'Type 1' },
         { key: 'key_2', content: 'Type 2' },
         { key: 'key_3', content: 'Type 3' },
+        { key: 'key_4', content: 'Type 4' },
+        { key: 'key_5', content: 'Type 5' },
     ];
 
     const presetProps1 = getHeaderWithNavigationWithoutTitleMobile();
     const presetProps2 = getHeaderWithBackArrowWithCenterTitleMobile({ title: 'foobar' });
+    const presetProps3 = getHeaderWithTitleWithSubtitle({ title: 'foobar2', subtitle: '2fobarsibtitle' });
+    const presetProps4= getHeaderWithCentralTitle({ title: 'foobar3' });
+    const presetProps5 = getHeaderWithCentralTitleWithSubtitle({ title: 'foobar4', subtitle: '4fobarsibtitle' });
 
     const handleClose = () => {
         setOpen(false);
@@ -244,6 +249,9 @@ render(() => {
                 onClose={handleClose}
                 {...(headerPreset === 'key_1' && presetProps1)}
                 {...(headerPreset === 'key_2' && presetProps2)}
+                {...(headerPreset === 'key_3' && presetProps3)}
+                {...(headerPreset === 'key_4' && presetProps4)}
+                {...(headerPreset === 'key_5' && presetProps5)}
                 {...(customHeader && {
                     header: <UniversalModalMobile.Header title={'CUSTOM HEADER'} />,
                 })}
