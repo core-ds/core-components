@@ -1,5 +1,5 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { SidePanelMobile } from '../mobile';
+import { UniversalModalMobile } from '../mobile';
 import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalResponsive } from '..';
 import vars from '!!raw-loader!../vars.css';
@@ -40,12 +40,18 @@ import { UniversalModalMobile } from '@alfalab/core-components/universal-modal/m
 <ArgsTabs
     components={{
         UniversalModalDesktop,
-        SidePanelMobile,
+        UniversalModalMobile,
         UniversalModalResponsive,
         'UniversalModalResponsive.Header': UniversalModalResponsive.Header,
-        'SidePanel.Content': UniversalModalDesktop.Content,
-        'SidePanel.Footer': UniversalModalDesktop.Footer,
-        'SidePanel.Controls': UniversalModalResponsive.Controls,
+        'UniversalModalResponsive.Controls': UniversalModalResponsive.Controls,
+        'UniversalModalDesktop.Content': UniversalModalDesktop.Content,
+        'UniversalModalDesktop.Header': UniversalModalDesktop.Header,
+        'UniversalModalDesktop.Footer': UniversalModalDesktop.Footer,
+        'UniversalModalDesktop.Controls': UniversalModalDesktop.Controls,
+        'UniversalModalMobile.Content': UniversalModalMobile.Content,
+        'UniversalModalMobile.Header': UniversalModalMobile.Header,
+        'UniversalModalMobile.Footer': UniversalModalMobile.Footer,
+        'UniversalModalMobile.Controls': UniversalModalMobile.Controls,
     }}
 />
 

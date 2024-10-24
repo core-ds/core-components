@@ -6,7 +6,7 @@ import { getComponentBreakpoint, isClient } from '@alfalab/core-components-share
 import { Controls } from './components/controls';
 import { Header } from './components/header/Component';
 import { UniversalModalDesktop } from './desktop';
-import { SidePanelMobile } from './mobile';
+import { UniversalModalMobile } from './mobile';
 import { ResponsiveContext } from './ResponsiveContext';
 import { TResponsiveModalContext, UniversalModalResponsiveProps } from './typings';
 
@@ -50,7 +50,7 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
             [view, dataTestId],
         );
 
-        const Component = isDesktop ? UniversalModalDesktop : SidePanelMobile;
+        const Component = isDesktop ? UniversalModalDesktop : UniversalModalMobile;
 
         return (
             <ResponsiveContext.Provider value={contextValue}>
@@ -65,8 +65,8 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
 export const UniversalModalResponsive = Object.assign(UniversalModal, {
     Header,
     Controls,
-    Content: createResponsive(UniversalModalDesktop.Content, SidePanelMobile.Content),
-    Footer: createResponsive(UniversalModalDesktop.Footer, SidePanelMobile.Footer),
+    Content: createResponsive(UniversalModalDesktop.Content, UniversalModalMobile.Content),
+    Footer: createResponsive(UniversalModalDesktop.Footer, UniversalModalMobile.Footer),
 });
 
 UniversalModalResponsive.displayName = 'UniversalModalResponsive';

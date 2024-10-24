@@ -5,7 +5,7 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { SidePanelMobile } from '@alfalab/core-components-universal-modal/mobile';
+import { UniversalModalMobile } from '@alfalab/core-components-universal-modal/mobile';
 import { UniversalModalDesktop } from '@alfalab/core-components-universal-modal/desktop';
 import { UniversalModalResponsive } from '@alfalab/core-components-universal-modal/Component.responsive';
 
@@ -59,7 +59,7 @@ export let SidePanelComponent = UniversalModalDesktop;
         const handleModalOpen = () => setOpen(!open);
         const component = select(
             'SidePanelComponent',
-            ['UniversalModalResponsive', 'UniversalModalDesktop', 'SidePanelMobile'],
+            ['UniversalModalResponsive', 'UniversalModalDesktop', 'UniversalModalMobile'],
             'UniversalModalDesktop',
         );
         const horizontalAlign = select('horizontalAlign', ['left', 'center', 'right'], 'center');
@@ -67,7 +67,6 @@ export let SidePanelComponent = UniversalModalDesktop;
         const width = text('width', '500');
         const height = text('height', 'fullHeight');
         const overlay = boolean('overlay', true);
-        const margin = array('margin', ['20', '20', '20', '20']);
 
         const header = boolean('header', true);
         const headerTitle = text('header.title');
@@ -85,18 +84,12 @@ export let SidePanelComponent = UniversalModalDesktop;
             return {
                 UniversalModalResponsive: UniversalModalResponsive,
                 UniversalModalDesktop: UniversalModalDesktop,
-                SidePanelMobile: SidePanelMobile,
+                UniversalModalMobile: UniversalModalMobile,
             }[component];
         }, [component]);
-        const props =
-            SidePanelComponent !== SidePanelMobile
-                ? {
-                      size: select('size', [500], 500),
-                  }
-                : {};
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
-        const isMobile = SidePanelComponent === SidePanelMobile;
+        const isMobile = SidePanelComponent === UniversalModalMobile;
         const FooterButton = isMobile ? ButtonMobile : ButtonDesktop;
         return (
             <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
@@ -113,8 +106,6 @@ export let SidePanelComponent = UniversalModalDesktop;
                     width={width}
                     height={height}
                     overlay={overlay}
-                    margin={margin}
-                    {...props}
                 >
                     {header && (
                         <SidePanelComponent.Header

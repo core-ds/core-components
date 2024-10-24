@@ -1,6 +1,6 @@
 ## Dev Mode
 
-```jsx live mobileHeight={720}
+```jsx live mobileHeight={720} mobileOnly
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [horizontalAlign, setHorizontalAlign] = React.useState('center');
@@ -48,7 +48,7 @@ render(() => {
             <Divider />
             <Gap size={20} />
 
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 <SelectDesktop
                     size={56}
                     options={horizontalOptions}
@@ -82,7 +82,7 @@ render(() => {
                 />
             </div>
             <Gap size={20} />
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 <Switch
                     label='Overlay'
                     checked={overlay}
@@ -118,7 +118,11 @@ render(() => {
                 })}
                 {...(footerPreset === 'key_1' && footerProps1)}
                 {...(customFooter && {
-                    footer:  <UniversalModalResponsive.Footer>Custom Footer</UniversalModalResponsive.Footer>,
+                    footer: (
+                        <UniversalModalResponsive.Footer>
+                            Custom Footer
+                        </UniversalModalResponsive.Footer>
+                    ),
                 })}
             >
                 ---------------------------------------------------------------------
@@ -138,6 +142,72 @@ render(() => {
                 1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
                 ==========================================
             </UniversalModalDesktop>
+        </React.Fragment>
+    );
+});
+
+//MOBILE
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <UniversalModalMobile
+                open={open}
+            >
+                ----------------------------------------------------------- 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
+                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld
+                ===========================================================
+            </UniversalModalMobile>
         </React.Fragment>
     );
 });

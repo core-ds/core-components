@@ -13,7 +13,7 @@ import { TResponsiveModalContext } from '../typings';
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
 
-export type SidePanelMobileProps = BaseModalProps & {
+export type UniversalModalMobileProps = BaseModalProps & {
     /**
      * Управление наличием закрывающего крестика
      * @default false
@@ -21,7 +21,7 @@ export type SidePanelMobileProps = BaseModalProps & {
     hasCloser?: boolean;
 };
 
-const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps>(
+const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
     ({ children, className, transitionProps, dataTestId, ...restProps }, ref) => {
         const responsiveContext = useContext(ResponsiveContext);
         const contextValue = useMemo<TResponsiveModalContext>(
@@ -55,7 +55,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
     },
 );
 
-export const SidePanelMobile = Object.assign(SidePanelMobileComponent, {
+export const UniversalModalMobile = Object.assign(UniversalModalMobileComponent, {
     Content: ContentMobile,
     Header,
     Footer: FooterMobile,
