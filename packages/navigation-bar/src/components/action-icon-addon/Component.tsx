@@ -27,6 +27,11 @@ export interface ActionIconAddonProps extends React.HTMLAttributes<HTMLButtonEle
      * Идентификатор для систем автоматизированного тестирования.
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительный класс обертки иконки
+     */
+    classNameIconWrapper?: string;
 }
 
 const iconComponents = {
@@ -40,6 +45,7 @@ export const ActionIconAddon: React.FC<ActionIconAddonProps> = ({
     className,
     action = 'back',
     dataTestId,
+    classNameIconWrapper,
     ...htmlAttributes
 }) => (
     <ButtonDesktop
@@ -51,7 +57,11 @@ export const ActionIconAddon: React.FC<ActionIconAddonProps> = ({
         dataTestId={dataTestId}
         {...htmlAttributes}
     >
-        <div className={cn(styles.iconWrapper, { [styles[action]]: Boolean(styles[action]) })}>
+        <div
+            className={cn(styles.iconWrapper, classNameIconWrapper, {
+                [styles[action]]: Boolean(styles[action]),
+            })}
+        >
             {iconComponents[action]}
         </div>
     </ButtonDesktop>

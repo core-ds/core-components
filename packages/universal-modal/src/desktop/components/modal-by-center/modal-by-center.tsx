@@ -29,6 +29,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
         header,
         footer,
         footerPreset,
+        onClose,
         ...restProps
     } = props;
 
@@ -60,6 +61,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             }}
             disableBlockingScroll={!overlay}
             onWheel={handleWheel}
+            onClose={onClose}
         >
             <div className={styles.container}>
                 <BaseUniversalModalContent
@@ -69,6 +71,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
                     footer={footer}
                     footerPreset={footerPreset}
                     wheelDeltaY={wheelDeltaY}
+                    onClose={onClose}
                 >
                     {children}
                 </BaseUniversalModalContent>

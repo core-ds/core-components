@@ -6,13 +6,16 @@
     }
 }
 
-.backButton,
-.closeButton button {
+.backButton {
     background-color: var(--color-light-bg-primary);
 }
 
-.backButton.backButton {
-    padding: 0 var(--gap-12);
+.closeButton {
+    background-color: var(--color-light-bg-primary);
+
+    & svg path {
+        fill: var(--color-light-neutral-translucent-1300);
+    }
 }
 
 .title {

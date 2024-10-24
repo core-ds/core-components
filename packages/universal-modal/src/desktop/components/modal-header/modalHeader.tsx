@@ -8,13 +8,21 @@ type ModalHeaderProps = {
     header: ReactNode;
     scrollPosition: number;
     width: number;
+    onClose?: () => void;
 };
 
 export const ModalHeader: FC<ModalHeaderProps> = (props) => {
-    const { preset, header, scrollPosition, width } = props;
+    const { preset, header, scrollPosition, width, onClose } = props;
 
     if (preset) {
-        return <ModalHeaderPreset preset={preset} scrollPosition={scrollPosition} width={width} />;
+        return (
+            <ModalHeaderPreset
+                preset={preset}
+                scrollPosition={scrollPosition}
+                width={width}
+                onClose={onClose}
+            />
+        );
     }
 
     if (header) {

@@ -17,6 +17,7 @@ type BaseUniversalModalContentProps = {
     footer: ReactNode;
     width: number;
     wheelDeltaY: number;
+    onClose?: () => void;
 } & Pick<BaseModalProps, 'children'>;
 
 /**
@@ -24,7 +25,7 @@ type BaseUniversalModalContentProps = {
  * Этот компонент содержит общий код передаваемый в эти сущности.
  */
 export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (props) => {
-    const { preset, header, footerPreset, footer, children, width, wheelDeltaY } = props;
+    const { preset, header, footerPreset, footer, children, width, wheelDeltaY, onClose } = props;
     const [scrollPosition, setScrollPosition] = useState<number>(0);
     const scrollableNodeRef = useRef<HTMLDivElement>(null);
 
@@ -54,6 +55,7 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
                 header={header}
                 scrollPosition={scrollPosition}
                 width={width}
+                onClose={onClose}
             />
             <div
                 className={cn(styles.content, {

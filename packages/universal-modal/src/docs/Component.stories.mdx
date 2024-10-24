@@ -71,7 +71,6 @@ export let SidePanelComponent = UniversalModalDesktop;
         const header = boolean('header', true);
         const headerTitle = text('header.title');
         const headerAlign = select('header.align', ['left', 'center'], 'left');
-        const hasCloser = boolean('header.hasCloser', true);
         const trim = boolean('header.trim', true);
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -110,7 +109,6 @@ export let SidePanelComponent = UniversalModalDesktop;
                     {header && (
                         <SidePanelComponent.Header
                             sticky={stickyHeader}
-                            hasCloser={hasCloser}
                             title={headerTitle}
                             trim={trim}
                             align={headerAlign}

@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
+import { ActionIconAddon } from '@alfalab/core-components-navigation-bar/src/shared';
 import { Typography } from '@alfalab/core-components-typography';
 import ArrowLeftMediumMIcon from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 
@@ -15,10 +16,11 @@ type HeaderPresetProps = {
     preset: TModalHeaderPreset['preset'];
     scrollPosition: number;
     width: number;
+    onClose?: () => void;
 };
 
 export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
-    const { preset, scrollPosition, width } = props;
+    const { preset, scrollPosition, width, onClose } = props;
 
     if (preset) {
         const { type } = preset;
@@ -31,7 +33,7 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                     leftAddons={
                         <Button
                             className={styles.backButton}
-                            leftAddons={<ArrowLeftMediumMIcon className={styles.closeButton} />}
+                            leftAddons={<ArrowLeftMediumMIcon />}
                             shape='rounded'
                             size={48}
                         >
@@ -40,6 +42,14 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                             </Typography.Text>
                         </Button>
                     }
+                    rightAddons={
+                        <ActionIconAddon
+                            action='close'
+                            classNameIconWrapper={styles.closeButton}
+                            onClick={onClose}
+                        />
+                    }
+                    backgroundColor='transparent'
                 />
             );
         }
@@ -53,7 +63,6 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                         [styles.hasScrollContent]: scrollPosition > 5,
                     })}
                     sticky={true}
-                    title={title}
                     leftAddons={
                         <Button
                             className={styles.backButton}
@@ -66,7 +75,15 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                             </Typography.Text>
                         </Button>
                     }
-                    contentClassName={cn(styles.title, {
+                    rightAddons={
+                        <ActionIconAddon
+                            action='close'
+                            classNameIconWrapper={styles.closeButton}
+                            onClick={onClose}
+                        />
+                    }
+                    bottomAddons={title}
+                    bottomAddonsClassName={cn(styles.title, {
                         [styles.medium]: width >= HEADER_MEDIUM_BREAKPOINT,
                     })}
                 />
@@ -83,7 +100,15 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                     })}
                     sticky={true}
                     title={title}
-                    contentClassName={cn(styles.title, {
+                    align='left'
+                    rightAddons={
+                        <ActionIconAddon
+                            action='close'
+                            classNameIconWrapper={styles.closeButton}
+                            onClick={onClose}
+                        />
+                    }
+                    contentWrapperClassName={cn(styles.title, {
                         [styles.medium]: width >= HEADER_MEDIUM_BREAKPOINT,
                     })}
                 />

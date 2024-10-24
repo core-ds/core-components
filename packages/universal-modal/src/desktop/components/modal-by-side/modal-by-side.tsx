@@ -31,6 +31,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         header,
         footer,
         footerPreset,
+        onClose,
         ...restProps
     } = props;
 
@@ -84,6 +85,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 contentClassName={styles.drawerContent}
                 onWheel={handleWheel}
                 transitionProps={{ timeout: 200 }}
+                onClose={onClose}
             >
                 <BaseUniversalModalContent
                     preset={preset}
@@ -92,6 +94,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                     footer={footer}
                     footerPreset={footerPreset}
                     wheelDeltaY={wheelDeltaY}
+                    onClose={onClose}
                 >
                     {children}
                 </BaseUniversalModalContent>

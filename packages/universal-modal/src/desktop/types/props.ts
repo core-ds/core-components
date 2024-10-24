@@ -7,12 +7,6 @@ import { TMargin, TModalFooterPreset, TModalHeaderPreset } from './typings';
 
 export type BaseUniversalModalProps = {
     /**
-     * Управление наличием закрывающего крестика
-     * @default false
-     */
-    hasCloser?: boolean;
-
-    /**
      * Расположение по горизонтали и сторона с которой модал “выезжает” при открытии
      * @default center
      */
@@ -65,6 +59,11 @@ export type BaseUniversalModalProps = {
      * Слот для кастомного футера. Этот пропс не будет работать если вы используете пресеты для футера
      */
     footer?: ReactNode;
+
+    /**
+     * Хэндлер закрытия модалки
+     */
+    onClose?: () => void;
 };
 
 export type UniversalModalDesktopProps = BaseUniversalModalProps &
