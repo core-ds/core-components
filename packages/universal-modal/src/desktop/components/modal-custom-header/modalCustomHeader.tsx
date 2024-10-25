@@ -3,7 +3,7 @@ import React, { FC, ReactNode } from 'react';
 import { TModalHeaderPreset } from '../../types/typings';
 import { ModalHeaderPreset } from '../modal-header-preset/modalHeaderPreset';
 
-type ModalHeaderProps = {
+type ModalCustomHeaderProps = {
     preset: TModalHeaderPreset['preset'];
     header: ReactNode;
     scrollPosition: number;
@@ -11,7 +11,7 @@ type ModalHeaderProps = {
     onClose?: () => void;
 };
 
-export const ModalHeader: FC<ModalHeaderProps> = (props) => {
+export const ModalCustomHeader: FC<ModalCustomHeaderProps> = (props) => {
     const { preset, header, scrollPosition, width, onClose } = props;
 
     if (preset) {

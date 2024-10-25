@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { array, boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
@@ -142,7 +142,7 @@ export let SidePanelComponent = UniversalModalDesktop;
 
 {/* Docs */}
 
-<ComponentHeader name='UniversalModal' />
+<ComponentHeader name='UniversalModal' children='Модальное окно. Используется для отображения контента в модальном слое.' />
 
 <Tabs
     description={<Description />}

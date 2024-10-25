@@ -12,7 +12,7 @@ import { ModalBySide } from './components/modal-by-side';
 import { UniversalModalDesktopProps } from './types/props';
 
 const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
-    ({ children, dataTestId, ...restProps }, ref) => {
+    ({ children, dataTestId, horizontalAlign = 'center', ...restProps }, ref) => {
         const responsiveContext = useContext(ResponsiveContext);
 
         const contextValue = React.useMemo<TResponsiveModalContext>(
@@ -21,16 +21,16 @@ const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModal
         );
 
         const renderContent = () => {
-            if (restProps.horizontalAlign === 'center') {
+            if (horizontalAlign === 'center') {
                 return (
-                    <ModalByCenter {...restProps} ref={ref}>
+                    <ModalByCenter horizontalAlign={horizontalAlign} {...restProps} ref={ref}>
                         <div>{children}</div>
                     </ModalByCenter>
                 );
             }
 
             return (
-                <ModalBySide {...restProps} ref={ref}>
+                <ModalBySide horizontalAlign={horizontalAlign} {...restProps} ref={ref}>
                     <div>{children}</div>
                 </ModalBySide>
             );

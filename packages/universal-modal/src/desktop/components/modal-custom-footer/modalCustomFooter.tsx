@@ -3,14 +3,14 @@ import React, { FC, ReactNode } from 'react';
 import { TModalFooterPreset } from '../../types/typings';
 import { ModalFooterPreset } from '../modal-footer-preset/modalFooterPreset';
 
-type ModalFooterProps = {
+type ModalCustomFooterProps = {
     preset: TModalFooterPreset['footerPreset'];
     footer: ReactNode;
     scrollPosition: number;
     width: number;
 };
 
-export const ModalFooter: FC<ModalFooterProps> = (props) => {
+export const ModalCustomFooter: FC<ModalCustomFooterProps> = (props) => {
     const { preset, footer, scrollPosition, width } = props;
 
     if (preset) {

@@ -10,12 +10,12 @@ import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
+import { ModalFooterMobile } from './components/modal-footer/modalFooter';
 import { ModalHeaderMobile } from './components/modal-header/modalHeader';
 import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
-import { ModalFooterMobile } from './components/modal-footer/modalFooter';
 
 const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
     (

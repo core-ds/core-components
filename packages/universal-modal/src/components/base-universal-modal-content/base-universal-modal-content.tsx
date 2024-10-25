@@ -1,11 +1,10 @@
 import React, { FC, ReactNode, useEffect, useRef, useState } from 'react';
-import cn from 'classnames';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
-import { ModalFooter } from '../../desktop/components/modal-footer/modalFooter';
-import { ModalHeader } from '../../desktop/components/modal-header/modalHeader';
+import { ModalCustomFooter } from '../../desktop/components/modal-custom-footer/modalCustomFooter';
+import { ModalCustomHeader } from '../../desktop/components/modal-custom-header/modalCustomHeader';
 import { ModalByCenterProps } from '../../desktop/types/props';
 
 import styles from './base-universal-modal-content.module.css';
@@ -50,21 +49,15 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
             scrollableNodeProps={{ ref: scrollableNodeRef }}
             onContentScroll={handleScroll}
         >
-            <ModalHeader
+            <ModalCustomHeader
                 preset={preset}
                 header={header}
                 scrollPosition={scrollPosition}
                 width={width}
                 onClose={onClose}
             />
-            <div
-                className={cn(styles.content, {
-                    [styles.resetPaddingTop]: preset || header,
-                })}
-            >
-                {children}
-            </div>
-            <ModalFooter
+            {children}
+            <ModalCustomFooter
                 preset={footerPreset}
                 footer={footer}
                 scrollPosition={scrollPosition}
