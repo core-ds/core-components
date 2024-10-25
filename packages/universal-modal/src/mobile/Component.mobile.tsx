@@ -10,8 +10,8 @@ import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
-import { ModalCustomHeaderMobile } from './components/modal-custom-header/modalCustomHeaderMobile';
 import { ModalCustomFooterMobile } from './components/modal-custom-footer/modalCustomFooterMobile';
+import { ModalCustomHeaderMobile } from './components/modal-custom-header/modalCustomHeaderMobile';
 import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';

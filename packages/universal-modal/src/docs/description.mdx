@@ -13,7 +13,7 @@ render(() => {
         borderRadius: 8,
     };
 
-    const headerAnatomyStyle = {
+    const headerAnatomyStyles = {
         padding: '20px 20px 0',
         display: 'flex',
         addonStyles: {
@@ -55,10 +55,10 @@ render(() => {
                 height={500}
                 onClose={() => setOpen(false)}
             >
-                <div style={{ ...headerAnatomyStyle }}>
-                    <div style={{ ...headerAnatomyStyle.addonStyles }} />
-                    <div style={{ ...headerAnatomyStyle.titleStyles }} />
-                    <div style={{ ...headerAnatomyStyle.addonStyles }} />
+                <div style={{ ...headerAnatomyStyles }}>
+                    <div style={{ ...headerAnatomyStyles.addonStyles }} />
+                    <div style={{ ...headerAnatomyStyles.titleStyles }} />
+                    <div style={{ ...headerAnatomyStyles.addonStyles }} />
                 </div>
                 <div style={{ ...contentAnatomyStyles }}>
                     <div style={{ ...contentAnatomyStyles.content }}></div>
@@ -498,10 +498,7 @@ render(() => {
                     }}
                 />
             </div>
-            <UniversalModalMobile
-                open={open}
-                onClose={() => setOpen(false)}
-            >
+            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
                 <UniversalModalMobile.Header
                     align='left'
                     sticky={true}
@@ -620,48 +617,37 @@ render(() => {
 });
 ```
 
-## Dev Mode
+## Изменение отступов
 
-```jsx live mobileHeight={640}
+Для того чтобы корректно расположить модалку вблизи края экрана можно воспользоваться изменяемыми отступами.
+
+```jsx live desktopOnly
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [horizontalAlign, setHorizontalAlign] = React.useState('center');
-    const [verticalAlign, setVerticalAlign] = React.useState('center');
-    const [overlay, setOverlay] = React.useState(true);
+    const [leftMargin, setLeftMargin] = React.useState('12');
+    const [rightMargin, setRightMargin] = React.useState('12');
+    const [topMargin, setTopMargin] = React.useState('12');
+    const [bottomMargin, setBottomMargin] = React.useState('12');
 
-    const [customHeader, setCustomHeader] = React.useState(false);
-    const [headerPreset, setHeaderPreset] = React.useState('key_0');
-
-    const [customFooter, setCustomFooter] = React.useState(false);
-    const [footerPreset, setFooterPreset] = React.useState('key_0');
-
-    const horizontalOptions = [
-        { key: 'start', content: 'Left' },
-        { key: 'center', content: 'Center' },
-        { key: 'end', content: 'Right' },
+    const margins = [
+        { key: '0', content: '0' },
+        { key: '2', content: '2' },
+        { key: '4', content: '4' },
+        { key: '8', content: '8' },
+        { key: '12', content: '12' },
+        { key: '16', content: '16' },
+        { key: '20', content: '20' },
+        { key: '24', content: '24' },
+        { key: '32', content: '32' },
+        { key: '40', content: '40' },
+        { key: '48', content: '48' },
+        { key: '56', content: '56' },
+        { key: '64', content: '64' },
+        { key: '72', content: '72' },
+        { key: '80', content: '80' },
+        { key: '96', content: '96' },
+        { key: '128', content: '128' },
     ];
-    const verticalOptions = [
-        { key: 'top', content: 'Top' },
-        { key: 'center', content: 'Center' },
-        { key: 'bottom', content: 'Bottom' },
-    ];
-
-    const headerPresetOptions = [
-        { key: 'key_0', content: 'Initital' },
-        { key: 'key_1', content: 'Type 1' },
-        { key: 'key_2', content: 'Type 2' },
-        { key: 'key_3', content: 'Type 3' },
-    ];
-
-    const footerPresetOptions = [
-        { key: 'key_0', content: 'Initital' },
-        { key: 'key_1', content: 'Type 1' },
-    ];
-
-    const presetProps1 = getHeaderWithNavigationWithoutTitle();
-    const presetProps2 = getHeaderWithNavigationWithTitle({ title: 'title' });
-    const presetProps3 = getHeaderWithTitle({ title: 'title' });
-    const footerProps1 = getFooterWithContent({ labelLeft: 'LabelLeft', labelRight: 'labelRight' });
 
     return (
         <React.Fragment>
@@ -669,343 +655,540 @@ render(() => {
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <SelectDesktop
-                    size={56}
-                    options={horizontalOptions}
-                    selected={horizontalAlign}
-                    label='Положение по горизонтали'
-                    onChange={({ selected }) => setHorizontalAlign(selected.key)}
-                />
-                <Gap size={12} direction={'horizontal'} />
-                <SelectDesktop
-                    size={56}
-                    options={verticalOptions}
-                    selected={verticalAlign}
-                    label='Положение по вертикали'
-                    onChange={({ selected }) => setVerticalAlign(selected.key)}
-                />
-                <Gap size={12} direction={'horizontal'} />
-                <SelectDesktop
-                    size={56}
-                    options={headerPresetOptions}
-                    selected={headerPreset}
-                    label='Пресет хэдера'
-                    onChange={({ selected }) => setHeaderPreset(selected.key)}
-                />
-                <Gap size={12} direction={'horizontal'} />
-                <SelectDesktop
-                    size={56}
-                    options={footerPresetOptions}
-                    selected={footerPreset}
-                    label='Пресет футера'
-                    onChange={({ selected }) => setFooterPreset(selected.key)}
-                />
+            <div style={{ display: 'flex', flexDirection: 'column', width: 532 }}>
+                <div style={{ display: 'flex' }}>
+                    <div style={{ width: 260 }}>
+                        <SelectDesktop
+                            size={56}
+                            options={margins}
+                            selected={leftMargin}
+                            label='Левый'
+                            block={true}
+                            onChange={({ selected }) => setLeftMargin(selected.key)}
+                        />
+                    </div>
+                    <Gap size={12} direction={'horizontal'} />
+                    <div style={{ width: 260 }}>
+                        <SelectDesktop
+                            size={56}
+                            options={margins}
+                            selected={rightMargin}
+                            label='Правый'
+                            block={true}
+                            onChange={({ selected }) => setRightMargin(selected.key)}
+                        />
+                    </div>
+                </div>
+                <Gap size={12} />
+                <div style={{ display: 'flex' }}>
+                    <div style={{ width: 260 }}>
+                        <SelectDesktop
+                            size={56}
+                            options={margins}
+                            selected={topMargin}
+                            label='Верхний'
+                            block={true}
+                            onChange={({ selected }) => setTopMargin(selected.key)}
+                        />
+                    </div>
+                    <Gap size={12} direction={'horizontal'} />
+                    <div style={{ width: 260 }}>
+                        <SelectDesktop
+                            size={56}
+                            options={margins}
+                            selected={bottomMargin}
+                            label='Нижний'
+                            block={true}
+                            onChange={({ selected }) => setBottomMargin(selected.key)}
+                        />
+                    </div>
+                </div>
             </div>
-            <Gap size={20} />
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <Switch
-                    label='Overlay'
-                    checked={overlay}
-                    onChange={() => setOverlay((prev) => !prev)}
-                />
-                <Gap size={12} direction={'horizontal'} />
-                <Switch
-                    label='Custom Header'
-                    checked={customHeader}
-                    onChange={() => setCustomHeader((prev) => !prev)}
-                />
-                <Gap size={12} direction={'horizontal'} />
-                <Switch
-                    label='Custom Footer'
-                    checked={customFooter}
-                    onChange={() => setCustomFooter((prev) => !prev)}
-                />
-            </div>
-
             <UniversalModalDesktop
                 open={open}
-                width={501}
-                height={500}
-                horizontalAlign={horizontalAlign}
-                verticalAlign={verticalAlign}
+                width={'500'}
+                height={'fullHeight'}
+                horizontalAlign={'end'}
+                verticalAlign={'center'}
+                margin={[topMargin, rightMargin, bottomMargin, leftMargin]}
                 onClose={() => setOpen(false)}
-                overlay={overlay}
-                {...(headerPreset === 'key_1' && presetProps1)}
-                {...(headerPreset === 'key_2' && presetProps2)}
-                {...(headerPreset === 'key_3' && presetProps3)}
-                {...(customHeader && {
-                    header: <UniversalModalResponsive.Header title={'CUSTOM HEADER'} />,
-                })}
-                {...(footerPreset === 'key_1' && footerProps1)}
-                {...(customFooter && {
-                    footer: (
-                        <UniversalModalResponsive.Footer>
-                            Custom Footer
-                        </UniversalModalResponsive.Footer>
-                    ),
-                })}
             >
+                <UniversalModalDesktop.Header
+                    align='left'
+                    sticky={true}
+                    title='Почему банк проверяет мои операции?'
+                    rightAddons={<ActionIconAddon action='close' onClick={() => setOpen(false)} />}
+                />
                 <UniversalModalDesktop.Content>
-                    ---------------------------------------------------------------------
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312
-                    ==========================================
+                    <Typography.Text tag='p'>
+                        В 2001 году в России начал действовать Федеральный закон №115 «О
+                        противодействии легализации доходов, полученных преступным путём, и
+                        финансированию терроризма». В рамках закона банки могут блокировать карты,
+                        отказывать в проведении сомнительных операций, ограничить доступ в
+                        интернет-банк или запрашивать документы, если по операции клиента возникли
+                        подозрения.
+                    </Typography.Text>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
+                        предприниматели не всегда успевают за ними следить. Последствия нарушений
+                        «антиотмывочного» законодательства всегда неприятны: приходится остановить
+                        бизнес-процессы и доказать банку законность операций. Специалисты
+                        «Альфа-банка» собрали понятные рекомендации, как сэкономить время на
+                        объяснения и предотвратить блокировки
+                    </Typography.Text>
+
+                    <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+                        <Typography.Text tag='p'>
+                            115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто
+                            пользуется банковским счётом для бизнеса, крупных денежных переводов или
+                            личных расчётов. Ограничения интернет-банка, блокировка карт
+                            добросовестных компаний могут произойти из-за неправильно оформленных
+                            документов, ошибок в платёжке или попыток снизить налоги.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Клиенты воспринимают ограничения как атаку со стороны банка, но чаще
+                            всего сами допускают ошибки или нарушения, которых можно избежать. Банки
+                            не преследуют цели доставить неудобства клиентам — они обязаны соблюдать
+                            законодательство и следовать инструкциям и рекомендациям ЦБ, а в
+                            противном случае рискуют лишиться лицензии.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Обналичивание — сомнительные операции, когда юрлицо или предприниматель
+                            снимает со счёта более 80% от оборота или переводит деньги на счета
+                            физлиц, которые затем снимают в наличной форме.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Вывод капитала за границу — это переводы нерезидентам по договорам об
+                            импорте работ/услуг и результатов интеллектуальной деятельности, по
+                            которым проведение расчётов осуществляется без одновременной уплаты НДС;
+                            по сделкам купли-продажи ценных бумаг, а также товаров, которые не
+                            пересекают границу России.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Транзитные операции — операции, в процессе которых деньги поступают на
+                            счёт компании от других резидентов и списываются в короткие сроки. При
+                            этом, как правило, в этих случаях по счёту нет начислений зарплат,
+                            уплаты налогов, и они не соответствуют заявленному компанией виду
+                            деятельности.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Запрашивать могут любые документы и устанавливать разные сроки их
+                            предоставления — это зависит от службы контроля конкретного банка.
+                            Обычно банки запрашивают чеки, счета или договора с контрагентами. В
+                            некоторых случаях бывает достаточно устных объяснений. Для проверки
+                            информации и пересмотра уровня риска банк может пригласить клиента в
+                            банк для устного разъяснения или выехать по месту ведения бизнеса
+                            клиента.
+                        </Typography.Text>
+                    </Collapse>
                 </UniversalModalDesktop.Content>
+                <UniversalModalDesktop.Footer sticky={true} layout='start'>
+                    <Button size={48} view='primary'>
+                        Primary
+                    </Button>
+                    <Button size={48} view='secondary'>
+                        Secondary
+                    </Button>
+                </UniversalModalDesktop.Footer>
             </UniversalModalDesktop>
         </React.Fragment>
     );
 });
-
-//MOBILE
-render(() => {
-    const [open, setOpen] = React.useState(false);
-
-    const [customHeader, setCustomHeader] = React.useState(false);
-    const [headerPreset, setHeaderPreset] = React.useState('key_1');
-
-    const [customFooter, setCustomFooter] = React.useState(false);
-    const [footerPreset, setFooterPreset] = React.useState('key_0');
-
-    const headerPresetOptions = [
-        { key: 'key_0', content: 'Initital' },
-        { key: 'key_1', content: 'Type 1' },
-        { key: 'key_2', content: 'Type 2' },
-        { key: 'key_3', content: 'Type 3' },
-        { key: 'key_4', content: 'Type 4' },
-        { key: 'key_5', content: 'Type 5' },
-    ];
-
-    const footerPresetOptions = [
-        { key: 'key_0', content: 'Initital' },
-        { key: 'key_1', content: 'Type 1' },
-    ];
-
-    const presetProps1 = getHeaderWithNavigationWithoutTitleMobile();
-    const presetProps2 = getHeaderWithBackArrowWithCenterTitleMobile({ title: 'foobar' });
-    const presetProps3 = getHeaderWithTitleWithSubtitleMobile({
-        title: 'foobar2',
-        subtitle: '2fobarsibtitle',
-    });
-    const presetProps4 = getHeaderWithCentralTitleMobile({ title: 'foobar3' });
-    const presetProps5 = getHeaderWithCentralTitleWithSubtitleMobile({
-        title: 'foobar4',
-        subtitle: '4fobarsibtitle',
-    });
-
-    const footerProps1 = getFooterWithContentMobile({
-        labelLeft: 'LabelLeft',
-        labelRight: 'labelRight',
-        layout: 'row',
-    });
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    return (
-        <React.Fragment>
-            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <SelectDesktop
-                    size={56}
-                    options={headerPresetOptions}
-                    selected={headerPreset}
-                    label='Пресет хэдера'
-                    onChange={({ selected }) => setHeaderPreset(selected.key)}
-                />
-                <Gap size={12} direction={'horizontal'} />
-                <SelectDesktop
-                    size={56}
-                    options={footerPresetOptions}
-                    selected={footerPreset}
-                    label='Пресет футера'
-                    onChange={({ selected }) => setFooterPreset(selected.key)}
-                />
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <Switch
-                    label='Custom Header'
-                    checked={customHeader}
-                    onChange={() => setCustomHeader((prev) => !prev)}
-                />
-                <Gap size={12} direction={'horizontal'} />
-            </div>
-            <UniversalModalMobile
-                open={open}
-                onClose={handleClose}
-                {...(headerPreset === 'key_1' && presetProps1)}
-                {...(headerPreset === 'key_2' && presetProps2)}
-                {...(headerPreset === 'key_3' && presetProps3)}
-                {...(headerPreset === 'key_4' && presetProps4)}
-                {...(headerPreset === 'key_5' && presetProps5)}
-                {...(customHeader && {
-                    header: <UniversalModalMobile.Header title={'CUSTOM HEADER'} />,
-                })}
-                {...(footerPreset === 'key_1' && footerProps1)}
-                {...(customFooter && {
-                    footer: (
-                        <UniversalModalResponsive.Footer>
-                            Custom Footer
-                        </UniversalModalResponsive.Footer>
-                    ),
-                })}
-            >
-                ----------------------------------------------------------- 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3
-                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld
-                ===========================================================
-            </UniversalModalMobile>
-        </React.Fragment>
-    );
-});
 ```
+
+[//]: #
+[//]: # '## Dev Mode'
+[//]: #
+[//]: # '```jsx live mobileHeight={640}'
+[//]: # 'render(() => {'
+[//]: # '    const [open, setOpen] = React.useState(false);'
+[//]: # "    const [horizontalAlign, setHorizontalAlign] = React.useState('center');"
+[//]: # "    const [verticalAlign, setVerticalAlign] = React.useState('center');"
+[//]: # '    const [overlay, setOverlay] = React.useState(true);'
+[//]: #
+[//]: # '    const [customHeader, setCustomHeader] = React.useState(false);'
+[//]: # "    const [headerPreset, setHeaderPreset] = React.useState('key_0');"
+[//]: #
+[//]: # '    const [customFooter, setCustomFooter] = React.useState(false);'
+[//]: # "    const [footerPreset, setFooterPreset] = React.useState('key_0');"
+[//]: #
+[//]: # '    const horizontalOptions = ['
+[//]: # "        { key: 'start', content: 'Left' },"
+[//]: # "        { key: 'center', content: 'Center' },"
+[//]: # "        { key: 'end', content: 'Right' },"
+[//]: # '    ];'
+[//]: # '    const verticalOptions = ['
+[//]: # "        { key: 'top', content: 'Top' },"
+[//]: # "        { key: 'center', content: 'Center' },"
+[//]: # "        { key: 'bottom', content: 'Bottom' },"
+[//]: # '    ];'
+[//]: #
+[//]: # '    const headerPresetOptions = ['
+[//]: # "        { key: 'key_0', content: 'Initital' },"
+[//]: # "        { key: 'key_1', content: 'Type 1' },"
+[//]: # "        { key: 'key_2', content: 'Type 2' },"
+[//]: # "        { key: 'key_3', content: 'Type 3' },"
+[//]: # '    ];'
+[//]: #
+[//]: # '    const footerPresetOptions = ['
+[//]: # "        { key: 'key_0', content: 'Initital' },"
+[//]: # "        { key: 'key_1', content: 'Type 1' },"
+[//]: # '    ];'
+[//]: #
+[//]: # '    const presetProps1 = getHeaderWithNavigationWithoutTitle();'
+[//]: # "    const presetProps2 = getHeaderWithNavigationWithTitle({ title: 'title' });"
+[//]: # "    const presetProps3 = getHeaderWithTitle({ title: 'title' });"
+[//]: # "    const footerProps1 = getFooterWithContent({ labelLeft: 'LabelLeft', labelRight: 'labelRight' });"
+[//]: #
+[//]: # '    return ('
+[//]: # '        <React.Fragment>'
+[//]: # '            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>'
+[//]: # '            <Gap size={20} />'
+[//]: # '            <Divider />'
+[//]: # '            <Gap size={20} />'
+[//]: #
+[//]: # "            <div style={{ display: 'flex', flexWrap: 'wrap' }}>"
+[//]: # '                <SelectDesktop'
+[//]: # '                    size={56}'
+[//]: # '                    options={horizontalOptions}'
+[//]: # '                    selected={horizontalAlign}'
+[//]: # "                    label='Положение по горизонтали'"
+[//]: # '                    onChange={({ selected }) => setHorizontalAlign(selected.key)}'
+[//]: # '                />'
+[//]: # "                <Gap size={12} direction={'horizontal'} />"
+[//]: # '                <SelectDesktop'
+[//]: # '                    size={56}'
+[//]: # '                    options={verticalOptions}'
+[//]: # '                    selected={verticalAlign}'
+[//]: # "                    label='Положение по вертикали'"
+[//]: # '                    onChange={({ selected }) => setVerticalAlign(selected.key)}'
+[//]: # '                />'
+[//]: # "                <Gap size={12} direction={'horizontal'} />"
+[//]: # '                <SelectDesktop'
+[//]: # '                    size={56}'
+[//]: # '                    options={headerPresetOptions}'
+[//]: # '                    selected={headerPreset}'
+[//]: # "                    label='Пресет хэдера'"
+[//]: # '                    onChange={({ selected }) => setHeaderPreset(selected.key)}'
+[//]: # '                />'
+[//]: # "                <Gap size={12} direction={'horizontal'} />"
+[//]: # '                <SelectDesktop'
+[//]: # '                    size={56}'
+[//]: # '                    options={footerPresetOptions}'
+[//]: # '                    selected={footerPreset}'
+[//]: # "                    label='Пресет футера'"
+[//]: # '                    onChange={({ selected }) => setFooterPreset(selected.key)}'
+[//]: # '                />'
+[//]: # '            </div>'
+[//]: # '            <Gap size={20} />'
+[//]: # "            <div style={{ display: 'flex', flexWrap: 'wrap' }}>"
+[//]: # '                <Switch'
+[//]: # "                    label='Overlay'"
+[//]: # '                    checked={overlay}'
+[//]: # '                    onChange={() => setOverlay((prev) => !prev)}'
+[//]: # '                />'
+[//]: # "                <Gap size={12} direction={'horizontal'} />"
+[//]: # '                <Switch'
+[//]: # "                    label='Custom Header'"
+[//]: # '                    checked={customHeader}'
+[//]: # '                    onChange={() => setCustomHeader((prev) => !prev)}'
+[//]: # '                />'
+[//]: # "                <Gap size={12} direction={'horizontal'} />"
+[//]: # '                <Switch'
+[//]: # "                    label='Custom Footer'"
+[//]: # '                    checked={customFooter}'
+[//]: # '                    onChange={() => setCustomFooter((prev) => !prev)}'
+[//]: # '                />'
+[//]: # '            </div>'
+[//]: #
+[//]: # '            <UniversalModalDesktop'
+[//]: # '                open={open}'
+[//]: # '                width={501}'
+[//]: # '                height={500}'
+[//]: # '                horizontalAlign={horizontalAlign}'
+[//]: # '                verticalAlign={verticalAlign}'
+[//]: # '                onClose={() => setOpen(false)}'
+[//]: # '                overlay={overlay}'
+[//]: # "                {...(headerPreset === 'key_1' && presetProps1)}"
+[//]: # "                {...(headerPreset === 'key_2' && presetProps2)}"
+[//]: # "                {...(headerPreset === 'key_3' && presetProps3)}"
+[//]: # '                {...(customHeader && {'
+[//]: # "                    header: <UniversalModalResponsive.Header title={'CUSTOM HEADER'} />,"
+[//]: # '                })}'
+[//]: # "                {...(footerPreset === 'key_1' && footerProps1)}"
+[//]: # '                {...(customFooter && {'
+[//]: # '                    footer: ('
+[//]: # '                        <UniversalModalResponsive.Footer>'
+[//]: # '                            Custom Footer'
+[//]: # '                        </UniversalModalResponsive.Footer>'
+[//]: # '                    ),'
+[//]: # '                })}'
+[//]: # '            >'
+[//]: # '                <UniversalModalDesktop.Content>'
+[//]: # '                    ---------------------------------------------------------------------'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    1231313213123312312 1231313213123312312 1231313213123312312 1231313213123312312'
+[//]: # '                    =========================================='
+[//]: # '                </UniversalModalDesktop.Content>'
+[//]: # '            </UniversalModalDesktop>'
+[//]: # '        </React.Fragment>'
+[//]: # '    );'
+[//]: # '});'
+[//]: #
+[//]: # '//MOBILE'
+[//]: # 'render(() => {'
+[//]: # '    const [open, setOpen] = React.useState(false);'
+[//]: #
+[//]: # '    const [customHeader, setCustomHeader] = React.useState(false);'
+[//]: # "    const [headerPreset, setHeaderPreset] = React.useState('key_1');"
+[//]: #
+[//]: # '    const [customFooter, setCustomFooter] = React.useState(false);'
+[//]: # "    const [footerPreset, setFooterPreset] = React.useState('key_0');"
+[//]: #
+[//]: # '    const headerPresetOptions = ['
+[//]: # "        { key: 'key_0', content: 'Initital' },"
+[//]: # "        { key: 'key_1', content: 'Type 1' },"
+[//]: # "        { key: 'key_2', content: 'Type 2' },"
+[//]: # "        { key: 'key_3', content: 'Type 3' },"
+[//]: # "        { key: 'key_4', content: 'Type 4' },"
+[//]: # "        { key: 'key_5', content: 'Type 5' },"
+[//]: # '    ];'
+[//]: #
+[//]: # '    const footerPresetOptions = ['
+[//]: # "        { key: 'key_0', content: 'Initital' },"
+[//]: # "        { key: 'key_1', content: 'Type 1' },"
+[//]: # '    ];'
+[//]: #
+[//]: # '    const presetProps1 = getHeaderWithNavigationWithoutTitleMobile();'
+[//]: # "    const presetProps2 = getHeaderWithBackArrowWithCenterTitleMobile({ title: 'foobar' });"
+[//]: # '    const presetProps3 = getHeaderWithTitleWithSubtitleMobile({'
+[//]: # "        title: 'foobar2',"
+[//]: # "        subtitle: '2fobarsibtitle',"
+[//]: # '    });'
+[//]: # "    const presetProps4 = getHeaderWithCentralTitleMobile({ title: 'foobar3' });"
+[//]: # '    const presetProps5 = getHeaderWithCentralTitleWithSubtitleMobile({'
+[//]: # "        title: 'foobar4',"
+[//]: # "        subtitle: '4fobarsibtitle',"
+[//]: # '    });'
+[//]: #
+[//]: # '    const footerProps1 = getFooterWithContentMobile({'
+[//]: # "        labelLeft: 'LabelLeft',"
+[//]: # "        labelRight: 'labelRight',"
+[//]: # "        layout: 'row',"
+[//]: # '    });'
+[//]: #
+[//]: # '    const handleClose = () => {'
+[//]: # '        setOpen(false);'
+[//]: # '    };'
+[//]: #
+[//]: # '    return ('
+[//]: # '        <React.Fragment>'
+[//]: # '            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>'
+[//]: # "            <div style={{ display: 'flex', flexWrap: 'wrap' }}>"
+[//]: # '                <SelectDesktop'
+[//]: # '                    size={56}'
+[//]: # '                    options={headerPresetOptions}'
+[//]: # '                    selected={headerPreset}'
+[//]: # "                    label='Пресет хэдера'"
+[//]: # '                    onChange={({ selected }) => setHeaderPreset(selected.key)}'
+[//]: # '                />'
+[//]: # "                <Gap size={12} direction={'horizontal'} />"
+[//]: # '                <SelectDesktop'
+[//]: # '                    size={56}'
+[//]: # '                    options={footerPresetOptions}'
+[//]: # '                    selected={footerPreset}'
+[//]: # "                    label='Пресет футера'"
+[//]: # '                    onChange={({ selected }) => setFooterPreset(selected.key)}'
+[//]: # '                />'
+[//]: # '            </div>'
+[//]: # "            <div style={{ display: 'flex', flexWrap: 'wrap' }}>"
+[//]: # '                <Switch'
+[//]: # "                    label='Custom Header'"
+[//]: # '                    checked={customHeader}'
+[//]: # '                    onChange={() => setCustomHeader((prev) => !prev)}'
+[//]: # '                />'
+[//]: # "                <Gap size={12} direction={'horizontal'} />"
+[//]: # '            </div>'
+[//]: # '            <UniversalModalMobile'
+[//]: # '                open={open}'
+[//]: # '                onClose={handleClose}'
+[//]: # "                {...(headerPreset === 'key_1' && presetProps1)}"
+[//]: # "                {...(headerPreset === 'key_2' && presetProps2)}"
+[//]: # "                {...(headerPreset === 'key_3' && presetProps3)}"
+[//]: # "                {...(headerPreset === 'key_4' && presetProps4)}"
+[//]: # "                {...(headerPreset === 'key_5' && presetProps5)}"
+[//]: # '                {...(customHeader && {'
+[//]: # "                    header: <UniversalModalMobile.Header title={'CUSTOM HEADER'} />,"
+[//]: # '                })}'
+[//]: # "                {...(footerPreset === 'key_1' && footerProps1)}"
+[//]: # '                {...(customFooter && {'
+[//]: # '                    footer: ('
+[//]: # '                        <UniversalModalResponsive.Footer>'
+[//]: # '                            Custom Footer'
+[//]: # '                        </UniversalModalResponsive.Footer>'
+[//]: # '                    ),'
+[//]: # '                })}'
+[//]: # '            >'
+[//]: # '                ----------------------------------------------------------- 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld 12skdfmsdlfs;fsldm;lmd3'
+[//]: # '                s;dlfmns;ldfms;dlfms;dlfms;fldsms;ld'
+[//]: # '                ==========================================================='
+[//]: # '            </UniversalModalMobile>'
+[//]: # '        </React.Fragment>'
+[//]: # '    );'
+[//]: # '});'
+[//]: # '```'

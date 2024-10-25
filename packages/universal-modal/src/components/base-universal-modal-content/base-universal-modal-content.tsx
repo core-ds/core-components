@@ -46,8 +46,9 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
         <Scrollbar
             className={styles.scrollbarWrapper}
             verticalBarClassName={styles.verticalBarContainer}
-            scrollableNodeProps={{ ref: scrollableNodeRef }}
+            scrollableNodeProps={{ ref: scrollableNodeRef, className: styles.scrollContentWrapper }}
             onContentScroll={handleScroll}
+            contentNodeProps={{ className: styles.scrollbarContainer }}
         >
             <ModalCustomHeader
                 preset={preset}

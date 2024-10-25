@@ -5,4 +5,21 @@
         top: var(--gap-16);
         height: calc(100% - 2 * 16px);
     }
+
+    & .scrollContentWrapper {
+        display: flex;
+        flex-direction: column;
+
+        & .scrollbarContainer {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            & > div {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+        }
+    }
 }
