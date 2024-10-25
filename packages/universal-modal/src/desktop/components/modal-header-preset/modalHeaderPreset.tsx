@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
-import { ActionIconAddon } from '@alfalab/core-components-navigation-bar/src/shared';
+import { ActionIconAddon } from '@alfalab/core-components-navigation-bar/shared';
 import { Typography } from '@alfalab/core-components-typography';
 import ArrowLeftMediumMIcon from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 

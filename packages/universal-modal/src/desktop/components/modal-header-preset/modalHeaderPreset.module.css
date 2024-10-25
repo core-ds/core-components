@@ -1,3 +1,5 @@
+@import '../../../../../vars/src/index.css';
+
 .container {
     padding: var(--gap-20) var(--gap-20) 0;
 

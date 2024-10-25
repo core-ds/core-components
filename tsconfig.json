@@ -40,7 +40,8 @@
             "@alfalab/core-components-input-autocomplete/*": ["packages/input-autocomplete/src/*"],
             "@alfalab/core-components-step-input/*": ["packages/step-input/src/*"],
             "@alfalab/core-components-number-input/*": ["packages/number-input/src/*"],
-            "@alfalab/core-components-navigation-bar-private/*": ["packages/navigation-bar-private/src/*"]
+            "@alfalab/core-components-navigation-bar-private/*": ["packages/navigation-bar-private/src/*"],
+            "@alfalab/core-components-navigation-bar/*": ["packages/navigation-bar/src/*"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
