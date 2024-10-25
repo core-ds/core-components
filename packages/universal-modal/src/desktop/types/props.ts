@@ -10,7 +10,7 @@ export type BaseUniversalModalProps = {
      * Расположение по горизонтали и сторона с которой модал “выезжает” при открытии
      * @default center
      */
-    horizontalAlign?: 'left' | 'center' | 'right';
+    horizontalAlign?: 'start' | 'center' | 'end';
 
     /**
      * Расположение модального окна по вертикали

@@ -10,8 +10,8 @@ import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
-import { ModalFooterMobile } from './components/modal-footer/modalFooter';
-import { ModalHeaderMobile } from './components/modal-header/modalHeader';
+import { ModalCustomHeaderMobile } from './components/modal-custom-header/modalCustomHeaderMobile';
+import { ModalCustomFooterMobile } from './components/modal-custom-footer/modalCustomFooterMobile';
 import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';
@@ -76,14 +76,14 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                 componentRef={baseModalComponentRef}
             >
                 <div>
-                    <ModalHeaderMobile
+                    <ModalCustomHeaderMobile
                         preset={preset}
                         header={header}
                         hasScroll={hasScroll}
                         onClose={onClose}
                     />
                     <div className={styles.mobileContent}>{children}</div>
-                    <ModalFooterMobile
+                    <ModalCustomFooterMobile
                         preset={footerPreset}
                         footer={footer}
                         hasScroll={hasScroll}

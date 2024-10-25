@@ -60,18 +60,20 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         }
     }, [restProps.open, verticalAlign, componentRef, height]);
 
-    if (horizontalAlign === 'right' || horizontalAlign === 'left') {
+    if (horizontalAlign === 'start' || horizontalAlign === 'end') {
+        const placement = horizontalAlign === 'start' ? 'left' : 'right';
+
         return (
             <Drawer
                 {...restProps}
                 dataTestId={dataTestId}
                 ref={mergeRefs([ref, modalRef])}
                 componentRef={componentRef}
-                placement={horizontalAlign}
+                placement={placement}
                 wrapperClassName={wrapperClassName}
                 className={cn(className, styles.component, styles[verticalAlign], {
-                    [styles.horizontalLeft]: horizontalAlign === 'left',
-                    [styles.horizontalRight]: horizontalAlign === 'right',
+                    [styles.horizontalLeft]: horizontalAlign === 'start',
+                    [styles.horizontalRight]: horizontalAlign === 'end',
                     [styles.verticalBottom]: verticalAlign === 'bottom',
                     [styles.overlayHidden]: !overlay,
                 })}

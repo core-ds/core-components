@@ -9,7 +9,7 @@ type ModalFooterProps = {
     hasScroll: boolean;
 };
 
-export const ModalFooterMobile: FC<ModalFooterProps> = (props) => {
+export const ModalCustomFooterMobile: FC<ModalFooterProps> = (props) => {
     const { preset, footer, hasScroll } = props;
 
     if (preset) {

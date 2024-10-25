@@ -10,7 +10,7 @@ type ModalHeaderProps = {
     onClose?: () => void;
 };
 
-export const ModalHeaderMobile: FC<ModalHeaderProps> = (props) => {
+export const ModalCustomHeaderMobile: FC<ModalHeaderProps> = (props) => {
     const { preset, header, hasScroll, onClose } = props;
 
     if (preset) {
