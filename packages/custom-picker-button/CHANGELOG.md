@@ -1,5 +1,30 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.10.0
+    -   picker-button@11.12.0
+    -   select@17.16.0
+
+## 2.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+    -   picker-button@11.11.5
+
 ## 2.5.4
 
 ### Patch Changes

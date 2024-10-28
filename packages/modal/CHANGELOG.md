@@ -1,5 +1,20 @@
 # Change Log
 
+## 9.8.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.0
+
 ## 9.7.2
 
 ### Patch Changes

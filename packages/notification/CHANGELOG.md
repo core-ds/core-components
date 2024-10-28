@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.1
+
 ## 7.4.1
 
 ### Patch Changes

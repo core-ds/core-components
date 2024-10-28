@@ -1,3 +1,51 @@
+## 47.25.0
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1416](https://github.com/core-ds/core-components/pull/1416)
+
+#### Что изменилось
+- Внесены изменения в отступы в компонентах tag и filter-tag (затрагивает все темы)
+
+#### Влияние на компоненты
+- Минорное<br />`filter-tag` `tag` `vars`
+
+
+### [#1412](https://github.com/core-ds/core-components/pull/1412)
+
+#### Что изменилось
+Изменены скругления для десктопной версии
+- `Tooltip` 8 -> 12
+- `Hint` 4 -> 8
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+#### Что изменилось
+- Обновление темы corp
+
+#### Влияние на компоненты
+- Минорное<br />`button` `calendar` `calendar-range` `code-input` `custom-button`<br /> `custom-picker-button` `file-upload-item` `form-control` `gallery` `icon-button`<br /> `input-autocomplete` `international-phone-input` `intl-phone-input` `markdown` `modal`<br /> `navigation-bar-private` `notification` `notification-manager` `password-input` `picker-button`<br /> `plate` `select` `select-with-tags` `side-panel` `space`<br /> `switch` `table` `tabs` `tag` `themes`<br /> `tooltip` `universal-date-input` `vars`
+
+
+
+## 47.24.1
+
+<sup><time>23.10.2024</time></sup>
+
+### [#1420](https://github.com/core-ds/core-components/pull/1420)
+
+#### Что изменилось
+- Исправление проблемы с выбранными опциями в групповых опциях
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
 ## 47.24.0
 
 <sup><time>15.10.2024</time></sup>

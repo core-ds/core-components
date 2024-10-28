@@ -1,0 +1,4 @@
+@define-mixin code-input-corp {
+    /* border */
+    --code-input-border-radius: var(--border-radius-6);
+}

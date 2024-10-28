@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+
 ## 1.2.5
 
 ### Patch Changes

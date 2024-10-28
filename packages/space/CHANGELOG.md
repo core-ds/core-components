@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
 ## 3.3.1
 
 ### Patch Changes

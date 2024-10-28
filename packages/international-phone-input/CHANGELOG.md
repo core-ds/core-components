@@ -1,5 +1,30 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.4.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.0
+    -   select@17.16.0
+    -   input@15.2.1
+
+## 2.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+    -   input-autocomplete@12.5.5
+
 ## 2.3.4
 
 ### Patch Changes

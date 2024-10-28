@@ -1,5 +1,12 @@
 # @alfalab/core-components-pattern-lock
 
+## 2.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+
 ## 2.5.0
 
 ### Minor Changes

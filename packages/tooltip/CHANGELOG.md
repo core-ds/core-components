@@ -1,5 +1,30 @@
 # Change Log
 
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1412](https://github.com/core-ds/core-components/pull/1412)
+
+Изменены скругления для десктопной версии
+
+-   `Tooltip` 8 -> 12
+-   `Hint` 4 -> 8
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   bottom-sheet@6.17.7
+
 ## 7.6.0
 
 ### Minor Changes

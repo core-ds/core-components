@@ -1,5 +1,30 @@
 # Change Log
 
+## 8.5.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.0
+    -   form-control@12.7.0
+    -   select@17.16.0
+    -   bottom-sheet@6.17.7
+
+## 8.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+
 ## 8.4.4
 
 ### Patch Changes
