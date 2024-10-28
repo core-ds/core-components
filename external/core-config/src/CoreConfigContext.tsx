@@ -2,12 +2,12 @@ import { createContext, useContext } from 'react';
 
 export type CoreConfigContext = {
     breakpoint: number;
-    ssrView: 'desktop' | 'mobile';
+    client: 'desktop' | 'mobile';
 };
 
 export const CoreConfigContext = createContext<CoreConfigContext>({
     breakpoint: 1024,
-    ssrView: 'desktop',
+    client: 'desktop',
 });
 
 export const useCoreConfig = (overrides: Partial<CoreConfigContext> = {}) => {

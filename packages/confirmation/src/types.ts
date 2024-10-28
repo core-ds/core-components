@@ -124,6 +124,11 @@ export type ConfirmationProps = {
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
      * Продолжительность отображения ошибки
      * @default 1300
      */
@@ -156,14 +161,10 @@ export type TConfirmationContext = Required<
         | 'clearCodeOnError'
         | 'initialScreenHintSlot'
         | 'errorVisibleDuration'
+        | 'breakpoint'
+        | 'client'
     > & {
         timeLeft: number;
-    } & {
-        /**
-         * Контрольная точка для кнопки, с нее начинается desktop версия
-         * @default 1024
-         */
-        breakpoint?: number;
     };
 
 export type ConfirmationTexts = {

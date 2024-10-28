@@ -4,8 +4,9 @@ import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { useFocus, useMedia } from '@alfalab/hooks';
+import { useFocus } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
 import { SIZE_TO_CLASSNAME_MAP } from './consts';
@@ -61,12 +62,15 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             nativeScrollbar: nativeScrollbarProp,
             wrapperRef,
             breakpoint,
+            client,
             ...restProps
         },
         ref,
     ) => {
         const uncontrolled = value === undefined;
-        let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+
+        const isDesktop = useIsDesktop(breakpoint, client === 'desktop');
+        let nativeScrollbar = !isDesktop;
 
         nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 

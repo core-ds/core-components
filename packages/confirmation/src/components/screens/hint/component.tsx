@@ -18,7 +18,7 @@ export type HintProps = {
 };
 
 export const Hint: FC<HintProps> = ({ mobile }) => {
-    const { alignContent, texts, onChangeScreen, onChangeState, breakpoint } =
+    const { alignContent, texts, onChangeScreen, onChangeState, breakpoint, client } =
         useContext(ConfirmationContext);
 
     const handleReturnButtonClick = () => {
@@ -110,6 +110,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 onClick={handleReturnButtonClick}
                 className={styles.hintButton}
                 breakpoint={breakpoint}
+                client={client}
             >
                 {texts.hintButton}
             </Button>

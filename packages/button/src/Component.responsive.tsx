@@ -11,8 +11,8 @@ export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonPr
         {
             children,
             breakpoint,
-            ssrView,
-            defaultMatchMediaValue = ssrView !== undefined ? ssrView === 'desktop' : undefined,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
             ...restProps
         },
         ref,

@@ -146,11 +146,11 @@ export type ButtonProps = CommonButtonProps & {
     /**
      * Версия, которая будет использоваться при серверном рендеринге
      */
-    ssrView?: 'desktop' | 'mobile';
+    client?: 'desktop' | 'mobile';
 
     /**
      * Значение по-умолчанию для хука useMatchMedia
-     * @deprecated Используйте ssrView
+     * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
