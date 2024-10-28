@@ -15,9 +15,9 @@ export type SpinnerPresetProps = Omit<SpinnerProps, 'size' | 'lineWidth'> & {
 };
 
 const PRESET_CONFIG = {
-    16: [2, 14, 'size-16'],
-    24: [2, 20, 'size-24'],
-    48: [4, 40, 'size-48'],
+    16: [2, 14, 'preset16'],
+    24: [2, 20, 'preset24'],
+    48: [4, 40, 'preset48'],
 } as const;
 
 export const SpinnerPreset: FC<SpinnerPresetProps> = ({ preset = 24, className, ...restProps }) => {

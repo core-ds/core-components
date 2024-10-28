@@ -1,13 +1,13 @@
 @import '../vars.css';
 
-.size-16 {
+.preset16 {
     padding: 1px;
 }
 
-.size-24 {
+.preset24 {
     padding: var(--gap-3xs);
 }
 
-.size-48 {
+.preset48 {
     padding: var(--gap-2xs);
 }

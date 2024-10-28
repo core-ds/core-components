@@ -123,7 +123,7 @@ exports[`Spinner props should support \`style\` 1`] = `
 exports[`SpinnerPreset should render preset 16 correctly 1`] = `
 <div>
   <svg
-    class="spinner component size-16 visible"
+    class="spinner component preset16 visible"
     style="height: 14px; width: 14px;"
     viewBox="0 0 14 14"
     xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +163,7 @@ exports[`SpinnerPreset should render preset 16 correctly 1`] = `
 exports[`SpinnerPreset should render preset 24 correctly 1`] = `
 <div>
   <svg
-    class="spinner component size-24 visible"
+    class="spinner component preset24 visible"
     style="height: 20px; width: 20px;"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +203,7 @@ exports[`SpinnerPreset should render preset 24 correctly 1`] = `
 exports[`SpinnerPreset should render preset 48 correctly 1`] = `
 <div>
   <svg
-    class="spinner component size-48 visible"
+    class="spinner component preset48 visible"
     style="height: 40px; width: 40px;"
     viewBox="0 0 40 40"
     xmlns="http://www.w3.org/2000/svg"
