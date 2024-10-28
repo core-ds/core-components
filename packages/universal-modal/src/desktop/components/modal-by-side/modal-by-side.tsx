@@ -5,12 +5,12 @@ import cn from 'classnames';
 import { Drawer } from '@alfalab/core-components-drawer';
 import { isClient } from '@alfalab/core-components-shared';
 
-import { BaseUniversalModalContent } from '../../../components/base-universal-modal-content/base-universal-modal-content';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
+import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './modal-by-side.module.css';
 
@@ -28,8 +28,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         margin = [12],
         overlay = true,
         preset,
-        header,
-        footer,
         footerPreset,
         onClose,
         ...restProps
@@ -91,9 +89,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
             >
                 <BaseUniversalModalContent
                     preset={preset}
-                    header={header}
                     width={currentWidth}
-                    footer={footer}
                     footerPreset={footerPreset}
                     wheelDeltaY={wheelDeltaY}
                     onClose={onClose}

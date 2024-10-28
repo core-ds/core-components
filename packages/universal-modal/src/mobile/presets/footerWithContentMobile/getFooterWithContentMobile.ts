@@ -11,7 +11,6 @@ export const getFooterWithContentMobile = ({
     labelRight,
     layout = 'start',
 }: GetFooterWithContentMobileProps) => ({
-    footer: undefined,
     footerPreset: {
         type: FooterPresetTypesMobile.FOOTER_WITH_CONTENT,
         labelLeft,

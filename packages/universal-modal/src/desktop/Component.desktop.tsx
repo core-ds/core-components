@@ -24,14 +24,14 @@ const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModal
             if (horizontalAlign === 'center') {
                 return (
                     <ModalByCenter horizontalAlign={horizontalAlign} {...restProps} ref={ref}>
-                        <div>{children}</div>
+                        {children}
                     </ModalByCenter>
                 );
             }
 
             return (
                 <ModalBySide horizontalAlign={horizontalAlign} {...restProps} ref={ref}>
-                    <div>{children}</div>
+                    {children}
                 </ModalBySide>
             );
         };

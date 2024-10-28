@@ -7,22 +7,13 @@
     overflow-x: hidden;
     overflow-y: auto;
     max-width: 600px;
+
+    & .content {
+        height: auto;
+    }
 }
 
 .component.component {
     position: fixed;
-    flex: 1;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.mobileContent {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     flex: 1;
 }

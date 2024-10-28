@@ -7,5 +7,5 @@ export { UniversalModalDesktopProps } from './desktop/types/props';
 export { UniversalModalMobile } from './mobile/Component.mobile';
 export { UniversalModalMobileProps } from './mobile/types/props';
 
-export * from './presets';
+export * from './desktop/presets';
 export * from './mobile/presets';

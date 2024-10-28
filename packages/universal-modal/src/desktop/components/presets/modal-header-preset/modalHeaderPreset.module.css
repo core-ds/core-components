@@ -1,0 +1,30 @@
+@import '../../../../../../vars/src/index.css';
+
+.container {
+    padding: var(--gap-20) var(--gap-20) 0;
+
+    &.hasScrollContent {
+        border-bottom: 1px solid var(--color-light-neutral-translucent-300);
+    }
+}
+
+.backButton {
+    background-color: var(--color-light-bg-primary);
+}
+
+.closeButton {
+    background-color: var(--color-light-bg-primary);
+
+    & svg path {
+        fill: var(--color-light-neutral-translucent-1300);
+    }
+}
+
+.title {
+    @mixin headline-system_small;
+    padding-left: var(--gap-12);
+
+    &.medium {
+        @mixin headline-system_medium;
+    }
+}

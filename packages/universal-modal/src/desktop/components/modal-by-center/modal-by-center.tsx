@@ -3,12 +3,12 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { BaseUniversalModalContent } from '../../../components/base-universal-modal-content/base-universal-modal-content';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalByCenterProps } from '../../types/props';
+import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './modal-by-center.module.css';
 import transitionsCenter from './transitions-center.module.css';
@@ -26,8 +26,6 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
         overlay = true,
         margin = ['auto'],
         preset,
-        header,
-        footer,
         footerPreset,
         onClose,
         ...restProps
@@ -66,9 +64,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             <div className={styles.container}>
                 <BaseUniversalModalContent
                     preset={preset}
-                    header={header}
                     width={currentWidth}
-                    footer={footer}
                     footerPreset={footerPreset}
                     wheelDeltaY={wheelDeltaY}
                     onClose={onClose}

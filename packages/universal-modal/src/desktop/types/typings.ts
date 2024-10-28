@@ -1,7 +1,7 @@
 import { ElementType } from 'react';
 
-import { FooterPresetTypes } from '../../constants/footerPresetTypes';
-import { HeaderPresetTypes } from '../../constants/headerPresetTypes';
+import { FooterPresetTypes } from '../constants/footerPresetTypes';
+import { HeaderPresetTypes } from '../constants/headerPresetTypes';
 
 export type TMargin =
     | 0
