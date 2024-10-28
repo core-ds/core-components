@@ -14,6 +14,6 @@ export type TModalFooterPresetMobile = {
         type: (typeof FooterPresetTypesMobile)[keyof typeof FooterPresetTypesMobile];
         labelLeft?: string;
         labelRight?: string;
-        layout: 'row' | 'column';
+        layout?: 'start' | 'column';
     };
 };

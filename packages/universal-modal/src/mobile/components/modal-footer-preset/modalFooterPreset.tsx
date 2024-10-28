@@ -28,7 +28,7 @@ export const ModalFooterPresetMobile: FC<ModalFooterPresetProps> = (props) => {
                         [styles.column]: layout === 'column',
                     })}
                     sticky={true}
-                    {...(layout === 'column' && { layout: 'column' })}
+                    layout={layout}
                 >
                     <Button size={56} view='primary' block={true}>
                         {labelLeft}

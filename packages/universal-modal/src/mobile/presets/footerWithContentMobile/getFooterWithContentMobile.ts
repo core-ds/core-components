@@ -3,13 +3,13 @@ import { FooterPresetTypesMobile } from '../../constants/footerPresetTypesMobile
 type GetFooterWithContentMobileProps = {
     labelLeft: string;
     labelRight: string;
-    layout: 'row' | 'column';
+    layout?: 'start' | 'column';
 };
 
 export const getFooterWithContentMobile = ({
     labelLeft,
     labelRight,
-    layout,
+    layout = 'start',
 }: GetFooterWithContentMobileProps) => ({
     footer: undefined,
     footerPreset: {

@@ -17,10 +17,16 @@
             flex-direction: column;
             flex: 1;
 
-            & > div {
+            & > .children {
                 display: flex;
                 flex-direction: column;
                 flex: 1;
+
+                & > div:first-child {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                }
             }
         }
     }

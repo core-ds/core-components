@@ -1,4 +1,4 @@
-@import '../vars.css';
+@import '../../../vars/src/index.css';
 
 .component {
     top: var(--gap-0);
@@ -16,7 +16,8 @@
 
 .container {
     display: flex;
-    height: 100%;
+    flex-direction: column;
+    flex: 1;
 }
 
 .mobileContent {

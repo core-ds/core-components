@@ -57,7 +57,7 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
                 width={width}
                 onClose={onClose}
             />
-            {children}
+            <div className={styles.children}>{children}</div>
             <ModalCustomFooter
                 preset={footerPreset}
                 footer={footer}

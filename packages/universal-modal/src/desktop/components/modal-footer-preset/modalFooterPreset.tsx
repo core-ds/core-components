@@ -19,7 +19,7 @@ export const ModalFooterPreset: FC<ModalFooterPresetProps> = (props) => {
     const { preset, scrollPosition, width } = props;
 
     if (preset) {
-        const { type, labelLeft, labelRight } = preset;
+        const { type, labelLeft, labelRight, layout } = preset;
 
         if (type === FooterPresetTypes.FooterWithContent) {
             return (
@@ -28,7 +28,7 @@ export const ModalFooterPreset: FC<ModalFooterPresetProps> = (props) => {
                         [styles.hasScrollContent]: scrollPosition > 5,
                     })}
                     sticky={true}
-                    layout={width > 500 ? 'start' : 'column'}
+                    layout={layout}
                 >
                     <Button size={width >= 800 ? 56 : 48} view='primary'>
                         {labelLeft}

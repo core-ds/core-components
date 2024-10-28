@@ -36,5 +36,6 @@ export type TModalFooterPreset = {
         type: (typeof FooterPresetTypes)[keyof typeof FooterPresetTypes];
         labelLeft?: string;
         labelRight?: string;
+        layout?: 'start' | 'column';
     };
 };
