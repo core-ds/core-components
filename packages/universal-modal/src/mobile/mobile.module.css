@@ -14,6 +14,11 @@
     flex: 1;
 }
 
+.container {
+    display: flex;
+    height: 100%;
+}
+
 .mobileContent {
     display: flex;
     flex-direction: column;

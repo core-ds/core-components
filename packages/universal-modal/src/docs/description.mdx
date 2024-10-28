@@ -622,32 +622,32 @@ render(() => {
 Для того чтобы корректно расположить модалку вблизи края экрана можно воспользоваться изменяемыми отступами.
 
 ```jsx live desktopOnly
+const margins = [
+    { key: '0', content: '0' },
+    { key: '2', content: '2' },
+    { key: '4', content: '4' },
+    { key: '8', content: '8' },
+    { key: '12', content: '12' },
+    { key: '16', content: '16' },
+    { key: '20', content: '20' },
+    { key: '24', content: '24' },
+    { key: '32', content: '32' },
+    { key: '40', content: '40' },
+    { key: '48', content: '48' },
+    { key: '56', content: '56' },
+    { key: '64', content: '64' },
+    { key: '72', content: '72' },
+    { key: '80', content: '80' },
+    { key: '96', content: '96' },
+    { key: '128', content: '128' },
+];
+
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [leftMargin, setLeftMargin] = React.useState('12');
     const [rightMargin, setRightMargin] = React.useState('12');
     const [topMargin, setTopMargin] = React.useState('12');
     const [bottomMargin, setBottomMargin] = React.useState('12');
-
-    const margins = [
-        { key: '0', content: '0' },
-        { key: '2', content: '2' },
-        { key: '4', content: '4' },
-        { key: '8', content: '8' },
-        { key: '12', content: '12' },
-        { key: '16', content: '16' },
-        { key: '20', content: '20' },
-        { key: '24', content: '24' },
-        { key: '32', content: '32' },
-        { key: '40', content: '40' },
-        { key: '48', content: '48' },
-        { key: '56', content: '56' },
-        { key: '64', content: '64' },
-        { key: '72', content: '72' },
-        { key: '80', content: '80' },
-        { key: '96', content: '96' },
-        { key: '128', content: '128' },
-    ];
 
     return (
         <React.Fragment>
@@ -936,6 +936,110 @@ render(() => {
                     </Button>
                 </UniversalModalDesktop.Footer>
             </UniversalModalDesktop>
+        </React.Fragment>
+    );
+});
+```
+
+## Смена контента
+
+Компонент можно настроить для реализации многошаговых модалок. В этом случае верхний край модалки должен быть зафиксирован, чтобы избежать неприятных скачков.
+
+```jsx live mobileHeight={640}
+const modalsData = {
+    1: {
+        title: 'Первый уровень',
+        btnText: 'Дальше',
+        bg: '#D8EAFF',
+        color: '#2288FA',
+    },
+    2: {
+        title: 'Второй уровень',
+        btnText: 'Дальше',
+        bg: '#D1F1D7',
+        color: '#0CC44D',
+    },
+    3: {
+        title: 'Третий уровень',
+        btnText: 'Готово',
+        bg: '#FDE6C8',
+        color: '#FA9313',
+    },
+};
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [step, setStep] = React.useState(1);
+
+    const item = modalsData[step];
+
+    const commonStyles = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'background 0.2s ease-in, border 0.2s ease-in',
+        borderRadius: '8px',
+        background: item.bg,
+        color: item.color,
+        width: '100%',
+        boxSizing: 'border-box',
+    };
+
+    const handleNextButtonClick = () => {
+        if (step === Object.keys(modalsData).length) {
+            setOpen(false);
+            return;
+        }
+        setStep((prev) => prev + 1);
+    };
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <UniversalModalResponsive
+                open={open}
+                height={500}
+                overlay={false}
+                onClose={() => setOpen(false)}
+            >
+                <UniversalModalDesktop.Header
+                    sticky={true}
+                    {...(step === 1 && { title: item.title })}
+                    {...(step > 1 && {
+                        bottomAddons: (
+                            <div style={{ padding: 12 }}>
+                                <Typography.Title view='small' font='system'>
+                                    {item.title}
+                                </Typography.Title>
+                            </div>
+                        ),
+                    })}
+                    leftAddons={
+                        <ActionIconAddon
+                            action='back'
+                            onClick={() => setStep((prev) => prev - 1)}
+                        />
+                    }
+                    rightAddons={<ActionIconAddon action='close' onClick={() => setOpen(false)} />}
+                    align='center'
+                    {...(step === 1 && { align: 'left' })}
+                />
+                <UniversalModalDesktop.Content>
+                    <div
+                        style={{
+                            ...commonStyles,
+                            height: '100%',
+                        }}
+                    >
+                        <span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>
+                    </div>
+                </UniversalModalDesktop.Content>
+                <UniversalModalDesktop.Footer sticky={true} layout='start'>
+                    <Button size={48} view='primary' onClick={handleNextButtonClick} block={isMobile()}>
+                        {item.btnText}
+                    </Button>
+                </UniversalModalDesktop.Footer>
+            </UniversalModalResponsive>
         </React.Fragment>
     );
 });

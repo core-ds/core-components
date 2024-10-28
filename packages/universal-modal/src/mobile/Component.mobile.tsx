@@ -75,7 +75,7 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                 contentClassName={styles.content}
                 componentRef={baseModalComponentRef}
             >
-                <div>
+                <div className={styles.container}>
                     <ModalCustomHeaderMobile
                         preset={preset}
                         header={header}
