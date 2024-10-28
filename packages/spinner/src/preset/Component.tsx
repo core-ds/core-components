@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Spinner } from '../Component';
-import { SpinnerProps } from '../types';
+import { Spinner, SpinnerProps } from '../Component';
 
 import styles from './index.module.css';
 
