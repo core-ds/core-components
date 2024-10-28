@@ -1035,8 +1035,92 @@ render(() => {
                     </div>
                 </UniversalModalDesktop.Content>
                 <UniversalModalDesktop.Footer sticky={true} layout='start'>
-                    <Button size={48} view='primary' onClick={handleNextButtonClick} block={isMobile()}>
+                    <Button
+                        size={48}
+                        view='primary'
+                        onClick={handleNextButtonClick}
+                        block={isMobile()}
+                    >
                         {item.btnText}
+                    </Button>
+                </UniversalModalDesktop.Footer>
+            </UniversalModalResponsive>
+        </React.Fragment>
+    );
+});
+```
+
+## Смена модалок
+
+При смене одной модалки на другую важно дождаться окончания анимации закрытия первой модалки перед появлением новой.
+
+```jsx live desktopOnl
+render(() => {
+    const [openModal, setOpenModal] = React.useState(false);
+    const [openSecondModal, setOpenSecondModal] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpenModal((prev) => !prev)}>Показать модалку</Button>
+            <UniversalModalResponsive
+                open={openModal}
+                height={400}
+                onClose={() => setOpenModal(false)}
+            >
+                <UniversalModalDesktop.Header
+                    sticky={true}
+                    title='Одна модалка'
+                    rightAddons={
+                        <ActionIconAddon action='close' onClick={() => setOpenModal(false)} />
+                    }
+                />
+                <UniversalModalDesktop.Content>
+                    <Typography.Text tag='p'>
+                        В 2001 году в России начал действовать Федеральный закон №115 «О
+                        противодействии легализации доходов, полученных преступным путём, и
+                        финансированию терроризма». В рамках закона банки могут блокировать карты,
+                        отказывать в проведении сомнительных операций, ограничить доступ в
+                        интернет-банк или запрашивать документы, если по операции клиента возникли
+                        подозрения.
+                    </Typography.Text>
+                </UniversalModalDesktop.Content>
+                <UniversalModalDesktop.Footer sticky={true} layout='start'>
+                    <Button
+                        size={48}
+                        view='primary'
+                        onClick={() => {
+                            setOpenModal(false);
+                            setTimeout(() => {
+                                setOpenSecondModal(true);
+                            }, 300);
+                        }}
+                    >
+                        Дальше
+                    </Button>
+                </UniversalModalDesktop.Footer>
+            </UniversalModalResponsive>
+            <UniversalModalResponsive
+                open={openSecondModal}
+                height={280}
+                onClose={() => setOpenSecondModal(false)}
+            >
+                <UniversalModalDesktop.Header
+                    sticky={true}
+                    title='Другая модалка'
+                    rightAddons={
+                        <ActionIconAddon action='close' onClick={() => setOpenSecondModal(false)} />
+                    }
+                />
+                <UniversalModalDesktop.Content>
+                    <Typography.Text tag='p'>
+                        В 2001 году в России начал действовать Федеральный закон №115 «О
+                        противодействии легализации доходов, полученных преступным путём, и
+                        финансированию терроризма».
+                    </Typography.Text>
+                </UniversalModalDesktop.Content>
+                <UniversalModalDesktop.Footer sticky={true} layout='start'>
+                    <Button size={48} view='primary' onClick={() => setOpenSecondModal(false)}>
+                        Дальше
                     </Button>
                 </UniversalModalDesktop.Footer>
             </UniversalModalResponsive>
