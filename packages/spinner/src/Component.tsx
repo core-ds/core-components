@@ -4,11 +4,53 @@ import cn from 'classnames';
 import { devWarning, fnUtils } from '@alfalab/core-components-shared';
 import { useId } from '@alfalab/hooks';
 
-import { SpinnerProps } from './types';
-
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
+
+export interface SpinnerProps {
+    /**
+     * Палитра, в контексте которой используется спиннер
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
+
+    /**
+     * Управление видимостью компонента
+     * @default false
+     */
+    visible?: boolean;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Идентификатор компонента в DOM
+     */
+    id?: string;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
+     * Размер спиннера (кольца)
+     */
+    size: number;
+
+    /**
+     * Толщина линии спинера (кольца)
+     */
+    lineWidth: number;
+
+    /**
+     * Дополнительные инлайн стили для cпиннера
+     */
+    style?: React.CSSProperties;
+}
 
 const colorStyles = {
     default: defaultColors,
