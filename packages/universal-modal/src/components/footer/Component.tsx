@@ -49,8 +49,9 @@ export const Footer: FC<FooterProps> = ({
     gap,
     dataTestId,
 }) => {
-    const { footerHighlighted, setHasFooter } = useContext(ModalContext);
+    const { setHasFooter } = useContext(ModalContext);
     const responsiveContext = useContext(ResponsiveContext);
+    const { modalFooterHighlighted } = responsiveContext || {};
 
     useEffect(() => {
         setHasFooter(true);
@@ -64,7 +65,7 @@ export const Footer: FC<FooterProps> = ({
                 layoutStyles[layout],
                 gap && layoutStyles[`gap-${gap}`],
                 {
-                    [styles.highlighted]: sticky && footerHighlighted,
+                    [styles.highlighted]: sticky && modalFooterHighlighted,
                     [styles.sticky]: sticky,
                 },
             )}

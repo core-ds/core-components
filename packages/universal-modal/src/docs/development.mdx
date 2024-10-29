@@ -8,8 +8,27 @@ import vars from '!!raw-loader!../vars.css';
 
 ```jsx
 import { UniversalModalResponsive } from '@alfalab/core-components/universal-modal';
+
 import { UniversalModalDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import { ArrowButtonDesktop } from '@alfalab/core-components/universal-modal';
+import { CrossButtonDesktop } from '@alfalab/core-components/universal-modal';
+
 import { UniversalModalMobile } from '@alfalab/core-components/universal-modal/mobile';
+
+// desktop presets
+import { getHeaderWithNavigationWithoutTitle } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithNavigationWithTitle } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithTitle } from '@alfalab/core-components/universal-modal';
+import { getFooterWithContent } from '@alfalab/core-components/universal-modal';
+
+// mobile presets
+import { getHeaderWithNavigationWithoutTitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithBackArrowWithCenterTitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithTitleWithSubtitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithCentralTitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithCentralTitleWithSubtitleMobile } from '@alfalab/core-components/universal-modal';
+import { getFooterWithContentMobile } from '@alfalab/core-components/universal-modal';
+
 ```
 
 Из индекса импортируется responsive версия компонента.

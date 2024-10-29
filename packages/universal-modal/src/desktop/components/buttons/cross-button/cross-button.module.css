@@ -1,0 +1,5 @@
+@import '../../../../../../vars/src/index.css';
+
+.button.button {
+    background-color: var(--color-light-bg-primary);
+}

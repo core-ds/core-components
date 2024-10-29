@@ -5,6 +5,7 @@ import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navi
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
+import { HEADER_MEDIUM_BREAKPOINT } from '../../desktop/constants/headerPresetTypes';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
 import desktopStyles from './desktop.module.css';
@@ -21,14 +22,19 @@ export const Header: FC<HeaderProps> = ({
     sticky,
     ...restProps
 }) => {
-    const { setHasHeader, headerHighlighted } = useContext(ModalContext);
-    const { view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
+    const { setHasHeader } = useContext(ModalContext);
+    const {
+        view = 'desktop',
+        dataTestId,
+        modalWidth,
+        modalHeaderHighlighted,
+    } = useContext(ResponsiveContext) || {};
 
     useEffect(() => {
         setHasHeader(true);
     }, [setHasHeader]);
 
-    const hasContent = Boolean(title || children);
+    const hasContent = Boolean(title || children || restProps.bottomAddons);
 
     return (
         <NavigationBar
@@ -37,7 +43,7 @@ export const Header: FC<HeaderProps> = ({
             sticky={sticky}
             title={title}
             className={cn(styles.header, className, {
-                [styles.highlighted]: hasContent && sticky && headerHighlighted,
+                [styles.highlighted]: hasContent && sticky && modalHeaderHighlighted,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
@@ -47,6 +53,11 @@ export const Header: FC<HeaderProps> = ({
             contentClassName={cn(contentClassName, {
                 [desktopStyles.content]: view === 'desktop',
                 [mobileStyles.content]: view === 'mobile',
+            })}
+            bottomAddonsClassName={cn({
+                [desktopStyles.bottomAddons]: view === 'desktop',
+                [desktopStyles.medium]:
+                    view === 'desktop' && Number(modalWidth) >= HEADER_MEDIUM_BREAKPOINT,
             })}
         >
             {children}

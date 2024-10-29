@@ -273,21 +273,19 @@ render(() => {
                 onClose={() => setOpen(false)}
             >
                 <UniversalModalDesktop.Header
-                    align='left'
                     sticky={true}
+                    {...(headerTitle &&
+                        !headerButtonArrow && {
+                            align: 'left',
+                            title: 'Почему банк проверяет мои операции?',
+                        })}
                     {...(headerButtonArrow && {
-                        leftAddons: (
-                            <ActionIconAddon action='back' onClick={() => setOpen(false)} />
-                        ),
+                        leftAddons: <ArrowButtonDesktop onClick={() => setOpen(false)} />,
                         align: 'center',
-                    })}
-                    {...(headerTitle && {
-                        title: 'Почему банк проверяет мои операции?',
+                        ...(headerTitle && { bottomAddons: 'Почему банк проверяет мои операции?' }),
                     })}
                     {...(headerButtonCross && {
-                        rightAddons: (
-                            <ActionIconAddon action='close' onClick={() => setOpen(false)} />
-                        ),
+                        rightAddons: <CrossButtonDesktop onClick={() => setOpen(false)} />,
                     })}
                 ></UniversalModalDesktop.Header>
                 <UniversalModalDesktop.Content>
@@ -717,7 +715,7 @@ render(() => {
                     align='left'
                     sticky={true}
                     title='Почему банк проверяет мои операции?'
-                    rightAddons={<ActionIconAddon action='close' onClick={() => setOpen(false)} />}
+                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -846,7 +844,7 @@ render(() => {
                     align='left'
                     sticky={true}
                     title='Почему банк проверяет мои операции?'
-                    rightAddons={<ActionIconAddon action='close' onClick={() => setOpen(false)} />}
+                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -1014,13 +1012,8 @@ render(() => {
                             </div>
                         ),
                     })}
-                    leftAddons={
-                        <ActionIconAddon
-                            action='back'
-                            onClick={() => setStep((prev) => prev - 1)}
-                        />
-                    }
-                    rightAddons={<ActionIconAddon action='close' onClick={() => setOpen(false)} />}
+                    leftAddons={<ArrowButtonDesktop onClick={() => setStep((prev) => prev - 1)} />}
+                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
                     align='center'
                     {...(step === 1 && { align: 'left' })}
                 />
@@ -1071,7 +1064,11 @@ render(() => {
                     sticky={true}
                     title='Одна модалка'
                     rightAddons={
-                        <ActionIconAddon action='close' onClick={() => setOpenModal(false)} />
+                        isMobile ? (
+                            <div>mobile</div>
+                        ) : (
+                            <ActionIconAddon action='close' onClick={() => setOpenModal(false)} />
+                        )
                     }
                 />
                 <UniversalModalDesktop.Content>
@@ -1107,9 +1104,7 @@ render(() => {
                 <UniversalModalDesktop.Header
                     sticky={true}
                     title='Другая модалка'
-                    rightAddons={
-                        <ActionIconAddon action='close' onClick={() => setOpenSecondModal(false)} />
-                    }
+                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -1153,7 +1148,7 @@ render(() => {
                     align='left'
                     sticky={true}
                     title='Почему банк проверяет мои операции?'
-                    rightAddons={<ActionIconAddon action='close' onClick={() => setOpen(false)} />}
+                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -1331,8 +1326,13 @@ render(() => {
     const [headerPreset, setHeaderPreset] = React.useState('key_0');
     const [footerPreset, setFooterPreset] = React.useState('key_0');
 
-    const header_preset_type_1 = getHeaderWithNavigationWithoutTitle();
-    const header_preset_type_2 = getHeaderWithNavigationWithTitle({ title: 'Title' });
+    const header_preset_type_1 = getHeaderWithNavigationWithoutTitle({
+        onBack: () => setOpen(false),
+    });
+    const header_preset_type_2 = getHeaderWithNavigationWithTitle({
+        title: 'Title',
+        onBack: () => setOpen(false),
+    });
     const header_preset_type_3 = getHeaderWithTitle({ title: 'Title' });
     const footer_preset_type_1 = getFooterWithContent({
         labelLeft: 'LabelLeft',

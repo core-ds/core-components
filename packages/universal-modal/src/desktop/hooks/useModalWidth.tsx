@@ -1,6 +1,8 @@
-import { MutableRefObject, useEffect, useState } from 'react';
+import { MutableRefObject, useContext, useEffect } from 'react';
 
 import { isClient } from '@alfalab/core-components-shared';
+
+import { ResponsiveContext } from '../../ResponsiveContext';
 
 /** Устанавливает необходимую ширину модального окна */
 export const useModalWidth = (
@@ -9,7 +11,8 @@ export const useModalWidth = (
     componentRef: MutableRefObject<HTMLDivElement | null>,
 ) => {
     const ref = componentRef;
-    const [currentWidth, setCurrentWidth] = useState<number>(0);
+    const context = useContext(ResponsiveContext);
+    const { setModalWidth } = context || {};
 
     useEffect(() => {
         if (ref.current) {
@@ -29,12 +32,11 @@ export const useModalWidth = (
 
             if (!Number.isNaN(parseFloat(String(computedWidth)))) {
                 ref.current.style.width = `${parseFloat(String(computedWidth))}px`;
-                setCurrentWidth(computedWidth);
+
+                if (setModalWidth) {
+                    setModalWidth(computedWidth);
+                }
             }
         }
-    }, [open, width, ref]);
-
-    return {
-        currentWidth,
-    };
+    }, [open, width, ref, setModalWidth, context]);
 };

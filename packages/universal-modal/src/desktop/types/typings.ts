@@ -1,5 +1,3 @@
-import { ElementType } from 'react';
-
 import { FooterPresetTypes } from '../constants/footerPresetTypes';
 import { HeaderPresetTypes } from '../constants/headerPresetTypes';
 
@@ -27,7 +25,7 @@ export type TModalHeaderPreset = {
     preset?: {
         type: (typeof HeaderPresetTypes)[keyof typeof HeaderPresetTypes];
         title?: string;
-        component: ElementType;
+        onBack?: () => void;
     };
 };
 

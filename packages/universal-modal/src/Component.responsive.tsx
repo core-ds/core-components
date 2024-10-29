@@ -1,31 +1,14 @@
-import React, { FC, forwardRef, useContext, useMemo } from 'react';
+import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 import { getComponentBreakpoint, isClient } from '@alfalab/core-components-shared';
 
 import { Controls } from './components/controls';
 import { Header } from './components/header/Component';
+import { createResponsive } from './utils/createResponsive';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
-import { ResponsiveContext } from './ResponsiveContext';
-import { TResponsiveModalContext, UniversalModalResponsiveProps } from './typings';
-
-// todo refactor createResponsive
-function createResponsive<DesktopType extends FC, MobileType extends FC>(
-    desktop: DesktopType,
-    mobile: MobileType,
-) {
-    // eslint-disable-next-line
-    function ResponsiveChild(props: any) {
-        const { view = 'desktop' } = useContext(ResponsiveContext) || {};
-
-        const Child = view === 'desktop' ? desktop : mobile;
-
-        return <Child {...props} />;
-    }
-
-    return ResponsiveChild as DesktopType | MobileType;
-}
+import { UniversalModalResponsiveProps } from './typings';
 
 const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
     (
@@ -43,21 +26,12 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
 
         const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue ?? getDefaultValue);
 
-        const view = isDesktop ? 'desktop' : 'mobile';
-
-        const contextValue = useMemo<TResponsiveModalContext>(
-            () => ({ view, dataTestId }),
-            [view, dataTestId],
-        );
-
         const Component = isDesktop ? UniversalModalDesktop : UniversalModalMobile;
 
         return (
-            <ResponsiveContext.Provider value={contextValue}>
-                <Component ref={ref} dataTestId={dataTestId} {...restProps}>
-                    {children}
-                </Component>
-            </ResponsiveContext.Provider>
+            <Component ref={ref} dataTestId={dataTestId} {...restProps}>
+                {children}
+            </Component>
         );
     },
 );

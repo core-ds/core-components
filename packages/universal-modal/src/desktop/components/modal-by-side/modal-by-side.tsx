@@ -37,7 +37,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
     const componentRef = useRef<HTMLDivElement>(null);
 
     useModalMargin(margin, restProps.open, componentRef);
-    const { currentWidth } = useModalWidth(width, restProps.open, componentRef);
+    useModalWidth(width, restProps.open, componentRef);
 
     useModalHeight(height, restProps.open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
@@ -89,7 +89,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
             >
                 <BaseUniversalModalContent
                     preset={preset}
-                    width={currentWidth}
                     footerPreset={footerPreset}
                     wheelDeltaY={wheelDeltaY}
                     onClose={onClose}

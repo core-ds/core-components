@@ -5,15 +5,13 @@ import { ModalFooterPreset } from '../../presets/modal-footer-preset/modalFooter
 
 type ModalCustomFooterProps = {
     preset: TModalFooterPreset['footerPreset'];
-    scrollPosition: number;
-    width: number;
 };
 
 export const ModalCustomFooter: FC<ModalCustomFooterProps> = (props) => {
-    const { preset, scrollPosition, width } = props;
+    const { preset } = props;
 
     if (preset) {
-        return <ModalFooterPreset preset={preset} scrollPosition={scrollPosition} width={width} />;
+        return <ModalFooterPreset preset={preset} />;
     }
 
     return null;

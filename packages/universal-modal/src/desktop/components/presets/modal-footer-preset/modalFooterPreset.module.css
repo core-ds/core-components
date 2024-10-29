@@ -3,9 +3,4 @@
 .container {
     padding: var(--gap-16) var(--gap-32) var(--gap-24);
     bottom: 0;
-    border-top: 1px solid var(--color-light-neutral-translucent-300);
-
-    &.hasScrollContent {
-        border-top: unset;
-    }
 }

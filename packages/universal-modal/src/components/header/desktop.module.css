@@ -8,3 +8,14 @@
 .sticky {
     top: var(--gap-0);
 }
+
+.bottomAddons {
+    @mixin headline-system_small;
+    padding-left: var(--gap-12);
+    margin-bottom: 10px;
+
+    &.medium {
+        @mixin headline-system_medium;
+        margin-bottom: var(--gap-16);
+    }
+}
