@@ -20,15 +20,13 @@
         "@alfalab/hooks": "^1.13.0",
         "@juggle/resize-observer": "^3.3.1",
         "@popperjs/core": "^2.11.8",
+        "@types/react-transition-group": "^4.4.5",
         "classnames": "^2.3.1",
         "popper-max-size-modifier": "^0.2.0",
         "react-merge-refs": "^1.1.0",
         "react-popper": "^2.3.0",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
-    },
-    "devDependencies": {
-        "@types/react-transition-group": "^4.4.5"
     },
     "themesVersion": "13.5.0",
     "varsVersion": "9.15.0"

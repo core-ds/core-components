@@ -10,9 +10,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "devDependencies": {
-        "@types/lodash.debounce": "^4.0.6"
-    },
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^4.1.0",
         "@alfalab/core-components-tag": "^8.6.1",
@@ -24,6 +21,7 @@
         "@alfalab/core-components-icon-button": "^6.11.1",
         "@alfalab/core-components-skeleton": "^5.2.0",
         "@alfalab/icons-glyph": "^2.139.0",
+        "@types/lodash.debounce": "^4.0.6",
         "classnames": "^2.3.1",
         "compute-scroll-into-view": "^3.1.0",
         "lodash.debounce": "^4.0.8",

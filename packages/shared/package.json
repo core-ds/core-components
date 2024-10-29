@@ -15,10 +15,8 @@
     },
     "dependencies": {
         "@alfalab/hooks": "^1.13.0",
+        "@maskito/core": "^1.7.0",
         "tslib": "^2.4.0"
-    },
-    "devDependencies": {
-        "@maskito/core": "^1.7.0"
     },
     "themesVersion": "13.5.0",
     "varsVersion": "9.15.0"

@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-portal": "^3.3.4",
+        "@alfalab/core-components-shared": "^0.14.0",
         "@alfalab/core-components-stack": "^5.0.0",
         "@alfalab/core-components-toast-plate": "^7.3.2",
         "classnames": "^2.3.1",
