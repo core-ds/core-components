@@ -6,6 +6,7 @@ export type TModalHeaderPresetMobile = {
         type: (typeof HeaderPresetTypesMobile)[keyof typeof HeaderPresetTypesMobile];
         title?: string;
         subtitle?: string;
+        onBack: () => void;
     };
 };
 

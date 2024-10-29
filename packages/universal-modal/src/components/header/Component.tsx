@@ -22,19 +22,28 @@ export const Header: FC<HeaderProps> = ({
     sticky,
     ...restProps
 }) => {
-    const { setHasHeader } = useContext(ModalContext);
+    const { setHasHeader, headerHighlighted } = useContext(ModalContext);
     const {
         view = 'desktop',
         dataTestId,
         modalWidth,
         modalHeaderHighlighted,
+        setModalHeaderHighlighted,
     } = useContext(ResponsiveContext) || {};
+
+    const hasContent = Boolean(title || children || restProps.bottomAddons);
+    // custom scroll ломает highlight логику в base-modal, поэтому для десктопа обрабатываем самостоятельно
+    const isHighlighted = view === 'desktop' ? modalHeaderHighlighted : headerHighlighted;
 
     useEffect(() => {
         setHasHeader(true);
     }, [setHasHeader]);
 
-    const hasContent = Boolean(title || children || restProps.bottomAddons);
+    useEffect(() => {
+        if (view === 'mobile' && setModalHeaderHighlighted) {
+            setModalHeaderHighlighted(Boolean(headerHighlighted));
+        }
+    }, [headerHighlighted, setModalHeaderHighlighted, view]);
 
     return (
         <NavigationBar
@@ -43,7 +52,7 @@ export const Header: FC<HeaderProps> = ({
             sticky={sticky}
             title={title}
             className={cn(styles.header, className, {
-                [styles.highlighted]: hasContent && sticky && modalHeaderHighlighted,
+                [styles.highlighted]: hasContent && sticky && isHighlighted,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
@@ -58,6 +67,7 @@ export const Header: FC<HeaderProps> = ({
                 [desktopStyles.bottomAddons]: view === 'desktop',
                 [desktopStyles.medium]:
                     view === 'desktop' && Number(modalWidth) >= HEADER_MEDIUM_BREAKPOINT,
+                [mobileStyles.bottomAddons]: view === 'mobile',
             })}
         >
             {children}

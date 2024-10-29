@@ -5,14 +5,13 @@ import { ModalFooterPresetMobile } from '../../presets/modal-footer-preset/modal
 
 type ModalFooterProps = {
     preset: TModalFooterPresetMobile['footerPreset'];
-    hasScroll: boolean;
 };
 
 export const ModalCustomFooterMobile: FC<ModalFooterProps> = (props) => {
-    const { preset, hasScroll } = props;
+    const { preset } = props;
 
     if (preset) {
-        return <ModalFooterPresetMobile preset={preset} hasScroll={hasScroll} />;
+        return <ModalFooterPresetMobile preset={preset} />;
     }
 
     return null;

@@ -498,21 +498,19 @@ render(() => {
             </div>
             <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
                 <UniversalModalMobile.Header
-                    align='left'
                     sticky={true}
+                    {...(headerTitle &&
+                        !headerButtonArrow && {
+                            align: 'left',
+                            title: 'Почему банк проверяет мои операции?',
+                        })}
                     {...(headerButtonArrow && {
-                        leftAddons: (
-                            <ActionIconAddon action='back' onClick={() => setOpen(false)} />
-                        ),
+                        leftAddons: <ArrowButtonDesktopMobile onClick={() => setOpen(false)} />,
                         align: 'center',
-                    })}
-                    {...(headerTitle && {
-                        title: 'Почему банк проверяет мои операции?',
+                        ...(headerTitle && { bottomAddons: 'Почему банк проверяет мои операции?' }),
                     })}
                     {...(headerButtonCross && {
-                        rightAddons: (
-                            <ActionIconAddon action='close' onClick={() => setOpen(false)} />
-                        ),
+                        rightAddons: <CrossButtonDesktopMobile onClick={() => setOpen(false)} />,
                     })}
                 ></UniversalModalMobile.Header>
                 <UniversalModalMobile.Content>
@@ -1047,7 +1045,7 @@ render(() => {
 
 При смене одной модалки на другую важно дождаться окончания анимации закрытия первой модалки перед появлением новой.
 
-```jsx live desktopOnl
+```jsx live desktopOnly
 render(() => {
     const [openModal, setOpenModal] = React.useState(false);
     const [openSecondModal, setOpenSecondModal] = React.useState(false);
@@ -1055,7 +1053,7 @@ render(() => {
     return (
         <React.Fragment>
             <Button onClick={() => setOpenModal((prev) => !prev)}>Показать модалку</Button>
-            <UniversalModalResponsive
+            <UniversalModalDesktop
                 open={openModal}
                 height={400}
                 onClose={() => setOpenModal(false)}
@@ -1063,13 +1061,7 @@ render(() => {
                 <UniversalModalDesktop.Header
                     sticky={true}
                     title='Одна модалка'
-                    rightAddons={
-                        isMobile ? (
-                            <div>mobile</div>
-                        ) : (
-                            <ActionIconAddon action='close' onClick={() => setOpenModal(false)} />
-                        )
-                    }
+                    rightAddons={<CrossButtonDesktop onClick={() => setOpenModal(false)} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -1095,8 +1087,8 @@ render(() => {
                         Дальше
                     </Button>
                 </UniversalModalDesktop.Footer>
-            </UniversalModalResponsive>
-            <UniversalModalResponsive
+            </UniversalModalDesktop>
+            <UniversalModalDesktop
                 open={openSecondModal}
                 height={280}
                 onClose={() => setOpenSecondModal(false)}
@@ -1104,7 +1096,7 @@ render(() => {
                 <UniversalModalDesktop.Header
                     sticky={true}
                     title='Другая модалка'
-                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
+                    rightAddons={<CrossButtonDesktop onClick={() => setOpenSecondModal(false)} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -1118,7 +1110,7 @@ render(() => {
                         Дальше
                     </Button>
                 </UniversalModalDesktop.Footer>
-            </UniversalModalResponsive>
+            </UniversalModalDesktop>
         </React.Fragment>
     );
 });
@@ -1478,8 +1470,13 @@ render(() => {
         { key: 'key_2', content: 'Type 2' },
     ];
 
-    const header_preset_type_1 = getHeaderWithNavigationWithoutTitleMobile();
-    const header_preset_type_2 = getHeaderWithBackArrowWithCenterTitleMobile({ title: 'Title' });
+    const header_preset_type_1 = getHeaderWithNavigationWithoutTitleMobile({
+        onBack: () => setOpen(false),
+    });
+    const header_preset_type_2 = getHeaderWithBackArrowWithCenterTitleMobile({
+        title: 'Title',
+        onBack: () => setOpen(false),
+    });
     const header_preset_type_3 = getHeaderWithTitleWithSubtitleMobile({
         title: 'Title',
         subtitle: 'Subtitle',

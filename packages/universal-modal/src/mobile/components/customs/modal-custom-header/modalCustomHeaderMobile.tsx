@@ -5,15 +5,14 @@ import { ModalHeaderPresetMobile } from '../../presets/modal-header-preset/modal
 
 type ModalHeaderProps = {
     preset: TModalHeaderPresetMobile['preset'];
-    hasScroll: boolean;
     onClose?: () => void;
 };
 
 export const ModalCustomHeaderMobile: FC<ModalHeaderProps> = (props) => {
-    const { preset, hasScroll, onClose } = props;
+    const { preset, onClose } = props;
 
     if (preset) {
-        return <ModalHeaderPresetMobile preset={preset} hasScroll={hasScroll} onClose={onClose} />;
+        return <ModalHeaderPresetMobile preset={preset} onClose={onClose} />;
     }
 
     return null;

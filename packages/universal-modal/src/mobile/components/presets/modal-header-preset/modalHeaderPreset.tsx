@@ -1,24 +1,22 @@
-import React, { FC } from 'react';
-
-import { Button } from '@alfalab/core-components-button';
-import { ActionIconAddon } from '@alfalab/core-components-navigation-bar/shared';
-import { Typography } from '@alfalab/core-components-typography';
-import ArrowLeftMediumMIcon from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
+import React, { FC, useContext } from 'react';
 
 import { Header } from '../../../../components/header/Component';
+import { ResponsiveContext } from '../../../../ResponsiveContext';
 import { HeaderPresetTypesMobile } from '../../../constants/headerPresetTypesMobile';
 import { TModalHeaderPresetMobile } from '../../../types/typings';
+import { ArrowButtonDesktopMobile } from '../../buttons/arrow-button';
+import { CrossButtonDesktopMobile } from '../../buttons/cross-button';
 
 import styles from './modalHeaderPreset.module.css';
 
 type HeaderPresetProps = {
     preset: TModalHeaderPresetMobile['preset'];
-    hasScroll: boolean;
     onClose?: () => void;
 };
 
 export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
-    const { preset, hasScroll, onClose } = props;
+    const { preset, onClose } = props;
+    const { modalHeaderHighlighted } = useContext(ResponsiveContext) || {};
 
     if (preset) {
         const { type } = preset;
@@ -27,20 +25,8 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
             return (
                 <Header
                     sticky={true}
-                    leftAddons={
-                        <Button leftAddons={<ArrowLeftMediumMIcon />} shape='rounded' size={48}>
-                            {!hasScroll && (
-                                <Typography.Text
-                                    view='primary-large'
-                                    weight='medium'
-                                    color='primary'
-                                >
-                                    Назад
-                                </Typography.Text>
-                            )}
-                        </Button>
-                    }
-                    rightAddons={<ActionIconAddon action='close' onClick={onClose} />}
+                    leftAddons={<ArrowButtonDesktopMobile onClick={preset.onBack} />}
+                    rightAddons={<CrossButtonDesktopMobile onClick={onClose} />}
                     backgroundColor='transparent'
                 />
             );
@@ -52,11 +38,10 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
             return (
                 <Header
                     sticky={true}
-                    leftAddons={<ActionIconAddon action='back' />}
-                    {...(!hasScroll && { bottomAddons: title })}
-                    {...(hasScroll && { title })}
+                    leftAddons={<ArrowButtonDesktopMobile onClick={preset.onBack} />}
+                    {...(!modalHeaderHighlighted && { bottomAddons: title })}
+                    {...(modalHeaderHighlighted && { title })}
                     align='center'
-                    border={hasScroll}
                     bottomAddonsClassName={styles.withBackArrowWithCenterTitle}
                 />
             );
@@ -70,8 +55,7 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
                     sticky={true}
                     title={title}
                     subtitle={subtitle}
-                    rightAddons={<ActionIconAddon action='close' onClick={onClose} />}
-                    border={hasScroll}
+                    rightAddons={<CrossButtonDesktopMobile onClick={onClose} />}
                     align='left'
                     contentWrapperClassName={styles.withTitleWithSubtitleContentWrapper}
                 />
@@ -85,8 +69,7 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
                 <Header
                     sticky={true}
                     title={title}
-                    rightAddons={<ActionIconAddon action='close' onClick={onClose} />}
-                    border={hasScroll}
+                    rightAddons={<CrossButtonDesktopMobile onClick={onClose} />}
                 />
             );
         }
@@ -99,8 +82,7 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
                     sticky={true}
                     title={title}
                     subtitle={subtitle}
-                    rightAddons={<ActionIconAddon action='close' onClick={onClose} />}
-                    border={hasScroll}
+                    rightAddons={<CrossButtonDesktopMobile onClick={onClose} />}
                 />
             );
         }

@@ -11,11 +11,10 @@ import styles from './modalFooterPreset.module.css';
 
 type ModalFooterPresetProps = {
     preset: TModalFooterPresetMobile['footerPreset'];
-    hasScroll: boolean;
 };
 
 export const ModalFooterPresetMobile: FC<ModalFooterPresetProps> = (props) => {
-    const { preset, hasScroll } = props;
+    const { preset } = props;
 
     if (preset) {
         const { type, labelLeft, labelRight, layout } = preset;
@@ -24,7 +23,6 @@ export const ModalFooterPresetMobile: FC<ModalFooterPresetProps> = (props) => {
             return (
                 <Footer
                     className={cn(styles.container, {
-                        [styles.hasScrollContent]: hasScroll,
                         [styles.column]: layout === 'column',
                     })}
                     sticky={true}

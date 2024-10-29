@@ -4,10 +4,6 @@
     padding: var(--gap-16);
     bottom: 0;
 
-    &.hasScrollContent {
-        border-top: unset;
-    }
-
     &.column {
         padding: var(--gap-16);
     }

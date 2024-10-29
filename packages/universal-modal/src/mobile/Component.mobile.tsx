@@ -1,11 +1,11 @@
-import React, { forwardRef, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { ContentMobile } from '../components/content/Component.mobile';
+import { ContentMobile as Content } from '../components/content/Component.mobile';
 import { Controls, ControlsProps } from '../components/controls';
-import { FooterMobile } from '../components/footer/Component.mobile';
+import { FooterMobile as Footer } from '../components/footer/Component.mobile';
 import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
@@ -31,33 +31,16 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
         },
         ref,
     ) => {
-        const responsiveContext = useContext(ResponsiveContext);
+        const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
         const contextValue = useMemo<TResponsiveModalContext>(
-            () => ({ view: 'mobile', dataTestId }),
-            [dataTestId],
+            () => ({
+                view: 'mobile',
+                dataTestId,
+                modalHeaderHighlighted,
+                setModalHeaderHighlighted,
+            }),
+            [dataTestId, modalHeaderHighlighted],
         );
-        const [hasScroll, setHasScroll] = useState<boolean>(false);
-        const baseModalComponentRef = useRef<HTMLDivElement>(null);
-
-        const handleContentScroll = (e: Event) => {
-            const target = e.target as HTMLDivElement;
-
-            setHasScroll(target.scrollTop > 5);
-        };
-
-        useEffect(() => {
-            const element = baseModalComponentRef.current;
-
-            if (element) {
-                element.addEventListener('scroll', handleContentScroll);
-            }
-
-            return () => {
-                if (element) {
-                    element.removeEventListener('scroll', handleContentScroll);
-                }
-            };
-        });
 
         const renderContent = () => (
             <BaseModal
@@ -71,27 +54,24 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                 className={cn(className, styles.component)}
                 scrollHandler='content'
                 contentClassName={styles.content}
-                componentRef={baseModalComponentRef}
             >
-                <ModalCustomHeaderMobile preset={preset} hasScroll={hasScroll} onClose={onClose} />
+                <ModalCustomHeaderMobile preset={preset} onClose={onClose} />
                 {children}
-                <ModalCustomFooterMobile preset={footerPreset} hasScroll={hasScroll} />
+                <ModalCustomFooterMobile preset={footerPreset} />
             </BaseModal>
         );
 
-        const renderWithContext = () => (
+        return (
             <ResponsiveContext.Provider value={contextValue}>
                 {renderContent()}
             </ResponsiveContext.Provider>
         );
-
-        return responsiveContext ? renderContent() : renderWithContext();
     },
 );
 
 export const UniversalModalMobile = Object.assign(UniversalModalMobileComponent, {
-    Content: ContentMobile,
+    Content,
     Header,
-    Footer: FooterMobile,
+    Footer,
     Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });

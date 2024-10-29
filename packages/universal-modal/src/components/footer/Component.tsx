@@ -49,13 +49,16 @@ export const Footer: FC<FooterProps> = ({
     gap,
     dataTestId,
 }) => {
-    const { setHasFooter } = useContext(ModalContext);
+    const { setHasFooter, footerHighlighted } = useContext(ModalContext);
     const responsiveContext = useContext(ResponsiveContext);
-    const { modalFooterHighlighted } = responsiveContext || {};
+    const { modalFooterHighlighted, view } = responsiveContext || {};
 
     useEffect(() => {
         setHasFooter(true);
     }, [setHasFooter]);
+
+    // custom scroll ломает highlight логику в base-modal, поэтому для десктопа обрабатываем самостоятельно
+    const isHighlighted = view === 'desktop' ? modalFooterHighlighted : footerHighlighted;
 
     return (
         <div
@@ -65,7 +68,7 @@ export const Footer: FC<FooterProps> = ({
                 layoutStyles[layout],
                 gap && layoutStyles[`gap-${gap}`],
                 {
-                    [styles.highlighted]: sticky && modalFooterHighlighted,
+                    [styles.highlighted]: sticky && isHighlighted,
                     [styles.sticky]: sticky,
                 },
             )}
