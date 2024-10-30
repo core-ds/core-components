@@ -13,6 +13,7 @@ import { ModalBySideProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './modal-by-side.module.css';
+import transitions from './transitions.desktop.module.css';
 
 export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -41,6 +42,21 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
 
     useModalHeight(height, restProps.open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
+
+    const appearCn = cn({
+        [transitions.appearLeft]: horizontalAlign === 'start',
+        [transitions.appearRight]: horizontalAlign === 'end',
+    });
+
+    const enterCn = cn({
+        [transitions.enterLeft]: horizontalAlign === 'start',
+        [transitions.enterRight]: horizontalAlign === 'end',
+    });
+
+    const exitCn = cn({
+        [transitions.exitActiveLeft]: horizontalAlign === 'start',
+        [transitions.exitActiveRight]: horizontalAlign === 'end',
+    });
 
     // устанавливает боковое модальное окно вертикально по центру
     useEffect(() => {
@@ -79,6 +95,14 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                     transparent: !overlay,
                 }}
                 contentTransitionProps={{
+                    classNames: {
+                        appear: appearCn,
+                        enter: enterCn,
+                        appearActive: transitions.enterActive,
+                        enterActive: transitions.enterActive,
+                        exit: transitions.exit,
+                        exitActive: exitCn,
+                    },
                     ...contentTransitionProps,
                 }}
                 disableBlockingScroll={!overlay}

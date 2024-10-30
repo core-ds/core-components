@@ -48,7 +48,7 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
         if (setModalFooterHighlighted) {
             if (isElementFullScrolled) {
                 setModalFooterHighlighted(false);
-            } else {
+            } else if (scrollTop > 0) {
                 setModalFooterHighlighted(true);
             }
         }

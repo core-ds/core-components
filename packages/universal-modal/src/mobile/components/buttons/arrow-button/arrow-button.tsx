@@ -9,7 +9,7 @@ type ArrowButtonDesktopProps = {
     onClick?: (e: MouseEvent) => void;
 };
 
-export const ArrowButtonDesktopMobile: FC<ArrowButtonDesktopProps> = (props) => {
+export const ArrowButtonMobile: FC<ArrowButtonDesktopProps> = (props) => {
     const { onClick } = props;
 
     return (

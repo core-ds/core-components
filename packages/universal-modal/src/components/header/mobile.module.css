@@ -2,7 +2,7 @@
 @import '../../vars.css';
 
 .header {
-    padding: var(--side-panel-header-mobile-paddings);
+    padding: var(--universal-modal-header-mobile-paddings);
 }
 
 .sticky {
@@ -10,15 +10,20 @@
 }
 
 .content {
-    font-size: var(--side-panel-header-mobile-font-size);
-    line-height: var(--side-panel-header-mobile-line-height);
-    font-family: var(--side-panel-header-mobile-font-family);
-    font-weight: var(--side-panel-header-mobile-font-weight);
-    padding: var(--side-panel-header-mobile-content-paddings);
+    font-size: var(--universal-modal-header-mobile-font-size);
+    line-height: var(--universal-modal-header-mobile-line-height);
+    font-family: var(--universal-modal-header-mobile-font-family);
+    font-weight: var(--universal-modal-header-mobile-font-weight);
+    padding: var(--universal-modal-header-mobile-content-paddings);
+    min-height: unset;
 }
 
 .bottomAddons {
     @mixin headline-system-mobile_small;
     padding: 0 var(--gap-8);
     margin-bottom: 6px;
+}
+
+.contentWrapper.contentWrapper {
+    padding: 0;
 }

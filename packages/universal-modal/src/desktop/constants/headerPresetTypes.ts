@@ -5,3 +5,4 @@ export const HeaderPresetTypes = {
 } as const;
 
 export const HEADER_MEDIUM_BREAKPOINT = 800;
+export const FOOTER_MEDIUM_BREAKPOINT = 800;

@@ -60,6 +60,10 @@ export const Header: FC<HeaderProps> = ({
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
                 [mobileStyles.header]: view === 'mobile',
             })}
+            contentWrapperClassName={cn({
+                [desktopStyles.contentWrapper]: view === 'desktop',
+                [mobileStyles.contentWrapper]: view === 'mobile',
+            })}
             contentClassName={cn(contentClassName, {
                 [desktopStyles.content]: view === 'desktop',
                 [mobileStyles.content]: view === 'mobile',
@@ -70,6 +74,8 @@ export const Header: FC<HeaderProps> = ({
                     view === 'desktop' && Number(modalWidth) >= HEADER_MEDIUM_BREAKPOINT,
                 [mobileStyles.bottomAddons]: view === 'mobile',
             })}
+            leftAddonsClassName={styles.leftAddons}
+            rightAddonsClassName={styles.rightAddons}
         >
             {children}
         </NavigationBar>

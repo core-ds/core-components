@@ -7,6 +7,7 @@ import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
 import styles from './index.module.css';
+import stylesMobile from './mobile.module.css';
 
 export type ContentProps = {
     /**
@@ -28,12 +29,14 @@ export type ContentProps = {
 export const Content: FC<ContentProps> = ({ children, className, dataTestId }) => {
     const { contentRef, hasHeader, hasFooter } = useContext(ModalContext);
     const responsiveContext = useContext(ResponsiveContext);
+    const { view = 'desktop' } = responsiveContext || {};
 
     return (
         <div
             className={cn(styles.content, className, styles.flex, {
                 [styles.withHeader]: hasHeader,
                 [styles.withFooter]: hasFooter,
+                [stylesMobile.content]: view === 'mobile',
             })}
             ref={contentRef as Ref<HTMLDivElement>}
             data-test-id={dataTestId || getDataTestId(responsiveContext?.dataTestId, 'content')}

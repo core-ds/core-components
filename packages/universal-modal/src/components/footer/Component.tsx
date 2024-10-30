@@ -4,10 +4,17 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
+import { FOOTER_MEDIUM_BREAKPOINT } from '../../desktop/constants/headerPresetTypes';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
 import styles from './index.module.css';
+import layoutStylesMobile from './layout.mobile.module.css';
 import layoutStyles from './layout.module.css';
+
+const layouts = {
+    desktop: layoutStyles,
+    mobile: layoutStylesMobile,
+};
 
 export type FooterProps = {
     /**
@@ -31,11 +38,6 @@ export type FooterProps = {
     layout?: 'start' | 'center' | 'space-between' | 'column';
 
     /**
-     * Отступы между элементами футера
-     */
-    gap?: 16 | 24 | 32;
-
-    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -46,12 +48,11 @@ export const Footer: FC<FooterProps> = ({
     className,
     sticky,
     layout = 'start',
-    gap,
     dataTestId,
 }) => {
     const { setHasFooter, footerHighlighted } = useContext(ModalContext);
     const responsiveContext = useContext(ResponsiveContext);
-    const { modalFooterHighlighted, view } = responsiveContext || {};
+    const { modalFooterHighlighted, view = 'desktop', modalWidth = 500 } = responsiveContext || {};
 
     useEffect(() => {
         setHasFooter(true);
@@ -62,16 +63,11 @@ export const Footer: FC<FooterProps> = ({
 
     return (
         <div
-            className={cn(
-                styles.footer,
-                className,
-                layoutStyles[layout],
-                gap && layoutStyles[`gap-${gap}`],
-                {
-                    [styles.highlighted]: sticky && isHighlighted,
-                    [styles.sticky]: sticky,
-                },
-            )}
+            className={cn(styles.footer, className, layouts[view][layout], {
+                [styles.highlighted]: sticky && isHighlighted,
+                [styles.sticky]: sticky,
+                [layoutStyles.middle]: view === 'desktop' && modalWidth >= FOOTER_MEDIUM_BREAKPOINT,
+            })}
             data-test-id={dataTestId || getDataTestId(responsiveContext?.dataTestId, 'footer')}
             data-name='modalFooterDesktop'
         >

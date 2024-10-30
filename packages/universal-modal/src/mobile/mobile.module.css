@@ -7,6 +7,8 @@
     overflow-x: hidden;
     overflow-y: auto;
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
 
     & .content {
         height: auto;

@@ -7,11 +7,16 @@
     transition: box-shadow 0.2s ease, background 0.2s ease;
     background-color: tomato;
     padding: var(--gap-20) var(--gap-20) 0;
+
+    & .leftAddons,
+    & .rightAddons {
+        min-width: unset;
+    }
 }
 
 .highlighted {
-    background: var(--side-panel-header-highlight-background);
-    box-shadow: var(--side-panel-header-highlight-box-shadow);
+    background: var(--universal-modal-header-highlight-background);
+    box-shadow: var(--universal-modal-header-highlight-box-shadow);
 }
 
 .sticky {
@@ -19,7 +24,7 @@
     z-index: 1;
 
     &.hasContent {
-        background: var(--side-panel-header-background);
+        background: var(--universal-modal-header-background);
     }
 }
 

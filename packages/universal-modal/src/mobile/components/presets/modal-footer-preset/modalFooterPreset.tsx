@@ -28,10 +28,15 @@ export const ModalFooterPresetMobile: FC<ModalFooterPresetProps> = (props) => {
                     sticky={true}
                     layout={layout}
                 >
-                    <Button size={56} view='primary' block={true}>
+                    <Button size={56} view='primary' block={true} onClick={preset.onClickLabelLeft}>
                         {labelLeft}
                     </Button>
-                    <Button size={56} view='secondary' block={true}>
+                    <Button
+                        size={56}
+                        view='secondary'
+                        block={true}
+                        onClick={preset.onClickLabelRight}
+                    >
                         {labelRight}
                     </Button>
                 </Footer>

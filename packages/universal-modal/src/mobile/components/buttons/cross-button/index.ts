@@ -1,1 +1,1 @@
-export { CrossButtonDesktopMobile } from './cross-button';
+export { CrossButtonMobile } from './cross-button';

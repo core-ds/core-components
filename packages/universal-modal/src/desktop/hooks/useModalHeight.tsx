@@ -28,12 +28,14 @@ export const useModalHeight = (
                 );
             }
 
-            const fullHeight = viewportHeight - computedMarginTop - computedMarginBottom;
-            const modalHeight =
-                height > viewportHeight || height === 'fullHeight' ? fullHeight : height;
+            if (height > viewportHeight || height === 'fullHeight') {
+                ref.current.style.height = `calc(100% - ${computedMarginTop}px - ${computedMarginBottom}px)`;
 
-            if (!Number.isNaN(parseFloat(String(modalHeight)))) {
-                ref.current.style.height = `${parseFloat(String(modalHeight))}px`;
+                return;
+            }
+
+            if (!Number.isNaN(parseFloat(String(height)))) {
+                ref.current.style.height = `${parseFloat(String(height))}px`;
             }
         }
     }, [open, height, ref]);

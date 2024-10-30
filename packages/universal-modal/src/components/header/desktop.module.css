@@ -1,8 +1,8 @@
 @import '../../vars.css';
 
 .content {
-    font-weight: var(--side-panel-header-desktop-font-weight);
-    font-family: var(--side-panel-header-desktop-font-family);
+    font-weight: var(--universal-modal-header-desktop-font-weight);
+    font-family: var(--universal-modal-header-desktop-font-family);
 }
 
 .sticky {
@@ -18,4 +18,8 @@
         @mixin headline-system_medium;
         margin-bottom: var(--gap-16);
     }
+}
+
+.contentWrapper.contentWrapper {
+    padding: 0 0 0 var(--gap-12);
 }

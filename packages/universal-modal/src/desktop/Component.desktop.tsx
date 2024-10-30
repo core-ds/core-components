@@ -15,7 +15,7 @@ const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModal
     ({ children, dataTestId, horizontalAlign = 'center', ...restProps }, ref) => {
         const [modalWidth, setModalWidth] = useState<number>(0);
         const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
-        const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(true);
+        const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
 
         const contextValue = React.useMemo<TResponsiveModalContext>(
             () => ({

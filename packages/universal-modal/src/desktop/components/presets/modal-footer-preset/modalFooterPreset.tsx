@@ -24,10 +24,18 @@ export const ModalFooterPreset: FC<ModalFooterPresetProps> = (props) => {
         if (type === FooterPresetTypes.FOOTER_WITH_CONTENT) {
             return (
                 <Footer className={cn(styles.container)} sticky={true} layout={layout}>
-                    <Button size={modalWidth >= 800 ? 56 : 48} view='primary'>
+                    <Button
+                        size={modalWidth >= 800 ? 56 : 48}
+                        view='primary'
+                        onClick={preset.onClickLabelLeft}
+                    >
                         {labelLeft}
                     </Button>
-                    <Button size={modalWidth >= 800 ? 56 : 48} view='secondary'>
+                    <Button
+                        size={modalWidth >= 800 ? 56 : 48}
+                        view='secondary'
+                        onClick={preset.onClickLabelRight}
+                    >
                         {labelRight}
                     </Button>
                 </Footer>

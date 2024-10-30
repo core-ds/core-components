@@ -9,7 +9,7 @@ type CrossButtonProps = {
     onClick?: () => void;
 };
 
-export const CrossButtonDesktopMobile: FC<CrossButtonProps> = (props) => {
+export const CrossButtonMobile: FC<CrossButtonProps> = (props) => {
     const { onClick } = props;
 
     return (

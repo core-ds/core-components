@@ -2,5 +2,6 @@
 
 .button.button {
     padding: 0 7px;
-    background-color: var(--color-light-bg-primary);
+    width: 24px;
+    height: 24px;
 }

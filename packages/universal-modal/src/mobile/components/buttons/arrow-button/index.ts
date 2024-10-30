@@ -1,1 +1,1 @@
-export { ArrowButtonDesktopMobile } from './arrow-button';
+export { ArrowButtonMobile } from './arrow-button';

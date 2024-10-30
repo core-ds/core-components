@@ -16,5 +16,7 @@ export type TModalFooterPresetMobile = {
         labelLeft?: string;
         labelRight?: string;
         layout?: 'start' | 'column';
+        onClickLabelLeft: () => void;
+        onClickLabelRight: () => void;
     };
 };

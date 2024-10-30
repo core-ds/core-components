@@ -5,13 +5,7 @@
     flex-direction: column;
 
     & > *:not(:last-child):not(:only-child) {
-        margin-bottom: var(--gap-8);
-    }
-
-    &.middle {
-        & > *:not(:last-child):not(:only-child) {
-            margin-bottom: var(--gap-12);
-        }
+        margin-bottom: var(--gap-16);
     }
 }
 

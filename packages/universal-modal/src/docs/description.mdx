@@ -398,7 +398,8 @@ render(() => {
     const [mainFooterButton, setMainFooterButton] = React.useState(true);
     const [additionalFooterButton, setAdditionalFooterButton] = React.useState(false);
     const [verticalFooterButtons, setVerticalFooterButtons] = React.useState(false);
-    const [stretchFooterButtons, setStretchFooterButtons] = React.useState(false);
+    const [subtitle, setSubtitle] = React.useState(false);
+    const [alignment, setAlignment] = React.useState(false);
 
     const [contentTitle, setContentTitle] = React.useState(false);
     const [contentButton, setContentButton] = React.useState(false);
@@ -435,6 +436,17 @@ render(() => {
                     }}
                 />
                 <Gap size={12} />
+                <Switch
+                    label='Подпись'
+                    checked={subtitle}
+                    onChange={() => setSubtitle((prev) => !prev)}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Выравнивание по центру'
+                    checked={alignment}
+                    onChange={() => setAlignment((prev) => !prev)}
+                />
             </div>
             <Gap size={24} />
             Настройки футера
@@ -462,13 +474,6 @@ render(() => {
                     label='Вериткальная ориентация'
                     checked={verticalFooterButtons}
                     onChange={() => setVerticalFooterButtons((prev) => !prev)}
-                />
-                <Gap size={12} />
-                <Switch
-                    label='Растянуть кнопки на всю ширину'
-                    hint='Только для горизонтального расположения'
-                    checked={stretchFooterButtons}
-                    onChange={() => setStretchFooterButtons((prev) => !prev)}
                 />
             </div>
             <Gap size={24} />
@@ -505,13 +510,15 @@ render(() => {
                             title: 'Почему банк проверяет мои операции?',
                         })}
                     {...(headerButtonArrow && {
-                        leftAddons: <ArrowButtonDesktopMobile onClick={() => setOpen(false)} />,
+                        leftAddons: <ArrowButtonMobile onClick={() => setOpen(false)} />,
                         align: 'center',
                         ...(headerTitle && { bottomAddons: 'Почему банк проверяет мои операции?' }),
                     })}
                     {...(headerButtonCross && {
-                        rightAddons: <CrossButtonDesktopMobile onClick={() => setOpen(false)} />,
+                        rightAddons: <CrossButtonMobile onClick={() => setOpen(false)} />,
                     })}
+                    {...(alignment && { align: 'center' })}
+                    {...(subtitle && { subtitle: 'Подпись' })}
                 ></UniversalModalMobile.Header>
                 <UniversalModalMobile.Content>
                     {contentTitle && (
@@ -595,13 +602,13 @@ render(() => {
                         layout={verticalFooterButtons ? 'column' : 'start'}
                     >
                         {mainFooterButton && (
-                            <Button size={48} view='primary' block={stretchFooterButtons}>
+                            <Button size={48} view='primary' block={true}>
                                 Primary
                             </Button>
                         )}
 
                         {additionalFooterButton && (
-                            <Button size={48} view='secondary' block={stretchFooterButtons}>
+                            <Button size={48} view='secondary' block={true}>
                                 Secondary
                             </Button>
                         )}
@@ -992,22 +999,15 @@ render(() => {
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
-            <UniversalModalResponsive
-                open={open}
-                height={500}
-                overlay={false}
-                onClose={() => setOpen(false)}
-            >
+            <UniversalModalDesktop open={open} height={500} onClose={() => setOpen(false)}>
                 <UniversalModalDesktop.Header
                     sticky={true}
                     {...(step === 1 && { title: item.title })}
                     {...(step > 1 && {
                         bottomAddons: (
-                            <div style={{ padding: 12 }}>
-                                <Typography.Title view='small' font='system'>
-                                    {item.title}
-                                </Typography.Title>
-                            </div>
+                            <Typography.Title view='small' font='system'>
+                                {item.title}
+                            </Typography.Title>
                         ),
                     })}
                     leftAddons={<ArrowButtonDesktop onClick={() => setStep((prev) => prev - 1)} />}
@@ -1035,7 +1035,98 @@ render(() => {
                         {item.btnText}
                     </Button>
                 </UniversalModalDesktop.Footer>
-            </UniversalModalResponsive>
+            </UniversalModalDesktop>
+        </React.Fragment>
+    );
+});
+
+//MOBILE
+const modalsDataMobile = {
+    1: {
+        title: 'Первый уровень',
+        btnText: 'Дальше',
+        bg: '#D8EAFF',
+        color: '#2288FA',
+    },
+    2: {
+        title: 'Второй уровень',
+        btnText: 'Дальше',
+        bg: '#D1F1D7',
+        color: '#0CC44D',
+    },
+    3: {
+        title: 'Третий уровень',
+        btnText: 'Готово',
+        bg: '#FDE6C8',
+        color: '#FA9313',
+    },
+};
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [step, setStep] = React.useState(1);
+
+    const item = modalsDataMobile[step];
+
+    const commonStyles = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'background 0.2s ease-in, border 0.2s ease-in',
+        borderRadius: '8px',
+        background: item.bg,
+        color: item.color,
+        width: '100%',
+        boxSizing: 'border-box',
+    };
+
+    const handleNextButtonClick = () => {
+        if (step === Object.keys(modalsDataMobile).length) {
+            setOpen(false);
+            return;
+        }
+        setStep((prev) => prev + 1);
+    };
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <UniversalModalMobile open={open} height={500} onClose={() => setOpen(false)}>
+                <UniversalModalMobile.Header
+                    sticky={true}
+                    {...(step === 1 && { title: item.title })}
+                    {...(step > 1 && {
+                        bottomAddons: (
+                            <Typography.Title view='small' font='system'>
+                                {item.title}
+                            </Typography.Title>
+                        ),
+                    })}
+                    leftAddons={<ArrowButtonMobile onClick={() => setStep((prev) => prev - 1)} />}
+                    rightAddons={<CrossButtonMobile onClick={() => setOpen(false)} />}
+                    align='center'
+                    {...(step === 1 && { align: 'left' })}
+                />
+                <UniversalModalMobile.Content>
+                    <div
+                        style={{
+                            ...commonStyles,
+                            height: '100%',
+                        }}
+                    >
+                        <span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>
+                    </div>
+                </UniversalModalMobile.Content>
+                <UniversalModalMobile.Footer sticky={true} layout='start'>
+                    <Button
+                        size={48}
+                        view='primary'
+                        onClick={handleNextButtonClick}
+                        block={isMobile()}
+                    >
+                        {item.btnText}
+                    </Button>
+                </UniversalModalMobile.Footer>
+            </UniversalModalMobile>
         </React.Fragment>
     );
 });
@@ -1329,11 +1420,15 @@ render(() => {
     const footer_preset_type_1 = getFooterWithContent({
         labelLeft: 'LabelLeft',
         labelRight: 'RightLabel',
+        onClickLabelLeft: () => setOpen(false),
+        onClickLabelRight: () => setOpen(false),
     });
     const footer_preset_type_2 = getFooterWithContent({
         labelLeft: 'LabelLeft',
         labelRight: 'RightLabel',
         layout: 'column',
+        onClickLabelLeft: () => setOpen(false),
+        onClickLabelRight: () => setOpen(false),
     });
 
     return (
@@ -1363,7 +1458,7 @@ render(() => {
 
             <UniversalModalDesktop
                 open={open}
-                width={501}
+                width={500}
                 height={500}
                 onClose={() => setOpen(false)}
                 {...(headerPreset === 'key_1' && header_preset_type_1)}
@@ -1491,12 +1586,16 @@ render(() => {
         labelLeft: 'LabelLeft',
         labelRight: 'LabelRight',
         layout: 'start',
+        onClickLabelLeft: () => setOpen(false),
+        onClickLabelRight: () => setOpen(false),
     });
 
     const footer_preset_type_2 = getFooterWithContentMobile({
         labelLeft: 'LabelLeft',
         labelRight: 'LabelRight',
         layout: 'column',
+        onClickLabelLeft: () => setOpen(false),
+        onClickLabelRight: () => setOpen(false),
     });
 
     return (

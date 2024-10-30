@@ -9,12 +9,12 @@
 }
 
 .sticky {
-    background: var(--side-panel-footer-background);
+    background: var(--universal-modal-footer-background);
     position: sticky;
     z-index: 1;
 }
 
 .highlighted {
-    background: var(--side-panel-footer-highlight-background);
-    box-shadow: var(--side-panel-footer-highlight-box-shadow);
+    background: var(--universal-modal-footer-highlight-background);
+    box-shadow: var(--universal-modal-footer-highlight-box-shadow);
 }
