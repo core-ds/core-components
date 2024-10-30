@@ -91,6 +91,11 @@ export interface NavigationBarProps {
      * Идентификатор для систем автоматизированного тестирования.
      */
     dataTestId?: string;
+
+    /**
+     * Data атрибут для компонента
+     */
+    dataName?: string;
 }
 
 export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
@@ -113,6 +118,7 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
             leftAddonsClassName,
             bottomAddonsClassName,
             dataTestId,
+            dataName,
         },
         ref,
     ) => {
@@ -157,6 +163,7 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
                     ...(backgroundColor && { backgroundColor }),
                 }}
                 data-test-id={dataTestId}
+                data-name={dataName}
             >
                 <div className={cn(styles.mainLine, styles[align], contentClassName)}>
                     {hasLeftAddons && (

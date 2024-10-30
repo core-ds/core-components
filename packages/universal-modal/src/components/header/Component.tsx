@@ -48,6 +48,7 @@ export const Header: FC<HeaderProps> = ({
     return (
         <NavigationBar
             dataTestId={getDataTestId(dataTestId, 'header')}
+            dataName='modalHeaderDesktop'
             {...restProps}
             sticky={sticky}
             title={title}

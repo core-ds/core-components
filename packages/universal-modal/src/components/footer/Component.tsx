@@ -73,6 +73,7 @@ export const Footer: FC<FooterProps> = ({
                 },
             )}
             data-test-id={dataTestId || getDataTestId(responsiveContext?.dataTestId, 'footer')}
+            data-name='modalFooterDesktop'
         >
             {children}
         </div>
