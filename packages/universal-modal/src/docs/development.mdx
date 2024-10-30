@@ -38,21 +38,18 @@ import { getFooterWithContentMobile } from '@alfalab/core-components/universal-m
 ## Использование dataTestId
 
 В компоненте используются модификаторы для `dataTestId`.
-Для удобного поиска элементов можно воспользоваться функцией `getSidePanelTestIds`.
-Импорт из `@alfalab/core-components/side-panel/shared`.
+Для удобного поиска элементов можно воспользоваться функцией `getUniversalModalTestIds`.
+Импорт из `@alfalab/core-components/universal-modal/shared`.
 
 Функция возвращает объект:
 
 ```jsx
 {
         modal: dataTestId,
-        content: `${dataTestId}-content`,
-        footer: `${dataTestId}-footer`,
-        controls: `${dataTestId}-controls`,
         header: `${dataTestId}-header`,
         title: `${dataTestId}-header-title`,
-        closer: `${dataTestId}-header-closer`,
-        backButton: `${dataTestId}-header-back-button`,
+        content: `${dataTestId}-content`,
+        footer: `${dataTestId}-footer`,
 };
 ```
 

@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UniversalModal UniversalModalDesktop snapshot 1`] = `
+<div
+  class="wrapper"
+  role="dialog"
+  style="z-index: 100;"
+  tabindex="-1"
+>
+  <div
+    class="component center appear appearActive"
+    style="width: 500px; height: calc(100% - NaNpx - NaNpx);"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="component component scrollbarWrapper"
+          data-simplebar="init"
+        >
+          <div
+            class="wrapper"
+          >
+            <div
+              class="heightAutoObserverWrapper"
+            >
+              <div
+                class="heightAutoObserver"
+              />
+            </div>
+            <div
+              class="mask"
+            >
+              <div
+                class="offset"
+                style="right: 0px; bottom: 0px;"
+              >
+                <div
+                  aria-label="scrollable content"
+                  class="contentWrapper scrollContentWrapper"
+                  role="region"
+                  style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                  tabindex="0"
+                >
+                  <div
+                    class="content scrollbarContainer"
+                  >
+                    <div
+                      class="component header hasContent"
+                      data-name="modalHeaderDesktop"
+                    >
+                      <div
+                        class="mainLine center"
+                      >
+                        <div
+                          class="content center"
+                          style="margin-left: 0px; margin-right: 0px;"
+                        >
+                          <div
+                            class="title center"
+                          >
+                            Title
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="content flex withHeader withFooter"
+                    >
+                      Content
+                    </div>
+                    <div
+                      class="footer start"
+                      data-name="modalFooterDesktop"
+                    >
+                      Footer
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="placeholder"
+              style="width: 0px; height: 0px;"
+            />
+          </div>
+          <div
+            class="track horizontal"
+            style="visibility: hidden;"
+          >
+            <div
+              class="scrollbar"
+              style="width: 0px; display: none;"
+            />
+          </div>
+          <div
+            class="track vertical verticalBarContainer"
+            style="visibility: hidden; height: calc(100% - 16px - 16px); top: 16px;"
+          >
+            <div
+              class="scrollbar"
+              style="height: 0px; display: none;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UniversalModal UniversalModalMobile snapshot 1`] = `
+<div
+  class="wrapper"
+  role="dialog"
+  style="z-index: 100;"
+  tabindex="-1"
+>
+  <div
+    class="component appear appearActive"
+  >
+    <div
+      class="content content"
+    >
+      <div
+        class="component header hasContent header"
+        data-name="modalHeaderDesktop"
+      >
+        <div
+          class="mainLine center content"
+        >
+          <div
+            class="content contentWrapper center"
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            <div
+              class="title center"
+            >
+              Title
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content content flex withHeader withFooter content"
+      >
+        Content
+      </div>
+      <div
+        class="footer footer start"
+        data-name="modalFooterDesktop"
+      >
+        Footer
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UniversalModal UniversalModalResponsive snapshot 1`] = `
+<div
+  class="wrapper"
+  role="dialog"
+  style="z-index: 100;"
+  tabindex="-1"
+>
+  <div
+    class="component appear appearActive"
+  >
+    <div
+      class="content content"
+    >
+      <div
+        class="component header hasContent header"
+        data-name="modalHeaderDesktop"
+      >
+        <div
+          class="mainLine center content"
+        >
+          <div
+            class="content contentWrapper center"
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            <div
+              class="title center"
+            >
+              Title
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content content flex withHeader withFooter content"
+      >
+        Content
+      </div>
+      <div
+        class="footer footer start"
+        data-name="modalFooterDesktop"
+      >
+        Footer
+      </div>
+    </div>
+  </div>
+</div>
+`;

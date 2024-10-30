@@ -1,2 +1,2 @@
 export { ModalContext } from '../Context';
-export { getSidePanelTestIds } from '../utils';
+export { getUniversalModalTestIds } from '../utils';
