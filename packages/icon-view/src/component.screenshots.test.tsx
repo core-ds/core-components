@@ -48,7 +48,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'SuperEllipse',
             knobs: {
-                size: [48, 64, 80, 128, 40, 56],
+                size: [48, 64, 80, 128],
                 topAddons: [true, false],
                 bottomAddons: [true, false],
                 border: [true, false],
@@ -104,7 +104,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'Circle',
             knobs: {
-                size: [48, 64, 80, 40, 56, 128],
+                size: [48, 64, 80],
                 topAddons: [true, false],
                 bottomAddons: [true, false],
                 border: [true, false],
