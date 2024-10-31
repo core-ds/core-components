@@ -8,6 +8,7 @@
         "paths": {
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
@@ -17,6 +18,6 @@
         { "path": "../modal" },
         { "path": "../mq" },
         { "path": "../shared" },
-        { "path": "../typography" },
+        { "path": "../typography" }
     ]
 }

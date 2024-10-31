@@ -8,7 +8,8 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
     "references": [

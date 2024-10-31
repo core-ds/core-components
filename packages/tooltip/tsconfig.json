@@ -7,6 +7,7 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
@@ -15,6 +16,6 @@
         { "path": "../bottom-sheet" },
         { "path": "../button" },
         { "path": "../mq" },
-        { "path": "../shared" },
+        { "path": "../shared" }
     ]
 }

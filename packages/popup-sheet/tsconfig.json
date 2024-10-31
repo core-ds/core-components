@@ -7,8 +7,11 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-navigation-bar-private/*": ["../navigation-bar-private/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@alfalab/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
     "references": [

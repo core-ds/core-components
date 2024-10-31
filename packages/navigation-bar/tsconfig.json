@@ -7,12 +7,9 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [
-        { "path": "../button" },
-        { "path": "../typography" },
-        { "path": "../shared" }
-    ]
+    "references": [{ "path": "../button" }, { "path": "../typography" }, { "path": "../shared" }]
 }

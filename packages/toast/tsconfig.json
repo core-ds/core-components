@@ -8,7 +8,8 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-toast-plate/*": ["../toast-plate/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
     "references": [
@@ -17,6 +18,6 @@
         { "path": "../portal" },
         { "path": "../stack" },
         { "path": "../mq" },
-        { "path": "../shared" },
+        { "path": "../shared" }
     ]
 }

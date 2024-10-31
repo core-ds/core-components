@@ -7,6 +7,7 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-select/*": ["../select/src/*"],
@@ -14,9 +15,9 @@
         }
     },
     "references": [
-      { "path": "../select" },
-      { "path": "../button" },
-      { "path": "../popover" },
-      { "path": "../shared" },
+        { "path": "../select" },
+        { "path": "../button" },
+        { "path": "../popover" },
+        { "path": "../shared" }
     ]
 }
