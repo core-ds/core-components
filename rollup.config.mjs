@@ -122,6 +122,7 @@ const es5 = {
         typescript({
             tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
+                skipLibCheck: true,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
@@ -160,6 +161,7 @@ const modern = {
             tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
                 target: ScriptTarget.ES2020,
+                skipLibCheck: true,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
@@ -194,6 +196,7 @@ const cssm = {
             outDir: 'dist/cssm',
             tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
+                skipLibCheck: true,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
@@ -231,6 +234,7 @@ const moderncssm = {
             tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
                 target: ScriptTarget.ES2020,
+                skipLibCheck: true,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
@@ -268,6 +272,7 @@ const esm = {
             outDir: 'dist/esm',
             tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
+                skipLibCheck: true,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
