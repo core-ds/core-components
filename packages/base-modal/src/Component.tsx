@@ -26,7 +26,7 @@ import { browser, os } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/stack-context';
 
-import { isScrollLocked, lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
+import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
     handleContainer,
     hasScrollbar,
@@ -497,7 +497,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 setExited(false);
             }
 
-            if (!open && isScrollLocked()) {
+            if (!open) {
                 unlockScroll();
             }
         }, [getContainer, open, disableBlockingScroll, isExited, iOSLock]);

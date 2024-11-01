@@ -11,6 +11,8 @@ export const lockScroll = () => {
 };
 
 export const unlockScroll = () => {
+    if (!isScrollLocked()) return;
+
     document.body.classList.remove('is-locked');
     window.scrollTo(0, scrollY);
 };
