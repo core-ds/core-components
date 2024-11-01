@@ -10,10 +10,10 @@ exports[`Snapshots tests should display correctly 1`] = `
     tabindex="-1"
   >
     <button
-      aria-controls="downshift-:r1:-menu"
-      aria-labelledby="downshift-:r1:-label"
+      aria-controls="downshift-:r0:-menu"
+      aria-labelledby="downshift-:r0:-label"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
-      id="downshift-:r1:-input"
+      id="downshift-:r0:-input"
       selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
@@ -23,8 +23,8 @@ exports[`Snapshots tests should display correctly 1`] = `
         class="label"
       >
         <span
-          for="downshift-:r1:-input"
-          id="downshift-:r1:-label"
+          for="downshift-:r0:-input"
+          id="downshift-:r0:-label"
         >
           some label
         </span>
@@ -65,9 +65,66 @@ exports[`Snapshots tests should display correctly 2`] = `
     tabindex="-1"
   >
     <button
+      aria-controls="downshift-:r4:-menu"
+      aria-labelledby="downshift-:r4:-label"
+      class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
+      id="downshift-:r4:-input"
+      selectedmultiple=""
+      style="background: rgb(255, 69, 195);"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="label"
+      >
+        <span
+          for="downshift-:r4:-input"
+          id="downshift-:r4:-label"
+        >
+          some label
+        </span>
+      </span>
+      <span
+        class="addons"
+      >
+        <span
+          class="iconContainer"
+        >
+          <svg
+            data-test-id="custom-picker-button-icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Snapshots tests should display correctly 3`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <button
       aria-controls="downshift-:r8:-menu"
       aria-labelledby="downshift-:r8:-label"
+      arrow="[object Object]"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
+      formcontrolcomponent="[object Object]"
       id="downshift-:r8:-input"
       selectedmultiple=""
       style="background: rgb(255, 69, 195);"
@@ -110,42 +167,30 @@ exports[`Snapshots tests should display correctly 2`] = `
 </div>
 `;
 
-exports[`Snapshots tests should display correctly 3`] = `
+exports[`Snapshots tests should display opened correctly 1`] = `
 <div>
   <div
-    aria-expanded="false"
+    aria-expanded="true"
     aria-haspopup="listbox"
-    class="component"
+    class="component container"
     role="combobox"
     tabindex="-1"
   >
     <button
-      aria-controls="downshift-:rd:-menu"
-      aria-labelledby="downshift-:rd:-label"
-      arrow="[object Object]"
-      class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
-      formcontrolcomponent="[object Object]"
-      id="downshift-:rd:-input"
+      aria-controls="downshift-:r3:-menu"
+      aria-labelledby="downshift-:r3:-label"
+      class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening"
+      id="downshift-:r3:-input"
       selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
     >
       <span
-        class="label"
-      >
-        <span
-          for="downshift-:rd:-input"
-          id="downshift-:rd:-label"
-        >
-          some label
-        </span>
-      </span>
-      <span
         class="addons"
       >
         <span
-          class="iconContainer"
+          class="iconContainer open"
         >
           <svg
             data-test-id="custom-picker-button-icon"
@@ -167,7 +212,365 @@ exports[`Snapshots tests should display correctly 3`] = `
 </div>
 `;
 
-exports[`Snapshots tests should display opened correctly 1`] = `
+exports[`Snapshots tests should display opened correctly 2`] = `
+<div
+  alfa-portal-container=""
+>
+  <div
+    class="component"
+    data-popper-escaped="true"
+    data-popper-placement="bottom-start"
+    data-popper-reference-hidden="true"
+    style="z-index: 50; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+  >
+    <div
+      class="inner popoverInner cc-picker-button optionsPopover"
+    >
+      <div
+        class=""
+      >
+        <div
+          aria-labelledby="downshift-:r3:-label"
+          class="optionsListWrapper"
+          id="downshift-:r3:-menu"
+          role="listbox"
+          style="min-width: 0px;"
+        >
+          <div
+            class="optionsList size-56"
+          >
+            <div
+              class="scrollable"
+              style="height: 0px;"
+            >
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-0"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Neptunium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-1"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Plutonium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-2"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Americium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-3"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Curium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-4"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Berkelium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-5"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Californium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-6"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Einsteinium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-7"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Fermium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-8"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Mendelevium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-9"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Nobelium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-10"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Lawrencium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-11"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Rutherfordium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-12"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Dubnium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-13"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Seaborgium
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="option size-56 option"
+                id="downshift-:r3:-item-14"
+                role="option"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Bohrium
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="optionsListBorder"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshots tests should display opened correctly 3`] = `
 <div>
   <div
     aria-expanded="true"
@@ -212,7 +615,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
 </div>
 `;
 
-exports[`Snapshots tests should display opened correctly 2`] = `
+exports[`Snapshots tests should display opened correctly 4`] = `
 <div
   alfa-portal-container=""
 >
@@ -570,409 +973,6 @@ exports[`Snapshots tests should display opened correctly 2`] = `
 </div>
 `;
 
-exports[`Snapshots tests should display opened correctly 3`] = `
-<div>
-  <div
-    aria-expanded="true"
-    aria-haspopup="listbox"
-    class="component container"
-    role="combobox"
-    tabindex="-1"
-  >
-    <button
-      aria-controls="downshift-:rc:-menu"
-      aria-labelledby="downshift-:rc:-label"
-      class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening"
-      id="downshift-:rc:-input"
-      selectedmultiple=""
-      style="background: rgb(255, 69, 195);"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="addons"
-      >
-        <span
-          class="iconContainer open"
-        >
-          <svg
-            data-test-id="custom-picker-button-icon"
-            fill="currentColor"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <path
-              d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
-            />
-          </svg>
-        </span>
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Snapshots tests should display opened correctly 4`] = `
-<div
-  alfa-portal-container=""
->
-  <div
-    class="component"
-    data-popper-escaped="true"
-    data-popper-placement="bottom-start"
-    data-popper-reference-hidden="true"
-    style="z-index: 50; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
-  >
-    <div
-      class="inner popoverInner cc-picker-button optionsPopover"
-    >
-      <div
-        class=""
-      >
-        <div
-          aria-labelledby="downshift-:rc:-label"
-          class="optionsListWrapper"
-          id="downshift-:rc:-menu"
-          role="listbox"
-          style="min-width: 0px;"
-        >
-          <div
-            class="optionsList size-56"
-          >
-            <div
-              class="scrollable"
-              style="height: 0px;"
-            >
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-0"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Neptunium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-1"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Plutonium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-2"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Americium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-3"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Curium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-4"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Berkelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-5"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Californium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-6"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Einsteinium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-7"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Fermium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-8"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Mendelevium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-9"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Nobelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-10"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Lawrencium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-11"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Rutherfordium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-12"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Dubnium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-13"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Seaborgium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rc:-item-14"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Bohrium
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="optionsListBorder"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Snapshots tests should display opened correctly 5`] = `
 <div>
   <div
@@ -983,10 +983,10 @@ exports[`Snapshots tests should display opened correctly 5`] = `
     tabindex="-1"
   >
     <button
-      aria-controls="downshift-:rh:-menu"
-      aria-labelledby="downshift-:rh:-label"
+      aria-controls="downshift-:rb:-menu"
+      aria-labelledby="downshift-:rb:-label"
       class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening"
-      id="downshift-:rh:-input"
+      id="downshift-:rb:-input"
       selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
@@ -1036,9 +1036,9 @@ exports[`Snapshots tests should display opened correctly 6`] = `
         class=""
       >
         <div
-          aria-labelledby="downshift-:rh:-label"
+          aria-labelledby="downshift-:rb:-label"
           class="optionsListWrapper"
-          id="downshift-:rh:-menu"
+          id="downshift-:rb:-menu"
           role="listbox"
           style="min-width: 0px;"
         >
@@ -1053,7 +1053,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-0"
+                id="downshift-:rb:-item-0"
                 role="option"
               >
                 <div
@@ -1074,7 +1074,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-1"
+                id="downshift-:rb:-item-1"
                 role="option"
               >
                 <div
@@ -1095,7 +1095,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-2"
+                id="downshift-:rb:-item-2"
                 role="option"
               >
                 <div
@@ -1116,7 +1116,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-3"
+                id="downshift-:rb:-item-3"
                 role="option"
               >
                 <div
@@ -1137,7 +1137,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-4"
+                id="downshift-:rb:-item-4"
                 role="option"
               >
                 <div
@@ -1158,7 +1158,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-5"
+                id="downshift-:rb:-item-5"
                 role="option"
               >
                 <div
@@ -1179,7 +1179,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-6"
+                id="downshift-:rb:-item-6"
                 role="option"
               >
                 <div
@@ -1200,7 +1200,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-7"
+                id="downshift-:rb:-item-7"
                 role="option"
               >
                 <div
@@ -1221,7 +1221,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-8"
+                id="downshift-:rb:-item-8"
                 role="option"
               >
                 <div
@@ -1242,7 +1242,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-9"
+                id="downshift-:rb:-item-9"
                 role="option"
               >
                 <div
@@ -1263,7 +1263,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-10"
+                id="downshift-:rb:-item-10"
                 role="option"
               >
                 <div
@@ -1284,7 +1284,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-11"
+                id="downshift-:rb:-item-11"
                 role="option"
               >
                 <div
@@ -1305,7 +1305,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-12"
+                id="downshift-:rb:-item-12"
                 role="option"
               >
                 <div
@@ -1326,7 +1326,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-13"
+                id="downshift-:rb:-item-13"
                 role="option"
               >
                 <div
@@ -1347,7 +1347,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 aria-disabled="false"
                 aria-selected="false"
                 class="option size-56 option"
-                id="downshift-:rh:-item-14"
+                id="downshift-:rb:-item-14"
                 role="option"
               >
                 <div
@@ -1392,10 +1392,10 @@ Object {
         tabindex="-1"
       >
         <button
-          aria-controls="downshift-:r5:-menu"
-          aria-labelledby="downshift-:r5:-label"
+          aria-controls="downshift-:r2:-menu"
+          aria-labelledby="downshift-:r2:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening"
-          id="downshift-:r5:-input"
+          id="downshift-:r2:-input"
           selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
@@ -1405,8 +1405,8 @@ Object {
             class="label"
           >
             <span
-              for="downshift-:r5:-input"
-              id="downshift-:r5:-label"
+              for="downshift-:r2:-input"
+              id="downshift-:r2:-label"
             >
               some label
             </span>
@@ -1445,10 +1445,10 @@ Object {
       tabindex="-1"
     >
       <button
-        aria-controls="downshift-:r5:-menu"
-        aria-labelledby="downshift-:r5:-label"
+        aria-controls="downshift-:r2:-menu"
+        aria-labelledby="downshift-:r2:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening"
-        id="downshift-:r5:-input"
+        id="downshift-:r2:-input"
         selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
@@ -1458,8 +1458,8 @@ Object {
           class="label"
         >
           <span
-            for="downshift-:r5:-input"
-            id="downshift-:r5:-label"
+            for="downshift-:r2:-input"
+            id="downshift-:r2:-label"
           >
             some label
           </span>
@@ -1558,10 +1558,10 @@ Object {
         tabindex="-1"
       >
         <button
-          aria-controls="downshift-:ra:-menu"
-          aria-labelledby="downshift-:ra:-label"
+          aria-controls="downshift-:r6:-menu"
+          aria-labelledby="downshift-:r6:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening"
-          id="downshift-:ra:-input"
+          id="downshift-:r6:-input"
           selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
@@ -1571,8 +1571,8 @@ Object {
             class="label"
           >
             <span
-              for="downshift-:ra:-input"
-              id="downshift-:ra:-label"
+              for="downshift-:r6:-input"
+              id="downshift-:r6:-label"
             >
               some label
             </span>
@@ -1611,10 +1611,10 @@ Object {
       tabindex="-1"
     >
       <button
-        aria-controls="downshift-:ra:-menu"
-        aria-labelledby="downshift-:ra:-label"
+        aria-controls="downshift-:r6:-menu"
+        aria-labelledby="downshift-:r6:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening"
-        id="downshift-:ra:-input"
+        id="downshift-:r6:-input"
         selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
@@ -1624,8 +1624,8 @@ Object {
           class="label"
         >
           <span
-            for="downshift-:ra:-input"
-            id="downshift-:ra:-label"
+            for="downshift-:r6:-input"
+            id="downshift-:r6:-label"
           >
             some label
           </span>
@@ -1724,12 +1724,12 @@ Object {
         tabindex="-1"
       >
         <button
-          aria-controls="downshift-:rf:-menu"
-          aria-labelledby="downshift-:rf:-label"
+          aria-controls="downshift-:ra:-menu"
+          aria-labelledby="downshift-:ra:-label"
           arrow="[object Object]"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening"
           formcontrolcomponent="[object Object]"
-          id="downshift-:rf:-input"
+          id="downshift-:ra:-input"
           selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
@@ -1739,8 +1739,8 @@ Object {
             class="label"
           >
             <span
-              for="downshift-:rf:-input"
-              id="downshift-:rf:-label"
+              for="downshift-:ra:-input"
+              id="downshift-:ra:-label"
             >
               some label
             </span>
@@ -1779,12 +1779,12 @@ Object {
       tabindex="-1"
     >
       <button
-        aria-controls="downshift-:rf:-menu"
-        aria-labelledby="downshift-:rf:-label"
+        aria-controls="downshift-:ra:-menu"
+        aria-labelledby="downshift-:ra:-label"
         arrow="[object Object]"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening"
         formcontrolcomponent="[object Object]"
-        id="downshift-:rf:-input"
+        id="downshift-:ra:-input"
         selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
@@ -1794,8 +1794,8 @@ Object {
           class="label"
         >
           <span
-            for="downshift-:rf:-input"
-            id="downshift-:rf:-label"
+            for="downshift-:ra:-input"
+            id="downshift-:ra:-label"
           >
             some label
           </span>
@@ -1894,10 +1894,10 @@ Object {
         tabindex="-1"
       >
         <button
-          aria-controls="downshift-:r3:-menu"
-          aria-labelledby="downshift-:r3:-label"
+          aria-controls="downshift-:r1:-menu"
+          aria-labelledby="downshift-:r1:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
-          id="downshift-:r3:-input"
+          id="downshift-:r1:-input"
           selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
@@ -1907,8 +1907,8 @@ Object {
             class="label"
           >
             <span
-              for="downshift-:r3:-input"
-              id="downshift-:r3:-label"
+              for="downshift-:r1:-input"
+              id="downshift-:r1:-label"
             >
               some label
             </span>
@@ -1947,10 +1947,10 @@ Object {
       tabindex="-1"
     >
       <button
-        aria-controls="downshift-:r3:-menu"
-        aria-labelledby="downshift-:r3:-label"
+        aria-controls="downshift-:r1:-menu"
+        aria-labelledby="downshift-:r1:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
-        id="downshift-:r3:-input"
+        id="downshift-:r1:-input"
         selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
@@ -1960,8 +1960,8 @@ Object {
           class="label"
         >
           <span
-            for="downshift-:r3:-input"
-            id="downshift-:r3:-label"
+            for="downshift-:r1:-input"
+            id="downshift-:r1:-label"
           >
             some label
           </span>
@@ -2060,10 +2060,10 @@ Object {
         tabindex="-1"
       >
         <button
-          aria-controls="downshift-:r9:-menu"
-          aria-labelledby="downshift-:r9:-label"
+          aria-controls="downshift-:r5:-menu"
+          aria-labelledby="downshift-:r5:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
-          id="downshift-:r9:-input"
+          id="downshift-:r5:-input"
           selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
@@ -2073,8 +2073,8 @@ Object {
             class="label"
           >
             <span
-              for="downshift-:r9:-input"
-              id="downshift-:r9:-label"
+              for="downshift-:r5:-input"
+              id="downshift-:r5:-label"
             >
               some label
             </span>
@@ -2113,10 +2113,10 @@ Object {
       tabindex="-1"
     >
       <button
-        aria-controls="downshift-:r9:-menu"
-        aria-labelledby="downshift-:r9:-label"
+        aria-controls="downshift-:r5:-menu"
+        aria-labelledby="downshift-:r5:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
-        id="downshift-:r9:-input"
+        id="downshift-:r5:-input"
         selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
@@ -2126,8 +2126,8 @@ Object {
           class="label"
         >
           <span
-            for="downshift-:r9:-input"
-            id="downshift-:r9:-label"
+            for="downshift-:r5:-input"
+            id="downshift-:r5:-label"
           >
             some label
           </span>
@@ -2226,12 +2226,12 @@ Object {
         tabindex="-1"
       >
         <button
-          aria-controls="downshift-:re:-menu"
-          aria-labelledby="downshift-:re:-label"
+          aria-controls="downshift-:r9:-menu"
+          aria-labelledby="downshift-:r9:-label"
           arrow="[object Object]"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
           formcontrolcomponent="[object Object]"
-          id="downshift-:re:-input"
+          id="downshift-:r9:-input"
           selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
@@ -2241,8 +2241,8 @@ Object {
             class="label"
           >
             <span
-              for="downshift-:re:-input"
-              id="downshift-:re:-label"
+              for="downshift-:r9:-input"
+              id="downshift-:r9:-label"
             >
               some label
             </span>
@@ -2281,12 +2281,12 @@ Object {
       tabindex="-1"
     >
       <button
-        aria-controls="downshift-:re:-menu"
-        aria-labelledby="downshift-:re:-label"
+        aria-controls="downshift-:r9:-menu"
+        aria-labelledby="downshift-:r9:-label"
         arrow="[object Object]"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening"
         formcontrolcomponent="[object Object]"
-        id="downshift-:re:-input"
+        id="downshift-:r9:-input"
         selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
@@ -2296,8 +2296,8 @@ Object {
           class="label"
         >
           <span
-            for="downshift-:re:-input"
-            id="downshift-:re:-label"
+            for="downshift-:r9:-input"
+            id="downshift-:r9:-label"
           >
             some label
           </span>
