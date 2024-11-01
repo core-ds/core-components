@@ -3,7 +3,7 @@ import { useCoreConfig } from '@alfalab/core-config';
 import { useMatchMedia } from './useMatchMedia';
 
 export function useIsDesktop(breakpoint?: number, defaultValue?: boolean | (() => boolean)) {
-    let client;
+    let client: 'desktop' | 'mobile' | undefined;
 
     if (typeof defaultValue === 'boolean') {
         client = defaultValue ? 'desktop' : 'mobile';
