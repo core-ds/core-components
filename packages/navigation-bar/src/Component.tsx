@@ -96,6 +96,11 @@ export interface NavigationBarProps {
      * Data атрибут для компонента
      */
     dataName?: string;
+
+    /**
+     * Дополнительный класс для title
+     */
+    titleClassName?: string;
 }
 
 export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
@@ -119,6 +124,7 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
             bottomAddonsClassName,
             dataTestId,
             dataName,
+            titleClassName,
         },
         ref,
     ) => {
@@ -189,7 +195,7 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
                             }}
                         >
                             <div
-                                className={cn(styles.title, {
+                                className={cn(styles.title, titleClassName, {
                                     [styles[align]]: !hasLeftAddons && !subtitle,
                                 })}
                                 data-test-id={getDataTestId(dataTestId, 'title')}

@@ -23,3 +23,15 @@
 .contentWrapper.contentWrapper {
     padding: 0 0 0 var(--gap-12);
 }
+
+.headerTitle {
+    @mixin headline-system_small;
+
+    &.medium {
+        @mixin headline-system_medium;
+    }
+
+    &.lineClamp {
+        @mixin row_limit 2;
+    }
+}

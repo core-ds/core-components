@@ -60,7 +60,7 @@ exports[`UniversalModal UniversalModalDesktop snapshot 1`] = `
                           style="margin-left: 0px; margin-right: 0px;"
                         >
                           <div
-                            class="title center"
+                            class="title headerTitle center"
                           >
                             Title
                           </div>
@@ -137,7 +137,7 @@ exports[`UniversalModal UniversalModalMobile snapshot 1`] = `
             style="margin-left: 0px; margin-right: 0px;"
           >
             <div
-              class="title center"
+              class="title headerTitle center"
             >
               Title
             </div>
@@ -185,7 +185,7 @@ exports[`UniversalModal UniversalModalResponsive snapshot 1`] = `
             style="margin-left: 0px; margin-right: 0px;"
           >
             <div
-              class="title center"
+              class="title headerTitle center"
             >
               Title
             </div>

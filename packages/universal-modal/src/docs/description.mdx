@@ -111,7 +111,7 @@ render(() => {
 
     const [headerButtonCross, setHeaderButtonCross] = React.useState(true);
     const [headerButtonArrow, setHeaderButtonArrow] = React.useState(false);
-    const [headerTitle, setHeaderTitle] = React.useState(true);
+    const [headerType, setHeaderType] = React.useState('none');
 
     const [mainFooterButton, setMainFooterButton] = React.useState(true);
     const [additionalFooterButton, setAdditionalFooterButton] = React.useState(false);
@@ -120,6 +120,10 @@ render(() => {
 
     const [contentTitle, setContentTitle] = React.useState(false);
     const [contentButton, setContentButton] = React.useState(false);
+
+    const handleRadioChange = (state) => {
+        setHeaderType(state);
+    };
 
     return (
         <React.Fragment>
@@ -177,7 +181,7 @@ render(() => {
                 </div>
             </div>
             <Gap size={24} />
-            Настройки шапки
+            Навигация
             <Gap size={12} />
             <div>
                 <Switch
@@ -186,23 +190,38 @@ render(() => {
                     onChange={() => setHeaderButtonCross((prev) => !prev)}
                 />
                 <Gap size={12} />
-
                 <Switch
                     label='Стрелка назад'
                     checked={headerButtonArrow}
                     onChange={() => setHeaderButtonArrow((prev) => !prev)}
                 />
                 <Gap size={12} />
-
-                <Switch
-                    label='Заголовок'
-                    checked={headerTitle}
-                    onChange={() => {
-                        setContentTitle(false);
-                        setHeaderTitle((prev) => !prev);
-                    }}
-                />
+                Заголовок в шапке
                 <Gap size={12} />
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Radio
+                        size={24}
+                        onChange={() => handleRadioChange('normal')}
+                        checked={headerType === 'normal'}
+                        label='Обычный'
+                        hint='Для модалок шириной до 800 рх'
+                    />
+                    <Gap size={12} />
+                    <Radio
+                        size={24}
+                        onChange={() => handleRadioChange('big')}
+                        checked={headerType === 'big'}
+                        label='Крупный'
+                        hint='Для широких модалок и сайдпанелей'
+                    />
+                    <Gap size={12} />
+                    <Radio
+                        size={24}
+                        onChange={() => handleRadioChange('none')}
+                        checked={headerType === 'none'}
+                        label='Без заголовка'
+                    />
+                </div>
             </div>
             <Gap size={24} />
             Настройки футера
@@ -248,7 +267,6 @@ render(() => {
                     hint='Если не стали размещать его в шапке'
                     checked={contentTitle}
                     onChange={() => {
-                        setHeaderTitle(false);
                         setContentTitle((prev) => !prev);
                     }}
                 />
@@ -274,15 +292,19 @@ render(() => {
             >
                 <UniversalModalDesktop.Header
                     sticky={true}
-                    {...(headerTitle &&
+                    {...(headerType !== 'none' &&
                         !headerButtonArrow && {
                             align: 'left',
                             title: 'Почему банк проверяет мои операции?',
+                            bigTitle: headerType === 'big',
                         })}
                     {...(headerButtonArrow && {
                         leftAddons: <ArrowButtonDesktop onClick={() => setOpen(false)} />,
                         align: 'center',
-                        ...(headerTitle && { bottomAddons: 'Почему банк проверяет мои операции?' }),
+                        ...(headerType !== 'none' && {
+                            bottomAddons: 'Почему банк проверяет мои операции?',
+                            bigTitle: headerType === 'big',
+                        }),
                     })}
                     {...(headerButtonCross && {
                         rightAddons: <CrossButtonDesktop onClick={() => setOpen(false)} />,
@@ -410,7 +432,7 @@ render(() => {
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-            Настройки шапки
+            Навигация
             <Gap size={12} />
             <div>
                 <Switch

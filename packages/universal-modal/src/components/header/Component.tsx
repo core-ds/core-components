@@ -5,14 +5,25 @@ import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navi
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
-import { HEADER_MEDIUM_BREAKPOINT } from '../../desktop/constants/headerPresetTypes';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
 import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'> & {
+    /**
+     * Заголовок в шапке крупного размера
+     * @default false
+     */
+    bigTitle?: boolean;
+
+    /**
+     * Перенос заголовка на вторую строку
+     * @default false
+     */
+    lineClamp?: boolean;
+};
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -20,13 +31,14 @@ export const Header: FC<HeaderProps> = ({
     contentClassName,
     title,
     sticky,
+    bigTitle = false,
+    lineClamp = false,
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted } = useContext(ModalContext);
     const {
         view = 'desktop',
         dataTestId,
-        modalWidth,
         modalHeaderHighlighted,
         setModalHeaderHighlighted,
     } = useContext(ResponsiveContext) || {};
@@ -53,7 +65,7 @@ export const Header: FC<HeaderProps> = ({
             sticky={sticky}
             title={title}
             className={cn(styles.header, className, {
-                [styles.highlighted]: hasContent && sticky && isHighlighted,
+                [styles.highlighted]: sticky && isHighlighted,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
@@ -70,12 +82,15 @@ export const Header: FC<HeaderProps> = ({
             })}
             bottomAddonsClassName={cn({
                 [desktopStyles.bottomAddons]: view === 'desktop',
-                [desktopStyles.medium]:
-                    view === 'desktop' && Number(modalWidth) >= HEADER_MEDIUM_BREAKPOINT,
+                [desktopStyles.medium]: view === 'desktop' && bigTitle,
                 [mobileStyles.bottomAddons]: view === 'mobile',
             })}
             leftAddonsClassName={styles.leftAddons}
             rightAddonsClassName={styles.rightAddons}
+            titleClassName={cn(desktopStyles.headerTitle, {
+                [desktopStyles.medium]: bigTitle,
+                [desktopStyles.lineClamp]: lineClamp,
+            })}
         >
             {children}
         </NavigationBar>
