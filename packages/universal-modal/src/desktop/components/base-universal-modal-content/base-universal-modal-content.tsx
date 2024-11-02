@@ -27,12 +27,13 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
     const { setModalHeaderHighlighted, setModalFooterHighlighted } =
         useContext(ResponsiveContext) || {};
 
-    const scrollableNodeRef = useRef<HTMLDivElement>(null);
-    const scrollbarContentNodeRef = useRef<HTMLDivElement>(null);
-    const scrollbarRef = useRef<HTMLDivElement>(null);
+    const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
+    const scrollbarContentNodeRef = useRef<HTMLDivElement | null>(null);
+    const scrollbarRef = useRef<HTMLDivElement | null>(null);
     const headerElementRef = useRef<HTMLDivElement | null>(null);
     const footerElementRef = useRef<HTMLDivElement | null>(null);
 
+    // расчет overlap состояния
     const handleScroll = (e: Event) => {
         const target = e.target as HTMLDivElement;
         const { scrollTop } = target;
@@ -51,7 +52,7 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
         if (setModalFooterHighlighted) {
             if (isElementFullScrolled) {
                 setModalFooterHighlighted(false);
-            } else if (scrollTop > 0) {
+            } else {
                 setModalFooterHighlighted(true);
             }
         }
@@ -78,6 +79,20 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
                 );
         }
     }, []);
+
+    // очищаем overlap значения в контексте
+    useEffect(
+        () => () => {
+            if (setModalHeaderHighlighted) {
+                setModalHeaderHighlighted(false);
+            }
+
+            if (setModalFooterHighlighted) {
+                setModalFooterHighlighted(false);
+            }
+        },
+        [setModalHeaderHighlighted, setModalFooterHighlighted],
+    );
 
     // расчет размера полосы прокрутки
     useEffect(() => {
@@ -118,6 +133,26 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
             }
         }
     });
+
+    // расчет overlap футера при resize событии
+    useEffect(() => {
+        const resizeObserver = new ResizeObserver(() => {
+            const contentHeight = scrollbarContentNodeRef.current?.clientHeight || 0;
+            const wrapperHeight = scrollableNodeRef.current?.clientHeight || 0;
+
+            if (setModalFooterHighlighted && contentHeight > wrapperHeight) {
+                setModalFooterHighlighted(true);
+            }
+        });
+
+        if (scrollbarContentNodeRef.current) {
+            resizeObserver.observe(scrollbarContentNodeRef.current);
+        }
+
+        return () => {
+            resizeObserver.disconnect();
+        };
+    }, [setModalFooterHighlighted]);
 
     return (
         <Scrollbar

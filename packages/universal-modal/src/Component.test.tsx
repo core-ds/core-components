@@ -25,6 +25,12 @@ Object.defineProperty(HTMLElement.prototype, 'scrollBy', {
     value: jest.fn(),
 });
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+}));
+
 describe('UniversalModal', () => {
     it('UniversalModalDesktop snapshot', () => {
         render(
