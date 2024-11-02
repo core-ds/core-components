@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.16.1
+
 ## 12.6.0
 
 ### Minor Changes
