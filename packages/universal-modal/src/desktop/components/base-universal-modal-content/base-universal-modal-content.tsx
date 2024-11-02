@@ -26,9 +26,12 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
     const { preset, footerPreset, children, wheelDeltaY, onClose } = props;
     const { setModalHeaderHighlighted, setModalFooterHighlighted } =
         useContext(ResponsiveContext) || {};
+
     const scrollableNodeRef = useRef<HTMLDivElement>(null);
     const scrollbarContentNodeRef = useRef<HTMLDivElement>(null);
     const scrollbarRef = useRef<HTMLDivElement>(null);
+    const headerElementRef = useRef<HTMLDivElement | null>(null);
+    const footerElementRef = useRef<HTMLDivElement | null>(null);
 
     const handleScroll = (e: Event) => {
         const target = e.target as HTMLDivElement;
@@ -62,52 +65,59 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
         }
     }, [wheelDeltaY]);
 
+    // операции с DOM дорогие, поэтому получаем ссылки на элементы при первом рендере
     useEffect(() => {
         if (scrollbarContentNodeRef.current) {
-            const headerElement = scrollbarContentNodeRef.current.querySelector<HTMLDivElement>(
-                'div[data-name="modalHeaderDesktop"]',
-            );
-            const footerElement = scrollbarContentNodeRef.current.querySelector<HTMLDivElement>(
-                'div[data-name="modalFooterDesktop"]',
-            );
-
-            if (scrollbarRef.current) {
-                const verticalBar = scrollbarRef.current.querySelector<HTMLDivElement>(
-                    `.${styles.verticalBarContainer}`,
+            headerElementRef.current =
+                scrollbarContentNodeRef.current.querySelector<HTMLDivElement>(
+                    'div[data-name="modalHeaderDesktop"]',
                 );
-
-                if (verticalBar) {
-                    const headerHeight = headerElement?.offsetHeight || 0;
-                    const footerHeight = footerElement?.offsetHeight || 0;
-
-                    let topGap = 0;
-                    let topOffset = 0;
-                    let bottomGap = 0;
-
-                    if (headerHeight) {
-                        // если есть header уменьшаем размер скролла на величину хедера и добавляем отступ сверху
-                        topGap = headerHeight;
-                        topOffset = headerHeight;
-                    } else {
-                        // иначе уменьшаем размер скролла и увеличиваем отступ на величину скругления
-                        topGap = SCROLLBAR_DEFAULT_GAP;
-                        topOffset = SCROLLBAR_DEFAULT_GAP;
-                    }
-
-                    if (footerHeight) {
-                        // если есть footer уменьшаем размер скролла на величину футера
-                        bottomGap = footerHeight;
-                    } else {
-                        // иначе уменьшаем размер на величину скругления
-                        bottomGap = SCROLLBAR_DEFAULT_GAP;
-                    }
-
-                    verticalBar.style.height = `calc(100% - ${topGap}px - ${bottomGap}px)`;
-                    verticalBar.style.top = `${topOffset}px`;
-                }
-            }
+            footerElementRef.current =
+                scrollbarContentNodeRef.current.querySelector<HTMLDivElement>(
+                    'div[data-name="modalFooterDesktop"]',
+                );
         }
     }, []);
+
+    // расчет размера полосы прокрутки
+    useEffect(() => {
+        if (scrollbarRef.current) {
+            const verticalBar = scrollbarRef.current.querySelector<HTMLDivElement>(
+                `.${styles.verticalBarContainer}`,
+            );
+
+            if (verticalBar) {
+                const headerHeight = headerElementRef?.current?.offsetHeight || 0;
+                const footerHeight = footerElementRef?.current?.offsetHeight || 0;
+
+                let topGap;
+                let topOffset;
+                let bottomGap;
+
+                if (headerHeight) {
+                    // если есть header уменьшаем размер скролла на величину хедера и добавляем отступ сверху
+                    topGap = headerHeight;
+                    topOffset = headerHeight;
+                    // console.warn(headerHeight);
+                } else {
+                    // иначе уменьшаем размер скролла и увеличиваем отступ на величину скругления
+                    topGap = SCROLLBAR_DEFAULT_GAP;
+                    topOffset = SCROLLBAR_DEFAULT_GAP;
+                }
+
+                if (footerHeight) {
+                    // если есть footer уменьшаем размер скролла на величину футера
+                    bottomGap = footerHeight;
+                } else {
+                    // иначе уменьшаем размер на величину скругления
+                    bottomGap = SCROLLBAR_DEFAULT_GAP;
+                }
+
+                verticalBar.style.height = `calc(100% - ${topGap}px - ${bottomGap}px)`;
+                verticalBar.style.top = `${topOffset}px`;
+            }
+        }
+    });
 
     return (
         <Scrollbar
