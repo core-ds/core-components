@@ -9,11 +9,11 @@
     overflow-x: hidden;
 
     &.top {
-        margin-top: var(--gap-12);
+        margin-top: var(--gap-0);
     }
 
     &.bottom {
-        margin-bottom: var(--gap-12);
+        margin-bottom: var(--gap-0);
     }
 
     &.overlayHidden {
