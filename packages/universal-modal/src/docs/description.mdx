@@ -877,7 +877,7 @@ render(() => {
 
         return () => {
             dialogRef.current = null;
-        }
+        };
     });
 
     return (
@@ -1440,16 +1440,21 @@ const Content = () => {
 };
 
 const headerPresetOptions = [
-    { key: 'key_0', content: 'None' },
-    { key: 'key_1', content: 'Type 1' },
-    { key: 'key_2', content: 'Type 2' },
-    { key: 'key_3', content: 'Type 3' },
+    { key: 'key_0', content: 'Без контента' },
+    { key: 'key_1', content: 'Крестик и кнопка назад' },
+    { key: 'key_2', content: 'Крестик и обычный заголовок' },
+    { key: 'key_3', content: 'Крестик и большой заголовок' },
+    { key: 'key_4', content: 'Крестик, кнопка назад и обычный заголовок' },
+    { key: 'key_5', content: 'Крестик, кнопка назад и большой заголовок' },
 ];
 
 const footerPresetOptions = [
-    { key: 'key_0', content: 'None' },
-    { key: 'key_1', content: 'Type 1' },
-    { key: 'key_2', content: 'Type 2' },
+    { key: 'key_0', content: 'Без контента' },
+    { key: 'key_1', content: 'Одна кнопка' },
+    { key: 'key_2', content: 'Две кнопки, расположенные горизонтально' },
+    { key: 'key_3', content: 'Две кнопки, расположенные вертикально' },
+    { key: 'key_4', content: 'Две большие кнопки  расположенные горизонтально' },
+    { key: 'key_5', content: 'Две большие кнопки, расположенные вертикально' },
 ];
 
 render(() => {
@@ -1460,21 +1465,47 @@ render(() => {
     const header_preset_type_1 = getHeaderWithNavigationWithoutTitle({
         onBack: () => setOpen(false),
     });
-    const header_preset_type_2 = getHeaderWithNavigationWithTitle({
+    const header_preset_type_2 = getHeaderWithTitle({ title: 'Title' });
+    const header_preset_type_3 = getHeaderWithTitle({ title: 'Title', bigTitle: true });
+    const header_preset_type_4 = getHeaderWithNavigationWithTitle({
         title: 'Title',
         onBack: () => setOpen(false),
     });
-    const header_preset_type_3 = getHeaderWithTitle({ title: 'Title' });
+    const header_preset_type_5 = getHeaderWithNavigationWithTitle({
+        title: 'Title',
+        bigTitle: true,
+        onBack: () => setOpen(false),
+    });
+
     const footer_preset_type_1 = getFooterWithContent({
+        labelLeft: 'LabelLeft',
+        onClickLabelLeft: () => setOpen(false),
+    });
+    const footer_preset_type_2 = getFooterWithContent({
         labelLeft: 'LabelLeft',
         labelRight: 'RightLabel',
         onClickLabelLeft: () => setOpen(false),
         onClickLabelRight: () => setOpen(false),
     });
-    const footer_preset_type_2 = getFooterWithContent({
+    const footer_preset_type_3 = getFooterWithContent({
         labelLeft: 'LabelLeft',
         labelRight: 'RightLabel',
         layout: 'column',
+        onClickLabelLeft: () => setOpen(false),
+        onClickLabelRight: () => setOpen(false),
+    });
+    const footer_preset_type_4 = getFooterWithContent({
+        labelLeft: 'LabelLeft',
+        labelRight: 'RightLabel',
+        bigButton: true,
+        onClickLabelLeft: () => setOpen(false),
+        onClickLabelRight: () => setOpen(false),
+    });
+    const footer_preset_type_5 = getFooterWithContent({
+        labelLeft: 'LabelLeft',
+        labelRight: 'RightLabel',
+        layout: 'column',
+        bigButton: true,
         onClickLabelLeft: () => setOpen(false),
         onClickLabelRight: () => setOpen(false),
     });
@@ -1512,8 +1543,13 @@ render(() => {
                 {...(headerPreset === 'key_1' && header_preset_type_1)}
                 {...(headerPreset === 'key_2' && header_preset_type_2)}
                 {...(headerPreset === 'key_3' && header_preset_type_3)}
+                {...(headerPreset === 'key_4' && header_preset_type_4)}
+                {...(headerPreset === 'key_5' && header_preset_type_5)}
                 {...(footerPreset === 'key_1' && footer_preset_type_1)}
                 {...(footerPreset === 'key_2' && footer_preset_type_2)}
+                {...(footerPreset === 'key_3' && footer_preset_type_3)}
+                {...(footerPreset === 'key_4' && footer_preset_type_4)}
+                {...(footerPreset === 'key_5' && footer_preset_type_5)}
             >
                 <UniversalModalDesktop.Content>
                     <Content />

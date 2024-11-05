@@ -37,6 +37,7 @@ export type TModalFooterPreset = {
         labelLeft?: string;
         labelRight?: string;
         layout?: 'start' | 'column';
+        bigButton?: boolean;
         onClickLabelLeft: () => void;
         onClickLabelRight: () => void;
     };

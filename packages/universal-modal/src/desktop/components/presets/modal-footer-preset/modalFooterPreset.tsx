@@ -1,10 +1,9 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 
 import { Footer } from '../../../../components/footer/Component';
-import { ResponsiveContext } from '../../../../ResponsiveContext';
 import { FooterPresetTypes } from '../../../constants/footerPresetTypes';
 import { TModalFooterPreset } from '../../../types/typings';
 
@@ -16,28 +15,31 @@ type ModalFooterPresetProps = {
 
 export const ModalFooterPreset: FC<ModalFooterPresetProps> = (props) => {
     const { preset } = props;
-    const { modalWidth = 0 } = useContext(ResponsiveContext) || {};
 
     if (preset) {
-        const { type, labelLeft, labelRight, layout } = preset;
+        const { type, labelLeft, labelRight, layout, bigButton } = preset;
 
         if (type === FooterPresetTypes.FOOTER_WITH_CONTENT) {
             return (
                 <Footer className={cn(styles.container)} sticky={true} layout={layout}>
-                    <Button
-                        size={modalWidth >= 800 ? 56 : 48}
-                        view='primary'
-                        onClick={preset.onClickLabelLeft}
-                    >
-                        {labelLeft}
-                    </Button>
-                    <Button
-                        size={modalWidth >= 800 ? 56 : 48}
-                        view='secondary'
-                        onClick={preset.onClickLabelRight}
-                    >
-                        {labelRight}
-                    </Button>
+                    {labelLeft && (
+                        <Button
+                            size={bigButton ? 56 : 48}
+                            view='primary'
+                            onClick={preset.onClickLabelLeft}
+                        >
+                            {labelLeft}
+                        </Button>
+                    )}
+                    {labelRight && (
+                        <Button
+                            size={bigButton ? 56 : 48}
+                            view='secondary'
+                            onClick={preset.onClickLabelRight}
+                        >
+                            {labelRight}
+                        </Button>
+                    )}
                 </Footer>
             );
         }
