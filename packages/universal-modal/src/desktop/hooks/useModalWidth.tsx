@@ -17,7 +17,6 @@ export const useModalWidth = (
     useEffect(() => {
         if (ref.current) {
             let viewportWidth = 0;
-            const modalSideGap = 12;
 
             if (isClient()) {
                 viewportWidth = Math.max(
@@ -26,9 +25,8 @@ export const useModalWidth = (
                 );
             }
 
-            const fullWidth = viewportWidth - modalSideGap * 2;
             const computedWidth =
-                width > viewportWidth || width === 'fullWidth' ? fullWidth : width;
+                width > viewportWidth || width === 'fullWidth' ? viewportWidth : width;
 
             if (!Number.isNaN(parseFloat(String(computedWidth)))) {
                 ref.current.style.width = `${parseFloat(String(computedWidth))}px`;

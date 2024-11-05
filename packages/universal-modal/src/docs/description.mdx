@@ -870,8 +870,13 @@ render(() => {
         if (!dialogRef.current) {
             dialogRef.current = document.querySelector('div[role="dialog"]');
         }
+
         if (dialogRef.current) {
             setDialogWidth(dialogRef.current.clientWidth);
+        }
+
+        return () => {
+            dialogRef.current = null;
         }
     });
 
@@ -966,7 +971,7 @@ render(() => {
                         size={48}
                         view='primary'
                         onClick={handleIncrease}
-                        disabled={modalWidth >= dialogWidth}
+                        disabled={modalWidth > dialogWidth && dialogWidth !== 0}
                     >
                         Увеличить
                     </Button>
