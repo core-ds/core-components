@@ -50,7 +50,7 @@ export type GalleryProps = {
     onSlideIndexChange?: (index: number) => void;
 
     /**
-     * Дополнительный класс для попапа для добавления класса по appId
+     * Дополнительный класс для попапа
      */
     popupClassName?: string;
 };
