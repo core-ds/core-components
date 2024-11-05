@@ -1,5 +1,6 @@
 @import '../../../../../../vars/src/index.css';
 
 .button.button {
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-bg-primary-alpha-40);
+    backdrop-filter: blur(10px);
 }

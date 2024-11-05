@@ -64,8 +64,9 @@ export const Header: FC<HeaderProps> = ({
             {...restProps}
             sticky={sticky}
             title={title}
+            {...(!hasContent && { backgroundColor: 'none' })}
             className={cn(styles.header, className, {
-                [styles.highlighted]: sticky && isHighlighted,
+                [styles.highlighted]: sticky && isHighlighted && hasContent,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
