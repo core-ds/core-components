@@ -5,3 +5,7 @@
     width: 24px;
     height: 24px;
 }
+
+.icon {
+    fill: var(--color-light-neutral-translucent-700);
+}

@@ -16,7 +16,7 @@ export const ArrowButtonMobile: FC<ArrowButtonDesktopProps> = (props) => {
         <Button
             shape='rounded'
             size={32}
-            leftAddons={<ChevronLeftMIcon />}
+            leftAddons={<ChevronLeftMIcon className={styles.icon} />}
             className={styles.button}
             onClick={onClick}
         />

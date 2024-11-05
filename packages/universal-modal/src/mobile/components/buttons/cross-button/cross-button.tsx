@@ -14,7 +14,7 @@ export const CrossButtonMobile: FC<CrossButtonProps> = (props) => {
 
     return (
         <Button
-            leftAddons={<CrossMIcon />}
+            leftAddons={<CrossMIcon className={styles.icon} />}
             size={32}
             shape='rounded'
             className={styles.button}
