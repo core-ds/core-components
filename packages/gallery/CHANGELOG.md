@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.3
+    -   tooltip@7.7.1
+
 ## 5.9.0
 
 ### Minor Changes

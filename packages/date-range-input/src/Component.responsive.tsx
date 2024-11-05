@@ -2,8 +2,7 @@ import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { InputProps } from '@alfalab/core-components-input';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
-import { useMedia } from '@alfalab/hooks';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { ConditionalProps, DateRangeInputProps } from './components/date-range-input';
 import { DateRangeInputDesktop } from './desktop';
@@ -19,6 +18,11 @@ export type DateRangeInputResponsiveProps = Omit<
          * @default 1024
          */
         breakpoint?: number;
+
+        /**
+         * Версия, которая будет использоваться при серверном рендеринге
+         */
+        client?: 'desktop' | 'mobile';
     };
 
 export type DateRangeInputMedia = 'desktop' | 'mobile';
@@ -28,16 +32,10 @@ export type DateRangeInputMedia = 'desktop' | 'mobile';
  * use UniversalDateInput instead
  */
 export const DateRangeInputResponsive = forwardRef<HTMLInputElement, DateRangeInputResponsiveProps>(
-    ({ breakpoint = getComponentBreakpoint(), ...restProps }, ref) => {
-        const [view] = useMedia<DateRangeInputMedia>(
-            [
-                ['mobile', `(max-width: ${breakpoint - 1}px)`],
-                ['desktop', `(min-width: ${breakpoint}px)`],
-            ],
-            'desktop',
-        );
+    ({ breakpoint, client, ...restProps }, ref) => {
+        const isDesktop = useIsDesktop(breakpoint, client === 'desktop');
 
-        return view === 'desktop' ? (
+        return isDesktop ? (
             <DateRangeInputDesktop {...restProps} ref={ref} />
         ) : (
             <DateRangeInputMobile {...restProps} ref={ref} />

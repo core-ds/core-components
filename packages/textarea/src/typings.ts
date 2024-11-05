@@ -158,6 +158,11 @@ export type TextareaIncomeProps = {
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
      * Ref для обертки textarea
      */
     wrapperRef?: React.Ref<HTMLDivElement> | null;

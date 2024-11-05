@@ -11,6 +11,7 @@
             "@alfalab/core-components-input/*": ["../input/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
@@ -21,5 +22,6 @@
         { "path": "../popover" },
         { "path": "../shared" },
         { "path": "../modal" },
+        { "path": "../mq" }
     ]
 }

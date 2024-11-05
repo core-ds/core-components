@@ -10,13 +10,15 @@
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
     "references": [
-      { "path": "../select" },
-      { "path": "../button" },
-      { "path": "../popover" },
-      { "path": "../shared" },
+        { "path": "../select" },
+        { "path": "../button" },
+        { "path": "../popover" },
+        { "path": "../shared" },
+        { "path": "../mq" }
     ]
 }

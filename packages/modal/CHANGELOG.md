@@ -1,5 +1,12 @@
 # Change Log
 
+## 9.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.3
+
 ## 9.8.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { TabListProps } from '../typings';
 
@@ -11,20 +11,26 @@ export const useTablistTitles = ({
     titles = [],
     selectedId,
     collapsedTabsIds,
-    breakpoint,
     onChange,
-    defaultMatchMediaValue,
+    breakpoint,
+    client,
+    defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
 }: Pick<
     TabListProps,
-    'titles' | 'selectedId' | 'collapsedTabsIds' | 'onChange' | 'defaultMatchMediaValue'
-> &
-    Required<Pick<TabListProps, 'breakpoint'>>) => {
+    | 'titles'
+    | 'selectedId'
+    | 'collapsedTabsIds'
+    | 'onChange'
+    | 'defaultMatchMediaValue'
+    | 'breakpoint'
+    | 'client'
+>) => {
     const { containerRef, addonRef, idsCollapsedElements } = useCollapsibleElements<
         HTMLDivElement,
         HTMLInputElement
     >('[role=tab]', [titles, collapsedTabsIds]);
 
-    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
     const tablistTitles = useMemo(() => {
         const idsCollapsedTitles: string[] = [];
