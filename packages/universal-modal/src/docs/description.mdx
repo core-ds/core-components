@@ -125,6 +125,17 @@ render(() => {
         setHeaderType(state);
     };
 
+    const getButtonSize = () => {
+        if (horizontalAlign !== 'center') {
+            return 56;
+        } else {
+            if (modalWidth >= 800) {
+                return 56;
+            }
+            return 48;
+        }
+    };
+
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
@@ -309,7 +320,7 @@ render(() => {
                     {...(headerButtonCross && {
                         rightAddons: <CrossButtonDesktop onClick={() => setOpen(false)} />,
                     })}
-                ></UniversalModalDesktop.Header>
+                />
                 <UniversalModalDesktop.Content>
                     {contentTitle && (
                         <Typography.Title view='medium' font='system'>
@@ -392,13 +403,21 @@ render(() => {
                         layout={verticalFooterButtons ? 'column' : 'start'}
                     >
                         {mainFooterButton && (
-                            <Button size={48} view='primary' block={stretchFooterButtons}>
+                            <Button
+                                size={getButtonSize()}
+                                view='primary'
+                                block={stretchFooterButtons}
+                            >
                                 Primary
                             </Button>
                         )}
 
                         {additionalFooterButton && (
-                            <Button size={48} view='secondary' block={stretchFooterButtons}>
+                            <Button
+                                size={getButtonSize()}
+                                view='secondary'
+                                block={stretchFooterButtons}
+                            >
                                 Secondary
                             </Button>
                         )}
