@@ -2,7 +2,7 @@
 
 Modal построен как Compound Components. Состоит из компонентов Header, Content и Footer, содержащих в себе кастомизируемые слоты.
 
-```jsx live mobileHeight={500}
+```jsx live mobileHeight={640}
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -35,6 +35,7 @@ render(() => {
             height: '100%',
             ...dashedBackground,
         },
+        flex: 1,
     };
 
     const footerAnatomyStyles = {
@@ -643,13 +644,13 @@ render(() => {
                         layout={verticalFooterButtons ? 'column' : 'start'}
                     >
                         {mainFooterButton && (
-                            <Button size={48} view='primary' block={true}>
+                            <Button size={56} view='primary' block={true}>
                                 Primary
                             </Button>
                         )}
 
                         {additionalFooterButton && (
-                            <Button size={48} view='secondary' block={true}>
+                            <Button size={56} view='secondary' block={true}>
                                 Secondary
                             </Button>
                         )}
@@ -1164,7 +1165,7 @@ render(() => {
                 </UniversalModalMobile.Content>
                 <UniversalModalMobile.Footer sticky={true} layout='start'>
                     <Button
-                        size={48}
+                        size={56}
                         view='primary'
                         onClick={handleNextButtonClick}
                         block={isMobile()}
