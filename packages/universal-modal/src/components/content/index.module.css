@@ -5,7 +5,7 @@
     box-sizing: border-box;
     width: 100%;
     z-index: 0;
-    padding: var(--gap-32) var(--gap-32) var(--gap-20);
+    padding: var(--gap-32) var(--gap-32) var(--gap-32);
 
     &.withHeader {
         padding-top: var(--gap-0);

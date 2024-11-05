@@ -56,6 +56,10 @@ export const Footer: FC<FooterProps> = ({
 
     useEffect(() => {
         setHasFooter(true);
+
+        return () => {
+            setHasFooter(false);
+        };
     }, [setHasFooter]);
 
     // custom scroll ломает highlight логику в base-modal, поэтому для десктопа обрабатываем самостоятельно
