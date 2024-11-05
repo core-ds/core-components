@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.8.4
+
+### Patch Changes
+
+<sup><time>05.11.2024</time></sup>
+
+### [#1430](https://github.com/core-ds/core-components/pull/1430)
+
+-   Icon-view: в компоненте ellipse восстановлен случайно удалённый вариант; пропсы: size: 40, topAddond: on
+
 ## 3.8.3
 
 ### Patch Changes
