@@ -2,7 +2,7 @@ import { HeaderPresetTypesMobile } from '../../constants/headerPresetTypesMobile
 
 type GetHeaderWithTitleWithSubtitleProps = {
     title: string;
-    subtitle: string;
+    subtitle?: string;
 };
 
 export const getHeaderWithTitleWithSubtitleMobile = ({

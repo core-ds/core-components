@@ -3,8 +3,8 @@ import { fnUtils } from '@alfalab/core-components-shared';
 import { FooterPresetTypesMobile } from '../../constants/footerPresetTypesMobile';
 
 type GetFooterWithContentMobileProps = {
-    labelLeft: string;
-    labelRight: string;
+    labelLeft?: string;
+    labelRight?: string;
     layout?: 'start' | 'column';
     onClickLabelLeft: () => void;
     onClickLabelRight: () => void;

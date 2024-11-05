@@ -54,7 +54,7 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
                 <Header
                     sticky={true}
                     title={title}
-                    subtitle={subtitle}
+                    {...(subtitle && { subtitle })}
                     rightAddons={<CrossButtonMobile onClick={onClose} />}
                     align='left'
                     contentWrapperClassName={styles.withTitleWithSubtitleContentWrapper}
