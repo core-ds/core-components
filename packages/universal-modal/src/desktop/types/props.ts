@@ -1,7 +1,7 @@
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
 
-import { TMargin, TModalFooterPreset, TModalHeaderPreset } from './typings';
+import { TMargin } from './typings';
 
 export type BaseUniversalModalProps = {
     /**
@@ -59,11 +59,7 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
 
 export type ModalBySideProps = UniversalModalDesktopProps &
     Pick<DrawerProps, 'contentTransitionProps'> &
-    Pick<BaseModalProps, 'wrapperClassName' | 'className'> &
-    TModalHeaderPreset &
-    TModalFooterPreset;
+    Pick<BaseModalProps, 'wrapperClassName' | 'className'>;
 
 export type ModalByCenterProps = UniversalModalDesktopProps &
-    Pick<BaseModalProps, 'transitionProps' | 'className'> &
-    TModalHeaderPreset &
-    TModalFooterPreset;
+    Pick<BaseModalProps, 'transitionProps' | 'className'>;

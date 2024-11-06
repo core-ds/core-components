@@ -5,17 +5,11 @@ import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import { ResponsiveContext } from '../../../ResponsiveContext';
 import { SCROLLBAR_DEFAULT_GAP } from '../../constants/types';
-import { ModalByCenterProps } from '../../types/props';
-import { ModalCustomFooter } from '../customs/modal-custom-footer/modalCustomFooter';
-import { ModalCustomHeader } from '../customs/modal-custom-header/modalCustomHeader';
 
 import styles from './base-universal-modal-content.module.css';
 
 type BaseUniversalModalContentProps = {
-    preset: ModalByCenterProps['preset'];
-    footerPreset: ModalByCenterProps['footerPreset'];
     wheelDeltaY: number;
-    onClose?: () => void;
 } & Pick<BaseModalProps, 'children'>;
 
 /**
@@ -23,7 +17,7 @@ type BaseUniversalModalContentProps = {
  * Этот компонент содержит общий код передаваемый в эти сущности.
  */
 export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (props) => {
-    const { preset, footerPreset, children, wheelDeltaY, onClose } = props;
+    const { children, wheelDeltaY } = props;
     const { setModalHeaderHighlighted, setModalFooterHighlighted } =
         useContext(ResponsiveContext) || {};
 
@@ -169,9 +163,7 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
             }}
             onContentScroll={handleScroll}
         >
-            <ModalCustomHeader preset={preset} onClose={onClose} />
             {children}
-            <ModalCustomFooter preset={footerPreset} />
         </Scrollbar>
     );
 };

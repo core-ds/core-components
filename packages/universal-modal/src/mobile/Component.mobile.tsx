@@ -10,27 +10,13 @@ import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
-import { ModalCustomFooterMobile } from './components/customs/modal-custom-footer/modalCustomFooterMobile';
-import { ModalCustomHeaderMobile } from './components/customs/modal-custom-header/modalCustomHeaderMobile';
 import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
 
 const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
-    (
-        {
-            children,
-            className,
-            transitionProps,
-            dataTestId,
-            preset,
-            footerPreset,
-            onClose,
-            ...restProps
-        },
-        ref,
-    ) => {
+    ({ children, className, transitionProps, dataTestId, onClose, ...restProps }, ref) => {
         const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
         const contextValue = useMemo<TResponsiveModalContext>(
             () => ({
@@ -55,9 +41,7 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                 scrollHandler='content'
                 contentClassName={styles.content}
             >
-                <ModalCustomHeaderMobile preset={preset} onClose={onClose} />
                 {children}
-                <ModalCustomFooterMobile preset={footerPreset} />
             </BaseModal>
         );
 

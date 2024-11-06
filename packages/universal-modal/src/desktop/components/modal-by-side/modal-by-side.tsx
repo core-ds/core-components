@@ -28,8 +28,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         children,
         margin = [0],
         overlay = true,
-        preset,
-        footerPreset,
         onClose,
         ...restProps
     } = props;
@@ -111,12 +109,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                 transitionProps={{ timeout: 200 }}
                 onClose={onClose}
             >
-                <BaseUniversalModalContent
-                    preset={preset}
-                    footerPreset={footerPreset}
-                    wheelDeltaY={wheelDeltaY}
-                    onClose={onClose}
-                >
+                <BaseUniversalModalContent wheelDeltaY={wheelDeltaY}>
                     {children}
                 </BaseUniversalModalContent>
             </Drawer>

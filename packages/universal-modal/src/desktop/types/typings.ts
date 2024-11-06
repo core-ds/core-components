@@ -1,6 +1,3 @@
-import { FooterPresetTypes } from '../constants/footerPresetTypes';
-import { HeaderPresetTypes } from '../constants/headerPresetTypes';
-
 export type TMargin =
     | 0
     | 2
@@ -20,24 +17,3 @@ export type TMargin =
     | 96
     | 128
     | 'auto';
-
-export type TModalHeaderPreset = {
-    preset?: {
-        type: (typeof HeaderPresetTypes)[keyof typeof HeaderPresetTypes];
-        title?: string;
-        bigTitle?: boolean;
-        onBack?: () => void;
-    };
-};
-
-export type TModalFooterPreset = {
-    footerPreset?: {
-        type: (typeof FooterPresetTypes)[keyof typeof FooterPresetTypes];
-        labelLeft?: string;
-        labelRight?: string;
-        layout?: 'start' | 'column';
-        bigButton?: boolean;
-        onClickLabelLeft: () => void;
-        onClickLabelRight: () => void;
-    };
-};

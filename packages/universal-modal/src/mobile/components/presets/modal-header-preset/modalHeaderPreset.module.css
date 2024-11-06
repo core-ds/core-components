@@ -1,6 +1,0 @@
-@import '../../../../../../vars/src/index.css';
-
-.withBackArrowWithCenterTitle {
-    @mixin headline-system-mobile_small;
-    padding-left: var(--gap-8);
-}

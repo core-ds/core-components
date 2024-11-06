@@ -1,6 +1,0 @@
-@import '../../../../../../vars/src/index.css';
-
-.container {
-    padding: var(--gap-16) var(--gap-32) var(--gap-24);
-    bottom: 0;
-}
