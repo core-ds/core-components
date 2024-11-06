@@ -9,29 +9,13 @@
     top: var(--gap-0);
 }
 
-.bottomAddons {
-    @mixin headline-system_small;
-    padding-left: var(--gap-12);
-    margin-bottom: 10px;
-
-    &.medium {
-        @mixin headline-system_medium;
-        margin-bottom: var(--gap-16);
-    }
-}
-
-.contentWrapper.contentWrapper {
-    padding: 0 0 0 var(--gap-12);
-}
-
+.bottomAddons,
 .headerTitle {
     @mixin headline-system_small;
+    padding-left: var(--gap-12);
+    background-color: tomato;
 
     &.medium {
         @mixin headline-system_medium;
-    }
-
-    &.lineClamp {
-        @mixin row_limit 2;
     }
 }

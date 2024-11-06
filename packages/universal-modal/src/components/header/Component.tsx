@@ -1,7 +1,10 @@
 import React, { FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+import {
+    NavigationBarPrivate,
+    NavigationBarPrivateProps,
+} from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
@@ -11,18 +14,12 @@ import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'> & {
+export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'> & {
     /**
      * Заголовок в шапке крупного размера
      * @default false
      */
     bigTitle?: boolean;
-
-    /**
-     * Перенос заголовка на вторую строку
-     * @default false
-     */
-    lineClamp?: boolean;
 };
 
 export const Header: FC<HeaderProps> = ({
@@ -32,10 +29,10 @@ export const Header: FC<HeaderProps> = ({
     title,
     sticky,
     bigTitle = false,
-    lineClamp = false,
+    titleClassName,
     ...restProps
 }) => {
-    const { setHasHeader, headerHighlighted } = useContext(ModalContext);
+    const { setHasHeader, headerHighlighted, componentRef } = useContext(ModalContext);
     const {
         view = 'desktop',
         dataTestId,
@@ -58,13 +55,13 @@ export const Header: FC<HeaderProps> = ({
     }, [headerHighlighted, setModalHeaderHighlighted, view]);
 
     return (
-        <NavigationBar
+        <NavigationBarPrivate
+            view={view}
             dataTestId={getDataTestId(dataTestId, 'header')}
             dataName='modalHeaderDesktop'
             {...restProps}
             sticky={sticky}
             title={title}
-            {...(!hasContent && { backgroundColor: 'none' })}
             className={cn(styles.header, className, {
                 [styles.highlighted]: sticky && isHighlighted && hasContent,
                 [styles.sticky]: sticky,
@@ -72,10 +69,6 @@ export const Header: FC<HeaderProps> = ({
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
                 [mobileStyles.header]: view === 'mobile',
-            })}
-            contentWrapperClassName={cn({
-                [desktopStyles.contentWrapper]: view === 'desktop',
-                [mobileStyles.contentWrapper]: view === 'mobile',
             })}
             contentClassName={cn(contentClassName, {
                 [desktopStyles.content]: view === 'desktop',
@@ -86,14 +79,13 @@ export const Header: FC<HeaderProps> = ({
                 [desktopStyles.medium]: view === 'desktop' && bigTitle,
                 [mobileStyles.bottomAddons]: view === 'mobile',
             })}
-            leftAddonsClassName={styles.leftAddons}
-            rightAddonsClassName={styles.rightAddons}
-            titleClassName={cn(desktopStyles.headerTitle, {
+            scrollableParentRef={componentRef}
+            titleClassName={cn({
+                [desktopStyles.headerTitle]: view === 'desktop',
                 [desktopStyles.medium]: bigTitle,
-                [desktopStyles.lineClamp]: lineClamp,
             })}
         >
             {children}
-        </NavigationBar>
+        </NavigationBarPrivate>
     );
 };

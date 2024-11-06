@@ -8,7 +8,6 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-navigation-bar/*": ["../navigation-bar/src/*"],
         }
     },
     "references": [
@@ -17,7 +16,7 @@
         { "path": "../button" },
         { "path": "../icon-button" },
         { "path": "../mq" },
-        { "path": "../navigation-bar" },
+        { "path": "../navigation-bar-private" },
         { "path": "../shared" },
         { "path": "../scrollbar" },
         { "path": "../typography" },

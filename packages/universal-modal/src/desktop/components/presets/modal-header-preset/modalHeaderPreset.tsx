@@ -27,13 +27,12 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                     sticky={true}
                     leftAddons={<ArrowButtonDesktop onClick={preset.onBack} />}
                     rightAddons={<CrossButtonDesktop onClick={onClose} />}
-                    backgroundColor='transparent'
                 />
             );
         }
 
         if (type === HeaderPresetTypes.HEADER_WITH_NAVIGATION_WITH_TITLE) {
-            const { title, bigTitle, lineClamp } = preset;
+            const { title, bigTitle } = preset;
 
             return (
                 <Header
@@ -42,14 +41,13 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                     leftAddons={<ArrowButtonDesktop onClick={preset.onBack} />}
                     rightAddons={<CrossButtonDesktop onClick={onClose} />}
                     bottomAddons={title}
-                    lineClamp={lineClamp}
                     bigTitle={bigTitle}
                 />
             );
         }
 
         if (type === HeaderPresetTypes.HEADER_WITH_TITLE) {
-            const { title, bigTitle, lineClamp } = preset;
+            const { title, bigTitle } = preset;
 
             return (
                 <Header
@@ -57,7 +55,6 @@ export const ModalHeaderPreset: FC<HeaderPresetProps> = (props) => {
                     title={title}
                     align='left'
                     rightAddons={<CrossButtonDesktop onClick={onClose} />}
-                    lineClamp={lineClamp}
                     bigTitle={bigTitle}
                 />
             );

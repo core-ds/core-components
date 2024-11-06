@@ -4,7 +4,3 @@
     @mixin headline-system-mobile_small;
     padding-left: var(--gap-8);
 }
-
-.withTitleWithSubtitleContentWrapper.withTitleWithSubtitleContentWrapper {
-    padding: 0;
-}

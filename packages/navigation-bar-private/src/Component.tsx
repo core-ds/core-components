@@ -43,6 +43,8 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             scrollableParentRef,
             sticky,
             onBack,
+            dataName,
+            titleClassName,
         },
         ref,
     ) => {
@@ -157,13 +159,20 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                     {children && <div className={styles.children}>{children}</div>}
                     {title && (
                         <div
-                            className={styles.title}
+                            className={cn(styles.title, titleClassName)}
                             data-test-id={hidden ? undefined : getDataTestId(dataTestId, 'title')}
                         >
                             {title}
                         </div>
                     )}
-                    {compactTitle && subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+                    {compactTitle && subtitle && (
+                        <div
+                            className={styles.subtitle}
+                            data-test-id={getDataTestId(dataTestId, 'subtitle')}
+                        >
+                            {subtitle}
+                        </div>
+                    )}
                 </div>
             );
         };
@@ -191,6 +200,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                             top: -bottomContentRef.current.scrollHeight,
                         }),
                 }}
+                data-name={dataName}
             >
                 <div
                     className={cn(styles.mainLine, {

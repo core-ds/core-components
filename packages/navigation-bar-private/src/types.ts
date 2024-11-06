@@ -133,6 +133,16 @@ export type NavigationBarPrivateProps = {
      * Ссылка на родительскую ноду overflow: auto
      */
     scrollableParentRef?: React.RefObject<HTMLDivElement>;
+
+    /**
+     * Data атрибут для компонента
+     */
+    dataName?: string;
+
+    /**
+     * Дополнительный класс для title
+     */
+    titleClassName?: string;
 };
 
 export type ContentParams = {

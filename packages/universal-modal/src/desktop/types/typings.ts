@@ -26,7 +26,6 @@ export type TModalHeaderPreset = {
         type: (typeof HeaderPresetTypes)[keyof typeof HeaderPresetTypes];
         title?: string;
         bigTitle?: boolean;
-        lineClamp?: boolean;
         onBack?: () => void;
     };
 };

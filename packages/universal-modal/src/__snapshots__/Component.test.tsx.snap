@@ -49,18 +49,18 @@ exports[`UniversalModal UniversalModalDesktop snapshot 1`] = `
                     class="content scrollbarContainer"
                   >
                     <div
-                      class="component header hasContent"
+                      class="header header hasContent"
                       data-name="modalHeaderDesktop"
                     >
                       <div
-                        class="mainLine center"
+                        class="mainLine"
                       >
                         <div
-                          class="content center"
-                          style="margin-left: 0px; margin-right: 0px;"
+                          class="content left trim"
+                          style="visibility: visible;"
                         >
                           <div
-                            class="title headerTitle center"
+                            class="title headerTitle"
                           >
                             Title
                           </div>
@@ -126,18 +126,18 @@ exports[`UniversalModal UniversalModalMobile snapshot 1`] = `
       class="content content"
     >
       <div
-        class="component header hasContent header"
+        class="header header hasContent header"
         data-name="modalHeaderDesktop"
       >
         <div
-          class="mainLine center content"
+          class="mainLine"
         >
           <div
-            class="content contentWrapper center"
-            style="margin-left: 0px; margin-right: 0px;"
+            class="content content left trim"
+            style="visibility: visible;"
           >
             <div
-              class="title headerTitle center"
+              class="title"
             >
               Title
             </div>
@@ -174,18 +174,18 @@ exports[`UniversalModal UniversalModalResponsive snapshot 1`] = `
       class="content content"
     >
       <div
-        class="component header hasContent header"
+        class="header header hasContent header"
         data-name="modalHeaderDesktop"
       >
         <div
-          class="mainLine center content"
+          class="mainLine"
         >
           <div
-            class="content contentWrapper center"
-            style="margin-left: 0px; margin-right: 0px;"
+            class="content content left trim"
+            style="visibility: visible;"
           >
             <div
-              class="title headerTitle center"
+              class="title"
             >
               Title
             </div>

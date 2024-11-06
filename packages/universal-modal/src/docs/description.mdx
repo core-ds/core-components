@@ -553,8 +553,8 @@ render(() => {
                         })}
                     {...(headerButtonArrow && {
                         leftAddons: <ArrowButtonMobile onClick={() => setOpen(false)} />,
-                        align: 'center',
-                        ...(headerTitle && { bottomAddons: 'Почему банк проверяет мои операции?' }),
+                        align: 'left',
+                        ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
                     })}
                     {...(headerButtonCross && {
                         rightAddons: <CrossButtonMobile onClick={() => setOpen(false)} />,

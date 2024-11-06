@@ -27,7 +27,6 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
                     sticky={true}
                     leftAddons={<ArrowButtonMobile onClick={preset.onBack} />}
                     rightAddons={<CrossButtonMobile onClick={onClose} />}
-                    backgroundColor='transparent'
                 />
             );
         }
@@ -57,7 +56,6 @@ export const ModalHeaderPresetMobile: FC<HeaderPresetProps> = (props) => {
                     {...(subtitle && { subtitle })}
                     rightAddons={<CrossButtonMobile onClick={onClose} />}
                     align='left'
-                    contentWrapperClassName={styles.withTitleWithSubtitleContentWrapper}
                 />
             );
         }
