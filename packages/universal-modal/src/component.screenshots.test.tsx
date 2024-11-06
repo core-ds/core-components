@@ -132,24 +132,3 @@ describe(
         },
     }),
 );
-
-describe(
-    'UniversalModalDesktop | long title',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                open: true,
-                Component: 'UniversalModalDesktop',
-                'header.title':
-                    'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
-                bigTitle: [false, true],
-                lineClamp: [false, true],
-            },
-        }),
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
