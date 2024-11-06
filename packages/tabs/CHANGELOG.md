@@ -1,5 +1,57 @@
 # Change Log
 
+## 8.12.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.1
+
+## 8.12.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.0
+    -   icon-button@6.11.0
+    -   picker-button@11.12.0
+
+## 8.11.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.5
+
+## 8.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.4
+
+## 8.11.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.3
+
+## 8.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.11.2
+
 ## 8.11.1
 
 ### Patch Changes

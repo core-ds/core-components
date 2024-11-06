@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.8.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.5.0
+
 ## 5.7.1
 
 ### Patch Changes

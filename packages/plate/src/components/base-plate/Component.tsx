@@ -219,7 +219,16 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
 
         const handleClick = useCallback(
             (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
+                const clickSimilarKeys = ['Enter', ' '].includes(
+                    (event as React.KeyboardEvent<HTMLDivElement>).key,
+                );
+
+                if (event.type !== 'click' && !clickSimilarKeys) {
+                    return;
+                }
+
                 const target = event.target as HTMLDivElement;
+
                 const eventInsideComponent = plateRef.current && plateRef.current.contains(target);
 
                 const eventInsideContent =
@@ -228,15 +237,8 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                 const eventInsideSubAddons =
                     subAddonsRef.current && subAddonsRef.current.contains(target);
 
-                const clickSimilarKeys = ['Enter', ' '].includes(
-                    (event as React.KeyboardEvent<HTMLDivElement>).key,
-                );
-
                 const shouldChangeIsFolded =
-                    eventInsideComponent &&
-                    !eventInsideContent &&
-                    !eventInsideSubAddons &&
-                    (event.type === 'click' || clickSimilarKeys);
+                    eventInsideComponent && !eventInsideContent && !eventInsideSubAddons;
 
                 if (foldable && shouldChangeIsFolded) {
                     if (uncontrolled) {
@@ -277,10 +279,15 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                         [commonStyles.focused]: focused,
                         [commonStyles.isHidden]: hasCloser && isHidden,
                         [commonStyles.isFolded]: foldable && folded,
+
                         [commonStyles.rounded]: rounded,
+                        [styles.rounded]: rounded,
+
                         [commonStyles.rect]: !rounded,
                         [commonStyles.noBorder]: !border,
+
                         [commonStyles.shadow]: shadow,
+                        [styles.shadow]: shadow,
                     },
                     className,
                 )}

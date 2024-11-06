@@ -30,6 +30,6 @@
     "devDependencies": {
         "@types/react-transition-group": "^4.4.5"
     },
-    "themesVersion": "13.4.0",
-    "varsVersion": "9.13.1"
+    "themesVersion": "13.5.0",
+    "varsVersion": "9.15.0"
 }

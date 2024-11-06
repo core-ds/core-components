@@ -30,7 +30,7 @@ describe('CustomPickerButton', () => {
         },
     );
 
-    xit('desktop opened', async () => {
+    it('desktop opened', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'CustomPickerButton',
             subComponentName: 'CustomPickerButtonDesktop',
