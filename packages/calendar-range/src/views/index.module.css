@@ -19,7 +19,7 @@
 
 .static {
     & .calendar {
-        width: 100%;
+        width: var(--calendar-inner-width);
 
         & > div:first-child {
             padding: var(--gap-16) var(--gap-0) var(--gap-12);
@@ -29,4 +29,6 @@
 
 .calendarContainer {
     width: var(--calendar-inner-width);
+    display: flex;
+    justify-content: center;
 }
