@@ -1,5 +1,21 @@
 # Change Log
 
+## 9.15.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1416](https://github.com/core-ds/core-components/pull/1416)
+
+-   Внесены изменения в отступы в компонентах tag и filter-tag (затрагивает все темы)
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
 ## 9.14.0
 
 ### Minor Changes

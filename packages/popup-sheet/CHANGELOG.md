@@ -1,5 +1,19 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.3
+
+## 1.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.0
+
 ## 1.3.6
 
 ### Patch Changes

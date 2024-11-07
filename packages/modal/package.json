@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-modal",
-    "version": "9.7.2",
+    "version": "9.8.1",
     "description": "Modal component",
     "keywords": [],
     "license": "MIT",
@@ -11,8 +11,8 @@
         "directory": "dist"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.8.2",
-        "@alfalab/core-components-navigation-bar-private": "^0.4.3",
+        "@alfalab/core-components-base-modal": "^5.8.3",
+        "@alfalab/core-components-navigation-bar-private": "^0.5.0",
         "@alfalab/core-components-shared": "^0.13.0",
         "@alfalab/core-components-mq": "^4.3.0",
         "classnames": "^2.3.1",
@@ -22,6 +22,6 @@
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "themesVersion": "13.4.0",
-    "varsVersion": "9.14.0"
+    "themesVersion": "13.5.0",
+    "varsVersion": "9.15.0"
 }

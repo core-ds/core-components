@@ -9,7 +9,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
   >
     <button
       aria-label="Предыдущий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
       data-test-id="period-slider-btn-previous-day"
       disabled=""
       type="button"
@@ -43,7 +43,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
     </span>
     <button
       aria-label="Следующий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
       data-test-id="period-slider-btn-next-day"
       disabled=""
       type="button"
@@ -83,7 +83,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
   >
     <button
       aria-label="Предыдущий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
       data-test-id="period-slider-btn-previous-day"
       disabled=""
       type="button"
@@ -117,7 +117,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
     </span>
     <button
       aria-label="Следующий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component"
+      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
       data-test-id="period-slider-btn-next-day"
       disabled=""
       type="button"

@@ -1,5 +1,29 @@
 # Change Log
 
+## 7.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.8.1
+
+## 7.15.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   icon-button@6.11.0
+    -   modal@9.8.0
+
 ## 7.14.2
 
 ### Patch Changes

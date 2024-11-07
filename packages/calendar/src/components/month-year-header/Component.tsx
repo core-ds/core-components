@@ -7,6 +7,7 @@ import { monthName } from '../../utils';
 import { SelectButton } from '../select-button';
 
 import styles from './index.module.css';
+import mobileStyles from './mobile.module.css';
 
 export type MonthYearHeaderProps = {
     /**
@@ -33,6 +34,11 @@ export type MonthYearHeaderProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Мобильная версия компонента
+     */
+    mobile?: boolean;
 };
 
 export const MonthYearHeader: FC<MonthYearHeaderProps> = ({
@@ -41,19 +47,24 @@ export const MonthYearHeader: FC<MonthYearHeaderProps> = ({
     onMonthClick,
     onYearClick,
     dataTestId,
+    mobile,
 }) => {
     const month = value ? monthName(value) : undefined;
     const year = value ? value.getFullYear().toString() : undefined;
 
     return (
         <div
-            className={cn(styles.component, className)}
+            className={cn(styles.component, className, {
+                [mobileStyles.component]: mobile,
+            })}
             aria-live='polite'
             data-test-id={dataTestId}
         >
             <SelectButton
                 view='filled'
-                className={cn(styles.button, styles.month)}
+                className={cn(styles.button, styles.month, {
+                    [mobileStyles.button]: mobile,
+                })}
                 onClick={onMonthClick}
             >
                 <span className={styles.buttonContent}>
@@ -63,7 +74,9 @@ export const MonthYearHeader: FC<MonthYearHeaderProps> = ({
             </SelectButton>
             <SelectButton
                 view='filled'
-                className={cn(styles.button, styles.year)}
+                className={cn(styles.button, styles.year, {
+                    [mobileStyles.button]: mobile,
+                })}
                 onClick={onYearClick}
             >
                 <span className={styles.buttonContent}>

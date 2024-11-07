@@ -24,7 +24,7 @@
     --confirmation-input-font-weight: 700;
     --confirmation-input-font-family: var(--font-family-system);
     --confirmation-input-text-color: var(--color-light-text-primary);
-    --confirmation-input-bg-color: var(--color-light-base-bg-secondary);
+    --confirmation-input-bg-color: var(--color-light-neutral-translucent-300);
     --confirmation-input-error-bg-color: var(--color-light-status-muted-negative);
 }
 

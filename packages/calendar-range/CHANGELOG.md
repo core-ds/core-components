@@ -1,5 +1,30 @@
 # Change Log
 
+## 7.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.1
+    -   calendar-input@10.4.4
+
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.0
+    -   calendar-input@10.4.3
+    -   date-input@4.4.5
+
 ## 7.6.3
 
 ### Patch Changes

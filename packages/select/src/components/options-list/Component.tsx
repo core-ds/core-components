@@ -85,14 +85,17 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const scrollbarRef = useRef<HTMLDivElement>(null);
         const counter = createCounter();
         const renderGroup = (group: GroupShape) => {
-            const groupSelectedItems = selectedItems?.filter((item) =>
-                group.options.includes(item),
+            const groupSelectedItems = selectedItems?.filter(({ key: selectedItemKey }) =>
+                group.options.some((option) => option.key === selectedItemKey),
             );
             const handleSelectedItems = (items: OptionShape[]) => {
                 setSelectedItems(
-                    (selectedItems?.filter((item) => !group.options.includes(item)) ?? []).concat(
-                        items,
-                    ),
+                    (
+                        selectedItems?.filter(
+                            ({ key: selectedItemKey }) =>
+                                !group.options.some((option) => option.key === selectedItemKey),
+                        ) ?? []
+                    ).concat(items),
                 );
             };
 

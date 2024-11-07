@@ -1,5 +1,43 @@
 # Change Log
 
+## 17.16.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.3
+    -   bottom-sheet@6.17.8
+    -   modal@9.8.1
+
+## 17.16.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   form-control@12.7.0
+    -   modal@9.8.0
+    -   input@15.2.1
+    -   bottom-sheet@6.17.7
+
+## 17.15.2
+
+### Patch Changes
+
+<sup><time>23.10.2024</time></sup>
+
+### [#1420](https://github.com/core-ds/core-components/pull/1420)
+
+-   Исправление проблемы с выбранными опциями в групповых опциях
+
 ## 17.15.1
 
 ### Patch Changes

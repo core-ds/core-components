@@ -1,5 +1,36 @@
 # Change Log
 
+## 2.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.16.1
+
+## 2.7.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   select@17.16.0
+    -   pagination@2.4.3
+
+## 2.6.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+
 ## 2.6.8
 
 ### Patch Changes

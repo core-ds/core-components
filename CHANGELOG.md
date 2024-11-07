@@ -1,3 +1,115 @@
+## 47.25.2
+
+<sup><time>05.11.2024</time></sup>
+
+### [#1436](https://github.com/core-ds/core-components/pull/1436)
+
+#### Что изменилось
+- Добавление нового класса для попапа в галереи через пропс. Чтобы можно было прокидывать appId для работа изоляции стилей.
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+### [#1430](https://github.com/core-ds/core-components/pull/1430)
+
+#### Что изменилось
+- Icon-view: в компоненте ellipse восстановлен случайно удалённый вариант; пропсы: size: 40, topAddond: on
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1418](https://github.com/core-ds/core-components/pull/1418)
+
+#### Что изменилось
+- Фикс проверки url, переданного в image src, на предмет видео или нет. Когда передавалось base64, регулярка долго выполнялась и компонент крашился.
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
+## 47.25.1
+
+<sup><time>02.11.2024</time></sup>
+
+### [#1432](https://github.com/core-ds/core-components/pull/1432)
+
+#### Что изменилось
+- Исправлен баг с вызовом onClick при любых нажатиях клавиатуры
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#1434](https://github.com/core-ds/core-components/pull/1434)
+
+#### Что изменилось
+- Решает проблему, когда скролл не разблокируется при закрытии модального окна при помощи свойства open={false}
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#1429](https://github.com/core-ds/core-components/pull/1429)
+
+#### Что изменилось
+- Исправлен цвет инпута в соответсвии с актуальной версией компонента
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation-v1`
+
+
+
+## 47.25.0
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1416](https://github.com/core-ds/core-components/pull/1416)
+
+#### Что изменилось
+- Внесены изменения в отступы в компонентах tag и filter-tag (затрагивает все темы)
+
+#### Влияние на компоненты
+- Минорное<br />`filter-tag` `tag` `vars`
+
+
+### [#1412](https://github.com/core-ds/core-components/pull/1412)
+
+#### Что изменилось
+Изменены скругления для десктопной версии
+- `Tooltip` 8 -> 12
+- `Hint` 4 -> 8
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+#### Что изменилось
+- Обновление темы corp
+
+#### Влияние на компоненты
+- Минорное<br />`button` `calendar` `calendar-range` `code-input` `custom-button`<br /> `custom-picker-button` `file-upload-item` `form-control` `gallery` `icon-button`<br /> `input-autocomplete` `international-phone-input` `intl-phone-input` `markdown` `modal`<br /> `navigation-bar-private` `notification` `notification-manager` `password-input` `picker-button`<br /> `plate` `select` `select-with-tags` `side-panel` `space`<br /> `switch` `table` `tabs` `tag` `themes`<br /> `tooltip` `universal-date-input` `vars`
+
+
+
+## 47.24.1
+
+<sup><time>23.10.2024</time></sup>
+
+### [#1420](https://github.com/core-ds/core-components/pull/1420)
+
+#### Что изменилось
+- Исправление проблемы с выбранными опциями в групповых опциях
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
 ## 47.24.0
 
 <sup><time>15.10.2024</time></sup>
