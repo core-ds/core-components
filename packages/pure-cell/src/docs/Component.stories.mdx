@@ -291,7 +291,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -357,7 +357,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -386,6 +386,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             'primary',
         );
         const value = text('value', '100000000');
+        const hidden = boolean('hidden', false);
         return (
             <PureCell
                 href={text('href', '')}
@@ -399,6 +400,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount
+                            hidden={hidden}
                             view={viewAmount}
                             value={value}
                             minorUnits='100'
@@ -438,7 +440,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -469,6 +471,8 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             'primary',
         );
         const value = text('value', '100000000');
+        const hidden = boolean('hidden', false);
+
         return (
             <PureCell
                 href={text('href', '')}
@@ -482,6 +486,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Общий баланс
                         </PureCell.Text>
                         <PureCell.AmountTitle
+                            hidden={hidden}
                             view={viewAmount}
                             value={value}
                             minorUnits='100'
@@ -518,7 +523,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -579,7 +584,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -631,7 +636,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -702,7 +707,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-       
+
        const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -764,7 +769,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -830,7 +835,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -900,7 +905,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -948,7 +953,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
@@ -1069,7 +1074,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             undefined,
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
-        
+
         const horizontalPadding = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],

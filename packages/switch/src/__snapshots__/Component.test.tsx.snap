@@ -13,18 +13,18 @@ Object {
           value=""
         />
         <span
-          class="switch"
+          class="switch switch"
         />
         <span
           class="content"
         >
           <span
-            class="label"
+            class="label label"
           >
             label
           </span>
           <span
-            class="hint"
+            class="hint hint"
           >
             hint
           </span>
@@ -41,18 +41,18 @@ Object {
         value=""
       />
       <span
-        class="switch"
+        class="switch switch"
       />
       <span
         class="content"
       >
         <span
-          class="label"
+          class="label label"
         >
           label
         </span>
         <span
-          class="hint"
+          class="hint hint"
         >
           hint
         </span>
@@ -126,7 +126,7 @@ Object {
           value=""
         />
         <span
-          class="switch"
+          class="switch switch"
         />
       </label>
     </div>
@@ -140,7 +140,7 @@ Object {
         value=""
       />
       <span
-        class="switch"
+        class="switch switch"
       />
     </label>
   </div>,

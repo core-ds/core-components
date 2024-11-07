@@ -152,6 +152,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
                         [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
                         [styles.monospace]: monospaceNumbers,
                         [styles[`rowLimit${rowLimit}`]]: rowLimit,
+                        [styles.transparent]: showSkeleton,
                     },
                     className,
                     color && colors[color],

@@ -1,20 +1,5 @@
 @import '../../../../vars/src/index.css';
-
-:root {
-    /* border */
-    --plate-border-left: 2px;
-    --plate-border-width: 1px;
-    --plate-border-radius: var(--border-radius-12);
-
-    /* width limit */
-
-    --plate-width-limit: 560px;
-
-    /* custom view */
-    --plate-background: transparent;
-    --plate-border-color: var(--color-light-neutral-translucent-700);
-    --plate-box-shadow: var(--shadow-s);
-}
+@import './vars.css';
 
 .component {
     position: relative;
@@ -74,13 +59,6 @@
     display: block;
     box-shadow: var(--plate-box-shadow);
     pointer-events: none;
-}
-
-.rounded {
-    border-radius: var(--plate-border-radius);
-    &.shadow:after {
-        border-radius: var(--plate-border-radius);
-    }
 }
 
 .common {

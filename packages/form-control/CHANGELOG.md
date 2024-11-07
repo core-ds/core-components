@@ -1,5 +1,15 @@
 # Change Log
 
+## 12.7.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
 ## 12.6.0
 
 ### Minor Changes

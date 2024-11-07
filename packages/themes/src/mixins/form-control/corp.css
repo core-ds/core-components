@@ -1,0 +1,7 @@
+@define-mixin form-control-corp {
+    /* border-radius */
+    --form-control-s-border-radius: var(--border-radius-10);
+    --form-control-m-border-radius: var(--border-radius-10);
+    --form-control-l-border-radius: var(--border-radius-12);
+    --form-control-xl-border-radius: var(--border-radius-14);
+}

@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.9.6
+
+### Patch Changes
+
+<sup><time>02.11.2024</time></sup>
+
+### [#1429](https://github.com/core-ds/core-components/pull/1429)
+
+-   Исправлен цвет инпута в соответсвии с актуальной версией компонента
+
+## 1.9.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+
 ## 1.9.4
 
 ### Patch Changes
