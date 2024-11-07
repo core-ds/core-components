@@ -103,10 +103,9 @@ export type CalendarRangeProps = {
     returnInvalidDates?: boolean;
 
     /**
-     * Ширина контейнера календаря
-     * @default 280
+     * Дополнительный класс для контейнера календаря
      */
-    calendarContainerWidth?: number;
+    calendarContainerClassName?: string;
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({

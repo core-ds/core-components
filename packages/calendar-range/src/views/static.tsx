@@ -54,7 +54,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     events,
     returnInvalidDates = false,
     dataTestId,
-    calendarContainerWidth = 280,
+    calendarContainerClassName,
 }) => {
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
     const [inputToValue, setInputToValue] = useState<string>(valueTo);
@@ -281,7 +281,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     block={true}
                 />
                 <div
-                    style={{ width: calendarContainerWidth }}
+                    className={cn(styles.calendarContainer, calendarContainerClassName)}
                     data-test-id={getDataTestId(dataTestId, 'container-from')}
                 >
                     <CalendarFromComponent
@@ -300,7 +300,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                                 : maxDate &&
                                   max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()
                         }
-                        calendarWidth={calendarContainerWidth}
                         {...rangeProps}
                     />
                 </div>
@@ -324,10 +323,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     clear={true}
                     block={true}
                 />
-                <div
-                    style={{ width: calendarContainerWidth }}
-                    data-test-id={getDataTestId(dataTestId, 'container-to')}
-                >
+                <div data-test-id={getDataTestId(dataTestId, 'container-to')}>
                     <CalendarToComponent
                         {...calendarToProps}
                         className={cn(styles.calendar, calendarToProps?.className)}
@@ -343,7 +339,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                                 : minDate && startOfMonth(addMonths(minDate, 1)).getTime()
                         }
                         maxDate={maxDate}
-                        calendarWidth={calendarContainerWidth}
                         {...rangeProps}
                     />
                 </div>

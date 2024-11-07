@@ -572,44 +572,48 @@ describe('CalendarRange', () => {
     });
 
     describe('Calendar container tests', () => {
-        it('should set default calendar-container-from width', () => {
+        it('should set default calendar-container-from class', () => {
             const testId = 'test-id';
             const testIds = getCalendarRangeTestIds(testId);
 
             render(<CalendarRange dataTestId={testId} />);
             const container = screen.getByTestId(testIds.calendarContainerFrom);
 
-            expect(container).toHaveStyle('width: 280px');
+            expect(container).toHaveClass('calendarContainer');
         });
 
-        it('should set default calendar-container-to width', () => {
+        it('should set default calendar-container-to class', () => {
             const testId = 'test-id';
             const testIds = getCalendarRangeTestIds(testId);
 
             render(<CalendarRange dataTestId={testId} />);
             const container = screen.getByTestId(testIds.calendarContainerFrom);
 
-            expect(container).toHaveStyle('width: 280px');
+            expect(container).toHaveClass('calendarContainer');
         });
 
-        it('should set custom calendar-container-from width', () => {
+        it('should set custom calendar-container-from class', () => {
             const testId = 'test-id';
             const testIds = getCalendarRangeTestIds(testId);
 
-            render(<CalendarRange dataTestId={testId} calendarContainerWidth={380} />);
+            render(
+                <CalendarRange dataTestId={testId} calendarContainerClassName={'customClass'} />,
+            );
             const container = screen.getByTestId(testIds.calendarContainerFrom);
 
-            expect(container).toHaveStyle('width: 380px');
+            expect(container).toHaveClass('calendarContainer customClass');
         });
 
-        it('should set custom calendar-container-to width', () => {
+        it('should set custom calendar-container-to class', () => {
             const testId = 'test-id';
             const testIds = getCalendarRangeTestIds(testId);
 
-            render(<CalendarRange dataTestId={testId} calendarContainerWidth={380} />);
+            render(
+                <CalendarRange dataTestId={testId} calendarContainerClassName={'customClass'} />,
+            );
             const container = screen.getByTestId(testIds.calendarContainerFrom);
 
-            expect(container).toHaveStyle('width: 380px');
+            expect(container).toHaveClass('calendarContainer customClass');
         });
     });
 
