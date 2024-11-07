@@ -311,12 +311,21 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 
         const handleInputChange = useCallback(
             (event: React.ChangeEvent<HTMLInputElement>) => {
+                let inputValue = event.target.value;
+                const target = event.target as HTMLInputElement;
+                const inInputTypeNumber = target.getAttribute('type') === 'number';
+                const pattern = /[eE]/g;
+
+                if (inInputTypeNumber && pattern.test(inputValue)) {
+                    inputValue = inputValue.replace(pattern, '');
+                }
+
                 if (onChange) {
-                    onChange(event, { value: event.target.value });
+                    onChange(event, { value: inputValue });
                 }
 
                 if (uncontrolled) {
-                    setStateValue(event.target.value);
+                    setStateValue(inputValue);
                 }
             },
             [onChange, uncontrolled],
@@ -329,9 +338,11 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                  * Это ломает некоторое поведение, поэтому запрещаем ввод символов [eE]
                  * @see DS-6808
                  */
-                const { key } = event;
+                const { key, target } = event;
+                const eventTarget = target as HTMLInputElement;
+                const inInputTypeNumber = eventTarget.getAttribute('type') === 'number';
 
-                if (key === 'e' || key === 'E') {
+                if (inInputTypeNumber && (key === 'e' || key === 'E')) {
                     event.preventDefault();
 
                     return;
