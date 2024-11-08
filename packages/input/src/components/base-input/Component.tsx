@@ -313,10 +313,10 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             (event: React.ChangeEvent<HTMLInputElement>) => {
                 let inputValue = event.target.value;
                 const target = event.target as HTMLInputElement;
-                const inInputTypeNumber = target.getAttribute('type') === 'number';
+                const isInputTypeNumber = target.getAttribute('type') === 'number';
                 const pattern = /[eE]/g;
 
-                if (inInputTypeNumber && pattern.test(inputValue)) {
+                if (isInputTypeNumber && pattern.test(inputValue)) {
                     inputValue = inputValue.replace(pattern, '');
                 }
 
@@ -340,9 +340,9 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                  */
                 const { key, target } = event;
                 const eventTarget = target as HTMLInputElement;
-                const inInputTypeNumber = eventTarget.getAttribute('type') === 'number';
+                const isInputTypeNumber = eventTarget.getAttribute('type') === 'number';
 
-                if (inInputTypeNumber && (key === 'e' || key === 'E')) {
+                if (isInputTypeNumber && (key === 'e' || key === 'E')) {
                     event.preventDefault();
 
                     return;
