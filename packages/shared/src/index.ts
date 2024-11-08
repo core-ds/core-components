@@ -11,3 +11,5 @@ export * from './dom';
 export * from './exhaustiveCheck';
 export * from './context/PortalContext';
 export * from './getComponentBreakpoint';
+export * from './array';
+export * from './object';

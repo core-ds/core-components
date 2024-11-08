@@ -1,0 +1,34 @@
+## Примеры
+
+У компонента есть стандартные размеры: 16, 24 и 48px.
+
+```jsx live
+const SIZES = [16, 24, 48];
+
+render(
+    <NextSelect
+        mode="multiple"
+        optionsListWidth="content"
+        visibleOptions={4}
+        options={[
+        {
+            label: <span>manager</span>,
+            title: 'manager',
+            options: [
+            { label: <span>Jack</span>, value: 'Jack' },
+            { label: <span>Lucy</span>, value: 'Lucy' },
+            ],
+        },
+        {
+            label: <span>engineer</span>,
+            title: 'engineer',
+            options: [
+            { label: <span>Chloe</span>, value: 'Chloe' },
+            { label: <span>Lucas</span>, value: 'Lucas' },
+            { label: <span>Harry</span>, value: 'Harry' },
+            ],
+        },
+        ]}
+    />,
+);
+```
