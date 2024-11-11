@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 
 import { BackArrowAddonProps } from './components/back-arrow-addon';
 import type { CloserProps } from './components/closer';
@@ -143,6 +143,11 @@ export type NavigationBarPrivateProps = {
      * Дополнительный класс для title
      */
     titleClassName?: string;
+
+    /**
+     * Ref для title элемента
+     */
+    titleRef?: RefObject<HTMLDivElement>;
 };
 
 export type ContentParams = {

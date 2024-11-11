@@ -17,4 +17,12 @@
     &.medium {
         @mixin headline-system_medium;
     }
+
+    &.longTitle {
+        padding-bottom: 11px;
+
+        &.medium {
+            padding-bottom: var(--gap-16);
+        }
+    }
 }

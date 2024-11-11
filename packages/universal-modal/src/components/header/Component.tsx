@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import {
@@ -22,6 +22,8 @@ export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'par
     bigTitle?: boolean;
 };
 
+const BASE_TITLE_HEIGHT = 48;
+
 export const Header: FC<HeaderProps> = ({
     className,
     children,
@@ -40,6 +42,9 @@ export const Header: FC<HeaderProps> = ({
         setModalHeaderHighlighted,
     } = useContext(ResponsiveContext) || {};
 
+    const titleRef = useRef<HTMLDivElement>(null);
+    const [titleHeight, setTitleHeight] = useState<number>(0);
+
     const hasContent = Boolean(title || children || restProps.bottomAddons);
     // custom scroll ломает highlight логику в base-modal, поэтому для десктопа обрабатываем самостоятельно
     const isHighlighted = view === 'desktop' ? modalHeaderHighlighted : headerHighlighted;
@@ -54,6 +59,12 @@ export const Header: FC<HeaderProps> = ({
         }
     }, [headerHighlighted, setModalHeaderHighlighted, view]);
 
+    useEffect(() => {
+        if (titleRef.current) {
+            setTitleHeight(titleRef.current.clientHeight);
+        }
+    }, [titleRef]);
+
     return (
         <NavigationBarPrivate
             view={view}
@@ -66,7 +77,9 @@ export const Header: FC<HeaderProps> = ({
                 [styles.highlighted]: sticky && isHighlighted && hasContent,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
+
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
+
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
                 [mobileStyles.header]: view === 'mobile',
             })}
@@ -83,7 +96,9 @@ export const Header: FC<HeaderProps> = ({
             titleClassName={cn({
                 [desktopStyles.headerTitle]: view === 'desktop',
                 [desktopStyles.medium]: bigTitle,
+                [desktopStyles.longTitle]: titleHeight > BASE_TITLE_HEIGHT,
             })}
+            titleRef={titleRef}
         >
             {children}
         </NavigationBarPrivate>

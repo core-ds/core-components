@@ -45,6 +45,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             onBack,
             dataName,
             titleClassName,
+            titleRef,
         },
         ref,
     ) => {
@@ -161,6 +162,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                         <div
                             className={cn(styles.title, titleClassName)}
                             data-test-id={hidden ? undefined : getDataTestId(dataTestId, 'title')}
+                            ref={titleRef}
                         >
                             {title}
                         </div>
