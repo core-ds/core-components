@@ -31,7 +31,13 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
 
     const componentRef = useRef<HTMLDivElement>(null);
 
-    useModalMargin(margin, open, componentRef);
+    useModalMargin({
+        margin,
+        open,
+        componentRef,
+        verticalAlign,
+        horizontalAlign: restProps.horizontalAlign,
+    });
     useModalWidth(width, open, componentRef);
 
     useModalHeight(height, open, componentRef);
@@ -47,7 +53,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
                 classNames: transitionsCenter,
                 ...transitionProps,
             }}
-            className={cn(className, styles.component, styles[verticalAlign], {
+            className={cn(className, styles.component, {
                 [styles.overlayHidden]: !overlay,
             })}
             scrollHandler='content'

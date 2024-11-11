@@ -8,14 +8,6 @@
     border-radius: var(--border-radius-24);
     overflow-x: hidden;
 
-    &.top {
-        margin-top: var(--gap-0);
-    }
-
-    &.bottom {
-        margin-bottom: var(--gap-0);
-    }
-
     &.overlayHidden {
         box-shadow: var(--shadow-m);
     }

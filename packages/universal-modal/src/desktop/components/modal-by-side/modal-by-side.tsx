@@ -35,7 +35,7 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
     const modalRef = useRef<HTMLElement>(null);
     const componentRef = useRef<HTMLDivElement>(null);
 
-    useModalMargin(margin, restProps.open, componentRef);
+    useModalMargin({ margin, open: restProps.open, componentRef, horizontalAlign, verticalAlign });
     useModalWidth(width, restProps.open, componentRef);
 
     useModalHeight(height, restProps.open, componentRef);

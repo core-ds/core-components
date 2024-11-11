@@ -82,8 +82,8 @@ describe('UniversalModal', () => {
         expect(getByTestId(testIds.footer)).toBeInTheDocument();
     });
 
-    describe('desktop margin test', () => {
-        it('margin auto', () => {
+    describe('desktop position test', () => {
+        it('position horizontal=center vertical=center', () => {
             const dti = 'modal-dti';
 
             render(
@@ -92,13 +92,7 @@ describe('UniversalModal', () => {
                     open={true}
                     horizontalAlign={'center'}
                     verticalAlign={'center'}
-                    height={500}
-                    margin={['auto']}
-                >
-                    <UniversalModalDesktop.Header title='Title' />
-                    <UniversalModalDesktop.Content>Content</UniversalModalDesktop.Content>
-                    <UniversalModalDesktop.Footer>Footer</UniversalModalDesktop.Footer>
-                </UniversalModalDesktop>,
+                />,
             );
 
             const testIds = getUniversalModalTestIds(dti);
@@ -106,10 +100,151 @@ describe('UniversalModal', () => {
             expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
                 'margin: auto;',
             );
-            expect(screen.getByTestId(testIds.modal)).toMatchSnapshot();
         });
 
-        it('margin 12', () => {
+        it('position horizontal=center vertical=top', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'top'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'margin: 0 auto auto auto;',
+            );
+        });
+
+        it('position horizontal=center vertical=bottom', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'bottom'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'margin: auto auto 0 auto;',
+            );
+        });
+
+        it('position horizontal=start vertical=center', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'start'}
+                    verticalAlign={'center'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+        });
+
+        it('position horizontal=start vertical=top', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'start'}
+                    verticalAlign={'top'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+        });
+
+        it('position horizontal=start vertical=bottom', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'start'}
+                    verticalAlign={'bottom'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+        });
+
+        it('position horizontal=end vertical=center', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'end'}
+                    verticalAlign={'center'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+        });
+
+        it('position horizontal=end vertical=top', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'end'}
+                    verticalAlign={'top'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+        });
+
+        it('position horizontal=end vertical=bottom', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'end'}
+                    verticalAlign={'bottom'}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+        });
+    });
+
+    describe('desktop position with margin test', () => {
+        it('position horizontal=center vertical=center', () => {
             const dti = 'modal-dti';
 
             render(
@@ -119,11 +254,7 @@ describe('UniversalModal', () => {
                     horizontalAlign={'center'}
                     verticalAlign={'center'}
                     margin={[12]}
-                >
-                    <UniversalModalDesktop.Header title='Title' />
-                    <UniversalModalDesktop.Content>Content</UniversalModalDesktop.Content>
-                    <UniversalModalDesktop.Footer>Footer</UniversalModalDesktop.Footer>
-                </UniversalModalDesktop>,
+                />,
             );
 
             const testIds = getUniversalModalTestIds(dti);
@@ -131,7 +262,154 @@ describe('UniversalModal', () => {
             expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
                 'margin: 12px;',
             );
-            expect(screen.getByTestId(testIds.modal)).toMatchSnapshot();
+        });
+
+        it('position horizontal=center vertical=top', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'top'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'margin: 12px;',
+            );
+        });
+
+        it('position horizontal=center vertical=bottom', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'bottom'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'margin: 12px;',
+            );
+        });
+
+        it('position horizontal=start vertical=center', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'start'}
+                    verticalAlign={'center'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+        });
+
+        it('position horizontal=start vertical=top', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'start'}
+                    verticalAlign={'top'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+        });
+
+        it('position horizontal=start vertical=bottom', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'start'}
+                    verticalAlign={'bottom'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+        });
+
+        it('position horizontal=end vertical=center', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'end'}
+                    verticalAlign={'center'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+        });
+
+        it('position horizontal=end vertical=top', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'end'}
+                    verticalAlign={'top'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+        });
+
+        it('position horizontal=end vertical=bottom', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'end'}
+                    verticalAlign={'bottom'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
         });
     });
 });
