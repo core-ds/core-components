@@ -31,12 +31,16 @@ export const Content: FC<ContentProps> = ({ children, className, dataTestId }) =
     const responsiveContext = useContext(ResponsiveContext);
     const { view = 'desktop' } = responsiveContext || {};
 
+    const isMobile = view === 'mobile';
+
     return (
         <div
             className={cn(styles.content, className, styles.flex, {
                 [styles.withHeader]: hasHeader,
                 [styles.withFooter]: hasFooter,
-                [stylesMobile.content]: view === 'mobile',
+
+                [stylesMobile.content]: isMobile,
+                [stylesMobile.withFooter]: isMobile,
             })}
             ref={contentRef as Ref<HTMLDivElement>}
             data-test-id={dataTestId || getDataTestId(responsiveContext?.dataTestId, 'content')}

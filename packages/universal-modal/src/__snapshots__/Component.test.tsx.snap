@@ -68,7 +68,7 @@ exports[`UniversalModal UniversalModalDesktop snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="content flex withHeader withFooter"
+                      class="content flex withHeader"
                     >
                       Content
                     </div>

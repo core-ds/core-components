@@ -324,9 +324,12 @@ render(() => {
                 />
                 <UniversalModalDesktop.Content>
                     {contentTitle && (
-                        <Typography.Title view='medium' font='system'>
-                            Почему банк проверяет мои операции?
-                        </Typography.Title>
+                        <React.Fragment>
+                            <Typography.Title view='medium' font='system'>
+                                Почему банк проверяет мои операции?
+                            </Typography.Title>
+                            <Gap size={16} />
+                        </React.Fragment>
                     )}
 
                     <Typography.Text tag='p'>
@@ -396,7 +399,13 @@ render(() => {
                             клиента.
                         </Typography.Text>
                     </Collapse>
-                    {contentButton && <Button size={48}>Кнопка</Button>}
+                    {contentButton && (
+                        <React.Fragment>
+                            <Gap size={16} />
+                            <Gap size={24} />
+                            <Button size={48}>Кнопка</Button>
+                        </React.Fragment>
+                    )}
                 </UniversalModalDesktop.Content>
                 {(mainFooterButton || additionalFooterButton) && (
                     <UniversalModalDesktop.Footer
@@ -636,7 +645,12 @@ render(() => {
                             клиента.
                         </Typography.Text>
                     </Collapse>
-                    {contentButton && <Button size={48}>Кнопка</Button>}
+                    {contentButton && (
+                        <React.Fragment>
+                            <Gap size={32} />
+                            <Button size={48}>Кнопка</Button>
+                        </React.Fragment>
+                    )}
                 </UniversalModalMobile.Content>
                 {(mainFooterButton || additionalFooterButton) && (
                     <UniversalModalMobile.Footer
