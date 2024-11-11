@@ -1,3 +1,54 @@
+## 47.26.0
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1424](https://github.com/core-ds/core-components/pull/1424)
+
+#### Что изменилось
+- Пакет HLS добавлен в корневые зависимости библиотеки
+
+#### Влияние на компоненты
+- Минорное<br />`gallery`
+
+
+### [#1402](https://github.com/core-ds/core-components/pull/1402)
+
+#### Что изменилось
+- Изменено поведение пропса `disableUserInput`. Теперь инпут будет получать фокус состояние без каретки ввода.
+
+#### Влияние на компоненты
+- Минорное<br />`input`
+
+
+### [#1438](https://github.com/core-ds/core-components/pull/1438)
+
+#### Что изменилось
+- `modalHeaderProps.bottomAddons` и `bottomSheetProps.bottomAddons` теперь принимают в том числе функцию, возвращающую `React.ReactNode`
+- Исправлены состояния "Выбрать все" при заданном `showHeaderWithSelectAll`
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1437](https://github.com/core-ds/core-components/pull/1437)
+
+#### Что изменилось
+- Добавлены телефонные коды для Абхазии
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+### [#1413](https://github.com/core-ds/core-components/pull/1413)
+
+#### Что изменилось
+- Исправлен баг с автофокусом и SSR. Каретка при автофокусе теперь программно устанавливается в конец ввода.
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+
 ## 47.25.2
 
 <sup><time>05.11.2024</time></sup>
