@@ -30,25 +30,16 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
     // расчет overlap состояния
     const handleScroll = (e: Event) => {
         const target = e.target as HTMLDivElement;
-        const { scrollTop } = target;
+        const { scrollTop, scrollHeight, clientHeight } = target;
 
-        const isElementFullScrolled =
-            target.scrollHeight - target.scrollTop === target.clientHeight;
+        const isElementFullScrolled = scrollHeight - scrollTop === clientHeight;
 
         if (setModalHeaderHighlighted) {
-            if (scrollTop > 0) {
-                setModalHeaderHighlighted(true);
-            } else {
-                setModalHeaderHighlighted(false);
-            }
+            setModalHeaderHighlighted(scrollTop > 0);
         }
 
         if (setModalFooterHighlighted) {
-            if (isElementFullScrolled) {
-                setModalFooterHighlighted(false);
-            } else {
-                setModalFooterHighlighted(true);
-            }
+            setModalFooterHighlighted(!isElementFullScrolled);
         }
     };
 
@@ -60,7 +51,7 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
         }
     }, [wheelDeltaY]);
 
-    // операции с DOM дорогие, поэтому получаем ссылки на элементы при первом рендере
+    // получаем ссылки на элементы хэдера и футера при первом рендере
     useEffect(() => {
         if (scrollbarContentNodeRef.current) {
             headerElementRef.current =
@@ -134,8 +125,8 @@ export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (pr
             const contentHeight = scrollbarContentNodeRef.current?.clientHeight || 0;
             const wrapperHeight = scrollableNodeRef.current?.clientHeight || 0;
 
-            if (setModalFooterHighlighted && contentHeight > wrapperHeight) {
-                setModalFooterHighlighted(true);
+            if (setModalFooterHighlighted) {
+                setModalFooterHighlighted(contentHeight > wrapperHeight);
             }
         });
 
