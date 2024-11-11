@@ -114,6 +114,25 @@ describe(
 );
 
 describe(
+    'UniversalModalDesktop | title',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'UniversalModal',
+            testStory: false,
+            knobs: {
+                open: true,
+                Component: 'UniversalModalDesktop',
+                bigTitle: [false, true],
+                'header.title': ['Заголовок', 'Очень длинный заголовок Очень длинный заголовок'],
+            },
+        }),
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
     'UniversalModalMobile',
     screenshotTesting({
         cases: generateTestCases({
