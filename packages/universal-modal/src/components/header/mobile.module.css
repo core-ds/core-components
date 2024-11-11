@@ -2,7 +2,7 @@
 @import '../../vars.css';
 
 .header {
-    padding: var(--universal-modal-header-mobile-paddings);
+    padding: var(--gap-8) var(--gap-4);
 }
 
 .sticky {
@@ -14,12 +14,17 @@
     line-height: var(--universal-modal-header-mobile-line-height);
     font-family: var(--universal-modal-header-mobile-font-family);
     font-weight: var(--universal-modal-header-mobile-font-weight);
-    padding: var(--universal-modal-header-mobile-content-paddings);
-    min-height: unset;
+    padding: 0 var(--gap-12);
+    min-height: 40px;
+    justify-content: center;
 }
 
 .bottomAddons {
     @mixin headline-system-mobile_small;
     padding: 0 var(--gap-8);
     margin-bottom: 6px;
+}
+
+.addon {
+    height: 40px;
 }

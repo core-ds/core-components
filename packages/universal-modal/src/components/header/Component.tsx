@@ -99,6 +99,9 @@ export const Header: FC<HeaderProps> = ({
                 [desktopStyles.longTitle]: titleHeight > BASE_TITLE_HEIGHT,
             })}
             titleRef={titleRef}
+            addonClassName={cn({
+                [mobileStyles.addon]: view === 'mobile',
+            })}
         >
             {children}
         </NavigationBarPrivate>

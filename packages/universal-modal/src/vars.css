@@ -28,12 +28,8 @@
     --universal-modal-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --universal-modal-header-mobile-content-paddings: 10px var(--gap-8);
     --universal-modal-header-mobile-font-size: 20px;
     --universal-modal-header-mobile-line-height: 28px;
     --universal-modal-header-mobile-font-family: var(--font-family-system);
     --universal-modal-header-mobile-font-weight: 600;
-
-    /* paddings */
-    --universal-modal-header-mobile-paddings: var(--gap-4) var(--gap-8);
 }
