@@ -142,6 +142,9 @@ render(() => {
                 if (modalHeight === 'fullHeight') {
                     return [12];
                 }
+                if (modalWidth === 'fullWidth') {
+                    return ['auto', 12];
+                }
                 return ['auto'];
             }
             if (verticalAlign === 'bottom') {

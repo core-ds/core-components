@@ -412,4 +412,50 @@ describe('UniversalModal', () => {
             expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
         });
     });
+
+    describe('desktop full height and width', () => {
+        it('should calculate width with margin', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'center'}
+                    width={'fullWidth'}
+                    height={'fullHeight'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'width: calc(100% - 12px - 12px)',
+            );
+        });
+
+        it('should calculate height with margin', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'center'}
+                    width={'fullWidth'}
+                    height={'fullHeight'}
+                    margin={[12]}
+                />,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'height: calc(100% - 12px - 12px)',
+            );
+        });
+    });
 });
