@@ -81,4 +81,57 @@ describe('UniversalModal', () => {
         expect(getByTestId(testIds.content)).toBeInTheDocument();
         expect(getByTestId(testIds.footer)).toBeInTheDocument();
     });
+
+    describe('desktop margin test', () => {
+        it('margin auto', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'center'}
+                    height={500}
+                    margin={['auto']}
+                >
+                    <UniversalModalDesktop.Header title='Title' />
+                    <UniversalModalDesktop.Content>Content</UniversalModalDesktop.Content>
+                    <UniversalModalDesktop.Footer>Footer</UniversalModalDesktop.Footer>
+                </UniversalModalDesktop>,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'margin: auto;',
+            );
+            expect(screen.getByTestId(testIds.modal)).toMatchSnapshot();
+        });
+
+        it('margin 12', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalDesktop
+                    dataTestId={dti}
+                    open={true}
+                    horizontalAlign={'center'}
+                    verticalAlign={'center'}
+                    margin={[12]}
+                >
+                    <UniversalModalDesktop.Header title='Title' />
+                    <UniversalModalDesktop.Content>Content</UniversalModalDesktop.Content>
+                    <UniversalModalDesktop.Footer>Footer</UniversalModalDesktop.Footer>
+                </UniversalModalDesktop>,
+            );
+
+            const testIds = getUniversalModalTestIds(dti);
+
+            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle(
+                'margin: 12px;',
+            );
+            expect(screen.getByTestId(testIds.modal)).toMatchSnapshot();
+        });
+    });
 });

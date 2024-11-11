@@ -3,49 +3,48 @@
 Modal построен как Compound Components. Состоит из компонентов Header, Content и Footer, содержащих в себе кастомизируемые слоты.
 
 ```jsx live mobileHeight={640}
+const dashedBackground = {
+    boxSizing: 'border-box',
+    border: '1px dashed #2288FA',
+    backgroundColor: '#D8EAFF',
+    borderRadius: 8,
+};
+
+const headerAnatomyStyles = {
+    padding: '20px 20px 0',
+    display: 'flex',
+    addonStyles: {
+        width: 48,
+        height: 48,
+        ...dashedBackground,
+    },
+    titleStyles: {
+        flexGrow: 1,
+        height: 48,
+        ...dashedBackground,
+    },
+};
+
+const contentAnatomyStyles = {
+    padding: '0 32px',
+    height: 336,
+    content: {
+        height: '100%',
+        ...dashedBackground,
+    },
+    flex: 1,
+};
+
+const footerAnatomyStyles = {
+    boxSizing: 'border-box',
+    padding: '16px 32px 32px',
+    footer: {
+        height: 48,
+        ...dashedBackground,
+    },
+};
 render(() => {
     const [open, setOpen] = React.useState(false);
-
-    const dashedBackground = {
-        boxSizing: 'border-box',
-        border: '1px dashed #2288FA',
-        backgroundColor: '#D8EAFF',
-        borderRadius: 8,
-    };
-
-    const headerAnatomyStyles = {
-        padding: '20px 20px 0',
-        display: 'flex',
-        addonStyles: {
-            width: 48,
-            height: 48,
-            ...dashedBackground,
-        },
-        titleStyles: {
-            flexGrow: 1,
-            height: 48,
-            ...dashedBackground,
-        },
-    };
-
-    const contentAnatomyStyles = {
-        padding: '0 32px',
-        height: 336,
-        content: {
-            height: '100%',
-            ...dashedBackground,
-        },
-        flex: 1,
-    };
-
-    const footerAnatomyStyles = {
-        boxSizing: 'border-box',
-        padding: '16px 32px 32px',
-        footer: {
-            height: 48,
-            ...dashedBackground,
-        },
-    };
 
     return (
         <React.Fragment>
@@ -78,37 +77,37 @@ render(() => {
 В десктопных модалках в зависимости от положения и размера меняется стиль заголовка в хедере и размер кнопок в футере.
 
 ```jsx live mobileHeight={640}
+const horizontalOptions = [
+    { key: 'start', content: 'Start' },
+    { key: 'center', content: 'Center' },
+    { key: 'end', content: 'End' },
+];
+const verticalOptions = [
+    { key: 'top', content: 'Top' },
+    { key: 'center', content: 'Center' },
+    { key: 'bottom', content: 'Bottom' },
+];
+
+const heightOptions = [
+    { key: '500', content: '500' },
+    { key: '600', content: '600' },
+    { key: '800', content: '800' },
+    { key: 'fullHeight', content: 'Full' },
+];
+
+const widthOptions = [
+    { key: '500', content: '500' },
+    { key: '600', content: '600' },
+    { key: '800', content: '800' },
+    { key: 'fullWidth', content: 'Full' },
+];
+
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [horizontalAlign, setHorizontalAlign] = React.useState('center');
     const [verticalAlign, setVerticalAlign] = React.useState('center');
     const [modalWidth, setModalWidth] = React.useState('500');
     const [modalHeight, setModalHeight] = React.useState('500');
-
-    const horizontalOptions = [
-        { key: 'start', content: 'Start' },
-        { key: 'center', content: 'Center' },
-        { key: 'end', content: 'End' },
-    ];
-    const verticalOptions = [
-        { key: 'top', content: 'Top' },
-        { key: 'center', content: 'Center' },
-        { key: 'bottom', content: 'Bottom' },
-    ];
-
-    const heightOptions = [
-        { key: '500', content: '500' },
-        { key: '600', content: '600' },
-        { key: '800', content: '800' },
-        { key: 'fullHeight', content: 'Full' },
-    ];
-
-    const widthOptions = [
-        { key: '500', content: '500' },
-        { key: '600', content: '600' },
-        { key: '800', content: '800' },
-        { key: 'fullWidth', content: 'Full' },
-    ];
 
     const [headerButtonCross, setHeaderButtonCross] = React.useState(true);
     const [headerButtonArrow, setHeaderButtonArrow] = React.useState(false);
@@ -135,6 +134,24 @@ render(() => {
             }
             return 48;
         }
+    };
+
+    const getMargin = () => {
+        if (horizontalAlign === 'center') {
+            if (verticalAlign === 'center') {
+                if (modalHeight === 'fullHeight') {
+                    return [12];
+                }
+                return ['auto'];
+            }
+            if (verticalAlign === 'bottom') {
+                if (modalHeight === 'fullHeight') {
+                    return [12];
+                }
+                return ['auto', 'auto', 12];
+            }
+        }
+        return [12];
     };
 
     return (
@@ -300,6 +317,7 @@ render(() => {
                 height={modalHeight}
                 horizontalAlign={horizontalAlign}
                 verticalAlign={verticalAlign}
+                margin={getMargin()}
                 onClose={() => setOpen(false)}
             >
                 <UniversalModalDesktop.Header
