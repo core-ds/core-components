@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef, useState } from 'react';
+import React, { FC, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import {
@@ -22,9 +22,6 @@ export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'par
     bigTitle?: boolean;
 };
 
-const BASE_TITLE_HEIGHT = 48;
-const BASE_MEDIUM_TITLE_HEIGHT = 52;
-
 export const Header: FC<HeaderProps> = ({
     className,
     children,
@@ -44,17 +41,10 @@ export const Header: FC<HeaderProps> = ({
     } = useContext(ResponsiveContext) || {};
 
     const titleRef = useRef<HTMLDivElement>(null);
-    const [titleHeight, setTitleHeight] = useState<number>(0);
 
     const hasContent = Boolean(title || children || restProps.bottomAddons);
     // custom scroll ломает highlight логику в base-modal, поэтому для десктопа обрабатываем самостоятельно
     const isHighlighted = view === 'desktop' ? modalHeaderHighlighted : headerHighlighted;
-
-    let titleHeightRef = 0;
-
-    if (titleRef.current) {
-        titleHeightRef = titleRef.current.clientHeight;
-    }
 
     useEffect(() => {
         setHasHeader(true);
@@ -65,22 +55,6 @@ export const Header: FC<HeaderProps> = ({
             setModalHeaderHighlighted(Boolean(headerHighlighted));
         }
     }, [headerHighlighted, setModalHeaderHighlighted, view]);
-
-    useEffect(() => {
-        if (titleRef.current) {
-            setTitleHeight(titleRef.current.clientHeight);
-        }
-    }, [titleHeightRef]);
-
-    const isLongTitle = () => {
-        if (view === 'desktop') {
-            return bigTitle
-                ? titleHeight > BASE_MEDIUM_TITLE_HEIGHT
-                : titleHeight > BASE_TITLE_HEIGHT;
-        }
-
-        return false;
-    };
 
     return (
         <NavigationBarPrivate
@@ -113,7 +87,6 @@ export const Header: FC<HeaderProps> = ({
             titleClassName={cn({
                 [desktopStyles.headerTitle]: view === 'desktop',
                 [desktopStyles.medium]: bigTitle,
-                [desktopStyles.longTitle]: isLongTitle(),
             })}
             titleRef={titleRef}
             addonClassName={cn({

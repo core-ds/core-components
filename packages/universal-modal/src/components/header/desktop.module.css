@@ -12,18 +12,17 @@
 .bottomAddons,
 .headerTitle {
     @mixin headline-system_small;
-    padding-left: var(--gap-12);
 
     &.medium {
         @mixin headline-system_medium;
     }
+}
 
-    &.longTitle {
-        padding-bottom: 11px;
+.headerTitle {
+    padding: 11px var(--gap-12);
 
-        &.medium {
-            padding-bottom: var(--gap-16);
-        }
+    &.medium {
+        padding: 6px var(--gap-12) var(--gap-16);
     }
 }
 
