@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.4.6
+
 ## 10.4.4
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.5.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1437](https://github.com/core-ds/core-components/pull/1437)
+
+-   Добавлены телефонные коды для Абхазии
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+    -   select@17.17.0
+    -   input-autocomplete@12.6.2
+
 ## 2.4.1
 
 ### Patch Changes

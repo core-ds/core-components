@@ -871,14 +871,18 @@ export type BottomSheetSelectMobileProps = {
     /**
      * Дополнительные пропсы шторки
      */
-    bottomSheetProps?: Partial<BottomSheetProps>;
+    bottomSheetProps?: Omit<Partial<BottomSheetProps>, 'bottomAddons'> & {
+        bottomAddons?: ((flatOptions: OptionShape[]) => ReactNode) | ReactNode;
+    };
 };
 
 export type ModalSelectMobileProps = {
     /**
      *  Дополнительные пропсы шапки модалки
      */
-    modalHeaderProps?: Partial<ModalHeaderProps>;
+    modalHeaderProps?: Omit<Partial<ModalHeaderProps>, 'bottomAddons'> & {
+        bottomAddons?: ((flatOptions: OptionShape[]) => ReactNode) | ReactNode;
+    };
 
     /**
      *  Дополнительные пропсы модалки

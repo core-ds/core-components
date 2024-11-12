@@ -18,7 +18,7 @@ import cn from 'classnames';
 import { FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
-import { useFocus } from '@alfalab/hooks';
+import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { ClearButton } from '../clear-button';
 
@@ -283,9 +283,20 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         const clearButtonVisible = clear && filled && !disabled && !readOnlyProp;
         const hasInnerLabel = label && labelView === 'inner';
 
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            // https://github.com/facebook/react/issues/14125
+            if (restProps.autoFocus) {
+                const input = inputRef.current;
+
+                if (input) {
+                    input.setSelectionRange(input.value.length, input.value.length);
+                }
+            }
+        }, []);
+
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
-                if (!readOnly) {
+                if (!readOnlyProp || disableUserInput) {
                     setFocused(true);
                 }
 
@@ -293,7 +304,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     onFocus(event);
                 }
             },
-            [onFocus, readOnly],
+            [onFocus, readOnlyProp, disableUserInput],
         );
 
         const handleInputBlur = useCallback(
@@ -424,8 +435,11 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                         styles.input,
                         colorCommonStyles[colors].input,
                         {
+                            [styles.disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].disableUserInput]: disableUserInput,
+
                             [colorCommonStyles[colors].error]: error,
+
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
