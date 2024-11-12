@@ -1,7 +1,5 @@
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
-
-import { BaseUniversalModalProps } from './desktop/types/props';
-import { BaseUniversalModalMobileProps } from './mobile/types/props';
+import { UniversalModalDesktopProps } from './desktop/types/props';
+import { UniversalModalMobileProps } from './mobile/types/props';
 
 export type View = 'desktop' | 'mobile';
 
@@ -16,9 +14,8 @@ export type TResponsiveModalContext = {
     setModalFooterHighlighted?: (value: boolean) => void;
 } | null;
 
-export type UniversalModalResponsiveProps = BaseUniversalModalProps &
-    BaseUniversalModalMobileProps &
-    Pick<BaseModalProps, 'children' | 'dataTestId' | 'open'> & {
+export type UniversalModalResponsiveProps = UniversalModalDesktopProps &
+    UniversalModalMobileProps & {
         /**
          * Контрольная точка, с нее начинается desktop версия
          * @default 1024

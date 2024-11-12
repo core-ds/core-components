@@ -55,7 +55,7 @@ export type BaseUniversalModalProps = {
 };
 
 export type UniversalModalDesktopProps = BaseUniversalModalProps &
-    Pick<BaseModalProps, 'children' | 'dataTestId' | 'open'>;
+    Pick<BaseModalProps, 'children' | 'dataTestId' | 'open' | 'className'>;
 
 export type ModalBySideProps = UniversalModalDesktopProps &
     Pick<DrawerProps, 'contentTransitionProps'> &

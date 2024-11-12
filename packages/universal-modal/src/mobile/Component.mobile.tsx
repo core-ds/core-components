@@ -13,8 +13,8 @@ import { TResponsiveModalContext } from '../typings';
 import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';
-import transitions from './transitions/transitions.mobile.module.css';
 import rightSideTransitons from './transitions/right-side-transitions.mobile.module.css';
+import transitions from './transitions/transitions.mobile.module.css';
 
 const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
     ({ children, className, dataTestId, onClose, appearance = 'bottom', ...restProps }, ref) => {
