@@ -1103,7 +1103,13 @@ render(() => {
             <UniversalModalDesktop open={open} height={500} onClose={() => setOpen(false)}>
                 <UniversalModalDesktop.Header
                     sticky={true}
-                    {...(step === 1 && { title: item.title })}
+                    {...(step === 1 && {
+                        title: (
+                            <Typography.Title view='small' font='system'>
+                                {item.title}
+                            </Typography.Title>
+                        ),
+                    })}
                     {...(step > 1 && {
                         bottomAddons: (
                             <Typography.Title view='small' font='system'>
@@ -1111,7 +1117,11 @@ render(() => {
                             </Typography.Title>
                         ),
                     })}
-                    leftAddons={<ArrowButtonDesktop onClick={() => setStep((prev) => prev - 1)} />}
+                    {...(step > 1 && {
+                        leftAddons: (
+                            <ArrowButtonDesktop onClick={() => setStep((prev) => prev - 1)} />
+                        ),
+                    })}
                     rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
                     align='center'
                     {...(step === 1 && { align: 'left' })}
@@ -1194,7 +1204,13 @@ render(() => {
             <UniversalModalMobile open={open} height={500} onClose={() => setOpen(false)}>
                 <UniversalModalMobile.Header
                     sticky={true}
-                    {...(step === 1 && { title: item.title })}
+                    {...(step === 1 && {
+                        title: (
+                            <Typography.Title view='small' font='system'>
+                                {item.title}
+                            </Typography.Title>
+                        ),
+                    })}
                     {...(step > 1 && {
                         bottomAddons: (
                             <Typography.Title view='small' font='system'>
@@ -1202,7 +1218,11 @@ render(() => {
                             </Typography.Title>
                         ),
                     })}
-                    leftAddons={<ArrowButtonMobile onClick={() => setStep((prev) => prev - 1)} />}
+                    {...(step > 1 && {
+                        leftAddons: (
+                            <ArrowButtonMobile onClick={() => setStep((prev) => prev - 1)} />
+                        ),
+                    })}
                     rightAddons={<CrossButtonMobile onClick={() => setOpen(false)} />}
                     align='center'
                     {...(step === 1 && { align: 'left' })}

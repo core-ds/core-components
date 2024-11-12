@@ -26,3 +26,7 @@
         }
     }
 }
+
+.bottomAddons {
+    padding: 6px var(--gap-12) var(--gap-16);
+}

@@ -63,7 +63,7 @@ export const Header: FC<HeaderProps> = ({
         if (titleRef.current) {
             setTitleHeight(titleRef.current.clientHeight);
         }
-    }, [titleRef]);
+    }, [titleRef, titleHeight]);
 
     return (
         <NavigationBarPrivate

@@ -21,8 +21,7 @@
 
 .bottomAddons {
     @mixin headline-system-mobile_small;
-    padding: 0 var(--gap-8);
-    margin-bottom: 6px;
+    padding: 6px var(--gap-16);
 }
 
 .addon {
