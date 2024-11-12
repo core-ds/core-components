@@ -49,7 +49,7 @@ render(() => {
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать анатомию</Button>
-            <UniversalModalResponsive
+            <UniversalModalDesktop
                 open={open}
                 width={500}
                 height={500}
@@ -66,7 +66,76 @@ render(() => {
                 <div style={{ ...footerAnatomyStyles }}>
                     <div style={{ ...footerAnatomyStyles.footer }}></div>
                 </div>
-            </UniversalModalResponsive>
+            </UniversalModalDesktop>
+        </React.Fragment>
+    );
+});
+
+//MOBILE
+const dashedBackground = {
+    boxSizing: 'border-box',
+    border: '1px dashed #2288FA',
+    backgroundColor: '#D8EAFF',
+    borderRadius: 8,
+};
+
+const headerAnatomyStyles = {
+    padding: '20px 20px 0',
+    display: 'flex',
+    addonStyles: {
+        width: 48,
+        height: 48,
+        ...dashedBackground,
+    },
+    titleStyles: {
+        flexGrow: 1,
+        height: 48,
+        ...dashedBackground,
+    },
+};
+
+const contentAnatomyStyles = {
+    padding: '0 32px',
+    height: 336,
+    content: {
+        height: '100%',
+        ...dashedBackground,
+    },
+    flex: 1,
+};
+
+const footerAnatomyStyles = {
+    boxSizing: 'border-box',
+    padding: '16px 32px 32px',
+    footer: {
+        height: 48,
+        ...dashedBackground,
+    },
+};
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать анатомию</Button>
+            <UniversalModalMobile
+                open={open}
+                width={500}
+                height={500}
+                onClose={() => setOpen(false)}
+            >
+                <div style={{ ...headerAnatomyStyles }}>
+                    <div style={{ ...headerAnatomyStyles.addonStyles }} />
+                    <div style={{ ...headerAnatomyStyles.titleStyles }} />
+                    <div style={{ ...headerAnatomyStyles.addonStyles }} />
+                </div>
+                <div style={{ ...contentAnatomyStyles }}>
+                    <div style={{ ...contentAnatomyStyles.content }}></div>
+                </div>
+                <div style={{ ...footerAnatomyStyles }}>
+                    <div style={{ ...footerAnatomyStyles.footer }}></div>
+                </div>
+            </UniversalModalMobile>
         </React.Fragment>
     );
 });
@@ -599,7 +668,11 @@ render(() => {
                     }}
                 />
             </div>
-            <UniversalModalMobile open={open} onClose={() => setOpen(false)} appearance={modalAppearance}>
+            <UniversalModalMobile
+                open={open}
+                onClose={() => setOpen(false)}
+                appearance={modalAppearance}
+            >
                 <UniversalModalMobile.Header
                     sticky={true}
                     {...(headerTitle &&
