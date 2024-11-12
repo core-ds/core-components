@@ -480,12 +480,34 @@ render(() => {
     const [contentTitle, setContentTitle] = React.useState(false);
     const [contentButton, setContentButton] = React.useState(false);
 
+    const [modalAppearance, setModalAppearance] = React.useState('bottom');
+
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
+            Появление модалки
+            <Gap size={12} />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <Radio
+                    size={24}
+                    label='Снизу'
+                    hint='Для обычных модалок'
+                    checked={modalAppearance === 'bottom'}
+                    onChange={() => setModalAppearance('bottom')}
+                />
+                <Gap size={12} />
+                <Radio
+                    size={24}
+                    label='Справа'
+                    hint='Для сайдпанелей'
+                    checked={modalAppearance === 'right'}
+                    onChange={() => setModalAppearance('right')}
+                />
+            </div>
+            <Gap size={24} />
             Навигация
             <Gap size={12} />
             <div>
@@ -577,7 +599,7 @@ render(() => {
                     }}
                 />
             </div>
-            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
+            <UniversalModalMobile open={open} onClose={() => setOpen(false)} appearance={modalAppearance}>
                 <UniversalModalMobile.Header
                     sticky={true}
                     {...(headerTitle &&
