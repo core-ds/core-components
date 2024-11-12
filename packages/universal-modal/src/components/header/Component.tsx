@@ -23,6 +23,7 @@ export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'par
 };
 
 const BASE_TITLE_HEIGHT = 48;
+const BASE_MEDIUM_TITLE_HEIGHT = 52;
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -49,6 +50,12 @@ export const Header: FC<HeaderProps> = ({
     // custom scroll ломает highlight логику в base-modal, поэтому для десктопа обрабатываем самостоятельно
     const isHighlighted = view === 'desktop' ? modalHeaderHighlighted : headerHighlighted;
 
+    let titleHeightRef = 0;
+
+    if (titleRef.current) {
+        titleHeightRef = titleRef.current.clientHeight;
+    }
+
     useEffect(() => {
         setHasHeader(true);
     }, [setHasHeader]);
@@ -63,7 +70,17 @@ export const Header: FC<HeaderProps> = ({
         if (titleRef.current) {
             setTitleHeight(titleRef.current.clientHeight);
         }
-    }, [titleRef, titleHeight]);
+    }, [titleHeightRef]);
+
+    const isLongTitle = () => {
+        if (view === 'desktop') {
+            return bigTitle
+                ? titleHeight > BASE_MEDIUM_TITLE_HEIGHT
+                : titleHeight > BASE_TITLE_HEIGHT;
+        }
+
+        return false;
+    };
 
     return (
         <NavigationBarPrivate
@@ -96,7 +113,7 @@ export const Header: FC<HeaderProps> = ({
             titleClassName={cn({
                 [desktopStyles.headerTitle]: view === 'desktop',
                 [desktopStyles.medium]: bigTitle,
-                [desktopStyles.longTitle]: titleHeight > BASE_TITLE_HEIGHT,
+                [desktopStyles.longTitle]: isLongTitle(),
             })}
             titleRef={titleRef}
             addonClassName={cn({
