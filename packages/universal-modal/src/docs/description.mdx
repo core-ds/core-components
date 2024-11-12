@@ -278,7 +278,7 @@ render(() => {
                 />
                 <Gap size={12} />
                 <Switch
-                    label='Вериткальная ориентация'
+                    label='Вертикальная ориентация'
                     checked={verticalFooterButtons}
                     onChange={() => setVerticalFooterButtons((prev) => !prev)}
                 />
@@ -295,7 +295,7 @@ render(() => {
             <Gap size={12} />
             <div>
                 <Switch
-                    label='Загловок'
+                    label='Заголовок'
                     hint='Если не стали размещать его в шапке'
                     checked={contentTitle}
                     onChange={() => {
@@ -424,7 +424,9 @@ render(() => {
                         <React.Fragment>
                             <Gap size={16} />
                             <Gap size={24} />
-                            <Button size={48}>Кнопка</Button>
+                            <Button size={48} onClick={() => setOpen(false)}>
+                                Кнопка
+                            </Button>
                         </React.Fragment>
                     )}
                 </UniversalModalDesktop.Content>
@@ -438,6 +440,7 @@ render(() => {
                                 size={getButtonSize()}
                                 view='primary'
                                 block={stretchFooterButtons}
+                                onClick={() => setOpen(false)}
                             >
                                 Primary
                             </Button>
@@ -448,6 +451,7 @@ render(() => {
                                 size={getButtonSize()}
                                 view='secondary'
                                 block={stretchFooterButtons}
+                                onClick={() => setOpen(false)}
                             >
                                 Secondary
                             </Button>
@@ -543,7 +547,7 @@ render(() => {
                 />
                 <Gap size={12} />
                 <Switch
-                    label='Вериткальная ориентация'
+                    label='Вертикальная ориентация'
                     checked={verticalFooterButtons}
                     onChange={() => setVerticalFooterButtons((prev) => !prev)}
                 />
@@ -553,7 +557,7 @@ render(() => {
             <Gap size={12} />
             <div>
                 <Switch
-                    label='Загловок'
+                    label='Заголовок'
                     hint='Если не стали размещать его в шапке'
                     checked={contentTitle}
                     onChange={() => {
@@ -594,9 +598,12 @@ render(() => {
                 ></UniversalModalMobile.Header>
                 <UniversalModalMobile.Content>
                     {contentTitle && (
-                        <Typography.Title view='medium' font='system'>
-                            Почему банк проверяет мои операции?
-                        </Typography.Title>
+                        <React.Fragment>
+                            <Typography.Title view='medium' font='system'>
+                                Почему банк проверяет мои операции?
+                            </Typography.Title>
+                            <Gap size={16} />
+                        </React.Fragment>
                     )}
 
                     <Typography.Text tag='p'>
@@ -669,7 +676,9 @@ render(() => {
                     {contentButton && (
                         <React.Fragment>
                             <Gap size={32} />
-                            <Button size={48}>Кнопка</Button>
+                            <Button size={48} onClick={() => setOpen(false)}>
+                                Кнопка
+                            </Button>
                         </React.Fragment>
                     )}
                 </UniversalModalMobile.Content>
@@ -679,13 +688,23 @@ render(() => {
                         layout={verticalFooterButtons ? 'column' : 'start'}
                     >
                         {mainFooterButton && (
-                            <Button size={56} view='primary' block={true}>
+                            <Button
+                                size={56}
+                                view='primary'
+                                block={true}
+                                onClick={() => setOpen(false)}
+                            >
                                 Primary
                             </Button>
                         )}
 
                         {additionalFooterButton && (
-                            <Button size={56} view='secondary' block={true}>
+                            <Button
+                                size={56}
+                                view='secondary'
+                                block={true}
+                                onClick={() => setOpen(false)}
+                            >
                                 Secondary
                             </Button>
                         )}
@@ -869,10 +888,10 @@ render(() => {
                     </Collapse>
                 </UniversalModalDesktop.Content>
                 <UniversalModalDesktop.Footer sticky={true} layout='start'>
-                    <Button size={48} view='primary'>
+                    <Button size={48} view='primary' onClick={() => setOpen(false)}>
                         Primary
                     </Button>
-                    <Button size={48} view='secondary'>
+                    <Button size={48} view='secondary' onClick={() => setOpen(false)}>
                         Secondary
                     </Button>
                 </UniversalModalDesktop.Footer>
@@ -1388,10 +1407,10 @@ render(() => {
                     </Collapse>
                 </UniversalModalDesktop.Content>
                 <UniversalModalDesktop.Footer sticky={true} layout='start'>
-                    <Button size={48} view='primary'>
+                    <Button size={48} view='primary' onClick={() => setOpen(false)}>
                         Primary
                     </Button>
-                    <Button size={48} view='secondary'>
+                    <Button size={48} view='secondary' onClick={() => setOpen(false)}>
                         Secondary
                     </Button>
                 </UniversalModalDesktop.Footer>
