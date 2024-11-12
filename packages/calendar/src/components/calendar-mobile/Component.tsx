@@ -250,7 +250,7 @@ export const CalendarMonthOnlyView = ({
     };
 
     const renderMonth = (index: number) => {
-        const isAfterDate = isAfter(activeMonths[index].date, activeMonth);
+        const isAfterDate = isAfter(activeMonths[index].date, maxDate ?? new Date());
 
         return (
             <div className={styles.daysTable} id={`month-${index}`}>
