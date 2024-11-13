@@ -1,5 +1,15 @@
 # Change Log
 
+## 17.17.1
+
+### Patch Changes
+
+<sup><time>13.11.2024</time></sup>
+
+### [#1440](https://github.com/core-ds/core-components/pull/1440)
+
+-   Исправлена ошибка при изменении ссылки на объект опции выбранного варианта
+
 ## 17.17.0
 
 ### Minor Changes
