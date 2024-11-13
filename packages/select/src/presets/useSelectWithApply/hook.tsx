@@ -165,7 +165,9 @@ export function useSelectWithApply({
         }
 
         const initiatorSelected =
-            selectedDraft.includes(initiator) ||
+            selectedDraft.some(
+                (selectedDraftOption) => selectedDraftOption.key === initiator.key,
+            ) ||
             (initiator.key === SELECT_ALL_KEY &&
                 (selectedDraft.length === flatOptions.length ||
                     flatOptions.every(({ key }) => selectedKeys.includes(key))));
@@ -175,7 +177,7 @@ export function useSelectWithApply({
         } else {
             setSelectedDraft(
                 initiatorSelected
-                    ? selectedDraft.filter((o) => o !== initiator)
+                    ? selectedDraft.filter((o) => o.key !== initiator.key)
                     : selectedDraft.concat(initiator),
             );
         }
