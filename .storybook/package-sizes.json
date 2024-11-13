@@ -268,7 +268,7 @@
     "input-autocomplete": {
         "desktop.js": 279.9,
         "index.js": 316.5,
-        "mobile.js": 289,
+        "mobile.js": 289.1,
         "shared.js": 2
     },
     "indicator": {
@@ -339,7 +339,7 @@
     },
     "custom-picker-button": {
         "desktop.js": 284.2,
-        "index.js": 318.9,
+        "index.js": 319,
         "mobile.js": 291.4
     },
     "custom-button": {
