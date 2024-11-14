@@ -130,20 +130,6 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
                         [styles.transparent]: showSkeleton,
                     },
                 )}
-                /*
-                 * className={cn(
-                 *   styles.component,
-                 *   className,
-                 *   styles[`${font}-${view}`],
-                 *   defaultMargins && styles[`margins-${view}`],
-                 *   styles[weight],
-                 *   color && colors[color],
-                 *   {
-                 *       [styles[`rowLimit${rowLimit}`]]: rowLimit,
-                 *       [styles.transparent]: showSkeleton,
-                 *   }
-                 *
-                 */
                 data-test-id={dataTestId}
                 ref={mergeRefs([ref, textRef])}
                 {...restProps}
