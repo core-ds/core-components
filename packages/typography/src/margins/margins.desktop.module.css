@@ -1,4 +1,5 @@
 @import '../../../vars/src/gaps.css';
+@import '../../../vars/src/typography.css';
 @import './margins.common.module.css';
 
 @define-mixin margin-medium {

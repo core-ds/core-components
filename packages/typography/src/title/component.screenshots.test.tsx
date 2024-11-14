@@ -59,6 +59,18 @@ describe(
                     size: { width: 550, height: 350 },
                 }),
             ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Typography',
+                    subComponentName: 'Title',
+                    knobs: {
+                        children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
+                        platform: 'mobile',
+                    },
+                    size: { width: 550, height: 350 },
+                }),
+            ],
         ],
         viewport: { width: 1920, height: 1080 },
         screenshotOpts: {

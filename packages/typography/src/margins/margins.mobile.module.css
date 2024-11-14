@@ -1,3 +1,4 @@
+@import '../../../vars/src/typography.css';
 @import './margins.common.module.css';
 
 .xlargeMargins {
