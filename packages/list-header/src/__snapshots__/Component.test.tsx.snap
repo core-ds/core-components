@@ -9,12 +9,12 @@ Object {
         class="component filled"
       >
         <span
-          class="secondary-large"
+          class="secondary-largeView"
         >
           Title
         </span>
         <span
-          class="description secondary-large"
+          class="description secondary-largeView"
         >
           , Description
         </span>
@@ -26,12 +26,12 @@ Object {
       class="component filled"
     >
       <span
-        class="secondary-large"
+        class="secondary-largeView"
       >
         Title
       </span>
       <span
-        class="description secondary-large"
+        class="description secondary-largeView"
       >
         , Description
       </span>
@@ -100,7 +100,7 @@ Object {
         class="component"
       >
         <span
-          class="secondary-large"
+          class="secondary-largeView"
         >
           Title
         </span>
@@ -112,7 +112,7 @@ Object {
       class="component"
     >
       <span
-        class="secondary-large"
+        class="secondary-largeView"
       >
         Title
       </span>

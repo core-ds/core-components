@@ -19,7 +19,7 @@ exports[`TagBar snapshot test should match snapshot 1`] = `
         icon1
       </div>
       <span
-        class="label labelSelected secondary-small medium"
+        class="label labelSelected secondary-smallView mediumWeight"
       >
         TabName1
       </span>
@@ -37,7 +37,7 @@ exports[`TagBar snapshot test should match snapshot 1`] = `
         icon2
       </div>
       <span
-        class="label secondary-small medium"
+        class="label secondary-smallView mediumWeight"
       >
         TabName2
       </span>

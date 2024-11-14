@@ -15,7 +15,7 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
         class="header"
       >
         <span
-          class="primary-large medium"
+          class="primary-largeView mediumWeight"
         >
           Зачем нужен аккордион?
         </span>
@@ -46,7 +46,7 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
         class="bodyContent"
       >
         <span
-          class="primary-medium"
+          class="primary-mediumView"
         >
           Используется для создания интерактивных списков, которые можно разворачивать и сворачивать для отображения дополнительной информации
         </span>

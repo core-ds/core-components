@@ -57,7 +57,7 @@ export function useSkeleton(showSkeleton?: boolean, skeletonProps?: TextSkeleton
                     className={cn(
                         skeletonProps?.wrapperClassName,
                         props.wrapperClassName,
-                        skeletonProps?.align && styles[skeletonProps.align],
+                        skeletonProps?.align && styles[`${skeletonProps.align}Align`],
                     )}
                     data-test-id={props.dataTestId}
                 >

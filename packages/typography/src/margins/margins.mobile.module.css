@@ -1,0 +1,21 @@
+@import './margins.common.module.css';
+
+.xlargeMargins {
+    @mixin margin-large;
+}
+
+.largeMargins {
+    @mixin margin-small;
+}
+
+.mediumMargins {
+    @mixin margin-small;
+}
+
+.smallMargins {
+    @mixin margin-small;
+}
+
+.xsmallMargins {
+    @mixin margin-small;
+}

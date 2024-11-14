@@ -9,7 +9,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component header typography styreneFont_mediumView mediumWeight primaryColor"
       >
         Введите код из сообщения
       </h3>
@@ -57,7 +57,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="countdownContainer typographyTheme primary-medium"
+        class="countdownContainer typographyTheme primary-mediumView"
       >
         Запросить повторно можно через 01:00
       </div>
@@ -85,7 +85,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component header typography styreneFont_mediumView mediumWeight primaryColor"
       >
         Введите код из сообщения
       </h3>
@@ -224,7 +224,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component header typography styreneFont_mediumView mediumWeight primaryColor"
       >
         Введите код из сообщения
       </h3>
@@ -278,7 +278,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         </div>
       </div>
       <div
-        class="countdownContainer typographyTheme primary-medium"
+        class="countdownContainer typographyTheme primary-mediumView"
       >
         Запросить повторно можно через 01:00
       </div>
@@ -306,7 +306,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component header typography styreneFont_mediumView mediumWeight primaryColor"
       >
         Введите код из сообщения
       </h3>
@@ -445,12 +445,12 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component header typography styreneFont_mediumView mediumWeight primaryColor"
       >
         Ввести код больше нельзя
       </h3>
       <span
-        class="typographyTheme primary primary-medium"
+        class="typographyTheme primaryColor primary-mediumView"
       >
         Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
       </span>
@@ -478,12 +478,12 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component header typography styreneFont_mediumView mediumWeight primaryColor"
       >
         Превышено количество попыток запроса кода
       </h3>
       <span
-        class="description typographyTheme primary primary-medium"
+        class="description typographyTheme primaryColor primary-mediumView"
       >
         Повторное подтверждение кодом будет возможно через 24 часа
       </span>
@@ -522,12 +522,12 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component header typography styreneFont_mediumView mediumWeight primaryColor"
       >
         Не приходит сообщение?
       </h3>
       <span
-        class="text typographyTheme primary primary-medium"
+        class="text typographyTheme primaryColor primary-mediumView"
       >
         Если у вас изменился номер телефона, позвоните нам или обратитесь в любое отделение банка.
       </span>
@@ -548,7 +548,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
             </span>
           </a>
           <span
-            class="text typographyTheme primary primary-medium"
+            class="text typographyTheme primaryColor primary-mediumView"
           >
              — для звонков по России
           </span>
@@ -567,14 +567,14 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
             </span>
           </a>
           <span
-            class="text typographyTheme primary primary-medium"
+            class="text typographyTheme primaryColor primary-mediumView"
           >
              — в Москве и за границей
           </span>
         </div>
       </div>
       <span
-        class="text typographyTheme primary primary-medium"
+        class="text typographyTheme primaryColor primary-mediumView"
       >
         Если номер не менялся, возможно, перегружен сервис отправки сообщений. Попробуйте повторить действие через несколько минут.
       </span>

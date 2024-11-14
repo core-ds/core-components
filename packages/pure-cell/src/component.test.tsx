@@ -281,7 +281,7 @@ describe('PureCell', () => {
             const link = getByTestId(linkDti);
             const textTypography = getByTestId(`${pureCellTextDti}-text_content`);
 
-            expect(textTypography).toHaveClass('component-primary primary');
+            expect(textTypography).toHaveClass('component-primaryView primaryColor');
             expect(link.parentElement).toBe(textTypography);
         });
 
@@ -306,7 +306,7 @@ describe('PureCell', () => {
             const link = getByTestId(linkDti);
             const valueTypography = getByTestId(`${pureCellTextDti}-text_value`);
 
-            expect(valueTypography).toHaveClass('component-primary link');
+            expect(valueTypography).toHaveClass('component-primaryView linkColor');
             expect(link.parentElement).toBe(valueTypography);
         });
     });

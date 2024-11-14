@@ -12,13 +12,13 @@ Object {
           class="item"
         >
           <div
-            class="monospace slot defaultColor primary-medium"
+            class="monospace slot defaultColor primary-mediumView"
           >
             —
           </div>
           <div>
             <div
-              class="primary-medium"
+              class="primary-mediumView"
             >
               List
             </div>
@@ -35,13 +35,13 @@ Object {
         class="item"
       >
         <div
-          class="monospace slot defaultColor primary-medium"
+          class="monospace slot defaultColor primary-mediumView"
         >
           —
         </div>
         <div>
           <div
-            class="primary-medium"
+            class="primary-mediumView"
           >
             List
           </div>
@@ -115,13 +115,13 @@ Object {
           class="item"
         >
           <div
-            class="monospace slot defaultColor primary-medium"
+            class="monospace slot defaultColor primary-mediumView"
           >
             1.
           </div>
           <div>
             <div
-              class="primary-medium"
+              class="primary-mediumView"
             >
               List
             </div>
@@ -138,13 +138,13 @@ Object {
         class="item"
       >
         <div
-          class="monospace slot defaultColor primary-medium"
+          class="monospace slot defaultColor primary-mediumView"
         >
           1.
         </div>
         <div>
           <div
-            class="primary-medium"
+            class="primary-mediumView"
           >
             List
           </div>

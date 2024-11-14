@@ -1,6 +1,10 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../../screenshot-utils';
-import { WEIGHTS_TEXT, ROW_LIMITS, COLORS_INVERTED } from '../types';
-import { DEFAULT_TEXT_VIEW } from './component';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../../screenshot-utils';
+import { VIEWS_TITLE, COLORS_INVERTED, WEIGHTS_TEXT, ROW_LIMITS } from '../types';
+import { DEFAULT_TITLE_FONT } from '../title-base/component';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -9,50 +13,54 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
+describe('Typography', () =>
+    createPreview(
+        {
+            componentName: 'Typography',
+            subComponentName: 'TitleDesktop',
+            knobs: {
+                children: 'Аа',
+                view: 'xlarge',
+                font: DEFAULT_TITLE_FONT,
+            },
+        },
+        'transform:scale(4)',
+    ));
+
 describe(
-    'Typography.Text | all variants',
+    'Typography.TitleDesktop | all variants',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Typography',
-                    subComponentName: 'Text',
+                    subComponentName: 'TitleDesktop',
                     knobs: {
                         children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: [
-                            'primary-large',
-                            'primary-medium',
-                            'primary-small',
-                            'secondary-large',
-                        ],
+                        view: [...VIEWS_TITLE],
                         weight: [...WEIGHTS_TEXT],
+                        font: DEFAULT_TITLE_FONT,
                     },
-                    size: { width: 250, height: 100 },
+                    size: { width: 550, height: 350 },
                 }),
             ],
             [
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Typography',
-                    subComponentName: 'Text',
+                    subComponentName: 'TitleDesktop',
                     knobs: {
                         children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: [
-                            'secondary-medium',
-                            'secondary-small',
-                            'component-primary',
-                            'caps',
-                            'component-secondary',
-                            'tagline',
-                        ],
+                        view: [...VIEWS_TITLE],
                         weight: [...WEIGHTS_TEXT],
+                        font: 'system',
                     },
-                    size: { width: 250, height: 100 },
+                    size: { width: 550, height: 350 },
                 }),
             ],
         ],
-        viewport: { width: 1100, height: 100 },
+        viewport: { width: 1920, height: 1080 },
         screenshotOpts: {
             fullPage: true,
         },
@@ -60,14 +68,14 @@ describe(
 );
 
 describe(
-    'Typography.Text | colors',
+    'Typography.TitleDesktop | colors',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Typography',
-                    subComponentName: 'Text',
+                    subComponentName: 'TitleDesktop',
                     knobs: {
                         // TODO отдельно сделать апдейт снепшотов, т.к. в тесте меняется порядок цветов, выглядит как баг, но его нет
                         // color: [...COLORS_MAIN],
@@ -82,28 +90,28 @@ describe(
                             'link',
                             'negative',
                         ],
-                        view: DEFAULT_TEXT_VIEW,
+                        view: 'small',
                         children: 'Мягкая французская булочка',
                     },
-                    size: { width: 260, height: 40 },
+                    size: { width: 400, height: 60 },
                 }),
             ],
             [
                 'sprite-inverted',
                 createSpriteStorybookUrl({
                     componentName: 'Typography',
-                    subComponentName: 'Text',
+                    subComponentName: 'TitleDesktop',
                     inverted: true,
                     knobs: {
                         color: [...COLORS_INVERTED],
-                        view: DEFAULT_TEXT_VIEW,
+                        view: 'small',
                         children: 'Мягкая французская булочка',
                     },
-                    size: { width: 260, height: 40 },
+                    size: { width: 400, height: 60 },
                 }),
             ],
         ],
-        viewport: { width: 600, height: 100 },
+        viewport: { width: 900, height: 500 },
         screenshotOpts: {
             fullPage: true,
         },
@@ -111,44 +119,25 @@ describe(
 );
 
 describe(
-    'Typography.Text | rowLimit',
+    'Typography.TitleDesktop | rowLimit',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Typography',
-                    subComponentName: 'Text',
+                    subComponentName: 'TitleDesktop',
                     knobs: {
                         children:
                             'Съешь ещё этих мягких французских булок, да выпей чаю. Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: [
-                            'primary-large',
-                            'primary-medium',
-                            'primary-small',
-                            'secondary-large',
-                        ],
+                        view: [...VIEWS_TITLE],
                         rowLimit: [...ROW_LIMITS],
                     },
-                    size: { width: 250, height: 100 },
-                }),
-            ],
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'Typography',
-                    subComponentName: 'Text',
-                    knobs: {
-                        children:
-                            'Съешь ещё этих мягких французских булок, да выпей чаю. Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: ['secondary-medium', 'secondary-small', 'component', 'caps'],
-                        rowLimit: [...ROW_LIMITS],
-                    },
-                    size: { width: 250, height: 100 },
+                    size: { width: 550, height: 200 },
                 }),
             ],
         ],
-        viewport: { width: 1100, height: 100 },
+        viewport: { width: 1920, height: 1080 },
         screenshotOpts: {
             fullPage: true,
         },

@@ -3,6 +3,8 @@ import {
     createSpriteStorybookUrl,
     createPreview,
 } from '../../../screenshot-utils';
+import { COLORS_INVERTED, ROW_LIMITS, VIEWS_TITLE, WEIGHTS_TEXT } from '../types';
+import { DEFAULT_TITLE_FONT } from '../title-base/component';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -19,7 +21,7 @@ describe('Typography', () =>
             knobs: {
                 children: 'Аа',
                 view: 'xlarge',
-                font: 'styrene',
+                font: DEFAULT_TITLE_FONT,
             },
         },
         'transform:scale(4)',
@@ -36,9 +38,9 @@ describe(
                     subComponentName: 'Title',
                     knobs: {
                         children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
-                        weight: ['regular', 'medium', 'bold'],
-                        font: 'styrene',
+                        view: [...VIEWS_TITLE],
+                        weight: [...WEIGHTS_TEXT],
+                        font: DEFAULT_TITLE_FONT,
                     },
                     size: { width: 550, height: 350 },
                 }),
@@ -50,8 +52,8 @@ describe(
                     subComponentName: 'Title',
                     knobs: {
                         children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
-                        weight: ['regular', 'medium', 'bold'],
+                        view: [...VIEWS_TITLE],
+                        weight: [...WEIGHTS_TEXT],
                         font: 'system',
                     },
                     size: { width: 550, height: 350 },
@@ -75,6 +77,8 @@ describe(
                     componentName: 'Typography',
                     subComponentName: 'Title',
                     knobs: {
+                        // TODO отдельно сделать апдейт снепшотов, т.к. в тесте меняется порядок цветов, выглядит как баг, но его нет
+                        // color: [...COLORS_MAIN],
                         color: [
                             'disabled',
                             'tertiary',
@@ -99,7 +103,7 @@ describe(
                     subComponentName: 'Title',
                     inverted: true,
                     knobs: {
-                        color: ['tertiary-inverted', 'primary-inverted', 'secondary-inverted'],
+                        color: [...COLORS_INVERTED],
                         view: 'small',
                         children: 'Мягкая французская булочка',
                     },
@@ -126,8 +130,8 @@ describe(
                     knobs: {
                         children:
                             'Съешь ещё этих мягких французских булок, да выпей чаю. Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
-                        rowLimit: [1, 2, 3],
+                        view: [...VIEWS_TITLE],
+                        rowLimit: [...ROW_LIMITS],
                     },
                     size: { width: 550, height: 200 },
                 }),

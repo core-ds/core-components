@@ -1,5 +1,10 @@
+export { Title } from './title';
+export { TitleDesktop } from './title-desktop/component';
+export { TitleMobile } from './title-mobile/component';
+export { TitleResponsive } from './title-responsive';
+export { Text } from './text';
 export * from './component';
 export * from './presets';
 export type { TitleProps } from './title';
 export type { TextProps } from './text';
-export type { Color } from './colors';
+export type { TCOLORS as Color } from './types';

@@ -2,10 +2,6 @@
     margin: var(--gap-0) var(--gap-0) var(--gap-24);
 }
 
-@define-mixin margin-medium {
-    margin: var(--gap-48) var(--gap-0) var(--gap-24);
-}
-
 @define-mixin margin-small {
     margin: var(--gap-40) var(--gap-0) var(--gap-16);
 }

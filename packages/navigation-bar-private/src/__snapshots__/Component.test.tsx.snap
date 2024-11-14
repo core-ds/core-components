@@ -45,7 +45,7 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
                     </svg>
                   </div>
                   <span
-                    class="text primary-large medium"
+                    class="text primary-largeView mediumWeight"
                     style="opacity: 1;"
                   >
                     Назад

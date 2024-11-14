@@ -1,18 +1,35 @@
 import React, { forwardRef } from 'react';
 
-import { TitleBase, TitleProps } from './component';
+import { DEFAULT_TITLE_FONT, TitleBase, TitleProps } from '../title-base/component';
+import { getDefaultWeight } from '../title-base/utils';
 
-import commonStyles from './common.module.css';
-import styles from './index.module.css';
+import stylesDesktop from '../title-desktop/desktop.module.css';
+import stylesMobile from '../title-mobile/mobile.module.css';
 
-const Title = forwardRef<HTMLHeadingElement | HTMLDivElement, TitleProps>((props, ref) => (
-    <TitleBase
-        {...props}
-        styles={Object.assign(commonStyles, styles)}
-        ref={ref}
-        platform='desktop'
-    />
-));
+type PrivateProps = {
+    platform?: 'mobile' | 'desktop';
+};
+
+/** @deprecated используйте TitleDesktop или TitleMobile */
+const Title = forwardRef<HTMLHeadingElement | HTMLDivElement, TitleProps & PrivateProps>(
+    (
+        {
+            font = DEFAULT_TITLE_FONT,
+            platform = 'desktop',
+            weight = getDefaultWeight(font, platform),
+            ...props
+        },
+        ref,
+    ) => (
+        <TitleBase
+            {...props}
+            font={font}
+            weight={weight}
+            styles={platform === 'desktop' ? stylesDesktop : stylesMobile}
+            ref={ref}
+        />
+    ),
+);
 
 export { Title };
 export type { TitleProps };

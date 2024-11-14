@@ -1,0 +1,41 @@
+@import '../margins/margins.mobile.module.css';
+
+.styreneFont_xlargeView {
+    @mixin headline-mobile_xlarge;
+}
+
+.styreneFont_largeView {
+    @mixin headline-mobile_large;
+}
+
+.styreneFont_mediumView {
+    @mixin headline-mobile_medium;
+}
+
+.styreneFont_smallView {
+    @mixin headline-mobile_small;
+}
+
+.styreneFont_xsmallView {
+    @mixin headline-mobile_xsmall;
+}
+
+.systemFont_xlargeView {
+    @mixin headline-system-mobile_xlarge;
+}
+
+.systemFont_largeView {
+    @mixin headline-system-mobile_large;
+}
+
+.systemFont_mediumView {
+    @mixin headline-system-mobile_medium;
+}
+
+.systemFont_smallView {
+    @mixin headline-system-mobile_small;
+}
+
+.systemFont_xsmallView {
+    @mixin headline-system-mobile_xsmall;
+}

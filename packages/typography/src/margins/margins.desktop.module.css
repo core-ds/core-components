@@ -1,0 +1,25 @@
+@import './margins.common.module.css';
+
+@define-mixin margin-medium {
+    margin: var(--gap-48) var(--gap-0) var(--gap-24);
+}
+
+.xlargeMargins {
+    @mixin margin-large;
+}
+
+.largeMargins {
+    @mixin margin-medium;
+}
+
+.mediumMargins {
+    @mixin margin-medium;
+}
+
+.smallMargins {
+    @mixin margin-small;
+}
+
+.xsmallMargins {
+    @mixin margin-small;
+}

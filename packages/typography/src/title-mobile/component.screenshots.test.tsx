@@ -1,4 +1,6 @@
 import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../../screenshot-utils';
+import { VIEWS_TITLE, COLORS_INVERTED, WEIGHTS_TEXT } from '../types';
+import { DEFAULT_TITLE_FONT } from '../title-base/component';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -18,9 +20,9 @@ describe(
                     subComponentName: 'TitleMobile',
                     knobs: {
                         children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
-                        weight: ['regular', 'medium', 'bold'],
-                        font: 'styrene',
+                        view: [...VIEWS_TITLE],
+                        weight: [...WEIGHTS_TEXT],
+                        font: DEFAULT_TITLE_FONT,
                     },
                     size: { width: 550, height: 150 },
                 }),
@@ -32,8 +34,8 @@ describe(
                     subComponentName: 'TitleMobile',
                     knobs: {
                         children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
-                        weight: ['regular', 'medium', 'bold'],
+                        view: [...VIEWS_TITLE],
+                        weight: [...WEIGHTS_TEXT],
                         font: 'system',
                     },
                     size: { width: 550, height: 150 },
@@ -57,6 +59,8 @@ describe(
                     componentName: 'Typography',
                     subComponentName: 'TitleMobile',
                     knobs: {
+                        // TODO отдельно сделать апдейт снепшотов, т.к. в тесте меняется порядок цветов, выглядит как баг, но его нет
+                        // color: [...COLORS_MAIN],
                         color: [
                             'disabled',
                             'tertiary',
@@ -81,7 +85,7 @@ describe(
                     subComponentName: 'TitleMobile',
                     inverted: true,
                     knobs: {
-                        color: ['tertiary-inverted', 'primary-inverted', 'secondary-inverted'],
+                        color: [...COLORS_INVERTED],
                         view: 'small',
                         children: 'Мягкая французская булочка',
                     },

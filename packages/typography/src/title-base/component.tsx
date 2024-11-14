@@ -2,41 +2,44 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Color } from '../colors';
 import { useSkeleton } from '../hooks';
+import type desktopStyles from '../title-desktop/desktop.module.css';
+import type mobileStyles from '../title-desktop/mobile.module.css';
+import type { COLORS, FONTS, ROW_LIMITS, TAGS_TITLE, VIEWS_TITLE, WEIGHTS_TITLE } from '../types';
 import { TextSkeletonProps } from '../types';
 
-import { getDefaultWeight } from './utils';
-
-import colors from '../colors.module.css';
+import colorStyles from '../colors.module.css';
+import commonStyles from './common.module.css';
 
 type NativeProps = HTMLAttributes<HTMLHeadingElement>;
+
+export const DEFAULT_TITLE_FONT = 'styrene' as const;
 
 export type TitleProps = Omit<NativeProps, 'color'> & {
     /**
      * HTML тег
      */
-    tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+    tag?: (typeof TAGS_TITLE)[number];
 
     /**
      * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--page)
      */
-    view?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+    view?: (typeof VIEWS_TITLE)[number];
 
     /**
      * Цвет текста
      */
-    color?: Color;
+    color?: (typeof COLORS)[number];
 
     /**
      * Толщина шрифта
      */
-    weight?: 'regular' | 'medium' | 'bold' | 'semibold';
+    weight?: (typeof WEIGHTS_TITLE)[number];
 
     /**
      * Шрифт текста
      */
-    font?: 'styrene' | 'system';
+    font?: (typeof FONTS)[number];
 
     /**
      * Добавляет отступы
@@ -61,7 +64,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
     /**
      * Количество строк
      */
-    rowLimit?: 1 | 2 | 3;
+    rowLimit?: (typeof ROW_LIMITS)[number];
 
     /**
      * Показать скелетон
@@ -72,18 +75,10 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
      * Пропы для скелетона
      */
     skeletonProps?: TextSkeletonProps;
-
-    /**
-     * Значение по-умолчанию для хука useMatchMedia
-     */
-    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 type PrivateProps = {
-    styles: {
-        [key: string]: string;
-    };
-    platform: 'mobile' | 'desktop';
+    styles: typeof commonStyles & typeof desktopStyles & typeof mobileStyles;
 };
 
 type TitleElementType = HTMLHeadingElement | HTMLDivElement;
@@ -93,16 +88,15 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
         {
             tag: Component = 'div',
             view = 'medium',
-            font = 'styrene',
-            platform,
-            weight = getDefaultWeight(font, platform),
+            font = DEFAULT_TITLE_FONT,
+            weight,
             defaultMargins = false,
             color,
             className,
             dataTestId,
             children,
             rowLimit,
-            styles,
+            styles: stylesProp,
             skeletonProps,
             showSkeleton,
             ...restProps
@@ -111,8 +105,10 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
     ) => {
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
 
+        const styles = Object.assign(commonStyles, stylesProp);
+
         const skeleton = renderSkeleton({
-            wrapperClassName: cn(defaultMargins && styles[`margins-${view}`]),
+            wrapperClassName: cn(defaultMargins && styles[`${view}Margins`]),
             dataTestId,
         });
 
@@ -125,15 +121,29 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
                 className={cn(
                     styles.component,
                     className,
-                    styles[`${font}-${view}`],
-                    defaultMargins && styles[`margins-${view}`],
-                    styles[weight],
-                    color && colors[color],
+                    styles[`${font}Font_${view}View`],
+                    defaultMargins && styles[`${view}Margins`],
+                    styles[`${weight}Weight`],
+                    color && colorStyles[`${color}Color`],
                     {
                         [styles[`rowLimit${rowLimit}`]]: rowLimit,
                         [styles.transparent]: showSkeleton,
                     },
                 )}
+                /*
+                 * className={cn(
+                 *   styles.component,
+                 *   className,
+                 *   styles[`${font}-${view}`],
+                 *   defaultMargins && styles[`margins-${view}`],
+                 *   styles[weight],
+                 *   color && colors[color],
+                 *   {
+                 *       [styles[`rowLimit${rowLimit}`]]: rowLimit,
+                 *       [styles.transparent]: showSkeleton,
+                 *   }
+                 *
+                 */
                 data-test-id={dataTestId}
                 ref={mergeRefs([ref, textRef])}
                 {...restProps}

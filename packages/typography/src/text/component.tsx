@@ -2,11 +2,18 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Color } from '../colors';
 import { useSkeleton } from '../hooks';
-import { TextElementType, TextSkeletonProps } from '../types';
+import {
+    COLORS,
+    ROW_LIMITS,
+    TAGS_BASE_TEXT,
+    TextElementType,
+    TextSkeletonProps,
+    VIEWS_TEXT,
+    WEIGHTS_TEXT,
+} from '../types';
 
-import colors from '../colors.module.css';
+import colorStyles from '../colors.module.css';
 import styles from './index.module.css';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
@@ -15,28 +22,17 @@ type TextBaseProps = {
     /**
      * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/tokens-assets-типографика--docs)
      */
-    view?:
-        | 'primary-large'
-        | 'primary-medium'
-        | 'primary-small'
-        | 'secondary-large'
-        | 'secondary-medium'
-        | 'secondary-small'
-        | 'component'
-        | 'component-primary'
-        | 'component-secondary'
-        | 'caps'
-        | 'tagline';
+    view?: (typeof VIEWS_TEXT)[number];
 
     /**
      * Цвет текста
      */
-    color?: Color;
+    color?: (typeof COLORS)[number];
 
     /**
      * Толщина шрифта
      */
-    weight?: 'regular' | 'medium' | 'bold';
+    weight?: (typeof WEIGHTS_TEXT)[number];
 
     /**
      * Делает цифры моноширинными
@@ -46,7 +42,7 @@ type TextBaseProps = {
     /**
      * HTML тег
      */
-    tag?: 'span' | 'div';
+    tag?: (typeof TAGS_BASE_TEXT)[number];
 
     /**
      * Css-класс для стилизации (native prop)
@@ -71,7 +67,7 @@ type TextBaseProps = {
     /**
      * Количество строк
      */
-    rowLimit?: 1 | 2 | 3;
+    rowLimit?: (typeof ROW_LIMITS)[number];
 
     /**
      * Показать скелетон
@@ -88,6 +84,8 @@ type TextPTagProps = Omit<TextBaseProps, 'tag' | 'defaultMargins'> & {
     tag?: 'p';
     defaultMargins?: boolean;
 };
+
+export const DEFAULT_TEXT_VIEW = 'primary-medium' as const;
 
 export type TextProps = Omit<NativeProps, 'color'> & (TextBaseProps | TextPTagProps);
 
@@ -111,7 +109,7 @@ const logWarning = (view: Required<TextBaseProps>['view']) => {
 export const Text = forwardRef<TextElementType, TextProps>(
     (
         {
-            view = 'primary-medium',
+            view = DEFAULT_TEXT_VIEW,
             tag: Component = 'span',
             weight,
             monospaceNumbers = false,
@@ -155,9 +153,9 @@ export const Text = forwardRef<TextElementType, TextProps>(
                         [styles.transparent]: showSkeleton,
                     },
                     className,
-                    color && colors[color],
-                    styles[view],
-                    weight && styles[weight],
+                    color && colorStyles[`${color}Color`],
+                    styles[`${view}View`],
+                    weight && styles[`${weight}Weight`],
                 )}
                 data-test-id={dataTestId}
                 ref={mergeRefs([ref, textRef])}

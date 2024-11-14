@@ -1,79 +1,77 @@
-@import '../../vars/src/index.css';
+@import '../../vars/src/colors-bluetint.css';
 
-/* colors */
-
-.tertiary {
+.tertiaryColor {
     color: var(--color-light-text-tertiary);
 }
 
-.disabled {
+.disabledColor {
     color: var(--color-light-text-quaternary);
 }
 
-.accent {
+.accentColor {
     color: var(--color-light-accent-primary);
 }
 
-.primary {
+.primaryColor {
     color: var(--color-light-text-primary);
 }
 
-.attention {
+.attentionColor {
     color: var(--color-light-text-attention);
 }
 
-.positive {
+.positiveColor {
     color: var(--color-light-text-positive);
 }
 
-.secondary {
+.secondaryColor {
     color: var(--color-light-text-secondary);
 }
 
-.tertiary-inverted {
+.tertiary-invertedColor {
     color: var(--color-light-text-tertiary-inverted);
 }
 
-.primary-inverted {
+.primary-invertedColor {
     color: var(--color-light-text-primary-inverted);
 }
 
-.secondary-inverted {
+.secondary-invertedColor {
     color: var(--color-light-text-secondary-inverted);
 }
 
-.link {
+.linkColor {
     color: var(--color-light-text-info);
 }
 
-.negative {
+.negativeColor {
     color: var(--color-light-text-negative);
 }
 
-.static-primary-light {
+.static-primary-lightColor {
     color: var(--color-static-text-primary-light);
 }
 
-.static-secondary-light {
+.static-secondary-lightColor {
     color: var(--color-static-text-secondary-light);
 }
 
-.static-tertiary-light {
+.static-tertiary-lightColor {
     color: var(--color-static-text-tertiary-light);
 }
 
-.static-primary-dark {
+.static-primary-darkColor {
     color: var(--color-static-text-primary-dark);
 }
 
-.static-secondary-dark {
+.static-secondary-darkColor {
     color: var(--color-static-text-secondary-dark);
 }
 
-.static-tertiary-dark {
+.static-tertiary-darkColor {
     color: var(--color-static-text-tertiary-dark);
 }
 
-.static-accent {
+.static-accentColor {
     color: var(--color-static-accent-primary);
 }

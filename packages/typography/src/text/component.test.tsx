@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { colors } from '../colors';
-import { Text, TextProps } from './index';
+import { Text, DEFAULT_TEXT_VIEW } from './index';
+import { VIEWS_TEXT, COLORS, WEIGHTS_TEXT, TAGS_ALL_TEXT } from '../types';
 
 describe('Text', () => {
     describe('Classes tests', () => {
@@ -33,48 +33,30 @@ describe('Text', () => {
         it('should set class `primary-medium` as default view', () => {
             const { container } = render(<Text />);
 
-            expect(container.firstElementChild).toHaveClass('primary-medium');
+            expect(container.firstElementChild).toHaveClass(`${DEFAULT_TEXT_VIEW}View`);
         });
 
         it('should set `view` class', () => {
-            const views: Array<TextProps['view']> = [
-                'primary-large',
-                'primary-medium',
-                'primary-small',
-                'secondary-large',
-                'secondary-medium',
-                'secondary-small',
-                'component',
-                'caps',
-                'tagline',
-            ];
-
-            views.forEach((view) => {
-                if (!view) return;
-
+            VIEWS_TEXT.forEach((view) => {
                 const { container } = render(<Text view={view} />);
 
-                expect(container.firstElementChild).toHaveClass(view);
+                expect(container.firstElementChild).toHaveClass(`${view}View`);
             });
         });
 
         it('should set `color` class', () => {
-            colors.forEach((color) => {
+            COLORS.forEach((color) => {
                 const { container } = render(<Text color={color} />);
 
-                expect(container.firstElementChild).toHaveClass(color);
+                expect(container.firstElementChild).toHaveClass(`${color}Color`);
             });
         });
 
         it('should set `weight` class', () => {
-            const weights: Array<TextProps['weight']> = ['regular', 'medium', 'bold'];
-
-            weights.forEach((weight) => {
-                if (!weight) return;
-
+            WEIGHTS_TEXT.forEach((weight) => {
                 const { container } = render(<Text weight={weight} />);
 
-                expect(container.firstElementChild).toHaveClass(weight);
+                expect(container.firstElementChild).toHaveClass(`${weight}Weight`);
             });
         });
 
@@ -103,9 +85,8 @@ describe('Text', () => {
 
         it('should set tag correcly', () => {
             const { container, rerender } = render(<Text />);
-            const tags: Array<TextProps['tag']> = ['div', 'p', 'span'];
 
-            tags.forEach((tag) => {
+            TAGS_ALL_TEXT.forEach((tag) => {
                 if (!tag) return;
 
                 const requiredTextTag = tag.toUpperCase();
