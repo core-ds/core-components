@@ -1,3 +1,5 @@
+@import '../../../vars/src/gaps.css';
+
 @define-mixin margin-large {
     margin: var(--gap-0) var(--gap-0) var(--gap-24);
 }
