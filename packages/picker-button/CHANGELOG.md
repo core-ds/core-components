@@ -1,5 +1,70 @@
 # Change Log
 
+## 11.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.1
+
+## 11.12.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.0
+
+## 11.12.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.16.1
+
+## 11.12.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   select@17.16.0
+
+## 11.11.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+
+## 11.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+
+## 11.11.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+
+## 11.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.2
+
 ## 11.11.1
 
 ### Patch Changes

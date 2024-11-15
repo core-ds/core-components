@@ -1,5 +1,113 @@
 # Change Log
 
+## 17.17.1
+
+### Patch Changes
+
+<sup><time>13.11.2024</time></sup>
+
+### [#1440](https://github.com/core-ds/core-components/pull/1440)
+
+-   Исправлена ошибка при изменении ссылки на объект опции выбранного варианта
+
+## 17.17.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1438](https://github.com/core-ds/core-components/pull/1438)
+
+-   `modalHeaderProps.bottomAddons` и `bottomSheetProps.bottomAddons` теперь принимают в том числе функцию, возвращающую `React.ReactNode`
+-   Исправлены состояния "Выбрать все" при заданном `showHeaderWithSelectAll`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+
+## 17.16.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.3
+    -   bottom-sheet@6.17.8
+    -   modal@9.8.1
+
+## 17.16.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   form-control@12.7.0
+    -   modal@9.8.0
+    -   input@15.2.1
+    -   bottom-sheet@6.17.7
+
+## 17.15.2
+
+### Patch Changes
+
+<sup><time>23.10.2024</time></sup>
+
+### [#1420](https://github.com/core-ds/core-components/pull/1420)
+
+-   Исправление проблемы с выбранными опциями в групповых опциях
+
+## 17.15.1
+
+### Patch Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1407](https://github.com/core-ds/core-components/pull/1407)
+
+-   Откат изменений скрытия футера при пустых опциях
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1410](https://github.com/core-ds/core-components/pull/1410)
+
+-   Исправлен расчет высоты пустого списка опций с включенным `limitDynamicOptionGroupSize`
+
+## 17.15.0
+
+### Minor Changes
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1405](https://github.com/core-ds/core-components/pull/1405)
+
+1. Добавлен пропс `onSelectAllClick` в хук `useSelectWithApply`
+2. Исправлена прокидка пропса `headerProps` в компонент `Header` хуке `useSelectWithApply`
+3. Добавлен параметр `name` в обработчик `onChange` для кнопок "Применить" и "Сбросить"
+4. Добавлен пропс `dataTestId` для чекбокса "Выбрать все"
+5. Исправлена ситуация с пустым списком опций и отображаемым футером
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.6
+    -   modal@9.7.2
+
+## 17.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.5
+    -   modal@9.7.1
+
 ## 17.14.1
 
 ### Patch Changes

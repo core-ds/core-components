@@ -1,5 +1,31 @@
 # Change Log
 
+## 7.8.1
+
+### Patch Changes
+
+<sup><time>02.11.2024</time></sup>
+
+### [#1432](https://github.com/core-ds/core-components/pull/1432)
+
+-   Исправлен баг с вызовом onClick при любых нажатиях клавиатуры
+
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   icon-button@6.11.0
+
 ## 7.7.0
 
 ### Minor Changes

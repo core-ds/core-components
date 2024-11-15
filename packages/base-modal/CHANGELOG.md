@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.8.3
+
+### Patch Changes
+
+<sup><time>02.11.2024</time></sup>
+
+### [#1434](https://github.com/core-ds/core-components/pull/1434)
+
+-   Решает проблему, когда скролл не разблокируется при закрытии модального окна при помощи свойства open={false}
+
 ## 5.8.2
 
 ### Patch Changes

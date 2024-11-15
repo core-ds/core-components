@@ -72,6 +72,31 @@ describe(
 );
 
 describe(
+    'Calendar | defaultView corp',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Calendar',
+                    size: { width: 350, height: 400 },
+                    knobs: {
+                        month: [1613310391747],
+                        defaultView: ['years', 'months', 'days'],
+                        responsive: true,
+                    },
+                    mockDate: 1613310391747,
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        theme: 'corp',
+    }),
+);
+
+describe(
     'Calendar | selected value, selectorView',
     screenshotTesting({
         cases: [

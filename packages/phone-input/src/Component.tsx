@@ -76,6 +76,11 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     setCaretPosition({ position: currentCaretPosition, inputRef });
                 }
 
+                // // В режиме clearableCountryCode удаляет лишний пробел, чтобы можно было стереть код города.
+                if (rawValue === '+7' && conformedValue === '' && clearableCountryCode) {
+                    setCaretPosition({ position: countryPrefix.length - 1, inputRef });
+                }
+
                 // Удаление цифры перед кодом страны удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
                 if (rawValue === countryPrefix) {
                     return rawValue;

@@ -59,6 +59,31 @@ describe('Switch', () => {
 });
 
 describe(
+    'Switch | colors',
+    screenshotTesting({
+        cases: [
+            [
+                `sprite`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Лейбл',
+                        hint: 'Подсказка',
+                        checked: [false, true],
+                        disabled: [false, true],
+                        colors: ['default', 'inverted'],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 1024, height: 250 },
+        },
+    }),
+);
+
+describe(
     'Switch | layout',
     screenshotTesting({
         cases: [

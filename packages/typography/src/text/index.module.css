@@ -1,4 +1,5 @@
 @import '../../../vars/src/index.css';
+@import '../common.module.css';
 
 :root {
     --text-paragraph-margin-bottom: var(--gap-0) var(--gap-0) var(--gap-12);

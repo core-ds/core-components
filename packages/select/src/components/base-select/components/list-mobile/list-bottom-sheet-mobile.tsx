@@ -40,6 +40,8 @@ export const ListBottomSheetMobile: FC<ListMobileProps> = (props) => {
     } = props;
 
     if (BottomSheet) {
+        const bottomAddons = bottomSheetProps?.bottomAddons;
+
         return (
             <BottomSheet
                 dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
@@ -67,7 +69,9 @@ export const ListBottomSheetMobile: FC<ListMobileProps> = (props) => {
                 bottomAddons={
                     <React.Fragment>
                         {renderSearch()}
-                        {flatOptions.length > 0 && bottomSheetProps?.bottomAddons}
+                        {typeof bottomAddons === 'function'
+                            ? bottomAddons(flatOptions)
+                            : bottomAddons}
                     </React.Fragment>
                 }
                 containerProps={{

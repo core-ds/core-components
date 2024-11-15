@@ -1,5 +1,6 @@
 @import '../../../vars/src/index.css';
 @import '../margins.module.css';
+@import '../common.module.css';
 
 .styrene-xlarge {
     @mixin headline_xlarge;

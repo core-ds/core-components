@@ -1,5 +1,28 @@
 # Change Log
 
+## 5.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+
+## 5.6.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.0
+    -   input@15.2.1
+
 ## 5.5.1
 
 ### Patch Changes
