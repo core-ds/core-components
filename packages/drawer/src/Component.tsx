@@ -36,26 +36,17 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
 export const DrawerContext = BaseModalContext;
 
 const backdropProps = {
-    /**
-     * FIXME
-     * Backdrop не принимает свойство classNames, и ломает передачу других пропсов в компонент (например свойство transparent передается, но не срабатывает)
-     * На данный момент отрабатывают дефолтные css-transition стили в самом компоненте backdrop
-     * Предположительно нужно передавать через transitionClassNames (но с ним тоже работает с артефактами, нужно исследовать проблему)
-     */
-
-    /*
-     * classNames: {
-     *     enter: styles.backdropEnter,
-     *     appear: styles.backdropEnter,
-     *     enterActive: styles.backdropEnterActive,
-     *     appearActive: styles.backdropEnterActive,
-     *     enterDone: styles.backdropEnterDone,
-     *     appearDone: styles.backdropEnterDone,
-     *     exit: styles.backdropExit,
-     *     exitActive: styles.backdropExitActive,
-     *     exitDone: styles.backdropExitDone,
-     * },
-     */
+    transitionClassNames: {
+        enter: styles.backdropEnter,
+        appear: styles.backdropEnter,
+        enterActive: styles.backdropEnterActive,
+        appearActive: styles.backdropEnterActive,
+        enterDone: styles.backdropEnterDone,
+        appearDone: styles.backdropEnterDone,
+        exit: styles.backdropExit,
+        exitActive: styles.backdropExitActive,
+        exitDone: styles.backdropExitDone,
+    },
     timeout: ANIMATION_DURATION,
 };
 
