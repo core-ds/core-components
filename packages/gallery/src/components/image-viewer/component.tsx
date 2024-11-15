@@ -1,16 +1,5 @@
-import React, {
-    FC,
-    KeyboardEventHandler,
-    MouseEventHandler,
-    SyntheticEvent,
-    useCallback,
-    useContext,
-    useEffect,
-    useMemo,
-    useRef,
-} from 'react';
+import React, { FC, KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
-import elementClosest from 'element-closest';
 import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -25,6 +14,7 @@ import { Slide } from './slide';
 
 import 'swiper/swiper.min.css';
 import styles from './index.module.css';
+import { useHandleImageViewer } from './hooks';
 
 SwiperCore.use([EffectFade, A11y, Controller]);
 
@@ -35,21 +25,22 @@ export const ImageViewer: FC = () => {
         fullScreen,
         currentSlideIndex,
         initialSlide,
-        onClose,
-        setImageMeta,
         setCurrentSlideIndex,
         getSwiper,
         setSwiper,
         slidePrev,
         slideNext,
         getCurrentImage,
-        view,
     } = useContext(GalleryContext);
 
-    const isMobile = view === 'mobile';
-
-    const leftArrowRef = useRef<HTMLDivElement>(null);
-    const rightArrowRef = useRef<HTMLDivElement>(null);
+    const {
+        handleLoad,
+        handleLoadError,
+        handleWrapperClick,
+        isMobile,
+        rightArrowRef,
+        leftArrowRef,
+    } = useHandleImageViewer();
 
     const [leftArrowFocused] = useFocus(leftArrowRef, 'keyboard');
     const [rightArrowFocused] = useFocus(rightArrowRef, 'keyboard');
@@ -80,41 +71,6 @@ export const ImageViewer: FC = () => {
             slideNext();
         }
     };
-
-    const handleLoad = (event: SyntheticEvent<HTMLImageElement>, index: number) => {
-        const target = event.currentTarget;
-
-        const { naturalWidth, naturalHeight } = target;
-
-        setImageMeta({ width: naturalWidth, height: naturalHeight }, index);
-    };
-
-    const handleLoadError = (index: number) => {
-        setImageMeta({ width: 0, height: 0, broken: true }, index);
-    };
-
-    const handleWrapperClick = useCallback<MouseEventHandler>(
-        (event) => {
-            const eventTarget = event.target as HTMLElement;
-
-            const isArrow =
-                leftArrowRef.current?.contains(eventTarget) ||
-                rightArrowRef.current?.contains(eventTarget);
-
-            const isPlaceholder = Boolean(eventTarget.closest(`.${styles.placeholder}`));
-
-            const isImg = eventTarget.tagName === 'IMG';
-
-            if (!isImg && !isPlaceholder && !isArrow && !isMobile) {
-                onClose();
-            }
-        },
-        [isMobile, onClose],
-    );
-
-    useEffect(() => {
-        elementClosest(window);
-    }, []);
 
     const swiperProps = useMemo<Swiper>(
         () => ({

@@ -1,73 +1,21 @@
-import React, {
-    FC,
-    MouseEventHandler,
-    SyntheticEvent,
-    useCallback,
-    useContext,
-    useEffect,
-    useRef,
-} from 'react';
+import React, { FC, useContext, useRef } from 'react';
 import cn from 'classnames';
-import elementClosest from 'element-closest';
 
 import { GalleryContext } from '../../context';
 import { getImageAlt, isVideo } from '../../utils';
 
+import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
 
 import styles from './index.module.css';
 
-export const SingleImageViewer: FC = () => {
-    const {
-        fullScreen,
-        currentSlideIndex,
-        onClose,
-        setImageMeta,
-        getCurrentImage,
-        getCurrentImageMeta,
-        view,
-    } = useContext(GalleryContext);
+export const Single: FC = () => {
+    const { fullScreen, currentSlideIndex, getCurrentImage, getCurrentImageMeta } =
+        useContext(GalleryContext);
 
-    const isMobile = view === 'mobile';
+    const { handleLoad, handleLoadError, handleWrapperClick, isMobile } = useHandleImageViewer();
 
-    const leftArrowRef = useRef<HTMLDivElement>(null);
-    const rightArrowRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        elementClosest(window);
-    }, []);
-
-    const handleLoad = (event: SyntheticEvent<HTMLImageElement>, index: number) => {
-        const target = event.currentTarget;
-
-        const { naturalWidth, naturalHeight } = target;
-
-        setImageMeta({ width: naturalWidth, height: naturalHeight }, index);
-    };
-
-    const handleLoadError = (index: number) => {
-        setImageMeta({ width: 0, height: 0, broken: true }, index);
-    };
-
-    const handleWrapperClick = useCallback<MouseEventHandler>(
-        (event) => {
-            const eventTarget = event.target as HTMLElement;
-
-            const isArrow =
-                leftArrowRef.current?.contains(eventTarget) ||
-                rightArrowRef.current?.contains(eventTarget);
-
-            const isPlaceholder = Boolean(eventTarget.closest(`.${styles.placeholder}`));
-
-            const isImg = eventTarget.tagName === 'IMG';
-
-            if (!isImg && !isPlaceholder && !isArrow && !isMobile) {
-                onClose();
-            }
-        },
-        [isMobile, onClose],
-    );
 
     const currentImage = getCurrentImage();
     const currentImageMeta = getCurrentImageMeta();
