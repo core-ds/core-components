@@ -10,11 +10,11 @@ import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHea
 import { GalleryContext } from '../../context';
 import { getImageAlt, getImageKey, isVideo, TestIds } from '../../utils';
 
+import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
 
 import 'swiper/swiper.min.css';
 import styles from './index.module.css';
-import { useHandleImageViewer } from './hooks';
 
 SwiperCore.use([EffectFade, A11y, Controller]);
 
