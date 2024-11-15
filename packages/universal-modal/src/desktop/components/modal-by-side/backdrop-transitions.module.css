@@ -1,0 +1,21 @@
+@import '../../../../../vars/src/index.css';
+
+.backdropEnter {
+    background-color: transparent;
+}
+
+.backdropEnterActive,
+.backdropEnterDone {
+    transition: background 200ms ease-in;
+    background-color: var(--color-light-overlay-default);
+}
+
+.backdropExit {
+    background-color: var(--color-light-overlay-default);
+}
+
+.backdropExitActive,
+.backdropExitDone {
+    transition: background 200ms ease-out;
+    background-color: transparent;
+}

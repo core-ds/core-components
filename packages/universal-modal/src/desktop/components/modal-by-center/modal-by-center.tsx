@@ -15,7 +15,6 @@ import transitionsCenter from './transitions-center.module.css';
 
 export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
     const {
-        transitionProps,
         dataTestId,
         className,
         open,
@@ -51,7 +50,6 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             componentRef={componentRef}
             transitionProps={{
                 classNames: transitionsCenter,
-                ...transitionProps,
             }}
             className={cn(className, styles.component, {
                 [styles.overlayHidden]: !overlay,

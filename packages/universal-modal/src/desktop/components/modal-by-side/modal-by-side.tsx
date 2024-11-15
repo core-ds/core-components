@@ -12,8 +12,10 @@ import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
+import backdropTransitions from './backdrop-transitions.module.css';
+import containerTransitions from './container-transitions.module.css';
+import contentTransitions from './content-transitions.desktop.module.css';
 import styles from './modal-by-side.module.css';
-import transitions from './transitions.desktop.module.css';
 
 export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -24,7 +26,6 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
         className,
         width = 500,
         height = 'fullHeight',
-        contentTransitionProps,
         children,
         margin = [0],
         overlay = true,
@@ -41,20 +42,45 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
     useModalHeight(height, restProps.open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
-    const appearCn = cn({
-        [transitions.appearLeft]: horizontalAlign === 'start',
-        [transitions.appearRight]: horizontalAlign === 'end',
+    const contentTransitionProps = {
+        appear: contentTransitions.class,
+        enter: contentTransitions.class,
+        appearActive: contentTransitions.class,
+        enterActive: contentTransitions.class,
+        exit: contentTransitions.class,
+        exitActive: contentTransitions.class,
+    };
+
+    const enterClassName = cn({
+        [containerTransitions.enterRight]: horizontalAlign === 'end',
+        [containerTransitions.enterLeft]: horizontalAlign === 'start',
     });
 
-    const enterCn = cn({
-        [transitions.enterLeft]: horizontalAlign === 'start',
-        [transitions.enterRight]: horizontalAlign === 'end',
+    const exitClassName = cn({
+        [containerTransitions.exitActiveRight]: horizontalAlign === 'end',
+        [containerTransitions.exitActiveLeft]: horizontalAlign === 'start',
     });
 
-    const exitCn = cn({
-        [transitions.exitActiveLeft]: horizontalAlign === 'start',
-        [transitions.exitActiveRight]: horizontalAlign === 'end',
-    });
+    const transitionProps = {
+        enter: enterClassName,
+        appear: enterClassName,
+        enterActive: containerTransitions.enterActive,
+        appearActive: containerTransitions.enterActive,
+        exit: containerTransitions.exit,
+        exitActive: exitClassName,
+    };
+
+    const backdropProps = {
+        enter: backdropTransitions.backdropEnter,
+        appear: backdropTransitions.backdropEnter,
+        enterActive: backdropTransitions.backdropEnterActive,
+        appearActive: backdropTransitions.backdropEnterActive,
+        enterDone: backdropTransitions.backdropEnterDone,
+        appearDone: backdropTransitions.backdropEnterDone,
+        exit: backdropTransitions.backdropExit,
+        exitActive: backdropTransitions.backdropExitActive,
+        exitDone: backdropTransitions.backdropExitDone,
+    };
 
     // устанавливает боковое модальное окно вертикально по центру
     useEffect(() => {
@@ -90,23 +116,21 @@ export const ModalBySide = forwardRef<HTMLDivElement, ModalBySideProps>((props, 
                     [styles.overlayHidden]: !overlay,
                 })}
                 backdropProps={{
+                    transitionClassNames: backdropProps,
+                    timeout: 200,
                     transparent: !overlay,
                 }}
                 contentTransitionProps={{
-                    classNames: {
-                        appear: appearCn,
-                        enter: enterCn,
-                        appearActive: transitions.enterActive,
-                        enterActive: transitions.enterActive,
-                        exit: transitions.exit,
-                        exitActive: exitCn,
-                    },
-                    ...contentTransitionProps,
+                    classNames: contentTransitionProps,
+                    timeout: 200,
+                }}
+                transitionProps={{
+                    classNames: transitionProps,
+                    timeout: 200,
                 }}
                 disableBlockingScroll={!overlay}
                 contentClassName={styles.drawerContent}
                 onWheel={handleWheel}
-                transitionProps={{ timeout: 200 }}
                 onClose={onClose}
             >
                 <BaseUniversalModalContent wheelDeltaY={wheelDeltaY}>
