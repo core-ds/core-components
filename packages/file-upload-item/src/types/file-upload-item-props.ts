@@ -110,7 +110,7 @@ export type FileUploadItemProps = {
 
     /**
      * Шкала прогресса
-     * от 0 до 360
+     * от 0 до 100
      * @default 0
      */
     progressBar?: number;

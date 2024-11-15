@@ -135,7 +135,7 @@ describe('FileUploadItem', () => {
                     title='title'
                     subtitle='subtitle'
                     uploadStatus='UPLOADING'
-                    progressBar={270}
+                    progressBar={75}
                 >
                     <FileUploadItem.Content />
                 </FileUploadItem>,

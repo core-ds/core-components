@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
 
+import { MAX_PROGRESS_BAR_VALUE, RADIUS } from '../../const/progress-bar';
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
 import { isErrorStatus, isSuccessStatus, isUploadingStatus } from '../../utils';
 
@@ -15,8 +16,10 @@ export const StatusControl = () => {
     const { uploadStatus = 'INITIAL', progressBar, imageUrl } = useContext(FileUploadItemContext);
     const progressRef = useRef<HTMLDivElement>(null);
 
-    if (progressRef.current) {
-        progressRef.current.style.maskImage = `conic-gradient(red ${progressBar}deg, transparent 0)`;
+    if (progressRef.current && progressBar) {
+        progressRef.current.style.maskImage = `conic-gradient(red ${
+            (RADIUS / MAX_PROGRESS_BAR_VALUE) * progressBar
+        }deg, transparent 0)`;
     }
 
     const isTransparentProgressBar = () =>

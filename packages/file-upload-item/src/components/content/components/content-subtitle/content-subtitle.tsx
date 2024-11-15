@@ -25,9 +25,7 @@ export const ContentSubtitle = () => {
     const showMeta =
         !showRestore && (isSuccessStatus(uploadStatus) || isUploadedStatus(uploadStatus));
 
-    const progressBarAvailablePercents = 100;
-
-    // валидируем progressBar, не должен превышать 360 и быть меньше 0
+    // валидация progressBar (не должен превышать 100 и быть меньше 0)
     const validateProgressBarValue = (progressValue: number | undefined) => {
         if (progressValue === undefined) {
             return 0;
@@ -43,10 +41,7 @@ export const ContentSubtitle = () => {
         return (
             <Typography.Text view='primary-small' color='secondary'>
                 Загрузка{'\u00A0'}
-                {Math.floor(
-                    validProgressBar / (MAX_PROGRESS_BAR_VALUE / progressBarAvailablePercents),
-                )}
-                %
+                {Math.floor(validProgressBar)}%
             </Typography.Text>
         );
     }

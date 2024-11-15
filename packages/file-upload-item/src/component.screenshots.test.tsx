@@ -119,7 +119,7 @@ describe(
             knobs: {
                 title: 'File.pdf',
                 uploadStatus: 'UPLOADING',
-                progressBar: 270,
+                progressBar: 75,
             },
         }),
         screenshotOpts: {
