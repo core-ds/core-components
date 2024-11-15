@@ -5,6 +5,7 @@ import SwiperCore from 'swiper';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useMedia } from '@alfalab/hooks';
 
+import { SingleImageViewer } from './components/image-viewer/single-image-viewer';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
@@ -242,7 +243,7 @@ export const Gallery: FC<GalleryProps> = ({
             >
                 <div className={styles.container}>
                     {view === 'desktop' ? <Header /> : <HeaderMobile />}
-                    <ImageViewer />
+                    {images.length === 1 ? <SingleImageViewer /> : <ImageViewer />}
                     <nav
                         className={cn({
                             [styles.navigationVideo]: isCurrentVideo && isMobile,

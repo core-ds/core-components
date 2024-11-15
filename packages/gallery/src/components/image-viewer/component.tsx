@@ -30,7 +30,6 @@ SwiperCore.use([EffectFade, A11y, Controller]);
 
 export const ImageViewer: FC = () => {
     const {
-        singleSlide,
         images,
         imagesMeta,
         fullScreen,
@@ -126,7 +125,7 @@ export const ImageViewer: FC = () => {
             },
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
-                [styles.fullScreenVideo]: fullScreen && !singleSlide && isVideo(currentImage?.src),
+                [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             }),
@@ -143,7 +142,6 @@ export const ImageViewer: FC = () => {
         [
             fullScreen,
             currentImage?.src,
-            singleSlide,
             isMobile,
             swiper,
             initialSlide,
@@ -152,7 +150,7 @@ export const ImageViewer: FC = () => {
         ],
     );
 
-    const showControls = !singleSlide && !fullScreen && !isMobile && !!images.length;
+    const showControls = !fullScreen && !isMobile && !!images.length;
 
     const swiperWidth = swiper?.width || 1;
     const swiperHeight = swiper?.height || swiper?.width || 1;
@@ -163,7 +161,6 @@ export const ImageViewer: FC = () => {
         /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         <div
             className={cn(styles.component, {
-                [styles.singleSlide]: singleSlide,
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             })}
@@ -216,9 +213,9 @@ export const ImageViewer: FC = () => {
                             {({ isActive }) => (
                                 <Slide
                                     isActive={isActive}
-                                    swiperAspectRatio={swiperAspectRatio}
+                                    containerAspectRatio={swiperAspectRatio}
                                     image={image}
-                                    swiperHeight={swiperHeight}
+                                    containerHeight={swiperHeight}
                                     meta={meta}
                                     index={index}
                                     imageAspectRatio={imageAspectRatio}
