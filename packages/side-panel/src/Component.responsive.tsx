@@ -93,11 +93,23 @@ const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelRespons
     },
 );
 
+const ContentGenerated = createResponsive(SidePanelDesktop.Content, SidePanelMobile.Content);
+const FooterGenerated = createResponsive(SidePanelDesktop.Footer, SidePanelMobile.Footer);
+
+/** @deprecated Используйте атомарные импорты */
 export const SidePanelResponsive = Object.assign(SidePanelResponsiveComponent, {
     Header,
     Controls,
-    Content: createResponsive(SidePanelDesktop.Content, SidePanelMobile.Content),
-    Footer: createResponsive(SidePanelDesktop.Footer, SidePanelMobile.Footer),
+    Content: ContentGenerated,
+    Footer: FooterGenerated,
 });
+
+export {
+    SidePanelResponsiveComponent,
+    Header,
+    Controls,
+    ContentGenerated as Content,
+    FooterGenerated as Footer,
+};
 
 SidePanelResponsiveComponent.displayName = 'SidePanelResponsiveComponent';

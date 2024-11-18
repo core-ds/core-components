@@ -140,6 +140,9 @@ const ListComponent: React.FC<ListProps> = ({
     );
 };
 
+/** @deprecated Используйте атомарные импорты */
 export const List = Object.assign(ListComponent, {
     Item,
 });
+
+export { ListComponent, Item };

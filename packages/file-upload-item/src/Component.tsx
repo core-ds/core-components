@@ -76,8 +76,16 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     </div>
 );
 
+/** @deprecated Используйте атомарные импорты */
 export const FileUploadItem = Object.assign(FileUploadItemComponent, {
     StatusControl,
     Content,
     Actions,
 });
+
+export {
+    // FileUploadItemComponent - экспорт выше
+    StatusControl,
+    Content,
+    Actions,
+};

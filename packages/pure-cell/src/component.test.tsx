@@ -2,37 +2,49 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { PureCell, PureCellProps } from './component';
+import {
+    PureCellComponent as PureCell,
+    Graphics,
+    Content,
+    Main,
+    Text,
+    Addon,
+    Amount,
+    AmountTitle,
+    Category,
+    Footer,
+    Comment,
+    FooterButton,
+    ExtraSubtitle,
+    type PureCellProps,
+} from './component';
+
 import { getPureCellTestIds } from './utils';
 
 const PureCellWrapper = (props: Partial<PureCellProps>) => {
     return (
         <PureCell {...props}>
-            <PureCell.Graphics>
+            <Graphics>
                 <StarMIcon />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text value='value' titleColor='primary'>
+            </Graphics>
+            <Content>
+                <Main>
+                    <Text value='value' titleColor='primary'>
                         Title
-                    </PureCell.Text>
-                </PureCell.Main>
-                <PureCell.Addon>
+                    </Text>
+                </Main>
+                <Addon>
                     <StarMIcon />
-                </PureCell.Addon>
-                <PureCell.Amount value={1234} />
-                <PureCell.AmountTitle value={1234} />
-                <PureCell.Category
-                    rightAddons={<div />}
-                    categoryName='Category'
-                    categoryPercent={10}
-                />
-                <PureCell.Footer>
-                    <PureCell.Comment>Comment</PureCell.Comment>
-                </PureCell.Footer>
-                <PureCell.FooterButton />
-                <PureCell.ExtraSubtitle />
-            </PureCell.Content>
+                </Addon>
+                <Amount value={1234} />
+                <AmountTitle value={1234} />
+                <Category rightAddons={<div />} categoryName='Category' categoryPercent={10} />
+                <Footer>
+                    <Comment>Comment</Comment>
+                </Footer>
+                <FooterButton />
+                <ExtraSubtitle />
+            </Content>
         </PureCell>
     );
 };
@@ -55,19 +67,19 @@ describe('PureCell', () => {
     it('should use `direction` prop', () => {
         render(
             <PureCell direction='vertical' dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -79,19 +91,19 @@ describe('PureCell', () => {
 
         render(
             <PureCell className={className} dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -126,19 +138,19 @@ describe('PureCell', () => {
     it('should use `Component` prop', () => {
         render(
             <PureCell tag='div' dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -148,19 +160,19 @@ describe('PureCell', () => {
     it('should render `a` if it has `href` prop', () => {
         render(
             <PureCell href='www.www.ww' dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -170,19 +182,19 @@ describe('PureCell', () => {
     it('should use `verticalPadding` prop', () => {
         render(
             <PureCell verticalPadding='airy' dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -192,19 +204,19 @@ describe('PureCell', () => {
     it('should use `verticalTopPadding` and `verticalBottomPadding` prop', () => {
         render(
             <PureCell verticalPadding={{ top: 'airy', bottom: 'tiny' }} dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -215,19 +227,19 @@ describe('PureCell', () => {
     it('should use `horizontalPadding` prop', () => {
         render(
             <PureCell horizontalPadding='both' dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -239,19 +251,19 @@ describe('PureCell', () => {
 
         render(
             <PureCell onClick={cb} dataTestId='cell-pure'>
-                <PureCell.Graphics>
+                <Graphics>
                     <StarMIcon />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component-primary'>
+                </Graphics>
+                <Content>
+                    <Main>
+                        <Text titleColor='primary' view='component-primary'>
                             Title
-                        </PureCell.Text>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                        </Text>
+                        <Text titleColor='secondary' view='primary-small'>
                             Label
-                        </PureCell.Text>
-                    </PureCell.Main>
-                </PureCell.Content>
+                        </Text>
+                    </Main>
+                </Content>
             </PureCell>,
         );
 
@@ -261,20 +273,20 @@ describe('PureCell', () => {
         expect(screen.getByTestId('cell-pure').tagName).toBe('BUTTON');
     });
 
-    describe('PureCell.Text', () => {
+    describe('Text', () => {
         it('should wrap children into Typography', function () {
             const pureCellTextDti = 'pure-cell';
             const linkDti = 'link';
 
             const { getByTestId } = render(
                 <PureCell>
-                    <PureCell.Text
+                    <Text
                         titleColor='primary'
                         view='component-primary'
                         dataTestId={pureCellTextDti}
                     >
                         <a data-test-id={linkDti}>Text</a>
-                    </PureCell.Text>
+                    </Text>
                 </PureCell>,
             );
 
@@ -291,7 +303,7 @@ describe('PureCell', () => {
 
             const { getByTestId } = render(
                 <PureCell>
-                    <PureCell.Text
+                    <Text
                         titleColor='primary'
                         view='component-primary'
                         valueColor='link'
@@ -299,7 +311,7 @@ describe('PureCell', () => {
                         value={<a data-test-id={linkDti}>Text</a>}
                     >
                         Text
-                    </PureCell.Text>
+                    </Text>
                 </PureCell>,
             );
 
@@ -311,16 +323,16 @@ describe('PureCell', () => {
         });
     });
 
-    describe('PureCell.Main', () => {
+    describe('Main', () => {
         it('should call cb function if it has `onClick` prop ', () => {
             const cb = jest.fn();
             const cellCb = jest.fn();
 
             render(
                 <PureCell onClick={cellCb}>
-                    <PureCell.Graphics dataTestId='cell-pure' onClick={cb}>
+                    <Graphics dataTestId='cell-pure' onClick={cb}>
                         <StarMIcon />
-                    </PureCell.Graphics>
+                    </Graphics>
                 </PureCell>,
             );
 
@@ -332,23 +344,23 @@ describe('PureCell', () => {
         });
     });
 
-    describe('PureCell.Graphics', () => {
+    describe('Graphics', () => {
         it('should call cb function if it has `onClick` prop ', () => {
             const cb = jest.fn();
             const cellCb = jest.fn();
 
             render(
                 <PureCell onClick={cellCb}>
-                    <PureCell.Content>
-                        <PureCell.Main dataTestId='cell-pure' onClick={cb}>
-                            <PureCell.Text titleColor='primary' view='component-primary'>
+                    <Content>
+                        <Main dataTestId='cell-pure' onClick={cb}>
+                            <Text titleColor='primary' view='component-primary'>
                                 Title
-                            </PureCell.Text>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                            </Text>
+                            <Text titleColor='secondary' view='primary-small'>
                                 Label
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
+                            </Text>
+                        </Main>
+                    </Content>
                 </PureCell>,
             );
 
@@ -360,18 +372,18 @@ describe('PureCell', () => {
         });
     });
 
-    describe('PureCell.Addon', () => {
+    describe('Addon', () => {
         it('should call cb function if it has `onClick` prop ', () => {
             const cb = jest.fn();
             const cellCb = jest.fn();
 
             render(
                 <PureCell onClick={cellCb}>
-                    <PureCell.Content>
-                        <PureCell.Addon dataTestId='cell-pure' onClick={cb}>
+                    <Content>
+                        <Addon dataTestId='cell-pure' onClick={cb}>
                             <StarMIcon />
-                        </PureCell.Addon>
-                    </PureCell.Content>
+                        </Addon>
+                    </Content>
                 </PureCell>,
             );
 
@@ -383,20 +395,20 @@ describe('PureCell', () => {
         });
     });
 
-    describe('PureCell.FooterButton', () => {
+    describe('FooterButton', () => {
         it('should call cb function if it has `onClick` prop ', () => {
             const cb = jest.fn();
             const cellCb = jest.fn();
 
             render(
                 <PureCell onClick={cellCb}>
-                    <PureCell.Content>
-                        <PureCell.Footer>
-                            <PureCell.FooterButton dataTestId='cell-pure' onClick={cb}>
+                    <Content>
+                        <Footer>
+                            <FooterButton dataTestId='cell-pure' onClick={cb}>
                                 Button
-                            </PureCell.FooterButton>
-                        </PureCell.Footer>
-                    </PureCell.Content>
+                            </FooterButton>
+                        </Footer>
+                    </Content>
                 </PureCell>,
             );
 

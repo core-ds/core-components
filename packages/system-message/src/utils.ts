@@ -6,6 +6,7 @@ import { Graphic } from './components/graphic';
 import { Subtitle } from './components/subtitle';
 import { Title } from './components/title';
 
+// TODO уйти от компаунда
 export function createCompound<T>(functionComponent: T) {
     return Object.assign(functionComponent, {
         Graphic,

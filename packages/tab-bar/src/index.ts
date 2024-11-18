@@ -1,2 +1,2 @@
-export { TabBar } from './Component';
+export * from './Component';
 export { TabBarProps, TabProps } from './types';

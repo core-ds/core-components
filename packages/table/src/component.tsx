@@ -10,6 +10,7 @@ import {
     TSortableHeadCell,
 } from './components';
 
+/** @deprecated Используйте атомарные импорты */
 export const Table = Object.assign(TableComponent, {
     TBody,
     THead,
@@ -20,3 +21,15 @@ export const Table = Object.assign(TableComponent, {
     TExpandableRow,
     Pagination,
 });
+
+export {
+    TableComponent,
+    TBody,
+    THead,
+    THeadCell,
+    TSortableHeadCell,
+    TCell,
+    TRow,
+    TExpandableRow,
+    Pagination,
+};
