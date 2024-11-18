@@ -1,0 +1,10 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import './button.common.module.css';
+
+.component {
+    height: 100%;
+    min-width: 48px;
+    backdrop-filter: blur(10px);
+    background: var(--color-light-bg-primary-alpha-40);
+}

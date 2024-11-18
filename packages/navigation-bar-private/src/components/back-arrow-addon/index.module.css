@@ -1,69 +1,7 @@
 @import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
-.component {
-    height: 100%;
-    background: var(--color-light-bg-primary-alpha-40);
-    backdrop-filter: blur(10px);
-    border-radius: var(--border-radius-pill);
-    min-width: 48px;
-
-    & svg > path {
-        transition: fill 0.2s ease;
-        fill: var(--color-light-neutral-translucent-1300);
-    }
-
-    &:hover {
-        & svg > path {
-            fill: var(--color-light-neutral-translucent-1300-hover);
-        }
-    }
-
-    &:active {
-        & svg > path {
-            fill: var(--color-light-neutral-translucent-1300-press);
-        }
-    }
-}
-
-.mobileComponent {
-    height: 32px;
-    min-width: 32px;
-    margin: var(--gap-0) var(--gap-8);
-    backdrop-filter: none;
-    background: none;
-}
-
 .flex {
     display: flex;
     align-items: center;
-}
-
-.iconWrapper {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 48px;
-    margin: var(--gap-0) var(--gap-8) var(--gap-0) var(--gap-12);
-    border-radius: var(--border-radius-circle);
-
-    & + .text {
-        margin-right: var(--gap-12);
-    }
-}
-
-.mobileWrapper {
-    width: 32px;
-    height: 32px;
-    background: var(--color-light-neutral-translucent-100);
-    backdrop-filter: blur(10px);
-    margin: var(--gap-0);
-
-    & + .text {
-        margin: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-8);
-    }
-
-    & svg > path {
-        fill: var(--navigation-bar-back-arrow-mobile-fill);
-    }
 }

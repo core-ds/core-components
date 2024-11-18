@@ -1,18 +1,12 @@
-import React, { ButtonHTMLAttributes, ElementType, FC } from 'react';
+import React, { ButtonHTMLAttributes, ElementType } from 'react';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { type IconButtonProps, IconButton } from '@alfalab/core-components-icon-button';
 
 import styles from './index.module.css';
 
-export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    /**
-     * Вид компонента
-     */
-    view: 'desktop' | 'mobile';
-
+/** Публичные базовые свойства */
+export interface CloserBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Дополнительный класс
      */
@@ -31,7 +25,7 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Иконка
      */
-    icon?: ElementType;
+    icon: ElementType;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -47,15 +41,34 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     ) => void;
 }
 
-export const Closer: FC<CloserProps> = ({
-    view,
+/** Публичные свойства для desktop/mobile */
+export interface CloserProps extends Omit<CloserBaseProps, 'icon'> {
+    /**
+     * Иконка
+     */
+    icon?: ElementType;
+}
+
+/** Приватные свойства, для настройки из desktop/mobile */
+interface IconButtonTransferProps {
+    /**
+     * IconButton
+     */
+    iconButtonProps: Pick<IconButtonProps, 'size' | 'className'>;
+}
+
+/** Общие базовые свойства */
+export interface CloserComponentProps extends CloserBaseProps, IconButtonTransferProps {}
+
+export const CloserComponent = ({
     className,
     sticky,
-    icon = view === 'desktop' ? CrossHeavyMIcon : CrossMIcon,
+    icon,
     dataTestId,
     onClose,
+    iconButtonProps,
     ...restProps
-}) => {
+}: CloserComponentProps) => {
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         onClose?.(event, 'closerClick');
     };
@@ -67,12 +80,11 @@ export const Closer: FC<CloserProps> = ({
             })}
         >
             <IconButton
-                size={view === 'desktop' ? 's' : 'xs'}
-                className={cn(styles.button, { [styles.mobile]: view === 'mobile' })}
                 aria-label='закрыть'
                 onClick={handleClick}
-                icon={icon}
                 dataTestId={dataTestId}
+                icon={icon}
+                {...iconButtonProps}
                 {...restProps}
             />
         </div>

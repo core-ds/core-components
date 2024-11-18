@@ -1,0 +1,24 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import './icon.common.module.css';
+
+.iconWrapper {
+    width: 32px;
+    height: 32px;
+    background: var(--color-light-neutral-translucent-100);
+    backdrop-filter: blur(10px);
+    margin: var(--gap-0);
+
+    & + .text {
+        margin: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-8);
+    }
+
+    & svg > path {
+        fill: var(--navigation-bar-back-arrow-mobile-fill);
+    }
+}
+
+/* TODO удалить, оставлен для сохранение snapshot */
+.mobileWrapper {
+    /* rm this */
+}

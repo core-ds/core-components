@@ -1,0 +1,13 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import 'icon-button.common.module.css';
+
+.button {
+    background: var(--color-light-neutral-translucent-100);
+    color: var(--navigation-bar-closer-mobile-color);
+}
+
+/* TODO удалить, оставлен для сохранение snapshot */
+.mobile {
+    /* rm this */
+}
