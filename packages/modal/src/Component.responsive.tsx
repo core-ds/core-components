@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Content } from './components/content/Component';
 import { Controls } from './components/controls';
@@ -14,13 +13,14 @@ const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps
     (
         {
             children,
-            breakpoint = getComponentBreakpoint(),
-            defaultMatchMediaValue = true,
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
             ...restProps
         },
         ref,
     ) => {
-        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         return (
             <Modal ref={ref} {...restProps} view={isDesktop ? 'desktop' : 'mobile'}>

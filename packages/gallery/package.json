@@ -16,6 +16,7 @@
     "dependencies": {
         "@alfalab/core-components-base-modal": "^5.8.3",
         "@alfalab/core-components-icon-button": "^6.11.0",
+        "@alfalab/core-components-mq": "^4.3.0",
         "@alfalab/core-components-tooltip": "^7.7.1",
         "@alfalab/core-components-typography": "^4.10.2",
         "@alfalab/hooks": "^1.13.0",

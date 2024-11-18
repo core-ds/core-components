@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BasePlateProps } from './components/base-plate';
 import { PlateDesktop } from './desktop';
@@ -15,19 +14,29 @@ export type PlateProps = Omit<BasePlateProps, 'styles'> & {
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
      * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     (
-        { children, breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps },
+        {
+            children,
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
+            ...restProps
+        },
         ref,
     ) => {
-        const query = `(min-width: ${breakpoint}px)`;
-
-        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         const Component = isDesktop ? PlateDesktop : PlateMobile;
 

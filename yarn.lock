@@ -57,6 +57,11 @@
     tslib "^2.4.0"
     ui-primitives "^13.19.0"
 
+"@alfalab/core-config@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-config/-/core-config-1.0.0.tgz#e20d7d2ad36e58b1b65a071eebeed1776ae3cf57"
+  integrity sha512-9msIAhOYlZ7Ydpf490P1694Oc60UmsodJpDeAvhQ84XzWzGc1rRH6+FWXWtzoS1tOlNlybyhR2y7Gq6Ontth3w==
+
 "@alfalab/data@^1.6.0", "@alfalab/data@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.7.0.tgz#87e1525d2b653b9312d5b008df62b13193d1dc0c"

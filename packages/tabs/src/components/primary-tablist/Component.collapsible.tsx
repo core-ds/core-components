@@ -7,7 +7,6 @@ import {
     PickerButtonDesktop,
     PickerButtonDesktopProps,
 } from '@alfalab/core-components-picker-button/desktop';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { useTablistTitles } from '../../hooks/use-tablist-titles';
 import { createSyntheticMouseEvent } from '../../synthetic-events';
@@ -26,7 +25,8 @@ export const CollapsiblePrimaryTabList = ({
     fullWidthScroll,
     onChange,
     dataTestId,
-    breakpoint = getComponentBreakpoint(),
+    breakpoint,
+    client,
     defaultMatchMediaValue,
     textStyle,
     showSkeleton,
@@ -39,8 +39,9 @@ export const CollapsiblePrimaryTabList = ({
             titles,
             selectedId,
             collapsedTabsIds,
-            breakpoint,
             onChange,
+            breakpoint,
+            client,
             defaultMatchMediaValue,
         });
 

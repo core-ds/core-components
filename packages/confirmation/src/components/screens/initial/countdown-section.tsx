@@ -25,7 +25,8 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     mobile,
     handleSmsRetryClick,
 }) => {
-    const { state, texts, timeLeft, blockSmsRetry, breakpoint } = useContext(ConfirmationContext);
+    const { state, texts, timeLeft, blockSmsRetry, breakpoint, client } =
+        useContext(ConfirmationContext);
 
     const renderText = (text?: string) => (
         <Typography.Text
@@ -69,6 +70,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
                 onClick={handleSmsRetryClick}
                 className={cn(styles.getCodeButton, { [styles.getCodeButtonMobile]: mobile })}
                 breakpoint={breakpoint}
+                client={client}
             >
                 {texts.buttonRetry}
             </Button>

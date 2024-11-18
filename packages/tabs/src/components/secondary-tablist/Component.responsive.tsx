@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { SecondaryTabListProps } from '../../typings';
 
@@ -9,12 +8,13 @@ import { SecondaryTabListDesktop } from './Component.desktop';
 import { SecondaryTabListMobile } from './Component.mobile';
 
 export const SecondaryTabListResponsive = ({
-    defaultMatchMediaValue,
     fullWidthScroll,
-    breakpoint = getComponentBreakpoint(),
+    breakpoint,
+    client,
+    defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
     ...restProps
 }: SecondaryTabListProps) => {
-    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
     return isDesktop ? (
         <SecondaryTabListDesktop {...restProps} />

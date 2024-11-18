@@ -2,12 +2,11 @@ import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CustomButtonProps } from '@alfalab/core-components-custom-button';
-import { useMatchMedia } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 import type {
     AdditionalMobileProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
 
 import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './desktop';
 import { CustomPickerButtonMobile } from './mobile';
@@ -22,7 +21,13 @@ export type CustomPickerButtonResponsiveProps = CustomPickerButtonDesktopProps &
         breakpoint?: number;
 
         /**
+         * Версия, которая будет использоваться при серверном рендеринге
+         */
+        client?: 'desktop' | 'mobile';
+
+        /**
          * Значение по-умолчанию для хука useMatchMedia
+         * @deprecated Используйте client
          */
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
@@ -38,14 +43,14 @@ export const CustomPickerButtonResponsive = forwardRef<
             footer,
             swipeable,
             bottomSheetProps,
-            breakpoint = getComponentBreakpoint(),
-            defaultMatchMediaValue,
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
             ...restProps
         },
         ref,
     ) => {
-        const query = `(min-width: ${breakpoint}px)`;
-        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         return isDesktop ? (
             <CustomPickerButtonDesktop

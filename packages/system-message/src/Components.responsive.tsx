@@ -1,22 +1,19 @@
 import React from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint, isClient } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { SystemMessage } from './Component';
 import type { SystemMessageResponsiveProps } from './types';
 import { createCompound } from './utils';
 
 const SystemMessageResponsiveComponent: React.FC<SystemMessageResponsiveProps> = ({
-    breakpoint = getComponentBreakpoint(),
-    defaultMatchMediaValue,
+    breakpoint,
+    client,
+    defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
     children,
     ...restProps
 }) => {
-    const query = `(min-width: ${breakpoint}px)`;
-    const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
-
-    const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue ?? getDefaultValue);
+    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
     return (
         <SystemMessage {...restProps} view={isDesktop ? 'desktop' : 'mobile'}>

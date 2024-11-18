@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-form-control": "^12.7.0",
+        "@alfalab/core-components-mq": "^4.3.0",
         "@alfalab/core-components-shared": "^0.13.0",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
