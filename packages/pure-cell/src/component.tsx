@@ -27,14 +27,8 @@ import { FooterText, FooterTextProps } from './components/footer-text';
 import { Graphics } from './components/graphics';
 import { Main } from './components/main';
 import { Text } from './components/text';
-import { type PureCellElement } from './components/types';
+import { PureCellElement } from './components/types';
 
-/*
- *
- *PureCell
- *
- *ExtraSubtitle: FooterText as React.FC<FooterTextProps>,
- */
 import styles from './index.module.css';
 
 export type PureCellContext = {

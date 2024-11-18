@@ -11,8 +11,8 @@ describe('PureCell ', () => {
     createPreview(
         {
             testStory: false,
-            componentName: 'PureCellComponent',
-            subComponentName: 'Main',
+            componentName: 'PureCell',
+            subComponentName: 'PureCell.Main',
             knobs: {},
         },
         'transform:scale(1.5)',
@@ -23,7 +23,7 @@ describe(
     'PureCell | screenshots direction=`horizontal`',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'PureCellComponent',
+            componentName: 'PureCell',
             knobs: {
                 direction: ['horizontal'],
             },
