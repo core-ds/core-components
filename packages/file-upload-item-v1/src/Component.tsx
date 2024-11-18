@@ -176,7 +176,7 @@ export const FileUploadItemV1: React.FC<FileUploadItemProps> = ({
             case 'UPLOADING':
                 return (
                     <div className={styles.spinnerWrapper}>
-                        <Spinner visible={true} className={styles.spinner} />
+                        <Spinner visible={true} className={styles.spinner} preset={24} />
                     </div>
                 );
             default: {

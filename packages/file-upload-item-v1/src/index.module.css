@@ -114,11 +114,6 @@
     height: 24px;
 }
 
-.spinner {
-    width: 20px;
-    height: 20px;
-}
-
 .uploadPercent {
     margin-top: var(--gap-4);
     margin-left: var(--gap-24);

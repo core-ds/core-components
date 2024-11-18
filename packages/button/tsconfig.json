@@ -6,7 +6,8 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
     "references": [{ "path": "../spinner" }, { "path": "../shared" }, { "path": "../mq" }]
