@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-custom-picker-button",
-    "version": "2.6.1",
+    "version": "2.6.3",
     "description": "Custom picker button component",
     "keywords": [],
     "license": "MIT",
@@ -15,10 +15,10 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-picker-button": "^11.12.1",
+        "@alfalab/core-components-picker-button": "^11.12.3",
         "@alfalab/core-components-custom-button": "^3.10.0",
         "@alfalab/core-components-mq": "^4.3.0",
-        "@alfalab/core-components-select": "^17.16.1",
+        "@alfalab/core-components-select": "^17.17.1",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0",
         "@alfalab/core-components-shared": "^0.13.0"

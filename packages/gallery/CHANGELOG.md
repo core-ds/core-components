@@ -1,5 +1,31 @@
 # Change Log
 
+## 5.10.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1424](https://github.com/core-ds/core-components/pull/1424)
+
+-   Пакет HLS добавлен в корневые зависимости библиотеки
+
+## 5.9.2
+
+### Patch Changes
+
+<sup><time>05.11.2024</time></sup>
+
+### [#1436](https://github.com/core-ds/core-components/pull/1436)
+
+-   Добавление нового класса для попапа в галереи через пропс. Чтобы можно было прокидывать appId для работа изоляции стилей.
+
+<sup><time>05.11.2024</time></sup>
+
+### [#1418](https://github.com/core-ds/core-components/pull/1418)
+
+-   Фикс проверки url, переданного в image src, на предмет видео или нет. Когда передавалось base64, регулярка долго выполнялась и компонент крашился.
+
 ## 5.9.1
 
 ### Patch Changes

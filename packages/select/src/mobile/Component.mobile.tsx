@@ -15,7 +15,7 @@ import { Search as DefaultSearch } from '../components/search';
 import { VirtualOptionsList as DefaultVirtualOptionsList } from '../components/virtual-options-list';
 import { useSelectWithApply } from '../presets/useSelectWithApply/hook';
 import { Header } from '../presets/useSelectWithApply/options-list-with-apply/header/Component';
-import { AnyObject, SelectMobileProps } from '../typings';
+import { AnyObject, OptionShape, SelectMobileProps } from '../typings';
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
@@ -71,9 +71,12 @@ export const SelectMobile = forwardRef(
             showSelectAll,
         });
 
-        const bottomAddons = useWithApplyHook && showHeaderWithSelectAll && (
-            <Header {...applyProps.optionsListProps.headerProps} mobile={true} />
-        );
+        const bottomAddons = (flatOptions: OptionShape[]) =>
+            flatOptions.length > 0 &&
+            useWithApplyHook &&
+            showHeaderWithSelectAll && (
+                <Header {...applyProps.optionsListProps.headerProps} mobile={true} />
+            );
 
         return (
             <BaseSelect

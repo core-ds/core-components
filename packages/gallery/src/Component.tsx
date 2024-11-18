@@ -48,6 +48,11 @@ export type GalleryProps = {
      * Обработчик изменения текущего изображения
      */
     onSlideIndexChange?: (index: number) => void;
+
+    /**
+     * Дополнительный класс для попапа
+     */
+    popupClassName?: string;
 };
 
 const DEFAULT_FULL_SCREEN = false;
@@ -65,6 +70,7 @@ export const Gallery: FC<GalleryProps> = ({
     loop = true,
     onClose,
     onSlideIndexChange,
+    popupClassName,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -221,7 +227,7 @@ export const Gallery: FC<GalleryProps> = ({
         <GalleryContext.Provider value={galleryContext}>
             <BaseModal
                 open={open}
-                className={styles.modal}
+                className={cn(styles.modal, popupClassName)}
                 onEscapeKeyDown={handleEscapeKeyDown}
                 Backdrop={Backdrop}
                 onUnmount={onUnmount}

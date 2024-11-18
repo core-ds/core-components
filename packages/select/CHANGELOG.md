@@ -1,5 +1,31 @@
 # Change Log
 
+## 17.17.1
+
+### Patch Changes
+
+<sup><time>13.11.2024</time></sup>
+
+### [#1440](https://github.com/core-ds/core-components/pull/1440)
+
+-   Исправлена ошибка при изменении ссылки на объект опции выбранного варианта
+
+## 17.17.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1438](https://github.com/core-ds/core-components/pull/1438)
+
+-   `modalHeaderProps.bottomAddons` и `bottomSheetProps.bottomAddons` теперь принимают в том числе функцию, возвращающую `React.ReactNode`
+-   Исправлены состояния "Выбрать все" при заданном `showHeaderWithSelectAll`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+
 ## 17.16.1
 
 ### Patch Changes

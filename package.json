@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "47.25.1",
+    "version": "47.26.1",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -100,6 +100,7 @@
         "react-virtuoso": "^2.12.0",
         "recharts": "^2.1.2",
         "simplebar": "^5.3.8",
+        "hls.js": "^1.5.13",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
