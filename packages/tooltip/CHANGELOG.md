@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   bottom-sheet@6.17.9
+    -   popover@6.3.3
+
 ## 7.7.1
 
 ### Patch Changes

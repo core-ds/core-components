@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   portal@3.3.4
+    -   toast-plate@7.3.2
+    -   popover@6.3.3
+
 ## 6.3.1
 
 ### Patch Changes
