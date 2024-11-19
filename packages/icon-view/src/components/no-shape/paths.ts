@@ -23,6 +23,9 @@ export const shapePaths = {
     64: {
         none: 'M0 0 H64 V64 H0 Z',
     },
+    72: {
+        none: 'M0 0 H72 V72 H0 Z',
+    },
     80: {
         none: 'M0 0 H80 V80 H0 Z',
     },
