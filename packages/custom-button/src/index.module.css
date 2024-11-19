@@ -86,25 +86,35 @@
 /* Disabled */
 
 .customButton:disabled {
-    opacity: 0.3;
+    &.disableType_default {
+        background-color: var(--color-light-neutral-translucent-100);
 
-    &.customLoading {
-        opacity: 1;
+        & span {
+            color: var(--color-light-text-tertiary);
+        }
     }
 
-    &.white * {
-        color: var(--color-light-text-tertiary);
+    &.disableType_static {
+        background-color: var(--color-static-neutral-translucent-100);
+
+        & span {
+            color: var(--color-static-text-tertiary);
+        }
     }
 
-    &.black * {
-        color: var(--color-light-text-tertiary-inverted);
+    &.disableType_inverted {
+        background-color: var(--color-light-neutral-translucent-100-inverted);
+
+        & span {
+            color: var(--color-light-text-tertiary-inverted);
+        }
     }
 
-    &.static-white * {
-        color: var(--color-static-text-tertiary);
-    }
+    &.disableType_static-inverted {
+        background-color: var(--color-static-neutral-translucent-100-inverted);
 
-    &.static-black * {
-        color: var(--color-static-text-tertiary-inverted);
+        & span {
+            color: var(--color-static-text-tertiary-inverted);
+        }
     }
 }
