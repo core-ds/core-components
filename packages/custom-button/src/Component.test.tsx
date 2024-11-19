@@ -89,6 +89,28 @@ describe('CustomButton', () => {
             const { container } = render(<CustomButton contentColor='black' />);
             expect(container.firstElementChild).toHaveClass('black');
         });
+
+        describe('disableType test', () => {
+            it('should have `disableType_default` class', () => {
+                const { container } = render(<CustomButton disableType='default' />);
+                expect(container.firstElementChild).toHaveClass('disableType_default');
+            });
+
+            it('should have `disableType_static` class', () => {
+                const { container } = render(<CustomButton disableType='static' />);
+                expect(container.firstElementChild).toHaveClass('disableType_static');
+            });
+
+            it('should have `disableType_inverted` class', () => {
+                const { container } = render(<CustomButton disableType='inverted' />);
+                expect(container.firstElementChild).toHaveClass('disableType_inverted');
+            });
+
+            it('should have `disableType_static-inverted` class', () => {
+                const { container } = render(<CustomButton disableType='static-inverted' />);
+                expect(container.firstElementChild).toHaveClass('disableType_static-inverted');
+            });
+        });
     });
 
     it('should unmount without errors', () => {
