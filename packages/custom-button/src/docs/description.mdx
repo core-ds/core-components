@@ -13,21 +13,25 @@ const VARIANTS = {
         stateType: 'static-lightening',
         contentColor: 'static-white',
         backgroundColor: '#EB58BF',
+        disabledBackgroundColor: 'var(--color-static-neutral-translucent-100)',
     },
     Light: {
         stateType: 'lightening',
         contentColor: 'white',
         backgroundColor: '#EB58BF',
+        disabledBackgroundColor: 'var(--color-light-neutral-translucent-100)',
     },
     StaticDark: {
         stateType: 'static-darkening',
         contentColor: 'static-black',
         backgroundColor: '#7FEFFA',
+        disabledBackgroundColor: 'var(--color-static-neutral-translucent-100-inverted)',
     },
     Dark: {
         stateType: 'darkening',
         contentColor: 'black',
         backgroundColor: '#7FEFFA',
+        disabledBackgroundColor: 'var(--color-light-neutral-translucent-100-inverted)',
     },
 };
 render(() => {
@@ -37,17 +41,25 @@ render(() => {
         <div>
             <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
                 {Object.keys(VARIANTS).map((title) => (
-                    <CustomButton {...VARIANTS[title]} disabled={disabled} block={isMobile} key={title}>
+                    <CustomButton
+                        {...VARIANTS[title]}
+                        {...(disabled && {
+                            backgroundColor: VARIANTS[title].disabledBackgroundColor,
+                        })}
+                        disabled={disabled}
+                        block={isMobile}
+                        key={title}
+                    >
                         {title}
                     </CustomButton>
                 ))}
             </div>
             <Gap size='xl' />
-                <Switch
-                    checked={disabled}
-                    onChange={() => setDisabled((prevState) => !prevState)}
-                    label='Недоступна'
-                />
+            <Switch
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+                label='Недоступна'
+            />
         </div>
     );
 });
@@ -85,6 +97,48 @@ render(() => {
                     {title}
                 </CustomButton>
             ))}
+        </div>
+    );
+});
+```
+
+## Анатомия
+
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку. Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка. В 56, 64 и 72 размерах доступна подпись под лейблом.
+
+```jsx live
+render(() => {
+    const [label, setLabel] = React.useState(true);
+    const [hint, setHint] = React.useState();
+    const [leftAddons, setLeftAddons] = React.useState(false);
+    const [rightAddons, setRightAddons] = React.useState(false);
+
+    const handleLabelChange = () => setLabel(!label);
+    const handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));
+    const handleLeftAddonsChange = () => setLeftAddons(!leftAddons);
+    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
+
+    return (
+        <div>
+            <CustomButton
+                leftAddons={leftAddons && <StarMIcon />}
+                rightAddons={rightAddons && <StarMIcon />}
+                hint={hint}
+                block={isMobile()}
+                backgroundColor={'var(--color-light-base-bg-secondary-inverted)'}
+            >
+                {label && 'Label'}
+            </CustomButton>
+
+            <Gap size='xl' />
+
+            <Switch label='Label' checked={label} onChange={handleLabelChange} />
+            <Gap size='m' />
+            <Switch label='Hint' checked={hint} onChange={handleHintChange} />
+            <Gap size='m' />
+            <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
+            <Gap size='m' />
+            <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
         </div>
     );
 });

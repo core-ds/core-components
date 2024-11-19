@@ -93,10 +93,18 @@
     }
 
     &.white * {
-        color: var(--color-static-text-primary-inverted);
+        color: var(--color-light-text-tertiary);
     }
 
     &.black * {
-        color: var(--color-static-text-primary);
+        color: var(--color-light-text-tertiary-inverted);
+    }
+
+    &.static-white * {
+        color: var(--color-static-text-tertiary);
+    }
+
+    &.static-black * {
+        color: var(--color-static-text-tertiary-inverted);
     }
 }
