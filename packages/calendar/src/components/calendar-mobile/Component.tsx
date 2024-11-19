@@ -203,13 +203,7 @@ export const CalendarMonthOnlyView = ({
         const clickedMonthStartTimestamp = getMonthStartTimestamp(date);
         const clickedMonthEndTimestamp = getMonthEndTimestamp(date);
 
-        if (
-            !value ||
-            !isRangeValue(value) ||
-            !value.dateFrom ||
-            !value.dateTo ||
-            value.dateFrom === value.dateTo
-        ) {
+        if (!value || !isRangeValue(value) || !value.dateFrom || !value.dateTo) {
             onChange(clickedMonthStartTimestamp, clickedMonthEndTimestamp);
 
             return;
@@ -230,10 +224,12 @@ export const CalendarMonthOnlyView = ({
         const isClickedMonthInsideRange =
             clickedMonthEndTimestamp >= selectedRangeStartTimestamp &&
             clickedMonthStartTimestamp <= selectedRangeEndTimestamp;
+        const isCorrectMonthRange =
+            selectedRangeStartTimestamp === dateFrom && selectedRangeEndTimestamp === dateTo;
 
         if (isSingleMonthSelected && isSameMonthClicked) {
             onChange();
-        } else if (isClickedMonthInsideRange) {
+        } else if (isClickedMonthInsideRange || !isCorrectMonthRange) {
             onChange(clickedMonthStartTimestamp, clickedMonthEndTimestamp);
         } else {
             const newDateFrom = Math.min(selectedRangeStartTimestamp, clickedMonthStartTimestamp);
