@@ -203,7 +203,13 @@ export const CalendarMonthOnlyView = ({
         const clickedMonthStartTimestamp = getMonthStartTimestamp(date);
         const clickedMonthEndTimestamp = getMonthEndTimestamp(date);
 
-        if (!value || !isRangeValue(value) || !value.dateFrom || !value.dateTo) {
+        if (
+            !value ||
+            !isRangeValue(value) ||
+            !value.dateFrom ||
+            !value.dateTo ||
+            value.dateFrom === value.dateTo
+        ) {
             onChange(clickedMonthStartTimestamp, clickedMonthEndTimestamp);
 
             return;
