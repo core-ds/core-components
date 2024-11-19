@@ -1,0 +1,13 @@
+@import './vars.css';
+
+.preset16 {
+    padding: 1px;
+}
+
+.preset24 {
+    padding: var(--gap-3xs);
+}
+
+.preset48 {
+    padding: var(--gap-2xs);
+}

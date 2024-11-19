@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { SelectDesktop } from './desktop';
 import { SelectMobile } from './mobile';
@@ -15,13 +14,14 @@ export const SelectResponsive = forwardRef<
         {
             onScroll,
             fieldProps,
-            breakpoint = getComponentBreakpoint(),
-            defaultMatchMediaValue,
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
             ...restProps
         },
         ref,
     ) => {
-        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         if (isDesktop) {
             return (

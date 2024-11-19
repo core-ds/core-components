@@ -1,5 +1,21 @@
 # Change Log
 
+## 10.4.6
+
+### Patch Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+-   Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   calendar@7.15.2
+    -   date-input@4.4.7
+    -   popover@6.3.3
+
 ## 10.4.5
 
 ### Patch Changes

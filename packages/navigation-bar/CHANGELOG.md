@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+
 ## 1.2.6
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Change Log
 
+## 11.10.1
+
+### Patch Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+-   Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+-   Обновлены зависимости
+    -   spinner@4.0.0
+    -   shared@0.14.0
+
 ## 11.10.0
 
 ### Minor Changes

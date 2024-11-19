@@ -5,6 +5,7 @@ exports[`SystemMessage Snapshots tests should match snapshot 1`] = `
   <div
     class="component"
     data-test-id="system-message"
+    style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px;"
   >
     <div
       class="component"

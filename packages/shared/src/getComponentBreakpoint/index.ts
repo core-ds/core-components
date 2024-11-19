@@ -1,1 +1,0 @@
-export { getComponentBreakpoint } from './getComponentBreakpoint';

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { useMedia } from '@alfalab/hooks';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { GalleryContext } from './context';
@@ -85,15 +85,7 @@ export const Gallery: FC<GalleryProps> = ({
     const [playingVideo, setPlayingVideo] = useState<boolean>(DEFAULT_PLAYING_VIDEO);
     const [hideNavigation, setHideNavigation] = useState<boolean>(DEFAULT_HIDE_NAVIGATION);
 
-    const [view] = useMedia<'desktop' | 'mobile'>(
-        [
-            ['mobile', '(max-width: 1023px)'],
-            ['desktop', '(min-width: 1024px)'],
-        ],
-        'desktop',
-    );
-
-    const isMobile = view === 'mobile';
+    const isDesktop = useIsDesktop();
 
     const isCurrentVideo = !!imagesMeta[currentSlideIndex]?.player?.current;
 
@@ -205,7 +197,7 @@ export const Gallery: FC<GalleryProps> = ({
 
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     const galleryContext: GalleryContext = {
-        view,
+        view: isDesktop ? 'desktop' : 'mobile',
         singleSlide,
         currentSlideIndex,
         images,
@@ -241,16 +233,16 @@ export const Gallery: FC<GalleryProps> = ({
                 onUnmount={onUnmount}
             >
                 <div className={styles.container}>
-                    {view === 'desktop' ? <Header /> : <HeaderMobile />}
+                    {isDesktop ? <Header /> : <HeaderMobile />}
                     <ImageViewer />
                     <nav
                         className={cn({
-                            [styles.navigationVideo]: isCurrentVideo && isMobile,
-                            [styles.hideNavigation]: hideNavigation && isMobile,
+                            [styles.navigationVideo]: isCurrentVideo && !isDesktop,
+                            [styles.hideNavigation]: hideNavigation && !isDesktop,
                         })}
                     >
                         {showNavigationBar && <NavigationBar />}
-                        {view === 'mobile' && <InfoBar />}
+                        {!isDesktop && <InfoBar />}
                     </nav>
                 </div>
             </BaseModal>
