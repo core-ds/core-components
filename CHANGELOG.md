@@ -1,6 +1,18 @@
-## 48.0.0
+## 48.0.1
 
 <sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+#### Что изменилось
+- Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+#### Обновление
+
+Необходимо установить зависимости `@alfalab/core-config` и `@alfalab/stack-context` в проект
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input` `button` `calendar-input` `calendar` `checkbox-group`<br /> `code-input` `confirmation` `custom-button` `custom-picker-button` `date-range-input`<br /> `date-time-input`
 
 ### [#1332](https://github.com/core-ds/core-components/pull/1332)
 
@@ -38,15 +50,6 @@
 
 #### Влияние на компоненты
 - Мажорное<br />`slider-input`
-
-
-### [#1426](https://github.com/core-ds/core-components/pull/1426)
-
-#### Что изменилось
-- Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
-
-#### Влияние на компоненты
-- Патчи<br />`amount-input` `button` `calendar-input` `calendar` `checkbox-group`<br /> `code-input` `confirmation` `custom-button` `custom-picker-button` `date-range-input`<br /> `date-time-input`
 
 
 ### [#1379](https://github.com/core-ds/core-components/pull/1379)
