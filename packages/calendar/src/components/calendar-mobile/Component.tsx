@@ -333,6 +333,9 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             yearsAmount = 3,
             onApply,
             clickableMonth,
+            cancelButtonContent = 'Отмена',
+            selectButtonContent = 'Выбрать',
+            resetButtonContent = 'Сбросить',
             ...restProps
         },
         ref,
@@ -411,7 +414,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                             onClick={handleClear}
                             dataTestId={getDataTestId(dataTestId, 'btn-reset')}
                         >
-                            Сбросить
+                            {resetButtonContent}
                         </ButtonMobile>
                         <ButtonMobile
                             view='primary'
@@ -421,7 +424,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                             disabled={selectButtonDisabled}
                             dataTestId={getDataTestId(dataTestId, 'btn-apply')}
                         >
-                            Выбрать
+                            {selectButtonContent}
                         </ButtonMobile>
                     </React.Fragment>
                 );
@@ -440,7 +443,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         onClick={handleApply}
                         dataTestId={getDataTestId(dataTestId, 'btn-apply')}
                     >
-                        Выбрать
+                        {selectButtonContent}
                     </ButtonMobile>
                 );
             }
@@ -453,7 +456,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     onClick={handleClose}
                     dataTestId={getDataTestId(dataTestId, 'btn-reset')}
                 >
-                    Отмена
+                    {cancelButtonContent}
                 </ButtonMobile>
             );
         };
