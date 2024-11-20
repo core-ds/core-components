@@ -1,8 +1,6 @@
 @import './vars.css';
 
 .container {
-    background: var(--progressbar-bg-color);
-
     display: flex;
     overflow: hidden;
 
