@@ -86,7 +86,7 @@
 /* Disabled */
 
 .customButton:disabled {
-    &.disableType_default {
+    &.disableType-default {
         background-color: var(--color-light-neutral-translucent-100);
 
         & span {
@@ -94,7 +94,7 @@
         }
     }
 
-    &.disableType_static {
+    &.disableType-static {
         background-color: var(--color-static-neutral-translucent-100);
 
         & span {
@@ -102,7 +102,7 @@
         }
     }
 
-    &.disableType_inverted {
+    &.disableType-inverted {
         background-color: var(--color-light-neutral-translucent-100-inverted);
 
         & span {
@@ -110,7 +110,7 @@
         }
     }
 
-    &.disableType_static-inverted {
+    &.disableType-static-inverted {
         background-color: var(--color-static-neutral-translucent-100-inverted);
 
         & span {

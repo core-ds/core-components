@@ -246,3 +246,35 @@ render(() => {
     );
 });
 ```
+
+## Кастомный цвет контента
+
+Для установки цвета контента можно использовать пропс `contentColor` который принимает четыре значения. Но также цвет можно переопределить через класс с помощью пропса `className`
+
+```jsx live
+render(() => {
+    return (
+        <React.Fragment>
+            <style>{'.customClass[type=button] * { color: #EB58BF }'}</style>
+
+            <Space size={16} direction='horizontal'>
+                <CustomButton
+                    hint='Hint'
+                    block={isMobile()}
+                    backgroundColor={'var(--color-light-base-bg-secondary-inverted)'}
+                >
+                    Label
+                </CustomButton>
+                <CustomButton
+                    hint='Hint'
+                    block={isMobile()}
+                    backgroundColor={'var(--color-light-base-bg-secondary-inverted)'}
+                    className={'customClass'}
+                >
+                    Label
+                </CustomButton>
+            </Space>
+        </React.Fragment>
+    );
+});
+```

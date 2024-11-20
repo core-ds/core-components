@@ -93,23 +93,28 @@ describe('CustomButton', () => {
         describe('disableType test', () => {
             it('should have `disableType_default` class', () => {
                 const { container } = render(<CustomButton disableType='default' />);
-                expect(container.firstElementChild).toHaveClass('disableType_default');
+                expect(container.firstElementChild).toHaveClass('disableType-default');
             });
 
             it('should have `disableType_static` class', () => {
                 const { container } = render(<CustomButton disableType='static' />);
-                expect(container.firstElementChild).toHaveClass('disableType_static');
+                expect(container.firstElementChild).toHaveClass('disableType-static');
             });
 
             it('should have `disableType_inverted` class', () => {
                 const { container } = render(<CustomButton disableType='inverted' />);
-                expect(container.firstElementChild).toHaveClass('disableType_inverted');
+                expect(container.firstElementChild).toHaveClass('disableType-inverted');
             });
 
             it('should have `disableType_static-inverted` class', () => {
                 const { container } = render(<CustomButton disableType='static-inverted' />);
-                expect(container.firstElementChild).toHaveClass('disableType_static-inverted');
+                expect(container.firstElementChild).toHaveClass('disableType-static-inverted');
             });
+        });
+
+        it('should have custom className', () => {
+            const { container } = render(<CustomButton className='customClass' />);
+            expect(container.firstElementChild).toHaveClass('customClass');
         });
     });
 

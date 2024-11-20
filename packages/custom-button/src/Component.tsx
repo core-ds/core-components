@@ -70,10 +70,7 @@ export const CustomButton = React.forwardRef<
             className,
             styles[contentColor],
             styles[stateType],
-            styles[`disableType_${disableType}`],
-            {
-                // [styles.customLoading]: loading,
-            },
+            styles[`disableType-${disableType}`],
         );
 
         return (
