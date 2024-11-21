@@ -3,16 +3,36 @@
 У компонента есть стандартные размеры: 16, 24 и 48px.
 
 ```jsx live
-const SIZES = [16, 24, 48];
+const PRESETS = [16, 24, 48];
 
 render(
     <Container>
         <Row align='middle'>
-            {SIZES.map((size) => (
-                <div key={size} style={{ marginRight: 20 }}>
-                    <Spinner visible={true} size={size} />
+            {PRESETS.map((preset) => (
+                <div key={preset} style={{ marginRight: 20 }}>
+                    <Spinner visible={true} preset={preset} />
                 </div>
             ))}
+        </Row>
+    </Container>,
+);
+```
+
+## Кастомизация
+
+Спиннеру можно задать кастомную высоту, цвет, толщину линии и отступы внутри контейнера.
+
+```jsx live
+
+render(
+    <Container>
+        <Row align='middle'>
+            <div style={{ marginRight: 20 }}>
+                <Spinner visible={true} size={28} lineWidth={4} style={{ padding: "var(--gap-2)", color: "var(--color-light-decorative-text-red)" }} />
+            </div>
+            <div style={{ marginRight: 20 }}>
+                <Spinner visible={true} size={24} lineWidth={2} style={{ padding: "var(--gap-4)", color: "var(--color-light-decorative-text-blue)" }} />
+            </div>
         </Row>
     </Container>,
 );
@@ -30,7 +50,7 @@ render(
             </Button>
         </div>
         <div>
-            <Button leftAddons={<Spinner visible={true} />} size='m'>
+            <Button leftAddons={<Spinner visible={true} preset={24} />} size='m'>
                 Дела делаются
             </Button>
         </div>
@@ -41,7 +61,7 @@ render(
             Label
         </Button>
         <br/>
-        <Button block={true} leftAddons={<Spinner visible={true} />} size='m'>
+        <Button block={true} leftAddons={<Spinner visible={true} preset={24} />} size='m'>
             Дела делаются
         </Button>
     </Container>

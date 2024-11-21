@@ -1,17 +1,22 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BaseUniversalDateInput } from './components/base-universal-date-input';
 import type { UniversalDateInputProps } from './types';
 
 export const UniversalDateInput = forwardRef<HTMLInputElement, UniversalDateInputProps>(
     (
-        { breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, view, ...restProps },
+        {
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
+            view,
+            ...restProps
+        },
         ref,
     ) => {
-        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         return (
             <BaseUniversalDateInput

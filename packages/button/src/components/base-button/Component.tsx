@@ -166,6 +166,7 @@ export const BaseButton = React.forwardRef<
 
                 {showLoader && (
                     <Spinner
+                        preset={24}
                         dataTestId={getDataTestId(dataTestId, 'loader')}
                         visible={true}
                         className={cn(

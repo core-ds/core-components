@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BaseFormControlProps } from './components/base-form-control';
 import { FormControlDesktop } from './desktop';
@@ -15,16 +14,28 @@ export type FormControlProps = Omit<BaseFormControlProps, 'styles' | 'colorStyle
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
      * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const FormControl = forwardRef<HTMLDivElement, FormControlProps>(
-    ({ breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps }, ref) => {
-        const query = `(min-width: ${breakpoint}px)`;
-
-        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
+    (
+        {
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
+            ...restProps
+        },
+        ref,
+    ) => {
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         const Component = isDesktop ? FormControlDesktop : FormControlMobile;
 

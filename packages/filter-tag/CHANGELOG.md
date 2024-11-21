@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+
 ## 5.8.0
 
 ### Minor Changes

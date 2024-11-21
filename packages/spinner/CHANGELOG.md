@@ -1,5 +1,34 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1332](https://github.com/core-ds/core-components/pull/1332)
+
+Крупное обновление Спиннера
+
+-   Обновленный вид спиннера.
+-   Добавлены новые пропсы для тонкой настройки внешнего вида:
+    -   `preset` - преднастроенный вариант спиннера;
+    -   `size` - теперь отвечает за размер кольца спиннера;
+    -   `lineWidth` - толщина линии спиннера;
+    -   `style` - позволяет регулировать отступы, цвет и т.п.
+-   Добавлен [`codemod`](https://www.npmjs.com/package/@alfalab/core-components-codemod/v/2.7.0) для бесшовной миграции `Spinner`:
+    ```bash
+    npx @alfalab/core-components-codemod --transformers=spinner --glob='src/**/*.tsx'
+    ```
+    | Внимание                                                                                                                                                                                           |
+    | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `codemod` может не работать в случаях использования [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) в коде. |
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+
 ## 3.5.0
 
 ### Minor Changes

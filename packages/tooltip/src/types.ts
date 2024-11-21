@@ -170,11 +170,6 @@ export type TooltipMobileProps = Omit<Partial<BottomSheetProps>, 'actionButton'>
 
 export type TooltipResponsiveProps = Omit<TooltipDesktopProps, 'onClose' | 'onOpen'> & {
     /**
-     * Значение по-умолчанию для хука useMatchMedia
-     */
-    defaultMatchMediaValue?: boolean | (() => boolean);
-
-    /**
      * Обработчик открытия
      */
     onOpen?: (event?: React.MouseEvent<HTMLElement>) => void;
@@ -205,4 +200,15 @@ export type TooltipResponsiveProps = Omit<TooltipDesktopProps, 'onClose' | 'onOp
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };

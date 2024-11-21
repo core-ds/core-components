@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { ConfirmationDesktop } from './desktop';
 import { ConfirmationMobile } from './mobile';
@@ -18,17 +17,24 @@ export type ResponsiveConfirmationProps = Omit<
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
      * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = ({
-    breakpoint = getComponentBreakpoint(),
-    defaultMatchMediaValue = true,
+    breakpoint,
+    client,
+    defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
     ...restProps
 }) => {
-    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
     return isDesktop ? (
         <ConfirmationDesktop {...restProps} />

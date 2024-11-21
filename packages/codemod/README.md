@@ -48,6 +48,7 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
 | skeleton-blur | Добавляет свойство `allowBackdropBlur` со значение true к компоненту Skeleton |
 | status-soft | Изменяет view компонента Status с `soft` на `muted-alt`|
 | input-type-card | Заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input |
+| spinner | Меняет `size` на `preset` |
 
 ### 42 мажорный релиз
 

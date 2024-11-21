@@ -4,8 +4,9 @@ import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { useFocus, useMedia } from '@alfalab/hooks';
+import { useFocus } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
 import { SIZE_TO_CLASSNAME_MAP } from './consts';
@@ -61,16 +62,19 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             nativeScrollbar: nativeScrollbarProp,
             wrapperRef,
             breakpoint,
+            client,
             ...restProps
         },
         ref,
     ) => {
         const uncontrolled = value === undefined;
-        let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+
+        const isDesktop = useIsDesktop(breakpoint, client === 'desktop');
+        let nativeScrollbar = !isDesktop;
 
         nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
-        const textareaRef = useRef<HTMLTextAreaElement>(null);
+        const [textareaNode, setTextareaNode] = useState<HTMLTextAreaElement | null>(null);
         const pseudoTextareaRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
@@ -78,12 +82,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const [scrollPosition, setScrollPosition] = useState(0);
 
         const [focusVisible] = useFocus(
-            /*
-             * При первом рендере textareaRef.current === null, то нужно пересоздать реф для корректной работы хука
-             * TODO: исправить хук useFocus, чтобы он поддерживал изменение ноды
-             */
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            useMemo(() => ({ current: textareaRef.current }), [textareaRef.current]),
+            useMemo(() => ({ current: textareaNode }), [textareaNode]),
             'keyboard',
         );
 
@@ -104,10 +103,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize && maxHeight && textareaRef.current && textareaRef.current.style) {
-                textareaRef.current.style.maxHeight = `${maxHeight}px`;
+            if (autosize && maxHeight && textareaNode && textareaNode.style) {
+                textareaNode.style.maxHeight = `${maxHeight}px`;
             }
-        }, [autosize, maxHeight]);
+        }, [autosize, maxHeight, textareaNode]);
 
         const handleTextareaFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
             setFocused(true);
@@ -181,7 +180,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onChange: handleTextareaChange,
             value: uncontrolled ? stateValue : value,
             rows,
-            ref: mergeRefs([ref, textareaRef]),
+            ref: mergeRefs([ref, setTextareaNode]),
             'data-test-id': dataTestId,
             onScroll: handleTeaxtareaScroll,
         };
