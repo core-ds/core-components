@@ -55,7 +55,13 @@ const SIZE_TO_CLASSNAME_MAP = {
     72: 'size-72',
 };
 
-export const TagList: FC<Partial<FieldProps> & FormControlProps & TagListOwnProps> = ({
+export const TagList: FC<
+    Partial<FieldProps> &
+        TagListOwnProps &
+        Omit<FormControlProps, 'size'> & {
+            size: Exclude<FormControlProps['size'], 40>;
+        }
+> = ({
     size = 72,
     open,
     disabled,

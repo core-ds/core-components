@@ -104,6 +104,27 @@
 
 /* SIZES */
 
+.size-40 {
+    & .inner {
+        min-height: var(--form-control-40-min-height);
+    }
+
+    & .hasInnerLabel .input > * {
+        padding: var(--form-control-labeled-40-paddings);
+    }
+
+    & .label {
+        top: calc(var(--form-control-40-min-height) / 2);
+    }
+
+    & .addons {
+        & > * {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
 .size-48 .inner {
     min-height: var(--form-control-s-min-height);
 }

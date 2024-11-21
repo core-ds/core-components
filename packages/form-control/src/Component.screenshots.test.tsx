@@ -45,7 +45,7 @@ describe('FormControl | screenshots size prop', () => {
                         componentName: 'FormControl',
                         knobs: {
                             label: 'Label',
-                            size: [48, 56, 64, 72],
+                            size: [40, 48, 56, 64, 72],
                         },
                         size: { width: 350, height: 150 },
                     }),
@@ -151,7 +151,7 @@ describe('FormControl | screenshots theme corp', () => {
                     componentName: 'FormControl',
                     knobs: {
                         block: true,
-                        size: [48, 56, 64, 72],
+                        size: [40, 48, 56, 64, 72],
                         disabled: [false, true],
                         error: ['', 'Error'],
                     },

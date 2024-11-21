@@ -14,6 +14,10 @@
 
 /* SIZES */
 
+.size-40 .inner {
+    border-radius: var(--form-control-40-border-radius);
+}
+
 .size-48 .inner {
     border-radius: var(--form-control-s-border-radius);
 }
