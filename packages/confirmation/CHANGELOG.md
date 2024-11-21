@@ -1,5 +1,18 @@
 # Change Log
 
+## 13.9.0
+
+### Minor Changes
+
+<sup><time>21.11.2024</time></sup>
+
+### [#1408](https://github.com/core-ds/core-components/pull/1408)
+
+Расширен пропс `texts` компонента `Confirmation`:
+
+-   `domesticPhone` — номер телефона для звонков по России (по умолчанию 8 800 200 00 00)
+-   `internationalPhone` — номер телефона для звонков из-за границы (по умолчанию +7 495 78 888 78).
+
 ## 13.8.3
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.10.2
+
+### Patch Changes
+
+<sup><time>21.11.2024</time></sup>
+
+### [#1443](https://github.com/core-ds/core-components/pull/1443)
+
+-   Добавлен отдельный компонент для single изображения, что сделать его независимым от swiper
+
 ## 5.10.1
 
 ### Patch Changes
