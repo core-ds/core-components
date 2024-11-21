@@ -34,7 +34,7 @@ export const number_input: Story = {
             >
                 {stepper ? (
                     <NumberInput
-                        size={select('size', [48, 56, 64, 72], 48)}
+                        size={select('size', [40, 48, 56, 64, 72], 48)}
                         colors={colors}
                         disabled={boolean('disabled', false)}
                         step={number('step', 1)}
