@@ -8,7 +8,9 @@ import { EyeOffMIcon } from '@alfalab/icons-glyph/EyeOffMIcon';
 
 import styles from './index.module.css';
 
-export type PasswordInputProps = InputProps & {
+export type PasswordInputProps = Omit<InputProps, 'size'> & {
+    size: Exclude<InputProps['size'], 40>;
+} & {
     /**
      * Управление видимостью пароля (controlled)
      */

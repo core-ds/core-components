@@ -1,5 +1,6 @@
 @define-mixin form-control-site {
     /* theme */
+    --form-control-40-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-s-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-m-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-l-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;

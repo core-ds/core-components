@@ -7,7 +7,12 @@ import { NumberInput, NumberInputProps } from './components/number-input';
 
 export type NumberInputResponsiveProps = Omit<NumberInputProps, 'Input' | 'view'>;
 
-export const NumberInputResponsive = forwardRef<HTMLInputElement, NumberInputResponsiveProps>(
+export const NumberInputResponsive = forwardRef<
+    HTMLInputElement,
+    Omit<NumberInputResponsiveProps, 'size'> & {
+        size?: Exclude<NumberInputResponsiveProps['size'], 40>;
+    }
+>(
     (
         {
             breakpoint,

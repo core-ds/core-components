@@ -143,7 +143,10 @@ const SIZE_TO_CLASSNAME_MAP = {
     72: 'size-72',
 };
 
-export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
+export const SliderInput = forwardRef<
+    HTMLInputElement,
+    Omit<SliderInputProps, 'size'> & { size: Exclude<SliderInputProps['size'], 40> }
+>(
     (
         {
             className,

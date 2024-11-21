@@ -109,7 +109,10 @@ const SIZE_TO_CLASSNAME_MAP = {
     72: 'size-72',
 };
 
-export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
+export const NumberInput = forwardRef<
+    HTMLInputElement,
+    Omit<NumberInputProps, 'size'> & { size?: Exclude<NumberInputProps['size'], 40> }
+>(
     (
         {
             value: propValue,

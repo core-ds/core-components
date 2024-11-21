@@ -25,6 +25,10 @@
         opacity: 0;
     }
 
+    &.size-40 {
+        height: var(--form-control-40-min-height);
+    }
+
     &.size-48 {
         height: var(--form-control-s-min-height);
     }
