@@ -298,6 +298,9 @@
         "*.css": [
             "prettier --write",
             "stylelint"
+        ],
+        "**/package.json": [
+            "node bin/check-dependencies.js"
         ]
     },
     "husky": {
