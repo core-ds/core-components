@@ -76,7 +76,7 @@ describe('Select', () => {
                             options: [[]],
                             block: true,
                             placeholder: 'Выберите элемент',
-                            size: [48, 56, 64],
+                            size: [40, 48, 56, 64],
                             label: ['Элемент', ''],
                         },
                         size: { width: 300, height: 120 },

@@ -58,7 +58,7 @@ export const select: Story = {
             setSelected(selectedMultiple.map((option) => option.key));
         };
         const block = boolean('block', false);
-        const size = selectKnob('size', [48, 56, 64, 72], 48);
+        const size = selectKnob('size', [40, 48, 56, 64, 72], 48);
         const disabled = boolean('disabled', false);
         const error = text('error', '');
         const hint = text('hint', '');
@@ -115,7 +115,7 @@ export const select_mobile: Story = {
             setSelected(selectedMultiple.map((option) => option.key));
         };
         const block = boolean('block', false);
-        const size = selectKnob('size', [48, 56, 64, 72], 48);
+        const size = selectKnob('size', [40, 48, 56, 64, 72], 48);
         const disabled = boolean('disabled', false);
         const error = text('error', '');
         const hint = text('hint', '');
@@ -166,7 +166,7 @@ export const select_responsive: Story = {
             setSelected(selectedMultiple.map((option) => option.key));
         };
         const block = boolean('block', false);
-        const size = selectKnob('size', [48, 56, 64, 72], 48);
+        const size = selectKnob('size', [40, 48, 56, 64, 72], 48);
         const disabled = boolean('disabled', false);
         const error = text('error', '');
         const hint = text('hint', '');
@@ -223,7 +223,7 @@ export const select_modal_mobile: Story = {
             setSelected(selectedMultiple.map((option) => option.key));
         };
         const block = boolean('block', false);
-        const size = selectKnob('size', [48, 56, 64, 72], 48);
+        const size = selectKnob('size', [40, 48, 56, 64, 72], 48);
         const disabled = boolean('disabled', false);
         const error = text('error', '');
         const hint = text('hint', '');
