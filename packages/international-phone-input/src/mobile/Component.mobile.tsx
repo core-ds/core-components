@@ -12,9 +12,7 @@ import type {
 
 export const InternationalPhoneInputMobile = forwardRef<
     HTMLInputElement,
-    Omit<InternationalPhoneInputMobileProps, 'size'> & {
-        size: Exclude<InternationalPhoneInputMobileProps['size'], 40>;
-    }
+    InternationalPhoneInputMobileProps
 >((props, ref) => (
     <BaseInternationalPhoneInput
         selected={props.value}

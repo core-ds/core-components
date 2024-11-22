@@ -8,9 +8,7 @@ import { InternationalPhoneInputProps } from './types';
 
 export const InternationalPhoneInput = React.forwardRef<
     HTMLInputElement,
-    Omit<InternationalPhoneInputProps, 'size'> & {
-        size: Exclude<InternationalPhoneInputProps['size'], 40>;
-    }
+    InternationalPhoneInputProps
 >(
     (
         {

@@ -27,6 +27,7 @@ import { Tag as DefaultTag } from '../tag';
 import styles from './index.module.css';
 
 type TagListOwnProps = {
+    size?: Exclude<FormControlProps['size'], 40>;
     value?: string;
     handleDeleteTag?: (key: string) => void;
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -56,11 +57,7 @@ const SIZE_TO_CLASSNAME_MAP = {
 };
 
 export const TagList: FC<
-    Partial<FieldProps> &
-        TagListOwnProps &
-        Omit<FormControlProps, 'size'> & {
-            size: Exclude<FormControlProps['size'], 40>;
-        }
+    Partial<FieldProps> & Omit<FormControlProps, 'size'> & TagListOwnProps
 > = ({
     size = 72,
     open,
