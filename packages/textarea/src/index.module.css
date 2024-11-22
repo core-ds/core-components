@@ -4,6 +4,7 @@
 
 :root {
     /* min-height */
+    --textarea-40-min-height: var(--form-control-40-min-height);
     --textarea-s-min-height: var(--form-control-s-min-height);
     --textarea-m-min-height: var(--form-control-m-min-height);
     --textarea-l-min-height: var(--form-control-l-min-height);
@@ -11,24 +12,31 @@
 
     /* spacer */
     --textarea-spacer-style: solid transparent;
+    --textarea-40-spacer: 10px;
     --textarea-s-spacer: 14px;
     --textarea-m-spacer: 18px;
     --textarea-l-spacer: 22px;
     --textarea-xl-spacer: 24px;
 
     /* filled spacer-top */
+    --textarea-40-filled-spacer-top: 19px;
     --textarea-s-filled-spacer-top: 24px;
     --textarea-m-filled-spacer-top: 24px;
     --textarea-l-filled-spacer-top: 32px;
     --textarea-xl-filled-spacer-top: 34px;
 
     /* filled spacer-bottom */
+    --textarea-40-filled-spacer-bottom: 3px;
     --textarea-s-filled-spacer-bottom: 4px;
     --textarea-m-filled-spacer-bottom: 8px;
     --textarea-l-filled-spacer-bottom: 12px;
     --textarea-xl-filled-spacer-bottom: 14px;
 
     /* filled min-height */
+    --textarea-40-filled-min-height: calc(
+        var(--textarea-40-min-height) - var(--textarea-40-filled-spacer-top) -
+            var(--textarea-40-filled-spacer-bottom)
+    );
     --textarea-s-filled-min-height: calc(
         var(--textarea-s-min-height) - var(--textarea-s-filled-spacer-top) -
             var(--textarea-s-filled-spacer-bottom)
@@ -140,6 +148,9 @@
 /* FILLED STATE */
 .textarea.filled.hasInnerLabel {
     padding-top: var(--gap-0);
+    &.size-40 {
+        min-height: var(--textarea-40-filled-min-height);
+    }
     &.size-48 {
         min-height: var(--textarea-s-filled-min-height);
     }
@@ -156,6 +167,10 @@
 
 /* Correct pseudoTextarea size */
 .pseudoTextarea.filled.hasInnerLabel {
+    &.size-40 {
+        min-height: calc(100% - var(--textarea-40-filled-spacer-top));
+    }
+
     &.size-48 {
         min-height: calc(100% - var(--textarea-s-filled-spacer-top));
     }
@@ -182,6 +197,11 @@
 
 /* Border нужен для того чтобы растянуть textarea на всю высоту FormControl , если заменить на padding, то лейбл не будет кликабельный */
 .textarea {
+    &.size-40 {
+        border-top: var(--textarea-40-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-40-spacer) var(--textarea-spacer-style);
+    }
+
     &.size-48 {
         border-top: var(--textarea-s-spacer) var(--textarea-spacer-style);
         border-bottom: var(--textarea-s-spacer) var(--textarea-spacer-style);
@@ -203,6 +223,11 @@
     }
 
     &.hasInnerLabel {
+        &.size-40 {
+            border-top: var(--textarea-40-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-40-filled-spacer-bottom) var(--textarea-spacer-style);
+        }
+
         &.size-48 {
             border-top: var(--textarea-s-filled-spacer-top) var(--textarea-spacer-style);
             border-bottom: var(--textarea-s-filled-spacer-bottom) var(--textarea-spacer-style);
