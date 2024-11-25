@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { FC, SVGProps } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { type ButtonDesktopProps, ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { Typography } from '@alfalab/core-components-typography';
-import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
-import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
+import { type TextProps } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -20,11 +19,6 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     className?: string;
 
     /**
-     * Вид компонента
-     */
-    view: 'mobile' | 'desktop';
-
-    /**
      * Прозрачность текста
      */
     textOpacity?: number;
@@ -35,45 +29,49 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     onClick?: () => void;
 }
 
-export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
+interface BackArrowAddonTransferProps {
+    ButtonDesktopProps: Pick<ButtonDesktopProps, 'size' | 'className'>;
+    iconWrapperProps: {
+        className: string;
+    };
+    TypographyTextProps: Pick<TextProps, 'view' | 'className'>;
+    Icon: FC<SVGProps<SVGSVGElement>>;
+}
+
+export interface BackArrowAddonBaseProps extends BackArrowAddonProps, BackArrowAddonTransferProps {}
+
+export const BackArrowAddonBase = ({
     text = 'Назад',
     onClick,
     className,
     textOpacity = 1,
-    view,
+    ButtonDesktopProps,
+    iconWrapperProps,
+    TypographyTextProps,
+    Icon,
     ...htmlAttributes
-}) => {
-    const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon;
-    const isMobileView = view === 'mobile';
-
-    return (
-        <ButtonDesktop
-            view='text'
-            size={isMobileView ? 'xxs' : 's'}
-            onClick={onClick}
-            aria-label='назад'
-            className={cn(styles.component, { [styles.mobileComponent]: isMobileView }, className)}
-            {...htmlAttributes}
-        >
-            <div className={styles.flex}>
-                <div
-                    className={cn(styles.iconWrapper, {
-                        [styles.mobileWrapper]: isMobileView,
-                    })}
-                >
-                    <Icon />
-                </div>
-                {textOpacity > 0 && text && (
-                    <Typography.Text
-                        className={styles.text}
-                        view={view === 'desktop' ? 'primary-large' : 'component'}
-                        weight='medium'
-                        style={{ opacity: textOpacity }}
-                    >
-                        {text}
-                    </Typography.Text>
-                )}
+}: BackArrowAddonBaseProps) => (
+    <ButtonDesktop
+        view='text'
+        onClick={onClick}
+        aria-label='назад'
+        {...ButtonDesktopProps}
+        className={cn(ButtonDesktopProps.className, className)}
+        {...htmlAttributes}
+    >
+        <div className={styles.flex}>
+            <div {...iconWrapperProps}>
+                <Icon />
             </div>
-        </ButtonDesktop>
-    );
-};
+            {textOpacity > 0 && text && (
+                <Typography.Text
+                    weight='medium'
+                    style={{ opacity: textOpacity }}
+                    {...TypographyTextProps}
+                >
+                    {text}
+                </Typography.Text>
+            )}
+        </div>
+    </ButtonDesktop>
+);

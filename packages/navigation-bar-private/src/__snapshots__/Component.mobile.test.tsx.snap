@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation Bar NavigationBarPrivateMobile Snapshots tests should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="header"
+      data-test-id="navigation-bar-dti"
+    >
+      <div
+        class="mainLine"
+      >
+        <div
+          class="addonsWrapper"
+        >
+          <div
+            class="addon"
+          >
+            <button
+              aria-label="назад"
+              class="component text size-32 hug size-32 component text component text component mobileComponent"
+              data-test-id="navigation-bar-dti-back-button"
+              type="button"
+            >
+              <span
+                class="label stretchText"
+              >
+                <div
+                  class="flex"
+                >
+                  <div
+                    class="iconWrapper mobileWrapper"
+                  >
+                    <svg
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M7.5 13H19v-2H7.5L11 7.5 9.5 6 4 12l5.5 6 1.5-1.5L7.5 13z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text component medium"
+                    style="opacity: 1;"
+                  >
+                    Назад
+                  </span>
+                </div>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="addonsWrapper rightAddons"
+        >
+          <div
+            class="addon closer"
+          >
+            <div
+              class="closer"
+            >
+              <button
+                aria-label="закрыть"
+                class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component border-32"
+                data-test-id="navigation-bar-dti-closer"
+                type="button"
+              >
+                <span
+                  class="label stretchText"
+                >
+                  <span
+                    class="iconWrapper size-32 center"
+                  >
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content contentOnBotMobile left trim"
+        style="visibility: visible;"
+      >
+        <div
+          class="title"
+          data-test-id="navigation-bar-dti-title"
+        >
+          some title
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

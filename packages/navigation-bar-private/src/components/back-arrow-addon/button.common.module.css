@@ -1,0 +1,23 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+
+.component {
+    border-radius: var(--border-radius-pill);
+
+    & svg > path {
+        transition: fill 0.2s ease;
+        fill: var(--color-light-neutral-translucent-1300);
+    }
+
+    &:hover {
+        & svg > path {
+            fill: var(--color-light-neutral-translucent-1300-hover);
+        }
+    }
+
+    &:active {
+        & svg > path {
+            fill: var(--color-light-neutral-translucent-1300-press);
+        }
+    }
+}

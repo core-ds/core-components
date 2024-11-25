@@ -1,0 +1,12 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import './icon.common.module.css';
+
+.iconWrapper {
+    height: 48px;
+    margin: var(--gap-0) var(--gap-8) var(--gap-0) var(--gap-12);
+
+    & + .text {
+        margin-right: var(--gap-12);
+    }
+}

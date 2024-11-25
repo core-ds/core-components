@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ElementType, ReactNode } from 'react';
 
-import { BackArrowAddonProps } from './components/back-arrow-addon';
-import type { CloserProps } from './components/closer';
+import type { BackArrowAddonComponentProps } from './components/back-arrow-addon';
+import type { CloserComponentProps } from './components/closer';
 
-export type NavigationBarPrivateProps = {
+export type NavigationBarPrivateBaseProps = {
     /**
      * Контент шапки
      */
@@ -67,7 +67,7 @@ export type NavigationBarPrivateProps = {
     /**
      * Дополнительные пропсы для кнопки "Назад"
      */
-    backButtonProps?: Omit<BackArrowAddonProps, 'view' | 'textOpacity' | 'onClick'>;
+    backButtonProps?: Omit<BackArrowAddonComponentProps, 'textOpacity' | 'onClick'>;
 
     /**
      * Дополнительный класс
@@ -117,7 +117,7 @@ export type NavigationBarPrivateProps = {
     /**
      * Обработчик закрытия
      */
-    onClose?: CloserProps['onClose'];
+    onClose?: CloserComponentProps['onClose'];
 
     /**
      * обработчик клика по кнопке "назад"
@@ -125,15 +125,31 @@ export type NavigationBarPrivateProps = {
     onBack?: () => void;
 
     /**
-     * Вид шапки - мобильный или десктоп
-     */
-    view: 'desktop' | 'mobile';
-
-    /**
      * Ссылка на родительскую ноду overflow: auto
      */
     scrollableParentRef?: React.RefObject<HTMLDivElement>;
 };
+
+export type NavigationBarPrivateTransferProps = {
+    BackArrowAddon: ElementType;
+    Closer: ElementType;
+
+    /**
+     * Вид шапки - мобильный или десктоп
+     */
+    view: 'desktop' | 'mobile';
+};
+
+/** Общий тип для компонента */
+export type NavigationBarPrivateComponentProps = NavigationBarPrivateBaseProps &
+    NavigationBarPrivateTransferProps;
+
+/** Общий публичный тип для desktop/mobile */
+export type NavigationBarPrivateProps = NavigationBarPrivateBaseProps;
+
+/** @deprecated Используйте типы NavigationBarPrivateDesktop / NavigationBarMobile  */
+export type NavigationBarPrivateResponsiveProps = NavigationBarPrivateProps &
+    Pick<NavigationBarPrivateTransferProps, 'view'>;
 
 export type ContentParams = {
     extraClassName?: string;

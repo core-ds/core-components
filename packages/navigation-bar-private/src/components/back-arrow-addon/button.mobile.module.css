@@ -1,0 +1,16 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import './button.common.module.css';
+
+.component {
+    height: 32px;
+    min-width: 32px;
+    margin: var(--gap-0) var(--gap-8);
+    backdrop-filter: none;
+    background: none;
+}
+
+/* TODO удалить, оставлен для сохранение snapshot */
+.mobileComponent {
+    /* rm this */
+}

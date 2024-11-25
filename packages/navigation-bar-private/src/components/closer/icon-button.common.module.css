@@ -1,0 +1,10 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+
+.button {
+    backdrop-filter: blur(10px);
+}
+
+.button.button {
+    border-radius: var(--border-radius-circle);
+}

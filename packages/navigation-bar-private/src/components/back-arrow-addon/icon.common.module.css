@@ -1,0 +1,9 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-circle);
+}
