@@ -26,9 +26,14 @@
     }
 }
 
-.singleSlide .swiper {
+.singleSlideContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
     max-height: calc(100vh - 80px);
     padding: var(--gap-32);
+    box-sizing: border-box;
 
     &.mobile {
         max-height: calc(100vh - 174px);

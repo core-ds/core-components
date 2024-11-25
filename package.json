@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.0.0",
+    "version": "48.1.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -61,7 +61,6 @@
         "@alfalab/icons-glyph": "^2.189.0",
         "@alfalab/icons-logotype": "^2.27.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
-        "@alfalab/stack-context": "^1.16.0",
         "@alfalab/utils": "^1.15.2",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
@@ -221,6 +220,8 @@
         "url-loader": "^4.1.1"
     },
     "peerDependencies": {
+        "@alfalab/core-config": "^1.0.0",
+        "@alfalab/stack-context": "^1.16.0",
         "react": ">=16.8.0",
         "react-dom": ">=16.8.0"
     },
