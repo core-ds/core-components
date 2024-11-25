@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.10.3
+
+### Patch Changes
+
+<sup><time>25.11.2024</time></sup>
+
+### [#1463](https://github.com/core-ds/core-components/pull/1463)
+
+-   Добавлен фикс вертикального скролла в галерею в полноэкранном режиме
+
 ## 5.10.2
 
 ### Patch Changes
