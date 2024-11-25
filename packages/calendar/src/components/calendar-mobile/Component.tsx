@@ -179,6 +179,7 @@ export const CalendarMonthOnlyView = ({
         return activeMonths.findIndex((m) => isSameMonth(date, m.date));
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
+    // заголовок должен становиться активным, если выбран весь доступный период в месяце
     const isMonthActive = (currentMonthIndex: number): boolean => {
         if (!value || !isRangeValue(value) || !value.dateFrom || !value.dateTo) {
             return false;
@@ -195,41 +196,46 @@ export const CalendarMonthOnlyView = ({
     };
 
     const handleClickMonthLabel = (index: number) => {
-        // eslint-disable-next-line no-console
-        console.log(handleClickMonthLabel, onChange);
         if (!onChange) return;
 
-        const { date } = activeMonths[index];
-        const clickedMonthStartTimestamp = getMonthStartTimestamp(date);
-        const clickedMonthEndTimestamp = getMonthEndTimestamp(date);
+        const { date: dateActiveMonths } = activeMonths[index];
 
+        // Вычисляем начало и конец месяца, по которому был произведен клик
+        const clickedMonthStartTimestamp = getMonthStartTimestamp(dateActiveMonths);
+        const clickedMonthEndTimestamp = getMonthEndTimestamp(dateActiveMonths);
+
+        // Если значение не определено или не является диапазоном, то устанавливаем новый диапазон
         if (!value || !isRangeValue(value) || !value.dateFrom || !value.dateTo) {
             onChange(clickedMonthStartTimestamp, clickedMonthEndTimestamp);
 
             return;
         }
 
+        // Выбранный диапазон дат
         const { dateFrom, dateTo } = value;
         const selectedRangeStartDate = new Date(dateFrom);
         const selectedRangeEndDate = new Date(dateTo);
         const selectedRangeStartTimestamp = getMonthStartTimestamp(selectedRangeStartDate);
         const selectedRangeEndTimestamp = getMonthEndTimestamp(selectedRangeEndDate);
 
+        // Проверяем, является ли выбранный диапазон одним и тем же месяцем
         const isSingleMonthSelected =
             isSameMonth(selectedRangeStartDate, selectedRangeEndDate) &&
             dateFrom <= selectedRangeStartTimestamp &&
             dateTo >= selectedRangeEndTimestamp;
-
-        const isSameMonthClicked = isSameMonth(selectedRangeStartDate, date);
+        // Проверяем, является ли кликнутый месяц таким же, что и выбранный диапазон
+        const isSameMonthClicked = isSameMonth(selectedRangeStartDate, dateActiveMonths);
+        // Проверяем, находится ли кликнутый месяц внутри выбранного диапазона
         const isClickedMonthInsideRange =
             clickedMonthEndTimestamp >= selectedRangeStartTimestamp &&
             clickedMonthStartTimestamp <= selectedRangeEndTimestamp;
-        const isCorrectMonthRange =
+        // Проверяем находится ли выбранный диапазон в пределах кликнутого месяца
+        const isRangeWithinSingleMonth =
             selectedRangeStartTimestamp === dateFrom && selectedRangeEndTimestamp === dateTo;
 
         if (isSingleMonthSelected && isSameMonthClicked) {
             onChange();
-        } else if (isClickedMonthInsideRange || !isCorrectMonthRange) {
+        } else if (isClickedMonthInsideRange || !isRangeWithinSingleMonth) {
             onChange(clickedMonthStartTimestamp, clickedMonthEndTimestamp);
         } else {
             const newDateFrom = Math.min(selectedRangeStartTimestamp, clickedMonthStartTimestamp);
@@ -350,8 +356,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         },
         ref,
     ) => {
-        // eslint-disable-next-line no-console
-        console.log('CalendarMobile');
         const [modalRef, setModalRef] = useState<HTMLElement>();
         const monthOnlyView = selectorView === 'month-only';
 
