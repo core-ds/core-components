@@ -233,7 +233,11 @@ export const Gallery: FC<GalleryProps> = ({
                 Backdrop={Backdrop}
                 onUnmount={onUnmount}
             >
-                <div className={styles.container}>
+                <div
+                    className={cn(styles.container, {
+                        [styles.mobile]: !isDesktop,
+                    })}
+                >
                     {isDesktop ? <Header /> : <HeaderMobile />}
                     {images.length === 1 ? <Single /> : <ImageViewer />}
                     <nav
