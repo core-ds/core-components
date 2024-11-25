@@ -73,7 +73,7 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
       class="labelWrapper"
     >
       <div
-        class="title secondary secondary-large bold"
+        class="title secondaryColor secondary-largeView boldWeight"
       >
         20
       </div>
@@ -114,7 +114,7 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
       class="labelWrapper"
     >
       <div
-        class="title secondary secondary-large bold"
+        class="title secondaryColor secondary-largeView boldWeight"
       >
         20
       </div>

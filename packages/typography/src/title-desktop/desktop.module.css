@@ -1,0 +1,41 @@
+@import '../margins/margins.desktop.module.css';
+
+.styreneFont_xlargeView {
+    @mixin headline_xlarge;
+}
+
+.styreneFont_largeView {
+    @mixin headline_large;
+}
+
+.styreneFont_mediumView {
+    @mixin headline_medium;
+}
+
+.styreneFont_smallView {
+    @mixin headline_small;
+}
+
+.styreneFont_xsmallView {
+    @mixin headline_xsmall;
+}
+
+.systemFont_xlargeView {
+    @mixin headline-system_xlarge;
+}
+
+.systemFont_largeView {
+    @mixin headline-system_large;
+}
+
+.systemFont_mediumView {
+    @mixin headline-system_medium;
+}
+
+.systemFont_smallView {
+    @mixin headline-system_small;
+}
+
+.systemFont_xsmallView {
+    @mixin headline-system_xsmall;
+}

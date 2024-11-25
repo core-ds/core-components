@@ -1,5 +1,7 @@
-@import '../../../vars/src/index.css';
+@import '../../../vars/src/gaps.css';
+@import '../../../vars/src/typography.css';
 @import '../common.module.css';
+@import '../row-limits/row-limits.module.css';
 
 :root {
     --text-paragraph-margin-bottom: var(--gap-0) var(--gap-0) var(--gap-12);
@@ -15,75 +17,62 @@
     margin: var(--text-paragraph-margin-bottom);
 }
 
-.primary-large {
+.primary-largeView {
     @mixin paragraph_primary_large;
 }
 
-.primary-medium {
+.primary-mediumView {
     @mixin paragraph_primary_medium;
 }
 
-.primary-small {
+.primary-smallView {
     @mixin paragraph_primary_small;
 }
 
-.secondary-large {
+.secondary-largeView {
     @mixin paragraph_secondary_large;
 }
 
-.secondary-medium {
+.secondary-mediumView {
     @mixin paragraph_secondary_medium;
 }
 
-.secondary-small {
+.secondary-smallView {
     @mixin paragraph_secondary_small;
 }
 
-.component {
+.componentView {
     @mixin paragraph_component;
 }
 
-.component-primary {
+.component-primaryView {
     @mixin paragraph_component_primary;
 }
 
-.component-secondary {
+.component-secondaryView {
     @mixin paragraph_component_secondary;
 }
 
-.caps {
+.capsView {
     @mixin paragraph_caps;
 }
 
-.tagline {
+.taglineView {
     @mixin paragraph_tagline;
 }
 
-.bold {
+.boldWeight {
     font-weight: bold;
 }
 
-.medium {
+.mediumWeight {
     font-weight: 500;
 }
 
-.regular {
+.regularWeight {
     font-weight: normal;
 }
 
 .monospace {
     font-variant-numeric: tabular-nums;
-}
-
-.rowLimit1 {
-    @mixin row_limit 1;
-    word-break: break-all;
-}
-
-.rowLimit2 {
-    @mixin row_limit 2;
-}
-
-.rowLimit3 {
-    @mixin row_limit 3;
 }

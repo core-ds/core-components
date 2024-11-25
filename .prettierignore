@@ -2,3 +2,5 @@ __testfixtures__
 colors-bluetint.css
 colors-indigo.css
 colors-addons.css
+*.snap
+tsconfig.json

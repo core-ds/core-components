@@ -1,0 +1,24 @@
+@import '../../../vars/src/gaps.css';
+@import '../../../vars/src/typography.css';
+@import '../row-limits/row-limits.module.css';
+
+.component {
+    margin: var(--gap-0);
+    padding: var(--gap-0);
+
+    &.boldWeight {
+        font-weight: bold;
+    }
+
+    &.semiboldWeight {
+        font-weight: 600;
+    }
+
+    &.mediumWeight {
+        font-weight: 500;
+    }
+
+    &.regularWeight {
+        font-weight: normal;
+    }
+}

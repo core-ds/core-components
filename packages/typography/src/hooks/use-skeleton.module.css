@@ -1,17 +1,18 @@
-@import '../../../vars/src/index.css';
+@import '../../../vars/src/border-radius.css';
+@import '../../../vars/src/gaps.css';
 
 .skeletonText.skeletonText {
     border-radius: var(--border-radius-pill);
 }
 
-.left > div {
+.leftAlign > div {
     margin-right: auto;
 }
 
-.center > div {
+.centerAlign > div {
     margin: var(--gap-0) auto;
 }
 
-.right > div {
+.rightAlign > div {
     margin-left: auto;
 }

@@ -2,7 +2,7 @@ import { Plate } from '@alfalab/core-components/plate';
 import { Badge } from '@alfalab/core-components/badge';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { List } from '@alfalab/core-components/list';
-import { Typography } from '@alfalab/core-components/typography';
+import { TitleResponsive, TitleDesktop, TitleMobile, Text } from '@alfalab/core-components/typography';
 import { Space } from '@alfalab/core-components/space';
 
 ## Наборы стилей
@@ -19,7 +19,7 @@ import { Space } from '@alfalab/core-components/space';
 
 На базовом уровне адаптивность типографики достигается через адаптивность заголовочных стилей.
 Каждому десктопному заголовочному стилю поставлен в соответствие мобильный.
-Чтобы смена происходила автоматически, используйте [Typography.TitleResponsive](/docs/typography--typography-title-responsive), для ручного управления — [Typography.Title](/docs/typography--typography-title) и [Typography.TitleMobile](/docs/typography--typography-title-mobile).
+Чтобы смена происходила автоматически, используйте [TitleResponsive](/docs/typography--title-responsive), для ручного управления — [TitleDesktop](/docs/typography--title-desktop) и [TitleMobile](/docs/typography--title-mobile).
 
 ## Заголовки
 
@@ -59,14 +59,14 @@ render(() => {
             <Gap size='xl' />
             {VIEW_TYPES.map((view) => (
                 <React.Fragment key={view}>
-                    <Typography.TitleResponsive
+                    <TitleResponsive
                         font={selected.key === '1' ? 'system' : 'styrene'}
                         view={view.toLowerCase()}
                         key={view}
                         tag='div'
                     >
                         {view}
-                    </Typography.TitleResponsive>
+                    </TitleResponsive>
                     <Gap size='m' />
                 </React.Fragment>
             ))}
@@ -104,14 +104,14 @@ render(() => {
             <Gap size='xl' />
             {VIEW_TYPES.map((view) => (
                 <React.Fragment key={view}>
-                    <Typography.TitleMobile
+                    <TitleMobile
                         font={selected.key === '1' ? 'system' : 'styrene'}
                         view={view.toLowerCase()}
                         key={view}
                         tag='div'
                     >
                         {view}
-                    </Typography.TitleMobile>
+                    </TitleMobile>
                     <Gap size='m' />
                 </React.Fragment>
             ))}
@@ -167,15 +167,15 @@ render(() => {
                 breakpoint={BREAKPOINT}
             />
             <Gap size='m' />
-            <Switch 
-                checked={monospaceNumbers} 
-                onChange={() => setMonospaceNumbers(!monospaceNumbers)} 
-                label='MonospaceNumbers' 
+            <Switch
+                checked={monospaceNumbers}
+                onChange={() => setMonospaceNumbers(!monospaceNumbers)}
+                label='MonospaceNumbers'
             />
             <Gap size='xl' />
             {Object.keys(VIEW_TYPES).map((view) => (
                 <React.Fragment key={view}>
-                    <Typography.Text
+                    <Text
                         weight={selected.value}
                         view={view.toLowerCase()}
                         key={view}
@@ -183,7 +183,7 @@ render(() => {
                         monospaceNumbers={monospaceNumbers}
                     >
                         {VIEW_TYPES[view]} 123456
-                    </Typography.Text>
+                    </Text>
                     <Gap size='m' />
                 </React.Fragment>
             ))}
@@ -211,24 +211,24 @@ render(() => {
 
             <Gap size='l' />
 
-            <Typography.TitleResponsive
+            <TitleResponsive
                 view='small'
                 font='system'
                 showSkeleton={showSkeleton}
                 skeletonProps={{ width: IS_MOBILE ? ['100%', '34%'] : 420 }}
             >
                 Почему банк проверяет мои операции?
-            </Typography.TitleResponsive>
+            </TitleResponsive>
 
             <Gap size='s' />
 
-            <Typography.Text tag='p' view='primary-medium' showSkeleton={showSkeleton}>
+            <Text tag='p' view='primary-medium' showSkeleton={showSkeleton}>
                 {`В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
                 легализации доходов, полученных преступным путём, и финансированию терроризма». В
                 рамках закона банки могут блокировать карты, отказывать в проведении сомнительных
                 операций, ограничить доступ в интернет-банк или запрашивать документы, если по
                 операции клиента возникли подозрения.`}
-            </Typography.Text>
+            </Text>
         </>
     );
 });
