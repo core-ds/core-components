@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
+import { ImageProps } from '../component';
+
 import styles from './index.module.css';
 
 const opimizeImageSizeInKb = 100;
 
 type Props = {
     src: string;
+    warning: ImageProps['warning'];
 };
 
-const ImageCdnIntegration = ({ src }: Props) => {
+const ImageCdnIntegration = ({ src, warning }: Props) => {
     const [notValid, setNotValid] = useState(false);
 
     useEffect(() => {
@@ -26,8 +29,8 @@ const ImageCdnIntegration = ({ src }: Props) => {
     if (notValid) {
         return (
             <div className={styles.notValid}>
-                <b>Изображение слишком большого размера!</b> <br />
-                <a href=''>Документация по исправлению проблемы</a>
+                <b>{warning?.message || 'Изображение слишком большого размера!'}</b> <br />
+                <a href={warning?.url}>Документация по исправлению проблемы</a>
             </div>
         );
     }

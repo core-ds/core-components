@@ -1,18 +1,24 @@
 import React, { type ImgHTMLAttributes, Suspense, useMemo, useRef } from 'react';
 import cn from 'classnames';
-import { useInViewRef } from 'rooks';
+
+// import { useInViewRef } from 'rooks';
+import { useComponentOverrides } from '@alfalab/core-config';
 
 import styles from './index.module.css';
 
 const LazyImageCdnIntegration = React.lazy(() => import('./components/dev-component'));
 
-const prodResourcesMap = [
+export type ImageProxyMap = Array<{ from: string; to: string }>;
+
+// FOR TEST
+const prodResourcesMap: ImageProxyMap = [
     {
         from: 'https://web.alfabank.ru/mobile',
         to: 'https://alfaonline.servicecdn.ru/public',
     },
 ];
-const devResourcesMap = [
+// FOR TEST
+const devResourcesMap: ImageProxyMap = [
     {
         from: 'https://web-test.alfabank.ru/mobile',
         to: 'https://web-test.servicecdn.ru/public',
@@ -23,14 +29,22 @@ const devResourcesMap = [
     },
 ];
 
-export type ImageCdnProps = {
+export type ImageProps = {
+    /** Источник изображения */
+    src: string;
     /** Сss класс для стилизации общей обёртки */
     className?: string;
     /** Id компонента для тестов */
     dataTestId?: string;
-    /** Источник изображения */
-    // https://web-test.alfabank.ru/mobile/s3/static/loyalty/services/travel_300x300.png
-    src: string;
+    /** Мапа проксирующих ресурсов */
+    proxyMap?: ImageProxyMap;
+    // Настройки overlay с предупреждением, что картинка слишком большая
+    warning?: {
+        // Сообщение в overlay
+        message?: string;
+        // Ссылка на доку
+        url?: string;
+    };
 
     quality?: number;
 } & ImgHTMLAttributes<unknown>;
@@ -43,14 +57,17 @@ export type ImageCdnProps = {
  *
  * [Макет]()
  */
-export const Image = ({ className, dataTestId, src, ...props }: ImageCdnProps) => {
+export const Image = ({ className, dataTestId, src, proxyMap, warning, ...props }: ImageProps) => {
+    // BLA BLA replace by new IntersectionObserver native api
     const [myRef, inView] = useInViewRef(() => {}, { threshold: 0.2 });
     const loaded = useRef(false);
+
+    const componentContext = useComponentOverrides<ImageProps>('Image');
 
     const production = process.env.NODE_ENV === 'production';
 
     const url = useMemo(() => {
-        const map = production ? prodResourcesMap : devResourcesMap;
+        const map = proxyMap || componentContext?.proxyMap || [];
 
         const resourseMap = map.find((resourse) => src.includes(resourse.from));
 
@@ -59,7 +76,7 @@ export const Image = ({ className, dataTestId, src, ...props }: ImageCdnProps) =
         }
 
         return src;
-    }, [production, src]);
+    }, [src, componentContext?.proxyMap, proxyMap]);
 
     const imgCom = (
         <img
@@ -70,14 +87,18 @@ export const Image = ({ className, dataTestId, src, ...props }: ImageCdnProps) =
                 [styles.fullSize]: Boolean(props.style?.objectFit),
             })}
             data-test-id={dataTestId}
-            onLoad={() => {
+            onLoad={(e) => {
+                if (props.onLoad) {
+                    props.onLoad(e);
+                }
+
                 loaded.current = true;
             }}
             ref={myRef}
         />
     );
 
-    if (production) {
+    if (production || warning || componentContext?.warning) {
         return imgCom;
     }
 
@@ -91,7 +112,7 @@ export const Image = ({ className, dataTestId, src, ...props }: ImageCdnProps) =
 
             {!production && (inView || loaded.current) && (
                 <Suspense fallback=''>
-                    <LazyImageCdnIntegration src={url} />
+                    <LazyImageCdnIntegration src={url} warning={warning} />
                 </Suspense>
             )}
         </div>
