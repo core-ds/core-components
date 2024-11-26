@@ -11,9 +11,14 @@ const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>((props
     <Modal {...props} ref={ref} view='mobile' />
 ));
 
+const ControlsCustomType = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
+
+/** @deprecated Используйте атомарные импорты */
 export const ModalMobile = Object.assign(ModalMobileComponent, {
     Content,
     Header,
     Footer,
-    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
+    Controls: ControlsCustomType,
 });
+
+export { ModalMobileComponent, Content, Header, Footer, ControlsCustomType as Controls };

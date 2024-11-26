@@ -10,6 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-base-modal": "^5.8.4",
         "@alfalab/core-components-navigation-bar-private": "^0.5.1",
