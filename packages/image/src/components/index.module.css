@@ -1,0 +1,10 @@
+.notValid {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.notValidWrapper {
+    position: relative;
+    display: inline-block;
+}
