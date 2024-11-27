@@ -10,6 +10,7 @@ import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
 
 import styles from './index.module.css';
+import { Single } from './components/image-viewer/single';
 
 export type GalleryProps = {
     /**
@@ -240,9 +241,13 @@ export const Gallery: FC<GalleryProps> = ({
                 Backdrop={Backdrop}
                 onUnmount={onUnmount}
             >
-                <div className={styles.container}>
+                <div
+                    className={cn(styles.container, {
+                        [styles.mobile]: view !== 'desktop',
+                    })}
+                >
                     {view === 'desktop' ? <Header /> : <HeaderMobile />}
-                    <ImageViewer />
+                    {images.length === 1 ? <Single /> : <ImageViewer />}
                     <nav
                         className={cn({
                             [styles.navigationVideo]: isCurrentVideo && isMobile,
