@@ -1,3 +1,17 @@
+## 48.2.0
+
+<sup><time>27.11.2024</time></sup>
+
+### [#1469](https://github.com/core-ds/core-components/pull/1469)
+
+#### Что изменилось
+- Добавлен хук `useIsDesktop`
+
+#### Влияние на компоненты
+- Минорное<br />`mq`
+
+
+
 ## 48.1.1
 
 <sup><time>25.11.2024</time></sup>
