@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   icon-button@6.11.2
+
 ## 7.8.2
 
 ### Patch Changes

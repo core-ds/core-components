@@ -1,5 +1,12 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.2
+
 ## 9.0.0
 
 ### Major Changes

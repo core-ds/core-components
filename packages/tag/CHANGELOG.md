@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+
 ## 8.6.1
 
 ### Patch Changes
