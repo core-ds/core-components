@@ -61,6 +61,10 @@
     &:not(:only-child) {
         margin-left: var(--gap-4);
     }
+
+    &.size-40:not(:only-child) {
+        margin-left: 6px;
+    }
 }
 
 * + .errorIcon {
@@ -76,6 +80,10 @@ button[class*='eye'] + .errorIcon {
 
     &:not(:only-child) {
         margin-left: var(--gap-4);
+    }
+
+    &.size-40:not(:only-child) {
+        margin-left: 6px;
     }
 }
 

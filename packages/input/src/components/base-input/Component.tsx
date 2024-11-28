@@ -379,19 +379,28 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                         )}
                         {rightAddons}
                         {error && (
-                            <div className={styles.errorIcon} data-addon='error-icon'>
+                            <div
+                                className={cn(styles.errorIcon, {
+                                    [styles['size-40']]: size === 40,
+                                })}
+                                data-addon='error-icon'
+                            >
                                 <StatusBadge
                                     view='negative-alert'
-                                    size={20}
+                                    size={size === 40 ? 16 : 20}
                                     dataTestId={getDataTestId(dataTestId, 'error-icon')}
                                 />
                             </div>
                         )}
                         {success && !error && (
-                            <div className={styles.successIcon}>
+                            <div
+                                className={cn(styles.successIcon, {
+                                    [styles['size-40']]: size === 40,
+                                })}
+                            >
                                 <StatusBadge
                                     view='positive-checkmark'
-                                    size={20}
+                                    size={size === 40 ? 16 : 20}
                                     dataTestId={getDataTestId(dataTestId, 'success-icon')}
                                 />
                             </div>
