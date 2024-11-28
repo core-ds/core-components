@@ -140,7 +140,7 @@
         "shared.js": 1.1
     },
     "progress-bar": {
-        "index.js": 1.7
+        "index.js": 1.8
     },
     "product-cover": {
         "index.js": 40.8,
@@ -430,7 +430,7 @@
         "index.js": 8.9
     },
     "attach": {
-        "index.js": 37.3
+        "index.js": 37.4
     },
     "amount": {
         "index.js": 26.6
