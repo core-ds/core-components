@@ -12,7 +12,7 @@
         "index.js": 3.3
     },
     "typography": {
-        "index.js": 8.8
+        "index.js": 8.9
     },
     "tooltip": {
         "desktop.js": 48.9,
@@ -150,7 +150,7 @@
         "index.js": 1.2
     },
     "popup-sheet": {
-        "index.js": 66.7,
+        "index.js": 63.3,
         "shared.js": 0.6
     },
     "popover": {
