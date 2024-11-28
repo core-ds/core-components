@@ -115,7 +115,9 @@
     }
 
     & .label {
+        @mixin paragraph_component_secondary;
         top: calc(var(--form-control-40-min-height) / 2);
+        left: var(--gap-8);
     }
 
     & .addons {
