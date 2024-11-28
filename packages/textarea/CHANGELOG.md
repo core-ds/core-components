@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.8.7
+
+### Patch Changes
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1445](https://github.com/core-ds/core-components/pull/1445)
+
+-   Повышена специфичность стилей
+
 ## 8.8.6
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-picker-button",
-    "version": "11.12.5",
+    "version": "11.12.6",
     "description": "Picker button component",
     "keywords": [],
     "license": "MIT",
@@ -17,7 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-button": "^11.10.2",
         "@alfalab/core-components-mq": "^4.4.0",
-        "@alfalab/core-components-select": "^17.17.3",
+        "@alfalab/core-components-select": "^17.17.4",
         "@alfalab/core-components-popover": "^6.3.3",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.139.0",
@@ -25,6 +25,6 @@
         "tslib": "^2.4.0",
         "@alfalab/core-components-shared": "^0.14.0"
     },
-    "themesVersion": "13.5.0",
-    "varsVersion": "9.15.0"
+    "themesVersion": "13.6.0",
+    "varsVersion": "9.16.0"
 }
