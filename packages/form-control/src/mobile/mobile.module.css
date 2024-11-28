@@ -16,6 +16,10 @@
 
 .size-40 .inner {
     border-radius: var(--form-control-mobile-40-border-radius);
+
+    &:before {
+        left: 0;
+    }
 }
 
 .size-48 .inner {
