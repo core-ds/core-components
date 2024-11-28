@@ -43,7 +43,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
             <BottomSheet
                 open={show}
                 actionButton={
-                    <ButtonMobile view='secondary' block={true} size='s' onClick={handleClose}>
+                    <ButtonMobile view='secondary' block={true} size={56} onClick={handleClose}>
                         {actionButtonTitle}
                     </ButtonMobile>
                 }
