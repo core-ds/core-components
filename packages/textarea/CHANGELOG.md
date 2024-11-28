@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   form-control@12.7.2
+
 ## 8.8.5
 
 ### Patch Changes

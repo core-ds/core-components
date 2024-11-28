@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   form-control@12.7.2
+    -   select@17.17.3
+    -   tag@8.6.2
+    -   bottom-sheet@6.17.10
+
 ## 8.5.4
 
 ### Patch Changes

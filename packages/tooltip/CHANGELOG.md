@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   bottom-sheet@6.17.10
+
 ## 7.7.2
 
 ### Patch Changes
