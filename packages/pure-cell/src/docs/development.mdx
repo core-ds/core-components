@@ -4,13 +4,31 @@ import { PureCell as PureCellTS } from '../component';
 ## Подключение
 
 ```jsx
+// Атомарные
+import {
+    PureCellComponent,
+    Main,
+    Graphics,
+    Content,
+    Text,
+    Amount,
+    AmountTitle,
+    Addon,
+    Footer,
+    ExtraSubtitle,
+    FooterButton,
+    Comment,
+    Category,
+} from '@alfalab/core-components/pure-cell';
+
+// Компаунд
 import { PureCell } from '@alfalab/core-components/pure-cell';
 ```
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getPureCellTestIds`.   
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getPureCellTestIds`.
 Импорт из `@alfalab/core-components/pure-cell/shared`.
 
 Функция возвращает объект:
