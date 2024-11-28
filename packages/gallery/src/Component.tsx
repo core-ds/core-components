@@ -11,7 +11,6 @@ import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
 
 import styles from './index.module.css';
-import { Single } from './components/image-viewer/single';
 
 export type GalleryProps = {
     /**
