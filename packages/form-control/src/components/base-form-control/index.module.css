@@ -107,6 +107,7 @@
 .size-40 {
     & .inner {
         min-height: var(--form-control-40-min-height);
+        padding: var(--gap-0) var(--gap-4);
     }
 
     & .hasInnerLabel .input > * {
@@ -121,6 +122,14 @@
         & > svg {
             width: 16px;
             height: 16px;
+        }
+
+        &.rightAddons {
+            padding-right: var(--gap-8);
+        }
+
+        &.leftAddons {
+            padding-left: var(--gap-8);
         }
     }
 }

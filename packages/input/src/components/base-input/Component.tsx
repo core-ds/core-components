@@ -442,6 +442,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             [colorCommonStyles[colors].error]: error,
 
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
+                            [styles['size-40']]: size === 40,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },

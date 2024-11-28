@@ -14,6 +14,11 @@
     text-overflow: ellipsis;
     box-sizing: border-box;
     -webkit-appearance: none;
+
+    &.size-40 {
+        @mixin paragraph_component_secondary;
+        padding: var(--gap-0) var(--gap-8);
+    }
 }
 
 .input::placeholder {
