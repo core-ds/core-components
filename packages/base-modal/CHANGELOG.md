@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   portal@3.3.4
+
 ## 5.8.3
 
 ### Patch Changes

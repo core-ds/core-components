@@ -7,8 +7,9 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"]
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"]
         }
     },
-    "references": [{ "path": "../form-control" }, { "path": "../shared" }]
+    "references": [{ "path": "../form-control" }, { "path": "../shared" }, { "path": "../mq" }]
 }

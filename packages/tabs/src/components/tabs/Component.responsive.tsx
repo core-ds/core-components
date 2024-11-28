@@ -16,5 +16,17 @@ export type TabsResponsiveProps = Omit<TabsProps, 'TabList' | 'collapsedTabsIds'
 export const TabsResponsive = ({
     view = 'primary',
     scrollable = false,
+    breakpoint,
+    client,
+    defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
     ...restProps
-}: TabsResponsiveProps) => <Tabs TabList={views[view]} scrollable={scrollable} {...restProps} />;
+}: TabsResponsiveProps) => (
+    <Tabs
+        TabList={views[view]}
+        scrollable={scrollable}
+        defaultMatchMediaValue={defaultMatchMediaValue}
+        breakpoint={breakpoint}
+        client={client}
+        {...restProps}
+    />
+);

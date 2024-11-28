@@ -1,3 +1,139 @@
+## 48.2.0
+
+<sup><time>27.11.2024</time></sup>
+
+### [#1469](https://github.com/core-ds/core-components/pull/1469)
+
+#### Что изменилось
+- Добавлен хук `useIsDesktop`
+
+#### Влияние на компоненты
+- Минорное<br />`mq`
+
+
+
+## 48.1.1
+
+<sup><time>25.11.2024</time></sup>
+
+### [#1463](https://github.com/core-ds/core-components/pull/1463)
+
+#### Что изменилось
+- Добавлен фикс вертикального скролла в галерею в полноэкранном режиме
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
+## 48.1.0
+
+<sup><time>21.11.2024</time></sup>
+
+### [#1408](https://github.com/core-ds/core-components/pull/1408)
+
+#### Что изменилось
+Расширен пропс `texts` компонента `Confirmation`:
+- `domesticPhone` — номер телефона для звонков по России (по умолчанию 8 800 200 00 00)
+- `internationalPhone` — номер телефона для звонков из-за границы (по умолчанию +7 495 78 888 78).
+
+#### Влияние на компоненты
+- Минорное<br />`confirmation`
+
+
+### [#1443](https://github.com/core-ds/core-components/pull/1443)
+
+#### Что изменилось
+- Добавлен отдельный компонент для single изображения, что сделать его независимым от swiper
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
+## 48.0.1
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+#### Что изменилось
+- Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+#### Обновление
+
+Необходимо установить зависимости `@alfalab/core-config` и `@alfalab/stack-context` в проект
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input` `button` `calendar-input` `calendar` `checkbox-group`<br /> `code-input` `confirmation` `custom-button` `custom-picker-button` `date-range-input`<br /> `date-time-input`
+
+### [#1332](https://github.com/core-ds/core-components/pull/1332)
+
+#### Что изменилось
+Крупное обновление Спиннера
+
+* Обновленный вид спиннера.
+* Добавлены новые пропсы для тонкой настройки внешнего вида:
+    - `preset` - преднастроенный вариант спиннера;
+    - `size` - теперь отвечает за размер кольца спиннера;
+    - `lineWidth` - толщина линии спиннера;
+    - `style` - позволяет регулировать отступы, цвет и т.п.
+* Добавлен [`codemod`](https://www.npmjs.com/package/@alfalab/core-components-codemod/v/2.7.0) для бесшовной миграции `Spinner`:
+    ```bash
+    npx @alfalab/core-components-codemod --transformers=spinner --glob='src/**/*.tsx'
+    ```
+    | Внимание |
+    |---|
+    | `codemod` может не работать в случаях использования [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) в коде. |
+
+#### Влияние на компоненты
+- Мажорное<br />`spinner`
+
+
+- Минорное<br />`shared`
+
+
+### [#1304](https://github.com/core-ds/core-components/pull/1304)
+
+#### Что изменилось
+- Добавлен пропс `lockLimit`, который предотвращает ввод числа если оно больше или меньше допустимого.
+При событии blur установится число по верхней границе, если оно больше допустимого, и наоборот - по нижней границе, если число меньше допустимого.
+
+- Изменен тип для пропса `onInputChange`. Теперь он может принимать `null`. Обратите внимание на типы при обновлении.
+
+#### Влияние на компоненты
+- Мажорное<br />`slider-input`
+
+
+### [#1379](https://github.com/core-ds/core-components/pull/1379)
+
+#### Что изменилось
+Добавлен новый компонент. Старый помечен как `deprecated`.
+
+#### Обновление
+
+Для упрощенного перехода между версиями библиотеки, после обновления вам необходимо исправить импорты.
+
+До
+
+```js
+import { FileUploadItem } from '@alfalab/core-components/file-upload-item';
+```
+
+После
+
+```js
+import { FileUploadItemV1 } from '@alfalab/core-components/file-upload-item-v1';
+```
+
+Таким образом, в вашем приложении продолжат работу старые версии компонентов.
+В дальнейшем поддержка `v1` версий будет прекращена.
+
+#### Влияние на компоненты
+- Мажорное<br />`file-upload-item` `file-upload-item-v1`
+
+
+
 ## 47.26.1
 
 <sup><time>13.11.2024</time></sup>

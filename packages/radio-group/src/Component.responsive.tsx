@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BaseRadioGroupProps } from './components/base-radio-group';
 import { RadioGroupDesktop } from './desktop';
@@ -15,16 +14,28 @@ export type RadioGroupProps = Omit<BaseRadioGroupProps, 'styles'> & {
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
      * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-    ({ breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps }, ref) => {
-        const query = `(min-width: ${breakpoint}px)`;
-
-        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
+    (
+        {
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
+            ...restProps
+        },
+        ref,
+    ) => {
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         const Component = isDesktop ? RadioGroupDesktop : RadioGroupMobile;
 

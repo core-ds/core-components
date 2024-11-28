@@ -1,0 +1,45 @@
+@import '../../../../vars/src/index.css';
+
+.container {
+    position: relative;
+    cursor: pointer;
+
+    & .progress {
+        position: absolute;
+        top: var(--gap-4-neg);
+        left: var(--gap-4-neg);
+        z-index: 1;
+
+        width: 56px;
+        height: 56px;
+
+        mask-image: conic-gradient(black 0, transparent 0);
+
+        &.uploading {
+            opacity: 1;
+        }
+
+        &.success,
+        &.error {
+            transition: opacity 400ms ease-in;
+            opacity: 0;
+            mask-image: conic-gradient(black 360deg, transparent 0);
+        }
+    }
+
+    & .progressBarTransparent {
+        fill: transparent;
+    }
+
+    & .progressBarUploading {
+        fill: var(--color-light-neutral-500);
+    }
+
+    & .progressBarSuccess {
+        fill: var(--color-light-status-positive);
+    }
+
+    & .progressBarError {
+        fill: var(--color-light-status-negative);
+    }
+}

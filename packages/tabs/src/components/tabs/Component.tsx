@@ -1,7 +1,5 @@
 import React, { cloneElement } from 'react';
 
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
-
 import { TabsProps } from '../../typings';
 
 export const Tabs = ({
@@ -9,7 +7,6 @@ export const Tabs = ({
     className,
     containerClassName,
     size,
-    defaultMatchMediaValue,
     children,
     selectedId,
     scrollable,
@@ -18,7 +15,9 @@ export const Tabs = ({
     keepMounted = false,
     dataTestId,
     onChange,
-    breakpoint = getComponentBreakpoint(),
+    breakpoint,
+    client,
+    defaultMatchMediaValue,
     tagShape,
     tagView,
     showSkeleton = false,
@@ -67,8 +66,9 @@ export const Tabs = ({
                 onChange={onChange}
                 dataTestId={dataTestId}
                 defaultMatchMediaValue={defaultMatchMediaValue}
-                fullWidthScroll={fullWidthScroll}
                 breakpoint={breakpoint}
+                client={client}
+                fullWidthScroll={fullWidthScroll}
                 tagShape={tagShape}
                 tagView={tagView}
                 textStyle={textStyle}

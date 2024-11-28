@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pattern-lock",
-    "version": "2.5.1",
+    "version": "2.5.3",
     "description": "Pattern lock",
     "keywords": [],
     "license": "MIT",
@@ -15,9 +15,9 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^11.10.0",
-        "@alfalab/core-components-shared": "^0.13.0",
-        "@alfalab/core-components-mq": "^4.3.0",
+        "@alfalab/core-components-button": "^11.10.2",
+        "@alfalab/core-components-shared": "^0.14.0",
+        "@alfalab/core-components-mq": "^4.4.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"

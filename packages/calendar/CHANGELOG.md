@@ -1,5 +1,32 @@
 # Change Log
 
+## 7.15.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   modal@9.8.3
+    -   typography@4.10.3
+    -   icon-button@6.11.2
+
+## 7.15.2
+
+### Patch Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+-   Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   modal@9.8.2
+    -   icon-button@6.11.1
+
 ## 7.15.1
 
 ### Patch Changes

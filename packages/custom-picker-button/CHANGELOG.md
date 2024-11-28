@@ -1,5 +1,39 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   picker-button@11.12.5
+    -   select@17.17.3
+    -   custom-button@3.10.2
+
+## 2.6.4
+
+### Patch Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+-   Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   custom-button@3.10.1
+    -   picker-button@11.12.4
+    -   select@17.17.2
+
+## 2.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.1
+    -   picker-button@11.12.3
+
 ## 2.6.2
 
 ### Patch Changes

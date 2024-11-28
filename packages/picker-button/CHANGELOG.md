@@ -1,5 +1,31 @@
 # Change Log
 
+## 11.12.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   select@17.17.3
+
+## 11.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   select@17.17.2
+    -   popover@6.3.3
+
+## 11.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.1
+
 ## 11.12.2
 
 ### Patch Changes

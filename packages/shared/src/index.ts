@@ -10,4 +10,5 @@ export * from './os';
 export * from './dom';
 export * from './exhaustiveCheck';
 export * from './context/PortalContext';
-export * from './getComponentBreakpoint';
+export * from './warning';
+export * from './object';

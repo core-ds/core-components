@@ -1,5 +1,44 @@
 # Change Log
 
+## 5.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   tooltip@7.7.3
+    -   typography@4.10.3
+    -   icon-button@6.11.2
+
+## 5.10.3
+
+### Patch Changes
+
+<sup><time>25.11.2024</time></sup>
+
+### [#1463](https://github.com/core-ds/core-components/pull/1463)
+
+-   Добавлен фикс вертикального скролла в галерею в полноэкранном режиме
+
+## 5.10.2
+
+### Patch Changes
+
+<sup><time>21.11.2024</time></sup>
+
+### [#1443](https://github.com/core-ds/core-components/pull/1443)
+
+-   Добавлен отдельный компонент для single изображения, что сделать его независимым от swiper
+
+## 5.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.4
+    -   tooltip@7.7.2
+    -   icon-button@6.11.1
+
 ## 5.10.0
 
 ### Minor Changes
