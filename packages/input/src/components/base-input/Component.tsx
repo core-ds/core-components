@@ -374,6 +374,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 disabled={disabled}
                                 colors={colors}
                                 dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                                size={size}
                             />
                         )}
                         {rightAddons}
