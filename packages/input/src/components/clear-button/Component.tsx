@@ -20,7 +20,7 @@ interface ClearButtonProps {
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
     colors: 'default' | 'inverted';
     dataTestId?: string;
-    size: BaseInputProps['size'];
+    size?: BaseInputProps['size'];
 }
 
 const preventDefault = (e: React.UIEvent<HTMLElement>) => e.preventDefault();
