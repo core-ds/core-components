@@ -31,6 +31,7 @@ export const progress_bar: Story = {
                 'positive',
             )}
             size={select('size', [4, 8], 4)}
+            colors={select('colors', ['default', 'inverted'], 'default')}
         />
     ),
 };
