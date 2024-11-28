@@ -55,9 +55,20 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
     },
 );
 
-export const SidePanelMobile = Object.assign(SidePanelMobileComponent, {
+const ControlsMobile = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
+
+const SidePanelMobile = Object.assign(SidePanelMobileComponent, {
     Content: ContentMobile,
     Header,
     Footer: FooterMobile,
-    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
+    Controls: ControlsMobile,
 });
+
+export {
+    SidePanelMobile,
+    SidePanelMobileComponent as SidePanelComponentMobile,
+    ContentMobile,
+    Header as HeaderMobile,
+    FooterMobile,
+    ControlsMobile,
+};
