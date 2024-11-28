@@ -74,6 +74,10 @@
         color: transparent;
         caret-color: var(--input-color);
     }
+
+    &.size-40 {
+        @mixin paragraph_component_secondary;
+    }
 }
 
 .overflowHidden.overflowHidden {
