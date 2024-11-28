@@ -3,6 +3,7 @@
 :root {
     /* bg */
     --progressbar-bg-color: var(--color-light-neutral-translucent-300);
+    --progressbar-bg-color-inverted: var(--color-light-neutral-translucent-300-inverted);
 
     /* positive */
     --progressbar-positive-color: var(--color-light-status-positive);
