@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.5.0
+
+### Minor Changes
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1459](https://github.com/core-ds/core-components/pull/1459)
+
+-   Добавлен inverted цвет
+
 ## 3.4.1
 
 ### Patch Changes

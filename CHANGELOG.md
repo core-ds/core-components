@@ -1,3 +1,116 @@
+## 48.3.0
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1459](https://github.com/core-ds/core-components/pull/1459)
+
+#### Что изменилось
+- Добавлен inverted цвет
+
+#### Влияние на компоненты
+- Минорное<br />`progress-bar`
+
+
+### [#1445](https://github.com/core-ds/core-components/pull/1445)
+
+#### Что изменилось
+- Повышена специфичность стилей
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#1449](https://github.com/core-ds/core-components/pull/1449)
+
+#### Что изменилось
+- Обновление цветовых палитр
+
+#### Влияние на компоненты
+- Минорное<br />`themes` `vars`
+
+
+### [#1462](https://github.com/core-ds/core-components/pull/1462)
+
+#### Что изменилось
+- Добавлен forwardRef для компонента TExpandableRow
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1464](https://github.com/core-ds/core-components/pull/1464)
+
+#### Что изменилось
+-   Добавлены атомарные экспорты TitleDesktop, TitleMobile, TitleResponsive и Text
+-   В package.json добавлено sideEffects:false
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1447](https://github.com/core-ds/core-components/pull/1447)
+
+#### Что изменилось
+- В мобильном tooltip изменен размер кнопки на 56 для соответствия дизайну (в мобильных приложениях используются кнопки этого размера)
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+
+## 48.2.0
+
+<sup><time>27.11.2024</time></sup>
+
+### [#1469](https://github.com/core-ds/core-components/pull/1469)
+
+#### Что изменилось
+- Добавлен хук `useIsDesktop`
+
+#### Влияние на компоненты
+- Минорное<br />`mq`
+
+
+
+## 48.1.1
+
+<sup><time>25.11.2024</time></sup>
+
+### [#1463](https://github.com/core-ds/core-components/pull/1463)
+
+#### Что изменилось
+- Добавлен фикс вертикального скролла в галерею в полноэкранном режиме
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
+## 48.1.0
+
+<sup><time>21.11.2024</time></sup>
+
+### [#1408](https://github.com/core-ds/core-components/pull/1408)
+
+#### Что изменилось
+Расширен пропс `texts` компонента `Confirmation`:
+- `domesticPhone` — номер телефона для звонков по России (по умолчанию 8 800 200 00 00)
+- `internationalPhone` — номер телефона для звонков из-за границы (по умолчанию +7 495 78 888 78).
+
+#### Влияние на компоненты
+- Минорное<br />`confirmation`
+
+
+### [#1443](https://github.com/core-ds/core-components/pull/1443)
+
+#### Что изменилось
+- Добавлен отдельный компонент для single изображения, что сделать его независимым от swiper
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
 ## 48.0.1
 
 <sup><time>18.11.2024</time></sup>

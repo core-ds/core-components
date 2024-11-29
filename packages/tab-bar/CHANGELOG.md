@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+
+## 2.1.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.3
+
 ## 2.1.4
 
 ### Patch Changes

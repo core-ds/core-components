@@ -1,5 +1,21 @@
 # Change Log
 
+## 10.4.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.4
+
+## 10.4.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   calendar@7.15.3
+    -   date-input@4.4.8
+
 ## 10.4.6
 
 ### Patch Changes

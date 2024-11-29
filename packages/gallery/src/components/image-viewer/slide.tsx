@@ -68,10 +68,10 @@ type SlideProps = {
     isActive: boolean;
     image: GalleryImage;
     meta?: ImageMeta;
-    swiperAspectRatio: number;
+    containerAspectRatio: number;
     imageAspectRatio: number;
     index: number;
-    swiperHeight: number;
+    containerHeight: number;
     slideVisible: boolean;
     handleLoad: (event: SyntheticEvent<HTMLImageElement>, index: number) => void;
     handleLoadError: (index: number) => void;
@@ -80,11 +80,11 @@ type SlideProps = {
 export const Slide: FC<SlideProps> = ({
     isActive,
     meta,
-    swiperAspectRatio,
+    containerAspectRatio,
     imageAspectRatio,
     image,
     index,
-    swiperHeight,
+    containerHeight,
     slideVisible,
     handleLoad,
     handleLoadError,
@@ -93,8 +93,8 @@ export const Slide: FC<SlideProps> = ({
 
     const broken = Boolean(meta?.broken);
     const small = isSmallImage(meta);
-    const verticalImageFit = !small && swiperAspectRatio > imageAspectRatio;
-    const horizontalImageFit = !small && swiperAspectRatio <= imageAspectRatio;
+    const verticalImageFit = !small && containerAspectRatio > imageAspectRatio;
+    const horizontalImageFit = !small && containerAspectRatio <= imageAspectRatio;
 
     if (isVideo(image.src)) {
         return (
@@ -130,7 +130,7 @@ export const Slide: FC<SlideProps> = ({
                 onLoad={(event) => handleLoad(event, index)}
                 onError={() => handleLoadError(index)}
                 style={{
-                    maxHeight: `${swiperHeight}px`,
+                    maxHeight: `${containerHeight}px`,
                 }}
                 data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
             />

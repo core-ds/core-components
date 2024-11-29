@@ -1,5 +1,21 @@
 # Change Log
 
+## 11.12.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.4
+
+## 11.12.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   select@17.17.3
+
 ## 11.12.4
 
 ### Patch Changes
