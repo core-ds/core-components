@@ -14,5 +14,6 @@ export const Arrow = ({ open, className, size }: ArrowProps) => {
             <ChevronDownSIcon className={cn(styles.arrow, className, { [styles.open]: open })} />
         );
     }
+
     return <ChevronDownMIcon className={cn(styles.arrow, className, { [styles.open]: open })} />;
 };
