@@ -5,6 +5,7 @@
 '@alfalab/core-components-input-autocomplete': minor
 '@alfalab/core-components-number-input': minor
 '@alfalab/core-components-password-input': minor
+'@alfalab/core-components-phone-input': minor
 '@alfalab/core-components-select': minor
 '@alfalab/core-components-select-with-tags': minor
 '@alfalab/core-components-slider-input': minor
