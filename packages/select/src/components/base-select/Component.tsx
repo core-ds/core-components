@@ -674,7 +674,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     placeholder={placeholder}
                     label={label && <span {...getLabelProps()}>{label}</span>}
                     labelView={labelView}
-                    Arrow={Arrow && <Arrow open={open} />}
+                    Arrow={Arrow && <Arrow open={open} size={size} />}
                     error={error}
                     hint={hint}
                     valueRenderer={valueRenderer}

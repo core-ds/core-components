@@ -497,6 +497,12 @@ export type ArrowProps = {
      * Флаг, открыто ли меню
      */
     open?: boolean;
+
+    /**
+     * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     */
+    size?: BaseSelectProps['size'];
 };
 
 export type OptionsListProps = {
