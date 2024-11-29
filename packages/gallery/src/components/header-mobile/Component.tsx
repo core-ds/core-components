@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { isVideo, TestIds } from '../../utils';
@@ -35,14 +35,14 @@ export const HeaderMobile = () => {
             })}
         >
             <Buttons.BackArrow onClick={onClose} />
-            <Typography.Text
+            <Text
                 className={styles.description}
                 tag='div'
                 view='component-primary'
                 color='static-primary-light'
             >
                 {description}
-            </Typography.Text>
+            </Text>
             <div className={styles.rightButtons}>
                 {showDownloadButton && (
                     <Buttons.Download

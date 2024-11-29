@@ -4,4 +4,4 @@
 '@alfalab/core-components-chart': patch
 ---
 
-   - Переход на атомарный импорт, Typography.Text -> Text
+   - Переход на атомарный импорты Typography.\[Name] -> \[Name]
