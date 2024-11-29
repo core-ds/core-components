@@ -39,6 +39,12 @@
 
 .size-40 {
     min-height: var(--size-xs-height);
+
+    & .textContent {
+        @mixin paragraph_component_secondary;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
 
 .size-48 {
