@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text, TitleDesktop } from '@alfalab/core-components-typography';
 
 import { splitFilename } from '../../utils';
 
@@ -17,7 +17,7 @@ export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, descriptio
     return (
         <div className={styles.info}>
             <div className={styles.filenameContainer}>
-                <Typography.Title
+                <TitleDesktop
                     tag='h1'
                     className={styles.filenameHead}
                     view='xsmall'
@@ -25,22 +25,22 @@ export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, descriptio
                     color='static-primary-light'
                 >
                     {head}
-                </Typography.Title>
+                </TitleDesktop>
 
-                <Typography.Title tag='h1' view='xsmall' font='system' color='static-primary-light'>
+                <TitleDesktop tag='h1' view='xsmall' font='system' color='static-primary-light'>
                     {tail}
-                </Typography.Title>
+                </TitleDesktop>
             </div>
 
             {description ? (
-                <Typography.Text
+                <Text
                     className={styles.description}
                     tag='div'
                     view='primary-medium'
                     color='static-secondary-light'
                 >
                     {description}
-                </Typography.Text>
+                </Text>
             ) : null}
         </div>
     );

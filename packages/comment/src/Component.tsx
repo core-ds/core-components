@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -31,14 +31,9 @@ export const Comment: React.FC<CommentProps> = ({ className, dataTestId, childre
 
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-            <Typography.Text
-                tag='div'
-                view='component-primary'
-                className={textClassName}
-                color='primary'
-            >
+            <Text tag='div' view='component-primary' className={textClassName} color='primary'>
                 {children}
-            </Typography.Text>
+            </Text>
         </div>
     );
 };
