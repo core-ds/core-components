@@ -18,5 +18,4 @@
 '@alfalab/core-components-tab-bar': patch
 ---
 
-   - Переход на атомарный импорты Typography.\[Name] -> \[Name]
-
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
