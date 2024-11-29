@@ -950,4 +950,10 @@ export type ClearButtonProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     */
+    size?: FormControlProps['size'];
 };

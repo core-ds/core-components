@@ -44,6 +44,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
+
+    &.size-40 {
+        @mixin paragraph_component_secondary;
+    }
 }
 
 .focusVisible {
