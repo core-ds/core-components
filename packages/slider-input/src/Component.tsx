@@ -20,8 +20,14 @@ import styles from './index.module.css';
 
 export type SliderInputProps = Omit<
     InputProps,
-    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons'
+    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons' | 'size'
 > & {
+    /**
+     * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     */
+    size?: Exclude<InputProps['size'], 40>;
+
     /**
      * Мин. допустимое число
      */

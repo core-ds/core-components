@@ -104,6 +104,38 @@
 
 /* SIZES */
 
+.size-40 {
+    & .inner {
+        min-height: var(--form-control-40-min-height);
+        padding: var(--gap-0) var(--gap-4);
+    }
+
+    & .hasInnerLabel .input > * {
+        padding: var(--form-control-labeled-40-paddings);
+    }
+
+    & .label {
+        @mixin paragraph_component_secondary;
+        top: calc(var(--form-control-40-min-height) / 2);
+        left: var(--gap-8);
+    }
+
+    & .addons {
+        & > svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &.rightAddons {
+            padding-right: var(--gap-8);
+        }
+
+        &.leftAddons {
+            padding-left: var(--gap-8);
+        }
+    }
+}
+
 .size-48 .inner {
     min-height: var(--form-control-s-min-height);
 }

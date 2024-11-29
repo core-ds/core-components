@@ -66,7 +66,7 @@ export type BaseInputProps = Omit<
      * Размер компонента
      * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
+    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Набор цветов для компонента
@@ -215,6 +215,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     m: 'size-56',
     l: 'size-64',
     xl: 'size-72',
+    40: 'size-40',
     48: 'size-48',
     56: 'size-56',
     64: 'size-64',
@@ -373,23 +374,33 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 disabled={disabled}
                                 colors={colors}
                                 dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                                size={size}
                             />
                         )}
                         {rightAddons}
                         {error && (
-                            <div className={styles.errorIcon} data-addon='error-icon'>
+                            <div
+                                className={cn(styles.errorIcon, {
+                                    [styles['size-40']]: size === 40,
+                                })}
+                                data-addon='error-icon'
+                            >
                                 <StatusBadge
                                     view='negative-alert'
-                                    size={20}
+                                    size={size === 40 ? 16 : 20}
                                     dataTestId={getDataTestId(dataTestId, 'error-icon')}
                                 />
                             </div>
                         )}
                         {success && !error && (
-                            <div className={styles.successIcon}>
+                            <div
+                                className={cn(styles.successIcon, {
+                                    [styles['size-40']]: size === 40,
+                                })}
+                            >
                                 <StatusBadge
                                     view='positive-checkmark'
-                                    size={20}
+                                    size={size === 40 ? 16 : 20}
                                     dataTestId={getDataTestId(dataTestId, 'success-icon')}
                                 />
                             </div>
@@ -441,6 +452,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             [colorCommonStyles[colors].error]: error,
 
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
+                            [styles['size-40']]: size === 40,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },
