@@ -15,7 +15,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { CalendarDesktop } from '../../desktop';
 import { Month } from '../../typings';
@@ -229,9 +229,9 @@ export const CalendarMonthOnlyView = ({
     const getMonthLabel = (index: number, isClickableMonth?: boolean) => {
         if (isClickableMonth) {
             return (
-                <Typography.Text className={styles.monthTitle} view='primary-small' color='primary'>
+                <Text className={styles.monthTitle} view='primary-small' color='primary'>
                     {activeMonths[index].title}
-                </Typography.Text>
+                </Text>
             );
         }
 
