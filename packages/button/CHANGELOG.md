@@ -1,5 +1,12 @@
 # Change Log
 
+## 11.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+
 ## 11.10.1
 
 ### Patch Changes

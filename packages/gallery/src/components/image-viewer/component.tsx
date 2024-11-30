@@ -1,16 +1,5 @@
-import React, {
-    FC,
-    KeyboardEventHandler,
-    MouseEventHandler,
-    SyntheticEvent,
-    useCallback,
-    useContext,
-    useEffect,
-    useMemo,
-    useRef,
-} from 'react';
+import React, { FC, KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
-import elementClosest from 'element-closest';
 import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -21,6 +10,7 @@ import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHea
 import { GalleryContext } from '../../context';
 import { getImageAlt, getImageKey, isVideo, TestIds } from '../../utils';
 
+import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
 
 import 'swiper/swiper.min.css';
@@ -30,27 +20,27 @@ SwiperCore.use([EffectFade, A11y, Controller]);
 
 export const ImageViewer: FC = () => {
     const {
-        singleSlide,
         images,
         imagesMeta,
         fullScreen,
         currentSlideIndex,
         initialSlide,
-        onClose,
-        setImageMeta,
         setCurrentSlideIndex,
         getSwiper,
         setSwiper,
         slidePrev,
         slideNext,
         getCurrentImage,
-        view,
     } = useContext(GalleryContext);
 
-    const isMobile = view === 'mobile';
-
-    const leftArrowRef = useRef<HTMLDivElement>(null);
-    const rightArrowRef = useRef<HTMLDivElement>(null);
+    const {
+        handleLoad,
+        handleLoadError,
+        handleWrapperClick,
+        isMobile,
+        rightArrowRef,
+        leftArrowRef,
+    } = useHandleImageViewer();
 
     const [leftArrowFocused] = useFocus(leftArrowRef, 'keyboard');
     const [rightArrowFocused] = useFocus(rightArrowRef, 'keyboard');
@@ -82,41 +72,6 @@ export const ImageViewer: FC = () => {
         }
     };
 
-    const handleLoad = (event: SyntheticEvent<HTMLImageElement>, index: number) => {
-        const target = event.currentTarget;
-
-        const { naturalWidth, naturalHeight } = target;
-
-        setImageMeta({ width: naturalWidth, height: naturalHeight }, index);
-    };
-
-    const handleLoadError = (index: number) => {
-        setImageMeta({ width: 0, height: 0, broken: true }, index);
-    };
-
-    const handleWrapperClick = useCallback<MouseEventHandler>(
-        (event) => {
-            const eventTarget = event.target as HTMLElement;
-
-            const isArrow =
-                leftArrowRef.current?.contains(eventTarget) ||
-                rightArrowRef.current?.contains(eventTarget);
-
-            const isPlaceholder = Boolean(eventTarget.closest(`.${styles.placeholder}`));
-
-            const isImg = eventTarget.tagName === 'IMG';
-
-            if (!isImg && !isPlaceholder && !isArrow && !isMobile) {
-                onClose();
-            }
-        },
-        [isMobile, onClose],
-    );
-
-    useEffect(() => {
-        elementClosest(window);
-    }, []);
-
     const swiperProps = useMemo<Swiper>(
         () => ({
             slidesPerView: 1,
@@ -126,7 +81,7 @@ export const ImageViewer: FC = () => {
             },
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
-                [styles.fullScreenVideo]: fullScreen && !singleSlide && isVideo(currentImage?.src),
+                [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             }),
@@ -143,7 +98,6 @@ export const ImageViewer: FC = () => {
         [
             fullScreen,
             currentImage?.src,
-            singleSlide,
             isMobile,
             swiper,
             initialSlide,
@@ -152,7 +106,7 @@ export const ImageViewer: FC = () => {
         ],
     );
 
-    const showControls = !singleSlide && !fullScreen && !isMobile && !!images.length;
+    const showControls = !fullScreen && !isMobile && !!images.length;
 
     const swiperWidth = swiper?.width || 1;
     const swiperHeight = swiper?.height || swiper?.width || 1;
@@ -163,7 +117,6 @@ export const ImageViewer: FC = () => {
         /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         <div
             className={cn(styles.component, {
-                [styles.singleSlide]: singleSlide,
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             })}
@@ -216,9 +169,9 @@ export const ImageViewer: FC = () => {
                             {({ isActive }) => (
                                 <Slide
                                     isActive={isActive}
-                                    swiperAspectRatio={swiperAspectRatio}
+                                    containerAspectRatio={swiperAspectRatio}
                                     image={image}
-                                    swiperHeight={swiperHeight}
+                                    containerHeight={swiperHeight}
                                     meta={meta}
                                     index={index}
                                     imageAspectRatio={imageAspectRatio}

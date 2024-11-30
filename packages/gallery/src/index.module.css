@@ -2,13 +2,18 @@
 
 .container {
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     width: 100%;
     background-color: var(--color-static-neutral-0-inverted);
+
+    &.mobile {
+        overflow: hidden;
+    }
 }
 
 .modal {

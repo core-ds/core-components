@@ -17,6 +17,6 @@
         "@alfalab/core-components-types": "^0.0.1",
         "classnames": "^2.3.1"
     },
-    "themesVersion": "13.5.0",
-    "varsVersion": "9.15.0"
+    "themesVersion": "13.6.0",
+    "varsVersion": "9.16.0"
 }
