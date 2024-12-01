@@ -1,5 +1,5 @@
 import React from 'react';
-import kebab from 'lodash.kebabcase';
+import kebab from 'lodash/kebabcase';
 import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
