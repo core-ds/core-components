@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { type MouseEvent, type UIEvent, type FC } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import {
+    type Button,
+    type ButtonDesktop,
+    type ButtonMobile,
+} from '@alfalab/core-components-button';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 
 import defaultColors from './default.module.css';
@@ -13,19 +17,24 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-interface ClearButtonProps {
+export interface ClearButtonProps {
     disabled?: boolean;
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onClick: (event: MouseEvent<HTMLButtonElement>) => void;
     colors: 'default' | 'inverted';
     dataTestId?: string;
 }
 
-const preventDefault = (e: React.UIEvent<HTMLElement>) => e.preventDefault();
+type ClearButtonPrivateProps = {
+    Button: typeof ButtonDesktop | typeof ButtonMobile | typeof Button;
+};
 
-export const ClearButton: React.FC<ClearButtonProps> = ({
+const preventDefault = (e: UIEvent<HTMLElement>) => e.preventDefault();
+
+export const ClearButtonBase: FC<ClearButtonProps & ClearButtonPrivateProps> = ({
     colors,
     disabled,
     onClick,
+    Button,
     dataTestId,
 }) => (
     <Button

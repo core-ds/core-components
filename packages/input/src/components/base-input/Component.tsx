@@ -1,13 +1,16 @@
 import React, {
-    AnimationEvent,
-    ChangeEvent,
-    ElementType,
+    type AnimationEvent,
+    type ChangeEvent,
+    type ElementType,
+    type FocusEvent,
+    type HTMLAttributes,
+    type InputHTMLAttributes,
+    type MouseEvent,
+    type ReactNode,
+    type Ref,
+    type RefAttributes,
+    forwardRef,
     Fragment,
-    HTMLAttributes,
-    InputHTMLAttributes,
-    MouseEvent,
-    ReactNode,
-    RefAttributes,
     useCallback,
     useRef,
     useState,
@@ -20,7 +23,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { ClearButton } from '../clear-button';
+import { type ClearButton, type ClearButtonDesktop, type ClearButtonMobile } from '../clear-button';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -91,7 +94,7 @@ export type BaseInputProps = Omit<
     /**
      * Лейбл компонента
      */
-    label?: React.ReactNode;
+    label?: ReactNode;
 
     /**
      * Вид лейбла внутри / снаружи
@@ -106,17 +109,17 @@ export type BaseInputProps = Omit<
     /**
      * Ref для обертки input
      */
-    wrapperRef?: React.Ref<HTMLDivElement> | null;
+    wrapperRef?: Ref<HTMLDivElement> | null;
 
     /**
      * Слот слева
      */
-    leftAddons?: React.ReactNode;
+    leftAddons?: ReactNode;
 
     /**
      * Слот справа
      */
-    rightAddons?: React.ReactNode;
+    rightAddons?: ReactNode;
 
     /**
      * Свойства для обертки левых аддонов
@@ -131,7 +134,7 @@ export type BaseInputProps = Omit<
     /**
      * Слот под инпутом
      */
-    bottomAddons?: React.ReactNode;
+    bottomAddons?: ReactNode;
 
     /**
      * Дополнительный класс
@@ -210,6 +213,13 @@ export type BaseInputProps = Omit<
     disableUserInput?: boolean;
 };
 
+type BaseInputPrivateProps = {
+    /**
+     * Компонент Close Button
+     */
+    ClearButton: typeof ClearButtonDesktop | typeof ClearButtonMobile | typeof ClearButton;
+};
+
 const SIZE_TO_CLASSNAME_MAP = {
     s: 'size-48',
     m: 'size-56',
@@ -221,7 +231,10 @@ const SIZE_TO_CLASSNAME_MAP = {
     72: 'size-72',
 };
 
-export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
+export const BaseInputComponent = forwardRef<
+    HTMLInputElement,
+    BaseInputProps & BaseInputPrivateProps
+>(
     (
         {
             size = 48,
@@ -262,6 +275,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             readOnly: readOnlyProp,
             FormControlComponent,
             disableUserInput,
+            ClearButton,
             ...restProps
         },
         ref,
@@ -295,7 +309,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         }, []);
 
         const handleInputFocus = useCallback(
-            (event: React.FocusEvent<HTMLInputElement>) => {
+            (event: FocusEvent<HTMLInputElement>) => {
                 if (!readOnlyProp || disableUserInput) {
                     setFocused(true);
                 }
@@ -308,7 +322,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         );
 
         const handleInputBlur = useCallback(
-            (event: React.FocusEvent<HTMLInputElement>) => {
+            (event: FocusEvent<HTMLInputElement>) => {
                 setFocused(false);
 
                 if (onBlur) {
@@ -319,7 +333,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         );
 
         const handleInputChange = useCallback(
-            (event: React.ChangeEvent<HTMLInputElement>) => {
+            (event: ChangeEvent<HTMLInputElement>) => {
                 if (onChange) {
                     onChange(event, { value: event.target.value });
                 }
