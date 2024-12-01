@@ -1,4 +1,4 @@
-import React, { type MouseEvent, type UIEvent, type FC } from 'react';
+import React, { type FC, type MouseEvent, type UIEvent } from 'react';
 import cn from 'classnames';
 
 import {
