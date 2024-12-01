@@ -1,0 +1,18 @@
+@import '../../../../vars/src/index.css';
+@import 'index.module.css';
+
+.component {
+    height: 100%;
+    min-width: 48px;
+    background: var(--color-light-bg-primary-alpha-40);
+    backdrop-filter: blur(10px);
+}
+
+.iconWrapper {
+    height: 48px;
+    margin: var(--gap-0) var(--gap-8) var(--gap-0) var(--gap-12);
+
+    & + .text {
+        margin-right: var(--gap-12);
+    }
+}

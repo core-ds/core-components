@@ -6,15 +6,37 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { BackArrowAddon } from './components/back-arrow-addon';
-import { Closer } from './components/closer';
-import type { ContentParams, NavigationBarPrivateProps } from './types';
+import type styles from './index.module.css';
+import type { ContentParams, NavigationBarBasePrivateProps } from './types';
 
-import styles from './index.module.css';
+type NavigationBarBaseHiddenProps = {
+    /**
+     * Вид шапки - мобильный или десктоп
+     */
+    view: 'desktop' | 'mobile';
+
+    /**
+     * Вид шапки - мобильный или десктоп
+     */
+    styles: typeof styles;
+
+    /**
+     * Вид шапки - мобильный или десктоп
+     */
+    BackArrowAddon: any;
+
+    /**
+     * Вид шапки - мобильный или десктоп
+     */
+    Closer: any;
+};
 
 const ADDONS_HEIGHT = 48;
 
-export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPrivateProps>(
+export const NavigationBarPrivateBase = forwardRef<
+    HTMLDivElement,
+    NavigationBarBasePrivateProps & NavigationBarBaseHiddenProps
+>(
     (
         {
             addonClassName,
@@ -43,6 +65,9 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             scrollableParentRef,
             sticky,
             onBack,
+            styles,
+            BackArrowAddon,
+            Closer,
         },
         ref,
     ) => {
@@ -54,18 +79,28 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         const leftAddonsRef = useRef<HTMLDivElement>(null);
         const rightAddonsRef = useRef<HTMLDivElement>(null);
 
+        // MOBILE
         const compactTitle = view === 'mobile' && titleSize === 'compact';
+
         const hasLeftPart = Boolean(leftAddons || hasBackButton);
         const hasRightPart = Boolean(rightAddons || hasCloser);
         const hasContent = Boolean(title || children);
+
+        // MOBILE
         const withAnimation = Boolean(view === 'mobile' && hasLeftPart && sticky && !compactTitle);
+
         const showContentOnTop = hasContent && (compactTitle || !hasLeftPart);
         const showContentOnBot = hasContent && !compactTitle && hasLeftPart;
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
         const showStaticContentOnBot = !withAnimation && showContentOnBot;
+
+        // MOBILE
         const showAnimatedContentOnTop =
             withAnimation && showContentOnBot && scrollTop > ADDONS_HEIGHT;
+
+        // MOBILE
         const showAnimatedContentOnBot = withAnimation && showContentOnBot;
+
         const headerPaddingTop = mainLinePaddingTopRef.current;
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -106,10 +141,12 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                 setScrollTop(divElement.scrollTop);
             };
 
+            // MOBILE
             if (withAnimation && headerRef.current) {
                 mainLinePaddingTopRef.current = getComputedStyle(headerRef.current).paddingTop;
             }
 
+            // MOBILE
             if (withAnimation && parent) {
                 parent.addEventListener('scroll', handleScroll);
             }
@@ -120,11 +157,14 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         const renderBackButton = () => {
             let textOpacity = 1;
 
+            // MOBILE
             if (withAnimation) {
                 const height = hasContent ? ADDONS_HEIGHT : ADDONS_HEIGHT / 2;
 
                 textOpacity = Math.max(0, 1 - scrollTop / height);
-            } else if (compactTitle) {
+            }
+            // MOBILE
+            else if (compactTitle) {
                 textOpacity = 0;
             }
 
@@ -148,10 +188,18 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                 <div
                     style={{ ...style, visibility: hidden ? 'hidden' : 'visible' }}
                     ref={wrapperRef}
-                    className={cn(styles.content, extraClassName, contentClassName, styles[align], {
-                        [styles.trim]: trim,
-                        [styles.withCompactTitle]: view === 'mobile' && compactTitle && hasContent,
-                    })}
+                    className={cn(
+                        styles.content,
+                        extraClassName,
+                        contentClassName,
+                        styles[`align_${align}`],
+                        {
+                            [styles.trim]: trim,
+                            // MOBILE
+                            [styles.withCompactTitle]:
+                                view === 'mobile' && compactTitle && hasContent,
+                        },
+                    )}
                     aria-hidden={hidden}
                 >
                     {children && <div className={styles.children}>{children}</div>}
@@ -163,7 +211,12 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                             {title}
                         </div>
                     )}
-                    {compactTitle && subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+                    {
+                        // MOBILE
+                        compactTitle && subtitle && (
+                            <div className={styles.subtitle}>{subtitle}</div>
+                        )
+                    }
                 </div>
             );
         };
@@ -186,6 +239,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                 data-test-id={getDataTestId(dataTestId)}
                 style={{
                     ...(imageUrl && { backgroundImage: `url(${imageUrl})` }),
+                    // MOBILE
                     ...(withAnimation &&
                         bottomContentRef.current && {
                             top: -bottomContentRef.current.scrollHeight,
@@ -194,10 +248,12 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             >
                 <div
                     className={cn(styles.mainLine, {
+                        // MOBILE
                         [styles.mainLineSticky]: withAnimation,
                         [styles.mainLineWithImageBg]: imageUrl,
                     })}
                     style={{
+                        // MOBILE
                         ...(withAnimation
                             ? {
                                   marginTop: `-${headerPaddingTop}`,
@@ -227,19 +283,25 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                                 : null),
                         })}
 
-                    {showAnimatedContentOnTop &&
-                        renderContent({
-                            extraClassName: styles.withBothAddons,
-                            style: {
-                                opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
-                                ...(align === 'center'
-                                    ? {
-                                          marginLeft: titleMargin.left,
-                                          marginRight: titleMargin.right,
-                                      }
-                                    : null),
-                            },
-                        })}
+                    {
+                        // MOBILE
+                        showAnimatedContentOnTop &&
+                            renderContent({
+                                extraClassName: styles.withBothAddons,
+                                style: {
+                                    opacity: Math.min(
+                                        1,
+                                        (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT,
+                                    ),
+                                    ...(align === 'center'
+                                        ? {
+                                              marginLeft: titleMargin.left,
+                                              marginRight: titleMargin.right,
+                                          }
+                                        : null),
+                                },
+                            })
+                    }
 
                     {hasRightPart && (
                         <div
@@ -256,22 +318,17 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                         </div>
                     )}
                 </div>
+                {
+                    // MOBILE
+                    showAnimatedContentOnBot &&
+                        renderContent({
+                            wrapperRef: bottomContentRef,
+                            style: { opacity: Math.max(0, 1 - scrollTop / ADDONS_HEIGHT) },
+                            hidden: scrollTop / ADDONS_HEIGHT > 1,
+                        })
+                }
 
-                {showAnimatedContentOnBot &&
-                    renderContent({
-                        wrapperRef: bottomContentRef,
-                        extraClassName: styles.underAddons,
-                        style: { opacity: Math.max(0, 1 - scrollTop / ADDONS_HEIGHT) },
-                        hidden: scrollTop / ADDONS_HEIGHT > 1,
-                    })}
-
-                {showStaticContentOnBot &&
-                    renderContent({
-                        extraClassName: cn({
-                            [styles.contentOnBotDesktop]: view === 'desktop',
-                            [styles.contentOnBotMobile]: view === 'mobile',
-                        }),
-                    })}
+                {showStaticContentOnBot && renderContent({ extraClassName: styles.contentOnBot })}
 
                 {bottomAddons && (
                     <div className={cn(styles.bottomAddons, bottomAddonsClassName)}>
@@ -283,4 +340,4 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
     },
 );
 
-NavigationBarPrivate.displayName = 'NavigationBarPrivate';
+NavigationBarPrivateBase.displayName = 'NavigationBarPrivate';

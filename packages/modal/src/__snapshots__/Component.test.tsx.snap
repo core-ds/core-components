@@ -104,7 +104,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="content contentOnBotDesktop left trim"
+          class="content contentOnBot align_left trim"
           style="visibility: visible;"
         >
           <div
@@ -161,7 +161,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component text size-32 hug size-32 component text component text component mobileComponent"
+                class="component text size-32 hug size-32 component text component text component"
                 type="button"
               >
                 <span
@@ -171,7 +171,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                     class="flex"
                   >
                     <div
-                      class="iconWrapper mobileWrapper"
+                      class="iconWrapper"
                     >
                       <svg
                         fill="currentColor"
@@ -208,7 +208,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component border-32"
+                  class="component text size-48 hug size-48 component text component text cc-icon-button button primary component border-32"
                   type="button"
                 >
                   <span
@@ -238,7 +238,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="content contentOnBotMobile content left trim"
+          class="content contentOnBot content align_left trim"
           style="visibility: visible;"
         >
           <div

@@ -97,7 +97,7 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="content contentOnBotDesktop left trim"
+        class="content contentOnBot align_left trim"
         style="visibility: visible;"
       >
         <div

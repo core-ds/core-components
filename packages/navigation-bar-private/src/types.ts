@@ -3,7 +3,8 @@ import React, { ReactNode } from 'react';
 import { BackArrowAddonProps } from './components/back-arrow-addon';
 import type { CloserProps } from './components/closer';
 
-export type NavigationBarPrivateProps = {
+/** NavigationBar Desktop / Mobile Props */
+export type NavigationBarBasePrivateProps = {
     /**
      * Контент шапки
      */
@@ -123,11 +124,6 @@ export type NavigationBarPrivateProps = {
      * обработчик клика по кнопке "назад"
      */
     onBack?: () => void;
-
-    /**
-     * Вид шапки - мобильный или десктоп
-     */
-    view: 'desktop' | 'mobile';
 
     /**
      * Ссылка на родительскую ноду overflow: auto

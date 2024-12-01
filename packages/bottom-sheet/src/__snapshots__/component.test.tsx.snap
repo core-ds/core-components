@@ -56,7 +56,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                       class="mainLine"
                     >
                       <div
-                        class="content title left trim"
+                        class="content title align_left trim"
                         style="visibility: visible;"
                       >
                         <div
@@ -145,7 +145,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                       class="mainLine"
                     >
                       <div
-                        class="content title left trim"
+                        class="content title align_left trim"
                         style="visibility: visible;"
                       >
                         <div

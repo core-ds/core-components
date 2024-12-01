@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { type FC, type SVGProps } from 'react';
 import cn from 'classnames';
 
+// TODO Нужно ли для мобильной версии брать мобильную кнопку?
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { Typography } from '@alfalab/core-components-typography';
-import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
-import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
+import { Text } from '@alfalab/core-components-typography';
 
-import styles from './index.module.css';
+import type stylesDesktop from './index.module.css';
+import type stylesMobile from './mobile.module.css';
 
-export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElement> {
+/** BackArrowAddon Desktop / Mobile Props */
+export interface BackArrowAddonBaseProps extends React.HTMLAttributes<HTMLButtonElement> {
     /**
      * Текст после иконки
      */
@@ -18,11 +19,6 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
      * Дополнительный класс
      */
     className?: string;
-
-    /**
-     * Вид компонента
-     */
-    view: 'mobile' | 'desktop';
 
     /**
      * Прозрачность текста
@@ -35,15 +31,33 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     onClick?: () => void;
 }
 
-export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
+type BackArrowAddonPrivateProps = {
+    /**
+     * Вид компонента
+     */
+    view: 'mobile' | 'desktop';
+
+    /**
+     * Иконка
+     */
+    Icon: FC<SVGProps<SVGSVGElement>>;
+
+    /**
+     * Стили
+     */
+    styles: typeof stylesDesktop | typeof stylesMobile;
+};
+
+export const BackArrowAddonBase = ({
     text = 'Назад',
     onClick,
     className,
     textOpacity = 1,
     view,
+    Icon,
+    styles,
     ...htmlAttributes
-}) => {
-    const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon;
+}: BackArrowAddonBaseProps & BackArrowAddonPrivateProps) => {
     const isMobileView = view === 'mobile';
 
     return (
@@ -52,26 +66,22 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
             size={isMobileView ? 'xxs' : 's'}
             onClick={onClick}
             aria-label='назад'
-            className={cn(styles.component, { [styles.mobileComponent]: isMobileView }, className)}
+            className={cn(styles.component, className)}
             {...htmlAttributes}
         >
             <div className={styles.flex}>
-                <div
-                    className={cn(styles.iconWrapper, {
-                        [styles.mobileWrapper]: isMobileView,
-                    })}
-                >
+                <div className={styles.iconWrapper}>
                     <Icon />
                 </div>
                 {textOpacity > 0 && text && (
-                    <Typography.Text
+                    <Text
                         className={styles.text}
-                        view={view === 'desktop' ? 'primary-large' : 'component'}
+                        view={isMobileView ? 'component' : 'primary-large'}
                         weight='medium'
                         style={{ opacity: textOpacity }}
                     >
                         {text}
-                    </Typography.Text>
+                    </Text>
                 )}
             </div>
         </ButtonDesktop>

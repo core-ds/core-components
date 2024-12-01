@@ -20,11 +20,6 @@
     background-color: inherit;
 }
 
-.mainLineSticky {
-    position: sticky;
-    top: var(--gap-0);
-}
-
 .mainLineWithImageBg {
     background-color: initial;
 }
@@ -39,39 +34,13 @@
     box-sizing: border-box;
     min-height: 48px;
 
-    &.withBothAddons,
-    &.withCompactTitle {
-        @mixin action_component;
-        align-self: center;
-        padding-top: var(--gap-4);
-        padding-bottom: var(--gap-4);
-
-        & > .children,
-        & > .title {
-            -webkit-line-clamp: 1;
-            word-break: break-all;
-        }
-    }
-
-    &.contentOnBotDesktop.contentOnBotDesktop {
-        padding-top: var(--gap-12);
-    }
-
-    &.contentOnBotMobile.contentOnBotMobile {
+    &.contentOnBot.contentOnBot {
         padding-top: var(--gap-12);
     }
 }
 
 .title {
     word-break: break-word;
-}
-
-.subtitle {
-    @mixin paragraph_primary_small;
-    @mixin row_limit 1;
-
-    color: var(--color-light-text-secondary);
-    word-break: break-all;
 }
 
 .addonsWrapper {
@@ -100,11 +69,11 @@
     margin-left: auto;
 }
 
-.left {
+.align_left {
     text-align: left;
 }
 
-.center {
+.align_center {
     text-align: center;
 }
 

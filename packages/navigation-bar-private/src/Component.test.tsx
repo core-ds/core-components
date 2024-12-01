@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { NavigationBarPrivate } from './Component';
-import { NavigationBarPrivateProps } from './types';
+import { NavigationBarPrivate, type NavigationBarPrivateProps } from '.';
 
 const dti = 'navigation-bar-dti';
 

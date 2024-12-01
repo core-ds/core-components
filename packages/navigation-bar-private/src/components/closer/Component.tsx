@@ -1,18 +1,13 @@
-import React, { ButtonHTMLAttributes, ElementType, FC } from 'react';
+import React, { type ButtonHTMLAttributes, type ElementType } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
-import styles from './index.module.css';
+import type stylesDesktop from './desktop.module.css';
+import type stylesMobile from './mobile.module.css';
 
-export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    /**
-     * Вид компонента
-     */
-    view: 'desktop' | 'mobile';
-
+/** Closer Desktop / Mobile Props */
+export interface CloserBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Дополнительный класс
      */
@@ -47,15 +42,33 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     ) => void;
 }
 
-export const Closer: FC<CloserProps> = ({
+type CloserBasePrivateProps = Omit<CloserBaseProps, 'icon'> & {
+    /**
+     * Иконка
+     */
+    icon: ElementType;
+
+    /**
+     * Вид компонента
+     */
+    view: 'desktop' | 'mobile';
+
+    /**
+     * Стили
+     */
+    styles: typeof stylesDesktop | typeof stylesMobile;
+};
+
+export const CloserBase = ({
     view,
     className,
     sticky,
-    icon = view === 'desktop' ? CrossHeavyMIcon : CrossMIcon,
+    icon,
     dataTestId,
     onClose,
+    styles,
     ...restProps
-}) => {
+}: CloserBasePrivateProps) => {
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         onClose?.(event, 'closerClick');
     };
@@ -68,7 +81,7 @@ export const Closer: FC<CloserProps> = ({
         >
             <IconButton
                 size={view === 'desktop' ? 's' : 'xs'}
-                className={cn(styles.button, { [styles.mobile]: view === 'mobile' })}
+                className={styles.button}
                 aria-label='закрыть'
                 onClick={handleClick}
                 icon={icon}
