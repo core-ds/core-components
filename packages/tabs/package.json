@@ -10,7 +10,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
     "devDependencies": {
         "@types/lodash": "^4.17.13"
     },
