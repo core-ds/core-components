@@ -17,7 +17,7 @@
         "@alfalab/core-components-notification": "^7.5.2",
         "@alfalab/core-components-portal": "^3.3.4",
         "@alfalab/core-components-stack": "^5.0.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },

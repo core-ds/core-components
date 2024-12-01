@@ -17,7 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-calendar": "^7.15.4",
         "@alfalab/core-components-skeleton": "^5.2.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },

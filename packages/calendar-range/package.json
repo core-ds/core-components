@@ -19,7 +19,7 @@
         "@alfalab/core-components-calendar-input": "^10.4.8",
         "@alfalab/core-components-date-input": "^4.4.8",
         "@alfalab/hooks": "^1.13.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "date-fns": "^2.16.1",
         "tslib": "^2.4.0"
     },
