@@ -6,6 +6,12 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import {
+    type BackArrowAddon,
+    type BackArrowAddonDesktop,
+    type BackArrowAddonMobile,
+} from './components/back-arrow-addon';
+import { type Closer, type CloserDesktop, type CloserMobile } from './components/closer';
 import type styles from './index.module.css';
 import type { ContentParams, NavigationBarBasePrivateProps } from './types';
 
@@ -21,14 +27,17 @@ type NavigationBarBaseHiddenProps = {
     styles: typeof styles;
 
     /**
-     * Вид шапки - мобильный или десктоп
+     * Компонент BackArrowAddon
      */
-    BackArrowAddon: any;
+    BackArrowAddon:
+        | typeof BackArrowAddonDesktop
+        | typeof BackArrowAddonMobile
+        | typeof BackArrowAddon;
 
     /**
-     * Вид шапки - мобильный или десктоп
+     * Компонент Closer
      */
-    Closer: any;
+    Closer: typeof CloserDesktop | typeof CloserMobile | typeof Closer;
 };
 
 const ADDONS_HEIGHT = 48;
