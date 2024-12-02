@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import throttle from 'lodash/throttle';
+import throttle from 'lodash.throttle';
 import SimpleBar from 'simplebar/src/simplebar';
 
 import defaultColors from './default.module.css';
