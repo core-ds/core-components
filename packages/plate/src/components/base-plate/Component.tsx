@@ -292,7 +292,11 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                     className,
                 )}
                 style={{
-                    ...(view === 'custom' && { background, borderColor }),
+                    ...(view === 'custom' && {
+                        background,
+                        borderColor,
+                        '--plate-border-color': borderColor,
+                    }),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}
