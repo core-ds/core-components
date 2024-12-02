@@ -197,18 +197,11 @@ export const NavigationBarPrivateBase = forwardRef<
                 <div
                     style={{ ...style, visibility: hidden ? 'hidden' : 'visible' }}
                     ref={wrapperRef}
-                    className={cn(
-                        styles.content,
-                        extraClassName,
-                        contentClassName,
-                        styles[`align_${align}`],
-                        {
-                            [styles.trim]: trim,
-                            // MOBILE
-                            [styles.withCompactTitle]:
-                                view === 'mobile' && compactTitle && hasContent,
-                        },
-                    )}
+                    className={cn(styles.content, extraClassName, contentClassName, styles[align], {
+                        [styles.trim]: trim,
+                        // MOBILE
+                        [styles.withCompactTitle]: view === 'mobile' && compactTitle && hasContent,
+                    })}
                     aria-hidden={hidden}
                 >
                     {children && <div className={styles.children}>{children}</div>}

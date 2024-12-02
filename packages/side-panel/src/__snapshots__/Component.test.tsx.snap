@@ -107,7 +107,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="content contentOnBot align_left trim"
+            class="content contentOnBot left trim"
             style="visibility: visible;"
           >
             <div
@@ -245,7 +245,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="content contentOnBot content align_left trim"
+            class="content contentOnBot content left trim"
             style="visibility: visible;"
           >
             <div
