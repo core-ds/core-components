@@ -1,0 +1,8 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import 'index.module.css';
+
+.button {
+    background: var(--color-light-neutral-translucent-100);
+    color: var(--navigation-bar-closer-mobile-color);
+}

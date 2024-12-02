@@ -1,5 +1,7 @@
 @import '../../vars/src/index.css';
 
+/* Переменные используются только в mobile */
+
 :root {
     /* closer-mobile */
     --navigation-bar-closer-mobile-color: var(--color-light-neutral-translucent-700);

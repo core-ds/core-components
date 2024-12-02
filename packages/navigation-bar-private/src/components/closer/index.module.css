@@ -1,5 +1,4 @@
 @import '../../../../vars/src/index.css';
-@import '../../vars.css';
 
 .closer {
     flex-shrink: 0;
@@ -12,14 +11,7 @@
 }
 
 .button {
-    background: var(--color-light-bg-primary-alpha-40);
     backdrop-filter: blur(10px);
-    color: var(--color-light-neutral-translucent-1300);
-
-    &.mobile {
-        background: var(--color-light-neutral-translucent-100);
-        color: var(--navigation-bar-closer-mobile-color);
-    }
 }
 
 .button.button {
