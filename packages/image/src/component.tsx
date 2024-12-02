@@ -1,8 +1,9 @@
 import React, { type ImgHTMLAttributes, Suspense, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
-// import { useInViewRef } from 'rooks';
 import { useComponentOverrides } from '@alfalab/core-config';
+
+import { useInViewRef } from './hooks/use-in-view-ref';
 
 import styles from './index.module.css';
 
@@ -59,12 +60,10 @@ export type ImageProps = {
  */
 export const Image = ({ className, dataTestId, src, proxyMap, warning, ...props }: ImageProps) => {
     // BLA BLA replace by new IntersectionObserver native api
-    const [myRef, inView] = useInViewRef(() => {}, { threshold: 0.2 });
+    const [imgRef, inView] = useInViewRef();
     const loaded = useRef(false);
 
     const componentContext = useComponentOverrides<ImageProps>('Image');
-
-    const production = process.env.NODE_ENV === 'production';
 
     const url = useMemo(() => {
         const map = proxyMap || componentContext?.proxyMap || [];
@@ -94,11 +93,13 @@ export const Image = ({ className, dataTestId, src, proxyMap, warning, ...props 
 
                 loaded.current = true;
             }}
-            ref={myRef}
+            ref={imgRef.current}
         />
     );
 
-    if (production || warning || componentContext?.warning) {
+    const warningOptions = warning || componentContext?.warning;
+
+    if (!warningOptions) {
         return imgCom;
     }
 
@@ -110,7 +111,7 @@ export const Image = ({ className, dataTestId, src, proxyMap, warning, ...props 
         >
             {imgCom}
 
-            {!production && (inView || loaded.current) && (
+            {(inView || loaded.current) && (
                 <Suspense fallback=''>
                     <LazyImageCdnIntegration src={url} warning={warning} />
                 </Suspense>
