@@ -26,11 +26,6 @@ export type CalendarContentProps = {
      * Количество лет для генерации в обе стороны от текущего года
      */
     yearsAmount?: number;
-
-    /**
-     * Родительский контейнер для отслеживания скролла
-     */
-    scrollableContainer?: HTMLElement;
 } & Omit<CalendarDesktopProps, OmittedCalendarContentProps | OmittedCalendarProps>;
 
 export type CalendarMobileProps = {
@@ -68,5 +63,23 @@ export type CalendarMobileProps = {
      * При клике на месяц будут выбраны все доступные дни месяца
      */
     clickableMonth?: boolean;
+
+    /**
+     * Контент кнопки "Отмена"
+     * @default Отмена
+     */
+    cancelButtonContent?: string;
+
+    /**
+     * Контент кнопки "Выбрать"
+     * @default Выбрать
+     */
+    selectButtonContent?: string;
+
+    /**
+     * Контент кнопки "Сбросить"
+     * @default Сбросить
+     */
+    resetButtonContent?: string;
 } & CalendarContentProps &
     Pick<CalendarDesktopProps, OmittedCalendarContentProps>;

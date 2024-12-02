@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, renderHook } from '@testing-library/react';
+import { render, fireEvent, renderHook, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import subDays from 'date-fns/subDays';
 import addDays from 'date-fns/addDays';
@@ -1434,5 +1434,94 @@ describe('hook tests', () => {
 
         expect(result.current.selectedFrom).toBe(newFromDate);
         expect(result.current.selectedTo).toBe(initialDate);
+    });
+});
+
+describe('CalendarMobile buttons content', () => {
+    it('should pass default range select button text', () => {
+        render(
+            <CalendarMobile open={true} selectedFrom={1708376400000} selectedTo={1708549200000} />,
+        );
+
+        const text = screen.getByText('Выбрать');
+
+        expect(text).toBeInTheDocument();
+    });
+
+    it('should pass default range reset button text', () => {
+        render(
+            <CalendarMobile open={true} selectedFrom={1708376400000} selectedTo={1708549200000} />,
+        );
+
+        const text = screen.getByText('Сбросить');
+
+        expect(text).toBeInTheDocument();
+    });
+    it('should pass range select button text', () => {
+        render(
+            <CalendarMobile
+                open={true}
+                selectedFrom={1708376400000}
+                selectedTo={1708549200000}
+                selectButtonContent={'selectButtonContent'}
+            />,
+        );
+
+        const text = screen.getByText('selectButtonContent');
+
+        expect(text).toBeInTheDocument();
+    });
+
+    it('should pass range reset button text', () => {
+        render(
+            <CalendarMobile
+                open={true}
+                selectedFrom={1708376400000}
+                selectedTo={1708549200000}
+                resetButtonContent={'resetButtonContent'}
+            />,
+        );
+
+        const text = screen.getByText('resetButtonContent');
+
+        expect(text).toBeInTheDocument();
+    });
+
+    it('should pass default select button text', () => {
+        render(<CalendarMobile open={true} value={1708376400000} />);
+
+        const text = screen.getByText('Выбрать');
+
+        expect(text).toBeInTheDocument();
+    });
+
+    it('should pass select button text', () => {
+        render(
+            <CalendarMobile
+                open={true}
+                value={1708376400000}
+                selectButtonContent={'selectButtonContent'}
+            />,
+        );
+
+        const text = screen.getByText('selectButtonContent');
+
+        expect(text).toBeInTheDocument();
+    });
+
+    it('should pass default cancel button text', () => {
+        render(<CalendarMobile open={true} />);
+
+        const text = screen.getByText('Отмена');
+
+        expect(text).toBeInTheDocument();
+    });
+
+    it('should pass cancel button text', () => {
+        render(<CalendarMobile open={true} cancelButtonContent={'cancelButtonContent'} />);
+
+        const text = screen.getByText('cancelButtonContent');
+
+        expect(text).toBeInTheDocument();
     });
 });
