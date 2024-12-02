@@ -1,4 +1,4 @@
-import kebab from 'lodash/kebabcase';
+import kebab from 'lodash/kebabCase';
 
 import findComponentPath from '../../tools/storybook/findComponentPath';
 
