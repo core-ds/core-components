@@ -181,20 +181,32 @@ describe(
 );
 
 describe(
-    'Plate | custom view and background',
+    'Plate | custom view, border and background',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Plate',
-            testStory: false,
-            knobs: {
-                view: 'custom',
-                title: 'Поздравляем, полный успех',
-                children: 'Вам одобрено. Согласитесь на предложение',
-                background: 'var(--color-light-decorative-muted-indigo)',
-                borderColor: 'var(--color-light-decorative-indigo)',
-            },
-            wrapperStyles: 'width:500px',
-        }),
-        viewport: { width: 1024, height: 160 },
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Plate',
+                    knobs: {
+                        view: 'custom',
+                        title: 'Поздравляем, полный успех',
+                        children: 'Вам одобрено. Согласитесь на предложение',
+                        background: 'var(--color-light-decorative-muted-indigo)',
+                        borderColor: 'var(--color-light-decorative-indigo)',
+                        border: [true, false],
+                        rounded: [true, false],
+                    },
+                    size: { width: 400, height: 140 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 1024,
+            height: 140,
+        },
     }),
 );
