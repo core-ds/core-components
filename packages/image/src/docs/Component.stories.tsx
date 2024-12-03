@@ -9,12 +9,14 @@ const meta: Meta<typeof Image> = {
     id: 'Image',
 };
 
-type Story = StoryObj<typeof IconButton>;
+type Story = StoryObj<typeof Image>;
 
 export const image: Story = {
     name: 'Image',
     render: () => {
-        <Image src='https://web-test.alfabank.ru/mobile/s3/static/loyalty/services/travel_300x300.png' />;
+        return (
+            <Image src='https://web-test.alfabank.ru/mobile/s3/static/loyalty/services/travel_300x300.png' />
+        );
     },
 };
 
