@@ -1,8 +1,8 @@
 import React, { ButtonHTMLAttributes, forwardRef, useEffect, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Skeleton, SkeletonProps } from '@alfalab/core-components-skeleton';
-import mergeRefs from 'react-merge-refs';
 
 import { Styles, TabListTitle } from '../../typings';
 
