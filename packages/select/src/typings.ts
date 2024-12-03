@@ -497,6 +497,11 @@ export type ArrowProps = {
      * Флаг, открыто ли меню
      */
     open?: boolean;
+
+    /**
+     * Флаг блокировки select'а
+     */
+    disabled?: boolean;
 };
 
 export type OptionsListProps = {
