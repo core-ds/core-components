@@ -1,5 +1,22 @@
 # Change Log
 
+## 12.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.4
+
+## 12.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   form-control@12.7.2
+    -   input@15.3.2
+    -   select@17.17.3
+
 ## 12.6.4
 
 ### Patch Changes

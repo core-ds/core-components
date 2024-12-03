@@ -1,5 +1,22 @@
 # Change Log
 
+## 13.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+
+## 13.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   code-input@3.9.2
+    -   typography@4.10.3
+
 ## 13.9.0
 
 ### Minor Changes

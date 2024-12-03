@@ -18,10 +18,6 @@ export const config: Question[] = [
                 value: 'corp',
             },
             {
-                label: 'mobile',
-                value: 'mobile',
-            },
-            {
                 label: 'site',
                 value: 'site',
             },

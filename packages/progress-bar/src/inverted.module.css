@@ -1,0 +1,5 @@
+@import './vars.css';
+
+.container {
+    background-color: var(--progressbar-bg-color-inverted);
+}
