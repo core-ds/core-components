@@ -26,4 +26,4 @@
 '@alfalab/core-components-universal-date-input': minor
 ---
 
-   - Добавлено sideEffects: false
+Добавлено sideEffects: false
