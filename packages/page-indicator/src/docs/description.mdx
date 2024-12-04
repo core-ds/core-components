@@ -1,0 +1,179 @@
+## PageIndicatorDynamic
+
+Доступен в двух размерах: 6 и 8 рх.
+
+```jsx live
+render(() => {
+    const elements = 7;
+    const [active, setActive] = React.useState(true);
+    const toggleActive = () => setActive(active => !active);
+    const [activeElement, setActiveElement] = React.useState(0);
+    const prev = () => setActiveElement(prev => Math.max(--prev, 0));
+    const next = () => setActiveElement(prev => Math.min(++prev, elements - 1));
+    const handleActiveElementChange = (nextActiveElement) => setActiveElement(nextActiveElement);
+
+    return (
+        <div>
+            <Container>
+                <PageIndicatorDynamic
+                    size={8}
+                    activeElement={activeElement}
+                    elements={elements}
+                    onActiveElementChange={handleActiveElementChange}
+                    active={active}
+                    cycle={true}
+                />
+                <Gap size={8} />
+                <PageIndicatorDynamic
+                    size={6}
+                    activeElement={activeElement}
+                    elements={elements}
+                    active={active}
+                />
+            </Container>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={prev} />
+                <Button leftAddons={active ? <PauseCompactMIcon /> : <PlayCompactMIcon />} onClick={toggleActive} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={next} />
+            </Row>
+        </div>
+    );
+}
+);
+```
+
+## PageIndicatorBullet
+
+Доступен в двух размерах, 6 и 8 рх. В зависимости от количества элементов меняется анимация и внешний вид индикатора. Если элементов меньше шести — все эллипсы имеют одинаковый размер.
+
+```jsx live
+render(() => {
+    const elements = 5;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const prev = () => setActiveElement(prev => Math.max(--prev, 0));
+    const next = () => setActiveElement(prev => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <Container>
+                <PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />
+                <Gap size={8} />
+                <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
+            </Container>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={prev} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={next} />
+            </Row>
+        </div>
+    );
+}
+);
+```
+
+Если элементов шесть — размер зависит от положения эллипса.
+
+```jsx live
+render(() => {
+    const elements = 6;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const prev = () => setActiveElement(prev => Math.max(--prev, 0));
+    const next = () => setActiveElement(prev => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div>
+                <PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />
+                <Gap size={8} />
+                <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={prev} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={next} />
+            </Row>
+        </div>
+    );
+}
+);
+```
+
+Если элементов больше шести — размер зависит от положения эллипса.
+
+```jsx live
+
+render(() => {
+    const elements = 10;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const prev = () => setActiveElement(prev => Math.max(--prev, 0));
+    const next = () => setActiveElement(prev => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div>
+                <PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />
+                <Gap size={8} />
+                <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={prev} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={next} />
+            </Row>
+        </div>
+    );
+}
+);
+```
+
+## PageIndicatorStep
+
+Доступен в одном размере. Ширина подстраивается под ширину контейнера.
+
+```jsx live
+render(() => {
+    const elements = 5;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const prev = () => setActiveElement(prev => Math.max(--prev, 0));
+    const next = () => setActiveElement(prev => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div style={{ width: 168 }}>
+                <PageIndicatorStep size={4} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={prev} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={next} />
+            </Row>
+        </div>
+    );
+}
+);
+```
+
+## PageIndicatorRunner
+
+Доступен в одном размере. Ширина подстраивается под ширину контейнера.
+
+```jsx live
+render(() => {
+    const elements = 5;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const prev = () => setActiveElement(prev => Math.max(--prev, 0));
+    const next = () => setActiveElement(prev => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div style={{ width: 168 }}>
+                <PageIndicatorRunner size={4} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={prev} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={next} />
+            </Row>
+        </div>
+    );
+}
+);
+```
+## Общие настройки
+
+Для всех индикаторов минимальное число элементов — 2, а максимальное не ограничено. Для цветов доступна инвертированная, статичные версии и их комбинации.

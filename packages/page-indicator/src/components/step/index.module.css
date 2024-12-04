@@ -1,0 +1,14 @@
+@import '../../vars.css';
+
+.pageIndicator {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.element {
+    list-style-type: none;
+    flex-grow: 1;
+    transition: backgroud var(--page-indicator-animation-duration)
+        var(--page-indicator-animation-timing-function);
+}
