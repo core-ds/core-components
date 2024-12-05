@@ -1,5 +1,12 @@
 # Change Log
 
+## 9.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.3
+
 ## 9.8.3
 
 ### Patch Changes

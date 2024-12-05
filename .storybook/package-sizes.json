@@ -12,7 +12,7 @@
         "index.js": 3.3
     },
     "typography": {
-        "index.js": 8.8
+        "index.js": 8.9
     },
     "tooltip": {
         "desktop.js": 48.9,
@@ -52,7 +52,7 @@
         "shared.js": 30.4
     },
     "table": {
-        "index.js": 172.4
+        "index.js": 172.5
     },
     "tab-bar": {
         "index.js": 12.4,
@@ -140,7 +140,7 @@
         "shared.js": 1.1
     },
     "progress-bar": {
-        "index.js": 1.7
+        "index.js": 1.8
     },
     "product-cover": {
         "index.js": 40.8,
@@ -150,7 +150,7 @@
         "index.js": 1.2
     },
     "popup-sheet": {
-        "index.js": 66.7,
+        "index.js": 63.3,
         "shared.js": 0.6
     },
     "popover": {
@@ -430,7 +430,7 @@
         "index.js": 8.9
     },
     "attach": {
-        "index.js": 37.3
+        "index.js": 37.4
     },
     "amount": {
         "index.js": 26.6

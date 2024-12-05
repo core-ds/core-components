@@ -47,6 +47,12 @@
     --color-dark-neutral-100-inverted-hover: #e7e8eb;
     --color-dark-neutral-100-inverted-press: #dcdde1;
     --color-dark-neutral-100-press: #29292c;
+    --color-dark-neutral-1300: #f2f3f5;
+    --color-dark-neutral-1300-hover: #d2d3d9;
+    --color-dark-neutral-1300-inverted: #212124;
+    --color-dark-neutral-1300-inverted-hover: #3f3f45;
+    --color-dark-neutral-1300-inverted-press: #5f5f66;
+    --color-dark-neutral-1300-press: #babbc2;
     --color-dark-neutral-1500: #fff;
     --color-dark-neutral-1500-hover: #babbc2;
     --color-dark-neutral-1500-inverted: #121213;
@@ -98,8 +104,8 @@
     --color-dark-neutral-translucent-1300: rgba(255, 255, 255, 0.94);
     --color-dark-neutral-translucent-1300-hover: rgba(255, 255, 255, 0.7);
     --color-dark-neutral-translucent-1300-inverted: rgba(3, 3, 6, 0.88);
-    --color-dark-neutral-translucent-1300-inverted-hover: rgba(3, 3, 8, 0.8);
-    --color-dark-neutral-translucent-1300-inverted-press: rgba(0, 0, 10, 0.71);
+    --color-dark-neutral-translucent-1300-inverted-hover: rgba(2, 2, 10, 0.76);
+    --color-dark-neutral-translucent-1300-inverted-press: rgba(1, 1, 12, 0.63);
     --color-dark-neutral-translucent-1300-press: rgba(255, 255, 255, 0.6);
     --color-dark-neutral-translucent-1500-hover: rgba(243, 245, 254, 0.75);
     --color-dark-neutral-translucent-1500-inverted-hover: rgba(2, 2, 10, 0.76);
@@ -305,6 +311,12 @@
     --color-light-neutral-100-inverted-hover: #212124;
     --color-light-neutral-100-inverted-press: #29292c;
     --color-light-neutral-100-press: #dcdde1;
+    --color-light-neutral-1300: #212124;
+    --color-light-neutral-1300-hover: #3f3f45;
+    --color-light-neutral-1300-inverted: #f2f3f5;
+    --color-light-neutral-1300-inverted-hover: #d2d3d9;
+    --color-light-neutral-1300-inverted-press: #babbc2;
+    --color-light-neutral-1300-press: #5f5f66;
     --color-light-neutral-1500: #121213;
     --color-light-neutral-1500-hover: #3f3f45;
     --color-light-neutral-1500-inverted: #fff;
@@ -354,11 +366,11 @@
     --color-light-neutral-translucent-100-inverted-press: rgba(234, 234, 248, 0.15);
     --color-light-neutral-translucent-100-press: rgba(5, 12, 41, 0.14);
     --color-light-neutral-translucent-1300: rgba(3, 3, 6, 0.88);
-    --color-light-neutral-translucent-1300-hover: rgba(3, 3, 8, 0.8);
+    --color-light-neutral-translucent-1300-hover: rgba(2, 2, 10, 0.76);
     --color-light-neutral-translucent-1300-inverted: rgba(255, 255, 255, 0.94);
     --color-light-neutral-translucent-1300-inverted-hover: rgba(255, 255, 255, 0.7);
     --color-light-neutral-translucent-1300-inverted-press: rgba(255, 255, 255, 0.6);
-    --color-light-neutral-translucent-1300-press: rgba(0, 0, 10, 0.71);
+    --color-light-neutral-translucent-1300-press: rgba(1, 1, 12, 0.63);
     --color-light-neutral-translucent-1500-hover: rgba(2, 2, 10, 0.76);
     --color-light-neutral-translucent-1500-inverted-hover: rgba(243, 245, 254, 0.75);
     --color-light-neutral-translucent-1500-inverted-press: rgba(239, 240, 252, 0.65);
@@ -527,7 +539,7 @@
     --color-static-accent-secondary-inverted-hover: #dcdde1;
     --color-static-accent-secondary-inverted-press: #d2d3d9;
     --color-static-accent-secondary-press: #353539;
-    --color-static-bg-primary-dark: #0e0e0e;
+    --color-static-bg-primary-dark: #121213;
     --color-static-neutral-0: #fff;
     --color-static-neutral-0-hover: #e7e8eb;
     --color-static-neutral-0-inverted: #262629;
@@ -540,6 +552,12 @@
     --color-static-neutral-100-inverted-hover: #212124;
     --color-static-neutral-100-inverted-press: #29292c;
     --color-static-neutral-100-press: #dcdde1;
+    --color-static-neutral-1300: #212124;
+    --color-static-neutral-1300-hover: #3f3f45;
+    --color-static-neutral-1300-inverted: #f2f3f5;
+    --color-static-neutral-1300-inverted-hover: #d2d3d9;
+    --color-static-neutral-1300-inverted-press: #babbc2;
+    --color-static-neutral-1300-press: #5f5f66;
     --color-static-neutral-1500: #121213;
     --color-static-neutral-1500-hover: #3f3f45;
     --color-static-neutral-1500-inverted: #fff;
@@ -589,11 +607,11 @@
     --color-static-neutral-translucent-100-inverted-press: rgba(234, 234, 248, 0.15);
     --color-static-neutral-translucent-100-press: rgba(5, 12, 41, 0.14);
     --color-static-neutral-translucent-1300: rgba(3, 3, 6, 0.88);
-    --color-static-neutral-translucent-1300-hover: rgba(3, 3, 8, 0.8);
+    --color-static-neutral-translucent-1300-hover: rgba(2, 2, 10, 0.76);
     --color-static-neutral-translucent-1300-inverted: rgba(255, 255, 255, 0.94);
     --color-static-neutral-translucent-1300-inverted-hover: rgba(255, 255, 255, 0.7);
     --color-static-neutral-translucent-1300-inverted-press: rgba(255, 255, 255, 0.6);
-    --color-static-neutral-translucent-1300-press: rgba(0, 0, 10, 0.71);
+    --color-static-neutral-translucent-1300-press: rgba(1, 1, 12, 0.63);
     --color-static-neutral-translucent-1500-hover: rgba(2, 2, 10, 0.76);
     --color-static-neutral-translucent-1500-inverted-hover: rgba(243, 245, 254, 0.75);
     --color-static-neutral-translucent-1500-inverted-press: rgba(239, 240, 252, 0.65);
@@ -715,7 +733,7 @@
     --color-dark-bg-opaque: rgba(255, 255, 255, 0.8); /* deprecated */
     --color-dark-bg-overlay: rgba(0, 0, 0, 0.8); /* deprecated */
     --color-dark-bg-positive-muted: #232d25; /* deprecated */
-    --color-dark-bg-primary: #0e0e0e; /* deprecated */
+    --color-dark-bg-primary: #121213; /* deprecated */
     --color-dark-bg-primary-grouped: #1a1a1d; /* deprecated */
     --color-dark-bg-primary-inverted: #fff; /* deprecated */
     --color-dark-bg-quaternary: #36363a; /* deprecated */
@@ -744,8 +762,8 @@
     --color-dark-graphic-negative: #ff5431; /* deprecated */
     --color-dark-graphic-neutral: #2a2a2c; /* deprecated */
     --color-dark-graphic-positive: #17d055; /* deprecated */
-    --color-dark-graphic-primary: #fff; /* deprecated */
-    --color-dark-graphic-primary-inverted: #0e0e0e; /* deprecated */
+    --color-dark-graphic-primary: #f1f1f1; /* deprecated */
+    --color-dark-graphic-primary-inverted: #212124; /* deprecated */
     --color-dark-graphic-quaternary: #27272a; /* deprecated */
     --color-dark-graphic-quaternary-inverted: #e7e8ec; /* deprecated */
     --color-dark-graphic-secondary: #898991; /* deprecated */
@@ -788,7 +806,7 @@
     --color-light-bg-positive-muted: #dff8e5; /* deprecated */
     --color-light-bg-primary: #fff; /* deprecated */
     --color-light-bg-primary-grouped: #f2f2f6; /* deprecated */
-    --color-light-bg-primary-inverted: #0e0e0e; /* deprecated */
+    --color-light-bg-primary-inverted: #121213; /* deprecated */
     --color-light-bg-quaternary: #dcdee2; /* deprecated */
     --color-light-bg-quaternary-inverted: #36363a; /* deprecated */
     --color-light-bg-secondary: #f2f3f5; /* deprecated */
@@ -815,8 +833,8 @@
     --color-light-graphic-negative: #ff5431; /* deprecated */
     --color-light-graphic-neutral: #dcdcdd; /* deprecated */
     --color-light-graphic-positive: #0cc44d; /* deprecated */
-    --color-light-graphic-primary: #0e0e0e; /* deprecated */
-    --color-light-graphic-primary-inverted: #fff; /* deprecated */
+    --color-light-graphic-primary: #212124; /* deprecated */
+    --color-light-graphic-primary-inverted: #f1f1f1; /* deprecated */
     --color-light-graphic-quaternary: #e7e8ec; /* deprecated */
     --color-light-graphic-quaternary-inverted: #27272a; /* deprecated */
     --color-light-graphic-secondary: #898991; /* deprecated */
@@ -858,8 +876,8 @@
     --color-static-bg-tertiary-light: #edeef0; /* deprecated */
     --color-static-border-accent: #ef3124; /* deprecated */
     --color-static-graphic-accent: #ef3124; /* deprecated */
-    --color-static-graphic-dark: #0e0e0e; /* deprecated */
-    --color-static-graphic-light: #fff; /* deprecated */
+    --color-static-graphic-dark: #212124; /* deprecated */
+    --color-static-graphic-light: #f1f1f1; /* deprecated */
     --color-static-text-accent: #ef3124; /* deprecated */
     --color-static-text-secondary-dark-transparent: rgba(3, 3, 16, 0.56); /* deprecated */
     --color-static-text-secondary-light-transparent: rgba(235, 235, 245, 0.6); /* deprecated */
@@ -915,10 +933,10 @@
     --color-light-text-secondary-shade-40: rgba(2, 2, 11, 0.73); /* deprecated */
     --color-light-text-secondary-inverted-tint-20: rgba(241, 241, 252, 0.64); /* deprecated */
     --color-light-text-secondary-inverted-tint-30: rgba(243, 243, 252, 0.685); /* deprecated */
-    --color-static-bg-primary-dark-alpha-10: rgba(14, 14, 14, 0.1); /* deprecated */
-    --color-static-bg-primary-dark-alpha-20: rgba(14, 14, 14, 0.2); /* deprecated */
-    --color-static-bg-primary-dark-tint-15: rgb(50, 50, 50); /* deprecated */
-    --color-static-bg-primary-dark-tint-20: rgb(62, 62, 62); /* deprecated */
+    --color-static-bg-primary-dark-alpha-10: rgba(18, 18, 19, 0.1); /* deprecated */
+    --color-static-bg-primary-dark-alpha-20: rgba(18, 18, 19, 0.2); /* deprecated */
+    --color-static-bg-primary-dark-tint-15: rgb(54, 54, 54); /* deprecated */
+    --color-static-bg-primary-dark-tint-20: rgb(65, 65, 66); /* deprecated */
     --color-static-text-primary-light-alpha-30: rgba(255, 255, 255, 0.3); /* deprecated */
     --color-dark-bg-accent-alpha-30: rgba(239, 49, 36, 0.3); /* deprecated */
     --color-dark-bg-accent-shade-15: rgb(203, 42, 31); /* deprecated */
@@ -927,18 +945,18 @@
     --color-dark-bg-accent-tint-10: rgb(241, 70, 58); /* deprecated */
     --color-dark-bg-accent-tint-15: rgb(241, 80, 69); /* deprecated */
     --color-dark-bg-accent-tint-30: rgb(244, 111, 102); /* deprecated */
-    --color-dark-bg-primary-alpha-4: rgba(14, 14, 14, 0.04); /* deprecated */
-    --color-dark-bg-primary-alpha-8: rgba(14, 14, 14, 0.08); /* deprecated */
-    --color-dark-bg-primary-alpha-12: rgba(14, 14, 14, 0.12); /* deprecated */
-    --color-dark-bg-primary-alpha-15: rgba(14, 14, 14, 0.15); /* deprecated */
-    --color-dark-bg-primary-alpha-16: rgba(14, 14, 14, 0.16); /* deprecated */
-    --color-dark-bg-primary-alpha-20: rgba(14, 14, 14, 0.2); /* deprecated */
-    --color-dark-bg-primary-alpha-30: rgba(14, 14, 14, 0.3); /* deprecated */
-    --color-dark-bg-primary-alpha-32: rgba(14, 14, 14, 0.32); /* deprecated */
-    --color-dark-bg-primary-alpha-37: rgba(14, 14, 14, 0.37); /* deprecated */
-    --color-dark-bg-primary-alpha-40: rgba(14, 14, 14, 0.4); /* deprecated */
-    --color-dark-bg-primary-tint-7: rgb(31, 31, 31); /* deprecated */
-    --color-dark-bg-primary-tint-15: rgb(50, 50, 50); /* deprecated */
+    --color-dark-bg-primary-alpha-4: rgba(18, 18, 19, 0.04); /* deprecated */
+    --color-dark-bg-primary-alpha-8: rgba(18, 18, 19, 0.08); /* deprecated */
+    --color-dark-bg-primary-alpha-12: rgba(18, 18, 19, 0.12); /* deprecated */
+    --color-dark-bg-primary-alpha-15: rgba(18, 18, 19, 0.15); /* deprecated */
+    --color-dark-bg-primary-alpha-16: rgba(18, 18, 19, 0.16); /* deprecated */
+    --color-dark-bg-primary-alpha-20: rgba(18, 18, 19, 0.2); /* deprecated */
+    --color-dark-bg-primary-alpha-30: rgba(18, 18, 19, 0.3); /* deprecated */
+    --color-dark-bg-primary-alpha-32: rgba(18, 18, 19, 0.32); /* deprecated */
+    --color-dark-bg-primary-alpha-37: rgba(18, 18, 19, 0.37); /* deprecated */
+    --color-dark-bg-primary-alpha-40: rgba(18, 18, 19, 0.4); /* deprecated */
+    --color-dark-bg-primary-tint-7: rgb(35, 35, 36); /* deprecated */
+    --color-dark-bg-primary-tint-15: rgb(54, 54, 54); /* deprecated */
     --color-dark-bg-primary-inverted-alpha-3: rgba(255, 255, 255, 0.03); /* deprecated */
     --color-dark-bg-primary-inverted-alpha-4: rgba(255, 255, 255, 0.04); /* deprecated */
     --color-dark-bg-primary-inverted-alpha-5: rgba(255, 255, 255, 0.05); /* deprecated */
@@ -1000,23 +1018,23 @@
     --color-dark-graphic-positive-alpha-10: rgba(23, 208, 85, 0.1); /* deprecated */
     --color-dark-graphic-positive-tint-10: rgb(46, 213, 102); /* deprecated */
     --color-dark-graphic-positive-tint-30: rgb(93, 222, 136); /* deprecated */
-    --color-dark-graphic-primary-alpha-30: rgba(255, 255, 255, 0.3); /* deprecated */
-    --color-dark-graphic-primary-alpha-40: rgba(255, 255, 255, 0.4); /* deprecated */
-    --color-dark-graphic-primary-alpha-50: rgba(255, 255, 255, 0.5); /* deprecated */
-    --color-dark-graphic-primary-alpha-60: rgba(255, 255, 255, 0.6); /* deprecated */
-    --color-dark-graphic-primary-shade-15: rgb(217, 217, 217); /* deprecated */
-    --color-dark-graphic-primary-shade-20: rgb(204, 204, 204); /* deprecated */
-    --color-dark-graphic-primary-shade-30: rgb(179, 179, 179); /* deprecated */
-    --color-dark-graphic-primary-tint-10: rgb(255, 255, 255); /* deprecated */
-    --color-dark-graphic-primary-tint-30: rgb(255, 255, 255); /* deprecated */
-    --color-dark-graphic-primary-inverted-alpha-30: rgba(14, 14, 14, 0.3); /* deprecated */
-    --color-dark-graphic-primary-inverted-alpha-40: rgba(14, 14, 14, 0.4); /* deprecated */
-    --color-dark-graphic-primary-inverted-alpha-50: rgba(14, 14, 14, 0.5); /* deprecated */
-    --color-dark-graphic-primary-inverted-alpha-60: rgba(14, 14, 14, 0.6); /* deprecated */
-    --color-dark-graphic-primary-inverted-tint-7: rgb(31, 31, 31); /* deprecated */
-    --color-dark-graphic-primary-inverted-tint-10: rgb(38, 38, 38); /* deprecated */
-    --color-dark-graphic-primary-inverted-tint-15: rgb(50, 50, 50); /* deprecated */
-    --color-dark-graphic-primary-inverted-tint-30: rgb(86, 86, 86); /* deprecated */
+    --color-dark-graphic-primary-alpha-30: rgba(241, 241, 241, 0.3); /* deprecated */
+    --color-dark-graphic-primary-alpha-40: rgba(241, 241, 241, 0.4); /* deprecated */
+    --color-dark-graphic-primary-alpha-50: rgba(241, 241, 241, 0.5); /* deprecated */
+    --color-dark-graphic-primary-alpha-60: rgba(241, 241, 241, 0.6); /* deprecated */
+    --color-dark-graphic-primary-shade-15: rgb(205, 205, 205); /* deprecated */
+    --color-dark-graphic-primary-shade-20: rgb(193, 193, 193); /* deprecated */
+    --color-dark-graphic-primary-shade-30: rgb(169, 169, 169); /* deprecated */
+    --color-dark-graphic-primary-tint-10: rgb(242, 242, 242); /* deprecated */
+    --color-dark-graphic-primary-tint-30: rgb(245, 245, 245); /* deprecated */
+    --color-dark-graphic-primary-inverted-alpha-30: rgba(33, 33, 36, 0.3); /* deprecated */
+    --color-dark-graphic-primary-inverted-alpha-40: rgba(33, 33, 36, 0.4); /* deprecated */
+    --color-dark-graphic-primary-inverted-alpha-50: rgba(33, 33, 36, 0.5); /* deprecated */
+    --color-dark-graphic-primary-inverted-alpha-60: rgba(33, 33, 36, 0.6); /* deprecated */
+    --color-dark-graphic-primary-inverted-tint-7: rgb(49, 49, 51); /* deprecated */
+    --color-dark-graphic-primary-inverted-tint-10: rgb(55, 55, 58); /* deprecated */
+    --color-dark-graphic-primary-inverted-tint-15: rgb(66, 66, 69); /* deprecated */
+    --color-dark-graphic-primary-inverted-tint-30: rgb(100, 100, 102); /* deprecated */
     --color-dark-graphic-quaternary-tint-10: rgb(61, 61, 63); /* deprecated */
     --color-dark-graphic-secondary-alpha-30: rgba(137, 137, 145, 0.3); /* deprecated */
     --color-dark-graphic-secondary-tint-30: rgb(172, 172, 178); /* deprecated */
@@ -1076,24 +1094,24 @@
     --color-light-bg-primary-alpha-40: rgba(255, 255, 255, 0.4); /* deprecated */
     --color-light-bg-primary-shade-7: rgb(237, 237, 237); /* deprecated */
     --color-light-bg-primary-shade-15: rgb(217, 217, 217); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-3: rgba(14, 14, 14, 0.03); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-4: rgba(14, 14, 14, 0.04); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-5: rgba(14, 14, 14, 0.05); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-7: rgba(14, 14, 14, 0.07); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-8: rgba(14, 14, 14, 0.08); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-10: rgba(14, 14, 14, 0.1); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-12: rgba(14, 14, 14, 0.12); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-15: rgba(14, 14, 14, 0.15); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-16: rgba(14, 14, 14, 0.16); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-20: rgba(14, 14, 14, 0.2); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-24: rgba(14, 14, 14, 0.24); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-30: rgba(14, 14, 14, 0.3); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-32: rgba(14, 14, 14, 0.32); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-40: rgba(14, 14, 14, 0.4); /* deprecated */
-    --color-light-bg-primary-inverted-alpha-50: rgba(14, 14, 14, 0.5); /* deprecated */
-    --color-light-bg-primary-inverted-tint-7: rgb(31, 31, 31); /* deprecated */
-    --color-light-bg-primary-inverted-tint-15: rgb(50, 50, 50); /* deprecated */
-    --color-light-bg-primary-inverted-tint-20: rgb(62, 62, 62); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-3: rgba(18, 18, 19, 0.03); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-4: rgba(18, 18, 19, 0.04); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-5: rgba(18, 18, 19, 0.05); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-7: rgba(18, 18, 19, 0.07); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-8: rgba(18, 18, 19, 0.08); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-10: rgba(18, 18, 19, 0.1); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-12: rgba(18, 18, 19, 0.12); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-15: rgba(18, 18, 19, 0.15); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-16: rgba(18, 18, 19, 0.16); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-20: rgba(18, 18, 19, 0.2); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-24: rgba(18, 18, 19, 0.24); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-30: rgba(18, 18, 19, 0.3); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-32: rgba(18, 18, 19, 0.32); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-40: rgba(18, 18, 19, 0.4); /* deprecated */
+    --color-light-bg-primary-inverted-alpha-50: rgba(18, 18, 19, 0.5); /* deprecated */
+    --color-light-bg-primary-inverted-tint-7: rgb(35, 35, 36); /* deprecated */
+    --color-light-bg-primary-inverted-tint-15: rgb(54, 54, 54); /* deprecated */
+    --color-light-bg-primary-inverted-tint-20: rgb(65, 65, 66); /* deprecated */
     --color-light-bg-quaternary-alpha-30: rgba(220, 222, 226, 0.3); /* deprecated */
     --color-light-bg-quaternary-shade-7: rgb(205, 206, 210); /* deprecated */
     --color-light-bg-quaternary-shade-10: rgb(198, 200, 203); /* deprecated */
@@ -1137,23 +1155,23 @@
     --color-light-graphic-positive-alpha-10: rgba(12, 196, 77, 0.1); /* deprecated */
     --color-light-graphic-positive-shade-10: rgb(11, 176, 69); /* deprecated */
     --color-light-graphic-positive-shade-30: rgb(8, 137, 54); /* deprecated */
-    --color-light-graphic-primary-alpha-30: rgba(14, 14, 14, 0.3); /* deprecated */
-    --color-light-graphic-primary-alpha-40: rgba(14, 14, 14, 0.4); /* deprecated */
-    --color-light-graphic-primary-alpha-50: rgba(14, 14, 14, 0.5); /* deprecated */
-    --color-light-graphic-primary-alpha-60: rgba(14, 14, 14, 0.6); /* deprecated */
-    --color-light-graphic-primary-tint-15: rgb(50, 50, 50); /* deprecated */
-    --color-light-graphic-primary-tint-20: rgb(62, 62, 62); /* deprecated */
-    --color-light-graphic-primary-tint-30: rgb(86, 86, 86); /* deprecated */
-    --color-light-graphic-primary-shade-10: rgb(13, 13, 13); /* deprecated */
-    --color-light-graphic-primary-shade-30: rgb(10, 10, 10); /* deprecated */
-    --color-light-graphic-primary-inverted-alpha-30: rgba(255, 255, 255, 0.3); /* deprecated */
-    --color-light-graphic-primary-inverted-alpha-40: rgba(255, 255, 255, 0.4); /* deprecated */
-    --color-light-graphic-primary-inverted-alpha-50: rgba(255, 255, 255, 0.5); /* deprecated */
-    --color-light-graphic-primary-inverted-alpha-60: rgba(255, 255, 255, 0.6); /* deprecated */
-    --color-light-graphic-primary-inverted-shade-7: rgb(237, 237, 237); /* deprecated */
-    --color-light-graphic-primary-inverted-shade-10: rgb(230, 230, 230); /* deprecated */
-    --color-light-graphic-primary-inverted-shade-15: rgb(217, 217, 217); /* deprecated */
-    --color-light-graphic-primary-inverted-shade-30: rgb(179, 179, 179); /* deprecated */
+    --color-light-graphic-primary-alpha-30: rgba(33, 33, 36, 0.3); /* deprecated */
+    --color-light-graphic-primary-alpha-40: rgba(33, 33, 36, 0.4); /* deprecated */
+    --color-light-graphic-primary-alpha-50: rgba(33, 33, 36, 0.5); /* deprecated */
+    --color-light-graphic-primary-alpha-60: rgba(33, 33, 36, 0.6); /* deprecated */
+    --color-light-graphic-primary-tint-15: rgb(66, 66, 69); /* deprecated */
+    --color-light-graphic-primary-tint-20: rgb(77, 77, 80); /* deprecated */
+    --color-light-graphic-primary-tint-30: rgb(100, 100, 102); /* deprecated */
+    --color-light-graphic-primary-shade-10: rgb(30, 30, 32); /* deprecated */
+    --color-light-graphic-primary-shade-30: rgb(23, 23, 25); /* deprecated */
+    --color-light-graphic-primary-inverted-alpha-30: rgba(241, 241, 241, 0.3); /* deprecated */
+    --color-light-graphic-primary-inverted-alpha-40: rgba(241, 241, 241, 0.4); /* deprecated */
+    --color-light-graphic-primary-inverted-alpha-50: rgba(241, 241, 241, 0.5); /* deprecated */
+    --color-light-graphic-primary-inverted-alpha-60: rgba(241, 241, 241, 0.6); /* deprecated */
+    --color-light-graphic-primary-inverted-shade-7: rgb(224, 224, 224); /* deprecated */
+    --color-light-graphic-primary-inverted-shade-10: rgb(217, 217, 217); /* deprecated */
+    --color-light-graphic-primary-inverted-shade-15: rgb(205, 205, 205); /* deprecated */
+    --color-light-graphic-primary-inverted-shade-30: rgb(169, 169, 169); /* deprecated */
     --color-light-graphic-quaternary-shade-10: rgb(208, 209, 212); /* deprecated */
     --color-light-graphic-secondary-alpha-30: rgba(137, 137, 145, 0.3); /* deprecated */
     --color-light-graphic-secondary-shade-30: rgb(96, 96, 102); /* deprecated */
@@ -1194,6 +1212,6 @@
     --color-light-text-link-tint-50: rgb(149, 187, 247); /* deprecated */
     --color-light-text-link-shade-20: rgb(34, 95, 191); /* deprecated */
     --color-light-text-link-shade-40: rgb(25, 71, 143); /* deprecated */
-    --color-static-graphic-light-shade-7: rgb(237, 237, 237); /* deprecated */
-    --color-static-graphic-light-shade-15: rgb(217, 217, 217); /* deprecated */
+    --color-static-graphic-light-shade-7: rgb(224, 224, 224); /* deprecated */
+    --color-static-graphic-light-shade-15: rgb(205, 205, 205); /* deprecated */
 }

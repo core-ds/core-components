@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.8.0
+
+### Minor Changes
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1462](https://github.com/core-ds/core-components/pull/1462)
+
+-   Добавлен forwardRef для компонента TExpandableRow
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.4
+
 ## 2.7.5
 
 ### Patch Changes
