@@ -19,6 +19,6 @@
     flex-direction: column;
     width: 100%;
     flex: 1;
-    padding-top: env(--safe-area-inset-bottom, 0);
-    padding-bottom: env(--safe-area-inset-bottom, 0);
+    padding-top: env(safe-area-inset-bottom, 0);
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }
