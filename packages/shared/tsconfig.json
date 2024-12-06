@@ -1,9 +1,12 @@
 {
-    "include": ["src", "../../typings", "../types"],
+    "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
         "rootDirs": ["src"],
-        "baseUrl": "."
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"]
+        }
     }
 }
