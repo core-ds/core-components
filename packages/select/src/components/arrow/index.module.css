@@ -8,6 +8,10 @@
     color: var(--select-arrow-color);
 
     transition: transform 0.15s ease-in-out, opacity 0.2s ease;
+
+    &.disabled {
+        color: var(--select-arrow-disabled-color);
+    }
 }
 
 .open {
