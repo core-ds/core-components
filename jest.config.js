@@ -28,7 +28,7 @@ module.exports = {
         {
             ...baseConfig,
             displayName: 'csr', /* client side rendering */
-            testEnvironment: 'jest-environment-jsdom-sixteen',
+            testEnvironment: 'jsdom',
             setupFilesAfterEnv: ['./packages/setupTests.ts'],
             testMatch: ['**/*.test.ts?(x)', '!**/*.(screenshots|ssr).test.ts?(x)'],
             coveragePathIgnorePatterns: ['index.ts'],
