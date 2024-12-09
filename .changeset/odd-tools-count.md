@@ -1,5 +1,4 @@
 ---
-'@alfalab/core-components-accordion': patch
 '@alfalab/core-components-button': patch
 '@alfalab/core-components-calendar': patch
 '@alfalab/core-components-card-image': patch
