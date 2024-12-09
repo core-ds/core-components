@@ -1,0 +1,1 @@
+export { isInputDateSupported } from '../packages/date-input/src/index.ts';

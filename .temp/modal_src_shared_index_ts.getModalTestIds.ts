@@ -1,0 +1,1 @@
+export { getModalTestIds } from '../packages/modal/src/shared/index.ts';

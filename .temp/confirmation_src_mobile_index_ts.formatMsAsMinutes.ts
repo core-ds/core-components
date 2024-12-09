@@ -1,0 +1,1 @@
+export { formatMsAsMinutes } from '../packages/confirmation/src/mobile/index.ts';

@@ -1,0 +1,1 @@
+export { ONE_DAY } from '../packages/confirmation/src/shared/index.ts';

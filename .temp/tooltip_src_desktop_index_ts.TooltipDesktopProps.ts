@@ -1,0 +1,1 @@
+export { TooltipDesktopProps } from '../packages/tooltip/src/desktop/index.ts';

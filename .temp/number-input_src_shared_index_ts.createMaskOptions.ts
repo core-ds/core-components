@@ -1,0 +1,1 @@
+export { createMaskOptions } from '../packages/number-input/src/shared/index.ts';

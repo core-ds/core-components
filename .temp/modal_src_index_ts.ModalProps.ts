@@ -1,0 +1,1 @@
+export { ModalProps } from '../packages/modal/src/index.ts';

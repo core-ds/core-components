@@ -1,0 +1,1 @@
+export { PatternLockProps } from '../packages/pattern-lock-v1/src/index.ts';

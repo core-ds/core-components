@@ -1,0 +1,1 @@
+export { getPatternLockTestIds } from '../packages/pattern-lock/src/shared/index.ts';

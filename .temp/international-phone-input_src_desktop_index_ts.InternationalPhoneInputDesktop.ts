@@ -1,0 +1,1 @@
+export { InternationalPhoneInputDesktop } from '../packages/international-phone-input/src/desktop/index.ts';

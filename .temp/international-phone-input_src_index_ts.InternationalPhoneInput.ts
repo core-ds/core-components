@@ -1,0 +1,1 @@
+export { InternationalPhoneInput } from '../packages/international-phone-input/src/index.ts';

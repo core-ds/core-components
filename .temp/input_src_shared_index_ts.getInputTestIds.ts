@@ -1,0 +1,1 @@
+export { getInputTestIds } from '../packages/input/src/shared/index.ts';

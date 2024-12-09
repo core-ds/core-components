@@ -1,0 +1,1 @@
+export { TextareaProps } from '../packages/textarea/src/index.ts';

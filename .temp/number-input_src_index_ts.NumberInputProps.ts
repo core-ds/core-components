@@ -1,0 +1,1 @@
+export { NumberInputProps } from '../packages/number-input/src/index.ts';

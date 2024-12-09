@@ -1,0 +1,1 @@
+export { SelectWithTags } from '../packages/select-with-tags/src/index.ts';

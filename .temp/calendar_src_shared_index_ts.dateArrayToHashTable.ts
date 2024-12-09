@@ -1,0 +1,1 @@
+export { dateArrayToHashTable } from '../packages/calendar/src/shared/index.ts';

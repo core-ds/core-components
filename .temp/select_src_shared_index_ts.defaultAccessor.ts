@@ -1,0 +1,1 @@
+export { defaultAccessor } from '../packages/select/src/shared/index.ts';

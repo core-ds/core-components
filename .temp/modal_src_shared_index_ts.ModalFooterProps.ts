@@ -1,0 +1,1 @@
+export { ModalFooterProps } from '../packages/modal/src/shared/index.ts';

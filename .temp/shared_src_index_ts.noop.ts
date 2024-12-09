@@ -1,0 +1,1 @@
+export { noop } from '../packages/shared/src/index.ts';

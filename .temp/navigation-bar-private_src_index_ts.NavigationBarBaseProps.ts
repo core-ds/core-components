@@ -1,0 +1,1 @@
+export { NavigationBarBaseProps } from '../packages/navigation-bar-private/src/index.ts';

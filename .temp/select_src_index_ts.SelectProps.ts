@@ -1,0 +1,1 @@
+export { SelectProps } from '../packages/select/src/index.ts';

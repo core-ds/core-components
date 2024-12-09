@@ -1,0 +1,1 @@
+export { DATE_TIME_SEPARATOR } from '../packages/universal-date-input/src/shared/index.ts';

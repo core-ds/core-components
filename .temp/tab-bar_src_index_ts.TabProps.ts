@@ -1,0 +1,1 @@
+export { TabProps } from '../packages/tab-bar/src/index.ts';

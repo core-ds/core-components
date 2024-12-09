@@ -1,0 +1,1 @@
+export { PatternLockDesktopProps } from '../packages/pattern-lock-v1/src/desktop/index.ts';

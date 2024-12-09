@@ -1,0 +1,267 @@
+{
+  "accordion": [],
+  "action-button": [
+    "shared"
+  ],
+  "alert": [],
+  "amount": [],
+  "amount-input": [],
+  "attach": [],
+  "backdrop": [],
+  "badge": [],
+  "bank-card": [],
+  "base-modal": [],
+  "bottom-sheet": [
+    "shared"
+  ],
+  "button": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "calendar": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "calendar-input": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "calendar-range": [],
+  "calendar-with-skeleton": [],
+  "card-image": [],
+  "cdn-icon": [],
+  "chart": [],
+  "checkbox": [],
+  "checkbox-group": [
+    "desktop",
+    "mobile"
+  ],
+  "circular-progress-bar": [],
+  "code-input": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "codemod": [],
+  "collapse": [],
+  "comment": [],
+  "confirmation": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "confirmation-v1": [],
+  "custom-button": [],
+  "custom-picker-button": [
+    "desktop",
+    "mobile"
+  ],
+  "date-input": [],
+  "date-range-input": [
+    "desktop",
+    "mobile"
+  ],
+  "date-time-input": [
+    "desktop",
+    "mobile"
+  ],
+  "divider": [],
+  "drawer": [],
+  "dropzone": [],
+  "file-upload-item": [],
+  "filter-tag": [
+    "desktop",
+    "mobile"
+  ],
+  "form-control": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "gallery": [],
+  "gap": [],
+  "generic-wrapper": [],
+  "global-store": [],
+  "grid": [],
+  "hatching-progress-bar": [],
+  "icon-button": [],
+  "icon-view": [
+    "circle",
+    "no-shape",
+    "rectangle",
+    "super-ellipse"
+  ],
+  "indicator": [],
+  "input": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "input-autocomplete": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "international-phone-input": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "intl-phone-input": [],
+  "keyboard-focusable": [],
+  "link": [],
+  "list": [],
+  "list-header": [],
+  "loader": [],
+  "markdown": [
+    "desktop",
+    "mobile"
+  ],
+  "masked-input": [],
+  "modal": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "mq": [],
+  "navigation-bar": [
+    "shared"
+  ],
+  "navigation-bar-private": [
+    "shared"
+  ],
+  "notification": [
+    "shared"
+  ],
+  "notification-manager": [],
+  "number-input": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "pagination": [],
+  "pass-code": [
+    "shared"
+  ],
+  "pass-code-v1": [
+    "shared"
+  ],
+  "password-input": [],
+  "pattern-lock": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "pattern-lock-v1": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "phone-input": [],
+  "picker-button": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "plate": [
+    "desktop",
+    "mobile"
+  ],
+  "popover": [],
+  "popup-sheet": [
+    "shared"
+  ],
+  "portal": [],
+  "product-cover": [
+    "shared"
+  ],
+  "progress-bar": [],
+  "pure-cell": [
+    "shared"
+  ],
+  "radio": [],
+  "radio-group": [
+    "desktop",
+    "mobile"
+  ],
+  "scrollbar": [],
+  "segmented-control": [],
+  "select": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "select-with-tags": [
+    "desktop",
+    "mobile"
+  ],
+  "shared": [],
+  "side-panel": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "skeleton": [],
+  "slider": [],
+  "slider-input": [],
+  "sortable-list": [
+    "shared"
+  ],
+  "space": [],
+  "spinner": [],
+  "stack": [],
+  "status": [],
+  "status-badge": [],
+  "stepped-progress-bar": [],
+  "steps": [],
+  "switch": [],
+  "system-message": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "tab-bar": [
+    "shared"
+  ],
+  "table": [],
+  "tabs": [
+    "collapsible",
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "tag": [
+    "desktop",
+    "mobile"
+  ],
+  "text": [],
+  "textarea": [
+    "shared"
+  ],
+  "themes": [],
+  "time-input": [],
+  "toast": [
+    "desktop",
+    "mobile"
+  ],
+  "toast-plate": [
+    "desktop",
+    "mobile"
+  ],
+  "tooltip": [
+    "desktop",
+    "mobile"
+  ],
+  "typography": [],
+  "underlay": [],
+  "universal-date-input": [
+    "desktop",
+    "mobile",
+    "shared"
+  ],
+  "vars": [],
+  "with-suffix": []
+}

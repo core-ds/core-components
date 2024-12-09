@@ -1,0 +1,1 @@
+export { createMinMaxPlugin } from '../packages/number-input/src/shared/index.ts';

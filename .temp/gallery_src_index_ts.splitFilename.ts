@@ -1,0 +1,1 @@
+export { splitFilename } from '../packages/gallery/src/index.ts';

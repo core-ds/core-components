@@ -1,0 +1,1 @@
+export { SidePanel } from '../packages/side-panel/src/index.ts';

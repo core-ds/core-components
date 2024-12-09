@@ -1,0 +1,1 @@
+export { getTabBarTestIds } from '../packages/tab-bar/src/shared/index.ts';

@@ -1,0 +1,1 @@
+export { InternationalPhoneInputMobileProps } from '../packages/international-phone-input/src/mobile/index.ts';

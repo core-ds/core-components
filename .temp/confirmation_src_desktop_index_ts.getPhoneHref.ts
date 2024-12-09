@@ -1,0 +1,1 @@
+export { getPhoneHref } from '../packages/confirmation/src/desktop/index.ts';

@@ -1,0 +1,1 @@
+export { useSelectWithApply } from '../packages/select/src/shared/index.ts';

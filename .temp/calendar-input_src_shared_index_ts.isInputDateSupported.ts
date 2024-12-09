@@ -1,0 +1,1 @@
+export { isInputDateSupported } from '../packages/calendar-input/src/shared/index.ts';

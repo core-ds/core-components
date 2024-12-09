@@ -1,0 +1,1 @@
+export { getTheme } from '../packages/pattern-lock/src/shared/index.ts';

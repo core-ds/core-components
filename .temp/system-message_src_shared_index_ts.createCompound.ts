@@ -1,0 +1,1 @@
+export { createCompound } from '../packages/system-message/src/shared/index.ts';

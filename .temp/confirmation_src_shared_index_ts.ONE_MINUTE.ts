@@ -1,0 +1,1 @@
+export { ONE_MINUTE } from '../packages/confirmation/src/shared/index.ts';

@@ -1,0 +1,1 @@
+export { isScrolledToBottom } from '../packages/base-modal/src/index.ts';

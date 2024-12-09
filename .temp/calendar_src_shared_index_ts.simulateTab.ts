@@ -1,0 +1,1 @@
+export { simulateTab } from '../packages/calendar/src/shared/index.ts';

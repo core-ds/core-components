@@ -13,6 +13,7 @@ import React, {
     useRef,
     useState,
 } from 'react';
+import { useFocusState } from 'react-focus-lock';
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';

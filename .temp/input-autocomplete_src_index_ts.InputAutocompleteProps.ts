@@ -1,0 +1,1 @@
+export { InputAutocompleteProps } from '../packages/input-autocomplete/src/index.ts';

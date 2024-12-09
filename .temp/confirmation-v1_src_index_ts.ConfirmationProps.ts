@@ -1,0 +1,1 @@
+export { ConfirmationProps } from '../packages/confirmation-v1/src/index.ts';

@@ -1,0 +1,1 @@
+export { TabsCollapsibleProps } from '../packages/tabs/src/collapsible/index.ts';

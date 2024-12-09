@@ -1,0 +1,1 @@
+export { isObject } from '../packages/shared/src/index.ts';

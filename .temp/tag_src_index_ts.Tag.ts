@@ -1,0 +1,1 @@
+export { Tag } from '../packages/tag/src/index.ts';

@@ -1,0 +1,1 @@
+export { DAYS_IN_WEEK } from '../packages/calendar/src/shared/index.ts';

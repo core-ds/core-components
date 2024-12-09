@@ -1,0 +1,1 @@
+export { SelectDesktopProps } from '../packages/select/src/desktop/index.ts';

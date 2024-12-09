@@ -1,0 +1,1 @@
+export { CalendarProps } from '../packages/calendar/src/index.ts';

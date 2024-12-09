@@ -1,0 +1,1 @@
+export { TooltipMobile } from '../packages/tooltip/src/mobile/index.ts';

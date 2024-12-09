@@ -1,0 +1,1 @@
+export { getDefaultObserveTarget } from '../packages/pattern-lock/src/shared/index.ts';

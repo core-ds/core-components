@@ -1,0 +1,1 @@
+export { NumberInputDesktop } from '../packages/number-input/src/desktop/index.ts';
