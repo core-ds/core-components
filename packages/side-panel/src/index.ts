@@ -1,4 +1,13 @@
+export * from './desktop';
+export * from './mobile';
 export {
+    // обратная совместимость
     SidePanelResponsive as SidePanel,
-    SidePanelResponsiveProps as SidePanelProps,
+    type SidePanelResponsiveProps as SidePanelProps,
+    SidePanelResponsive,
+    SidePanelComponentResponsive,
+    HeaderResponsive,
+    ControlsResponsive,
+    ContentResponsive,
+    FooterResponsive,
 } from './Component.responsive';
