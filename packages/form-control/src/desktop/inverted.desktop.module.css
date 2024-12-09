@@ -1,4 +1,4 @@
-@import '../vars.common.css';
+@import '../vars.desktop.css';
 
 .inner {
     background-color: var(--form-control-inverted-bg-color);

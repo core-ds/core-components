@@ -51,10 +51,12 @@ jobs:
                   const now = currentFile[packageName]?.[entryPoint] || 0;
                   const before = masterFile[packageName]?.[entryPoint] || 0;
 
-                  shouldComment = true;
-                  acc += `| ${packageName}/${entryPoint} | ${now} ${
-                  now - before > 0 ? `(+${(now - before).toFixed(2)} KB🔺)` : `(-${(before - now).toFixed(2)} KB)`
-                  } |\n`;
+                  if (Math.abs(now - before) >= 0.01) {
+                    shouldComment = true;
+                    acc += `| ${packageName}/${entryPoint} | ${now} ${
+                    now - before > 0 ? `(+${(now - before).toFixed(2)} KB🔺)` : `(-${(before - now).toFixed(2)} KB)`
+                    } |\n`;
+                  }
                 });
 
               return acc;

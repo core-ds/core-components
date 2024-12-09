@@ -1,9 +1,7 @@
-@import '../../vars/src/index.css';
-
-/* @import '../../vars/src/colors-bluetint.css';
+@import '../../vars/src/colors-bluetint.css';
 @import '../../vars/src/gaps.css';
 @import '../../vars/src/typography.css';
-@import '../../vars/src/common.css'; */
+@import '../../vars/src/common.css';
 
 :root {
     --form-control-color: var(--color-light-text-primary);

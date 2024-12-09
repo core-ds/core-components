@@ -1,4 +1,4 @@
-@import '../vars.common.css';
+@import '../vars.mobile.css';
 
 .above {
     padding: var(--form-control-mobile-sub-paddings);

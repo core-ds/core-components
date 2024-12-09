@@ -1,4 +1,4 @@
-@import '../vars.common.css';
+@import '../vars.mobile.css';
 
 .inner {
     background-color: var(--form-control-inverted-mobile-bg-color);
