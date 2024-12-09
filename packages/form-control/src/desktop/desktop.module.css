@@ -1,4 +1,4 @@
-@import '../vars.css';
+@import '../vars.common.css';
 
 .above {
     padding: var(--form-control-sub-paddings);

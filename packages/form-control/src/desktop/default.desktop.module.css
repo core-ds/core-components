@@ -1,4 +1,4 @@
-@import '../vars.css';
+@import '../vars.common.css';
 
 .inner {
     background-color: var(--form-control-bg-color);

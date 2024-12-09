@@ -3,39 +3,39 @@
 Компонент доступен в размерах XL, L, M, S.
 
 ```jsx live
-    <div style={{ width: 320 }}>
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='xl' 
-            breakpoint={BREAKPOINT}
-        />
-        <Gap size='m' />
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='l' 
-            breakpoint={BREAKPOINT}
-        />
-        <Gap size='m' />
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='m' 
-            breakpoint={BREAKPOINT}
-        />
-        <Gap size='m' />
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='s' 
-            breakpoint={BREAKPOINT}
-        />
-    </div>
+<div style={{ width: 320 }}>
+    <FormControl
+        block={true}
+        label='Label'
+        labelView={isMobile() ? 'outer' : 'inner'}
+        size='xl'
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='m' />
+    <FormControl
+        block={true}
+        label='Label'
+        labelView={isMobile() ? 'outer' : 'inner'}
+        size='l'
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='m' />
+    <FormControl
+        block={true}
+        label='Label'
+        labelView={isMobile() ? 'outer' : 'inner'}
+        size='m'
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='m' />
+    <FormControl
+        block={true}
+        label='Label'
+        labelView={isMobile() ? 'outer' : 'inner'}
+        size='s'
+        breakpoint={BREAKPOINT}
+    />
+</div>
 ```
 
 ## Лейбл
@@ -43,36 +43,31 @@
 Лейбл может быть размещен внутри либо снаружи инпута или отсутствовать.
 
 ```jsx live
-    <div style={{ width: 320 }}>
-        <Input 
-            block
-            placeholder='Placeholder'
-            label='Лейбл внутри'
-            size={isMobile() ? 's' : 'm'}
-            breakpoint={BREAKPOINT}
-        />
-        <Gap size='l' />
-        <Input
-            block
-            placeholder='Placeholder'
-            label='Лейбл снаружи'
-            size={isMobile() ? 's' : 'm'}
-            labelView='outer'
-            breakpoint={BREAKPOINT}
-        />
-        <Gap size='l' />
-        <Input 
-            block 
-            placeholder='Placeholder' 
-            size={isMobile() ? 's' : 'm'} 
-            breakpoint={BREAKPOINT} 
-        />
-    </div>
+<div style={{ width: 320 }}>
+    <Input
+        block
+        placeholder='Placeholder'
+        label='Лейбл внутри'
+        size={isMobile() ? 's' : 'm'}
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='l' />
+    <Input
+        block
+        placeholder='Placeholder'
+        label='Лейбл снаружи'
+        size={isMobile() ? 's' : 'm'}
+        labelView='outer'
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='l' />
+    <Input block placeholder='Placeholder' size={isMobile() ? 's' : 'm'} breakpoint={BREAKPOINT} />
+</div>
 ```
 
 ## Префиксы и суффиксы
 
-Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения. 
+Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения.
 
 ```jsx live
 render(() => {
@@ -99,16 +94,16 @@ render(() => {
 Под полем ввода можно разместить подсказку.
 
 ```jsx live
-    <div style={{ width: 320 }}>
-        <FormControl 
-            block={true} 
-            label='Label' 
-            hint='Hint' 
-            labelView={isMobile() ? 'outer' : 'inner'}
-            size={isMobile() ? 's' : 'm'}
-            breakpoint={BREAKPOINT}
-        />
-    </div>
+<div style={{ width: 320 }}>
+    <FormControl
+        block={true}
+        label='Label'
+        hint='Hint'
+        labelView={isMobile() ? 'outer' : 'inner'}
+        size={isMobile() ? 's' : 'm'}
+        breakpoint={BREAKPOINT}
+    />
+</div>
 ```
 
 ## Аддоны
@@ -126,36 +121,26 @@ render(() => {
 
     return (
         <div style={{ width: 320 }}>
-            <FormControl 
-                block={true} 
-                label='Label' 
+            <FormControl
+                block={true}
+                label='Label'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={BREAKPOINT} 
+                breakpoint={BREAKPOINT}
                 leftAddons={
-                    <IconButton
-                        view='secondary'
-                        icon={DiamondsMIcon}
-                        size='xs'
-                        alignIcon='left'
-                    />
-                } 
+                    <IconButton view='secondary' icon={DiamondsMIcon} size='xs' alignIcon='left' />
+                }
             />
             <Gap size='l' />
-            <FormControl 
-                block={true} 
-                label='Label' 
+            <FormControl
+                block={true}
+                label='Label'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={BREAKPOINT} 
+                breakpoint={BREAKPOINT}
                 rightAddons={
-                    <IconButton
-                        view='secondary'
-                        icon={DiamondsMIcon}
-                        size='xs'
-                        alignIcon='right'
-                    />
-                } 
+                    <IconButton view='secondary' icon={DiamondsMIcon} size='xs' alignIcon='right' />
+                }
             />
             <Gap size='l' />
             <FormControl
@@ -165,7 +150,7 @@ render(() => {
                 size={isMobile() ? 's' : 'm'}
                 breakpoint={BREAKPOINT}
                 leftAddons={
-                    <div style={{...styleWrapperIcons, marginLeft: 'var(--gap-8-neg)' }}>
+                    <div style={{ ...styleWrapperIcons, marginLeft: 'var(--gap-8-neg)' }}>
                         <IconButton
                             view='secondary'
                             icon={DiamondsMIcon}
@@ -181,7 +166,7 @@ render(() => {
                     </div>
                 }
                 rightAddons={
-                    <div style={{...styleWrapperIcons, marginRight: 'var(--gap-8-neg)' }}>
+                    <div style={{ ...styleWrapperIcons, marginRight: 'var(--gap-8-neg)' }}>
                         <IconButton
                             view='secondary'
                             icon={DiamondsMIcon}

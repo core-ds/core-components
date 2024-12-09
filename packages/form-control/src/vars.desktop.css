@@ -1,0 +1,24 @@
+@import '../../vars/src/index.css';
+@import './vars.common.css';
+
+:root {
+    --form-control-bg-color: var(--color-light-neutral-translucent-300);
+    --form-control-box-shadow: none;
+    --form-control-box-shadow-hover: none;
+    --form-control-error-bg-color: var(--color-light-neutral-translucent-200);
+
+    /* error */
+    --form-control-error-disabled-shadow: var(--form-control-error-shadow);
+
+    /* paddings mobile */
+    --form-control-sub-paddings: var(--gap-0);
+
+    /* border-radius */
+    --form-control-s-border-radius: var(--border-radius-8);
+    --form-control-m-border-radius: var(--border-radius-8);
+    --form-control-l-border-radius: var(--border-radius-8);
+    --form-control-xl-border-radius: var(--border-radius-12);
+    --form-control-inverted-bg-color: var(--color-light-neutral-translucent-300-inverted);
+    --form-control-inverted-error-bg-color: var(--color-light-neutral-translucent-200-inverted);
+    --form-control-inverted-error-disabled-shadow: var(--form-control-inverted-error-shadow);
+}
