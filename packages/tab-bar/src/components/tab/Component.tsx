@@ -2,7 +2,7 @@ import React, { cloneElement, forwardRef, isValidElement, MouseEvent } from 'rea
 import cn from 'classnames';
 
 import { Indicator } from '@alfalab/core-components-indicator';
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { INDICATOR_BG_COLOR, INDICATOR_BORDER_COLOR } from '../../consts';
 import { PrivateTabProps, TabProps } from '../../types';
@@ -71,7 +71,7 @@ const TabComponent = forwardRef(
                     {isValidElement(icon) ? cloneElement(icon, { selected }) : icon}
                 </div>
 
-                <Typography.Text
+                <Text
                     weight='medium'
                     view='secondary-small'
                     className={cn(styles.label, commonLabelClassName, labelClassName, {
@@ -79,7 +79,7 @@ const TabComponent = forwardRef(
                     })}
                 >
                     {isValidElement(label) ? cloneElement(label, { selected }) : label}
-                </Typography.Text>
+                </Text>
 
                 {showIndicator && (
                     <div className={styles.indicator}>
