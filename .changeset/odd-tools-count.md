@@ -1,6 +1,5 @@
 ---
 '@alfalab/core-components-button': patch
-'@alfalab/core-components-calendar': patch
 '@alfalab/core-components-card-image': patch
 '@alfalab/core-components-cdn-icon': patch
 '@alfalab/core-components-chart': patch
