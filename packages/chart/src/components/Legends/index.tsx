@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { CircleIcon } from '../../icons/Circle';
 import { CircleLineIcon } from '../../icons/CircleLine';
@@ -68,13 +68,13 @@ export const Legends = React.forwardRef<HTMLUListElement, Props>(
                                         />
                                     </i>
                                 ) : null}
-                                <Typography.Text
+                                <Text
                                     view='primary-medium'
                                     tag='span'
                                     className={cn(styles.legendValue)}
                                 >
                                     {item.properties.name}
-                                </Typography.Text>
+                                </Text>
                             </div>
                         </li>
                     );

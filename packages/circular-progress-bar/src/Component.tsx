@@ -1,7 +1,7 @@
 import React, { ElementType, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text, TitleMobile } from '@alfalab/core-components-typography';
 
 import {
     SIZE_TO_CLASSNAME_MAP,
@@ -197,7 +197,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
     const renderTitleString = () =>
         SIZES[size] > 64 ? (
-            <Typography.TitleMobile
+            <TitleMobile
                 className={cn(styles.typography, styles.title)}
                 color={isCompleteTextColor ? completeTextColor : typographyContentColor}
                 tag='div'
@@ -208,9 +208,9 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 }}
             >
                 {titleContent}
-            </Typography.TitleMobile>
+            </TitleMobile>
         ) : (
-            <Typography.Text
+            <Text
                 className={styles.title}
                 color={isCompleteTextColor ? completeTextColor : typographyContentColor}
                 tag='div'
@@ -221,14 +221,14 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 }}
             >
                 {titleContent}
-            </Typography.Text>
+            </Text>
         );
 
     const renderTitle = () => (typeof title === 'string' ? renderTitleString() : titleContent);
 
     const renderSubTitle = () =>
         typeof subtitle === 'string' ? (
-            <Typography.Text
+            <Text
                 tag='div'
                 className={styles.subtitle}
                 color={isCompleteTextColor ? completeTextColor : typographyContentColor}
@@ -238,7 +238,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 }}
             >
                 {subtitleContent}
-            </Typography.Text>
+            </Text>
         ) : (
             subtitleContent
         );

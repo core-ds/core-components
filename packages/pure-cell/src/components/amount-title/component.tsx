@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Color, TitleProps, Typography } from '@alfalab/core-components-typography';
+import { type Color, type TitleProps, TitleResponsive } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 import { AmountProps as AmountType } from '../typesProps';
@@ -62,7 +62,7 @@ export const AmountTitle: React.FC<Props> = ({
     }
 
     return (
-        <Typography.TitleResponsive
+        <TitleResponsive
             {...titleProps}
             dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-title')}
             className={cn(styles.component, titlePropsFromProps?.className)}
@@ -77,6 +77,6 @@ export const AmountTitle: React.FC<Props> = ({
                 {...restProps}
                 bold='none'
             />
-        </Typography.TitleResponsive>
+        </TitleResponsive>
     );
 };
