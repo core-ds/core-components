@@ -31,12 +31,20 @@ export const super_ellipse: Story = {
         const indicator = boolean('indicator', false);
         const size = select(
             'size',
-            ['16', '20', '24', '32', '40', '48', '56', '64', '80', '128'],
+            ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
             '64',
         );
-        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
+        const mainSize = select(
+            'mainSize',
+            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
+            undefined,
+        );
         const sizeAddons =
-            size === '128' ? '40' : size === '80' || size === '64' || size === '56' ? '24' : '20';
+            size === '128'
+                ? '40'
+                : size === '80' || size === '72' || size === '64' || size === '56'
+                ? '24'
+                : '20';
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
         const addonsIcon = (
@@ -84,12 +92,20 @@ export const circle: Story = {
         const indicator = boolean('indicator', false);
         const size = select(
             'size',
-            ['16', '20', '24', '32', '40', '48', '56', '64', '80', '128'],
+            ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
             '64',
         );
-        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
+        const mainSize = select(
+            'mainSize',
+            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
+            undefined,
+        );
         const sizeAddons =
-            size === '128' ? '40' : size === '80' || size === '64' || size === '56' ? '24' : '20';
+            size === '128'
+                ? '40'
+                : size === '80' || size === '72' || size === '64' || size === '56'
+                ? '24'
+                : '20';
         const addonsIcon = (
             <Circle size={sizeAddons}>
                 {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}
@@ -122,8 +138,16 @@ export const circle: Story = {
 export const rectangle: Story = {
     name: 'Rectangle',
     render: () => {
-        const size = select('size', ['20', '24', '32', '40', '48', '56', '64', '80', '128'], '64');
-        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
+        const size = select(
+            'size',
+            ['20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
+            '64',
+        );
+        const mainSize = select(
+            'mainSize',
+            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
+            undefined,
+        );
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
         return (
@@ -152,10 +176,14 @@ export const no_shape: Story = {
     render: () => {
         const size = select(
             'size',
-            ['16', '20', '24', '32', '40', '48', '56', '64', '80', '128'],
+            ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
             '64',
         );
-        const mainSize = select('mainSize', [16, 20, 24, 32, 40, 48, 56, 64, 80, 128], undefined);
+        const mainSize = select(
+            'mainSize',
+            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
+            undefined,
+        );
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         return (
             <NoShape
