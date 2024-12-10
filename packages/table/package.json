@@ -18,7 +18,7 @@
         "@alfalab/core-components-button": "^11.11.0",
         "@alfalab/core-components-pagination": "^2.4.5",
         "@alfalab/core-components-select": "^17.17.5",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.6.0",

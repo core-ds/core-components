@@ -18,7 +18,7 @@
         "@alfalab/core-components-icon-button": "^6.11.3",
         "@alfalab/core-components-input": "^15.3.3",
         "@alfalab/icons-glyph": "^2.139.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.6.0",
