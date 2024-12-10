@@ -1,4 +1,4 @@
-@import '../../vars.css';
+@import '../../vars.common.css';
 
 .component {
     font-family: var(--form-control-font-family);

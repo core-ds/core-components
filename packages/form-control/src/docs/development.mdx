@@ -2,7 +2,7 @@ import { ArgsTabs, CssVars } from 'storybook/blocks';
 import { FormControlDesktop } from '../desktop';
 import { FormControlMobile } from '../mobile';
 import { FormControl } from '../Component.responsive';
-import vars from '!!raw-loader!../vars.css';
+import vars from '!!raw-loader!../vars.desktop.css';
 
 ## Подключение
 
@@ -16,8 +16,8 @@ import { FormControlDesktop } from '@alfalab/core-components/form-control/deskto
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getFormControlTestIds`.  
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getFormControlTestIds`.
 Импорт из `@alfalab/core-components/form-control/shared`.
 
 Функция возвращает объект:
