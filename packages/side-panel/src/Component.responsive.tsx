@@ -2,8 +2,7 @@ import React, { FC, forwardRef, useContext, useMemo } from 'react';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint, isClient } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Controls } from './components/controls';
 import { Header } from './components/header/Component';
@@ -33,7 +32,13 @@ export type SidePanelResponsiveProps = BaseModalProps &
         breakpoint?: number;
 
         /**
+         * Версия, которая будет использоваться при серверном рендеринге
+         */
+        client?: 'desktop' | 'mobile';
+
+        /**
          * Значение по-умолчанию для хука useMatchMedia
+         * @deprecated Используйте client
          */
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
@@ -58,18 +63,16 @@ const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelRespons
     (
         {
             children,
-            breakpoint = getComponentBreakpoint(),
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
             size = 500,
-            defaultMatchMediaValue,
             dataTestId,
             ...restProps
         },
         ref,
     ) => {
-        const query = `(min-width: ${breakpoint}px)`;
-        const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
-
-        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue ?? getDefaultValue);
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         const view = isDesktop ? 'desktop' : 'mobile';
 

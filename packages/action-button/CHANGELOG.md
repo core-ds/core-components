@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.0
+    -   shared@0.14.0
+
 ## 1.7.2
 
 ### Patch Changes

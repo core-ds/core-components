@@ -97,12 +97,12 @@ export type ConfirmationProps = {
     onTempBlockFinished?: () => void;
 
     /**
-     * Возввращает объект, где ключ - название экрана (screen), значение - компонент для экрана
+     * Возвращает объект, где ключ - название экрана (screen), значение - компонент для экрана
      */
-    getScreensMap?: (defaulScreensMap: ScreensMap) => ScreensMap;
+    getScreensMap?: (defaultScreensMap: ScreensMap) => ScreensMap;
 
     /**
-     * Дочерние элементы.
+     * Дочерние элементы
      */
     children?: ReactNode;
 
@@ -122,6 +122,11 @@ export type ConfirmationProps = {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
 
     /**
      * Продолжительность отображения ошибки
@@ -156,14 +161,10 @@ export type TConfirmationContext = Required<
         | 'clearCodeOnError'
         | 'initialScreenHintSlot'
         | 'errorVisibleDuration'
+        | 'breakpoint'
+        | 'client'
     > & {
         timeLeft: number;
-    } & {
-        /**
-         * Контрольная точка для кнопки, с нее начинается desktop версия
-         * @default 1024
-         */
-        breakpoint?: number;
     };
 
 export type ConfirmationTexts = {
@@ -184,7 +185,8 @@ export type ConfirmationTexts = {
      * Экран HINT
      */
     hintButton?: string; // кнопка 'Вернуться'
-
+    domesticPhone?: string; // номер телефона для звонков по России
+    internationalPhone?: string; // номер телефона для звонков из-за границы
     /**
      * Экран FATAL_ERROR
      */
@@ -215,7 +217,7 @@ export type ScreensMap = {
     [key: string]: ComponentType;
 };
 
-export const defaultTexts = {
+export const defaultTexts: ConfirmationTexts = {
     title: 'Введите код из\xa0сообщения',
     codeError: 'Код введён неверно',
     codeChecking: '',
@@ -232,4 +234,6 @@ export const defaultTexts = {
     tempBlockDescription: 'Повторное подтверждение кодом будет возможно через 24\xa0часа',
     codeSended: 'Код выслан',
     countdown: 'Запросить повторно можно через',
+    domesticPhone: '8 800 200 00 00',
+    internationalPhone: '+7 495 78 888 78',
 };

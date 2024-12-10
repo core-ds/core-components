@@ -11,6 +11,7 @@ import format from 'date-fns/format';
 import isAfter from 'date-fns/isAfter';
 import isBefore from 'date-fns/isBefore';
 import isSameDay from 'date-fns/isSameDay';
+import isThisMonth from 'date-fns/isThisMonth';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import max from 'date-fns/max';
 import min from 'date-fns/min';
@@ -308,3 +309,8 @@ export function isRangeValue(
 ): value is { dateFrom?: number | undefined; dateTo?: number | undefined } {
     return Boolean(value) && typeof value === 'object';
 }
+
+export const getMonthStartTimestamp = (date: Date) => startOfMonth(date).getTime();
+
+export const getMonthEndTimestamp = (date: Date) =>
+    isThisMonth(date) ? startOfDay(new Date()).getTime() : lastDayOfMonth(date).getTime();

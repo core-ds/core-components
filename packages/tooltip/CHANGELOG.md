@@ -1,5 +1,39 @@
 # Change Log
 
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1447](https://github.com/core-ds/core-components/pull/1447)
+
+-   В мобильном tooltip изменен размер кнопки на 56 для соответствия дизайну (в мобильных приложениях используются кнопки этого размера)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.11
+
+## 7.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   bottom-sheet@6.17.10
+
+## 7.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   bottom-sheet@6.17.9
+    -   popover@6.3.3
+
 ## 7.7.1
 
 ### Patch Changes

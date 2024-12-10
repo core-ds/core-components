@@ -1,11 +1,10 @@
 import React, { forwardRef } from 'react';
 
+import { useIsDesktop } from '@alfalab/core-components-mq';
 import type {
     AdditionalMobileProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
-import { useMedia } from '@alfalab/hooks';
 
 import { PickerButtonDesktop, PickerButtonDesktopProps } from './desktop';
 import { PickerButtonMobile } from './mobile';
@@ -18,6 +17,11 @@ export type PickerButtonResponsiveProps = PickerButtonDesktopProps &
          * @default 1024
          */
         breakpoint?: number;
+
+        /**
+         * Версия, которая будет использоваться при серверном рендеринге
+         */
+        client?: 'desktop' | 'mobile';
     };
 
 export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonResponsiveProps>(
@@ -28,20 +32,15 @@ export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonR
             footer,
             swipeable,
             bottomSheetProps,
-            breakpoint = getComponentBreakpoint(),
+            breakpoint,
+            client,
             ...restProps
         },
         ref,
     ) => {
-        const [view] = useMedia(
-            [
-                ['mobile', `(max-width: ${breakpoint - 1}px)`],
-                ['desktop', `(min-width: ${breakpoint}px)`],
-            ],
-            'desktop',
-        );
+        const isDesktop = useIsDesktop(breakpoint, client === 'desktop');
 
-        return view === 'desktop' ? (
+        return isDesktop ? (
             <PickerButtonDesktop
                 ref={ref}
                 OptionsList={OptionsList}

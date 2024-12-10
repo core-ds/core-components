@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { InputAutocompleteDesktop } from './desktop';
 import { InputAutocompleteMobile } from './mobile';
@@ -13,14 +12,15 @@ export const InputAutocomplete = forwardRef<
 >(
     (
         {
-            breakpoint = getComponentBreakpoint(),
-            defaultMatchMediaValue = true,
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
             mobileProps,
             ...restProps
         },
         ref,
     ) => {
-        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         return isDesktop ? (
             <InputAutocompleteDesktop {...restProps} ref={ref as React.Ref<HTMLInputElement>} />

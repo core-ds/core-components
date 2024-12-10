@@ -1,5 +1,41 @@
 # Change Log
 
+## 15.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   form-control@12.7.2
+
+## 15.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   form-control@12.7.1
+
+## 15.3.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1402](https://github.com/core-ds/core-components/pull/1402)
+
+-   Изменено поведение пропса `disableUserInput`. Теперь инпут будет получать фокус состояние без каретки ввода.
+
+### Patch Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1413](https://github.com/core-ds/core-components/pull/1413)
+
+-   Исправлен баг с автофокусом и SSR. Каретка при автофокусе теперь программно устанавливается в конец ввода.
+
 ## 15.2.1
 
 ### Patch Changes

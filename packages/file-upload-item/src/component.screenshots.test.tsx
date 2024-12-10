@@ -1,6 +1,4 @@
-import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
-
-const clip = { x: 0, y: 0, width: 1920, height: 150 };
+import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -9,115 +7,123 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('FileUploadItem', () =>
-    createPreview(
-        {
+const clip = { x: 0, y: 0, width: 300, height: 70 };
+
+describe(
+    'FileUploadItem | Attach file',
+    screenshotTesting({
+        cases: generateTestCases({
+            packageName: 'file-upload-item',
             componentName: 'FileUploadItem',
             testStory: false,
             knobs: {
-                name: 'Название файла.xlsx',
-                uploadDate: '22.01.2023',
-                size: 4096,
-                downloadLink: 'link',
-                showDelete: true,
+                title: 'Прикрепите файл',
+                subtitle: 'Нет файла',
+            },
+        }),
+        screenshotOpts: {
+            clip,
+        },
+    }),
+);
+
+describe(
+    'FileUploadItem | Attached file',
+    screenshotTesting({
+        cases: generateTestCases({
+            packageName: 'file-upload-item',
+            componentName: 'FileUploadItem',
+            testStory: false,
+            knobs: {
+                title: ['docx', 'xlsx', '1c', 'pdf', 'document'],
+                uploadDate: '22.01.2018',
+                size: 500000000,
                 uploadStatus: 'SUCCESS',
             },
+        }),
+        screenshotOpts: {
+            clip,
         },
-        'transform: scale(1.3);width:auto;marginLeft:12px',
-    ));
+    }),
+);
 
 describe(
-    'FileUploadItem | name with statuses',
+    'FileUploadItem | Show delete and download',
     screenshotTesting({
         cases: generateTestCases({
+            packageName: 'file-upload-item',
             componentName: 'FileUploadItem',
+            testStory: false,
             knobs: {
-                name: ['photo.jpg'],
-                uploadStatus: ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
-                showDelete: [true],
+                title: 'docx',
+                uploadDate: '22.01.2018',
+                size: 500000000,
+                uploadStatus: 'SUCCESS',
+                showDelete: true,
+                downloadLink: '/link',
             },
         }),
-        matchImageSnapshotOptions: {
-            failureThresholdType: 'pixel',
-            failureThreshold: 50,
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 500, height: 70 },
         },
-        screenshotOpts: { clip },
     }),
 );
 
 describe(
-    'FileUploadItem | meta',
+    'FileUploadItem | Show restore',
     screenshotTesting({
         cases: generateTestCases({
+            packageName: 'file-upload-item',
             componentName: 'FileUploadItem',
+            testStory: false,
             knobs: {
-                name: ['photo.jpg'],
-                uploadDate: ['22.01.2018'],
-                size: [45000],
-                downloadLink: ['/link'],
-                uploadStatus: ['SUCCESS'],
-                showDelete: [true],
+                title: 'docx',
+                uploadDate: '22.01.2018',
+                size: 500000000,
+                uploadStatus: 'SUCCESS',
+                showRestore: true,
             },
         }),
-        screenshotOpts: { clip },
-    }),
-);
-
-describe(
-    'FileUploadItem | hide meta when uploadStatus !== SUCCESS',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'FileUploadItem',
-            knobs: {
-                name: ['photo.jpg'],
-                uploadDate: ['22.01.2018'],
-                size: [45000],
-                showDelete: [true],
-                uploadStatus: ['ERROR', 'LOADING', 'UPLOADING'],
-            },
-        }),
-        matchImageSnapshotOptions: {
-            failureThresholdType: 'pixel',
-            failureThreshold: 50,
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 500, height: 70 },
         },
-        screenshotOpts: { clip },
     }),
 );
 
 describe(
-    'FileUploadItem | hide meta when showRestore === true',
+    'FileUploadItem | Attach error',
     screenshotTesting({
         cases: generateTestCases({
+            packageName: 'file-upload-item',
             componentName: 'FileUploadItem',
+            testStory: false,
             knobs: {
-                name: ['photo.jpg'],
-                uploadDate: ['22.01.2018'],
-                size: [45000],
-                showRestore: [true],
+                title: 'Прикрепите файл',
+                error: ['', 'Error'],
+                uploadStatus: 'ERROR',
             },
         }),
-        screenshotOpts: { clip },
+        screenshotOpts: {
+            clip,
+        },
     }),
 );
 
 describe(
-    'FileUploadItem | ellipsis',
+    'FileUploadItem | Uploading file',
     screenshotTesting({
         cases: generateTestCases({
+            packageName: 'file-upload-item',
             componentName: 'FileUploadItem',
+            testStory: false,
             knobs: {
-                name: [
-                    'very-long-file-name-123-very-long-file-name-123-very-long-file-name-123.jpg',
-                ],
-                uploadDate: ['22.01.2018'],
-                size: [45000],
-                showRestore: [true],
+                title: 'File.pdf',
+                uploadStatus: 'UPLOADING',
+                progressBar: 75,
             },
         }),
-        screenshotOpts: { clip },
-        viewport: {
-            width: 400,
-            height: 700,
+        screenshotOpts: {
+            clip,
         },
     }),
 );

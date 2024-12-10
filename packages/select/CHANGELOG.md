@@ -1,5 +1,66 @@
 # Change Log
 
+## 17.17.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.11
+    -   modal@9.8.4
+
+## 17.17.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   form-control@12.7.2
+    -   input@15.3.2
+    -   modal@9.8.3
+    -   bottom-sheet@6.17.10
+
+## 17.17.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   base-modal@5.8.4
+    -   bottom-sheet@6.17.9
+    -   checkbox@4.7.2
+    -   form-control@12.7.1
+    -   input@15.3.1
+    -   modal@9.8.2
+    -   popover@6.3.3
+
+## 17.17.1
+
+### Patch Changes
+
+<sup><time>13.11.2024</time></sup>
+
+### [#1440](https://github.com/core-ds/core-components/pull/1440)
+
+-   Исправлена ошибка при изменении ссылки на объект опции выбранного варианта
+
+## 17.17.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1438](https://github.com/core-ds/core-components/pull/1438)
+
+-   `modalHeaderProps.bottomAddons` и `bottomSheetProps.bottomAddons` теперь принимают в том числе функцию, возвращающую `React.ReactNode`
+-   Исправлены состояния "Выбрать все" при заданном `showHeaderWithSelectAll`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+
 ## 17.16.1
 
 ### Patch Changes

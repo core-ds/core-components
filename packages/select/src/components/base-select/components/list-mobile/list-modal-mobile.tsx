@@ -41,6 +41,8 @@ export const ListModalMobile: FC<ListModalMobileProps> = (props) => {
     } = props;
 
     if (ModalMobile) {
+        const bottomAddons = modalHeaderProps?.bottomAddons;
+
         return (
             <ModalMobile
                 dataTestId={getDataTestId(dataTestId, 'modal')}
@@ -74,7 +76,9 @@ export const ListModalMobile: FC<ListModalMobileProps> = (props) => {
                     bottomAddons={
                         <React.Fragment>
                             {renderSearch()}
-                            {flatOptions.length > 0 && modalHeaderProps?.bottomAddons}
+                            {typeof bottomAddons === 'function'
+                                ? bottomAddons(flatOptions)
+                                : bottomAddons}
                         </React.Fragment>
                     }
                 >

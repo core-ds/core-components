@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, number, object } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Spinner } from '@alfalab/core-components-spinner';
 
@@ -30,7 +30,37 @@ import Changelog from '../../CHANGELOG.md?raw';
                 }}
             >
                 <Spinner
-                    size={select('size', [16, 24, 48], 24)}
+                    size={number('size', 20)}
+                    lineWidth={number('lineWidth', 2)}
+                    visible={boolean('visible', true)}
+                    colors={colors}
+                    style={object('style', {})}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<Story name='Preset'>
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <Spinner
+                    preset={select('preset', [16, 24, 48], 24)}
                     visible={boolean('visible', true)}
                     colors={colors}
                 />

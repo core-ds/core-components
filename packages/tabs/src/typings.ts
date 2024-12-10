@@ -61,11 +61,6 @@ export type TabsProps = {
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
-     * Значение по-умолчанию для хука useMatchMedia
-     */
-    defaultMatchMediaValue?: boolean | (() => boolean);
-
-    /**
      * Мобильный вид
      */
     mobile?: boolean;
@@ -106,10 +101,21 @@ export type TabsProps = {
     dataTestId?: string;
 
     /**
-     * Контрольная точка для тега, с нее начинается desktop версия
+     * Контрольная точка, с нее начинается desktop версия
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 
     /**
      * Форма тега (для view secondary только)
@@ -229,11 +235,18 @@ export type TabListProps = Pick<
      * Заголовки табов
      */
     titles?: TabListTitle[];
+
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
     /**
      * Дополнительные инлайн стили для заголовка
      */

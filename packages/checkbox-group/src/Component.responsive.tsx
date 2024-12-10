@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BaseCheckboxGroupProps } from './components/base-checkbox-group';
 import { CheckboxGroupDesktop } from './desktop';
@@ -15,19 +14,24 @@ export type CheckboxGroupProps = Omit<BaseCheckboxGroupProps, 'styles'> & {
     breakpoint?: number;
 
     /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
      * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
-    breakpoint = getComponentBreakpoint(),
-    defaultMatchMediaValue,
+    breakpoint,
+    client,
+    defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
     ...restProps
 }) => {
-    const query = `(min-width: ${breakpoint}px)`;
-
-    const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
+    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
     const Component = isDesktop ? CheckboxGroupDesktop : CheckboxGroupMobile;
 

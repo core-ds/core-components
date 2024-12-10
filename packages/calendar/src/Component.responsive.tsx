@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { CalendarMobile, CalendarMobileProps } from './components/calendar-mobile';
 import { CalendarDesktop, CalendarDesktopProps } from './desktop';
@@ -15,14 +14,28 @@ export type ResponsiveCalendarProps = CalendarDesktopProps &
         breakpoint?: number;
 
         /**
+         * Версия, которая будет использоваться при серверном рендеринге
+         */
+        client?: 'desktop' | 'mobile';
+
+        /**
          * Значение по-умолчанию для хука useMatchMedia
+         * @deprecated Используйте client
          */
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
 
 export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarProps>(
-    ({ breakpoint = getComponentBreakpoint(), defaultMatchMediaValue, ...restProps }, ref) => {
-        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
+    (
+        {
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
+            ...restProps
+        },
+        ref,
+    ) => {
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         return isDesktop ? (
             <CalendarDesktop {...restProps} ref={ref} />

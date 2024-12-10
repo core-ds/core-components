@@ -1,7 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
 
 export type ProgressBarProps = {
     /**
@@ -37,6 +39,11 @@ export type ProgressBarProps = {
      * Id компонента для тестов
      */
     dataTestId?: string;
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 };
 
 export const SIZE_TO_CLASSNAME_MAP = {
@@ -46,8 +53,13 @@ export const SIZE_TO_CLASSNAME_MAP = {
     8: 'size-8',
 };
 
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
+
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
-    ({ className, value, view = 'positive', size = 8, dataTestId }, ref) => {
+    ({ className, value, view = 'positive', size = 8, dataTestId, colors = 'default' }, ref) => {
         const translateX = Math.max(-100, Math.min(0, value - 100));
 
         return (
@@ -56,7 +68,12 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
                 aria-valuenow={Math.round(value)}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                className={cn(styles.container, styles[SIZE_TO_CLASSNAME_MAP[size]], className)}
+                className={cn(
+                    styles.container,
+                    colorStyles[colors].container,
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    className,
+                )}
                 data-test-id={dataTestId}
                 ref={ref}
             >

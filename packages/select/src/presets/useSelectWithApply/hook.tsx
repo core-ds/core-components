@@ -152,6 +152,8 @@ export function useSelectWithApply({
         setSelectedDraft(optionsToSet);
     };
 
+    const selectedKeys = useMemo(() => selectedDraft.map(({ key }) => key), [selectedDraft]);
+
     const handleChange: Required<BaseSelectProps>['onChange'] = ({ initiator, ...restArgs }) => {
         if (!initiator) {
             onChange({
@@ -163,15 +165,19 @@ export function useSelectWithApply({
         }
 
         const initiatorSelected =
-            selectedDraft.includes(initiator) ||
-            (initiator.key === SELECT_ALL_KEY && selectedDraft.length === flatOptions.length);
+            selectedDraft.some(
+                (selectedDraftOption) => selectedDraftOption.key === initiator.key,
+            ) ||
+            (initiator.key === SELECT_ALL_KEY &&
+                (selectedDraft.length === flatOptions.length ||
+                    flatOptions.every(({ key }) => selectedKeys.includes(key))));
 
         if (initiator.key === SELECT_ALL_KEY) {
             setSelectedDraft(initiatorSelected ? [] : flatOptions);
         } else {
             setSelectedDraft(
                 initiatorSelected
-                    ? selectedDraft.filter((o) => o !== initiator)
+                    ? selectedDraft.filter((o) => o.key !== initiator.key)
                     : selectedDraft.concat(initiator),
             );
         }
@@ -209,8 +215,10 @@ export function useSelectWithApply({
             showHeaderWithSelectAll,
             headerProps: {
                 ...(optionsListProps as AnyObject)?.headerProps,
-                indeterminate: !!selectedDraft.length && selectedDraft.length < flatOptions.length,
-                checked: selectedDraft.length === flatOptions.length,
+                indeterminate: selectedDraft.length > 0,
+                checked:
+                    selectedDraft.length === flatOptions.length ||
+                    flatOptions.every(({ key }) => selectedKeys.includes(key)),
                 onChange: handleToggleAll,
             },
         },
