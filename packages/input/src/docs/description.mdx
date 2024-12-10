@@ -1,28 +1,28 @@
 ## Размеры
 
-Основным типом инпутов в десктопном вебе являются инпуты размера M с внутренним расположением лейбла. 
+Основным типом инпутов в десктопном вебе являются инпуты размера M с внутренним расположением лейбла.
 Для мобильного веба рекомендуемый размер S с внешним расположением лейбла.
 
 ```jsx live
-    <div style={{ width: 320 }}>
-        <Input 
-            placeholder='Введите текст' 
-            block={true} 
-            label='Текст' 
-            labelView={isMobile() ? 'outer' : 'inner'}
-            size={isMobile() ? 48 : 56}
-            breakpoint={BREAKPOINT} 
-        />
-        <Gap size='m' />
-        <Input 
-            placeholder='Введите email' 
-            block={true} 
-            label='Email' 
-            labelView={isMobile() ? 'outer' : 'inner'}
-            size={isMobile() ? 48 : 56}
-            breakpoint={BREAKPOINT} 
-        />
-    </div>
+<div style={{ width: 320 }}>
+    <Input
+        placeholder='Введите текст'
+        block={true}
+        label='Текст'
+        labelView={isMobile() ? 'outer' : 'inner'}
+        size={isMobile() ? 48 : 56}
+        breakpoint={BREAKPOINT}
+    />
+    <Gap size='m' />
+    <Input
+        placeholder='Введите email'
+        block={true}
+        label='Email'
+        labelView={isMobile() ? 'outer' : 'inner'}
+        size={isMobile() ? 48 : 56}
+        breakpoint={BREAKPOINT}
+    />
+</div>
 ```
 
 ## Валидация
@@ -36,14 +36,15 @@ render(() => {
     return (
         <div style={{ width: 320 }}>
             <div style={{ height: isMobile() ? 96 : 80 }}>
-                <Input 
-                    block={true} 
-                    label='Label' 
-                    placeholder='Placeholder' 
+                <Input
+                    block={true}
+                    label='Label'
+                    placeholder='Placeholder'
                     labelView={isMobile() ? 'outer' : 'inner'}
                     size={isMobile() ? 48 : 56}
-                    breakpoint={BREAKPOINT} 
-                    error={error} />
+                    breakpoint={BREAKPOINT}
+                    error={error}
+                />
             </div>
             <Gap size='xl' />
             <Button size={32} view='secondary' onClick={() => setError(false)}>
@@ -70,14 +71,14 @@ render(() => {
     return (
         <div>
             <div style={{ width: 320 }}>
-                <Input 
-                    block={true} 
-                    placeholder='Placeholder' 
-                    label='Label' 
+                <Input
+                    block={true}
+                    placeholder='Placeholder'
+                    label='Label'
                     labelView={isMobile() ? 'outer' : 'inner'}
                     size={isMobile() ? 48 : 56}
-                    breakpoint={BREAKPOINT}  
-                    {...inputProps} 
+                    breakpoint={BREAKPOINT}
+                    {...inputProps}
                 />
             </div>
             <Gap size='xl' />
@@ -140,20 +141,19 @@ render(() => {
                         open={open}
                         targetClassName='target'
                         content={
-                            <span style={{ whiteSpace: 'pre-wrap' }} >
-                                {`Сообщение тултипа\nотображается при\n${isMobile() ? 'клике' : 'наведении'}`}
+                            <span style={{ whiteSpace: 'pre-wrap' }}>
+                                {`Сообщение тултипа\nотображается при\n${
+                                    isMobile() ? 'клике' : 'наведении'
+                                }`}
                             </span>
                         }
                         onOpen={() => setOpen(true)}
                         onClose={() => setOpen(false)}
                         position='right'
                     >
-                        <IconButton
-                            view='secondary'
-                            size='s'
-                            icon={InformationCircleMIcon}
-                            dataTestId='icon'
-                        />
+                        <div style={{ width: 24, height: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <StatusBadge size={20} view='neutral-information' />
+                        </div>
                     </Tooltip>
                 }
             />
@@ -206,11 +206,7 @@ render(() => {
                 breakpoint={BREAKPOINT}
                 success={success}
                 error={hasError}
-                rightAddons={
-                    hasError ? (
-                        <StatusBadge view='negative-alert' />
-                    ) : undefined
-                }
+                rightAddons={hasError ? <StatusBadge view='negative-alert' /> : undefined}
             />
         </div>
     );
