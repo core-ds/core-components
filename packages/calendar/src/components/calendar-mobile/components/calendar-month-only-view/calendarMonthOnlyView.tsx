@@ -50,9 +50,10 @@ export const CalendarMonthOnlyView = ({
     scrollableContainer,
     clickableMonth,
 }: CalendarContentProps & {
-    /** Родительский контейнер для отслеживания скролла */
-    scrollableContainer?: HTMLElement;
-
+    /**
+     * FIXME нужно сделать для компонента CalendarMonthOnlyView отдельный тип пропсов, т.к. тип CalendarContentProps intersection для типа CalendarMobileProps
+     * FIXME это приводит к тому, что в доку сторибука попадают типы пропсов, которые нужны для работы компонента CalendarMonthOnlyView, но не нужны для компонента CalendarMobile
+     */
     clickableMonth?: boolean;
 }) => {
     const range = useRange({

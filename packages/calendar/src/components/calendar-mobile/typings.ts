@@ -26,6 +26,11 @@ export type CalendarContentProps = {
      * Количество лет для генерации в обе стороны от текущего года
      */
     yearsAmount?: number;
+
+    /**
+     * Родительский контейнер для отслеживания скролла
+     */
+    scrollableContainer?: HTMLElement;
 } & Omit<CalendarDesktopProps, OmittedCalendarContentProps | OmittedCalendarProps>;
 
 export type CalendarMobileProps = {
