@@ -94,7 +94,7 @@ describe('Toast', () => {
         const anchorElement = document.createElement('div');
         document.body.appendChild(anchorElement);
 
-        const popoverProps: Partial<popoverModule.PopoverProps> = {
+        const popoverProps: Partial<ToastProps> = {
             position: 'top',
             offset: [5, 5],
             open: true,

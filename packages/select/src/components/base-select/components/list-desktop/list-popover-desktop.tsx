@@ -1,22 +1,24 @@
-import React, { FC, ReactNode, RefObject } from 'react';
+import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
+
+import { PopoverProps } from '@alfalab/core-components-popover';
 
 import { ListPopoverDesktopRestProps } from './types/types';
 
 import styles from '../../index.module.css';
 
-type ListPopoverDesktopProps = {
-    open: boolean;
-    fieldRef: RefObject<HTMLInputElement>;
+interface ListPopoverDesktopProps
+    extends ListPopoverDesktopRestProps,
+        Pick<PopoverProps, 'open' | 'anchorElement'> {
     renderOptionsList: () => ReactNode;
-} & ListPopoverDesktopRestProps;
+}
 
 export const ListPopoverDesktop: FC<ListPopoverDesktopProps> = (props) => {
     const {
         Popover,
         open,
         popoverProps,
-        fieldRef,
+        anchorElement,
         popoverPosition = 'bottom-start',
         preventFlip = true,
         popperClassName,
@@ -31,7 +33,7 @@ export const ListPopoverDesktop: FC<ListPopoverDesktopProps> = (props) => {
                 {...popoverProps}
                 open={open}
                 withTransition={false}
-                anchorElement={fieldRef.current as HTMLElement}
+                anchorElement={anchorElement}
                 position={popoverPosition}
                 preventFlip={preventFlip}
                 popperClassName={cn(styles.popoverInner, popperClassName)}

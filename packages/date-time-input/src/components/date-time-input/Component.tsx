@@ -396,7 +396,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                         <Popover
                             open={open}
                             useAnchorWidth={useAnchorWidth}
-                            anchorElement={inputRef.current as HTMLElement}
+                            anchorElement={inputRef}
                             popperClassName={cn(styles.calendarContainer, {
                                 [styles.calendarResponsive]: calendarResponsive,
                             })}
