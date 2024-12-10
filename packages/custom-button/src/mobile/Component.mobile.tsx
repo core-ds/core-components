@@ -1,14 +1,17 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
-import { DEFAULT_BUTTON_COLOR, DEFAULT_CONTENT_COLOR } from './constants/default-colors';
-import { CustomButtonProps } from './types/props';
+import { DEFAULT_BUTTON_COLOR, DEFAULT_CONTENT_COLOR } from '../constants/default-colors';
+import { CustomButtonProps } from '../types/props';
 
-import styles from './index.module.css';
+import styles from '../index.module.css';
 
-export const CustomButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, CustomButtonProps>(
+export const CustomButtonMobile = forwardRef<
+    HTMLAnchorElement | HTMLButtonElement,
+    CustomButtonProps
+>(
     (
         {
             children,
@@ -21,7 +24,7 @@ export const CustomButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Cu
         },
         ref,
     ) => (
-        <Button
+        <ButtonMobile
             style={{ background: backgroundColor }}
             {...restProps}
             view='primary'
@@ -39,8 +42,8 @@ export const CustomButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Cu
             loading={loading}
         >
             {children}
-        </Button>
+        </ButtonMobile>
     ),
 );
 
-CustomButton.displayName = 'CustomButton';
+CustomButtonMobile.displayName = 'CustomButtonMobile';
