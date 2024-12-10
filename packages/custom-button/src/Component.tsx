@@ -31,6 +31,7 @@ export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
 
     /**
      * Тип цвета для заблокированного состояния
+     * @default default
      */
     disableType?: 'default' | 'static' | 'inverted' | 'static-inverted';
 };
