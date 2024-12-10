@@ -49,12 +49,6 @@ export const plate: Story = {
                     ...previewStyles,
                 }}
             >
-                <style>
-                    {`.custom {
-                        background: rgba(207, 112, 255, 0.1);
-                        box-shadow: 0 0 0 1px rgba(207, 112, 255, 1);
-                    `}
-                </style>
                 <Plate
                     className={view === 'custom' ? 'custom' : undefined}
                     view={view}
@@ -123,12 +117,6 @@ export const plate_mobile: Story = {
                     ...previewStyles,
                 }}
             >
-                <style>
-                    {`.custom {
-                        background: rgba(207, 112, 255, 0.1);
-                        box-shadow: 0 0 0 1px rgba(207, 112, 255, 1);
-                    `}
-                </style>
                 <PlateMobile
                     className={view === 'custom' ? 'custom' : undefined}
                     view={view}
@@ -196,12 +184,6 @@ export const plate_desktop: Story = {
                     ...previewStyles,
                 }}
             >
-                <style>
-                    {`.custom {
-                        background: rgba(207, 112, 255, 0.1);
-                        box-shadow: 0 0 0 1px rgba(207, 112, 255, 1);
-                    `}
-                </style>
                 <PlateDesktop
                     className={view === 'custom' ? 'custom' : undefined}
                     view={view}

@@ -268,6 +268,8 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             [onClose],
         );
 
+        const isCustomView = view === 'custom';
+
         return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
@@ -279,20 +281,26 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                         [commonStyles.focused]: focused,
                         [commonStyles.isHidden]: hasCloser && isHidden,
                         [commonStyles.isFolded]: foldable && folded,
-
                         [commonStyles.rounded]: rounded,
                         [styles.rounded]: rounded,
-
                         [commonStyles.rect]: !rounded,
                         [commonStyles.noBorder]: !border,
-
                         [commonStyles.shadow]: shadow,
                         [styles.shadow]: shadow,
+                        [commonStyles.customBorder]: border && !rounded && isCustomView,
                     },
                     className,
                 )}
                 style={{
-                    ...(view === 'custom' && { background, borderColor }),
+                    ...(isCustomView && {
+                        background,
+                        borderColor,
+                        ...(border &&
+                            !rounded &&
+                            borderColor && {
+                                boxShadow: `2px 0 0 0 ${borderColor} inset`,
+                            }),
+                    }),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}
