@@ -1,5 +1,10 @@
 @import '../../../../vars/src/index.css';
 
+.size-40 {
+    margin-right: var(--gap-8-neg);
+    height: 32px;
+}
+
 .size-48 {
     margin-right: var(--gap-8-neg);
 }

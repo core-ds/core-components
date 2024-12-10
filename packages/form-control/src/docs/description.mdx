@@ -1,38 +1,46 @@
 ## Размеры
 
-Компонент доступен в размерах XL, L, M, S.
+Компонент доступен в размерах 72, 64, 56, 48, 40.
 
 ```jsx live
     <div style={{ width: 320 }}>
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='xl' 
+        <FormControl
+            block={true}
+            label='Label'
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size='xl'
             breakpoint={BREAKPOINT}
         />
         <Gap size='m' />
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='l' 
+        <FormControl
+            block={true}
+            label='Label'
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size='l'
             breakpoint={BREAKPOINT}
         />
         <Gap size='m' />
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='m' 
+        <FormControl
+            block={true}
+            label='Label'
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size='m'
             breakpoint={BREAKPOINT}
         />
         <Gap size='m' />
-        <FormControl 
-            block={true} 
-            label='Label' 
-            labelView={isMobile() ? 'outer' : 'inner'} 
-            size='s' 
+        <FormControl
+            block={true}
+            label='Label'
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size='s'
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='m' />
+        <FormControl
+            block={true}
+            label='Label'
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size={40}
             breakpoint={BREAKPOINT}
         />
     </div>
@@ -44,7 +52,7 @@
 
 ```jsx live
     <div style={{ width: 320 }}>
-        <Input 
+        <Input
             block
             placeholder='Placeholder'
             label='Лейбл внутри'
@@ -61,18 +69,18 @@
             breakpoint={BREAKPOINT}
         />
         <Gap size='l' />
-        <Input 
-            block 
-            placeholder='Placeholder' 
-            size={isMobile() ? 's' : 'm'} 
-            breakpoint={BREAKPOINT} 
+        <Input
+            block
+            placeholder='Placeholder'
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT}
         />
     </div>
 ```
 
 ## Префиксы и суффиксы
 
-Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения. 
+Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения.
 
 ```jsx live
 render(() => {
@@ -100,10 +108,10 @@ render(() => {
 
 ```jsx live
     <div style={{ width: 320 }}>
-        <FormControl 
-            block={true} 
-            label='Label' 
-            hint='Hint' 
+        <FormControl
+            block={true}
+            label='Label'
+            hint='Hint'
             labelView={isMobile() ? 'outer' : 'inner'}
             size={isMobile() ? 's' : 'm'}
             breakpoint={BREAKPOINT}
@@ -126,12 +134,12 @@ render(() => {
 
     return (
         <div style={{ width: 320 }}>
-            <FormControl 
-                block={true} 
-                label='Label' 
+            <FormControl
+                block={true}
+                label='Label'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={BREAKPOINT} 
+                breakpoint={BREAKPOINT}
                 leftAddons={
                     <IconButton
                         view='secondary'
@@ -139,15 +147,15 @@ render(() => {
                         size='xs'
                         alignIcon='left'
                     />
-                } 
+                }
             />
             <Gap size='l' />
-            <FormControl 
-                block={true} 
-                label='Label' 
+            <FormControl
+                block={true}
+                label='Label'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={BREAKPOINT} 
+                breakpoint={BREAKPOINT}
                 rightAddons={
                     <IconButton
                         view='secondary'
@@ -155,7 +163,7 @@ render(() => {
                         size='xs'
                         alignIcon='right'
                     />
-                } 
+                }
             />
             <Gap size='l' />
             <FormControl
