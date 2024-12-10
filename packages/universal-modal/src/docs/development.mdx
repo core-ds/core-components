@@ -1,0 +1,78 @@
+import { ArgsTabs, CssVars } from 'storybook/blocks';
+import { UniversalModalMobile } from '../mobile';
+import { UniversalModalDesktop } from '../desktop';
+import { UniversalModalResponsive } from '..';
+import vars from '!!raw-loader!../vars.css';
+
+## Подключение
+
+```jsx
+import { UniversalModalResponsive } from '@alfalab/core-components/universal-modal';
+
+import { UniversalModalDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import { ArrowButtonDesktop } from '@alfalab/core-components/universal-modal';
+import { CrossButtonDesktop } from '@alfalab/core-components/universal-modal';
+
+import { UniversalModalMobile } from '@alfalab/core-components/universal-modal/mobile';
+import { ArrowButtonDesktopMobile } from '@alfalab/core-components/universal-modal';
+import { CrossButtonDesktopMobile } from '@alfalab/core-components/universal-modal';
+
+// desktop presets
+import { getHeaderWithNavigationWithoutTitle } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithNavigationWithTitle } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithTitle } from '@alfalab/core-components/universal-modal';
+import { getFooterWithContent } from '@alfalab/core-components/universal-modal';
+
+// mobile presets
+import { getHeaderWithNavigationWithoutTitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithBackArrowWithCenterTitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithTitleWithSubtitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithCentralTitleMobile } from '@alfalab/core-components/universal-modal';
+import { getHeaderWithCentralTitleWithSubtitleMobile } from '@alfalab/core-components/universal-modal';
+import { getFooterWithContentMobile } from '@alfalab/core-components/universal-modal';
+
+```
+
+Из индекса импортируется responsive версия компонента.
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getUniversalModalTestIds`.
+Импорт из `@alfalab/core-components/universal-modal/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+        modal: dataTestId,
+        header: `${dataTestId}-header`,
+        title: `${dataTestId}-header-title`,
+        content: `${dataTestId}-content`,
+        footer: `${dataTestId}-footer`,
+};
+```
+
+## Свойства
+
+<ArgsTabs
+    components={{
+        UniversalModalDesktop,
+        UniversalModalMobile,
+        UniversalModalResponsive,
+        'UniversalModalResponsive.Header': UniversalModalResponsive.Header,
+        'UniversalModalResponsive.Controls': UniversalModalResponsive.Controls,
+        'UniversalModalDesktop.Content': UniversalModalDesktop.Content,
+        'UniversalModalDesktop.Header': UniversalModalDesktop.Header,
+        'UniversalModalDesktop.Footer': UniversalModalDesktop.Footer,
+        'UniversalModalDesktop.Controls': UniversalModalDesktop.Controls,
+        'UniversalModalMobile.Content': UniversalModalMobile.Content,
+        'UniversalModalMobile.Header': UniversalModalMobile.Header,
+        'UniversalModalMobile.Footer': UniversalModalMobile.Footer,
+        'UniversalModalMobile.Controls': UniversalModalMobile.Controls,
+    }}
+/>
+
+## Переменные
+
+<CssVars css={vars} />
