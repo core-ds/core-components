@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -14,7 +14,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -79,7 +79,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -87,7 +87,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -152,7 +152,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -160,7 +160,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -225,7 +225,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
         style="background: rgb(0, 255, 0);"
         type="button"
       />
@@ -233,7 +233,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
       style="background: rgb(0, 255, 0);"
       type="button"
     />
@@ -298,7 +298,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening customLoading"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -343,7 +343,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening customLoading"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"
