@@ -35,7 +35,7 @@ export const form_control: Story = {
             >
                 <FormControl
                     block={boolean('block', true)}
-                    size={select('size', [48, 56, 64, 72], 48)}
+                    size={select('size', [40, 48, 56, 64, 72], 48)}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     filled={boolean('filled', false)}

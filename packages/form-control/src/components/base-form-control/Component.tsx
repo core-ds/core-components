@@ -31,7 +31,7 @@ export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
      * Размер компонента
      * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
+    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Набор цветов для компонента
@@ -156,6 +156,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     m: 'size-56',
     l: 'size-64',
     xl: 'size-72',
+    40: 'size-40',
     48: 'size-48',
     56: 'size-56',
     64: 'size-64',
@@ -290,8 +291,13 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                                 </div>
                             </React.Fragment>
                         )}
-
-                        <div className={commonStyles.input}>{children}</div>
+                        <div
+                            className={cn(commonStyles.input, {
+                                [commonStyles['size-40']]: size === 40,
+                            })}
+                        >
+                            {children}
+                        </div>
                     </div>
 
                     {rightAddons && (
