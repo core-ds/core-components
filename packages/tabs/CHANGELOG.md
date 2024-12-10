@@ -1,5 +1,14 @@
 # Change Log
 
+## 8.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.2
+    -   picker-button@11.12.7
+    -   icon-button@6.11.3
+
 ## 8.12.6
 
 ### Patch Changes
