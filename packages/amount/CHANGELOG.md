@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.8.1
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
 ## 3.8.0
 
 ### Minor Changes

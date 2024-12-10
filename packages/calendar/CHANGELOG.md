@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.17.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1460](https://github.com/core-ds/core-components/pull/1460)
+
+-   Добавлены пропсы для передачи кастомного текста в кнопки мобильного календаря
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   icon-button@6.11.3
+    -   modal@9.8.5
+
 ## 7.16.0
 
 ### Minor Changes
