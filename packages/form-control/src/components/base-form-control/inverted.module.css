@@ -1,4 +1,4 @@
-@import '../../vars.css';
+@import '../../vars.common.css';
 
 .component {
     color: var(--form-control-inverted-color);
