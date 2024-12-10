@@ -20,6 +20,7 @@ import {
     DateInputProps,
     isCompleteDateInput,
 } from '@alfalab/core-components-date-input';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
@@ -53,6 +54,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     events,
     returnInvalidDates = false,
     dataTestId,
+    calendarContainerClassName,
 }) => {
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
     const [inputToValue, setInputToValue] = useState<string>(valueTo);
@@ -278,23 +280,29 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     clear={true}
                     block={true}
                 />
-                <CalendarFromComponent
-                    {...calendarFromProps}
-                    className={cn(styles.calendar, calendarFromProps?.className)}
-                    month={monthFrom}
-                    selectorView='month-only'
-                    offDays={offDays}
-                    events={events}
-                    onChange={period.updatePeriod}
-                    onMonthChange={handleMonthFromChange}
-                    minDate={minDate}
-                    maxDate={
-                        minMaxInSameMonth
-                            ? maxDate
-                            : maxDate && max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()
-                    }
-                    {...rangeProps}
-                />
+                <div
+                    className={cn(styles.calendarContainer, calendarContainerClassName)}
+                    data-test-id={getDataTestId(dataTestId, 'container-from')}
+                >
+                    <CalendarFromComponent
+                        {...calendarFromProps}
+                        className={cn(styles.calendar, calendarFromProps?.className)}
+                        month={monthFrom}
+                        selectorView='month-only'
+                        offDays={offDays}
+                        events={events}
+                        onChange={period.updatePeriod}
+                        onMonthChange={handleMonthFromChange}
+                        minDate={minDate}
+                        maxDate={
+                            minMaxInSameMonth
+                                ? maxDate
+                                : maxDate &&
+                                  max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()
+                        }
+                        {...rangeProps}
+                    />
+                </div>
             </div>
 
             <Divider inputFromProps={inputFromProps} inputToProps={inputToProps} />
@@ -315,23 +323,25 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     clear={true}
                     block={true}
                 />
-                <CalendarToComponent
-                    {...calendarToProps}
-                    className={cn(styles.calendar, calendarToProps?.className)}
-                    month={monthTo}
-                    selectorView='month-only'
-                    offDays={offDays}
-                    events={events}
-                    onChange={period.updatePeriod}
-                    onMonthChange={handleMonthToChange}
-                    minDate={
-                        minMaxInSameMonth
-                            ? minDate
-                            : minDate && startOfMonth(addMonths(minDate, 1)).getTime()
-                    }
-                    maxDate={maxDate}
-                    {...rangeProps}
-                />
+                <div data-test-id={getDataTestId(dataTestId, 'container-to')}>
+                    <CalendarToComponent
+                        {...calendarToProps}
+                        className={cn(styles.calendar, calendarToProps?.className)}
+                        month={monthTo}
+                        selectorView='month-only'
+                        offDays={offDays}
+                        events={events}
+                        onChange={period.updatePeriod}
+                        onMonthChange={handleMonthToChange}
+                        minDate={
+                            minMaxInSameMonth
+                                ? minDate
+                                : minDate && startOfMonth(addMonths(minDate, 1)).getTime()
+                        }
+                        maxDate={maxDate}
+                        {...rangeProps}
+                    />
+                </div>
             </div>
         </div>
     );

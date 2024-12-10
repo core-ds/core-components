@@ -34,887 +34,891 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="cc-calendar component calendar"
-        tabindex="-1"
+        class="calendarContainer"
       >
         <div
-          aria-live="polite"
-          class="header monthOnly"
+          class="cc-calendar component calendar"
+          tabindex="-1"
         >
           <div
             aria-live="polite"
-            class="component period"
-            data-test-id="period-slider"
+            class="header monthOnly"
           >
-            <button
-              aria-label="Предыдущий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
-              data-test-id="period-slider-btn-previous-day"
-              type="button"
+            <div
+              aria-live="polite"
+              class="component period"
+              data-test-id="period-slider"
             >
-              <span
-                class="label stretchText"
+              <button
+                aria-label="Предыдущий период"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                data-test-id="period-slider-btn-previous-day"
+                type="button"
               >
                 <span
-                  class="iconWrapper size-32 center"
+                  class="label stretchText"
                 >
-                  <svg
-                    class="icon"
-                    fill="currentColor"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
+                  <span
+                    class="iconWrapper size-32 center"
                   >
-                    <path
-                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                    />
-                  </svg>
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                      />
+                    </svg>
+                  </span>
                 </span>
-              </span>
-            </button>
-            <span
-              class="period"
-            >
-              Октябрь 2020
-            </span>
-            <button
-              aria-label="Следующий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
-              data-test-id="period-slider-btn-next-day"
-              type="button"
-            >
+              </button>
               <span
-                class="label stretchText"
+                class="period"
+              >
+                Октябрь 2020
+              </span>
+              <button
+                aria-label="Следующий период"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                data-test-id="period-slider-btn-next-day"
+                type="button"
               >
                 <span
-                  class="iconWrapper size-32 center"
+                  class="label stretchText"
                 >
-                  <svg
-                    class="icon"
-                    fill="currentColor"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
+                  <span
+                    class="iconWrapper size-32 center"
                   >
-                    <path
-                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                    />
-                  </svg>
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                      />
+                    </svg>
+                  </span>
                 </span>
-              </span>
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
-        <div
-          class="container days"
-        >
-          <table
-            class="daysTable"
+          <div
+            class="container days"
           >
-            <thead>
-              <tr>
-                <th
-                  class="dayName"
-                >
-                  Пн
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Вт
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Ср
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Чт
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Пт
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Сб
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Вс
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td />
-                <td />
-                <td />
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1601510400000"
-                  tabindex="0"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+            <table
+              class="daysTable"
+            >
+              <thead>
+                <tr>
+                  <th
+                    class="dayName"
                   >
-                    <span
-                      class="label stretchText"
+                    Пн
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Вт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Ср
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Чт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Пт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Сб
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Вс
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td />
+                  <td />
+                  <td />
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1601510400000"
+                    tabindex="0"
+                  >
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        1
+                        <span
+                          class="dayContent"
+                        >
+                          1
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1601596800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1601596800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        2
+                        <span
+                          class="dayContent"
+                        >
+                          2
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1601683200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1601683200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        3
+                        <span
+                          class="dayContent"
+                        >
+                          3
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1601769600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1601769600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        4
+                        <span
+                          class="dayContent"
+                        >
+                          4
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1601856000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1601856000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        5
+                        <span
+                          class="dayContent"
+                        >
+                          5
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1601942400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1601942400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        6
+                        <span
+                          class="dayContent"
+                        >
+                          6
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602028800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602028800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        7
+                        <span
+                          class="dayContent"
+                        >
+                          7
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602115200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602115200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        8
+                        <span
+                          class="dayContent"
+                        >
+                          8
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602201600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602201600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        9
+                        <span
+                          class="dayContent"
+                        >
+                          9
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602288000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602288000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        10
+                        <span
+                          class="dayContent"
+                        >
+                          10
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602374400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602374400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        11
+                        <span
+                          class="dayContent"
+                        >
+                          11
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602460800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602460800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        12
+                        <span
+                          class="dayContent"
+                        >
+                          12
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602547200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602547200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        13
+                        <span
+                          class="dayContent"
+                        >
+                          13
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602633600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602633600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        14
+                        <span
+                          class="dayContent"
+                        >
+                          14
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602720000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602720000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        15
+                        <span
+                          class="dayContent"
+                        >
+                          15
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602806400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602806400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        16
+                        <span
+                          class="dayContent"
+                        >
+                          16
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602892800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602892800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        17
+                        <span
+                          class="dayContent"
+                        >
+                          17
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1602979200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1602979200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        18
+                        <span
+                          class="dayContent"
+                        >
+                          18
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603065600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603065600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        19
+                        <span
+                          class="dayContent"
+                        >
+                          19
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603152000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603152000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        20
+                        <span
+                          class="dayContent"
+                        >
+                          20
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603238400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603238400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        21
+                        <span
+                          class="dayContent"
+                        >
+                          21
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603324800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603324800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        22
+                        <span
+                          class="dayContent"
+                        >
+                          22
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603411200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603411200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        23
+                        <span
+                          class="dayContent"
+                        >
+                          23
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603497600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603497600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        24
+                        <span
+                          class="dayContent"
+                        >
+                          24
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603584000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603584000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        25
+                        <span
+                          class="dayContent"
+                        >
+                          25
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603670400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603670400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        26
+                        <span
+                          class="dayContent"
+                        >
+                          26
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603756800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603756800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        27
+                        <span
+                          class="dayContent"
+                        >
+                          27
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603843200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603843200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        28
+                        <span
+                          class="dayContent"
+                        >
+                          28
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1603929600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1603929600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        29
+                        <span
+                          class="dayContent"
+                        >
+                          29
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604016000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604016000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        30
+                        <span
+                          class="dayContent"
+                        >
+                          30
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604102400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604102400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        31
+                        <span
+                          class="dayContent"
+                        >
+                          31
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td />
-              </tr>
-            </tbody>
-          </table>
+                    </button>
+                  </td>
+                  <td />
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -949,874 +953,876 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           />
         </div>
       </div>
-      <div
-        class="cc-calendar component calendar sixWeeks"
-        tabindex="-1"
-      >
+      <div>
         <div
-          aria-live="polite"
-          class="header monthOnly"
+          class="cc-calendar component calendar sixWeeks"
+          tabindex="-1"
         >
           <div
             aria-live="polite"
-            class="component period"
-            data-test-id="period-slider"
+            class="header monthOnly"
           >
-            <button
-              aria-label="Предыдущий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
-              data-test-id="period-slider-btn-previous-day"
-              type="button"
+            <div
+              aria-live="polite"
+              class="component period"
+              data-test-id="period-slider"
             >
-              <span
-                class="label stretchText"
+              <button
+                aria-label="Предыдущий период"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                data-test-id="period-slider-btn-previous-day"
+                type="button"
               >
                 <span
-                  class="iconWrapper size-32 center"
+                  class="label stretchText"
                 >
-                  <svg
-                    class="icon"
-                    fill="currentColor"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
+                  <span
+                    class="iconWrapper size-32 center"
                   >
-                    <path
-                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                    />
-                  </svg>
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                      />
+                    </svg>
+                  </span>
                 </span>
-              </span>
-            </button>
-            <span
-              class="period"
-            >
-              Ноябрь 2020
-            </span>
-            <button
-              aria-label="Следующий период"
-              class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
-              data-test-id="period-slider-btn-next-day"
-              type="button"
-            >
+              </button>
               <span
-                class="label stretchText"
+                class="period"
+              >
+                Ноябрь 2020
+              </span>
+              <button
+                aria-label="Следующий период"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                data-test-id="period-slider-btn-next-day"
+                type="button"
               >
                 <span
-                  class="iconWrapper size-32 center"
+                  class="label stretchText"
                 >
-                  <svg
-                    class="icon"
-                    fill="currentColor"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
+                  <span
+                    class="iconWrapper size-32 center"
                   >
-                    <path
-                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                    />
-                  </svg>
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                      />
+                    </svg>
+                  </span>
                 </span>
-              </span>
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
-        <div
-          class="container days"
-        >
-          <table
-            class="daysTable"
+          <div
+            class="container days"
           >
-            <thead>
-              <tr>
-                <th
-                  class="dayName"
-                >
-                  Пн
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Вт
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Ср
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Чт
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Пт
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Сб
-                </th>
-                <th
-                  class="dayName"
-                >
-                  Вс
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604188800000"
-                  tabindex="0"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+            <table
+              class="daysTable"
+            >
+              <thead>
+                <tr>
+                  <th
+                    class="dayName"
                   >
-                    <span
-                      class="label stretchText"
+                    Пн
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Вт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Ср
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Чт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Пт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Сб
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Вс
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604188800000"
+                    tabindex="0"
+                  >
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        1
+                        <span
+                          class="dayContent"
+                        >
+                          1
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604275200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604275200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        2
+                        <span
+                          class="dayContent"
+                        >
+                          2
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604361600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604361600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        3
+                        <span
+                          class="dayContent"
+                        >
+                          3
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604448000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604448000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        4
+                        <span
+                          class="dayContent"
+                        >
+                          4
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604534400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604534400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        5
+                        <span
+                          class="dayContent"
+                        >
+                          5
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604620800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604620800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        6
+                        <span
+                          class="dayContent"
+                        >
+                          6
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604707200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604707200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        7
+                        <span
+                          class="dayContent"
+                        >
+                          7
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604793600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604793600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        8
+                        <span
+                          class="dayContent"
+                        >
+                          8
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604880000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604880000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        9
+                        <span
+                          class="dayContent"
+                        >
+                          9
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1604966400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1604966400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        10
+                        <span
+                          class="dayContent"
+                        >
+                          10
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605052800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605052800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        11
+                        <span
+                          class="dayContent"
+                        >
+                          11
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605139200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605139200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        12
+                        <span
+                          class="dayContent"
+                        >
+                          12
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605225600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605225600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        13
+                        <span
+                          class="dayContent"
+                        >
+                          13
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605312000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605312000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        14
+                        <span
+                          class="dayContent"
+                        >
+                          14
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605398400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605398400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        15
+                        <span
+                          class="dayContent"
+                        >
+                          15
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605484800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605484800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        16
+                        <span
+                          class="dayContent"
+                        >
+                          16
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605571200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605571200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        17
+                        <span
+                          class="dayContent"
+                        >
+                          17
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605657600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605657600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        18
+                        <span
+                          class="dayContent"
+                        >
+                          18
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605744000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605744000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        19
+                        <span
+                          class="dayContent"
+                        >
+                          19
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605830400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605830400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        20
+                        <span
+                          class="dayContent"
+                        >
+                          20
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1605916800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1605916800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        21
+                        <span
+                          class="dayContent"
+                        >
+                          21
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606003200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606003200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        22
+                        <span
+                          class="dayContent"
+                        >
+                          22
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606089600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606089600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        23
+                        <span
+                          class="dayContent"
+                        >
+                          23
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606176000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606176000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        24
+                        <span
+                          class="dayContent"
+                        >
+                          24
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606262400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606262400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        25
+                        <span
+                          class="dayContent"
+                        >
+                          25
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606348800000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606348800000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        26
+                        <span
+                          class="dayContent"
+                        >
+                          26
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606435200000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606435200000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        27
+                        <span
+                          class="dayContent"
+                        >
+                          27
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606521600000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606521600000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        28
+                        <span
+                          class="dayContent"
+                        >
+                          28
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606608000000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606608000000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        29
+                        <span
+                          class="dayContent"
+                        >
+                          29
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="center"
-                  class="dayWrapper cursorPointer"
-                  data-date="1606694400000"
-                  tabindex="-1"
-                >
-                  <button
-                    class="component text size-40 hug size-40 component text component text day rounded"
-                    type="button"
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    class="dayWrapper cursorPointer"
+                    data-date="1606694400000"
+                    tabindex="-1"
                   >
-                    <span
-                      class="label stretchText"
+                    <button
+                      class="component text size-40 hug size-40 component text component text day rounded"
+                      type="button"
                     >
                       <span
-                        class="dayContent"
+                        class="label stretchText"
                       >
-                        30
+                        <span
+                          class="dayContent"
+                        >
+                          30
+                        </span>
+                        <span
+                          class="addons"
+                        />
                       </span>
-                      <span
-                        class="addons"
-                      />
-                    </span>
-                  </button>
-                </td>
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
-              </tr>
-            </tbody>
-          </table>
+                    </button>
+                  </td>
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                  <td />
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
