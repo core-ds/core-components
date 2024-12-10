@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+
+## 6.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.3
+    -   icon-button@6.11.2
+
 ## 6.0.0
 
 ### Major Changes

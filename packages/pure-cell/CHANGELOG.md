@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.13.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+    -   comment@2.4.4
+
+## 4.13.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.2
+    -   typography@4.10.3
+    -   comment@2.4.3
+
 ## 4.13.2
 
 ### Patch Changes

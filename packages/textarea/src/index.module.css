@@ -112,7 +112,7 @@
     padding: var(--form-control-sub-paddings);
 }
 
-.textarea.hasInnerLabel.hasInnerLabel {
+.textarea.textarea.hasInnerLabel.hasInnerLabel {
     padding-top: var(--gap-0);
     padding-bottom: var(--gap-0);
 }
@@ -181,7 +181,7 @@
 }
 
 /* Border нужен для того чтобы растянуть textarea на всю высоту FormControl , если заменить на padding, то лейбл не будет кликабельный */
-.textarea {
+.textarea.textarea {
     &.size-48 {
         border-top: var(--textarea-s-spacer) var(--textarea-spacer-style);
         border-bottom: var(--textarea-s-spacer) var(--textarea-spacer-style);

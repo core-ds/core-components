@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.4.0
+
+### Minor Changes
+
+<sup><time>27.11.2024</time></sup>
+
+### [#1469](https://github.com/core-ds/core-components/pull/1469)
+
+-   Добавлен хук `useIsDesktop`
+
 ## 4.3.0
 
 ### Minor Changes

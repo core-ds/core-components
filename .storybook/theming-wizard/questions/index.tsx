@@ -25,7 +25,7 @@ export const Questions: FC<QuestionsProps> = ({ config = [], answers, onChange =
 
     return (
         <Space>
-            {config.map(question => (
+            {config.map((question) => (
                 <RadioGroup
                     key={question.name}
                     label={<Typography.Text weight='bold'>{question.title}</Typography.Text>}
@@ -34,8 +34,8 @@ export const Questions: FC<QuestionsProps> = ({ config = [], answers, onChange =
                     onChange={(_, payload) => handleChange(question.name, payload)}
                     value={answers[question.name]}
                 >
-                    {question.variants.map(variant => (
-                        <Radio {...variant} key={variant.value} />
+                    {question.variants.map((variant) => (
+                        <Radio {...variant} key={variant.value} align='center' />
                     ))}
                 </RadioGroup>
             ))}
