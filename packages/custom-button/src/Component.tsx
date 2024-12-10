@@ -1,14 +1,39 @@
-import React, { forwardRef } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
-
-import { DEFAULT_BUTTON_COLOR, DEFAULT_CONTENT_COLOR } from './constants/default-colors';
-import { CustomButtonProps } from './types/props';
+import { Button, ButtonProps } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
 
-export const CustomButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, CustomButtonProps>(
+const DEFAULT_BUTTON_COLOR = '#FF45C3';
+const DEFAULT_CONTENT_COLOR = 'white';
+
+export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
+    /**
+     * Цвет кнопки
+     */
+    backgroundColor?: string;
+
+    /**
+     * Цвет контента
+     */
+    contentColor?: 'black' | 'white' | 'static-black' | 'static-white';
+
+    /**
+     * Затемнение или осветление кнопки при hover и active
+     */
+    stateType?: 'darkening' | 'lightening' | 'static-darkening' | 'static-lightening';
+};
+
+type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type CustomButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
+
+export const CustomButton = React.forwardRef<
+    HTMLAnchorElement | HTMLButtonElement,
+    CustomButtonProps
+>(
     (
         {
             children,
@@ -20,27 +45,35 @@ export const CustomButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Cu
             ...restProps
         },
         ref,
-    ) => (
-        <Button
-            style={{ background: backgroundColor }}
-            {...restProps}
-            view='primary'
-            ref={ref}
-            className={cn(
-                styles.customButton,
-                styles.border,
-                className,
-                styles[contentColor],
-                styles[stateType],
-                {
-                    [styles.customLoading]: loading,
-                },
-            )}
-            loading={loading}
-        >
-            {children}
-        </Button>
-    ),
+    ) => {
+        const buttonProps = {
+            style: { background: backgroundColor },
+            ...restProps,
+        };
+
+        const buttonClassName = cn(
+            styles.customButton,
+            styles.border,
+            className,
+            styles[contentColor],
+            styles[stateType],
+            {
+                [styles.customLoading]: loading,
+            },
+        );
+
+        return (
+            <Button
+                {...buttonProps}
+                view='primary'
+                ref={ref}
+                className={buttonClassName}
+                loading={loading}
+            >
+                {children}
+            </Button>
+        );
+    },
 );
 
 CustomButton.displayName = 'CustomButton';
