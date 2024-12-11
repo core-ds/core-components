@@ -21,7 +21,7 @@ export const form_control: Story = {
         const colors = select('colors', ['default', 'inverted'], 'default');
         const size = select('size', [40, 48, 56, 64, 72], 48);
 
-        const IconComponent = size == 40 ? DiamondsSIcon : StarMIcon;
+        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
         return (
             <div
@@ -64,7 +64,7 @@ export const form_control_mobile: Story = {
         const colors = select('colors', ['default', 'inverted'], 'default');
         const size = select('size', [40, 48, 56, 64, 72], 48);
 
-        const IconComponent = size == 40 ? DiamondsSIcon : StarMIcon;
+        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
         return (
             <div
@@ -107,7 +107,7 @@ export const form_control_desktop: Story = {
         const colors = select('colors', ['default', 'inverted'], 'default');
         const size = select('size', [40, 48, 56, 64, 72], 48);
 
-        const IconComponent = size == 40 ? DiamondsSIcon : StarMIcon;
+        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
         return (
             <div
