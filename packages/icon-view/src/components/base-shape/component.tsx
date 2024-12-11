@@ -14,7 +14,7 @@ type Border = {
     style?: 'solid' | 'dashed';
 };
 
-export type TMainSize = 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 80 | 128;
+export type TMainSize = 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 128;
 
 export type BaseShapeProps = {
     /**

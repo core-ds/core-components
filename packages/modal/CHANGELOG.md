@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.5
+    -   navigation-bar-private@0.5.4
+
 ## 9.8.4
 
 ### Patch Changes

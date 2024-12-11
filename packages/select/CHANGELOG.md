@@ -1,5 +1,23 @@
 # Change Log
 
+## 17.17.5
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   badge@5.6.2
+    -   base-modal@5.8.5
+    -   bottom-sheet@6.17.12
+    -   input@15.3.3
+    -   modal@9.8.5
+
 ## 17.17.4
 
 ### Patch Changes
