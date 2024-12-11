@@ -23,7 +23,7 @@
         "@alfalab/core-components-shared": "^0.14.0",
         "@alfalab/core-components-icon-button": "^6.11.2",
         "@alfalab/core-components-skeleton": "^5.2.0",
-        "@alfalab/icons-glyph": "^2.139.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.3.1",
         "compute-scroll-into-view": "^3.1.0",
         "lodash.debounce": "^4.0.8",
