@@ -14,6 +14,7 @@ export const Stack: FC<StackProps> = ({
     secondCard,
     size = 128,
     numberOfСards,
+    numberOfCards = numberOfСards,
     className,
     align = 'default',
     dataTestId,
@@ -42,7 +43,7 @@ export const Stack: FC<StackProps> = ({
                     {...secondCard}
                     size={secondCardSize}
                     align={align}
-                    numberOfСards={numberOfСards}
+                    numberOfCards={numberOfCards}
                     dataTestId={getDataTestId(dataTestId, 'second-card')}
                 />
             </div>

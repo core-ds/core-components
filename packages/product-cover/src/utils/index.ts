@@ -20,9 +20,9 @@ export function getProductCoverStackTestIds(dataTestId: string) {
     };
 }
 
-export const showNumberOfСards = (sizeCard: number, numberOfСards?: number, align?: string) => {
-    if (numberOfСards) {
-        return numberOfСards >= 2 && numberOfСards < 10 && sizeCard === 40 && align === 'default';
+export const showNumberOfCards = (sizeCard: number, numberOfCards?: number, align?: string) => {
+    if (numberOfCards) {
+        return numberOfCards >= 2 && numberOfCards < 10 && sizeCard === 40 && align === 'default';
     }
 
     return false;
