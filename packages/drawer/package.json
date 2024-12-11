@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-base-modal": "^5.8.5",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
