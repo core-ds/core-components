@@ -1,7 +1,7 @@
 {
     "name": "@alfalab/core-components-markdown",
     "description": "",
-    "version": "1.6.3",
+    "version": "1.6.4",
     "main": "index.js",
     "license": "MIT",
     "publishConfig": {
@@ -9,6 +9,7 @@
         "directory": "dist"
     },
     "module": "./esm/index.js",
+    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
@@ -20,7 +21,7 @@
         "@alfalab/core-components-mq": "^4.4.0",
         "@alfalab/core-components-shared": "^0.14.0",
         "tslib": "^2.4.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "mdast-util-gfm-strikethrough": "^0.2.3",
         "micromark-extension-gfm-strikethrough": "^0.6.5",
         "react-markdown": "6.0.2"

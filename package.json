@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.3.0",
+    "version": "48.5.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -71,12 +71,13 @@
         "@types/deep-equal": "^1.0.4",
         "@types/react-transition-group": "^4.4.5",
         "can-use-dom": "^0.1.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
         "date-fns": "^2.16.1",
         "deep-equal": "^2.2.3",
         "downshift": "8.4.0",
         "element-closest": "^3.0.2",
+        "hls.js": "^1.5.13",
         "intersection-observer": "^0.12.0",
         "libphonenumber-js": "^1.10.30",
         "lodash": "^4.17.21",
@@ -97,7 +98,6 @@
         "react-virtuoso": "^2.12.0",
         "recharts": "^2.1.2",
         "simplebar": "^5.3.8",
-        "hls.js": "^1.5.13",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",

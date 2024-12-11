@@ -26,6 +26,11 @@ export const custom_button: Story = {
                 backgroundColor={color('backgroundColor', '#FF45C3')}
                 contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                 stateType={select('stateType', STATE_TYPES, 'darkening')}
+                disableType={select(
+                    'disableType',
+                    ['default', 'static', 'inverted', 'static-inverted'],
+                    'default',
+                )}
                 href={text('href', '')}
                 loading={boolean('loading', false)}
                 disabled={boolean('disabled', false)}

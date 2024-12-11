@@ -14,7 +14,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "classnames": "^2.3.1"
+        "classnames": "^2.5.1"
     },
     "themesVersion": "13.6.0",
     "varsVersion": "9.16.0"
