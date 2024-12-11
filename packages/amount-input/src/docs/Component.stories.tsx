@@ -40,6 +40,7 @@ export const amount_input: Story = {
                 bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                 clear={boolean('clear', false)}
                 readOnly={boolean('readOnly', false)}
+                labelView={select('labelView', ['inner', 'outer'], 'inner')}
             />
         );
     },

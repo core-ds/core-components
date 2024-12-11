@@ -752,7 +752,7 @@ Object {
         class="component component size-48 size-48"
       >
         <span
-          class="above above label"
+          class="above size-48 above label"
         >
           <span>
             This is label
@@ -777,7 +777,7 @@ Object {
       class="component component size-48 size-48"
     >
       <span
-        class="above above label"
+        class="above size-48 above label"
       >
         <span>
           This is label

@@ -218,6 +218,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         data-test-id={getDataTestId(dataTestId, 'label')}
                         className={cn(
                             commonStyles.above,
+                            commonStyles[`size-${size}`],
                             styles.above,
                             colorCommonStyles[colors].label,
                         )}

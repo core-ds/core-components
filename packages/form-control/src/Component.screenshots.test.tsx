@@ -166,7 +166,7 @@ describe('FormControl | screenshots theme corp', () => {
     })();
 });
 
-describe('FormControl | hint and error sizes', () => {
+describe('FormControl | label, hint, error sizes', () => {
     screenshotTesting({
         cases: [
             [
@@ -176,8 +176,10 @@ describe('FormControl | hint and error sizes', () => {
                     knobs: {
                         block: true,
                         size: [40, 48, 56, 64, 72],
-                        hint: ['hint'],
+                        hint: 'hint',
                         error: ['', 'Error'],
+                        labelView: 'outer',
+                        label: 'label',
                     },
                     size: { width: 350, height: 150 },
                 }),

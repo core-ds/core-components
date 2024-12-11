@@ -31,6 +31,7 @@ export const phone_input: Story = {
                 leftAddons={boolean('leftAddons', false) && <IconComponent />}
                 rightAddons={boolean('rightAddons', false) && <IconComponent />}
                 bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+                labelView={select('labelView', ['inner', 'outer'], 'inner')}
             />
         );
     },

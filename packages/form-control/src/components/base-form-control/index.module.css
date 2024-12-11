@@ -101,6 +101,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &.size-40 {
+        @mixin paragraph_secondary_medium;
+        margin-bottom: var(--gap-4);
+    }
 }
 
 .block {
