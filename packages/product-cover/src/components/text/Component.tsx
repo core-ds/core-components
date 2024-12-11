@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Typography } from '@alfalab/core-components-typography';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
@@ -9,7 +9,7 @@ import { pluralize } from '@alfalab/utils';
 
 import { TYPOGRAPHY_VIEW_FOR_SIZE } from '../../consts';
 import { Size } from '../../typings';
-import { showNumberOfСards } from '../../utils';
+import { showNumberOfCards } from '../../utils';
 
 import styles from './index.module.css';
 
@@ -45,9 +45,15 @@ export type TextProps = {
     cardNumber?: number;
 
     /**
-     * Количество карт
+     * (Устаревший) Количество карт
+     * @deprecated Используйте 'numberOfCards'
      */
     numberOfСards?: number;
+
+    /**
+     * Количество карт
+     */
+    numberOfCards?: number;
 
     /**
      * Управление ориентацией стопки карт компонента
@@ -70,6 +76,7 @@ export const Text: React.FC<TextProps> = ({
     cardholderName,
     cardNumber,
     numberOfСards,
+    numberOfCards = numberOfСards,
     align,
     eyeButton,
     dataTestId,
@@ -77,7 +84,7 @@ export const Text: React.FC<TextProps> = ({
     onEyeIconClick,
 }) => {
     const maxSize = size === 164;
-    const visibleNumberOfСards = showNumberOfСards(size, numberOfСards, align);
+    const visibleNumberOfCards = showNumberOfCards(size, numberOfCards, align);
 
     return (
         <div className={cn(styles.component)} data-test-id={dataTestId}>
@@ -93,7 +100,7 @@ export const Text: React.FC<TextProps> = ({
                 </Typography.Text>
             ) : null}
 
-            {cardNumber && !visibleNumberOfСards ? (
+            {cardNumber && !visibleNumberOfCards ? (
                 <div className={styles.cardNumber}>
                     <Typography.Text
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
@@ -104,7 +111,7 @@ export const Text: React.FC<TextProps> = ({
                         {String(cardNumber).slice(-4)}
                     </Typography.Text>
                     {eyeButton && maxSize && (
-                        <ButtonDesktop
+                        <ButtonMobile
                             view='text'
                             className={cn(styles.buttonEye)}
                             dataTestId={getDataTestId(dataTestId, 'eye-btn')}
@@ -112,20 +119,20 @@ export const Text: React.FC<TextProps> = ({
                             colors='inverted'
                         >
                             <EyeMIcon />
-                        </ButtonDesktop>
+                        </ButtonMobile>
                     )}
                 </div>
             ) : null}
 
-            {visibleNumberOfСards && (
+            {visibleNumberOfCards && (
                 <div className={styles.cardNumber}>
                     <Typography.Text
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
                         weight='medium'
                         color='static-primary-dark'
                     >
-                        {`+${numberOfСards}\u00A0`}
-                        {pluralize(numberOfСards || 0, 'карта', 'карты', 'карт')}
+                        {`+${numberOfCards}\u00A0`}
+                        {pluralize(numberOfCards || 0, 'карта', 'карты', 'карт')}
                     </Typography.Text>
                 </div>
             )}

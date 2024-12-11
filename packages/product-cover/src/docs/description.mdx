@@ -143,11 +143,11 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [numberOfСards, setNumberOfСards] = React.useState('2');
+    const [numberOfCards, setNumberOfCards] = React.useState('2');
     const [sizeAndAlignCard, setSizeAndAlignCard] = React.useState('128-default');
 
-    const onChangeNumberOfСards = (_, payload) => {
-        setNumberOfСards(payload.value);
+    const onChangeNumberOfCards = (_, payload) => {
+        setNumberOfCards(payload.value);
     };
 
     const onChangeSizeCard = (_, payload) => {
@@ -185,7 +185,7 @@ render(() => {
     };
 
     const secondCard = {
-        ...(numberOfСards === '2' && {
+        ...(numberOfCards === '2' && {
             baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
@@ -204,7 +204,7 @@ render(() => {
                         align={alignCard}
                         firstCard={firstCard}
                         secondCard={secondCard}
-                        numberOfСards={sizeCard === 16 ? 3 : CARD_COUNT[numberOfСards]}
+                        numberOfCards={sizeCard === 16 ? 3 : CARD_COUNT[numberOfCards]}
                     />
                 </Col>
             </Row>
@@ -240,8 +240,8 @@ render(() => {
                 <RadioGroup
                     label='Количество карт'
                     name='radioGroup'
-                    onChange={onChangeNumberOfСards}
-                    value={numberOfСards}
+                    onChange={onChangeNumberOfCards}
+                    value={numberOfCards}
                 >
                     <Radio label='Две' value='2' size='m' />
                     <Radio label='Больше двух' value='3' size='m' />
