@@ -27,10 +27,5 @@
         & + * {
             margin-left: 6px;
         }
-
-        & .clearIcon {
-            width: 16px;
-            height: 16px;
-        }
     }
 }

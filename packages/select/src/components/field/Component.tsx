@@ -104,7 +104,7 @@ export const Field = ({
                     {...restProps}
                     {...innerProps}
                 >
-                    <div className={styles.contentWrapper}>
+                    <div className={cn(styles.contentWrapper, styles[`size-${size}`])}>
                         {showPlaceholder && (
                             <span
                                 className={cn(styles.placeholder, {
@@ -115,13 +115,7 @@ export const Field = ({
                             </span>
                         )}
                         {filled && (
-                            <div
-                                className={cn(styles.value, {
-                                    [styles['size-40']]: size === 40,
-                                })}
-                            >
-                                {value}
-                            </div>
+                            <div className={cn(styles.value, styles[`size-${size}`])}>{value}</div>
                         )}
                     </div>
                 </FormControlComponent>
