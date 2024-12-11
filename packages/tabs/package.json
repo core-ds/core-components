@@ -11,7 +11,7 @@
         "directory": "dist"
     },
     "devDependencies": {
-        "@types/lodash.debounce": "^4.0.6"
+        "@types/lodash": "^4.17.13"
     },
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^4.1.0",
@@ -26,7 +26,7 @@
         "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
-        "lodash.debounce": "^4.0.8",
+        "lodash": "^4.17.21",
         "@juggle/resize-observer": "^3.3.1",
         "tslib": "^2.4.0"
     },
