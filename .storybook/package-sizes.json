@@ -46,10 +46,10 @@
     },
     "tabs": {
         "collapsible.js": 153.9,
-        "desktop.js": 37.3,
-        "index.js": 38.6,
-        "mobile.js": 37.3,
-        "shared.js": 30.6
+        "desktop.js": 38.4,
+        "index.js": 39.7,
+        "mobile.js": 38.5,
+        "shared.js": 31.7
     },
     "table": {
         "index.js": 172.6
@@ -255,8 +255,8 @@
     },
     "international-phone-input": {
         "desktop.js": 470.2,
-        "index.js": 609.1,
-        "mobile.js": 581.1,
+        "index.js": 612.2,
+        "mobile.js": 584.2,
         "shared.js": 2.9
     },
     "input": {
@@ -267,8 +267,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 157.4,
-        "index.js": 309.3,
-        "mobile.js": 281.8,
+        "index.js": 312.4,
+        "mobile.js": 284.9,
         "shared.js": 2
     },
     "indicator": {
@@ -361,7 +361,7 @@
         "index.js": 9.1
     },
     "collapse": {
-        "index.js": 17.1
+        "index.js": 18.3
     },
     "code-input": {
         "desktop.js": 4.4,
