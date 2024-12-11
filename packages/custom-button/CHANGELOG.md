@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.11.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1452](https://github.com/core-ds/core-components/pull/1452)
+
+-   Изменены цвета заблокированного состояния
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
 ## 3.10.2
 
 ### Patch Changes

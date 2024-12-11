@@ -1,3 +1,64 @@
+## 48.5.0
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1454](https://github.com/core-ds/core-components/pull/1454)
+
+#### Что изменилось
+- Добавлен размер 72
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#1446](https://github.com/core-ds/core-components/pull/1446)
+
+#### Что изменилось
+- Изменены цвета для hint
+- Изменена высота строки для размера 48, 56
+- Добавлена минимальная высота для размера 48, 56
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#1460](https://github.com/core-ds/core-components/pull/1460)
+
+#### Что изменилось
+- Добавлены пропсы для передачи кастомного текста в кнопки мобильного календаря
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#1439](https://github.com/core-ds/core-components/pull/1439)
+
+#### Что изменилось
+- Исправлено выравнивание `title` при отсутствии аддона слева
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+### [#1452](https://github.com/core-ds/core-components/pull/1452)
+
+#### Что изменилось
+- Изменены цвета заблокированного состояния
+
+#### Влияние на компоненты
+- Минорное<br />`custom-button`
+
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+#### Что изменилось
+- Добавлено sideEffects: false
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `alert` `amount` `amount-input` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `calendar-input` `calendar-range` `calendar-with-skeleton` `custom-picker-button` `gallery`<br /> `input` `input-autocomplete` `international-phone-input` `intl-phone-input` `markdown`<br /> `picker-button` `plate` `select` `select-with-tags` `universal-date-input`<br />
+
+
+
 ## 48.4.0
 
 <sup><time>06.12.2024</time></sup>

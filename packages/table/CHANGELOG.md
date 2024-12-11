@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   select@17.17.5
+
 ## 2.8.0
 
 ### Minor Changes

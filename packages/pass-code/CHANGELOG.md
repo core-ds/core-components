@@ -1,5 +1,12 @@
 # @alfalab/core-components-pass-code
 
+## 2.4.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
 ## 2.4.7
 
 ### Patch Changes

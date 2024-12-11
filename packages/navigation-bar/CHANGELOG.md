@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.2.10
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1439](https://github.com/core-ds/core-components/pull/1439)
+
+``Исправлено выравнивание`title` при отсутствии аддона слева
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
 ## 1.2.9
 
 ### Patch Changes
