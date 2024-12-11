@@ -87,7 +87,7 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
           class="input"
         >
           <input
-            class="input input"
+            class="input size-56 input"
             type="tel"
             value="+7 111 111 11 11"
           />

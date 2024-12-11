@@ -6,6 +6,7 @@ import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { Input } from '@alfalab/core-components-input';
 import { InputMobile } from '@alfalab/core-components-input/mobile';
 import { InputDesktop } from '@alfalab/core-components-input/desktop';
+import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
 
 const meta: Meta<typeof Input> = {
     title: 'Components/Input',
@@ -19,6 +20,10 @@ export const input: Story = {
     name: 'Input',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select('size', [40, 48, 56, 64, 72], 48);
+
+        const IconComponent = size == 40 ? DiamondsSIcon : StarMIcon;
+
         return (
             <div
                 style={{
@@ -43,7 +48,7 @@ export const input: Story = {
                     value={text('value', '')}
                     block={boolean('block', false)}
                     clear={boolean('clear', false)}
-                    size={select('size', [40, 48, 56, 64, 72], 48)}
+                    size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     placeholder={text('placeholder', '')}
@@ -52,8 +57,8 @@ export const input: Story = {
                     hint={text('hint', '')}
                     error={text('error', '')}
                     success={boolean('success', false)}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                    leftAddons={boolean('leftAddons', false) && <IconComponent />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                     readOnly={boolean('readOnly', false)}
                     disableUserInput={boolean('disableUserInput', false)}
@@ -67,6 +72,10 @@ export const input_mobile: Story = {
     name: 'InputMobile',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select('size', [40, 48, 56, 64, 72], 48);
+
+        const IconComponent = size == 40 ? DiamondsSIcon : StarMIcon;
+
         return (
             <div
                 style={{
@@ -91,7 +100,7 @@ export const input_mobile: Story = {
                     value={text('value', '')}
                     block={boolean('block', false)}
                     clear={boolean('clear', false)}
-                    size={select('size', [40, 48, 56, 64, 72], 48)}
+                    size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     placeholder={text('placeholder', '')}
@@ -100,8 +109,8 @@ export const input_mobile: Story = {
                     hint={text('hint', '')}
                     error={text('error', '')}
                     success={boolean('success', false)}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                    leftAddons={boolean('leftAddons', false) && <IconComponent />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                     readOnly={boolean('readOnly', false)}
                 />
@@ -114,6 +123,10 @@ export const input_desktop: Story = {
     name: 'InputDesktop',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select('size', [40, 48, 56, 64, 72], 48);
+
+        const IconComponent = size == 40 ? DiamondsSIcon : StarMIcon;
+
         return (
             <div
                 style={{
@@ -138,7 +151,7 @@ export const input_desktop: Story = {
                     value={text('value', '')}
                     block={boolean('block', false)}
                     clear={boolean('clear', false)}
-                    size={select('size', [40, 48, 56, 64, 72], 48)}
+                    size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     placeholder={text('placeholder', '')}
@@ -147,8 +160,8 @@ export const input_desktop: Story = {
                     hint={text('hint', '')}
                     error={text('error', '')}
                     success={boolean('success', false)}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                    leftAddons={boolean('leftAddons', false) && <IconComponent />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                     readOnly={boolean('readOnly', false)}
                 />

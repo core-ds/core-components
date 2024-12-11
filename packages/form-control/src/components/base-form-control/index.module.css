@@ -121,11 +121,6 @@
     }
 
     & .addons {
-        & > svg {
-            width: 16px;
-            height: 16px;
-        }
-
         &.rightAddons {
             padding-right: var(--gap-8);
         }

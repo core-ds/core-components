@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
+import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
 import { BaseInputProps } from '../base-input';
 
@@ -31,24 +32,22 @@ export const ClearButton: React.FC<ClearButtonProps> = ({
     onClick,
     dataTestId,
     size,
-}) => (
-    <Button
-        type='button'
-        view='text'
-        disabled={disabled}
-        aria-label='Очистить'
-        className={cn(styles.clearButton, {
-            [styles['size-40']]: size === 40,
-        })}
-        onClick={onClick}
-        tabIndex={-1}
-        onMouseDown={preventDefault}
-        dataTestId={dataTestId}
-    >
-        <CrossCircleMIcon
-            className={cn(styles.clearIcon, colorStyles[colors].clearIcon, {
-                [styles['size-40']]: size === 40,
-            })}
-        />
-    </Button>
-);
+}) => {
+    const IconComponent = size === 40 ? CrossCircleSIcon : CrossCircleMIcon;
+
+    return (
+        <Button
+            type='button'
+            view='text'
+            disabled={disabled}
+            aria-label='Очистить'
+            className={cn(styles.clearButton, styles[`size-${size}`])}
+            onClick={onClick}
+            tabIndex={-1}
+            onMouseDown={preventDefault}
+            dataTestId={dataTestId}
+        >
+            <IconComponent className={cn(styles.clearIcon, colorStyles[colors].clearIcon)} />
+        </Button>
+    );
+};

@@ -6,13 +6,6 @@
     transition: opacity 0.2s ease;
 }
 
-.clearIcon {
-    &.size-40 {
-        width: 16px;
-        height: 16px;
-    }
-}
-
 .clearButton {
     & + * {
         margin-left: var(--gap-4);

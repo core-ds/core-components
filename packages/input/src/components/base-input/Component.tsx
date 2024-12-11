@@ -380,9 +380,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                         {rightAddons}
                         {error && (
                             <div
-                                className={cn(styles.errorIcon, {
-                                    [styles['size-40']]: size === 40,
-                                })}
+                                className={cn(styles.errorIcon, styles[`size-${size}`])}
                                 data-addon='error-icon'
                             >
                                 <StatusBadge
@@ -393,11 +391,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             </div>
                         )}
                         {success && !error && (
-                            <div
-                                className={cn(styles.successIcon, {
-                                    [styles['size-40']]: size === 40,
-                                })}
-                            >
+                            <div className={cn(styles.successIcon, styles[`size-${size}`])}>
                                 <StatusBadge
                                     view='positive-checkmark'
                                     size={size === 40 ? 16 : 20}
@@ -444,15 +438,13 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     {...restProps}
                     className={cn(
                         styles.input,
+                        styles[`size-${size}`],
                         colorCommonStyles[colors].input,
                         {
                             [styles.disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].disableUserInput]: disableUserInput,
-
                             [colorCommonStyles[colors].error]: error,
-
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
-                            [styles['size-40']]: size === 40,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },
