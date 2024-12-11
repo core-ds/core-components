@@ -6,8 +6,8 @@ import { createPaddingStyle, getDataTestId } from '@alfalab/core-components-shar
 import { PaddingType } from '../../../../types';
 import { SystemMessageContext } from '../../Context';
 
-import type desktopStyles from './desktop.module.css';
-import type mobileStyles from './mobile.module.css';
+import type desktopStyles from './desktop/desktop.module.css';
+import type mobileStyles from './mobile/mobile.module.css';
 
 import styles from './index.module.css';
 
