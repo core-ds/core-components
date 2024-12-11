@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.11.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1446](https://github.com/core-ds/core-components/pull/1446)
+
+-   Изменены цвета для hint
+-   Изменена высота строки для размера 48, 56
+-   Добавлена минимальная высота для размера 48, 56
+
 ## 11.10.2
 
 ### Patch Changes
