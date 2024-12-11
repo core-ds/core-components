@@ -18,8 +18,11 @@
         "@alfalab/icons-glyph": "^2.139.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
-        "lodash.debounce": "^4.0.8",
+        "lodash": "^4.17.21",
         "tslib": "^2.4.0"
+    },
+    "devDependencies": {
+        "@types/lodash": "^4.17.13"
     },
     "themesVersion": "13.6.0",
     "varsVersion": "9.16.0"
