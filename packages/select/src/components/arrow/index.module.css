@@ -8,6 +8,11 @@
     color: var(--select-arrow-color);
 
     transition: transform 0.15s ease-in-out, opacity 0.2s ease;
+
+    &.size-40 {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .open {

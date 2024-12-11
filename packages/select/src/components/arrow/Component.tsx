@@ -9,11 +9,11 @@ import { ArrowProps } from '../../typings';
 import styles from './index.module.css';
 
 export const Arrow = ({ open, className, size }: ArrowProps) => {
-    if (size && size === 40) {
-        return (
-            <ChevronDownSIcon className={cn(styles.arrow, className, { [styles.open]: open })} />
-        );
-    }
+    const ChevronComponent = size === 40 ? ChevronDownSIcon : ChevronDownMIcon;
 
-    return <ChevronDownMIcon className={cn(styles.arrow, className, { [styles.open]: open })} />;
+    return (
+        <ChevronComponent
+            className={cn(styles.arrow, className, styles[`size-${size}`], { [styles.open]: open })}
+        />
+    );
 };

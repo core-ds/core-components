@@ -71,7 +71,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
                     </span>
                   </span>
                   <svg
-                    class="arrow"
+                    class="arrow size-m"
                     fill="currentColor"
                     focusable="false"
                     height="24"
