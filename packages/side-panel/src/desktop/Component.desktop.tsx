@@ -102,9 +102,21 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
     },
 );
 
+const HeaderCustomType = Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>;
+const ControlsCustomType = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
+
+/** @deprecated Используйте атомарные импорты */
 export const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {
     Content: ContentDesktop,
-    Header: Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>,
+    Header: HeaderCustomType,
     Footer: FooterDesktop,
-    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
+    Controls: ControlsCustomType,
 });
+
+export {
+    SidePanelDesktopComponent,
+    ContentDesktop as Content,
+    HeaderCustomType as Header,
+    FooterDesktop as Footer,
+    ControlsCustomType as Controls,
+};

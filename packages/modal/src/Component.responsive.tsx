@@ -30,11 +30,14 @@ const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps
     },
 );
 
+/** @deprecated Используйте атомарные импорты */
 export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
     Header,
     Content,
     Footer,
     Controls,
 });
+
+export { ModalResponsiveComponent, Header, Content, Footer, Controls };
 
 ModalResponsiveComponent.displayName = 'ModalResponsiveComponent';

@@ -219,10 +219,14 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
     },
 );
 
+const FooterTextCustomType = FooterText as React.FC<FooterTextProps>;
+
 /**
  * Универсальный конструктор для сборки любой ячейки.
  *
  * [Макет](https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=43525%3A240018)
+ *
+ * @deprecated Используйте атомарные импорты
  */
 export const PureCell = Object.assign(PureCellComponent, {
     Main,
@@ -233,10 +237,26 @@ export const PureCell = Object.assign(PureCellComponent, {
     AmountTitle,
     Addon,
     Footer,
-    ExtraSubtitle: FooterText as React.FC<FooterTextProps>,
+    ExtraSubtitle: FooterTextCustomType,
     FooterButton,
     Comment,
     Category,
 });
+
+export {
+    PureCellComponent,
+    Main,
+    Graphics,
+    Comment,
+    Text,
+    Amount,
+    AmountTitle,
+    Addon,
+    Footer,
+    FooterTextCustomType as ExtraSubtitle,
+    FooterButton,
+    Content,
+    Category,
+};
 
 PureCellComponent.displayName = 'PureCellComponent';

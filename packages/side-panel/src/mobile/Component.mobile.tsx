@@ -55,9 +55,20 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
     },
 );
 
+const ControlsCustomType = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
+
+/** @deprecated Используйте атомарные импорты */
 export const SidePanelMobile = Object.assign(SidePanelMobileComponent, {
     Content: ContentMobile,
     Header,
     Footer: FooterMobile,
-    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
+    Controls: ControlsCustomType,
 });
+
+export {
+    SidePanelMobileComponent,
+    ContentMobile as Content,
+    Header,
+    FooterMobile as Footer,
+    ControlsCustomType as Controls,
+};
