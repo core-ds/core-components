@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { PassCodeDesktop } from './desktop/PassCodeDesktop';
-import { PassCodeMobile } from './mobile/PassCodeMobile';
+import { PassCodeDesktop } from './desktop';
+import { PassCodeMobile } from './mobile';
 import { PassCodeProps } from './typings';
 
 export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
