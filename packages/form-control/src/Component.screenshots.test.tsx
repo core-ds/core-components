@@ -165,3 +165,26 @@ describe('FormControl | screenshots theme corp', () => {
         theme: 'corp',
     })();
 });
+
+describe('FormControl | hint and error sizes', () => {
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'FormControl',
+                    knobs: {
+                        block: true,
+                        size: [40, 48, 56, 64, 72],
+                        hint: ['hint'],
+                        error: ['', 'Error'],
+                    },
+                    size: { width: 350, height: 150 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+    })();
+});

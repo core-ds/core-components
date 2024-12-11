@@ -322,6 +322,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         data-test-id={getDataTestId(dataTestId, 'error-message')}
                         className={cn(
                             commonStyles.sub,
+                            commonStyles[`size-${size}`],
                             styles.error,
                             colorCommonStyles[colors].error,
                         )}
@@ -334,7 +335,12 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                 {hint && !errorMessage && (
                     <span
                         data-test-id={getDataTestId(dataTestId, 'hint')}
-                        className={cn(commonStyles.sub, styles.sub, colorCommonStyles[colors].hint)}
+                        className={cn(
+                            commonStyles.sub,
+                            commonStyles[`size-${size}`],
+                            styles.sub,
+                            colorCommonStyles[colors].hint,
+                        )}
                     >
                         {hint}
                     </span>

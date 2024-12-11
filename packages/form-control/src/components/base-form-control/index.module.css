@@ -86,6 +86,11 @@
 .sub {
     @mixin paragraph_component_secondary;
     @mixin form-control-sub;
+
+    &.size-40 {
+        @mixin paragraph_secondary_medium;
+        margin-top: var(--gap-4);
+    }
 }
 
 .above {
