@@ -1,1 +1,0 @@
-export { TitleMobile } from '../packages/typography/src/index.ts';

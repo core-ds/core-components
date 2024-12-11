@@ -1,1 +1,0 @@
-export { UniversalDateInputProps } from '../packages/universal-date-input/src/index.ts';

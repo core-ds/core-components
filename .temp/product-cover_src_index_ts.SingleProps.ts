@@ -1,1 +1,0 @@
-export { SingleProps } from '../packages/product-cover/src/index.ts';

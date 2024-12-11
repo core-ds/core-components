@@ -1,1 +1,0 @@
-export { useIsMounted } from '../packages/shared/src/index.ts';

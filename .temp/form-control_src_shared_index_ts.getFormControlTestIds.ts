@@ -1,1 +1,0 @@
-export { getFormControlTestIds } from '../packages/form-control/src/shared/index.ts';

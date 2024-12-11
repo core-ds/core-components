@@ -1,1 +1,0 @@
-export { KeyPadButton } from '../packages/pass-code-v1/src/index.ts';

@@ -1,1 +1,0 @@
-export { InputAutocompleteMobile } from '../packages/input-autocomplete/src/mobile/index.ts';

@@ -1,1 +1,0 @@
-export { hasScrollbar } from '../packages/base-modal/src/index.ts';

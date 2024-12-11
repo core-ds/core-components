@@ -1,1 +1,0 @@
-export { createMaskOptions } from '../packages/international-phone-input/src/shared/index.ts';

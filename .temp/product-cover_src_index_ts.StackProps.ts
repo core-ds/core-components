@@ -1,1 +1,0 @@
-export { StackProps } from '../packages/product-cover/src/index.ts';

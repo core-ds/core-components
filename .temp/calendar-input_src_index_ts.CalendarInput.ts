@@ -1,1 +1,0 @@
-export { CalendarInput } from '../packages/calendar-input/src/index.ts';

@@ -1,1 +1,0 @@
-export { SelectMobile } from '../packages/select/src/mobile/index.ts';

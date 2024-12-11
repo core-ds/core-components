@@ -1,1 +1,0 @@
-export { Modal } from '../packages/modal/src/index.ts';

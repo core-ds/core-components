@@ -1,1 +1,0 @@
-export { ModalMobileProps } from '../packages/modal/src/mobile/index.ts';

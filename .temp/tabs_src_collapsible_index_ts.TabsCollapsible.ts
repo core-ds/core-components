@@ -1,1 +1,0 @@
-export { TabsCollapsible } from '../packages/tabs/src/collapsible/index.ts';

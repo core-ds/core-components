@@ -1,1 +1,0 @@
-export { useVisibleOptions } from '../packages/select/src/shared/index.ts';

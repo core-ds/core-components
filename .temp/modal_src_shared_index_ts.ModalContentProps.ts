@@ -1,1 +1,0 @@
-export { ModalContentProps } from '../packages/modal/src/shared/index.ts';

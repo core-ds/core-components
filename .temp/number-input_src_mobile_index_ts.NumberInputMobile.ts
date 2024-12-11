@@ -1,1 +1,0 @@
-export { NumberInputMobile } from '../packages/number-input/src/mobile/index.ts';

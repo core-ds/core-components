@@ -1,1 +1,0 @@
-export { MarkdownMobileProps } from '../packages/markdown/src/mobile/index.ts';

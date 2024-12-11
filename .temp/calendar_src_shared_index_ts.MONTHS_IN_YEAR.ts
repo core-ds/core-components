@@ -1,1 +1,0 @@
-export { MONTHS_IN_YEAR } from '../packages/calendar/src/shared/index.ts';

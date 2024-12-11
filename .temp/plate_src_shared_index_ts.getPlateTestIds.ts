@@ -1,1 +1,0 @@
-export { getPlateTestIds } from '../packages/plate/src/shared/index.ts';

@@ -1,1 +1,0 @@
-export { CloserProps } from '../packages/navigation-bar-private/src/shared/index.ts';

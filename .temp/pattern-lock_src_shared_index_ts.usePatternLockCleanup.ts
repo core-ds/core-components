@@ -1,1 +1,0 @@
-export { usePatternLockCleanup } from '../packages/pattern-lock/src/shared/index.ts';

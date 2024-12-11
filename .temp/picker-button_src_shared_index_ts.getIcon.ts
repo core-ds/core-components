@@ -1,1 +1,0 @@
-export { getIcon } from '../packages/picker-button/src/shared/index.ts';

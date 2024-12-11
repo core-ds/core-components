@@ -1,1 +1,0 @@
-export { SUNDAY_INDEX } from '../packages/calendar/src/shared/index.ts';

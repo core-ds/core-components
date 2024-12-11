@@ -1,1 +1,0 @@
-export { generateWeeks } from '../packages/calendar/src/shared/index.ts';

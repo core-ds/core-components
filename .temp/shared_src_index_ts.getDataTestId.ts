@@ -1,1 +1,0 @@
-export { getDataTestId } from '../packages/shared/src/index.ts';

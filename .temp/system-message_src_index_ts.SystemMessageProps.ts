@@ -1,1 +1,0 @@
-export { SystemMessageProps } from '../packages/system-message/src/index.ts';

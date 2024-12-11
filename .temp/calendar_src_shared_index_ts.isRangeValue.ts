@@ -1,1 +1,0 @@
-export { isRangeValue } from '../packages/calendar/src/shared/index.ts';

@@ -1,1 +1,0 @@
-export { getProductCoverSingleTestIds } from '../packages/product-cover/src/shared/index.ts';

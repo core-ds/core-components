@@ -1,1 +1,0 @@
-export { THEME_STATE } from '../packages/pattern-lock-v1/src/index.ts';

@@ -98,7 +98,7 @@
     min-width: 104px;
     min-height: var(--size-s-height);
     font-size: 16px;
-    line-height: 24px;
+    line-height: 20px;
 
     &.iconOnly {
         min-width: var(--size-s-height);
@@ -110,7 +110,7 @@
     min-height: var(--size-m-height);
     padding: var(--gap-0) 27px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 20px;
 
     &.iconOnly {
         min-width: var(--size-m-height);
@@ -218,6 +218,13 @@
 
     &.iconOnly {
         min-width: 0;
+    }
+}
+
+.text.text {
+    &.size-48,
+    &.size-56 {
+        min-height: 24px;
     }
 }
 

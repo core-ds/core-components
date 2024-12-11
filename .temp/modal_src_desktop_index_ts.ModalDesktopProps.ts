@@ -1,1 +1,0 @@
-export { ModalDesktopProps } from '../packages/modal/src/desktop/index.ts';

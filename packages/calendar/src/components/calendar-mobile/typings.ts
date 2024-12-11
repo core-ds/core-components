@@ -68,5 +68,23 @@ export type CalendarMobileProps = {
      * При клике на месяц будут выбраны все доступные дни месяца
      */
     clickableMonth?: boolean;
+
+    /**
+     * Контент кнопки "Отмена"
+     * @default Отмена
+     */
+    cancelButtonContent?: string;
+
+    /**
+     * Контент кнопки "Выбрать"
+     * @default Выбрать
+     */
+    selectButtonContent?: string;
+
+    /**
+     * Контент кнопки "Сбросить"
+     * @default Сбросить
+     */
+    resetButtonContent?: string;
 } & CalendarContentProps &
     Pick<CalendarDesktopProps, OmittedCalendarContentProps>;

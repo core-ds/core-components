@@ -1,1 +1,0 @@
-export { TagProps } from '../packages/tag/src/index.ts';

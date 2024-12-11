@@ -1,1 +1,0 @@
-export { getNumberInputTestIds } from '../packages/number-input/src/shared/index.ts';

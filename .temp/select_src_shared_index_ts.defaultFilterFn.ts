@@ -1,1 +1,0 @@
-export { defaultFilterFn } from '../packages/select/src/shared/index.ts';

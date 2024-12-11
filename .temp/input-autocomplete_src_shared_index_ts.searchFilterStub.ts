@@ -1,1 +1,0 @@
-export { searchFilterStub } from '../packages/input-autocomplete/src/shared/index.ts';

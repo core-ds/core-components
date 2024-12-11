@@ -1,1 +1,0 @@
-export { PatternLockMobile } from '../packages/pattern-lock/src/mobile/index.ts';

@@ -1,1 +1,0 @@
-export { getInputAutocompleteDesktopTestIds } from '../packages/input-autocomplete/src/shared/index.ts';

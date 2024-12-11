@@ -1,1 +1,0 @@
-export { SelectModalMobileProps } from '../packages/select/src/mobile/index.ts';

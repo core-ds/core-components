@@ -1,1 +1,0 @@
-export { StatusBadgeIcon } from '../packages/status-badge/src/index.ts';

@@ -1,1 +1,0 @@
-export { TitleDesktop } from '../packages/typography/src/index.ts';

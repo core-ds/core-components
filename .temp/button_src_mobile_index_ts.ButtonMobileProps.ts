@@ -1,1 +1,0 @@
-export { ButtonMobileProps } from '../packages/button/src/mobile/index.ts';

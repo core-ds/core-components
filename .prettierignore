@@ -2,9 +2,3 @@ __testfixtures__
 colors-bluetint.css
 colors-indigo.css
 colors-addons.css
-dist/
-tsconfig.json
-package.json
-transform.ts
-*.test.*
-*.stories.tsx

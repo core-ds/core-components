@@ -1,1 +1,0 @@
-export { TitleProps } from '../packages/typography/src/index.ts';

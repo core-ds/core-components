@@ -112,12 +112,7 @@ const es5 = {
             format: 'cjs',
             interop: 'compat',
             dynamicImportInCjs: false,
-            plugins: [addCssImports({ currentPackageDir }), packagesTypingResolver(),
-				// commonjs({
-				// 	include: /node_modules/,
-				// 	requireReturnsDefault: 'auto',
-				// })
-			],
+            plugins: [addCssImports({ currentPackageDir }), packagesTypingResolver()],
             hoistTransitiveImports: false,
         },
     ],

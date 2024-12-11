@@ -1,1 +1,0 @@
-export { SelectWithTagsDesktop } from '../packages/select-with-tags/src/desktop/index.ts';

@@ -1,1 +1,0 @@
-export { getSelectionRange } from '../packages/calendar/src/shared/index.ts';

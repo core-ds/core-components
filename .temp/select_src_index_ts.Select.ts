@@ -1,1 +1,0 @@
-export { Select } from '../packages/select/src/index.ts';

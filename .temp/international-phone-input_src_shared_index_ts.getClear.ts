@@ -1,1 +1,0 @@
-export { getClear } from '../packages/international-phone-input/src/shared/index.ts';

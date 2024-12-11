@@ -1,1 +1,0 @@
-export { UniversalDateInputDesktopProps } from '../packages/universal-date-input/src/desktop/index.ts';

@@ -1,1 +1,0 @@
-export { NumberInputMobileProps } from '../packages/number-input/src/mobile/index.ts';

@@ -1,1 +1,0 @@
-export { COLORS } from '../packages/status/src/index.ts';

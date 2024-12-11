@@ -1,1 +1,0 @@
-export { Calendar } from '../packages/calendar/src/index.ts';

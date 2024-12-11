@@ -1,1 +1,0 @@
-export { getPureCellTestIds } from '../packages/pure-cell/src/shared/index.ts';

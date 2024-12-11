@@ -1,1 +1,0 @@
-export { TestIds } from '../packages/gallery/src/index.ts';

@@ -1,1 +1,0 @@
-export { SelectMobileProps } from '../packages/select/src/mobile/index.ts';

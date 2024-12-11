@@ -1,1 +1,0 @@
-export { Text } from '../packages/typography/src/index.ts';

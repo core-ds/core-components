@@ -1,1 +1,0 @@
-export { useTabs } from '../packages/tabs/src/shared/index.ts';

@@ -1,1 +1,0 @@
-export { SystemMessageMobile } from '../packages/system-message/src/mobile/index.ts';

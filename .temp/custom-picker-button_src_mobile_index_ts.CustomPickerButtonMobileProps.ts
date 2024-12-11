@@ -1,1 +1,0 @@
-export { CustomPickerButtonMobileProps } from '../packages/custom-picker-button/src/mobile/index.ts';

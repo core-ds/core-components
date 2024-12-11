@@ -1,1 +1,0 @@
-export { useIsDesktop } from '../packages/mq/src/index.ts';

@@ -1,1 +1,0 @@
-export { Title } from '../packages/typography/src/index.ts';

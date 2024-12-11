@@ -1,1 +1,0 @@
-export { InputAutocompleteDesktop } from '../packages/input-autocomplete/src/desktop/index.ts';

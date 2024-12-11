@@ -1,1 +1,0 @@
-export { HEADER_OFFSET } from '../packages/bottom-sheet/src/index.ts';

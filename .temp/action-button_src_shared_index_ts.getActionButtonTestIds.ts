@@ -1,1 +1,0 @@
-export { getActionButtonTestIds } from '../packages/action-button/src/shared/index.ts';

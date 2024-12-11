@@ -1,1 +1,0 @@
-export { SystemMessageDesktop } from '../packages/system-message/src/desktop/index.ts';
