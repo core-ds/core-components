@@ -292,11 +292,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                                 </div>
                             </React.Fragment>
                         )}
-                        <div
-                            className={cn(commonStyles.input, {
-                                [commonStyles['size-40']]: size === 40,
-                            })}
-                        >
+                        <div className={cn(commonStyles.input, commonStyles[`size-${size}`])}>
                             {children}
                         </div>
                     </div>

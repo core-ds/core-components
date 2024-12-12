@@ -15,7 +15,7 @@ exports[`DateTimeInput Display tests should match snapshot 1`] = `
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           >
             <input
               class="input size-48 input"

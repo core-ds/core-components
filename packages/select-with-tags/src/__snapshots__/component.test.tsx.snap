@@ -22,7 +22,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-72"
             >
               <div
                 class="contentWrapper"
@@ -86,7 +86,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-72"
             >
               <div
                 class="contentWrapper hasTags"

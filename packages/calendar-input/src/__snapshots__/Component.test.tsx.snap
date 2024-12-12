@@ -16,7 +16,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           >
             <input
               autocomplete="off"
@@ -86,7 +86,7 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <input
                   autocomplete="off"
@@ -148,7 +148,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <input
                 autocomplete="off"
@@ -263,7 +263,7 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <input
                   autocomplete="off"
@@ -321,7 +321,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <input
                 autocomplete="off"

@@ -15,7 +15,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <input
                 class="input size-48 input"
@@ -39,7 +39,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           >
             <input
               class="input size-48 input"

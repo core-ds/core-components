@@ -6,6 +6,7 @@ import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 import { Select as SelectResponsive } from '@alfalab/core-components-select';
 import { SelectMobile, SelectModalMobile } from '@alfalab/core-components-select/mobile';
 import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
+import { BaseOption } from '../components';
 
 const options = [
     { key: '1', content: 'Neptunium' },
@@ -66,6 +67,7 @@ export const select: Story = {
         const allowUnselect = boolean('allowUnselect', true);
         const closeOnSelect = boolean('closeOnSelect', true);
         const Arrow = boolean('Arrow', true) ? ArrowComponent : () => null;
+        const Option = boolean('Default Option', true) ? undefined : BaseOption;
         const circularNavigation = boolean('circularNavigation', false);
         const nativeSelect = boolean('nativeSelect', false);
         const placeholder = text('placeholder', 'Выберите элемент');
@@ -91,6 +93,7 @@ export const select: Story = {
                     allowUnselect={allowUnselect}
                     closeOnSelect={closeOnSelect}
                     Arrow={Arrow}
+                    Option={Option}
                     circularNavigation={circularNavigation}
                     nativeSelect={nativeSelect}
                     placeholder={placeholder}
@@ -174,6 +177,7 @@ export const select_responsive: Story = {
         const allowUnselect = boolean('allowUnselect', true);
         const closeOnSelect = boolean('closeOnSelect', true);
         const Arrow = boolean('Arrow', true) ? ArrowComponent : () => null;
+        const Option = boolean('Default Option', true) ? undefined : BaseOption;
         const circularNavigation = boolean('circularNavigation', false);
         const nativeSelect = boolean('nativeSelect', false);
         const placeholder = text('placeholder', 'Выберите элемент');
@@ -199,6 +203,7 @@ export const select_responsive: Story = {
                     allowUnselect={allowUnselect}
                     closeOnSelect={closeOnSelect}
                     Arrow={Arrow}
+                    Option={Option}
                     circularNavigation={circularNavigation}
                     nativeSelect={nativeSelect}
                     placeholder={placeholder}

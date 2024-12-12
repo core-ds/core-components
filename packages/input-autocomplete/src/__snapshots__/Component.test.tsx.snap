@@ -27,7 +27,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <div
                   class="contentWrapper"
@@ -70,7 +70,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <div
                   class="contentWrapper"
@@ -185,7 +185,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             class="inputWrapper"
                           >
                             <div
-                              class="input"
+                              class="input size-48"
                             >
                               <input
                                 class="input size-48 input"

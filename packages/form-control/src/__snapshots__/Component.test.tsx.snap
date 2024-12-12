@@ -15,7 +15,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -33,7 +33,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -108,7 +108,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -132,7 +132,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -213,7 +213,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -234,7 +234,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -312,7 +312,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -336,7 +336,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -417,7 +417,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -440,7 +440,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -539,7 +539,7 @@ Object {
               </span>
             </div>
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -576,7 +576,7 @@ Object {
             </span>
           </div>
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -658,7 +658,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -683,7 +683,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -765,7 +765,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -790,7 +790,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -865,7 +865,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
           <div
@@ -890,7 +890,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
         <div

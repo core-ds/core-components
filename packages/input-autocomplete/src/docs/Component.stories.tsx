@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 
-import { Arrow, OptionShape } from '@alfalab/core-components-select/shared';
+import { Arrow, BaseOption, OptionShape } from '@alfalab/core-components-select/shared';
 import {
     InputAutocomplete,
     InputAutocompleteProps,
@@ -51,6 +51,9 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
         setValue(selected ? selected.key : '');
     };
     const filteredOptions = options.filter((option) => matchOption(option, value));
+
+    const Option = boolean('Default Option', true) ? undefined : BaseOption;
+
     return (
         <Component
             {...props}
@@ -66,6 +69,7 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
             allowUnselect={boolean('allowUnselect', true)}
             closeOnSelect={boolean('closeOnSelect', false)}
             Arrow={boolean('Arrow', false) ? Arrow : undefined}
+            Option={Option}
             circularNavigation={boolean('circularNavigation', false)}
             placeholder={text('placeholder', 'Введите элемент')}
             label={text('label', 'Элемент')}

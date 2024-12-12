@@ -18,9 +18,7 @@ export const ClearButton = ({ disabled, onClick, dataTestId, size }: ClearButton
             view='text'
             disabled={disabled}
             aria-label='Очистить'
-            className={cn(styles.clearButton, {
-                [styles['size-40']]: size === 40,
-            })}
+            className={cn(styles.clearButton, styles[`size-${size}`])}
             onClick={onClick}
             tabIndex={-1}
             dataTestId={dataTestId}

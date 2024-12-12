@@ -29,7 +29,7 @@ Object {
                 class="inputWrapper"
               >
                 <div
-                  class="input"
+                  class="input size-48"
                 >
                   <div
                     class="contentWrapper size-48"
@@ -87,7 +87,7 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <div
                   class="contentWrapper size-48"
@@ -196,7 +196,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <div
                 class="contentWrapper size-48"
@@ -259,7 +259,7 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <div
                 class="contentWrapper size-48"

@@ -92,7 +92,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-m"
           >
             <input
               aria-autocomplete="list"
