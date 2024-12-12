@@ -12,7 +12,7 @@
 
     /* spacer */
     --textarea-spacer-style: solid transparent;
-    --textarea-40-spacer: 10px;
+    --textarea-40-spacer: 11px;
     --textarea-s-spacer: 14px;
     --textarea-m-spacer: 18px;
     --textarea-l-spacer: 22px;
@@ -196,6 +196,10 @@
     &.resizeVertical {
         resize: vertical;
         min-height: 48px;
+
+        &.size-40 {
+            min-height: 40px;
+        }
     }
 }
 
@@ -252,4 +256,9 @@
             border-bottom: var(--textarea-xl-filled-spacer-bottom) var(--textarea-spacer-style);
         }
     }
+}
+
+/** Нужно чтобы нативная икона resize была прижата к краю */
+.resizable-40.resizable-40 {
+    padding-right: 0;
 }
