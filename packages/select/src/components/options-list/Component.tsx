@@ -26,6 +26,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             size = 48,
             className,
             optionGroupClassName,
+            footerClassName,
             scrollbarClassName,
             Option,
             getOptionProps,
@@ -210,7 +211,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 {showFooter && footer && (
                     <div
                         onMouseEnter={resetHighlightedIndex}
-                        className={cn(styles.optionsListFooter, {
+                        className={cn(styles.optionsListFooter, footerClassName, {
                             [styles.withBorder]:
                                 visibleOptions &&
                                 flatOptions.length > visibleOptions &&
