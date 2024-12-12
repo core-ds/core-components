@@ -1,5 +1,38 @@
 # Change Log
 
+## 8.8.7
+
+### Patch Changes
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1445](https://github.com/core-ds/core-components/pull/1445)
+
+-   Повышена специфичность стилей
+
+## 8.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   form-control@12.7.2
+
+## 8.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   form-control@12.7.1
+
+## 8.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.7.0
+
 ## 8.8.3
 
 ### Patch Changes

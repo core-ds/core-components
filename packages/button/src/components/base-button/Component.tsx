@@ -160,12 +160,17 @@ export const BaseButton = React.forwardRef<
                         })}
                     >
                         {children}
-                        {showHint && <span className={commonStyles.hint}>{hint}</span>}
+                        {showHint && (
+                            <span className={cn(commonStyles.hint, colorStyles[colors].hint)}>
+                                {hint}
+                            </span>
+                        )}
                     </span>
                 )}
 
                 {showLoader && (
                     <Spinner
+                        preset={24}
                         dataTestId={getDataTestId(dataTestId, 'loader')}
                         visible={true}
                         className={cn(

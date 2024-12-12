@@ -57,6 +57,11 @@
     tslib "^2.4.0"
     ui-primitives "^13.19.0"
 
+"@alfalab/core-config@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-config/-/core-config-1.0.0.tgz#e20d7d2ad36e58b1b65a071eebeed1776ae3cf57"
+  integrity sha512-9msIAhOYlZ7Ydpf490P1694Oc60UmsodJpDeAvhQ84XzWzGc1rRH6+FWXWtzoS1tOlNlybyhR2y7Gq6Ontth3w==
+
 "@alfalab/data@^1.6.0", "@alfalab/data@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.7.0.tgz#87e1525d2b653b9312d5b008df62b13193d1dc0c"
@@ -79,6 +84,11 @@
   version "2.140.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.140.0.tgz#31cb75bf2495b082a0b8d0e3f4a8c2c47e3e2eb6"
   integrity sha512-Mee0c9tyFVKIH0yN9IuKyLa0qoYf1ybwGFkng9Iy+1OGIvgl9ecb74erg/+n/NzR7bI2AAx1yVFDS/LEHivixw==
+
+"@alfalab/icons-glyph@^2.189.0":
+  version "2.190.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.190.0.tgz#70138633b408ba0541af097238a19d802c5050a3"
+  integrity sha512-ExFc74a6OoA4iZ8Y++JGwZ9QiuwsE9tDK23zuSBHF0rJOVZrGAtPYpVqqp35ROu3dUgi5LrT39M3eQb9u1OeHw==
 
 "@alfalab/icons-logotype@^2.27.0":
   version "2.27.0"
@@ -5471,42 +5481,19 @@
   resolved "https://registry.yarnpkg.com/@types/lockfile/-/lockfile-1.0.2.tgz#3f77e84171a2b7e3198bd5717c7547a54393baf8"
   integrity sha512-jD5VbvhfMhaYN4M3qPJuhMVUg3Dfc4tvPvLEAXn6GXbs/ajDFtCQahX37GIE65ipTI3I+hEvNaXS3MYAn9Ce3Q==
 
-"@types/lodash.camelcase@^4.3.6":
-  version "4.3.6"
-  resolved "https://registry.npmjs.org/@types/lodash.camelcase/-/lodash.camelcase-4.3.6.tgz"
-  integrity sha512-hd/TEuPd76Jtf1xEq85CHbCqR+iqvs5IOKyrYbiaOg69BRQgPN9XkvLj8Jl8rBp/dfJ2wQ1AVcP8mZmybq7kIg==
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash.debounce@^4.0.6":
-  version "4.0.6"
-  resolved "https://registry.npmjs.org/@types/lodash.debounce/-/lodash.debounce-4.0.6.tgz"
-  integrity sha512-4WTmnnhCfDvvuLMaF3KV4Qfki93KebocUF45msxhYyjMttZDQYzHkO639ohhk8+oco2cluAFL3t5+Jn4mleylQ==
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash.kebabcase@^4.1.6":
-  version "4.1.6"
-  resolved "https://registry.npmjs.org/@types/lodash.kebabcase/-/lodash.kebabcase-4.1.6.tgz"
-  integrity sha512-+RAD9pCAa8kuVyCYTeDNiwBXwD/0u0p+hos3NSqD+tXTjJextbfF3farfYB+ssAKgEssoewXEtBsfwBpsI7gsA==
-  dependencies:
-    "@types/lodash" "*"
-
 "@types/lodash.throttle@^4.1.7":
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/@types/lodash.throttle/-/lodash.throttle-4.1.7.tgz#4ef379eb4f778068022310ef166625f420b6ba58"
-  integrity sha512-znwGDpjCHQ4FpLLx19w4OXDqq8+OvREa05H89obtSyXyOFKL3dDjCslsmfBz0T2FU8dmf5Wx1QvogbINiGIu9g==
+  version "4.1.9"
+  resolved "https://registry.yarnpkg.com/@types/lodash.throttle/-/lodash.throttle-4.1.9.tgz#f17a6ae084f7c0117bd7df145b379537bc9615c5"
+  integrity sha512-PCPVfpfueguWZQB7pJQK890F2scYKoDUL3iM522AptHWn7d5NQmeS/LTEHIcLr5PaTzl3dK2Z0xSUHHTHwaL5g==
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash.upperfirst@^4.3.6":
-  version "4.3.6"
-  resolved "https://registry.npmjs.org/@types/lodash.upperfirst/-/lodash.upperfirst-4.3.6.tgz"
-  integrity sha512-op4ctKkT1eD/Nt8MCPlN7O2IQrYWIcH1rOPHM86SKzbliLG50eVXM6+qzkdxtBV7DZb3W/1Up2+k43WK9F0Bgg==
-  dependencies:
-    "@types/lodash" "*"
+"@types/lodash@*", "@types/lodash@^4.17.13":
+  version "4.17.13"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.13.tgz#786e2d67cfd95e32862143abe7463a7f90c300eb"
+  integrity sha512-lfx+dftrEZcdBPczf9d0Qv0x+j/rfNCMuC6OcfXmO8gkfeNAY88PgKUbvG56whcN23gc27yenwF6oJZXGFpYxg==
 
-"@types/lodash@*", "@types/lodash@^4.14.167":
+"@types/lodash@^4.14.167":
   version "4.14.182"
   resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.182.tgz"
   integrity sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==
@@ -7610,6 +7597,11 @@ classnames@^2.2.5, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
+
+classnames@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
+  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
 
 clean-css@^5.2.2:
   version "5.3.2"
@@ -14521,11 +14513,6 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash.upperfirst@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.npmjs.org/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz"
-  integrity sha1-E2Xt9DFIBIHvDRxolXpe2Z1J984=
-
 lodash@4.17.21, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
@@ -21158,10 +21145,10 @@ ui-primitives@^13.19.0:
   resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-13.19.0.tgz#1a7bfd2da12e49ae2b72b1705e86fadcd311cf8f"
   integrity sha512-MIrL0P4izg0wDVEZtHOHpxB41oD6gBpL504lRnkUoFc+UXa10NWIBqPLh0dOR4HU25Qjrg4n3knF4aR7SfbzhA==
 
-ui-primitives@^20.8.0:
-  version "20.8.0"
-  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-20.8.0.tgz#30d73527924a213c92ede8d6990a21b1ca4f8f20"
-  integrity sha512-1yHxst0bWDErpjWZB5FNqv8eqg7hh523yIP8WtDdzc7TIaQhgL4YAwCwcHyWgClqs7djVudPnUUE5YGJwSrIkw==
+ui-primitives@^22.7.0:
+  version "22.7.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-22.7.0.tgz#cce0dce244b33b9fe465edd634ddecb145c45b80"
+  integrity sha512-cdbDvvxoe6/HLMSl3hIQFGi5QYiskAoVgC22xYjw1jCb7wdhqdsCW0llsk78dGnqtfHrRwi7BmHZwf3feeM8PQ==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

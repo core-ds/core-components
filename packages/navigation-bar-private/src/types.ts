@@ -12,7 +12,7 @@ export type NavigationBarPrivateProps = {
     /**
      * Заголовок шапки
      */
-    title?: string;
+    title?: ReactNode;
 
     /**
      * Подзаголовок (доступен только в мобильной версии)

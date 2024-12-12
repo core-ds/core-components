@@ -21,6 +21,7 @@
 export type CountriesData = [string, string[], string, string, string?, number?, string[]?];
 
 export const countriesData: CountriesData[] = [
+    ['Абхазия', ['europe'], 'ge-ab', '7', '... ... .. ..', 1, ['840', '940']],
     ['Афганистан', ['asia'], 'af', '93'],
     ['Албания', ['europe'], 'al', '355'],
     ['Алжир', ['africa', 'north-africa'], 'dz', '213'],

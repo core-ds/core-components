@@ -1,5 +1,48 @@
 # Change Log
 
+## 11.11.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1446](https://github.com/core-ds/core-components/pull/1446)
+
+-   Изменены цвета для hint
+-   Изменена высота строки для размера 48, 56
+-   Добавлена минимальная высота для размера 48, 56
+
+## 11.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+
+## 11.10.1
+
+### Patch Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+-   Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+-   Обновлены зависимости
+    -   spinner@4.0.0
+    -   shared@0.14.0
+
+## 11.10.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
 ## 11.9.0
 
 ### Minor Changes

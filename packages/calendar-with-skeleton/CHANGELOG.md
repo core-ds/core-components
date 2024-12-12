@@ -1,5 +1,74 @@
 # Change Log
 
+## 5.3.13
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+
+## 5.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+
+## 5.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.4
+
+## 5.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.3
+
+## 5.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.2
+
+## 5.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.1
+
+## 5.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.0
+
+## 5.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.14.2
+
+## 5.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.14.1
+
 ## 5.3.4
 
 ### Patch Changes

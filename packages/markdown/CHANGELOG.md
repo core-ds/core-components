@@ -1,5 +1,67 @@
 # @alfalab/core-components-markdown
 
+## 1.6.4
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+## 1.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+    -   list@3.4.4
+
+## 1.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   typography@4.10.3
+    -   list@3.4.3
+
+## 1.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+
+## 1.6.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+## 1.5.2
+
+### Patch Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1382](https://github.com/core-ds/core-components/pull/1382)
+
+-   Исправлено скругление картинок до `16px`
+
+## 1.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   list@3.4.2
+
 ## 1.5.0
 
 ### Minor Changes

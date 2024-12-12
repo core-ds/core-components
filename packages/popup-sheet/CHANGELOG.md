@@ -1,5 +1,65 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.4.2
+    -   base-modal@5.8.5
+    -   navigation-bar-private@0.5.4
+
+## 1.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.3
+
+## 1.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.2
+
+## 1.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   base-modal@5.8.4
+    -   navigation-bar-private@0.5.1
+
+## 1.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.3
+
+## 1.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.0
+
+## 1.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.4.3
+
+## 1.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.4.2
+
 ## 1.3.4
 
 ### Patch Changes

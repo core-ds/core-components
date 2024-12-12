@@ -64,7 +64,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 ref={ref}
                 className={cn(styles.input, stylesInput.component, {
                     [styles.hasError]: error,
+                    [stylesInput.hasError]: error,
+
                     [styles.disabled]: disabled,
+                    [stylesInput.disabled]: disabled,
+
                     [styles.compact]: compact,
                     [stylesInput.compact]: Boolean(stylesInput.compact) && compact,
                 })}

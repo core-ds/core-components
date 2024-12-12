@@ -1,5 +1,115 @@
 # Change Log
 
+## 9.11.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.7
+    -   select@17.17.5
+
+## 9.11.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.4
+    -   input-autocomplete@12.6.6
+
+## 9.11.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.5
+    -   select@17.17.3
+
+## 9.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.4
+    -   select@17.17.2
+
+## 9.11.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.1
+    -   input-autocomplete@12.6.3
+
+## 9.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.0
+    -   input-autocomplete@12.6.2
+
+## 9.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.16.1
+    -   input-autocomplete@12.6.1
+
+## 9.11.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.0
+    -   select@17.16.0
+
+## 9.10.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+    -   input-autocomplete@12.5.5
+
+## 9.10.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+    -   input-autocomplete@12.5.4
+
+## 9.10.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+    -   input-autocomplete@12.5.3
+
+## 9.10.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.2
+    -   input-autocomplete@12.5.2
+
 ## 9.10.5
 
 ### Patch Changes

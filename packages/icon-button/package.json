@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-icon-button",
-    "version": "6.10.1",
+    "version": "6.11.3",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,10 +14,10 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^11.9.0",
-        "classnames": "^2.3.1",
+        "@alfalab/core-components-button": "^11.11.0",
+        "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.4.0",
-    "varsVersion": "9.13.1"
+    "themesVersion": "13.6.0",
+    "varsVersion": "9.16.0"
 }

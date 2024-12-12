@@ -1,5 +1,46 @@
 # Change Log
 
+## 6.6.21
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
+## 6.6.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   progress-bar@3.5.0
+
+## 6.6.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.2
+
+## 6.6.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.1
+
+## 6.6.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+
 ## 6.6.16
 
 ### Patch Changes

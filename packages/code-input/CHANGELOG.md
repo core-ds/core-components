@@ -1,5 +1,35 @@
 # Change Log
 
+## 3.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+
+## 3.9.1
+
+### Patch Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+-   Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+
+## 3.9.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
 ## 3.8.0
 
 ### Minor Changes

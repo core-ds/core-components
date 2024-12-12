@@ -1,5 +1,33 @@
 # Change Log
 
+## 4.11.0
+
+### Minor Changes
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1464](https://github.com/core-ds/core-components/pull/1464)
+
+-   Добавлены атомарные экспорты TitleDesktop, TitleMobile, TitleResponsive и Text
+-   В package.json добавлено sideEffects:false
+
+## 4.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+
+## 4.10.2
+
+### Patch Changes
+
+<sup><time>04.10.2024</time></sup>
+
+### [#1401](https://github.com/core-ds/core-components/pull/1401)
+
+-   Добавлен `opacity` во время показа скелетона. Это позволяет избежать моргания компонента в ssr.
+
 ## 4.10.1
 
 ### Patch Changes

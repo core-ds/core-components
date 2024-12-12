@@ -6,6 +6,7 @@ import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
+import { getPhoneHref } from '../../../utils';
 import { Header } from '../../header';
 
 import styles from './index.module.css';
@@ -18,8 +19,10 @@ export type HintProps = {
 };
 
 export const Hint: FC<HintProps> = ({ mobile }) => {
-    const { alignContent, texts, onChangeScreen, onChangeState, breakpoint } =
+    const { alignContent, texts, onChangeScreen, onChangeState, breakpoint, client } =
         useContext(ConfirmationContext);
+
+    const { domesticPhone = '', internationalPhone = '', hintButton } = texts;
 
     const handleReturnButtonClick = () => {
         onChangeScreen('INITIAL');
@@ -49,11 +52,11 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
             >
                 <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
                     <Link
-                        href='tel:+78002000000'
+                        href={getPhoneHref(domesticPhone)}
                         underline={false}
                         className={cn(styles.phoneLink, { [styles.typographyThemeMobile]: mobile })}
                     >
-                        8 800 200 00 00
+                        {domesticPhone}
                     </Link>
                     <Typography.Text
                         view='primary-medium'
@@ -71,11 +74,11 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
 
                 <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
                     <Link
-                        href='tel:+74957888878'
+                        href={getPhoneHref(internationalPhone)}
                         underline={false}
                         className={cn(styles.phoneLink, { [styles.typographyThemeMobile]: mobile })}
                     >
-                        +7 495 78 888 78
+                        {internationalPhone}
                     </Link>
                     <Typography.Text
                         view='primary-medium'
@@ -110,8 +113,9 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 onClick={handleReturnButtonClick}
                 className={styles.hintButton}
                 breakpoint={breakpoint}
+                client={client}
             >
-                {texts.hintButton}
+                {hintButton}
             </Button>
         </div>
     );

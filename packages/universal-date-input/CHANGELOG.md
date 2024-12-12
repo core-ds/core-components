@@ -1,5 +1,57 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.6.4
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   input@15.3.3
+
+## 2.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   input@15.3.2
+
+## 2.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   input@15.3.1
+    -   popover@6.3.3
+
+## 2.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.2.1
+
 ## 2.5.0
 
 ### Minor Changes

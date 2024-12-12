@@ -29,6 +29,11 @@ export type UseSelectWithApplyProps = {
     onChange: BaseSelectProps['onChange'];
 
     /**
+     * Дополнительный обработчик клика на чекбокс выбрать все
+     */
+    onSelectAllClick?: (selectedMultiple: OptionShape[]) => void;
+
+    /**
      * Компонент выпадающего меню
      */
     OptionsList?: BaseSelectProps['OptionsList'];
@@ -72,6 +77,7 @@ export function useSelectWithApply({
     options,
     selected,
     onChange = () => null,
+    onSelectAllClick = () => null,
     OptionsList,
     optionsListProps = {},
     showClear = true,
@@ -125,6 +131,7 @@ export function useSelectWithApply({
             selected: selectedDraft[0],
             selectedMultiple: selectedDraft,
             initiator: null,
+            name: 'apply-footer',
         });
     };
 
@@ -134,12 +141,18 @@ export function useSelectWithApply({
             selected: null,
             selectedMultiple: [],
             initiator: null,
+            name: 'reset-footer',
         });
     };
 
     const handleToggleAll = () => {
-        setSelectedDraft(flatOptions.length === selectedDraft.length ? [] : flatOptions);
+        const optionsToSet = flatOptions.length === selectedDraft.length ? [] : flatOptions;
+
+        onSelectAllClick(optionsToSet);
+        setSelectedDraft(optionsToSet);
     };
+
+    const selectedKeys = useMemo(() => selectedDraft.map(({ key }) => key), [selectedDraft]);
 
     const handleChange: Required<BaseSelectProps>['onChange'] = ({ initiator, ...restArgs }) => {
         if (!initiator) {
@@ -152,15 +165,19 @@ export function useSelectWithApply({
         }
 
         const initiatorSelected =
-            selectedDraft.includes(initiator) ||
-            (initiator.key === SELECT_ALL_KEY && selectedDraft.length === flatOptions.length);
+            selectedDraft.some(
+                (selectedDraftOption) => selectedDraftOption.key === initiator.key,
+            ) ||
+            (initiator.key === SELECT_ALL_KEY &&
+                (selectedDraft.length === flatOptions.length ||
+                    flatOptions.every(({ key }) => selectedKeys.includes(key))));
 
         if (initiator.key === SELECT_ALL_KEY) {
             setSelectedDraft(initiatorSelected ? [] : flatOptions);
         } else {
             setSelectedDraft(
                 initiatorSelected
-                    ? selectedDraft.filter((o) => o !== initiator)
+                    ? selectedDraft.filter((o) => o.key !== initiator.key)
                     : selectedDraft.concat(initiator),
             );
         }
@@ -197,8 +214,11 @@ export function useSelectWithApply({
             setSelectedDraft,
             showHeaderWithSelectAll,
             headerProps: {
-                indeterminate: !!selectedDraft.length && selectedDraft.length < flatOptions.length,
-                checked: selectedDraft.length === flatOptions.length,
+                ...(optionsListProps as AnyObject)?.headerProps,
+                indeterminate: selectedDraft.length > 0,
+                checked:
+                    selectedDraft.length === flatOptions.length ||
+                    flatOptions.every(({ key }) => selectedKeys.includes(key)),
                 onChange: handleToggleAll,
             },
         },

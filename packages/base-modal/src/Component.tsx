@@ -503,6 +503,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 setExited(false);
             }
+
+            if (!open) {
+                unlockScroll();
+            }
         }, [getContainer, open, disableBlockingScroll, isExited, iOSLock]);
 
         useEffect(() => {

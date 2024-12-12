@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.7.4
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+## 1.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.0
+    -   shared@0.14.0
+
 ## 1.7.2
 
 ### Patch Changes

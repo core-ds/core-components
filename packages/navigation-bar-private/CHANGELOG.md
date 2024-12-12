@@ -1,5 +1,71 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   icon-button@6.11.3
+
+## 0.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+
+## 0.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.2
+    -   typography@4.10.3
+    -   icon-button@6.11.2
+
+## 0.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   icon-button@6.11.1
+
+## 0.5.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   icon-button@6.11.0
+
+## 0.4.3
+
+### Patch Changes
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1389](https://github.com/core-ds/core-components/pull/1389)
+
+-   Изменен тип у компонента navigation-bar-private для пропса title со string на ReactNode
+
+## 0.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+
 ## 0.4.1
 
 ### Patch Changes

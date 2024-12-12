@@ -1,5 +1,61 @@
 # Change Log
 
+## 4.13.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   amount@3.8.1
+
+## 4.13.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+    -   comment@2.4.4
+
+## 4.13.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.2
+    -   typography@4.10.3
+    -   comment@2.4.3
+
+## 4.13.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+
+## 4.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.10.0
+
+## 4.13.0
+
+### Minor Changes
+
+<sup><time>04.10.2024</time></sup>
+
+### [#1397](https://github.com/core-ds/core-components/pull/1397)
+
+-   Для Amount и AmountTitle добавлено состояние hidden, когда значение скрывается скелетоном
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   comment@2.4.2
+
 ## 4.12.4
 
 ### Patch Changes

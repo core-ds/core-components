@@ -1,5 +1,114 @@
 # Change Log
 
+## 12.6.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   input@15.3.3
+    -   select@17.17.5
+
+## 12.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.4
+
+## 12.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   form-control@12.7.2
+    -   input@15.3.2
+    -   select@17.17.3
+
+## 12.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   form-control@12.7.1
+    -   input@15.3.1
+    -   select@17.17.2
+    -   popover@6.3.3
+
+## 12.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.1
+
+## 12.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+    -   select@17.17.0
+
+## 12.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.16.1
+
+## 12.6.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.7.0
+    -   select@17.16.0
+    -   input@15.2.1
+
+## 12.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+
+## 12.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+
+## 12.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+
+## 12.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.2
+
 ## 12.5.1
 
 ### Patch Changes

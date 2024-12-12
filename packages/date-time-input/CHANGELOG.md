@@ -1,5 +1,92 @@
 # @alfalab/core-components-date-time-input
 
+## 4.5.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+    -   input@15.3.3
+    -   icon-button@6.11.3
+
+## 4.5.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+
+## 4.5.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.4
+
+## 4.5.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   calendar@7.15.3
+    -   input@15.3.2
+    -   icon-button@6.11.2
+
+## 4.5.6
+
+### Patch Changes
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+-   Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   calendar@7.15.2
+    -   input@15.3.1
+    -   icon-button@6.11.1
+    -   popover@6.3.3
+
+## 4.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+
+## 4.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.1
+
+## 4.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.0
+    -   icon-button@6.11.0
+    -   input@15.2.1
+
+## 4.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.14.2
+
+## 4.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.14.1
+
 ## 4.5.0
 
 ### Minor Changes

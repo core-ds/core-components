@@ -1,5 +1,130 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.5.5
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   input@15.3.3
+    -   input-autocomplete@12.6.7
+    -   select@17.17.5
+
+## 2.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.4
+    -   input-autocomplete@12.6.6
+
+## 2.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   input@15.3.2
+    -   input-autocomplete@12.6.5
+    -   select@17.17.3
+
+## 2.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   input@15.3.1
+    -   input-autocomplete@12.6.4
+    -   select@17.17.2
+
+## 2.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.1
+    -   input-autocomplete@12.6.3
+
+## 2.5.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1437](https://github.com/core-ds/core-components/pull/1437)
+
+-   Добавлены телефонные коды для Абхазии
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.0
+    -   select@17.17.0
+    -   input-autocomplete@12.6.2
+
+## 2.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.16.1
+    -   input-autocomplete@12.6.1
+
+## 2.4.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.0
+    -   select@17.16.0
+    -   input@15.2.1
+
+## 2.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+    -   input-autocomplete@12.5.5
+
+## 2.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+    -   input-autocomplete@12.5.4
+
+## 2.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+    -   input-autocomplete@12.5.3
+
+## 2.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.14.2
+    -   input-autocomplete@12.5.2
+
 ## 2.3.1
 
 ### Patch Changes

@@ -1,5 +1,139 @@
 # Change Log
 
+## 5.10.6
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   base-modal@5.8.5
+    -   icon-button@6.11.3
+    -   tooltip@7.8.1
+
+## 5.10.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.0
+    -   tooltip@7.8.0
+
+## 5.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   tooltip@7.7.3
+    -   typography@4.10.3
+    -   icon-button@6.11.2
+
+## 5.10.3
+
+### Patch Changes
+
+<sup><time>25.11.2024</time></sup>
+
+### [#1463](https://github.com/core-ds/core-components/pull/1463)
+
+-   Добавлен фикс вертикального скролла в галерею в полноэкранном режиме
+
+## 5.10.2
+
+### Patch Changes
+
+<sup><time>21.11.2024</time></sup>
+
+### [#1443](https://github.com/core-ds/core-components/pull/1443)
+
+-   Добавлен отдельный компонент для single изображения, что сделать его независимым от swiper
+
+## 5.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.4
+    -   tooltip@7.7.2
+    -   icon-button@6.11.1
+
+## 5.10.0
+
+### Minor Changes
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1424](https://github.com/core-ds/core-components/pull/1424)
+
+-   Пакет HLS добавлен в корневые зависимости библиотеки
+
+## 5.9.2
+
+### Patch Changes
+
+<sup><time>05.11.2024</time></sup>
+
+### [#1436](https://github.com/core-ds/core-components/pull/1436)
+
+-   Добавление нового класса для попапа в галереи через пропс. Чтобы можно было прокидывать appId для работа изоляции стилей.
+
+<sup><time>05.11.2024</time></sup>
+
+### [#1418](https://github.com/core-ds/core-components/pull/1418)
+
+-   Фикс проверки url, переданного в image src, на предмет видео или нет. Когда передавалось base64, регулярка долго выполнялась и компонент крашился.
+
+## 5.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.3
+    -   tooltip@7.7.1
+
+## 5.9.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.7.0
+    -   icon-button@6.11.0
+
+## 5.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.6.0
+
+## 5.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.5.2
+
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.10.2
+    -   tooltip@7.5.1
+
 ## 5.8.0
 
 ### Minor Changes

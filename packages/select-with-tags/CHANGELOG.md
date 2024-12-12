@@ -1,5 +1,120 @@
 # Change Log
 
+## 8.5.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.12
+    -   select@17.17.5
+
+## 8.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.11
+    -   select@17.17.4
+
+## 8.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   form-control@12.7.2
+    -   select@17.17.3
+    -   tag@8.6.2
+    -   bottom-sheet@6.17.10
+
+## 8.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   bottom-sheet@6.17.9
+    -   form-control@12.7.1
+    -   select@17.17.2
+    -   tag@8.6.1
+    -   popover@6.3.3
+
+## 8.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.1
+
+## 8.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.17.0
+
+## 8.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.8
+    -   select@17.16.1
+
+## 8.5.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.0
+    -   form-control@12.7.0
+    -   select@17.16.0
+    -   bottom-sheet@6.17.7
+
+## 8.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.2
+
+## 8.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.1
+
+## 8.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.15.0
+    -   bottom-sheet@6.17.6
+
+## 8.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.5
+    -   select@17.14.2
+
 ## 8.4.1
 
 ### Patch Changes

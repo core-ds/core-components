@@ -1,5 +1,29 @@
 # Change Log
 
+## 5.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+
+## 5.8.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1416](https://github.com/core-ds/core-components/pull/1416)
+
+-   Внесены изменения в отступы в компонентах tag и filter-tag (затрагивает все темы)
+
 ## 5.7.0
 
 ### Minor Changes

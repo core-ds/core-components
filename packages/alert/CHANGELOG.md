@@ -1,5 +1,46 @@
 # Change Log
 
+## 4.2.9
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   plate@7.8.4
+
+## 4.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.3
+
+## 4.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.2
+
+## 4.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.1
+
+## 4.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.0
+
 ## 4.2.4
 
 ### Patch Changes

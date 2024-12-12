@@ -17,6 +17,7 @@ import type { TooltipDesktopProps } from '../types';
 import defaultColors from '../default.module.css';
 import styles from '../index.module.css';
 import invertedColors from '../inverted.module.css';
+import desktopStyles from './desktop.module.css';
 
 const colorStyles = {
     default: defaultColors,
@@ -53,6 +54,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     anchor = null,
     colors = 'default',
     useAnchorWidth,
+    onTargetClick,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -125,7 +127,9 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
         };
     }, [clickedOutside, close]);
 
-    const handleTargetClick = () => {
+    const handleTargetClick = (event: React.MouseEvent<HTMLElement>) => {
+        event.persist();
+        onTargetClick?.(event);
         toggle();
     };
 
@@ -220,7 +224,10 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
                 open={show}
                 getPortalContainer={getPortalContainer}
                 arrowClassName={cn(arrowClassName, styles.arrow, colorStyles[colors].arrow)}
-                popperClassName={cn(styles.popper, styles[view], colorStyles[colors][view])}
+                popperClassName={cn(styles.popper, styles[view], colorStyles[colors][view], {
+                    [desktopStyles.popper]: view === 'tooltip',
+                    [desktopStyles.hint]: view === 'hint',
+                })}
                 className={popoverClassName}
                 offset={offset}
                 withArrow={true}

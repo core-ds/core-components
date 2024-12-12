@@ -1,5 +1,103 @@
 # Change Log
 
+## 7.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   bottom-sheet@6.17.12
+
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1447](https://github.com/core-ds/core-components/pull/1447)
+
+-   В мобильном tooltip изменен размер кнопки на 56 для соответствия дизайну (в мобильных приложениях используются кнопки этого размера)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.11
+
+## 7.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.0
+    -   button@11.10.2
+    -   bottom-sheet@6.17.10
+
+## 7.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   button@11.10.1
+    -   bottom-sheet@6.17.9
+    -   popover@6.3.3
+
+## 7.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.8
+
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1412](https://github.com/core-ds/core-components/pull/1412)
+
+Изменены скругления для десктопной версии
+
+-   `Tooltip` 8 -> 12
+-   `Hint` 4 -> 8
+
+-   Обновлены зависимости
+    -   button@11.10.0
+    -   bottom-sheet@6.17.7
+
+## 7.6.0
+
+### Minor Changes
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1415](https://github.com/core-ds/core-components/pull/1415)
+
+-   Добавлен обработчик `onTargetClick`, вызываемый при нажатии на цель `Tooltip`
+
+## 7.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.6
+
+## 7.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.5
+
 ## 7.5.0
 
 ### Minor Changes

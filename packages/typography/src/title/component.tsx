@@ -129,7 +129,10 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
                     defaultMargins && styles[`margins-${view}`],
                     styles[weight],
                     color && colors[color],
-                    { [styles[`rowLimit${rowLimit}`]]: rowLimit },
+                    {
+                        [styles[`rowLimit${rowLimit}`]]: rowLimit,
+                        [styles.transparent]: showSkeleton,
+                    },
                 )}
                 data-test-id={dataTestId}
                 ref={mergeRefs([ref, textRef])}

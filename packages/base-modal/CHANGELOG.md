@@ -1,5 +1,36 @@
 # Change Log
 
+## 5.8.5
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   backdrop@3.4.2
+
+## 5.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.14.0
+    -   portal@3.3.4
+
+## 5.8.3
+
+### Patch Changes
+
+<sup><time>02.11.2024</time></sup>
+
+### [#1434](https://github.com/core-ds/core-components/pull/1434)
+
+-   Решает проблему, когда скролл не разблокируется при закрытии модального окна при помощи свойства open={false}
+
 ## 5.8.2
 
 ### Patch Changes

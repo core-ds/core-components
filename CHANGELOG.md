@@ -1,3 +1,592 @@
+## 48.5.0
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1454](https://github.com/core-ds/core-components/pull/1454)
+
+#### Что изменилось
+- Добавлен размер 72
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#1446](https://github.com/core-ds/core-components/pull/1446)
+
+#### Что изменилось
+- Изменены цвета для hint
+- Изменена высота строки для размера 48, 56
+- Добавлена минимальная высота для размера 48, 56
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#1460](https://github.com/core-ds/core-components/pull/1460)
+
+#### Что изменилось
+- Добавлены пропсы для передачи кастомного текста в кнопки мобильного календаря
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#1439](https://github.com/core-ds/core-components/pull/1439)
+
+#### Что изменилось
+- Исправлено выравнивание `title` при отсутствии аддона слева
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+### [#1452](https://github.com/core-ds/core-components/pull/1452)
+
+#### Что изменилось
+- Изменены цвета заблокированного состояния
+
+#### Влияние на компоненты
+- Минорное<br />`custom-button`
+
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+#### Что изменилось
+- Добавлено sideEffects: false
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `alert` `amount` `amount-input` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `calendar-input` `calendar-range` `calendar-with-skeleton` `custom-picker-button` `gallery`<br /> `input` `input-autocomplete` `international-phone-input` `intl-phone-input` `markdown`<br /> `picker-button` `plate` `select` `select-with-tags` `universal-date-input`<br />
+
+
+
+## 48.4.0
+
+<sup><time>06.12.2024</time></sup>
+
+### [#1465](https://github.com/core-ds/core-components/pull/1465)
+
+#### Что изменилось
+- Изменено поведение пропса clickableMonth. Добавлена возможность выбирать промежуток между месяцами. Первый клик по лейблу месяца выбирает весь месяц. Второй клик на следующий месяц выбирает промежуток между этими двумя месяцами.
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+
+## 48.3.0
+
+<sup><time>28.11.2024</time></sup>
+
+### [#1459](https://github.com/core-ds/core-components/pull/1459)
+
+#### Что изменилось
+- Добавлен inverted цвет
+
+#### Влияние на компоненты
+- Минорное<br />`progress-bar`
+
+
+### [#1445](https://github.com/core-ds/core-components/pull/1445)
+
+#### Что изменилось
+- Повышена специфичность стилей
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#1449](https://github.com/core-ds/core-components/pull/1449)
+
+#### Что изменилось
+- Обновление цветовых палитр
+
+#### Влияние на компоненты
+- Минорное<br />`themes` `vars`
+
+
+### [#1462](https://github.com/core-ds/core-components/pull/1462)
+
+#### Что изменилось
+- Добавлен forwardRef для компонента TExpandableRow
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1464](https://github.com/core-ds/core-components/pull/1464)
+
+#### Что изменилось
+-   Добавлены атомарные экспорты TitleDesktop, TitleMobile, TitleResponsive и Text
+-   В package.json добавлено sideEffects:false
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1447](https://github.com/core-ds/core-components/pull/1447)
+
+#### Что изменилось
+- В мобильном tooltip изменен размер кнопки на 56 для соответствия дизайну (в мобильных приложениях используются кнопки этого размера)
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+
+## 48.2.0
+
+<sup><time>27.11.2024</time></sup>
+
+### [#1469](https://github.com/core-ds/core-components/pull/1469)
+
+#### Что изменилось
+- Добавлен хук `useIsDesktop`
+
+#### Влияние на компоненты
+- Минорное<br />`mq`
+
+
+
+## 48.1.1
+
+<sup><time>25.11.2024</time></sup>
+
+### [#1463](https://github.com/core-ds/core-components/pull/1463)
+
+#### Что изменилось
+- Добавлен фикс вертикального скролла в галерею в полноэкранном режиме
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
+## 48.1.0
+
+<sup><time>21.11.2024</time></sup>
+
+### [#1408](https://github.com/core-ds/core-components/pull/1408)
+
+#### Что изменилось
+Расширен пропс `texts` компонента `Confirmation`:
+- `domesticPhone` — номер телефона для звонков по России (по умолчанию 8 800 200 00 00)
+- `internationalPhone` — номер телефона для звонков из-за границы (по умолчанию +7 495 78 888 78).
+
+#### Влияние на компоненты
+- Минорное<br />`confirmation`
+
+
+### [#1443](https://github.com/core-ds/core-components/pull/1443)
+
+#### Что изменилось
+- Добавлен отдельный компонент для single изображения, что сделать его независимым от swiper
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
+## 48.0.1
+
+<sup><time>18.11.2024</time></sup>
+
+### [#1426](https://github.com/core-ds/core-components/pull/1426)
+
+#### Что изменилось
+- Добавлен пакет @alfalab/core-config для глобальных настроек библиотеки. В него включены параметры: breakpoint для переключения между десктопной и мобильной версиями и client для выбора версии по умолчанию при серверном рендеринге
+
+#### Обновление
+
+Необходимо установить зависимости `@alfalab/core-config` и `@alfalab/stack-context` в проект
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input` `button` `calendar-input` `calendar` `checkbox-group`<br /> `code-input` `confirmation` `custom-button` `custom-picker-button` `date-range-input`<br /> `date-time-input`
+
+### [#1332](https://github.com/core-ds/core-components/pull/1332)
+
+#### Что изменилось
+Крупное обновление Спиннера
+
+* Обновленный вид спиннера.
+* Добавлены новые пропсы для тонкой настройки внешнего вида:
+    - `preset` - преднастроенный вариант спиннера;
+    - `size` - теперь отвечает за размер кольца спиннера;
+    - `lineWidth` - толщина линии спиннера;
+    - `style` - позволяет регулировать отступы, цвет и т.п.
+* Добавлен [`codemod`](https://www.npmjs.com/package/@alfalab/core-components-codemod/v/2.7.0) для бесшовной миграции `Spinner`:
+    ```bash
+    npx @alfalab/core-components-codemod --transformers=spinner --glob='src/**/*.tsx'
+    ```
+    | Внимание |
+    |---|
+    | `codemod` может не работать в случаях использования [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) в коде. |
+
+#### Влияние на компоненты
+- Мажорное<br />`spinner`
+
+
+- Минорное<br />`shared`
+
+
+### [#1304](https://github.com/core-ds/core-components/pull/1304)
+
+#### Что изменилось
+- Добавлен пропс `lockLimit`, который предотвращает ввод числа если оно больше или меньше допустимого.
+При событии blur установится число по верхней границе, если оно больше допустимого, и наоборот - по нижней границе, если число меньше допустимого.
+
+- Изменен тип для пропса `onInputChange`. Теперь он может принимать `null`. Обратите внимание на типы при обновлении.
+
+#### Влияние на компоненты
+- Мажорное<br />`slider-input`
+
+
+### [#1379](https://github.com/core-ds/core-components/pull/1379)
+
+#### Что изменилось
+Добавлен новый компонент. Старый помечен как `deprecated`.
+
+#### Обновление
+
+Для упрощенного перехода между версиями библиотеки, после обновления вам необходимо исправить импорты.
+
+До
+
+```js
+import { FileUploadItem } from '@alfalab/core-components/file-upload-item';
+```
+
+После
+
+```js
+import { FileUploadItemV1 } from '@alfalab/core-components/file-upload-item-v1';
+```
+
+Таким образом, в вашем приложении продолжат работу старые версии компонентов.
+В дальнейшем поддержка `v1` версий будет прекращена.
+
+#### Влияние на компоненты
+- Мажорное<br />`file-upload-item` `file-upload-item-v1`
+
+
+
+## 47.26.1
+
+<sup><time>13.11.2024</time></sup>
+
+### [#1440](https://github.com/core-ds/core-components/pull/1440)
+
+#### Что изменилось
+- Исправлена ошибка при изменении ссылки на объект опции выбранного варианта
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
+## 47.26.0
+
+<sup><time>11.11.2024</time></sup>
+
+### [#1424](https://github.com/core-ds/core-components/pull/1424)
+
+#### Что изменилось
+- Пакет HLS добавлен в корневые зависимости библиотеки
+
+#### Влияние на компоненты
+- Минорное<br />`gallery`
+
+
+### [#1402](https://github.com/core-ds/core-components/pull/1402)
+
+#### Что изменилось
+- Изменено поведение пропса `disableUserInput`. Теперь инпут будет получать фокус состояние без каретки ввода.
+
+#### Влияние на компоненты
+- Минорное<br />`input`
+
+
+### [#1438](https://github.com/core-ds/core-components/pull/1438)
+
+#### Что изменилось
+- `modalHeaderProps.bottomAddons` и `bottomSheetProps.bottomAddons` теперь принимают в том числе функцию, возвращающую `React.ReactNode`
+- Исправлены состояния "Выбрать все" при заданном `showHeaderWithSelectAll`
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1437](https://github.com/core-ds/core-components/pull/1437)
+
+#### Что изменилось
+- Добавлены телефонные коды для Абхазии
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+### [#1413](https://github.com/core-ds/core-components/pull/1413)
+
+#### Что изменилось
+- Исправлен баг с автофокусом и SSR. Каретка при автофокусе теперь программно устанавливается в конец ввода.
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+
+## 47.25.2
+
+<sup><time>05.11.2024</time></sup>
+
+### [#1436](https://github.com/core-ds/core-components/pull/1436)
+
+#### Что изменилось
+- Добавление нового класса для попапа в галереи через пропс. Чтобы можно было прокидывать appId для работа изоляции стилей.
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+### [#1430](https://github.com/core-ds/core-components/pull/1430)
+
+#### Что изменилось
+- Icon-view: в компоненте ellipse восстановлен случайно удалённый вариант; пропсы: size: 40, topAddond: on
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1418](https://github.com/core-ds/core-components/pull/1418)
+
+#### Что изменилось
+- Фикс проверки url, переданного в image src, на предмет видео или нет. Когда передавалось base64, регулярка долго выполнялась и компонент крашился.
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+
+## 47.25.1
+
+<sup><time>02.11.2024</time></sup>
+
+### [#1432](https://github.com/core-ds/core-components/pull/1432)
+
+#### Что изменилось
+- Исправлен баг с вызовом onClick при любых нажатиях клавиатуры
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#1434](https://github.com/core-ds/core-components/pull/1434)
+
+#### Что изменилось
+- Решает проблему, когда скролл не разблокируется при закрытии модального окна при помощи свойства open={false}
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#1429](https://github.com/core-ds/core-components/pull/1429)
+
+#### Что изменилось
+- Исправлен цвет инпута в соответсвии с актуальной версией компонента
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation-v1`
+
+
+
+## 47.25.0
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1416](https://github.com/core-ds/core-components/pull/1416)
+
+#### Что изменилось
+- Внесены изменения в отступы в компонентах tag и filter-tag (затрагивает все темы)
+
+#### Влияние на компоненты
+- Минорное<br />`filter-tag` `tag` `vars`
+
+
+### [#1412](https://github.com/core-ds/core-components/pull/1412)
+
+#### Что изменилось
+Изменены скругления для десктопной версии
+- `Tooltip` 8 -> 12
+- `Hint` 4 -> 8
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+#### Что изменилось
+- Обновление темы corp
+
+#### Влияние на компоненты
+- Минорное<br />`button` `calendar` `calendar-range` `code-input` `custom-button`<br /> `custom-picker-button` `file-upload-item` `form-control` `gallery` `icon-button`<br /> `input-autocomplete` `international-phone-input` `intl-phone-input` `markdown` `modal`<br /> `navigation-bar-private` `notification` `notification-manager` `password-input` `picker-button`<br /> `plate` `select` `select-with-tags` `side-panel` `space`<br /> `switch` `table` `tabs` `tag` `themes`<br /> `tooltip` `universal-date-input` `vars`
+
+
+
+## 47.24.1
+
+<sup><time>23.10.2024</time></sup>
+
+### [#1420](https://github.com/core-ds/core-components/pull/1420)
+
+#### Что изменилось
+- Исправление проблемы с выбранными опциями в групповых опциях
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
+## 47.24.0
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1359](https://github.com/core-ds/core-components/pull/1359)
+
+#### Что изменилось
+- В сборку добавлено создание js-файлов для цветовых палитр. Это позволяет импортировать js-стили конкретной палитры.
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+
+## 47.23.0
+
+<sup><time>15.10.2024</time></sup>
+
+### [#1407](https://github.com/core-ds/core-components/pull/1407)
+
+#### Что изменилось
+- Откат изменений скрытия футера при пустых опциях
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1415](https://github.com/core-ds/core-components/pull/1415)
+
+#### Что изменилось
+- Добавлен обработчик `onTargetClick`, вызываемый при нажатии на цель `Tooltip`
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+### [#1414](https://github.com/core-ds/core-components/pull/1414)
+
+#### Что изменилось
+- Для дочернего компонента-обертки Space -> Item прокидываем key который передали или сгенерировал react
+
+#### Влияние на компоненты
+- Патчи<br />`space`
+
+
+### [#1410](https://github.com/core-ds/core-components/pull/1410)
+
+#### Что изменилось
+- Исправлен расчет высоты пустого списка опций с включенным `limitDynamicOptionGroupSize`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1381](https://github.com/core-ds/core-components/pull/1381)
+
+#### Что изменилось
+- Добавлены `inverted` цвета
+
+#### Влияние на компоненты
+- Минорное<br />`switch`
+
+
+### [#1382](https://github.com/core-ds/core-components/pull/1382)
+
+#### Что изменилось
+- Исправлено скругление картинок до `16px`
+
+#### Влияние на компоненты
+- Патчи<br />`markdown`
+
+
+
+## 47.22.0
+
+<sup><time>11.10.2024</time></sup>
+
+### [#1399](https://github.com/core-ds/core-components/pull/1399)
+
+#### Что изменилось
+- Изменена логика отрисовки image тэга - теперь image рендерится всегда и скрывается только в случае ошибки загрузки
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1405](https://github.com/core-ds/core-components/pull/1405)
+
+#### Что изменилось
+1. Добавлен пропс `onSelectAllClick` в хук `useSelectWithApply`
+2. Исправлена прокидка пропса `headerProps` в компонент `Header` хуке `useSelectWithApply`
+3. Добавлен параметр `name` в обработчик `onChange` для кнопок "Применить" и "Сбросить"
+4. Добавлен пропс `dataTestId` для чекбокса "Выбрать все"
+5. Исправлена ситуация с пустым списком опций и отображаемым футером
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1371](https://github.com/core-ds/core-components/pull/1371)
+
+#### Что изменилось
+- Исправлено удаление номера в режиме clearableCountryCode
+
+#### Влияние на компоненты
+- Минорное<br />`phone-input`
+
+
+### [#1389](https://github.com/core-ds/core-components/pull/1389)
+
+#### Что изменилось
+- Изменен тип у компонента navigation-bar-private для пропса title со string на ReactNode
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar-private`
+
+
+
+## 47.21.0
+
+<sup><time>04.10.2024</time></sup>
+
+### [#1397](https://github.com/core-ds/core-components/pull/1397)
+
+#### Что изменилось
+- Для Amount и AmountTitle добавлено состояние hidden, когда значение скрывается скелетоном
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1401](https://github.com/core-ds/core-components/pull/1401)
+
+#### Что изменилось
+- Добавлен `opacity` во время показа скелетона. Это позволяет избежать моргания компонента в ssr.
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
 ## 47.20.0
 
 <sup><time>24.09.2024</time></sup>

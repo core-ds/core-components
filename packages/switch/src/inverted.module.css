@@ -1,0 +1,46 @@
+@import '../../vars/src/index.css';
+@import './vars.css';
+
+.switch {
+    background-color: var(--switch-bg-inverted-color);
+
+    &:hover {
+        background-color: var(--switch-hover-bg-inverted-color);
+    }
+}
+
+.label {
+    color: var(--switch-label-inverted-color);
+}
+
+.hint {
+    color: var(--switch-hint-inverted-color);
+}
+
+.checked .switch {
+    background-color: var(--switch-checked-bg-inverted-color);
+
+    &:hover {
+        background-color: var(--switch-checked-hover-bg-inverted-color);
+    }
+}
+
+.disabled .label {
+    color: var(--switch-disabled-inverted-color);
+}
+
+.disabled .hint {
+    color: var(--switch-disabled-inverted-color);
+}
+
+.disabled .switch {
+    background-color: var(--switch-disabled-bg-inverted-color);
+
+    &:before {
+        background-color: var(--switch-icon-disabled-inverted-color);
+    }
+}
+
+.disabled.checked .switch {
+    background-color: var(--switch-disabled-checked-bg-inverted-color);
+}

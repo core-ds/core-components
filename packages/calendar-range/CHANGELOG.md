@@ -1,5 +1,103 @@
 # Change Log
 
+## 7.7.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+    -   calendar-input@10.4.10
+    -   date-input@4.4.9
+
+## 7.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+    -   calendar-input@10.4.9
+
+## 7.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.4
+    -   calendar-input@10.4.8
+
+## 7.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.3
+    -   calendar-input@10.4.7
+    -   date-input@4.4.8
+
+## 7.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar-input@10.4.6
+    -   calendar@7.15.2
+    -   date-input@4.4.7
+
+## 7.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.4.6
+    -   calendar-input@10.4.5
+
+## 7.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.1
+    -   calendar-input@10.4.4
+
+## 7.7.0
+
+### Minor Changes
+
+<sup><time>24.10.2024</time></sup>
+
+### [#1387](https://github.com/core-ds/core-components/pull/1387)
+
+-   Обновление темы corp
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.15.0
+    -   calendar-input@10.4.3
+    -   date-input@4.4.5
+
+## 7.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.14.2
+    -   calendar-input@10.4.2
+
+## 7.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.14.1
+    -   calendar-input@10.4.1
+
 ## 7.6.1
 
 ### Patch Changes

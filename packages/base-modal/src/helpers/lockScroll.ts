@@ -5,12 +5,16 @@
 
 let scrollY: number;
 
+export const isScrollLocked = () => document.body.classList.contains('is-locked');
+
 export const lockScroll = () => {
     scrollY = window.scrollY;
     document.body.classList.add('is-locked');
 };
 
 export const unlockScroll = () => {
+    if (!isScrollLocked()) return;
+
     document.body.classList.remove('is-locked');
     window.scrollTo(0, scrollY);
 };
