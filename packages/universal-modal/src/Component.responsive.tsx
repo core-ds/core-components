@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { getComponentBreakpoint, isClient } from '@alfalab/core-components-shared';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Controls } from './components/controls';
 import { Header } from './components/header/Component';
@@ -11,20 +10,8 @@ import { UniversalModalMobile } from './mobile';
 import { UniversalModalResponsiveProps } from './typings';
 
 const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
-    (
-        {
-            children,
-            breakpoint = getComponentBreakpoint(),
-            defaultMatchMediaValue,
-            dataTestId,
-            ...restProps
-        },
-        ref,
-    ) => {
-        const query = `(min-width: ${breakpoint}px)`;
-        const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
-
-        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue ?? getDefaultValue);
+    ({ children, breakpoint, defaultMatchMediaValue, dataTestId, ...restProps }, ref) => {
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         const Component = isDesktop ? UniversalModalDesktop : UniversalModalMobile;
 
