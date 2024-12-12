@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Controls } from './components/controls';
-import { Header } from './components/header/Component';
+import { Header } from './components/header';
 import { createResponsive } from './utils/createResponsive';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
