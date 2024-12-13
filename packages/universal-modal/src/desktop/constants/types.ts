@@ -1,1 +1,0 @@
-export const SCROLLBAR_DEFAULT_GAP = 16;
