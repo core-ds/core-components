@@ -3,9 +3,9 @@
         "index.js": 3.4
     },
     "universal-date-input": {
-        "desktop.js": 141.2,
-        "index.js": 141.4,
-        "mobile.js": 141.2,
+        "desktop.js": 141.3,
+        "index.js": 141.5,
+        "mobile.js": 141.3,
         "shared.js": 43.6
     },
     "underlay": {
@@ -30,7 +30,7 @@
         "mobile.js": 23.1
     },
     "time-input": {
-        "index.js": 27.2
+        "index.js": 27.3
     },
     "textarea": {
         "index.js": 16,
@@ -111,15 +111,15 @@
         "index.js": 5.2
     },
     "select": {
-        "desktop.js": 161.1,
-        "index.js": 304.3,
-        "mobile.js": 277.6,
-        "shared.js": 263.8
+        "desktop.js": 161.2,
+        "index.js": 304.4,
+        "mobile.js": 277.7,
+        "shared.js": 263.9
     },
     "select-with-tags": {
-        "desktop.js": 192.9,
-        "index.js": 216.1,
-        "mobile.js": 189.9
+        "desktop.js": 193,
+        "index.js": 216.2,
+        "mobile.js": 190
     },
     "segmented-control": {
         "index.js": 13.8
@@ -164,12 +164,12 @@
     },
     "picker-button": {
         "desktop.js": 145.9,
-        "index.js": 309.2,
-        "mobile.js": 281.9,
+        "index.js": 309.3,
+        "mobile.js": 282,
         "shared.js": 3.1
     },
     "phone-input": {
-        "index.js": 37.4
+        "index.js": 37.5
     },
     "pattern-lock": {
         "desktop.js": 24.4,
@@ -184,7 +184,7 @@
         "shared.js": 1.3
     },
     "password-input": {
-        "index.js": 30.1
+        "index.js": 30.2
     },
     "pass-code": {
         "index.js": 23.6,
@@ -251,7 +251,7 @@
         "index.js": 2.1
     },
     "intl-phone-input": {
-        "index.js": 680.2
+        "index.js": 680.3
     },
     "international-phone-input": {
         "desktop.js": 470.3,
@@ -260,14 +260,14 @@
         "shared.js": 2.9
     },
     "input": {
-        "desktop.js": 25.8,
+        "desktop.js": 25.9,
         "index.js": 26.4,
         "mobile.js": 25.8,
         "shared.js": 12.6
     },
     "input-autocomplete": {
-        "desktop.js": 157.4,
-        "index.js": 311.1,
+        "desktop.js": 157.5,
+        "index.js": 311.2,
         "mobile.js": 283.7,
         "shared.js": 2
     },
@@ -330,19 +330,19 @@
     "date-time-input": {
         "desktop.js": 145.6,
         "index.js": 246.6,
-        "mobile.js": 245.9
+        "mobile.js": 246
     },
     "date-range-input": {
         "desktop.js": 146.1,
-        "index.js": 247.1,
+        "index.js": 247.2,
         "mobile.js": 246.5
     },
     "date-input": {
-        "index.js": 71.2
+        "index.js": 71.3
     },
     "custom-picker-button": {
         "desktop.js": 147.5,
-        "index.js": 311.1,
+        "index.js": 311.2,
         "mobile.js": 283.6
     },
     "custom-button": {
@@ -402,9 +402,9 @@
         "index.js": 254.9
     },
     "calendar-input": {
-        "desktop.js": 147,
-        "index.js": 247.7,
-        "mobile.js": 247.4,
+        "desktop.js": 147.1,
+        "index.js": 247.8,
+        "mobile.js": 247.5,
         "shared.js": 56.7
     },
     "button": {
@@ -421,7 +421,7 @@
         "index.js": 44.7
     },
     "bank-card": {
-        "index.js": 42.8
+        "index.js": 42.9
     },
     "badge": {
         "index.js": 2.1
@@ -436,7 +436,7 @@
         "index.js": 26.7
     },
     "amount-input": {
-        "index.js": 55.7
+        "index.js": 55.8
     },
     "alert": {
         "index.js": 16.7
