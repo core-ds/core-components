@@ -6,14 +6,14 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { ContentMobile as Content } from '../components/content/Component.mobile';
 import { Controls, ControlsProps } from '../components/controls';
 import { FooterMobile as Footer } from '../components/footer/Component.mobile';
-import { Header } from '../components/header/Component';
+import { HeaderMobile } from '../components/header';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
 import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';
-import rightSideTransitons from './transitions/right-side-transitions.mobile.module.css';
+import rightSideTransitions from './transitions/right-side-transitions.mobile.module.css';
 import transitions from './transitions/transitions.mobile.module.css';
 
 const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
@@ -36,7 +36,7 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
                 ref={ref}
                 transitionProps={{
                     timeout: appearance === 'right' ? 360 : 200,
-                    classNames: appearance === 'right' ? rightSideTransitons : transitions,
+                    classNames: appearance === 'right' ? rightSideTransitions : transitions,
                 }}
                 className={cn(className, styles.component)}
                 scrollHandler='content'
@@ -56,7 +56,7 @@ const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalM
 
 export const UniversalModalMobile = Object.assign(UniversalModalMobileComponent, {
     Content,
-    Header,
+    Header: HeaderMobile,
     Footer,
     Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });

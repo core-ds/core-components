@@ -17,8 +17,12 @@ export type { ContentDesktopProps, ContentMobileProps } from './components/conte
 export { Controls } from './components/controls';
 export type { ControlsProps } from './components/controls';
 
-export { Header } from './components/header';
-export type { HeaderProps } from './components/header';
+export { HeaderResponsive, HeaderDesktop, HeaderMobile } from './components/header';
+export type {
+    HeaderResponsiveProps,
+    HeaderPropsDesktop,
+    HeaderPropsMobile,
+} from './components/header';
 
 export { FooterDesktop, FooterMobile } from './components/footer';
 export type { FooterDesktopProps, FooterMobileProps } from './components/footer';

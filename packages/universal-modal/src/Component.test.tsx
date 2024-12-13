@@ -67,7 +67,10 @@ describe('UniversalModal', () => {
         const dti = 'modal-dti';
         const { getByTestId } = render(
             <UniversalModalResponsive dataTestId={dti} open={true}>
-                <UniversalModalResponsive.Header title='Title' />
+                <UniversalModalResponsive.Header
+                    title='Title'
+                    dataTestId={getUniversalModalTestIds(dti).header}
+                />
                 <UniversalModalResponsive.Content
                     dataTestId={getUniversalModalTestIds(dti).content}
                 >

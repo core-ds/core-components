@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Controls } from './components/controls';
-import { Header } from './components/header';
+import { HeaderResponsive } from './components/header';
 import { createResponsive } from './utils/createResponsive';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
@@ -24,7 +24,7 @@ const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>
 );
 
 export const UniversalModalResponsive = Object.assign(UniversalModal, {
-    Header,
+    Header: HeaderResponsive,
     Controls,
     Content: createResponsive(UniversalModalDesktop.Content, UniversalModalMobile.Content),
     Footer: createResponsive(UniversalModalDesktop.Footer, UniversalModalMobile.Footer),

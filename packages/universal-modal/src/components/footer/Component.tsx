@@ -4,12 +4,12 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
+import { FOOTER_MEDIUM_BREAKPOINT } from '../../desktop/const';
 import { ResponsiveContext } from '../../ResponsiveContext';
 
 import styles from './index.module.css';
 import layoutStylesMobile from './layout.mobile.module.css';
 import layoutStyles from './layout.module.css';
-import { FOOTER_MEDIUM_BREAKPOINT } from '../../desktop/const';
 
 const layouts = {
     desktop: layoutStyles,
