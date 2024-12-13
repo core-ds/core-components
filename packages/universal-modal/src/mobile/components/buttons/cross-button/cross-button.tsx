@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import styles from './cross-button.module.css';
@@ -13,7 +13,7 @@ export const CrossButtonMobile: FC<CrossButtonProps> = (props) => {
     const { onClick } = props;
 
     return (
-        <Button
+        <ButtonMobile
             leftAddons={<CrossMIcon className={styles.icon} />}
             size={32}
             shape='rounded'

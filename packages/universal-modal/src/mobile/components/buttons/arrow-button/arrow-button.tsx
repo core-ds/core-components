@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from 'react';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ChevronLeftMIcon } from '@alfalab/icons-glyph/ChevronLeftMIcon';
 
 import styles from './arrow-button.module.css';
@@ -13,7 +13,7 @@ export const ArrowButtonMobile: FC<ArrowButtonDesktopProps> = (props) => {
     const { onClick } = props;
 
     return (
-        <Button
+        <ButtonMobile
             shape='rounded'
             size={32}
             leftAddons={<ChevronLeftMIcon className={styles.icon} />}
