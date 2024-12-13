@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
 import { Controls, ControlsProps } from '../components/controls';
@@ -19,10 +19,8 @@ export const UniversalModalDesktopComponent = forwardRef<
     const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
     const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
 
-    const contextValue = React.useMemo<TResponsiveModalContext>(
+    const contextValue = useMemo<TResponsiveModalContext>(
         () => ({
-            view: 'desktop',
-            dataTestId,
             modalWidth,
             modalHeaderHighlighted,
             modalFooterHighlighted,
@@ -30,7 +28,7 @@ export const UniversalModalDesktopComponent = forwardRef<
             setModalHeaderHighlighted,
             setModalFooterHighlighted,
         }),
-        [dataTestId, modalWidth, modalHeaderHighlighted, modalFooterHighlighted],
+        [modalWidth, modalHeaderHighlighted, modalFooterHighlighted],
     );
 
     const renderContent = () => {

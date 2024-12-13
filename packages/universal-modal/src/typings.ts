@@ -1,11 +1,7 @@
 import { UniversalModalDesktopProps } from './desktop/types/props';
 import { UniversalModalMobileProps } from './mobile/types/props';
 
-export type View = 'desktop' | 'mobile';
-
 export type TResponsiveModalContext = {
-    view: View;
-    dataTestId?: string;
     modalWidth?: number;
     modalHeaderHighlighted?: boolean;
     modalFooterHighlighted?: boolean;

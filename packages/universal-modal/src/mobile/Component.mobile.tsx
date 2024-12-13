@@ -21,12 +21,10 @@ export const UniversalModalMobileComponent = forwardRef<HTMLDivElement, Universa
         const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
         const contextValue = useMemo<TResponsiveModalContext>(
             () => ({
-                view: 'mobile',
-                dataTestId,
                 modalHeaderHighlighted,
                 setModalHeaderHighlighted,
             }),
-            [dataTestId, modalHeaderHighlighted],
+            [modalHeaderHighlighted],
         );
 
         const renderContent = () => (

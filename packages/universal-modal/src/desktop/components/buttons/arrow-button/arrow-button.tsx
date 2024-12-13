@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from 'react';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { Typography } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 
@@ -14,7 +14,7 @@ export const ArrowButtonDesktop: FC<ArrowButtonDesktopProps> = (props) => {
     const { onClick } = props;
 
     return (
-        <Button
+        <ButtonDesktop
             shape='rounded'
             size={48}
             leftAddons={<ArrowLeftMediumMIcon />}
@@ -24,6 +24,6 @@ export const ArrowButtonDesktop: FC<ArrowButtonDesktopProps> = (props) => {
             <Typography.Text view='primary-large' weight='medium'>
                 Назад
             </Typography.Text>
-        </Button>
+        </ButtonDesktop>
     );
 };

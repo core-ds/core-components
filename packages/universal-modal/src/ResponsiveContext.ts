@@ -1,5 +1,5 @@
-import React from 'react';
+import { createContext } from 'react';
 
 import type { TResponsiveModalContext } from './typings';
 
-export const ResponsiveContext = React.createContext<TResponsiveModalContext>(null);
+export const ResponsiveContext = createContext<TResponsiveModalContext>(null);
