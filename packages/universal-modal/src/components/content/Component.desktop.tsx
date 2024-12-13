@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Content, ContentProps } from './Component';
+import { BaseContent, ContentProps } from './base-content';
 
 export type ContentDesktopProps = ContentProps & {
     /**
@@ -11,5 +11,5 @@ export type ContentDesktopProps = ContentProps & {
 };
 
 export const ContentDesktop: FC<ContentDesktopProps> = ({ className, ...restProps }) => (
-    <Content className={cn(className)} {...restProps} />
+    <BaseContent className={cn(className)} {...restProps} />
 );

@@ -22,7 +22,7 @@ export type ContentProps = {
     dataTestId?: string;
 };
 
-export const Content: FC<ContentProps> = ({ children, className, dataTestId }) => {
+export const BaseContent: FC<ContentProps> = ({ children, className, dataTestId }) => {
     const { contentRef, hasHeader, hasFooter } = useContext(ModalContext);
 
     return (

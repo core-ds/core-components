@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 
-import { ContentDesktop as Content } from '../components/content/Component.desktop';
+import { ContentDesktop } from '../components/content/Component.desktop';
 import { Controls, ControlsProps } from '../components/controls';
 import { FooterDesktop as Footer } from '../components/footer/Component.desktop';
 import { HeaderDesktop } from '../components/header';
@@ -37,9 +37,9 @@ export const UniversalModalDesktopComponent = forwardRef<
         if (horizontalAlign === 'center') {
             return (
                 <ModalByCenter
+                    {...restProps}
                     horizontalAlign={horizontalAlign}
                     dataTestId={dataTestId}
-                    {...restProps}
                     ref={ref}
                 >
                     {children}
@@ -49,9 +49,9 @@ export const UniversalModalDesktopComponent = forwardRef<
 
         return (
             <ModalBySide
+                {...restProps}
                 horizontalAlign={horizontalAlign}
                 dataTestId={dataTestId}
-                {...restProps}
                 ref={ref}
             >
                 {children}
@@ -67,8 +67,8 @@ export const UniversalModalDesktopComponent = forwardRef<
 });
 
 export const UniversalModalDesktop = Object.assign(UniversalModalDesktopComponent, {
-    Content,
     Header: HeaderDesktop,
+    Content: ContentDesktop,
     Footer,
     Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });
