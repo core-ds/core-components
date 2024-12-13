@@ -1,8 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { Footer, FooterProps } from './Component';
+import { ModalContext } from '../../Context';
 
+import { BaseFooter, FooterProps } from './base-footer';
+
+import layoutStylesMobile from './layout.mobile.module.css';
 import styles from './mobile.module.css';
 
 export type FooterMobileProps = FooterProps;
@@ -12,13 +15,18 @@ export const FooterMobile: FC<FooterMobileProps> = ({
     sticky,
     layout = 'start',
     ...restProps
-}) => (
-    <Footer
-        className={cn(className, styles.footer, {
-            [styles.sticky]: sticky,
-        })}
-        sticky={sticky}
-        layout={layout}
-        {...restProps}
-    />
-);
+}) => {
+    const { footerHighlighted } = useContext(ModalContext);
+
+    return (
+        <BaseFooter
+            className={cn(styles.footer, layoutStylesMobile[layout], className, {
+                [styles.sticky]: sticky,
+            })}
+            sticky={sticky}
+            layout={layout}
+            isHighlighted={footerHighlighted}
+            {...restProps}
+        />
+    );
+};

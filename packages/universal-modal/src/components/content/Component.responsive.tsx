@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import type { ContentDesktopProps, ContentMobileProps } from '.';

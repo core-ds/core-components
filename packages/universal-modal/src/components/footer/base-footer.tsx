@@ -1,20 +1,9 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
-
 import { ModalContext } from '../../Context';
-import { FOOTER_MEDIUM_BREAKPOINT } from '../../desktop/const';
-import { ResponsiveContext } from '../../ResponsiveContext';
 
 import styles from './index.module.css';
-import layoutStylesMobile from './layout.mobile.module.css';
-import layoutStyles from './layout.module.css';
-
-const layouts = {
-    desktop: layoutStyles,
-    mobile: layoutStylesMobile,
-};
 
 export type FooterProps = {
     /**
@@ -41,18 +30,21 @@ export type FooterProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Отбивка бордером
+     */
+    isHighlighted?: boolean;
 };
 
-export const Footer: FC<FooterProps> = ({
+export const BaseFooter: FC<FooterProps> = ({
     children,
     className,
     sticky,
-    layout = 'start',
     dataTestId,
+    isHighlighted,
 }) => {
-    const { setHasFooter, footerHighlighted } = useContext(ModalContext);
-    const responsiveContext = useContext(ResponsiveContext);
-    const { modalFooterHighlighted, view = 'desktop', modalWidth = 500 } = responsiveContext || {};
+    const { setHasFooter } = useContext(ModalContext);
 
     useEffect(() => {
         setHasFooter(true);
@@ -62,17 +54,13 @@ export const Footer: FC<FooterProps> = ({
         };
     }, [setHasFooter]);
 
-    // custom scroll ломает highlight логику в base-modal, поэтому для десктопа обрабатываем самостоятельно
-    const isHighlighted = view === 'desktop' ? modalFooterHighlighted : footerHighlighted;
-
     return (
         <div
-            className={cn(styles.footer, className, layouts[view][layout], {
+            className={cn(styles.footer, className, {
                 [styles.highlighted]: sticky && isHighlighted,
                 [styles.sticky]: sticky,
-                [layoutStyles.middle]: view === 'desktop' && modalWidth >= FOOTER_MEDIUM_BREAKPOINT,
             })}
-            data-test-id={dataTestId || getDataTestId(responsiveContext?.dataTestId, 'footer')}
+            data-test-id={dataTestId}
             data-name='modalFooterDesktop'
         >
             {children}

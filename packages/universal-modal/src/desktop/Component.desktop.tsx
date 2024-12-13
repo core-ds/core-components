@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from 'react';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
 import { Controls, ControlsProps } from '../components/controls';
-import { FooterDesktop as Footer } from '../components/footer/Component.desktop';
+import { FooterDesktop } from '../components/footer/Component.desktop';
 import { HeaderDesktop } from '../components/header';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
@@ -69,6 +69,6 @@ export const UniversalModalDesktopComponent = forwardRef<
 export const UniversalModalDesktop = Object.assign(UniversalModalDesktopComponent, {
     Header: HeaderDesktop,
     Content: ContentDesktop,
-    Footer,
+    Footer: FooterDesktop,
     Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });

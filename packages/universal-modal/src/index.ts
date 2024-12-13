@@ -24,5 +24,9 @@ export type {
     HeaderPropsMobile,
 } from './components/header';
 
-export { FooterDesktop, FooterMobile } from './components/footer';
-export type { FooterDesktopProps, FooterMobileProps } from './components/footer';
+export { FooterResponsive, FooterDesktop, FooterMobile } from './components/footer';
+export type {
+    FooterResponsiveProps,
+    FooterDesktopProps,
+    FooterMobileProps,
+} from './components/footer';

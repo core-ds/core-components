@@ -76,7 +76,9 @@ describe('UniversalModal', () => {
                 >
                     Content
                 </UniversalModalResponsive.Content>
-                <UniversalModalResponsive.Footer>Footer</UniversalModalResponsive.Footer>
+                <UniversalModalResponsive.Footer dataTestId={getUniversalModalTestIds(dti).footer}>
+                    Footer
+                </UniversalModalResponsive.Footer>
             </UniversalModalResponsive>,
         );
 

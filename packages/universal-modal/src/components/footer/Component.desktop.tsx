@@ -1,9 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { Footer, FooterProps } from './Component';
+import { FOOTER_MEDIUM_BREAKPOINT } from '../../desktop/const';
+import { ResponsiveContext } from '../../ResponsiveContext';
+
+import { BaseFooter, FooterProps } from './base-footer';
 
 import styles from './desktop.module.css';
+import layoutStyles from './layout.module.css';
 
 export type FooterDesktopProps = FooterProps & {
     /**
@@ -12,12 +16,25 @@ export type FooterDesktopProps = FooterProps & {
     size?: 's' | 500;
 };
 
-export const FooterDesktop: FC<FooterDesktopProps> = ({ className, sticky, ...restProps }) => (
-    <Footer
-        className={cn(className, {
-            [styles.sticky]: sticky,
-        })}
-        sticky={sticky}
-        {...restProps}
-    />
-);
+export const FooterDesktop: FC<FooterDesktopProps> = ({
+    className,
+    sticky,
+    layout = 'start',
+    ...restProps
+}) => {
+    const responsiveContext = useContext(ResponsiveContext);
+    const { modalWidth = 500, modalFooterHighlighted } = responsiveContext || {};
+
+    return (
+        <BaseFooter
+            className={cn(layoutStyles[layout], className, {
+                [styles.sticky]: sticky,
+                [layoutStyles.middle]: modalWidth >= FOOTER_MEDIUM_BREAKPOINT,
+            })}
+            sticky={sticky}
+            layout={layout}
+            isHighlighted={modalFooterHighlighted}
+            {...restProps}
+        />
+    );
+};
