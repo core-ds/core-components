@@ -9,7 +9,7 @@ import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
 import { UniversalModalResponsiveProps } from './typings';
 
-const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
+export const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
     ({ children, breakpoint, defaultMatchMediaValue, dataTestId, ...restProps }, ref) => {
         const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 

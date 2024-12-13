@@ -4,24 +4,47 @@ import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalResponsive } from '..';
 import vars from '!!raw-loader!../vars.css';
 
-## Подключение
+## Подключение Responsive
 
 ```jsx
-// Responsive компонент
-import { UniversalModalResponsive } from '@alfalab/core-components/universal-modal';
-import type {UniversalModalResponsiveProps } from '@alfalab/core-components/universal-modal';
+// atom
+import { UniversalModal } from '@alfalab/core-components/universal-modal';
 
-// Desktop компонент
+// compound
+import { UniversalModalResponsive } from '@alfalab/core-components/universal-modal';
+
+import type {UniversalModalResponsiveProps } from '@alfalab/core-components/universal-modal';
+```
+
+## Подключение Desktop
+
+```jsx
+// atom
+import { UniversalModalDesktopComponent } from '@alfalab/core-components/universal-modal';
+
+// compound
 import { UniversalModalDesktop } from '@alfalab/core-components/universal-modal';
+
 import type { UniversalModalDesktopProps } from '@alfalab/core-components/universal-modal';
 import { ArrowButtonDesktop, CrossButtonDesktop } from '@alfalab/core-components/universal-modal';
+```
 
-// Mobile компонент
+## Подключение Mobile
+
+```jsx
+// atom
+import { UniversalModalMobileComponent } from '@alfalab/core-components/universal-modal';
+
+// compound
 import { UniversalModalMobile } from '@alfalab/core-components/universal-modal';
+
 import type { UniversalModalMobileProps } from '@alfalab/core-components/universal-modal';
 import { ArrowButtonDesktopMobile, CrossButtonDesktopMobile } from '@alfalab/core-components/universal-modal';
+```
 
-// Атомарный импорт внутренних компонентов
+## Атомарный импорт внутренних компонентов
+
+```jsx
 import { ContentDesktop, ContentMobile } from '@alfalab/core-components/universal-modal';
 import type { ContentDesktopProps, ContentMobileProps } from '@alfalab/core-components/universal-modal';
 

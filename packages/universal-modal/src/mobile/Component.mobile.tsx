@@ -16,7 +16,7 @@ import styles from './mobile.module.css';
 import rightSideTransitions from './transitions/right-side-transitions.mobile.module.css';
 import transitions from './transitions/transitions.mobile.module.css';
 
-const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
+export const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
     ({ children, className, dataTestId, onClose, appearance = 'bottom', ...restProps }, ref) => {
         const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
         const contextValue = useMemo<TResponsiveModalContext>(

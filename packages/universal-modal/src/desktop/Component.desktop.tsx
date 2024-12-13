@@ -11,59 +11,60 @@ import { ModalByCenter } from './components/modal-by-center';
 import { ModalBySide } from './components/modal-by-side';
 import { UniversalModalDesktopProps } from './types/props';
 
-const UniversalModalDesktopComponent = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
-    ({ children, dataTestId, horizontalAlign = 'center', ...restProps }, ref) => {
-        const [modalWidth, setModalWidth] = useState<number>(0);
-        const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
-        const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
+export const UniversalModalDesktopComponent = forwardRef<
+    HTMLDivElement,
+    UniversalModalDesktopProps
+>(({ children, dataTestId, horizontalAlign = 'center', ...restProps }, ref) => {
+    const [modalWidth, setModalWidth] = useState<number>(0);
+    const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
+    const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
 
-        const contextValue = React.useMemo<TResponsiveModalContext>(
-            () => ({
-                view: 'desktop',
-                dataTestId,
-                modalWidth,
-                modalHeaderHighlighted,
-                modalFooterHighlighted,
-                setModalWidth,
-                setModalHeaderHighlighted,
-                setModalFooterHighlighted,
-            }),
-            [dataTestId, modalWidth, modalHeaderHighlighted, modalFooterHighlighted],
-        );
+    const contextValue = React.useMemo<TResponsiveModalContext>(
+        () => ({
+            view: 'desktop',
+            dataTestId,
+            modalWidth,
+            modalHeaderHighlighted,
+            modalFooterHighlighted,
+            setModalWidth,
+            setModalHeaderHighlighted,
+            setModalFooterHighlighted,
+        }),
+        [dataTestId, modalWidth, modalHeaderHighlighted, modalFooterHighlighted],
+    );
 
-        const renderContent = () => {
-            if (horizontalAlign === 'center') {
-                return (
-                    <ModalByCenter
-                        horizontalAlign={horizontalAlign}
-                        dataTestId={dataTestId}
-                        {...restProps}
-                        ref={ref}
-                    >
-                        {children}
-                    </ModalByCenter>
-                );
-            }
-
+    const renderContent = () => {
+        if (horizontalAlign === 'center') {
             return (
-                <ModalBySide
+                <ModalByCenter
                     horizontalAlign={horizontalAlign}
                     dataTestId={dataTestId}
                     {...restProps}
                     ref={ref}
                 >
                     {children}
-                </ModalBySide>
+                </ModalByCenter>
             );
-        };
+        }
 
         return (
-            <ResponsiveContext.Provider value={contextValue}>
-                {renderContent()}
-            </ResponsiveContext.Provider>
+            <ModalBySide
+                horizontalAlign={horizontalAlign}
+                dataTestId={dataTestId}
+                {...restProps}
+                ref={ref}
+            >
+                {children}
+            </ModalBySide>
         );
-    },
-);
+    };
+
+    return (
+        <ResponsiveContext.Provider value={contextValue}>
+            {renderContent()}
+        </ResponsiveContext.Provider>
+    );
+});
 
 export const UniversalModalDesktop = Object.assign(UniversalModalDesktopComponent, {
     Content,
