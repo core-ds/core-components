@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.5.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.13
+    -   form-control@12.7.3
+    -   popover@6.3.4
+    -   select@17.18.0
+    -   tag@8.6.3
+
 ## 8.5.7
 
 ### Patch Changes

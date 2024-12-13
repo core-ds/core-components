@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.10.7
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   base-modal@5.8.6
+    -   icon-button@6.11.4
+    -   tooltip@7.8.2
+    -   typography@4.11.1
+
 ## 5.10.6
 
 ### Patch Changes

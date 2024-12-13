@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pure-cell",
-    "version": "4.13.5",
+    "version": "4.13.6",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,10 +15,10 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-amount": "^3.8.1",
-        "@alfalab/core-components-button": "^11.11.0",
-        "@alfalab/core-components-typography": "^4.11.0",
-        "@alfalab/core-components-comment": "^2.4.4",
+        "@alfalab/core-components-amount": "^3.8.2",
+        "@alfalab/core-components-button": "^11.11.1",
+        "@alfalab/core-components-typography": "^4.11.1",
+        "@alfalab/core-components-comment": "^2.4.5",
         "@alfalab/core-components-shared": "^0.14.0",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/data": "^1.8.0",
