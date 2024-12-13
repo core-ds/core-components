@@ -1356,20 +1356,40 @@ render(() => {
 render(() => {
     const [openModal, setOpenModal] = React.useState(false);
     const [openSecondModal, setOpenSecondModal] = React.useState(false);
+    const [backdropOpen, setBackdropOpen] = React.useState(false);
+
+    const handleButtonClick = () => {
+        setOpenModal(true);
+        setBackdropOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+        setTimeout(() => {
+            setOpenSecondModal(true);
+        }, 300);
+    };
+
+    const handleCloseSecondModal = () => {
+        setOpenSecondModal(false);
+        setBackdropOpen(false);
+    };
 
     return (
-        <React.Fragment>
-            <Button onClick={() => setOpenModal((prev) => !prev)}>Показать модалку</Button>
+        <div style={{ position: 'relative', zIndex: 1 }}>
+            <Button onClick={handleButtonClick}>Показать модалку</Button>
+            <Backdrop open={backdropOpen} />
             <UniversalModalDesktop
                 open={openModal}
                 height={400}
-                onClose={() => setOpenModal(false)}
+                overlay={false}
+                onClose={handleCloseModal}
             >
                 <UniversalModalDesktop.Header
                     sticky={true}
                     title='Одна модалка'
                     align='left'
-                    rightAddons={<CrossButtonDesktop onClick={() => setOpenModal(false)} />}
+                    rightAddons={<CrossButtonDesktop onClick={handleCloseModal} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text view='primary-medium'>
@@ -1382,16 +1402,7 @@ render(() => {
                     </Typography.Text>
                 </UniversalModalDesktop.Content>
                 <UniversalModalDesktop.Footer sticky={true} layout='start'>
-                    <Button
-                        size={48}
-                        view='primary'
-                        onClick={() => {
-                            setOpenModal(false);
-                            setTimeout(() => {
-                                setOpenSecondModal(true);
-                            }, 300);
-                        }}
-                    >
+                    <Button size={48} view='primary' onClick={handleCloseModal}>
                         Дальше
                     </Button>
                 </UniversalModalDesktop.Footer>
@@ -1400,13 +1411,14 @@ render(() => {
             <UniversalModalDesktop
                 open={openSecondModal}
                 height={280}
-                onClose={() => setOpenSecondModal(false)}
+                overlay={false}
+                onClose={handleCloseSecondModal}
             >
                 <UniversalModalDesktop.Header
                     sticky={true}
                     title='Другая модалка'
                     align='left'
-                    rightAddons={<CrossButtonDesktop onClick={() => setOpenSecondModal(false)} />}
+                    rightAddons={<CrossButtonDesktop onClick={handleCloseSecondModal} />}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text view='primary-medium'>
@@ -1416,12 +1428,12 @@ render(() => {
                     </Typography.Text>
                 </UniversalModalDesktop.Content>
                 <UniversalModalDesktop.Footer sticky={true} layout='start'>
-                    <Button size={48} view='primary' onClick={() => setOpenSecondModal(false)}>
+                    <Button size={48} view='primary' onClick={handleCloseSecondModal}>
                         Дальше
                     </Button>
                 </UniversalModalDesktop.Footer>
             </UniversalModalDesktop>
-        </React.Fragment>
+        </div>
     );
 });
 ```
@@ -1445,6 +1457,7 @@ render(() => {
                 verticalAlign={'center'}
                 overlay={false}
                 onClose={() => setOpen(false)}
+                margin={[12, 12, 12, 0]}
             >
                 <UniversalModalDesktop.Header
                     align='left'
