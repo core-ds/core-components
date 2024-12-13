@@ -1,2 +1,5 @@
-export { FooterDesktop, FooterDesktopProps } from './Component.desktop';
-export { FooterMobile, FooterMobileProps } from './Component.mobile';
+export { FooterDesktop } from './Component.desktop';
+export type { FooterDesktopProps } from './Component.desktop';
+
+export { FooterMobile } from './Component.mobile';
+export type { FooterMobileProps } from './Component.mobile';

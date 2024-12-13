@@ -1,1 +1,2 @@
-export { Header, type HeaderProps } from './Component';
+export { Header } from './Component';
+export type { HeaderProps } from './Component';
