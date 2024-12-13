@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo, useState } from 'react';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
-import { Controls, ControlsProps } from '../components/controls';
+import { ControlsDesktop } from '../components/controls';
 import { FooterDesktop } from '../components/footer/Component.desktop';
 import { HeaderDesktop } from '../components/header';
 import { ResponsiveContext } from '../ResponsiveContext';
@@ -68,5 +68,5 @@ export const UniversalModalDesktop = Object.assign(UniversalModalDesktopComponen
     Header: HeaderDesktop,
     Content: ContentDesktop,
     Footer: FooterDesktop,
-    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
+    Controls: ControlsDesktop,
 });

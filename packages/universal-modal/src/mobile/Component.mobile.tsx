@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content/Component.mobile';
-import { Controls, ControlsProps } from '../components/controls';
+import { ControlsMobile } from '../components/controls';
 import { FooterMobile } from '../components/footer/Component.mobile';
 import { HeaderMobile } from '../components/header';
 import { ResponsiveContext } from '../ResponsiveContext';
@@ -56,5 +56,5 @@ export const UniversalModalMobile = Object.assign(UniversalModalMobileComponent,
     Header: HeaderMobile,
     Content: ContentMobile,
     Footer: FooterMobile,
-    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
+    Controls: ControlsMobile,
 });

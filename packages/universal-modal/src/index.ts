@@ -14,8 +14,12 @@ export { CrossButtonMobile } from './mobile/components/buttons/cross-button';
 export { ContentDesktop, ContentMobile } from './components/content';
 export type { ContentDesktopProps, ContentMobileProps } from './components/content';
 
-export { Controls } from './components/controls';
-export type { ControlsProps } from './components/controls';
+export { ControlsResponsive, ControlsDesktop, ControlsMobile } from './components/controls';
+export type {
+    ControlsResponsiveProps,
+    ControlsDesktopProps,
+    ControlsMobileProps,
+} from './components/controls';
 
 export { HeaderResponsive, HeaderDesktop, HeaderMobile } from './components/header';
 export type {

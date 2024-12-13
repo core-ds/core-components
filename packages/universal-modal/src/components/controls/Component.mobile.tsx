@@ -1,14 +1,10 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
-
-import { ResponsiveContext } from '../../ResponsiveContext';
 
 import layoutStyles from '../footer/layout.module.css';
 import styles from './index.module.css';
 
-export interface ControlsProps {
+export interface ControlsMobileProps {
     /**
      * Основной слот
      */
@@ -26,34 +22,28 @@ export interface ControlsProps {
     layout?: 'start' | 'center' | 'space-between' | 'column';
 
     /**
-     * Выравнивание элементов футера (мобильный view)
-     * @default start
-     */
-    mobileLayout?: 'start' | 'center' | 'space-between' | 'column';
-
-    /**
      * Отступы между элементами футера
      */
     gap?: 16 | 24 | 32;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 }
 
-export const Controls: React.FC<ControlsProps> = ({
+export const ControlsMobile: React.FC<ControlsMobileProps> = ({
     primary,
     secondary,
     gap,
-    layout: layoutProp = 'start',
-    mobileLayout = layoutProp,
+    layout = 'start',
+    dataTestId,
 }) => {
-    const context = useContext(ResponsiveContext);
-    const { view = 'desktop', dataTestId } = context || {};
-
-    const layout = view === 'mobile' ? mobileLayout : layoutProp;
-
-    const shouldReverse = view === 'mobile' && layout !== 'column';
+    const shouldReverse = layout !== 'column';
 
     return (
         <div
-            data-test-id={getDataTestId(dataTestId, 'controls')}
+            data-test-id={dataTestId}
             className={cn(
                 styles.component,
                 layoutStyles[layout],
