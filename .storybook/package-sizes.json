@@ -45,7 +45,7 @@
         "mobile.js": 4.9
     },
     "tabs": {
-        "collapsible.js": 153.9,
+        "collapsible.js": 154,
         "desktop.js": 38.4,
         "index.js": 39.7,
         "mobile.js": 38.5,
@@ -111,14 +111,14 @@
         "index.js": 5.2
     },
     "select": {
-        "desktop.js": 161,
+        "desktop.js": 161.1,
         "index.js": 304.3,
         "mobile.js": 277.6,
         "shared.js": 263.8
     },
     "select-with-tags": {
-        "desktop.js": 192.8,
-        "index.js": 216,
+        "desktop.js": 192.9,
+        "index.js": 216.1,
         "mobile.js": 189.9
     },
     "segmented-control": {
@@ -164,7 +164,7 @@
     },
     "picker-button": {
         "desktop.js": 145.8,
-        "index.js": 309.1,
+        "index.js": 309.2,
         "mobile.js": 281.9,
         "shared.js": 3.1
     },
