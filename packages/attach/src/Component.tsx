@@ -10,7 +10,9 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { type ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
@@ -105,6 +107,13 @@ export type AttachProps = Omit<
     dataTestId?: string;
 };
 
+type AttachPrivateProps = {
+    /**
+     *  Компонент Button
+     */
+    Button: typeof ButtonDesktop | typeof ButtonMobile;
+}
+
 const MULTIPLE_TEXTS: [string, string, string] = ['файл', 'файла', 'файлов'];
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -120,7 +129,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     64: 'size-64',
 };
 
-export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
+export const Attach = React.forwardRef<HTMLInputElement, AttachProps & AttachPrivateProps>(
     (
         {
             size = 48,
@@ -141,6 +150,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             value,
             onChange,
             onClear,
+            Button,
             ...restProps
         },
         ref,

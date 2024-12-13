@@ -17,6 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-button": "^11.11.6",
         "@alfalab/core-components-keyboard-focusable": "^4.1.1",
+        "@alfalab/core-components-mq": "^4.4.0",
         "@alfalab/core-components-progress-bar": "^3.5.2",
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/utils": "^1.18.0",
