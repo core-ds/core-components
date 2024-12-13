@@ -1,35 +1,12 @@
 @import '../../vars/src/index.css';
 
 :root {
-    --universal-modal-border-radius: var(--border-radius-12);
-    --universal-modal-vertical-padding: var(--gap-40);
     --universal-modal-header-background: var(--color-light-modal-bg-primary);
     --universal-modal-footer-background: var(--color-light-modal-bg-primary);
-
-    /* sizes */
-    --universal-modal-s-width: 500px;
-
-    /* paddings */
-    --universal-modal-s-header-paddings: 28px 28px var(--gap-0);
-    --universal-modal-s-content-paddings: var(--gap-40) var(--gap-40) var(--gap-0);
-    --universal-modal-s-footer-paddings: var(--gap-24) var(--gap-40) var(--gap-40);
 
     /* scroll */
     --universal-modal-header-highlight-background: var(--color-light-modal-bg-primary);
     --universal-modal-footer-highlight-background: var(--color-light-modal-bg-primary);
     --universal-modal-header-highlight-box-shadow: 0 1px 0 0 var(--color-light-neutral-300);
     --universal-modal-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
-
-    /* desktop */
-    --universal-modal-s-header-desktop-content-paddings: 6px var(--gap-12) var(--gap-16);
-    --universal-modal-s-header-desktop-font-size: 30px;
-    --universal-modal-s-header-desktop-line-height: 36px;
-    --universal-modal-header-desktop-font-weight: bold;
-    --universal-modal-header-desktop-font-family: var(--font-family-system);
-
-    /* mobile */
-    --universal-modal-header-mobile-font-size: 20px;
-    --universal-modal-header-mobile-line-height: 28px;
-    --universal-modal-header-mobile-font-family: var(--font-family-system);
-    --universal-modal-header-mobile-font-weight: 600;
 }

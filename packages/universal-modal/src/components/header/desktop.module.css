@@ -1,4 +1,5 @@
 @import '../../vars.css';
+@import '../../desktop/vars.css';
 
 .content {
     font-weight: var(--universal-modal-header-desktop-font-weight);
