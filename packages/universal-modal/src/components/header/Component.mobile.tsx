@@ -7,7 +7,6 @@ import {
 } from '@alfalab/core-components-navigation-bar-private';
 
 import { ModalContext } from '../../Context';
-import { ResponsiveContext } from '../../ResponsiveContext';
 
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
@@ -25,7 +24,6 @@ export const HeaderMobile: FC<HeaderPropsMobile> = ({
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted, componentRef } = useContext(ModalContext);
-    const { setModalHeaderHighlighted } = useContext(ResponsiveContext) || {};
 
     const titleRef = useRef<HTMLDivElement>(null);
 
@@ -34,12 +32,6 @@ export const HeaderMobile: FC<HeaderPropsMobile> = ({
     useEffect(() => {
         setHasHeader(true);
     }, [setHasHeader]);
-
-    useEffect(() => {
-        if (setModalHeaderHighlighted) {
-            setModalHeaderHighlighted(Boolean(headerHighlighted));
-        }
-    }, [headerHighlighted, setModalHeaderHighlighted]);
 
     return (
         <NavigationBarPrivate
