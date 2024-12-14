@@ -15,9 +15,9 @@ import { useFocus } from '@alfalab/hooks';
 
 import { CommonButtonProps, ComponentProps, PrivateButtonProps } from '../../typings';
 
-import defaultColors from './default.module.css';
+import defaultColors from './colors.default.module.css';
 import commonStyles from './index.module.css';
-import invertedColors from './inverted.module.css';
+import invertedColors from './colors.inverted.module.css';
 
 const colorStyles = {
     default: defaultColors,

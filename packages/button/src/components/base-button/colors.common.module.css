@@ -1,0 +1,43 @@
+@import '../../vars.css';
+
+.accent {
+    border: 1px solid transparent;
+}
+
+.primary {
+    border: 1px solid transparent;
+}
+
+.filled {
+    border: 1px solid transparent;
+}
+
+.transparent {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.link {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.text {
+    background-color: transparent;
+}
+
+.ghost {
+    background-color: transparent;
+}
+
+/* Disabled */
+
+.component[disabled] {
+    &.transparent {
+        background-color: transparent;
+    }
+
+    &.link {
+        background-color: transparent;
+    }
+}

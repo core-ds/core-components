@@ -1,9 +1,9 @@
 @import '../../vars.css';
+@import 'colors.common.module.css';
 
 .accent {
     color: var(--button-inverted-accent-color);
     background-color: var(--button-inverted-accent-base-bg-color);
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -21,8 +21,6 @@
 }
 
 .primary {
-    border: 1px solid transparent;
-
     & .hint {
         color: var(--button-inverted-primary-hint-color);
     }
@@ -94,7 +92,6 @@
 .filled {
     color: var(--color-light-text-primary-inverted);
     background-color: var(--color-light-neutral-translucent-300-inverted);
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -113,8 +110,6 @@
 
 .transparent {
     color: var(--button-inverted-transparent-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -137,8 +132,6 @@
 
 .link {
     color: var(--button-inverted-link-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -157,7 +150,6 @@
 }
 
 .text {
-    background-color: transparent;
     color: var(--button-inverted-text-base-color);
 
     @media (hover: hover) {
@@ -176,7 +168,6 @@
 }
 
 .ghost {
-    background-color: transparent;
     color: var(--button-inverted-ghost-base-color);
 
     @media (hover: hover) {
@@ -189,6 +180,8 @@
         color: var(--button-spinner-inverted-color);
     }
 }
+
+/* Disabled */
 
 .component[disabled] {
     &.accent {
@@ -237,16 +230,12 @@
     }
 
     &.transparent {
-        background-color: transparent;
-
         &.loading {
             color: var(--button-inverted-transparent-base-color);
         }
     }
 
     &.link {
-        background-color: transparent;
-
         &.loading {
             color: var(--button-inverted-link-base-color);
         }

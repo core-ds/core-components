@@ -1,9 +1,9 @@
 @import '../../vars.css';
+@import 'colors.common.module.css';
 
 .accent {
     color: var(--button-accent-color);
     background-color: var(--button-accent-base-bg-color);
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -21,8 +21,6 @@
 }
 
 .primary {
-    border: 1px solid transparent;
-
     & .hint {
         color: var(--button-primary-hint-color);
     }
@@ -94,7 +92,6 @@
 .filled {
     color: var(--color-light-text-primary);
     background-color: var(--color-light-neutral-translucent-300);
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -113,8 +110,6 @@
 
 .transparent {
     color: var(--button-transparent-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -137,8 +132,6 @@
 
 .link {
     color: var(--button-link-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
 
     @media (hover: hover) {
         &:hover {
@@ -156,7 +149,6 @@
 }
 
 .text {
-    background-color: transparent;
     color: var(--button-text-base-color);
 
     @media (hover: hover) {
@@ -175,7 +167,6 @@
 }
 
 .ghost {
-    background-color: transparent;
     color: var(--button-ghost-base-color);
 
     @media (hover: hover) {
@@ -240,16 +231,12 @@
     }
 
     &.transparent {
-        background-color: transparent;
-
         &.loading {
             color: var(--button-transparent-base-color);
         }
     }
 
     &.link {
-        background-color: transparent;
-
         &.loading {
             color: var(--button-link-base-color);
         }
