@@ -1,10 +1,10 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { type HTMLAttributes, forwardRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Color } from '../colors';
+import type { Color } from '../colors';
 import { useSkeleton } from '../hooks';
-import { TextElementType, TextSkeletonProps } from '../types';
+import type { TextElementType, TextSkeletonProps } from '../types';
 
 import colors from '../colors.module.css';
 import styles from './index.module.css';
