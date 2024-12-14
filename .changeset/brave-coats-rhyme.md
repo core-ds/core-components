@@ -8,7 +8,6 @@
 '@alfalab/core-components-dropzone': patch
 '@alfalab/core-components-file-upload-item': patch
 '@alfalab/core-components-file-upload-item-v1': patch
-'@alfalab/core-components-form-control': patch
 '@alfalab/core-components-generic-wrapper': patch
 '@alfalab/core-components-hatching-progress-bar': patch
 '@alfalab/core-components-icon-button': patch
