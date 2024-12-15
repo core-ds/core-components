@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { StatusBadge, StatusBadgeProps } from '.';
+import { StatusBadge, type StatusBadgeProps } from '.';
 
 const viewOptions: StatusBadgeProps['view'][] = [
     'positive-checkmark',
