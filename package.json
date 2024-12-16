@@ -56,12 +56,12 @@
         ]
     },
     "dependencies": {
-        "@alfalab/data": "^1.8.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/data": "^1.9.1",
+        "@alfalab/hooks": "1.13.1",
         "@alfalab/icons-glyph": "^2.189.0",
         "@alfalab/icons-logotype": "^2.27.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
-        "@alfalab/utils": "^1.15.2",
+        "@alfalab/utils": "^1.17.1",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
         "@juggle/resize-observer": "^3.3.1",

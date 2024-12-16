@@ -17,7 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-portal": "^3.3.4",
         "@alfalab/core-components-stack": "^5.0.1",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "@juggle/resize-observer": "^3.3.1",
         "@popperjs/core": "^2.11.8",
         "classnames": "^2.5.1",

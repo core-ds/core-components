@@ -20,7 +20,7 @@
         "@alfalab/core-components-picker-button": "^11.12.8",
         "@alfalab/core-components-badge": "^5.6.3",
         "@alfalab/core-components-mq": "^4.4.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "@alfalab/core-components-shared": "^0.14.0",
         "@alfalab/core-components-icon-button": "^6.11.4",
         "@alfalab/core-components-skeleton": "^5.2.1",
