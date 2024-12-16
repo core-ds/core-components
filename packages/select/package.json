@@ -36,6 +36,7 @@
         "classnames": "^2.5.1",
         "downshift": "8.4.0",
         "intersection-observer": "^0.12.0",
+        "react-fast-compare": "^3.2.2",
         "react-merge-refs": "^1.1.0",
         "react-virtual": "^2.3.2",
         "tslib": "^2.4.0"
