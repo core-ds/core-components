@@ -499,6 +499,11 @@ export type ArrowProps = {
     open?: boolean;
 
     /**
+     * Флаг блокировки select'а
+     */
+    disabled?: boolean;
+
+    /**
      * Размер компонента
      * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
@@ -520,6 +525,11 @@ export type OptionsListProps = {
      * Дополнительный класс для скроллбара
      */
     scrollbarClassName?: string;
+
+    /**
+     * Дополнительный класс для футера
+     */
+    footerClassName?: string;
 
     /**
      * Размер компонента

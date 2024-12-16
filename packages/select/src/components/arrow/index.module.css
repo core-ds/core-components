@@ -9,6 +9,10 @@
 
     transition: transform 0.15s ease-in-out, opacity 0.2s ease;
 
+    &.disabled {
+        color: var(--select-arrow-disabled-color);
+    }
+
     &.size-40 {
         width: unset;
         height: unset;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
 
@@ -29,7 +29,7 @@ export const Content = () => {
             })}
         >
             {title && (
-                <Typography.Text
+                <Text
                     className={cn(styles.title, {
                         [styles.truncate]: truncate,
                         [styles.restore]: showRestore,
@@ -38,7 +38,7 @@ export const Content = () => {
                     color='primary'
                 >
                     {title}
-                </Typography.Text>
+                </Text>
             )}
             <ContentSubtitle />
         </div>

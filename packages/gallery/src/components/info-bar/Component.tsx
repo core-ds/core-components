@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { GALLERY_EVENTS, isVideo } from '../../utils';
@@ -56,13 +56,8 @@ export const InfoBar = () => {
             )}
         </section>
     ) : (
-        <Typography.Text
-            className={styles.description}
-            tag='div'
-            view='component'
-            color='primary-inverted'
-        >
+        <Text className={styles.description} tag='div' view='component' color='primary-inverted'>
             {image?.name}
-        </Typography.Text>
+        </Text>
     );
 };

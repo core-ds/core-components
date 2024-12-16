@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-chart",
-    "version": "3.4.4",
+    "version": "3.4.5",
     "description": "Chart component",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,9 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.11.0",
+        "@alfalab/core-components-typography": "^4.11.1",
         "classnames": "^2.5.1",
         "recharts": "^2.1.2",
         "tslib": "^2.4.0"

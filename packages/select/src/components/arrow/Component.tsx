@@ -8,12 +8,15 @@ import { ArrowProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Arrow = ({ open, className, size }: ArrowProps) => {
+export const Arrow = ({ open, disabled, className, size }: ArrowProps) => {
     const ChevronComponent = size === 40 ? ChevronDownSIcon : ChevronDownMIcon;
 
     return (
         <ChevronComponent
-            className={cn(styles.arrow, className, styles[`size-${size}`], { [styles.open]: open })}
+            className={cn(styles.arrow, styles[`size-${size}`], className, {
+                [styles.open]: open,
+                [styles.disabled]: disabled,
+            })}
         />
     );
 };

@@ -118,6 +118,22 @@ describe('Select', () => {
                         size: { width: 300, height: 120 },
                     }),
                 ],
+                [
+                    `${theme} theme — disabled props`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
+                        knobs: {
+                            options: [[]],
+                            block: true,
+                            placeholder: 'Выберите элемент',
+                            size: [48],
+                            label: ['Элемент'],
+                            disabled: [true, false],
+                        },
+                        size: { width: 300, height: 120 },
+                    }),
+                ],
             ],
             screenshotOpts: {
                 fullPage: true,

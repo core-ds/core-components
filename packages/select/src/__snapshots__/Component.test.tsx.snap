@@ -40,7 +40,7 @@ Object {
                 class="addons rightAddons"
               >
                 <svg
-                  class="arrow arrow size-48"
+                  class="arrow size-48 arrow"
                   fill="currentColor"
                   focusable="false"
                   height="24"
@@ -98,7 +98,7 @@ Object {
               class="addons rightAddons"
             >
               <svg
-                class="arrow arrow size-48"
+                class="arrow size-48 arrow"
                 fill="currentColor"
                 focusable="false"
                 height="24"
@@ -207,7 +207,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
             class="addons rightAddons"
           >
             <svg
-              class="arrow arrow size-48"
+              class="arrow size-48 arrow"
               fill="currentColor"
               focusable="false"
               height="24"
@@ -270,7 +270,7 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
             class="addons rightAddons"
           >
             <svg
-              class="arrow arrow size-48 open"
+              class="arrow size-48 arrow open"
               fill="currentColor"
               focusable="false"
               height="24"
