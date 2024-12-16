@@ -47,6 +47,10 @@
     font-family: var(--form-control-font-family);
 }
 
+.input.size-40 > * {
+    padding: 0 var(--gap-8);
+}
+
 .label {
     @mixin paragraph_component;
 
