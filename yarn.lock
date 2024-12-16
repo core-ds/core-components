@@ -72,20 +72,20 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.9.1.tgz#1bb3dcf5dd062ddb3aa458022bbf81c0c0ef6b0c"
   integrity sha512-RJQjs01k0MYtv9UwWxz5rL5XiOCsRO1gfrgQxZj8CqQShyLNfBuNTxcvKKY/5uuY2rBv9kN1PZrW57Fsc/DyGg==
 
-"@alfalab/hooks@1.13.1", "@alfalab/hooks@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.13.1.tgz#735b802c3bf753417e36c2a7e641d3c448676c16"
-  integrity sha512-K3vWoksc9pY0s7+ZOkd/fPeHI+ZPdtj7YhF9GwEZxBYMxdlFbKIhcIn0y8fPuz5fa+B6qvlJL2n+jGCMK3Lnaw==
-  dependencies:
-    "@alfalab/utils" "^1.17.1"
-    uuid "^8.3.2"
-
 "@alfalab/hooks@^1.13.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.13.0.tgz#13c8cf5a326fb85469e6472f469e91d7454a530f"
   integrity sha512-kAArulLn2plNLZwJIA20KByJq6b/410v7AZp7+X7MMY63oUKKByKhUijIAaFDidKkjV6PBY/aCFzL2fpNLenlQ==
   dependencies:
     "@alfalab/utils" "^1.13.2"
+    uuid "^8.3.2"
+
+"@alfalab/hooks@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.13.1.tgz#735b802c3bf753417e36c2a7e641d3c448676c16"
+  integrity sha512-K3vWoksc9pY0s7+ZOkd/fPeHI+ZPdtj7YhF9GwEZxBYMxdlFbKIhcIn0y8fPuz5fa+B6qvlJL2n+jGCMK3Lnaw==
+  dependencies:
+    "@alfalab/utils" "^1.17.1"
     uuid "^8.3.2"
 
 "@alfalab/icons-glyph@^2.108.0", "@alfalab/icons-glyph@^2.139.0", "@alfalab/icons-glyph@^2.66.0":
