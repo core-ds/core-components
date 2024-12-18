@@ -497,6 +497,11 @@ export type ArrowProps = {
      * Флаг, открыто ли меню
      */
     open?: boolean;
+
+    /**
+     * Флаг блокировки select'а
+     */
+    disabled?: boolean;
 };
 
 export type OptionsListProps = {
@@ -514,6 +519,11 @@ export type OptionsListProps = {
      * Дополнительный класс для скроллбара
      */
     scrollbarClassName?: string;
+
+    /**
+     * Дополнительный класс для футера
+     */
+    footerClassName?: string;
 
     /**
      * Размер компонента
