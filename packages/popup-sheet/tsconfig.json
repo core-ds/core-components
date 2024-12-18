@@ -2,12 +2,12 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-navigation-bar-private/*": ["../navigation-bar-private/src/*"],
+            "@alfalab/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
             "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
@@ -15,6 +15,7 @@
         { "path": "../base-modal" },
         { "path": "../shared" },
         { "path": "../navigation-bar-private" },
-        { "path": "../backdrop" }
+        { "path": "../backdrop" },
+        { "path": "../types" }
     ]
 }

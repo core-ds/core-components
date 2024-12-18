@@ -32,7 +32,7 @@ async function transformTypings(source, rootDir) {
  * Заменяет все импорты типов кор-компонентов на относительные пути.
  * Используется для сборки агрегирующего пакета.
  */
-export default function coreComponentsTypingsResolver({ rootDir }) {
+export function coreComponentsTypingsResolver({ rootDir }) {
     return {
         name: 'core-components-typings-resolver',
         generateBundle: async () => {

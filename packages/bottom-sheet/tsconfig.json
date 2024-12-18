@@ -2,12 +2,9 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
     "references": [
@@ -16,6 +13,7 @@
         { "path": "../icon-button" },
         { "path": "../typography" },
         { "path": "../navigation-bar-private" },
-        { "path": "../shared" }
+        { "path": "../shared" },
+        { "path": "../types" }
     ]
 }

@@ -10,5 +10,5 @@
             "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"]
         }
     },
-    "references": [{ "path": "../mq" }, { "path": "../shared" }]
+    "references": [{ "path": "../mq" }, { "path": "../shared" }, { "path": "../types" }]
 }
