@@ -8,13 +8,13 @@ import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
 import { ModalByCenter } from './components/modal-by-center';
-import { ModalBySide } from './components/modal-by-side';
+import { SideModal } from './components/side-modal/side-modal';
 import { UniversalModalDesktopProps } from './types/props';
 
 export const UniversalModalDesktopComponent = forwardRef<
     HTMLDivElement,
     UniversalModalDesktopProps
->(({ children, dataTestId, horizontalAlign = 'center', ...restProps }, ref) => {
+>(({ children, horizontalAlign = 'center', ...restProps }, ref) => {
     const [modalWidth, setModalWidth] = useState<number>(0);
     const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
     const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
@@ -31,35 +31,25 @@ export const UniversalModalDesktopComponent = forwardRef<
         [modalWidth, modalHeaderHighlighted, modalFooterHighlighted],
     );
 
-    const renderContent = () => {
+    const renderModal = () => {
         if (horizontalAlign === 'center') {
             return (
-                <ModalByCenter
-                    {...restProps}
-                    horizontalAlign={horizontalAlign}
-                    dataTestId={dataTestId}
-                    ref={ref}
-                >
+                <ModalByCenter {...restProps} ref={ref} horizontalAlign={horizontalAlign}>
                     {children}
                 </ModalByCenter>
             );
         }
 
         return (
-            <ModalBySide
-                {...restProps}
-                horizontalAlign={horizontalAlign}
-                dataTestId={dataTestId}
-                ref={ref}
-            >
+            <SideModal {...restProps} ref={ref} horizontalAlign={horizontalAlign}>
                 {children}
-            </ModalBySide>
+            </SideModal>
         );
     };
 
     return (
         <ResponsiveContext.Provider value={contextValue}>
-            {renderContent()}
+            {renderModal()}
         </ResponsiveContext.Provider>
     );
 });

@@ -1,0 +1,34 @@
+.wrapperAlignStart {
+    align-items: start;
+}
+
+.wrapperAlignEnd {
+    align-items: end;
+}
+
+.wrapperJustifyCenter {
+    justify-content: center;
+}
+
+.wrapperJustifyEnd {
+    justify-content: end;
+}
+
+.component {
+    min-width: 500px;
+    width: 500px;
+    min-height: 264px;
+    height: 100%;
+    border-radius: var(--border-radius-24);
+    overflow-x: hidden;
+    margin: unset;
+    will-change: transform;
+
+    &.overlayHidden {
+        box-shadow: var(--shadow-m);
+    }
+
+    & .container {
+        height: 100%;
+    }
+}
