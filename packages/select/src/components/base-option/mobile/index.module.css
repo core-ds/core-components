@@ -1,0 +1,17 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import '../index.module.css';
+
+.option {
+    &.checkmarkBefore {
+        padding: var(--gap-0) var(--gap-0) var(--gap-0) var(--gap-16);
+    }
+
+    &.checkmarkAfter.checkmarkAfter {
+        padding: var(--gap-0) var(--gap-20) var(--gap-0) var(--gap-0);
+    }
+
+    &.textContent {
+        padding: var(--gap-16) var(--gap-20) var(--gap-16) var(--gap-16);
+    }
+}

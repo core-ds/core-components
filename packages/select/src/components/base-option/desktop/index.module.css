@@ -1,0 +1,22 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+@import '../index.module.css';
+
+.option {
+    &.checkmarkBefore {
+        padding: var(--gap-0) var(--gap-0) var(--gap-0) var(--gap-12);
+    }
+
+    &.checkmarkAfter.checkmarkAfter {
+        padding: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-0);
+    }
+
+    &.textContent {
+        padding: var(--gap-12);
+    }
+}
+
+.highlighted {
+    background: var(--select-option-hover-background);
+    color: var(--select-option-hover-color);
+}

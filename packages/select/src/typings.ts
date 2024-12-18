@@ -497,11 +497,6 @@ export type ArrowProps = {
      * Флаг, открыто ли меню
      */
     open?: boolean;
-
-    /**
-     * Флаг блокировки select'а
-     */
-    disabled?: boolean;
 };
 
 export type OptionsListProps = {
@@ -519,11 +514,6 @@ export type OptionsListProps = {
      * Дополнительный класс для скроллбара
      */
     scrollbarClassName?: string;
-
-    /**
-     * Дополнительный класс для футера
-     */
-    footerClassName?: string;
 
     /**
      * Размер компонента
@@ -717,7 +707,7 @@ export type OptgroupProps = {
     multiple?: boolean;
 };
 
-export type OptionProps = {
+export type OptionCommonProps = {
     /**
      * Дополнительный класс
      */
@@ -795,9 +785,11 @@ export type OptionProps = {
      * Выравнивание чекбокса или иконки "галочки"
      */
     align?: 'start' | 'center';
+};
 
+export type OptionProps = OptionCommonProps & {
     /**
-     * Мобильная верcия option.
+     * Мобильная версия option.
      */
     mobile?: boolean;
 };
