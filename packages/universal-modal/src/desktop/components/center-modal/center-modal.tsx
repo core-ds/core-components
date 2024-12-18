@@ -10,10 +10,10 @@ import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalByCenterProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
-import styles from './modal-by-center.module.css';
-import transitionsCenter from './transitions-center.module.css';
+import styles from './center-modal.module.css';
+import transitions from './transitions.module.css';
 
-export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
+export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
     const {
         dataTestId,
         className,
@@ -49,7 +49,7 @@ export const ModalByCenter = forwardRef<HTMLDivElement, ModalByCenterProps>((pro
             ref={ref}
             componentRef={componentRef}
             transitionProps={{
-                classNames: transitionsCenter,
+                classNames: transitions,
             }}
             className={cn(className, styles.component, {
                 [styles.overlayHidden]: !overlay,

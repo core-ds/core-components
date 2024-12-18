@@ -11,8 +11,8 @@ import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
-import containerTransitions from './container-transitions.module.css';
 import styles from './side-modal.module.css';
+import transitions from './transitions.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -42,20 +42,20 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
     const isVerticalBottom = verticalAlign === 'bottom';
 
     const enter = cn({
-        [containerTransitions.enterLeft]: isHorizontalStart,
-        [containerTransitions.enterRight]: isHorizontalEnd,
+        [transitions.enterLeft]: isHorizontalStart,
+        [transitions.enterRight]: isHorizontalEnd,
     });
 
     const transitionProps: Partial<TransitionProps> = {
         appear: enter,
         enter,
-        enterActive: containerTransitions.enterActive,
-        appearActive: containerTransitions.enterActive,
-        enterDone: containerTransitions.enterDone,
-        exit: containerTransitions.exit,
+        enterActive: transitions.enterActive,
+        appearActive: transitions.enterActive,
+        enterDone: transitions.enterDone,
+        exit: transitions.exit,
         exitActive: cn({
-            [containerTransitions.exitActiveLeft]: isHorizontalStart,
-            [containerTransitions.exitActiveRight]: isHorizontalEnd,
+            [transitions.exitActiveLeft]: isHorizontalStart,
+            [transitions.exitActiveRight]: isHorizontalEnd,
         }),
     };
 

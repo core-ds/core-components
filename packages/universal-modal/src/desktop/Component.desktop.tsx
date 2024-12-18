@@ -7,7 +7,7 @@ import { HeaderDesktop } from '../components/header';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
-import { ModalByCenter } from './components/modal-by-center';
+import { CenterModal } from './components/center-modal';
 import { SideModal } from './components/side-modal';
 import { UniversalModalDesktopProps } from './types/props';
 
@@ -34,9 +34,9 @@ export const UniversalModalDesktopComponent = forwardRef<
     const renderModal = () => {
         if (horizontalAlign === 'center') {
             return (
-                <ModalByCenter {...restProps} ref={ref} horizontalAlign={horizontalAlign}>
+                <CenterModal {...restProps} ref={ref} horizontalAlign={horizontalAlign}>
                     {children}
-                </ModalByCenter>
+                </CenterModal>
             );
         }
 
