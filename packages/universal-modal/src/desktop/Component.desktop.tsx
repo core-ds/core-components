@@ -8,7 +8,7 @@ import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
 import { ModalByCenter } from './components/modal-by-center';
-import { SideModal } from './components/side-modal/side-modal';
+import { SideModal } from './components/side-modal';
 import { UniversalModalDesktopProps } from './types/props';
 
 export const UniversalModalDesktopComponent = forwardRef<
