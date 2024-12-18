@@ -717,7 +717,7 @@ export type OptgroupProps = {
     multiple?: boolean;
 };
 
-export type OptionProps = {
+export type OptionCommonProps = {
     /**
      * Дополнительный класс
      */
@@ -795,9 +795,11 @@ export type OptionProps = {
      * Выравнивание чекбокса или иконки "галочки"
      */
     align?: 'start' | 'center';
+};
 
+export type OptionProps = OptionCommonProps & {
     /**
-     * Мобильная верcия option.
+     * Мобильная версия option.
      */
     mobile?: boolean;
 };
