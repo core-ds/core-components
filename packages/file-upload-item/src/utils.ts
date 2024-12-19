@@ -1,3 +1,5 @@
+import { type FileUploadItemStatus } from './types/status';
+
 export function humanFileSize(size: string | number) {
     const units = ['Б', 'КБ', 'МБ', 'ГБ'];
 
@@ -16,8 +18,8 @@ export function humanFileSize(size: string | number) {
 
 export const getExtension = (filename: string) => filename.toLowerCase().split('.').pop();
 
-export const isInitialStatus = (status?: string) => status === 'INITIAL';
-export const isSuccessStatus = (status?: string) => status === 'SUCCESS';
-export const isErrorStatus = (status?: string) => status === 'ERROR';
-export const isUploadingStatus = (status?: string) => status === 'UPLOADING';
-export const isUploadedStatus = (status?: string) => status === 'UPLOADED';
+export const isInitialStatus = (status?: FileUploadItemStatus) => status === 'INITIAL';
+export const isSuccessStatus = (status?: FileUploadItemStatus) => status === 'SUCCESS';
+export const isErrorStatus = (status?: FileUploadItemStatus) => status === 'ERROR';
+export const isUploadingStatus = (status?: FileUploadItemStatus) => status === 'UPLOADING';
+export const isUploadedStatus = (status?: FileUploadItemStatus) => status === 'UPLOADED';
