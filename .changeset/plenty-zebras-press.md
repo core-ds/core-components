@@ -1,6 +1,5 @@
 ---
 '@alfalab/core-components-base-modal': minor
-'@alfalab/core-components-drawer': minor
 '@alfalab/core-components-navigation-bar-private': minor
 '@alfalab/core-components-scrollbar': minor
 '@alfalab/core-components-universal-modal': minor
@@ -10,10 +9,6 @@
 
 - Добавлен хэндлер `onWheel` события
 - Добавлен пропс `contentElementRef` для контентной области
-
-#### Drawer
-
-Добавлен дополнительный класс для контента `contentClassName`
 
 #### NavigationBarPrivate
 
