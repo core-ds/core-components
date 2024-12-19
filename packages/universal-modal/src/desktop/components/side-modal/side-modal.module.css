@@ -8,29 +8,36 @@
     align-items: end;
 }
 
-.wrapperJustifyCenter {
-    justify-content: center;
-}
-
-.wrapperJustifyEnd {
-    justify-content: end;
-}
-
 .component {
+    display: flex;
+    align-items: start;
     min-width: 500px;
-    width: 500px;
     min-height: 264px;
     height: 100%;
-    border-radius: var(--border-radius-24);
     overflow-x: hidden;
     margin: unset;
+    background-color: unset;
     will-change: transform;
+
+    &.componentAlignCenter {
+        align-items: center;
+    }
+
+    &.componentAlignEnd {
+        align-items: end;
+    }
 
     &.overlayHidden {
         box-shadow: var(--shadow-m);
     }
 
-    & .container {
-        height: 100%;
+    & .content {
+        border-radius: var(--border-radius-24);
+        background-color: var(--color-light-modal-bg-primary);
+        overflow-x: hidden;
+
+        & .container {
+            height: 100%;
+        }
     }
 }

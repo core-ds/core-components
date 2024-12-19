@@ -206,6 +206,11 @@ export type BaseModalProps = {
     componentRef?: MutableRefObject<HTMLDivElement | null>;
 
     /**
+     * Реф контентной области
+     */
+    contentElementRef?: MutableRefObject<HTMLDivElement | null>;
+
+    /**
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
      */
     iOSLock?: boolean;
@@ -280,6 +285,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             dataTestId,
             zIndex = stackingOrder.MODAL,
             componentRef = null,
+            contentElementRef = null,
             usePortal = true,
             iOSLock = false,
             onWheel,
@@ -634,6 +640,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                                 contentClassName,
                                                 contentProps?.className,
                                             )}
+                                            ref={contentElementRef}
                                         >
                                             {children}
                                         </div>

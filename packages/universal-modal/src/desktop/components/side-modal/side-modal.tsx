@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useCallback, useEffect, useRef } from 'react';
 import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
@@ -30,10 +30,11 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
 
-    useModalMargin({ margin, open, componentRef, horizontalAlign, verticalAlign });
-    useModalWidth(width, open, componentRef);
-    useModalHeight(height, open, componentRef);
+    useModalMargin({ margin, open, componentRef: contentRef, horizontalAlign, verticalAlign });
+    useModalWidth(width, open, contentRef);
+    useModalHeight(height, open, contentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const isHorizontalStart = horizontalAlign === 'start';
@@ -49,8 +50,8 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
     const transitionProps: Partial<TransitionProps> = {
         appear: enter,
         enter,
-        enterActive: transitions.enterActive,
         appearActive: transitions.enterActive,
+        enterActive: transitions.enterActive,
         enterDone: transitions.enterDone,
         exit: transitions.exit,
         exitActive: cn({
@@ -59,6 +60,34 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
         }),
     };
 
+    // главная обёртка компонента может содержать пустоты в виде отступов, необходимо закрывать мадалку при клике на них
+    const handleContentOutsideClick = useCallback(
+        (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+
+            if (contentRef.current && !contentRef.current.contains(target)) {
+                if (onClose) {
+                    onClose();
+                }
+            }
+        },
+        [onClose],
+    );
+
+    useEffect(() => {
+        const element = componentRef.current;
+
+        if (element) {
+            element.addEventListener('click', handleContentOutsideClick);
+        }
+
+        return () => {
+            if (element) {
+                element.removeEventListener('click', handleContentOutsideClick);
+            }
+        };
+    }, [open, handleContentOutsideClick]);
+
     return (
         <BaseModal
             {...restProps}
@@ -66,17 +95,19 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
             dataTestId={dataTestId}
             ref={ref}
             componentRef={componentRef}
+            contentElementRef={contentRef}
             scrollHandler='content'
             disableBlockingScroll={!overlay}
             wrapperClassName={cn({
                 [styles.wrapperAlignStart]: isHorizontalStart,
                 [styles.wrapperAlignEnd]: isHorizontalEnd,
-                [styles.wrapperJustifyCenter]: isVerticalCenter,
-                [styles.wrapperJustifyEnd]: isVerticalBottom,
             })}
             className={cn(className, styles.component, {
+                [styles.componentAlignCenter]: isVerticalCenter,
+                [styles.componentAlignEnd]: isVerticalBottom,
                 [styles.overlayHidden]: !overlay,
             })}
+            contentClassName={styles.content}
             transitionProps={{
                 classNames: transitionProps,
                 timeout: 200,

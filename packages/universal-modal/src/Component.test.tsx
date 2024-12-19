@@ -163,7 +163,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 0');
         });
 
         it('position horizontal=start vertical=top', () => {
@@ -180,7 +182,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 0');
         });
 
         it('position horizontal=start vertical=bottom', () => {
@@ -197,7 +201,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 0');
         });
 
         it('position horizontal=end vertical=center', () => {
@@ -214,7 +220,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 0');
         });
 
         it('position horizontal=end vertical=top', () => {
@@ -231,7 +239,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 0');
         });
 
         it('position horizontal=end vertical=bottom', () => {
@@ -248,7 +258,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 0');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 0');
         });
     });
 
@@ -328,7 +340,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 12px');
         });
 
         it('position horizontal=start vertical=top', () => {
@@ -346,7 +360,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 12px');
         });
 
         it('position horizontal=start vertical=bottom', () => {
@@ -364,7 +380,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 12px');
         });
 
         it('position horizontal=end vertical=center', () => {
@@ -382,7 +400,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 12px');
         });
 
         it('position horizontal=end vertical=top', () => {
@@ -400,7 +420,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 12px');
         });
 
         it('position horizontal=end vertical=bottom', () => {
@@ -418,7 +440,9 @@ describe('UniversalModal', () => {
 
             const testIds = getUniversalModalTestIds(dti);
 
-            expect(screen.getByTestId(testIds.modal).firstElementChild).toHaveStyle('margin: 12px');
+            expect(
+                screen.getByTestId(testIds.modal).firstElementChild?.firstElementChild,
+            ).toHaveStyle('margin: 12px');
         });
     });
 
