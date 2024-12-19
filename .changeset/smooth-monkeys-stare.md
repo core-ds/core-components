@@ -1,6 +1,5 @@
 ---
 '@alfalab/core-components-drawer': patch
-'@alfalab/core-components-form-control': patch
 '@alfalab/core-components-notification': patch
 '@alfalab/core-components-notification-manager': patch
 '@alfalab/core-components-number-input': patch
