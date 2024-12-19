@@ -22,4 +22,4 @@
 '@alfalab/core-components-navigation-bar-private': patch
 ---
 
-   - Добавлено sideEffects: false (package.json)
+Добавлено sideEffects: false (package.json)
