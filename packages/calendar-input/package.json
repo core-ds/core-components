@@ -20,7 +20,7 @@
         "@alfalab/core-components-date-input": "^4.4.10",
         "@alfalab/core-components-mq": "^4.4.0",
         "@alfalab/core-components-popover": "^6.3.4",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.5.1",
         "date-fns": "^2.16.1",

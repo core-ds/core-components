@@ -17,8 +17,8 @@
     "dependencies": {
         "@alfalab/core-components-input": "^15.3.4",
         "@alfalab/core-components-with-suffix": "^4.2.10",
-        "@alfalab/data": "^1.8.0",
-        "@alfalab/utils": "^1.15.2",
+        "@alfalab/data": "^1.9.1",
+        "@alfalab/utils": "^1.17.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0",
         "@alfalab/core-components-shared": "^0.14.0"

@@ -67,10 +67,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.7.0.tgz#87e1525d2b653b9312d5b008df62b13193d1dc0c"
   integrity sha512-aw1zL8TktUn3wCLcHVns2ndHypmMqINmqAc6E2nL90FFnh4ieWzw9gRRfUesNmbFNTRnkdp9VpI0ASS7l4kyEQ==
 
-"@alfalab/data@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.8.0.tgz#2f991e196946336541de5a7d64eabf7caf02b58c"
-  integrity sha512-hyYAw8tbx099ibX9r9T3YiOkxI+s7p/Hi7WOQC6cF+Uy5KX/0usghFyt/gUjj+7acf6G+zx1VwAtcI9tSUle9w==
+"@alfalab/data@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.9.1.tgz#1bb3dcf5dd062ddb3aa458022bbf81c0c0ef6b0c"
+  integrity sha512-RJQjs01k0MYtv9UwWxz5rL5XiOCsRO1gfrgQxZj8CqQShyLNfBuNTxcvKKY/5uuY2rBv9kN1PZrW57Fsc/DyGg==
 
 "@alfalab/hooks@^1.13.0":
   version "1.13.0"
@@ -78,6 +78,14 @@
   integrity sha512-kAArulLn2plNLZwJIA20KByJq6b/410v7AZp7+X7MMY63oUKKByKhUijIAaFDidKkjV6PBY/aCFzL2fpNLenlQ==
   dependencies:
     "@alfalab/utils" "^1.13.2"
+    uuid "^8.3.2"
+
+"@alfalab/hooks@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.13.1.tgz#735b802c3bf753417e36c2a7e641d3c448676c16"
+  integrity sha512-K3vWoksc9pY0s7+ZOkd/fPeHI+ZPdtj7YhF9GwEZxBYMxdlFbKIhcIn0y8fPuz5fa+B6qvlJL2n+jGCMK3Lnaw==
+  dependencies:
+    "@alfalab/utils" "^1.17.1"
     uuid "^8.3.2"
 
 "@alfalab/icons-glyph@^2.108.0", "@alfalab/icons-glyph@^2.139.0", "@alfalab/icons-glyph@^2.66.0":
@@ -142,13 +150,13 @@
     "@alfalab/data" "^1.7.0"
     lodash "4.17.21"
 
-"@alfalab/utils@^1.15.2":
-  version "1.15.2"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.15.2.tgz#309d0c9add52a59244f9d74eb720c2ad5fe14209"
-  integrity sha512-FD6eH06OHwNB4wr6A81aIAnJjXosXalTnfUiRMA6VALSQBCsvcvxH8BmLUxsLb5Hb84rJS01Q+zk3onT2JBjYA==
+"@alfalab/utils@^1.17.1":
+  version "1.17.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.17.1.tgz#5e509bafb3b1482c48047767985df1f76e1a2065"
+  integrity sha512-MniVTU5muLg2f8uX0jp3wQRB5LiadhqCSvNfasLYJA+EHksjXwc5vZm1mh/n+Mku5e8B72rpSnUmGRU1DESArg==
   dependencies:
-    "@alfalab/data" "^1.8.0"
-    lodash "4.17.21"
+    "@alfalab/data" "^1.9.1"
+    lodash "^4.17.21"
 
 "@alloc/quick-lru@^5.2.0":
   version "5.2.0"
