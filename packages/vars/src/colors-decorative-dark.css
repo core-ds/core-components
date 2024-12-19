@@ -1,0 +1,600 @@
+:root {
+    --color-light-decorative-blue: var(--color-dark-decorative-blue);
+    --color-light-decorative-blue-hover: var(--color-dark-decorative-blue-hover);
+    --color-light-decorative-blue-inverted: var(--color-dark-decorative-blue-inverted);
+    --color-light-decorative-blue-inverted-hover: var(--color-dark-decorative-blue-inverted-hover);
+    --color-light-decorative-blue-inverted-press: var(--color-dark-decorative-blue-inverted-press);
+    --color-light-decorative-blue-press: var(--color-dark-decorative-blue-press);
+    --color-light-decorative-cyan: var(--color-dark-decorative-cyan);
+    --color-light-decorative-cyan-hover: var(--color-dark-decorative-cyan-hover);
+    --color-light-decorative-cyan-inverted: var(--color-dark-decorative-cyan-inverted);
+    --color-light-decorative-cyan-inverted-hover: var(--color-dark-decorative-cyan-inverted-hover);
+    --color-light-decorative-cyan-inverted-press: var(--color-dark-decorative-cyan-inverted-press);
+    --color-light-decorative-cyan-press: var(--color-dark-decorative-cyan-press);
+    --color-light-decorative-fuchsia: var(--color-dark-decorative-fuchsia);
+    --color-light-decorative-fuchsia-hover: var(--color-dark-decorative-fuchsia-hover);
+    --color-light-decorative-fuchsia-inverted: var(--color-dark-decorative-fuchsia-inverted);
+    --color-light-decorative-fuchsia-inverted-hover: var(
+        --color-dark-decorative-fuchsia-inverted-hover
+    );
+    --color-light-decorative-fuchsia-inverted-press: var(
+        --color-dark-decorative-fuchsia-inverted-press
+    );
+    --color-light-decorative-fuchsia-press: var(--color-dark-decorative-fuchsia-press);
+    --color-light-decorative-green: var(--color-dark-decorative-green);
+    --color-light-decorative-green-hover: var(--color-dark-decorative-green-hover);
+    --color-light-decorative-green-inverted: var(--color-dark-decorative-green-inverted);
+    --color-light-decorative-green-inverted-hover: var(
+        --color-dark-decorative-green-inverted-hover
+    );
+    --color-light-decorative-green-inverted-press: var(
+        --color-dark-decorative-green-inverted-press
+    );
+    --color-light-decorative-green-press: var(--color-dark-decorative-green-press);
+    --color-light-decorative-indigo: var(--color-dark-decorative-indigo);
+    --color-light-decorative-indigo-hover: var(--color-dark-decorative-indigo-hover);
+    --color-light-decorative-indigo-inverted: var(--color-dark-decorative-indigo-inverted);
+    --color-light-decorative-indigo-inverted-hover: var(
+        --color-dark-decorative-indigo-inverted-hover
+    );
+    --color-light-decorative-indigo-inverted-press: var(
+        --color-dark-decorative-indigo-inverted-press
+    );
+    --color-light-decorative-indigo-press: var(--color-dark-decorative-indigo-press);
+    --color-light-decorative-jungle: var(--color-dark-decorative-jungle);
+    --color-light-decorative-jungle-hover: var(--color-dark-decorative-jungle-hover);
+    --color-light-decorative-jungle-inverted: var(--color-dark-decorative-jungle-inverted);
+    --color-light-decorative-jungle-inverted-hover: var(
+        --color-dark-decorative-jungle-inverted-hover
+    );
+    --color-light-decorative-jungle-inverted-press: var(
+        --color-dark-decorative-jungle-inverted-press
+    );
+    --color-light-decorative-jungle-press: var(--color-dark-decorative-jungle-press);
+    --color-light-decorative-magenta: var(--color-dark-decorative-magenta);
+    --color-light-decorative-magenta-hover: var(--color-dark-decorative-magenta-hover);
+    --color-light-decorative-magenta-inverted: var(--color-dark-decorative-magenta-inverted);
+    --color-light-decorative-magenta-inverted-hover: var(
+        --color-dark-decorative-magenta-inverted-hover
+    );
+    --color-light-decorative-magenta-inverted-press: var(
+        --color-dark-decorative-magenta-inverted-press
+    );
+    --color-light-decorative-magenta-press: var(--color-dark-decorative-magenta-press);
+    --color-light-decorative-muted-alt-blue: var(--color-dark-decorative-muted-alt-blue);
+    --color-light-decorative-muted-alt-blue-hover: var(
+        --color-dark-decorative-muted-alt-blue-hover
+    );
+    --color-light-decorative-muted-alt-blue-inverted: var(
+        --color-dark-decorative-muted-alt-blue-inverted
+    );
+    --color-light-decorative-muted-alt-blue-inverted-hover: var(
+        --color-dark-decorative-muted-alt-blue-inverted-hover
+    );
+    --color-light-decorative-muted-alt-blue-inverted-press: var(
+        --color-dark-decorative-muted-alt-blue-inverted-press
+    );
+    --color-light-decorative-muted-alt-blue-press: var(
+        --color-dark-decorative-muted-alt-blue-press
+    );
+    --color-light-decorative-muted-alt-cyan: var(--color-dark-decorative-muted-alt-cyan);
+    --color-light-decorative-muted-alt-cyan-hover: var(
+        --color-dark-decorative-muted-alt-cyan-hover
+    );
+    --color-light-decorative-muted-alt-cyan-inverted: var(
+        --color-dark-decorative-muted-alt-cyan-inverted
+    );
+    --color-light-decorative-muted-alt-cyan-inverted-hover: var(
+        --color-dark-decorative-muted-alt-cyan-inverted-hover
+    );
+    --color-light-decorative-muted-alt-cyan-inverted-press: var(
+        --color-dark-decorative-muted-alt-cyan-inverted-press
+    );
+    --color-light-decorative-muted-alt-cyan-press: var(
+        --color-dark-decorative-muted-alt-cyan-press
+    );
+    --color-light-decorative-muted-alt-fuchsia: var(--color-dark-decorative-muted-alt-fuchsia);
+    --color-light-decorative-muted-alt-fuchsia-hover: var(
+        --color-dark-decorative-muted-alt-fuchsia-hover
+    );
+    --color-light-decorative-muted-alt-fuchsia-inverted: var(
+        --color-dark-decorative-muted-alt-fuchsia-inverted
+    );
+    --color-light-decorative-muted-alt-fuchsia-inverted-hover: var(
+        --color-dark-decorative-muted-alt-fuchsia-inverted-hover
+    );
+    --color-light-decorative-muted-alt-fuchsia-inverted-press: var(
+        --color-dark-decorative-muted-alt-fuchsia-inverted-press
+    );
+    --color-light-decorative-muted-alt-fuchsia-press: var(
+        --color-dark-decorative-muted-alt-fuchsia-press
+    );
+    --color-light-decorative-muted-alt-green: var(--color-dark-decorative-muted-alt-green);
+    --color-light-decorative-muted-alt-green-hover: var(
+        --color-dark-decorative-muted-alt-green-hover
+    );
+    --color-light-decorative-muted-alt-green-inverted: var(
+        --color-dark-decorative-muted-alt-green-inverted
+    );
+    --color-light-decorative-muted-alt-green-inverted-hover: var(
+        --color-dark-decorative-muted-alt-green-inverted-hover
+    );
+    --color-light-decorative-muted-alt-green-inverted-press: var(
+        --color-dark-decorative-muted-alt-green-inverted-press
+    );
+    --color-light-decorative-muted-alt-green-press: var(
+        --color-dark-decorative-muted-alt-green-press
+    );
+    --color-light-decorative-muted-alt-indigo: var(--color-dark-decorative-muted-alt-indigo);
+    --color-light-decorative-muted-alt-indigo-hover: var(
+        --color-dark-decorative-muted-alt-indigo-hover
+    );
+    --color-light-decorative-muted-alt-indigo-inverted: var(
+        --color-dark-decorative-muted-alt-indigo-inverted
+    );
+    --color-light-decorative-muted-alt-indigo-inverted-hover: var(
+        --color-dark-decorative-muted-alt-indigo-inverted-hover
+    );
+    --color-light-decorative-muted-alt-indigo-inverted-press: var(
+        --color-dark-decorative-muted-alt-indigo-inverted-press
+    );
+    --color-light-decorative-muted-alt-indigo-press: var(
+        --color-dark-decorative-muted-alt-indigo-press
+    );
+    --color-light-decorative-muted-alt-jungle: var(--color-dark-decorative-muted-alt-jungle);
+    --color-light-decorative-muted-alt-jungle-hover: var(
+        --color-dark-decorative-muted-alt-jungle-hover
+    );
+    --color-light-decorative-muted-alt-jungle-inverted: var(
+        --color-dark-decorative-muted-alt-jungle-inverted
+    );
+    --color-light-decorative-muted-alt-jungle-inverted-hover: var(
+        --color-dark-decorative-muted-alt-jungle-inverted-hover
+    );
+    --color-light-decorative-muted-alt-jungle-inverted-press: var(
+        --color-dark-decorative-muted-alt-jungle-inverted-press
+    );
+    --color-light-decorative-muted-alt-jungle-press: var(
+        --color-dark-decorative-muted-alt-jungle-press
+    );
+    --color-light-decorative-muted-alt-magenta: var(--color-dark-decorative-muted-alt-magenta);
+    --color-light-decorative-muted-alt-magenta-hover: var(
+        --color-dark-decorative-muted-alt-magenta-hover
+    );
+    --color-light-decorative-muted-alt-magenta-inverted: var(
+        --color-dark-decorative-muted-alt-magenta-inverted
+    );
+    --color-light-decorative-muted-alt-magenta-inverted-hover: var(
+        --color-dark-decorative-muted-alt-magenta-inverted-hover
+    );
+    --color-light-decorative-muted-alt-magenta-inverted-press: var(
+        --color-dark-decorative-muted-alt-magenta-inverted-press
+    );
+    --color-light-decorative-muted-alt-magenta-press: var(
+        --color-dark-decorative-muted-alt-magenta-press
+    );
+    --color-light-decorative-muted-alt-orange: var(--color-dark-decorative-muted-alt-orange);
+    --color-light-decorative-muted-alt-orange-hover: var(
+        --color-dark-decorative-muted-alt-orange-hover
+    );
+    --color-light-decorative-muted-alt-orange-inverted: var(
+        --color-dark-decorative-muted-alt-orange-inverted
+    );
+    --color-light-decorative-muted-alt-orange-inverted-hover: var(
+        --color-dark-decorative-muted-alt-orange-inverted-hover
+    );
+    --color-light-decorative-muted-alt-orange-inverted-press: var(
+        --color-dark-decorative-muted-alt-orange-inverted-press
+    );
+    --color-light-decorative-muted-alt-orange-press: var(
+        --color-dark-decorative-muted-alt-orange-press
+    );
+    --color-light-decorative-muted-alt-pistachio: var(--color-dark-decorative-muted-alt-pistachio);
+    --color-light-decorative-muted-alt-pistachio-hover: var(
+        --color-dark-decorative-muted-alt-pistachio-hover
+    );
+    --color-light-decorative-muted-alt-pistachio-inverted: var(
+        --color-dark-decorative-muted-alt-pistachio-inverted
+    );
+    --color-light-decorative-muted-alt-pistachio-inverted-hover: var(
+        --color-dark-decorative-muted-alt-pistachio-inverted-hover
+    );
+    --color-light-decorative-muted-alt-pistachio-inverted-press: var(
+        --color-dark-decorative-muted-alt-pistachio-inverted-press
+    );
+    --color-light-decorative-muted-alt-pistachio-press: var(
+        --color-dark-decorative-muted-alt-pistachio-press
+    );
+    --color-light-decorative-muted-alt-purple: var(--color-dark-decorative-muted-alt-purple);
+    --color-light-decorative-muted-alt-purple-hover: var(
+        --color-dark-decorative-muted-alt-purple-hover
+    );
+    --color-light-decorative-muted-alt-purple-inverted: var(
+        --color-dark-decorative-muted-alt-purple-inverted
+    );
+    --color-light-decorative-muted-alt-purple-inverted-hover: var(
+        --color-dark-decorative-muted-alt-purple-inverted-hover
+    );
+    --color-light-decorative-muted-alt-purple-inverted-press: var(
+        --color-dark-decorative-muted-alt-purple-inverted-press
+    );
+    --color-light-decorative-muted-alt-purple-press: var(
+        --color-dark-decorative-muted-alt-purple-press
+    );
+    --color-light-decorative-muted-alt-red: var(--color-dark-decorative-muted-alt-red);
+    --color-light-decorative-muted-alt-red-inverted: var(
+        --color-dark-decorative-muted-alt-red-inverted
+    );
+    --color-light-decorative-muted-alt-teal: var(--color-dark-decorative-muted-alt-teal);
+    --color-light-decorative-muted-alt-teal-hover: var(
+        --color-dark-decorative-muted-alt-teal-hover
+    );
+    --color-light-decorative-muted-alt-teal-inverted: var(
+        --color-dark-decorative-muted-alt-teal-inverted
+    );
+    --color-light-decorative-muted-alt-teal-inverted-hover: var(
+        --color-dark-decorative-muted-alt-teal-inverted-hover
+    );
+    --color-light-decorative-muted-alt-teal-inverted-press: var(
+        --color-dark-decorative-muted-alt-teal-inverted-press
+    );
+    --color-light-decorative-muted-alt-teal-press: var(
+        --color-dark-decorative-muted-alt-teal-press
+    );
+    --color-light-decorative-muted-alt-yellow: var(--color-dark-decorative-muted-alt-yellow);
+    --color-light-decorative-muted-alt-yellow-inverted: var(
+        --color-dark-decorative-muted-alt-yellow-inverted
+    );
+    --color-light-decorative-muted-blue: var(--color-dark-decorative-muted-blue);
+    --color-light-decorative-muted-blue-hover: var(--color-dark-decorative-muted-blue-hover);
+    --color-light-decorative-muted-blue-inverted: var(--color-dark-decorative-muted-blue-inverted);
+    --color-light-decorative-muted-blue-inverted-hover: var(
+        --color-dark-decorative-muted-blue-inverted-hover
+    );
+    --color-light-decorative-muted-blue-inverted-press: var(
+        --color-dark-decorative-muted-blue-inverted-press
+    );
+    --color-light-decorative-muted-blue-press: var(--color-dark-decorative-muted-blue-press);
+    --color-light-decorative-muted-cyan: var(--color-dark-decorative-muted-cyan);
+    --color-light-decorative-muted-cyan-hover: var(--color-dark-decorative-muted-cyan-hover);
+    --color-light-decorative-muted-cyan-inverted: var(--color-dark-decorative-muted-cyan-inverted);
+    --color-light-decorative-muted-cyan-inverted-hover: var(
+        --color-dark-decorative-muted-cyan-inverted-hover
+    );
+    --color-light-decorative-muted-cyan-inverted-press: var(
+        --color-dark-decorative-muted-cyan-inverted-press
+    );
+    --color-light-decorative-muted-cyan-press: var(--color-dark-decorative-muted-cyan-press);
+    --color-light-decorative-muted-fuchsia: var(--color-dark-decorative-muted-fuchsia);
+    --color-light-decorative-muted-fuchsia-hover: var(--color-dark-decorative-muted-fuchsia-hover);
+    --color-light-decorative-muted-fuchsia-inverted: var(
+        --color-dark-decorative-muted-fuchsia-inverted
+    );
+    --color-light-decorative-muted-fuchsia-inverted-hover: var(
+        --color-dark-decorative-muted-fuchsia-inverted-hover
+    );
+    --color-light-decorative-muted-fuchsia-inverted-press: var(
+        --color-dark-decorative-muted-fuchsia-inverted-press
+    );
+    --color-light-decorative-muted-fuchsia-press: var(--color-dark-decorative-muted-fuchsia-press);
+    --color-light-decorative-muted-green: var(--color-dark-decorative-muted-green);
+    --color-light-decorative-muted-green-hover: var(--color-dark-decorative-muted-green-hover);
+    --color-light-decorative-muted-green-inverted: var(
+        --color-dark-decorative-muted-green-inverted
+    );
+    --color-light-decorative-muted-green-inverted-hover: var(
+        --color-dark-decorative-muted-green-inverted-hover
+    );
+    --color-light-decorative-muted-green-inverted-press: var(
+        --color-dark-decorative-muted-green-inverted-press
+    );
+    --color-light-decorative-muted-green-press: var(--color-dark-decorative-muted-green-press);
+    --color-light-decorative-muted-indigo: var(--color-dark-decorative-muted-indigo);
+    --color-light-decorative-muted-indigo-hover: var(--color-dark-decorative-muted-indigo-hover);
+    --color-light-decorative-muted-indigo-inverted: var(
+        --color-dark-decorative-muted-indigo-inverted
+    );
+    --color-light-decorative-muted-indigo-inverted-hover: var(
+        --color-dark-decorative-muted-indigo-inverted-hover
+    );
+    --color-light-decorative-muted-indigo-inverted-press: var(
+        --color-dark-decorative-muted-indigo-inverted-press
+    );
+    --color-light-decorative-muted-indigo-press: var(--color-dark-decorative-muted-indigo-press);
+    --color-light-decorative-muted-jungle: var(--color-dark-decorative-muted-jungle);
+    --color-light-decorative-muted-jungle-hover: var(--color-dark-decorative-muted-jungle-hover);
+    --color-light-decorative-muted-jungle-inverted: var(
+        --color-dark-decorative-muted-jungle-inverted
+    );
+    --color-light-decorative-muted-jungle-inverted-hover: var(
+        --color-dark-decorative-muted-jungle-inverted-hover
+    );
+    --color-light-decorative-muted-jungle-inverted-press: var(
+        --color-dark-decorative-muted-jungle-inverted-press
+    );
+    --color-light-decorative-muted-jungle-press: var(--color-dark-decorative-muted-jungle-press);
+    --color-light-decorative-muted-magenta: var(--color-dark-decorative-muted-magenta);
+    --color-light-decorative-muted-magenta-hover: var(--color-dark-decorative-muted-magenta-hover);
+    --color-light-decorative-muted-magenta-inverted: var(
+        --color-dark-decorative-muted-magenta-inverted
+    );
+    --color-light-decorative-muted-magenta-inverted-hover: var(
+        --color-dark-decorative-muted-magenta-inverted-hover
+    );
+    --color-light-decorative-muted-magenta-inverted-press: var(
+        --color-dark-decorative-muted-magenta-inverted-press
+    );
+    --color-light-decorative-muted-magenta-press: var(--color-dark-decorative-muted-magenta-press);
+    --color-light-decorative-muted-orange: var(--color-dark-decorative-muted-orange);
+    --color-light-decorative-muted-orange-hover: var(--color-dark-decorative-muted-orange-hover);
+    --color-light-decorative-muted-orange-inverted: var(
+        --color-dark-decorative-muted-orange-inverted
+    );
+    --color-light-decorative-muted-orange-inverted-hover: var(
+        --color-dark-decorative-muted-orange-inverted-hover
+    );
+    --color-light-decorative-muted-orange-inverted-press: var(
+        --color-dark-decorative-muted-orange-inverted-press
+    );
+    --color-light-decorative-muted-orange-press: var(--color-dark-decorative-muted-orange-press);
+    --color-light-decorative-muted-pistachio: var(--color-dark-decorative-muted-pistachio);
+    --color-light-decorative-muted-pistachio-hover: var(
+        --color-dark-decorative-muted-pistachio-hover
+    );
+    --color-light-decorative-muted-pistachio-inverted: var(
+        --color-dark-decorative-muted-pistachio-inverted
+    );
+    --color-light-decorative-muted-pistachio-inverted-hover: var(
+        --color-dark-decorative-muted-pistachio-inverted-hover
+    );
+    --color-light-decorative-muted-pistachio-inverted-press: var(
+        --color-dark-decorative-muted-pistachio-inverted-press
+    );
+    --color-light-decorative-muted-pistachio-press: var(
+        --color-dark-decorative-muted-pistachio-press
+    );
+    --color-light-decorative-muted-purple: var(--color-dark-decorative-muted-purple);
+    --color-light-decorative-muted-purple-hover: var(--color-dark-decorative-muted-purple-hover);
+    --color-light-decorative-muted-purple-inverted: var(
+        --color-dark-decorative-muted-purple-inverted
+    );
+    --color-light-decorative-muted-purple-inverted-hover: var(
+        --color-dark-decorative-muted-purple-inverted-hover
+    );
+    --color-light-decorative-muted-purple-inverted-press: var(
+        --color-dark-decorative-muted-purple-inverted-press
+    );
+    --color-light-decorative-muted-purple-press: var(--color-dark-decorative-muted-purple-press);
+    --color-light-decorative-muted-red: var(--color-dark-decorative-muted-red);
+    --color-light-decorative-muted-red-inverted: var(--color-dark-decorative-muted-red-inverted);
+    --color-light-decorative-muted-teal: var(--color-dark-decorative-muted-teal);
+    --color-light-decorative-muted-teal-hover: var(--color-dark-decorative-muted-teal-hover);
+    --color-light-decorative-muted-teal-inverted: var(--color-dark-decorative-muted-teal-inverted);
+    --color-light-decorative-muted-teal-inverted-hover: var(
+        --color-dark-decorative-muted-teal-inverted-hover
+    );
+    --color-light-decorative-muted-teal-inverted-press: var(
+        --color-dark-decorative-muted-teal-inverted-press
+    );
+    --color-light-decorative-muted-teal-press: var(--color-dark-decorative-muted-teal-press);
+    --color-light-decorative-muted-yellow: var(--color-dark-decorative-muted-yellow);
+    --color-light-decorative-muted-yellow-inverted: var(
+        --color-dark-decorative-muted-yellow-inverted
+    );
+    --color-light-decorative-orange: var(--color-dark-decorative-orange);
+    --color-light-decorative-orange-hover: var(--color-dark-decorative-orange-hover);
+    --color-light-decorative-orange-inverted: var(--color-dark-decorative-orange-inverted);
+    --color-light-decorative-orange-inverted-hover: var(
+        --color-dark-decorative-orange-inverted-hover
+    );
+    --color-light-decorative-orange-inverted-press: var(
+        --color-dark-decorative-orange-inverted-press
+    );
+    --color-light-decorative-orange-press: var(--color-dark-decorative-orange-press);
+    --color-light-decorative-pistachio: var(--color-dark-decorative-pistachio);
+    --color-light-decorative-pistachio-hover: var(--color-dark-decorative-pistachio-hover);
+    --color-light-decorative-pistachio-inverted: var(--color-dark-decorative-pistachio-inverted);
+    --color-light-decorative-pistachio-inverted-hover: var(
+        --color-dark-decorative-pistachio-inverted-hover
+    );
+    --color-light-decorative-pistachio-inverted-press: var(
+        --color-dark-decorative-pistachio-inverted-press
+    );
+    --color-light-decorative-pistachio-press: var(--color-dark-decorative-pistachio-press);
+    --color-light-decorative-purple: var(--color-dark-decorative-purple);
+    --color-light-decorative-purple-hover: var(--color-dark-decorative-purple-hover);
+    --color-light-decorative-purple-inverted: var(--color-dark-decorative-purple-inverted);
+    --color-light-decorative-purple-inverted-hover: var(
+        --color-dark-decorative-purple-inverted-hover
+    );
+    --color-light-decorative-purple-inverted-press: var(
+        --color-dark-decorative-purple-inverted-press
+    );
+    --color-light-decorative-purple-press: var(--color-dark-decorative-purple-press);
+    --color-light-decorative-red: var(--color-dark-decorative-red);
+    --color-light-decorative-red-inverted: var(--color-dark-decorative-red-inverted);
+    --color-light-decorative-soft-blue: var(--color-dark-decorative-soft-blue);
+    --color-light-decorative-soft-blue-hover: var(--color-dark-decorative-soft-blue-hover);
+    --color-light-decorative-soft-blue-inverted: var(--color-dark-decorative-soft-blue-inverted);
+    --color-light-decorative-soft-blue-inverted-hover: var(
+        --color-dark-decorative-soft-blue-inverted-hover
+    );
+    --color-light-decorative-soft-blue-inverted-press: var(
+        --color-dark-decorative-soft-blue-inverted-press
+    );
+    --color-light-decorative-soft-blue-press: var(--color-dark-decorative-soft-blue-press);
+    --color-light-decorative-soft-cyan: var(--color-dark-decorative-soft-cyan);
+    --color-light-decorative-soft-cyan-hover: var(--color-dark-decorative-soft-cyan-hover);
+    --color-light-decorative-soft-cyan-inverted: var(--color-dark-decorative-soft-cyan-inverted);
+    --color-light-decorative-soft-cyan-inverted-hover: var(
+        --color-dark-decorative-soft-cyan-inverted-hover
+    );
+    --color-light-decorative-soft-cyan-inverted-press: var(
+        --color-dark-decorative-soft-cyan-inverted-press
+    );
+    --color-light-decorative-soft-cyan-press: var(--color-dark-decorative-soft-cyan-press);
+    --color-light-decorative-soft-fuchsia: var(--color-dark-decorative-soft-fuchsia);
+    --color-light-decorative-soft-fuchsia-hover: var(--color-dark-decorative-soft-fuchsia-hover);
+    --color-light-decorative-soft-fuchsia-inverted: var(
+        --color-dark-decorative-soft-fuchsia-inverted
+    );
+    --color-light-decorative-soft-fuchsia-inverted-hover: var(
+        --color-dark-decorative-soft-fuchsia-inverted-hover
+    );
+    --color-light-decorative-soft-fuchsia-inverted-press: var(
+        --color-dark-decorative-soft-fuchsia-inverted-press
+    );
+    --color-light-decorative-soft-fuchsia-press: var(--color-dark-decorative-soft-fuchsia-press);
+    --color-light-decorative-soft-green: var(--color-dark-decorative-soft-green);
+    --color-light-decorative-soft-green-hover: var(--color-dark-decorative-soft-green-hover);
+    --color-light-decorative-soft-green-inverted: var(--color-dark-decorative-soft-green-inverted);
+    --color-light-decorative-soft-green-inverted-hover: var(
+        --color-dark-decorative-soft-green-inverted-hover
+    );
+    --color-light-decorative-soft-green-inverted-press: var(
+        --color-dark-decorative-soft-green-inverted-press
+    );
+    --color-light-decorative-soft-green-press: var(--color-dark-decorative-soft-green-press);
+    --color-light-decorative-soft-indigo: var(--color-dark-decorative-soft-indigo);
+    --color-light-decorative-soft-indigo-hover: var(--color-dark-decorative-soft-indigo-hover);
+    --color-light-decorative-soft-indigo-inverted: var(
+        --color-dark-decorative-soft-indigo-inverted
+    );
+    --color-light-decorative-soft-indigo-inverted-hover: var(
+        --color-dark-decorative-soft-indigo-inverted-hover
+    );
+    --color-light-decorative-soft-indigo-inverted-press: var(
+        --color-dark-decorative-soft-indigo-inverted-press
+    );
+    --color-light-decorative-soft-indigo-press: var(--color-dark-decorative-soft-indigo-press);
+    --color-light-decorative-soft-jungle: var(--color-dark-decorative-soft-jungle);
+    --color-light-decorative-soft-jungle-hover: var(--color-dark-decorative-soft-jungle-hover);
+    --color-light-decorative-soft-jungle-inverted: var(
+        --color-dark-decorative-soft-jungle-inverted
+    );
+    --color-light-decorative-soft-jungle-inverted-hover: var(
+        --color-dark-decorative-soft-jungle-inverted-hover
+    );
+    --color-light-decorative-soft-jungle-inverted-press: var(
+        --color-dark-decorative-soft-jungle-inverted-press
+    );
+    --color-light-decorative-soft-jungle-press: var(--color-dark-decorative-soft-jungle-press);
+    --color-light-decorative-soft-magenta: var(--color-dark-decorative-soft-magenta);
+    --color-light-decorative-soft-magenta-hover: var(--color-dark-decorative-soft-magenta-hover);
+    --color-light-decorative-soft-magenta-inverted: var(
+        --color-dark-decorative-soft-magenta-inverted
+    );
+    --color-light-decorative-soft-magenta-inverted-hover: var(
+        --color-dark-decorative-soft-magenta-inverted-hover
+    );
+    --color-light-decorative-soft-magenta-inverted-press: var(
+        --color-dark-decorative-soft-magenta-inverted-press
+    );
+    --color-light-decorative-soft-magenta-press: var(--color-dark-decorative-soft-magenta-press);
+    --color-light-decorative-soft-orange: var(--color-dark-decorative-soft-orange);
+    --color-light-decorative-soft-orange-hover: var(--color-dark-decorative-soft-orange-hover);
+    --color-light-decorative-soft-orange-inverted: var(
+        --color-dark-decorative-soft-orange-inverted
+    );
+    --color-light-decorative-soft-orange-inverted-hover: var(
+        --color-dark-decorative-soft-orange-inverted-hover
+    );
+    --color-light-decorative-soft-orange-inverted-press: var(
+        --color-dark-decorative-soft-orange-inverted-press
+    );
+    --color-light-decorative-soft-orange-press: var(--color-dark-decorative-soft-orange-press);
+    --color-light-decorative-soft-pistachio: var(--color-dark-decorative-soft-pistachio);
+    --color-light-decorative-soft-pistachio-hover: var(
+        --color-dark-decorative-soft-pistachio-hover
+    );
+    --color-light-decorative-soft-pistachio-inverted: var(
+        --color-dark-decorative-soft-pistachio-inverted
+    );
+    --color-light-decorative-soft-pistachio-inverted-hover: var(
+        --color-dark-decorative-soft-pistachio-inverted-hover
+    );
+    --color-light-decorative-soft-pistachio-inverted-press: var(
+        --color-dark-decorative-soft-pistachio-inverted-press
+    );
+    --color-light-decorative-soft-pistachio-press: var(
+        --color-dark-decorative-soft-pistachio-press
+    );
+    --color-light-decorative-soft-purple: var(--color-dark-decorative-soft-purple);
+    --color-light-decorative-soft-purple-hover: var(--color-dark-decorative-soft-purple-hover);
+    --color-light-decorative-soft-purple-inverted: var(
+        --color-dark-decorative-soft-purple-inverted
+    );
+    --color-light-decorative-soft-purple-inverted-hover: var(
+        --color-dark-decorative-soft-purple-inverted-hover
+    );
+    --color-light-decorative-soft-purple-inverted-press: var(
+        --color-dark-decorative-soft-purple-inverted-press
+    );
+    --color-light-decorative-soft-purple-press: var(--color-dark-decorative-soft-purple-press);
+    --color-light-decorative-soft-red: var(--color-dark-decorative-soft-red);
+    --color-light-decorative-soft-red-inverted: var(--color-dark-decorative-soft-red-inverted);
+    --color-light-decorative-soft-teal: var(--color-dark-decorative-soft-teal);
+    --color-light-decorative-soft-teal-hover: var(--color-dark-decorative-soft-teal-hover);
+    --color-light-decorative-soft-teal-inverted: var(--color-dark-decorative-soft-teal-inverted);
+    --color-light-decorative-soft-teal-inverted-hover: var(
+        --color-dark-decorative-soft-teal-inverted-hover
+    );
+    --color-light-decorative-soft-teal-inverted-press: var(
+        --color-dark-decorative-soft-teal-inverted-press
+    );
+    --color-light-decorative-soft-teal-press: var(--color-dark-decorative-soft-teal-press);
+    --color-light-decorative-soft-yellow: var(--color-dark-decorative-soft-yellow);
+    --color-light-decorative-soft-yellow-inverted: var(
+        --color-dark-decorative-soft-yellow-inverted
+    );
+    --color-light-decorative-teal: var(--color-dark-decorative-teal);
+    --color-light-decorative-teal-hover: var(--color-dark-decorative-teal-hover);
+    --color-light-decorative-teal-inverted: var(--color-dark-decorative-teal-inverted);
+    --color-light-decorative-teal-inverted-hover: var(--color-dark-decorative-teal-inverted-hover);
+    --color-light-decorative-teal-inverted-press: var(--color-dark-decorative-teal-inverted-press);
+    --color-light-decorative-teal-press: var(--color-dark-decorative-teal-press);
+    --color-light-decorative-text-blue: var(--color-dark-decorative-text-blue);
+    --color-light-decorative-text-blue-inverted: var(--color-dark-decorative-text-blue-inverted);
+    --color-light-decorative-text-cyan: var(--color-dark-decorative-text-cyan);
+    --color-light-decorative-text-cyan-inverted: var(--color-dark-decorative-text-cyan-inverted);
+    --color-light-decorative-text-fuchsia: var(--color-dark-decorative-text-fuchsia);
+    --color-light-decorative-text-fuchsia-inverted: var(
+        --color-dark-decorative-text-fuchsia-inverted
+    );
+    --color-light-decorative-text-green: var(--color-dark-decorative-text-green);
+    --color-light-decorative-text-green-inverted: var(--color-dark-decorative-text-green-inverted);
+    --color-light-decorative-text-indigo: var(--color-dark-decorative-text-indigo);
+    --color-light-decorative-text-indigo-inverted: var(
+        --color-dark-decorative-text-indigo-inverted
+    );
+    --color-light-decorative-text-jungle: var(--color-dark-decorative-text-jungle);
+    --color-light-decorative-text-jungle-inverted: var(
+        --color-dark-decorative-text-jungle-inverted
+    );
+    --color-light-decorative-text-magenta: var(--color-dark-decorative-text-magenta);
+    --color-light-decorative-text-magenta-inverted: var(
+        --color-dark-decorative-text-magenta-inverted
+    );
+    --color-light-decorative-text-orange: var(--color-dark-decorative-text-orange);
+    --color-light-decorative-text-orange-inverted: var(
+        --color-dark-decorative-text-orange-inverted
+    );
+    --color-light-decorative-text-pistachio: var(--color-dark-decorative-text-pistachio);
+    --color-light-decorative-text-pistachio-inverted: var(
+        --color-dark-decorative-text-pistachio-inverted
+    );
+    --color-light-decorative-text-purple: var(--color-dark-decorative-text-purple);
+    --color-light-decorative-text-purple-inverted: var(
+        --color-dark-decorative-text-purple-inverted
+    );
+    --color-light-decorative-text-red: var(--color-dark-decorative-text-red);
+    --color-light-decorative-text-red-inverted: var(--color-dark-decorative-text-red-inverted);
+    --color-light-decorative-text-teal: var(--color-dark-decorative-text-teal);
+    --color-light-decorative-text-teal-inverted: var(--color-dark-decorative-text-teal-inverted);
+    --color-light-decorative-text-yellow: var(--color-dark-decorative-text-yellow);
+    --color-light-decorative-text-yellow-inverted: var(
+        --color-dark-decorative-text-yellow-inverted
+    );
+    --color-light-decorative-yellow: var(--color-dark-decorative-yellow);
+    --color-light-decorative-yellow-inverted: var(--color-dark-decorative-yellow-inverted);
+}
