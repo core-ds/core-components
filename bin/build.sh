@@ -26,7 +26,7 @@ lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-them
 lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/export-css-custom-properties-as-js-vars.js
 
 # собираю все подпакеты с компонентами
-lerna exec --scope @alfalab/core-components-base-modal \
+lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
     -- $(pwd)/bin/rollup.sh
 
