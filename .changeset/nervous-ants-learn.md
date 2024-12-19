@@ -29,5 +29,4 @@
 '@alfalab/core-components-with-suffix': patch
 ---
 
-- Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
-- В SideEffect пакета base-modal добавлена зависимость от полифила.
+Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
