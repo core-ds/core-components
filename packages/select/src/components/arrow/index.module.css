@@ -12,6 +12,11 @@
     &.disabled {
         color: var(--select-arrow-disabled-color);
     }
+
+    &.size-40 {
+        width: unset;
+        height: unset;
+    }
 }
 
 .open {

@@ -11,6 +11,11 @@
     align-items: center;
     display: none;
     pointer-events: none;
+
+    &.size-40 {
+        @mixin paragraph_component_secondary;
+        padding: var(--gap-0) var(--gap-8);
+    }
 }
 
 input:focus:not(:read-only) + .suffixContainer,

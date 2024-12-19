@@ -18,10 +18,10 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <input
-                  class="input input input"
+                  class="input size-48 input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
@@ -67,10 +67,10 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <input
-                class="input input input"
+                class="input size-48 input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 ₽"
@@ -173,10 +173,10 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <input
-                  class="input input input"
+                  class="input size-48 input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
@@ -221,10 +221,10 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <input
-                  class="input input input"
+                  class="input size-48 input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 $"
@@ -274,10 +274,10 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <input
-                class="input input input"
+                class="input size-48 input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 $"
