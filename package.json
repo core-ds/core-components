@@ -33,7 +33,6 @@
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png",
         "cm": "git-cz",
-        "postbuild": "yarn purgecss",
         "purgecss": "./bin/purgecss.sh",
         "pub:ci": "node ./bin/release.js",
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
@@ -56,6 +55,7 @@
         ]
     },
     "dependencies": {
+        "@alfalab/core-config": "^1.0.0",
         "@alfalab/data": "^1.9.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.189.0",
@@ -64,11 +64,13 @@
         "@alfalab/utils": "^1.17.1",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
+        "@dnd-kit/utilities": "^3.2.1",
         "@juggle/resize-observer": "^3.3.1",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
         "@popperjs/core": "^2.11.8",
-        "@types/deep-equal": "^1.0.4",
+        "@types/lodash.debounce": "^4.0.6",
+        "@types/lodash.throttle": "^4.1.7",
         "@types/react-transition-group": "^4.4.5",
         "can-use-dom": "^0.1.0",
         "classnames": "^2.5.1",
@@ -104,13 +106,13 @@
         "ui-primitives": "^22.7.0"
     },
     "devDependencies": {
-        "@alfalab/rollup-plugin-postcss": "^3.6.1",
+        "@alfalab/stack-context": "^1.16.0",
         "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
         "@commitlint/config-conventional": "^17.3.0",
         "@commitlint/config-lerna-scopes": "^17.2.1",
-        "@oat-sa/rollup-plugin-wildcard-external": "^0.1.0",
-        "@rollup/plugin-json": "^5.0.2",
+        "@rollup/plugin-json": "^6.1.0",
+        "@rollup/plugin-typescript": "^12.1.1",
         "@storybook/addon-a11y": "^7.6.2",
         "@storybook/addon-docs": "^7.6.2",
         "@storybook/addon-knobs": "^7.0.2",
@@ -144,6 +146,7 @@
         "cross-env": "^7.0.3",
         "css-loader": "^6.7.3",
         "css-minimizer-webpack-plugin": "^3.4.1",
+        "css-url-parser": "^1.1.4",
         "cz-conventional-changelog": "^3.2.0",
         "depcheck": "^1.4.3",
         "eslint": "^8.26.0",
@@ -173,7 +176,6 @@
         "jest-image-snapshot": "^6.1.0",
         "json": "^10.0.0",
         "lerna": "^6.1.0",
-        "levenary": "^1.1.1",
         "lint-staged": "^12.5.0",
         "mini-css-extract-plugin": "^2.7.5",
         "playwright": "^1.33.0",
@@ -185,7 +187,10 @@
         "postcss-for": "^2.1.1",
         "postcss-import": "^12.0.1",
         "postcss-mixins": "^6.2.3",
+        "postcss-modules": "^6.0.1",
         "postcss-preset-env": "^6.7.0",
+        "postcss-scss": "^4.0.9",
+        "postcss-url": "^10.1.3",
         "prettier": "^2.7.1",
         "purgecss": "^2.2.1",
         "querystring-es3": "^0.2.1",
@@ -195,10 +200,10 @@
         "react-github-btn": "^1.2.0",
         "react-scripts": "^5.0.1",
         "rimraf": "^3.0.2",
-        "rollup": "^3.19.1",
-        "rollup-plugin-copy": "^3.4.0",
+        "rollup": "^4.28.0",
+        "rollup-plugin-copy": "^3.5.0",
         "rollup-plugin-multi-input": "^1.3.1",
-        "rollup-plugin-ts": "^3.0.2",
+        "rollup-pluginutils": "^2.8.2",
         "shelljs": "^0.8.5",
         "standard-version": "^8.0.0",
         "storybook": "^7.6.2",
@@ -286,6 +291,9 @@
         "*.css": [
             "prettier --write",
             "stylelint"
+        ],
+        "**/package.json": [
+            "node bin/check-dependencies.js"
         ]
     },
     "husky": {

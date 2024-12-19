@@ -19,7 +19,7 @@
         "@alfalab/core-components-shared": "^0.14.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
-        "react-merge-refs": "1.1.0",
+        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.6.0",

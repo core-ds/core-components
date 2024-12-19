@@ -12,8 +12,7 @@ import cn from 'classnames';
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Closer } from '@alfalab/core-components-navigation-bar-private/shared';
 import { createPaddingStyle, easingFns, getDataTestId } from '@alfalab/core-components-shared';
-
-import { PaddingType } from '../../types';
+import { PaddingType } from '@alfalab/core-components-types';
 
 import { PopupBackdrop } from './components/backdrop';
 

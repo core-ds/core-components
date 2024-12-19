@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PaddingType } from '../../types';
+import { PaddingType } from '@alfalab/core-components-types';
 
 export function createPaddingStyle(padding?: PaddingType): undefined | React.CSSProperties {
     if (typeof padding === 'string' || typeof padding === 'number') {
