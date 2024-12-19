@@ -3,15 +3,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, number } from '@storybook/addon-knobs';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Amount } from '@alfalab/core-components-amount';
+import { AmountComponent, Pure as AmountPure } from '@alfalab/core-components-amount';
 
-const meta: Meta<typeof Amount> = {
+const meta: Meta<typeof AmountComponent> = {
     title: 'Components/Amount',
-    component: Amount,
+    component: AmountComponent,
     id: 'Amount',
 };
 
-type Story = StoryObj<typeof Amount>;
+type Story = StoryObj<typeof AmountComponent>;
 
 const deprecatedCurrencies = ['RUR'];
 
@@ -49,7 +49,7 @@ export const amount: Story = {
                 </Row>
                 <Row>
                     <Col>
-                        <Amount
+                        <AmountComponent
                             value={value}
                             currency={currency}
                             minority={minority}
@@ -61,7 +61,7 @@ export const amount: Story = {
                         />
                     </Col>
                     <Col>
-                        <Amount.Pure
+                        <AmountPure
                             value={value}
                             currency={currency}
                             minority={minority}

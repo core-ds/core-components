@@ -4,6 +4,8 @@ Modal построен как Compound Components. Состоит из Header, C
 Чтобы во время скролла заголовок и кнопки оставались неподвижны, их нужно расположить в `header` и `footer`.
 Текст и изображения всегда располагаются в `content` части.
 
+Также есть атомарные импорты.
+
 ```jsx live mobileHeight={640}
 const Header = () => {
     const { setHasHeader } = React.useContext(ModalContext);
