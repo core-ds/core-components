@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 import { Spinner } from '@alfalab/core-components-spinner';
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes } from '../../../utils';
@@ -29,7 +29,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         useContext(ConfirmationContext);
 
     const renderText = (text?: string) => (
-        <Typography.Text
+        <Text
             className={cn(styles.countdownContainer, {
                 [styles.countdownMobile]: mobile,
                 [styles.typographyTheme]: !mobile,
@@ -38,7 +38,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
             tag='div'
         >
             {text}
-        </Typography.Text>
+        </Text>
     );
 
     if (codeSendHintVisible) return renderText(texts.codeSended);

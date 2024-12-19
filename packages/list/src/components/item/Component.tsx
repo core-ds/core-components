@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { ListContext } from '../../Component';
 
@@ -44,7 +44,7 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
     return (
         <li className={cn(itemClassNames)}>
             {!markerLowerAlpha && (
-                <Typography.Text
+                <Text
                     tag='div'
                     color={colorMarker}
                     monospaceNumbers={true}
@@ -55,21 +55,21 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
                     })}
                 >
                     {marker}
-                </Typography.Text>
+                </Text>
             )}
             <div>
-                <Typography.Text tag='div' view='primary-medium'>
+                <Text tag='div' view='primary-medium'>
                     {children}
-                </Typography.Text>
+                </Text>
                 {caption && (
-                    <Typography.Text
+                    <Text
                         tag='div'
                         view='primary-small'
                         color='secondary'
                         className={styles.caption}
                     >
                         {caption}
-                    </Typography.Text>
+                    </Text>
                 )}
             </div>
         </li>

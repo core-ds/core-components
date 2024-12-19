@@ -1,5 +1,34 @@
 # Change Log
 
+## 7.8.2
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.13
+    -   button@11.11.1
+    -   popover@6.3.4
+
+## 7.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   bottom-sheet@6.17.12
+
 ## 7.8.0
 
 ### Minor Changes

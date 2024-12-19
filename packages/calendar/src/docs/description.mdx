@@ -15,10 +15,10 @@ render(() => {
     const format = React.useCallback((timestamp) => {
         if (!timestamp) return '';
 
-        return new Intl.DateTimeFormat("ru-RU", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit"
+        return new Intl.DateTimeFormat('ru-RU', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
         }).format(new Date(timestamp));
     }, []);
 
@@ -79,10 +79,10 @@ render(() => {
     const format = React.useCallback((timestamp) => {
         if (!timestamp) return '';
 
-        return new Intl.DateTimeFormat("ru-RU", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit"
+        return new Intl.DateTimeFormat('ru-RU', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
         }).format(new Date(timestamp));
     }, []);
 
@@ -136,10 +136,10 @@ render(() => {
     const format = React.useCallback((timestamp) => {
         if (!timestamp) return '';
 
-        return new Intl.DateTimeFormat("ru-RU", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit"
+        return new Intl.DateTimeFormat('ru-RU', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
         }).format(new Date(timestamp));
     }, []);
 
@@ -148,7 +148,9 @@ render(() => {
     }, [rangeBehavior]);
 
     const selectedRange = React.useMemo(() => {
-        return `${format(value ? value.dateFrom : undefined)} - ${format(value ? value.dateTo : undefined)}`;
+        return `${format(value ? value.dateFrom : undefined)} - ${format(
+            value ? value.dateTo : undefined,
+        )}`;
     }, [value]);
 
     const calendarStyles = {
@@ -197,10 +199,10 @@ render(() => {
     const format = React.useCallback((timestamp) => {
         if (!timestamp) return '';
 
-        return new Intl.DateTimeFormat("ru-RU", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit"
+        return new Intl.DateTimeFormat('ru-RU', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
         }).format(new Date(timestamp));
     }, []);
 
@@ -209,7 +211,9 @@ render(() => {
     }, [rangeBehavior]);
 
     const selectedRange = React.useMemo(() => {
-        return `${format(value ? value.dateFrom : undefined)} - ${format(value ? value.dateTo : undefined)}`;
+        return `${format(value ? value.dateFrom : undefined)} - ${format(
+            value ? value.dateTo : undefined,
+        )}`;
     }, [value]);
 
     const allowSelectionFromEmptyRange = selectionMode === 'singleAndRange';
@@ -696,7 +700,7 @@ render(() => {
                 shape={firstRadioValue}
                 clickableMonth={true}
                 value={value}
-                onChange={(dateFrom, dateTo) =>  setValue({dateFrom, dateTo})}
+                onChange={(dateFrom, dateTo) => setValue({ dateFrom, dateTo })}
                 onClose={() => setOpen(false)}
                 open={open}
             />

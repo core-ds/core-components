@@ -1,5 +1,33 @@
 # Change Log
 
+## 9.8.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+-   Обновлены зависимости
+    -   base-modal@5.8.6
+    -   navigation-bar-private@0.5.5
+
+## 9.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.5
+    -   navigation-bar-private@0.5.4
+
 ## 9.8.4
 
 ### Patch Changes

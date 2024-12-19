@@ -1,5 +1,37 @@
 # @alfalab/core-components-date-range-input
 
+## 3.5.11
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   calendar@7.17.1
+    -   icon-button@6.11.4
+    -   input@15.3.4
+    -   popover@6.3.4
+
+## 3.5.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+    -   input@15.3.3
+    -   icon-button@6.11.3
+
+## 3.5.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+
 ## 3.5.8
 
 ### Patch Changes

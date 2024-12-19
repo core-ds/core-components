@@ -23,6 +23,17 @@ export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
      * Затемнение или осветление кнопки при hover и active
      */
     stateType?: 'darkening' | 'lightening' | 'static-darkening' | 'static-lightening';
+
+    /**
+     * Блокировка кнопки
+     */
+    disabled?: boolean;
+
+    /**
+     * Тип цвета для заблокированного состояния
+     * @default default
+     */
+    disableType?: 'default' | 'static' | 'inverted' | 'static-inverted';
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -42,12 +53,15 @@ export const CustomButton = React.forwardRef<
             backgroundColor = DEFAULT_BUTTON_COLOR,
             contentColor = DEFAULT_CONTENT_COLOR,
             stateType = 'darkening',
+            disableType = 'default',
             ...restProps
         },
         ref,
     ) => {
         const buttonProps = {
-            style: { background: backgroundColor },
+            style: {
+                ...(!restProps.disabled && { background: backgroundColor }),
+            },
             ...restProps,
         };
 
@@ -57,9 +71,7 @@ export const CustomButton = React.forwardRef<
             className,
             styles[contentColor],
             styles[stateType],
-            {
-                [styles.customLoading]: loading,
-            },
+            styles[`disableType-${disableType}`],
         );
 
         return (

@@ -17,6 +17,6 @@
         { "path": "../modal" },
         { "path": "../mq" },
         { "path": "../shared" },
-        { "path": "../typography" },
+        { "path": "../typography" }
     ]
 }

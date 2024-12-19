@@ -4,51 +4,166 @@
 
 ## Состояния и цвет контента
 
-Кнопка поддерживает четыре вида генерации состояний `stateType` и четыре цвета контента `contentColor`.
-Для корректного поведения рекомендуется сочетать эти параметры только следующим образом:
+Кнопка поддерживает четыре вида генерации состояний `stateType`, четыре цвета контента `contentColor` и четыре стиля для заблокированного состояния `disableType`. Для корректного поведения рекомендуется сочетать эти параметры только следующим образом.
 
 ```jsx live
 const VARIANTS = {
-    StaticLight: {
+    StaticWhite: {
         stateType: 'static-lightening',
         contentColor: 'static-white',
         backgroundColor: '#EB58BF',
+        hint: 'StaticLightening',
     },
-    Light: {
+    White: {
         stateType: 'lightening',
         contentColor: 'white',
         backgroundColor: '#EB58BF',
+        hint: 'Lightening',
     },
-    StaticDark: {
+    StaticBlack: {
         stateType: 'static-darkening',
         contentColor: 'static-black',
         backgroundColor: '#7FEFFA',
+        hint: 'StaticDarkening',
     },
-    Dark: {
+    Black: {
         stateType: 'darkening',
         contentColor: 'black',
         backgroundColor: '#7FEFFA',
+        hint: 'Darkening',
     },
 };
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
     const isMobile = document.body.clientWidth < 450;
     return (
-        <div>
-            <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
-                {Object.keys(VARIANTS).map((title) => (
-                    <CustomButton {...VARIANTS[title]} disabled={disabled} block={isMobile} key={title}>
-                        {title}
-                    </CustomButton>
-                ))}
+        <React.Fragment>
+            <div>
+                <div
+                    style={{
+                        borderRadius: '20px',
+                        backgroundColor: 'var(--color-light-neutral-100)',
+                        padding: '20px',
+                        width: 670,
+                        boxSizing: 'border-box',
+                        color: 'var(--color-light-text-primary)',
+                    }}
+                >
+                    На светлом фоне
+                    <Gap size={12} />
+                    <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
+                        {Object.keys(VARIANTS).map((title) => (
+                            <CustomButton
+                                {...VARIANTS[title]}
+                                disabled={disabled}
+                                block={isMobile}
+                                key={title}
+                                hint={VARIANTS[title].hint}
+                                disableType='default'
+                            >
+                                {title}
+                            </CustomButton>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <Gap size={20} />
+            <div>
+                <div
+                    style={{
+                        borderRadius: '20px',
+                        backgroundColor: 'var(--color-static-neutral-100)',
+                        padding: '20px',
+                        width: 670,
+                        boxSizing: 'border-box',
+                        color: 'var(--color-static-text-primary)',
+                    }}
+                >
+                    На светлом статичном фоне
+                    <Gap size={12} />
+                    <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
+                        {Object.keys(VARIANTS).map((title) => (
+                            <CustomButton
+                                {...VARIANTS[title]}
+                                disabled={disabled}
+                                block={isMobile}
+                                key={title}
+                                hint={VARIANTS[title].hint}
+                                disableType='static'
+                            >
+                                {title}
+                            </CustomButton>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <Gap size={20} />
+            <div>
+                <div
+                    style={{
+                        borderRadius: '20px',
+                        backgroundColor: 'var(--color-light-neutral-100-inverted)',
+                        padding: '20px',
+                        width: 670,
+                        boxSizing: 'border-box',
+                        color: 'var(--color-light-text-primary-inverted)',
+                    }}
+                >
+                    На тёмном фоне
+                    <Gap size={12} />
+                    <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
+                        {Object.keys(VARIANTS).map((title) => (
+                            <CustomButton
+                                {...VARIANTS[title]}
+                                disabled={disabled}
+                                block={isMobile}
+                                key={title}
+                                hint={VARIANTS[title].hint}
+                                disableType='inverted'
+                            >
+                                {title}
+                            </CustomButton>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <Gap size={20} />
+            <div>
+                <div
+                    style={{
+                        borderRadius: '20px',
+                        backgroundColor: 'var(--color-static-neutral-100-inverted)',
+                        padding: '20px',
+                        width: 670,
+                        boxSizing: 'border-box',
+                        color: 'var(--color-static-text-primary-inverted)',
+                    }}
+                >
+                    На тёмном статичном фоне
+                    <Gap size={12} />
+                    <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
+                        {Object.keys(VARIANTS).map((title) => (
+                            <CustomButton
+                                {...VARIANTS[title]}
+                                disabled={disabled}
+                                block={isMobile}
+                                key={title}
+                                hint={VARIANTS[title].hint}
+                                disableType='static-inverted'
+                            >
+                                {title}
+                            </CustomButton>
+                        ))}
+                    </div>
+                </div>
             </div>
             <Gap size='xl' />
-                <Switch
-                    checked={disabled}
-                    onChange={() => setDisabled((prevState) => !prevState)}
-                    label='Недоступна'
-                />
-        </div>
+            <Switch
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+                label='Недоступна'
+            />
+        </React.Fragment>
     );
 });
 ```
@@ -86,6 +201,80 @@ render(() => {
                 </CustomButton>
             ))}
         </div>
+    );
+});
+```
+
+## Анатомия
+
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку. Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка. В 56, 64 и 72 размерах доступна подпись под лейблом.
+
+```jsx live
+render(() => {
+    const [label, setLabel] = React.useState(true);
+    const [hint, setHint] = React.useState();
+    const [leftAddons, setLeftAddons] = React.useState(false);
+    const [rightAddons, setRightAddons] = React.useState(false);
+
+    const handleLabelChange = () => setLabel(!label);
+    const handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));
+    const handleLeftAddonsChange = () => setLeftAddons(!leftAddons);
+    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
+
+    return (
+        <div>
+            <CustomButton
+                leftAddons={leftAddons && <StarMIcon />}
+                rightAddons={rightAddons && <StarMIcon />}
+                hint={hint}
+                block={isMobile()}
+                backgroundColor={'var(--color-light-base-bg-secondary-inverted)'}
+            >
+                {label && 'Label'}
+            </CustomButton>
+
+            <Gap size='xl' />
+
+            <Switch label='Label' checked={label} onChange={handleLabelChange} />
+            <Gap size='m' />
+            <Switch label='Hint' checked={hint} onChange={handleHintChange} />
+            <Gap size='m' />
+            <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
+            <Gap size='m' />
+            <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
+        </div>
+    );
+});
+```
+
+## Кастомный цвет контента
+
+Для установки цвета контента можно использовать пропс `contentColor` который принимает четыре значения. Но также цвет можно переопределить через класс с помощью пропса `className`
+
+```jsx live
+render(() => {
+    return (
+        <React.Fragment>
+            <style>{'.customClass[type=button] * { color: #EB58BF }'}</style>
+
+            <Space size={16} direction='horizontal'>
+                <CustomButton
+                    hint='Hint'
+                    block={isMobile()}
+                    backgroundColor={'var(--color-light-base-bg-secondary-inverted)'}
+                >
+                    Label
+                </CustomButton>
+                <CustomButton
+                    hint='Hint'
+                    block={isMobile()}
+                    backgroundColor={'var(--color-light-base-bg-secondary-inverted)'}
+                    className={'customClass'}
+                >
+                    Label
+                </CustomButton>
+            </Space>
+        </React.Fragment>
     );
 });
 ```

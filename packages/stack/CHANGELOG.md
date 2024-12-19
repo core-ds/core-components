@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
 ## 5.0.0
 
 ### Major Changes

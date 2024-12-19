@@ -1,5 +1,54 @@
 # Change Log
 
+## 7.17.1
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   icon-button@6.11.4
+    -   modal@9.8.6
+    -   typography@4.11.1
+
+## 7.17.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1460](https://github.com/core-ds/core-components/pull/1460)
+
+-   Добавлены пропсы для передачи кастомного текста в кнопки мобильного календаря
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   icon-button@6.11.3
+    -   modal@9.8.5
+
+## 7.16.0
+
+### Minor Changes
+
+<sup><time>06.12.2024</time></sup>
+
+### [#1465](https://github.com/core-ds/core-components/pull/1465)
+
+-   Изменено поведение пропса clickableMonth. Добавлена возможность выбирать промежуток между месяцами. Первый клик по лейблу месяца выбирает весь месяц. Второй клик на следующий месяц выбирает промежуток между этими двумя месяцами.
+
 ## 7.15.4
 
 ### Patch Changes

@@ -22,6 +22,19 @@ export const KeepCssVars = ({ answers }: { answers: Answers }) => {
         </div>,
     );
 
+    steps.push(
+        <div>
+            <Typography.Text>
+                Также если вы используете индексный файл с переменными (vars/index.css) , то
+                рекомендуем вам перейти на один из бандлов, подготовленных под продукты (например,
+                vars/bundle/click.css). В этих бандлах всегда будет правильный набор переменных для
+                вашего продукта. Если в продукте встречаются очень старые deprecated цвета из файла
+                vars/colors.css, дополнительно подключите его (он всё ещё есть в индексном файле, но
+                в бандлы его уже не добавляли).
+            </Typography.Text>
+        </div>,
+    );
+
     if (answers.darkMode === 'yes') {
         steps.push(
             <div key='darkModeWithVars' style={{ flex: 1 }}>

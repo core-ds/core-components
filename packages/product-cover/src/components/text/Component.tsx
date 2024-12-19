@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Typography } from '@alfalab/core-components-typography';
+import { Text as TypographyText } from '@alfalab/core-components-typography';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { pluralize } from '@alfalab/utils';
 
@@ -82,7 +82,7 @@ export const Text: React.FC<TextProps> = ({
     return (
         <div className={cn(styles.component)} data-test-id={dataTestId}>
             {maxSize && cardholderName ? (
-                <Typography.Text
+                <TypographyText
                     tag='div'
                     view='secondary-medium'
                     weight='medium'
@@ -90,19 +90,19 @@ export const Text: React.FC<TextProps> = ({
                     className={styles.cardholderName}
                 >
                     {cardholderNameUppercase ? cardholderName?.toUpperCase() : cardholderName}
-                </Typography.Text>
+                </TypographyText>
             ) : null}
 
             {cardNumber && !visibleNumberOfСards ? (
                 <div className={styles.cardNumber}>
-                    <Typography.Text
+                    <TypographyText
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
                         weight='medium'
                         color='static-primary-light'
                     >
                         {[164, 128].includes(size) && '··\u2009'}
                         {String(cardNumber).slice(-4)}
-                    </Typography.Text>
+                    </TypographyText>
                     {eyeButton && maxSize && (
                         <ButtonDesktop
                             view='text'
@@ -119,14 +119,14 @@ export const Text: React.FC<TextProps> = ({
 
             {visibleNumberOfСards && (
                 <div className={styles.cardNumber}>
-                    <Typography.Text
+                    <TypographyText
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
                         weight='medium'
                         color='static-primary-dark'
                     >
                         {`+${numberOfСards}\u00A0`}
                         {pluralize(numberOfСards || 0, 'карта', 'карты', 'карт')}
-                    </Typography.Text>
+                    </TypographyText>
                 </div>
             )}
         </div>

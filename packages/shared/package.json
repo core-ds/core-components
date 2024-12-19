@@ -15,8 +15,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-types": "^0.0.1",
-        "@alfalab/hooks": "^1.13.0",
         "@maskito/core": "^1.7.0",
+        "@alfalab/hooks": "^1.13.1",
         "tslib": "^2.4.0"
     },
     "devDependencies": {

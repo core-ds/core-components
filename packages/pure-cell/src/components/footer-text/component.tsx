@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Color, Typography } from '@alfalab/core-components-typography';
+import { type Color, Text } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 
@@ -31,12 +31,12 @@ export const FooterText: React.FC<FooterTextProps> = ({
     const pureCellContext = useContext(PureCellContext);
 
     return (
-        <Typography.Text
+        <Text
             view='primary-small'
             color={color}
             data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'footer-title')}
         >
             {children}
-        </Typography.Text>
+        </Text>
     );
 };
