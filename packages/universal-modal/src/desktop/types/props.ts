@@ -1,6 +1,6 @@
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 
-import { TMargin } from './typings';
+import { TMargin } from '../../typings/margin-type';
 
 export type BaseUniversalModalProps = {
     /**
@@ -41,11 +41,7 @@ export type BaseUniversalModalProps = {
      * Устанавливает отступы модального окна
      * По умолчанию для бокового модала 0px, для центрального auto
      */
-    margin?:
-        | [TMargin, TMargin, TMargin, TMargin]
-        | [TMargin, TMargin, TMargin]
-        | [TMargin, TMargin]
-        | [TMargin];
+    margin?: TMargin;
 
     /**
      * Хэндлер закрытия модалки

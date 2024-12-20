@@ -1,5 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useRef } from 'react';
-import { TransitionProps } from 'react-transition-group/Transition';
+import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -12,7 +11,7 @@ import { ModalBySideProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './side-modal.module.css';
-import transitions from './transitions.module.css';
+import { getMarginValues } from '../../../utils/getMarginValues';
 
 export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -32,9 +31,9 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
     const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    useModalMargin({ margin, open, componentRef: contentRef, horizontalAlign, verticalAlign });
-    useModalWidth(width, open, contentRef);
-    useModalHeight(height, open, contentRef);
+    useModalMargin({ margin, open, componentRef, horizontalAlign, verticalAlign });
+    useModalWidth(width, open, componentRef);
+    useModalHeight(height, open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const isHorizontalStart = horizontalAlign === 'start';
@@ -42,51 +41,7 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
     const isVerticalCenter = verticalAlign === 'center';
     const isVerticalBottom = verticalAlign === 'bottom';
 
-    const enter = cn({
-        [transitions.enterLeft]: isHorizontalStart,
-        [transitions.enterRight]: isHorizontalEnd,
-    });
-
-    const transitionProps: Partial<TransitionProps> = {
-        appear: enter,
-        enter,
-        appearActive: transitions.enterActive,
-        enterActive: transitions.enterActive,
-        enterDone: transitions.enterDone,
-        exit: transitions.exit,
-        exitActive: cn({
-            [transitions.exitActiveLeft]: isHorizontalStart,
-            [transitions.exitActiveRight]: isHorizontalEnd,
-        }),
-    };
-
-    // главная обёртка компонента может содержать пустоты в виде отступов, необходимо закрывать мадалку при клике на них
-    const handleContentOutsideClick = useCallback(
-        (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-
-            if (contentRef.current && !contentRef.current.contains(target)) {
-                if (onClose) {
-                    onClose();
-                }
-            }
-        },
-        [onClose],
-    );
-
-    useEffect(() => {
-        const element = componentRef.current;
-
-        if (element) {
-            element.addEventListener('click', handleContentOutsideClick);
-        }
-
-        return () => {
-            if (element) {
-                element.removeEventListener('click', handleContentOutsideClick);
-            }
-        };
-    }, [open, handleContentOutsideClick]);
+    const { right, left } = getMarginValues(margin);
 
     return (
         <BaseModal
@@ -101,16 +56,55 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
             wrapperClassName={cn({
                 [styles.wrapperAlignStart]: isHorizontalStart,
                 [styles.wrapperAlignEnd]: isHorizontalEnd,
+                [styles.wrapperJustifyCenter]: isVerticalCenter,
+                [styles.wrapperJustifyEnd]: isVerticalBottom,
             })}
             className={cn(className, styles.component, {
-                [styles.componentAlignCenter]: isVerticalCenter,
-                [styles.componentAlignEnd]: isVerticalBottom,
                 [styles.overlayHidden]: !overlay,
             })}
             contentClassName={styles.content}
             transitionProps={{
-                classNames: transitionProps,
+                classNames: {},
                 timeout: 200,
+                onEnter: () => {
+                    if (componentRef.current) {
+                        if (isHorizontalStart) {
+                            componentRef.current.style.transform = `translateX(calc(-100% - ${left}px))`;
+                        }
+                        if (isHorizontalEnd) {
+                            componentRef.current.style.transform = `translateX(calc(100% + ${right}px))`;
+                        }
+                    }
+                },
+                onEntering: () => {
+                    if (componentRef.current) {
+                        componentRef.current.style.transform = 'translateX(0)';
+                        componentRef.current.style.transition = 'transform 200ms ease-in';
+                    }
+                },
+                onEntered: () => {
+                    if (componentRef.current) {
+                        componentRef.current.style.transform = 'translateX(0)';
+                    }
+                },
+                onExit: () => {
+                    if (componentRef.current) {
+                        componentRef.current.style.transform = 'translateX(0)';
+                    }
+                },
+                onExiting: () => {
+                    if (componentRef.current) {
+                        componentRef.current.style.transition = 'transform 200ms ease-out';
+
+                        if (isHorizontalStart) {
+                            componentRef.current.style.transform = `translateX(calc(-100% - ${left}px))`;
+                        }
+
+                        if (isHorizontalEnd) {
+                            componentRef.current.style.transform = `translateX(calc(100% + ${right}px))`;
+                        }
+                    }
+                },
             }}
             backdropProps={{
                 transparent: !overlay,
