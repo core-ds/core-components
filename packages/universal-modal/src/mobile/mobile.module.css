@@ -1,0 +1,21 @@
+@import '../../../vars/src/index.css';
+
+.component {
+    top: var(--gap-0);
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+
+    & .content {
+        height: auto;
+    }
+}
+
+.component.component {
+    position: fixed;
+    flex: 1;
+}

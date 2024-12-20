@@ -1,0 +1,6 @@
+@import '../../../vars/src/index.css';
+
+:root {
+    --universal-modal-header-desktop-font-weight: bold;
+    --universal-modal-header-desktop-font-family: var(--font-family-system);
+}
