@@ -41,49 +41,54 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     }, [index]);
 
     useEffect(() => {
+        let hls: HlsType;
+
         async function initHls() {
             const { default: Hls } = await import(
-                /* webpackChunkName: "HLSVideo" */ 'hls.js/dist/hls.light.mjs'
+                /* webpackChunkName: "hls-js-video" */ 'hls.js/dist/hls.light.mjs'
             );
 
-            const hls: HlsType = new Hls();
+            hls = new Hls();
 
-            if (Hls.isSupported()) {
-                hls.on(Hls.Events.ERROR, (_: Events.ERROR, data: ErrorData) => {
-                    if (data.fatal) {
-                        switch (data.type) {
-                            case Hls.ErrorTypes.MEDIA_ERROR:
-                                hls.recoverMediaError();
-                                break;
-                            case Hls.ErrorTypes.NETWORK_ERROR:
-                                setImageMeta({ player: { current: null }, broken: true }, index);
-                                break;
-                            default:
-                                hls.destroy();
-                                break;
-                        }
-                    }
-                });
-
-                hls.loadSource(url);
-                if (playerRef.current) {
-                    hls.attachMedia(playerRef.current);
-                }
-            } else {
+            if (!Hls.isSupported()) {
                 setHLSSupported(false);
+
+                return;
             }
 
-            return () => {
-                if (hls) {
-                    hls.destroy();
+            hls.on(Hls.Events.ERROR, (_: Events.ERROR, data: ErrorData) => {
+                if (data.fatal) {
+                    switch (data.type) {
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            hls.recoverMediaError();
+                            break;
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            setImageMeta({ player: { current: null }, broken: true }, index);
+                            break;
+                        default:
+                            hls.destroy();
+                            break;
+                    }
                 }
-                if (timer.current) {
-                    clearTimeout(timer.current);
-                }
-            };
+            });
+
+            hls.loadSource(url);
+
+            if (playerRef.current) {
+                hls.attachMedia(playerRef.current);
+            }
         }
 
         initHls().catch();
+
+        return () => {
+            if (hls) {
+                hls.destroy();
+            }
+            if (timer.current) {
+                clearTimeout(timer.current);
+            }
+        };
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [url, index]);
