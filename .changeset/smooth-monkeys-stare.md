@@ -4,8 +4,6 @@
 '@alfalab/core-components-notification-manager': patch
 '@alfalab/core-components-number-input': patch
 '@alfalab/core-components-pagination': patch
-'@alfalab/core-components-pass-code': patch
-'@alfalab/core-components-pass-code-v1': patch
 '@alfalab/core-components-password-input': patch
 '@alfalab/core-components-pattern-lock': patch
 '@alfalab/core-components-pattern-lock-v1': patch
