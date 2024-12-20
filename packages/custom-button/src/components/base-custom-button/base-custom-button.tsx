@@ -13,7 +13,7 @@ import styles from './index.module.css';
 export const BaseCustomButton = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
     CustomButtonProps & {
-        component: typeof Button | typeof ButtonDesktop | typeof ButtonMobile;
+        componentButton: typeof Button | typeof ButtonDesktop | typeof ButtonMobile;
     }
 >(
     (
@@ -25,12 +25,12 @@ export const BaseCustomButton = forwardRef<
             contentColor = DEFAULT_CONTENT_COLOR,
             stateType = 'darkening',
             disableType = 'default',
-            component: Component,
+            componentButton: ComponentButton,
             ...restProps
         },
         ref,
     ) => (
-        <Component
+        <ComponentButton
             style={{ ...(!restProps.disabled && { background: backgroundColor }) }}
             {...restProps}
             view='primary'
@@ -49,7 +49,7 @@ export const BaseCustomButton = forwardRef<
             loading={loading}
         >
             {children}
-        </Component>
+        </ComponentButton>
     ),
 );
 

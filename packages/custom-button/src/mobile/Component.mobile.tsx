@@ -9,7 +9,7 @@ export const CustomButtonMobile = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
     CustomButtonProps
 >(({ children, ...restProps }, ref) => (
-    <BaseCustomButton ref={ref} {...restProps} component={ButtonMobile}>
+    <BaseCustomButton ref={ref} {...restProps} componentButton={ButtonMobile}>
         {children}
     </BaseCustomButton>
 ));

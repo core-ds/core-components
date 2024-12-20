@@ -7,7 +7,7 @@ import { CustomButtonProps } from './types/props';
 
 export const CustomButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, CustomButtonProps>(
     ({ children, ...restProps }, ref) => (
-        <BaseCustomButton ref={ref} {...restProps} component={Button}>
+        <BaseCustomButton ref={ref} {...restProps} componentButton={Button}>
             {children}
         </BaseCustomButton>
     ),
