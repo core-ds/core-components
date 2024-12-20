@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
+import { getMarginValues } from '../../../utils/getMarginValues';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
@@ -11,7 +12,6 @@ import { ModalBySideProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './side-modal.module.css';
-import { getMarginValues } from '../../../utils/getMarginValues';
 
 export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
