@@ -10,9 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": [
-      "matches-polyfill.*"
-    ],
+    "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-backdrop": "^3.4.5",
         "@alfalab/core-components-global-store": "^2.1.0",

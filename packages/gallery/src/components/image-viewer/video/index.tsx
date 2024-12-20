@@ -1,6 +1,8 @@
 import React, { MouseEvent, ReactEventHandler, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
-import Hls from 'hls.js';
+import type HlsType from 'hls.js';
+import type { ErrorData, Events } from 'hls.js';
+import Hls from 'hls.js/dist/hls.light.mjs';
 
 import { Circle } from '@alfalab/core-components/icon-view/circle';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
@@ -32,10 +34,10 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     }, [index]);
 
     useEffect(() => {
-        const hls = new Hls();
+        const hls = new Hls() as HlsType;
 
         if (Hls.isSupported()) {
-            hls.on(Hls.Events.ERROR, (_, data) => {
+            hls.on(Hls.Events.ERROR, (_: Events.ERROR, data: ErrorData) => {
                 if (data.fatal) {
                     switch (data.type) {
                         case Hls.ErrorTypes.MEDIA_ERROR:
