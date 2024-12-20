@@ -31,7 +31,7 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
 export const DrawerContext = BaseModalContext;
 
 const backdropProps = {
-    classNames: {
+    transitionClassNames: {
         enter: styles.backdropEnter,
         appear: styles.backdropEnter,
         enterActive: styles.backdropEnterActive,
