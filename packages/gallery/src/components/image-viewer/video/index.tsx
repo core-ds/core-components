@@ -7,8 +7,8 @@ import React, {
     useState,
 } from 'react';
 import cn from 'classnames';
-import type HlsType from 'hls.js';
-import type { ErrorData, Events } from 'hls.js';
+import type HlsType from 'hls.js/dist/hls.light.mjs';
+import type { ErrorData, Events } from 'hls.js/dist/hls.light.mjs';
 
 import { Circle } from '@alfalab/core-components/icon-view/circle';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
