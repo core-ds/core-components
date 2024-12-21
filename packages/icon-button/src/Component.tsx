@@ -7,7 +7,8 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import type { ButtonProps } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { transformSize } from './helpers/transformSize';
 
@@ -92,7 +93,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         },
         ref,
     ) => (
-        <Button
+        <ButtonMobile
             {...restProps}
             ref={ref}
             view='text'
@@ -122,7 +123,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                     <Icon className={styles.icon} />
                 )}
             </span>
-        </Button>
+        </ButtonMobile>
     ),
 );
 
