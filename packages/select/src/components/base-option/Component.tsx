@@ -1,12 +1,24 @@
 import React, { FC, isValidElement } from 'react';
 import cn from 'classnames';
 
-import { OptionProps } from '../../typings';
+import { OptionCommonProps } from '../../typings';
 import { BaseCheckmark } from '../base-checkmark';
 
-import styles from './index.module.css';
+import type stylesDesktop from './desktop/index.module.css'
+import type stylesMobile from './mobile/index.module.css'
 
-export const BaseOption: FC<OptionProps> = ({
+type OptionPrivateProps = {
+    /**
+     * Мобильная версия option.
+     */
+    mobile: boolean;
+    /**
+     * Стили
+     */
+    styles: typeof stylesDesktop | typeof stylesMobile;
+}
+
+export const BaseOptionCommon: FC<OptionCommonProps & OptionPrivateProps> = ({
     className,
     option,
     children,
@@ -19,7 +31,8 @@ export const BaseOption: FC<OptionProps> = ({
     align = 'center',
     innerProps,
     dataTestId,
-    mobile = false,
+    mobile,
+    styles
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
@@ -53,7 +66,6 @@ export const BaseOption: FC<OptionProps> = ({
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
                 [styles.textContent]: isTextContent,
-                [styles.mobile]: mobile,
                 [styles.checkmarkAfter]: !isTextContent && checkmarkPosition === 'after',
                 [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
             })}
