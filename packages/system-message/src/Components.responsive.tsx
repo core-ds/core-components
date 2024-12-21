@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
+import { Title } from './components/title';
 import { SystemMessage } from './Component';
 import type { SystemMessageResponsiveProps } from './types';
 import { createCompound } from './utils';
@@ -22,4 +23,4 @@ const SystemMessageResponsiveComponent: React.FC<SystemMessageResponsiveProps> =
     );
 };
 
-export const SystemMessageResponsive = createCompound(SystemMessageResponsiveComponent);
+export const SystemMessageResponsive = createCompound(SystemMessageResponsiveComponent, { Title });
