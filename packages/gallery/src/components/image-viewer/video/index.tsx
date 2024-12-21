@@ -1,6 +1,14 @@
-import React, { MouseEvent, ReactEventHandler, useContext, useEffect, useRef } from 'react';
+import React, {
+    MouseEvent,
+    ReactEventHandler,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
-import Hls from 'hls.js';
+import type HlsType from 'hls.js/dist/hls.light.mjs';
+import type { ErrorData, Events } from 'hls.js/dist/hls.light.mjs';
 
 import { Circle } from '@alfalab/core-components/icon-view/circle';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
@@ -20,6 +28,7 @@ type Props = {
 export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const timer = useRef<ReturnType<typeof setTimeout>>();
+    const [HLSSupported, setHLSSupported] = useState<boolean>(true);
 
     const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo, setHideNavigation } =
         useContext(GalleryContext);
@@ -32,10 +41,22 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     }, [index]);
 
     useEffect(() => {
-        const hls = new Hls();
+        let hls: HlsType;
 
-        if (Hls.isSupported()) {
-            hls.on(Hls.Events.ERROR, (_, data) => {
+        async function initHls() {
+            const { default: Hls } = await import(
+                /* webpackChunkName: "hls-js-video" */ 'hls.js/dist/hls.light.mjs'
+            );
+
+            hls = new Hls();
+
+            if (!Hls.isSupported()) {
+                setHLSSupported(false);
+
+                return;
+            }
+
+            hls.on(Hls.Events.ERROR, (_: Events.ERROR, data: ErrorData) => {
                 if (data.fatal) {
                     switch (data.type) {
                         case Hls.ErrorTypes.MEDIA_ERROR:
@@ -52,10 +73,13 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             });
 
             hls.loadSource(url);
+
             if (playerRef.current) {
                 hls.attachMedia(playerRef.current);
             }
         }
+
+        initHls().catch();
 
         return () => {
             if (hls) {
@@ -65,6 +89,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                 clearTimeout(timer.current);
             }
         };
+
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [url, index]);
 
@@ -142,7 +167,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                 playsInline={true}
                 muted={mutedVideo}
                 loop={true}
-                src={Hls.isSupported() ? undefined : url}
+                src={HLSSupported ? undefined : url}
                 className={cn(styles.video, { [styles.mobile]: view === 'mobile' }, className)}
             >
                 <track kind='captions' />
