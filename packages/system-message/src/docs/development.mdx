@@ -3,6 +3,8 @@ import { SystemMessageResponsive } from '../Components.responsive';
 
 ## Подключение
 
+Компаунд
+
 ```jsx
 // Респонсив версия
 import { SystemMessage } from '@alfalab/core-components/system-message';
@@ -14,10 +16,44 @@ import { SystemMessageDesktop } from '@alfalab/core-components/system-message/de
 import { SystemMessageMobile } from '@alfalab/core-components/system-message/mobile';
 ```
 
+Атомы
+
+```jsx
+// Респонсив версия
+import {
+    SystemMessageComponent,
+    SystemMessageCaption,
+    SystemMessageControls,
+    SystemMessageGraphic,
+    SystemMessageSubtitle,
+    SystemMessageTitle,
+} from '@alfalab/core-components/system-message';
+
+// Десктоп версия
+import {
+    SystemMessageComponentDesktop,
+    SystemMessageCaptionDesktop,
+    SystemMessageControlsDesktop,
+    SystemMessageGraphicDesktop,
+    SystemMessageSubtitleDesktop,
+    SystemMessageTitleDesktop,
+} from '@alfalab/core-components/system-message/desktop';
+
+// Мобильная версия
+import {
+    SystemMessageComponentMobile,
+    SystemMessageCaptionMobile,
+    SystemMessageControlsMobile,
+    SystemMessageGraphicMobile,
+    SystemMessageSubtitleMobile,
+    SystemMessageTitleMobile,
+} from '@alfalab/core-components/system-message/mobile';
+```
+
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getSystemMessageTestIds`.  
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getSystemMessageTestIds`.
 Импорт из `@alfalab/core-components/system-message/shared`.
 
 Функция возвращает объект:
