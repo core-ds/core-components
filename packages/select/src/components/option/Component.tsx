@@ -2,13 +2,23 @@ import React, { FC, isValidElement } from 'react';
 import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { OptionProps } from '../../typings';
-import { Checkmark as DefaultCheckMark } from '../checkmark';
-import { Checkmark as DefaultMobileCheckmark } from '../checkmark-mobile';
+import { OptionCommonProps } from '../../typings';
 
-import styles from './index.module.css';
+import type stylesDesktop from './desktop/index.module.css';
+import type stylesMobile from './mobile/index.module.css';
 
-export const Option: FC<OptionProps> = ({
+type OptionPrivateProps = {
+    /**
+     * Мобильная версия option.
+     */
+    mobile: boolean;
+    /**
+     * Стили
+     */
+    styles: typeof stylesDesktop | typeof stylesMobile;
+};
+
+export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     size = 48,
     className,
     option,
@@ -18,9 +28,10 @@ export const Option: FC<OptionProps> = ({
     disabled,
     multiple,
     mobile,
-    Checkmark = mobile ? DefaultMobileCheckmark : DefaultCheckMark,
+    Checkmark,
     innerProps,
     dataTestId,
+    styles,
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;

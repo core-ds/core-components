@@ -1,0 +1,13 @@
+@import '../../../../../vars/src/index.css';
+@import '../../../vars.css';
+@import '../index.module.css';
+
+.highlighted {
+    background: var(--select-option-hover-background);
+    color: var(--select-option-hover-color);
+
+    &:before,
+    & + .option:before {
+        opacity: 0;
+    }
+}
