@@ -1,5 +1,19 @@
 # @alfalab/core-components-number-input
 
+## 2.5.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   icon-button@6.11.4
+    -   input@15.3.4
+
 ## 2.5.5
 
 ### Patch Changes

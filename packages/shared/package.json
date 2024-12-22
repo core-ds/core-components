@@ -14,7 +14,7 @@
         "react": ">=16.8.0"
     },
     "dependencies": {
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "tslib": "^2.4.0"
     },
     "devDependencies": {

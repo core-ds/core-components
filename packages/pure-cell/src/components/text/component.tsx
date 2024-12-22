@@ -2,7 +2,7 @@ import React, { ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Color, Typography } from '@alfalab/core-components-typography';
+import { type Color, Text as TypographyText } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 
@@ -77,7 +77,7 @@ export const Text: React.FC<Props> = ({
             })}
         >
             <div className={styles.title}>
-                <Typography.Text
+                <TypographyText
                     view={view}
                     weight={titleWeight}
                     tag='div'
@@ -86,12 +86,12 @@ export const Text: React.FC<Props> = ({
                     data-test-id={getDataTestId(dataTestId || contextDataTestId, 'text_content')}
                 >
                     {children}
-                </Typography.Text>
+                </TypographyText>
             </div>
 
             {value && (
                 <div className={styles.value}>
-                    <Typography.Text
+                    <TypographyText
                         view={view}
                         tag='div'
                         color={valueColor}
@@ -99,7 +99,7 @@ export const Text: React.FC<Props> = ({
                         data-test-id={getDataTestId(dataTestId || contextDataTestId, 'text_value')}
                     >
                         {value}
-                    </Typography.Text>
+                    </TypographyText>
                 </div>
             )}
         </div>

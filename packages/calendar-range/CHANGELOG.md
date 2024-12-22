@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.7.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   calendar@7.17.1
+    -   calendar-input@10.4.11
+    -   date-input@4.4.10
+
 ## 7.7.7
 
 ### Patch Changes

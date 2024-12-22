@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { Header } from '../../header';
@@ -24,7 +24,7 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.fatalErrorTitle}</Header>
 
-            <Typography.Text
+            <Text
                 view='primary-medium'
                 color='primary'
                 className={cn({
@@ -33,7 +33,7 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
                 })}
             >
                 {texts.fatalErrorDescription}
-            </Typography.Text>
+            </Text>
 
             <Button
                 size={mobile ? 'xs' : 's'}

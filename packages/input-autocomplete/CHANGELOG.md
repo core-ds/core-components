@@ -1,5 +1,27 @@
 # Change Log
 
+## 12.6.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1477](https://github.com/core-ds/core-components/pull/1477)
+
+-   Замена использование lodash на коммон пакет
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   form-control@12.7.3
+    -   input@15.3.4
+    -   popover@6.3.4
+    -   select@17.18.0
+
 ## 12.6.7
 
 ### Patch Changes

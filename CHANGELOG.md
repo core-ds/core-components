@@ -1,3 +1,80 @@
+## 48.6.0
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1477](https://github.com/core-ds/core-components/pull/1477)
+
+#### Что изменилось
+-   Замена использование lodash на коммон пакет
+
+#### Влияние на компоненты
+- Патчи<br />`collapse` `input-autocomplete` `tabs`
+
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+#### Что изменилось
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+#### Влияние на компоненты
+- Патчи<br />`accordion` `action-button` `alert` `amount` `amount-input`<br /> `attach` `backdrop` `badge` `bank-card` `base-modal`<br /> `bottom-sheet` `button` `calendar` `calendar-input` `calendar-range`<br /> `calendar-with-skeleton` `card-image` `cdn-icon` `chart` `checkbox`<br /> `checkbox-group` `circular-progress-bar` `code-input` `collapse` `comment`<br /> `confirmation` `confirmation-v1` `custom-button` `custom-picker-button` `date-range-input`<br /> `date-time-input` `divider` `drawer` `dropzone` `file-upload-item`<br /> `file-upload-item-v1` `filter-tag` `form-control` `gallery` `gap`<br /> `generic-wrapper` `grid` `hatching-progress-bar` `icon-button` `icon-view`<br /> `indicator` `input` `input-autocomplete` `international-phone-input` `intl-phone-input`<br /> `link` `list` `list-header` `loader` `markdown`<br /> `masked-input` `modal` `navigation-bar` `navigation-bar-private` `notification`<br /> `notification-manager` `number-input` `pagination` `pass-code` `pass-code-v1`<br /> `password-input` `pattern-lock` `pattern-lock-v1` `picker-button` `plate`<br /> `popover` `popup-sheet` `product-cover` `progress-bar` `pure-cell`<br /> `radio` `radio-group` `scrollbar` `segmented-control` `select`<br /> `select-with-tags` `side-panel` `skeleton` `slider` `slider-input`<br /> `sortable-list` `space` `spinner` `status` `status-badge`<br /> `stepped-progress-bar` `steps` `switch` `system-message` `tab-bar`<br /> `table` `tabs` `tag` `text` `textarea`<br /> `toast` `toast-plate` `tooltip` `typography` `underlay`<br /> `universal-date-input` `with-suffix`
+
+
+### [#1481](https://github.com/core-ds/core-components/pull/1481)
+
+#### Что изменилось
+- Исправлен цвет шеврона для заблокированного состояния
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+#### Что изменилось
+- Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+#### Влияние на компоненты
+- Патчи<br />`code-input` `collapse` `confirmation` `date-input` `filter-tag`<br /> `gap` `grid` `link` `list` `modal`<br /> `slider` `space` `spinner` `stack` `status`<br /> `steps` `tabs` `tag` `textarea` `tooltip`<br /> `underlay`
+
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+#### Что изменилось
+- Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+#### Влияние на компоненты
+- Патчи<br />`button` `card-image` `cdn-icon` `chart` `checkbox`<br /> `checkbox-group` `circular-progress-bar` `phone-input` `progress-bar` `scrollbar`<br /> `side-panel` `sortable-list` `tab-bar` `table` `text`<br /> `toast` `toast-plate`
+
+
+### [#1495](https://github.com/core-ds/core-components/pull/1495)
+
+#### Что изменилось
+- Добавили пропс footerClassName в OptionsList
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+#### Что изменилось
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+#### Влияние на компоненты
+- Патчи<br />`accordion` `calendar` `chart` `circular-progress-bar` `comment`<br /> `confirmation` `file-upload-item` `gallery` `list` `list-header`<br /> `markdown` `navigation-bar` `navigation-bar-private` `product-cover` `pure-cell`<br /> `stepped-progress-bar` `tab-bar`
+
+
+### [#1488](https://github.com/core-ds/core-components/pull/1488)
+
+#### Что изменилось
+- Фикс вызова input.setSelectionRange
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+
 ## 48.5.0
 
 <sup><time>10.12.2024</time></sup>
