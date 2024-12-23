@@ -5,6 +5,7 @@ import debounce from 'lodash/debounce';
 
 import { Link } from '@alfalab/core-components-link';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
+import { ChevronUpSIcon } from '@alfalab/icons-glyph/ChevronUpSIcon';
 
 import styles from './index.module.css';
 
@@ -150,6 +151,8 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
         useEffect(() => recalculate(), [isExpanded, recalculate]);
 
+        const ToggledIcon = isExpanded ? ChevronUpSIcon : ChevronDownSIcon;
+
         return (
             <div
                 ref={ref}
@@ -171,13 +174,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                         className={cn({ [styles.expandedLabel]: isExpanded })}
                         pseudo={true}
                         onClick={handleExpandedChange}
-                        rightAddons={
-                            <ChevronDownSIcon
-                                className={cn(styles.toggleIcon, {
-                                    [styles.rotated]: isExpanded,
-                                })}
-                            />
-                        }
+                        rightAddons={<ToggledIcon className={styles.toggleIcon} />}
                     >
                         {isExpanded ? expandedLabel : collapsedLabel}
                     </Link>
