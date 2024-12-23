@@ -2,22 +2,25 @@
     "include": ["src", "../../typings", "src/*.json"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
-            "@alfalab/core-components-calendar-input/*": ["../calendar-input/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-calendar-input/*": ["../calendar-input/src/*"]
         }
     },
     "references": [
-        { "path": "../calendar-input" },
-        { "path": "../calendar" },
-        { "path": "../date-input" },
-        { "path": "../modal" }
+        {
+            "path": "../calendar-input"
+        },
+        {
+            "path": "../calendar"
+        },
+        {
+            "path": "../date-input"
+        },
+        {
+            "path": "../modal"
+        }
     ]
 }

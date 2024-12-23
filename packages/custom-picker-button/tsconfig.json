@@ -2,22 +2,25 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-select/*": ["../select/src/*"]
         }
     },
     "references": [
-        { "path": "../custom-button" },
-        { "path": "../picker-button" },
-        { "path": "../mq" },
-        { "path": "../shared" },
+        {
+            "path": "../custom-button"
+        },
+        {
+            "path": "../picker-button"
+        },
+        {
+            "path": "../mq"
+        },
+        {
+            "path": "../shared"
+        }
     ]
 }

@@ -2,15 +2,20 @@
     "include": ["src", "../../typings", "src/*.json"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../calendar" }, { "path": "../skeleton" }, { "path": "../modal" }]
+    "references": [
+        {
+            "path": "../calendar"
+        },
+        {
+            "path": "../skeleton"
+        },
+        {
+            "path": "../modal"
+        }
+    ]
 }

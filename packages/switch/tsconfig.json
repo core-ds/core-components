@@ -1,9 +1,10 @@
 {
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
-    "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"]
-    },
-    "references": [{ "path": "../shared" }]
+    "compilerOptions": {},
+    "references": [
+        {
+            "path": "../shared"
+        }
+    ]
 }

@@ -17,6 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-mq": "^4.4.0",
         "@alfalab/core-components-shared": "^0.14.0",
+        "@alfalab/core-components-types": "^0.0.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

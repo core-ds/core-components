@@ -2,18 +2,26 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
     "references": [
-        { "path": "../portal" },
-        { "path": "../backdrop" },
-        { "path": "../stack" },
-        { "path": "../global-store" },
-        { "path": "../shared" }
+        {
+            "path": "../portal"
+        },
+        {
+            "path": "../backdrop"
+        },
+        {
+            "path": "../stack"
+        },
+        {
+            "path": "../global-store"
+        },
+        {
+            "path": "../shared"
+        }
     ]
 }

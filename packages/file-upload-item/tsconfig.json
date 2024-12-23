@@ -2,19 +2,23 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
+            "@alfalab/core-components-*": ["../*/src"]
         }
     },
     "references": [
-      { "path": "../icon-button" },
-      { "path": "../link" },
-      { "path": "../spinner" },
-      { "path": "../typography" },
+        {
+            "path": "../icon-button"
+        },
+        {
+            "path": "../link"
+        },
+        {
+            "path": "../spinner"
+        },
+        {
+            "path": "../typography"
+        }
     ]
 }

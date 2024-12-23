@@ -2,24 +2,29 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"],
             "@alfalab/core-components-input-autocomplete/*": ["../input-autocomplete/src/*"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"]
+            "@alfalab/core-components-select/*": ["../select/src/*"]
         }
     },
     "references": [
-        { "path": "../input" },
-        { "path": "../select" },
-        { "path": "../shared" },
-        { "path": "../input-autocomplete" },
-        { "path": "../mq" }
+        {
+            "path": "../input"
+        },
+        {
+            "path": "../select"
+        },
+        {
+            "path": "../shared"
+        },
+        {
+            "path": "../input-autocomplete"
+        },
+        {
+            "path": "../mq"
+        }
     ]
 }

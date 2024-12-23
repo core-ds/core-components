@@ -2,13 +2,20 @@
     "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"]
+            "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../mq" }, { "path": "../shared" }]
+    "references": [
+        {
+            "path": "../mq"
+        },
+        {
+            "path": "../shared"
+        },
+        {
+            "path": "../types"
+        }
+    ]
 }

@@ -17,7 +17,7 @@ describe('SliderInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     it('should match snapshot', () => {
         const { container } = render(<SliderInput />);
         expect(container).toMatchSnapshot();

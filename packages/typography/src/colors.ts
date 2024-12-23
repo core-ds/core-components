@@ -20,4 +20,4 @@ export const colors = [
     'static-accent',
 ] as const;
 
-export type Color = typeof colors[number];
+export type Color = (typeof colors)[number];

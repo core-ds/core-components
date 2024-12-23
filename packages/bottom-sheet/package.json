@@ -20,6 +20,7 @@
         "@alfalab/core-components-base-modal": "^5.8.6",
         "@alfalab/core-components-navigation-bar-private": "^0.5.5",
         "@alfalab/core-components-shared": "^0.14.0",
+        "@alfalab/core-components-types": "^0.0.1",
         "classnames": "^2.5.1",
         "react-div-100vh": "^0.7.0",
         "react-merge-refs": "^1.1.0",
