@@ -1,20 +1,25 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { ModalDesktop, ModalMobile, Modal as ModalResponsive } from '..';
+import { ModalMobile } from '../mobile';
+import { ModalDesktop } from '../desktop';
+import { ModalResponsive } from '../Component.responsive';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
-// Атомарные импорты
-import { ModalComponentDesktop, ContentDesktop, HeaderDesktop, FooterDesktop, ControlsDesktop } from '@alfalab/core-components/modal';
-import { ModalComponentMobile, ContentMobile, HeaderMobile, FooterMobile, ControlsMobile } from '@alfalab/core-components/modal';
-import { ModalComponentResponsive, ContentResponsive, HeaderResponsive, FooterResponsive, ControlsResponsive } from '@alfalab/core-components/modal';
-
 // Компаунд импорты
-import { Modal, ModalDesktop, ModalMobile } from '@alfalab/core-components/modal';
+import { Modal } from '@alfalab/core-components/modal';
+import { ModalDesktop } from '@alfalab/core-components/modal/desktop';
+import { ModalMobile } from '@alfalab/core-components/modal/mobile';
 
 // Контекст
 import { ModalContext } from '@alfalab/core-components/modal/shared';
+
+// Атомарные импорты
+import { ModalComponentDesktop, ContentDesktop, HeaderDesktop, FooterDesktop, ControlsDesktop } from '@alfalab/core-components/modal/desktop';
+import { ModalComponentMobile, ContentMobile, HeaderMobile, FooterMobile, ControlsMobile } from '@alfalab/core-components/modal/mobile';
+import { ModalComponentResponsive, ContentResponsive, HeaderResponsive, FooterResponsive, ControlsResponsive } from '@alfalab/core-components/modal';
+
 ```
 
 Импорт Modal - респонсивный компаунд
