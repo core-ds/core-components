@@ -31,3 +31,7 @@
 .toggleIcon {
     margin: var(--gap-4);
 }
+
+.rotated {
+    transform: rotate(180deg);
+}
