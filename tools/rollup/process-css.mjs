@@ -1,27 +1,90 @@
-import globby from 'globby';
-import postcss from 'postcss';
+import fs from 'fs-extra';
 import path from 'path';
-import { checkOrCreateDir, readFile, writeFile } from './common.mjs';
-import { createRequire } from 'module';
+import { createFilter } from 'rollup-pluginutils';
+import postcss from 'postcss';
+import postcssModules from 'postcss-modules';
+import postcssImport from 'postcss-import';
+import stringHash from 'string-hash';
+import { currentComponentName, currentPackageDir, rootPkg, pkg } from './common.mjs';
 
-const require = createRequire(import.meta.url);
+import postcssConfig from '../../postcss.config.js';
 
-const postcssConfig = require(path.join(process.env.LERNA_ROOT_PATH, 'postcss.config'));
+export function processCss(options = {}) {
+    const config = {
+        name: 'process-css',
+        modules: options.modules ?? true,
+        noCommonVars: options.noCommonVars ?? false,
+    };
 
-async function generateCssFile(source, options) {
-    const dest = path.resolve(source).replace('src', `dist/${options.folder}`);
+    const cssAssets = {};
 
-    const content = await readFile(source, 'utf-8');
+    const isIncluded = createFilter('**/*.css', '**/node_modules/**');
 
-    const plugins = postcssConfig.plugins;
+    return {
+        name: config.name,
+        async resolveId(source, importer, options) {
+            const resolution = await this.resolve(source, importer, options);
 
-    if (options.noCommonVars) {
+            if (!resolution || resolution.external || !isIncluded(resolution.id)) return resolution;
+
+            cssAssets[resolution.id] = { filepath: resolution.id, from: importer };
+
+            if (!config.modules) {
+                resolution.external = true;
+            }
+
+            return resolution;
+        },
+        async transform(_, id) {
+            if (!cssAssets[id]) {
+                return null;
+            }
+
+            const result = await processPostcss(id, config);
+
+            cssAssets[id].classNames = result.classNames;
+            cssAssets[id].css = result.css;
+
+            return {
+                code: `
+                import "${id.replace('.module.css', '.css')}";
+                export default ${JSON.stringify(cssAssets[id].classNames)};`,
+                map: null,
+            };
+        },
+        async renderStart(outputOptions) {
+            if (!outputOptions.preserveModules) {
+                this.error(`\n\n${config.name} requires output.preserveModules to be enabled\n\n`);
+            }
+
+            await Promise.all(
+                Object.values(cssAssets).map(async (cssAsset) => {
+                    if (!config.modules) {
+                        const result = await processPostcss(cssAsset.filepath, config);
+                        cssAsset.css = result.css;
+                    }
+
+                    return saveCssAsset(cssAsset, outputOptions, config.modules);
+                }),
+            );
+        },
+    };
+}
+
+async function processPostcss(filePath, config = {}) {
+    let classNames = {};
+
+    const originalCss = fs.readFileSync(filePath).toString();
+
+    const plugins = [...postcssConfig.plugins];
+
+    if (config.noCommonVars) {
         const importPluginIdx = plugins.findIndex(
             (plugin) => plugin.postcssPlugin === 'postcss-import',
         );
 
         if (importPluginIdx !== -1) {
-            plugins[importPluginIdx] = require('postcss-import')({
+            plugins[importPluginIdx] = postcssImport({
                 warnOnEmpty: false,
                 load: async (filename, importOptions) => {
                     if (filename.includes('/vars/src/index.css')) {
@@ -31,37 +94,76 @@ async function generateCssFile(source, options) {
                         return '/* */';
                     }
 
-                    return readFile(filename, 'utf-8');
+                    return fs.readFile(filename, 'utf-8');
                 },
             });
         }
     }
 
-    const result = await postcss(postcssConfig.plugins).process(content, { from: source });
+    if (config.modules) {
+        plugins.push(
+            postcssModules({
+                generateScopedName: function (name, fileName) {
+                    const relativeFileName = path.relative(currentPackageDir, fileName);
 
-    await checkOrCreateDir(path.dirname(dest));
+                    const hash = generateClassNameHash(pkg.name, rootPkg.version, relativeFileName);
 
-    await writeFile(dest, result.css);
+                    return `${currentComponentName}__${name}_${hash}`;
+                },
+                getJSON: (_, json) => {
+                    classNames = json;
+                },
+            }),
+        );
+    }
+
+    const result = await postcss(plugins).process(originalCss, {
+        from: filePath,
+    });
+
+    return {
+        css: result.css,
+        classNames,
+    };
 }
 
-export default function processCss(options = {}) {
+async function saveCssAsset(cssAsset, outputOptions, modules = true) {
+    if (!cssAsset.css) {
+        return;
+    }
+
+    const { dir, preserveModulesRoot } = outputOptions;
+
+    let dest = cssAsset.filepath.replace(preserveModulesRoot, dir);
+    if (modules) {
+        dest = dest.replace('.module.css', '.css');
+    }
+
+    if (!cssAsset.filepath.startsWith(preserveModulesRoot)) {
+        throw new Error(
+            `\n\nCannot include asset: ${cssAsset.filepath} from ${cssAsset.from} because it is outside of the preserve modules root`,
+        );
+    }
+
+    await fs.ensureDir(path.dirname(dest));
+    await fs.writeFile(dest, cssAsset.css);
+}
+
+function generateClassNameHash(packageName, packageVersion, relativeFileName) {
+    return stringHash(`${packageName}@${packageVersion}@${relativeFileName}`)
+        .toString(36)
+        .slice(0, 5);
+}
+
+export function ignoreCss() {
     return {
-        name: 'process-css',
-        buildEnd: async () => {
-            const dist = path.resolve(`dist/${options.folder}`);
-
-            await checkOrCreateDir(dist);
-
-            try {
-                const matchedPaths = await globby('src/**/*.css');
-
-                await Promise.all(
-                    matchedPaths.map((source) => generateCssFile(source, options)),
-                );
-            } catch (error) {
-                //
-                console.log(error);
+        name: 'ignore-css',
+        resolveId(source) {
+            if (source.includes('.css')) {
+                return false;
             }
+
+            return null;
         },
     };
 }
