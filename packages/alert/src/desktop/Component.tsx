@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Plate } from '@alfalab/core-components-plate/dist/desktop';
+import { PlateDesktop } from '@alfalab/core-components-plate/desktop';
 
-import { Alert, type AlertProps } from '../Component';
+import { type AlertProps, AlertBase } from '../Component';
 
-export const AlertDesktop = (props:) =>
-    <Alert {...props} Plate={}
+export const AlertDesktop = (props: AlertProps) => <AlertBase {...props} Plate={PlateDesktop} />;
