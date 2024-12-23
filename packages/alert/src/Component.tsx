@@ -1,13 +1,24 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Plate, PlateProps } from '@alfalab/core-components-plate';
+import { type Plate, type PlateProps } from '@alfalab/core-components-plate';
+import { type PlateDesktop } from '@alfalab/core-components-plate/desktop';
+import { type PlateMobile } from '@alfalab/core-components-plate/mobile';
 
 import styles from './index.module.css';
 
 export type AlertProps = Omit<PlateProps, 'foldable' | 'defaultFolded' | 'leftAddons'>;
 
-export const Alert: FC<AlertProps> = ({ className, title, ...restProps }) => (
+type AlertPrivateProps = {
+    Plate: typeof Plate | typeof PlateDesktop | typeof PlateMobile;
+};
+
+export const AlertBase: FC<AlertProps & AlertPrivateProps> = ({
+    className,
+    title,
+    Plate,
+    ...restProps
+}) => (
     <Plate
         className={cn(styles.component, className)}
         title={title ? <span className={styles.title}>{title}</span> : null}
