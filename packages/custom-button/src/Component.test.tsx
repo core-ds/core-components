@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { CustomButton, CustomButtonDesktop, CustomButtonMobile } from './index';
+import { CustomButton } from '.';
+import { CustomButtonDesktop } from './desktop';
+import { CustomButtonMobile } from './mobile';
 
 const dataTestId = 'test-id';
 
