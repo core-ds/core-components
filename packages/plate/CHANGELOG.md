@@ -1,5 +1,33 @@
 # Change Log
 
+## 7.8.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   icon-button@6.11.4
+
+## 7.8.4
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   icon-button@6.11.3
+
 ## 7.8.3
 
 ### Patch Changes

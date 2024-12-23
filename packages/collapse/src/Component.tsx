@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 
 import { Link } from '@alfalab/core-components-link';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';

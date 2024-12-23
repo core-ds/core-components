@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import _throttle from 'lodash.throttle';
+import _throttle from 'lodash/throttle';
 
 import { Gap } from '@alfalab/core-components-gap';
 import { Input, InputProps } from '@alfalab/core-components-input';

@@ -1,5 +1,15 @@
 # @alfalab/core-components-system-message
 
+## 2.5.3
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
 ## 2.5.2
 
 ### Patch Changes
