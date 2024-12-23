@@ -20,6 +20,7 @@
     --button-primary-disabled-bg-color: var(--color-light-neutral-translucent-100);
     --button-primary-color: var(--color-light-text-primary-inverted);
     --button-primary-disabled-color: var(--color-light-text-tertiary);
+    --button-primary-hint-color: var(--color-light-text-secondary-inverted);
 
     /* accent */
     --button-accent-base-bg-color: var(--color-light-accent-primary);
@@ -37,6 +38,7 @@
     --button-secondary-base-border-color: transparent;
     --button-secondary-disabled-border-color: transparent;
     --button-secondary-color: var(--color-light-text-primary);
+    --button-secondary-hint-color: var(--color-light-text-secondary);
     --button-secondary-disabled-color: var(--color-light-text-tertiary);
 
     /* tertiary */
@@ -48,6 +50,7 @@
     --button-tertiary-base-border-color: var(--color-light-neutral-translucent-1300);
     --button-tertiary-disabled-border-color: var(--color-light-neutral-translucent-500);
     --button-tertiary-color: var(--color-light-text-primary);
+    --button-tertiary-hint-color: var(--color-light-text-secondary);
     --button-tertiary-disabled-color: var(--color-light-text-tertiary);
 
     /* outlined */
@@ -59,6 +62,7 @@
     --button-outlined-base-border-color: var(--color-light-neutral-translucent-1300);
     --button-outlined-disabled-border-color: var(--color-light-neutral-translucent-500);
     --button-outlined-color: var(--color-light-text-primary);
+    --button-outlined-hint-color: var(--color-light-text-secondary);
     --button-outlined-disabled-color: var(--color-light-text-tertiary);
 
     /* ghost */
@@ -69,6 +73,7 @@
 
     /* text */
     --button-text-base-color: var(--color-light-text-primary);
+    --button-text-base-hint-color: var(--color-light-text-secondary);
     --button-text-hover-color: var(--color-light-text-primary-hover);
     --button-text-active-color: var(--color-light-text-primary-press);
     --button-text-disabled-color: var(--color-light-text-tertiary);
@@ -81,6 +86,7 @@
 
     /* transparent */
     --button-transparent-base-color: var(--color-light-text-primary);
+    --button-transparent-base-hint-color: var(--color-light-text-secondary);
     --button-transparent-hover-bg-color: var(--color-light-transparent-default-hover);
     --button-transparent-active-bg-color: var(--color-light-transparent-default-press);
     --button-transparent-disabled-color: var(--color-light-text-tertiary);
@@ -99,6 +105,7 @@
     );
     --button-inverted-primary-disabled-color: var(--color-light-text-tertiary-inverted);
     --button-inverted-primary-color: var(--color-light-text-primary);
+    --button-inverted-primary-hint-color: var(--color-light-text-secondary);
 
     /* accent inverted */
     --button-inverted-accent-base-bg-color: var(--color-light-accent-primary-inverted);
@@ -122,6 +129,7 @@
     --button-inverted-secondary-base-border-color: transparent;
     --button-inverted-secondary-disabled-border-color: transparent;
     --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-secondary-hint-color: var(--color-light-text-secondary-inverted);
     --button-inverted-secondary-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* tertiary inverted */
@@ -143,6 +151,7 @@
         --color-light-neutral-translucent-500-inverted
     );
     --button-inverted-tertiary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-tertiary-hint-color: var(--color-light-text-secondary-inverted);
     --button-inverted-tertiary-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* outlined inverted */
@@ -164,6 +173,7 @@
         --color-light-neutral-translucent-500-inverted
     );
     --button-inverted-outlined-color: var(--color-light-text-primary-inverted);
+    --button-inverted-outlined-hint-color: var(--color-light-text-secondary-inverted);
     --button-inverted-outlined-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* ghost inverted */
@@ -174,6 +184,7 @@
 
     /* text inverted */
     --button-inverted-text-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-text-base-hint-color: var(--color-light-text-secondary-inverted);
     --button-inverted-text-hover-color: var(--color-light-text-primary-inverted-hover);
     --button-inverted-text-active-color: var(--color-light-text-primary-inverted-press);
     --button-inverted-text-disabled-color: var(--color-light-text-tertiary-inverted);
@@ -186,6 +197,7 @@
 
     /* transparent inverted */
     --button-inverted-transparent-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-transparent-base-hint-color: var(--color-light-text-secondary-inverted);
     --button-inverted-transparent-hover-bg-color: var(
         --color-light-transparent-default-inverted-hover
     );

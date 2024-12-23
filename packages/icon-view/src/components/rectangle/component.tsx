@@ -1,8 +1,10 @@
 import React, { forwardRef, ReactNode } from 'react';
 
-import { BaseShape, BaseShapeProps } from '../base-shape';
+import { BaseShape, BaseShapeProps, TMainSize } from '../base-shape';
 
 import { pathsMap } from './paths';
+
+type TSize = Exclude<TMainSize, 16>;
 
 export type RectangleProps = Omit<
     BaseShapeProps,
@@ -12,7 +14,7 @@ export type RectangleProps = Omit<
      * Размер компонента
      * @default 64
      */
-    size?: 20 | 24 | 32 | 40 | 48 | 56 | 64 | 80 | 128;
+    size?: TSize;
 
     /**
      * Дочерний компонент
@@ -28,6 +30,7 @@ const heights: Record<Required<RectangleProps>['size'], number> = {
     48: 34,
     56: 40,
     64: 46,
+    72: 56,
     80: 58,
     128: 94,
 };

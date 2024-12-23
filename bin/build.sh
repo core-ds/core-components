@@ -6,7 +6,7 @@ set -e
 yarn clean
 
 # устанавливаем ограничение на количество параллельных процессов при сборке (default - 10)
-CONCURRENCY=${BUILD_CONCURRENCY:=10}
+CONCURRENCY=${BUILD_CONCURRENCY:=3}
 
 echo "start build on $CONCURRENCY parallel process"
 

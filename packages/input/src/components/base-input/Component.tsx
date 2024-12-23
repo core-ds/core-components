@@ -231,6 +231,8 @@ const SIZE_TO_CLASSNAME_MAP = {
     72: 'size-72',
 };
 
+const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
+
 export const BaseInputComponent = forwardRef<
     HTMLInputElement,
     BaseInputProps & BaseInputPrivateProps
@@ -298,14 +300,19 @@ export const BaseInputComponent = forwardRef<
         const hasInnerLabel = label && labelView === 'inner';
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
-            // https://github.com/facebook/react/issues/14125
-            if (restProps.autoFocus) {
-                const input = inputRef.current;
+            const input = inputRef.current;
 
-                if (input) {
-                    input.setSelectionRange(input.value.length, input.value.length);
-                }
+            if (
+                !restProps.autoFocus ||
+                !input ||
+                // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange
+                !inputTypesForSelectionRange.includes(input.type)
+            ) {
+                return;
             }
+
+            // https://github.com/facebook/react/issues/14125
+            input.setSelectionRange(input.value.length, input.value.length);
         }, []);
 
         const handleInputFocus = useCallback(

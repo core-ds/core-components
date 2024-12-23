@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "8.12.6",
+    "version": "8.12.8",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -11,22 +11,23 @@
         "directory": "dist"
     },
     "devDependencies": {
-        "@types/lodash.debounce": "^4.0.6"
+        "@types/lodash": "^4.17.13"
     },
+    "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^4.1.0",
-        "@alfalab/core-components-tag": "^8.6.2",
-        "@alfalab/core-components-picker-button": "^11.12.6",
-        "@alfalab/core-components-badge": "^5.6.1",
+        "@alfalab/core-components-tag": "^8.6.3",
+        "@alfalab/core-components-picker-button": "^11.12.8",
+        "@alfalab/core-components-badge": "^5.6.3",
         "@alfalab/core-components-mq": "^4.4.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "@alfalab/core-components-shared": "^0.14.0",
-        "@alfalab/core-components-icon-button": "^6.11.2",
-        "@alfalab/core-components-skeleton": "^5.2.0",
+        "@alfalab/core-components-icon-button": "^6.11.4",
+        "@alfalab/core-components-skeleton": "^5.2.1",
         "@alfalab/icons-glyph": "^2.139.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
-        "lodash.debounce": "^4.0.8",
+        "lodash": "^4.17.21",
         "@juggle/resize-observer": "^3.3.1",
         "tslib": "^2.4.0"
     },
