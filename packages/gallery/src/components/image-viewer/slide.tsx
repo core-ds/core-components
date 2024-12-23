@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, SyntheticEvent, useContext } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage, ImageMeta } from '../../types';
@@ -49,9 +49,9 @@ const SlideInner: FC<SlideInnerProps> = ({
                 </svg>
             </div>
 
-            <Typography.Text view='primary-small' color='static-secondary-light'>
+            <Text view='primary-small' color='static-secondary-light'>
                 Не удалось загрузить {isVideoView ? 'видео' : 'изображение'}
-            </Typography.Text>
+            </Text>
         </div>
     ) : (
         children

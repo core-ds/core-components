@@ -11,7 +11,11 @@ import vars from '!!raw-loader!../vars.css';
 ```jsx
 import { Calendar } from '@alfalab/core-components/calendar';
 import { CalendarDesktop } from '@alfalab/core-components/calendar/desktop';
-import { CalendarMobile, CalendarMonthOnlyView, CalendarMonthOnlyViewHeader } from '@alfalab/core-components/calendar/mobile';
+import {
+    CalendarMobile,
+    CalendarMonthOnlyView,
+    CalendarMonthOnlyViewHeader,
+} from '@alfalab/core-components/calendar/mobile';
 ```
 
 Из индекса импортируются responsive версия компонента.
@@ -48,7 +52,7 @@ import { CalendarMobile, CalendarMonthOnlyView, CalendarMonthOnlyViewHeader } fr
         CalendarMobile,
         PeriodSlider,
         CalendarMonthOnlyView,
-        CalendarMonthOnlyViewHeader
+        CalendarMonthOnlyViewHeader,
     }}
 />
 
@@ -76,7 +80,7 @@ render(() => {
         zIndex: 2,
         width: '100%',
         padding: 'var(--gap-12) var(--gap-24)',
-        background: "var(--color-light-base-bg-primary)",
+        background: 'var(--color-light-base-bg-primary)',
         borderBottom: '1px solid var(--color-light-neutral-500)',
     };
 
@@ -85,11 +89,11 @@ render(() => {
             <div style={headerStyle}>
                 <CalendarMonthOnlyViewHeader />
             </div>
-            <Gap size="m" direction="vertical" />
+            <Gap size='m' direction='vertical' />
             <CalendarMonthOnlyView
-                 value={value}
-                 onChange={setValue}
-                 showCurrentYearSelector={false}
+                value={value}
+                onChange={setValue}
+                showCurrentYearSelector={false}
             />
         </>
     );
