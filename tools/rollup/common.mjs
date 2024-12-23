@@ -1,5 +1,9 @@
 import { promisify } from 'util';
 import fs from 'fs';
+import path from 'path';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 export const readDir = promisify(fs.readdir);
 export const mkDir = promisify(fs.mkdir);
@@ -17,3 +21,11 @@ export async function checkOrCreateDir(dir) {
 export const requireRegExp = new RegExp(
     /(\b(?:require\(|import |from )['"])@alfalab\/core-components-(.*?)(['"])/,
 );
+
+
+export const currentPackageDir = process.cwd();
+export const currentPkg = path.join(currentPackageDir, 'package.json');
+export const rootPkg = require(path.resolve(currentPackageDir, '../../package.json'));
+export const pkg = require(currentPkg);
+export const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
+export const rootDir = `../../dist/${currentComponentName}`;
