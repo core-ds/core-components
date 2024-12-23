@@ -1,2 +1,2 @@
 export * from './Component.mobile';
-export { ModalMobileProps } from '../typings';
+export { type ModalMobileProps } from '../typings';

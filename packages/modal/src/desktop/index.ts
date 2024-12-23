@@ -1,2 +1,2 @@
 export * from './Component.desktop';
-export { ModalDesktopProps } from '../typings';
+export { type ModalDesktopProps } from '../typings';
