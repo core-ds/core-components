@@ -11,20 +11,9 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>((pro
     <Modal {...props} ref={ref} view='desktop' />
 ));
 
-const HeaderDesktop = Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>;
-const ControlsDesktop = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
-
 export const ModalDesktop = Object.assign(ModalDesktopComponent, {
     Content,
-    Header: HeaderDesktop,
+    Header: Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>,
     Footer,
-    Controls: ControlsDesktop,
+    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });
-
-export {
-    ModalDesktopComponent as ModalComponentDesktop,
-    Content as ContentDesktop,
-    HeaderDesktop,
-    Footer as FooterDesktop,
-    ControlsDesktop,
-};

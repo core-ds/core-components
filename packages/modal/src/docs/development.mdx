@@ -1,23 +1,18 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { ModalDesktop, ModalMobile, Modal as ModalResponsive } from '..';
+import { ModalMobile } from '../mobile';
+import { ModalDesktop } from '../desktop';
+import { ModalResponsive } from '../Component.responsive';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
-// Атомарные импорты
-import { ModalComponentDesktop, ContentDesktop, HeaderDesktop, FooterDesktop, ControlsDesktop } from '@alfalab/core-components/modal';
-import { ModalComponentMobile, ContentMobile, HeaderMobile, FooterMobile, ControlsMobile } from '@alfalab/core-components/modal';
-import { ModalComponentResponsive, ContentResponsive, HeaderResponsive, FooterResponsive, ControlsResponsive } from '@alfalab/core-components/modal';
+import { Modal } from '@alfalab/core-components/modal';
+import { ModalDesktop } from '@alfalab/core-components/modal/desktop';
+import { ModalMobile } from '@alfalab/core-components/modal/mobile';
 
-// Компаунд импорты
-import { Modal, ModalDesktop, ModalMobile } from '@alfalab/core-components/modal';
-
-// Контекст
 import { ModalContext } from '@alfalab/core-components/modal/shared';
 ```
-
-Импорт Modal - респонсивный компаунд
 
 ## Использование контекста
 
@@ -48,8 +43,8 @@ export type ModalContext = {
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.
-Для удобного поиска элементов можно воспользоваться функцией `getModalTestIds`.
+В компоненте используются модификаторы для `dataTestId`.  
+Для удобного поиска элементов можно воспользоваться функцией `getModalTestIds`.  
 Импорт из `@alfalab/core-components/modal/shared`.
 
 Функция возвращает объект:

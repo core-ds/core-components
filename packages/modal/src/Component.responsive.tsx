@@ -38,11 +38,3 @@ export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
 });
 
 ModalResponsiveComponent.displayName = 'ModalResponsiveComponent';
-
-export {
-    ModalResponsiveComponent as ModalComponentResponsive,
-    Header as HeaderResponsive,
-    Content as ContentResponsive,
-    Footer as FooterResponsive,
-    Controls as ControlsResponsive,
-};

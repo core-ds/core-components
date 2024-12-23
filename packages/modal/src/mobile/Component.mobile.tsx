@@ -11,19 +11,9 @@ const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>((props
     <Modal {...props} ref={ref} view='mobile' />
 ));
 
-const ControlsMobile = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
-
 export const ModalMobile = Object.assign(ModalMobileComponent, {
     Content,
     Header,
     Footer,
-    Controls: ControlsMobile,
+    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });
-
-export {
-    ModalMobileComponent as ModalComponentMobile,
-    Content as ContentMobile,
-    Header as HeaderMobile,
-    Footer as FooterMobile,
-    ControlsMobile,
-};
