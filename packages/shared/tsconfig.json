@@ -2,8 +2,11 @@
     "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": "."
-    }
+    },
+    "references": [
+        {
+            "path": "../types"
+        }
+    ]
 }

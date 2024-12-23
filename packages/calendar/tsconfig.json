@@ -2,21 +2,31 @@
     "include": ["src", "../../typings", "src/*.json"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
+            "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-modal/*": ["../modal/src/*"]
         }
     },
     "references": [
-        { "path": "../button" },
-        { "path": "../icon-button" },
-        { "path": "../modal" },
-        { "path": "../mq" },
-        { "path": "../shared" },
-        { "path": "../typography" }
+        {
+            "path": "../button"
+        },
+        {
+            "path": "../icon-button"
+        },
+        {
+            "path": "../modal"
+        },
+        {
+            "path": "../mq"
+        },
+        {
+            "path": "../shared"
+        },
+        {
+            "path": "../typography"
+        }
     ]
 }

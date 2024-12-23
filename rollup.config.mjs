@@ -235,7 +235,6 @@ const esm = {
     ],
 };
 
-
 const root = {
     input: ['dist/**/*.js'],
     plugins: [
