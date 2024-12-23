@@ -73,10 +73,344 @@ Object {
 }
 `;
 
+exports[`CustomButton Snapshots tests should match snapshot 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should match snapshot 3`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`CustomButton Snapshots tests should render CustomButton view=primary by default 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should render CustomButton view=primary by default 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should render CustomButton view=primary by default 3`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
     <div>
       <button
         class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
@@ -219,10 +553,344 @@ Object {
 }
 `;
 
+exports[`CustomButton Snapshots tests should render black color content 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should render black color content 3`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`CustomButton Snapshots tests should render custom background color 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(0, 255, 0);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      style="background: rgb(0, 255, 0);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should render custom background color 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(0, 255, 0);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(0, 255, 0);"
+        type="button"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      style="background: rgb(0, 255, 0);"
+      type="button"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should render custom background color 3`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(0, 255, 0);"
+        type="button"
+      />
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        style="background: rgb(0, 255, 0);"
+        type="button"
+      />
+    </div>
     <div>
       <button
         class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
@@ -298,7 +966,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -343,7 +1011,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"
@@ -374,6 +1042,432 @@ Object {
         <foreignobject
           height="20"
           mask="url(#:r0:)"
+          width="20"
+          x="0"
+          y="0"
+        >
+          <div
+            class="gradient"
+          />
+        </foreignobject>
+      </svg>
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should render loader if loading pass 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        disabled=""
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      >
+        <svg
+          class="spinner component preset24 loader loader loader visible"
+          style="height: 20px; width: 20px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <mask
+              id=":r0:"
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                pathLength="360"
+                r="9"
+                stroke="#fff"
+                stroke-dasharray="263 97"
+                stroke-dashoffset="-7"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </mask>
+          </defs>
+          <foreignobject
+            height="20"
+            mask="url(#:r0:)"
+            width="20"
+            x="0"
+            y="0"
+          >
+            <div
+              class="gradient"
+            />
+          </foreignobject>
+        </svg>
+      </button>
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        disabled=""
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      >
+        <svg
+          class="spinner component preset24 loader loader loader visible"
+          style="height: 20px; width: 20px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <mask
+              id=":r1:"
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                pathLength="360"
+                r="9"
+                stroke="#fff"
+                stroke-dasharray="263 97"
+                stroke-dashoffset="-7"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </mask>
+          </defs>
+          <foreignobject
+            height="20"
+            mask="url(#:r1:)"
+            width="20"
+            x="0"
+            y="0"
+          >
+            <div
+              class="gradient"
+            />
+          </foreignobject>
+        </svg>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+      disabled=""
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    >
+      <svg
+        class="spinner component preset24 loader loader loader visible"
+        style="height: 20px; width: 20px;"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <mask
+            id=":r1:"
+          >
+            <circle
+              cx="50%"
+              cy="50%"
+              pathLength="360"
+              r="9"
+              stroke="#fff"
+              stroke-dasharray="263 97"
+              stroke-dashoffset="-7"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </mask>
+        </defs>
+        <foreignobject
+          height="20"
+          mask="url(#:r1:)"
+          width="20"
+          x="0"
+          y="0"
+        >
+          <div
+            class="gradient"
+          />
+        </foreignobject>
+      </svg>
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CustomButton Snapshots tests should render loader if loading pass 3`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        disabled=""
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      >
+        <svg
+          class="spinner component preset24 loader loader loader visible"
+          style="height: 20px; width: 20px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <mask
+              id=":r0:"
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                pathLength="360"
+                r="9"
+                stroke="#fff"
+                stroke-dasharray="263 97"
+                stroke-dashoffset="-7"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </mask>
+          </defs>
+          <foreignobject
+            height="20"
+            mask="url(#:r0:)"
+            width="20"
+            x="0"
+            y="0"
+          >
+            <div
+              class="gradient"
+            />
+          </foreignobject>
+        </svg>
+      </button>
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        disabled=""
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      >
+        <svg
+          class="spinner component preset24 loader loader loader visible"
+          style="height: 20px; width: 20px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <mask
+              id=":r1:"
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                pathLength="360"
+                r="9"
+                stroke="#fff"
+                stroke-dasharray="263 97"
+                stroke-dashoffset="-7"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </mask>
+          </defs>
+          <foreignobject
+            height="20"
+            mask="url(#:r1:)"
+            width="20"
+            x="0"
+            y="0"
+          >
+            <div
+              class="gradient"
+            />
+          </foreignobject>
+        </svg>
+      </button>
+    </div>
+    <div>
+      <button
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        disabled=""
+        style="background: rgb(255, 69, 195);"
+        type="button"
+      >
+        <svg
+          class="spinner component preset24 loader loader loader visible"
+          style="height: 20px; width: 20px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <mask
+              id=":r2:"
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                pathLength="360"
+                r="9"
+                stroke="#fff"
+                stroke-dasharray="263 97"
+                stroke-dashoffset="-7"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </mask>
+          </defs>
+          <foreignobject
+            height="20"
+            mask="url(#:r2:)"
+            width="20"
+            x="0"
+            y="0"
+          >
+            <div
+              class="gradient"
+            />
+          </foreignobject>
+        </svg>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+      disabled=""
+      style="background: rgb(255, 69, 195);"
+      type="button"
+    >
+      <svg
+        class="spinner component preset24 loader loader loader visible"
+        style="height: 20px; width: 20px;"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <mask
+            id=":r2:"
+          >
+            <circle
+              cx="50%"
+              cy="50%"
+              pathLength="360"
+              r="9"
+              stroke="#fff"
+              stroke-dasharray="263 97"
+              stroke-dashoffset="-7"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </mask>
+        </defs>
+        <foreignobject
+          height="20"
+          mask="url(#:r2:)"
           width="20"
           x="0"
           y="0"
