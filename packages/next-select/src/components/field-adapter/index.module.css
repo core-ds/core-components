@@ -1,0 +1,59 @@
+@import '../../../../input/src/vars.css';
+@import '../../vars.css';
+
+.component {
+    width: 100%;
+    outline: none;
+}
+
+.field:not(.disabled) {
+    cursor: pointer;
+
+    &:hover {
+        & .arrow {
+            opacity: var(--select-arrow-hover-opacity);
+        }
+    }
+}
+
+.disabled {
+    cursor: var(--disabled-cursor);
+}
+
+.placeholder {
+    color: var(--input-placeholder-color);
+    transition: color 0.2s ease;
+    animation: show-placeholder 0.2s ease;
+
+    &.focused {
+        color: var(--input-focus-placeholder-color);
+    }
+}
+
+.contentWrapper {
+    @mixin paragraph_component;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.focusVisible {
+    @mixin focus-outline;
+}
+
+@keyframes show-placeholder {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

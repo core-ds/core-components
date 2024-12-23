@@ -12,3 +12,7 @@ export * from './exhaustiveCheck';
 export * from './context/PortalContext';
 export * from './warning';
 export * from './object';
+export * from './array';
+export * from './stub';
+export * from './type-checks';
+export * from './refs';
