@@ -2,13 +2,17 @@
     "include": ["src", "../../typings", "src/*.json", "../utils"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
+            "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../spinner" }, { "path": "../shared" }]
+    "references": [
+        {
+            "path": "../spinner"
+        },
+        {
+            "path": "../shared"
+        }
+    ]
 }

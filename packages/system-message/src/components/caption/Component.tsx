@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import cn from 'classnames';
 
 import { createPaddingStyle, getDataTestId } from '@alfalab/core-components-shared';
+import type { PaddingType } from '@alfalab/core-components-types';
 
-import { PaddingType } from '../../../../types';
 import { SystemMessageContext } from '../../Context';
 
 import styles from './index.module.css';

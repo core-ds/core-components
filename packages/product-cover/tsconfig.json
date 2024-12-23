@@ -2,8 +2,6 @@
     "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
@@ -11,8 +9,14 @@
         }
     },
     "references": [
-        { "path": "../button" },
-        { "path": "../typography" },
-        { "path": "../shared" },
+        {
+            "path": "../button"
+        },
+        {
+            "path": "../typography"
+        },
+        {
+            "path": "../shared"
+        }
     ]
 }
