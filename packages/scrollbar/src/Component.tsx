@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import throttle from 'lodash.throttle';
+import lodashThrottle from 'lodash/throttle';
 import SimpleBar from 'simplebar/src/simplebar';
 
 import defaultColors from './default.module.css';
@@ -177,7 +177,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             const contentNode = contentNodeRef.current;
             const maskNode = maskNodeRef.current;
 
-            const setMinWidth = throttle(() => {
+            const setMinWidth = lodashThrottle(() => {
                 if (!contentNode || !contentNode.children.length) return;
 
                 if (elementHasAbsPosChild(contentNode)) {

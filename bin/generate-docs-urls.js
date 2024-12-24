@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const { promisify } = require('util');
-const { camelCase } = require('lodash/camelcase');
-const { upperfirst } = require('lodash/upperfirst');
+const camelCase = require('lodash/camelcase');
+const upperfirst = require('lodash/upperfirst');
 const findComponentPath = require('../tools/storybook/findComponentPath');
 
 const readDir = promisify(fs.readdir);
