@@ -10,3 +10,5 @@ export const Grid: {
     Row,
     Col,
 };
+
+export { Row, Col };
