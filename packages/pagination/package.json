@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-tag": "^8.6.3",
-        "@alfalab/icons-glyph": "^2.139.0",
+        "@alfalab/icons-glyph": "^2.189.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

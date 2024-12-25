@@ -64,11 +64,11 @@
         "@alfalab/utils": "^1.17.1",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
+        "@dnd-kit/utilities": "^3.2.1",
         "@juggle/resize-observer": "^3.3.1",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
         "@popperjs/core": "^2.11.8",
-        "@types/deep-equal": "^1.0.4",
         "@types/react-transition-group": "^4.4.5",
         "can-use-dom": "^0.1.0",
         "classnames": "^2.5.1",
@@ -104,6 +104,8 @@
         "ui-primitives": "^22.7.0"
     },
     "devDependencies": {
+        "@alfalab/core-config": "^1.0.0",
+        "@alfalab/stack-context": "^1.16.0",
         "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
         "@commitlint/config-conventional": "^17.3.0",

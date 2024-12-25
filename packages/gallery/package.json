@@ -21,7 +21,7 @@
         "@alfalab/core-components-tooltip": "^7.8.2",
         "@alfalab/core-components-typography": "^4.11.1",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.139.0",
+        "@alfalab/icons-glyph": "^2.189.0",
         "classnames": "^2.5.1",
         "hls.js": "^1.5.13",
         "element-closest": "^3.0.2",
