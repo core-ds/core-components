@@ -102,9 +102,21 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
     },
 );
 
-export const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {
+const HeaderDesktop = Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>;
+const ControlsDesktop = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
+
+const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {
     Content: ContentDesktop,
-    Header: Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>,
+    Header: HeaderDesktop,
     Footer: FooterDesktop,
-    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
+    Controls: ControlsDesktop,
 });
+
+export {
+    SidePanelDesktop,
+    SidePanelDesktopComponent as SidePanelComponentDesktop,
+    ContentDesktop,
+    HeaderDesktop,
+    FooterDesktop,
+    ControlsDesktop,
+};

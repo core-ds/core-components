@@ -1,5 +1,19 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.6.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input@15.3.4
+    -   popover@6.3.4
+
 ## 2.6.4
 
 ### Patch Changes

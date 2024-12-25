@@ -12,6 +12,7 @@ import {
     OptionsListProps,
     OptionProps,
     useSelectWithApply,
+    Arrow,
 } from './shared';
 import { SelectDesktop as Select } from './desktop';
 import { SelectMobile, SelectModalMobile } from './mobile';
@@ -1023,6 +1024,14 @@ describe('Select', () => {
             );
 
             expect(container.querySelectorAll('select option').length).toBe(options.length);
+        });
+    });
+
+    describe('Chevron tests', () => {
+        it('should set `disabled` className', () => {
+            const { container } = render(<Arrow disabled={true} />);
+
+            expect(container.firstElementChild).toHaveClass('disabled');
         });
     });
 });

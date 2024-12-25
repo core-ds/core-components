@@ -1,5 +1,42 @@
 # Change Log
 
+## 17.18.0
+
+### Minor Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1495](https://github.com/core-ds/core-components/pull/1495)
+
+-   Добавили пропс footerClassName в OptionsList
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1481](https://github.com/core-ds/core-components/pull/1481)
+
+-   Исправлен цвет шеврона для заблокированного состояния
+
+-   Обновлены зависимости
+    -   badge@5.6.3
+    -   base-modal@5.8.6
+    -   bottom-sheet@6.17.13
+    -   button@11.11.1
+    -   checkbox@4.7.3
+    -   form-control@12.7.3
+    -   input@15.3.4
+    -   modal@9.8.6
+    -   popover@6.3.4
+    -   scrollbar@3.1.2
+    -   skeleton@5.2.1
+
 ## 17.17.5
 
 ### Patch Changes

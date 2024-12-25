@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.4.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+-   Обновлены зависимости
+    -   masked-input@6.3.29
+
 ## 7.4.5
 
 ### Patch Changes
