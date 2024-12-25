@@ -33,6 +33,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             header,
             footer,
+            footerClassName,
             showFooter = true,
             optionsListWidth,
             onScroll,
@@ -261,7 +262,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 {showFooter && footer && (
                     <div
                         onMouseEnter={resetHighlightedIndex}
-                        className={cn(styles.virtualOptionsListFooter, {
+                        className={cn(styles.virtualOptionsListFooter, footerClassName, {
                             [styles.withBorder]:
                                 visibleOptions && flatOptions.length > visibleOptions,
                         })}
