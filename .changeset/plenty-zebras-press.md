@@ -3,6 +3,7 @@
 '@alfalab/core-components-navigation-bar-private': minor
 '@alfalab/core-components-scrollbar': minor
 '@alfalab/core-components-universal-modal': minor
+'@alfalab/core-components-shared': minor
 ---
 
 #### BaseModal
@@ -24,3 +25,8 @@
 #### UniversalModal
 
 Добавлен новый компонент `UniversalModal`
+
+#### Shared
+
+- Добавлена проверка в os -> isMacOS
+- Добавлена проверка в browser -> isSafari
