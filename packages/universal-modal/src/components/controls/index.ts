@@ -1,8 +1,8 @@
-export { ControlsResponsive } from './Component.responsive';
-export type { ControlsResponsiveProps } from './Component.responsive';
+export { ControlsResponsive } from './responsive/Component.responsive';
+export type { ControlsResponsiveProps } from './responsive/Component.responsive';
 
-export { ControlsDesktop } from './Component.desktop';
-export type { ControlsDesktopProps } from './Component.desktop';
+export { ControlsDesktop } from './desktop/Component.desktop';
+export type { ControlsDesktopProps } from './desktop/Component.desktop';
 
-export { ControlsMobile } from './Component.mobile';
-export type { ControlsMobileProps } from './Component.mobile';
+export { ControlsMobile } from './mobile/Component.mobile';
+export type { ControlsMobileProps } from './mobile/Component.mobile';
