@@ -102,9 +102,9 @@
         "index.js": 1.7
     },
     "side-panel": {
-        "desktop.js": 67.7,
-        "index.js": 69.4,
-        "mobile.js": 65.9,
+        "desktop.js": 67.8,
+        "index.js": 69.8,
+        "mobile.js": 66,
         "shared.js": 44.8
     },
     "shared": {
@@ -136,7 +136,7 @@
         "mobile.js": 3
     },
     "pure-cell": {
-        "index.js": 24.8,
+        "index.js": 25,
         "shared.js": 0.6
     },
     "progress-bar": {
