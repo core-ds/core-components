@@ -1,8 +1,8 @@
-export { HeaderResponsive } from './Component.responsive';
-export type { HeaderResponsiveProps } from './Component.responsive';
+export { HeaderResponsive } from './responsive/Component.responsive';
+export type { HeaderResponsiveProps } from './responsive/Component.responsive';
 
-export { HeaderDesktop } from './Component.desktop';
-export type { HeaderPropsDesktop } from './Component.desktop';
+export { HeaderDesktop } from './desktop/Component.desktop';
+export type { HeaderPropsDesktop } from './desktop/Component.desktop';
 
-export { HeaderMobile } from './Component.mobile';
-export type { HeaderPropsMobile } from './Component.mobile';
+export { HeaderMobile } from './mobile/Component.mobile';
+export type { HeaderPropsMobile } from './mobile/Component.mobile';

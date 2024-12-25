@@ -6,11 +6,11 @@ import {
     NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 
-import { ModalContext } from '../../Context';
-import { ResponsiveContext } from '../../ResponsiveContext';
+import { ModalContext } from '../../../Context';
+import { ResponsiveContext } from '../../../ResponsiveContext';
 
+import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
-import styles from './index.module.css';
 
 export type HeaderPropsDesktop = Omit<
     NavigationBarPrivateProps,

@@ -6,9 +6,9 @@ import {
     NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 
-import { ModalContext } from '../../Context';
+import { ModalContext } from '../../../Context';
 
-import styles from './index.module.css';
+import styles from '../base-header/index.module.css';
 import mobileStyles from './mobile.module.css';
 
 export type HeaderPropsMobile = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;

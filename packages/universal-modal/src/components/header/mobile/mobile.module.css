@@ -1,5 +1,5 @@
-@import '../../../../vars/src/index.css';
-@import '../../mobile/vars.css';
+@import '../../../../../vars/src/index.css';
+@import '../../../mobile/vars.css';
 
 .header {
     padding: var(--gap-8) var(--gap-4);
