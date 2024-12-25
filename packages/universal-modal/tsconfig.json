@@ -12,7 +12,6 @@
     },
     "references": [
         { "path": "../base-modal" },
-        { "path": "../drawer" },
         { "path": "../button" },
         { "path": "../icon-button" },
         { "path": "../mq" },

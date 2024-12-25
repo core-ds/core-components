@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
+import { browser, os } from '@alfalab/core-components-shared';
 
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalMargin } from '../../hooks/useModalMargin';
@@ -11,7 +12,10 @@ import { ModalByCenterProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './center-modal.module.css';
+import safariTransitions from './safari-transitions.module.css';
 import transitions from './transitions.module.css';
+
+const transitionProps = os.isMacOS() && browser.isSafari() ? safariTransitions : transitions;
 
 export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
     const {
@@ -49,7 +53,7 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
             ref={ref}
             componentRef={componentRef}
             transitionProps={{
-                classNames: transitions,
+                classNames: transitionProps,
             }}
             className={cn(className, styles.component, {
                 [styles.overlayHidden]: !overlay,

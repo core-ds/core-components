@@ -8,15 +8,11 @@ import { SCROLLBAR_DEFAULT_GAP } from '../../const';
 
 import styles from './base-universal-modal-content.module.css';
 
-type BaseUniversalModalContentProps = {
+type Props = {
     wheelDeltaY: number;
 } & Pick<BaseModalProps, 'children'>;
 
-/**
- * Для Universal Modal используется 2 сущности Drawer и Base Modal.
- * Этот компонент содержит общий код передаваемый в эти сущности.
- */
-export const BaseUniversalModalContent: FC<BaseUniversalModalContentProps> = (props) => {
+export const BaseUniversalModalContent: FC<Props> = (props) => {
     const { children, wheelDeltaY } = props;
     const { setModalHeaderHighlighted, setModalFooterHighlighted } =
         useContext(ResponsiveContext) || {};
