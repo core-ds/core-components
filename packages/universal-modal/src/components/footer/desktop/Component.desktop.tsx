@@ -1,10 +1,9 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { FOOTER_MEDIUM_BREAKPOINT } from '../../desktop/const';
-import { ResponsiveContext } from '../../ResponsiveContext';
-
-import { BaseFooter, FooterProps } from './base-footer';
+import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/const';
+import { ResponsiveContext } from '../../../ResponsiveContext';
+import { BaseFooter, FooterProps } from '../base-footer/base-footer';
 
 import styles from './desktop.module.css';
 import layoutStyles from './layout.module.css';

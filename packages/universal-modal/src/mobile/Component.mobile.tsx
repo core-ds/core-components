@@ -5,7 +5,7 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content/Component.mobile';
 import { ControlsMobile } from '../components/controls';
-import { FooterMobile } from '../components/footer/Component.mobile';
+import { FooterMobile } from '../components/footer/mobile/Component.mobile';
 import { HeaderMobile } from '../components/header';
 
 import { UniversalModalMobileProps } from './types/props';

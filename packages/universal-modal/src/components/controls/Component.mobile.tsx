@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import layoutStyles from '../footer/layout.module.css';
+import layoutStyles from '../footer/desktop/layout.module.css';
 import styles from './index.module.css';
 
 export interface ControlsMobileProps {

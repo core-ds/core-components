@@ -1,4 +1,4 @@
-@import '../../vars.css';
+@import '../../../vars.css';
 
 .sticky {
     bottom: var(--gap-0);

@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo, useState } from 'react';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
 import { ControlsDesktop } from '../components/controls';
-import { FooterDesktop } from '../components/footer/Component.desktop';
+import { FooterDesktop } from '../components/footer/desktop/Component.desktop';
 import { HeaderDesktop } from '../components/header';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';

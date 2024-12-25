@@ -1,8 +1,8 @@
-export { FooterResponsive } from './Component.responsive';
-export type { FooterResponsiveProps } from './Component.responsive';
+export { FooterResponsive } from './responsive/Component.responsive';
+export type { FooterResponsiveProps } from './responsive/Component.responsive';
 
-export { FooterDesktop } from './Component.desktop';
-export type { FooterDesktopProps } from './Component.desktop';
+export { FooterDesktop } from './desktop/Component.desktop';
+export type { FooterDesktopProps } from './desktop/Component.desktop';
 
-export { FooterMobile } from './Component.mobile';
-export type { FooterMobileProps } from './Component.mobile';
+export { FooterMobile } from './mobile/Component.mobile';
+export type { FooterMobileProps } from './mobile/Component.mobile';

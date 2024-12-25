@@ -1,11 +1,17 @@
-@import '../../vars.css';
+@import '../../../vars.css';
 
 .column {
     display: flex;
     flex-direction: column;
 
     & > *:not(:last-child):not(:only-child) {
-        margin-bottom: var(--gap-16);
+        margin-bottom: var(--gap-8);
+    }
+
+    &.middle {
+        & > *:not(:last-child):not(:only-child) {
+            margin-bottom: var(--gap-12);
+        }
     }
 }
 
