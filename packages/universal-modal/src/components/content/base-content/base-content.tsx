@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, Ref, useContext } from 'react';
 import cn from 'classnames';
 
-import { ModalContext } from '../../Context';
+import { ModalContext } from '../../../Context';
 
 import styles from './index.module.css';
 

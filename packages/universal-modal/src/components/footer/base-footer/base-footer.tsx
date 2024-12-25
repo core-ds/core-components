@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { ModalContext } from '../../../Context';
 
-import styles from '../index.module.css';
+import styles from './index.module.css';
 
 export type FooterProps = {
     /**

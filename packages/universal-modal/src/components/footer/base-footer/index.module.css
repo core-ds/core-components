@@ -1,5 +1,5 @@
-@import '../../../../vars/src/index.css';
-@import '../../vars.css';
+@import '../../../../../vars/src/index.css';
+@import '../../../vars.css';
 
 .footer {
     width: 100%;

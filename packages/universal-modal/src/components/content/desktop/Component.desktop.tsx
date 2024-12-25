@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { BaseContent, ContentProps } from './base-content';
+import { BaseContent, ContentProps } from '../base-content/base-content';
 
 export type ContentDesktopProps = ContentProps & {
     /**

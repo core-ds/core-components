@@ -1,4 +1,4 @@
-@import '../../vars.css';
+@import '../../../vars.css';
 
 .content {
     padding: var(--gap-16) var(--gap-16) var(--gap-0);

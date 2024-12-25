@@ -1,8 +1,8 @@
-export { ContentResponsive } from './Component.responsive';
-export type { ContentResponsiveProps } from './Component.responsive';
+export { ContentResponsive } from './responsive/Component.responsive';
+export type { ContentResponsiveProps } from './responsive/Component.responsive';
 
-export { ContentDesktop } from './Component.desktop';
-export type { ContentDesktopProps } from './Component.desktop';
+export { ContentDesktop } from './desktop/Component.desktop';
+export type { ContentDesktopProps } from './desktop/Component.desktop';
 
-export { ContentMobile } from './Component.mobile';
-export type { ContentMobileProps } from './Component.mobile';
+export { ContentMobile } from './mobile/Component.mobile';
+export type { ContentMobileProps } from './mobile/Component.mobile';
