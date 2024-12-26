@@ -217,6 +217,8 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
 
         const rowLimitStyles = rowLimit && commonStyles[`rowLimit${rowLimit}`];
 
+        const isCustomView = view === 'custom';
+
         const handleClick = useCallback(
             (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
                 const clickSimilarKeys = ['Enter', ' '].includes(
@@ -268,7 +270,26 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             [onClose],
         );
 
-        const isCustomView = view === 'custom';
+        const setCustomViewColors = (): { background: string; borderColor: string } | object => {
+            if (isCustomView) {
+                return {
+                    background,
+                    borderColor,
+                };
+            }
+
+            return {};
+        };
+
+        const setCustomViewRectangleBorderColor = (): { boxShadow: string } | object => {
+            if (isCustomView && border && !rounded && borderColor) {
+                return {
+                    boxShadow: `2px 0 0 0 ${borderColor} inset`,
+                };
+            }
+
+            return {};
+        };
 
         return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
@@ -292,15 +313,8 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                     className,
                 )}
                 style={{
-                    ...(isCustomView && {
-                        background,
-                        borderColor,
-                        ...(border &&
-                            !rounded &&
-                            borderColor && {
-                                boxShadow: `2px 0 0 0 ${borderColor} inset`,
-                            }),
-                    }),
+                    ...setCustomViewColors(),
+                    ...setCustomViewRectangleBorderColor(),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}
