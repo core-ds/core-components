@@ -1,0 +1,19 @@
+@import '../../../vars.css';
+
+.component {
+    min-width: 500px;
+    width: 500px;
+    min-height: 264px;
+    height: 100%;
+    border-radius: var(--border-radius-24);
+    overflow-x: hidden;
+    will-change: transform;
+
+    &.overlayHidden {
+        box-shadow: var(--shadow-m);
+    }
+
+    & .container {
+        height: 100%;
+    }
+}

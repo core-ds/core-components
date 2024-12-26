@@ -1,0 +1,29 @@
+@import '../../../../../vars/src/index.css';
+@import '../../../mobile/vars.css';
+
+.header {
+    padding: var(--gap-8) var(--gap-4);
+}
+
+.sticky {
+    top: var(--gap-0);
+}
+
+.content {
+    font-size: var(--universal-modal-header-mobile-font-size);
+    line-height: var(--universal-modal-header-mobile-line-height);
+    font-family: var(--universal-modal-header-mobile-font-family);
+    font-weight: var(--universal-modal-header-mobile-font-weight);
+    padding: 0 var(--gap-12);
+    min-height: 40px;
+    justify-content: center;
+}
+
+.bottomAddons {
+    @mixin headline-system-mobile_small;
+    padding: 6px var(--gap-16);
+}
+
+.addon {
+    height: 40px;
+}

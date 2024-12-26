@@ -1,0 +1,32 @@
+@import '../../../vars.css';
+@import '../../../desktop/vars.css';
+
+.content {
+    font-weight: var(--universal-modal-header-desktop-font-weight);
+    font-family: var(--universal-modal-header-desktop-font-family);
+}
+
+.sticky {
+    top: var(--gap-0);
+}
+
+.bottomAddons,
+.headerTitle {
+    @mixin headline-system_small;
+
+    &.medium {
+        @mixin headline-system_medium;
+    }
+}
+
+.headerTitle {
+    padding: 11px var(--gap-12);
+
+    &.medium {
+        padding: 6px var(--gap-12) var(--gap-16);
+    }
+}
+
+.bottomAddons {
+    padding: 6px var(--gap-12) var(--gap-16);
+}
