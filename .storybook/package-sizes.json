@@ -45,10 +45,10 @@
         "mobile.js": 3.5
     },
     "tabs": {
-        "collapsible.js": 153.2,
-        "desktop.js": 37.5,
-        "index.js": 38.8,
-        "mobile.js": 37.6,
+        "collapsible.js": 153.4,
+        "desktop.js": 37.8,
+        "index.js": 39.1,
+        "mobile.js": 37.9,
         "shared.js": 30.8
     },
     "table": {
@@ -157,9 +157,9 @@
         "index.js": 44.8
     },
     "plate": {
-        "desktop.js": 15.1,
-        "index.js": 15.5,
-        "mobile.js": 15.1,
+        "desktop.js": 15.2,
+        "index.js": 15.6,
+        "mobile.js": 15.2,
         "shared.js": 0.2
     },
     "picker-button": {
@@ -341,12 +341,14 @@
         "index.js": 70.6
     },
     "custom-picker-button": {
-        "desktop.js": 146.7,
-        "index.js": 236.5,
-        "mobile.js": 208.9
+        "desktop.js": 146.9,
+        "index.js": 236.7,
+        "mobile.js": 209.1
     },
     "custom-button": {
-        "index.js": 10.4
+        "desktop.js": 7.7,
+        "index.js": 10.6,
+        "mobile.js": 7.7
     },
     "confirmation": {
         "desktop.js": 30.8,
@@ -399,7 +401,8 @@
         "index.js": 69.1
     },
     "calendar-range": {
-        "index.js": 254.7
+        "index.js": 254.9,
+        "shared.js": 0.2
     },
     "calendar-input": {
         "desktop.js": 146.8,
@@ -439,7 +442,7 @@
         "index.js": 33.6
     },
     "alert": {
-        "index.js": 15.8
+        "index.js": 15.9
     },
     "action-button": {
         "index.js": 6,
