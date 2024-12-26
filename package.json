@@ -20,7 +20,7 @@
         "build-storybook": "storybook build -o build --quiet",
         "build-storybook-from-dist": "cross-env BUILD_MODERN_ONLY=true yarn build && cross-env BUILD_STORYBOOK_FROM_DIST=true yarn build-storybook",
         "serve-storybook": "http-server build -p 9009",
-        "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix && prettier --write \"./packages/{themes,vars}/**/*.css\"",
+        "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix && prettier --write \"./packages/{themes,vars}/**/*.css\" && yarn generate-dark-colors",
         "update-typography": "node ./tools/update-typography.js",
         "update-usages": "node ./tools/update-usages.js",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
@@ -40,7 +40,8 @@
         "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
         "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
         "write-vars-and-themes-version": "node ./bin/write-vars-and-themes-version.js",
-        "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master"
+        "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master",
+        "generate-dark-colors": " node ./tools/dark-colors-generator.js"
     },
     "browserslist": {
         "production": [

@@ -18,6 +18,12 @@ import { Meta } from '@storybook/addon-docs';
 - [core-components/vars/colors-pfm.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-pfm.css).
 - [core-components/vars/colors-students.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-students.css).
 
+Dark цвета хранятся в:
+- [core-components/vars/colors-decorative-dark.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-decorative-dark.css).
+- [core-components/vars/colors-monochrome-dark.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-monochrome-dark.css).
+- [core-components/vars/colors-qualitative-dark.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-qualitative-dark.css).
+- [core-components/vars/colors-sequential-dark.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/colors-sequential-dark.css).
+
 Палитры доступные в ts:
 - colors-bluetint
 - colors-decorative
@@ -40,6 +46,12 @@ import { Meta } from '@storybook/addon-docs';
 .item {
     color: var(--color-light-text-primary);
 }
+```
+
+Цвет можно импортировать напрямую из JS-файла
+
+```typescript
+import {colorLightDecorativeOrange} from '@alfalab/core-components/vars/colors-decorative.module';
 ```
 
 > Если в Figma не видно название цвета или для него не оказалось переменной, спросите у дизайнера почему :)
