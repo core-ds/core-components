@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 
 import { SystemMessageContext } from '../../Context';
 
-import { TitleDesktop } from './desktop/Component.desktop';
-import { TitleMobile } from './mobile/Component.mobile';
+import { TitleDesktop } from './desktop/Component';
+import { TitleMobile } from './mobile/Component';
 import { type TitleProps } from './Component';
 
 export const TitleResponsive = ({ children, ...props }: TitleProps) => {

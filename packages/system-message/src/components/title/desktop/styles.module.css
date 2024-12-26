@@ -1,4 +1,5 @@
 @import '../../../../../vars/src/index.css';
+@import '../index.module.css';
 
 :root {
     --sys-message-desktop-title-font-size: 22px;

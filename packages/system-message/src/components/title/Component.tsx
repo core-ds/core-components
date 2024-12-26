@@ -6,10 +6,8 @@ import { createPaddingStyle, getDataTestId } from '@alfalab/core-components-shar
 import { PaddingType } from '../../../../types';
 import { SystemMessageContext } from '../../Context';
 
-import type desktopStyles from './desktop/desktop.module.css';
-import type mobileStyles from './mobile/mobile.module.css';
-
-import styles from './index.module.css';
+import type desktopStyles from './desktop/styles.module.css';
+import type mobileStyles from './mobile/styles.module.css';
 
 export type TitleProps = {
     /**
@@ -34,34 +32,32 @@ export type TitleProps = {
     padding?: PaddingType;
 };
 
-type TitlePropsPrivate = {
+type TitlePrivateProps = Omit<TitleProps, 'padding'> & {
     /**
-     * Стили под д/м
+     * Стили
      */
-    stylesView: typeof desktopStyles | typeof mobileStyles;
+    styles: typeof desktopStyles | typeof mobileStyles;
 
     /**
-     * Отступы под д/м
+     * Отступы
      */
-    defaultPadding: Record<string, unknown>;
+    padding: PaddingType;
 };
 
-export const Title: React.FC<TitleProps & TitlePropsPrivate> = ({
+export const TitleBase: React.FC<TitleProps & TitlePrivateProps> = ({
     tag = 'h3',
     className,
     children,
-    padding: paddingProp,
-    stylesView,
-    defaultPadding,
+    padding,
+    styles,
 }) => {
     const { dataTestId } = useContext(SystemMessageContext);
-    const padding = paddingProp ?? defaultPadding;
 
     const Component = tag;
 
     return (
         <Component
-            className={cn(styles.component, className, stylesView.component)}
+            className={cn(styles.component, className, styles.component)}
             data-test-id={getDataTestId(dataTestId, 'title')}
             style={createPaddingStyle(padding)}
         >
