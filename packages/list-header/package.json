@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-list-header",
-    "version": "3.3.4",
+    "version": "3.3.6",
     "description": "ListHeader component",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,9 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.11.0",
+        "@alfalab/core-components-typography": "^4.11.2",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

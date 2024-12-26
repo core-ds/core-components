@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { PayloadProps } from '../../types/payload.types';
 import { SeriaProps } from '../../types/seria.types';
@@ -38,14 +38,14 @@ export const TooltipContent = ({
             )}
             <ul className={cn(styles.tooltipList)}>
                 <li className={cn(styles.tooltipItem)} style={labelStyle}>
-                    <Typography.Text
+                    <Text
                         view='primary-medium'
                         tag='span'
                         weight='medium'
                         className={cn(styles.tooltipLabel)}
                     >
                         {labelFormatter ? labelFormatter(label) : label}
-                    </Typography.Text>
+                    </Text>
                 </li>
                 {payload.map((entry: PayloadProps) => {
                     const data: SeriaProps | undefined = series.find(
@@ -60,7 +60,7 @@ export const TooltipContent = ({
                             key={entry.dataKey}
                             style={{ color: entry.color }}
                         >
-                            <Typography.Text
+                            <Text
                                 view='primary-medium'
                                 tag='span'
                                 weight='medium'
@@ -68,12 +68,12 @@ export const TooltipContent = ({
                             >
                                 {entry?.formatter ? entry.formatter(entry.value) : entry.value}
                                 {separator || ' '}
-                            </Typography.Text>
-                            <Typography.Text
+                            </Text>
+                            <Text
                                 view='secondary-large'
                                 tag='span'
                                 className={cn(styles.tooltipName)}
-                            >{`${entry.name}`}</Typography.Text>
+                            >{`${entry.name}`}</Text>
                         </li>
                     );
                 })}

@@ -1,5 +1,51 @@
 # Change Log
 
+## 15.4.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1422](https://github.com/core-ds/core-components/pull/1422)
+
+-   Запрещен ввод и вставка символов `[eE]` в input[type=number]
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   status-badge@1.2.2
+    -   button@11.11.2
+    -   form-control@12.7.4
+
+## 15.3.4
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1488](https://github.com/core-ds/core-components/pull/1488)
+
+-   Фикс вызова input.setSelectionRange
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   form-control@12.7.3
+    -   status-badge@1.2.1
+
 ## 15.3.3
 
 ### Patch Changes

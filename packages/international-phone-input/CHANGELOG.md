@@ -1,5 +1,37 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.5.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   select@17.18.1
+    -   shared@0.14.1
+    -   input-autocomplete@12.6.9
+
+## 2.5.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.8
+    -   input@15.3.4
+    -   select@17.18.0
+
 ## 2.5.5
 
 ### Patch Changes

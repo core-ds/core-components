@@ -1,5 +1,40 @@
 # Change Log
 
+## 1.2.12
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+-   Обновлены зависимости
+    -   shared@0.14.1
+    -   button@11.11.2
+    -   typography@4.11.2
+
+## 1.2.11
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   typography@4.11.1
+
 ## 1.2.10
 
 ### Patch Changes

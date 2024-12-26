@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -50,12 +50,12 @@ export const ActionTextAddon: React.FC<ActionTextAddonProps> = ({
         dataTestId={dataTestId}
         {...htmlAttributes}
     >
-        <Typography.Text
+        <Text
             className={styles.text}
             view='component'
             weight={action === 'primary' ? 'medium' : 'regular'}
         >
             {text}
-        </Typography.Text>
+        </Text>
     </ButtonDesktop>
 );

@@ -1,5 +1,34 @@
 # Change Log
 
+## 7.12.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   input@15.4.0
+    -   shared@0.14.1
+    -   with-suffix@4.2.11
+
+## 7.12.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input@15.3.4
+    -   with-suffix@4.2.10
+
 ## 7.12.5
 
 ### Patch Changes

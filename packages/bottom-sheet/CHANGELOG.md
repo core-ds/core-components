@@ -1,5 +1,30 @@
 # Change Log
 
+## 6.17.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.6
+    -   backdrop@3.4.4
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
+## 6.17.13
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   backdrop@3.4.3
+    -   base-modal@5.8.6
+    -   navigation-bar-private@0.5.5
+
 ## 6.17.12
 
 ### Patch Changes
