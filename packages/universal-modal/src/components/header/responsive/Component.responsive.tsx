@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import type { HeaderPropsDesktop, HeaderPropsMobile } from '..';
+import type { HeaderDesktopProps, HeaderMobileProps } from '..';
 import { HeaderDesktop, HeaderMobile } from '..';
 
-export type HeaderResponsiveProps = HeaderPropsDesktop | HeaderPropsMobile;
+export type HeaderResponsiveProps = HeaderDesktopProps | HeaderMobileProps;
 
 export const HeaderResponsive: FC<HeaderResponsiveProps> = ({ ...restProps }) => {
     const isDesktop = useIsDesktop();

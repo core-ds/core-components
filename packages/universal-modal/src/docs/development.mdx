@@ -7,26 +7,52 @@ import vars from '!!raw-loader!../vars.css';
 ## Подключение Responsive
 
 ```jsx
-// atom
+// Atom import
 import { UniversalModal } from '@alfalab/core-components/universal-modal';
+import type {UniversalModalResponsiveProps } from '@alfalab/core-components/universal-modal';
 
-// compound
+import { ContentResponsive } from '@alfalab/core-components/universal-modal';
+import type { ContentResponsiveProps } from '@alfalab/core-components/universal-modal';
+
+import { ControlsResponsive } from '@alfalab/core-components/universal-modal';
+import type { ControlsResponsiveProps, ControlsDesktopProps } from '@alfalab/core-components/universal-modal';
+
+import { HeaderResponsive } from '@alfalab/core-components/universal-modal';
+import type { HeaderResponsiveProps } from '@alfalab/core-components/universal-modal';
+
+import { FooterResponsive } from '@alfalab/core-components/universal-modal';
+import type { FooterResponsiveProps } from '@alfalab/core-components/universal-modal';
+
+// Compound import
 import { UniversalModalResponsive } from '@alfalab/core-components/universal-modal';
-
 import type {UniversalModalResponsiveProps } from '@alfalab/core-components/universal-modal';
 ```
 
 ## Подключение Desktop
 
 ```jsx
-// atom
-import { UniversalModalDesktopComponent } from '@alfalab/core-components/universal-modal';
+// Atom import
+import { UniversalModalDesktopComponent } from '@alfalab/core-components/universal-modal/desktop';
+import type { UniversalModalDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
 
-// compound
-import { UniversalModalDesktop } from '@alfalab/core-components/universal-modal';
+import { ContentDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { ContentDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
 
-import type { UniversalModalDesktopProps } from '@alfalab/core-components/universal-modal';
-import { ArrowButtonDesktop, CrossButtonDesktop } from '@alfalab/core-components/universal-modal';
+import { ControlsDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { ControlsDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
+
+import { HeaderDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { HeaderPropsDesktop } from '@alfalab/core-components/universal-modal/desktop';
+
+import { FooterDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { FooterDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
+
+// Compound import
+import { UniversalModalDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { UniversalModalDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
+
+// Components
+import { ArrowButtonDesktop, CrossButtonDesktop } from '@alfalab/core-components/universal-modal/desktop';
 ```
 
 ## Подключение Mobile
@@ -54,22 +80,6 @@ import type { UniversalModalMobileProps } from '@alfalab/core-components/univers
 
 // Components
 import { ArrowButtonDesktopMobile, CrossButtonDesktopMobile } from '@alfalab/core-components/universal-modal/mobile';
-```
-
-## Атомарный импорт внутренних компонентов
-
-```jsx
-import { ContentResponsive, ContentDesktop } from '@alfalab/core-components/universal-modal';
-import type { ContentResponsiveProps, ContentDesktopProps, ContentMobileProps } from '@alfalab/core-components/universal-modal';
-
-import { ControlsResponsive, ControlsDesktop } from '@alfalab/core-components/universal-modal';
-import type { ControlsResponsiveProps, ControlsDesktopProps, ControlsMobileProps } from '@alfalab/core-components/universal-modal';
-
-import { HeaderResponsive, HeaderDesktop } from '@alfalab/core-components/universal-modal';
-import type { HeaderResponsiveProps, HeaderPropsDesktop, HeaderPropsMobile } from '@alfalab/core-components/universal-modal';
-
-import { FooterResponsive, FooterDesktop } from '@alfalab/core-components/universal-modal';
-import type { FooterResponsiveProps, FooterDesktopProps, FooterMobileProps } from '@alfalab/core-components/universal-modal';
 ```
 
 Из индекса импортируется responsive версия компонента.

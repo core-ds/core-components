@@ -12,7 +12,7 @@ import { ResponsiveContext } from '../../../ResponsiveContext';
 import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
 
-export type HeaderPropsDesktop = Omit<
+export type HeaderDesktopProps = Omit<
     NavigationBarPrivateProps,
     'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle'
 > & {
@@ -23,7 +23,7 @@ export type HeaderPropsDesktop = Omit<
     bigTitle?: boolean;
 };
 
-export const HeaderDesktop: FC<HeaderPropsDesktop> = ({
+export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     className,
     children,
     contentClassName,
