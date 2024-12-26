@@ -45,5 +45,5 @@
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
-    "include": ["./typings"]
+    "include": ["./typings", "**/declaration.d.ts"]
 }
