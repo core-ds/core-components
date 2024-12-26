@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-navigation-bar",
-    "version": "1.2.11",
+    "version": "1.2.12",
     "description": "NavigationBar",
     "keywords": [],
     "license": "MIT",
@@ -15,9 +15,9 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.1",
-        "@alfalab/core-components-typography": "^4.11.1",
-        "@alfalab/core-components-shared": "^0.14.0",
+        "@alfalab/core-components-button": "^11.11.2",
+        "@alfalab/core-components-typography": "^4.11.2",
+        "@alfalab/core-components-shared": "^0.14.1",
         "@alfalab/icons-glyph": "^2.139.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"

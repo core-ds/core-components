@@ -1,5 +1,15 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   popover@6.3.5
+    -   shared@0.14.1
+
 ## 2.6.5
 
 ### Patch Changes

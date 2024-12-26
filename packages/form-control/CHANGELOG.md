@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+
 ## 12.7.3
 
 ### Patch Changes

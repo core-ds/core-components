@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.2.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
 ## 2.2.3
 
 ### Patch Changes

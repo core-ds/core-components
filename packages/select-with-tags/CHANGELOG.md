@@ -1,5 +1,24 @@
 # Change Log
 
+## 8.5.9
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   select@17.18.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   tag@8.6.4
+    -   form-control@12.7.4
+    -   bottom-sheet@6.17.14
+
 ## 8.5.8
 
 ### Patch Changes

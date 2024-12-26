@@ -1,5 +1,30 @@
 # Change Log
 
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1421](https://github.com/core-ds/core-components/pull/1421)
+
+-   Добавлен дополнительный класс для контейнера календаря, с помощью него можно изменить ширину контейнера.
+-   Добавлен модификатор для data-test-id
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   shared@0.14.1
+    -   calendar@7.17.2
+    -   calendar-input@10.4.12
+    -   date-input@4.4.11
+
 ## 7.7.8
 
 ### Patch Changes
