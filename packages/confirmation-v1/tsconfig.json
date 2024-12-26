@@ -2,14 +2,21 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-
+            "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../loader" }, { "path": "../link" }]
+    "references": [
+        {
+            "path": "../button"
+        },
+        {
+            "path": "../loader"
+        },
+        {
+            "path": "../link"
+        }
+    ]
 }

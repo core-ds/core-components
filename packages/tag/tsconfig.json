@@ -1,12 +1,13 @@
 {
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
-    "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"]
-    },
+    "compilerOptions": {},
     "references": [
-      { "path": "../mq" },
-      { "path": "../shared" },
+        {
+            "path": "../mq"
+        },
+        {
+            "path": "../shared"
+        }
     ]
 }

@@ -2,25 +2,35 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-select/*": ["../select/src/*"]
         }
     },
     "references": [
-        { "path": "../select" },
-        { "path": "../input" },
-        { "path": "../button" },
-        { "path": "../form-control" },
-        { "path": "../bottom-sheet" },
-        { "path": "../mq" },
-        { "path": "../shared" }
+        {
+            "path": "../select"
+        },
+        {
+            "path": "../input"
+        },
+        {
+            "path": "../button"
+        },
+        {
+            "path": "../form-control"
+        },
+        {
+            "path": "../bottom-sheet"
+        },
+        {
+            "path": "../mq"
+        },
+        {
+            "path": "../shared"
+        }
     ]
 }
