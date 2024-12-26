@@ -10,6 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
@@ -20,8 +21,8 @@
         "@alfalab/core-components-typography": "^4.11.1",
         "@alfalab/core-components-comment": "^2.4.5",
         "@alfalab/core-components-shared": "^0.14.0",
-        "@alfalab/hooks": "^1.13.0",
-        "@alfalab/data": "^1.8.0",
+        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/data": "^1.9.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "1.1.0",
         "tslib": "^2.4.0"

@@ -10,12 +10,13 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-icon-button": "^6.11.4",
         "@alfalab/core-components-button": "^11.11.1",
         "@alfalab/core-components-typography": "^4.11.1",
         "@alfalab/core-components-shared": "^0.14.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",

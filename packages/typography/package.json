@@ -17,7 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-skeleton": "^5.2.1",
         "@alfalab/core-components-mq": "^4.4.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"

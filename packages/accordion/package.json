@@ -16,7 +16,7 @@
     "dependencies": {
         "classnames": "^2.5.1",
         "tslib": "^2.4.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "@juggle/resize-observer": "^3.3.1",
         "@alfalab/core-components-typography": "^4.11.1"
