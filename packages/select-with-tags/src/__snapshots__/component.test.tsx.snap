@@ -22,7 +22,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-72"
             >
               <div
                 class="contentWrapper"
@@ -44,7 +44,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
             class="addons rightAddons addons addons-size-72"
           >
             <svg
-              class="arrow"
+              class="arrow size-72"
               fill="currentColor"
               focusable="false"
               height="24"
@@ -86,7 +86,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-72"
             >
               <div
                 class="contentWrapper hasTags"
@@ -199,7 +199,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
             class="addons rightAddons addons addons-size-72"
           >
             <svg
-              class="arrow"
+              class="arrow size-72"
               fill="currentColor"
               focusable="false"
               height="24"

@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
 import { FormControl } from '@alfalab/core-components-form-control';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
@@ -18,6 +19,10 @@ export const form_control: Story = {
     name: 'FormControl',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select('size', [40, 48, 56, 64, 72], 48);
+
+        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
+
         return (
             <div
                 style={{
@@ -35,7 +40,7 @@ export const form_control: Story = {
             >
                 <FormControl
                     block={boolean('block', true)}
-                    size={select('size', [48, 56, 64, 72], 48)}
+                    size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     filled={boolean('filled', false)}
@@ -44,8 +49,8 @@ export const form_control: Story = {
                     labelView={select('labelView', ['inner', 'outer'], 'inner')}
                     hint={text('hint', '')}
                     error={text('error', '')}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                    leftAddons={boolean('leftAddons', false) && <IconComponent />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                 />
             </div>
@@ -57,6 +62,10 @@ export const form_control_mobile: Story = {
     name: 'FormControlMobile',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select('size', [40, 48, 56, 64, 72], 48);
+
+        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
+
         return (
             <div
                 style={{
@@ -74,7 +83,7 @@ export const form_control_mobile: Story = {
             >
                 <FormControlMobile
                     block={boolean('block', true)}
-                    size={select('size', [48, 56, 64, 72], 48)}
+                    size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     filled={boolean('filled', false)}
@@ -83,8 +92,8 @@ export const form_control_mobile: Story = {
                     labelView={select('labelView', ['inner', 'outer'], 'inner')}
                     hint={text('hint', '')}
                     error={text('error', '')}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                    leftAddons={boolean('leftAddons', false) && <IconComponent />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                 />
             </div>
@@ -96,6 +105,10 @@ export const form_control_desktop: Story = {
     name: 'FormControlDesktop',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select('size', [40, 48, 56, 64, 72], 48);
+
+        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
+
         return (
             <div
                 style={{
@@ -113,7 +126,7 @@ export const form_control_desktop: Story = {
             >
                 <FormControlDesktop
                     block={boolean('block', true)}
-                    size={select('size', [48, 56, 64, 72], 48)}
+                    size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     filled={boolean('filled', false)}
@@ -122,8 +135,8 @@ export const form_control_desktop: Story = {
                     labelView={select('labelView', ['inner', 'outer'], 'inner')}
                     hint={text('hint', '')}
                     error={text('error', '')}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                    leftAddons={boolean('leftAddons', false) && <IconComponent />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                 />
             </div>

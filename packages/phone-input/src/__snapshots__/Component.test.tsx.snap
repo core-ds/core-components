@@ -15,10 +15,10 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <input
-                class="input input"
+                class="input size-48 input"
                 type="tel"
                 value=""
               />
@@ -39,10 +39,10 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           >
             <input
-              class="input input"
+              class="input size-48 input"
               type="tel"
               value=""
             />

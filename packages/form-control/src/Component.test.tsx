@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import { getFormControlTestIds } from './utils';
 
 import { FormControlDesktop as FormControl } from './desktop';
@@ -171,6 +171,13 @@ describe('FormControl', () => {
             const { getByTestId } = render(<FormControl focused={true} dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId).firstElementChild).toHaveClass('focused');
+        });
+
+        it('should set `size-40`', () => {
+            const dataTestId = 'test-id';
+            render(<FormControl size={40} dataTestId={dataTestId} />);
+
+            expect(screen.getByTestId(dataTestId)).toHaveClass('size-40');
         });
     });
 
