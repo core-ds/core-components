@@ -3,9 +3,9 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { ContentMobile } from '../components/content/mobile/Component.mobile';
+import { ContentMobile } from '../components/content';
 import { ControlsMobile } from '../components/controls';
-import { FooterMobile } from '../components/footer/mobile/Component.mobile';
+import { FooterMobile } from '../components/footer';
 import { HeaderMobile } from '../components/header';
 
 import { UniversalModalMobileProps } from './types/props';

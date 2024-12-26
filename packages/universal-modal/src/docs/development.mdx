@@ -32,29 +32,43 @@ import { ArrowButtonDesktop, CrossButtonDesktop } from '@alfalab/core-components
 ## Подключение Mobile
 
 ```jsx
-// atom
-import { UniversalModalMobileComponent } from '@alfalab/core-components/universal-modal';
+// Atom import
+import { UniversalModalMobileComponent } from '@alfalab/core-components/universal-modal/mobile';
+import type { UniversalModalMobileProps } from '@alfalab/core-components/universal-modal/mobile';
 
-// compound
-import { UniversalModalMobile } from '@alfalab/core-components/universal-modal';
+import { ContentMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { ContentMobileProps } from '@alfalab/core-components/universal-modal/mobile';
 
-import type { UniversalModalMobileProps } from '@alfalab/core-components/universal-modal';
-import { ArrowButtonDesktopMobile, CrossButtonDesktopMobile } from '@alfalab/core-components/universal-modal';
+import { ControlsMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { ControlsMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+import { HeaderMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { HeaderMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+import { FooterMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { FooterMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+// Compound import
+import { UniversalModalMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { UniversalModalMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+// Components
+import { ArrowButtonDesktopMobile, CrossButtonDesktopMobile } from '@alfalab/core-components/universal-modal/mobile';
 ```
 
 ## Атомарный импорт внутренних компонентов
 
 ```jsx
-import { ContentResponsive, ContentDesktop, ContentMobile } from '@alfalab/core-components/universal-modal';
+import { ContentResponsive, ContentDesktop } from '@alfalab/core-components/universal-modal';
 import type { ContentResponsiveProps, ContentDesktopProps, ContentMobileProps } from '@alfalab/core-components/universal-modal';
 
-import { ControlsResponsive, ControlsDesktop, ControlsMobile } from '@alfalab/core-components/universal-modal';
+import { ControlsResponsive, ControlsDesktop } from '@alfalab/core-components/universal-modal';
 import type { ControlsResponsiveProps, ControlsDesktopProps, ControlsMobileProps } from '@alfalab/core-components/universal-modal';
 
-import { HeaderResponsive, HeaderDesktop, HeaderMobile } from '@alfalab/core-components/universal-modal';
+import { HeaderResponsive, HeaderDesktop } from '@alfalab/core-components/universal-modal';
 import type { HeaderResponsiveProps, HeaderPropsDesktop, HeaderPropsMobile } from '@alfalab/core-components/universal-modal';
 
-import { FooterResponsive, FooterDesktop, FooterMobile } from '@alfalab/core-components/universal-modal';
+import { FooterResponsive, FooterDesktop } from '@alfalab/core-components/universal-modal';
 import type { FooterResponsiveProps, FooterDesktopProps, FooterMobileProps } from '@alfalab/core-components/universal-modal';
 ```
 

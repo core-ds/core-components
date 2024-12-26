@@ -11,9 +11,9 @@ import { ModalContext } from '../../../Context';
 import styles from '../base-header/index.module.css';
 import mobileStyles from './mobile.module.css';
 
-export type HeaderPropsMobile = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderMobileProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
-export const HeaderMobile: FC<HeaderPropsMobile> = ({
+export const HeaderMobile: FC<HeaderMobileProps> = ({
     className,
     children,
     contentClassName,
