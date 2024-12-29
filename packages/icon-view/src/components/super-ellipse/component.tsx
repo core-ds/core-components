@@ -22,3 +22,18 @@ export const SuperEllipse = forwardRef<HTMLDivElement, SuperEllipseProps>((props
 ));
 
 SuperEllipse.displayName = 'SuperEllipse';
+
+export type SuperEllipseBlankProps = SuperEllipseProps & {
+    /**
+     * Фигуры
+     */
+    pathsMap: BaseShapeProps['pathsMap'];
+};
+
+export const SuperEllipseBlank = forwardRef<HTMLDivElement, SuperEllipseBlankProps>(
+    ({ pathsMap: pathsMapProp, ...props }, ref) => (
+        <BaseShape {...props} pathsMap={pathsMapProp} ref={ref} />
+    ),
+);
+
+SuperEllipseBlank.displayName = 'SuperEllipseBlank';
