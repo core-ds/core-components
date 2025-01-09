@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   status-badge@1.2.2
+
 ## 7.3.5
 
 ### Patch Changes

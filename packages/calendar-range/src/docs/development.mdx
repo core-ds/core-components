@@ -9,6 +9,22 @@ import { CalendarRangeStatic } from '../views/static';
 import { CalendarRange } from '@alfalab/core-components/calendar-range';
 ```
 
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getCalendarRangeTestIds`.
+Импорт из `@alfalab/core-components/calendar-range/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    component: dataTestId,
+    calendarContainerFrom: `${dataTestId}-container-from`,
+    calendarContainerTo: `${dataTestId}-container-to`,
+};
+```
+
 ## Свойства
 
 <ArgsTabs components={{CalendarRange, CalendarRangePopover, CalendarRangeStatic}} />

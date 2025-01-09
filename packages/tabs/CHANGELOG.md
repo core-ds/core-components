@@ -1,5 +1,30 @@
 # Change Log
 
+## 8.12.9
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1482](https://github.com/core-ds/core-components/pull/1482)
+
+-   Исправлен расчет положения нижней линии таба
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   keyboard-focusable@4.1.1
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   skeleton@5.2.2
+    -   picker-button@11.12.9
+    -   tag@8.6.4
+
 ## 8.12.8
 
 ### Patch Changes

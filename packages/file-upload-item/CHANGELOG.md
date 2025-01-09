@@ -1,5 +1,29 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1504](https://github.com/core-ds/core-components/pull/1504)
+
+-   Добавлен импорт типов для статусов и пропсов компонента
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   link@5.3.3
+    -   spinner@4.0.2
+    -   typography@4.11.2
+
 ## 6.0.4
 
 ### Patch Changes
