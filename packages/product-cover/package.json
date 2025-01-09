@@ -19,7 +19,7 @@
         "@alfalab/core-components-button": "^11.11.2",
         "@alfalab/core-components-typography": "^4.11.2",
         "@alfalab/core-components-shared": "^0.14.1",
-        "@alfalab/icons-glyph": "^2.139.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/utils": "^1.17.1",
         "classnames": "^2.5.1",

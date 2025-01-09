@@ -18,7 +18,7 @@
     "dependencies": {
         "@alfalab/core-components-icon-button": "^6.11.5",
         "@alfalab/core-components-input": "^15.4.0",
-        "@alfalab/icons-glyph": "^2.139.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

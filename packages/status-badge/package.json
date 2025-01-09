@@ -15,7 +15,7 @@
         "react": ">=16.8.0"
     },
     "dependencies": {
-        "@alfalab/icons-glyph": "^2.139.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

@@ -18,7 +18,7 @@
         "@alfalab/core-components-button": "^11.11.2",
         "@alfalab/core-components-gap": "^1.4.1",
         "@alfalab/core-components-shared": "^0.14.1",
-        "@alfalab/icons-glyph": "^2.139.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0",
