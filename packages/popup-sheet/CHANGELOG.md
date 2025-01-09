@@ -1,5 +1,20 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.3.15
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
 ## 1.3.14
 
 ### Patch Changes

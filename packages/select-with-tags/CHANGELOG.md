@@ -1,5 +1,24 @@
 # Change Log
 
+## 8.6.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.15
+    -   popover@6.3.6
+    -   tag@8.6.5
+    -   form-control@12.8.0
+    -   select@17.19.0
+
 ## 8.5.9
 
 ### Patch Changes

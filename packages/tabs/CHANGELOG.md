@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.12.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   badge@5.6.4
+    -   icon-button@6.11.6
+    -   picker-button@11.12.10
+    -   skeleton@5.2.3
+    -   tag@8.6.5
+
 ## 8.12.9
 
 ### Patch Changes

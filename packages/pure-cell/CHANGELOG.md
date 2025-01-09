@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.14.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   amount@3.9.1
+    -   button@11.11.3
+    -   comment@2.4.7
+    -   typography@4.11.3
+
 ## 4.14.0
 
 ### Minor Changes
