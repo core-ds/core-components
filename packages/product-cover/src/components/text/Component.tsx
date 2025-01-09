@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Text as TypographyText } from '@alfalab/core-components-typography';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
@@ -111,7 +111,7 @@ export const Text: React.FC<TextProps> = ({
                         {String(cardNumber).slice(-4)}
                     </TypographyText>
                     {eyeButton && maxSize && (
-                        <ButtonMobile
+                        <ButtonDesktop
                             view='text'
                             className={cn(styles.buttonEye)}
                             dataTestId={getDataTestId(dataTestId, 'eye-btn')}
@@ -119,7 +119,7 @@ export const Text: React.FC<TextProps> = ({
                             colors='inverted'
                         >
                             <EyeMIcon />
-                        </ButtonMobile>
+                        </ButtonDesktop>
                     )}
                 </div>
             ) : null}
