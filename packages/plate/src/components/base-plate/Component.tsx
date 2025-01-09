@@ -217,6 +217,8 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
 
         const rowLimitStyles = rowLimit && commonStyles[`rowLimit${rowLimit}`];
 
+        const isCustomView = view === 'custom';
+
         const handleClick = useCallback(
             (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
                 const clickSimilarKeys = ['Enter', ' '].includes(
@@ -268,6 +270,27 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             [onClose],
         );
 
+        const setCustomViewColors = (): { background: string; borderColor: string } | object => {
+            if (isCustomView) {
+                return {
+                    background,
+                    borderColor,
+                };
+            }
+
+            return {};
+        };
+
+        const setCustomViewRectangleBorderColor = (): { boxShadow: string } | object => {
+            if (isCustomView && border && !rounded && borderColor) {
+                return {
+                    boxShadow: `2px 0 0 0 ${borderColor} inset`,
+                };
+            }
+
+            return {};
+        };
+
         return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
@@ -279,20 +302,19 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                         [commonStyles.focused]: focused,
                         [commonStyles.isHidden]: hasCloser && isHidden,
                         [commonStyles.isFolded]: foldable && folded,
-
                         [commonStyles.rounded]: rounded,
                         [styles.rounded]: rounded,
-
                         [commonStyles.rect]: !rounded,
                         [commonStyles.noBorder]: !border,
-
                         [commonStyles.shadow]: shadow,
                         [styles.shadow]: shadow,
+                        [commonStyles.customBorder]: border && !rounded && isCustomView,
                     },
                     className,
                 )}
                 style={{
-                    ...(view === 'custom' && { background, borderColor }),
+                    ...setCustomViewColors(),
+                    ...setCustomViewRectangleBorderColor(),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}

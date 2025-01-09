@@ -101,6 +101,11 @@ export type CalendarRangeProps = {
      * Возвращать невалидную дату для кастомной валидации
      */
     returnInvalidDates?: boolean;
+
+    /**
+     * Дополнительный класс для контейнера календаря
+     */
+    calendarContainerClassName?: string;
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({

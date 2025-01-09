@@ -29,10 +29,10 @@ Object {
                 class="inputWrapper"
               >
                 <div
-                  class="input"
+                  class="input size-48"
                 >
                   <div
-                    class="contentWrapper"
+                    class="contentWrapper size-48"
                   />
                 </div>
               </div>
@@ -40,7 +40,7 @@ Object {
                 class="addons rightAddons"
               >
                 <svg
-                  class="arrow arrow"
+                  class="arrow size-48 arrow"
                   fill="currentColor"
                   focusable="false"
                   height="24"
@@ -87,10 +87,10 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="input"
+                class="input size-48"
               >
                 <div
-                  class="contentWrapper"
+                  class="contentWrapper size-48"
                 />
               </div>
             </div>
@@ -98,7 +98,7 @@ Object {
               class="addons rightAddons"
             >
               <svg
-                class="arrow arrow"
+                class="arrow size-48 arrow"
                 fill="currentColor"
                 focusable="false"
                 height="24"
@@ -196,10 +196,10 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <div
-                class="contentWrapper"
+                class="contentWrapper size-48"
               />
             </div>
           </div>
@@ -207,7 +207,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
             class="addons rightAddons"
           >
             <svg
-              class="arrow arrow"
+              class="arrow size-48 arrow"
               fill="currentColor"
               focusable="false"
               height="24"
@@ -222,7 +222,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
           </div>
         </div>
         <span
-          class="sub error error"
+          class="sub size-48 error error"
           role="alert"
         >
           Error
@@ -259,10 +259,10 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             >
               <div
-                class="contentWrapper"
+                class="contentWrapper size-48"
               />
             </div>
           </div>
@@ -270,7 +270,7 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
             class="addons rightAddons"
           >
             <svg
-              class="arrow arrow open"
+              class="arrow size-48 arrow open"
               fill="currentColor"
               focusable="false"
               height="24"

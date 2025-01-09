@@ -1,5 +1,18 @@
 # Change Log
 
+## 3.3.6
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+-   Обновлены зависимости
+    -   typography@4.11.2
+
 ## 3.3.5
 
 ### Patch Changes

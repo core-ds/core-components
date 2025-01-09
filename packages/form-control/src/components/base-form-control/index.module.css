@@ -47,6 +47,10 @@
     font-family: var(--form-control-font-family);
 }
 
+.input.size-40 > * {
+    padding: 0 var(--gap-8);
+}
+
 .label {
     @mixin paragraph_component;
 
@@ -86,6 +90,11 @@
 .sub {
     @mixin paragraph_component_secondary;
     @mixin form-control-sub;
+
+    &.size-40 {
+        @mixin paragraph_secondary_medium;
+        margin-top: var(--gap-4);
+    }
 }
 
 .above {
@@ -96,6 +105,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &.size-40 {
+        @mixin paragraph_secondary_medium;
+        margin-bottom: var(--gap-4);
+    }
 }
 
 .block {
@@ -103,6 +117,33 @@
 }
 
 /* SIZES */
+
+.size-40 {
+    & .inner {
+        min-height: var(--form-control-40-min-height);
+        padding: var(--gap-0) var(--gap-4);
+    }
+
+    & .hasInnerLabel .input > * {
+        padding: var(--form-control-labeled-40-paddings);
+    }
+
+    & .label {
+        @mixin paragraph_component_secondary;
+        top: calc(var(--form-control-40-min-height) / 2);
+        left: var(--gap-8);
+    }
+
+    & .addons {
+        &.rightAddons {
+            padding-right: var(--gap-8);
+        }
+
+        &.leftAddons {
+            padding-left: var(--gap-8);
+        }
+    }
+}
 
 .size-48 .inner {
     min-height: var(--form-control-s-min-height);

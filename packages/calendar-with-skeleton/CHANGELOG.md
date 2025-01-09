@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.3.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.2.2
+    -   calendar@7.17.2
+
 ## 5.3.14
 
 ### Patch Changes
