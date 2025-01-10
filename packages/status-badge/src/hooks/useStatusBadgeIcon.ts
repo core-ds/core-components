@@ -1,33 +1,48 @@
-import { ICON_MAP, IconMap } from '../consts/iconMap';
-import {
+import type { IconMap } from '../consts/iconMap';
+import type {
     StatusBadgeCustomIcon,
     StatusBadgeSizes,
     StatusBadgeViews,
 } from '../types/statusBadgePropTypes';
 
-export const useStatusBadgeIcon = (
-    view: StatusBadgeViews,
-    size: StatusBadgeSizes,
-    customIcons?: StatusBadgeCustomIcon,
+export const combineIcons = (
+    iconMap: IconMap,
+    customIcons?: StatusBadgeCustomIcon | StatusBadgeCustomIcon[],
 ) => {
-    let iconsMap = ICON_MAP;
+    let iconsMap = iconMap;
 
     // transform initial icons map
     if (customIcons) {
-        iconsMap = Object.keys(ICON_MAP).reduce(
-            (acc, current) => ({
-                ...acc,
-                ...{
-                    [current]: {
-                        ...ICON_MAP[current as StatusBadgeViews],
-                        ...customIcons[current as StatusBadgeViews],
+        const customIconsAll: StatusBadgeCustomIcon[] = Array.isArray(customIcons)
+            ? customIcons
+            : [customIcons];
+
+        customIconsAll.forEach((customIconsSet) => {
+            iconsMap = Object.keys(iconsMap).reduce(
+                (acc, current) => ({
+                    ...acc,
+                    ...{
+                        [current]: {
+                            ...iconsMap[current as StatusBadgeViews],
+                            ...customIconsSet[current as StatusBadgeViews],
+                        },
                     },
-                },
-            }),
-            {} as IconMap,
-        );
+                }),
+                {} as IconMap,
+            );
+        });
     }
 
+    return iconsMap;
+};
+
+export const useStatusBadgeIcon = (
+    view: StatusBadgeViews,
+    size: StatusBadgeSizes,
+    iconMap: IconMap,
+    customIcons?: StatusBadgeCustomIcon | StatusBadgeCustomIcon[],
+) => {
+    const iconsMap = combineIcons(iconMap, customIcons);
     const Icon = iconsMap[view][size];
 
     return { Icon };
