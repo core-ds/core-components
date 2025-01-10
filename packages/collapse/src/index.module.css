@@ -33,5 +33,5 @@
 }
 
 .rotated {
-    transform: rotate(180deg);
+    transform: var(--arrow-transform);
 }
