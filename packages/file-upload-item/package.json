@@ -18,7 +18,7 @@
         "@alfalab/core-components-icon-button": "^6.11.6",
         "@alfalab/core-components-link": "^5.3.4",
         "@alfalab/core-components-spinner": "^4.0.3",
-        "@alfalab/icons-glyph": "^2.189.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/core-components-typography": "^4.11.3",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
