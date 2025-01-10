@@ -1,3 +1,17 @@
+## 48.9.0
+
+<sup><time>10.01.2025</time></sup>
+
+### [#1525](https://github.com/core-ds/core-components/pull/1525)
+
+#### Что изменилось
+- Обновление зависимости icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`file-upload-item`
+
+
+
 ## 48.8.0
 
 <sup><time>09.01.2025</time></sup>
