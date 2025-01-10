@@ -24,6 +24,9 @@
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
+    "devDependencies": {
+        "@alfalab/core-components-status-badge": "^1.2.3"
+    },
     "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }

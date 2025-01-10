@@ -27,6 +27,11 @@
         "react-merge-refs": "1.1.0",
         "tslib": "^2.4.0"
     },
+    "devDependencies": {
+        "@alfalab/core-components-status-badge": "^1.2.3",
+        "@alfalab/core-components-icon-view": "^3.9.3",
+        "@alfalab/core-components-pure-cell": "^4.14.1"
+    },
     "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }
