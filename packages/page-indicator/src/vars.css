@@ -1,0 +1,14 @@
+@import '../../vars/src/index.css';
+
+:root {
+    --page-indicator-animation-duration: 0.2s;
+    --page-indicator-animation-timing-function: ease-in-out;
+
+    /* default */
+    --page-indicator-color: var(--color-light-neutral-translucent-300);
+    --page-indicator-active-color: var(--color-light-neutral-translucent-1300);
+
+    /* inverted */
+    --page-indicator-inverted-color: var(--color-light-neutral-translucent-300-inverted);
+    --page-indicator-active-inverted-color: var(--color-light-neutral-translucent-1300-inverted);
+}
