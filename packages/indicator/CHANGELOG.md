@@ -1,5 +1,15 @@
 # @alfalab/core-components-indicator
 
+## 2.2.4
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
 ## 2.2.3
 
 ### Patch Changes

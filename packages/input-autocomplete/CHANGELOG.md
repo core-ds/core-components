@@ -1,5 +1,23 @@
 # Change Log
 
+## 12.7.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.3.6
+    -   form-control@12.8.0
+    -   input@15.5.0
+    -   select@17.19.0
+
 ## 12.6.9
 
 ### Patch Changes

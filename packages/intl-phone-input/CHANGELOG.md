@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.11.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.7.0
+    -   select@17.19.0
+
 ## 9.11.9
 
 ### Patch Changes

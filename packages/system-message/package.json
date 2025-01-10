@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-system-message",
-    "version": "2.5.4",
+    "version": "2.5.5",
     "description": "System message component",
     "keywords": [],
     "license": "MIT",
@@ -20,6 +20,6 @@
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.6.0",
+    "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }

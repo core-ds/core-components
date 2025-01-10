@@ -1,5 +1,22 @@
 # Change Log
 
+## 13.9.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   code-input@3.9.5
+    -   link@5.3.4
+    -   spinner@4.0.3
+    -   typography@4.11.3
+
 ## 13.9.5
 
 ### Patch Changes

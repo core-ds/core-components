@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.31
+
 ## 7.4.7
 
 ### Patch Changes

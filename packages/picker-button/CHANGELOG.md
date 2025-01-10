@@ -1,5 +1,20 @@
 # Change Log
 
+## 11.12.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   popover@6.3.6
+    -   select@17.19.0
+
 ## 11.12.9
 
 ### Patch Changes

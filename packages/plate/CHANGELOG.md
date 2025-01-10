@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.8.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   icon-button@6.11.6
+
 ## 7.8.6
 
 ### Patch Changes

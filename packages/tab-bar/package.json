@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tab-bar",
-    "version": "2.1.8",
+    "version": "2.1.9",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,12 +16,12 @@
         "react-dom": ">=16.8.0"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.11.2",
-        "@alfalab/core-components-indicator": "^2.2.3",
+        "@alfalab/core-components-typography": "^4.11.3",
+        "@alfalab/core-components-indicator": "^2.2.4",
         "@alfalab/core-components-shared": "^0.14.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.6.0",
+    "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }
