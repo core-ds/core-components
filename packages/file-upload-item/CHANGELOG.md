@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+<sup><time>10.01.2025</time></sup>
+
+### [#1525](https://github.com/core-ds/core-components/pull/1525)
+
+-   Обновление зависимости icons-glyph
+
 ## 6.1.1
 
 ### Patch Changes
