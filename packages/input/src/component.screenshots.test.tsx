@@ -72,7 +72,7 @@ describe('Input | screenshots size prop', () => {
                         componentName: 'Input',
                         knobs: {
                             label: 'Label',
-                            size: [48, 56, 64, 72],
+                            size: [40, 48, 56, 64, 72],
                         },
                         size: { width: 350, height: 150 },
                     }),

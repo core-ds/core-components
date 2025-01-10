@@ -22,6 +22,7 @@ export const universal_date_input: Story = {
                 view={select('view', ['date', 'date-time', 'date-range', 'time'] as any, 'date')}
                 picker={boolean('picker', false) as true}
                 Calendar={Calendar}
+                size={select('size', [40, 48, 56, 64, 72], 48)}
             />
         );
     },

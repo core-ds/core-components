@@ -34,6 +34,6 @@
     transition: background-color 200ms ease-out;
 }
 
-.transparent {
+.transparent.transparent {
     background-color: var(--backdrop-hidden-background);
 }

@@ -211,6 +211,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 className={cn(className)}
                 fieldClassName={cn(fieldClassName, {
                     [styles.focusVisible]: focusVisible,
+                    [styles['resizable-40']]: resize === 'vertical' && size === 40,
                 })}
                 inputWrapperClassName={cn(styles.wrapper, styles[SIZE_TO_CLASSNAME_MAP[size]], {
                     [styles.hasInnerLabel]: hasInnerLabel,

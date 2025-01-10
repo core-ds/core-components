@@ -1,5 +1,14 @@
 # Change Log
 
+## 5.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.4.4
+    -   portal@3.3.5
+    -   shared@0.14.1
+
 ## 5.8.6
 
 ### Patch Changes

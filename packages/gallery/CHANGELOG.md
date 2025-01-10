@@ -1,5 +1,22 @@
 # Change Log
 
+## 5.10.8
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   typography@4.11.2
+    -   tooltip@7.8.3
+    -   base-modal@5.8.7
+
 ## 5.10.7
 
 ### Patch Changes

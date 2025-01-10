@@ -1,5 +1,21 @@
 # @alfalab/core-components-number-input
 
+## 2.5.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   shared@0.14.1
+
 ## 2.5.6
 
 ### Patch Changes

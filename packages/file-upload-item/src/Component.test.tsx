@@ -1,9 +1,9 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { FileUploadItem } from '.';
+import { FileUploadItem, FileUploadItemProps } from '.';
 
-export const fileProps = {
+export const fileProps: FileUploadItemProps = {
     title: 'title',
     subtitle: 'subtitle',
     uploadStatus: 'INITIAL',

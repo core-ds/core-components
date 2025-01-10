@@ -21,6 +21,12 @@ Object.defineProperty(window, 'matchMedia', {
     }),
 });
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+}));
+
 const tabVariants: Array<
     [typeof TabsMobile | typeof TabsDesktop | typeof TabsResponsive, TabsProps['view']]
 > = [
