@@ -1,0 +1,111 @@
+@import '../../../vars/src/index.css';
+
+:root {
+    --radio-hint-color-inverted: var(--color-light-text-secondary-inverted);
+    --radio-label-color-inverted: var(--color-light-text-primary-inverted);
+
+    /* unchecked */
+    --radio-bg-color-inverted: var(--color-light-neutral-0-inverted);
+    --radio-border-color-inverted: var(--color-light-neutral-translucent-700-inverted);
+    --radio-hover-bg-color-inverted: var(--color-light-neutral-0-inverted-hover);
+    --radio-hover-border-color-inverted: var(--color-light-neutral-translucent-700-inverted);
+    --radio-active-bg-color-inverted: var(--color-light-neutral-0-inverted-press);
+    --radio-active-border-color-inverted: var(--color-light-neutral-translucent-700-inverted);
+
+    /* checked */
+    --radio-checked-bg-color-inverted: var(--color-light-accent-secondary-inverted);
+    --radio-checked-border-color-inverted: transparent;
+    --radio-checked-hover-bg-color-inverted: var(--color-light-accent-secondary-inverted-hover);
+    --radio-checked-hover-border-color-inverted: transparent;
+    --radio-checked-active-bg-color-inverted: var(--color-light-accent-secondary-inverted-press);
+    --radio-checked-active-border-color-inverted: transparent;
+
+    /* disabled */
+    --radio-disabled-color-inverted: var(--color-light-text-secondary-inverted);
+    --radio-disabled-bg-color-inverted: var(--color-light-neutral-0-inverted);
+    --radio-disabled-border-color-inverted: var(--color-light-neutral-translucent-300-inverted);
+
+    /* disabled and checked */
+    --radio-checked-disabled-bg-color-inverted: var(--color-light-neutral-translucent-200-inverted);
+    --radio-checked-disabled-border-color-inverted: transparent;
+
+    /* icon */
+    --radio-icon-color-inverted: var(--color-light-neutral-translucent-1300);
+    --radio-icon-disabled-color-inverted: var(--color-light-neutral-translucent-500-inverted);
+}
+
+.container {
+    &:not(.checked):not(.disabled) {
+        & .circle {
+            background-color: var(--radio-bg-color-inverted);
+            border: 1.5px solid var(--radio-border-color-inverted);
+        }
+
+        &:hover:not(:active) .circle {
+            background-color: var(--radio-hover-bg-color-inverted);
+            border-color: var(--radio-hover-border-color-inverted);
+        }
+
+        &:active .circle {
+            background-color: var(--radio-active-bg-color-inverted);
+            border-color: var(--radio-active-border-color-inverted);
+        }
+    }
+
+    &.disabled {
+        cursor: var(--disabled-cursor);
+
+        & .circle {
+            background-color: var(--radio-disabled-bg-color-inverted);
+            border: 1.5px solid var(--radio-disabled-border-color-inverted);
+        }
+
+        & .label {
+            color: var(--radio-disabled-color-inverted);
+        }
+
+        & .hint {
+            color: var(--radio-disabled-color-inverted);
+        }
+
+        &.checked .circle:before {
+            background-color: var(--radio-icon-disabled-color-inverted);
+        }
+    }
+
+    &.checked {
+        & .circle {
+            background-color: var(--radio-checked-bg-color-inverted);
+            border: 1.5px solid var(--radio-checked-border-color-inverted);
+        }
+
+        &:hover .circle {
+            background-color: var(--radio-checked-hover-bg-color-inverted);
+            border-color: var(--radio-checked-hover-border-color-inverted);
+        }
+
+        &:active .circle {
+            background-color: var(--radio-checked-active-bg-color-inverted);
+            border-color: var(--radio-checked-active-border-color-inverted);
+        }
+    }
+
+    &.disabled.checked .circle {
+        background-color: var(--radio-checked-disabled-bg-color-inverted);
+        border-color: var(--radio-checked-disabled-border-color-inverted);
+    }
+}
+
+.circle {
+    &:before {
+        background-color: var(--radio-icon-color-inverted);
+    }
+}
+
+.label {
+    color: var(--radio-label-color-inverted);
+}
+
+.hint {
+    color: var(--radio-hint-color-inverted);
+}

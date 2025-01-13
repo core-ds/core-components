@@ -17,10 +17,17 @@ import { useFocus } from '@alfalab/hooks';
 
 import { CheckIcon } from './icon';
 
-import styles from './index.module.css';
+import defaultColors from './styles/default.module.css';
+import styles from './styles/index.module.css';
+import invertedColors from './styles/inverted.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 type Align = 'start' | 'center';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHint'> & {
     /**
@@ -122,6 +129,12 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Пропсы для label
      */
     labelProps?: DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -154,6 +167,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             labelProps,
             error,
             inputRef,
+            colors = 'default',
             ...restProps
         },
         ref,
@@ -170,19 +184,25 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 
         const errorMessage = typeof error === 'boolean' ? '' : error;
 
+        const colorStyle = colorStyles[colors];
+
         return (
             <label
                 {...labelProps}
                 className={cn(
                     styles.component,
+                    colorStyle.component,
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles[align],
                     className,
                     labelProps?.className,
                     {
                         [styles.disabled]: disabled || inactive,
+                        [colorStyle.disabled]: disabled || inactive,
                         [styles.checked]: checked,
+                        [colorStyle.checked]: checked,
                         [styles.indeterminate]: indeterminate,
+                        [colorStyle.indeterminate]: indeterminate,
                         [styles.focused]: focused,
                         [styles.block]: block,
                     },
@@ -200,16 +220,26 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         {...restProps}
                     />
                 )}
-                <span className={cn(styles.box, boxClassName)}>
-                    {checked && <CheckIcon className={styles.checkedIcon} />}
-                    {indeterminate && !checked && <span className={styles.indeterminateLine} />}
+                <span className={cn(styles.box, colorStyle.box, boxClassName)}>
+                    {checked && (
+                        <CheckIcon className={cn(styles.checkedIcon, colorStyle.checkedIcon)} />
+                    )}
+                    {indeterminate && !checked && (
+                        <span
+                            className={cn(styles.indeterminateLine, colorStyle.indeterminateLine)}
+                        />
+                    )}
                 </span>
 
                 {(label || hint || errorMessage) && (
                     <span className={cn(styles.content, contentClassName)}>
-                        {label && <span className={styles.label}>{label}</span>}
+                        {label && (
+                            <span className={cn(styles.label, colorStyle.label)}>{label}</span>
+                        )}
 
-                        {hint && !errorMessage && <span className={styles.hint}>{hint}</span>}
+                        {hint && !errorMessage && (
+                            <span className={cn(styles.hint, colorStyle.hint)}>{hint}</span>
+                        )}
 
                         {errorMessage && (
                             <span className={styles.errorMessage} role='alert'>

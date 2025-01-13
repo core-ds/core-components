@@ -26,21 +26,38 @@ import Changelog from '../../CHANGELOG.md?raw';
         const block = boolean('block', false);
         const addons = text('addons');
         const align = select('align', ['start', 'center']);
+        const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <Checkbox
-                disabled={disabled}
-                inactive={inactive}
-                size={size}
-                block={block}
-                addons={addons}
-                align={align}
-                onChange={handleChange}
-                checked={checked || checkedKnob}
-                label={label}
-                indeterminate={indeterminate}
-                hint={hint}
-                error={error}
-            />
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <Checkbox
+                    disabled={disabled}
+                    inactive={inactive}
+                    size={size}
+                    block={block}
+                    addons={addons}
+                    align={align}
+                    onChange={handleChange}
+                    checked={checked || checkedKnob}
+                    label={label}
+                    indeterminate={indeterminate}
+                    hint={hint}
+                    error={error}
+                    colors={colors}
+                />
+            </div>
         );
     })}
 </Story>

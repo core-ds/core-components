@@ -26,19 +26,36 @@ import Changelog from '../../CHANGELOG.md?raw';
         const hint = text('hint', 'Hint');
         const align = select('align', ['start', 'center'], 'start');
         const addons = text('addons');
+        const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <Radio
-                disabled={disabled}
-                inactive={inactive}
-                addons={addons}
-                block={block}
-                size={size}
-                align={align}
-                onChange={handleChange}
-                checked={checked || checkedKnob}
-                hint={hint}
-                label={label}
-            />
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <Radio
+                    disabled={disabled}
+                    inactive={inactive}
+                    addons={addons}
+                    block={block}
+                    size={size}
+                    align={align}
+                    onChange={handleChange}
+                    checked={checked || checkedKnob}
+                    hint={hint}
+                    label={label}
+                    colors={colors}
+                />
+            </div>
         );
     })}
 </Story>

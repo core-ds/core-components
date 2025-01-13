@@ -1,0 +1,131 @@
+@import '../../../vars/src/index.css';
+
+:root {
+    --checkbox-hint-color-inverted: var(--color-light-text-secondary-inverted);
+    --checkbox-label-color-inverted: var(--color-light-text-primary-inverted);
+
+    /* unchecked */
+    --checkbox-bg-color-inverted: var(--color-light-neutral-0-inverted);
+    --checkbox-border-color-inverted: var(--color-light-neutral-translucent-700-inverted);
+    --checkbox-hover-bg-color-inverted: var(--color-light-neutral-0-inverted-hover);
+    --checkbox-hover-border-color-inverted: var(--color-light-neutral-translucent-700-inverted);
+    --checkbox-active-bg-color-inverted: var(--color-light-neutral-0-inverted-press);
+    --checkbox-active-border-color-inverted: var(--color-light-neutral-translucent-700-inverted);
+
+    /* checked */
+    --checkbox-checked-bg-color-inverted: var(--color-light-accent-secondary-inverted);
+    --checkbox-checked-border-color-inverted: transparent;
+    --checkbox-checked-hover-bg-color-inverted: var(--color-light-accent-secondary-inverted-hover);
+    --checkbox-checked-hover-border-color-inverted: transparent;
+    --checkbox-checked-active-bg-color-inverted: var(--color-light-accent-secondary-inverted-press);
+    --checkbox-checked-active-border-color-inverted: transparent;
+
+    /* disabled */
+    --checkbox-disabled-color-inverted: var(--color-light-text-secondary-inverted);
+    --checkbox-disabled-bg-color-inverted: var(--color-light-neutral-0-inverted);
+    --checkbox-disabled-border-color-inverted: var(--color-light-neutral-translucent-300-inverted);
+
+    /* disabled and checked */
+    --checkbox-checked-disabled-bg-color-inverted: var(
+        --color-light-neutral-translucent-200-inverted
+    );
+    --checkbox-checked-disabled-border-color-inverted: transparent;
+
+    /* icon */
+    --checkbox-icon-color-inverted: var(--color-light-neutral-translucent-1300);
+    --checkbox-icon-indeterminate-color-inverted: var(--color-light-neutral-translucent-1300);
+    --checkbox-icon-disabled-color-inverted: var(--color-light-neutral-translucent-500-inverted);
+}
+
+.box {
+    color: var(--color-light-neutral-translucent-1300);
+    background-color: var(--checkbox-bg-color-inverted);
+    border: 1.5px solid var(--checkbox-border-color-inverted);
+}
+
+.checkedIcon {
+    color: var(--checkbox-icon-color-inverted);
+}
+
+.component:hover:not(.disabled) .box {
+    background-color: var(--checkbox-hover-bg-color-inverted);
+    border-color: var(--checkbox-hover-border-color-inverted);
+}
+
+.component:active:not(.disabled) .box {
+    background-color: var(--checkbox-active-bg-color-inverted);
+    border-color: var(--checkbox-active-border-color-inverted);
+}
+
+.checked .box {
+    background-color: var(--checkbox-checked-bg-color-inverted);
+    border-color: var(--checkbox-checked-border-color-inverted);
+}
+
+.checked:hover:not(.disabled) .box {
+    background-color: var(--checkbox-checked-hover-bg-color-inverted);
+    border-color: var(--checkbox-checked-hover-border-color-inverted);
+}
+
+.checked:active:not(.disabled) .box {
+    background-color: var(--checkbox-checked-active-bg-color-inverted);
+    border-color: var(--checkbox-checked-active-border-color-inverted);
+}
+
+.indeterminate .box {
+    background-color: var(--checkbox-checked-bg-color-inverted);
+    border-color: var(--checkbox-checked-border-color-inverted);
+}
+
+.indeterminate:hover:not(.disabled) .box {
+    background-color: var(--checkbox-checked-hover-bg-color-inverted);
+    border-color: var(--checkbox-checked-hover-border-color-inverted);
+}
+
+.indeterminate:active:not(.disabled) .box {
+    background-color: var(--checkbox-checked-active-bg-color-inverted);
+    border-color: var(--checkbox-checked-active-border-color-inverted);
+}
+
+.disabled .box {
+    background-color: var(--checkbox-disabled-bg-color-inverted);
+    border-color: var(--checkbox-disabled-border-color-inverted);
+}
+
+.disabled.checked .box {
+    background-color: var(--checkbox-checked-disabled-bg-color-inverted);
+    border-color: var(--checkbox-checked-disabled-border-color-inverted);
+
+    .checkedIcon {
+        color: var(--checkbox-icon-disabled-color-inverted);
+    }
+}
+
+.disabled.indeterminate .box {
+    background-color: var(--checkbox-checked-disabled-bg-color-inverted);
+    border-color: var(--checkbox-checked-disabled-border-color-inverted);
+
+    & .indeterminateLine {
+        background-color: var(--checkbox-icon-disabled-color-inverted);
+    }
+}
+
+.disabled .label {
+    color: var(--checkbox-disabled-color-inverted);
+}
+
+.disabled .hint {
+    color: var(--checkbox-disabled-color-inverted);
+}
+
+.label {
+    color: var(--checkbox-label-color-inverted);
+}
+
+.hint {
+    color: var(--checkbox-hint-color-inverted);
+}
+
+.indeterminateLine {
+    background-color: var(--checkbox-icon-indeterminate-color-inverted);
+}
