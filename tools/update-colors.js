@@ -10,30 +10,30 @@ const UNDERSCORE_RE = /_/g;
 const DASH = '-';
 
 const colorsDir = path.resolve(__dirname, '../node_modules/ui-primitives/styles');
+const deprecatedPalettes = ['colors.json', 'colors_indigo.json'];
 
 glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
-    files.forEach(pathname => {
+    files.forEach((pathname) => {
         const colors = requireColors(pathname);
 
         generateColorMods(colors);
 
         let css = '';
-        const isColorsPackage = pathname.includes('colors.json');
+        const isDeprecatedPalette = deprecatedPalettes.some((palette) =>
+            pathname.includes(palette),
+        );
 
         Object.entries(colors).forEach(([color, token]) => {
             let value = token.hex && token.hex.length <= 7 ? token.hex : token.rgba;
             css += `    ${buildVarName(color)}: ${value};${
-                token.deprecated || isColorsPackage ? ' /* deprecated */' : ''
+                token.deprecated || isDeprecatedPalette ? ' /* deprecated */' : ''
             }\n`;
         });
 
         const cssPath = path.resolve(
             __dirname,
             '../packages/vars/src',
-            path
-                .basename(pathname)
-                .replace('.json', '.css')
-                .replace('_', '-'),
+            path.basename(pathname).replace('.json', '.css').replace('_', '-'),
         );
 
         postcss([
@@ -42,7 +42,7 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
             }),
         ])
             .process(`:root {\n${css}}\n`, { from: cssPath })
-            .then(result => {
+            .then((result) => {
                 fs.writeFileSync(cssPath, result.css);
 
                 if (pathname.includes('indigo')) {
@@ -60,12 +60,12 @@ function buildDarkThemeVars(colors) {
     let mixin = '@define-mixin theme-dark {\n';
     let vars = ':root {';
 
-    Object.keys(colors).forEach(color => {
+    Object.keys(colors).forEach((color) => {
         if (/^light-/.test(color) === false) return;
 
         const pair = color
             .replace(/^light-/, 'dark-')
-            .replace(/-(shade|tint)-/, v => (v === '-shade-' ? '-tint-' : '-shade-'));
+            .replace(/-(shade|tint)-/, (v) => (v === '-shade-' ? '-tint-' : '-shade-'));
 
         if (colors[pair] && !color.endsWith('-old')) {
             const varName = `    ${buildVarName(color)}: var(--color-${pair});\n`;
@@ -97,7 +97,7 @@ function generateColorMods(colors) {
         if (!modsConfig) return;
 
         Object.entries(modsConfig).forEach(([mod, modValues]) => {
-            modValues.forEach(modValue => {
+            modValues.forEach((modValue) => {
                 const generatedColorName = `${colorName}-${mod}-${modValue}`;
 
                 const colorValue = token.hex.length <= 7 ? token.hex : token.rgba;
