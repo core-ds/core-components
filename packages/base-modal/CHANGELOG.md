@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.8.8
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+
 ## 5.8.7
 
 ### Patch Changes

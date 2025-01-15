@@ -1,3 +1,39 @@
+## 48.9.0
+
+<sup><time>10.01.2025</time></sup>
+
+### [#1525](https://github.com/core-ds/core-components/pull/1525)
+
+#### Что изменилось
+- Обновление зависимости icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`file-upload-item`
+
+
+
+## 48.8.0
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+#### Что изменилось
+- Обновление зависимостей
+
+#### Влияние на компоненты
+- Патчи<br />`accordion` `action-button` `alert` `amount` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `custom-picker-button` `date-input` `date-range-input`<br /> `date-time-input` `divider` `drawer` `dropzone` `file-upload-item`<br /> `file-upload-item-v1` `filter-tag` `gallery` `gap` `generic-wrapper`<br /> `grid` `hatching-progress-bar` `icon-button` `icon-view` `indicator`<br /> `international-phone-input` `intl-phone-input` `link` `list` `list-header`<br /> `loader` `markdown` `masked-input` `modal` `navigation-bar`<br /> `navigation-bar-private` `notification` `notification-manager` `pagination` `pass-code`<br /> `pass-code-v1` `pattern-lock` `pattern-lock-v1` `picker-button` `plate`<br /> `popover` `popup-sheet` `product-cover` `progress-bar` `pure-cell`<br /> `radio` `radio-group` `scrollbar` `segmented-control` `side-panel`<br /> `skeleton` `slider` `sortable-list` `space` `spinner`<br /> `status` `status-badge` `stepped-progress-bar` `steps` `switch`<br /> `system-message` `tab-bar` `table` `tabs` `tag`<br /> `text` `time-input` `toast` `toast-plate` `tooltip`<br /> `typography` `underlay` `with-suffix`
+
+<br />
+
+#### Что изменилось
+- Добавлен 40 размер
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input` `form-control` `input` `input-autocomplete` `number-input`<br /> `password-input` `phone-input` `select` `select-with-tags` `slider-input`<br /> `textarea` `themes` `universal-date-input`
+
+
+
 ## 48.7.0
 
 <sup><time>26.12.2024</time></sup>

@@ -17,6 +17,10 @@
     height: 100%;
     display: block;
     color: var(--calendar-icon-color);
+
+    &.size-40 {
+        width: 16px;
+    }
 }
 
 .calendarContainer {

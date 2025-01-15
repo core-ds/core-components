@@ -1,5 +1,21 @@
 # @alfalab/core-components-number-input
 
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   input@15.5.0
+
 ## 2.5.7
 
 ### Patch Changes

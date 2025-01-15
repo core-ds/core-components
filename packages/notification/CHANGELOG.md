@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.5.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.7
+
 ## 7.5.5
 
 ### Patch Changes

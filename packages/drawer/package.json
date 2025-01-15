@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-drawer",
-    "version": "5.1.7",
+    "version": "5.1.8",
     "description": "Drawer component",
     "keywords": [],
     "license": "MIT",
@@ -16,11 +16,11 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.8.7",
+        "@alfalab/core-components-base-modal": "^5.8.8",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.6.0",
+    "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }

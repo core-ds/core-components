@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.9.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
 ## 9.9.0
 
 ### Minor Changes

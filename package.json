@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.7.0",
+    "version": "48.9.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -58,7 +58,7 @@
     "dependencies": {
         "@alfalab/data": "^1.9.1",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.189.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/icons-logotype": "^2.27.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
         "@alfalab/utils": "^1.17.1",

@@ -1,5 +1,21 @@
 # Change Log
 
+## 9.1.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   slider@4.7.3
+    -   input@15.5.0
+
 ## 9.0.4
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 5.10.9
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   base-modal@5.8.8
+    -   icon-button@6.11.6
+    -   tooltip@7.8.4
+    -   typography@4.11.3
+
 ## 5.10.8
 
 ### Patch Changes

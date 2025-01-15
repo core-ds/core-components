@@ -1,5 +1,15 @@
 # @alfalab/core-components-sortable-list
 
+## 1.6.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
 ## 1.6.5
 
 ### Patch Changes

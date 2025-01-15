@@ -1,5 +1,20 @@
 # Change Log
 
+## 8.9.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@12.8.0
+
 ## 8.8.9
 
 ### Patch Changes

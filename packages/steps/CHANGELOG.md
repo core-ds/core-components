@@ -1,5 +1,18 @@
 # @alfalab/core-components-steps
 
+## 1.7.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   badge@5.6.4
+
 ## 1.7.4
 
 ### Patch Changes

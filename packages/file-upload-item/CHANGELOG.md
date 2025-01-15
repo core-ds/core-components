@@ -1,5 +1,31 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+<sup><time>10.01.2025</time></sup>
+
+### [#1525](https://github.com/core-ds/core-components/pull/1525)
+
+-   Обновление зависимости icons-glyph
+
+## 6.1.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   link@5.3.4
+    -   spinner@4.0.3
+    -   typography@4.11.3
+
 ## 6.1.0
 
 ### Minor Changes
