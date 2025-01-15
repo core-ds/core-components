@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta
+    title='For users/Responsive lock'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
+    id='Instructions/Responsive-lock'
+/>
+
+## Блокировка Responsive компонентов под конкретное состояние
+
+Responsive компонент можно заблокировать с помощью пропcа `breakpoint`.
+Данный пропс предназначен для того, чтобы определить точку перехода компонента из mobile в desktop.
+Но также с помощью него можно заблокировать компонент под один вид (при любом размере экрана будет desktop или mobile тип компонента).
+Это особый случай для некоторых команд, которые по некоторым причинам не могут использовать desktop/mobile раскладки.<br/>
+<b><i>Постарайтесь избегать этот способ определения типа компонента.</i></b>
+<br/>
+
+#### Desktop
+
+Передайте компоненту `breakpoint={0}` чтобы заблокировать responsive компонент на desktop состояние.
+
+```jsx live
+render(() => <Button breakpoint={0}>Desktop Button</Button>)
+```
+
+
+#### Mobile
+
+Передайте пропсу достаточно большое значение чтобы медиа значения не сработало.<br/> Например `breakpoint={999999}`.
+
+```jsx live
+render(() => <Button breakpoint={999999}>Mobile Button</Button>)
+```
+
+#### Core Config
+
+Чтобы не переопределять компоненты по отдельности, можно воспользоваться контекстом - компоненты автоматически получат значение из него (доступен в core-components с 48 версии).
+
+```jsx
+const coreConfig = React.useMemo<CoreConfigContext>(
+    () => ({ breakpoint: 0 }), []
+);
+
+<CoreConfigContext.Provider>
+    <Button view='primary'>Primary Button</Button>
+    <Button view='secondary'>Secondary Button</Button>
+</CoreConfigContext.Provider>
+```
