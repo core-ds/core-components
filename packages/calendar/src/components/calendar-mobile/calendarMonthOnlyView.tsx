@@ -9,9 +9,9 @@ import startOfMonth from 'date-fns/startOfMonth';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { Month } from '../../../../typings';
-import { useCalendar } from '../../../../useCalendar';
-import { useRange } from '../../../../useRange';
+import { Month } from '../../typings';
+import { useCalendar } from '../../useCalendar';
+import { useRange } from '../../useRange';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
@@ -22,11 +22,12 @@ import {
     isRangeValue,
     limitDate,
     monthName,
-} from '../../../../utils';
-import { DaysTable } from '../../../days-table';
-import { CalendarContentProps } from '../../typings';
+} from '../../utils';
+import { DaysTable } from '../days-table';
 
-import styles from '../../index.module.css';
+import { CalendarContentProps } from './typings';
+
+import styles from './index.module.css';
 
 export const CalendarMonthOnlyView = ({
     value,
