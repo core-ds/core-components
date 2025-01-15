@@ -5,7 +5,7 @@ import { Actions } from './components/actions-control';
 import { Content } from './components/content';
 import { StatusControl } from './components/status-control';
 import { FileUploadItemContext } from './context/file-upload-item-context';
-import { FileUploadItemProps } from './types/file-upload-item-props';
+import { type FileUploadItemProps } from './types/file-upload-item-props';
 
 import styles from './index.module.css';
 

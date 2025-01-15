@@ -1,5 +1,28 @@
 # @alfalab/core-components-pass-code
 
+## 2.4.11
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   gap@1.4.2
+
+## 2.4.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   button@11.11.2
+
 ## 2.4.9
 
 ### Patch Changes

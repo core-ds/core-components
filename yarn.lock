@@ -88,15 +88,15 @@
     "@alfalab/utils" "^1.17.1"
     uuid "^8.3.2"
 
-"@alfalab/icons-glyph@^2.108.0", "@alfalab/icons-glyph@^2.139.0", "@alfalab/icons-glyph@^2.66.0":
+"@alfalab/icons-glyph@^2.108.0", "@alfalab/icons-glyph@^2.66.0":
   version "2.140.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.140.0.tgz#31cb75bf2495b082a0b8d0e3f4a8c2c47e3e2eb6"
   integrity sha512-Mee0c9tyFVKIH0yN9IuKyLa0qoYf1ybwGFkng9Iy+1OGIvgl9ecb74erg/+n/NzR7bI2AAx1yVFDS/LEHivixw==
 
-"@alfalab/icons-glyph@^2.189.0":
-  version "2.190.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.190.0.tgz#70138633b408ba0541af097238a19d802c5050a3"
-  integrity sha512-ExFc74a6OoA4iZ8Y++JGwZ9QiuwsE9tDK23zuSBHF0rJOVZrGAtPYpVqqp35ROu3dUgi5LrT39M3eQb9u1OeHw==
+"@alfalab/icons-glyph@^2.210.0":
+  version "2.211.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.211.0.tgz#84c3b7a450ceec355909e33554c191e880324995"
+  integrity sha512-uyHHAHs73Aj5Sbai4cviAOs9OqzQHi4NTtkQ2UeASIwYg7qCGdHOm35GViKI0rJnZcc17rxopltReb1WtD7N1w==
 
 "@alfalab/icons-logotype@^2.27.0":
   version "2.27.0"

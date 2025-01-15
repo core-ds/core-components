@@ -1,5 +1,59 @@
 # Change Log
 
+## 17.19.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.4
+    -   base-modal@5.8.8
+    -   bottom-sheet@6.17.15
+    -   button@11.11.3
+    -   checkbox@4.7.5
+    -   modal@9.9.1
+    -   popover@6.3.6
+    -   scrollbar@3.1.3
+    -   skeleton@5.2.3
+    -   form-control@12.8.0
+    -   input@15.5.0
+
+## 17.18.1
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1503](https://github.com/core-ds/core-components/pull/1503)
+
+-   Замена зависимости deep-equal на react-fast-compare. Меньше, современнее, быстрее.
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   modal@9.9.0
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   skeleton@5.2.2
+    -   button@11.11.2
+    -   checkbox@4.7.4
+    -   form-control@12.7.4
+    -   bottom-sheet@6.17.14
+    -   base-modal@5.8.7
+
 ## 17.18.0
 
 ### Minor Changes

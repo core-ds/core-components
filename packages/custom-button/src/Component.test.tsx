@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { CustomButton } from './index';
+import { CustomButton } from '.';
+import { CustomButtonDesktop } from './desktop';
+import { CustomButtonMobile } from './mobile';
 
 const dataTestId = 'test-id';
 
@@ -23,21 +25,31 @@ describe('CustomButton', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<CustomButton />)).toMatchSnapshot();
+            expect(render(<CustomButtonDesktop />)).toMatchSnapshot();
+            expect(render(<CustomButtonMobile />)).toMatchSnapshot();
         });
 
         it('should render custom background color', () => {
             expect(render(<CustomButton backgroundColor='#00ff00' />)).toMatchSnapshot();
+            expect(render(<CustomButtonDesktop backgroundColor='#00ff00' />)).toMatchSnapshot();
+            expect(render(<CustomButtonMobile backgroundColor='#00ff00' />)).toMatchSnapshot();
         });
 
         it('should render black color content', () => {
             expect(render(<CustomButton contentColor='black' />)).toMatchSnapshot();
+            expect(render(<CustomButtonDesktop contentColor='black' />)).toMatchSnapshot();
+            expect(render(<CustomButtonMobile contentColor='black' />)).toMatchSnapshot();
         });
 
         it('should render CustomButton view=primary by default', () => {
             expect(render(<CustomButton />)).toMatchSnapshot();
+            expect(render(<CustomButtonDesktop />)).toMatchSnapshot();
+            expect(render(<CustomButtonMobile />)).toMatchSnapshot();
         });
         it('should render loader if loading pass', () => {
             expect(render(<CustomButton loading={true} />)).toMatchSnapshot();
+            expect(render(<CustomButtonDesktop loading={true} />)).toMatchSnapshot();
+            expect(render(<CustomButtonMobile loading={true} />)).toMatchSnapshot();
         });
     });
 
@@ -91,22 +103,22 @@ describe('CustomButton', () => {
         });
 
         describe('disableType test', () => {
-            it('should have `disableType_default` class', () => {
+            it('should have `disableType-default` class', () => {
                 const { container } = render(<CustomButton disableType='default' />);
                 expect(container.firstElementChild).toHaveClass('disableType-default');
             });
 
-            it('should have `disableType_static` class', () => {
+            it('should have `disableType-static` class', () => {
                 const { container } = render(<CustomButton disableType='static' />);
                 expect(container.firstElementChild).toHaveClass('disableType-static');
             });
 
-            it('should have `disableType_inverted` class', () => {
+            it('should have `disableType-inverted` class', () => {
                 const { container } = render(<CustomButton disableType='inverted' />);
                 expect(container.firstElementChild).toHaveClass('disableType-inverted');
             });
 
-            it('should have `disableType_static-inverted` class', () => {
+            it('should have `disableType-static-inverted` class', () => {
                 const { container } = render(<CustomButton disableType='static-inverted' />);
                 expect(container.firstElementChild).toHaveClass('disableType-static-inverted');
             });

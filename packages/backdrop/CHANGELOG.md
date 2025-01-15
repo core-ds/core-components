@@ -1,5 +1,26 @@
 # Change Log
 
+## 3.4.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 3.4.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1444](https://github.com/core-ds/core-components/pull/1444)
+
+-   Для drawer исправлена передача backdrop transition пропсов
+-   Для backdrop поднята специфичность transition класса
+
 ## 3.4.3
 
 ### Patch Changes

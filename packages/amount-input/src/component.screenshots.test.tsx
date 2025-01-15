@@ -82,6 +82,16 @@ describe(
                     },
                 }),
             ],
+            [
+                'sprite size',
+                createSpriteStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        minority: 100,
+                        size: [40, 48, 56, 64, 72],
+                    },
+                }),
+            ],
         ],
     }),
 );

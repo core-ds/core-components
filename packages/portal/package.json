@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-portal",
-    "version": "3.3.4",
+    "version": "3.3.5",
     "description": "Portal component",
     "keywords": [],
     "license": "MIT",
@@ -17,8 +17,8 @@
     },
     "dependencies": {
         "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.14.0"
+        "@alfalab/core-components-shared": "^0.14.1"
     },
-    "themesVersion": "13.6.0",
+    "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }

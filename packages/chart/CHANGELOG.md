@@ -1,5 +1,25 @@
 # Change Log
 
+## 3.4.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   typography@4.11.3
+
+## 3.4.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.2
+
 ## 3.4.5
 
 ### Patch Changes

@@ -1,5 +1,29 @@
 # @alfalab/core-components-system-message
 
+## 2.5.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 2.5.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+
 ## 2.5.3
 
 ### Patch Changes

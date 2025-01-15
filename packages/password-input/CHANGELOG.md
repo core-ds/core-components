@@ -1,5 +1,35 @@
 # Change Log
 
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   input@15.5.0
+
+## 5.6.6
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   input@15.4.0
+
 ## 5.6.5
 
 ### Patch Changes

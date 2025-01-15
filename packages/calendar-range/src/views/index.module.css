@@ -26,3 +26,9 @@
         }
     }
 }
+
+.calendarContainer {
+    width: var(--calendar-inner-width);
+    display: flex;
+    justify-content: center;
+}

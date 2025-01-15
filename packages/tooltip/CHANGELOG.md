@@ -1,5 +1,31 @@
 # Change Log
 
+## 7.8.4
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.15
+    -   button@11.11.3
+    -   popover@6.3.6
+
+## 7.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   button@11.11.2
+    -   bottom-sheet@6.17.14
+
 ## 7.8.2
 
 ### Patch Changes
