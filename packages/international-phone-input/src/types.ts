@@ -9,18 +9,11 @@ import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-inp
 import type { InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
 import { OptionShape } from '@alfalab/core-components-select/typings';
 
+import { Country } from '../../types';
+
 import type { SharedCountrySelectProps } from './components/country-select';
 
-export type Country = {
-    name: string;
-    regions?: string[];
-    iso2: string;
-    countryCode: string;
-    dialCode: string;
-    format?: string;
-    priority: number;
-    mainCode?: boolean;
-};
+export { Country };
 
 export type AreaItem = Country & {
     isAreaCode: boolean;
