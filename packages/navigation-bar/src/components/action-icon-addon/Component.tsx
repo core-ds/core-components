@@ -51,11 +51,7 @@ export const ActionIconAddon: React.FC<ActionIconAddonProps> = ({
         dataTestId={dataTestId}
         {...htmlAttributes}
     >
-        <div
-            className={cn(styles.iconWrapper, {
-                [styles[action]]: Boolean(styles[action]),
-            })}
-        >
+        <div className={cn(styles.iconWrapper, { [styles[action]]: Boolean(styles[action]) })}>
             {iconComponents[action]}
         </div>
     </ButtonDesktop>

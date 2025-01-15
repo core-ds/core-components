@@ -66,7 +66,6 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
             contentTransitionProps,
             nativeScrollbar = true,
             placement = 'right',
-            contentClassName,
             ...restProps
         },
         ref,
