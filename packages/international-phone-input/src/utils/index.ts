@@ -1,3 +1,4 @@
+import { RefObject } from 'react';
 import type { MaskitoOptions } from '@maskito/core';
 
 import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
@@ -51,8 +52,8 @@ export function initCountries(iso2s?: string[], customCountriesList?: CountriesD
 
 export function findCountry(
     countries: Country[][],
-    value?: string,
-    iso2?: string,
+    value: string | undefined,
+    iso2: string | undefined,
     country?: Country,
 ) {
     if (country) return country;
@@ -163,18 +164,27 @@ export function createMaskOptions(
     country: Country | undefined,
     clearableCountryCode: boolean,
     preserveCountryCode: boolean,
+    lastCountryRef: RefObject<Country | null>,
 ): MaskitoOptions {
     const countryCode = country?.countryCode;
     const prefix = countryCode ? getInitialValueFromCountry(countryCode) : '';
     const prefixLen = !clearableCountryCode && prefix ? prefix.length : 0;
     const mask = createPhoneMaskExpression(country, clearableCountryCode);
 
+    const preprocessors = [
+        maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
+    ];
+
+    if (preserveCountryCode) {
+        const createMask = (lastCountry: Country) =>
+            createPhoneMaskExpression(lastCountry, clearableCountryCode);
+
+        preprocessors.push(maskUtils.preserveCountryCodePreprocessor(lastCountryRef, createMask));
+    }
+
     return {
         mask,
-        preprocessors: [
-            maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
-            maskUtils.preserveCountryCodePreprocessor(countryCode, preserveCountryCode),
-        ],
+        preprocessors,
         postprocessors: [maskUtils.prefixPostprocessor(prefixLen > 0 ? prefix : '')],
         plugins: [
             maskUtils.caretGuard((value, [from, to]) => [
