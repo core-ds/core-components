@@ -1,32 +1,5 @@
 ---
-'@alfalab/core-components-base-modal': minor
-'@alfalab/core-components-navigation-bar-private': minor
-'@alfalab/core-components-scrollbar': minor
 '@alfalab/core-components-universal-modal': minor
-'@alfalab/core-components-shared': minor
 ---
 
-#### BaseModal
-
-- Добавлен хэндлер `onWheel` события
-- Добавлен пропс `contentElementRef` для контентной области
-
-#### NavigationBarPrivate
-
-- Добавлен пропс для установки data атрибута `dataName`
-- Добавлен дополнительный класс для заголовка `titleClassName`
-- Добавлен ref для заголовка `titleRef`
-
-#### Scrollbar
-
-- Добавлен дополнительный класс для контейнера вертикальной полосы прокрутки `verticalBarClassName`
-- Добавлен обработчик прокрутки контента `onContentScroll`
-
-#### UniversalModal
-
-Добавлен новый компонент `UniversalModal`
-
-#### Shared
-
-- Добавлена проверка в os -> isMacOS
-- Добавлена проверка в browser -> isSafari
+- Добавлен новый компонент `UniversalModal`
