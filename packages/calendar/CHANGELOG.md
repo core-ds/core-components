@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.17.4
+
+### Patch Changes
+
+<sup><time>15.01.2025</time></sup>
+
+### [#1531](https://github.com/core-ds/core-components/pull/1531)
+
+-   Исправление предотвращающие ошибки типизации
+
 ## 7.17.3
 
 ### Patch Changes
