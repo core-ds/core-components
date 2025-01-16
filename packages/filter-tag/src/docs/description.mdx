@@ -160,7 +160,7 @@ render(() => {
         if (selectedFrom && selectedTo) {
             const selectedFromDate = new Date(selectedFrom);
             const selectedToDate = new Date(selectedTo);
-            return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
+            return `${getDateString(selectedFromDate)} – ${getDateString(selectedToDate)}`;
         }
         return '';
     }, [selectedFrom, selectedTo]);
