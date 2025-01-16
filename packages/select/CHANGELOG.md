@@ -1,5 +1,24 @@
 # Change Log
 
+## 17.20.0
+
+### Minor Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1508](https://github.com/core-ds/core-components/pull/1508)
+
+Добавлен сплит select/option
+В select/shared добавлены OptionDesktop и OptionMobile
+
+### Patch Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1535](https://github.com/core-ds/core-components/pull/1535)
+
+-   Исправили некорректную передачу выбранных опций в пропсе `selectedItems`, также исправлена работа обработчика `setSelectedItems` в групповом компоненте при использовании виртуального списка
+
 ## 17.19.0
 
 ### Minor Changes
