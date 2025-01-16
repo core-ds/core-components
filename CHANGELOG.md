@@ -1,3 +1,57 @@
+## 48.10.0
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1535](https://github.com/core-ds/core-components/pull/1535)
+
+#### Что изменилось
+- Исправили некорректную передачу выбранных опций в пропсе `selectedItems`, также исправлена работа обработчика `setSelectedItems` в групповом компоненте при использовании виртуального списка
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1492](https://github.com/core-ds/core-components/pull/1492)
+
+#### Что изменилось
+- Добавлены десктоп/мобайл импорты
+   - Мелкий рефакторинг css - вынесены общие стили в коммон
+   - Добавлено sideEffects: false
+
+#### Влияние на компоненты
+- Минорное<br />`pass-code`
+
+
+### [#1494](https://github.com/core-ds/core-components/pull/1494)
+
+#### Что изменилось
+Добавлены атомные импорты
+Добавлено sideEffects: false
+
+#### Влияние на компоненты
+- Минорное<br />`system-message`
+
+
+### [#1523](https://github.com/core-ds/core-components/pull/1523)
+
+#### Что изменилось
+- Апдейт вендора recharts 2.1.2 -> 2.12.7
+
+#### Влияние на компоненты
+- Патчи<br />`chart`
+
+
+### [#1508](https://github.com/core-ds/core-components/pull/1508)
+
+#### Что изменилось
+Добавлен сплит select/option
+В select/shared добавлены OptionDesktop и OptionMobile
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+
 ## 48.9.1
 
 <sup><time>15.01.2025</time></sup>
