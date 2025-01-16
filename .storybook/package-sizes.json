@@ -113,7 +113,7 @@
     "select": {
         "desktop.js": 161.3,
         "index.js": 230.1,
-        "mobile.js": 203.4,
+        "mobile.js": 203.5,
         "shared.js": 189.9
     },
     "select-with-tags": {
@@ -258,7 +258,7 @@
     "international-phone-input": {
         "desktop.js": 470.3,
         "index.js": 536.5,
-        "mobile.js": 508.5,
+        "mobile.js": 508.6,
         "shared.js": 2.4
     },
     "input": {
@@ -269,7 +269,7 @@
     },
     "input-autocomplete": {
         "desktop.js": 157.5,
-        "index.js": 236.9,
+        "index.js": 237,
         "mobile.js": 209.5,
         "shared.js": 1.5
     },
@@ -344,7 +344,7 @@
     },
     "custom-picker-button": {
         "desktop.js": 146.7,
-        "index.js": 236.4,
+        "index.js": 236.5,
         "mobile.js": 208.9
     },
     "custom-button": {
