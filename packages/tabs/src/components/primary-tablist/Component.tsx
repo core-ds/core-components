@@ -35,6 +35,7 @@ export const PrimaryTabList = ({
         onChange,
     });
 
+    // расчет размера и положения нижней полосы
     useEffect(() => {
         if (selectedTab) {
             const updateLineWidth = () => {
@@ -53,7 +54,7 @@ export const PrimaryTabList = ({
         }
 
         return fnUtils.noop;
-    }, [selectedTab]);
+    }, [selectedTab, titles]);
 
     const handleTitleResize = useCallback(() => {
         if (selectedTab && lineRef.current) {
