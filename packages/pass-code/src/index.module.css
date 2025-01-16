@@ -3,6 +3,9 @@
 
 .component {
     min-height: var(--pass-code-min-height);
+    box-sizing: border-box;
+    padding: var(--gap-8) var(--gap-16) var(--gap-16);
+    min-width: var(--pass-code-min-width);
 }
 
 .inputProgressContainer {
