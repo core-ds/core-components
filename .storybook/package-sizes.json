@@ -187,7 +187,9 @@
         "index.js": 30
     },
     "pass-code": {
+        "desktop.js": 20.1,
         "index.js": 22.7,
+        "mobile.js": 20.1,
         "shared.js": 0.3
     },
     "pass-code-v1": {
@@ -383,7 +385,7 @@
         "mobile.js": 2.7
     },
     "chart": {
-        "index.js": 437.8
+        "index.js": 426
     },
     "cdn-icon": {
         "index.js": 1.9
