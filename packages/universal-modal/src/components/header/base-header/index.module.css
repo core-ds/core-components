@@ -1,0 +1,64 @@
+@import '../../../vars.css';
+@import '../../../../../vars/src/index.css';
+
+.header {
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+    padding: var(--gap-20) var(--gap-20) 0;
+}
+
+.highlighted {
+    background: var(--universal-modal-header-highlight-background);
+    box-shadow: var(--universal-modal-header-highlight-box-shadow);
+}
+
+.sticky {
+    position: sticky;
+    z-index: 1;
+
+    &.hasContent {
+        background: var(--universal-modal-header-background);
+    }
+}
+
+.header.backgroundImage {
+    background: center no-repeat;
+    background-size: cover;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.title {
+    word-break: break-word;
+}
+
+.addon {
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+}
+
+.closer {
+    margin-left: auto;
+}
+
+.right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.trim {
+    overflow: hidden;
+
+    & .title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
