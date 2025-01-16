@@ -9,6 +9,7 @@ export const SIZES = {
     48: 48,
     64: 64,
     80: 80,
+    96: 96,
     128: 128,
     144: 144,
 };
@@ -24,6 +25,7 @@ export const STROKE = {
     48: 4,
     64: 6,
     80: 8,
+    96: 8,
     128: 10,
     144: 12,
 };
@@ -39,6 +41,7 @@ export const VIEW_TITLE = {
     48: 'small',
     64: 'small',
     80: 'xsmall',
+    96: 'xsmall',
     128: 'medium',
     144: 'medium',
 } as const;
@@ -54,6 +57,7 @@ export const VIEW_TEXT = {
     48: 'secondary-small',
     64: 'secondary-large',
     80: 'secondary-large',
+    96: 'secondary-large',
     128: 'secondary-large',
     144: 'secondary-large',
 } as const;
@@ -71,6 +75,9 @@ export const SIZE_TO_CLASSNAME_MAP = {
     48: 'size-48',
     64: 'size-64',
     80: 'size-80',
+    96: 'size-96',
     128: 'size-128',
     144: 'size-144',
 };
+
+export const MAX_PROGRESS_VALUE = 100;
