@@ -1,13 +1,14 @@
 import React, { ElementType, ReactNode, useMemo, useState } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { Text, TitleMobile } from '@alfalab/core-components-typography';
 
 import { Timer } from './components/timer/timer';
 import { ComponentSize } from './types/component-size';
 import { TimerProps } from './types/timer-props';
 import { TypographyColor } from './types/typography-color';
-import { isTypographyColor } from './utils/isTypographyColor';
+import { isTypographyColor } from './utils/is-typography-color';
 import {
     MAX_PROGRESS_VALUE,
     SIZE_TO_CLASSNAME_MAP,
@@ -181,7 +182,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     strokeColor,
     timer = false,
     counting = 'backward',
-    directionType = 'asc',
+    directionType = 'desc',
     titleColor,
     subtitleColor,
 }) => {
@@ -277,6 +278,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 style={{
                     ...getTextStyleColor(titleColor),
                 }}
+                dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {titleContent}
             </TitleMobile>
@@ -290,6 +292,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 style={{
                     ...getTextStyleColor(titleColor),
                 }}
+                dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {titleContent}
             </Text>
@@ -302,6 +305,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     totalSeconds={value}
                     counting={counting}
                     size={size}
+                    dataTestId={dataTestId}
                     color={getTimerColor(titleColor)}
                     style={getTextStyleColor(titleColor)}
                     updateProgress={updateProgress}
@@ -319,6 +323,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 className={styles.subtitle}
                 color={getTextColor(subtitleColor)}
                 view='primary-small'
+                dataTestId={getDataTestId(dataTestId, 'subtitle')}
                 style={{
                     ...getTextStyleColor(subtitleColor),
                 }}
@@ -382,6 +387,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     cy={memorized.center}
                     r={memorized.radius}
                     strokeWidth={STROKE[size]}
+                    data-test-id={getDataTestId(dataTestId, 'circle-progress-bar')}
                 />
                 <circle
                     className={cn(
@@ -403,6 +409,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                             : memorized.strokeDashoffset
                     }
                     transform={`rotate(${-90} ${memorized.center} ${memorized.center})`}
+                    data-test-id={getDataTestId(dataTestId, 'circle-progress-value')}
                 />
             </svg>
             <div

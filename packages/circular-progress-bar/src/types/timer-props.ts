@@ -14,7 +14,7 @@ export type TimerProps = {
 
     /**
      * Убывание или заполнение круга по мере отсчёта таймера
-     * @default asc
+     * @default desc
      */
     directionType?: 'asc' | 'desc';
 };

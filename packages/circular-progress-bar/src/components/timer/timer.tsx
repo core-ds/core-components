@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useEffect, useState } from 'react';
 
-import { isClient } from '@alfalab/core-components-shared';
+import { getDataTestId, isClient } from '@alfalab/core-components-shared';
 import { Text, TitleMobile } from '@alfalab/core-components-typography';
 
 import { SIZES, VIEW_TEXT, VIEW_TITLE } from '../../consts';
@@ -16,13 +16,14 @@ type Props = {
     totalSeconds: number;
     counting: TimerProps['counting'];
     size: ComponentSize;
+    dataTestId?: string;
     color?: TypographyColor;
     style: CSSProperties;
     updateProgress: (secondsRemaining: number) => void;
 };
 
 export const Timer: FC<Props> = (props) => {
-    const { totalSeconds, counting, size, color, style, updateProgress } = props;
+    const { totalSeconds, counting, size, dataTestId, color, style, updateProgress } = props;
 
     const [secondsRemaining, updateSecondsRemaining] = useState<number>(
         Math.max(MIN_COUNTER_VALUE, Math.min(MAX_COUNTER_VALUE, totalSeconds)), // min 0, max 3599
@@ -71,6 +72,7 @@ export const Timer: FC<Props> = (props) => {
                 font='system'
                 view={VIEW_TITLE[size]}
                 style={style}
+                dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {getTimerText()}
             </TitleMobile>
@@ -85,6 +87,7 @@ export const Timer: FC<Props> = (props) => {
             weight='bold'
             view={VIEW_TEXT[size]}
             style={style}
+            dataTestId={getDataTestId(dataTestId, 'title')}
         >
             {getTimerText()}
         </Text>
