@@ -2,6 +2,8 @@
 
 :root {
     --skeleton-display: block;
+
+    /* не используется в самом компоненте */
     --skeleton-border-radius: var(--border-radius-8);
     --skeleton-backdrop-filter: blur(20px);
     --skeleton-bg-animation-display: block;

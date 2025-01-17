@@ -5,7 +5,6 @@
     display: var(--skeleton-display);
     vertical-align: middle;
     color: transparent;
-    border-radius: var(--skeleton-border-radius);
     overflow: hidden;
 
     /* Safari overflow fix https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
@@ -13,6 +12,24 @@
 
     &.allowBackdropBlur {
         backdrop-filter: var(--skeleton-backdrop-filter);
+    }
+}
+
+@each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 36, 64 {
+    .border-radius-tl-$(size) {
+        border-top-left-radius: var(--border-radius-$(size));
+    }
+
+    .border-radius-tr-$(size) {
+        border-top-right-radius: var(--border-radius-$(size));
+    }
+
+    .border-radius-bl-$(size) {
+        border-bottom-left-radius: var(--border-radius-$(size));
+    }
+
+    .border-radius-br-$(size) {
+        border-bottom-right-radius: var(--border-radius-$(size));
     }
 }
 
