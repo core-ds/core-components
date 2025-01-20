@@ -73,4 +73,22 @@ export const circular_progress_bar: Story = {
     },
 };
 
+export const timer: Story = {
+    name: 'Timer',
+    render: () => {
+        const counting = select('counting', ['backward', 'forward'], 'backward');
+        const directionType = select('directionType', ['desc', 'asc'], 'desc');
+
+        return (
+            <CircularProgressBar
+                timer={true}
+                size={80}
+                value={60}
+                counting={counting}
+                directionType={directionType}
+            />
+        );
+    },
+};
+
 export default meta;
