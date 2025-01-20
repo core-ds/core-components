@@ -52,6 +52,7 @@ export const Field = ({
     labelView,
     FormControlComponent,
     icon,
+    onClear,
     ...restProps
 }: FieldProps) => {
     const Icon: ComponentType<SVGProps<SVGSVGElement>> = getIcon(

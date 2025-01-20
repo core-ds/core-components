@@ -33,6 +33,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
             showSkeleton = false,
             skeletonProps,
             onResize,
+            dataTestId,
             ...restProps
         },
         ref,
@@ -67,6 +68,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
         return hidden ? null : (
             <button
                 {...restProps}
+                data-test-id={dataTestId}
                 ref={mergeRefs([ref, buttonRef])}
                 disabled={disabled || showSkeleton}
                 type='button'
