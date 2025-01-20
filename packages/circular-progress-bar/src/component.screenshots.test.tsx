@@ -2,7 +2,9 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
+    generateTestCases,
 } from '../../screenshot-utils';
+import { Page } from 'playwright';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -37,7 +39,7 @@ describe(
                         title: ['', 'Title'],
                         subtitle: ['', 'SubTitle'],
                         view: 'positive',
-                        size: [24, 48, 64, 80, 128, 144],
+                        size: [24, 48, 64, 80, 96, 128, 144],
                     },
                     size: { width: 200, height: 200 },
                 }),
@@ -51,7 +53,7 @@ describe(
                         title: ['', 'Title'],
                         subtitle: ['', 'SubTitle'],
                         view: 'positive',
-                        size: [24, 48, 64, 80, 128, 144],
+                        size: [24, 48, 64, 80, 96, 128, 144],
                     },
                     size: { width: 200, height: 200 },
                 }),
@@ -65,7 +67,7 @@ describe(
                         title: ['', 'Title'],
                         subtitle: ['', 'SubTitle'],
                         view: 'negative',
-                        size: [24, 48, 64, 80, 128, 144],
+                        size: [24, 48, 64, 80, 96, 128, 144],
                     },
                     size: { width: 200, height: 200 },
                 }),
@@ -79,7 +81,7 @@ describe(
                         title: ['', 'Title'],
                         subtitle: ['', 'SubTitle'],
                         view: 'negative',
-                        size: [24, 48, 64, 80, 128, 144],
+                        size: [24, 48, 64, 80, 96, 128, 144],
                     },
                     size: { width: 200, height: 200 },
                 }),
@@ -208,6 +210,69 @@ describe(
         ],
         screenshotOpts: {
             fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'CircularProgressBar | color overriding',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'CircularProgressBar',
+                    knobs: {
+                        value: 50,
+                        title: 'Title',
+                        subtitle: 'SubTitle',
+                        size: 80,
+                        contentColor: ['primary', 'tomato'],
+                        titleColor: ['positive', 'blue'],
+                    },
+                    size: { width: 96, height: 96 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'CircularProgressBar',
+                    knobs: {
+                        value: 50,
+                        title: 'Title',
+                        subtitle: 'SubTitle',
+                        size: 80,
+                        contentColor: ['primary', 'tomato'],
+                        subtitleColor: ['positive', 'blue'],
+                    },
+                    size: { width: 96, height: 96 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+            clip: { x: 0, y: 0, width: 1024, height: 150 },
+        },
+    }),
+);
+
+describe(
+    'CircularProgressBar | Timer',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'CircularProgressBar',
+            subComponentName: 'Timer',
+            testStory: false,
+            knobs: {
+                value: 60,
+                counting: ['backward', 'forward'],
+                directionType: ['desc', 'asc'],
+            },
+        }),
+        evaluate: (page: Page) => page.waitForTimeout(16000),
+        screenshotOpts: {
+            fullPage: false,
+            clip: { x: 0, y: 0, width: 96, height: 96 },
         },
     }),
 );
