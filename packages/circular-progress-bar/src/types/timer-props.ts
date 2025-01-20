@@ -1,6 +1,8 @@
 export type TimerProps = {
     /**
-     * В режиме timer=true `Title` умеет работать с секундами.
+     * В режиме timer=true компонент работает с секундами
+     * Минимальное значение value=0
+     * Максимальное значение value=3599
      * @default false
      */
     timer?: boolean;
@@ -13,7 +15,7 @@ export type TimerProps = {
     counting?: 'forward' | 'backward';
 
     /**
-     * Убывание или заполнение круга по мере отсчёта таймера
+     * Направление заполнения круга по мере отсчёта таймера
      * @default desc
      */
     directionType?: 'asc' | 'desc';
