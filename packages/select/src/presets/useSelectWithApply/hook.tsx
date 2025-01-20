@@ -222,7 +222,6 @@ export function useSelectWithApply({
                 onChange: handleToggleAll,
             },
         },
-        allowUnselect: true,
         multiple: true,
         options: memoizedOptions,
         onChange: handleChange,
