@@ -264,12 +264,11 @@ describe(
             subComponentName: 'Timer',
             testStory: false,
             knobs: {
-                value: 60,
                 counting: ['backward', 'forward'],
                 directionType: ['desc', 'asc'],
             },
         }),
-        evaluate: (page: Page) => page.waitForTimeout(16000),
+        evaluate: (page: Page) => page.waitForTimeout(5000),
         screenshotOpts: {
             fullPage: false,
             clip: { x: 0, y: 0, width: 96, height: 96 },
