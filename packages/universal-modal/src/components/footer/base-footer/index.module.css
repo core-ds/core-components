@@ -1,0 +1,20 @@
+@import '../../../../../vars/src/index.css';
+@import '../../../vars.css';
+
+.footer {
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+    padding: var(--gap-16) var(--gap-32) var(--gap-32);
+}
+
+.sticky {
+    background: var(--universal-modal-footer-background);
+    position: sticky;
+    z-index: 1;
+}
+
+.highlighted {
+    background: var(--universal-modal-footer-highlight-background);
+    box-shadow: var(--universal-modal-footer-highlight-box-shadow);
+}

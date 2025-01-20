@@ -1,0 +1,12 @@
+@import '../../vars/src/index.css';
+
+:root {
+    --universal-modal-header-background: var(--color-light-modal-bg-primary);
+    --universal-modal-footer-background: var(--color-light-modal-bg-primary);
+
+    /* scroll */
+    --universal-modal-header-highlight-background: var(--color-light-modal-bg-primary);
+    --universal-modal-footer-highlight-background: var(--color-light-modal-bg-primary);
+    --universal-modal-header-highlight-box-shadow: 0 1px 0 0 var(--color-light-neutral-300);
+    --universal-modal-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
+}

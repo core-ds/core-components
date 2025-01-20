@@ -1,4 +1,8 @@
+import { detect } from 'detect-browser';
+
 import { isClient } from './isClient';
+
+const browser = detect();
 
 const IOS_REG_EXP = /ipad|iphone|ipod/;
 
@@ -17,7 +21,16 @@ function isIOS(): boolean {
     return false;
 }
 
+function isMacOS(): boolean {
+    if (isClient() && browser) {
+        return browser.os === 'Mac OS';
+    }
+
+    return false;
+}
+
 export const os = {
     isIOS,
     isApplePlatform,
+    isMacOS,
 };

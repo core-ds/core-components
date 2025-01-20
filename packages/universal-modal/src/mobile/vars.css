@@ -1,0 +1,8 @@
+@import '../../../vars/src/index.css';
+
+:root {
+    --universal-modal-header-mobile-font-size: 20px;
+    --universal-modal-header-mobile-line-height: 28px;
+    --universal-modal-header-mobile-font-family: var(--font-family-system);
+    --universal-modal-header-mobile-font-weight: 600;
+}
