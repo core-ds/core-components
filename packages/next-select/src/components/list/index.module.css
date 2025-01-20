@@ -1,0 +1,22 @@
+@import '../../vars.css';
+
+.component {
+    &.nativeScroll {
+        overflow-y: auto;
+    }
+}
+
+.contentWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.content {
+    will-change: transform;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &:not(.matchContentWidth) {
+        width: 100%;
+    }
+}
