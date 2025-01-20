@@ -444,7 +444,9 @@
         "index.js": 34.4
     },
     "alert": {
-        "index.js": 15.9
+        "desktop.js": 15.6,
+        "index.js": 15.9,
+        "mobile.js": 15.6
     },
     "action-button": {
         "index.js": 6,
