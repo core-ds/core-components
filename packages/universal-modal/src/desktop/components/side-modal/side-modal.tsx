@@ -105,6 +105,7 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
                         }
                     }
                 },
+                ...restProps.transitionProps,
             }}
             backdropProps={{
                 transparent: !overlay,

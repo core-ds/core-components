@@ -15,6 +15,7 @@ import styles from './center-modal.module.css';
 import safariTransitions from './safari-transitions.module.css';
 import transitions from './transitions.module.css';
 
+// safari некорректно отрабатывает transform:scale(?), поэтому применяем немного другую анимацию
 const transitionProps = os.isMacOS() && browser.isSafari() ? safariTransitions : transitions;
 
 export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
@@ -54,6 +55,7 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
             componentRef={componentRef}
             transitionProps={{
                 classNames: transitionProps,
+                ...restProps.transitionProps,
             }}
             className={cn(className, styles.component, {
                 [styles.overlayHidden]: !overlay,

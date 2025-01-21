@@ -11,4 +11,13 @@ export type BaseUniversalModalMobileProps = {
 };
 
 export type UniversalModalMobileProps = BaseUniversalModalMobileProps &
-    Pick<BaseModalProps, 'children' | 'dataTestId' | 'open' | 'className'>;
+    Pick<
+        BaseModalProps,
+        | 'children'
+        | 'dataTestId'
+        | 'open'
+        | 'className'
+        | 'wrapperClassName'
+        | 'onUnmount'
+        | 'transitionProps'
+    >;
