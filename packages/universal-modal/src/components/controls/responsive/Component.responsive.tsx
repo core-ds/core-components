@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import type { ControlsDesktopProps, ControlsMobileProps } from '..';
-import { ControlsDesktop, ControlsMobile } from '..';
+import { ControlsDesktop, ControlsDesktopProps } from '../desktop/Component.desktop';
+import { ControlsMobile, ControlsMobileProps } from '../mobile/Component.mobile';
 
 export type ControlsResponsiveProps = ControlsDesktopProps | ControlsMobileProps;
 

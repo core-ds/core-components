@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import type { HeaderDesktopProps, HeaderMobileProps } from '..';
-import { HeaderDesktop, HeaderMobile } from '..';
+import { HeaderDesktop, HeaderDesktopProps } from '../desktop/Component.desktop';
+import { HeaderMobile, HeaderMobileProps } from '../mobile/Component.mobile';
 
 export type HeaderResponsiveProps = HeaderDesktopProps | HeaderMobileProps;
 
