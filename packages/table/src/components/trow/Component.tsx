@@ -50,3 +50,5 @@ export const TRow = forwardRef<HTMLTableRowElement, TRowProps>(
         </tr>
     ),
 );
+
+TRow.displayName = 'TRow';
