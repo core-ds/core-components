@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import { TCell, TCellProps } from '../tcell';
@@ -34,23 +34,19 @@ export type TRowProps = HTMLAttributes<HTMLTableRowElement> & {
     dataTestId?: string;
 };
 
-export const TRow = ({
-    children,
-    className,
-    selected,
-    withoutBorder,
-    dataTestId,
-    ...restProps
-}: TRowProps) => (
-    <tr
-        className={cn(styles.component, className, {
-            [styles.clickable]: typeof restProps.onClick !== 'undefined',
-            [styles.selected]: selected,
-            [styles.withoutBorder]: withoutBorder,
-        })}
-        data-test-id={dataTestId}
-        {...restProps}
-    >
-        {React.Children.map(children, (child, index) => React.cloneElement(child, { index }))}
-    </tr>
+export const TRow = forwardRef<HTMLTableRowElement, TRowProps>(
+    ({ children, className, selected, withoutBorder, dataTestId, ...restProps }, ref) => (
+        <tr
+            className={cn(styles.component, className, {
+                [styles.clickable]: typeof restProps.onClick !== 'undefined',
+                [styles.selected]: selected,
+                [styles.withoutBorder]: withoutBorder,
+            })}
+            data-test-id={dataTestId}
+            ref={ref}
+            {...restProps}
+        >
+            {React.Children.map(children, (child, index) => React.cloneElement(child, { index }))}
+        </tr>
+    ),
 );
