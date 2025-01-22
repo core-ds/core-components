@@ -141,6 +141,11 @@ export type TooltipDesktopProps = {
     useAnchorWidth?: boolean;
 
     /**
+     * Показывать тултип с анимацией
+     */
+    withTransition?: boolean;
+
+    /**
      * Тэг для target обертки
      * @default div
      */
