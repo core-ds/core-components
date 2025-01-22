@@ -1,12 +1,14 @@
-import React, { FC, ReactNode, SyntheticEvent, useContext } from 'react';
+import React, { FC, ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
+import { Spinner } from '@alfalab/core-components-spinner';
 import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage, ImageMeta } from '../../types';
 import { getImageAlt, isSmallImage, isVideo, TestIds } from '../../utils';
 
+import { useHandleImageViewer } from './hooks';
 import { NoImagePaths } from './paths';
 import { Video } from './video';
 
@@ -15,19 +17,12 @@ import styles from './index.module.css';
 type SlideInnerProps = {
     active: boolean;
     broken: boolean;
-    withPlaceholder: boolean;
     loading: boolean;
     children: ReactNode;
     isVideoView?: boolean;
 };
 
-const SlideInner: FC<SlideInnerProps> = ({
-    children,
-    broken,
-    loading,
-    withPlaceholder,
-    isVideoView,
-}) => {
+const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, isVideoView }) => {
     const content = broken ? (
         <div className={styles.brokenImgWrapper}>
             <div className={styles.brokenImgIcon}>
@@ -57,9 +52,17 @@ const SlideInner: FC<SlideInnerProps> = ({
         children
     );
 
+    if (loading) {
+        return (
+            <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
+                <Spinner preset={48} visible={true} colors='inverted' />
+            </div>
+        );
+    }
+
     return (
-        <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
-            {withPlaceholder ? <div className={styles.placeholder}>{content}</div> : content}
+        <div className={styles.slide}>
+            {broken ? <div className={styles.placeholder}>{content}</div> : content}
         </div>
     );
 };
@@ -73,8 +76,6 @@ type SlideProps = {
     index: number;
     containerHeight: number;
     slideVisible: boolean;
-    handleLoad: (event: SyntheticEvent<HTMLImageElement>, index: number) => void;
-    handleLoadError: (index: number) => void;
 };
 
 export const Slide: FC<SlideProps> = ({
@@ -86,10 +87,9 @@ export const Slide: FC<SlideProps> = ({
     index,
     containerHeight,
     slideVisible,
-    handleLoad,
-    handleLoadError,
 }) => {
     const { view } = useContext(GalleryContext);
+    const { handleLoad, handleLoadError } = useHandleImageViewer();
 
     const broken = Boolean(meta?.broken);
     const small = isSmallImage(meta);
@@ -98,25 +98,14 @@ export const Slide: FC<SlideProps> = ({
 
     if (isVideo(image.src)) {
         return (
-            <SlideInner
-                isVideoView={true}
-                active={isActive}
-                broken={broken}
-                withPlaceholder={broken}
-                loading={!meta}
-            >
+            <SlideInner isVideoView={true} active={isActive} broken={broken} loading={!meta}>
                 <Video url={image.src} index={index} isActive={isActive} />
             </SlideInner>
         );
     }
 
     return (
-        <SlideInner
-            active={isActive}
-            broken={broken}
-            loading={!meta}
-            withPlaceholder={small || broken}
-        >
+        <SlideInner active={isActive} broken={broken} loading={false}>
             <img
                 src={image.src}
                 alt={getImageAlt(image, index)}
