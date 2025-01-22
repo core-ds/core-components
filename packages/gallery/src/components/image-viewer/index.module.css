@@ -63,6 +63,11 @@
     border-radius: var(--border-radius-8);
 }
 
+.spinner {
+    position: absolute;
+    color: var(--color-static-neutral-translucent-1300-inverted);
+}
+
 .image {
     width: 0;
     height: 0;

@@ -52,17 +52,10 @@ const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, isVideoVie
         children
     );
 
-    if (loading) {
-        return (
-            <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
-                <Spinner preset={48} visible={true} colors='inverted' />
-            </div>
-        );
-    }
-
     return (
-        <div className={styles.slide}>
+        <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
             {broken ? <div className={styles.placeholder}>{content}</div> : content}
+            <Spinner className={styles.spinner} preset={48} visible={loading} />
         </div>
     );
 };
@@ -105,7 +98,7 @@ export const Slide: FC<SlideProps> = ({
     }
 
     return (
-        <SlideInner active={isActive} broken={broken} loading={false}>
+        <SlideInner active={isActive} broken={broken} loading={!meta}>
             <img
                 src={image.src}
                 alt={getImageAlt(image, index)}
