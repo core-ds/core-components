@@ -14,7 +14,7 @@ import desktopStyles from './desktop.module.css';
 
 export type HeaderDesktopProps = Omit<
     NavigationBarPrivateProps,
-    'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle' | 'onClose'
+    'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle'
 > & {
     /**
      * Заголовок в шапке крупного размера
