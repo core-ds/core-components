@@ -4,9 +4,6 @@ export type { UniversalModalResponsiveProps } from './typings';
 export { ContentResponsive } from './components/content';
 export type { ContentResponsiveProps } from './components/content';
 
-export { ControlsResponsive } from './components/controls';
-export type { ControlsResponsiveProps } from './components/controls';
-
 export { HeaderResponsive } from './components/header';
 export type { HeaderResponsiveProps } from './components/header';
 

@@ -14,9 +14,6 @@ import type {UniversalModalResponsiveProps } from '@alfalab/core-components/univ
 import { ContentResponsive } from '@alfalab/core-components/universal-modal';
 import type { ContentResponsiveProps } from '@alfalab/core-components/universal-modal';
 
-import { ControlsResponsive } from '@alfalab/core-components/universal-modal';
-import type { ControlsResponsiveProps, ControlsDesktopProps } from '@alfalab/core-components/universal-modal';
-
 import { HeaderResponsive } from '@alfalab/core-components/universal-modal';
 import type { HeaderResponsiveProps } from '@alfalab/core-components/universal-modal';
 
@@ -37,9 +34,6 @@ import type { UniversalModalDesktopProps } from '@alfalab/core-components/univer
 
 import { ContentDesktop } from '@alfalab/core-components/universal-modal/desktop';
 import type { ContentDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
-
-import { ControlsDesktop } from '@alfalab/core-components/universal-modal/desktop';
-import type { ControlsDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
 
 import { HeaderDesktop } from '@alfalab/core-components/universal-modal/desktop';
 import type { HeaderPropsDesktop } from '@alfalab/core-components/universal-modal/desktop';
@@ -64,9 +58,6 @@ import type { UniversalModalMobileProps } from '@alfalab/core-components/univers
 
 import { ContentMobile } from '@alfalab/core-components/universal-modal/mobile';
 import type { ContentMobileProps } from '@alfalab/core-components/universal-modal/mobile';
-
-import { ControlsMobile } from '@alfalab/core-components/universal-modal/mobile';
-import type { ControlsMobileProps } from '@alfalab/core-components/universal-modal/mobile';
 
 import { HeaderMobile } from '@alfalab/core-components/universal-modal/mobile';
 import type { HeaderMobileProps } from '@alfalab/core-components/universal-modal/mobile';
@@ -99,7 +90,6 @@ import { ArrowButtonDesktopMobile, CrossButtonDesktopMobile } from '@alfalab/cor
         title: `${dataTestId}-header-title`,
         content: `${dataTestId}-content`,
         footer: `${dataTestId}-footer`,
-        controls: `${dataTestId}-controls`,
 };
 ```
 
@@ -111,15 +101,14 @@ import { ArrowButtonDesktopMobile, CrossButtonDesktopMobile } from '@alfalab/cor
         UniversalModalMobile,
         UniversalModalResponsive,
         'UniversalModalResponsive.Header': UniversalModalResponsive.Header,
-        'UniversalModalResponsive.Controls': UniversalModalResponsive.Controls,
-        'UniversalModalDesktop.Content': UniversalModalDesktop.Content,
+        'UniversalModalResponsive.Content': UniversalModalResponsive.Content,
+        'UniversalModalResponsive.Footer': UniversalModalResponsive.Footer,
         'UniversalModalDesktop.Header': UniversalModalDesktop.Header,
+        'UniversalModalDesktop.Content': UniversalModalDesktop.Content,
         'UniversalModalDesktop.Footer': UniversalModalDesktop.Footer,
-        'UniversalModalDesktop.Controls': UniversalModalDesktop.Controls,
-        'UniversalModalMobile.Content': UniversalModalMobile.Content,
         'UniversalModalMobile.Header': UniversalModalMobile.Header,
+        'UniversalModalMobile.Content': UniversalModalMobile.Content,
         'UniversalModalMobile.Footer': UniversalModalMobile.Footer,
-        'UniversalModalMobile.Controls': UniversalModalMobile.Controls,
     }}
 />
 

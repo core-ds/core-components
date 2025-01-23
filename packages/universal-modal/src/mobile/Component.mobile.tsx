@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content';
-import { ControlsMobile } from '../components/controls';
 import { FooterMobile } from '../components/footer';
 import { HeaderMobile } from '../components/header';
 
@@ -42,5 +41,4 @@ export const UniversalModalMobile = Object.assign(UniversalModalMobileComponent,
     Header: HeaderMobile,
     Content: ContentMobile,
     Footer: FooterMobile,
-    Controls: ControlsMobile,
 });

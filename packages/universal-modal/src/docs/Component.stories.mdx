@@ -110,19 +110,12 @@ export const Content = () => {
 
                     {stickyFooter && (
                         <Component.Footer sticky={stickyFooter}>
-                            <Component.Controls
-                                layout={footerLayout}
-                                primary={
-                                    <FooterButton size={isMobile ? 'm' : 's'} view='primary'>
-                                        Сохранить
-                                    </FooterButton>
-                                }
-                                secondary={
-                                    <FooterButton size={isMobile ? 'm' : 's'} view='secondary'>
-                                        Отмена
-                                    </FooterButton>
-                                }
-                            />
+                            <FooterButton size={isMobile ? 'm' : 's'} view='primary'>
+                                Сохранить
+                            </FooterButton>
+                            <FooterButton size={isMobile ? 'm' : 's'} view='secondary'>
+                                Отмена
+                            </FooterButton>
                         </Component.Footer>
                     )}
                 </Component>
