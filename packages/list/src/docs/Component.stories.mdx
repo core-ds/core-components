@@ -72,7 +72,11 @@ export const COLOR = [
                 dataTestId={text('dataTestId', '')}
                 colorMarker={select('colorMarker', COLOR, 'primary')}
             >
-                <List.Item caption={text('caption', '')}>
+                <List.Item
+                    caption={text('caption', '')}
+                    className={text('itemClassName', '')}
+                    markerClassName={text('markerClassName', '')}
+                >
                     <Typography.Text tag='span' view='primary-medium' color='primary'>
                         Список — перечень чего-либо.
                     </Typography.Text>
