@@ -55,7 +55,7 @@ export const Content = () => {
             ['UniversalModalResponsive', 'UniversalModalDesktop', 'UniversalModalMobile'],
             'UniversalModalDesktop',
         );
-        const horizontalAlign = select('horizontalAlign', ['left', 'center', 'right'], 'center');
+        const horizontalAlign = select('horizontalAlign', ['start', 'center', 'end'], 'center');
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
         const width = text('width', '500');
         const height = text('height', '500');
@@ -109,7 +109,7 @@ export const Content = () => {
                     </Component.Content>
 
                     {stickyFooter && (
-                        <Component.Footer sticky={stickyFooter}>
+                        <Component.Footer sticky={stickyFooter} layout={footerLayout}>
                             <FooterButton size={isMobile ? 'm' : 's'} view='primary'>
                                 Сохранить
                             </FooterButton>
