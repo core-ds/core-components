@@ -15,22 +15,27 @@ import rightSideTransitions from './transitions/right-side-transitions.mobile.mo
 import transitions from './transitions/transitions.mobile.module.css';
 
 export const UniversalModalMobileComponent = forwardRef<HTMLDivElement, UniversalModalMobileProps>(
-    ({ children, className, dataTestId, onClose, appearance = 'bottom', ...restProps }, ref) => (
-        <BaseModal
-            {...restProps}
-            dataTestId={dataTestId}
-            ref={ref}
-            transitionProps={{
-                timeout: appearance === 'right' ? 360 : 200,
-                classNames: appearance === 'right' ? rightSideTransitions : transitions,
-            }}
-            className={cn(className, styles.component)}
-            scrollHandler='content'
-            contentClassName={styles.content}
-        >
-            {children}
-        </BaseModal>
-    ),
+    (props, ref) => {
+        const { children, className, dataTestId, appearance = 'bottom', ...restProps } = props;
+
+        return (
+            <BaseModal
+                {...restProps}
+                dataTestId={dataTestId}
+                ref={ref}
+                transitionProps={{
+                    timeout: appearance === 'right' ? 360 : 200,
+                    classNames: appearance === 'right' ? rightSideTransitions : transitions,
+                    ...restProps.transitionProps,
+                }}
+                className={cn(className, styles.component)}
+                scrollHandler='content'
+                contentClassName={styles.content}
+            >
+                {children}
+            </BaseModal>
+        );
+    },
 );
 
 export const UniversalModalMobile = Object.assign(UniversalModalMobileComponent, {
