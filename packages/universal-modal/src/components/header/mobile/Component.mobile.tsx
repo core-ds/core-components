@@ -5,6 +5,7 @@ import {
     NavigationBarPrivate,
     NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../../Context';
 
@@ -19,8 +20,8 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
     contentClassName,
     title,
     sticky,
-    titleClassName,
     dataTestId,
+    bottomAddonsClassName,
     ...restProps
 }) => {
     const { setHasHeader, headerHighlighted, componentRef } = useContext(ModalContext);
@@ -37,7 +38,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
         <NavigationBarPrivate
             {...restProps}
             view='mobile'
-            dataTestId={dataTestId}
+            dataTestId={getDataTestId(dataTestId, 'header')}
             sticky={sticky}
             title={title}
             className={cn(styles.header, mobileStyles.header, className, {
@@ -47,7 +48,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
                 [mobileStyles.sticky]: sticky,
             })}
             contentClassName={cn(mobileStyles.content, contentClassName)}
-            bottomAddonsClassName={mobileStyles.bottomAddons}
+            bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}
             scrollableParentRef={componentRef}
             titleRef={titleRef}
             addonClassName={mobileStyles.addon}

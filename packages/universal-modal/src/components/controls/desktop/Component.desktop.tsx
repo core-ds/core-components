@@ -1,6 +1,8 @@
 import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import layoutStyles from '../../footer/desktop/layout.module.css';
 import styles from '../base-controls/index.module.css';
 
@@ -40,7 +42,7 @@ export const ControlsDesktop: FC<ControlsDesktopProps> = ({
     dataTestId,
 }) => (
     <div
-        data-test-id={dataTestId}
+        data-test-id={getDataTestId(dataTestId, 'controls')}
         className={cn(styles.component, layoutStyles[layout], gap && layoutStyles[`gap-${gap}`])}
     >
         {primary}

@@ -65,20 +65,12 @@ describe('UniversalModal', () => {
 
     it('should have data-test-id', () => {
         const dti = 'modal-dti';
+
         const { getByTestId } = render(
             <UniversalModalResponsive dataTestId={dti} open={true}>
-                <UniversalModalResponsive.Header
-                    title='Title'
-                    dataTestId={getUniversalModalTestIds(dti).header}
-                />
-                <UniversalModalResponsive.Content
-                    dataTestId={getUniversalModalTestIds(dti).content}
-                >
-                    Content
-                </UniversalModalResponsive.Content>
-                <UniversalModalResponsive.Footer dataTestId={getUniversalModalTestIds(dti).footer}>
-                    Footer
-                </UniversalModalResponsive.Footer>
+                <UniversalModalResponsive.Header title='Title' dataTestId={dti} />
+                <UniversalModalResponsive.Content dataTestId={dti} />
+                <UniversalModalResponsive.Footer dataTestId={dti} />
             </UniversalModalResponsive>,
         );
 

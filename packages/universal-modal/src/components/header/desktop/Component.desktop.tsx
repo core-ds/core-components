@@ -5,6 +5,7 @@ import {
     NavigationBarPrivate,
     NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../../Context';
 import { ResponsiveContext } from '../../../ResponsiveContext';
@@ -32,6 +33,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     bigTitle = false,
     titleClassName,
     dataTestId,
+    bottomAddonsClassName,
     ...restProps
 }) => {
     const { setHasHeader, componentRef } = useContext(ModalContext);
@@ -49,7 +51,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
         <NavigationBarPrivate
             {...restProps}
             view='desktop'
-            dataTestId={dataTestId}
+            dataTestId={getDataTestId(dataTestId, 'header')}
             dataName='modalHeaderDesktop'
             sticky={sticky}
             title={title}
@@ -60,11 +62,11 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
                 [desktopStyles.sticky]: sticky,
             })}
             contentClassName={cn(desktopStyles.content, contentClassName)}
-            bottomAddonsClassName={cn(desktopStyles.bottomAddons, {
+            bottomAddonsClassName={cn(desktopStyles.bottomAddons, bottomAddonsClassName, {
                 [desktopStyles.medium]: bigTitle,
             })}
             scrollableParentRef={componentRef}
-            titleClassName={cn(desktopStyles.headerTitle, {
+            titleClassName={cn(desktopStyles.headerTitle, titleClassName, {
                 [desktopStyles.medium]: bigTitle,
             })}
             titleRef={titleRef}

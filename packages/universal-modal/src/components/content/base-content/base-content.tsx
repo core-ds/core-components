@@ -1,6 +1,8 @@
 import React, { FC, ReactNode, Ref, useContext } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { ModalContext } from '../../../Context';
 
 import styles from './index.module.css';
@@ -32,7 +34,7 @@ export const BaseContent: FC<ContentProps> = ({ children, className, dataTestId 
                 [styles.withFooter]: hasFooter,
             })}
             ref={contentRef as Ref<HTMLDivElement>}
-            data-test-id={dataTestId}
+            data-test-id={getDataTestId(dataTestId, 'content')}
         >
             {children}
         </div>

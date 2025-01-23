@@ -1,6 +1,8 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { ModalContext } from '../../../Context';
 
 import styles from './index.module.css';
@@ -60,7 +62,7 @@ export const BaseFooter: FC<FooterProps> = ({
                 [styles.highlighted]: sticky && isHighlighted,
                 [styles.sticky]: sticky,
             })}
-            data-test-id={dataTestId}
+            data-test-id={getDataTestId(dataTestId, 'footer')}
             data-name='modalFooterDesktop'
         >
             {children}
