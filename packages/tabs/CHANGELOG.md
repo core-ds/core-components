@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.12.12
+
+### Patch Changes
+
+<sup><time>24.01.2025</time></sup>
+
+### [#1528](https://github.com/core-ds/core-components/pull/1528)
+
+-   Исправлен расчет размера и положения нижней полосы при удалении/добавлении таба в PrimaryTabList
+
 ## 8.12.11
 
 ### Patch Changes
