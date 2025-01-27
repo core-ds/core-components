@@ -1,5 +1,30 @@
 # Change Log
 
+## 6.17.15
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
+## 6.17.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.6
+    -   backdrop@3.4.4
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
 ## 6.17.13
 
 ### Patch Changes

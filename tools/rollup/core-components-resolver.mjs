@@ -40,7 +40,13 @@ export const coreComponentsResolver = (buildPath) => ({
     name: 'core-components-resolver',
     resolveId: (id) => {
         if (id.includes('@alfalab/core-components')) {
-            return { id: `${id}/${buildPath}`, external: true };
+            const m = /(@alfalab\/core-components-[^/]+)(.*)?$/.exec(id);
+            if (m) {
+                const componentName = m[1];
+                const emtryPoint = m[2] ?? '';
+
+                return { id: `${componentName}/${buildPath}${emtryPoint}`, external: true };
+            }
         }
     },
 });

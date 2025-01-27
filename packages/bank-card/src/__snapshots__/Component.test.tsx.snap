@@ -55,11 +55,11 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
                 </span>
               </div>
               <div
-                class="input"
+                class="input size-m"
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input size-m input size-56 hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -172,11 +172,11 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
                 </span>
               </div>
               <div
-                class="input"
+                class="input size-m"
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input size-m input size-56 hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -287,11 +287,11 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
                 </span>
               </div>
               <div
-                class="input"
+                class="input size-m"
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input size-m input size-56 hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -402,11 +402,11 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
                 </span>
               </div>
               <div
-                class="input"
+                class="input size-m"
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input size-m input size-56 hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -501,11 +501,11 @@ exports[`BankCard Snapshots tests should match snapshots 5`] = `
                 </span>
               </div>
               <div
-                class="input"
+                class="input size-m"
               >
                 <input
                   aria-label="Номер карты"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input size-m input size-56 hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -616,11 +616,11 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
                 </span>
               </div>
               <div
-                class="input"
+                class="input size-m"
               >
                 <input
                   aria-label="Номер счёта"
-                  class="input input size-56 hasInnerLabel input"
+                  class="input size-m input size-56 hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"

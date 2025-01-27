@@ -10,7 +10,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { CalendarDesktop } from '../../desktop';
 import { isRangeValue, WEEKDAYS } from '../../utils';
 
-import { CalendarMonthOnlyView } from './components/calendar-month-only-view';
+import { CalendarMonthOnlyView } from './calendarMonthOnlyView';
 import { CalendarMobileProps } from './typings';
 
 import backdropTransitionStyles from './backdrop-transitions.module.css';

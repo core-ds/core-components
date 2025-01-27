@@ -1,5 +1,36 @@
 # Change Log
 
+## 7.13.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   with-suffix@4.2.12
+    -   input@15.5.0
+
+## 7.12.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   input@15.4.0
+    -   shared@0.14.1
+    -   with-suffix@4.2.11
+
 ## 7.12.6
 
 ### Patch Changes

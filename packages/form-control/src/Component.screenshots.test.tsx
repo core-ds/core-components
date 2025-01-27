@@ -45,7 +45,7 @@ describe('FormControl | screenshots size prop', () => {
                         componentName: 'FormControl',
                         knobs: {
                             label: 'Label',
-                            size: [48, 56, 64, 72],
+                            size: [40, 48, 56, 64, 72],
                         },
                         size: { width: 350, height: 150 },
                     }),
@@ -151,7 +151,7 @@ describe('FormControl | screenshots theme corp', () => {
                     componentName: 'FormControl',
                     knobs: {
                         block: true,
-                        size: [48, 56, 64, 72],
+                        size: [40, 48, 56, 64, 72],
                         disabled: [false, true],
                         error: ['', 'Error'],
                     },
@@ -163,5 +163,30 @@ describe('FormControl | screenshots theme corp', () => {
             fullPage: true,
         },
         theme: 'corp',
+    })();
+});
+
+describe('FormControl | label, hint, error sizes', () => {
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'FormControl',
+                    knobs: {
+                        block: true,
+                        size: [40, 48, 56, 64, 72],
+                        hint: 'hint',
+                        error: ['', 'Error'],
+                        labelView: 'outer',
+                        label: 'label',
+                    },
+                    size: { width: 350, height: 150 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
     })();
 });

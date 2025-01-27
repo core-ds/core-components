@@ -34,9 +34,6 @@ jobs:
     - name: Install dependencies
       run: yarn
 
-    - name: Check dependencies
-      run: node bin/check-dependencies.js
-
     - name: Run lint
       run: yarn lint
 

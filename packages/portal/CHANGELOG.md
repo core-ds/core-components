@@ -1,5 +1,18 @@
 # Change Log
 
+## 3.3.5
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   shared@0.14.1
+
 ## 3.3.4
 
 ### Patch Changes

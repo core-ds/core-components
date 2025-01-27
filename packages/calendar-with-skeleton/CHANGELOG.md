@@ -1,5 +1,41 @@
 # Change Log
 
+## 5.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.5
+
+## 5.3.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+
+## 5.3.16
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   calendar@7.17.3
+    -   skeleton@5.2.3
+
+## 5.3.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.2.2
+    -   calendar@7.17.2
+
 ## 5.3.14
 
 ### Patch Changes

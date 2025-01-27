@@ -1,5 +1,50 @@
 # Change Log
 
+## 5.9.2
+
+### Patch Changes
+
+<sup><time>27.01.2025</time></sup>
+
+### [#1555](https://github.com/core-ds/core-components/pull/1555)
+
+-   Добавлена поддержка безопасных отступов safe-area
+
+## 5.9.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   base-modal@5.8.8
+    -   drawer@5.1.8
+    -   navigation-bar-private@0.5.7
+
+## 5.9.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1466](https://github.com/core-ds/core-components/pull/1466)
+
+-   Добавлены атомарные экспорты
+-   В package.json добавлено sideEffects:false
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   navigation-bar-private@0.5.6
+    -   drawer@5.1.7
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
 ## 5.8.6
 
 ### Patch Changes

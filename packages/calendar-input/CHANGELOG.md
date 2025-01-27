@@ -1,5 +1,51 @@
 # Change Log
 
+## 10.4.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.5
+
+## 10.4.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+
+## 10.4.13
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   calendar@7.17.3
+    -   date-input@4.4.12
+    -   popover@6.3.6
+
+## 10.4.12
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   calendar@7.17.2
+    -   date-input@4.4.11
+
 ## 10.4.11
 
 ### Patch Changes

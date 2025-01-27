@@ -1,23 +1,47 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { SidePanelMobile } from '../mobile';
-import { SidePanelDesktop } from '../desktop';
-import { SidePanel } from '..';
+import { SidePanel, SidePanelDesktop, SidePanelMobile } from '..';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
-import { SidePanel } from '@alfalab/core-components/side-panel';
-import { SidePanelDesktop } from '@alfalab/core-components/side-panel/desktop';
-import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
+// Атомарные импорты
+import {
+    SidePanelComponentDesktop,
+    ContentDesktop,
+    HeaderDesktop,
+    FooterDesktop,
+    ControlsDesktop,
+} from '@alfalab/core-components/side-panel';
+import {
+    SidePanelComponentMobile,
+    ContentMobile,
+    HeaderMobile,
+    FooterMobile,
+    ControlsMobile,
+} from '@alfalab/core-components/side-panel';
+import {
+    SidePanelComponentResponsive,
+    ContentResponsive,
+    HeaderResponsive,
+    FooterResponsive,
+    ControlsResponsive,
+} from '@alfalab/core-components/side-panel';
+
+// Компаунд импорты
+import {
+    SidePanelDesktop,
+    SidePanelMobile,
+    SidePanelResponsive,
+} from '@alfalab/core-components/side-panel';
 ```
 
-Из индекса импортируется responsive версия компонента.
+Из индекса также импортируется алиас responsive/compound версии компонента - SidePanel
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getSidePanelTestIds`.  
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getSidePanelTestIds`.
 Импорт из `@alfalab/core-components/side-panel/shared`.
 
 Функция возвращает объект:

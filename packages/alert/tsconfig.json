@@ -4,7 +4,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-plate/*": ["../plate/src/*"]
         }
     },
     "references": [

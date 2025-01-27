@@ -1,5 +1,36 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.3.15
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
+## 1.3.14
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.6
+    -   backdrop@3.4.4
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
 ## 1.3.13
 
 ### Patch Changes

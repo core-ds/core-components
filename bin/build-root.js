@@ -37,14 +37,16 @@ async function findJsFiles(dir) {
 }
 
 function replaceCoreImportsToRelative(code, packageDir, file) {
+    const fileDir = path.dirname(file);
+
     const regex = /['"](@alfalab\/core-components-(.*))['"]/g;
 
-    const fileDir = path.dirname(file);
+    const matches = code.matchAll(regex);
 
     let changed = false;
 
-    let match;
-    while ((match = regex.exec(code)) !== null) {
+    for (const match of matches) {
+        changed = true;
         const relativeFilePath = path.relative(packageDir, fileDir);
 
         const levelUpCount = relativeFilePath.split(path.sep).filter(Boolean).length + 1;
@@ -54,7 +56,6 @@ function replaceCoreImportsToRelative(code, packageDir, file) {
             path.join(fileDir, `..${path.sep}`.repeat(levelUpCount), match[2]),
         );
 
-        changed = true;
         code = code.replace(match[1], relativeImportPath);
     }
 
