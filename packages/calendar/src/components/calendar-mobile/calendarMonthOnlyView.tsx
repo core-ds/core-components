@@ -157,7 +157,9 @@ export const CalendarMonthOnlyView = ({
     const initialMonthIndex = useMemo(() => {
         const date = range.value || range.selectedFrom || activeMonth.getTime() || Date.now();
 
-        return activeMonths.findIndex((m) => isSameMonth(date, m.date));
+        const index = activeMonths.findIndex((m) => isSameMonth(date, m.date));
+
+        return Math.max(index, 0);
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
     // заголовок должен становиться активным, если выбран весь доступный период в месяце
