@@ -1,3 +1,17 @@
+## 48.10.3
+
+<sup><time>27.01.2025</time></sup>
+
+### [#1556](https://github.com/core-ds/core-components/pull/1556)
+
+#### Что изменилось
+- Критическое исправление `month-only` календаря связанное с работой minDate/maxDate пропсов
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+
 ## 48.10.2
 
 <sup><time>27.01.2025</time></sup>
