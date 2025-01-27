@@ -1,4 +1,4 @@
-@import '../../vars/src/index.css';
+@import '../../../../vars/src/index.css';
 
 .customButton {
     overflow: hidden;
@@ -86,17 +86,35 @@
 /* Disabled */
 
 .customButton:disabled {
-    opacity: 0.3;
+    &.disableType-default {
+        background-color: var(--color-light-neutral-translucent-100);
 
-    &.customLoading {
-        opacity: 1;
+        & span {
+            color: var(--color-light-text-tertiary);
+        }
     }
 
-    &.white * {
-        color: var(--color-static-text-primary-inverted);
+    &.disableType-static {
+        background-color: var(--color-static-neutral-translucent-100);
+
+        & span {
+            color: var(--color-static-text-tertiary);
+        }
     }
 
-    &.black * {
-        color: var(--color-static-text-primary);
+    &.disableType-inverted {
+        background-color: var(--color-light-neutral-translucent-100-inverted);
+
+        & span {
+            color: var(--color-light-text-tertiary-inverted);
+        }
+    }
+
+    &.disableType-static-inverted {
+        background-color: var(--color-static-neutral-translucent-100-inverted);
+
+        & span {
+            color: var(--color-static-text-tertiary-inverted);
+        }
     }
 }

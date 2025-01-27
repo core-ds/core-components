@@ -1,5 +1,83 @@
 # Change Log
 
+## 4.14.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   amount@3.9.1
+    -   button@11.11.3
+    -   comment@2.4.7
+    -   typography@4.11.3
+
+## 4.14.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1467](https://github.com/core-ds/core-components/pull/1467)
+
+-   Добавлены атомарные экспорты
+-   В package.json добавлено sideEffects:false
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   comment@2.4.6
+    -   amount@3.9.0
+    -   shared@0.14.1
+    -   button@11.11.2
+    -   typography@4.11.2
+
+## 4.13.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   amount@3.8.2
+    -   button@11.11.1
+    -   comment@2.4.5
+    -   typography@4.11.1
+
+## 4.13.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   amount@3.8.1
+
 ## 4.13.4
 
 ### Patch Changes

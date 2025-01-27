@@ -1,5 +1,91 @@
 # Change Log
 
+## 7.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+    -   calendar-input@10.4.14
+
+## 7.8.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   calendar@7.17.3
+    -   calendar-input@10.4.13
+    -   date-input@4.4.12
+
+## 7.8.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1421](https://github.com/core-ds/core-components/pull/1421)
+
+-   Добавлен дополнительный класс для контейнера календаря, с помощью него можно изменить ширину контейнера.
+-   Добавлен модификатор для data-test-id
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   shared@0.14.1
+    -   calendar@7.17.2
+    -   calendar-input@10.4.12
+    -   date-input@4.4.11
+
+## 7.7.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   calendar@7.17.1
+    -   calendar-input@10.4.11
+    -   date-input@4.4.10
+
+## 7.7.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+    -   calendar-input@10.4.10
+    -   date-input@4.4.9
+
+## 7.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+    -   calendar-input@10.4.9
+
 ## 7.7.5
 
 ### Patch Changes

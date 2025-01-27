@@ -1,5 +1,64 @@
 # Change Log
 
+## 11.11.3
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   spinner@4.0.3
+
+## 11.11.2
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   spinner@4.0.2
+
+## 11.11.1
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+-   Обновлены зависимости
+    -   spinner@4.0.1
+
+## 11.11.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1446](https://github.com/core-ds/core-components/pull/1446)
+
+-   Изменены цвета для hint
+-   Изменена высота строки для размера 48, 56
+-   Добавлена минимальная высота для размера 48, 56
+
 ## 11.10.2
 
 ### Patch Changes

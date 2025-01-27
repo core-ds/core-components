@@ -1,5 +1,65 @@
 # Change Log
 
+## 2.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+
+## 2.8.4
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   pagination@2.4.8
+    -   select@17.19.0
+
+## 2.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.18.1
+    -   pagination@2.4.7
+    -   button@11.11.2
+
+## 2.8.2
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   pagination@2.4.6
+    -   select@17.18.0
+
+## 2.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   select@17.17.5
+
 ## 2.8.0
 
 ### Minor Changes

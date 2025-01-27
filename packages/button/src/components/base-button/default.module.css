@@ -22,6 +22,10 @@
 
 .primary {
     border: 1px solid transparent;
+
+    & .hint {
+        color: var(--button-primary-hint-color);
+    }
 }
 
 .secondary {
@@ -30,6 +34,10 @@
 
     & > .loader {
         color: var(--button-spinner-default-color);
+    }
+
+    & .hint {
+        color: var(--button-secondary-hint-color);
     }
 }
 
@@ -52,6 +60,10 @@
     & > .loader {
         color: var(--button-spinner-default-color);
     }
+
+    & .hint {
+        color: var(--button-outlined-hint-color);
+    }
 }
 
 .tertiary {
@@ -72,6 +84,10 @@
 
     & > .loader {
         color: var(--button-spinner-default-color);
+    }
+
+    & .hint {
+        color: var(--button-tertiary-hint-color);
     }
 }
 
@@ -113,6 +129,10 @@
     & > .loader {
         color: var(--button-spinner-default-color);
     }
+
+    & .hint {
+        color: var(--button-transparent-base-hint-color);
+    }
 }
 
 .link {
@@ -147,6 +167,10 @@
 
     & > .loader {
         color: var(--button-spinner-default-color);
+    }
+
+    & .hint {
+        color: var(--button-text-base-hint-color);
     }
 }
 

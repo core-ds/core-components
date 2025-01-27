@@ -1,5 +1,53 @@
 # Change Log
 
+## 5.8.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   notification@7.5.6
+
+## 5.8.5
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   notification@7.5.5
+    -   portal@3.3.5
+
+## 5.8.4
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   notification@7.5.4
+    -   stack@5.0.1
+
+## 5.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@7.5.3
+
 ## 5.8.2
 
 ### Patch Changes

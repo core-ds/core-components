@@ -1,5 +1,75 @@
 # Change Log
 
+## 5.10.9
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   base-modal@5.8.8
+    -   icon-button@6.11.6
+    -   tooltip@7.8.4
+    -   typography@4.11.3
+
+## 5.10.8
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   typography@4.11.2
+    -   tooltip@7.8.3
+    -   base-modal@5.8.7
+
+## 5.10.7
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   base-modal@5.8.6
+    -   icon-button@6.11.4
+    -   tooltip@7.8.2
+    -   typography@4.11.1
+
+## 5.10.6
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   base-modal@5.8.5
+    -   icon-button@6.11.3
+    -   tooltip@7.8.1
+
 ## 5.10.5
 
 ### Patch Changes

@@ -21,3 +21,11 @@
 .clearButton + * {
     margin-left: var(--gap-4);
 }
+
+.clearButton {
+    &.size-40 {
+        & + * {
+            margin-left: 6px;
+        }
+    }
+}

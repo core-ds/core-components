@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-checkbox-group",
-    "version": "4.7.2",
+    "version": "4.7.5",
     "description": "Checkbox group",
     "keywords": [],
     "license": "MIT",
@@ -10,16 +10,17 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-mq": "^4.4.0",
-        "classnames": "^2.3.1",
+        "@alfalab/core-components-mq": "^4.4.1",
+        "classnames": "^2.5.1",
         "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.14.0"
+        "@alfalab/core-components-shared": "^0.14.1"
     },
-    "themesVersion": "13.6.0",
+    "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }

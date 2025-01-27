@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-scrollbar",
-    "version": "3.1.1",
+    "version": "3.1.3",
     "description": "Scrollbar component",
     "keywords": [],
     "license": "MIT",
@@ -10,6 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
@@ -17,7 +18,7 @@
     "dependencies": {
         "@juggle/resize-observer": "^3.3.1",
         "can-use-dom": "^0.1.0",
-        "classnames": "^2.3.1",
+        "classnames": "^2.5.1",
         "lodash.debounce": "^4.0.8",
         "lodash.memoize": "^4.1.2",
         "lodash.throttle": "^4.1.1",
@@ -28,6 +29,6 @@
     "devDependencies": {
         "@types/lodash.throttle": "^4.1.7"
     },
-    "themesVersion": "13.6.0",
+    "themesVersion": "13.7.0",
     "varsVersion": "9.16.0"
 }

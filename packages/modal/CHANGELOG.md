@@ -1,5 +1,65 @@
 # Change Log
 
+## 9.9.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
+## 9.9.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1474](https://github.com/core-ds/core-components/pull/1474)
+
+-   Добавлены атомарные импорты
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   navigation-bar-private@0.5.6
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
+## 9.8.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+-   Обновлены зависимости
+    -   base-modal@5.8.6
+    -   navigation-bar-private@0.5.5
+
+## 9.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.5
+    -   navigation-bar-private@0.5.4
+
 ## 9.8.4
 
 ### Patch Changes

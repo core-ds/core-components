@@ -5,6 +5,7 @@ import React, {
     Fragment,
     HTMLAttributes,
     InputHTMLAttributes,
+    KeyboardEvent,
     MouseEvent,
     ReactNode,
     RefAttributes,
@@ -66,7 +67,7 @@ export type BaseInputProps = Omit<
      * Размер компонента
      * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
+    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Набор цветов для компонента
@@ -215,11 +216,14 @@ const SIZE_TO_CLASSNAME_MAP = {
     m: 'size-56',
     l: 'size-64',
     xl: 'size-72',
+    40: 'size-40',
     48: 'size-48',
     56: 'size-56',
     64: 'size-64',
     72: 'size-72',
 };
+
+const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
 
 export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
     (
@@ -266,6 +270,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         },
         ref,
     ) => {
+        const { onKeyDown } = restProps;
         const uncontrolled = value === undefined;
         const readOnly = readOnlyProp || disableUserInput;
 
@@ -284,14 +289,19 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         const hasInnerLabel = label && labelView === 'inner';
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
-            // https://github.com/facebook/react/issues/14125
-            if (restProps.autoFocus) {
-                const input = inputRef.current;
+            const input = inputRef.current;
 
-                if (input) {
-                    input.setSelectionRange(input.value.length, input.value.length);
-                }
+            if (
+                !restProps.autoFocus ||
+                !input ||
+                // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange
+                !inputTypesForSelectionRange.includes(input.type)
+            ) {
+                return;
             }
+
+            // https://github.com/facebook/react/issues/14125
+            input.setSelectionRange(input.value.length, input.value.length);
         }, []);
 
         const handleInputFocus = useCallback(
@@ -320,15 +330,48 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 
         const handleInputChange = useCallback(
             (event: React.ChangeEvent<HTMLInputElement>) => {
+                let inputValue = event.target.value;
+                const target = event.target as HTMLInputElement;
+                const isInputTypeNumber = target.getAttribute('type') === 'number';
+                const pattern = /[eE]/g;
+
+                if (isInputTypeNumber && pattern.test(inputValue)) {
+                    inputValue = inputValue.replace(pattern, '');
+                }
+
                 if (onChange) {
-                    onChange(event, { value: event.target.value });
+                    onChange(event, { value: inputValue });
                 }
 
                 if (uncontrolled) {
-                    setStateValue(event.target.value);
+                    setStateValue(inputValue);
                 }
             },
             [onChange, uncontrolled],
+        );
+
+        const handleKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLInputElement>) => {
+                /**
+                 * По умолчанию в input[type=number] можно вводить числа типа 2e5 (200 000)
+                 * Это ломает некоторое поведение, поэтому запрещаем ввод символов [eE]
+                 * @see DS-6808
+                 */
+                const { key, target } = event;
+                const eventTarget = target as HTMLInputElement;
+                const isInputTypeNumber = eventTarget.getAttribute('type') === 'number';
+
+                if (isInputTypeNumber && (key === 'e' || key === 'E')) {
+                    event.preventDefault();
+
+                    return;
+                }
+
+                if (onKeyDown) {
+                    onKeyDown(event);
+                }
+            },
+            [onKeyDown],
         );
 
         const handleClear = useCallback(
@@ -373,23 +416,27 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 disabled={disabled}
                                 colors={colors}
                                 dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                                size={size}
                             />
                         )}
                         {rightAddons}
                         {error && (
-                            <div className={styles.errorIcon} data-addon='error-icon'>
+                            <div
+                                className={cn(styles.errorIcon, styles[`size-${size}`])}
+                                data-addon='error-icon'
+                            >
                                 <StatusBadge
                                     view='negative-alert'
-                                    size={20}
+                                    size={size === 40 ? 16 : 20}
                                     dataTestId={getDataTestId(dataTestId, 'error-icon')}
                                 />
                             </div>
                         )}
                         {success && !error && (
-                            <div className={styles.successIcon}>
+                            <div className={cn(styles.successIcon, styles[`size-${size}`])}>
                                 <StatusBadge
                                     view='positive-checkmark'
-                                    size={20}
+                                    size={size === 40 ? 16 : 20}
                                     dataTestId={getDataTestId(dataTestId, 'success-icon')}
                                 />
                             </div>
@@ -433,13 +480,12 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     {...restProps}
                     className={cn(
                         styles.input,
+                        styles[`size-${size}`],
                         colorCommonStyles[colors].input,
                         {
                             [styles.disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].disableUserInput]: disableUserInput,
-
                             [colorCommonStyles[colors].error]: error,
-
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
@@ -450,6 +496,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
                     onChange={handleInputChange}
+                    onKeyDown={handleKeyDown}
                     onAnimationStart={handleAnimationStart}
                     ref={mergeRefs([ref, inputRef])}
                     type={type}

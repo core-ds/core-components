@@ -58,6 +58,7 @@
     --form-control-inverted-error-bg-color: var(--color-light-neutral-translucent-200-inverted);
 
     /* height */
+    --form-control-40-min-height: var(--size-xs-height);
     --form-control-s-min-height: var(--size-s-height);
     --form-control-m-min-height: var(--size-m-height);
     --form-control-l-min-height: var(--size-l-height);
@@ -68,6 +69,7 @@
     /* paddings */
     --form-control-paddings: var(--gap-0) var(--gap-12);
     --form-control-xl-paddings: var(--gap-0) var(--gap-16);
+    --form-control-labeled-40-paddings: 19px var(--gap-8) 3px;
     --form-control-labeled-s-paddings: var(--gap-24) var(--gap-12) var(--gap-4);
     --form-control-labeled-m-paddings: 28px var(--gap-12) var(--gap-8);
     --form-control-labeled-l-paddings: var(--gap-32) var(--gap-12) var(--gap-12);
@@ -81,6 +83,7 @@
     --form-control-font-family: var(--font-family);
 
     /* border-radius */
+    --form-control-40-border-radius: var(--border-radius-8);
     --form-control-s-border-radius: var(--border-radius-8);
     --form-control-m-border-radius: var(--border-radius-8);
     --form-control-l-border-radius: var(--border-radius-8);
@@ -90,6 +93,7 @@
     --form-control-mobile-sub-paddings: var(--gap-0) var(--gap-4);
 
     /* border-radius mobile */
+    --form-control-mobile-40-border-radius: var(--border-radius-10);
     --form-control-mobile-s-border-radius: var(--border-radius-10);
     --form-control-mobile-m-border-radius: var(--border-radius-10);
     --form-control-mobile-l-border-radius: var(--border-radius-10);

@@ -1,5 +1,84 @@
 # @alfalab/core-components-date-time-input
 
+## 4.5.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+
+## 4.5.13
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   calendar@7.17.3
+    -   icon-button@6.11.6
+    -   popover@6.3.6
+    -   input@15.5.0
+
+## 4.5.12
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   calendar@7.17.2
+
+## 4.5.11
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   calendar@7.17.1
+    -   icon-button@6.11.4
+    -   input@15.3.4
+    -   popover@6.3.4
+
+## 4.5.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+    -   input@15.3.3
+    -   icon-button@6.11.3
+
+## 4.5.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+
 ## 4.5.8
 
 ### Patch Changes

@@ -1,5 +1,60 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.3.15
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
+## 1.3.14
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.6
+    -   backdrop@3.4.4
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
+## 1.3.13
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   backdrop@3.4.3
+    -   base-modal@5.8.6
+    -   navigation-bar-private@0.5.5
+
+## 1.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.4.2
+    -   base-modal@5.8.5
+    -   navigation-bar-private@0.5.4
+
 ## 1.3.11
 
 ### Patch Changes

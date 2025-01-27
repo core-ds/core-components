@@ -1,5 +1,69 @@
 # Change Log
 
+## 9.11.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+    -   input-autocomplete@12.7.1
+
+## 9.11.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.7.0
+    -   select@17.19.0
+
+## 9.11.9
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   select@17.18.1
+    -   input-autocomplete@12.6.9
+
+## 9.11.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.8
+    -   select@17.18.0
+
+## 9.11.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.7
+    -   select@17.17.5
+
 ## 9.11.6
 
 ### Patch Changes

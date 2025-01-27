@@ -1,5 +1,62 @@
 # @alfalab/core-components-markdown
 
+## 1.6.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   link@5.3.4
+    -   list@3.4.7
+    -   typography@4.11.3
+
+## 1.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   link@5.3.3
+    -   typography@4.11.2
+    -   list@3.4.6
+
+## 1.6.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   link@5.3.2
+    -   list@3.4.5
+    -   typography@4.11.1
+
+## 1.6.4
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
 ## 1.6.3
 
 ### Patch Changes

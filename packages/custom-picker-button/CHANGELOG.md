@@ -1,5 +1,69 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.6.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+    -   picker-button@11.12.11
+
+## 2.6.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   custom-button@3.12.1
+    -   picker-button@11.12.10
+    -   select@17.19.0
+
+## 2.6.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.12.0
+    -   mq@4.4.1
+    -   select@17.18.1
+    -   shared@0.14.1
+    -   picker-button@11.12.9
+
+## 2.6.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   custom-button@3.11.1
+    -   picker-button@11.12.8
+    -   select@17.18.0
+
+## 2.6.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   custom-button@3.11.0
+    -   picker-button@11.12.7
+    -   select@17.17.5
+
 ## 2.6.6
 
 ### Patch Changes

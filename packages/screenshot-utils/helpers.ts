@@ -14,7 +14,7 @@ import {
 } from 'playwright';
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
-import kebab from 'lodash.kebabcase';
+import kebab from 'lodash/kebabCase';
 import { ScreenshotOpts, EvaluateFn } from './setupScreenshotTesting';
 
 type CustomSnapshotIdentifierParams = {

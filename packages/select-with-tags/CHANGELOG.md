@@ -1,5 +1,81 @@
 # Change Log
 
+## 8.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+
+## 8.6.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.15
+    -   popover@6.3.6
+    -   tag@8.6.5
+    -   form-control@12.8.0
+    -   select@17.19.0
+
+## 8.5.9
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   select@17.18.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   tag@8.6.4
+    -   form-control@12.7.4
+    -   bottom-sheet@6.17.14
+
+## 8.5.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.13
+    -   form-control@12.7.3
+    -   popover@6.3.4
+    -   select@17.18.0
+    -   tag@8.6.3
+
+## 8.5.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.12
+    -   select@17.17.5
+
 ## 8.5.6
 
 ### Patch Changes

@@ -71,7 +71,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
                     </span>
                   </span>
                   <svg
-                    class="arrow"
+                    class="arrow size-m"
                     fill="currentColor"
                     focusable="false"
                     height="24"
@@ -92,14 +92,14 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-m"
           >
             <input
               aria-autocomplete="list"
               aria-controls="downshift-:r0:-menu"
               aria-labelledby="downshift-:r0:-label"
               autocomplete="off"
-              class="input input"
+              class="input size-m input"
               id="downshift-:r0:-input"
               tabindex="0"
               type="tel"

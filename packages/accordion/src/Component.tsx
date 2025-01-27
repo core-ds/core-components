@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
 import { useMeasureHeight } from './hooks';
@@ -122,19 +122,15 @@ export const Accordion: FC<AccordionProps> = ({
 
     const headerContent =
         typeof header === 'string' ? (
-            <Typography.Text view='primary-large' weight='medium'>
+            <Text view='primary-large' weight='medium'>
                 {header}
-            </Typography.Text>
+            </Text>
         ) : (
             header
         );
 
     const bodyContent =
-        typeof children === 'string' ? (
-            <Typography.Text view='primary-medium'>{children}</Typography.Text>
-        ) : (
-            children
-        );
+        typeof children === 'string' ? <Text view='primary-medium'>{children}</Text> : children;
 
     const handleExpandedChange = useCallback(() => {
         if (uncontrolled) {

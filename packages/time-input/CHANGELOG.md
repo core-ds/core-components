@@ -1,5 +1,45 @@
 # @alfalab/core-components-time-input
 
+## 2.2.50
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   input@15.5.0
+
+## 2.2.49
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   input@15.4.0
+
+## 2.2.48
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.4
+
+## 2.2.47
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.3
+
 ## 2.2.46
 
 ### Patch Changes
