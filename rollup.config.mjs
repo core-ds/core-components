@@ -27,7 +27,7 @@ const baseConfig = {
         '!src/**/*.mdx',
         '!src/**/*.d.ts',
     ],
-    plugins: [externalsResolver(externals), json()],
+    plugins: [json()],
 };
 
 const multiInputPlugin = multiInput();
@@ -84,6 +84,7 @@ const es5 = {
     plugins: [
         ...baseConfig.plugins,
         multiInputPlugin,
+        externalsResolver(externals),
         typescript({
             baseUrl: '.',
             rootDir: 'src',
@@ -120,6 +121,8 @@ const cssm = {
     plugins: [
         ...baseConfig.plugins,
         multiInputPlugin,
+        coreComponentsResolver('cssm'),
+        externalsResolver(externals),
         typescript({
             baseUrl: '.',
             rootDir: 'src',
@@ -152,6 +155,7 @@ const modern = {
         ...baseConfig.plugins,
         multiInputPlugin,
         coreComponentsResolver('modern'),
+        externalsResolver(externals),
         typescript({
             baseUrl: '.',
             rootDir: 'src',
@@ -187,6 +191,7 @@ const moderncssm = {
         ...baseConfig.plugins,
         multiInputPlugin,
         coreComponentsResolver('moderncssm'),
+        externalsResolver(externals),
         typescript({
             baseUrl: '.',
             rootDir: 'src',
@@ -221,6 +226,7 @@ const esm = {
     plugins: [
         ...baseConfig.plugins,
         coreComponentsResolver('esm'),
+        externalsResolver(externals),
         multiInputPlugin,
         typescript({
             baseUrl: '.',
@@ -276,14 +282,13 @@ const root = {
 
 const configs = (
     process.env.BUILD_MODERN_ONLY === 'true'
-        ? [modern, root]
+        ? [modern]
         : [
               es5,
               modern,
               esm,
               currentComponentName !== 'themes' && cssm,
               currentComponentName !== 'themes' && moderncssm,
-              root,
           ]
 ).filter(Boolean);
 
