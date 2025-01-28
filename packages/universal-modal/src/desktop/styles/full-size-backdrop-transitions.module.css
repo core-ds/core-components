@@ -1,3 +1,10 @@
+@import '../../../../vars/src/index.css';
+
+:root {
+    --backdrop-visible-background: var(--color-light-overlay-default);
+    --backdrop-hidden-background: transparent;
+}
+
 @keyframes step_1 {
     0% {
         opacity: 1;
