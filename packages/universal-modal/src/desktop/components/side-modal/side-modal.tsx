@@ -10,10 +10,11 @@ import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
-import styles from './side-modal.module.css';
+import { getDefaultTransitionProps } from './get-default-transition-props';
+
 import fullSizeBackdropTransitions from '../../styles/full-size-backdrop-transitions.module.css';
 import fullSizeVerticalTopTransitions from '../../styles/full-size-vertical-top-transitions.module.css';
-import { getDefaultTransitionProps } from './get-default-transition-props';
+import styles from './styles/side-modal.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -49,18 +50,18 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
         if (isFullSizeModal) {
             if (verticalAlign === 'top') {
                 return {
-                    classNames: fullSizeVerticalTopTransitions,
                     timeout: {
                         enter: 200,
                         exit: 400,
                     },
+                    classNames: fullSizeVerticalTopTransitions,
                 };
             }
+
             return {};
         }
 
         return getDefaultTransitionProps({
-            componentRef,
             horizontalAlign,
             margin,
         });
