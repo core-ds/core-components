@@ -1,0 +1,45 @@
+@keyframes step_1 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes step_2 {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        background-color: var(--backdrop-hidden-background);
+    }
+}
+
+.appear,
+.enter {
+    background-color: var(--backdrop-hidden-background);
+}
+
+.appearActive,
+.enterActive,
+.appearDone,
+.enterDone {
+    background-color: var(--backdrop-visible-background);
+}
+
+.exit {
+    background-color: var(--backdrop-visible-background);
+}
+
+.exitActive {
+    opacity: 1;
+    animation: step_1 200ms cubic-bezier(0, 0, 1, 0),
+        step_2 200ms cubic-bezier(0, 0, 0, 1) 200ms forwards;
+}
+
+.exitDone {
+    opacity: 0;
+    background-color: var(--backdrop-hidden-background);
+}

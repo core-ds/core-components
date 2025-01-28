@@ -11,11 +11,13 @@ import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalByCenterProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
-import styles from './center-modal.module.css';
-import safariTransitions from './safari-transitions.module.css';
-import transitions from './transitions.module.css';
+import styles from './styles/center-modal.module.css';
+import safariTransitions from './styles/transitions/safari-transitions.module.css';
+import transitions from './styles/transitions/transitions.module.css';
+import fullSizeVerticalTopTransitions from '../../styles/full-size-vertical-top-transitions.module.css';
+import fullSizeBackdropTransitions from '../../styles/full-size-backdrop-transitions.module.css';
 
-// safari некорректно отрабатывает transform:scale(?), поэтому применяем немного другую анимацию
+// в safari некорректно отрабатывает transform:scale (???), поэтому применяем немного другую анимацию
 const transitionProps = os.isMacOS() && browser.isSafari() ? safariTransitions : transitions;
 
 export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
@@ -47,6 +49,8 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
     useModalHeight(height, open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
+    const isFullSizeModal = width === 'fullWidth' && height === 'fullHeight';
+
     return (
         <BaseModal
             {...restProps}
@@ -55,16 +59,31 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
             componentRef={componentRef}
             transitionProps={{
                 classNames: transitionProps,
+                ...(isFullSizeModal &&
+                    verticalAlign === 'top' && {
+                        classNames: fullSizeVerticalTopTransitions,
+                        timeout: {
+                            enter: 200,
+                            exit: 400,
+                        },
+                    }),
                 ...restProps.transitionProps,
             }}
-            className={cn(className, styles.component, {
+            backdropProps={{
+                transparent: !overlay,
+                ...(isFullSizeModal && {
+                    timeout: {
+                        enter: 0,
+                        exit: 400,
+                    },
+                    transitionClassNames: fullSizeBackdropTransitions,
+                }),
+            }}
+            className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
             })}
             scrollHandler='content'
             open={open}
-            backdropProps={{
-                transparent: !overlay,
-            }}
             disableBlockingScroll={!overlay}
             onWheel={handleWheel}
             onClose={onClose}

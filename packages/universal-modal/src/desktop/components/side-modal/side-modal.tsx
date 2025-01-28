@@ -3,7 +3,6 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { getMarginValues } from '../../../utils/getMarginValues';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
@@ -12,6 +11,9 @@ import { ModalBySideProps } from '../../types/props';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './side-modal.module.css';
+import fullSizeBackdropTransitions from '../../styles/full-size-backdrop-transitions.module.css';
+import fullSizeVerticalTopTransitions from '../../styles/full-size-vertical-top-transitions.module.css';
+import { getDefaultTransitionProps } from './get-default-transition-props';
 
 export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -41,7 +43,28 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
     const isVerticalCenter = verticalAlign === 'center';
     const isVerticalBottom = verticalAlign === 'bottom';
 
-    const { right, left } = getMarginValues(margin);
+    const isFullSizeModal = width === 'fullWidth' && height === 'fullHeight';
+
+    const transitionProps = () => {
+        if (isFullSizeModal) {
+            if (verticalAlign === 'top') {
+                return {
+                    classNames: fullSizeVerticalTopTransitions,
+                    timeout: {
+                        enter: 200,
+                        exit: 400,
+                    },
+                };
+            }
+            return {};
+        }
+
+        return getDefaultTransitionProps({
+            componentRef,
+            horizontalAlign,
+            margin,
+        });
+    };
 
     return (
         <BaseModal
@@ -59,56 +82,23 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
                 [styles.wrapperJustifyCenter]: isVerticalCenter,
                 [styles.wrapperJustifyEnd]: isVerticalBottom,
             })}
-            className={cn(className, styles.component, {
+            className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
             })}
             contentClassName={styles.content}
             transitionProps={{
-                classNames: {},
-                timeout: 200,
-                onEnter: () => {
-                    if (componentRef.current) {
-                        if (isHorizontalStart) {
-                            componentRef.current.style.transform = `translateX(calc(-100% - ${left}px))`;
-                        }
-                        if (isHorizontalEnd) {
-                            componentRef.current.style.transform = `translateX(calc(100% + ${right}px))`;
-                        }
-                    }
-                },
-                onEntering: () => {
-                    if (componentRef.current) {
-                        componentRef.current.style.transform = 'translateX(0)';
-                        componentRef.current.style.transition = 'transform 200ms ease-in';
-                    }
-                },
-                onEntered: () => {
-                    if (componentRef.current) {
-                        componentRef.current.style.transform = 'translateX(0)';
-                    }
-                },
-                onExit: () => {
-                    if (componentRef.current) {
-                        componentRef.current.style.transform = 'translateX(0)';
-                    }
-                },
-                onExiting: () => {
-                    if (componentRef.current) {
-                        componentRef.current.style.transition = 'transform 200ms ease-out';
-
-                        if (isHorizontalStart) {
-                            componentRef.current.style.transform = `translateX(calc(-100% - ${left}px))`;
-                        }
-
-                        if (isHorizontalEnd) {
-                            componentRef.current.style.transform = `translateX(calc(100% + ${right}px))`;
-                        }
-                    }
-                },
+                ...transitionProps(),
                 ...restProps.transitionProps,
             }}
             backdropProps={{
                 transparent: !overlay,
+                ...(isFullSizeModal && {
+                    timeout: {
+                        enter: 0,
+                        exit: 400,
+                    },
+                    transitionClassNames: fullSizeBackdropTransitions,
+                }),
             }}
             onWheel={handleWheel}
             onClose={onClose}
