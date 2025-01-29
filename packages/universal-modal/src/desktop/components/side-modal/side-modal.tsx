@@ -8,12 +8,11 @@ import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
+import { getFullSizeModalTransitions } from '../../utils/getFullSizeModalTransitions';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
-import fullSizeBackdropTransitions from '../../styles/full-size-backdrop-transitions.module.css';
-import fullSizeVerticalTopTransitions from '../../styles/full-size-vertical-top-transitions.module.css';
 import styles from './styles/side-modal.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
@@ -44,28 +43,11 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
     const isVerticalCenter = verticalAlign === 'center';
     const isVerticalBottom = verticalAlign === 'bottom';
 
-    const isFullSizeModal = width === 'fullWidth' && height === 'fullHeight';
-
-    const transitionProps = () => {
-        if (isFullSizeModal) {
-            if (verticalAlign === 'top') {
-                return {
-                    timeout: {
-                        enter: 200,
-                        exit: 400,
-                    },
-                    classNames: fullSizeVerticalTopTransitions,
-                };
-            }
-
-            return {};
-        }
-
-        return getDefaultTransitionProps({
-            horizontalAlign,
-            margin,
-        });
-    };
+    const {
+        isFullSizeModal,
+        componentTransitions: fullSizeModalContentTransitions,
+        backdropTransitions: fullSizeModalBackdropTransitions,
+    } = getFullSizeModalTransitions({ verticalAlign, width, height });
 
     return (
         <BaseModal
@@ -88,18 +70,16 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
             })}
             contentClassName={styles.content}
             transitionProps={{
-                ...transitionProps(),
+                ...getDefaultTransitionProps({
+                    horizontalAlign,
+                    margin,
+                }),
+                ...(isFullSizeModal && fullSizeModalContentTransitions),
                 ...restProps.transitionProps,
             }}
             backdropProps={{
                 transparent: !overlay,
-                ...(isFullSizeModal && {
-                    timeout: {
-                        enter: 0,
-                        exit: 400,
-                    },
-                    transitionClassNames: fullSizeBackdropTransitions,
-                }),
+                ...(isFullSizeModal && fullSizeModalBackdropTransitions),
             }}
             onWheel={handleWheel}
             onClose={onClose}

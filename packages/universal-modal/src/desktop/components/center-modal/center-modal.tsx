@@ -9,10 +9,9 @@ import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalByCenterProps } from '../../types/props';
+import { getFullSizeModalTransitions } from '../../utils/getFullSizeModalTransitions';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
-import fullSizeBackdropTransitions from '../../styles/full-size-backdrop-transitions.module.css';
-import fullSizeVerticalTopTransitions from '../../styles/full-size-vertical-top-transitions.module.css';
 import styles from './styles/center-modal.module.css';
 import safariTransitions from './styles/transitions/safari-transitions.module.css';
 import transitions from './styles/transitions/transitions.module.css';
@@ -49,7 +48,11 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
     useModalHeight(height, open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
-    const isFullSizeModal = width === 'fullWidth' && height === 'fullHeight';
+    const {
+        isFullSizeModal,
+        componentTransitions: fullSizeModalContentTransitions,
+        backdropTransitions: fullSizeModalBackdropTransitions,
+    } = getFullSizeModalTransitions({ verticalAlign, width, height });
 
     return (
         <BaseModal
@@ -59,25 +62,12 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
             componentRef={componentRef}
             transitionProps={{
                 classNames: transitionProps,
-                ...(isFullSizeModal &&
-                    verticalAlign === 'top' && {
-                        timeout: {
-                            enter: 200,
-                            exit: 400,
-                        },
-                        classNames: fullSizeVerticalTopTransitions,
-                    }),
+                ...(isFullSizeModal && fullSizeModalContentTransitions),
                 ...restProps.transitionProps,
             }}
             backdropProps={{
                 transparent: !overlay,
-                ...(isFullSizeModal && {
-                    timeout: {
-                        enter: 0,
-                        exit: 400,
-                    },
-                    transitionClassNames: fullSizeBackdropTransitions,
-                }),
+                ...(isFullSizeModal && fullSizeModalBackdropTransitions),
             }}
             className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,

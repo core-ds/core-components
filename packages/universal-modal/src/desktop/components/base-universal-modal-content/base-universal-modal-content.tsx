@@ -4,7 +4,7 @@ import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import { ResponsiveContext } from '../../../ResponsiveContext';
-import { SCROLLBAR_DEFAULT_GAP } from '../../const';
+import { SCROLLBAR_DEFAULT_GAP } from '../../constants';
 
 import styles from './base-universal-modal-content.module.css';
 

@@ -19,5 +19,6 @@
         { "path": "../shared" },
         { "path": "../scrollbar" },
         { "path": "../typography" },
+        { "path": "../backdrop" }
     ]
 }

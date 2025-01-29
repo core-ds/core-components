@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '../../../../../vars/src/index.css';
 
 :root {
     --backdrop-visible-background: var(--color-light-overlay-default);
