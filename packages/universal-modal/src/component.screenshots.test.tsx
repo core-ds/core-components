@@ -8,20 +8,112 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 describe(
-    'UniversalModalDesktop | position',
+    'Modal',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                horizontalAlign: ['start', 'center', 'end'],
-                verticalAlign: ['top', 'center', 'bottom'],
-                open: true,
-                'header.title': 'Заголовок',
-                'footer.sticky': true,
-                Component: 'UniversalModalDesktop',
-            },
-        }),
+        cases: [
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    verticalAlign: ['top', 'center', 'bottom'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    width: ['500', '600', 'fullWidth'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    height: ['500', '600', 'fullHeight'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    width: ['fullWidth'],
+                    height: ['fullHeight'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    'footer.layout': ['column'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'footer.sticky': true,
+                    bigTitle: [false, true],
+                    'header.title': [
+                        'Заголовок',
+                        'Очень длинный заголовок Очень длинный заголовок',
+                    ],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    verticalAlign: ['top'],
+                    margin: [
+                        [0, 0, 0, 0],
+                        [12, 0, 0, 0],
+                        [56, 0, 0, 0],
+                    ],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    verticalAlign: ['bottom'],
+                    margin: [
+                        ['auto', 'auto', 0],
+                        ['auto', 'auto', 12],
+                        ['auto', 'auto', 56],
+                    ],
+                },
+            }),
+        ],
         screenshotOpts: {
             fullPage: true,
         },
@@ -29,20 +121,125 @@ describe(
 );
 
 describe(
-    'UniversalModalDesktop | fullHeight',
+    'SidePanel',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                height: 'fullHeight',
-                horizontalAlign: ['start', 'center', 'end'],
-                open: true,
-                'header.title': 'Заголовок',
-                'footer.sticky': true,
-                Component: 'UniversalModalDesktop',
-            },
-        }),
+        cases: [
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    horizontalAlign: ['start', 'end'],
+                    verticalAlign: ['top', 'center', 'bottom'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    horizontalAlign: ['start', 'end'],
+                    width: ['500', '600', 'fullWidth'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    horizontalAlign: ['start', 'end'],
+                    height: ['500', '600', 'fullHeight'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    horizontalAlign: ['start', 'end'],
+                    width: ['fullWidth'],
+                    height: ['fullHeight'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    horizontalAlign: ['start', 'end'],
+                    'footer.layout': ['column'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'footer.sticky': true,
+                    horizontalAlign: ['start', 'end'],
+                    bigTitle: [false, true],
+                    'header.title': [
+                        'Заголовок',
+                        'Очень длинный заголовок Очень длинный заголовок',
+                    ],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    verticalAlign: ['top'],
+                    horizontalAlign: ['start', 'end'],
+                    margin: [[0], [12], [56]],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    verticalAlign: ['bottom'],
+                    horizontalAlign: ['start', 'end'],
+                    margin: [[0], [12], [56]],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    verticalAlign: ['center'],
+                    horizontalAlign: ['start', 'end'],
+                    margin: [[0], [12], [56]],
+                },
+            }),
+        ],
         screenshotOpts: {
             fullPage: true,
         },
@@ -50,102 +247,46 @@ describe(
 );
 
 describe(
-    'UniversalModalDesktop | sticky',
+    'Mobile',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                open: true,
-                Component: 'UniversalModalDesktop',
-                'header.title': 'Заголовок',
-                'footer.sticky': true,
-                showMore: [false, true],
-                horizontalAlign: ['start', 'center'],
-                height: ['500', '600', 'fullHeight'],
-            },
-        }),
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
-
-describe(
-    'UniversalModalDesktop | sizes',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                open: true,
-                Component: 'UniversalModalDesktop',
-                'header.title': 'Заголовок',
-                'footer.sticky': true,
-                width: ['500', '600', 'fullWidth'],
-                height: ['500', '600', 'fullHeight'],
-            },
-        }),
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
-
-describe(
-    'UniversalModalDesktop | footer layout column',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                open: true,
-                Component: 'UniversalModalDesktop',
-                'header.title': 'Заголовок',
-                'footer.sticky': true,
-                'footer.layout': ['column'],
-                height: ['500', '600', 'fullHeight'],
-            },
-        }),
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
-
-describe(
-    'UniversalModalDesktop | title',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                open: true,
-                Component: 'UniversalModalDesktop',
-                bigTitle: [false, true],
-                'header.title': ['Заголовок', 'Очень длинный заголовок Очень длинный заголовок'],
-            },
-        }),
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
-
-describe(
-    'UniversalModalMobile',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            testStory: false,
-            knobs: {
-                open: true,
-                'header.title': 'Заголовок',
-                'footer.sticky': true,
-                showMore: [false, true],
-                Component: 'UniversalModalMobile',
-            },
-        }),
+        cases: [
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Mobile',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    showMore: [false, true],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Mobile',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'header.title': 'Заголовок',
+                    'footer.sticky': true,
+                    'footer.layout': ['column'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Mobile',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    'footer.sticky': true,
+                    bigTitle: [false, true],
+                    'header.title': [
+                        'Заголовок',
+                        'Очень длинный заголовок Очень длинный заголовок',
+                    ],
+                },
+            }),
+        ],
         screenshotOpts: {
             fullPage: true,
         },
