@@ -17,3 +17,11 @@
         height: 100%;
     }
 }
+
+.verticalTop {
+    margin-top: 0;
+}
+
+.verticalBottom {
+    margin-bottom: 0;
+}

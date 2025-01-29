@@ -207,23 +207,47 @@ render(() => {
 
     const getMargin = () => {
         if (horizontalAlign === 'center') {
+            if (verticalAlign === 'top') {
+                return {
+                    top: 12,
+                    ...(modalWidth === 'fullWidth' && {
+                        right: 12,
+                        left: 12,
+                    }),
+                    ...(modalHeight === 'fullHeight' && {
+                        bottom: 12,
+                    }),
+                };
+            }
+
             if (verticalAlign === 'center') {
-                if (modalHeight === 'fullHeight') {
-                    return [12];
-                }
-                if (modalWidth === 'fullWidth') {
-                    return ['auto', 12];
-                }
-                return ['auto'];
+                return {
+                    ...(modalWidth === 'fullWidth' && {
+                        right: 12,
+                        left: 12,
+                    }),
+                    ...(modalHeight === 'fullHeight' && {
+                        top: 12,
+                        bottom: 12,
+                    }),
+                };
             }
+
             if (verticalAlign === 'bottom') {
-                if (modalHeight === 'fullHeight') {
-                    return [12];
-                }
-                return ['auto', 'auto', 12];
+                return {
+                    bottom: 12,
+                    ...(modalWidth === 'fullWidth' && {
+                        right: 12,
+                        left: 12,
+                    }),
+                    ...(modalHeight === 'fullHeight' && {
+                        top: 12,
+                    }),
+                };
             }
+        } else {
+            return { top: 12, right: 12, bottom: 12, left: 12 };
         }
-        return [12];
     };
 
     return (
@@ -838,10 +862,22 @@ const margins = [
 
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [leftMargin, setLeftMargin] = React.useState('12');
-    const [rightMargin, setRightMargin] = React.useState('12');
-    const [topMargin, setTopMargin] = React.useState('12');
-    const [bottomMargin, setBottomMargin] = React.useState('12');
+
+    const [margin, setMargin] = React.useState({
+        top: 12,
+        right: 12,
+        bottom: 12,
+        left: 12,
+    });
+
+    const updateMargin = (value, key) => {
+        setMargin((prev) => {
+            return {
+                ...prev,
+                [key]: Number(value),
+            };
+        });
+    };
 
     return (
         <React.Fragment>
@@ -855,10 +891,10 @@ render(() => {
                         <SelectDesktop
                             size={56}
                             options={margins}
-                            selected={leftMargin}
+                            selected={String(margin.left)}
                             label='Левый'
                             block={true}
-                            onChange={({ selected }) => setLeftMargin(selected.key)}
+                            onChange={({ selected }) => updateMargin(selected.key, 'left')}
                         />
                     </div>
                     <Gap size={12} direction={'horizontal'} />
@@ -866,10 +902,10 @@ render(() => {
                         <SelectDesktop
                             size={56}
                             options={margins}
-                            selected={rightMargin}
+                            selected={String(margin.right)}
                             label='Правый'
                             block={true}
-                            onChange={({ selected }) => setRightMargin(selected.key)}
+                            onChange={({ selected }) => updateMargin(selected.key, 'right')}
                         />
                     </div>
                 </div>
@@ -879,10 +915,10 @@ render(() => {
                         <SelectDesktop
                             size={56}
                             options={margins}
-                            selected={topMargin}
+                            selected={String(margin.top)}
                             label='Верхний'
                             block={true}
-                            onChange={({ selected }) => setTopMargin(selected.key)}
+                            onChange={({ selected }) => updateMargin(selected.key, 'top')}
                         />
                     </div>
                     <Gap size={12} direction={'horizontal'} />
@@ -890,10 +926,10 @@ render(() => {
                         <SelectDesktop
                             size={56}
                             options={margins}
-                            selected={bottomMargin}
+                            selected={String(margin.bottom)}
                             label='Нижний'
                             block={true}
-                            onChange={({ selected }) => setBottomMargin(selected.key)}
+                            onChange={({ selected }) => updateMargin(selected.key, 'bottom')}
                         />
                     </div>
                 </div>
@@ -904,7 +940,7 @@ render(() => {
                 height={'fullHeight'}
                 horizontalAlign={'end'}
                 verticalAlign={'center'}
-                margin={[topMargin, rightMargin, bottomMargin, leftMargin]}
+                margin={margin}
                 onClose={() => setOpen(false)}
             >
                 <UniversalModalDesktop.Header
@@ -1457,7 +1493,7 @@ render(() => {
                 verticalAlign={'center'}
                 overlay={false}
                 onClose={() => setOpen(false)}
-                margin={[12, 12, 12, 0]}
+                margin={{ top: 12, right: 12, bottom: 12, left: 12 }}
             >
                 <UniversalModalDesktop.Header
                     align='left'

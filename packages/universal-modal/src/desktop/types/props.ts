@@ -39,7 +39,6 @@ export type BaseUniversalModalProps = {
 
     /**
      * Устанавливает отступы модального окна
-     * По умолчанию для бокового модала 0px, для центрального auto
      */
     margin?: TMargin;
 

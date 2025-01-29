@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { array, boolean, select, text } from '@storybook/addon-knobs';
+import { object, boolean, select, text } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
@@ -67,7 +67,7 @@ export const modal: Story = {
             'start',
         );
         const bigTitle = boolean('bigTitle', false);
-        const margin = array('margin', ['auto']);
+        const margin = object('margin', {});
         const open = boolean('open', false);
 
         return (
@@ -134,7 +134,7 @@ export const side_panel: Story = {
             'start',
         );
         const bigTitle = boolean('bigTitle', false);
-        const margin = array('margin', [0]);
+        const margin = object('margin', {});
         const open = boolean('open', false);
 
         return (

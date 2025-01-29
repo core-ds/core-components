@@ -90,11 +90,7 @@ describe(
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
                     verticalAlign: ['top'],
-                    margin: [
-                        [0, 0, 0, 0],
-                        [12, 0, 0, 0],
-                        [56, 0, 0, 0],
-                    ],
+                    margin: ['{"top":0}', '{"top":12}', '{"top":56}'],
                 },
             }),
             ...generateTestCases({
@@ -106,11 +102,7 @@ describe(
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
                     verticalAlign: ['bottom'],
-                    margin: [
-                        ['auto', 'auto', 0],
-                        ['auto', 'auto', 12],
-                        ['auto', 'auto', 56],
-                    ],
+                    margin: ['{"bottom":0}', '{"bottom":12}', '{"bottom":56}'],
                 },
             }),
         ],
@@ -210,7 +202,11 @@ describe(
                     'footer.sticky': true,
                     verticalAlign: ['top'],
                     horizontalAlign: ['start', 'end'],
-                    margin: [[0], [12], [56]],
+                    margin: [
+                        '{"top":0,"right":0,"bottom":0,"left":0}',
+                        '{"top":12,"right":12,"bottom":12,"left":12}',
+                        '{"top":56,"right":56,"bottom":56,"left":56}',
+                    ],
                 },
             }),
             ...generateTestCases({
@@ -223,7 +219,11 @@ describe(
                     'footer.sticky': true,
                     verticalAlign: ['bottom'],
                     horizontalAlign: ['start', 'end'],
-                    margin: [[0], [12], [56]],
+                    margin: [
+                        '{"top":0,"right":0,"bottom":0,"left":0}',
+                        '{"top":12,"right":12,"bottom":12,"left":12}',
+                        '{"top":56,"right":56,"bottom":56,"left":56}',
+                    ],
                 },
             }),
             ...generateTestCases({
@@ -236,7 +236,11 @@ describe(
                     'footer.sticky': true,
                     verticalAlign: ['center'],
                     horizontalAlign: ['start', 'end'],
-                    margin: [[0], [12], [56]],
+                    margin: [
+                        '{"top":0,"right":0,"bottom":0,"left":0}',
+                        '{"top":12,"right":12,"bottom":12,"left":12}',
+                        '{"top":56,"right":56,"bottom":56,"left":56}',
+                    ],
                 },
             }),
         ],

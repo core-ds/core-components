@@ -5,14 +5,14 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { browser, os } from '@alfalab/core-components-shared';
 
 import { useModalHeight } from '../../hooks/useModalHeight';
-import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalByCenterProps } from '../../types/props';
-import { getFullSizeModalTransitions } from '../../utils/getFullSizeModalTransitions';
+import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
+import { getMargins } from '../../utils/get-margins';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
-import styles from './styles/center-modal.module.css';
+import styles from './styles/index.module.css';
 import safariTransitions from './styles/transitions/safari-transitions.module.css';
 import transitions from './styles/transitions/transitions.module.css';
 
@@ -29,22 +29,14 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
         height = 'fullHeight',
         verticalAlign = 'center',
         overlay = true,
-        margin = ['auto'],
+        margin,
         onClose,
         ...restProps
     } = props;
 
     const componentRef = useRef<HTMLDivElement>(null);
 
-    useModalMargin({
-        margin,
-        open,
-        componentRef,
-        verticalAlign,
-        horizontalAlign: restProps.horizontalAlign,
-    });
     useModalWidth(width, open, componentRef);
-
     useModalHeight(height, open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
@@ -71,6 +63,9 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
             }}
             className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
+                [styles.verticalTop]: verticalAlign === 'top',
+                [styles.verticalBottom]: verticalAlign === 'bottom',
+                ...getMargins({ styles, margin }),
             })}
             scrollHandler='content'
             open={open}

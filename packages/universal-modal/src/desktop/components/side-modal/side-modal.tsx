@@ -4,16 +4,16 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { useModalHeight } from '../../hooks/useModalHeight';
-import { useModalMargin } from '../../hooks/useModalMargin';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { ModalBySideProps } from '../../types/props';
-import { getFullSizeModalTransitions } from '../../utils/getFullSizeModalTransitions';
+import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
+import { getMargins } from '../../utils/get-margins';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
-import styles from './styles/side-modal.module.css';
+import styles from './styles/index.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
     const {
@@ -26,14 +26,13 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
         dataTestId,
         className,
         children,
-        margin = [0],
+        margin,
         onClose,
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    useModalMargin({ margin, open, componentRef, horizontalAlign, verticalAlign });
     useModalWidth(width, open, componentRef);
     useModalHeight(height, open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
@@ -67,6 +66,7 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
             })}
             className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
+                ...getMargins({ styles, margin }),
             })}
             contentClassName={styles.content}
             transitionProps={{

@@ -1,6 +1,5 @@
 import cn from 'classnames';
 
-import { getMarginValues } from '../../../utils/getMarginValues';
 import { ModalBySideProps } from '../../types/props';
 
 import transitions from './styles/transitions/transitions.module.css';
@@ -11,20 +10,18 @@ type Params = {
 };
 
 export const getDefaultTransitionProps = (params: Params) => {
-    const { horizontalAlign, margin = [0] } = params;
+    const { horizontalAlign, margin } = params;
     const isHorizontalStart = horizontalAlign === 'start';
     const isHorizontalEnd = horizontalAlign === 'end';
 
-    const { right, left } = getMarginValues(margin);
-
     const enterCn = cn({
-        [transitions[`enterLeft-${left}`]]: isHorizontalStart,
-        [transitions[`enterRight-${right}`]]: isHorizontalEnd,
+        [transitions[`enterLeft-${margin?.left || 0}`]]: isHorizontalStart,
+        [transitions[`enterRight-${margin?.right || 0}`]]: isHorizontalEnd,
     });
 
     const exitCn = cn({
-        [transitions[`exitActiveLeft-${left}`]]: isHorizontalStart,
-        [transitions[`exitActiveRight-${right}`]]: isHorizontalEnd,
+        [transitions[`exitActiveLeft-${margin?.left || 0}`]]: isHorizontalStart,
+        [transitions[`exitActiveRight-${margin?.right || 0}`]]: isHorizontalEnd,
     });
 
     return {
