@@ -58,7 +58,7 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
             contentElementRef={contentRef}
             scrollHandler='content'
             disableBlockingScroll={!overlay}
-            wrapperClassName={cn({
+            wrapperClassName={cn(styles.wrapper, {
                 [styles.wrapperAlignStart]: isHorizontalStart,
                 [styles.wrapperAlignEnd]: isHorizontalEnd,
                 [styles.wrapperJustifyCenter]: isVerticalCenter,

@@ -1,5 +1,9 @@
 @import '../../../../../../vars/src/index.css';
 
+.wrapper {
+    overflow-x: hidden;
+}
+
 .wrapperAlignStart {
     align-items: start;
 }
