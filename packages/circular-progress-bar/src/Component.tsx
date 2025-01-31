@@ -188,16 +188,6 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 }) => {
     const [timerValue, setTimerValue] = useState<number>(0);
 
-    const updateProgress = (secondsRemaining: number) => {
-        if (directionType === 'asc') {
-            setTimerValue(MAX_PROGRESS_VALUE * (1 - secondsRemaining / value));
-
-            return;
-        }
-
-        setTimerValue((MAX_PROGRESS_VALUE / value) * secondsRemaining);
-    };
-
     const progressValue = timer ? timerValue : value;
 
     const memorized = useMemo(() => {
@@ -297,6 +287,16 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 {titleContent}
             </Text>
         );
+
+    const updateProgress = (secondsRemaining: number) => {
+        if (directionType === 'asc') {
+            setTimerValue(MAX_PROGRESS_VALUE * (1 - secondsRemaining / value));
+
+            return;
+        }
+
+        setTimerValue((MAX_PROGRESS_VALUE / value) * secondsRemaining);
+    };
 
     const renderTitle = () => {
         if (timer) {
