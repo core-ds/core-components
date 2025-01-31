@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -53,11 +53,18 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
 
     const [loadingStatus, setLoadingStatus] = useState<LoadingStatus>(LoadingStatus.INITIAL);
     const [icon, setIcon] = useState(cache[url]);
+    const prevIconName = useRef(name);
 
     const monoIcon = !name.includes('_color');
 
     useEffect(() => {
-        if (icon) return undefined;
+        if (cache[url]) {
+            if (prevIconName.current !== name) {
+                setIcon(cache[url]);
+            }
+
+            return undefined;
+        }
 
         const xhr = new XMLHttpRequest();
 
@@ -79,7 +86,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
         };
 
         return () => xhr.abort();
-    }, [url, icon]);
+    }, [url, icon, name]);
 
     return (
         <span
