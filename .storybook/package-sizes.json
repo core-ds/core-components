@@ -47,7 +47,7 @@
     "tabs": {
         "collapsible.js": 153.5,
         "desktop.js": 37.8,
-        "index.js": 39.1,
+        "index.js": 39.2,
         "mobile.js": 37.9,
         "shared.js": 30.8
     },
@@ -112,7 +112,7 @@
     },
     "select": {
         "desktop.js": 161.7,
-        "index.js": 230.5,
+        "index.js": 230.4,
         "mobile.js": 203.8,
         "shared.js": 190.3
     },
@@ -280,7 +280,7 @@
         "circle.js": 17.1,
         "no-shape.js": 5.3,
         "rectangle.js": 12,
-        "super-ellipse.js": 32
+        "super-ellipse.js": 32.8
     },
     "icon-button": {
         "index.js": 10.9
@@ -301,7 +301,7 @@
         "index.js": 1.9
     },
     "gallery": {
-        "index.js": 625.1
+        "index.js": 624.9
     },
     "form-control": {
         "desktop.js": 3.8,
