@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.11.0
+
+### Minor Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1546](https://github.com/core-ds/core-components/pull/1546)
+
+-   Изменены цвета и размеры навигации и заглушек при загрузке
+
 ## 5.10.9
 
 ### Patch Changes
