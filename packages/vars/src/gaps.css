@@ -30,7 +30,7 @@
     --gap-8xl-neg: -128px; /* deprecated */
 
     /* новые значения, используйте их */
-    --gap-0: 0;
+    --gap-0: 0px;
     --gap-2: var(--gap-3xs);
     --gap-4: var(--gap-2xs);
     --gap-8: var(--gap-xs);
