@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.2.1
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1552](https://github.com/core-ds/core-components/pull/1552)
+
+-   Поправлено обрезание длинного текста при truncate: true
+
 ## 6.2.0
 
 ### Minor Changes

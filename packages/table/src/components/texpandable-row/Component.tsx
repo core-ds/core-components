@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, useState } from 'react';
+import React, { forwardRef, ReactNode, Ref, useState } from 'react';
 import cn from 'classnames';
 
 import { TRow, TRowProps } from '../trow';
@@ -13,6 +13,8 @@ export type TExpandableRowProps = TRowProps & {
     onToggle?: (expanded: boolean) => void;
 
     renderContent: (expanded: boolean) => ReactNode;
+
+    rowRef?: Ref<HTMLTableRowElement>;
 };
 
 export const TExpandableRow = forwardRef<HTMLTableRowElement, TExpandableRowProps>(
@@ -24,6 +26,7 @@ export const TExpandableRow = forwardRef<HTMLTableRowElement, TExpandableRowProp
             defaultExpanded = false,
             onToggle = () => null,
             renderContent = () => null,
+            rowRef,
             ...restProps
         }: TExpandableRowProps,
         ref,
@@ -51,6 +54,7 @@ export const TExpandableRow = forwardRef<HTMLTableRowElement, TExpandableRowProp
                     })}
                     selected={selected}
                     onClick={handleToggle}
+                    ref={rowRef}
                     {...restProps}
                 />
 

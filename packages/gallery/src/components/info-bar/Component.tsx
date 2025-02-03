@@ -56,7 +56,12 @@ export const InfoBar = () => {
             )}
         </section>
     ) : (
-        <Text className={styles.description} tag='div' view='component' color='primary-inverted'>
+        <Text
+            className={styles.description}
+            tag='div'
+            view='component'
+            color='static-primary-light'
+        >
             {image?.name}
         </Text>
     );

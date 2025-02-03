@@ -9,9 +9,9 @@ import startOfMonth from 'date-fns/startOfMonth';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { Month } from '../../../../typings';
-import { useCalendar } from '../../../../useCalendar';
-import { useRange } from '../../../../useRange';
+import { Month } from '../../typings';
+import { useCalendar } from '../../useCalendar';
+import { useRange } from '../../useRange';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
@@ -22,11 +22,12 @@ import {
     isRangeValue,
     limitDate,
     monthName,
-} from '../../../../utils';
-import { DaysTable } from '../../../days-table';
-import { CalendarContentProps } from '../../typings';
+} from '../../utils';
+import { DaysTable } from '../days-table';
 
-import styles from '../../index.module.css';
+import { CalendarContentProps } from './typings';
+
+import styles from './index.module.css';
 
 export const CalendarMonthOnlyView = ({
     value,
@@ -156,7 +157,9 @@ export const CalendarMonthOnlyView = ({
     const initialMonthIndex = useMemo(() => {
         const date = range.value || range.selectedFrom || activeMonth.getTime() || Date.now();
 
-        return activeMonths.findIndex((m) => isSameMonth(date, m.date));
+        const index = activeMonths.findIndex((m) => isSameMonth(date, m.date));
+
+        return Math.max(index, 0);
     }, [range.value, range.selectedFrom, activeMonth, activeMonths]);
 
     // заголовок должен становиться активным, если выбран весь доступный период в месяце

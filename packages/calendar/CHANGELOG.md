@@ -1,5 +1,25 @@
 # Change Log
 
+## 7.17.5
+
+### Patch Changes
+
+<sup><time>27.01.2025</time></sup>
+
+### [#1556](https://github.com/core-ds/core-components/pull/1556)
+
+-   Критическое исправление `month-only` календаря связанное с работой minDate/maxDate пропсов
+
+## 7.17.4
+
+### Patch Changes
+
+<sup><time>15.01.2025</time></sup>
+
+### [#1531](https://github.com/core-ds/core-components/pull/1531)
+
+-   Исправление предотвращающие ошибки типизации
+
 ## 7.17.3
 
 ### Patch Changes
