@@ -1,5 +1,17 @@
 # @alfalab/core-components-pass-code
 
+## 2.5.0
+
+### Minor Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1492](https://github.com/core-ds/core-components/pull/1492)
+
+-   Добавлены десктоп/мобайл импорты
+    -   Мелкий рефакторинг css - вынесены общие стили в коммон
+    -   Добавлено sideEffects: false
+
 ## 2.4.11
 
 ### Patch Changes

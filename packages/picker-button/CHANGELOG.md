@@ -1,5 +1,25 @@
 # Change Log
 
+## 11.12.12
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1532](https://github.com/core-ds/core-components/pull/1532)
+
+-   Убрана передача невалидных пропсов в DOM
+
+-   Обновлены зависимости
+    -   select@17.20.1
+
+## 11.12.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+
 ## 11.12.10
 
 ### Patch Changes

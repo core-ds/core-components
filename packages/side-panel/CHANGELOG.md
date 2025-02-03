@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.9.2
+
+### Patch Changes
+
+<sup><time>27.01.2025</time></sup>
+
+### [#1555](https://github.com/core-ds/core-components/pull/1555)
+
+-   Добавлена поддержка безопасных отступов safe-area
+
 ## 5.9.1
 
 ### Patch Changes

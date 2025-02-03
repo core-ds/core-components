@@ -149,13 +149,16 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
                     if (!group) return null;
 
-                    const groupSelectedItems = selectedItems?.filter((item) =>
-                        group.options.includes(item),
+                    const groupSelectedItems = selectedItems?.filter(({ key: selectedItemKey }) =>
+                        group.options.some((opt) => opt.key === selectedItemKey),
                     );
                     const handleSelectedItems = (items: OptionShape[]) => {
                         setSelectedItems(
                             (
-                                selectedItems?.filter((item) => !group.options.includes(item)) ?? []
+                                selectedItems?.filter(
+                                    ({ key: selectedItemKey }) =>
+                                        !group.options.some((opt) => opt.key === selectedItemKey),
+                                ) ?? []
                             ).concat(items),
                         );
                     };
