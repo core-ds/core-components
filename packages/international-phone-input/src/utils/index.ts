@@ -5,13 +5,14 @@ import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-selec
 import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
-import { countriesData } from '../data/country-data';
+import { CountriesData, countriesData } from '../data/country-data';
 import type { AreaItem, Country } from '../types';
 
-export function initCountries(iso2s?: string[]) {
+export function initCountries(iso2s?: string[], initCountriesList?: CountriesData[]) {
+    const data = initCountriesList ?? countriesData;
     const filteredCountriesData = Array.isArray(iso2s)
-        ? countriesData.filter((country) => iso2s.includes(country[2]))
-        : countriesData;
+        ? data.filter((country) => iso2s.includes(country[2]))
+        : data;
 
     return filteredCountriesData.map((country) => {
         const countryItem: Country = {

@@ -10,6 +10,7 @@ import type { InputAutocompleteMobileProps } from '@alfalab/core-components-inpu
 import { OptionShape } from '@alfalab/core-components-select/typings';
 
 import type { SharedCountrySelectProps } from './components/country-select';
+import { CountriesData } from './data/country-data';
 
 export type Country = {
     name: string;
@@ -42,6 +43,13 @@ type CommonPhoneInputProps = {
      * Дефолтный код страны
      */
     defaultIso2?: string;
+
+    /**
+     *
+     * Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)
+     * @type {CountriesData[]}
+     */
+    initCountriesList?: CountriesData[];
 
     /**
      * Возможность стереть код страны

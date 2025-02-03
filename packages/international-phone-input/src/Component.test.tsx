@@ -8,6 +8,7 @@ import {
     getInternationalPhoneInputDesktopTestIds,
     getInternationalPhoneInputMobileTestIds,
 } from './utils';
+import { countriesData } from './data/country-data';
 
 describe('InternationalPhoneInput', () => {
     Object.defineProperty(window, 'matchMedia', {
@@ -743,5 +744,39 @@ describe('InternationalPhoneInput', () => {
         );
 
         expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
+    });
+
+    it('should be able to overwrite countries list with initCountriesList prop', async () => {
+        const dti = 'test-dti';
+
+        let initCountriesList = countriesData.map((countryData) => {
+            if (countryData[4]) {
+                const fullNumberLength =
+                    countryData[3].length + countryData[4].replace(/\s/g, '').length;
+                const additionalNumberLength = 15 - fullNumberLength;
+
+                if (additionalNumberLength > 0) {
+                    // Overwrite number length
+                    countryData[4] = `${countryData[4]} ${'.'.repeat(additionalNumberLength)}`;
+                }
+            }
+
+            return countryData;
+        });
+
+        const { getByTestId } = render(
+            <InternationalPhoneInputStateful
+                label='Номер телефона'
+                placeholder='Введите номер телефона'
+                dataTestId={dti}
+                initCountriesList={initCountriesList}
+            />,
+        );
+
+        const input = getByTestId(dti);
+
+        await userEvent.type(input, '+123451234512345');
+
+        expect(input).toHaveValue('+1 234 512 3451 2345');
     });
 });

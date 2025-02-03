@@ -54,11 +54,15 @@ export const BaseInternationalPhoneInput = forwardRef<
             clear: clearProp,
             open: openProps,
             defaultOpen,
+            initCountriesList,
             ...restProps
         },
         ref,
     ) => {
-        const countriesData = useMemo(() => initCountries(countries), [countries]);
+        const countriesData = useMemo(
+            () => initCountries(countries, initCountriesList),
+            [countries, initCountriesList],
+        );
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
 
