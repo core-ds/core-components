@@ -7,14 +7,14 @@
 /* prettier-ignore */
 @each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
     .enterLeft-$(size) {
-        transform: translateX(calc(-100% - $(size)px));
+        transform: translateX(calc(-100% - $(size)px)) translateZ(0);
     }
 }
 
 /* prettier-ignore */
 @each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
     .enterRight-$(size) {
-        transform: translateX(calc(100% + $(size)px));
+        transform: translateX(calc(100% + $(size)px)) translateZ(0);
     }
 }
 
@@ -34,7 +34,7 @@
 /* prettier-ignore */
 @each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
     .exitActiveLeft-$(size) {
-        transform: translateX(calc(-100% - $(size)px));
+        transform: translateX(calc(-100% - $(size)px)) translateZ(0);
         transition: transform var(--timeout) ease-out;
     }
 }
@@ -42,7 +42,7 @@
 /* prettier-ignore */
 @each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
     .exitActiveRight-$(size) {
-        transform: translateX(calc(100% + $(size)px));
+        transform: translateX(calc(100% + $(size)px)) translateZ(0);
         transition: transform var(--timeout) ease-out;
     }
 }

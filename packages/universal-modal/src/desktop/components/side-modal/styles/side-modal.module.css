@@ -27,7 +27,13 @@
     border-radius: var(--border-radius-24);
     overflow-x: hidden;
     margin: unset;
+
+    /*
+        Применяем аппаратное ускорение с помощью will-change и backface-visibility
+        Также в классах анимации добавлен translateZ(0)
+    */
     will-change: transform;
+    backface-visibility: hidden;
 
     &.overlayHidden {
         box-shadow: var(--shadow-m);
