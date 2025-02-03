@@ -746,10 +746,10 @@ describe('InternationalPhoneInput', () => {
         expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
     });
 
-    it('should be able to overwrite countries list with initCountriesList prop', async () => {
+    it('should be able to overwrite countries list with customCountriesList prop', async () => {
         const dti = 'test-dti';
 
-        let initCountriesList = countriesData.map((countryData) => {
+        let customCountriesList = countriesData.map((countryData) => {
             if (countryData[4]) {
                 const fullNumberLength =
                     countryData[3].length + countryData[4].replace(/\s/g, '').length;
@@ -769,7 +769,7 @@ describe('InternationalPhoneInput', () => {
                 label='Номер телефона'
                 placeholder='Введите номер телефона'
                 dataTestId={dti}
-                initCountriesList={initCountriesList}
+                customCountriesList={customCountriesList}
             />,
         );
 

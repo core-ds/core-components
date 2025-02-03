@@ -49,7 +49,7 @@ type CommonPhoneInputProps = {
      * Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)
      * @type {CountriesData[]}
      */
-    initCountriesList?: CountriesData[];
+    customCountriesList?: CountriesData[];
 
     /**
      * Возможность стереть код страны

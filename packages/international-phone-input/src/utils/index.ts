@@ -8,8 +8,8 @@ import { DEFAULT_PHONE_FORMAT } from '../consts';
 import { CountriesData, countriesData } from '../data/country-data';
 import type { AreaItem, Country } from '../types';
 
-export function initCountries(iso2s?: string[], initCountriesList?: CountriesData[]) {
-    const data = initCountriesList ?? countriesData;
+export function initCountries(iso2s?: string[], customCountriesList?: CountriesData[]) {
+    const data = customCountriesList ?? countriesData;
     const filteredCountriesData = Array.isArray(iso2s)
         ? data.filter((country) => iso2s.includes(country[2]))
         : data;
