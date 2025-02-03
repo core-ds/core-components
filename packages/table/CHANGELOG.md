@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.9.0
+
+### Minor Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1540](https://github.com/core-ds/core-components/pull/1540)
+
+-   Добавлен forwardRef для TRow компонента, добавлена возможность прокидывать реф для TRow через TExpnandableRow
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.1
+
 ## 2.8.5
 
 ### Patch Changes

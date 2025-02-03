@@ -130,7 +130,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
             tabIndex: itemSelected ? 0 : -1,
             'aria-selected': itemSelected,
             selected: itemSelected,
-            'data-test-id': getDataTestId(item.dataTestId, 'toggle'),
+            dataTestId: getDataTestId(item.dataTestId, 'toggle'),
             disabled: item.disabled,
             ref: mergeRefs(refs),
             onKeyDown: handleKeyDown,

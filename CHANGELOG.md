@@ -1,3 +1,114 @@
+## 48.11.0
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1540](https://github.com/core-ds/core-components/pull/1540)
+
+#### Что изменилось
+- Добавлен forwardRef для TRow компонента, добавлена возможность прокидывать реф для TRow через TExpnandableRow
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1537](https://github.com/core-ds/core-components/pull/1537)
+
+#### Что изменилось
+- Убрано проставление пропса allowUnselect: true в хуке useSelectWithApply
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1524](https://github.com/core-ds/core-components/pull/1524)
+
+#### Что изменилось
+- Добавлен компонент SuperEllipseBlank без предзагузки иконок
+- Добавлены импорты предзагруженных иконок (по размерам)
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#1552](https://github.com/core-ds/core-components/pull/1552)
+
+#### Что изменилось
+- Поправлено обрезание длинного текста при truncate: true
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#1532](https://github.com/core-ds/core-components/pull/1532)
+
+#### Что изменилось
+- Убрана передача невалидных пропсов в DOM
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button` `tabs`
+
+
+### [#1546](https://github.com/core-ds/core-components/pull/1546)
+
+#### Что изменилось
+- Изменены цвета и размеры навигации и заглушек при загрузке
+
+#### Влияние на компоненты
+- Минорное<br />`gallery`
+
+
+
+## 48.10.3
+
+<sup><time>27.01.2025</time></sup>
+
+### [#1556](https://github.com/core-ds/core-components/pull/1556)
+
+#### Что изменилось
+- Критическое исправление `month-only` календаря связанное с работой minDate/maxDate пропсов
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+
+## 48.10.2
+
+<sup><time>27.01.2025</time></sup>
+
+### [#1555](https://github.com/core-ds/core-components/pull/1555)
+
+#### Что изменилось
+- Добавлена поддержка безопасных отступов safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+
+## 48.10.1
+
+<sup><time>24.01.2025</time></sup>
+
+### [#1528](https://github.com/core-ds/core-components/pull/1528)
+
+#### Что изменилось
+- Исправлен расчет размера и положения нижней полосы при удалении/добавлении таба в PrimaryTabList
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#1516](https://github.com/core-ds/core-components/pull/1516)
+
+#### Что изменилось
+- Добавлены десктоп/мобайл импорты
+
+#### Влияние на компоненты
+- Патчи<br />`alert`
+
+
+
 ## 48.10.0
 
 <sup><time>16.01.2025</time></sup>

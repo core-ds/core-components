@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.10.0
+
+### Minor Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1524](https://github.com/core-ds/core-components/pull/1524)
+
+-   Добавлен компонент SuperEllipseBlank без предзагузки иконок
+-   Добавлены импорты предзагруженных иконок (по размерам)
+
 ## 3.9.3
 
 ### Patch Changes

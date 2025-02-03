@@ -1,5 +1,15 @@
 # Change Log
 
+## 17.20.1
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1537](https://github.com/core-ds/core-components/pull/1537)
+
+-   Убрано проставление пропса allowUnselect: true в хуке useSelectWithApply
+
 ## 17.20.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.2.13
+
+### Patch Changes
+
+<sup><time>24.01.2025</time></sup>
+
+### [#1516](https://github.com/core-ds/core-components/pull/1516)
+
+-   Добавлены десктоп/мобайл импорты
+
 ## 4.2.12
 
 ### Patch Changes
