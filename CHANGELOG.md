@@ -1,3 +1,17 @@
+## 48.12.0
+
+<sup><time>04.02.2025</time></sup>
+
+### [#1562](https://github.com/core-ds/core-components/pull/1562)
+
+#### Что изменилось
+- добавлен опциональный проп customCountriesList, который можно использовать, чтобы переопределить дефолтный массив country-data
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+
 ## 48.11.0
 
 <sup><time>31.01.2025</time></sup>
