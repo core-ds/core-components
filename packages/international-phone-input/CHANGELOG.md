@@ -1,5 +1,15 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>04.02.2025</time></sup>
+
+### [#1562](https://github.com/core-ds/core-components/pull/1562)
+
+-   добавлен опциональный проп customCountriesList, который можно использовать, чтобы переопределить дефолтный массив country-data
+
 ## 2.5.10
 
 ### Patch Changes
