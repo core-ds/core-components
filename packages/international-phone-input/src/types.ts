@@ -45,9 +45,7 @@ type CommonPhoneInputProps = {
     defaultIso2?: string;
 
     /**
-     *
      * Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)
-     * @type {CountriesData[]}
      */
     customCountriesList?: CountriesData[];
 
