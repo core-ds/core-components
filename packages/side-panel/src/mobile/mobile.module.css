@@ -19,6 +19,9 @@
     flex-direction: column;
     width: 100%;
     flex: 1;
-    padding-top: env(safe-area-inset-bottom, 0);
-    padding-bottom: env(safe-area-inset-bottom, 0);
+
+    @media (display-mode: standalone) {
+        padding-top: env(safe-area-inset-top, 0);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
 }
