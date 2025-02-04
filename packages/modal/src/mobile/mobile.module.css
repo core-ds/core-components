@@ -5,3 +5,10 @@
     width: 100%;
     max-width: 600px;
 }
+
+.content {
+    @media (display-mode: standalone) {
+        padding-top: env(safe-area-inset-top, 0);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+}

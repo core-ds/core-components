@@ -6,6 +6,10 @@
 
 .sticky {
     top: var(--gap-0);
+
+    @media (display-mode: standalone) {
+        top: env(safe-area-inset-top, 0);
+    }
 }
 
 .content {
