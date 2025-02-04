@@ -19,8 +19,8 @@ const screenshotTesting = setupScreenshotTesting({
 describe('InputAutocomplete', () => {
     createPreview(
         {
-            packageName: 'input-autocomplete',
-            componentName: 'InputAutocomplete',
+            packageName: 'select',
+            componentName: 'SelectDesktop',
             knobs: {
                 label: 'Автокомплит',
                 size: 56,
