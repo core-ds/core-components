@@ -1,3 +1,17 @@
+## 48.13.0
+
+<sup><time>05.02.2025</time></sup>
+
+### [#1566](https://github.com/core-ds/core-components/pull/1566)
+
+#### Что изменилось
+- Экспорт массива countriesData и его типа (для модификации по месту использования)
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+
 ## 48.12.0
 
 <sup><time>04.02.2025</time></sup>
