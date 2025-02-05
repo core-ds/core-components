@@ -2,10 +2,9 @@
 
 .description {
     text-align: center;
-    margin-bottom: var(--gap-8);
 }
 
-.videoButtons {
+.infoWrapper {
     padding: 0 var(--gap-8);
     position: relative;
     height: 48px;
@@ -17,7 +16,16 @@
     transform: translateX(-50%);
 }
 
-.right {
+.icon {
+    color: var(--color-static-neutral-0);
+}
+
+.iconShape {
+    fill: var(--color-static-neutral-translucent-700);
+}
+
+.muteButton {
     position: absolute;
-    right: 0;
+    right: 8px;
+    top: -62px; /* 62px - высота превью блока */
 }

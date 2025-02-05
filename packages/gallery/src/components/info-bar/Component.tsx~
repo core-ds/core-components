@@ -1,7 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 
 import { Circle } from '@alfalab/core-components/icon-view/circle';
-import { Button } from '@alfalab/core-components-button';
 import { Text } from '@alfalab/core-components-typography';
 import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
@@ -11,6 +10,7 @@ import { GALLERY_EVENTS, isVideo } from '../../utils';
 import * as Buttons from '../buttons';
 
 import styles from './index.module.css';
+import { Button } from '@alfalab/core-components-button';
 
 export const InfoBar = () => {
     const {

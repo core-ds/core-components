@@ -84,7 +84,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
 
     useEffect(() => {
         const handleSpacePress = (e: KeyboardEvent) => {
-            if ((e.key === ' ' || e.code === 'Space') && isActive) {
+            if (e.key === ' ' || (e.code === 'Space' && isActive)) {
                 if (playingVideo) {
                     setPlayingVideo(false);
                 } else {

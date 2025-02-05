@@ -27,6 +27,30 @@ export const HeaderMobile = () => {
     const canDownload = currentImage?.canDownload ?? true;
     const showDownloadButton = !meta?.broken && canDownload;
 
+    const handleShareClick = async () => {
+        if (!currentImage) return;
+
+        const image = await fetch(currentImage.src);
+        const blob = await image.blob();
+
+        const filesArray = [
+            new File([blob], currentImage?.name ?? '', {
+                type: blob.type,
+                lastModified: new Date().getTime(),
+            }),
+        ];
+
+        const shareData = {
+            files: filesArray,
+        };
+
+        if (navigator.canShare(shareData)) {
+            await navigator.share(shareData);
+        } else {
+            await navigator.share({ url: currentImage.src, title: currentImage?.name });
+        }
+    };
+
     return (
         <div
             className={cn(styles.headerMobile, {
@@ -51,6 +75,7 @@ export const HeaderMobile = () => {
                         dataTestId={TestIds.DOWNLOAD_BUTTON}
                     />
                 )}
+                {!meta?.broken && <Buttons.Share onClick={handleShareClick} />}
             </div>
         </div>
     );

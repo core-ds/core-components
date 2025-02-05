@@ -182,6 +182,9 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             onClick={handleClick}
             role='button'
             onKeyDown={handleKeyDown}
+            onMouseDown={(e) => {
+                e.preventDefault();
+            }}
             tabIndex={0}
             ref={ref}
             aria-label={`Перейти к ${index + 1} элементу`}

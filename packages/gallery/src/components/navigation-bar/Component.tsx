@@ -1,4 +1,13 @@
-import React, { FC, KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
+import React, {
+    FC,
+    KeyboardEventHandler,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
+import throttle from 'lodash.throttle';
 
 import { GalleryContext } from '../../context';
 import { getImageKey, TestIds } from '../../utils';
@@ -7,11 +16,15 @@ import { ImagePreview } from '../image-preview';
 import styles from './index.module.css';
 
 const MIN_SCROLL_STEP = 24;
+const SCROLL_SPEED = 2; // Коэффициент скорости прокрутки (можно настроить)
+const SCROLL_THRESHOLD = 150; // Расстояние от границы, при котором начинается прокрутка
 
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper, setPlayingVideo } =
+    const [isNavMouseDowned, setIsNavMouseDowned] = useState(false);
+
+    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper, setPlayingVideo, view } =
         useContext(GalleryContext);
 
     const swiper = getSwiper();
@@ -35,9 +48,52 @@ export const NavigationBar: FC = () => {
         }
     }, []);
 
+    const handlePreviewMouseDown = () => {
+        setIsNavMouseDowned(true);
+    };
+
+    const handlePreviewMouseUp = () => {
+        setIsNavMouseDowned(false);
+        if (containerRef.current) {
+            containerRef.current.style.scrollBehavior = 'auto'; // Отключаем плавность для резкой остановки
+        }
+    };
+
+    const handleMouseNavigationMove = throttle((e: React.MouseEvent<HTMLDivElement>) => {
+        if (!containerRef.current || !isNavMouseDowned) return;
+
+        const container = containerRef.current;
+        const { width: containerWidth, left: containerLeft } = container.getBoundingClientRect();
+        const mouseX = e.clientX;
+
+        // Если курсор близко к правой границе
+        if (mouseX > containerWidth + containerLeft - SCROLL_THRESHOLD) {
+            const scrollValue =
+                (mouseX - (containerWidth + containerLeft - SCROLL_THRESHOLD)) * SCROLL_SPEED;
+
+            container.scrollBy({ left: scrollValue, behavior: 'smooth' });
+        }
+        // Если курсор близко к левой границе
+        else if (mouseX < containerLeft + SCROLL_THRESHOLD) {
+            const scrollValue = (mouseX - (containerLeft + SCROLL_THRESHOLD)) * SCROLL_SPEED;
+
+            container.scrollBy({ left: scrollValue, behavior: 'smooth' });
+        }
+    }, 150);
+
+    const handleKeyDown: KeyboardEventHandler = (event) => {
+        if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+            event.preventDefault();
+        }
+    };
+
     const handlePreviewPosition = useCallback(
         (preview: Element, containerWidth: number) => {
-            const { right, left } = preview.getBoundingClientRect();
+            const { right, left, x } = preview.getBoundingClientRect();
+
+            if (view === 'mobile') {
+                scroll(x - containerWidth / 2 + MIN_SCROLL_STEP); // Передвигаем в центр активное превью
+            }
 
             if (right > containerWidth) {
                 const scrollValue = right - containerWidth + MIN_SCROLL_STEP;
@@ -49,14 +105,8 @@ export const NavigationBar: FC = () => {
                 scroll(scrollValue);
             }
         },
-        [scroll],
+        [scroll, view],
     );
-
-    const handleKeyDown: KeyboardEventHandler = (event) => {
-        if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
-            event.preventDefault();
-        }
-    };
 
     useEffect(() => {
         if (containerRef.current) {
@@ -77,6 +127,9 @@ export const NavigationBar: FC = () => {
             ref={containerRef}
             onKeyDown={handleKeyDown}
             data-test-id={TestIds.NAVIGATION_BAR}
+            onMouseDown={handlePreviewMouseDown}
+            onMouseUp={handlePreviewMouseUp}
+            onMouseMove={handleMouseNavigationMove}
         >
             {images.map((image, index) => {
                 const active = index === currentSlideIndex;
