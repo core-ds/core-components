@@ -1,5 +1,15 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.7.0
+
+### Minor Changes
+
+<sup><time>05.02.2025</time></sup>
+
+### [#1566](https://github.com/core-ds/core-components/pull/1566)
+
+-   Экспорт массива countriesData и его типа (для модификации по месту использования)
+
 ## 2.6.0
 
 ### Minor Changes
