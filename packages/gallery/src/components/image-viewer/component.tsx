@@ -68,10 +68,7 @@ export const ImageViewer: FC = () => {
     const swiperProps = useMemo<Swiper>(
         () => ({
             slidesPerView: 1,
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true,
-            },
+            effect: 'slide',
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
@@ -82,9 +79,10 @@ export const ImageViewer: FC = () => {
             a11y: {
                 slideRole: 'img',
             },
+            spaceBetween: 16,
             initialSlide,
             simulateTouch: false,
-            zoom: { maxRatio: 4 },
+            zoom: { maxRatio: 4, minRatio: 1, toggle: true },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
         }),

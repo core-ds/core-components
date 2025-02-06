@@ -30,11 +30,13 @@ export const HeaderMobile = () => {
     const handleShareClick = async () => {
         if (!currentImage) return;
 
+        const title = currentImage.name ?? new Date().toISOString().split('T')[0];
+
         const image = await fetch(currentImage.src);
         const blob = await image.blob();
 
         const filesArray = [
-            new File([blob], currentImage?.name ?? '', {
+            new File([blob], title, {
                 type: blob.type,
                 lastModified: new Date().getTime(),
             }),
@@ -44,10 +46,10 @@ export const HeaderMobile = () => {
             files: filesArray,
         };
 
-        if (navigator.canShare(shareData)) {
+        if (navigator.canShare(shareData) && !isVideo(currentImage.src)) {
             await navigator.share(shareData);
         } else {
-            await navigator.share({ url: currentImage.src, title: currentImage?.name });
+            await navigator.share({ url: currentImage.src, title });
         }
     };
 

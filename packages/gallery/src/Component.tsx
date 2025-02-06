@@ -192,6 +192,38 @@ export const Gallery: FC<GalleryProps> = ({
         };
     }, [handleKeyDown]);
 
+    useEffect(() => {
+        let startY: number;
+        const abortController = new AbortController();
+        const { signal } = abortController;
+
+        document.addEventListener(
+            'touchstart',
+            (e) => {
+                startY = e.touches[0].clientY;
+            },
+            { signal },
+        );
+
+        document.addEventListener(
+            'touchmove',
+            (e) => {
+                const endY = e.changedTouches[0].clientY;
+                const deltaY = startY - endY;
+
+                // Если свайп вверх (разница по Y больше 100 пикселей)
+                if (deltaY > 100) {
+                    onClose();
+                }
+            },
+            { signal },
+        );
+
+        return () => {
+            abortController.abort();
+        };
+    }, [onClose]);
+
     const singleSlide = images.length === 1;
 
     const showNavigationBar = !singleSlide && !fullScreen;
