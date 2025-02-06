@@ -1,4 +1,11 @@
-import React, { FC, KeyboardEventHandler, useContext, useEffect, useRef } from 'react';
+import React, {
+    FC,
+    KeyboardEventHandler,
+    MouseEventHandler,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
@@ -75,6 +82,10 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         if (event.key === 'Enter') {
             onSelect(index);
         }
+    };
+
+    const handleDragStart: MouseEventHandler<HTMLDivElement> = (e) => {
+        e.preventDefault();
     };
 
     const [focused] = useFocus(ref, 'keyboard');
@@ -182,9 +193,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             onClick={handleClick}
             role='button'
             onKeyDown={handleKeyDown}
-            onMouseDown={(e) => {
-                e.preventDefault();
-            }}
+            onMouseDown={handleDragStart}
             tabIndex={0}
             ref={ref}
             aria-label={`Перейти к ${index + 1} элементу`}

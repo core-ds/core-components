@@ -22,7 +22,7 @@ const SCROLL_THRESHOLD = 150; // Расстояние от границы, пр�
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const [isNavMouseDowned, setIsNavMouseDowned] = useState(false);
+    const [isNavMouseDowned, setIsNavMouseDowned] = useState<boolean>(false);
 
     const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper, setPlayingVideo, view } =
         useContext(GalleryContext);

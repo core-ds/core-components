@@ -27,5 +27,5 @@
 .muteButton {
     position: absolute;
     right: 8px;
-    top: -62px; /* 62px - высота превью блока */
+    top: -62px;
 }

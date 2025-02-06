@@ -1,7 +1,7 @@
-import React, { useCallback, useContext } from 'react';
+import React, { Fragment, useCallback, useContext } from 'react';
 
-import { Circle } from '@alfalab/core-components/icon-view/circle';
 import { Button } from '@alfalab/core-components-button';
+import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { Text } from '@alfalab/core-components-typography';
 import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
@@ -42,7 +42,7 @@ export const InfoBar = () => {
     return (
         <section className={styles.infoWrapper}>
             {isVideo(image?.src) ? (
-                <React.Fragment>
+                <Fragment>
                     <Button
                         onClick={handleMuteVideo}
                         aria-label='Кнопка выключения звука'
@@ -66,7 +66,7 @@ export const InfoBar = () => {
                     ) : (
                         <Buttons.Play onClick={handlePlayVideo} className={styles.center} />
                     )}
-                </React.Fragment>
+                </Fragment>
             ) : (
                 <Text
                     className={styles.description}

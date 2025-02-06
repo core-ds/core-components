@@ -21,6 +21,8 @@
         "@alfalab/core-components-spinner": "^4.0.3",
         "@alfalab/core-components-tooltip": "^7.8.4",
         "@alfalab/core-components-typography": "^4.11.3",
+        "@alfalab/core-components-icon-view": "^3.10.0",
+        "@alfalab/core-components-button": "^11.11.3",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
