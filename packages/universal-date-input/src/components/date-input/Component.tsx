@@ -258,7 +258,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                         dataTestId={getDataTestId(dataTestId, 'popover')}
                         {...popoverProps}
                         open={open}
-                        anchorElement={inputWrapperRef.current as HTMLElement}
+                        anchorElement={inputWrapperRef}
                         popperClassName={cn(
                             styles.calendarContainer,
                             popoverProps?.popperClassName,
