@@ -1,3 +1,4 @@
+@import '../../../../vars/src/safe-area.css';
 @import '../../vars.css';
 
 .header {
@@ -8,7 +9,7 @@
     top: var(--gap-0);
 
     @media (display-mode: standalone) {
-        top: env(safe-area-inset-top, 0);
+        top: var(--sat);
     }
 }
 
