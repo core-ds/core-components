@@ -17,7 +17,7 @@ describe('SliderInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     it('should match snapshot', () => {
         const { container } = render(<SliderInput />);
         expect(container).toMatchSnapshot();
@@ -170,6 +170,19 @@ describe('SliderInput', () => {
         const slider = getByRole('slider') as HTMLInputElement;
 
         fireEvent.change(slider, { target: { value } });
+
+        expect(cb).toBeCalledTimes(1);
+    });
+
+    it('should call `onBlur` prop', () => {
+        const cb = jest.fn();
+        const dataTestId = 'test-id';
+
+        const { getByRole } = render(<SliderInput onBlur={cb} dataTestId={dataTestId} />);
+
+        const input = getByRole('textbox') as HTMLInputElement;
+        fireEvent.focus(input);
+        fireEvent.blur(input);
 
         expect(cb).toBeCalledTimes(1);
     });
