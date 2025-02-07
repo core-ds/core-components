@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-modal",
-    "version": "9.9.1",
+    "version": "9.9.2",
     "description": "Modal component",
     "keywords": [],
     "license": "MIT",
@@ -24,5 +24,5 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "themesVersion": "13.7.0",
-    "varsVersion": "9.16.0"
+    "varsVersion": "9.17.0"
 }

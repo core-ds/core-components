@@ -32,5 +32,5 @@
         "@types/react-transition-group": "^4.4.5"
     },
     "themesVersion": "13.7.0",
-    "varsVersion": "9.16.0"
+    "varsVersion": "9.17.0"
 }
