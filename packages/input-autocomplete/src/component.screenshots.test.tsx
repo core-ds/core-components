@@ -1,11 +1,20 @@
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import {
+    setupScreenshotTesting,
     createStorybookUrl,
     openBrowserPage,
     matchHtml,
     closeBrowser,
     createPreview,
+    createSpriteStorybookUrl,
 } from '../../screenshot-utils';
+
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
+});
 
 describe('InputAutocomplete', () => {
     createPreview(
@@ -23,6 +32,62 @@ describe('InputAutocomplete', () => {
         'padding: 0 270px; transform:scale(2.1)',
     );
 });
+
+describe(
+    'InputAutocomplete | screenshots rightAddons',
+    screenshotTesting({
+        cases: [
+            [
+                `default theme sprite`,
+                createSpriteStorybookUrl({
+                    componentName: 'InputAutocomplete',
+                    knobs: {
+                        label: 'Автокомплит',
+                        size: 56,
+                        block: true,
+                        selected: [['1']],
+                        options: [[{ key: '1', content: 'Вариант из списка' }]],
+                        success: [true, false],
+                        error: [undefined, 'Error'],
+                    },
+                    size: { width: 200, height: 150 },
+                }),
+            ],
+        ],
+        theme: 'default',
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'InputAutocomplete | screenshots rightAddons',
+    screenshotTesting({
+        cases: [
+            [
+                `site theme sprite`,
+                createSpriteStorybookUrl({
+                    componentName: 'InputAutocomplete',
+                    knobs: {
+                        label: 'Автокомплит',
+                        size: 56,
+                        block: true,
+                        selected: [['1']],
+                        options: [[{ key: '1', content: 'Вариант из списка' }]],
+                        success: [true, false],
+                        error: [undefined, 'Error'],
+                    },
+                    size: { width: 200, height: 150 },
+                }),
+            ],
+        ],
+        theme: 'site',
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
 
 describe('InputAutocomplete | interactions tests', () => {
     test('Fill value', async () => {

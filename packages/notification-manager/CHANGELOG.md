@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.6
+    -   notification@7.5.7
+
 ## 5.8.6
 
 ### Patch Changes

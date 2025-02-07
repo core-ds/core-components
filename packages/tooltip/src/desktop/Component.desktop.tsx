@@ -55,6 +55,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     colors = 'default',
     useAnchorWidth,
     onTargetClick,
+    withTransition = true,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -238,6 +239,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
                 preventOverflow={preventOverflow}
                 availableHeight={availableHeight}
                 useAnchorWidth={useAnchorWidth}
+                withTransition={withTransition}
             >
                 <div {...getContentProps()}>{content}</div>
             </Popover>

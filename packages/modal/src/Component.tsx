@@ -81,6 +81,10 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
                           ...transitionProps,
                       },
                       className: cn(className, mobileStyles.component),
+                      contentProps: {
+                          ...restProps.contentProps,
+                          className: cn(mobileStyles.content, restProps.contentProps?.className),
+                      },
                   };
 
         const contextValue = useMemo(

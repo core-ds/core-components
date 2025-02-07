@@ -1,5 +1,14 @@
 # Change Log
 
+## 15.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   button@11.11.4
+    -   form-control@12.8.1
+
 ## 15.5.0
 
 ### Minor Changes

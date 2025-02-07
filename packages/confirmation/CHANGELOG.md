@@ -1,5 +1,16 @@
 # Change Log
 
+## 13.9.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   typography@4.11.4
+    -   button@11.11.4
+    -   code-input@3.9.6
+    -   spinner@4.0.4
+
 ## 13.9.6
 
 ### Patch Changes

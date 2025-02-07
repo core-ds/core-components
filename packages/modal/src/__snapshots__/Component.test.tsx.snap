@@ -145,7 +145,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
     class="component appear appearActive"
   >
     <div
-      class="content"
+      class="content content"
     >
       <div
         class="header hasContent header"
