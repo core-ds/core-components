@@ -257,8 +257,8 @@
     },
     "international-phone-input": {
         "desktop.js": 470.9,
-        "index.js": 537.2,
-        "mobile.js": 509.3,
+        "index.js": 537.7,
+        "mobile.js": 509.7,
         "shared.js": 2.4
     },
     "input": {
@@ -269,9 +269,9 @@
     },
     "input-autocomplete": {
         "desktop.js": 157.9,
-        "index.js": 237.5,
-        "mobile.js": 210,
-        "shared.js": 1.5
+        "index.js": 237.9,
+        "mobile.js": 210.5,
+        "shared.js": 1.7
     },
     "indicator": {
         "index.js": 2.3
