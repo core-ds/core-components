@@ -1,5 +1,12 @@
 # Change Log
 
+## 17.20.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.2
+
 ## 17.20.1
 
 ### Patch Changes

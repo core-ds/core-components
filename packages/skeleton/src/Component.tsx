@@ -10,6 +10,8 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
+export type BorderRadiusSize = 0 | 2 | 4 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 36 | 64 | 'pill';
+
 export type SkeletonProps = {
     /**
      * Флаг, явно задающий состояние, при котором контент закрывается прелоадером
@@ -51,6 +53,12 @@ export type SkeletonProps = {
      * @default default
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Скругление углов
+     * @default 8
+     */
+    borderRadius?: BorderRadiusSize;
 };
 
 export const Skeleton: React.FC<SkeletonProps> = ({
@@ -62,6 +70,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     style,
     allowBackdropBlur,
     colors = 'default',
+    borderRadius = 8,
 }) => {
     if (visible) {
         return (
@@ -73,6 +82,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
                         [styles.animate]: animate,
                         [colorStyles[colors].animate]: animate,
                         [styles.allowBackdropBlur]: allowBackdropBlur,
+                        [styles[`borderRadius-${borderRadius}`]]: borderRadius !== 8,
                     },
                     className,
                 )}

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-side-panel",
-    "version": "5.9.2",
+    "version": "5.9.3",
     "description": "SidePanel component",
     "keywords": [],
     "license": "MIT",
@@ -25,5 +25,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.0",
-    "varsVersion": "9.16.0"
+    "varsVersion": "9.17.0"
 }

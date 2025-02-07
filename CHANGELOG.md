@@ -1,3 +1,53 @@
+## 48.14.0
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+#### Что изменилось
+- Добавлена единица длины для нулевого значения
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+<br />
+
+#### Что изменилось
+- Добавлена обработка safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+
+
+## 48.13.0
+
+<sup><time>05.02.2025</time></sup>
+
+### [#1566](https://github.com/core-ds/core-components/pull/1566)
+
+#### Что изменилось
+- Экспорт массива countriesData и его типа (для модификации по месту использования)
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+
+## 48.12.0
+
+<sup><time>04.02.2025</time></sup>
+
+### [#1562](https://github.com/core-ds/core-components/pull/1562)
+
+#### Что изменилось
+- добавлен опциональный проп customCountriesList, который можно использовать, чтобы переопределить дефолтный массив country-data
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+
 ## 48.11.0
 
 <sup><time>31.01.2025</time></sup>

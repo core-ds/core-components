@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.17.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+-   Добавлена единица длины для нулевого значения
+
 ## 9.16.0
 
 ### Minor Changes

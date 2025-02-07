@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.9.2
+
+### Patch Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+-   Добавлена обработка safe-area
+
 ## 9.9.1
 
 ### Patch Changes
