@@ -1,5 +1,26 @@
 # Change Log
 
+## 9.18.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1530](https://github.com/core-ds/core-components/pull/1530)
+
+-   Палитра `colors-indigo.css` помечена как `deprecated` и будет удалена в одном из будущих мажорных релизов
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1501](https://github.com/core-ds/core-components/pull/1501)
+
+Добавлены `-dark.css` файлы для цветовых палитр
+
+-   colors-decorative-dark.css
+-   colors-monochrome-dark.css
+-   colors-qualitative-dark.css
+-   colors-sequential-dark.css
+
 ## 9.17.0
 
 ### Minor Changes

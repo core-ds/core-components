@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.12.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.3.0
+    -   shared@0.15.0
+    -   picker-button@11.12.14
+    -   tag@8.6.6
+    -   icon-button@6.11.7
+
 ## 8.12.14
 
 ### Patch Changes

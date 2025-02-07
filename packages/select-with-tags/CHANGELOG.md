@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   shared@0.15.0
+    -   bottom-sheet@6.17.16
+    -   form-control@12.8.1
+    -   tag@8.6.6
+    -   popover@6.3.7
+
 ## 8.6.3
 
 ### Patch Changes

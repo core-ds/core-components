@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select-with-tags",
-    "version": "8.6.3",
+    "version": "8.6.4",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,19 +15,19 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^12.8.0",
-        "@alfalab/core-components-select": "^17.20.2",
-        "@alfalab/core-components-tag": "^8.6.5",
-        "@alfalab/core-components-bottom-sheet": "^6.17.15",
+        "@alfalab/core-components-form-control": "^12.8.1",
+        "@alfalab/core-components-select": "^17.20.3",
+        "@alfalab/core-components-tag": "^8.6.6",
+        "@alfalab/core-components-bottom-sheet": "^6.17.16",
         "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-popover": "^6.3.6",
+        "@alfalab/core-components-popover": "^6.3.7",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.14.1"
+        "@alfalab/core-components-shared": "^0.15.0"
     },
     "themesVersion": "13.7.0",
-    "varsVersion": "9.17.0"
+    "varsVersion": "9.18.0"
 }

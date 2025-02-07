@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "8.12.14",
+    "version": "8.12.15",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -16,14 +16,14 @@
     "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^4.1.1",
-        "@alfalab/core-components-tag": "^8.6.5",
-        "@alfalab/core-components-picker-button": "^11.12.13",
+        "@alfalab/core-components-tag": "^8.6.6",
+        "@alfalab/core-components-picker-button": "^11.12.14",
         "@alfalab/core-components-badge": "^5.6.4",
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/core-components-shared": "^0.14.1",
-        "@alfalab/core-components-icon-button": "^6.11.6",
-        "@alfalab/core-components-skeleton": "^5.2.3",
+        "@alfalab/core-components-shared": "^0.15.0",
+        "@alfalab/core-components-icon-button": "^6.11.7",
+        "@alfalab/core-components-skeleton": "^5.3.0",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
@@ -36,5 +36,5 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "themesVersion": "13.7.0",
-    "varsVersion": "9.17.0"
+    "varsVersion": "9.18.0"
 }
