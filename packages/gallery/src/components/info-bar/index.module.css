@@ -5,6 +5,9 @@
 }
 
 .infoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0 var(--gap-8);
     position: relative;
     height: 48px;
@@ -27,5 +30,5 @@
 .muteButton {
     position: absolute;
     right: 8px;
-    top: -62px;
+    top: -64px;
 }
