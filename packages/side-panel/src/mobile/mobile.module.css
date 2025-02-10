@@ -15,14 +15,16 @@
     flex: 1;
 }
 
+.content {
+    @media (display-mode: standalone) {
+        padding-top: var(--sat);
+        padding-bottom: var(--sab);
+    }
+}
+
 .mobileContent {
     display: flex;
     flex-direction: column;
     width: 100%;
     flex: 1;
-
-    @media (display-mode: standalone) {
-        padding-top: var(--sat);
-        padding-bottom: var(--sab);
-    }
 }
