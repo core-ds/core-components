@@ -30,5 +30,5 @@
 .muteButton {
     position: absolute;
     right: 8px;
-    top: -64px;
+    bottom: 64px;
 }
