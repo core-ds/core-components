@@ -240,7 +240,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
         class="component modal appear appearActive"
       >
         <div
-          class="content"
+          class="content hasHeader"
         >
           <div
             class="wrapper"
@@ -2474,7 +2474,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
         class="component modal appear appearActive"
       >
         <div
-          class="content"
+          class="content hasHeader"
         >
           <div
             class="wrapper"
