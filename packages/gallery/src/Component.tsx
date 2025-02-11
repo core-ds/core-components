@@ -5,12 +5,12 @@ import SwiperCore from 'swiper';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useMedia } from '@alfalab/hooks';
 
+import { Single } from './components/image-viewer/single';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
 
 import styles from './index.module.css';
-import { Single } from './components/image-viewer/single';
 
 export type GalleryProps = {
     /**
