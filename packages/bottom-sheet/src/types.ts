@@ -4,6 +4,7 @@ import type { TransitionProps } from 'react-transition-group/Transition';
 
 import type { BaseModalProps } from '@alfalab/core-components-base-modal';
 import type { NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
+import { type Directions } from '@alfalab/core-components-shared';
 
 import type { BackgroundColorType } from '../../types';
 
@@ -352,4 +353,9 @@ export type BottomSheetProps = {
      * Учитывать высоту виртуальной клавиатуры
      */
     virtualKeyboard?: boolean;
+
+    /**
+     *  Учитывать safe area: ['top', 'bottom']
+     */
+    useSafeArea?: Directions[];
 };

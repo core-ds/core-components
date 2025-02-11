@@ -12,3 +12,4 @@ export * from './exhaustiveCheck';
 export * from './context/PortalContext';
 export * from './warning';
 export * from './object';
+export * from './safe-area';

@@ -14,7 +14,13 @@ import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
+import {
+    fnUtils,
+    getDataTestId,
+    getSafeAreaValue,
+    isClient,
+    os,
+} from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -100,6 +106,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             keepMounted,
             onMagnetizeEnd,
             onOffsetChange,
+            useSafeArea = [],
             swipeableMarker,
             swipeableMarkerClassName,
             backButtonProps,
@@ -123,15 +130,21 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     convertPercentToNumber(area, fullHeight, headerOffset),
                 );
             }
+            const safeAreaOffset = useSafeArea.reduce((sum, nextDirection) => {
+                // eslint-disable-next-line no-param-reassign
+                sum += getSafeAreaValue(nextDirection);
 
+                return sum;
+            }, 0);
             const iOSViewHeight = isClient()
-                ? document?.documentElement?.clientHeight || window?.innerHeight
+                ? (document?.documentElement?.clientHeight || 0) + safeAreaOffset ||
+                  window?.innerHeight
                 : 0;
 
             const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard]);
+        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, useSafeArea]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
