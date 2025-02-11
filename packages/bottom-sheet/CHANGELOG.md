@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.17.17
+
+### Patch Changes
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+-   Исправление работы safe-area
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+
 ## 6.17.16
 
 ### Patch Changes
