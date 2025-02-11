@@ -124,18 +124,23 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
 
+        const safeAreaOffset = useMemo(
+            () =>
+                useSafeArea.reduce((sum, nextDirection) => {
+                    // eslint-disable-next-line no-param-reassign
+                    sum += getSafeAreaValue(nextDirection) || 0;
+
+                    return sum;
+                }, 0),
+            [useSafeArea],
+        );
+
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
                 return magneticAreasProp.map((area) =>
                     convertPercentToNumber(area, fullHeight, headerOffset),
                 );
             }
-            const safeAreaOffset = useSafeArea.reduce((sum, nextDirection) => {
-                // eslint-disable-next-line no-param-reassign
-                sum += getSafeAreaValue(nextDirection) || 0;
-
-                return sum;
-            }, 0);
             let iOSViewHeight = 0;
 
             if (isClient()) {
@@ -149,7 +154,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, useSafeArea]);
+        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, safeAreaOffset]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
