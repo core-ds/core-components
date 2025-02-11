@@ -1,3 +1,17 @@
+## 48.15.1
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+#### Что изменилось
+- Исправление работы safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet` `modal` `side-panel`
+
+
+
 ## 48.15.0
 
 <sup><time>07.02.2025</time></sup>
