@@ -1,5 +1,18 @@
 # Change Log
 
+## 9.9.4
+
+### Patch Changes
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+-   Исправление работы safe-area
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+
 ## 9.9.3
 
 ### Patch Changes
