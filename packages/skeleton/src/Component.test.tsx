@@ -43,5 +43,15 @@ describe('Skeleton', () => {
 
             expect(container.firstElementChild).toHaveClass(className);
         });
+
+        it('should set `borderRadius` class', () => {
+            const borderRadius = 20;
+
+            const { container } = render(
+                <Skeleton visible={true} animate={true} borderRadius={borderRadius} />,
+            );
+
+            expect(container.firstElementChild).toHaveClass(`borderRadius-${borderRadius}`);
+        });
     });
 });

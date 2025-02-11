@@ -14,6 +14,8 @@ import Changelog from '../../CHANGELOG.md?raw';
 <Story name='Skeleton'>
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const borderRadius = select('borderRadius', [0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 32, 36, 64, 'pill'], 8)
+
         return (
             <div
                 style={{
@@ -37,6 +39,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                     dataTestId={text('dataTestId', '')}
                     animate={boolean('animate', true)}
                     colors={colors}
+                    borderRadius={borderRadius}
                 >
                     <img
                         width={150}

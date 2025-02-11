@@ -171,7 +171,15 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     horizontalAutoStretch={optionsListWidth === 'content'}
                     scrollableNodeProps={scrollableNodeProps}
                     contentNodeProps={{ ref: listRef }}
-                    maskProps={{ className: measured ? undefined : styles.mask }}
+                    maskProps={{
+                        /*
+                         * Для корректного подсчета высоты опций(иначе для optionsListWidth: 'field'
+                         * высота опции всегда будет равна высоте одной строчки)
+                         */
+                        className: cn({
+                            [styles.mask]: optionsListWidth === 'content' && !measured,
+                        }),
+                    }}
                 >
                     {renderListItems()}
                 </Scrollbar>

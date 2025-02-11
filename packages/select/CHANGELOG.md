@@ -1,5 +1,34 @@
 # Change Log
 
+## 17.20.3
+
+### Patch Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1561](https://github.com/core-ds/core-components/pull/1561)
+
+-   Поправлена отображаемая высота списка опций при optionsListWidth: 'field'
+
+-   Обновлены зависимости
+    -   skeleton@5.3.0
+    -   shared@0.15.0
+    -   base-modal@5.8.9
+    -   bottom-sheet@6.17.16
+    -   button@11.11.4
+    -   checkbox@4.7.6
+    -   form-control@12.8.1
+    -   input@15.5.1
+    -   modal@9.9.3
+    -   popover@6.3.7
+
+## 17.20.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.2
+
 ## 17.20.1
 
 ### Patch Changes

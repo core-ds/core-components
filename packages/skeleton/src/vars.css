@@ -2,7 +2,7 @@
 
 :root {
     --skeleton-display: block;
-    --skeleton-border-radius: var(--border-radius-8);
+    --skeleton-border-radius: var(--border-radius-8); /* deprecated */
     --skeleton-backdrop-filter: blur(20px);
     --skeleton-bg-animation-display: block;
     --skeleton-bg-animation-color: transparent;
