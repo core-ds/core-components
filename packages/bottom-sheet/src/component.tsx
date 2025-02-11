@@ -132,14 +132,19 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
             const safeAreaOffset = useSafeArea.reduce((sum, nextDirection) => {
                 // eslint-disable-next-line no-param-reassign
-                sum += getSafeAreaValue(nextDirection);
+                sum += getSafeAreaValue(nextDirection) || 0;
 
                 return sum;
             }, 0);
-            const iOSViewHeight = isClient()
-                ? (document?.documentElement?.clientHeight || 0) + safeAreaOffset ||
-                  window?.innerHeight
-                : 0;
+            let iOSViewHeight = 0;
+
+            if (isClient()) {
+                if (document?.documentElement?.clientHeight) {
+                    iOSViewHeight = document.documentElement.clientHeight + safeAreaOffset;
+                } else {
+                    iOSViewHeight = window?.innerHeight;
+                }
+            }
 
             const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
