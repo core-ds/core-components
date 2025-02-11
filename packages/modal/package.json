@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-modal",
-    "version": "9.9.3",
+    "version": "9.9.4",
     "description": "Modal component",
     "keywords": [],
     "license": "MIT",
@@ -12,7 +12,7 @@
     },
     "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.8.9",
+        "@alfalab/core-components-base-modal": "^5.8.10",
         "@alfalab/core-components-navigation-bar-private": "^0.5.8",
         "@alfalab/core-components-shared": "^0.15.0",
         "@alfalab/core-components-mq": "^4.4.1",
