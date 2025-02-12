@@ -1,8 +1,9 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 
 import { Step } from './components/step';
 import { StepIndicatorProps } from './components/step-indicator';
+import { CommonProps } from './types/common-props';
 
 import styles from './index.module.css';
 
@@ -11,11 +12,6 @@ export type StepsProps = {
      * Дополнительный класс
      */
     className?: string;
-
-    /**
-     * Дочерние элементы
-     */
-    children: ReactNode;
 
     /**
      * Активный шаг, указанный по умолчанию
@@ -33,34 +29,6 @@ export type StepsProps = {
      * @default true
      */
     isMarkCompletedSteps?: boolean;
-
-    /**
-     * Управление ориентацией компонента
-     * @default false
-     */
-    isVerticalAlign?: boolean;
-
-    /**
-     * Управление отображением номера шага
-     */
-    ordered?: boolean;
-
-    /**
-     * Включение / отключение интерактивности шагов
-     */
-    interactive?: boolean;
-
-    /**
-     * Растягивание шагов на всю ширину блока для вертикальной ориентации
-     * @default false
-     */
-    fullWidth?: boolean;
-
-    /**
-     * Минимальное расстояние между шагами
-     * @default 24
-     */
-    minSpaceBetweenSteps?: 8 | 16 | 24;
 
     /**
      * Кастомный метод для управления состоянием disabled шага и
@@ -115,7 +83,7 @@ export type StepsProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+} & CommonProps;
 
 export const Steps: React.FC<StepsProps> = ({
     className,
@@ -136,6 +104,7 @@ export const Steps: React.FC<StepsProps> = ({
     checkIsStepCustom,
     onChange,
     dataTestId,
+    completedDashColor,
 }) => {
     const uncontrolled = activeStepProp === undefined;
     const [activeStep, setActiveStep] = useState(defaultActiveStep);
@@ -195,6 +164,7 @@ export const Steps: React.FC<StepsProps> = ({
                         key={stepNumber}
                         fullWidth={fullWidth}
                         minSpaceBetweenSteps={minSpaceBetweenSteps}
+                        completedDashColor={completedDashColor}
                     >
                         {step}
                     </Step>

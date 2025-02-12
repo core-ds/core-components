@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
@@ -6,16 +6,12 @@ import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon'
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
+import { CommonProps } from '../../types/common-props';
 import { StepIndicator, StepIndicatorProps } from '../step-indicator';
 
 import styles from './index.module.css';
 
-export type StepProps = {
-    /**
-     * Название шага
-     */
-    children: ReactNode;
-
+type StepProps = {
     /**
      * Номер шага
      */
@@ -30,16 +26,6 @@ export type StepProps = {
      * Маркер того, что текущий шаг доступен для клика
      */
     disabled: boolean;
-
-    /**
-     * Управление отображением номера шага
-     */
-    ordered?: boolean;
-
-    /**
-     * Включение / отключение интерактивности шагов
-     */
-    interactive?: boolean;
 
     /**
      * Маркер того, что текущий шаг находится в состоянии "Positive"
@@ -72,42 +58,18 @@ export type StepProps = {
     customStepIndicator?: StepIndicatorProps | null;
 
     /**
-     * Управление ориентацией компонента
-     * @default false
-     */
-    isVerticalAlign?: boolean;
-
-    /**
      * Указывает, является ли текущий шаг последним в списке
      */
     isNotLastStep?: boolean;
-
-    /**
-     * Маркер того, что шаг растягивается на всю ширину блока
-     * для вертикальной ориентации
-     */
-    fullWidth?: boolean;
-
-    /**
-     * Минимальное расстояние между шагами
-     * @default 24
-     */
-    minSpaceBetweenSteps?: 8 | 16 | 24;
 
     /**
      * Обработчик нажатия на текущей шаг
      * @param stepNumber - номер шага
      */
     onClick: (stepNumber: number) => void;
-};
+} & CommonProps;
 
-const SIZE_TO_CLASSNAME_MAP = {
-    8: 'size-8',
-    16: 'size-16',
-    24: 'size-24',
-};
-
-export const Step: React.FC<StepProps> = ({
+export const Step: FC<StepProps> = ({
     children,
     stepNumber,
     isSelected,
@@ -125,6 +87,7 @@ export const Step: React.FC<StepProps> = ({
     isNotLastStep,
     fullWidth,
     minSpaceBetweenSteps = 24,
+    completedDashColor,
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
@@ -184,16 +147,25 @@ export const Step: React.FC<StepProps> = ({
         return stepNumber;
     };
 
+    const getCustomDashColor = () => {
+        if (isStepCompleted && completedDashColor) {
+            return {
+                borderColor: completedDashColor,
+            };
+        }
+
+        return {};
+    };
+
     const renderDash = () => (
         <div
-            className={cn(
-                styles.dash,
-                {
-                    [styles.vertical]: isVerticalAlign,
-                    [styles.completed]: isStepCompleted,
-                },
-                styles[SIZE_TO_CLASSNAME_MAP[minSpaceBetweenSteps]],
-            )}
+            className={cn(styles.dash, {
+                [styles.vertical]: isVerticalAlign,
+                [styles.completed]: isStepCompleted,
+            })}
+            style={{
+                ...getCustomDashColor(),
+            }}
         />
     );
 
@@ -211,6 +183,7 @@ export const Step: React.FC<StepProps> = ({
                 [styles.vertical]: isVerticalAlign,
                 [styles.interactive]: interactive,
                 [styles.fullWidth]: fullWidth && isVerticalAlign,
+                [styles.horizontal]: !isVerticalAlign,
             })}
             onClick={handleButtonClick}
             onKeyDown={handleKeyDown}
@@ -232,15 +205,21 @@ export const Step: React.FC<StepProps> = ({
                 </div>
                 {isNotLastStep && isVerticalAlign && renderDash()}
             </div>
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
             <div
-                className={cn(styles.text, {
-                    [styles.interactive]: interactive,
-                    [styles.fullWidth]: fullWidth && isVerticalAlign,
+                className={cn(styles.textWrapper, styles[`gap-${minSpaceBetweenSteps}`], {
+                    [styles.vertical]: isVerticalAlign,
                 })}
-                onClick={handleTextClick}
             >
-                {children}
+                {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+                <div
+                    className={cn(styles.text, {
+                        [styles.interactive]: interactive,
+                        [styles.fullWidth]: fullWidth && isVerticalAlign,
+                    })}
+                    onClick={handleTextClick}
+                >
+                    {children}
+                </div>
             </div>
             {isNotLastStep && !isVerticalAlign && renderDash()}
         </div>
