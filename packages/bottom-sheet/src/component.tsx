@@ -14,13 +14,7 @@ import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import {
-    fnUtils,
-    getDataTestId,
-    getSafeAreaValue,
-    isClient,
-    os,
-} from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -95,6 +89,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             bottomSheetInstanceRef,
             sheetContainerRef = () => null,
             headerOffset = 24,
+            adjustContainerHeight,
             onClose,
             onBack,
             onMagnetize,
@@ -106,7 +101,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             keepMounted,
             onMagnetizeEnd,
             onOffsetChange,
-            useSafeArea = [],
             swipeableMarker,
             swipeableMarkerClassName,
             backButtonProps,
@@ -117,23 +111,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     ) => {
         const windowHeight = use100vh() ?? 0;
         const visibleViewportSize = useVisibleViewportSize(virtualKeyboard);
-        const fullHeight = virtualKeyboard ? visibleViewportSize?.height ?? 0 : windowHeight;
-
+        let fullHeight = virtualKeyboard ? visibleViewportSize?.height ?? 0 : windowHeight;
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
 
+        if (typeof adjustContainerHeight === 'function') {
+            fullHeight = adjustContainerHeight(fullHeight);
+        }
+
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
-
-        const safeAreaOffset = useMemo(
-            () =>
-                useSafeArea.reduce((sum, nextDirection) => {
-                    // eslint-disable-next-line no-param-reassign
-                    sum += getSafeAreaValue(nextDirection) || 0;
-
-                    return sum;
-                }, 0),
-            [useSafeArea],
-        );
 
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
@@ -145,7 +131,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
             if (isClient()) {
                 if (document?.documentElement?.clientHeight) {
-                    iOSViewHeight = document.documentElement.clientHeight + safeAreaOffset;
+                    iOSViewHeight =
+                        typeof adjustContainerHeight === 'function'
+                            ? adjustContainerHeight(document.documentElement.clientHeight)
+                            : document.documentElement.clientHeight;
                 } else {
                     iOSViewHeight = window?.innerHeight;
                 }
@@ -154,7 +143,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, safeAreaOffset]);
+        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
