@@ -37,7 +37,9 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     /**
      * default - не отображаем копейки, если их значение 0
      * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
-     * @default default
+     *
+     * При этом минорная часть, при ее наличии, будет всегда дописывать значащие цифры согласно свойству minority
+     * @default "default"
      */
     view?: 'default' | 'withZeroMinorPart';
 
