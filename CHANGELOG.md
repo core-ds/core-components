@@ -1,3 +1,161 @@
+## 48.15.1
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+#### Что изменилось
+- Исправление работы safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet` `modal` `side-panel`
+
+
+
+## 48.15.0
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1530](https://github.com/core-ds/core-components/pull/1530)
+
+#### Что изменилось
+- Палитра `colors-indigo.css` помечена как `deprecated` и будет удалена в одном из будущих мажорных релизов
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1547](https://github.com/core-ds/core-components/pull/1547)
+
+#### Что изменилось
+- Добавлены дополнительные пропсы className и markerClassName для List.Item
+
+#### Влияние на компоненты
+- Минорное<br />`list`
+
+
+### [#1501](https://github.com/core-ds/core-components/pull/1501)
+
+#### Что изменилось
+Добавлены `-dark.css` файлы для цветовых палитр
+- colors-decorative-dark.css
+- colors-monochrome-dark.css
+- colors-qualitative-dark.css
+- colors-sequential-dark.css
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1561](https://github.com/core-ds/core-components/pull/1561)
+
+#### Что изменилось
+- Поправлена отображаемая высота списка опций при optionsListWidth: 'field'
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1539](https://github.com/core-ds/core-components/pull/1539)
+
+#### Что изменилось
+- Добавлена пропса borderRadius для задания одинакового скругления углам
+
+#### Влияние на компоненты
+- Минорное<br />`skeleton`
+
+
+### [#1541](https://github.com/core-ds/core-components/pull/1541)
+
+#### Что изменилось
+- Исправлен обработчик `onBlur`
+- Пропс `lockLimit` отмечен как `deprecated`. Для установки лимитов обработайте `blur` событие самостоятельно
+
+#### Влияние на компоненты
+- Минорное<br />`slider-input`
+
+
+### [#1533](https://github.com/core-ds/core-components/pull/1533)
+
+#### Что изменилось
+-   Исправлено автозаполнение номера в Safari 18
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+
+- Патчи<br />`international-phone-input`
+
+
+### [#1551](https://github.com/core-ds/core-components/pull/1551)
+
+#### Что изменилось
+- Добавлена возможность отображения иконок ошибки и успеха в мобильной версии компонента
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete`
+
+
+### [#1565](https://github.com/core-ds/core-components/pull/1565)
+
+#### Что изменилось
+- Добавлено свойство withTransition
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+
+## 48.14.0
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+#### Что изменилось
+- Добавлена единица длины для нулевого значения
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+<br />
+
+#### Что изменилось
+- Добавлена обработка safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+
+
+## 48.13.0
+
+<sup><time>05.02.2025</time></sup>
+
+### [#1566](https://github.com/core-ds/core-components/pull/1566)
+
+#### Что изменилось
+- Экспорт массива countriesData и его типа (для модификации по месту использования)
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+
+## 48.12.0
+
+<sup><time>04.02.2025</time></sup>
+
+### [#1562](https://github.com/core-ds/core-components/pull/1562)
+
+#### Что изменилось
+- добавлен опциональный проп customCountriesList, который можно использовать, чтобы переопределить дефолтный массив country-data
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+
+
 ## 48.11.0
 
 <sup><time>31.01.2025</time></sup>

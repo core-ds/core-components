@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+
 ## 1.2.7
 
 ### Patch Changes

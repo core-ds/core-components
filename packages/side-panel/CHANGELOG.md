@@ -1,5 +1,39 @@
 # Change Log
 
+## 5.9.5
+
+### Patch Changes
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+-   Исправление работы safe-area
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+    -   drawer@5.1.10
+
+## 5.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   base-modal@5.8.9
+    -   navigation-bar-private@0.5.8
+    -   drawer@5.1.9
+
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+-   Добавлена обработка safe-area
+
 ## 5.9.2
 
 ### Patch Changes

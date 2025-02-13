@@ -14,6 +14,7 @@ import { useMaskito } from '@maskito/react';
 import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
 import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
 import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
+import { isNullable } from '@alfalab/core-components-shared';
 
 import type { BaseInternationalPhoneInputProps, Country } from '../../types';
 import {
@@ -54,11 +55,16 @@ export const BaseInternationalPhoneInput = forwardRef<
             clear: clearProp,
             open: openProps,
             defaultOpen,
+            customCountriesList,
             ...restProps
         },
         ref,
     ) => {
-        const countriesData = useMemo(() => initCountries(countries), [countries]);
+        const lastCountryRef = useRef<Country | null>(null);
+        const countriesData = useMemo(
+            () => initCountries(countries, customCountriesList),
+            [countries, customCountriesList],
+        );
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -80,7 +86,13 @@ export const BaseInternationalPhoneInput = forwardRef<
         const preserveCountryCode = clearableCountryCodeFromProps === 'preserve';
         const clearableCountryCode = preserveCountryCode || clearableCountryCodeFromProps;
         const maskOptions = useMemo(
-            () => createMaskOptions(country, clearableCountryCode, preserveCountryCode),
+            () =>
+                createMaskOptions(
+                    country,
+                    clearableCountryCode,
+                    preserveCountryCode,
+                    lastCountryRef,
+                ),
             [country, clearableCountryCode, preserveCountryCode],
         );
 
@@ -201,6 +213,14 @@ export const BaseInternationalPhoneInput = forwardRef<
             clear: getClear(clearProp, clearableCountryCode, value, country?.countryCode),
             ...restProps.inputProps,
         } as const;
+
+        useEffect(() => {
+            if (!preserveCountryCode || isNullable(country)) {
+                return;
+            }
+
+            lastCountryRef.current = country;
+        }, [country, preserveCountryCode]);
 
         return Array.isArray(options) ? (
             <InputAutocomplete
