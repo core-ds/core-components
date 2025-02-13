@@ -60,6 +60,11 @@ export type NavigationBarPrivateProps = {
     hasBackButton?: boolean;
 
     /**
+     * Название класса подложки хэдера
+     */
+    headerBackgroundClassName?: string;
+
+    /**
      * Дополнительный класс для правого аддона
      */
     backButtonClassName?: string;
@@ -98,6 +103,7 @@ export type NavigationBarPrivateProps = {
      * Фиксирует шапку
      */
     sticky?: boolean;
+    stickyHeaderStyles?;
 
     /**
      * Идентификатор для систем автоматизированного тестирования

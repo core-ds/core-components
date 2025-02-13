@@ -11,6 +11,20 @@
 
 .sticky {
     top: var(--gap-0);
+
+    & .background {
+        display: none;
+        @media (display-mode: standalone) {
+            background: --side-panel-header-background;
+            display: block;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0.85;
+        }
+    }
 }
 
 .content {

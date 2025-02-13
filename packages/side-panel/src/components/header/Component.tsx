@@ -21,6 +21,7 @@ export const Header: FC<HeaderProps> = ({
     className,
     children,
     contentClassName,
+    headerBackgroundClassName,
     title,
     sticky,
     hasCloser = true,
@@ -59,6 +60,7 @@ export const Header: FC<HeaderProps> = ({
                 [mobileStyles.content]: view === 'mobile',
             })}
         >
+            <div className={cn(mobileStyles.background, headerBackgroundClassName ) }/>
             {children}
         </NavigationBarPrivate>
     );
