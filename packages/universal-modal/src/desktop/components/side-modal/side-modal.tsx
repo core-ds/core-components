@@ -80,6 +80,7 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
             backdropProps={{
                 transparent: !overlay,
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
+                ...restProps.backdropProps,
             }}
             onWheel={handleWheel}
             onClose={onClose}

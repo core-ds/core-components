@@ -58,6 +58,7 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
         | 'wrapperClassName'
         | 'onUnmount'
         | 'transitionProps'
+        | 'backdropProps'
     >;
 
 export type ModalBySideProps = UniversalModalDesktopProps;

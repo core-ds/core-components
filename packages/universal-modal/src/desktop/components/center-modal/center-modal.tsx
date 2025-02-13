@@ -60,6 +60,7 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
             backdropProps={{
                 transparent: !overlay,
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
+                ...restProps.backdropProps,
             }}
             className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
