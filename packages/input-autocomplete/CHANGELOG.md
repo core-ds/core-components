@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.4
+
 ## 12.8.0
 
 ### Minor Changes
