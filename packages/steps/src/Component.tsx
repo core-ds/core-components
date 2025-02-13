@@ -78,11 +78,6 @@ export type StepsProps = {
      * @param stepNumber - номер активного шага
      */
     onChange?: (stepNumber: number) => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
 } & CommonProps;
 
 export const Steps: React.FC<StepsProps> = ({
@@ -165,6 +160,7 @@ export const Steps: React.FC<StepsProps> = ({
                         fullWidth={fullWidth}
                         minSpaceBetweenSteps={minSpaceBetweenSteps}
                         completedDashColor={completedDashColor}
+                        dataTestId={dataTestId}
                     >
                         {step}
                     </Step>

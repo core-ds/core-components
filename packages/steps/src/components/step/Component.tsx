@@ -1,6 +1,7 @@
 import React, { FC, useRef } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
@@ -88,6 +89,7 @@ export const Step: FC<StepProps> = ({
     fullWidth,
     minSpaceBetweenSteps = 24,
     completedDashColor,
+    dataTestId,
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
@@ -171,6 +173,7 @@ export const Step: FC<StepProps> = ({
 
     return (
         <div
+            data-test-id={getDataTestId(dataTestId, 'step')}
             role='button'
             tabIndex={0}
             ref={stepRef}

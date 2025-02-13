@@ -3,6 +3,11 @@ import { ReactNode } from 'react';
 /** Обобщенный набор типов который подходит для Steps, но также прокинут в дочерний Step */
 export type CommonProps = {
     /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
      * Дочерние элементы
      */
     children: ReactNode;
