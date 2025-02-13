@@ -4,7 +4,6 @@ import {
     createPreview,
     generateTestCases,
 } from '../../screenshot-utils';
-import { Page } from 'playwright';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -252,26 +251,6 @@ describe(
         screenshotOpts: {
             fullPage: false,
             clip: { x: 0, y: 0, width: 1024, height: 150 },
-        },
-    }),
-);
-
-describe(
-    'CircularProgressBar | Timer',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'CircularProgressBar',
-            subComponentName: 'Timer',
-            testStory: false,
-            knobs: {
-                counting: ['backward', 'forward'],
-                directionType: ['desc', 'asc'],
-            },
-        }),
-        evaluate: (page: Page) => page.waitForTimeout(5000),
-        screenshotOpts: {
-            fullPage: false,
-            clip: { x: 0, y: 0, width: 96, height: 96 },
         },
     }),
 );

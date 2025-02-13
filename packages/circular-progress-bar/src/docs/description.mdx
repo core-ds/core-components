@@ -88,18 +88,14 @@
 <Container align={isMobile() ? 'center' : 'left'}>
     <Space direction='horizontal'>
         <CircularProgressBar
-            timer={true}
-            value={60}
+            value={{ timer: 60 }}
             size={80}
-            counting='backward'
             directionType='desc'
             contentColor='primary'
         />
         <CircularProgressBar
-            timer={true}
-            value={60}
+            value={{ timer: 60, counting: 'forward' }}
             size={80}
-            counting='forward'
             directionType='asc'
             contentColor='primary'
         />
@@ -107,18 +103,14 @@
     <Gap size='m' />
     <Space direction='horizontal'>
         <CircularProgressBar
-            timer={true}
-            value={60}
+            value={{ timer: 60, counting: 'forward' }}
             size={80}
-            counting='forward'
             directionType='desc'
             contentColor='primary'
         />
         <CircularProgressBar
-            timer={true}
-            value={60}
+            value={{ timer: 60 }}
             size={80}
-            counting='backward'
             directionType='asc'
             contentColor='primary'
         />

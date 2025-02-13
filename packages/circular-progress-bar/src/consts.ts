@@ -81,3 +81,6 @@ export const SIZE_TO_CLASSNAME_MAP = {
 };
 
 export const MAX_PROGRESS_VALUE = 100;
+
+export const MIN_TIMER_VALUE = 0;
+export const MAX_TIMER_VALUE = 3599;

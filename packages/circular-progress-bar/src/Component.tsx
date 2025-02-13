@@ -1,16 +1,17 @@
-import React, { ElementType, ReactNode, useMemo, useState } from 'react';
+/* eslint-disable complexity */
+import React, { ElementType, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, isObject } from '@alfalab/core-components-shared';
 import { Text, TitleMobile } from '@alfalab/core-components-typography';
 
-import { Timer } from './components/timer/timer';
 import { ComponentSize } from './types/component-size';
-import { TimerProps } from './types/timer-props';
 import { TypographyColor } from './types/typography-color';
 import { isTypographyColor } from './utils/is-typography-color';
 import {
     MAX_PROGRESS_VALUE,
+    MAX_TIMER_VALUE,
+    MIN_TIMER_VALUE,
     SIZE_TO_CLASSNAME_MAP,
     SIZES,
     STROKE,
@@ -18,6 +19,7 @@ import {
     VIEW_TEXT,
     VIEW_TITLE,
 } from './consts';
+import { useTimer } from './use-timer';
 
 import styles from './index.module.css';
 
@@ -25,7 +27,24 @@ export type CircularProgressBarProps = {
     /**
      * Уровень прогресса, %
      */
-    value: number;
+
+    value:
+        | number
+        | {
+              /**
+               * Время таймера в секундах
+               * Минимальное значение 0
+               * Максимальное значение 3600
+               */
+              timer: number;
+              /**
+               * Направлние отсчета таймера
+               * forward: считаем от 0 до указанного значения
+               * backward: считаем от указанного значения до 0
+               * @default backward
+               */
+              counting?: 'forward' | 'backward';
+          };
 
     /**
      * Дополнительный класс
@@ -152,18 +171,24 @@ export type CircularProgressBarProps = {
      * Цвет желоба
      */
     strokeColor?: string;
-} & TimerProps;
+
+    /**
+     * Направление заполнения круга
+     * @default desc
+     */
+    directionType?: 'asc' | 'desc';
+};
 
 /**
  * Компонент круглого прогресс бара.
  */
 export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
-    value,
+    value: valueFromProps,
     view = 'positive',
     size = 64,
     className,
     dataTestId,
-    title = value ? value.toString() : '0',
+    title: titleFromProps = isObject(valueFromProps) ? null : `${valueFromProps}`,
     titleComplete,
     subtitle,
     contentColor = 'secondary',
@@ -180,15 +205,28 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     progressStrokeColor,
     circleColor,
     strokeColor,
-    timer = false,
-    counting = 'backward',
-    directionType = 'desc',
+    directionType = 'asc',
     titleColor,
     subtitleColor,
 }) => {
-    const [timerValue, setTimerValue] = useState<number>(0);
+    const isTimer = isObject(valueFromProps);
+    const [timerValue, timerTitle] = useTimer(
+        isTimer ? Math.min(Math.max(valueFromProps.timer, MIN_TIMER_VALUE), MAX_TIMER_VALUE) : -1,
+        isTimer,
+        isTimer ? valueFromProps.counting ?? 'backward' : 'backward',
+    );
+    let value: number;
+    let title: React.ReactNode;
 
-    const progressValue = timer ? timerValue : value;
+    if (isTimer) {
+        value = timerValue;
+        title = timerTitle;
+    } else {
+        value = valueFromProps;
+        title = titleFromProps;
+    }
+
+    value = directionType === 'desc' ? MAX_PROGRESS_VALUE - value : value;
 
     const memorized = useMemo(() => {
         const strokeWidth = STROKE[size];
@@ -199,7 +237,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         const center = widthSVG / 2;
         const radius = center - strokeWidth / 2;
         const circumference = Math.PI * radius * 2;
-        const progress = Math.min(Math.max(progressValue, minProgress), maxProgress);
+        const progress = Math.min(Math.max(value, minProgress), maxProgress);
         const strokeDasharray = circumference.toFixed(3);
         const strokeDashoffset = (((100 - progress) / 100) * circumference).toFixed(3);
 
@@ -211,7 +249,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             strokeDasharray,
             strokeDashoffset,
         };
-    }, [size, progressValue]);
+    }, [size, value]);
 
     const isComplete = value === 100;
     const isCompleteTextColor = isComplete && completeTextColor;
@@ -249,14 +287,6 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         };
     };
 
-    const getTimerColor = (color?: TypographyColor | string) => {
-        if (color) {
-            return isTypographyColor(color) ? color : undefined;
-        }
-
-        return typographyContentColor;
-    };
-
     const renderTitleString = () =>
         SIZES[size] > 64 ? (
             <TitleMobile
@@ -288,33 +318,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             </Text>
         );
 
-    const updateProgress = (secondsRemaining: number) => {
-        if (directionType === 'asc') {
-            setTimerValue(MAX_PROGRESS_VALUE * (1 - secondsRemaining / value));
-
-            return;
-        }
-
-        setTimerValue((MAX_PROGRESS_VALUE / value) * secondsRemaining);
-    };
-
-    const renderTitle = () => {
-        if (timer) {
-            return (
-                <Timer
-                    totalSeconds={value}
-                    counting={counting}
-                    size={size}
-                    dataTestId={dataTestId}
-                    color={getTimerColor(titleColor)}
-                    style={getTextStyleColor(titleColor)}
-                    updateProgress={updateProgress}
-                />
-            );
-        }
-
-        return typeof title === 'string' ? renderTitleString() : titleContent;
-    };
+    const renderTitle = () => (typeof title === 'string' ? renderTitleString() : titleContent);
 
     const renderSubTitle = () =>
         typeof subtitle === 'string' ? (

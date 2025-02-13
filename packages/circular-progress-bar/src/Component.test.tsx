@@ -67,7 +67,7 @@ describe('ProgressBar', () => {
         it('should set `data-test-id` attribute for timer', () => {
             const testId = 'test-id';
             const { getByTestId } = render(
-                <CircularProgressBar timer={true} value={20} dataTestId={testId} />,
+                <CircularProgressBar value={{ timer: 20 }} dataTestId={testId} />,
             );
 
             const testIds = getCircularProgressBarTestIds(testId);
@@ -78,7 +78,7 @@ describe('ProgressBar', () => {
         it('should set `data-test-id` attribute for timer with size more than 64', () => {
             const testId = 'test-id';
             const { getByTestId } = render(
-                <CircularProgressBar timer={true} value={20} size={80} dataTestId={testId} />,
+                <CircularProgressBar value={{ timer: 20 }} size={80} dataTestId={testId} />,
             );
 
             const testIds = getCircularProgressBarTestIds(testId);
@@ -176,7 +176,7 @@ describe('ProgressBar', () => {
         afterEach(cleanup);
 
         it('should set "timer" props', () => {
-            render(<CircularProgressBar timer={true} value={3599} />);
+            render(<CircularProgressBar value={{ timer: 3599 }} />);
 
             const text = screen.queryByText('59:59');
 
@@ -184,7 +184,7 @@ describe('ProgressBar', () => {
         });
 
         it('should set max value', () => {
-            render(<CircularProgressBar timer={true} value={999999} />);
+            render(<CircularProgressBar value={{ timer: 999999 }} />);
 
             const text = screen.queryByText('59:59');
 
@@ -192,7 +192,7 @@ describe('ProgressBar', () => {
         });
 
         it('should set min value', () => {
-            render(<CircularProgressBar timer={true} value={-999999} />);
+            render(<CircularProgressBar value={{ timer: -999999 }} />);
 
             const text = screen.queryByText('0:00');
 
@@ -200,7 +200,7 @@ describe('ProgressBar', () => {
         });
 
         it('should "backward" counting', () => {
-            render(<CircularProgressBar timer={true} value={60} />);
+            render(<CircularProgressBar value={{ timer: 60 }} />);
 
             expect(screen.queryByText('1:00')).toBeInTheDocument();
 
@@ -224,7 +224,7 @@ describe('ProgressBar', () => {
         });
 
         it('should "forward" counting', () => {
-            render(<CircularProgressBar timer={true} value={60} counting='forward' />);
+            render(<CircularProgressBar value={{ timer: 60, counting: 'forward' }} />);
 
             expect(screen.queryByText('0:00')).toBeInTheDocument();
 
@@ -250,7 +250,14 @@ describe('ProgressBar', () => {
         it('should "desc" directionType', () => {
             const testId = 'test-id';
 
-            render(<CircularProgressBar dataTestId={testId} timer={true} value={60} size={80} />);
+            render(
+                <CircularProgressBar
+                    dataTestId={testId}
+                    value={{ timer: 60 }}
+                    directionType='desc'
+                    size={80}
+                />,
+            );
 
             const testIds = getCircularProgressBarTestIds(testId);
 
@@ -277,15 +284,7 @@ describe('ProgressBar', () => {
         it('should "asc" directionType', () => {
             const testId = 'test-id';
 
-            render(
-                <CircularProgressBar
-                    dataTestId={testId}
-                    timer={true}
-                    value={60}
-                    size={80}
-                    directionType='asc'
-                />,
-            );
+            render(<CircularProgressBar dataTestId={testId} value={{ timer: 60 }} size={80} />);
 
             const testIds = getCircularProgressBarTestIds(testId);
 
