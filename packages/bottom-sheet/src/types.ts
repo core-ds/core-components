@@ -11,7 +11,7 @@ export type BottomSheetTitleAlign = 'center' | 'left';
 
 export type BottomSheetProps = {
     /**
-     *
+     * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
     adjustContainerHeight?(height: number): number;
     /**
