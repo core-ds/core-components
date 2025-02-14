@@ -96,6 +96,19 @@
     }
 }
 
+.size-96 {
+    width: 96px;
+    height: 96px;
+
+    & .labelWrapper {
+        max-width: 64px;
+    }
+
+    & .title {
+        max-height: 20px;
+    }
+}
+
 .size-80 {
     width: 80px;
     height: 80px;
@@ -186,6 +199,11 @@
     &.size-128 {
         max-width: 64px;
         max-height: 64px;
+    }
+
+    &.size-96 {
+        max-width: 48px;
+        max-height: 48px;
     }
 
     &.size-80 {

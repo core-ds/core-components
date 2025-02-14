@@ -25,6 +25,6 @@
         "tslib": "^2.4.0",
         "@alfalab/core-components-mq": "^4.4.1"
     },
-    "themesVersion": "13.7.0",
+    "themesVersion": "13.7.1",
     "varsVersion": "9.18.0"
 }

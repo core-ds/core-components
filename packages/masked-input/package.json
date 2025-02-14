@@ -21,6 +21,6 @@
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.0",
+    "themesVersion": "13.7.1",
     "varsVersion": "9.18.0"
 }

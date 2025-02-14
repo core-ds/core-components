@@ -1,3 +1,57 @@
+## 48.16.0
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1581](https://github.com/core-ds/core-components/pull/1581)
+
+#### Что изменилось
+Из темизаций исключены файлы для цветовых палитр, добавленные в #1501
+
+-   colors-decorative-dark.css
+-   colors-monochrome-dark.css
+-   colors-qualitative-dark.css
+-   colors-sequential-dark.css
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1574](https://github.com/core-ds/core-components/pull/1574)
+
+#### Что изменилось
+- Добавлен forawdRef для TBody
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1538](https://github.com/core-ds/core-components/pull/1538)
+
+#### Что изменилось
+- Добавлен размер 96
+- Добавлен пропс для изменения цвета заголовка `titleColor`
+- Добавлен пропс для изменения цвета подзаголовка `subtitleColor`
+- Добавлен пропс `timer` который переводит компонент в режим таймера
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+
+## 48.15.1
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+#### Что изменилось
+- Исправление работы safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet` `modal` `side-panel`
+
+
+
 ## 48.15.0
 
 <sup><time>07.02.2025</time></sup>
