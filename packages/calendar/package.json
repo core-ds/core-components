@@ -31,6 +31,6 @@
         "react-virtuoso": "^2.12.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.0",
+    "themesVersion": "13.7.1",
     "varsVersion": "9.18.0"
 }
