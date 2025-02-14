@@ -5,7 +5,7 @@
     padding: var(--modal-header-mobile-paddings);
 
     @media (display-mode: standalone) {
-        padding-top: calc(var(--sat) + var(--modal-header-mobile-vertical-padding));
+        padding-top: calc(var(--sat) + var(--modal-header-mobile-top-padding));
     }
 }
 
