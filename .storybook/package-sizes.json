@@ -374,7 +374,8 @@
         "shared.js": 0
     },
     "circular-progress-bar": {
-        "index.js": 7.5
+        "index.js": 8.5,
+        "shared.js": 0.3
     },
     "checkbox": {
         "index.js": 3.6
