@@ -7,6 +7,14 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
+"@alfalab/core-components-shared@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-shared/-/core-components-shared-0.14.1.tgz#3b18787ce563b306b1c2216f837070fc4601c57a"
+  integrity sha512-T6W5+gMS5BWemqjsqjlSx4RnHKwRInbaijIX1JI5KwHiPrJo3iQOhR5gKmOSMlvIgFCNYcNI3VoMxJokQi+7CQ==
+  dependencies:
+    "@alfalab/hooks" "^1.13.1"
+    tslib "^2.4.0"
+
 "@alfalab/core-components@>=35.1.0":
   version "44.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components/-/core-components-44.2.0.tgz#3e7366bc60f6a7b18853961ae6be1af80333528a"
