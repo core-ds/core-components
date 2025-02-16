@@ -41,6 +41,7 @@ export const Field = ({
     FormControlComponent,
     clear,
     onClear,
+    clearProps,
     ...restProps
 }: BaseFieldProps & FormControlProps & FieldProps) => {
     const [focused, setFocused] = useState(false);
@@ -91,6 +92,7 @@ export const Field = ({
                                         disabled={disabled}
                                         dataTestId={getDataTestId(dataTestId, 'clear-icon')}
                                         size={size}
+                                        {...clearProps}
                                     />
                                 ) : null}
                                 {/* TODO: стоит переделать, но это будет мажорка */}

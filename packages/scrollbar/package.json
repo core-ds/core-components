@@ -16,6 +16,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "@alfalab/core-components-shared": "^0.13.0",
         "@juggle/resize-observer": "^3.3.1",
         "can-use-dom": "^0.1.0",
         "classnames": "^2.5.1",
@@ -24,6 +25,7 @@
         "lodash.throttle": "^4.1.1",
         "react-merge-refs": "1.1.0",
         "simplebar": "^5.3.8",
+        "simplebar-react": "^3.2.6",
         "tslib": "^2.4.0"
     },
     "devDependencies": {
