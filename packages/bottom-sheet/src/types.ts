@@ -13,7 +13,7 @@ export type BottomSheetProps = {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
-    adjustContainerHeight?(height: number): number;
+    adjustContainerHeight?: (height: number) => number
     /**
      * Контент
      */
