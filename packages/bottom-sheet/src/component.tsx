@@ -140,7 +140,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
-            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
