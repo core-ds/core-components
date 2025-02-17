@@ -89,7 +89,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             bottomSheetInstanceRef,
             sheetContainerRef = () => null,
             headerOffset = 24,
-            adjustContainerHeight,
+            adjustContainerHeight = (value) => value,
             onClose,
             onBack,
             onMagnetize,
@@ -115,9 +115,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
 
-        if (typeof adjustContainerHeight === 'function') {
-            fullHeight = adjustContainerHeight(fullHeight);
-        }
+        fullHeight = adjustContainerHeight(fullHeight);
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
 
@@ -131,10 +129,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
             if (isClient()) {
                 if (document?.documentElement?.clientHeight) {
-                    iOSViewHeight =
-                        typeof adjustContainerHeight === 'function'
-                            ? adjustContainerHeight(document.documentElement.clientHeight)
-                            : document.documentElement.clientHeight;
+                    iOSViewHeight = adjustContainerHeight(document.documentElement.clientHeight);
                 } else {
                     iOSViewHeight = window?.innerHeight;
                 }
