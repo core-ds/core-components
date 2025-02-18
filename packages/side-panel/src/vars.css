@@ -36,5 +36,7 @@
     --side-panel-header-mobile-font-weight: 600;
 
     /* paddings */
-    --side-panel-header-mobile-paddings: var(--gap-4) var(--gap-8);
+    --side-panel-header-mobile-top-padding: var(--gap-4);
+    --side-panel-header-mobile-paddings: var(--side-panel-header-mobile-top-padding) var(--gap-8)
+        var(--gap-4) var(--gap-8);
 }

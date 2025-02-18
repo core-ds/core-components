@@ -43,5 +43,7 @@
     --modal-header-mobile-font-weight: 600;
 
     /* paddings */
-    --modal-header-mobile-paddings: var(--gap-4) var(--gap-8);
+    --modal-header-mobile-top-padding: var(--gap-4);
+    --modal-header-mobile-paddings: var(--modal-header-mobile-top-padding) var(--gap-8) var(--gap-4)
+        var(--gap-8);
 }
