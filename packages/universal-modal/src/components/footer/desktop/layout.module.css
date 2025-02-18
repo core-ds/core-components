@@ -3,15 +3,10 @@
 .column {
     display: flex;
     flex-direction: column;
-
-    & > *:not(:last-child):not(:only-child) {
-        margin-bottom: var(--gap-8);
-    }
+    gap: var(--gap-8);
 
     &.middle {
-        & > *:not(:last-child):not(:only-child) {
-            margin-bottom: var(--gap-12);
-        }
+        gap: var(--gap-12);
     }
 }
 
@@ -35,8 +30,5 @@
 .center,
 .space-between {
     display: flex;
-
-    & > *:not(:last-child):not(:only-child) {
-        margin-right: var(--gap-16);
-    }
+    gap: var(--gap-16);
 }

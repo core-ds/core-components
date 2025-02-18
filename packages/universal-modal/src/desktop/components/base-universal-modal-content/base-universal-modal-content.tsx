@@ -94,7 +94,6 @@ export const BaseUniversalModalContent: FC<Props> = (props) => {
                     // если есть header уменьшаем размер скролла на величину хедера и добавляем отступ сверху
                     topGap = headerHeight;
                     topOffset = headerHeight;
-                    // console.warn(headerHeight);
                 } else {
                     // иначе уменьшаем размер скролла и увеличиваем отступ на величину скругления
                     topGap = SCROLLBAR_DEFAULT_GAP;
