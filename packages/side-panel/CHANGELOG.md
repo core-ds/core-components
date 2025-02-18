@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.9.6
+
+### Patch Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+-   Фикс паддинга заголовка компонента SidePanel в PWA c safe-area
+-   Фикс паддинга заголовка компонента Modal в PWA c safe-area
+
 ## 5.9.5
 
 ### Patch Changes

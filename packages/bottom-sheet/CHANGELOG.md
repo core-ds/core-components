@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.18.0
+
+### Minor Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+-   Добавлено свойство _adjustContainerHeight_ для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
+
 ## 6.17.17
 
 ### Patch Changes

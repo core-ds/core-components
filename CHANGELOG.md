@@ -1,3 +1,35 @@
+## 48.17.0
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1584](https://github.com/core-ds/core-components/pull/1584)
+
+#### Что изменилось
+- Обновление зависимостей
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+#### Что изменилось
+- Фикс паддинга заголовка компонента SidePanel в PWA c safe-area
+- Фикс паддинга заголовка компонента Modal в PWA c safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+<br />
+
+#### Что изменилось
+- Добавлено свойство *adjustContainerHeight* для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
 ## 48.16.0
 
 <sup><time>14.02.2025</time></sup>
