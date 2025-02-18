@@ -21,7 +21,7 @@
         "@alfalab/core-components-shared": "^0.15.0",
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/utils": "^1.17.1",
+        "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
