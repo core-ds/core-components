@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.8.0
+
+### Minor Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1584](https://github.com/core-ds/core-components/pull/1584)
+
+-   Обновление зависимостей
+
 ## 3.7.0
 
 ### Minor Changes
