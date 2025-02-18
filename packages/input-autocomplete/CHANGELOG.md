@@ -1,5 +1,38 @@
 # Change Log
 
+## 12.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.4
+
+## 12.8.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1551](https://github.com/core-ds/core-components/pull/1551)
+
+-   Добавлена возможность отображения иконок ошибки и успеха в мобильной версии компонента
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   shared@0.15.0
+    -   form-control@12.8.1
+    -   input@15.5.1
+    -   popover@6.3.7
+
+## 12.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.2
+
 ## 12.7.2
 
 ### Patch Changes

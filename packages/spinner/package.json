@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-spinner",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "description": "Spinner component",
     "keywords": [],
     "license": "MIT",
@@ -17,10 +17,10 @@
     },
     "dependencies": {
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/core-components-shared": "^0.14.1",
+        "@alfalab/core-components-shared": "^0.15.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.0",
-    "varsVersion": "9.16.0"
+    "themesVersion": "13.7.1",
+    "varsVersion": "9.18.0"
 }

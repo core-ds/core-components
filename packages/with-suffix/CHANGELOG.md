@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.1
+    -   portal@3.3.6
+
 ## 4.2.12
 
 ### Patch Changes

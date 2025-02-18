@@ -639,6 +639,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                                 styles.content,
                                                 contentClassName,
                                                 contentProps?.className,
+                                                {
+                                                    [styles.hasFooter]: hasFooter,
+                                                    [styles.hasHeader]: hasHeader,
+                                                },
                                             )}
                                             ref={contentElementRef}
                                         >

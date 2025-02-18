@@ -1,7 +1,12 @@
+@import '../../../../vars/src/safe-area.css';
 @import '../../vars.css';
 
 .header {
     padding: var(--modal-header-mobile-paddings);
+
+    @media (display-mode: standalone) {
+        padding-top: calc(var(--sat) + var(--modal-header-mobile-top-padding));
+    }
 }
 
 .sticky {
