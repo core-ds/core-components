@@ -13,7 +13,7 @@
     "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-typography": "^4.11.4",
-        "@alfalab/core-components-shared": "^0.14.1",
+        "@alfalab/core-components-shared": "^0.15.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
