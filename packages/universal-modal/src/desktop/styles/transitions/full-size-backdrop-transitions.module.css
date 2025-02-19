@@ -1,8 +1,8 @@
 @import '../../../../../vars/src/index.css';
 
 :root {
-    --backdrop-visible-background: var(--color-light-overlay-default);
-    --backdrop-hidden-background: transparent;
+    --universal-modal-backdrop-visible-background: var(--color-light-overlay-default);
+    --universal-modal-backdrop-hidden-background: transparent;
 }
 
 @keyframes step_1 {
@@ -20,24 +20,24 @@
     }
     100% {
         opacity: 0;
-        background-color: var(--backdrop-hidden-background);
+        background-color: var(--universal-modal-backdrop-hidden-background);
     }
 }
 
 .appear,
 .enter {
-    background-color: var(--backdrop-hidden-background);
+    background-color: var(--universal-modal-backdrop-hidden-background);
 }
 
 .appearActive,
 .enterActive,
 .appearDone,
 .enterDone {
-    background-color: var(--backdrop-visible-background);
+    background-color: var(--universal-modal-backdrop-visible-background);
 }
 
 .exit {
-    background-color: var(--backdrop-visible-background);
+    background-color: var(--universal-modal-backdrop-visible-background);
 }
 
 .exitActive {
@@ -48,5 +48,5 @@
 
 .exitDone {
     opacity: 0;
-    background-color: var(--backdrop-hidden-background);
+    background-color: var(--universal-modal-backdrop-hidden-background);
 }
