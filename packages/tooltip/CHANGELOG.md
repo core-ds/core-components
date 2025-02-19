@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.0
+
 ## 7.9.1
 
 ### Patch Changes
