@@ -1,0 +1,13 @@
+@import '../../../vars.css';
+
+.content {
+    padding: var(--gap-16) var(--gap-16) var(--gap-0);
+
+    &:last-child {
+        padding-bottom: var(--gap-16);
+    }
+
+    &.withFooter {
+        padding-bottom: var(--gap-20);
+    }
+}
