@@ -223,7 +223,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     72: 'size-72',
 };
 
-const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
+const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url', 'email'];
 
 export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
     (
