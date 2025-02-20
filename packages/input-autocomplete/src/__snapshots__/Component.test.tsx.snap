@@ -111,7 +111,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
           class="component modal appear appearActive"
         >
           <div
-            class="content"
+            class="content hasFooter hasHeader"
           >
             <div
               class="wrapper"

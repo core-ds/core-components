@@ -1,0 +1,2 @@
+export const SCROLLBAR_DEFAULT_GAP = 16;
+export const FOOTER_MEDIUM_BREAKPOINT = 800;

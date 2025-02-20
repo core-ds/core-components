@@ -1,5 +1,60 @@
 # Change Log
 
+## 5.9.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   navigation-bar-private@0.6.0
+    -   drawer@5.1.11
+
+## 5.9.6
+
+### Patch Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+-   Фикс паддинга заголовка компонента SidePanel в PWA c safe-area
+-   Фикс паддинга заголовка компонента Modal в PWA c safe-area
+
+## 5.9.5
+
+### Patch Changes
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+-   Исправление работы safe-area
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+    -   drawer@5.1.10
+
+## 5.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   base-modal@5.8.9
+    -   navigation-bar-private@0.5.8
+    -   drawer@5.1.9
+
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+-   Добавлена обработка safe-area
+
 ## 5.9.2
 
 ### Patch Changes

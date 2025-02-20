@@ -1,5 +1,23 @@
 # Change Log
 
+## 7.13.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   input@15.5.2
+    -   with-suffix@4.2.14
+
+## 7.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   input@15.5.1
+    -   with-suffix@4.2.13
+
 ## 7.13.0
 
 ### Minor Changes

@@ -1,5 +1,32 @@
 # Change Log
 
+## 6.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.5
+    -   icon-button@6.11.8
+
+## 6.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+    -   spinner@4.0.4
+    -   icon-button@6.11.7
+
+## 6.2.1
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1552](https://github.com/core-ds/core-components/pull/1552)
+
+-   Поправлено обрезание длинного текста при truncate: true
+
 ## 6.2.0
 
 ### Minor Changes

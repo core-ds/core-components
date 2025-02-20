@@ -1,5 +1,48 @@
 # @alfalab/core-components-date-time-input
 
+## 4.5.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   input@15.5.2
+    -   icon-button@6.11.8
+    -   popover@6.3.8
+
+## 4.5.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+
+## 4.5.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.8
+
+## 4.5.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   calendar@7.17.7
+    -   input@15.5.1
+    -   icon-button@6.11.7
+    -   popover@6.3.7
+
+## 4.5.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.6
+
 ## 4.5.15
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.6.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+
+## 6.6.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.4
+
 ## 6.6.24
 
 ### Patch Changes

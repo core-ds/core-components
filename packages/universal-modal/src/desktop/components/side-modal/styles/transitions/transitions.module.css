@@ -1,0 +1,46 @@
+:root {
+    --universal-modal-transitions-timeout: 200ms;
+}
+
+/* prettier-ignore */
+@each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
+    .enterLeft-$(size) {
+        transform: translateX(calc(-100% - $(size)px)) translateZ(0);
+    }
+}
+
+/* prettier-ignore */
+@each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
+    .enterRight-$(size) {
+        transform: translateX(calc(100% + $(size)px)) translateZ(0);
+    }
+}
+
+.enterActive {
+    transform: translateX(0);
+    transition: transform var(--universal-modal-transitions-timeout) ease-in;
+}
+
+.enterDone {
+    transform: translateX(0);
+}
+
+.exit {
+    transform: translateX(0);
+}
+
+/* prettier-ignore */
+@each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
+    .exitActiveLeft-$(size) {
+        transform: translateX(calc(-100% - $(size)px)) translateZ(0);
+        transition: transform var(--universal-modal-transitions-timeout) ease-out;
+    }
+}
+
+/* prettier-ignore */
+@each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
+    .exitActiveRight-$(size) {
+        transform: translateX(calc(100% + $(size)px)) translateZ(0);
+        transition: transform var(--universal-modal-transitions-timeout) ease-out;
+    }
+}

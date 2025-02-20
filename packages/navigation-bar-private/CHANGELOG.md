@@ -1,5 +1,34 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.6.0
+
+### Minor Changes
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+-   Добавлен пропс для установки data атрибута `dataName`
+-   Добавлен дополнительный класс для заголовка `titleClassName`
+-   Добавлен ref для заголовка `titleRef`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+    -   icon-button@6.11.8
+
+## 0.5.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   typography@4.11.4
+    -   button@11.11.4
+    -   icon-button@6.11.7
+
 ## 0.5.7
 
 ### Patch Changes

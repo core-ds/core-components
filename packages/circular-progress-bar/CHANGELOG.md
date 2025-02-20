@@ -1,5 +1,42 @@
 # Change Log
 
+## 3.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 3.8.0
+
+### Minor Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1584](https://github.com/core-ds/core-components/pull/1584)
+
+-   Обновление зависимостей
+
+## 3.7.0
+
+### Minor Changes
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1538](https://github.com/core-ds/core-components/pull/1538)
+
+-   Добавлен размер 96
+-   Добавлен пропс для изменения цвета заголовка `titleColor`
+-   Добавлен пропс для изменения цвета подзаголовка `subtitleColor`
+-   Добавлен пропс `timer` который переводит компонент в режим таймера
+
+## 3.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+
 ## 3.6.7
 
 ### Patch Changes
