@@ -20,7 +20,6 @@ const PALETTES = [
     'colors-qualitative',
     'colors-sequential',
     'colors-students',
-    'colors-transparent',
     'colors-x5',
     'shadows-bluetint',
     'shadows-indigo',
