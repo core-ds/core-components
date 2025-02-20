@@ -5,6 +5,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
+import { CrossCompactMIcon } from '@alfalab/icons-glyph/CrossCompactMIcon';
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
 import { CommonProps } from '../../types/common-props';
@@ -37,6 +38,11 @@ type StepProps = {
      * Маркер того, что текущий шаг находится в состоянии "Error"
      */
     isError: boolean;
+
+    /**
+     * Маркер того, что текущий шаг находится в состоянии "isCriticalError"
+     */
+    isCriticalError: boolean;
 
     /**
      * Маркер того, что текущий шаг находится в состоянии "Warning"
@@ -78,6 +84,7 @@ export const Step: FC<StepProps> = ({
     ordered,
     isPositive,
     isError,
+    isCriticalError,
     isWarning,
     isWaiting,
     customStepIndicator,
@@ -116,6 +123,9 @@ export const Step: FC<StepProps> = ({
     const getStepIndicator = () => {
         if (customStepIndicator) {
             return <StepIndicator {...customStepIndicator} />;
+        }
+        if (isCriticalError) {
+            return <StepIndicator iconColor='negative' content={<CrossCompactMIcon />} />;
         }
         if (isError) {
             return <StepIndicator iconColor='negative' content={<ExclamationCircleMIcon />} />;

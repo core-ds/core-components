@@ -46,6 +46,13 @@ export type StepsProps = {
     checkIsStepError?: (stepNumber: number) => boolean;
 
     /**
+     * Кастомный метод для управления состоянием шага criticalError
+     * @param stepNumber - номер шага
+     * @return Флаг состояния error
+     */
+    checkIsStepCriticalError?: (stepNumber: number) => boolean;
+
+    /**
      * Кастомный метод для управления состоянием шага warning
      * @param stepNumber - номер шага
      * @return Флаг состояния warning
@@ -93,6 +100,7 @@ export const Steps: React.FC<StepsProps> = ({
     minSpaceBetweenSteps = 24,
     checkIsStepDisabled,
     checkIsStepError,
+    checkIsStepCriticalError,
     checkIsStepWarning,
     checkIsStepWaiting,
     checkIsStepPositive,
@@ -134,6 +142,9 @@ export const Steps: React.FC<StepsProps> = ({
                 const disabled = checkIsStepDisabled ? checkIsStepDisabled(stepNumber) : false;
                 const isPositive = checkIsStepPositive ? checkIsStepPositive(stepNumber) : false;
                 const isError = checkIsStepError ? checkIsStepError(stepNumber) : false;
+                const isCriticalError = checkIsStepCriticalError
+                    ? checkIsStepCriticalError(stepNumber)
+                    : false;
                 const isWarning = checkIsStepWarning ? checkIsStepWarning(stepNumber) : false;
                 const isWaiting = checkIsStepWaiting ? checkIsStepWaiting(stepNumber) : false;
                 const customStepIndicator = checkIsStepCustom && checkIsStepCustom(stepNumber);
@@ -148,6 +159,7 @@ export const Steps: React.FC<StepsProps> = ({
                         disabled={disabled}
                         isPositive={isPositive}
                         isError={isError}
+                        isCriticalError={isCriticalError}
                         isWarning={isWarning}
                         isWaiting={isWaiting}
                         customStepIndicator={customStepIndicator}
