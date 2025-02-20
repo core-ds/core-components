@@ -1,4 +1,5 @@
 @import '../../../../vars/src/index.css';
+@import '../../../../vars/src/colors-monochrome.css';
 @import '../../vars.css';
 
 .closer {
@@ -12,7 +13,7 @@
 }
 
 .button {
-    background: var(--color-light-bg-primary-alpha-40);
+    background: var(--color-static-monochrome-white-4);
     backdrop-filter: blur(10px);
     color: var(--color-light-neutral-translucent-1300);
 
