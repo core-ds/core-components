@@ -77,3 +77,7 @@
 .static-accent {
     color: var(--color-static-accent-primary);
 }
+
+.static-positive {
+    color: var(--color-static-text-positive);
+}
