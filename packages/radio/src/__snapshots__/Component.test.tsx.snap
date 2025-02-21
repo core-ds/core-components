@@ -6,19 +6,19 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="container size-20 start"
+        class="container container size-20 start"
       >
         <input
           type="radio"
         />
         <span
-          class="circle"
+          class="circle circle"
         />
         <span
           class="content"
         >
           <span
-            class="label"
+            class="label label"
           >
             text
           </span>
@@ -28,19 +28,19 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="container size-20 start"
+      class="container container size-20 start"
     >
       <input
         type="radio"
       />
       <span
-        class="circle"
+        class="circle circle"
       />
       <span
         class="content"
       >
         <span
-          class="label"
+          class="label label"
         >
           text
         </span>
@@ -107,24 +107,24 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="container size-20 start"
+        class="container container size-20 start"
       >
         <input
           type="radio"
         />
         <span
-          class="circle"
+          class="circle circle"
         />
         <span
           class="content"
         >
           <span
-            class="label"
+            class="label label"
           >
             text
           </span>
           <span
-            class="hint"
+            class="hint hint"
           >
             hint
           </span>
@@ -134,24 +134,24 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="container size-20 start"
+      class="container container size-20 start"
     >
       <input
         type="radio"
       />
       <span
-        class="circle"
+        class="circle circle"
       />
       <span
         class="content"
       >
         <span
-          class="label"
+          class="label label"
         >
           text
         </span>
         <span
-          class="hint"
+          class="hint hint"
         >
           hint
         </span>
@@ -218,26 +218,26 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="container size-20 start"
+        class="container container size-20 start"
       >
         <input
           type="radio"
         />
         <span
-          class="circle"
+          class="circle circle"
         />
       </label>
     </div>
   </body>,
   "container": <div>
     <label
-      class="container size-20 start"
+      class="container container size-20 start"
     >
       <input
         type="radio"
       />
       <span
-        class="circle"
+        class="circle circle"
       />
     </label>
   </div>,
