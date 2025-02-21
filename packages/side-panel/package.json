@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-side-panel",
-    "version": "5.9.6",
+    "version": "5.9.7",
     "description": "SidePanel component",
     "keywords": [],
     "license": "MIT",
@@ -15,11 +15,11 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.8.10",
-        "@alfalab/core-components-drawer": "^5.1.10",
+        "@alfalab/core-components-base-modal": "^5.9.0",
+        "@alfalab/core-components-drawer": "^5.1.11",
         "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-navigation-bar-private": "^0.5.8",
-        "@alfalab/core-components-shared": "^0.15.0",
+        "@alfalab/core-components-navigation-bar-private": "^0.6.0",
+        "@alfalab/core-components-shared": "^0.16.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"

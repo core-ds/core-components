@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
 ## 3.8.0
 
 ### Minor Changes
