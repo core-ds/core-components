@@ -1,5 +1,14 @@
 # Change Log
 
+## 17.20.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.8.0
+    -   bottom-sheet@6.18.2
+    -   modal@9.9.7
+
 ## 17.20.6
 
 ### Patch Changes
