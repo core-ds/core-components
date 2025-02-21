@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-badge": "^5.6.4",
+        "@alfalab/core-components-shared": "^0.16.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
