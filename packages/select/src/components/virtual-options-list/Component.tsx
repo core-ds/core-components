@@ -1,5 +1,4 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
-import mergeRefs from 'react-merge-refs';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
@@ -18,6 +17,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
         {
             size = 48,
+            optionsSize = size,
             flatOptions = [],
             highlightedIndex = -1,
             optionGroupClassName,
@@ -166,7 +166,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     return (
                         <Optgroup
                             label={group.label}
-                            size={size}
+                            size={optionsSize}
                             className={optionGroupClassName}
                             options={group.options}
                             selectedItems={groupSelectedItems}
@@ -218,11 +218,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const renderWithNativeScrollbar = () => {
             if (visibleOptions) {
                 return (
-                    <div
-                        className={styles.scrollable}
-                        ref={mergeRefs([parentRef, ref])}
-                        onScroll={onScroll}
-                    >
+                    <div className={styles.scrollable} ref={parentRef} onScroll={onScroll}>
                         <div {...contentNodeProps}>{renderList()}</div>
                     </div>
                 );
