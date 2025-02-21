@@ -79,7 +79,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
         };
 
         return () => xhr.abort();
-    }, [url, icon]);
+    }, [url, icon, name]);
 
     return (
         <span
