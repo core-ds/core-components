@@ -51,14 +51,14 @@
         "mobile.js": 3.5
     },
     "tabs": {
-        "collapsible.js": 153.7,
+        "collapsible.js": 154.1,
         "desktop.js": 37.9,
         "index.js": 39.2,
         "mobile.js": 38,
         "shared.js": 30.8
     },
     "table": {
-        "index.js": 173.3
+        "index.js": 173.6
     },
     "tab-bar": {
         "index.js": 6.7,
@@ -74,7 +74,8 @@
         "index.js": 3.2
     },
     "steps": {
-        "index.js": 7.8
+        "index.js": 8.8,
+        "shared.js": 0.1
     },
     "stepped-progress-bar": {
         "index.js": 4.4
@@ -117,15 +118,15 @@
         "index.js": 8.2
     },
     "select": {
-        "desktop.js": 161.9,
-        "index.js": 235.3,
-        "mobile.js": 208.7,
-        "shared.js": 194.9
+        "desktop.js": 162.2,
+        "index.js": 235.7,
+        "mobile.js": 209,
+        "shared.js": 195.2
     },
     "select-with-tags": {
-        "desktop.js": 197.9,
-        "index.js": 221.1,
-        "mobile.js": 195
+        "desktop.js": 198.2,
+        "index.js": 221.4,
+        "mobile.js": 195.3
     },
     "segmented-control": {
         "index.js": 12.4
@@ -134,7 +135,7 @@
         "index.js": 37.3
     },
     "radio": {
-        "index.js": 3
+        "index.js": 3.2
     },
     "radio-group": {
         "desktop.js": 3,
@@ -169,9 +170,9 @@
         "shared.js": 0.2
     },
     "picker-button": {
-        "desktop.js": 145.4,
-        "index.js": 239.6,
-        "mobile.js": 212.3,
+        "desktop.js": 145.7,
+        "index.js": 239.9,
+        "mobile.js": 212.7,
         "shared.js": 3.1
     },
     "phone-input": {
@@ -259,12 +260,12 @@
         "index.js": 0.7
     },
     "intl-phone-input": {
-        "index.js": 659.2
+        "index.js": 659.5
     },
     "international-phone-input": {
-        "desktop.js": 471,
-        "index.js": 542.4,
-        "mobile.js": 514.4,
+        "desktop.js": 471.3,
+        "index.js": 542.7,
+        "mobile.js": 514.8,
         "shared.js": 2.4
     },
     "input": {
@@ -274,9 +275,9 @@
         "shared.js": 12.5
     },
     "input-autocomplete": {
-        "desktop.js": 158.1,
-        "index.js": 242.6,
-        "mobile.js": 215.2,
+        "desktop.js": 158.4,
+        "index.js": 243,
+        "mobile.js": 215.5,
         "shared.js": 1.7
     },
     "indicator": {
@@ -349,9 +350,9 @@
         "index.js": 71.4
     },
     "custom-picker-button": {
-        "desktop.js": 147.2,
-        "index.js": 241.7,
-        "mobile.js": 214.2
+        "desktop.js": 147.5,
+        "index.js": 242,
+        "mobile.js": 214.5
     },
     "custom-button": {
         "desktop.js": 7.7,
@@ -384,7 +385,7 @@
         "shared.js": 0.3
     },
     "checkbox": {
-        "index.js": 3.6
+        "index.js": 3.9
     },
     "checkbox-group": {
         "desktop.js": 2.7,
