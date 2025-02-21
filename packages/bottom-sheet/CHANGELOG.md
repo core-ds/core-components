@@ -1,5 +1,24 @@
 # Change Log
 
+## 6.18.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   navigation-bar-private@0.6.0
+
+## 6.18.0
+
+### Minor Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+-   Добавлено свойство _adjustContainerHeight_ для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
+
 ## 6.17.17
 
 ### Patch Changes

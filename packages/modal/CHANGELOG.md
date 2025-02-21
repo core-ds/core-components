@@ -1,5 +1,25 @@
 # Change Log
 
+## 9.9.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   navigation-bar-private@0.6.0
+
+## 9.9.5
+
+### Patch Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+-   Фикс паддинга заголовка компонента SidePanel в PWA c safe-area
+-   Фикс паддинга заголовка компонента Modal в PWA c safe-area
+
 ## 9.9.4
 
 ### Patch Changes

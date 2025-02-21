@@ -1,3 +1,126 @@
+## 48.18.0
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+#### Что изменилось
+- Добавлен дополнительный класс для контейнера вертикальной полосы прокрутки `verticalBarClassName`
+- Добавлен обработчик прокрутки контента `onContentScroll`
+
+#### Влияние на компоненты
+- Минорное<br />`scrollbar`
+
+<br />
+
+#### Что изменилось
+- Добавлен пропс `contentElementRef` для контентной области
+- Добавлен обработчик события `onWheel`
+
+#### Влияние на компоненты
+- Минорное<br />`base-modal`
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент `UniversalModal`
+
+#### Влияние на компоненты
+- Минорное<br />`universal-modal`
+
+<br />
+
+#### Что изменилось
+- Добавлена проверка в os -> isMacOS
+- Добавлена проверка в browser -> isSafari
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+<br />
+
+#### Что изменилось
+- Добавлен пропс для установки data атрибута `dataName`
+- Добавлен дополнительный класс для заголовка `titleClassName`
+- Добавлен ref для заголовка `titleRef`
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar-private`
+
+
+
+## 48.17.0
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1584](https://github.com/core-ds/core-components/pull/1584)
+
+#### Что изменилось
+- Обновление зависимостей
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+#### Что изменилось
+- Фикс паддинга заголовка компонента SidePanel в PWA c safe-area
+- Фикс паддинга заголовка компонента Modal в PWA c safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+<br />
+
+#### Что изменилось
+- Добавлено свойство *adjustContainerHeight* для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
+## 48.16.0
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1581](https://github.com/core-ds/core-components/pull/1581)
+
+#### Что изменилось
+Из темизаций исключены файлы для цветовых палитр, добавленные в #1501
+
+-   colors-decorative-dark.css
+-   colors-monochrome-dark.css
+-   colors-qualitative-dark.css
+-   colors-sequential-dark.css
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1574](https://github.com/core-ds/core-components/pull/1574)
+
+#### Что изменилось
+- Добавлен forawdRef для TBody
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1538](https://github.com/core-ds/core-components/pull/1538)
+
+#### Что изменилось
+- Добавлен размер 96
+- Добавлен пропс для изменения цвета заголовка `titleColor`
+- Добавлен пропс для изменения цвета подзаголовка `subtitleColor`
+- Добавлен пропс `timer` который переводит компонент в режим таймера
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+
 ## 48.15.1
 
 <sup><time>11.02.2025</time></sup>

@@ -1,5 +1,23 @@
 # Change Log
 
+## 7.8.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   calendar-input@10.4.20
+    -   date-input@4.4.14
+
+## 7.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+    -   calendar-input@10.4.19
+
 ## 7.8.6
 
 ### Patch Changes

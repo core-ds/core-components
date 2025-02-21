@@ -1,5 +1,31 @@
 # Change Log
 
+## 2.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.6
+    -   button@11.11.5
+    -   pagination@2.4.10
+
+## 2.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.5
+
+## 2.10.0
+
+### Minor Changes
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1574](https://github.com/core-ds/core-components/pull/1574)
+
+-   Добавлен forawdRef для TBody
+
 ## 2.9.3
 
 ### Patch Changes

@@ -1,0 +1,180 @@
+## PageIndicatorDynamic
+
+Доступен в двух размерах: 6 и 8 рх.
+
+```jsx live
+render(() => {
+    const elements = 7;
+    const [active, setActive] = React.useState(true);
+    const toggleActive = () => setActive((active) => !active);
+    const [activeElement, setActiveElement] = React.useState(0);
+    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));
+    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));
+    const duration = (index) => (index % 2 === 0 ? 2000 : 4000);
+
+    return (
+        <div>
+            <Container>
+                <PageIndicatorDynamic
+                    size={8}
+                    activeElement={activeElement}
+                    elements={elements}
+                    onActiveElementChange={setActiveElement}
+                    active={active}
+                    cycle={true}
+                    duration={duration}
+                />
+                <Gap size={8} />
+                <PageIndicatorDynamic
+                    size={6}
+                    activeElement={activeElement}
+                    elements={elements}
+                    active={active}
+                    duration={duration}
+                />
+            </Container>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
+                <Button
+                    leftAddons={active ? <PauseCompactMIcon /> : <PlayCompactMIcon />}
+                    onClick={toggleActive}
+                />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
+            </Row>
+        </div>
+    );
+});
+```
+
+## PageIndicatorBullet
+
+Доступен в двух размерах, 6 и 8 рх. В зависимости от количества элементов, меняется анимация и внешний вид индикатора.
+
+Меньше шести элементов.
+
+```jsx live
+render(() => {
+    const elements = 5;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));
+    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <Container>
+                <PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />
+                <Gap size={8} />
+                <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
+            </Container>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
+            </Row>
+        </div>
+    );
+});
+```
+
+Если элементов ровно шесть.
+
+```jsx live
+render(() => {
+    const elements = 6;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));
+    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div>
+                <PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />
+                <Gap size={8} />
+                <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
+            </Row>
+        </div>
+    );
+});
+```
+
+Больше шести элементов.
+
+```jsx live
+render(() => {
+    const elements = 10;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));
+    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div>
+                <PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />
+                <Gap size={8} />
+                <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
+            </Row>
+        </div>
+    );
+});
+```
+
+## PageIndicatorStep
+
+Доступен в одном размере. Ширина подстраивается под ширину контейнера.
+
+```jsx live
+render(() => {
+    const elements = 5;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));
+    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div style={{ width: 168 }}>
+                <PageIndicatorStep size={4} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
+            </Row>
+        </div>
+    );
+});
+```
+
+## PageIndicatorRunner
+
+Доступен в одном размере. Ширина подстраивается под ширину контейнера.
+
+```jsx live
+render(() => {
+    const elements = 5;
+    const [activeElement, setActiveElement] = React.useState(0);
+    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));
+    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));
+
+    return (
+        <div>
+            <div style={{ width: 168 }}>
+                <PageIndicatorRunner size={4} activeElement={activeElement} elements={elements} />
+            </div>
+            <Row style={{ gap: 'var(--gap-xs)' }}>
+                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
+                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
+            </Row>
+        </div>
+    );
+});
+```
+
+## Общие настройки
+
+Для всех индикаторов минимальное число элементов — 2, а максимальное не ограничено. Для цветов доступна инвертированная, статичные версии и их комбинации.
