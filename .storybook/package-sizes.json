@@ -206,6 +206,9 @@
     "pagination": {
         "index.js": 6.8
     },
+    "page-indicator": {
+        "index.js": 13.1
+    },
     "number-input": {
         "desktop.js": 49.2,
         "index.js": 50,
