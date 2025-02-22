@@ -4,9 +4,9 @@ import { Popover } from '@alfalab/core-components-popover';
 import {
     AnyObject,
     BaseSelect,
+    NextOptionsList,
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
-    OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
 import { AutocompleteField } from '../autocomplete-field';
@@ -15,7 +15,7 @@ import { InputAutocompleteCommonProps } from '../types';
 export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutocompleteCommonProps>(
     (
         {
-            OptionsList = DefaultOptionsList,
+            OptionsList = NextOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             Input,

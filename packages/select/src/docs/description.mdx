@@ -978,7 +978,7 @@ render(() => {
 
 ## Длинные списки и ленивая загрузка
 
-Для рендера большого количества данных используйте `OptionsList={VirtualOptionsList}`. На время подгрузки можно использовать скелетон.
+Для рендера большого количества данных используйте `OptionsList={NextOptionsList}`. На время подгрузки можно использовать скелетон.
 
 ```jsx live mobileHeight={640}
 render(() => {
@@ -1024,7 +1024,7 @@ render(() => {
                 placeholder='Выберите один из тысячи'
                 label='Одиночный выбор'
                 options={optionsForVirtualList}
-                OptionsList={VirtualOptionsList}
+                OptionsList={NextOptionsList}
                 circularNavigation={true}
                 allowUnselect={true}
                 optionsListWidth='field'
@@ -1091,7 +1091,7 @@ render(() => {
                 placeholder='Выберите один из тысячи'
                 label='Одиночный выбор'
                 options={optionsForVirtualList}
-                OptionsList={VirtualOptionsList}
+                OptionsList={NextOptionsList}
                 circularNavigation={true}
                 allowUnselect={true}
                 Option={BaseOption}

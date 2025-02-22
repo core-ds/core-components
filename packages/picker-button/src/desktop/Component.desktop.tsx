@@ -6,8 +6,8 @@ import { Popover } from '@alfalab/core-components-popover';
 import {
     BaseSelect,
     BaseSelectProps,
+    NextOptionsList,
     Optgroup as DefaultOptgroup,
-    OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
 import { Field as DefaultField } from '../field';
@@ -71,7 +71,7 @@ export type PickerButtonDesktopProps = Omit<
 export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesktopProps>(
     (
         {
-            OptionsList = DefaultOptionsList,
+            OptionsList = NextOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             view,

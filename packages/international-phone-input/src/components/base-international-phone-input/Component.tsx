@@ -14,7 +14,7 @@ import { useMaskito } from '@maskito/react';
 import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
 import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
 import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
-import { isNullable } from '@alfalab/core-components-shared';
+import { isNullable, useElementWidth } from '@alfalab/core-components-shared';
 
 import type { BaseInternationalPhoneInputProps, Country } from '../../types';
 import {
@@ -66,8 +66,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             [countries, customCountriesList],
         );
         const inputRef = useRef<HTMLInputElement>(null);
-        const inputWrapperRef = useRef<HTMLDivElement>(null);
-
+        const [inputWrapperWidth, inputWrapperRef] = useElementWidth<HTMLDivElement>();
         const [open, setOpen] = useState<boolean | undefined>(defaultOpen);
         const [openCountry, setOpenCountry] = useState<boolean | undefined>(
             countrySelectProps?.defaultOpen,
@@ -198,7 +197,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 onChange={handleSelectCountry}
                 country={country}
                 countries={compact ? [] : countriesData}
-                fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
+                fieldWidth={inputWrapperWidth}
                 onOpen={handleCountrySelectOpen}
                 open={showCountrySelect}
             />
