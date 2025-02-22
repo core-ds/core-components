@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
+import React, { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
 import type { HandledEvents } from 'react-swipeable/es/types';
 import type { TransitionProps } from 'react-transition-group/Transition';
 
@@ -252,7 +252,12 @@ export type BottomSheetProps = {
     /**
      * Реф на контейнер, в котором происходит скролл
      */
-    scrollableContainerRef?: RefObject<HTMLElement>;
+    scrollableContainerRef?: React.Ref<HTMLElement>;
+
+    /**
+     * Реф на контейнер, в котором находится основной контент
+     */
+    contentRef?: React.Ref<HTMLElement>;
 
     /**
      * Реф для управления компонентом.
@@ -262,7 +267,7 @@ export type BottomSheetProps = {
     /**
      * Реф на контейнер, в котором находится шторка
      */
-    sheetContainerRef?: RefObject<HTMLElement>;
+    sheetContainerRef?: React.Ref<HTMLElement>;
 
     /**
      * Магнитные области видимой высоты шторки.

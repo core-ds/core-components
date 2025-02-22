@@ -3,7 +3,7 @@ import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-
 
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { Input } from '@alfalab/core-components-input';
-import { OptionsList, OptionsListProps, useLazyLoading } from '../../shared';
+import { NextOptionsList, OptionsListProps, useLazyLoading } from '../../shared';
 import { SelectDesktop as Select } from '../../desktop';
 
 const LIMIT = 10;
@@ -97,7 +97,7 @@ describe('Select useLazyLoading hook', () => {
                                 {...inputProps}
                             />
                         </div>
-                        <OptionsList {...props} ref={ref} />
+                        <NextOptionsList {...props} ref={ref} />
                     </div>
                 );
             },
