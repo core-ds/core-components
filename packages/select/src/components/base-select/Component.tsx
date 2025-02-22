@@ -130,7 +130,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             BottomSheet,
             limitDynamicOptionGroupSize,
             fieldWidth: fieldWidthFromProps,
-            legacyMode = true,
+            legacyMode = false,
         },
         ref,
     ) => {

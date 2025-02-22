@@ -8,16 +8,13 @@ import { Arrow as DefaultArrow } from '../components/arrow';
 import { BaseSelect } from '../components/base-select';
 import { Field as DefaultField } from '../components/field';
 import { Footer } from '../components/footer';
+import { NextOptionsList } from '../components/next-options-list';
 import { Optgroup as DefaultOptgroup } from '../components/optgroup';
 import { Option as DefaultOption } from '../components/option';
-import { OptionsList as DefaultOptionsList } from '../components/options-list';
 import { Search as DefaultSearch } from '../components/search';
-import { VirtualOptionsList as DefaultVirtualOptionsList } from '../components/virtual-options-list';
 import { useSelectWithApply } from '../presets/useSelectWithApply/hook';
 import { Header } from '../presets/useSelectWithApply/options-list-with-apply/header/Component';
 import { AnyObject, OptionShape, SelectMobileProps } from '../typings';
-
-const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
 export const SelectMobile = forwardRef(
     (
@@ -42,9 +39,7 @@ export const SelectMobile = forwardRef(
             Search = DefaultSearch,
             selected,
             options,
-            OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
-                ? DefaultVirtualOptionsList
-                : DefaultOptionsList,
+            OptionsList = NextOptionsList,
             onChange,
             showClear = true,
             showSelectAll,
