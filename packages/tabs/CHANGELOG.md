@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.12.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.18
+
 ## 8.12.18
 
 ### Patch Changes
