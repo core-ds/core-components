@@ -19,7 +19,7 @@
         "@alfalab/core-components-select": "^17.20.7",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
-        "@alfalab/utils": "^1.17.1",
+        "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "libphonenumber-js": "^1.10.30",
         "react-merge-refs": "1.1.0",

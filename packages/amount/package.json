@@ -13,7 +13,7 @@
     "sideEffects": false,
     "dependencies": {
         "@alfalab/data": "^1.9.1",
-        "@alfalab/utils": "^1.17.1",
+        "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
