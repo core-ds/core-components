@@ -49,6 +49,7 @@
         background-color: var(--button-inverted-primary-disabled-bg-color);
 
         &.loading {
+            color: var(--button-inverted-primary-color);
             background-color: var(--button-inverted-primary-base-bg-color);
         }
     }

@@ -45,6 +45,7 @@
         background-color: var(--button-primary-mobile-disabled-bg-color);
 
         &.loading {
+            color: var(--button-primary-mobile-color);
             background-color: var(--button-primary-mobile-base-bg-color);
         }
     }
