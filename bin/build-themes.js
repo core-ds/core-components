@@ -39,6 +39,10 @@ const processRootTheme = (cssFile) => {
         '**/colors-qualitative.css',
         '**/colors-sequential.css',
         '**/colors-students.css',
+        '**/colors-decorative-dark.css',
+        '**/colors-monochrome-dark.css',
+        '**/colors-qualitative-dark.css',
+        '**/colors-sequential-dark.css',
     ];
 
     /**

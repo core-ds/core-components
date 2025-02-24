@@ -9,6 +9,21 @@ import styles from '!!raw-loader!../components/step/index.module.css';
 import { Steps } from '@alfalab/core-components/steps';
 ```
 
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getStepsTestIds`.
+Импорт из `@alfalab/core-components/steps/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    steps: dataTestId,
+    step: `${dataTestId}-step`,
+};
+```
+
 ## Свойства
 
 <ArgTypes of={Steps} />

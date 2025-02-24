@@ -108,6 +108,22 @@ describe(
 );
 
 describe(
+    'Radio | inverted hover state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Radio',
+            knobs: {
+                colors: 'inverted',
+            },
+        }),
+        evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 50, height: 50 },
+        },
+    }),
+);
+
+describe(
     'Radio | pressed state',
     screenshotTesting({
         cases: generateTestCases({
@@ -124,6 +140,51 @@ describe(
         },
         screenshotOpts: {
             clip,
+        },
+    }),
+);
+
+describe(
+    'Radio | inverted pressed state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Radio',
+            knobs: {
+                colors: 'inverted',
+            },
+        }),
+        evaluate: (page: Page) => {
+            return page.mouse
+                .move(26, 26)
+                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
+        },
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 50, height: 50 },
+        },
+    }),
+);
+
+describe(
+    'Radio | inverted colors',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Radio',
+                    knobs: {
+                        label: 'Label',
+                        hint: ['', 'Hint Message'],
+                        colors: 'inverted',
+                        checked: [true, false],
+                        disabled: [true, false],
+                    },
+                    size: { width: 200, height: 50 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 1024, height: 200 },
         },
     }),
 );

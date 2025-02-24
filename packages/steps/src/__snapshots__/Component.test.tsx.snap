@@ -9,7 +9,7 @@ Object {
         class="component"
       >
         <div
-          class="step selected interactive"
+          class="step selected interactive horizontal"
           role="button"
           tabindex="0"
         >
@@ -23,18 +23,22 @@ Object {
             </div>
           </div>
           <div
-            class="text interactive"
+            class="textWrapper gap-24"
           >
-            <div>
-              Шаг 1
+            <div
+              class="text interactive"
+            >
+              <div>
+                Шаг 1
+              </div>
             </div>
           </div>
           <div
-            class="dash size-24"
+            class="dash"
           />
         </div>
         <div
-          class="step interactive"
+          class="step interactive horizontal"
           role="button"
           tabindex="0"
         >
@@ -48,10 +52,14 @@ Object {
             </div>
           </div>
           <div
-            class="text interactive"
+            class="textWrapper gap-24"
           >
-            <div>
-              Шаг 2
+            <div
+              class="text interactive"
+            >
+              <div>
+                Шаг 2
+              </div>
             </div>
           </div>
         </div>
@@ -63,7 +71,7 @@ Object {
       class="component"
     >
       <div
-        class="step selected interactive"
+        class="step selected interactive horizontal"
         role="button"
         tabindex="0"
       >
@@ -77,18 +85,22 @@ Object {
           </div>
         </div>
         <div
-          class="text interactive"
+          class="textWrapper gap-24"
         >
-          <div>
-            Шаг 1
+          <div
+            class="text interactive"
+          >
+            <div>
+              Шаг 1
+            </div>
           </div>
         </div>
         <div
-          class="dash size-24"
+          class="dash"
         />
       </div>
       <div
-        class="step interactive"
+        class="step interactive horizontal"
         role="button"
         tabindex="0"
       >
@@ -102,10 +114,14 @@ Object {
           </div>
         </div>
         <div
-          class="text interactive"
+          class="textWrapper gap-24"
         >
-          <div>
-            Шаг 2
+          <div
+            class="text interactive"
+          >
+            <div>
+              Шаг 2
+            </div>
           </div>
         </div>
       </div>

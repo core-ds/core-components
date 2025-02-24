@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-typography",
-    "version": "4.11.4",
+    "version": "4.12.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -22,6 +22,6 @@
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.0",
+    "themesVersion": "13.7.1",
     "varsVersion": "9.18.0"
 }
