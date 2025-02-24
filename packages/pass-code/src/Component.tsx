@@ -8,7 +8,7 @@ import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';
 import { PassCodeProps } from './typings';
 
-import commonStyles from './index.module.css';
+import styles from './index.module.css';
 
 export type BasePassCodeProps = {
     /**
@@ -77,11 +77,6 @@ export type BasePassCodeProps = {
     defaultMatchMediaValue?: boolean | (() => boolean);
 
     /**
-     * Стили компонента
-     */
-    styles?: { [key: string]: string };
-
-    /**
      * Отключает ввод и удаление кода
      */
     disabled?: boolean;
@@ -101,7 +96,6 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             onChange,
             maxCodeLength = 10,
             codeLength,
-            styles = {},
             disabled,
         },
         ref,
@@ -132,11 +126,11 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
 
         return (
             <div
-                className={cn(commonStyles.component, styles.component, className)}
+                className={cn(styles.component, className)}
                 ref={ref}
                 data-test-id={getDataTestId(dataTestId, 'wrapper')}
             >
-                <div className={cn(commonStyles.inputProgressContainer)}>
+                <div className={cn(styles.inputProgressContainer)}>
                     <Gap size={16} />
                     <InputProgress
                         dataTestId={dataTestId}
