@@ -286,7 +286,10 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputKeyDownArrowDown:
-                        if (!circularNavigation && state.highlightedIndex === options.length - 1) {
+                        if (
+                            !circularNavigation &&
+                            state.highlightedIndex === flatOptions.length - 1
+                        ) {
                             return { ...changes, highlightedIndex: state.highlightedIndex };
                         }
 
