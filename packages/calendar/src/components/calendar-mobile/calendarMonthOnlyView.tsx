@@ -3,6 +3,7 @@ import { Virtuoso } from 'react-virtuoso';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import isAfter from 'date-fns/isAfter';
+import isBefore from 'date-fns/isBefore';
 import isSameMonth from 'date-fns/isSameMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
@@ -139,7 +140,7 @@ export const CalendarMonthOnlyView = ({
 
         const generatedMonths = [...prevMonths, ...currYearMonths, ...nextMonths];
 
-        return generatedMonths.map((item) => ({
+        let generatedMonthsWithWeeks = generatedMonths.map((item) => ({
             ...item,
             weeks: generateWeeks(item.date, {
                 minDate,
@@ -152,6 +153,22 @@ export const CalendarMonthOnlyView = ({
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
+
+        // отсекаем лишние месяцы если задана минимальная дата
+        if (minDate) {
+            generatedMonthsWithWeeks = generatedMonthsWithWeeks.filter(
+                (item) => !isBefore(item.date, startOfMonth(minDate)),
+            );
+        }
+
+        // отсекаем лишние месяцы если задана максимальная дата
+        if (maxDate) {
+            generatedMonthsWithWeeks = generatedMonthsWithWeeks.filter(
+                (item) => !isAfter(item.date, startOfMonth(maxDate)),
+            );
+        }
+
+        return generatedMonthsWithWeeks;
     }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
     const initialMonthIndex = useMemo(() => {
