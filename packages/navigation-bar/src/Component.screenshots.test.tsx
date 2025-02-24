@@ -12,14 +12,19 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('NavBar ', () => {
+describe('NavigationBar ', () => {
     createPreview(
         {
             testStory: false,
             componentName: 'NavigationBar',
-            knobs: {},
+            knobs: {
+                leftAddons: 'floatingBack',
+                rightAddons: 'close',
+                backgroundColor: '',
+                title: 'PageName',
+            },
         },
-        'transform:scale(1.5)',
+        'transform:scale(1.44)',
     );
 });
 
@@ -36,8 +41,9 @@ describe(
                         align: 'left',
                         children: true,
                         bottomAddons: true,
-                        rightAddons: true,
-                        leftAddons: true,
+                        rightAddons: 'close',
+                        leftAddons: 'floatingBack',
+                        backgroundColor: '#3778FB1A',
                     },
                 }),
             ],
@@ -50,8 +56,9 @@ describe(
                         align: 'center',
                         children: true,
                         bottomAddons: true,
-                        rightAddons: true,
-                        leftAddons: true,
+                        rightAddons: 'close',
+                        leftAddons: 'floatingBack',
+                        backgroundColor: '#3778FB1A',
                     },
                 }),
             ],
@@ -63,8 +70,9 @@ describe(
                     knobs: {
                         children: false,
                         bottomAddons: true,
-                        rightAddons: true,
-                        leftAddons: true,
+                        rightAddons: 'close',
+                        leftAddons: 'floatingBack',
+                        backgroundColor: '#3778FB1A',
                     },
                 }),
             ],
@@ -76,8 +84,9 @@ describe(
                     knobs: {
                         children: true,
                         bottomAddons: false,
-                        rightAddons: true,
-                        leftAddons: true,
+                        rightAddons: 'close',
+                        leftAddons: 'floatingBack',
+                        backgroundColor: '#3778FB1A',
                     },
                 }),
             ],
@@ -89,8 +98,9 @@ describe(
                     knobs: {
                         children: true,
                         bottomAddons: true,
-                        rightAddons: false,
-                        leftAddons: true,
+                        rightAddons: 'none',
+                        leftAddons: 'floatingBack',
+                        backgroundColor: '#3778FB1A',
                     },
                 }),
             ],
@@ -102,8 +112,9 @@ describe(
                     knobs: {
                         children: true,
                         bottomAddons: true,
-                        rightAddons: true,
-                        leftAddons: false,
+                        rightAddons: 'close',
+                        leftAddons: 'none',
+                        backgroundColor: '#3778FB1A',
                     },
                 }),
             ],
