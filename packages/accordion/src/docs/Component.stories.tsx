@@ -24,36 +24,31 @@ export const accordion: Story = {
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
 
-        const header = boolean('header', true) ? (
-            <div className='accordion-header' />
-        ) : (
-            text('headerText', 'Зачем нужен аккордион?')
-        );
-        const control = boolean('control', true) ? (
-            <div className='accordion-control' />
-        ) : undefined;
-        const children = boolean('children', true) ? (
-            <div className='accordion-body' />
-        ) : (
-            text(
-                'childrenText',
-                'Используется для создания интерактивных списков, ' +
-                    'которые можно разворачивать и сворачивать для отображения дополнительной информации.',
-            )
-        );
-        const controlPosition = select('controlPosition', ['start', 'end'], 'end');
+        if (isPreview) {
+            return (
+                <div style={previewStyles}>
+                    <Accordion header='Зачем нужен аккордион?' expanded={true}>
+                        Используется для создания интерактивных списков, которые можно разворачивать
+                        и сворачивать для отображения дополнительной информации.
+                    </Accordion>
+                </div>
+            );
+        }
 
         return (
             <div style={previewStyles}>
                 <Accordion
-                    header={header}
-                    controlPosition={controlPosition}
-                    control={control}
-                    expanded={isPreview || undefined}
+                    header={
+                        boolean('header', true) ? <div className='accordion-header' /> : undefined
+                    }
+                    controlPosition={select('controlPosition', ['start', 'end'], 'end')}
+                    control={
+                        boolean('control', true) ? <div className='accordion-control' /> : undefined
+                    }
                     className='accordion-wrapper'
                     bodyClassName='accordion-container'
                 >
-                    {children}
+                    {boolean('children', true) ? <div className='accordion-body' /> : undefined}
                 </Accordion>
             </div>
         );
