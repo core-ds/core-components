@@ -27,7 +27,7 @@ export const accordion: Story = {
         if (isPreview) {
             return (
                 <div style={previewStyles}>
-                    <Accordion header='Зачем нужен аккордион?' expanded={true}>
+                    <Accordion header='Зачем нужен аккордeон?' expanded={true}>
                         Используется для создания интерактивных списков, которые можно разворачивать
                         и сворачивать для отображения дополнительной информации.
                     </Accordion>
