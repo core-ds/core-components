@@ -22,8 +22,8 @@
     /* focus */
     --form-control-focus-shadow: none;
     --form-control-focus-border-bottom: 1px solid var(--color-light-neutral-translucent-1300);
-    --form-control-inverted-focus-bg-color: var(--color-light-neutral-translucent-300-inverted);
-    --form-control-focus-bg-color: var(--color-light-neutral-translucent-300);
+    --form-control-inverted-focus-bg-color: var(--color-light-neutral-translucent-400-inverted);
+    --form-control-focus-bg-color: var(--color-light-neutral-translucent-400);
     --form-control-inverted-focus-border-bottom: 1px solid
         var(--color-light-neutral-translucent-1300-inverted);
     --form-control-inverted-focus-shadow: none;
@@ -31,8 +31,8 @@
     --form-control-inverted-focus-error-shadow: none;
 
     /* hover */
-    --form-control-hover-bg-color: var(--color-light-neutral-translucent-300);
-    --form-control-inverted-hover-bg-color: var(--color-light-neutral-translucent-300-inverted);
+    --form-control-hover-bg-color: var(--color-light-neutral-translucent-400);
+    --form-control-inverted-hover-bg-color: var(--color-light-neutral-translucent-400-inverted);
 
     /* error */
     --form-control-error-color: var(--color-static-accent-primary);
@@ -49,8 +49,8 @@
     --form-control-disabled-border-bottom: 1px dashed var(--color-light-neutral-500);
     --form-control-inverted-disabled-border-bottom: 1px dashed
         var(--color-light-neutral-500-inverted);
-    --form-control-disabled-bg-color: var(--color-light-neutral-translucent-300);
-    --form-control-inverted-disabled-bg-color: var(--color-light-neutral-translucent-300-inverted);
+    --form-control-disabled-bg-color: var(--color-light-neutral-translucent-400);
+    --form-control-inverted-disabled-bg-color: var(--color-light-neutral-translucent-400-inverted);
 
     /* color mobile */
     --form-control-mobile-bg-color: var(--color-light-neutral-translucent-100);
