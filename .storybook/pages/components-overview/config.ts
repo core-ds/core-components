@@ -46,7 +46,7 @@ export const CONFIG: TConfig = {
     Уведомления: ['Notification', 'Toast', 'Plate', 'SystemMessage'],
     Аутентификация: ['PassCode', 'PatternLock', 'Confirmation'],
     Ячейки: ['GenericWrapper', 'PureCell', 'Underlay', 'SortableList'],
-    Навигация: ['Tabs', 'Pagination', 'TabBar', 'NavigationBar'],
+    Навигация: ['Tabs', 'Pagination', 'TabBar', 'NavigationBar', 'Steps'],
     Индикаторы: ['StatusBadge', 'Indicator', 'Status'],
     Текст: ['Typography', 'List', 'Markdown'],
     'Отображение данных': [
@@ -58,7 +58,7 @@ export const CONFIG: TConfig = {
         'Chart',
         'Gallery',
         'Collapse',
-        'Accordion'
+        'Accordion',
     ],
     Лейаут: ['Gap', 'Space', 'Grid'],
 };
