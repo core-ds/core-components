@@ -19,6 +19,7 @@ export const CONFIG: TConfig = {
         'MaskedInput',
         'Select',
         'InputAutocomplete',
+        'SelectWithTags',
         'SliderInput',
         'PasswordInput',
         'Textarea',
