@@ -52,6 +52,7 @@ export const CONFIG: TConfig = {
     'Отображение данных': [
         'Amount',
         'IconView',
+        'ProductCover',
         'Table',
         'SystemMessage',
         'Comment',
