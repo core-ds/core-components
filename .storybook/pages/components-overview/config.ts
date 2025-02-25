@@ -23,6 +23,7 @@ export const CONFIG: TConfig = {
         'PasswordInput',
         'Textarea',
         'CodeInput',
+        'BankCard',
         'Switch',
         'Checkbox',
         'CheckboxGroup',
