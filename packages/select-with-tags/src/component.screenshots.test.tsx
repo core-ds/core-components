@@ -4,6 +4,7 @@ import {
     matchHtml,
     openBrowserPage,
 } from '../../screenshot-utils';
+import { createPreview } from '../../screenshot-utils/createPreview';
 
 const ENTRY_TO_COMPONENT_NAME = {
     desktop: 'SelectWithTagsDesktop',
@@ -23,6 +24,13 @@ const screenshotOpts = {
     fullPage: false,
     omitBackground: false,
 };
+
+describe('SelectWithTags', () => {
+    createPreview({
+        testStory: false,
+        componentName: 'SelectWithTags',
+    });
+});
 
 describe('SelectWithTags', () => {
     test('hover & pressed', async () => {
