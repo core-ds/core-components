@@ -85,7 +85,9 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
             if (value) {
                 const event = { target: { value: '' } };
 
-                onInput(event as ChangeEvent<HTMLInputElement>);
+                if (onInput) {
+                    onInput(event as ChangeEvent<HTMLInputElement>);
+                }
             }
         };
 
@@ -132,7 +134,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         };
 
         const filteredOptions = useMemo(
-            () => filterOptions(options, value, match),
+            () => filterOptions(options, value ?? '', match),
             [options, value, match],
         );
 
