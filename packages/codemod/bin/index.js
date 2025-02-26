@@ -5,7 +5,7 @@ const yargs = require('yargs/yargs');
 const shell = require('shelljs');
 const chalk = require('chalk');
 const path = require('path');
-const kebab = require('lodash.kebabcase');
+const kebab = require('lodash/kebabcase');
 const { hideBin } = require('yargs/helpers');
 const glob = require('glob');
 
