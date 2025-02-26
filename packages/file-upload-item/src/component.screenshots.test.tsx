@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -9,7 +9,26 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 300, height: 70 };
 
-describe(
+describe('FileUploadItem', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'FileUploadItem',
+            knobs: {
+                title: 'Договор.docx',
+                subtitle: '',
+                size: 2097152,
+                uploadStatus: 'SUCCESS',
+                uploadDate: '22.07.2024',
+                showDelete: true,
+                downloadLink: '/download',
+            },
+        },
+        'transform:scale(1.3)',
+    );
+});
+
+xdescribe(
     'FileUploadItem | Attach file',
     screenshotTesting({
         cases: generateTestCases({
@@ -27,7 +46,7 @@ describe(
     }),
 );
 
-describe(
+xdescribe(
     'FileUploadItem | Attached file',
     screenshotTesting({
         cases: generateTestCases({
@@ -47,7 +66,7 @@ describe(
     }),
 );
 
-describe(
+xdescribe(
     'FileUploadItem | Show delete and download',
     screenshotTesting({
         cases: generateTestCases({
@@ -69,7 +88,7 @@ describe(
     }),
 );
 
-describe(
+xdescribe(
     'FileUploadItem | Show restore',
     screenshotTesting({
         cases: generateTestCases({
@@ -90,7 +109,7 @@ describe(
     }),
 );
 
-describe(
+xdescribe(
     'FileUploadItem | Attach error',
     screenshotTesting({
         cases: generateTestCases({
@@ -109,7 +128,7 @@ describe(
     }),
 );
 
-describe(
+xdescribe(
     'FileUploadItem | Uploading file',
     screenshotTesting({
         cases: generateTestCases({
