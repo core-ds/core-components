@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-codemod",
-    "version": "2.7.0",
+    "version": "2.7.1",
     "description": "Codemod tools for code transforms",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "bin": "./bin/index.js",
     "dependencies": {
         "chalk": "^4.1.1",
-        "lodash.kebabcase": "^4.1.1",
+        "lodash": "^4.17.21",
         "shelljs": "^0.8.5",
         "yargs": "^17.0.1",
         "@codeshift/utils": "^0.1.5",
