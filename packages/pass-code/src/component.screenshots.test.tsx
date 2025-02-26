@@ -7,20 +7,18 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('PassCode ', () => {
+describe('PassCode', () => {
     createPreview(
         {
+            testStory: false,
             componentName: 'PassCode',
-            packageName: 'pass-code',
-            knobs: {},
-        },
-        'transform:translateX(-8px)',
-        {
-            screenshotOpts: {
-                fullPage: true,
+            knobs: {
+                codeLength: 4,
+                leftAddons: true,
+                rightAddons: true,
             },
-            viewport: { width: 360, height: 640 },
         },
+        'transform: scale(0.9)',
     );
 });
 
