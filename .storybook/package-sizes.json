@@ -9,9 +9,9 @@
         "shared.js": 49
     },
     "universal-date-input": {
-        "desktop.js": 142.1,
-        "index.js": 142.2,
-        "mobile.js": 142.1,
+        "desktop.js": 142.3,
+        "index.js": 142.5,
+        "mobile.js": 142.3,
         "shared.js": 43.2
     },
     "underlay": {
@@ -19,6 +19,9 @@
     },
     "typography": {
         "index.js": 7.4
+    },
+    "types": {
+        "index.js": 0
     },
     "tooltip": {
         "desktop.js": 47.3,
