@@ -39,11 +39,15 @@ const processRootTheme = (cssFile) => {
         '**/colors-qualitative.css',
         '**/colors-sequential.css',
         '**/colors-students.css',
+        '**/colors-decorative-dark.css',
+        '**/colors-monochrome-dark.css',
+        '**/colors-qualitative-dark.css',
+        '**/colors-sequential-dark.css',
     ];
 
     /**
      * В каждый файл с темой необходимо импортировать переменные
-     * Это необходимо, так как некоторые проекты используют auri-scripts, который под капотом использует postcss-custom-properties
+     * Это необходимо, так как некоторые проекты используют arui-scripts, который под капотом использует postcss-custom-properties
      * 'postcss-custom-properties' - заменяет переменные значениями, что без дублирования импортов переменных будет приводить к потере значений
      */
     const getImports = () => {

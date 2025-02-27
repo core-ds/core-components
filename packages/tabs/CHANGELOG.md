@@ -1,5 +1,67 @@
 # Change Log
 
+## 8.12.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.18
+
+## 8.12.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   picker-button@11.12.17
+    -   tag@8.6.7
+    -   icon-button@6.11.8
+
+## 8.12.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.16
+
+## 8.12.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.15
+
+## 8.12.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.3.0
+    -   shared@0.15.0
+    -   picker-button@11.12.14
+    -   tag@8.6.6
+    -   icon-button@6.11.7
+
+## 8.12.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.13
+
+## 8.12.13
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1532](https://github.com/core-ds/core-components/pull/1532)
+
+-   Убрана передача невалидных пропсов в DOM
+
+-   Обновлены зависимости
+    -   picker-button@11.12.12
+
 ## 8.12.12
 
 ### Patch Changes

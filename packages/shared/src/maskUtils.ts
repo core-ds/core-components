@@ -1,8 +1,11 @@
 /* eslint-disable no-plusplus, no-param-reassign */
+import { RefObject } from 'react';
 import type { MaskitoPlugin } from '@maskito/core';
 import { MaskitoPostprocessor, MaskitoPreprocessor } from '@maskito/core';
 
-import { fnUtils } from './fnUtils';
+import { Country } from '@alfalab/core-components-types';
+
+import { fnUtils, isNonNullable } from './fnUtils';
 
 /**
  *  Запрещает каретке становиться за указанные границы
@@ -88,7 +91,12 @@ function prefixPostprocessor(prefix: string): MaskitoPostprocessor {
         : (state) => state;
 }
 
-const countDigits = (value: string): number => value.replace(/\D/g, '').length;
+const clearMask = (value: string) => value.replace(/\D/g, '');
+
+const countDigits = (value: string): number => clearMask(value).length;
+
+const getCompletePhoneLength = (mask: Array<string | RegExp>) =>
+    mask.filter((item) => `${item}` === `${/\d/}` || /[0-9]/.test(`${item}`)).length;
 
 /**
  * Препроцессор необходим для правильной вставки/автокомплита телефонного номера
@@ -98,9 +106,7 @@ function insertionPhonePreprocessor(
     countryCode: string | undefined,
     clearableCountryCode: boolean | undefined,
 ): MaskitoPreprocessor {
-    const completePhoneLength = mask.filter(
-        (item) => `${item}` === `${/\d/}` || /[0-9]/.test(`${item}`),
-    ).length;
+    const completePhoneLength = getCompletePhoneLength(mask);
 
     const trimCountryPrefix = (value: string): string => {
         if (countryCode === '7') {
@@ -142,25 +148,30 @@ function insertionPhonePreprocessor(
  * Препроцессор необходим для сохранения кода страны при автозаполнении
  */
 function preserveCountryCodePreprocessor(
-    countryCode: string | undefined,
-    preserveCountryCode: boolean,
+    countryRef: RefObject<Country | null>,
+    createMask: (country: Country) => Array<string | RegExp>,
 ): MaskitoPreprocessor {
-    return ({ elementState, data }) => {
-        if (!preserveCountryCode || fnUtils.isNil(countryCode)) {
-            return { elementState, data };
-        }
-
+    return ({ elementState }) => {
         const { value, selection } = elementState;
+        const country = countryRef.current;
 
-        if (value.length > 0 && !value.startsWith('+')) {
-            const nextValue = countryCode.concat(value);
+        if (!value.startsWith('+') && isNonNullable(country)) {
+            const { countryCode } = country;
+            const numbersValue = clearMask(value);
 
-            return {
-                elementState: {
-                    value: nextValue,
-                    selection,
-                },
-            };
+            if (!numbersValue.startsWith(countryCode)) {
+                const nextValue = countryCode.concat(numbersValue);
+                const mask = createMask(country);
+
+                if (countDigits(nextValue) === getCompletePhoneLength(mask)) {
+                    return {
+                        elementState: {
+                            selection,
+                            value: nextValue,
+                        },
+                    };
+                }
+            }
         }
 
         return { elementState };

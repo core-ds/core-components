@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings"],
+    "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "baseUrl": ".",
@@ -11,20 +11,11 @@
         }
     },
     "references": [
-        {
-            "path": "../input"
-        },
-        {
-            "path": "../select"
-        },
-        {
-            "path": "../shared"
-        },
-        {
-            "path": "../input-autocomplete"
-        },
-        {
-            "path": "../mq"
-        }
+        { "path": "../input" },
+        { "path": "../select" },
+        { "path": "../shared" },
+        { "path": "../input-autocomplete" },
+        { "path": "../mq" },
+        { "path": "../types" }
     ]
 }

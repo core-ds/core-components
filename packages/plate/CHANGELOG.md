@@ -1,5 +1,21 @@
 # Change Log
 
+## 7.8.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+    -   icon-button@6.11.8
+
+## 7.8.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.4
+    -   icon-button@6.11.7
+
 ## 7.8.7
 
 ### Patch Changes

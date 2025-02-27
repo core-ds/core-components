@@ -15,6 +15,8 @@ export function getInputAutocompleteDesktopTestIds(dataTestId: string) {
         fieldLeftAddons: getDataTestId(dataTestId, 'field-form-control-left-addons'),
         fieldRightAddons: getDataTestId(dataTestId, 'field-form-control-right-addons'),
         fieldError: getDataTestId(dataTestId, 'field-form-control-error-message'),
+        fieldErrorIcon: getDataTestId(dataTestId, 'field-form-control-error-icon'),
+        fieldSuccessIcon: getDataTestId(dataTestId, 'field-form-control-success-icon'),
         fieldHint: getDataTestId(dataTestId, 'field-form-control-hint'),
     };
 }
@@ -37,6 +39,8 @@ export function getInputAutocompleteMobileTestIds(dataTestId: string) {
         fieldLeftAddons: getDataTestId(dataTestId, 'field-form-control-left-addons'),
         fieldRightAddons: getDataTestId(dataTestId, 'field-form-control-right-addons'),
         fieldError: getDataTestId(dataTestId, 'field-form-control-error-message'),
+        fieldErrorIcon: getDataTestId(dataTestId, 'field-error-icon'),
+        fieldSuccessIcon: getDataTestId(dataTestId, 'field-success-icon'),
         fieldHint: getDataTestId(dataTestId, 'field-form-control-hint'),
         searchInput: getDataTestId(dataTestId, 'search'),
         searchFormControl: getDataTestId(dataTestId, 'search-form-control'),

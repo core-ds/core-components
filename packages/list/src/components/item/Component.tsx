@@ -17,9 +17,19 @@ export type ItemProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Дополнительный класс для маркера
+     */
+    markerClassName?: string;
 };
 
-export const Item: React.FC<ItemProps> = ({ caption, children }) => {
+export const Item: React.FC<ItemProps> = ({ caption, children, className, markerClassName }) => {
     const {
         orderedList,
         markerType,
@@ -31,7 +41,7 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
 
     const markerLowerAlpha = markerType === 'lower-alpha';
 
-    const itemClassNames = cn(styles.item, {
+    const itemClassNames = cn(styles.item, className, {
         [styles.unorderedItem]: markerLowerAlpha,
         [styles.reversed]: reversed,
     });
@@ -49,7 +59,7 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
                     color={colorMarker}
                     monospaceNumbers={true}
                     view='primary-medium'
-                    className={cn(styles.slot, {
+                    className={cn(styles.slot, markerClassName, {
                         [styles.disc]: isDisc && !orderedList,
                         [styles.defaultColor]: !colorMarker,
                     })}

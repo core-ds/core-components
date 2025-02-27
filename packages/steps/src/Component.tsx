@@ -1,8 +1,9 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 
 import { Step } from './components/step';
 import { StepIndicatorProps } from './components/step-indicator';
+import { CommonProps } from './types/common-props';
 
 import styles from './index.module.css';
 
@@ -11,11 +12,6 @@ export type StepsProps = {
      * Дополнительный класс
      */
     className?: string;
-
-    /**
-     * Дочерние элементы
-     */
-    children: ReactNode;
 
     /**
      * Активный шаг, указанный по умолчанию
@@ -35,34 +31,6 @@ export type StepsProps = {
     isMarkCompletedSteps?: boolean;
 
     /**
-     * Управление ориентацией компонента
-     * @default false
-     */
-    isVerticalAlign?: boolean;
-
-    /**
-     * Управление отображением номера шага
-     */
-    ordered?: boolean;
-
-    /**
-     * Включение / отключение интерактивности шагов
-     */
-    interactive?: boolean;
-
-    /**
-     * Растягивание шагов на всю ширину блока для вертикальной ориентации
-     * @default false
-     */
-    fullWidth?: boolean;
-
-    /**
-     * Минимальное расстояние между шагами
-     * @default 24
-     */
-    minSpaceBetweenSteps?: 8 | 16 | 24;
-
-    /**
      * Кастомный метод для управления состоянием disabled шага и
      * возможностью перехода на этот шаг
      * @param stepNumber - номер шага
@@ -76,6 +44,13 @@ export type StepsProps = {
      * @return Флаг состояния error
      */
     checkIsStepError?: (stepNumber: number) => boolean;
+
+    /**
+     * Кастомный метод для управления состоянием шага criticalError
+     * @param stepNumber - номер шага
+     * @return Флаг состояния error
+     */
+    checkIsStepCriticalError?: (stepNumber: number) => boolean;
 
     /**
      * Кастомный метод для управления состоянием шага warning
@@ -110,12 +85,7 @@ export type StepsProps = {
      * @param stepNumber - номер активного шага
      */
     onChange?: (stepNumber: number) => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-};
+} & CommonProps;
 
 export const Steps: React.FC<StepsProps> = ({
     className,
@@ -130,12 +100,14 @@ export const Steps: React.FC<StepsProps> = ({
     minSpaceBetweenSteps = 24,
     checkIsStepDisabled,
     checkIsStepError,
+    checkIsStepCriticalError,
     checkIsStepWarning,
     checkIsStepWaiting,
     checkIsStepPositive,
     checkIsStepCustom,
     onChange,
     dataTestId,
+    completedDashColor,
 }) => {
     const uncontrolled = activeStepProp === undefined;
     const [activeStep, setActiveStep] = useState(defaultActiveStep);
@@ -170,6 +142,9 @@ export const Steps: React.FC<StepsProps> = ({
                 const disabled = checkIsStepDisabled ? checkIsStepDisabled(stepNumber) : false;
                 const isPositive = checkIsStepPositive ? checkIsStepPositive(stepNumber) : false;
                 const isError = checkIsStepError ? checkIsStepError(stepNumber) : false;
+                const isCriticalError = checkIsStepCriticalError
+                    ? checkIsStepCriticalError(stepNumber)
+                    : false;
                 const isWarning = checkIsStepWarning ? checkIsStepWarning(stepNumber) : false;
                 const isWaiting = checkIsStepWaiting ? checkIsStepWaiting(stepNumber) : false;
                 const customStepIndicator = checkIsStepCustom && checkIsStepCustom(stepNumber);
@@ -184,6 +159,7 @@ export const Steps: React.FC<StepsProps> = ({
                         disabled={disabled}
                         isPositive={isPositive}
                         isError={isError}
+                        isCriticalError={isCriticalError}
                         isWarning={isWarning}
                         isWaiting={isWaiting}
                         customStepIndicator={customStepIndicator}
@@ -195,6 +171,8 @@ export const Steps: React.FC<StepsProps> = ({
                         key={stepNumber}
                         fullWidth={fullWidth}
                         minSpaceBetweenSteps={minSpaceBetweenSteps}
+                        completedDashColor={completedDashColor}
+                        dataTestId={dataTestId}
                     >
                         {step}
                     </Step>

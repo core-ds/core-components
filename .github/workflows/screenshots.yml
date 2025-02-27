@@ -32,7 +32,7 @@ jobs:
         - name: Run screenshots tests
           run: yarn test:screenshots
 
-        - uses: actions/upload-artifact@v3
+        - uses: actions/upload-artifact@v4
           if: failure()
           with:
             name: diffs

@@ -174,6 +174,19 @@ describe('SliderInput', () => {
         expect(cb).toBeCalledTimes(1);
     });
 
+    it('should call `onBlur` prop', () => {
+        const cb = jest.fn();
+        const dataTestId = 'test-id';
+
+        const { getByRole } = render(<SliderInput onBlur={cb} dataTestId={dataTestId} />);
+
+        const input = getByRole('textbox') as HTMLInputElement;
+        fireEvent.focus(input);
+        fireEvent.blur(input);
+
+        expect(cb).toBeCalledTimes(1);
+    });
+
     it('should unmount without errors', () => {
         const { unmount } = render(<SliderInput />);
 

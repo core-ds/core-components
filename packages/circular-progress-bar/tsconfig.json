@@ -8,8 +8,7 @@
         }
     },
     "references": [
-        {
-            "path": "../typography"
-        }
+      { "path": "../typography" },
+      { "path": "../shared" },
     ]
 }

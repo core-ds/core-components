@@ -9,8 +9,11 @@
     }
 }
 
-/* TODO: применять static цвет через prop IconButton'а */
 .iconButton {
+    & path {
+        color: var(--color-static-neutral-100);
+    }
+
     &:hover path {
         color: var(--color-static-neutral-100-hover);
     }

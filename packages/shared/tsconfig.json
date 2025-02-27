@@ -2,7 +2,10 @@
     "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "baseUrl": "."
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"]
+        }
     },
     "references": [
         {

@@ -18,6 +18,7 @@ export const colors = [
     'static-secondary-dark',
     'static-tertiary-dark',
     'static-accent',
+    'static-positive',
 ] as const;
 
 export type Color = (typeof colors)[number];

@@ -32,7 +32,7 @@
     user-select: none;
 
     &.mobile {
-        width: 36px;
+        width: 46px;
         height: 46px;
         border-radius: var(--border-radius-8);
     }

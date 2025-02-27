@@ -11,26 +11,13 @@
         }
     },
     "references": [
-        {
-            "path": "../select"
-        },
-        {
-            "path": "../input"
-        },
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../form-control"
-        },
-        {
-            "path": "../bottom-sheet"
-        },
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../select" },
+        { "path": "../input" },
+        { "path": "../button" },
+        { "path": "../form-control" },
+        { "path": "../bottom-sheet" },
+        { "path": "../mq" },
+        { "path": "../shared" },
+        { "path": "../status-badge" }
     ]
 }

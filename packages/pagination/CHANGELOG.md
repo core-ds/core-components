@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.4.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.7
+
+## 2.4.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.6
+
 ## 2.4.8
 
 ### Patch Changes

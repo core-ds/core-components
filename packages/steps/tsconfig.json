@@ -8,8 +8,7 @@
         }
     },
     "references": [
-        {
-            "path": "../badge"
-        }
+      { "path": "../badge" },
+      { "path": "../shared" }
     ]
 }

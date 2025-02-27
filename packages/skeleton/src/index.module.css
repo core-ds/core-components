@@ -16,6 +16,12 @@
     }
 }
 
+@each $size in 0, 2, 4, 6, 10, 12, 16, 20, 24, 32, 36, 64, pill {
+    .borderRadius-$(size) {
+        border-radius: var(--border-radius-$(size));
+    }
+}
+
 .component > * {
     visibility: hidden;
 }
