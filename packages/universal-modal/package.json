@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-universal-modal",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "UniversalModal component",
     "keywords": [],
     "license": "MIT",
@@ -17,11 +17,11 @@
     "dependencies": {
         "@alfalab/core-components-base-modal": "^5.9.0",
         "@alfalab/core-components-mq": "^4.3.0",
-        "@alfalab/core-components-navigation-bar-private": "^0.6.0",
+        "@alfalab/core-components-navigation-bar-private": "^0.6.1",
         "@alfalab/core-components-shared": "^0.16.0",
         "@alfalab/core-components-button": "^11.11.5",
         "@alfalab/core-components-scrollbar": "^3.2.0",
-        "@alfalab/core-components-typography": "^4.10.1",
+        "@alfalab/core-components-typography": "^4.12.0",
         "@alfalab/core-components-backdrop": "^3.4.5",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",

@@ -1,0 +1,25 @@
+@import '../../vars.css';
+
+.pageIndicator {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.element {
+    list-style-type: none;
+    overflow: hidden;
+    transition: width var(--page-indicator-animation-duration) linear;
+
+    &:not(.active) {
+        .progress {
+            display: none;
+        }
+    }
+
+    .progress {
+        width: 100%;
+        height: 100%;
+        will-change: transform;
+    }
+}
