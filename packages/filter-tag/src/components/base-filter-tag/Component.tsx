@@ -92,15 +92,29 @@ export type BaseFilterTagProps = {
     view?: 'outlined' | 'filled';
 
     /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
+};
+
+export type PrivateProps = {
+    /**
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
 
     /**
-     * Набор цветов для компонента
-     * @default default
+     * Стили компонента для default и inverted режима.
      */
-    colors?: 'default' | 'inverted';
+    colorStylesMap?: {
+        default: {
+            [key: string]: string;
+        };
+        inverted: {
+            [key: string]: string;
+        };
+    };
 };
 
 const isKeyBoardEvent = (
@@ -117,7 +131,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     48: 'size-48',
 };
 
-export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
+export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & PrivateProps>(
     (
         {
             children,
@@ -136,6 +150,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             dataTestId,
             styles = {},
             colors = 'default',
+            colorStylesMap = { default: {}, inverted: {} },
         },
         ref,
     ) => {
@@ -197,6 +212,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         commonStyles.valueButton,
                         colorStyles[colors].valueButton,
                         styles.valueButton,
+                        colorStylesMap[colors].valueButton,
                         commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                         styles[SIZE_TO_CLASSNAME_MAP[size]],
                         commonStyles[shapeClassName],
@@ -205,6 +221,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         colorStyles[colors][view],
                         {
                             [styles[view]]: Boolean(styles[view]),
+                            [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
                             [commonStyles.checked]: checked,
                             [colorStyles[colors].checked]: checked,
                             [styles.checked]: checked,

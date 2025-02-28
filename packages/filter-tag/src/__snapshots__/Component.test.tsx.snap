@@ -9,7 +9,7 @@ Object {
         class="component component rounded size-48 component rounded size-48"
       >
         <button
-          class="valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
           type="button"
         >
           <span
@@ -42,7 +42,7 @@ Object {
       class="component component rounded size-48 component rounded size-48"
     >
       <button
-        class="valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
         type="button"
       >
         <span
@@ -132,7 +132,7 @@ Object {
         class="component component rectangular size-48 component rectangular size-48"
       >
         <button
-          class="valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
           type="button"
         >
           <span
@@ -165,7 +165,7 @@ Object {
       class="component component rectangular size-48 component rectangular size-48"
     >
       <button
-        class="valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
         type="button"
       >
         <span
@@ -255,7 +255,7 @@ Object {
         class="component component rectangular size-48 component rectangular size-48"
       >
         <button
-          class="valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
           type="button"
         >
           <span
@@ -288,7 +288,7 @@ Object {
       class="component component rectangular size-48 component rectangular size-48"
     >
       <button
-        class="valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined"
         type="button"
       >
         <span
@@ -378,7 +378,7 @@ Object {
         class="component component rounded size-48 component rounded size-48"
       >
         <button
-          class="valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
           type="button"
         >
           <span
@@ -409,7 +409,7 @@ Object {
       class="component component rounded size-48 component rounded size-48"
     >
       <button
-        class="valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined"
         type="button"
       >
         <span
