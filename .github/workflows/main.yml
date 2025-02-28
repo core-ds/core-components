@@ -53,14 +53,35 @@ jobs:
       with:
         github-token: ${{ secrets.BOT_AUTH_TOKEN }}
 
+    - name: Find comment
+      if: success() && steps.find_pr.outputs.number != ''
+      uses: peter-evans/find-comment@v3
+      id: find_comment
+      with:
+        token: ${{ secrets.BOT_AUTH_TOKEN }}
+        issue-number: ${{ steps.find_pr.outputs.number }}
+        comment-author: core-ds-bot
+        body-regex: '^Собрана новая \[демка\]\(.*\)\.$'
+
     # Если нашли открытый PR, то добавляем коммент с ссылкой на демку.
     # storybook_url заполняется в demo-build.js
     - name: Create comment
-      if: success() && steps.find_pr.outputs.number
+      if: success() && steps.find_pr.outputs.number != '' && steps.find_comment.outputs.comment-id == ''
       uses: peter-evans/create-or-update-comment@v3
       with:
         token: ${{ secrets.BOT_AUTH_TOKEN }}
-        issue-number: ${{ steps.find_pr.outputs.pr }}
+        issue-number: ${{ steps.find_pr.outputs.number }}
         body: |
           Собрана новая [демка](${{ steps.demo_build.outputs.storybook_url }}).
         reactions: 'rocket'
+
+    # Если нашли предыдущий коммент, то обновляем его
+    - name: Update comment
+      if: success() && steps.find_comment.outputs.comment-id != ''
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        token: ${{ secrets.BOT_AUTH_TOKEN }}
+        comment-id: ${{ steps.find_comment.outputs.comment-id }}
+        body: |
+          Собрана новая [демка](${{ steps.demo_build.outputs.storybook_url }}).
+        edit-mode: replace

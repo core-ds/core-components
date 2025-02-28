@@ -1,9 +1,8 @@
-@import '../../vars/src/index.css';
+@import '../../../vars/src/index.css';
 
 :root {
     --checkbox-hint-color: var(--color-light-text-secondary);
     --checkbox-label-color: var(--color-light-text-primary);
-    --checkbox-error-color: var(--color-light-text-negative);
 
     /* unchecked */
     --checkbox-bg-color: var(--color-light-neutral-0);
@@ -36,56 +35,14 @@
     --checkbox-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
-.component {
-    display: inline-flex;
-    align-items: flex-start;
-    cursor: pointer;
-}
-
-.start {
-    align-items: flex-start;
-}
-
-.center {
-    align-items: center;
-}
-
-.addons {
-    margin-left: auto;
-    padding-left: var(--gap-16);
-    line-height: 24px;
-}
-
-.block {
-    width: 100%;
-}
-
 .box {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    margin: var(--gap-2);
     color: var(--color-light-neutral-translucent-1300-inverted);
     background-color: var(--checkbox-bg-color);
     border: 1.5px solid var(--checkbox-border-color);
-    border-radius: var(--border-radius-4);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    box-sizing: border-box;
-    overflow: hidden;
 }
 
 .checkedIcon {
-    position: absolute;
     color: var(--checkbox-icon-color);
-}
-
-.size-20 .box {
-    width: 16px;
-    height: 16px;
 }
 
 .component:hover:not(.disabled) .box {
@@ -128,10 +85,6 @@
     border-color: var(--checkbox-checked-active-border-color);
 }
 
-.disabled {
-    cursor: var(--disabled-cursor);
-}
-
 .disabled .box {
     background-color: var(--checkbox-disabled-bg-color);
     border-color: var(--checkbox-disabled-border-color);
@@ -163,54 +116,14 @@
     color: var(--checkbox-disabled-color);
 }
 
-.focused .box {
-    @mixin focus-outline;
-}
-
-.content {
-    flex-grow: 1;
-    margin-left: var(--gap-12);
-}
-
-.size-20 .content {
-    margin-left: var(--gap-8);
-
-    & .label {
-        @mixin paragraph_component;
-    }
-}
-
 .label {
-    @mixin paragraph_primary_medium;
-    display: block;
     color: var(--checkbox-label-color);
 }
 
-.label:not(:only-child) {
-    margin-bottom: var(--gap-4);
-}
-
-.errorMessage {
-    @mixin paragraph_component_secondary;
-    display: block;
-    color: var(--checkbox-error-color);
-}
-
 .hint {
-    @mixin paragraph_component_secondary;
-    display: block;
     color: var(--checkbox-hint-color);
 }
 
 .indeterminateLine {
-    position: absolute;
-    width: 10px;
-    height: 2px;
     background-color: var(--checkbox-icon-indeterminate-color);
-}
-
-.component input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
 }

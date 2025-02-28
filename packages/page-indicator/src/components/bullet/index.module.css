@@ -1,0 +1,42 @@
+@import '../../vars.css';
+
+.pageIndicator {
+    &.bullet {
+        overflow: hidden;
+    }
+}
+
+.elementsList {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    will-change: transform;
+    transition: transform var(--page-indicator-animation-duration)
+        var(--page-indicator-animation-timing-function);
+}
+
+.element {
+    list-style-type: none;
+    flex-shrink: 0;
+    transition: background var(--page-indicator-animation-duration)
+        var(--page-indicator-animation-timing-function);
+    border-radius: var(--border-radius-circle);
+
+    &.entering {
+        opacity: 0;
+    }
+    &.entered {
+        opacity: 1;
+        transition: background var(--page-indicator-animation-duration)
+                var(--page-indicator-animation-timing-function),
+            opacity var(--page-indicator-animation-duration)
+                var(--page-indicator-animation-timing-function);
+    }
+    &.exiting {
+        opacity: 0;
+    }
+    &.exited {
+        opacity: 0;
+    }
+}

@@ -1,5 +1,30 @@
 # Change Log
 
+## 5.11.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+    -   tooltip@7.9.4
+
+## 5.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   spinner@4.0.5
+    -   tooltip@7.9.3
+    -   icon-button@6.11.8
+
+## 5.11.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.2
+
 ## 5.11.2
 
 ### Patch Changes

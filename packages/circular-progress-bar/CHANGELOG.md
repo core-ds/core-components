@@ -1,5 +1,29 @@
 # Change Log
 
+## 3.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 3.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 3.8.0
+
+### Minor Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1584](https://github.com/core-ds/core-components/pull/1584)
+
+-   Обновление зависимостей
+
 ## 3.7.0
 
 ### Minor Changes

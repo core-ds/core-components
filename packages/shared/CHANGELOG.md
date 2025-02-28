@@ -1,5 +1,16 @@
 # @alfalab/core-components-shared
 
+## 0.16.0
+
+### Minor Changes
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+-   Добавлена проверка в os -> isMacOS
+-   Добавлена проверка в browser -> isSafari
+
 ## 0.15.0
 
 ### Minor Changes

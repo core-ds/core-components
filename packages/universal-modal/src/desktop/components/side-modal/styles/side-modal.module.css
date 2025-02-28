@@ -1,0 +1,45 @@
+@import '../../../../../../vars/src/index.css';
+
+.wrapper {
+    overflow-x: hidden;
+}
+
+.wrapperAlignStart {
+    align-items: start;
+}
+
+.wrapperAlignEnd {
+    align-items: end;
+}
+
+.wrapperJustifyCenter {
+    justify-content: center;
+}
+
+.wrapperJustifyEnd {
+    justify-content: end;
+}
+
+.component {
+    min-width: 500px;
+    min-height: 264px;
+    height: 100%;
+    border-radius: var(--border-radius-24);
+    overflow-x: hidden;
+    margin: unset;
+
+    /*
+        Применяем аппаратное ускорение с помощью will-change и backface-visibility
+        Также в классах анимации добавлен translateZ(0)
+    */
+    will-change: transform;
+    backface-visibility: hidden;
+
+    &.overlayHidden {
+        box-shadow: var(--shadow-m);
+    }
+
+    & .container {
+        height: 100%;
+    }
+}
