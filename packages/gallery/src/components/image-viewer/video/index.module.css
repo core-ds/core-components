@@ -34,3 +34,15 @@
 .iconShape {
     fill: var(--color-static-neutral-translucent-700);
 }
+
+.bottomButton {
+    background-color: var(--color-static-neutral-translucent-500-inverted);
+}
+
+.bottomButtonWrapper {
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 48px;
+}

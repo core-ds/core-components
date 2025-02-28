@@ -7,7 +7,8 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import throttle from 'lodash.throttle';
+import cn from 'classnames';
+import throttle from 'lodash/throttle';
 
 import { GalleryContext } from '../../context';
 import { getImageKey, TestIds } from '../../utils';
@@ -141,7 +142,7 @@ export const NavigationBar: FC = () => {
                         active={active}
                         index={index}
                         onSelect={handlePreviewSelect}
-                        className={styles.preview}
+                        className={cn(styles.preview, { [styles.mobile]: view === 'mobile' })}
                     />
                 );
             })}

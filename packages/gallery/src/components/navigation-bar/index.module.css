@@ -10,6 +10,7 @@
     box-sizing: border-box;
     padding: var(--gap-8) var(--gap-24);
     scrollbar-width: none;
+    background-color: var(--color-static-neutral-0-inverted);
 
     &::-webkit-scrollbar {
         display: none;
@@ -22,7 +23,11 @@
 
 .preview {
     flex-shrink: 0;
-    margin: var(--gap-0) var(--gap-2);
+    margin-right: var(--gap-4);
+
+    &.mobile {
+        margin-right: var(--gap-2);
+    }
 
     &:first-child {
         margin-left: auto;

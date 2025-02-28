@@ -79,12 +79,12 @@ export const ImageViewer: FC = () => {
             a11y: {
                 slideRole: 'img',
             },
-            spaceBetween: 16,
             initialSlide,
             simulateTouch: false,
             zoom: { maxRatio: 4, minRatio: 1, toggle: true },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
+            lazy: { loadPrevNext: true },
         }),
         [
             fullScreen,

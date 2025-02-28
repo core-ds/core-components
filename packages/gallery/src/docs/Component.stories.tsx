@@ -145,6 +145,12 @@ export const gallery: Story = {
                         {
                             name: 'Alfa promo.m3u8',
                             src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
+                            bottomButton: {
+                                text: 'Смотреть',
+                                onClick: () => {
+                                    console.log('click');
+                                },
+                            },
                         },
                         {
                             name: 'Битое изображение.jpg',

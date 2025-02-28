@@ -1,8 +1,17 @@
-import React, { MouseEvent, ReactEventHandler, useContext, useEffect, useRef } from 'react';
+import React, {
+    MouseEvent,
+    ReactEventHandler,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
 import cn from 'classnames';
 import Hls from 'hls.js';
 
+import { Button } from '@alfalab/core-components-button';
 import { Circle } from '@alfalab/core-components-icon-view/circle';
+import { Typography } from '@alfalab/core-components-typography';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
 
 import { GalleryContext } from '../../../context';
@@ -21,10 +30,20 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const timer = useRef<ReturnType<typeof setTimeout>>();
 
-    const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo, setHideNavigation } =
-        useContext(GalleryContext);
+    const {
+        setImageMeta,
+        mutedVideo,
+        view,
+        playingVideo,
+        setPlayingVideo,
+        setHideNavigation,
+        getCurrentImage,
+    } = useContext(GalleryContext);
 
     const isMobile = view === 'mobile';
+    const isDesktop = view === 'desktop';
+
+    const image = getCurrentImage();
 
     useEffect(() => {
         setImageMeta({ player: playerRef }, index);
@@ -121,6 +140,16 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         setPlayingVideo(!playingVideo);
     };
 
+    const handleBottomButtonClick = useCallback(
+        (e: MouseEvent) => {
+            e.stopPropagation();
+            if (image?.bottomButton) {
+                image.bottomButton.onClick(e);
+            }
+        },
+        [image?.bottomButton],
+    );
+
     const onPlay: ReactEventHandler<HTMLVideoElement> = (e) => {
         const customEvent = new CustomEvent(GALLERY_EVENTS.ON_PLAY, {
             detail: { player: e.target },
@@ -165,11 +194,25 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             >
                 <track kind='captions' />
             </video>
-            {view === 'desktop' && !playingVideo && (
+            {isDesktop && !playingVideo && (
                 <div className={styles.videoButton}>
                     <Circle size={64} shapeClassName={styles.iconShape}>
                         <PlayCompactMIcon className={styles.icon} />
                     </Circle>
+                </div>
+            )}
+            {isDesktop && image?.bottomButton && (
+                <div className={styles.bottomButtonWrapper}>
+                    <Button
+                        size='m'
+                        className={styles.bottomButton}
+                        onClick={handleBottomButtonClick}
+                        block={true}
+                    >
+                        <Typography.Text color='static-primary-light'>
+                            {image.bottomButton.text}
+                        </Typography.Text>
+                    </Button>
                 </div>
             )}
         </div>

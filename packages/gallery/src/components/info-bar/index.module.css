@@ -5,30 +5,14 @@
 }
 
 .infoWrapper {
+    background-color: var(--color-static-neutral-0-inverted);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 var(--gap-8);
     position: relative;
     height: 48px;
-}
-
-.center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.icon {
-    color: var(--color-static-neutral-0);
-}
-
-.iconShape {
-    fill: var(--color-static-neutral-translucent-700);
-}
-
-.muteButton {
-    position: absolute;
-    right: 8px;
-    bottom: 64px;
+    &.video {
+        justify-content: space-between;
+    }
 }

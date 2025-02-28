@@ -1,10 +1,7 @@
-import React, { Fragment, useCallback, useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
+import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
-import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { Text } from '@alfalab/core-components-typography';
-import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
-import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
 
 import { GalleryContext } from '../../context';
 import { GALLERY_EVENTS, isVideo } from '../../utils';
@@ -39,44 +36,37 @@ export const InfoBar = () => {
         setPlayingVideo(!playingVideo);
     }, [playingVideo, setPlayingVideo]);
 
-    return (
-        <section className={styles.infoWrapper}>
-            {isVideo(image?.src) ? (
-                <Fragment>
-                    <Button
-                        onClick={handleMuteVideo}
-                        aria-label='Кнопка выключения звука'
-                        view='ghost'
-                        className={styles.muteButton}
-                    >
-                        <Circle
-                            size={48}
-                            className={styles.muteButton}
-                            shapeClassName={styles.iconShape}
-                        >
-                            {mutedVideo ? (
-                                <SoundMIcon className={styles.icon} />
-                            ) : (
-                                <SoundCrossMIcon className={styles.icon} />
-                            )}
-                        </Circle>
-                    </Button>
-                    {playingVideo ? (
-                        <Buttons.Pause onClick={handlePlayVideo} className={styles.center} />
-                    ) : (
-                        <Buttons.Play onClick={handlePlayVideo} className={styles.center} />
-                    )}
-                </Fragment>
+    return isVideo(image?.src) ? (
+        <section className={cn(styles.infoWrapper, styles.video)}>
+            {playingVideo ? (
+                <Buttons.Pause onClick={handlePlayVideo} />
             ) : (
-                <Text
-                    className={styles.description}
-                    tag='div'
-                    view='component'
-                    color='static-primary-light'
-                >
-                    {image?.name}
-                </Text>
+                <Buttons.Play onClick={handlePlayVideo} />
             )}
+            <Text
+                className={styles.description}
+                tag='div'
+                view='component'
+                color='static-primary-light'
+            >
+                {image?.name}
+            </Text>
+            {mutedVideo ? (
+                <Buttons.UnmuteVideo onClick={handleMuteVideo} />
+            ) : (
+                <Buttons.MuteVideo onClick={handleMuteVideo} />
+            )}
+        </section>
+    ) : (
+        <section className={styles.infoWrapper}>
+            <Text
+                className={styles.description}
+                tag='div'
+                view='component'
+                color='static-primary-light'
+            >
+                {image?.name}
+            </Text>
         </section>
     );
 };
