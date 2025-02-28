@@ -1,3 +1,97 @@
+## 48.20.0
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1582](https://github.com/core-ds/core-components/pull/1582)
+
+#### Что изменилось
+- Исправлено дерганье из-за скролла в `fullscreen` `ModalDesktop`
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#1583](https://github.com/core-ds/core-components/pull/1583)
+
+#### Что изменилось
+- Исправлена ошибка навигации клавишей-стрелкой по группированному списку
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1571](https://github.com/core-ds/core-components/pull/1571)
+
+#### Что изменилось
+- Исправлено мигание цвета текста после лоадера для `view` 'accent' и 'primary'.
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#1558](https://github.com/core-ds/core-components/pull/1558)
+
+#### Что изменилось
+- Рефакторинг `CDNIcon`: логика вынесена в хук `useIcon`, кеширование иконки переписано на `useSyncExternalStore`
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+<br />
+
+#### Что изменилось
+- Исправлен баг `CDNIcon`, когда при изменении пропса `name` не менялась иконка
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+
+### [#1592](https://github.com/core-ds/core-components/pull/1592)
+
+#### Что изменилось
+- Убрано неработающее свойство 'styles'
+
+#### Влияние на компоненты
+- Патчи<br />`pass-code`
+
+
+### [#1596](https://github.com/core-ds/core-components/pull/1596)
+
+#### Что изменилось
+- Убрана обязвтельность пропсов `value` и `OnInput`
+
+#### Влияние на компоненты
+- Патчи<br />`select-with-tags`
+
+
+### [#1595](https://github.com/core-ds/core-components/pull/1595)
+
+#### Что изменилось
+- Обновлена цветовая схема для темы `site`
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+#### Что изменилось
+- Обновлена версия @alfalab/utils до 1.18.0
+
+#### Влияние на компоненты
+- Минорное<br />`amount` `amount-input` `attach` `confirmation-v1` `intl-phone-input`<br /> `product-cover`
+
+
+### [#1557](https://github.com/core-ds/core-components/pull/1557)
+
+#### Что изменилось
+- Изменены цвета кнопок
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar-private`
+
+
+
 ## 48.19.0
 
 <sup><time>21.02.2025</time></sup>
