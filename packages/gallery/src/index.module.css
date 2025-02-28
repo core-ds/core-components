@@ -24,7 +24,6 @@
 }
 
 .navigationVideo {
-    background-color: var(--color-static-neutral-0-inverted);
     z-index: 3;
     width: 100%;
     position: absolute;
@@ -33,6 +32,19 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.hideNavigation {
+.hide {
     transform: translateY(106px);
+}
+
+.hideInfo {
+    transform: translateY(48px);
+}
+
+.bottomButton {
+    background-color: var(--color-static-neutral-translucent-500-inverted);
+}
+
+.bottomButtonWrapper {
+    max-width: 350px;
+    margin: var(--gap-16) auto;
 }

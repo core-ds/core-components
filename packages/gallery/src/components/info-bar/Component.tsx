@@ -1,4 +1,5 @@
 import React, { useCallback, useContext } from 'react';
+import cn from 'classnames';
 
 import { Text } from '@alfalab/core-components-typography';
 
@@ -22,19 +23,12 @@ export const InfoBar = () => {
     const meta = getCurrentImageMeta();
 
     const handleMuteVideo = useCallback(() => {
-        if (mutedVideo) {
-            const customEvent = new CustomEvent(GALLERY_EVENTS.ON_UNMUTE, {
-                detail: { player: meta?.player?.current },
-            });
+        const eventType = mutedVideo ? GALLERY_EVENTS.ON_UNMUTE : GALLERY_EVENTS.ON_MUTE;
+        const customEvent = new CustomEvent(eventType, {
+            detail: { player: meta?.player?.current },
+        });
 
-            dispatchEvent(customEvent);
-        } else {
-            const customEvent = new CustomEvent(GALLERY_EVENTS.ON_MUTE, {
-                detail: { player: meta?.player?.current },
-            });
-
-            dispatchEvent(customEvent);
-        }
+        dispatchEvent(customEvent);
         setMutedVideo(!mutedVideo);
     }, [meta?.player, mutedVideo, setMutedVideo]);
 
@@ -43,26 +37,36 @@ export const InfoBar = () => {
     }, [playingVideo, setPlayingVideo]);
 
     return isVideo(image?.src) ? (
-        <section className={styles.videoButtons}>
+        <section className={cn(styles.infoWrapper, styles.video)}>
             {playingVideo ? (
-                <Buttons.Pause onClick={handlePlayVideo} className={styles.center} />
+                <Buttons.Pause onClick={handlePlayVideo} />
             ) : (
-                <Buttons.Play onClick={handlePlayVideo} className={styles.center} />
+                <Buttons.Play onClick={handlePlayVideo} />
             )}
+            <Text
+                className={styles.description}
+                tag='div'
+                view='component'
+                color='static-primary-light'
+            >
+                {image?.name}
+            </Text>
             {mutedVideo ? (
-                <Buttons.UnmuteVideo onClick={handleMuteVideo} className={styles.right} />
+                <Buttons.UnmuteVideo onClick={handleMuteVideo} />
             ) : (
-                <Buttons.MuteVideo onClick={handleMuteVideo} className={styles.right} />
+                <Buttons.MuteVideo onClick={handleMuteVideo} />
             )}
         </section>
     ) : (
-        <Text
-            className={styles.description}
-            tag='div'
-            view='component'
-            color='static-primary-light'
-        >
-            {image?.name}
-        </Text>
+        <section className={styles.infoWrapper}>
+            <Text
+                className={styles.description}
+                tag='div'
+                view='component'
+                color='static-primary-light'
+            >
+                {image?.name}
+            </Text>
+        </section>
     );
 };
