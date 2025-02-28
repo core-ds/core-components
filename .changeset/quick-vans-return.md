@@ -2,4 +2,4 @@
 '@alfalab/core-components-cdn-icon': patch
 ---
 
-Добавлена зависимость "@alfalab/core-components-shared"
+Добавлена зависимость shared@0.15.0
