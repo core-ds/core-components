@@ -19,7 +19,7 @@
         "@alfalab/core-components-keyboard-focusable": "^4.1.1",
         "@alfalab/core-components-progress-bar": "^3.5.2",
         "@alfalab/icons-glyph": "^2.210.0",
-        "@alfalab/utils": "^1.17.1",
+        "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
