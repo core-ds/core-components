@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+    -   navigation-bar-private@0.6.2
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 9.12.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   input-autocomplete@12.8.5
+
 ## 9.11.18
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 17.20.8
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1583](https://github.com/core-ds/core-components/pull/1583)
+
+-   Исправлена ошибка навигации клавишей-стрелкой по группированному списку
+
+-   Обновлены зависимости
+    -   modal@9.9.8
+    -   button@11.11.6
+    -   input@15.5.3
+    -   bottom-sheet@6.18.3
+
 ## 17.20.7
 
 ### Patch Changes
