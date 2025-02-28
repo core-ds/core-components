@@ -1,5 +1,15 @@
 # @alfalab/core-components-shared
 
+## 0.15.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1533](https://github.com/core-ds/core-components/pull/1533)
+
+-   Исправлено автозаполнение номера в Safari 18
+
 ## 0.14.1
 
 ### Patch Changes

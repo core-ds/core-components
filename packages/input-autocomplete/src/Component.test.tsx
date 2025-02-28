@@ -129,6 +129,7 @@ describe('InputAutocompleteMobile', () => {
                         expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
                         expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
                         expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+                        expect(getByTestId(testIds.fieldErrorIcon)).toBeInTheDocument();
                         expect(getByTestId(testIds.searchInput)).toBeInTheDocument();
                         expect(getByTestId(testIds.searchFormControl)).toBeInTheDocument();
                         expect(getByTestId(testIds.searchInner)).toBeInTheDocument();
@@ -144,12 +145,14 @@ describe('InputAutocompleteMobile', () => {
                                 options={[{ key: 'Fermium' }]}
                                 fieldProps={{ hint: 'hint' }}
                                 inputProps={{ hint: 'hint' }}
+                                success={true}
                                 dataTestId={dataTestId}
                             />,
                         );
 
                         expect(getByTestIdHint(testIds.fieldHint)).toBeInTheDocument();
                         expect(getByTestIdHint(testIds.searchHint)).toBeInTheDocument();
+                        expect(getByTestId(testIds.fieldSuccessIcon)).toBeInTheDocument();
                     });
                 });
             },

@@ -84,6 +84,7 @@ export const tooltip_desktop: Story = {
                     onOpenDelay={number('onOpenDelay (in ms)', 300)}
                     view={select('view', ['tooltip', 'hint'], 'tooltip')}
                     colors={select('colors', ['default', 'inverted'], 'default')}
+                    withTransition={select('withTransition', [true, false], true)}
                     dataTestId='test-id'
                 >
                     {isPreview ? (
