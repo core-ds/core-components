@@ -7,7 +7,14 @@ import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
+import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type BaseFilterTagProps = {
     /**
@@ -88,6 +95,12 @@ export type BaseFilterTagProps = {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 };
 
 const isKeyBoardEvent = (
@@ -122,6 +135,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             className,
             dataTestId,
             styles = {},
+            colors = 'default',
         },
         ref,
     ) => {
@@ -153,6 +167,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                 className={cn(
                     className,
                     commonStyles.component,
+                    colorStyles[colors].component,
                     commonStyles[shapeClassName],
                     commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles.component,
@@ -160,8 +175,10 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     {
                         [commonStyles.checked]: checked,
+                        [colorStyles[colors].checked]: checked,
                         [styles.checked]: checked,
                         [commonStyles.disabled]: disabled,
+                        [colorStyles[colors].disabled]: disabled,
                         [styles.disabled]: disabled,
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
@@ -178,15 +195,18 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     disabled={disabled}
                     className={cn(
                         commonStyles.valueButton,
+                        colorStyles[colors].valueButton,
                         styles.valueButton,
                         commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                         styles[SIZE_TO_CLASSNAME_MAP[size]],
                         commonStyles[shapeClassName],
                         styles[shapeClassName],
                         commonStyles[view],
+                        colorStyles[colors][view],
                         {
                             [styles[view]]: Boolean(styles[view]),
                             [commonStyles.checked]: checked,
+                            [colorStyles[colors].checked]: checked,
                             [styles.checked]: checked,
                             [commonStyles.open]: open,
                             [commonStyles.close]: !showClear,
@@ -196,7 +216,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     )}
                 >
                     <span className={commonStyles.content}>{children}</span>
-                    <span className={commonStyles.chevron}>
+                    <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
                         {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
                             <ChevronDownCompactSIcon />
                         ) : (
@@ -210,6 +230,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         role='button'
                         className={cn(
                             commonStyles.clear,
+                            [colorStyles[colors].clear],
                             styles.clear,
                             commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                             styles[SIZE_TO_CLASSNAME_MAP[size]],

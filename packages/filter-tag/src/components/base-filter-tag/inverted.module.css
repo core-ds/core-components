@@ -1,0 +1,142 @@
+@import '../../../../tag/src/vars.css';
+@import '../../vars.css';
+
+.component {
+    &.disabled {
+        background-color: var(--tag-inverted-outlined-background-color-disabled);
+    }
+
+    &.checked {
+        &:not(.disabled) {
+            background-color: var(--tag-inverted-background-color-checked);
+        }
+
+        @media (hover: hover) {
+            &:not(.disabled):hover {
+                background-color: var(--tag-inverted-background-color-checked-hover);
+            }
+        }
+
+        &:not(.disabled):active {
+            background-color: var(--tag-inverted-background-color-checked-active);
+        }
+    }
+}
+
+.chevron {
+    color: var(--filter-tag-inverted-chevron-color);
+}
+
+.valueButton {
+    color: var(--tag-inverted-text-color);
+    background-color: var(--tag-inverted-outlined-background-color);
+    border: var(--tag-border-width) solid var(--tag-inverted-border-color);
+
+    &:disabled {
+        & > .chevron {
+            color: var(--filter-tag-inverted-chevron-disabled-color);
+        }
+    }
+
+    &.outlined {
+        color: var(--tag-inverted-text-color);
+        border-color: var(--tag-inverted-border-color);
+        background-color: var(--tag-inverted-outlined-background-color);
+
+        &:disabled {
+            border-color: var(--tag-inverted-border-color-disabled);
+            color: var(--tag-inverted-text-color-disabled);
+            background-color: var(--tag-inverted-outlined-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                border-color: var(--tag-inverted-border-color-hover);
+                background-color: var(--tag-inverted-outlined-background-color-hover);
+            }
+        }
+
+        &:not(:disabled):active {
+            border-color: var(--tag-inverted-border-color-active);
+            background-color: var(--tag-inverted-outlined-background-color-active);
+        }
+    }
+
+    &.filled {
+        color: var(--tag-inverted-text-color);
+        border-color: var(--tag-inverted-filled-border-color);
+
+        &:disabled {
+            color: var(--tag-inverted-text-color-disabled);
+        }
+    }
+
+    &.checked {
+        color: var(--tag-inverted-text-color-checked);
+        background-color: var(--tag-inverted-background-color-checked);
+
+        & > .chevron {
+            color: var(--filter-tag-chevron-color);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                background-color: var(--tag-inverted-background-color-checked-hover);
+            }
+        }
+
+        &:not(:disabled):active {
+            background-color: var(--tag-inverted-background-color-checked-active);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover + .clear:before {
+                background-color: var(--filter-tag-inverted-separator-background-color-hover);
+            }
+        }
+
+        &:not(:disabled):active + .clear:before {
+            background-color: var(--filter-tag-inverted-separator-background-color-active);
+        }
+
+        &:disabled {
+            color: var(--tag-inverted-text-color-checked-disabled);
+            background-color: var(--tag-inverted-background-color-checked-disabled);
+
+            & > .chevron {
+                color: var(--filter-tag-inverted-chevron-disabled-color);
+            }
+        }
+    }
+}
+
+.clear {
+    color: var(--filter-tag-inverted-clear-color);
+    background-color: var(--tag-inverted-background-color-checked);
+
+    &:before {
+        background-color: var(--filter-tag-inverted-clear-before-background-color);
+    }
+
+    @media (hover: hover) {
+        &:hover:before {
+            background-color: var(--filter-tag-inverted-separator-background-color-hover);
+        }
+    }
+
+    &:active:before {
+        background-color: var(--filter-tag-inverted-separator-background-color-active);
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--filter-tag-inverted-clear-color-hover);
+            background-color: var(--tag-inverted-background-color-checked-hover);
+        }
+    }
+
+    &:active {
+        color: var(--filter-tag-inverted-clear-color-active);
+        background-color: var(--tag-inverted-background-color-checked-active);
+    }
+}
