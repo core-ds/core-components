@@ -1,3 +1,285 @@
+## 48.20.0
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1582](https://github.com/core-ds/core-components/pull/1582)
+
+#### Что изменилось
+- Исправлено дерганье из-за скролла в `fullscreen` `ModalDesktop`
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#1583](https://github.com/core-ds/core-components/pull/1583)
+
+#### Что изменилось
+- Исправлена ошибка навигации клавишей-стрелкой по группированному списку
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1571](https://github.com/core-ds/core-components/pull/1571)
+
+#### Что изменилось
+- Исправлено мигание цвета текста после лоадера для `view` 'accent' и 'primary'.
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#1558](https://github.com/core-ds/core-components/pull/1558)
+
+#### Что изменилось
+- Рефакторинг `CDNIcon`: логика вынесена в хук `useIcon`, кеширование иконки переписано на `useSyncExternalStore`
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+<br />
+
+#### Что изменилось
+- Исправлен баг `CDNIcon`, когда при изменении пропса `name` не менялась иконка
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+
+### [#1592](https://github.com/core-ds/core-components/pull/1592)
+
+#### Что изменилось
+- Убрано неработающее свойство 'styles'
+
+#### Влияние на компоненты
+- Патчи<br />`pass-code`
+
+
+### [#1596](https://github.com/core-ds/core-components/pull/1596)
+
+#### Что изменилось
+- Убрана обязвтельность пропсов `value` и `OnInput`
+
+#### Влияние на компоненты
+- Патчи<br />`select-with-tags`
+
+
+### [#1595](https://github.com/core-ds/core-components/pull/1595)
+
+#### Что изменилось
+- Обновлена цветовая схема для темы `site`
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+#### Что изменилось
+- Обновлена версия @alfalab/utils до 1.18.0
+
+#### Влияние на компоненты
+- Минорное<br />`amount` `amount-input` `attach` `confirmation-v1` `intl-phone-input`<br /> `product-cover`
+
+
+### [#1557](https://github.com/core-ds/core-components/pull/1557)
+
+#### Что изменилось
+- Изменены цвета кнопок
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar-private`
+
+
+
+## 48.19.0
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1580](https://github.com/core-ds/core-components/pull/1580)
+
+#### Что изменилось
+- Изменена работа пропса `minSpaceBetweenSteps`. Теперь отступы между шагами определяются как расстояние от контента до нижней границы шага с учётом нижнего дополнительного отступа. Размер `8` в расчетах не учитывается. Добавлен отступ `32`. Также `minSpaceBetweenSteps` теперь никак не влияет на работу компонента в горизонтальном расположении.
+- Добавлен пропс `completedDashColor` с помощью которого можно переопределить цвет "тире" выполенного шага.
+- Добавлен новый статус `CriticalError`
+
+#### Влияние на компоненты
+- Минорное<br />`steps`
+
+
+### [#1378](https://github.com/core-ds/core-components/pull/1378)
+
+#### Что изменилось
+- Добавлен новый компонент `PageIndicator`
+
+#### Влияние на компоненты
+- Минорное<br />`page-indicator`
+
+
+### [#1527](https://github.com/core-ds/core-components/pull/1527)
+
+#### Что изменилось
+- Добавлен пропс `colors`, который отвечает за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox` `checkbox-group`
+
+<br />
+
+#### Что изменилось
+- Добавлен пропс `colors`, который отвечает за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+#### Влияние на компоненты
+- Минорное<br />`radio` `radio-group`
+
+
+### [#1589](https://github.com/core-ds/core-components/pull/1589)
+
+#### Что изменилось
+- Добавлен static-positive цвет для Typography
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+
+## 48.18.0
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+#### Что изменилось
+- Добавлен дополнительный класс для контейнера вертикальной полосы прокрутки `verticalBarClassName`
+- Добавлен обработчик прокрутки контента `onContentScroll`
+
+#### Влияние на компоненты
+- Минорное<br />`scrollbar`
+
+<br />
+
+#### Что изменилось
+- Добавлен пропс `contentElementRef` для контентной области
+- Добавлен обработчик события `onWheel`
+
+#### Влияние на компоненты
+- Минорное<br />`base-modal`
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент `UniversalModal`
+
+#### Влияние на компоненты
+- Минорное<br />`universal-modal`
+
+<br />
+
+#### Что изменилось
+- Добавлена проверка в os -> isMacOS
+- Добавлена проверка в browser -> isSafari
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+<br />
+
+#### Что изменилось
+- Добавлен пропс для установки data атрибута `dataName`
+- Добавлен дополнительный класс для заголовка `titleClassName`
+- Добавлен ref для заголовка `titleRef`
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar-private`
+
+
+
+## 48.17.0
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1584](https://github.com/core-ds/core-components/pull/1584)
+
+#### Что изменилось
+- Обновление зависимостей
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+#### Что изменилось
+- Фикс паддинга заголовка компонента SidePanel в PWA c safe-area
+- Фикс паддинга заголовка компонента Modal в PWA c safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+<br />
+
+#### Что изменилось
+- Добавлено свойство *adjustContainerHeight* для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
+## 48.16.0
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1581](https://github.com/core-ds/core-components/pull/1581)
+
+#### Что изменилось
+Из темизаций исключены файлы для цветовых палитр, добавленные в #1501
+
+-   colors-decorative-dark.css
+-   colors-monochrome-dark.css
+-   colors-qualitative-dark.css
+-   colors-sequential-dark.css
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1574](https://github.com/core-ds/core-components/pull/1574)
+
+#### Что изменилось
+- Добавлен forawdRef для TBody
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1538](https://github.com/core-ds/core-components/pull/1538)
+
+#### Что изменилось
+- Добавлен размер 96
+- Добавлен пропс для изменения цвета заголовка `titleColor`
+- Добавлен пропс для изменения цвета подзаголовка `subtitleColor`
+- Добавлен пропс `timer` который переводит компонент в режим таймера
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+
+## 48.15.1
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+#### Что изменилось
+- Исправление работы safe-area
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet` `modal` `side-panel`
+
+
+
 ## 48.15.0
 
 <sup><time>07.02.2025</time></sup>

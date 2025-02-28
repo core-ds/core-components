@@ -1,5 +1,55 @@
 # Change Log
 
+## 8.6.9
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1596](https://github.com/core-ds/core-components/pull/1596)
+
+-   Убрана обязвтельность пропсов `value` и `OnInput`
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   bottom-sheet@6.18.3
+
+## 8.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+    -   bottom-sheet@6.18.2
+
+## 8.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   select@17.20.6
+    -   bottom-sheet@6.18.1
+    -   form-control@12.8.2
+    -   tag@8.6.7
+    -   popover@6.3.8
+
+## 8.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.0
+    -   select@17.20.5
+
+## 8.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.17
+    -   select@17.20.4
+
 ## 8.6.4
 
 ### Patch Changes

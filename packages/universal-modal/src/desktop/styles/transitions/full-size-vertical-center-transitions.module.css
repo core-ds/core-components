@@ -1,0 +1,20 @@
+.appear,
+.enter {
+    opacity: 0;
+}
+
+.appearActive,
+.enterActive {
+    opacity: 1;
+    transition: opacity 200ms cubic-bezier(0, 0, 0, 1);
+}
+
+.exit {
+    opacity: 1;
+}
+
+.exitActive,
+.exitDone {
+    opacity: 0;
+    transition: opacity 200ms cubic-bezier(0, 0, 1, 0);
+}

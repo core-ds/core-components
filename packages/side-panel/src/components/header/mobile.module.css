@@ -3,14 +3,14 @@
 
 .header {
     padding: var(--side-panel-header-mobile-paddings);
+
+    @media (display-mode: standalone) {
+        padding-top: calc(var(--sat) + var(--side-panel-header-mobile-top-padding));
+    }
 }
 
 .sticky {
     top: var(--gap-0);
-
-    @media (display-mode: standalone) {
-        top: var(--sat);
-    }
 }
 
 .content {

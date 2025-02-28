@@ -1,5 +1,63 @@
 # Change Log
 
+## 17.20.8
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1583](https://github.com/core-ds/core-components/pull/1583)
+
+-   Исправлена ошибка навигации клавишей-стрелкой по группированному списку
+
+-   Обновлены зависимости
+    -   modal@9.9.8
+    -   button@11.11.6
+    -   input@15.5.3
+    -   bottom-sheet@6.18.3
+
+## 17.20.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.8.0
+    -   bottom-sheet@6.18.2
+    -   modal@9.9.7
+
+## 17.20.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.2.0
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   bottom-sheet@6.18.1
+    -   modal@9.9.6
+    -   button@11.11.5
+    -   checkbox@4.7.7
+    -   form-control@12.8.2
+    -   input@15.5.2
+    -   popover@6.3.8
+
+## 17.20.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.5
+    -   bottom-sheet@6.18.0
+
+## 17.20.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+    -   bottom-sheet@6.17.17
+    -   modal@9.9.4
+
 ## 17.20.3
 
 ### Patch Changes

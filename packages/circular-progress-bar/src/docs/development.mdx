@@ -11,16 +11,34 @@ import { CircularProgressBar } from '@alfalab/core-components/circular-progress-
 
 ## Кастомный размер
 
-Размеру окружности можно задать кастомное значение через значение `height`. 
+Размеру окружности можно задать кастомное значение через значение `height`.
 Чтобы размер контента соответствовал размеру окружности, компоненту всё равно придётся передать значение для `size`.
 
-Соответствие размера окружности размеру компонента:  
-144px < xxl  
-128px < xl < 143px  
-80px < l < 127px  
-64px < m < 79px  
-48px < s < 63px  
-24px < xs < 47px  
+Соответствие размера окружности размеру компонента:
+144px < xxl
+128px < xl < 143px
+80px < l < 127px
+64px < m < 79px
+48px < s < 63px
+24px < xs < 47px
+
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getCircularProgressBarTestIds`.
+Импорт из `@alfalab/core-components/circular-progress-bar/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    progressBar: dataTestId,
+    title: `${dataTestId}-title`,
+    subtitle: `${dataTestId}-subtitle`,
+    circleProgressBar: `${dataTestId}-circle-progress-bar`,
+    circleProgressValue: `${dataTestId}-circle-progress-value`,
+};
+```
 
 ## Свойства
 

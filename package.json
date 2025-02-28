@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.15.0",
+    "version": "48.20.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -62,7 +62,7 @@
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/icons-logotype": "^2.27.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
-        "@alfalab/utils": "^1.17.1",
+        "@alfalab/utils": "^1.18.0",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
         "@juggle/resize-observer": "^3.3.1",
@@ -75,6 +75,7 @@
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
         "date-fns": "^2.16.1",
+        "detect-browser": "^5.3.0",
         "downshift": "8.4.0",
         "element-closest": "^3.0.2",
         "hls.js": "^1.5.13",
@@ -125,6 +126,7 @@
         "@testing-library/react": "^13.3.0",
         "@testing-library/react-hooks": "^8.0.1",
         "@testing-library/user-event": "^14.4.3",
+        "@types/detect-browser": "^4.0.3",
         "@types/element-closest": "^3.0.0",
         "@types/jest": "^26.0.15",
         "@types/jest-image-snapshot": "^6.1.0",

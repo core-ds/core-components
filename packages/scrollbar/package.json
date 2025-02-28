@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-scrollbar",
-    "version": "3.1.3",
+    "version": "3.2.0",
     "description": "Scrollbar component",
     "keywords": [],
     "license": "MIT",
@@ -29,6 +29,6 @@
     "devDependencies": {
         "@types/lodash.throttle": "^4.1.7"
     },
-    "themesVersion": "13.7.0",
+    "themesVersion": "13.7.2",
     "varsVersion": "9.18.0"
 }

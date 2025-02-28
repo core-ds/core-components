@@ -197,6 +197,7 @@
         background-color: var(--button-accent-disabled-bg-color);
 
         &.loading {
+            color: var(--button-accent-color);
             background-color: var(--button-accent-base-bg-color);
         }
     }

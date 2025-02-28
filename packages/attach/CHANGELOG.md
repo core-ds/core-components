@@ -1,5 +1,27 @@
 # Change Log
 
+## 6.7.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 6.6.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+
 ## 6.6.25
 
 ### Patch Changes
