@@ -1,4 +1,4 @@
-import React, { forwardRef, KeyboardEvent, MouseEvent, ReactNode, useRef } from 'react';
+import React, { forwardRef, KeyboardEvent, MouseEvent, useRef } from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
@@ -6,6 +6,10 @@ import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompact
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
+
+import { isKeyBoardEvent } from '../../helpers/is-keyboard-event';
+import { PrivateProps } from '../../types/base-filter-tag-private-props';
+import { BaseFilterTagProps } from '../../types/base-filter-tag-props';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -15,112 +19,6 @@ const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
-
-export type BaseFilterTagProps = {
-    /**
-     * Состояние выбора
-     */
-    checked?: boolean;
-
-    /**
-     * Состояние открытия
-     */
-    open?: boolean;
-
-    /**
-     * Состояние блокировки
-     */
-    disabled?: boolean;
-
-    /**
-     * Обработчик клика
-     */
-    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Обработчик очистки
-     */
-    onClear?: () => void;
-
-    /**
-     * Контент
-     */
-    children?: ReactNode;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Размер компонента
-     * @description xxs, xs, s deprecated, используйте вместо них 32, 40, 48 соответственно
-     */
-    size?: 'xxs' | 'xs' | 's' | 32 | 40 | 48;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Показывать крестик для очистки выбора
-     */
-    showClear?: boolean;
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     * @default false
-     */
-    block?: boolean;
-
-    /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props shape и view
-     * Вариант тега
-     */
-    variant?: 'default' | 'alt';
-
-    /**
-     * Форма тега
-     */
-    shape?: 'rounded' | 'rectangular';
-
-    /**
-     * Стиль тега
-     */
-    view?: 'outlined' | 'filled';
-
-    /**
-     * Набор цветов для компонента
-     * @default default
-     */
-    colors?: 'default' | 'inverted';
-};
-
-export type PrivateProps = {
-    /**
-     * Основные стили компонента.
-     */
-    styles?: { [key: string]: string };
-
-    /**
-     * Стили компонента для default и inverted режима.
-     */
-    colorStylesMap?: {
-        default: {
-            [key: string]: string;
-        };
-        inverted: {
-            [key: string]: string;
-        };
-    };
-};
-
-const isKeyBoardEvent = (
-    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
-): event is KeyboardEvent<HTMLDivElement> =>
-    (event as KeyboardEvent<HTMLDivElement>).key !== undefined;
 
 const SIZE_TO_CLASSNAME_MAP = {
     xxs: 'size-32',
