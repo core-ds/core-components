@@ -4,7 +4,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
         }
     },
     "references": [
@@ -19,6 +20,9 @@
         },
         {
             "path": "../typography"
+        },
+        {
+            "path": "../icon-view"
         }
     ]
 }

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.12.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.19
+    -   icon-button@6.11.9
+
 ## 8.12.19
 
 ### Patch Changes

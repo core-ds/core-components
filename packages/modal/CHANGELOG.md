@@ -1,5 +1,18 @@
 # Change Log
 
+## 9.9.8
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1582](https://github.com/core-ds/core-components/pull/1582)
+
+-   Исправлено дерганье из-за скролла в `fullscreen` `ModalDesktop`
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.6.2
+
 ## 9.9.7
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 11.11.6
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1571](https://github.com/core-ds/core-components/pull/1571)
+
+-   Исправлено мигание цвета текста после лоадера для `view` 'accent' и 'primary'.
+
 ## 11.11.5
 
 ### Patch Changes

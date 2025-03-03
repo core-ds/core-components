@@ -19,6 +19,7 @@
         { "path": "../icon-button" },
         { "path": "../typography" },
         { "path": "../base-modal" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../icon-view" }
     ]
 }

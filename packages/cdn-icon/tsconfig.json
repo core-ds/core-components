@@ -7,5 +7,8 @@
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"]
         }
-    }
+    },
+  "references": [
+    { "path": "../shared" }
+  ]
 }

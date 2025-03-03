@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.10.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
 ## 3.9.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.7.2
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1595](https://github.com/core-ds/core-components/pull/1595)
+
+-   Обновлена цветовая схема для темы `site`
+
 ## 13.7.1
 
 ### Patch Changes

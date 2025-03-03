@@ -123,11 +123,11 @@
     "select": {
         "desktop.js": 162.2,
         "index.js": 235.7,
-        "mobile.js": 209,
+        "mobile.js": 209.1,
         "shared.js": 195.2
     },
     "select-with-tags": {
-        "desktop.js": 198.2,
+        "desktop.js": 198.3,
         "index.js": 221.4,
         "mobile.js": 195.3
     },
@@ -197,9 +197,9 @@
         "index.js": 30
     },
     "pass-code": {
-        "desktop.js": 24.3,
-        "index.js": 26.9,
-        "mobile.js": 24.3,
+        "desktop.js": 24.4,
+        "index.js": 27,
+        "mobile.js": 24.4,
         "shared.js": 0.3
     },
     "pass-code-v1": {
@@ -402,7 +402,7 @@
         "index.js": 426
     },
     "cdn-icon": {
-        "index.js": 1.9
+        "index.js": 2.3
     },
     "card-image": {
         "index.js": 2.1

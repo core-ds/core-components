@@ -14,10 +14,12 @@
 .fullscreen {
     padding-top: var(--gap-0);
     padding-bottom: var(--gap-0);
+    overflow: hidden;
 
     & .component {
         flex: 1;
         border-radius: 0;
+        overflow: auto;
     }
 }
 

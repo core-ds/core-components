@@ -29,6 +29,6 @@
         "@alfalab/stack-context": "^1.16.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "themesVersion": "13.7.1",
+    "themesVersion": "13.7.2",
     "varsVersion": "9.18.0"
 }

@@ -1,5 +1,19 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.6.2
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1557](https://github.com/core-ds/core-components/pull/1557)
+
+-   Изменены цвета кнопок
+
+-   Обновлены зависимости
+    -   button@11.11.6
+    -   icon-button@6.11.9
+
 ## 0.6.1
 
 ### Patch Changes

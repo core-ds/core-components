@@ -137,6 +137,14 @@
     "@alfalab/data" "^1.9.1"
     lodash "^4.17.21"
 
+"@alfalab/utils@^1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.18.0.tgz#d1d68f780a7938ac01f00db4bca70a618ecdda38"
+  integrity sha512-MEtCheju5gQOTX3g5X3gRCRlsIY2Q6qsb5VxvbA7JmnM5gOmFsMnOP8oOVAVXVIXnuvSMBlqYtDrVgrtrNDsTg==
+  dependencies:
+    "@alfalab/data" "^1.9.1"
+    lodash "^4.17.21"
+
 "@alloc/quick-lru@^5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
