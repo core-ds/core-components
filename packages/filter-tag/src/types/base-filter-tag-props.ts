@@ -80,4 +80,9 @@ export type BaseFilterTagProps = {
      * @default default
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Слот слева
+     */
+    leftAddons?: ReactNode;
 };

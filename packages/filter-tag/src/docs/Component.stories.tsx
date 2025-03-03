@@ -4,6 +4,8 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { FilterTag } from '@alfalab/core-components-filter-tag';
 import { FilterTagMobile } from '@alfalab/core-components-filter-tag/mobile';
 import { FilterTagDesktop } from '@alfalab/core-components-filter-tag/desktop';
+import DiamondsMIcon from '@alfalab/icons-glyph/DiamondsMIcon';
+import DiamondsSIcon from '@alfalab/icons-glyph/DiamondsSIcon';
 
 const meta: Meta<typeof FilterTag> = {
     title: 'Components/FilterTag',
@@ -18,7 +20,10 @@ const SIZES = [32, 40, 48] as const;
 export const filter_tag: Story = {
     name: 'FilterTag',
     render: () => {
+        const size = select('size', SIZES, 48);
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const leftAddons =
+            boolean('leftAddons', false) && (size === 48 ? <DiamondsMIcon /> : <DiamondsSIcon />);
 
         return (
             <div
@@ -45,6 +50,7 @@ export const filter_tag: Story = {
                     open={boolean('open', false)}
                     showClear={boolean('showClear', true)}
                     colors={colors}
+                    leftAddons={leftAddons}
                 >
                     {text('children', 'FilterTag')}
                 </FilterTag>
@@ -56,7 +62,10 @@ export const filter_tag: Story = {
 export const filter_tag_mobile: Story = {
     name: 'FilterTagMobile',
     render: () => {
+        const size = select('size', SIZES, 48);
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const leftAddons =
+            boolean('leftAddons', false) && (size === 48 ? <DiamondsMIcon /> : <DiamondsSIcon />);
 
         return (
             <div
@@ -82,9 +91,10 @@ export const filter_tag_mobile: Story = {
                     checked={boolean('checked', false)}
                     open={boolean('open', false)}
                     showClear={boolean('showClear', true)}
-                    colors={select('colors', ['default', 'inverted'], 'default')}
+                    colors={colors}
+                    leftAddons={leftAddons}
                 >
-                    {colors}
+                    {text('children', 'FilterTag')}
                 </FilterTagMobile>
             </div>
         );
@@ -94,7 +104,10 @@ export const filter_tag_mobile: Story = {
 export const filter_tag_desktop: Story = {
     name: 'FilterTagDesktop',
     render: () => {
+        const size = select('size', SIZES, 48);
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const leftAddons =
+            boolean('leftAddons', false) && (size === 48 ? <DiamondsMIcon /> : <DiamondsSIcon />);
 
         return (
             <div
@@ -112,7 +125,7 @@ export const filter_tag_desktop: Story = {
                 }}
             >
                 <FilterTagDesktop
-                    size={select('size', SIZES, 48)}
+                    size={size}
                     variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                     view={select('view', ['outlined', 'filled'], 'outlined')}
@@ -121,6 +134,7 @@ export const filter_tag_desktop: Story = {
                     open={boolean('open', false)}
                     showClear={boolean('showClear', true)}
                     colors={colors}
+                    leftAddons={leftAddons}
                 >
                     {text('children', 'FilterTag')}
                 </FilterTagDesktop>

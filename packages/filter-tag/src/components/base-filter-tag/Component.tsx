@@ -49,6 +49,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
             styles = {},
             colors = 'default',
             colorStylesMap = { default: {}, inverted: {} },
+            leftAddons,
         },
         ref,
     ) => {
@@ -127,9 +128,11 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                             [commonStyles.close]: !showClear,
                             [styles.close]: !showClear,
                             [commonStyles.block]: block,
+                            [commonStyles.withLeftAddons]: Boolean(leftAddons),
                         },
                     )}
                 >
+                    {leftAddons && <div className={commonStyles.addons}>{leftAddons}</div>}
                     <span className={commonStyles.content}>{children}</span>
                     <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
                         {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
