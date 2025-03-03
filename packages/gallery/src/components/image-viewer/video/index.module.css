@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: auto;
     position: relative;
 }
 
@@ -37,12 +37,17 @@
 
 .bottomButton {
     background-color: var(--color-static-neutral-translucent-500-inverted);
+    &:hover {
+        background-color: var(--color-static-neutral-translucent-500-inverted-hover);
+    }
+    &:active {
+        background-color: var(--color-static-neutral-translucent-500-inverted-press);
+    }
 }
 
 .bottomButtonWrapper {
-    width: 350px;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     bottom: 48px;
+    width: 100%;
+    max-width: 350px;
 }
