@@ -128,7 +128,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                             [commonStyles.close]: !showClear,
                             [styles.close]: !showClear,
                             [commonStyles.block]: block,
-                            [commonStyles.withLeftAddons]: Boolean(leftAddons),
+                            [commonStyles.withClear]: showClear,
                         },
                     )}
                 >
@@ -159,13 +159,11 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                         onKeyDown={handleClear}
                         tabIndex={0}
                     >
-                        <span className={commonStyles.iconWrapper}>
-                            {SIZE_TO_CLASSNAME_MAP[size] === 'size-32' ? (
-                                <CrossCircleSIcon />
-                            ) : (
-                                <CrossCircleMIcon />
-                            )}
-                        </span>
+                        {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
+                            <CrossCircleSIcon />
+                        ) : (
+                            <CrossCircleMIcon />
+                        )}
                     </div>
                 )}
             </div>
