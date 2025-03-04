@@ -482,6 +482,7 @@ render(() => {
             onChange={handleChangeSelected}
             selected={selected}
             fieldProps={{ size: 32 }}
+            Option={BaseOption}
         />
     );
 });
@@ -533,40 +534,31 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const checkedContent = (
-        <span>
-            Label:<b> Value</b>
-        </span>
-    );
-    const content = <span>Label</span>;
-    const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
+    const [disabled, setDisabled] = React.useState(false);
 
     return (
         <Container>
             <Row align='middle'>
-                <div style={{ marginRight: 12 }}>
-                    <FilterTag size={32} checked={false}>
-                        {content}
-                    </FilterTag>
-                </div>
-                <div>
-                    <FilterTag size={32} checked={false} disabled={true}>
-                        {content}
-                    </FilterTag>
-                </div>
+                <FilterTag size={32} checked={false} disabled={disabled}>
+                    <span>Label</span>
+                </FilterTag>
+                <Gap size={12} direction='horizontal' />
+                <FilterTag size={32} checked={true} disabled={disabled}>
+                    {disabled ? (
+                        <span>Label</span>
+                    ) : (
+                        <span>
+                            Label:<b> Value</b>
+                        </span>
+                    )}
+                </FilterTag>
             </Row>
-            <div style={{ display: 'flex', marginTop: 12 }}>
-                <div style={{ marginRight: 12 }}>
-                    <FilterTag size={32} checked={true}>
-                        {checkedContent}
-                    </FilterTag>
-                </div>
-                <div>
-                    <FilterTag size={32} checked={true} disabled={true}>
-                        {checkedContent}
-                    </FilterTag>
-                </div>
-            </div>
+            <Gap size={24} />
+            <Switch
+                label='Недоступно'
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+            />
         </Container>
     );
 });
@@ -578,3 +570,58 @@ render(() => {
 
 -   shape (форма) — овальные или прямоугольные.
 -   view (стиль) — залитые или бордерные.
+
+## Дополнительный слот
+
+С помощью слота leftAddons можно кастомизировать фильтртэг.
+
+```jsx live
+render(() => {
+    const [leftAddons, setLeftAddons] = React.useState(true);
+    const [selected, setSelected] = React.useState(false);
+
+    const addon = () => {
+        if (leftAddons) {
+            return (
+                <div
+                    style={{
+                        width: 16,
+                        height: 16,
+                        backgroundColor: 'var(--color-light-status-muted-alt-info)',
+                        border: '1px dashed var(--color-light-status-info)',
+                        borderRadius: '4px',
+                    }}
+                />
+            );
+        }
+
+        return null;
+    };
+
+    return (
+        <Container>
+            <FilterTag size={32} checked={selected} leftAddons={addon()}>
+                {selected ? (
+                    <span>
+                        Label:<b> Value</b>
+                    </span>
+                ) : (
+                    <span>Label</span>
+                )}
+            </FilterTag>
+            <Gap size={24} />
+            <Switch
+                label='LeftAddon'
+                checked={leftAddons}
+                onChange={() => setLeftAddons((prevState) => !prevState)}
+            />
+            <Gap size={16} />
+            <Switch
+                label='Selected'
+                checked={selected}
+                onChange={() => setSelected((prevState) => !prevState)}
+            />
+        </Container>
+    );
+});
+```
