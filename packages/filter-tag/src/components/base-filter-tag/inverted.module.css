@@ -74,6 +74,7 @@
     &.checked {
         color: var(--tag-inverted-text-color-checked);
         background-color: var(--tag-inverted-background-color-checked);
+        border-color: var(--tag-inverted-border-color-checked);
 
         & > .chevron {
             color: var(--filter-tag-chevron-color);

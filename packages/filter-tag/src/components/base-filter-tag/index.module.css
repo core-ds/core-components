@@ -126,8 +126,6 @@
     }
 
     &.checked {
-        border-width: 0;
-
         &.rounded {
             &.size-32 {
                 border-radius: var(--tag-rounded-xxs-border-radius) 0 0
@@ -150,10 +148,14 @@
             }
         }
 
-        &:not(:disabled) {
-            border-right-width: 0;
+        &:disabled {
+            border-color: var(--tag-border-color-checked-disabled);
+        }
 
+        &:not(:disabled) {
             &.withClear {
+                border-right-width: 0;
+
                 &.size-48 {
                     padding-right: var(--gap-8);
                 }
