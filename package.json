@@ -1,19 +1,13 @@
 {
-    "name": "@alfalab/core-components",
-    "version": "48.20.0",
+    "name": "root",
     "private": true,
     "workspaces": [
         "packages/*"
     ],
-    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/core-ds/core-components.git"
     },
-    "bugs": {
-        "url": "https://github.com/core-ds/core-components/issues"
-    },
-    "homepage": "https://github.com/core-ds/core-components#readme",
     "scripts": {
         "build": "./bin/build.sh",
         "start": "storybook dev -p 9009",
@@ -31,7 +25,7 @@
         "test:screenshots": "./bin/run-screenshots.sh",
         "test:codemod": "jest --config=jest.codemod.config.js packages/codemod/",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
-        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png",
+        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist,.rollup.cache} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png",
         "cm": "git-cz",
         "postbuild": "yarn purgecss",
         "purgecss": "./bin/purgecss.sh",
@@ -55,55 +49,6 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "dependencies": {
-        "@alfalab/data": "^1.9.1",
-        "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
-        "@alfalab/icons-logotype": "^2.27.0",
-        "@alfalab/react-canvas-pattern-lock": "^2.0.7",
-        "@alfalab/utils": "^1.18.0",
-        "@dnd-kit/core": "^6.0.7",
-        "@dnd-kit/sortable": "^7.0.2",
-        "@dnd-kit/utilities": "^3.2.1",
-        "@juggle/resize-observer": "^3.3.1",
-        "@maskito/core": "^1.7.0",
-        "@maskito/react": "^1.7.0",
-        "@popperjs/core": "^2.11.8",
-        "@types/react-transition-group": "^4.4.5",
-        "can-use-dom": "^0.1.0",
-        "classnames": "^2.5.1",
-        "compute-scroll-into-view": "^3.1.0",
-        "date-fns": "^2.16.1",
-        "detect-browser": "^5.3.0",
-        "downshift": "8.4.0",
-        "element-closest": "^3.0.2",
-        "hls.js": "^1.5.13",
-        "intersection-observer": "^0.12.0",
-        "libphonenumber-js": "^1.10.30",
-        "lodash": "^4.17.21",
-        "mdast-util-gfm-strikethrough": "^0.2.3",
-        "micromark-extension-gfm-strikethrough": "^0.6.5",
-        "nouislider": "^15.6.0",
-        "popper-max-size-modifier": "^0.2.0",
-        "react-canvas-pattern-lock": "^2.0.6",
-        "react-div-100vh": "^0.7.0",
-        "react-fast-compare": "^3.2.2",
-        "react-focus-lock": "^2.12.1",
-        "react-markdown": "6.0.2",
-        "react-merge-refs": "^1.1.0",
-        "react-popper": "^2.3.0",
-        "react-swipeable": "^7.0.0",
-        "react-textarea-autosize": "^8.3.4",
-        "react-transition-group": "^4.4.5",
-        "react-virtual": "^2.3.2",
-        "react-virtuoso": "^2.12.0",
-        "recharts": "^2.12.7",
-        "simplebar": "^5.3.8",
-        "swiper": "^6.8.2",
-        "text-mask-core": "^5.1.2",
-        "tslib": "^2.4.0",
-        "ui-primitives": "^22.7.0"
     },
     "devDependencies": {
         "@alfalab/core-config": "^1.0.0",
@@ -213,16 +158,8 @@
         "svgo": "^3.0.2",
         "ts-jest": "^26.4.4",
         "typescript": "~4.7.4",
+        "ui-primitives": "^22.7.0",
         "url-loader": "^4.1.1"
-    },
-    "peerDependencies": {
-        "@alfalab/core-config": "^1.0.0",
-        "@alfalab/stack-context": "^1.16.0",
-        "react": ">=16.8.0",
-        "react-dom": ">=16.8.0"
-    },
-    "publishConfig": {
-        "access": "public"
     },
     "prettier": "arui-presets-lint/prettier",
     "eslintConfig": {

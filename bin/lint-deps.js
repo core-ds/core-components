@@ -4,6 +4,7 @@ const shell = require('shelljs');
 
 const packages = shell.exec(
     `lerna list \\
+        --ignore @alfalab/core-components \\
         --ignore @alfalab/core-components-codemod \\
         --ignore @alfalab/core-components-vars \\
         --ignore @alfalab/core-components-themes \\

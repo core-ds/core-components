@@ -154,16 +154,3 @@ function generateClassNameHash(packageName, packageVersion, relativeFileName) {
         .toString(36)
         .slice(0, 5);
 }
-
-export function ignoreCss() {
-    return {
-        name: 'ignore-css',
-        resolveId(source) {
-            if (source.includes('.css')) {
-                return false;
-            }
-
-            return null;
-        },
-    };
-}

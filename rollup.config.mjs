@@ -1,17 +1,13 @@
-import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
 import {
     coreComponentsResolver,
-    coreComponentsRootPackageResolver,
     externalsResolver,
 } from './tools/rollup/core-components-resolver.mjs';
-import { coreComponentsTypingsResolver } from './tools/rollup/core-components-typings-resolver.mjs';
-import { createPackageJson } from './tools/rollup/create-package-json.mjs';
-import { processCss, ignoreCss } from './tools/rollup/process-css.mjs';
-import { pkg, rootDir, currentPackageDir, currentComponentName } from './tools/rollup/common.mjs';
+import { processCss } from './tools/rollup/process-css.mjs';
+import { pkg, currentComponentName } from './tools/rollup/common.mjs';
 import { externalsWithEntryPoints } from './tools/rollup/external-with-entry-points.mjs';
 
 const externals = [
@@ -19,6 +15,9 @@ const externals = [
     ...Object.keys(pkg.peerDependencies || {}),
 ];
 
+/**
+ * @type {Partial<import('rollup').RollupOptions>}
+ */
 const baseConfig = {
     cache: false,
     input: [
@@ -66,6 +65,7 @@ const sourceCopyPlugin = copy({
 
 /**
  * Сборка ES5 с commonjs модулями.
+ * @type {import('rollup').RollupOptions}
  */
 const es5 = {
     ...baseConfig,
@@ -103,6 +103,7 @@ const es5 = {
 /**
  * Сборка ES5 с commonjs модулями.
  * Css-модули поставляются как есть, не компилируются.
+ * @type {import('rollup').RollupOptions}
  */
 const cssm = {
     ...baseConfig,
@@ -138,6 +139,7 @@ const cssm = {
 
 /**
  * Сборка ES2020 с esm модулями.
+ * @type {import('rollup').RollupOptions}
  */
 const modern = {
     ...baseConfig,
@@ -174,6 +176,7 @@ const modern = {
  * Сборка ES2020 с esm модулями.
  * Css-модули поставляются как есть, не компилируются.
  * Отключен импорт базовых токенов.
+ * @type {import('rollup').RollupOptions}
  */
 const moderncssm = {
     ...baseConfig,
@@ -211,6 +214,7 @@ const moderncssm = {
 
 /**
  * Сборка ES5 с esm модулями.
+ * @type {import('rollup').RollupOptions}
  */
 const esm = {
     ...baseConfig,
@@ -241,47 +245,37 @@ const esm = {
     ],
 };
 
+/**
+ * @type {import('rollup').RollupOptions}
+ */
 const root = {
-    input: ['dist/**/*.js'],
+    input: 'postinstall.js',
     plugins: [
-        ...baseConfig.plugins,
-        multiInput({
-            relative: 'dist',
-        }),
-        {
-            async resolveId(id, importer) {
-                if (id.includes('.module.css.js')) {
-                    if (!importer) return id;
-                    return path.join(path.dirname(importer), id);
-                }
-
-                return null;
-            },
-        },
         copy({
-            flatten: false,
             targets: [
-                { src: ['dist/**/*', '!**/*.js', '!dist/src/**'], dest: rootDir },
                 {
                     src: 'package.json',
-                    dest: `../../dist/${currentComponentName}`,
-                    transform: () => createPackageJson('./esm/index.js'),
+                    dest: 'dist',
+                    transform: (contents) => {
+                        const json = JSON.parse(contents.toString('utf8'));
+
+                        json.scripts = {
+                            postinstall: 'node postinstall.js',
+                        };
+
+                        return `${JSON.stringify(json, null, 2)}\n`;
+                    },
                 },
             ],
         }),
-        coreComponentsRootPackageResolver({ currentPackageDir }),
-        ignoreCss(),
     ],
-    output: [
-        {
-            dir: rootDir,
-            plugins: [coreComponentsTypingsResolver({ rootDir })],
-        },
-    ],
+    output: { dir: 'dist' },
 };
 
-const configs = (
-    process.env.BUILD_MODERN_ONLY === 'true'
+const configs =
+    currentComponentName === 'root'
+        ? [root]
+        : process.env.BUILD_MODERN_ONLY === 'true'
         ? [modern]
         : [
               es5,
@@ -289,7 +283,6 @@ const configs = (
               esm,
               currentComponentName !== 'themes' && cssm,
               currentComponentName !== 'themes' && moderncssm,
-          ]
-).filter(Boolean);
+          ].filter(Boolean);
 
 export default configs;
