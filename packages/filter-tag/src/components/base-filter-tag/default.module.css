@@ -1,0 +1,142 @@
+@import '../../../../tag/src/vars.css';
+@import '../../vars.css';
+
+.component {
+    &.disabled {
+        background-color: var(--tag-outlined-background-color-disabled);
+    }
+
+    &.checked {
+        &:not(.disabled) {
+            background-color: var(--tag-background-color-checked);
+        }
+
+        @media (hover: hover) {
+            &:not(.disabled):hover {
+                background-color: var(--tag-background-color-checked-hover);
+            }
+        }
+
+        &:not(.disabled):active {
+            background-color: var(--tag-background-color-checked-active);
+        }
+    }
+}
+
+.chevron {
+    color: var(--filter-tag-chevron-color);
+}
+
+.valueButton {
+    color: var(--tag-text-color);
+    background-color: var(--tag-outlined-background-color);
+    border: var(--tag-border-width) solid var(--tag-border-color);
+
+    &:disabled {
+        & > .chevron {
+            color: var(--filter-tag-chevron-disabled-color);
+        }
+    }
+
+    &.outlined {
+        color: var(--tag-text-color);
+        border-color: var(--tag-border-color);
+        background-color: var(--tag-outlined-background-color);
+
+        &:disabled {
+            border-color: var(--tag-border-color-disabled);
+            color: var(--tag-text-color-disabled);
+            background-color: var(--tag-outlined-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                border-color: var(--tag-border-color-hover);
+                background-color: var(--tag-outlined-background-color-hover);
+            }
+        }
+
+        &:not(:disabled):active {
+            border-color: var(--tag-border-color-active);
+            background-color: var(--tag-outlined-background-color-active);
+        }
+    }
+
+    &.filled {
+        color: var(--tag-text-color);
+        border-color: var(--tag-filled-border-color);
+
+        &:disabled {
+            color: var(--tag-text-color-disabled);
+        }
+    }
+
+    &.checked {
+        color: var(--tag-text-color-checked);
+        background-color: var(--tag-background-color-checked);
+
+        & > .chevron {
+            color: var(--filter-tag-inverted-chevron-color);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                background-color: var(--tag-background-color-checked-hover);
+            }
+        }
+
+        &:not(:disabled):active {
+            background-color: var(--tag-background-color-checked-active);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover + .clear:before {
+                background-color: var(--filter-tag-separator-background-color-hover);
+            }
+        }
+
+        &:not(:disabled):active + .clear:before {
+            background-color: var(--filter-tag-separator-background-color-active);
+        }
+
+        &:disabled {
+            color: var(--tag-text-color-checked-disabled);
+            background-color: var(--tag-background-color-checked-disabled);
+
+            & > .chevron {
+                color: var(--filter-tag-chevron-disabled-color);
+            }
+        }
+    }
+}
+
+.clear {
+    color: var(--filter-tag-clear-color);
+    background-color: var(--tag-background-color-checked);
+
+    &:before {
+        background-color: var(--filter-tag-clear-before-background-color);
+    }
+
+    @media (hover: hover) {
+        &:hover:before {
+            background-color: var(--filter-tag-separator-background-color-hover);
+        }
+    }
+
+    &:active:before {
+        background-color: var(--filter-tag-separator-background-color-active);
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--filter-tag-clear-color-hover);
+            background-color: var(--tag-background-color-checked-hover);
+        }
+    }
+
+    &:active {
+        color: var(--filter-tag-clear-color-active);
+        background-color: var(--tag-background-color-checked-active);
+    }
+}
