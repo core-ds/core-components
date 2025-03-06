@@ -74,7 +74,7 @@ const CustomFieldMultiple = ({
 render(() => {
     const options = React.useMemo(
         () => [
-            { key: '1', content: 'Auurum' },
+            { key: '1', content: 'Aurum' },
             { key: '2', content: 'Bercelium' },
             { key: '3', content: 'Curium' },
             { key: '4', content: 'Neptunium' },
@@ -213,17 +213,15 @@ render(() => {
                 position='bottom-start'
             >
                 <style>{css}</style>
-                <div style={{ width: 344, padding: '0 16px' }}>
-                    <Calendar
-                        ref={calendarRef}
-                        responsive={true}
-                        value={value}
-                        selectedFrom={selectedFrom}
-                        selectedTo={selectedTo}
-                        onChange={handleUpdatePeriodr}
-                        selectorView='month-only'
-                    />
-                </div>
+                <Calendar
+                    ref={calendarRef}
+                    responsive={true}
+                    value={value}
+                    selectedFrom={selectedFrom}
+                    selectedTo={selectedTo}
+                    onChange={handleUpdatePeriodr}
+                    selectorView='month-only'
+                />
             </Popover>
 
             <FilterTag
@@ -317,7 +315,7 @@ const CustomFieldMultiple = ({
 
 render(() => {
     const options = [
-        { key: '1', content: 'Auurum' },
+        { key: '1', content: 'Aurum' },
         { key: '2', content: 'Bercelium' },
         { key: '3', content: 'Curium' },
         { key: '4', content: 'Neptunium' },
