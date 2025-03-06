@@ -18,4 +18,4 @@ export const Typography: {
     TitleMobile,
 };
 
-export { Text, Title as TitleDesktop, TitleResponsive, TitleMobile };
+export { Text as TypographyText, Title as TitleDesktop, TitleResponsive, TitleMobile };

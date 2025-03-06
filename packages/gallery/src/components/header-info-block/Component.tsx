@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text, TitleDesktop } from '@alfalab/core-components-typography';
+import { TitleDesktop, TypographyText } from '@alfalab/core-components-typography';
 
 import { splitFilename } from '../../utils';
 
@@ -33,14 +33,14 @@ export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, descriptio
             </div>
 
             {description ? (
-                <Text
+                <TypographyText
                     className={styles.description}
                     tag='div'
                     view='primary-medium'
                     color='static-secondary-light'
                 >
                     {description}
-                </Text>
+                </TypographyText>
             ) : null}
         </div>
     );

@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Text as TypographyText } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { pluralize } from '@alfalab/utils';
 
