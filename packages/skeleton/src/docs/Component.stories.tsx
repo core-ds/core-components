@@ -1,20 +1,26 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import { Story } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Skeleton } from '@alfalab/core-components-skeleton';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import Description from './description.mdx';
-import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof Skeleton> = {
+    title: 'Components/Skeleton',
+    component: Skeleton,
+    id: 'Skeleton',
+};
 
-<Meta title='Components/Skeleton' component={Skeleton} id='Skeleton' />
+type Story = StoryObj<typeof Skeleton>;
 
-{/* Canvas */}
-
-<Story name='Skeleton'>
-    {React.createElement(() => {
+export const skeleton: Story = {
+    name: 'Skeleton',
+    render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const borderRadius = select('borderRadius', [0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 32, 36, 64, 'pill'], 8)
+        const borderRadius = select(
+            'borderRadius',
+            [0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 32, 36, 64, 'pill'],
+            8,
+        );
 
         return (
             <div
@@ -25,12 +31,12 @@ import Changelog from '../../CHANGELOG.md?raw';
                         colors === 'inverted'
                             ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
-                        padding: 'var(--gap-40)',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
+                    padding: 'var(--gap-40)',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
                 }}
             >
                 <Skeleton
@@ -50,15 +56,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 </Skeleton>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader name='Skeleton' children='Используется как индикатор загрузки контента.' />
-
-<Tabs
-    description={<Description />}
-    development={<Development />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-/>
+export default meta;
