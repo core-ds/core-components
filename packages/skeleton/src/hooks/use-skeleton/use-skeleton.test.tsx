@@ -39,9 +39,14 @@ describe('useSkeleton tests', () => {
         expect((rows[2] as HTMLDivElement).style.width).toBe('');
     });
 
-    for (const align of ['left', 'center', 'right'] as const) {
-        it(`should set \`${align}\` className`, () => {
-            const { container } = render(<Skeleton align={align} rows={10} />);
-        });
-    }
+    it.each`
+        align       | expectValue
+        ${'left'}   | ${`left`}
+        ${'center'} | ${`center`}
+        ${'right'}  | ${`right`}
+    `('should set align className $align', ({ align, expectValue }) => {
+        const { container } = render(<Skeleton align={align} rows={10} />);
+
+        expect(container.firstElementChild).toHaveClass(expectValue);
+    });
 });
