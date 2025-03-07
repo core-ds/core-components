@@ -4,6 +4,10 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { NumberInput } from '@alfalab/core-components-number-input';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
+// import {
+//     getQueryParam,
+//     stylesStringToObj,
+// } from '../../../screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof NumberInput> = {
     title: 'Components/NumberInput',
