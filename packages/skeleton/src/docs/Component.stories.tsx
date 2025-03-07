@@ -70,9 +70,29 @@ export const skeleton_text: Story = {
         );
         const align = select('align', [undefined, 'left', 'center', 'right'], undefined);
 
+        // дополнительные преобразования нужны для скриншот-тестирования, так как все кнобсы в этом случае приходят в виде строки
+        const getWidth = () => {
+            if (typeof width === 'string') {
+                if ((width as string).startsWith('[') && (width as string).endsWith(']')) {
+                    return JSON.parse(width);
+                }
+            }
+
+            return width;
+        };
+
+        // дополнительные преобразования нужны для скриншот-тестирования, так как все кнобсы в этом случае приходят в виде строки
+        const getRows = () => {
+            if (typeof rows === 'string') {
+                return Number(rows);
+            }
+
+            return rows;
+        };
+
         const { renderSkeleton, textRef } = useSkeleton(true, {
-            rows,
-            width,
+            rows: getRows(),
+            width: getWidth(),
             align,
         });
 
