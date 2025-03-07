@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes, useCountdown } from '../../../utils';
@@ -37,7 +37,7 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.tempBlockTitle}</Header>
 
-            <Text
+            <TypographyText
                 view='primary-medium'
                 color='primary'
                 className={cn(styles.description, {
@@ -46,7 +46,7 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
                 })}
             >
                 {texts.tempBlockDescription}
-            </Text>
+            </TypographyText>
 
             <div className={cn(styles.countdownWrap, { [styles.typographyTheme]: !mobile })}>
                 <CountdownLoader
