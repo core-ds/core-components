@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSkeleton } from './use-skeleton';
-import { TextSkeletonProps } from '../types';
+import { TextSkeletonProps } from '../../types/text-skeleton-props';
 import { render } from '@testing-library/react';
 
 const Skeleton = (props: TextSkeletonProps) => {
