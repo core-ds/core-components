@@ -5,11 +5,10 @@ button.tag.tag {
     border-radius: var(--border-radius-8);
     border: none;
     flex-shrink: 0;
-    min-width: auto;
     min-height: auto;
-    width: 32px;
+    min-width: 32px;
     height: 32px;
-    padding: var(--gap-0);
+    padding: 0 var(--gap-4);
 
     &:disabled:not(.checked) {
         opacity: 0.3;

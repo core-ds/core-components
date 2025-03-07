@@ -55,6 +55,8 @@ export const DefaultView: FC<DefaultViewProps> = ({
         [currentPageIndex, elementsCount, itemsFit, maxHalfCount, pagesCount, sidePadding],
     );
 
+    const getPageString = (page: number) => page.toLocaleString('ru-RU');
+
     return (
         <React.Fragment>
             {Array(elementsCount)
@@ -79,7 +81,7 @@ export const DefaultView: FC<DefaultViewProps> = ({
                             disabled={active}
                             onClick={() => onPageChange(pageIndex)}
                         >
-                            {pageIndex + 1}
+                            {getPageString(pageIndex + 1)}
                         </Tag>
                     );
                 })}
