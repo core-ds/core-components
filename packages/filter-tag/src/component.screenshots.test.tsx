@@ -81,6 +81,51 @@ describe('FilterTag | main props', () => {
                         size: { width: 160, height: 90 },
                     }),
                 ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 32,
+                            checked: false,
+                            colors: 'inverted',
+                            disabled: [false, true],
+                            open: [false, true],
+                            shape: ['rounded', 'rectangular'],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 32,
+                            checked: true,
+                            colors: 'inverted',
+                            disabled: [false, true],
+                            open: [false, true],
+                            shape: ['rounded', 'rectangular'],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            colors: 'inverted',
+                            size: [32, 40, 48],
+                            shape: ['rounded', 'rectangular'],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
             ],
             screenshotOpts: {
                 fullPage: true,
@@ -102,6 +147,7 @@ describe(
                 size: 48,
                 checked: true,
                 disabled: false,
+                colors: ['default', 'inverted'],
             },
         }),
         screenshotOpts: { clip },
@@ -124,6 +170,7 @@ describe(
                 size: 48,
                 checked: true,
                 disabled: false,
+                colors: ['default', 'inverted'],
             },
         }),
         screenshotOpts: { clip },
@@ -139,15 +186,26 @@ describe(
 describe(
     'FilerTag | screenshots pressed state',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'FilterTag',
-            knobs: {
-                children: 'Фильтр',
-                size: 48,
-                checked: [true, false],
-                disabled: [false, true],
-            },
-        }),
+        cases: [
+            ...generateTestCases({
+                componentName: 'FilterTag',
+                knobs: {
+                    children: 'Фильтр',
+                    size: 48,
+                    checked: [true, false],
+                    disabled: [false, true],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'FilterTag',
+                knobs: {
+                    children: 'Фильтр',
+                    size: 48,
+                    colors: 'inverted',
+                    checked: [true, false],
+                },
+            }),
+        ],
         screenshotOpts: { clip },
         evaluate: (page: Page) => {
             return page.mouse
@@ -155,7 +213,7 @@ describe(
                 .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
         },
         matchImageSnapshotOptions: {
-            customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+            customSnapshotIdentifier: (...args) => `press-${customSnapshotIdentifier(...args)}`,
         },
     }),
 );
