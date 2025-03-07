@@ -23,7 +23,7 @@ render(() => {
                 onChange={() => setVisible((p) => !p)}
             />
 
-            <Gap size='l' />
+            <Gap size={20} />
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Skeleton visible={visible}>
@@ -36,6 +36,109 @@ render(() => {
                     <Status view='contrast'>This is fine</Status>
                 </Skeleton>
             </div>
+        </>
+    );
+});
+```
+
+## Скелетонизация текста
+
+Пакет `Skeleton` предоставляет хук `useSkeleton`, с помощью которого можно "скелетонизировать" текст, а также кастомизировать его отображение.
+
+```jsx live
+const rowsOptions = [
+    { key: 'computed', content: 'Computed' },
+    { key: '2', content: '2' },
+    { key: '4', content: '4' },
+    { key: '6', content: '6' },
+    { key: '8', content: '8' },
+    { key: '10', content: '10' },
+];
+
+const widthOptions = [
+    { key: 'computed', content: 'Computed' },
+    { key: '100', content: '100px' },
+    { key: '200', content: '200px' },
+    { key: '300', content: '300px' },
+    { key: '400', content: '400px' },
+    { key: 'array', content: '100-200-300-400' },
+];
+
+const alignOptions = [
+    { key: 'left', content: 'left' },
+    { key: 'center', content: 'center' },
+    { key: 'right', content: 'right' },
+];
+
+render(() => {
+    const [visible, setVisible] = React.useState(false);
+    const [rows, setRows] = React.useState('computed');
+    const [width, setWidth] = React.useState('computed');
+    const [align, setAlign] = React.useState('left');
+
+    const { renderSkeleton, textRef } = useSkeleton(visible, {
+        align,
+        ...(rows !== 'computed' && { rows: Number(rows) }),
+        ...(width !== 'computed' && width !== 'array' && { width: Number(width) }),
+        ...(width === 'array' && { width: [100, 200, 300, 400] }),
+    });
+
+    const skeleton = renderSkeleton({
+        wrapperClassName: 'wrapperClassName',
+        dataTestId: 'dataTestId',
+    });
+
+    return (
+        <>
+            {skeleton ? (
+                skeleton
+            ) : (
+                <div ref={textRef} style={{ lineHeight: '20px' }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            )}
+            <Row>
+                <SelectDesktop
+                    size={56}
+                    options={rowsOptions}
+                    selected={rows}
+                    label='Rows'
+                    Option={BaseOption}
+                    disabled={visible}
+                    onChange={({ selected }) => setRows(selected.key)}
+                />
+                <Gap size={12} direction='horizontal' />
+                <SelectDesktop
+                    size={56}
+                    options={widthOptions}
+                    selected={width}
+                    label='Width'
+                    Option={BaseOption}
+                    disabled={visible}
+                    onChange={({ selected }) => setWidth(selected.key)}
+                />
+                <Gap size={12} direction='horizontal' />
+                <SelectDesktop
+                    size={56}
+                    options={alignOptions}
+                    selected={align}
+                    label='Align'
+                    Option={BaseOption}
+                    disabled={visible}
+                    onChange={({ selected }) => setAlign(selected.key)}
+                />
+            </Row>
+            <Gap size={20} />
+            <Switch
+                checked={visible}
+                label='Показать скелетон'
+                onChange={() => setVisible((prev) => !prev)}
+            />
         </>
     );
 });
