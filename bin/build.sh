@@ -30,6 +30,8 @@ lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
     -- $(pwd)/bin/rollup.sh
 
+node $(pwd)/bin/build-root.js
+
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
 

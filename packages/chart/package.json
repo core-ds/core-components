@@ -17,9 +17,6 @@
         "recharts": "^2.12.7",
         "tslib": "^2.4.0"
     },
-    "devDependencies": {
-        "@types/react-transition-group": "^4.4.5"
-    },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },

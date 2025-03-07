@@ -12,10 +12,10 @@ Object {
           class="container"
         >
           <div
-            class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
+            class="componentWrapper wrapperSize_48"
           >
             <div
-              class="icon-view__component_1avi8"
+              class="component"
               style="width: 48px; height: 48px;"
             >
               <svg
@@ -26,12 +26,12 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  class="icon-view__bg_1avi8"
-                  d="M0.780288 12.3158C1.65342 6.21531 6.21531 1.65342 12.3158 0.780288C15.4298 0.334589 19.3246 0 24 0C28.6754 0 32.5702 0.334589 35.6842 0.780288C41.7847 1.65342 46.3466 6.21531 47.2197 12.3158C47.6654 15.4298 48 19.3246 48 24C48 28.6754 47.6654 32.5702 47.2197 35.6842C46.3466 41.7847 41.7847 46.3466 35.6842 47.2197C32.5702 47.6654 28.6754 48 24 48C19.3246 48 15.4298 47.6654 12.3158 47.2197C6.21531 46.3466 1.65342 41.7847 0.780288 35.6842C0.334589 32.5702 0 28.6754 0 24C0 19.3246 0.334589 15.4298 0.780288 12.3158Z"
+                  class="bg"
+                  d="M.8 12.3C1.7 6.3 6.2 1.7 12.3.8a83 83 0 0 1 23.4 0c6 .9 10.6 5.4 11.5 11.5a83 83 0 0 1 0 23.4 13.4 13.4 0 0 1-11.5 11.5 83 83 0 0 1-23.4 0A13.4 13.4 0 0 1 .8 35.7a83 83 0 0 1 0-23.4"
                 />
               </svg>
               <div
-                class="icon-view__children_1avi8"
+                class="children childrenSize_undefined"
               >
                 <svg
                   fill="currentColor"
@@ -123,10 +123,10 @@ Object {
         class="container"
       >
         <div
-          class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
+          class="componentWrapper wrapperSize_48"
         >
           <div
-            class="icon-view__component_1avi8"
+            class="component"
             style="width: 48px; height: 48px;"
           >
             <svg
@@ -137,12 +137,12 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                class="icon-view__bg_1avi8"
-                d="M0.780288 12.3158C1.65342 6.21531 6.21531 1.65342 12.3158 0.780288C15.4298 0.334589 19.3246 0 24 0C28.6754 0 32.5702 0.334589 35.6842 0.780288C41.7847 1.65342 46.3466 6.21531 47.2197 12.3158C47.6654 15.4298 48 19.3246 48 24C48 28.6754 47.6654 32.5702 47.2197 35.6842C46.3466 41.7847 41.7847 46.3466 35.6842 47.2197C32.5702 47.6654 28.6754 48 24 48C19.3246 48 15.4298 47.6654 12.3158 47.2197C6.21531 46.3466 1.65342 41.7847 0.780288 35.6842C0.334589 32.5702 0 28.6754 0 24C0 19.3246 0.334589 15.4298 0.780288 12.3158Z"
+                class="bg"
+                d="M.8 12.3C1.7 6.3 6.2 1.7 12.3.8a83 83 0 0 1 23.4 0c6 .9 10.6 5.4 11.5 11.5a83 83 0 0 1 0 23.4 13.4 13.4 0 0 1-11.5 11.5 83 83 0 0 1-23.4 0A13.4 13.4 0 0 1 .8 35.7a83 83 0 0 1 0-23.4"
               />
             </svg>
             <div
-              class="icon-view__children_1avi8"
+              class="children childrenSize_undefined"
             >
               <svg
                 fill="currentColor"
