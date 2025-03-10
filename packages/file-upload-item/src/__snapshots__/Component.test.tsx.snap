@@ -99,7 +99,7 @@ Object {
           class="container"
         >
           <span
-            class="title primary component"
+            class="title primary component-primary"
           >
             title
           </span>
@@ -210,7 +210,7 @@ Object {
         class="container"
       >
         <span
-          class="title primary component"
+          class="title primary component-primary"
         >
           title
         </span>
