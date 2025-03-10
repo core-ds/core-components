@@ -1,4 +1,4 @@
-import React, { forwardRef, KeyboardEvent, MouseEvent, ReactNode, useRef } from 'react';
+import React, { forwardRef, KeyboardEvent, MouseEvent, useRef } from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
@@ -7,104 +7,21 @@ import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
+import { getSizeClassName } from '../../helpers/get-size-class-name';
+import { isKeyBoardEvent } from '../../helpers/is-keyboard-event';
+import { PrivateProps } from '../../types/base-filter-tag-private-props';
+import { BaseFilterTagProps } from '../../types/base-filter-tag-props';
+
+import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
+import invertedColors from './inverted.module.css';
 
-export type BaseFilterTagProps = {
-    /**
-     * Состояние выбора
-     */
-    checked?: boolean;
-
-    /**
-     * Состояние открытия
-     */
-    open?: boolean;
-
-    /**
-     * Состояние блокировки
-     */
-    disabled?: boolean;
-
-    /**
-     * Обработчик клика
-     */
-    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Обработчик очистки
-     */
-    onClear?: () => void;
-
-    /**
-     * Контент
-     */
-    children?: ReactNode;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Размер компонента
-     * @description xxs, xs, s deprecated, используйте вместо них 32, 40, 48 соответственно
-     */
-    size?: 'xxs' | 'xs' | 's' | 32 | 40 | 48;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Показывать крестик для очистки выбора
-     */
-    showClear?: boolean;
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     * @default false
-     */
-    block?: boolean;
-
-    /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props shape и view
-     * Вариант тега
-     */
-    variant?: 'default' | 'alt';
-
-    /**
-     * Форма тега
-     */
-    shape?: 'rounded' | 'rectangular';
-
-    /**
-     * Стиль тега
-     */
-    view?: 'outlined' | 'filled';
-
-    /**
-     * Основные стили компонента.
-     */
-    styles?: { [key: string]: string };
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
 };
 
-const isKeyBoardEvent = (
-    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
-): event is KeyboardEvent<HTMLDivElement> =>
-    (event as KeyboardEvent<HTMLDivElement>).key !== undefined;
-
-const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-32',
-    xs: 'size-40',
-    s: 'size-48',
-    32: 'size-32',
-    40: 'size-40',
-    48: 'size-48',
-};
-
-export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
+export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & PrivateProps>(
     (
         {
             children,
@@ -113,8 +30,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             open,
             onClick,
             size = 48,
-            variant = 'default',
-            shape,
+            shape = 'rounded',
             view = 'outlined',
             onClear = () => null,
             showClear = true,
@@ -122,6 +38,9 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             className,
             dataTestId,
             styles = {},
+            colors = 'default',
+            colorStylesMap = { default: {}, inverted: {} },
+            leftAddons,
         },
         ref,
     ) => {
@@ -143,25 +62,24 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             onClear();
         };
 
-        const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
-
-        const shapeClassName = shape || variantClassName;
-
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
                 className={cn(
                     className,
                     commonStyles.component,
-                    commonStyles[shapeClassName],
-                    commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                    colorStyles[colors].component,
+                    commonStyles[shape],
+                    commonStyles[getSizeClassName(size)],
                     styles.component,
-                    styles[shapeClassName],
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[shape],
+                    styles[getSizeClassName(size)],
                     {
                         [commonStyles.checked]: checked,
+                        [colorStyles[colors].checked]: checked,
                         [styles.checked]: checked,
                         [commonStyles.disabled]: disabled,
+                        [colorStyles[colors].disabled]: disabled,
                         [styles.disabled]: disabled,
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
@@ -178,26 +96,33 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     disabled={disabled}
                     className={cn(
                         commonStyles.valueButton,
+                        colorStyles[colors].valueButton,
                         styles.valueButton,
-                        commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
-                        styles[SIZE_TO_CLASSNAME_MAP[size]],
-                        commonStyles[shapeClassName],
-                        styles[shapeClassName],
+                        colorStylesMap[colors].valueButton,
+                        commonStyles[getSizeClassName(size)],
+                        styles[getSizeClassName(size)],
+                        commonStyles[shape],
+                        styles[shape],
                         commonStyles[view],
+                        colorStyles[colors][view],
                         {
                             [styles[view]]: Boolean(styles[view]),
+                            [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
                             [commonStyles.checked]: checked,
+                            [colorStyles[colors].checked]: checked,
                             [styles.checked]: checked,
                             [commonStyles.open]: open,
                             [commonStyles.close]: !showClear,
                             [styles.close]: !showClear,
                             [commonStyles.block]: block,
+                            [commonStyles.withLeftAddons]: Boolean(leftAddons),
                         },
                     )}
                 >
+                    {leftAddons && <div className={commonStyles.addons}>{leftAddons}</div>}
                     <span className={commonStyles.content}>{children}</span>
-                    <span className={commonStyles.chevron}>
-                        {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
+                    <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
+                        {[40, 32].includes(size) ? (
                             <ChevronDownCompactSIcon />
                         ) : (
                             <ChevronDownMIcon />
@@ -210,22 +135,19 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         role='button'
                         className={cn(
                             commonStyles.clear,
+                            [colorStyles[colors].clear],
                             styles.clear,
-                            commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
-                            styles[SIZE_TO_CLASSNAME_MAP[size]],
-                            styles[shapeClassName],
-                            commonStyles[shapeClassName],
+                            commonStyles[getSizeClassName(size)],
+                            styles[getSizeClassName(size)],
+                            styles[shape],
+                            commonStyles[shape],
                         )}
                         onClick={handleClear}
                         onKeyDown={handleClear}
                         tabIndex={0}
                     >
                         <span className={commonStyles.iconWrapper}>
-                            {SIZE_TO_CLASSNAME_MAP[size] === 'size-32' ? (
-                                <CrossCircleSIcon />
-                            ) : (
-                                <CrossCircleMIcon />
-                            )}
+                            {size === 32 ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
                         </span>
                     </div>
                 )}
