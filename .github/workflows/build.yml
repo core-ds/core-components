@@ -24,6 +24,9 @@ jobs:
             - name: Install dependencies
               run: yarn
 
+            - name: Check tsconfig
+              run: yarn tsconfig check
+
             - name: Run lint
               run: yarn lint
 

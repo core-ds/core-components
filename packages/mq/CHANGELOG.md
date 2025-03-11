@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-mq
 
 ## 4.4.1
 
