@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-badge
 
 ## 5.6.4
 

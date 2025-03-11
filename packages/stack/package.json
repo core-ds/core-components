@@ -12,12 +12,12 @@
     },
     "sideEffects": false,
     "peerDependencies": {
+        "@alfalab/core-components-stack-context": "^0.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "tslib": "^2.4.0",
-        "@alfalab/stack-context": "^1.16.0"
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"
