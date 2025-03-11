@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-table
 
 ## 2.10.6
 

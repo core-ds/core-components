@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-action-button
 
 ## 1.7.9
 
