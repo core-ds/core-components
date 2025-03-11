@@ -1,16 +1,12 @@
-import {
-    hasImportSpecifier,
-    isIndexEntry,
-    modifyIdentifiers,
-    modifyImportPath,
-} from '../42-utils';
+import { hasImportSpecifier, isIndexEntry, modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const codeInputTransformer = (source, j) => {
     modifyImportPath(
         source,
         j,
         (path) => (isIndexEntry(path, 'code-input') ? `${path}/desktop` : path),
-        (path) => hasImportSpecifier(path, 'CodeInput') || hasImportSpecifier(path, 'CodeInputProps'),
+        (path) =>
+            hasImportSpecifier(path, 'CodeInput') || hasImportSpecifier(path, 'CodeInputProps'),
     );
     modifyIdentifiers(source, j, 'CodeInput', 'CodeInputDesktop');
     modifyIdentifiers(source, j, 'CodeInputProps', 'CodeInputDesktopProps');
