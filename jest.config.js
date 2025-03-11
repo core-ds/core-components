@@ -3,7 +3,7 @@ const ignoredModules = ['simplebar'];
 const baseConfig = {
     preset: 'ts-jest/presets/js-with-ts',
     modulePathIgnorePatterns: ['dist'],
-    globalSetup: './packages/globalSetup.ts',
+    globalSetup: './tools/jest/globalSetup.ts',
     globals: {
         'ts-jest': {
             babelConfig: {
@@ -12,6 +12,7 @@ const baseConfig = {
                     '@babel/plugin-proposal-nullish-coalescing-operator',
                 ],
             },
+            tsconfig: 'tsconfig.test.json',
         },
     },
     moduleNameMapper: {
@@ -21,24 +22,24 @@ const baseConfig = {
     },
     testPathIgnorePatterns: ['codemod'],
     transformIgnorePatterns: [`node_modules/(?!${ignoredModules.join('|')})`],
-}
+};
 
 module.exports = {
     projects: [
         {
             ...baseConfig,
-            displayName: 'csr', /* client side rendering */
+            displayName: 'csr' /* client side rendering */,
             testEnvironment: 'jest-environment-jsdom-sixteen',
-            setupFilesAfterEnv: ['./packages/setupTests.ts'],
+            setupFilesAfterEnv: ['./tools/jest/setupTests.ts'],
             testMatch: ['**/*.test.ts?(x)', '!**/*.(screenshots|ssr).test.ts?(x)'],
             coveragePathIgnorePatterns: ['index.ts'],
             coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
         },
         {
             ...baseConfig,
-            displayName: 'ssr', /* server side rendering */
+            displayName: 'ssr' /* server side rendering */,
             testEnvironment: 'node',
             testMatch: ['**/*.ssr.test.ts?(x)'],
-        }
+        },
     ],
 };

@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-icon-view
 
 ## 3.10.1
 

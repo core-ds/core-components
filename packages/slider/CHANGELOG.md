@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-slider
 
 ## 4.8.0
 

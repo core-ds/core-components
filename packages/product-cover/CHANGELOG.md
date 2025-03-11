@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-product-cover
 
 ## 1.3.3
 

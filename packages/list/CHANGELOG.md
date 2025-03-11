@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-list
 
 ## 3.5.3
 

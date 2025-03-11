@@ -1,5 +1,5 @@
-/bin
-/tools
+bin
+tools
 **/dist
 **/node_modules
 rollup.config.mjs

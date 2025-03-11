@@ -13,7 +13,7 @@ import { NoShape } from '@alfalab/core-components-icon-view/no-shape';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof NoShape> = {
     title: 'Components/IconView',

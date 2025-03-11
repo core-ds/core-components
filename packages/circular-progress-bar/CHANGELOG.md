@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-circular-progress-bar
 
 ## 3.9.0
 

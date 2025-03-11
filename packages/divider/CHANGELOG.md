@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-divider
 
 ## 3.3.4
 

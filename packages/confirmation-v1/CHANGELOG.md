@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-confirmation-v1
 
 ## 1.10.2
 

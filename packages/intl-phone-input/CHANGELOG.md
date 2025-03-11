@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-intl-phone-input
 
 ## 9.12.6
 

@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-navigation-bar
 
 ## 1.2.20
 

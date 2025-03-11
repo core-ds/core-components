@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-chart
 
 ## 3.4.12
 

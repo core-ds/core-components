@@ -35,7 +35,7 @@ describe('SelectWithTags', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             const { container } = render(

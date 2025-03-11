@@ -1,45 +1,47 @@
-import * as fs from 'node:fs/promises';
+import fs from 'node:fs/promises';
 import globby from 'globby';
 import path from 'node:path';
-import shell from 'shelljs';
 import * as process from 'node:process';
+import { getPackages } from '@manypkg/get-packages';
 
-const packages = JSON.parse(
-    shell.exec(
-        `lerna list \\
-        --ignore @alfalab/core-components-bank-card \\
-        --ignore @alfalab/core-components-themes \\
-        --ignore @alfalab/core-components-vars \\
-        --json \\
-        --all`,
-        { silent: true },
-    ).stdout,
-);
+const IGNORED_PACKAGES = [
+    '@alfalab/core-components-bank-card',
+    '@alfalab/core-components-screenshot-utils',
+    '@alfalab/core-components-test-utils',
+    '@alfalab/core-components-themes',
+    '@alfalab/core-components-vars',
+];
 
-const files = await globby(
-    packages.map(({ location }) =>
-        path.relative(process.cwd(), path.join(location, 'dist/**/*.css')),
-    ),
-);
+async function main() {
+    const packages = (await getPackages(process.cwd())).packages.filter(
+        ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
+    );
 
-const nonExistentVarsEntries = (
-    await Promise.all(
-        files.map(async (file) => {
-            const content = await fs.readFile(file, { encoding: 'utf8' });
-            const re = /(?<=var\().+?(?=\))/g;
-            let match = null;
-            const result = [];
+    const files = await globby(
+        packages.map(({ relativeDir }) => path.join(relativeDir, 'dist/**/*.css')),
+    );
 
-            while ((match = re.exec(content)) != null) {
-                result.push(match[0]);
-            }
+    const nonExistentVarsEntries = (
+        await Promise.all(
+            files.map(async (file) => {
+                const content = await fs.readFile(file, { encoding: 'utf8' });
+                const re = /(?<=var\().+?(?=\))/g;
+                let match = null;
+                const result = [];
 
-            return [file, result];
-        }),
-    )
-).filter(([, vars]) => vars.length > 0);
+                while ((match = re.exec(content)) != null) {
+                    result.push(match[0]);
+                }
 
-if (nonExistentVarsEntries.length > 0) {
+                return [file, result];
+            }),
+        )
+    ).filter(([, vars]) => vars.length > 0);
+
+    if (nonExistentVarsEntries.length === 0) {
+        return;
+    }
+
     console.log(
         [
             'Found non-existent css vars:',
@@ -54,3 +56,5 @@ if (nonExistentVarsEntries.length > 0) {
 
     process.exit(-1);
 }
+
+await main();

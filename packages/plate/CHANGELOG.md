@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-plate
 
 ## 7.8.12
 

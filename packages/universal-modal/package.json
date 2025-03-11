@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-base-modal": "^5.9.1",
-        "@alfalab/core-components-mq": "^4.3.0",
+        "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/core-components-navigation-bar-private": "^0.8.3",
         "@alfalab/core-components-shared": "^0.17.0",
         "@alfalab/core-components-button": "^11.11.8",
@@ -24,7 +24,6 @@
         "@alfalab/core-components-typography": "^4.13.1",
         "@alfalab/core-components-backdrop": "^3.4.5",
         "classnames": "^2.5.1",
-        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.3",

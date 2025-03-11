@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-notification-manager
 
 ## 5.8.11
 

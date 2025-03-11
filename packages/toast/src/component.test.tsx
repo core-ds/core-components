@@ -1,14 +1,14 @@
 import React, { forwardRef, ForwardRefRenderFunction } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import * as popoverModule from '@alfalab/core-components-popover';
+import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { ToastDesktop as Toast, ToastDesktopProps as ToastProps } from './desktop';
 
-import { asyncRender } from '../../utils/test-utils';
+import { asyncRender } from '@alfalab/core-components-test-utils';
 
 type PopoverComponent = {
-    render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
+    render?: ForwardRefRenderFunction<HTMLDivElement, PopoverProps>;
 };
 
 describe('Toast', () => {
@@ -87,14 +87,14 @@ describe('Toast', () => {
     });
 
     it('should pass props to Popover', async () => {
-        const PopoverComponent = popoverModule.Popover as PopoverComponent;
+        const PopoverComponent = Popover as PopoverComponent;
 
         const popoverComponentSpy = jest.spyOn(PopoverComponent, 'render');
 
         const anchorElement = document.createElement('div');
         document.body.appendChild(anchorElement);
 
-        const popoverProps: Partial<popoverModule.PopoverProps> = {
+        const popoverProps: Partial<PopoverProps> = {
             position: 'top',
             offset: [5, 5],
             open: true,

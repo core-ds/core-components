@@ -8,8 +8,7 @@ import type { InputAutocompleteProps } from '@alfalab/core-components-input-auto
 import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
 import type { InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
 import { OptionShape } from '@alfalab/core-components-select/typings';
-
-import { Country } from '../../types';
+import { Country } from '@alfalab/core-components-types';
 
 import type { SharedCountrySelectProps } from './components/country-select';
 import { CountriesData } from './data/country-data';
