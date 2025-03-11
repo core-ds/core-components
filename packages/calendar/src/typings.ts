@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { generateWeeks } from './utils';
+
 export type SpecialDays = Record<number, boolean>;
 
 export type DayAddons = {
@@ -28,6 +30,11 @@ export type Month = {
 
     disabled?: boolean;
 };
+
+export interface ActiveMonths extends Month {
+    weeks: ReturnType<typeof generateWeeks>;
+    title: string;
+}
 
 export type DateShift =
     | 'prev'
