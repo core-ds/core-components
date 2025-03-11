@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-select-with-tags
 
 ## 8.6.11
 

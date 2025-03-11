@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-slider-input
 
 ## 9.2.2
 

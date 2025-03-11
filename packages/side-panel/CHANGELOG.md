@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-side-panel
 
 ## 5.9.11
 
