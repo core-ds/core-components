@@ -32,9 +32,7 @@
     --color-light-qualitative-monocolor-indigo: var(--color-dark-qualitative-monocolor-indigo);
     --color-light-qualitative-monocolor-magenta: var(--color-dark-qualitative-monocolor-magenta);
     --color-light-qualitative-monocolor-orange: var(--color-dark-qualitative-monocolor-orange);
-    --color-light-qualitative-monocolor-pistachio: var(
-        --color-dark-qualitative-monocolor-pistachio
-    );
+    --color-light-qualitative-monocolor-pistachio: var(--color-dark-qualitative-monocolor-pistachio);
     --color-light-qualitative-monocolor-red: var(--color-dark-qualitative-monocolor-red);
     --color-light-qualitative-monocolor-teal: var(--color-dark-qualitative-monocolor-teal);
     --color-light-qualitative-monocolor-yellow: var(--color-dark-qualitative-monocolor-yellow);

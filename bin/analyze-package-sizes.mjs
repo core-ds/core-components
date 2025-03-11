@@ -1,8 +1,16 @@
 import * as esbuild from 'esbuild';
 import globby from 'globby';
-import shell from 'shelljs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import * as process from 'node:process';
+import { getPackages } from '@manypkg/get-packages';
+
+const IGNORED_PACKAGES = [
+    '@alfalab/core-components',
+    '@alfalab/core-components-codemod',
+    '@alfalab/core-components-themes',
+    '@alfalab/core-components-vars',
+];
 
 const ENTRY_POINTS = [
     'desktop',
@@ -48,21 +56,16 @@ async function calculateBundleSize(location) {
     return Object.fromEntries(entries);
 }
 
-const packages = JSON.parse(
-    shell.exec(
-        `lerna list \\
-        --ignore @alfalab/core-components-codemod \\
-        --ignore @alfalab/core-components-themes \\
-        --ignore @alfalab/core-components-vars \\
-        --json
-        --all`,
-        { silent: true },
-    ).stdout,
+const packages = (await getPackages(process.cwd())).packages.filter(
+    ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
 );
 
 const packageSizes = Object.fromEntries(
     await Promise.all(
-        packages.map(async ({ name, location }) => [name, await calculateBundleSize(location)]),
+        packages.map(async ({ dir, packageJson: { name } }) => [
+            name,
+            await calculateBundleSize(dir),
+        ]),
     ),
 );
 

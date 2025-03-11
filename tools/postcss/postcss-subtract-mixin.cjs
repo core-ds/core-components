@@ -6,6 +6,9 @@ function sha256(str) {
     return crypto.createHash('sha256').update(str, 'utf8').digest('hex');
 }
 
+/**
+ * @returns {import('postcss').AcceptedPlugin}
+ */
 const postcssSubtractMixin = () => ({
     postcssPlugin: 'postcss-subtract-mixin-plugin',
     prepare: () => {
@@ -33,10 +36,12 @@ const postcssSubtractMixin = () => ({
             OnceExit: () => {
                 while (store.length > 0) {
                     const rules = store.pop();
-                    // rules.forEach((rule) => {
-                    //     // every rule must have declarations only
-                    //     assert(rule.nodes.every((node) => node.type == 'decl'));
-                    // });
+                    rules.forEach((rule) => {
+                        assert(
+                            rule.nodes.every((node) => node.type == 'decl'),
+                            'Every rule must have declarations only',
+                        );
+                    });
                     const [source, ...rest] = rules;
                     const subtracts = rest.map(({ nodes }) => nodes).reduce((a, b) => a.concat(b));
 
@@ -56,7 +61,5 @@ const postcssSubtractMixin = () => ({
         };
     },
 });
-
-postcssSubtractMixin.postcss = true;
 
 module.exports = postcssSubtractMixin;

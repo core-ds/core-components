@@ -1,25 +1,21 @@
-import * as fs from 'node:fs/promises';
+import fs from 'node:fs/promises';
 import globby from 'globby';
 import path from 'node:path';
-import shell from 'shelljs';
 import * as process from 'node:process';
+import { getPackages } from '@manypkg/get-packages';
 
-const packages = JSON.parse(
-    shell.exec(
-        `lerna list \\
-        --ignore @alfalab/core-components-bank-card \\
-        --ignore @alfalab/core-components-themes \\
-        --ignore @alfalab/core-components-vars \\
-        --json \\
-        --all`,
-        { silent: true },
-    ).stdout,
+const IGNORED_PACKAGES = [
+    '@alfalab/core-components-bank-card',
+    '@alfalab/core-components-themes',
+    '@alfalab/core-components-vars',
+];
+
+const packages = (await getPackages(process.cwd())).packages.filter(
+    ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
 );
 
 const files = await globby(
-    packages.map(({ location }) =>
-        path.relative(process.cwd(), path.join(location, 'dist/**/*.css')),
-    ),
+    packages.map(({ relativeDir }) => path.join(relativeDir, 'dist/**/*.css')),
 );
 
 const nonExistentVarsEntries = (

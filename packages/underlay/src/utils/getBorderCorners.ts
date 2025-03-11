@@ -1,4 +1,4 @@
-import { CornersRadiusType, UnderlayBorderRadius } from '../types';
+import type { CornersRadiusType, UnderlayBorderRadius } from '../types';
 
 import styles from '../index.module.css';
 

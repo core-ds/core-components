@@ -1,12 +1,13 @@
 import globby from 'globby';
 import path from 'node:path';
 import fs from 'fs/promises';
-import shell from 'shelljs';
+import * as process from 'node:process';
+import { getPackages } from '@manypkg/get-packages';
 
-const packages = JSON.parse(shell.exec(`lerna list --json --all`, { silent: true }).stdout);
+const { packages } = await getPackages(process.cwd());
 
 const previews = (
-    await Promise.all(packages.map(({ location }) => globby(`${location}/**/*preview-snap.png`)))
+    await Promise.all(packages.map(({ dir }) => globby(`${dir}/src/**/*-preview-snap.png`)))
 ).reduce((a, b) => a.concat(b));
 
 await Promise.all(
@@ -15,4 +16,29 @@ await Promise.all(
 
         return fs.cp(previewPath, targetPath);
     }),
+);
+
+if (!(process.env.BUILD_STORYBOOK_FROM_DIST === 'true')) {
+    process.exit(0);
+}
+
+const rootPkg = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components');
+
+const rootPkgDependencies = Object.keys({
+    ...rootPkg.packageJson.dependencies,
+    ...rootPkg.packageJson.peerDependencies,
+}).filter((name) => name.startsWith('@alfalab/core-components-'));
+
+await fs.mkdir('dist');
+
+await Promise.all(
+    packages
+        .filter(({ packageJson }) => rootPkgDependencies.includes(packageJson.name))
+        .map(({ relativeDir, packageJson: { name } }) => {
+            const componentName = name.replace('@alfalab/core-components-', '');
+            const dist = path.join(relativeDir, 'dist');
+            const entrypoint = path.join('dist', componentName);
+
+            return fs.cp(dist, entrypoint, { recursive: true });
+        }),
 );

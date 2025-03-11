@@ -1,4 +1,4 @@
-name: package sizes
+name: package-sizes
 
 on: pull_request
 
@@ -54,6 +54,8 @@ jobs:
         outputs:
             result: ${{ steps.compare.outputs.result }}
         steps:
+            - uses: actions/checkout@v4
+
             - name: download target
               uses: actions/download-artifact@v4
               with:
@@ -72,45 +74,9 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      const fs = require('node:fs/promises');
-                      const targetFile = require('./target/package-sizes.json');
-                      const currentFile = require('./current/package-sizes.json');
+                      const run = require('./tools/gh-actions/package-sizes/prepare-comment.js');
 
-                      let shouldComment = false;
-
-                      const targetComponents = Object.keys(targetFile);
-                      const currentComponents = Object.keys(currentFile);
-
-                      const table = [...new Set([...targetComponents, ...currentComponents])]
-                         .sort((a, b) => a.localeCompare(b))
-                         .reduce((acc, packageName) => {
-                              const entryPoints = [
-                                  ...new Set([
-                                      ...Object.keys(targetFile[packageName] || {}),
-                                      ...Object.keys(currentFile[packageName] || {}),
-                                  ]),
-                              ];
-
-                              entryPoints.forEach((entryPoint) => {
-                                  const now = currentFile[packageName]?.[entryPoint] || 0;
-                                  const before = targetFile[packageName]?.[entryPoint] || 0;
-
-                                  if (Math.abs(now - before) >= 1) {
-                                      shouldComment = true;
-                                      acc += `| ${packageName}/${entryPoint} | ${now} ${
-                                          now - before > 0
-                                              ? `(+${(now - before).toFixed(2)} KB ❌)`
-                                              : `(-${(before - now).toFixed(2)} KB ✅)`
-                                      } |\n`;
-                                  }
-                              });
-
-                              return acc;
-                          },
-                          '## Bundle size report\n| Entry point | Size (minified) |\n| --- | --- |\n',
-                      );
-
-                      return shouldComment ? table : '';
+                      return await run({ github, context, core, glob, io, exec });
 
     comment:
         name: comment
@@ -123,7 +89,7 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   issue-number: ${{ github.event.pull_request.number }}
-                  comment-author: github-actions[bot]
+                  comment-author: 'github-actions[bot]'
                   body-includes: Bundle size report
 
             - name: create or update comment
@@ -142,12 +108,8 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   script: |
-                      const owner = process.env.GITHUB_REPOSITORY_OWNER;
-                      const repo = process.env.GITHUB_REPOSITORY.replace(`${owner}/`, '');
-                      const comment_id = '${{ steps.find-comment.outputs.comment-id }}';
-
                       await github.rest.issues.deleteComment({
-                        owner,
-                        repo,
-                        comment_id,
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          comment_id: '${{ steps.find-comment.outputs.comment-id }}',
                       });
