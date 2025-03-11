@@ -1,0 +1,27 @@
+name: Resolve demo dir
+
+outputs:
+    demo-dir:
+        description: 'Demo directory'
+        value: ${{ steps.resolve.outputs.result }}
+
+runs:
+    using: composite
+    steps:
+        - id: resolve
+          uses: actions/github-script@v6
+          with:
+              result-encoding: string
+              script: |
+                  const assert = require('node:assert/strict');
+
+                  switch (process.env.GITHUB_REF_NAME) {
+                      case 'master':
+                      case 'beta':
+                      case 'next':
+                          return process.env.GITHUB_REF_NAME;
+                      default:
+                          assert(/^\d+\/merge$/.test(process.env.GITHUB_REF_NAME));
+
+                          return process.env.GITHUB_REF_NAME.replace(/\/merge$/, '');
+                  }

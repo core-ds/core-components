@@ -141,7 +141,7 @@ function buildStorybookUrl() {
 
 function parseScopeFromCommit(message) {
     const matches = /^[^\(]*\(([^\)]*)\):.*$/.exec(message);
-    if (matches && ['themes', 'vars'].includes(matches[1]) === false) {
+    if (matches && !['themes', 'vars', 'config', 'stack-context', 'root'].includes(matches[1])) {
         return matches[1];
     }
 }

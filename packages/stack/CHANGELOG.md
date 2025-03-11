@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-stack
 
 ## 5.0.1
 

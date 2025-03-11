@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-status-badge
 
 ## 1.2.3
 

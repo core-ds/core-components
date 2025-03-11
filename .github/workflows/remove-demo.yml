@@ -1,0 +1,35 @@
+name: Remove demo
+
+on:
+    pull_request:
+        types: [closed]
+
+concurrency: gh-pages
+
+jobs:
+    demo:
+        name: Remove demo
+        if: ${{ github.repository }} == 'core-ds/core-components'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: gh-pages
+                  lfs: true
+                  fetch-depth: 1
+
+            - uses: ./.github/actions/resolve-demo-dir
+              id: resolve
+
+            - name: Remove demo
+              shell: bash
+              run: |
+                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
+                  git config user.name 'github-actions[bot]'
+                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+                  rm -rf ${{ steps.resolve.outputs.demo-dir }}
+
+                  git add .
+                  git commit -n -m 'Removed demo'
+                  git push

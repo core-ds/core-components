@@ -1,0 +1,139 @@
+name: Demo
+
+on:
+    pull_request:
+    push:
+        branches:
+            - master
+            - beta
+            - next
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        name: Build
+        if: ${{ github.repository }} == 'core-ds/core-components'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  lfs: true
+                  fetch-depth: 1
+
+            - uses: ./.github/actions/ci-setup
+
+            - name: Build dist
+              shell: bash
+              env:
+                  BUILD_MODERN_ONLY: 'true'
+              run: |
+                  yarn build
+
+            - name: Build demo
+              shell: bash
+              env:
+                  BUILD_STORYBOOK_FROM_DIST: 'true'
+              run: |
+                  yarn build-storybook
+
+            - name: Upload build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: build
+                  path: build
+
+    resolve-dir:
+        name: Resolve directory
+        runs-on: ubuntu-latest
+        outputs:
+            dir: ${{ steps.resolve.outputs.demo-dir }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 1
+
+            - uses: ./.github/actions/resolve-demo-dir
+              id: resolve
+
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        concurrency: gh-pages
+        needs: [build, resolve-dir]
+        outputs:
+            url: ${{ steps.deploy.outputs.demo-url }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: gh-pages
+                  lfs: true
+                  fetch-depth: 1
+
+            - name: Clean up
+              shell: bash
+              run: |
+                  rm -rf ${{ needs.resolve-dir.outputs.dir }}
+
+            - name: Download build
+              uses: actions/download-artifact@v4
+              with:
+                  name: build
+                  path: ${{ needs.resolve-dir.outputs.dir }}
+
+            - name: Deploy to GitHub Pages
+              id: deploy
+              shell: bash
+              run: |
+                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
+                  git config user.name 'github-actions[bot]'
+                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+                  git add .
+                  git commit -n -m 'Deploy Storybook to GitHub Pages'
+                  git push
+
+                  echo "demo-url=https://${{ github.repository_owner }}.github.io/$(echo ${{ github.repository }} | sed 's,^${{ github.repository_owner }}/\(.*\)$,\1,g')/${{ needs.resolve-dir.outputs.dir }}" >> $GITHUB_OUTPUT
+
+    comment:
+        name: Comment
+        runs-on: ubuntu-latest
+        needs: deploy
+        steps:
+            - name: Find open PR
+              uses: jwalton/gh-find-current-pr@v1
+              id: find-pr
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Find comment
+              if: steps.find-pr.outputs.number != ''
+              uses: peter-evans/find-comment@v3
+              id: find-comment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-number: ${{ steps.find-pr.outputs.number }}
+                  comment-author: github-actions[bot]
+                  body-regex: '^Собрана новая \[демка\]\(.*\)\.$'
+
+            - name: Create comment
+              if: steps.find-pr.outputs.number != '' && steps.find-comment.outputs.comment-id == ''
+              uses: peter-evans/create-or-update-comment@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-number: ${{ steps.find-pr.outputs.number }}
+                  body: |
+                      Собрана новая [демка](${{ needs.deploy.outputs.url }}).
+                  reactions: 'rocket'
+
+            - name: Update comment
+              if: steps.find-comment.outputs.comment-id != ''
+              uses: peter-evans/create-or-update-comment@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  comment-id: ${{ steps.find-comment.outputs.comment-id }}
+                  body: |
+                      Собрана новая [демка](${{ needs.deploy.outputs.url }}).
+                  edit-mode: replace

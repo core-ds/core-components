@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-global-store
 
 ## 2.1.0
 
