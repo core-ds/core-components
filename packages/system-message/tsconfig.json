@@ -1,21 +1,15 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-types/*": ["../types/src/*"]
         }
     },
-    "references": [
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../shared"
-        },
-        {
-            "path": "../types"
-        }
-    ]
+    "references": [{ "path": "../mq" }, { "path": "../shared" }, { "path": "../types" }]
 }

@@ -12,6 +12,7 @@ const baseConfig = {
                     '@babel/plugin-proposal-nullish-coalescing-operator',
                 ],
             },
+            tsconfig: 'tsconfig.test.json',
         },
     },
     moduleNameMapper: {
@@ -21,13 +22,13 @@ const baseConfig = {
     },
     testPathIgnorePatterns: ['codemod'],
     transformIgnorePatterns: [`node_modules/(?!${ignoredModules.join('|')})`],
-}
+};
 
 module.exports = {
     projects: [
         {
             ...baseConfig,
-            displayName: 'csr', /* client side rendering */
+            displayName: 'csr' /* client side rendering */,
             testEnvironment: 'jest-environment-jsdom-sixteen',
             setupFilesAfterEnv: ['./packages/setupTests.ts'],
             testMatch: ['**/*.test.ts?(x)', '!**/*.(screenshots|ssr).test.ts?(x)'],
@@ -36,9 +37,9 @@ module.exports = {
         },
         {
             ...baseConfig,
-            displayName: 'ssr', /* server side rendering */
+            displayName: 'ssr' /* server side rendering */,
             testEnvironment: 'node',
             testMatch: ['**/*.ssr.test.ts?(x)'],
-        }
+        },
     ],
 };

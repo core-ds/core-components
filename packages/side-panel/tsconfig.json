@@ -1,33 +1,25 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-drawer/*": ["../drawer/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../base-modal"
-        },
-        {
-            "path": "../drawer"
-        },
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../icon-button"
-        },
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../navigation-bar-private"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../base-modal" },
+        { "path": "../drawer" },
+        { "path": "../mq" },
+        { "path": "../navigation-bar-private" },
+        { "path": "../shared" }
     ]
 }

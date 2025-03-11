@@ -1,24 +1,31 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-backdrop/*": ["../backdrop/src/*"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
+        { "path": "../backdrop" },
         { "path": "../base-modal" },
         { "path": "../button" },
-        { "path": "../icon-button" },
         { "path": "../mq" },
         { "path": "../navigation-bar-private" },
-        { "path": "../shared" },
         { "path": "../scrollbar" },
-        { "path": "../typography" },
-        { "path": "../backdrop" }
+        { "path": "../shared" },
+        { "path": "../typography" }
     ]
 }

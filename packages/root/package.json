@@ -2,10 +2,6 @@
     "name": "@alfalab/core-components",
     "version": "48.20.0",
     "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/core-ds/core-components.git"
-    },
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
     },
@@ -144,8 +140,5 @@
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    },
-    "resolutions": {
-        "es5-ext": "0.10.53"
     }
 }

@@ -1,20 +1,14 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-input-autocomplete/*": ["../input-autocomplete/src/*"],
             "@alfalab/core-components-select/*": ["../select/src/*"]
         }
     },
-    "references": [
-        {
-            "path": "../input-autocomplete"
-        },
-        {
-            "path": "../select"
-        }
-    ]
+    "references": [{ "path": "../input-autocomplete" }, { "path": "../select" }]
 }

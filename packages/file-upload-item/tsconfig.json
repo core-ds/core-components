@@ -1,28 +1,23 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
             "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
+            "@alfalab/core-components-link/*": ["../link/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../icon-button"
-        },
-        {
-            "path": "../link"
-        },
-        {
-            "path": "../spinner"
-        },
-        {
-            "path": "../typography"
-        },
-        {
-            "path": "../icon-view"
-        }
+        { "path": "../icon-button" },
+        { "path": "../icon-view" },
+        { "path": "../link" },
+        { "path": "../spinner" },
+        { "path": "../typography" }
     ]
 }

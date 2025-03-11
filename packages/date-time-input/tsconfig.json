@@ -1,35 +1,25 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
-            "@alfalab/core-components-input/*": ["../input/src/*"]
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@alfalab/core-components-input/*": ["../input/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../input"
-        },
-        {
-            "path": "../icon-button"
-        },
-        {
-            "path": "../calendar"
-        },
-        {
-            "path": "../popover"
-        },
-        {
-            "path": "../modal"
-        },
-        {
-            "path": "../shared"
-        },
-        {
-            "path": "../mq"
-        }
+        { "path": "../calendar" },
+        { "path": "../icon-button" },
+        { "path": "../input" },
+        { "path": "../mq" },
+        { "path": "../popover" },
+        { "path": "../shared" }
     ]
 }

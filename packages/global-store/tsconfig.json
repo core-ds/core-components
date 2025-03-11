@@ -1,10 +1,8 @@
 {
-    "include": ["src", "../../typings/*"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
-        }
+        "rootDir": "src"
     }
 }

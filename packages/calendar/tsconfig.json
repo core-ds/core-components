@@ -1,32 +1,25 @@
 {
-    "include": ["src", "../../typings", "src/*.json"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"]
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@alfalab/core-components-modal/*": ["../modal/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../icon-button"
-        },
-        {
-            "path": "../modal"
-        },
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../shared"
-        },
-        {
-            "path": "../typography"
-        }
+        { "path": "../button" },
+        { "path": "../icon-button" },
+        { "path": "../modal" },
+        { "path": "../mq" },
+        { "path": "../shared" },
+        { "path": "../typography" }
     ]
 }

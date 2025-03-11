@@ -1,55 +1,39 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-badge/*": ["../badge/src/*"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-bottom-sheet/*": ["../bottom-sheet/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-checkbox/*": ["../checkbox/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-input/*": ["../input/src/*"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../form-control"
-        },
-        {
-            "path": "../input"
-        },
-        {
-            "path": "../popover"
-        },
-        {
-            "path": "../skeleton"
-        },
-        {
-            "path": "../checkbox"
-        },
-        {
-            "path": "../bottom-sheet"
-        },
-        {
-            "path": "../base-modal"
-        },
-        {
-            "path": "../modal"
-        },
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../scrollbar"
-        },
-        {
-            "path": "../badge"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../badge" },
+        { "path": "../base-modal" },
+        { "path": "../bottom-sheet" },
+        { "path": "../button" },
+        { "path": "../checkbox" },
+        { "path": "../form-control" },
+        { "path": "../input" },
+        { "path": "../modal" },
+        { "path": "../mq" },
+        { "path": "../popover" },
+        { "path": "../scrollbar" },
+        { "path": "../shared" },
+        { "path": "../skeleton" }
     ]
 }

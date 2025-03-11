@@ -10,8 +10,6 @@ CONCURRENCY=${BUILD_CONCURRENCY:=10}
 
 echo "start build on $CONCURRENCY parallel process"
 
-mkdir -p dist
-
 # собираю css пакеты
 copy_css="yarn copyfiles -u 1 \"src/**/*.{css,js}\" dist"
 lerna exec \
@@ -29,14 +27,3 @@ lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/export-css-c
 lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
     -- $(pwd)/bin/rollup.sh
-
-node $(pwd)/bin/build-root.js
-
-# копирую package.json в сборку корневого пакета
-cp package.json dist/package.json
-
-# копирую README.md в сборку корневого пакета
-cp README.md dist/README.md
-
-# делаю корневой пакет публичным
-yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"

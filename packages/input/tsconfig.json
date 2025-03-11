@@ -1,31 +1,23 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"]
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-status-badge/*": ["../status-badge/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../form-control"
-        },
-        {
-            "path": "../loader"
-        },
-        {
-            "path": "../status-badge"
-        },
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../button" },
+        { "path": "../form-control" },
+        { "path": "../mq" },
+        { "path": "../shared" },
+        { "path": "../status-badge" }
     ]
 }

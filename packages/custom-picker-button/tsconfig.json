@@ -1,26 +1,23 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-custom-button/*": ["../custom-button/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../custom-button"
-        },
-        {
-            "path": "../picker-button"
-        },
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../custom-button" },
+        { "path": "../mq" },
+        { "path": "../picker-button" },
+        { "path": "../select" },
+        { "path": "../shared" }
     ]
 }

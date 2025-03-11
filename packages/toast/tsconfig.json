@@ -1,31 +1,25 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-portal/*": ["../portal/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-stack/*": ["../stack/src/*"],
             "@alfalab/core-components-toast-plate/*": ["../toast-plate/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../toast-plate"
-        },
-        {
-            "path": "../popover"
-        },
-        {
-            "path": "../portal"
-        },
-        {
-            "path": "../stack"
-        },
-        {
-            "path": "../mq"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../mq" },
+        { "path": "../popover" },
+        { "path": "../portal" },
+        { "path": "../shared" },
+        { "path": "../stack" },
+        { "path": "../toast-plate" }
     ]
 }

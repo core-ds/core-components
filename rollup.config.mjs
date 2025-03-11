@@ -1,4 +1,6 @@
-import multiInput from 'rollup-plugin-multi-input';
+import path from 'path';
+import detectIndent from 'detect-indent';
+import glob from 'glob';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
@@ -20,16 +22,11 @@ const externals = [
  */
 const baseConfig = {
     cache: false,
-    input: [
-        'src/**/*.{ts,tsx}',
-        '!src/**/*.{test,stories}.{ts,tsx}',
-        '!src/**/*.mdx',
-        '!src/**/*.d.ts',
-    ],
+    input: glob.sync('src/**/*.{ts,tsx}', {
+        ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
+    }),
     plugins: [json()],
 };
-
-const multiInputPlugin = multiInput();
 
 const assetsCopyPlugin = (dest) =>
     copy({
@@ -79,18 +76,16 @@ const es5 = {
             preserveModules: true,
             preserveModulesRoot: 'src',
             hoistTransitiveImports: false,
+            sourcemap: true,
+            sourcemapPathTransform: (relativeSourcePath) => path.relative('..', relativeSourcePath),
         },
     ],
     plugins: [
         ...baseConfig.plugins,
-        multiInputPlugin,
         externalsResolver(externals),
         typescript({
-            baseUrl: '.',
-            rootDir: 'src',
             outDir: 'dist',
             declarationDir: 'dist',
-            tsconfig: './tsconfig.json',
             tsBuildInfoFile: 'tsconfig.tsbuildinfo',
         }),
         processCss(),
@@ -117,20 +112,19 @@ const cssm = {
             preserveModules: true,
             preserveModulesRoot: 'src',
             hoistTransitiveImports: false,
+            sourcemap: true,
+            sourcemapPathTransform: (relativeSourcePath) =>
+                path.relative('../..', relativeSourcePath),
         },
     ],
     plugins: [
         ...baseConfig.plugins,
-        multiInputPlugin,
         coreComponentsResolver('cssm'),
         externalsResolver(externals),
         typescript({
-            baseUrl: '.',
-            rootDir: 'src',
             outDir: 'dist/cssm',
             declarationDir: 'dist/cssm',
-            tsconfig: './tsconfig.json',
-            tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+            tsBuildInfoFile: 'tsconfig.cssm.tsbuildinfo',
         }),
         processCss({ modules: false }),
         assetsCopyPlugin('dist/cssm'),
@@ -151,21 +145,20 @@ const modern = {
             hoistTransitiveImports: false,
             preserveModules: true,
             preserveModulesRoot: 'src',
+            sourcemap: true,
+            sourcemapPathTransform: (relativeSourcePath) =>
+                path.relative('../..', relativeSourcePath),
         },
     ],
     plugins: [
         ...baseConfig.plugins,
-        multiInputPlugin,
         coreComponentsResolver('modern'),
         externalsResolver(externals),
         typescript({
-            baseUrl: '.',
-            rootDir: 'src',
+            target: 'es2020',
             outDir: 'dist/modern',
             declarationDir: 'dist/modern',
-            tsconfig: './tsconfig.json',
-            tsBuildInfoFile: 'tsconfig.tsbuildinfo',
-            target: 'es2020',
+            tsBuildInfoFile: 'tsconfig.modern.tsbuildinfo',
         }),
         processCss(),
         assetsCopyPlugin('dist/modern'),
@@ -188,21 +181,20 @@ const moderncssm = {
             hoistTransitiveImports: false,
             preserveModules: true,
             preserveModulesRoot: 'src',
+            sourcemap: true,
+            sourcemapPathTransform: (relativeSourcePath) =>
+                path.relative('../..', relativeSourcePath),
         },
     ],
     plugins: [
         ...baseConfig.plugins,
-        multiInputPlugin,
         coreComponentsResolver('moderncssm'),
         externalsResolver(externals),
         typescript({
-            baseUrl: '.',
-            rootDir: 'src',
+            target: 'es2020',
             outDir: 'dist/moderncssm',
             declarationDir: 'dist/moderncssm',
-            tsconfig: './tsconfig.json',
-            tsBuildInfoFile: 'tsconfig.tsbuildinfo',
-            target: 'es2020',
+            tsBuildInfoFile: 'tsconfig.moderncssm.tsbuildinfo',
         }),
         processCss({
             noCommonVars: true,
@@ -225,20 +217,19 @@ const esm = {
             preserveModules: true,
             preserveModulesRoot: 'src',
             hoistTransitiveImports: false,
+            sourcemap: true,
+            sourcemapPathTransform: (relativeSourcePath) =>
+                path.relative('../..', relativeSourcePath),
         },
     ],
     plugins: [
         ...baseConfig.plugins,
         coreComponentsResolver('esm'),
         externalsResolver(externals),
-        multiInputPlugin,
         typescript({
-            baseUrl: '.',
-            rootDir: 'src',
             outDir: 'dist/esm',
             declarationDir: 'dist/esm',
-            tsconfig: './tsconfig.json',
-            tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+            tsBuildInfoFile: 'tsconfig.esm.tsbuildinfo',
         }),
         processCss(),
         assetsCopyPlugin('dist'),
@@ -257,13 +248,15 @@ const root = {
                     src: 'package.json',
                     dest: 'dist',
                     transform: (contents) => {
-                        const json = JSON.parse(contents.toString('utf8'));
+                        const content = contents.toString('utf8');
+                        const { indent } = detectIndent(content);
+                        const pkgJSON = JSON.parse(content);
 
-                        json.scripts = {
+                        pkgJSON.scripts = {
                             postinstall: 'node postinstall.js',
                         };
 
-                        return `${JSON.stringify(json, null, 2)}\n`;
+                        return `${JSON.stringify(pkgJSON, null, indent)}\n`;
                     },
                 },
             ],

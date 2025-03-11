@@ -5,7 +5,7 @@ import postcss from 'postcss';
 import postcssModules from 'postcss-modules';
 import postcssImport from 'postcss-import';
 import stringHash from 'string-hash';
-import { currentComponentName, currentPackageDir, rootPkg, pkg } from './common.mjs';
+import { currentComponentName, currentPackageDir, pkg } from './common.mjs';
 
 import postcssConfig from '../../postcss.config.js';
 
@@ -106,7 +106,7 @@ async function processPostcss(filePath, config = {}) {
                 generateScopedName: function (name, fileName) {
                     const relativeFileName = path.relative(currentPackageDir, fileName);
 
-                    const hash = generateClassNameHash(pkg.name, rootPkg.version, relativeFileName);
+                    const hash = generateClassNameHash(pkg.name, pkg.version, relativeFileName);
 
                     return `${currentComponentName}__${name}_${hash}`;
                 },

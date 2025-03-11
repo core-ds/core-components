@@ -1,5 +1,5 @@
 {
-    "name": "root",
+    "name": "monorepo",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -11,6 +11,7 @@
     "scripts": {
         "build": "./bin/build.sh",
         "start": "storybook dev -p 9009",
+        "prebuild-storybook": "node bin/prebuild-storybook.mjs",
         "build-storybook": "storybook build -o build --quiet",
         "build-storybook-from-dist": "cross-env BUILD_MODERN_ONLY=true yarn build && cross-env BUILD_STORYBOOK_FROM_DIST=true yarn build-storybook",
         "serve-storybook": "http-server build -p 9009",
@@ -25,7 +26,7 @@
         "test:screenshots": "./bin/run-screenshots.sh",
         "test:codemod": "jest --config=jest.codemod.config.js packages/codemod/",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
-        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist,.rollup.cache} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png",
+        "clean": "rimraf packages/*/{*.tsbuildinfo,dist,.rollup.cache} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png",
         "cm": "git-cz",
         "postbuild": "yarn purgecss",
         "purgecss": "./bin/purgecss.sh",
@@ -35,7 +36,8 @@
         "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
         "write-vars-and-themes-version": "node ./bin/write-vars-and-themes-version.js",
         "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master",
-        "generate-dark-colors": " node ./tools/dark-colors-generator.js"
+        "generate-dark-colors": " node ./tools/dark-colors-generator.js",
+        "tsconfig": "node bin/tsconfig/cli.mjs"
     },
     "browserslist": {
         "production": [
@@ -77,7 +79,7 @@
         "@types/jest": "^26.0.15",
         "@types/jest-image-snapshot": "^6.1.0",
         "@types/lodash": "^4.17.13",
-        "@types/node": "^13.5.0",
+        "@types/node": "^20.17.24",
         "@types/react": "^18.0.15",
         "@types/react-dom": "^18.0.6",
         "@types/swiper": "^5.4.3",
@@ -95,6 +97,7 @@
         "css-minimizer-webpack-plugin": "^3.4.1",
         "cz-conventional-changelog": "^3.2.0",
         "depcheck": "^1.4.3",
+        "detect-indent": "^7.0.1",
         "eslint": "^8.26.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^17.0.0",
@@ -136,7 +139,7 @@
         "postcss-modules": "^6.0.1",
         "postcss-preset-env": "^6.7.0",
         "prettier": "^2.7.1",
-        "purgecss": "^2.2.1",
+        "purgecss": "^7.0.2",
         "querystring-es3": "^0.2.1",
         "raw-loader": "^4.0.1",
         "react": "^18.2.0",
@@ -146,7 +149,6 @@
         "rimraf": "^3.0.2",
         "rollup": "^4.29.1",
         "rollup-plugin-copy": "^3.5.0",
-        "rollup-plugin-multi-input": "^1.5.0",
         "rollup-pluginutils": "^2.8.2",
         "shelljs": "^0.8.5",
         "standard-version": "^8.0.0",
@@ -159,7 +161,9 @@
         "ts-jest": "^26.4.4",
         "typescript": "~4.7.4",
         "ui-primitives": "^22.7.0",
-        "url-loader": "^4.1.1"
+        "url-loader": "^4.1.1",
+        "webpack": "^5.98.0",
+        "yargs": "^17.7.2"
     },
     "prettier": "arui-presets-lint/prettier",
     "eslintConfig": {
@@ -246,5 +250,8 @@
     "resolutions": {
         "es5-ext": "0.10.53"
     },
-    "packageManager": "yarn@1.22.22"
+    "packageManager": "yarn@1.22.22",
+    "engines": {
+        "node": ">=20"
+    }
 }

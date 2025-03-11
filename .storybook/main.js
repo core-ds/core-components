@@ -2,10 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { patchWebpackConfig } = require('storybook-addon-live-examples/dist/cjs/utils');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const ComponentResolverPlugin = require('./utils/componentsResolver');
-const DefinePlugin = require('webpack').DefinePlugin;
+const { DefinePlugin, NormalModuleReplacementPlugin } = require('webpack');
+
 const cssModuleRegex = /\.module\.css$/;
 const cssRegex = /\.css$/;
+const packagesDir = path.resolve(__dirname, '../packages');
+const distDir = path.resolve(__dirname, '../dist');
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -16,8 +18,7 @@ const addDirsForTranspile = (config) => {
                     nestedRule.test.test('.tsx') &&
                     nestedRule.loader.includes('babel-loader')
                 ) {
-                    const paths = [path.resolve(__dirname, '../packages')];
-                    nestedRule.include.push(...paths);
+                    nestedRule.include.push(packagesDir);
                 }
             });
         }
@@ -34,7 +35,7 @@ function modifyCssRules(config) {
     );
 
     group.oneOf[cssRuleIndex] = {
-        test: /\.css$/,
+        test: cssRegex,
         exclude: cssModuleRegex,
         use: [
             {
@@ -127,7 +128,7 @@ module.exports = {
                 ...config.resolve.fallback,
                 querystring: require.resolve('querystring-es3'),
             },
-            plugins: [...config.resolve.plugins, new ComponentResolverPlugin()],
+            plugins: config.resolve.plugins,
             alias: {
                 ...config.resolve.alias,
                 storybook: path.resolve(__dirname),
@@ -157,6 +158,32 @@ module.exports = {
                 plugin.constructor.name,
             );
         });
+
+        config.plugins.unshift(
+            new NormalModuleReplacementPlugin(/^@alfalab\/core-components[-\/]/, function (
+                resource,
+            ) {
+                resource.request = resource.request.replace(
+                    /^@alfalab\/core-components[-\/]([^\/]+)\/?(.*)/,
+                    (_, componentName, entrypoint) =>
+                        (process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
+                            ? [
+                                  distDir,
+                                  componentName,
+                                  entrypoint.startsWith('modern') ? '' : 'modern',
+                                  entrypoint,
+                              ]
+                            : [packagesDir, componentName, 'src', entrypoint]
+                        )
+                            .filter(Boolean)
+                            .join('/'),
+                );
+
+                if (resource.createData) {
+                    resource.createData.request = resource.request;
+                }
+            }),
+        );
 
         config.plugins.push(
             new MiniCssExtractPlugin({

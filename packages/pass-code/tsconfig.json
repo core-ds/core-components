@@ -1,25 +1,21 @@
 {
-    "include": ["src", "../../typings", "../utils"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-gap/*": ["../gap/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../gap"
-        },
-        {
-            "path": "../shared"
-        },
-        {
-            "path": "../mq"
-        }
+        { "path": "../button" },
+        { "path": "../gap" },
+        { "path": "../mq" },
+        { "path": "../shared" }
     ]
 }

@@ -1,10 +1,13 @@
 {
-    "include": ["src", "../../typings", "../typography"],
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {},
-    "references": [
-        {
-            "path": "../typography"
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
-    ]
+    },
+    "references": [{ "path": "../typography" }]
 }

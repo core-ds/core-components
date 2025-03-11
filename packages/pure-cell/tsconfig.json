@@ -1,27 +1,23 @@
 {
-    "include": ["src", "../../typings", "src/*.json"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-amount/*": ["../amount/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-comment/*": ["../comment/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../typography"
-        },
-        {
-            "path": "../amount"
-        },
-        {
-            "path": "../comment"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../amount" },
+        { "path": "../button" },
+        { "path": "../comment" },
+        { "path": "../shared" },
+        { "path": "../typography" }
     ]
 }

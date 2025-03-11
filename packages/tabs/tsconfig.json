@@ -1,32 +1,29 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-badge/*": ["../badge/src/*"],
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@alfalab/core-components-keyboard-focusable/*": ["../keyboard-focusable/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"],
             "@alfalab/core-components-tag/*": ["../tag/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../tag"
-        },
-        {
-            "path": "../keyboard-focusable"
-        },
-        {
-            "path": "../picker-button"
-        },
-        {
-            "path": "../badge"
-        },
-        {
-            "path": "../shared"
-        },
-        {
-            "path": "../skeleton"
-        }
+        { "path": "../badge" },
+        { "path": "../icon-button" },
+        { "path": "../keyboard-focusable" },
+        { "path": "../mq" },
+        { "path": "../picker-button" },
+        { "path": "../shared" },
+        { "path": "../skeleton" },
+        { "path": "../tag" }
     ]
 }

@@ -1,31 +1,27 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-bottom-sheet/*": ["../bottom-sheet/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
             "@alfalab/core-components-select/*": ["../select/src/*"],
-            "@alfalab/core-components-select-with-tags/*": ["../select-with-tags/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-tag/*": ["../tag/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../select"
-        },
-        {
-            "path": "../input"
-        },
-        {
-            "path": "../tag"
-        },
-        {
-            "path": "../popover"
-        },
-        {
-            "path": "../shared"
-        }
+        { "path": "../bottom-sheet" },
+        { "path": "../form-control" },
+        { "path": "../mq" },
+        { "path": "../popover" },
+        { "path": "../select" },
+        { "path": "../shared" },
+        { "path": "../tag" }
     ]
 }

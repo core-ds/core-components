@@ -1,24 +1,19 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-keyboard-focusable/*": ["../keyboard-focusable/src/*"],
+            "@alfalab/core-components-progress-bar/*": ["../progress-bar/src/*"]
         }
     },
     "references": [
-        {
-            "path": "../button"
-        },
-        {
-            "path": "../loader"
-        },
-        {
-            "path": "../progress-bar"
-        },
-        {
-            "path": "../keyboard-focusable"
-        }
+        { "path": "../button" },
+        { "path": "../keyboard-focusable" },
+        { "path": "../progress-bar" }
     ]
 }

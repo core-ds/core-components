@@ -1,21 +1,25 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
             "@alfalab/core-components-input-autocomplete/*": ["../input-autocomplete/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-types/*": ["../types/src/*"]
         }
     },
     "references": [
         { "path": "../input" },
-        { "path": "../select" },
-        { "path": "../shared" },
         { "path": "../input-autocomplete" },
         { "path": "../mq" },
+        { "path": "../select" },
+        { "path": "../shared" },
         { "path": "../types" }
     ]
 }

@@ -1,21 +1,13 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-masked-input/*": ["../masked-input/src/*"]
         }
     },
-    "references": [
-        {
-            "path": "../form-control"
-        },
-        {
-            "path": "../input"
-        },
-        {
-            "path": "../masked-input"
-        }
-    ]
+    "references": [{ "path": "../masked-input" }]
 }

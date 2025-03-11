@@ -1,15 +1,13 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-gap/*": ["../gap/src/*"]
         }
     },
-    "references": [
-        {
-            "path": "../gap"
-        }
-    ]
+    "references": [{ "path": "../gap" }]
 }

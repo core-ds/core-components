@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "../tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "paths": {
+            "storybook/*": ["./*"]
+        }
+    },
+    "include": [
+        "addons",
+        "blocks",
+        "components",
+        "metrics",
+        "pages",
+        "theming-wizard",
+        "typings",
+        "utils",
+        "scope.ts"
+    ]
+}

@@ -1,4 +1,5 @@
 ---
+'@alfalab/core-components': major
 '@alfalab/core-components-types': major
 '@alfalab/core-components-accordion': patch
 '@alfalab/core-components-action-button': patch

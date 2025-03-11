@@ -1,18 +1,14 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-portal/*": ["../portal/src/*"],
+            "@alfalab/core-components-stack/*": ["../stack/src/*"]
         }
     },
-    "references": [
-        {
-            "path": "../portal"
-        },
-        {
-            "path": "../stack"
-        }
-    ]
+    "references": [{ "path": "../portal" }, { "path": "../stack" }]
 }

@@ -1,25 +1,27 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"],
-            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
             "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
-            "@alfalab/core-components-mq/*": ["../mq/src/*"]
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
+            "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
-        { "path": "../typography" },
+        { "path": "../base-modal" },
+        { "path": "../icon-button" },
+        { "path": "../icon-view" },
+        { "path": "../mq" },
         { "path": "../spinner" },
         { "path": "../tooltip" },
-        { "path": "../icon-button" },
-        { "path": "../typography" },
-        { "path": "../base-modal" },
-        { "path": "../mq" },
-        { "path": "../icon-view" }
+        { "path": "../typography" }
     ]
 }

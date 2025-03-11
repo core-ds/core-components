@@ -1,10 +1,13 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {},
-    "references": [
-        {
-            "path": "../shared"
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
-    ]
+    },
+    "references": [{ "path": "../shared" }]
 }
