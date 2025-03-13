@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, object } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { PasswordInput } from '@alfalab/core-components-password-input';
 
@@ -28,6 +28,10 @@ export const password_input: Story = {
             rightAddons={boolean('rightAddons', false) && <StarMIcon />}
             bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
             readOnly={boolean('readOnly', false)}
+            tooltipHint={object('tooltipHint', {
+                visibleHint: 'Скрыть',
+                unVisibleHint: 'Показать',
+            })}
         />
     ),
 };
