@@ -1,0 +1,21 @@
+@import '../../../vars/src/alfasans-index.css';
+
+.alfasans-xlarge {
+    @mixin headline_xlarge;
+}
+
+.alfasans-large {
+    @mixin headline_large;
+}
+
+.alfasans-medium {
+    @mixin headline_medium;
+}
+
+.alfasans-small {
+    @mixin headline_small;
+}
+
+.alfasans-xsmall {
+    @mixin headline_xsmall;
+}

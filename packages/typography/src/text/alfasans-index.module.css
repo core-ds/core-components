@@ -1,0 +1,127 @@
+@import '../../../vars/src/alfasans-index.css';
+
+.text {
+    &.primary-large {
+        @mixin paragraph_primary_large;
+    }
+
+    &.primary-medium {
+        @mixin paragraph_primary_medium;
+    }
+
+    &.primary-small {
+        @mixin paragraph_primary_small;
+    }
+
+    &.secondary-large {
+        @mixin paragraph_secondary_large;
+    }
+
+    &.secondary-medium {
+        @mixin paragraph_secondary_medium;
+    }
+
+    &.secondary-small {
+        @mixin paragraph_secondary_small;
+    }
+
+    &.component {
+        @mixin paragraph_component;
+    }
+
+    &.component-primary {
+        @mixin paragraph_component_primary;
+    }
+
+    &.component-secondary {
+        @mixin paragraph_component_secondary;
+    }
+
+    &.caps {
+        @mixin paragraph_caps;
+    }
+
+    &.tagline {
+        @mixin paragraph_tagline;
+    }
+
+    &.bold {
+        font-weight: 700;
+
+        &.primary-large {
+            letter-spacing: 0.38px; /* @mixin accent_primary_large */
+        }
+
+        &.primary-medium {
+            letter-spacing: 0.43px; /* @mixin accent_primary_medium */
+        }
+
+        &.primary-small {
+            letter-spacing: 0.47px; /* @mixin accent_primary_small */
+        }
+
+        &.secondary-large {
+            letter-spacing: 0.54px; /* @mixin accent_secondary_large */
+        }
+
+        &.secondary-medium {
+            letter-spacing: 0.57px; /* @mixin accent_secondary_medium */
+        }
+
+        &.secondary-small {
+            letter-spacing: 0.54px; /* @mixin accent_secondary_small */
+        }
+
+        &.component {
+            letter-spacing: 0.43px; /* @mixin accent_component */
+        }
+
+        &.component-primary {
+            letter-spacing: 0.43px; /* @mixin accent_component_primary */
+        }
+
+        &.component-secondary {
+            letter-spacing: 0.47px; /* @mixin accent_component_secondary */
+        }
+    }
+
+    &.medium {
+        font-weight: 500;
+
+        &.primary-large {
+            letter-spacing: 0.17px; /* @mixin action_primary_large */
+        }
+
+        &.primary-medium {
+            letter-spacing: 0.17px; /* @mixin action_primary_medium */
+        }
+
+        &.primary-small {
+            letter-spacing: 0.27px; /* @mixin action_primary_small */
+        }
+
+        &.secondary-large {
+            letter-spacing: 0.33px; /* @mixin action_secondary_large */
+        }
+
+        &.secondary-medium {
+            letter-spacing: 0.38px; /* @mixin action_secondary_medium */
+        }
+
+        &.secondary-small {
+            letter-spacing: 0.41px; /* @mixin action_secondary_small */
+        }
+
+        &.component {
+            letter-spacing: 0.17px; /* @mixin action_component */
+        }
+
+        &.component-primary {
+            letter-spacing: 0.17px; /* @mixin action_component_primary */
+        }
+
+        &.component-secondary {
+            letter-spacing: 0.27px; /* @mixin action_component_secondary */
+        }
+    }
+}
