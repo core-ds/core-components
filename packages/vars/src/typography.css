@@ -1,9 +1,4 @@
-:root {
-    --font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
-        sans-serif;
-    --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
-        'Helvetica Neue', Helvetica, sans-serif;
-}
+@import './typography-common.css';
 
 @define-mixin accent_caps {
     font-size: 12px;
@@ -279,7 +274,7 @@
     font-weight: 500;
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
-}
+} /* @deprecated */
 
 @define-mixin key_medium {
     font-size: 96px;
@@ -287,7 +282,7 @@
     font-weight: 500;
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
-}
+} /* @deprecated */
 
 @define-mixin key_small {
     font-size: 80px;
@@ -295,7 +290,7 @@
     font-weight: 500;
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
-}
+} /* @deprecated */
 
 @define-mixin key_xlarge {
     font-size: 144px;
@@ -303,7 +298,7 @@
     font-weight: 500;
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
-}
+} /* @deprecated */
 
 @define-mixin key_xsmall {
     font-size: 64px;
@@ -311,7 +306,7 @@
     font-weight: 500;
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
-}
+} /* @deprecated */
 
 @define-mixin paragraph_caps {
     font-size: 12px;
@@ -533,11 +528,4 @@
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
-}
-
-@define-mixin row_limit $num {
-    -webkit-line-clamp: $num;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }

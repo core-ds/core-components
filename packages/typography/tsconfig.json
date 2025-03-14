@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../skeleton" }, { "path": "../mq" }]
+    "references": [{ "path": "../skeleton" }, { "path": "../mq" }, { "path": "../shared" }]
 }
