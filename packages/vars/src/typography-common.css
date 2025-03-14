@@ -1,0 +1,15 @@
+:root {
+    --font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
+        sans-serif;
+    --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', Helvetica, sans-serif;
+    --font-family-alfasans: 'Alfa Interface Sans', system-ui, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', Helvetica, sans-serif;
+}
+
+@define-mixin row_limit $num {
+    -webkit-line-clamp: $num;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
