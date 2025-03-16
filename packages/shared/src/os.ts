@@ -34,3 +34,9 @@ export const os = {
     isApplePlatform,
     isMacOS,
 };
+
+export {
+    isIOS as osIsIOS,
+    isApplePlatform as osIsApplePlatform,
+    isMacOS as osIsMacOS,
+}

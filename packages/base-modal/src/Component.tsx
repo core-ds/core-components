@@ -23,7 +23,7 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { browser, os } from '@alfalab/core-components-shared';
+import { browserGetScrollbarSize, osIsIOS } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/stack-context';
 
@@ -369,7 +369,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
-                if (iOSLock && os.isIOS()) {
+                if (iOSLock && osIsIOS()) {
                     unlockScroll();
                 }
 
@@ -396,7 +396,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
             if (event.clientX && clientWidth) {
                 // Устанавливаем смещение для абсолютно спозиционированного скроллбара в OSX в 17px.
-                const offset = browser.getScrollbarSize() === 0 ? 17 : 0;
+                const offset = browserGetScrollbarSize() === 0 ? 17 : 0;
 
                 clickedOnScrollbar = event.clientX + offset > clientWidth;
             }
@@ -493,7 +493,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 if (!disableBlockingScroll) {
                     const el = getContainer();
 
-                    const shouldIOSLock = iOSLock && os.isIOS();
+                    const shouldIOSLock = iOSLock && osIsIOS();
 
                     handleContainer(el, shouldIOSLock);
                     if (shouldIOSLock) {

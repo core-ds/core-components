@@ -1,5 +1,5 @@
 import { getModalStore, SavedStyle } from '@alfalab/core-components-global-store';
-import { browser } from '@alfalab/core-components-shared';
+import { browserGetScrollbarSize } from '@alfalab/core-components-shared';
 
 export function isScrolledToTop(target: HTMLElement) {
     return target.scrollTop <= 0;
@@ -64,7 +64,7 @@ export const handleContainer = (container?: HTMLElement, shouldIOSLock = false) 
 
     if (isOverflowing(container)) {
         // Вычисляет размер до применения `overflow hidden` для избежания скачков
-        const scrollbarSize = browser.getScrollbarSize();
+        const scrollbarSize = browserGetScrollbarSize();
 
         containerStyles.push({
             value: container.style.paddingRight,

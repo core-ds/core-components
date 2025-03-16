@@ -49,3 +49,9 @@ export const browser = {
     isWebkitBased,
     isSafari,
 };
+
+export {
+    getScrollbarSize as browserGetScrollbarSize,
+    isWebkitBased as browserIsWebkitBased,
+    isSafari as browserIsSafari
+}
