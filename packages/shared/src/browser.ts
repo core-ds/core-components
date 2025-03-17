@@ -2,8 +2,6 @@ import { detect } from 'detect-browser';
 
 import { isClient } from './isClient';
 
-const detectBrowser = detect();
-
 const getScrollbarSize = (() => {
     let cachedSize: number;
 
@@ -37,8 +35,12 @@ function isWebkitBased() {
 }
 
 function isSafari(): boolean {
-    if (isClient() && detectBrowser) {
-        return detectBrowser.name === 'safari';
+    if (isClient()) {
+        const detectBrowser = detect();
+
+        if (detectBrowser) {
+            return detectBrowser.name === 'safari';
+        }
     }
 
     return false;
@@ -53,5 +55,5 @@ export const browser = {
 export {
     getScrollbarSize as browserGetScrollbarSize,
     isWebkitBased as browserIsWebkitBased,
-    isSafari as browserIsSafari
-}
+    isSafari as browserIsSafari,
+};
