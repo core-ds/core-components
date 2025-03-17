@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.3.4
+
+### Patch Changes
+
+<sup><time>17.03.2025</time></sup>
+
+### [#1622](https://github.com/core-ds/core-components/pull/1622)
+
+-   Использование `use-sync-external-store` через shim для обратной совместимости `React`
+
 ## 5.3.3
 
 ### Patch Changes

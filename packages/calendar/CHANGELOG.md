@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.17.13
+
+### Patch Changes
+
+<sup><time>17.03.2025</time></sup>
+
+### [#1616](https://github.com/core-ds/core-components/pull/1616)
+
+-   Обновление react-virtuoso
+
 ## 7.17.12
 
 ### Patch Changes
