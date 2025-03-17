@@ -1,3 +1,5 @@
+export * from './desktop';
+export * from './mobile';
 export {
     // обратная совместимость
     SidePanelResponsive as SidePanel,

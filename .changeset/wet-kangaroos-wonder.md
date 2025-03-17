@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-modal': minor
+'@alfalab/core-components-modal': patch
 ---
 
 Добавлены (починены) атомарные импорты при корневом (респонсивном) подключении

@@ -6,26 +6,20 @@ import vars from '!!raw-loader!../vars.css';
 
 ```jsx
 // Атомарные импорты
-
-// Десктоп
 import {
     SidePanelComponentDesktop,
     ContentDesktop,
     HeaderDesktop,
     FooterDesktop,
     ControlsDesktop,
-} from '@alfalab/core-components/side-panel/desktop';
-
-// Мобайл
+} from '@alfalab/core-components/side-panel';
 import {
     SidePanelComponentMobile,
     ContentMobile,
     HeaderMobile,
     FooterMobile,
     ControlsMobile,
-} from '@alfalab/core-components/side-panel/mobile';
-
-// Респонсив
+} from '@alfalab/core-components/side-panel';
 import {
     SidePanelComponentResponsive,
     ContentResponsive,
@@ -35,9 +29,11 @@ import {
 } from '@alfalab/core-components/side-panel';
 
 // Компаунд импорты
-import { SidePanel } from '@alfalab/core-components/side-panel';
-import { SidePanelDesktop } from '@alfalab/core-components/side-panel/desktop';
-import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
+import {
+    SidePanelDesktop,
+    SidePanelMobile,
+    SidePanelResponsive,
+} from '@alfalab/core-components/side-panel';
 ```
 
 Из индекса также импортируется алиас responsive/compound версии компонента - SidePanel
