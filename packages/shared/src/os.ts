@@ -31,10 +31,4 @@ function isMacOS(): boolean {
     return false;
 }
 
-export const os = {
-    isIOS,
-    isApplePlatform,
-    isMacOS,
-};
-
-export { isIOS as osIsIOS, isApplePlatform as osIsApplePlatform, isMacOS as osIsMacOS };
+export { isIOS, isApplePlatform, isMacOS };

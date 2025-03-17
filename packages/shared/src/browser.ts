@@ -46,14 +46,4 @@ function isSafari(): boolean {
     return false;
 }
 
-export const browser = {
-    getScrollbarSize,
-    isWebkitBased,
-    isSafari,
-};
-
-export {
-    getScrollbarSize as browserGetScrollbarSize,
-    isWebkitBased as browserIsWebkitBased,
-    isSafari as browserIsSafari,
-};
+export { getScrollbarSize, isWebkitBased, isSafari };

@@ -2,7 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { browserIsSafari, osIsMacOS } from '@alfalab/core-components-shared';
+import { isMacOS,isSafari } from '@alfalab/core-components-shared';
 
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
@@ -17,7 +17,7 @@ import safariTransitions from './styles/transitions/safari-transitions.module.cs
 import transitions from './styles/transitions/transitions.module.css';
 
 // в safari некорректно отрабатывает transform:scale (???), поэтому применяем немного другую анимацию
-const transitionProps = osIsMacOS() && browserIsSafari() ? safariTransitions : transitions;
+const transitionProps = isMacOS() && isSafari() ? safariTransitions : transitions;
 
 export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
     const {

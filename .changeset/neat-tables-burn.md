@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-shared': minor
+'@alfalab/core-components-shared': major
 ---
 
-Добавлены атомарные импорты для browser и os утилит
+Импорты browser и os утилит заменены с компаунд на атомарные
