@@ -4,7 +4,7 @@ exports[`Snapshots tests should display correctly 1`] = `
 <div>
   <svg
     class="spinner component"
-    style="padding: 2px; height: 20px; width: 20px;"
+    style="padding: 2px; height: 20px; width: 20px; box-sizing: content-box;"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -44,7 +44,7 @@ exports[`Spinner props should render preset 16 correctly 1`] = `
 <div>
   <svg
     class="spinner component preset16 visible"
-    style="height: 14px; width: 14px;"
+    style="height: 14px; width: 14px; box-sizing: content-box;"
     viewBox="0 0 14 14"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -84,7 +84,7 @@ exports[`Spinner props should render preset 24 correctly 1`] = `
 <div>
   <svg
     class="spinner component preset24 visible"
-    style="height: 20px; width: 20px;"
+    style="height: 20px; width: 20px; box-sizing: content-box;"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -124,7 +124,7 @@ exports[`Spinner props should render preset 48 correctly 1`] = `
 <div>
   <svg
     class="spinner component preset48 visible"
-    style="height: 40px; width: 40px;"
+    style="height: 40px; width: 40px; box-sizing: content-box;"
     viewBox="0 0 40 40"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -164,7 +164,7 @@ exports[`Spinner props should support \`size\` and \`lineWidth\` 1`] = `
 <div>
   <svg
     class="spinner component visible"
-    style="height: 48px; width: 48px;"
+    style="height: 48px; width: 48px; box-sizing: content-box;"
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -204,7 +204,7 @@ exports[`Spinner props should support \`style\` 1`] = `
 <div>
   <svg
     class="spinner component visible"
-    style="padding: 2px; color: rgb(236, 45, 32); height: 48px; width: 48px;"
+    style="padding: 2px; color: rgb(236, 45, 32); height: 48px; width: 48px; box-sizing: content-box;"
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >

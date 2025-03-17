@@ -99,8 +99,14 @@ describe('Spinner props', () => {
         );
     });
 
-    test.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
+    it.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
         const { container } = render(<Spinner visible preset={preset} />);
         expect(container).toMatchSnapshot();
+    });
+
+    it('should have box-sizing set to content-box', () => {
+        const { getByTestId } = render(<Spinner size={20} lineWidth={2} dataTestId={testId} />);
+
+        expect(getByTestId(testId)).toHaveStyle({ boxSizing: 'content-box' });
     });
 });
