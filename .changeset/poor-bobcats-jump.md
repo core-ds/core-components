@@ -17,4 +17,4 @@
 '@alfalab/core-components-tab-bar': patch
 ---
 
-Исправление атомарного импорта Text => TypographyText
+Исправление импортов из компонента Typography
