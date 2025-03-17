@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import cn from 'classnames';
 
-import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
+import { pathsMap48, SuperEllipseBlank } from '@alfalab/core-components-icon-view/super-ellipse';
 
 import { MAX_PROGRESS_BAR_VALUE, RADIUS } from '../../const/progress-bar';
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
@@ -27,9 +27,9 @@ export const StatusControl = () => {
 
     return (
         <div className={styles.container}>
-            <SuperEllipse size={48} {...(imageUrl && { imageUrl })}>
+            <SuperEllipseBlank size={48} pathsMap={pathsMap48} {...(imageUrl && { imageUrl })}>
                 <StatusControlIcon />
-            </SuperEllipse>
+            </SuperEllipseBlank>
             <div
                 ref={progressRef}
                 className={cn(styles.progress, {
