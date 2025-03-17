@@ -1,3 +1,26 @@
+## 48.20.1
+
+<sup><time>17.03.2025</time></sup>
+
+### [#1622](https://github.com/core-ds/core-components/pull/1622)
+
+#### Что изменилось
+- Использование `use-sync-external-store` через shim для обратной совместимости `React`
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+
+### [#1616](https://github.com/core-ds/core-components/pull/1616)
+
+#### Что изменилось
+- Обновление react-virtuoso
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+
 ## 48.20.0
 
 <sup><time>28.02.2025</time></sup>
