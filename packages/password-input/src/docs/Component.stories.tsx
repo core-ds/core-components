@@ -30,7 +30,7 @@ export const password_input: Story = {
             readOnly={boolean('readOnly', false)}
             passwordHint={object('passwordHint', {
                 visible: 'Скрыть введённые цифры',
-                unVisible: 'Показать введённые цифры',
+                hidden: 'Показать введённые цифры',
             })}
         />
     ),

@@ -25,7 +25,7 @@ export type PasswordInputProps = Omit<InputProps, 'size'> & {
      */
     passwordHint?: {
         visible: string;
-        unVisible: string;
+        hidden: string;
     };
 
     /**
@@ -56,14 +56,14 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             size = 48,
             passwordHint = {
                 visible: 'Скрыть введённые цифры',
-                unVisible: 'Показать введённые цифры',
+                hidden: 'Показать введённые цифры',
             },
             className,
             ...restProps
         },
         ref,
     ) => {
-        const { visible, unVisible } = passwordHint;
+        const { visible, hidden } = passwordHint;
         const uncontrolled = passwordVisible === undefined;
         const [statePasswordVisible, setStatePasswordVisible] = useState(
             uncontrolled ? false : passwordVisible,
@@ -75,7 +75,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             }
 
             if (uncontrolled) {
-                setStatePasswordVisible((visible) => !visible);
+                setStatePasswordVisible((prevVisible) => !prevVisible);
             }
         }, [passwordVisible, uncontrolled, onPasswordVisibleChange]);
 
@@ -101,7 +101,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                             icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
                             onClick={handleButtonClick}
                             disabled={disabled}
-                            title={isPasswordVisible ? visible : unVisible}
+                            title={isPasswordVisible ? visible : hidden}
                         />
                     </React.Fragment>
                 }
