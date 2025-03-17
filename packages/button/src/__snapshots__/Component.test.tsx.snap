@@ -312,7 +312,7 @@ Object {
       >
         <svg
           class="spinner component preset24 loader loader loader visible"
-          style="height: 20px; width: 20px;"
+          style="height: 20px; width: 20px; box-sizing: content-box;"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -356,7 +356,7 @@ Object {
     >
       <svg
         class="spinner component preset24 loader loader loader visible"
-        style="height: 20px; width: 20px;"
+        style="height: 20px; width: 20px; box-sizing: content-box;"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -457,7 +457,7 @@ Object {
       >
         <svg
           class="spinner component preset24 loader loader loader visible"
-          style="height: 20px; width: 20px;"
+          style="height: 20px; width: 20px; box-sizing: content-box;"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -501,7 +501,7 @@ Object {
     >
       <svg
         class="spinner component preset24 loader loader loader visible"
-        style="height: 20px; width: 20px;"
+        style="height: 20px; width: 20px; box-sizing: content-box;"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
       >
