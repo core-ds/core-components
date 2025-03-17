@@ -3,7 +3,11 @@ import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
 import { List } from '@alfalab/core-components-list';
-import { TypographyTitle, TitleMobile, TypographyText } from '@alfalab/core-components-typography';
+import {
+    TypographyTitle,
+    TypographyTitleMobile,
+    TypographyText,
+} from '@alfalab/core-components-typography';
 
 import { FontType, OverridesComponents, PlatformType } from '../typings';
 
@@ -11,7 +15,7 @@ import styles from '../index.module.css';
 
 export const useOverrides = (platform?: PlatformType, font?: FontType): OverridesComponents =>
     useMemo(() => {
-        const Title = platform === 'desktop' ? TypographyTitle : TitleMobile;
+        const Title = platform === 'desktop' ? TypographyTitle : TypographyTitleMobile;
 
         return {
             h1: (props) => (

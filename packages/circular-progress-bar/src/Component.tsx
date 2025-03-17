@@ -3,7 +3,7 @@ import React, { ElementType, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId, isObject } from '@alfalab/core-components-shared';
-import { TitleMobile, TypographyText } from '@alfalab/core-components-typography';
+import { TypographyTitleMobile, TypographyText } from '@alfalab/core-components-typography';
 
 import { ComponentSize } from './types/component-size';
 import { TypographyColor } from './types/typography-color';
@@ -289,7 +289,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
     const renderTitleString = () =>
         SIZES[size] > 64 ? (
-            <TitleMobile
+            <TypographyTitleMobile
                 className={cn(styles.typography, styles.title)}
                 color={getTextColor(titleColor)}
                 tag='div'
@@ -301,7 +301,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {titleContent}
-            </TitleMobile>
+            </TypographyTitleMobile>
         ) : (
             <TypographyText
                 className={styles.title}

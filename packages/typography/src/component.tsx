@@ -22,5 +22,5 @@ export {
     Text as TypographyText,
     Title as TypographyTitle,
     TitleResponsive as TypographyTitleResponsive,
-    TitleMobile,
+    TitleMobile as TypographyTitleMobile,
 };
