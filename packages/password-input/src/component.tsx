@@ -23,9 +23,9 @@ export type PasswordInputProps = Omit<InputProps, 'size'> & {
     /**
      * Управление текстом подсказки
      */
-    tooltipHint?: {
-        visibleHint: string;
-        unVisibleHint: string;
+    passwordHint?: {
+        visible: string;
+        unVisible: string;
     };
 
     /**
@@ -54,13 +54,16 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             colors,
             rightAddons,
             size = 48,
-            tooltipHint = { visibleHint: 'Скрыть', unVisibleHint: 'Показать' },
+            passwordHint = {
+                visible: 'Скрыть введённые цифры',
+                unVisible: 'Показать введённые цифры',
+            },
             className,
             ...restProps
         },
         ref,
     ) => {
-        const { visibleHint, unVisibleHint } = tooltipHint;
+        const { visible, unVisible } = passwordHint;
         const uncontrolled = passwordVisible === undefined;
         const [statePasswordVisible, setStatePasswordVisible] = useState(
             uncontrolled ? false : passwordVisible,
@@ -98,7 +101,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                             icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
                             onClick={handleButtonClick}
                             disabled={disabled}
-                            title={isPasswordVisible ? visibleHint : unVisibleHint}
+                            title={isPasswordVisible ? visible : unVisible}
                         />
                     </React.Fragment>
                 }

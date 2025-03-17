@@ -93,23 +93,23 @@ describe('PasswordInput', () => {
                 ({ getByRole } = render(<PasswordInput />));
             });
 
-            it('should initially display tooltip "Показать"', () => {
-                expect(getByRole('button')).toHaveAttribute('title', 'Показать');
+            it('should initially display tooltip "Показать введённые цифры"', () => {
+                expect(getByRole('button')).toHaveAttribute('title', 'Показать введённые цифры');
             });
 
-            it('should display tooltip "Скрыть" after one click', () => {
+            it('should display tooltip "Скрыть введённые цифры" after one click', () => {
                 const eyeButton = getByRole('button');
                 fireEvent.click(eyeButton);
 
-                expect(eyeButton).toHaveAttribute('title', 'Скрыть');
+                expect(eyeButton).toHaveAttribute('title', 'Скрыть введённые цифры');
             });
 
-            it('should revert to tooltip "Показать" after two clicks', () => {
+            it('should revert to tooltip "Показать введённые цифры" after two clicks', () => {
                 const eyeButton = getByRole('button');
                 fireEvent.click(eyeButton);
                 fireEvent.click(eyeButton);
 
-                expect(eyeButton).toHaveAttribute('title', 'Показать');
+                expect(eyeButton).toHaveAttribute('title', 'Показать введённые цифры');
             });
         });
 
@@ -131,12 +131,12 @@ describe('PasswordInput', () => {
                 expect(onPasswordVisibleChange).toHaveBeenCalledWith(true);
             });
 
-            it('should display tooltip "Скрыть" after re-rendering with passwordVisible true', () => {
+            it('should display tooltip "Скрыть введённые цифры" after re-rendering with passwordVisible true', () => {
                 rerender(
                     <PasswordInput passwordVisible={true} onPasswordVisibleChange={jest.fn()} />,
                 );
 
-                expect(getByRole('button')).toHaveAttribute('title', 'Скрыть');
+                expect(getByRole('button')).toHaveAttribute('title', 'Скрыть введённые цифры');
             });
         });
 

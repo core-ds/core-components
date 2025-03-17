@@ -28,9 +28,9 @@ export const password_input: Story = {
             rightAddons={boolean('rightAddons', false) && <StarMIcon />}
             bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
             readOnly={boolean('readOnly', false)}
-            tooltipHint={object('tooltipHint', {
-                visibleHint: 'Скрыть',
-                unVisibleHint: 'Показать',
+            passwordHint={object('passwordHint', {
+                visible: 'Скрыть введённые цифры',
+                unVisible: 'Показать введённые цифры',
             })}
         />
     ),
