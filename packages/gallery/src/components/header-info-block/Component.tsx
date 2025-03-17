@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { TypographyTitle, TypographyText } from '@alfalab/core-components-typography';
+import { TypographyText, TypographyTitle } from '@alfalab/core-components-typography';
 
 import { splitFilename } from '../../utils';
 

@@ -4,9 +4,9 @@ import cn from 'classnames';
 import { Link } from '@alfalab/core-components-link';
 import { List } from '@alfalab/core-components-list';
 import {
+    TypographyText,
     TypographyTitle,
     TypographyTitleMobile,
-    TypographyText,
 } from '@alfalab/core-components-typography';
 
 import { FontType, OverridesComponents, PlatformType } from '../typings';

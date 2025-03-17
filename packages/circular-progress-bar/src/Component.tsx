@@ -3,7 +3,7 @@ import React, { ElementType, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId, isObject } from '@alfalab/core-components-shared';
-import { TypographyTitleMobile, TypographyText } from '@alfalab/core-components-typography';
+import { TypographyText, TypographyTitleMobile } from '@alfalab/core-components-typography';
 
 import { ComponentSize } from './types/component-size';
 import { TypographyColor } from './types/typography-color';
