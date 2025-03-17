@@ -106,7 +106,7 @@ export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupPro
             disabled = false,
             styles,
         },
-        _ref,
+        ref,
     ) => {
         const renderCheckbox = (child: ReactElement) => {
             const { name, checked, className: childClassName } = child.props;
@@ -157,6 +157,7 @@ export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupPro
 
         return (
             <div
+                ref={ref}
                 className={cn(
                     commonStyles.component,
                     commonStyles[type],
