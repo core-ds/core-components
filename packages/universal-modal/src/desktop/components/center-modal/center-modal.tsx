@@ -2,7 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { isMacOS,isSafari } from '@alfalab/core-components-shared';
+import { isMacOS, isSafari } from '@alfalab/core-components-shared';
 
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
