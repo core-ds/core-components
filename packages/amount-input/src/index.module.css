@@ -27,6 +27,11 @@
     display: none;
 }
 
+input::selection,
+.suffixContainer::selection {
+    background: var(--color-light-decorative-soft-blue-hover);
+}
+
 .filled .input,
 .input:focus {
     -webkit-text-fill-color: transparent;
