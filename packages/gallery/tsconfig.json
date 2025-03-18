@@ -19,7 +19,6 @@
         { "path": "../spinner" },
         { "path": "../tooltip" },
         { "path": "../icon-button" },
-		{ "path": "../icon-view" },
         { "path": "../typography" },
         { "path": "../base-modal" },
         { "path": "../mq" }

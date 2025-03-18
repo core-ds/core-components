@@ -2,7 +2,7 @@ import React, { MouseEvent, ReactEventHandler, useContext, useEffect, useRef } f
 import cn from 'classnames';
 import Hls from 'hls.js';
 
-import { Circle } from '@alfalab/core-components-icon-view/circle';
+import { Circle } from '@alfalab/core-components/icon-view/circle';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
 
 import { GalleryContext } from '../../../context';

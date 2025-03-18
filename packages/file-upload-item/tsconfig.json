@@ -7,14 +7,14 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
-            "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
-            "@alfalab/core-components-typography/*": ["../typography/src/*"]
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
     "references": [
-        { "path": "../icon-button" },
-        { "path": "../icon-view" },
-        { "path": "../typography" }
+      { "path": "../icon-button" },
+      { "path": "../link" },
+      { "path": "../spinner" },
+      { "path": "../typography" },
     ]
 }
