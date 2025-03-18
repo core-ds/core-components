@@ -4,6 +4,10 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { NumberInput } from '@alfalab/core-components-number-input';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof NumberInput> = {
     title: 'Components/NumberInput',
@@ -16,6 +20,19 @@ type Story = StoryObj<typeof NumberInput>;
 export const number_input: Story = {
     name: 'NumberInput',
     render: () => {
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+
+        if (isPreview) {
+            return (
+                <div style={previewStyles}>
+                    <div style={{ width: 256 }}>
+                        <NumberInput label='Число' size={56} value={1234} step={1} />
+                    </div>
+                </div>
+            );
+        }
+
         const colors = select('colors', ['default', 'inverted'], 'default');
         const stepper = boolean('stepper', false);
         const size = select('size', [40, 48, 56, 64, 72], 48);

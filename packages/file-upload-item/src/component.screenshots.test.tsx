@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -8,6 +8,25 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 300, height: 70 };
+
+describe('FileUploadItem', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'FileUploadItem',
+            knobs: {
+                title: 'Договор.docx',
+                subtitle: '',
+                size: 2097152,
+                uploadStatus: 'SUCCESS',
+                uploadDate: '22.07.2024',
+                showDelete: true,
+                downloadLink: '/download',
+            },
+        },
+        'transform:scale(1.3)',
+    );
+});
 
 describe(
     'FileUploadItem | Attach file',
