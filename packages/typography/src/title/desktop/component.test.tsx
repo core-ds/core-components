@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { colors } from '../colors';
-import { Title, TitleProps } from './index';
+import { colors } from '../../colors';
+import { Title } from '.';
+import type { TitleProps } from '../component';
 
 describe('Title', () => {
     describe('Classes tests', () => {

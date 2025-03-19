@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 
-import { TitleBase, TitleProps } from '../title/component';
+import { type TitleProps, TitleBase } from '../component';
 
-import commonStyles from '../title/common.module.css';
+import commonStyles from '../common.module.css';
 import styles from './index.module.css';
 
 export const TitleMobile = forwardRef<HTMLHeadingElement | HTMLDivElement, TitleProps>(
