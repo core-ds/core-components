@@ -31,6 +31,7 @@ export const ImageViewer: FC = () => {
         slidePrev,
         slideNext,
         getCurrentImage,
+        swiperClassName,
     } = useContext(GalleryContext);
 
     const { handleWrapperClick, isMobile, rightArrowRef, leftArrowRef } = useHandleImageViewer();
@@ -72,7 +73,7 @@ export const ImageViewer: FC = () => {
             fadeEffect: {
                 crossFade: true,
             },
-            className: cn(styles.swiper, {
+            className: cn(styles.swiper, swiperClassName, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
                 [styles.mobile]: isMobile,
@@ -89,6 +90,7 @@ export const ImageViewer: FC = () => {
             onSlideChange: handleSlideChange,
         }),
         [
+            swiperClassName,
             fullScreen,
             currentImage?.src,
             isMobile,
