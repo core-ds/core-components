@@ -2,7 +2,7 @@
 @import '../../vars.css';
 
 .button {
-    background: var(--color-static-monochrome-white-4);
+    background: var(--color-light-monochrome-white-4-inverted);
     color: var(--color-light-neutral-translucent-1300-inverted);
 
     &.mobile {
