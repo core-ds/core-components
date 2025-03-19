@@ -1,11 +1,18 @@
 import React, { ButtonHTMLAttributes, ElementType, FC } from 'react';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
+import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
@@ -34,6 +41,11 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: ElementType;
 
     /**
+     * Набор цветов для компонента
+     */
+    colors?: IconButtonProps['colors'];
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -52,6 +64,7 @@ export const Closer: FC<CloserProps> = ({
     className,
     sticky,
     icon = view === 'desktop' ? CrossHeavyMIcon : CrossMIcon,
+    colors = 'default',
     dataTestId,
     onClose,
     ...restProps
@@ -68,10 +81,13 @@ export const Closer: FC<CloserProps> = ({
         >
             <IconButton
                 size={view === 'desktop' ? 's' : 'xs'}
-                className={cn(styles.button, { [styles.mobile]: view === 'mobile' })}
+                className={cn(styles.button, colorStyles[colors].button, {
+                    [colorStyles[colors].mobile]: view === 'mobile',
+                })}
                 aria-label='закрыть'
                 onClick={handleClick}
                 icon={icon}
+                colors={colors}
                 dataTestId={dataTestId}
                 {...restProps}
             />
