@@ -1,9 +1,6 @@
 @import '../../../../vars/src/index.css';
 @import '../../../../tag/src/vars.css';
-
-:root {
-    --filter-tag-separator-background-color-hover: transparent;
-}
+@import '../../vars.css';
 
 .component {
     display: flex;
@@ -13,10 +10,6 @@
 
     &.block {
         width: 100%;
-    }
-
-    &.disabled {
-        background-color: var(--tag-outlined-background-color-disabled);
     }
 
     &.rounded {
@@ -34,10 +27,6 @@
     }
 
     &.checked {
-        &:not(.disabled) {
-            background-color: var(--tag-background-color-checked);
-        }
-
         &:not(.disabled).size-32 {
             min-width: 80px;
         }
@@ -49,20 +38,11 @@
         &:not(.disabled).size-48 {
             min-width: 112px;
         }
-
-        @media (hover: hover) {
-            &:not(.disabled):hover {
-                background-color: var(--tag-background-color-checked-hover);
-            }
-        }
-
-        &:not(.disabled):active {
-            background-color: var(--tag-background-color-checked-active);
-        }
     }
 }
 
 .content {
+    padding: 0 var(--gap-4);
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -77,7 +57,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-light-neutral-translucent-1300);
 }
 
 .valueButton {
@@ -89,11 +68,8 @@
     outline: none;
     white-space: nowrap;
     font-family: var(--font-family);
-    color: var(--tag-text-color);
-    background-color: var(--tag-outlined-background-color);
     transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     margin: var(--gap-0);
-    border: var(--tag-border-width) solid var(--tag-border-color);
 
     &.block {
         width: inherit;
@@ -102,10 +78,6 @@
 
     &:disabled {
         cursor: var(--disabled-cursor);
-
-        & > .chevron {
-            color: var(--color-light-neutral-500);
-        }
     }
 
     &.rounded {
@@ -125,77 +97,28 @@
     &.size-32 {
         min-width: 52px;
         min-height: var(--size-xxs-height);
+
+        @mixin paragraph_primary_small;
+        padding: 0 var(--gap-8);
+        gap: var(--gap-2);
     }
 
     &.size-40 {
         min-width: 64px;
         min-height: var(--size-xs-height);
+
+        @mixin paragraph_primary_small;
+        padding: 0 var(--gap-12);
+        gap: var(--gap-2);
     }
 
     &.size-48 {
         min-width: 72px;
         min-height: var(--size-s-height);
-    }
 
-    &.outlined {
-        color: var(--tag-text-color);
-        border-color: var(--tag-border-color);
-        background-color: var(--tag-outlined-background-color);
-
-        &:disabled {
-            border-color: var(--tag-border-color-disabled);
-            color: var(--tag-text-color-disabled);
-            background-color: var(--tag-outlined-background-color-disabled);
-        }
-        @media (hover: hover) {
-            &:not(:disabled):hover {
-                border-color: var(--tag-border-color-hover);
-                background-color: var(--tag-outlined-background-color-hover);
-            }
-        }
-        &:not(:disabled):active {
-            border-color: var(--tag-border-color-active);
-            background-color: var(--tag-outlined-background-color-active);
-        }
-    }
-
-    &.filled {
-        color: var(--tag-text-color);
-        border-color: var(--tag-filled-border-color);
-
-        &:disabled {
-            color: var(--tag-text-color-disabled);
-        }
-    }
-
-    &.size-48 {
         @mixin paragraph_primary_medium;
-        padding-right: var(--gap-8);
-        padding-left: var(--gap-20);
-
-        & .chevron {
-            margin: var(--gap-0) var(--gap-8);
-        }
-    }
-
-    &.size-40 {
-        @mixin paragraph_primary_small;
-        padding-right: var(--gap-4);
-        padding-left: var(--gap-16);
-
-        & .chevron {
-            margin: var(--gap-0) var(--gap-12) var(--gap-0) 6px;
-        }
-    }
-
-    &.size-32 {
-        @mixin paragraph_primary_small;
-        padding-right: var(--gap-0);
-        padding-left: var(--gap-12);
-
-        & .chevron {
-            margin: var(--gap-0) var(--gap-8) var(--gap-0) 6px;
-        }
+        padding: 0 var(--gap-16);
+        gap: var(--gap-4);
     }
 
     &.open .chevron {
@@ -203,14 +126,6 @@
     }
 
     &.checked {
-        border-width: 0;
-        color: var(--tag-text-color-checked);
-        background-color: var(--tag-background-color-checked);
-
-        & > .chevron {
-            color: var(--color-light-neutral-translucent-1300-inverted);
-        }
-
         &.rounded {
             &.size-32 {
                 border-radius: var(--tag-rounded-xxs-border-radius) 0 0
@@ -233,53 +148,25 @@
             }
         }
 
+        &:disabled {
+            border-color: var(--tag-border-color-checked-disabled);
+        }
+
         &:not(:disabled) {
-            padding-right: var(--gap-0);
-            border-right-width: 0;
-
-            &.close {
-                &.size-32 {
-                    padding-right: var(--gap-0);
-                }
-
-                &.size-40 {
-                    padding-right: var(--gap-4);
-                }
+            &.withClear {
+                border-right-width: 0;
 
                 &.size-48 {
                     padding-right: var(--gap-8);
                 }
             }
         }
+    }
 
-        @media (hover: hover) {
-            &:not(:disabled):hover {
-                background-color: var(--tag-background-color-checked-hover);
-            }
-        }
-
-        &:not(:disabled):active {
-            background-color: var(--tag-background-color-checked-active);
-        }
-
-        @media (hover: hover) {
-            &:not(:disabled):hover + .clear:before {
-                background-color: var(--filter-tag-separator-background-color-hover);
-            }
-        }
-
-        &:not(:disabled):active + .clear:before {
-            background-color: transparent;
-        }
-
-        &:disabled {
-            color: var(--tag-text-color-checked-disabled);
-            background-color: var(--tag-background-color-checked-disabled);
-
-            & > .chevron {
-                color: var(--color-light-neutral-500);
-            }
-        }
+    & .addons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -288,8 +175,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: var(--color-light-neutral-translucent-700-inverted);
-    background-color: var(--tag-background-color-checked);
 
     &.rounded {
         &.size-32 {
@@ -314,31 +199,24 @@
         top: 50%;
         transform: translateY(-50%);
         display: block;
-        background-color: var(--color-light-neutral-translucent-500-inverted);
         width: 1px;
         transition: background-color 0.2s ease;
     }
 
-    @media (hover: hover) {
-        &:hover:before {
-            background-color: var(--filter-tag-separator-background-color-hover);
+    &.size-32 {
+        padding: var(--gap-0) var(--gap-8);
+
+        &:before {
+            height: 20px;
         }
     }
 
-    &:active:before {
-        background-color: transparent;
-    }
+    &.size-40 {
+        padding: var(--gap-0) var(--gap-12);
 
-    @media (hover: hover) {
-        &:hover {
-            color: var(--color-light-neutral-translucent-700-inverted-hover);
-            background-color: var(--tag-background-color-checked-hover);
+        &:before {
+            height: 24px;
         }
-    }
-
-    &:active {
-        color: var(--color-light-neutral-translucent-700-inverted-press);
-        background-color: var(--tag-background-color-checked-active);
     }
 
     &.size-48 {
@@ -348,28 +226,4 @@
             height: 24px;
         }
     }
-
-    &.size-40 {
-        padding: var(--gap-0) var(--gap-8);
-
-        &:before {
-            height: 24px;
-        }
-    }
-
-    &.size-32 {
-        padding: var(--gap-0) 3px var(--gap-0) var(--gap-4);
-
-        &:before {
-            height: 20px;
-        }
-    }
-}
-
-.iconWrapper {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

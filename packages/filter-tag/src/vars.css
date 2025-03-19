@@ -1,0 +1,31 @@
+@import '../../vars/src/index.css';
+
+:root {
+    /* chevron */
+    --filter-tag-chevron-color: var(--color-light-neutral-translucent-1300);
+    --filter-tag-chevron-disabled-color: var(--color-light-neutral-500);
+
+    /* chevron inverted */
+    --filter-tag-inverted-chevron-color: var(--color-light-neutral-translucent-1300-inverted);
+    --filter-tag-inverted-chevron-disabled-color: var(--color-light-neutral-500-inverted);
+
+    /* separator */
+    --filter-tag-separator-background-color-hover: transparent;
+    --filter-tag-separator-background-color-active: transparent;
+
+    /* separator inverted */
+    --filter-tag-inverted-separator-background-color-hover: transparent;
+    --filter-tag-inverted-separator-background-color-active: transparent;
+
+    /* clear */
+    --filter-tag-clear-color: var(--color-light-neutral-translucent-700-inverted);
+    --filter-tag-clear-color-hover: var(--color-light-neutral-translucent-700-inverted-hover);
+    --filter-tag-clear-color-active: var(--color-light-neutral-translucent-700-inverted-press);
+    --filter-tag-clear-before-background-color: var(--color-light-neutral-translucent-500-inverted);
+
+    /* clear inverted */
+    --filter-tag-inverted-clear-color: var(--color-light-neutral-translucent-700);
+    --filter-tag-inverted-clear-color-hover: var(--color-light-neutral-translucent-700-hover);
+    --filter-tag-inverted-clear-color-active: var(--color-light-neutral-translucent-700-press);
+    --filter-tag-inverted-clear-before-background-color: var(--color-light-neutral-translucent-500);
+}
