@@ -38,9 +38,9 @@ describe('SelectWithTags', () => {
         try {
             await page.click('[role="combobox"]');
 
-            await page.click('[role="option"]:nth-child(4)', { delay: 100 });
-            await page.click('[role="option"]:nth-child(5)', { delay: 100 });
-            await page.click('[role="option"]:nth-child(6)', { delay: 100 });
+            await page.click('[data-index="3"] [role="option"]', { delay: 100 });
+            await page.click('[data-index="4"] [role="option"]', { delay: 100 });
+            await page.click('[data-index="5"] [role="option"]', { delay: 100 });
 
             await matchHtml({
                 page,
@@ -87,10 +87,10 @@ describe('SelectWithTags', () => {
 
                 await page.waitForTimeout(500);
 
-                await page.click('[role="option"]:nth-child(1)', { delay: 100 });
+                await page.click('[data-index="0"] [role="option"]', { delay: 100 });
 
-                await page.click('[role="option"]:nth-child(2)', { delay: 100 });
-                await page.click('[role="option"]:nth-child(3)', { delay: 100 });
+                await page.click('[data-index="1"] [role="option"]', { delay: 100 });
+                await page.click('[data-index="2"] [role="option"]', { delay: 100 });
 
                 await page.fill('input', 'sadsadad');
 
@@ -100,11 +100,11 @@ describe('SelectWithTags', () => {
 
                 await match();
 
-                await page.click('[role="option"]:nth-child(1)', { delay: 100 });
+                await page.click('[data-index="0"] [role="option"]', { delay: 100 });
 
                 await match();
 
-                await page.click('[role="option"]:nth-child(4)', { delay: 100 });
+                await page.click('[data-index="3"] [role="option"]', { delay: 100 });
 
                 await match();
 
@@ -145,7 +145,7 @@ describe('SelectWithTags', () => {
                     expect,
                     viewport,
                     screenshotOpts,
-                    evaluate: (p) => p.hover('[role="option"]:nth-child(1)'),
+                    evaluate: (p) => p.hover('[data-index="0"] [role="option"]'),
                 });
 
             try {
@@ -153,9 +153,9 @@ describe('SelectWithTags', () => {
 
                 await page.waitForTimeout(500);
 
-                await page.click('[role="option"]:nth-child(5)', { delay: 100 });
-                await page.click('[role="option"]:nth-child(6)', { delay: 100 });
-                await page.click('[role="option"]:nth-child(7)', { delay: 100 });
+                await page.click('[data-index="4"] [role="option"]', { delay: 100 });
+                await page.click('[data-index="5"] [role="option"]', { delay: 100 });
+                await page.click('[data-index="6"] [role="option"]', { delay: 100 });
 
                 await match();
             } catch (error) {

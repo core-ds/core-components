@@ -1,5 +1,3 @@
-import React from 'react';
-
 function preventDefault(e: React.UIEvent) {
     e.preventDefault();
 }
