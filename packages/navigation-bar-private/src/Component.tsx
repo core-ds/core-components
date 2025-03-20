@@ -40,6 +40,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             closerIcon,
             onClose,
             view,
+            closerColors,
             scrollableParentRef,
             sticky,
             onBack,
@@ -184,6 +185,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                 <Closer
                     view={view}
                     icon={closerIcon}
+                    colors={closerColors}
                     dataTestId={getDataTestId(dataTestId, 'closer')}
                     onClose={onClose}
                 />
