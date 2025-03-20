@@ -23,7 +23,7 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { browser, os } from '@alfalab/core-components-shared';
+import { browser, internalMergeRefs, os } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/stack-context';
 
@@ -203,7 +203,7 @@ export type BaseModalProps = {
     /**
      * Реф, который должен быть установлен компонентной области
      */
-    componentRef?: MutableRefObject<HTMLDivElement | null>;
+    componentRef?: React.Ref<HTMLDivElement>;
 
     /**
      * Реф контентной области
@@ -219,6 +219,11 @@ export type BaseModalProps = {
      * Хэндлер события прокрутки колесиком
      */
     onWheel?: (e: WheelEvent<HTMLElement>) => void;
+
+    /**
+     * Реф, который должен быть установлен контенту
+     */
+    contentComponentRef?: React.Ref<HTMLElement>;
 };
 
 export type BaseModalContext = {
@@ -289,6 +294,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             usePortal = true,
             iOSLock = false,
             onWheel,
+            contentComponentRef,
         },
         ref,
     ) => {
@@ -548,21 +554,21 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 footerHighlighted,
                 headerOffset,
                 setHeaderOffset,
-                contentRef,
+                contentRef: internalMergeRefs([contentRef, contentComponentRef]),
                 setHasHeader,
                 setHasFooter,
                 onClose: handleClose,
             }),
             [
+                contentComponentRef,
                 contentRef,
-                hasHeader,
+                footerHighlighted,
+                handleClose,
                 hasFooter,
+                hasHeader,
                 hasScroll,
                 headerHighlighted,
-                footerHighlighted,
                 headerOffset,
-                setHeaderOffset,
-                handleClose,
             ],
         );
 
