@@ -31,6 +31,12 @@ export type StepsProps = {
     isMarkCompletedSteps?: boolean;
 
     /**
+     * Управление возможностью задавать все шаги активными
+     * @default false
+     */
+    isStepsActive?: boolean;
+
+    /**
      * Кастомный метод для управления состоянием disabled шага и
      * возможностью перехода на этот шаг
      * @param stepNumber - номер шага
@@ -93,6 +99,7 @@ export const Steps: React.FC<StepsProps> = ({
     defaultActiveStep = 1,
     activeStep: activeStepProp,
     isMarkCompletedSteps = true,
+    isStepsActive = false,
     isVerticalAlign = false,
     ordered = true,
     interactive = true,
@@ -154,7 +161,7 @@ export const Steps: React.FC<StepsProps> = ({
                 return (
                     <Step
                         stepNumber={stepNumber}
-                        isSelected={isSelected}
+                        isSelected={isStepsActive || isSelected}
                         isStepCompleted={isStepCompleted}
                         disabled={disabled}
                         isPositive={isPositive}
