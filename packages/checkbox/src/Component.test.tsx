@@ -80,25 +80,34 @@ describe('Checkbox', () => {
     });
 
     describe('Attributes tests', () => {
+        const dataTestId = 'test-id';
+
+        const renderComponent = (props = {}) => {
+            return render(<Checkbox dataTestId={dataTestId} {...props} />);
+        };
+
         it('should set `data-test-id` atribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Checkbox dataTestId={dataTestId} />);
+            const { getByTestId } = renderComponent();
 
             expect(getByTestId(dataTestId).tagName).toBe('INPUT');
         });
 
         it('should set disabled attribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Checkbox disabled={true} dataTestId={dataTestId} />);
+            const { getByTestId } = renderComponent({ disabled: true });
 
             expect(getByTestId(dataTestId)).toBeDisabled();
         });
 
         it('should set checked attribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Checkbox checked={true} dataTestId={dataTestId} />);
+            const { getByTestId } = renderComponent({ checked: true });
 
             expect(getByTestId(dataTestId)).toBeChecked();
+        });
+
+        it('should set name attribute', () => {
+            const { getByTestId } = renderComponent({ name: 'checkbox-name' });
+
+            expect(getByTestId(dataTestId)).toHaveAttribute('name', 'checkbox-name');
         });
     });
 
