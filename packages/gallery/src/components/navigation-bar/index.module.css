@@ -12,6 +12,10 @@
     scrollbar-width: none;
     background-color: var(--color-static-neutral-0-inverted);
 
+    &.mobile {
+        padding: var(--gap-8) var(--gap-24);
+    }
+
     &::-webkit-scrollbar {
         display: none;
     }

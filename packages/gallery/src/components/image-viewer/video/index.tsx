@@ -202,18 +202,16 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                 </div>
             )}
             {isDesktop && image?.bottomButton && (
-                <div className={styles.bottomButtonWrapper}>
-                    <Button
-                        size='m'
-                        className={styles.bottomButton}
-                        onClick={handleBottomButtonClick}
-                        block={true}
-                    >
-                        <Typography.Text color='static-primary-light'>
-                            {image.bottomButton.text}
-                        </Typography.Text>
-                    </Button>
-                </div>
+                <Button
+                    size='m'
+                    className={styles.bottomButton}
+                    onClick={handleBottomButtonClick}
+                    nowrap={true}
+                >
+                    <Typography.Text color='static-primary-light'>
+                        {image.bottomButton.text}
+                    </Typography.Text>
+                </Button>
             )}
         </div>
     );

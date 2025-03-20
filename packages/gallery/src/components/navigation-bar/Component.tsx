@@ -124,7 +124,7 @@ export const NavigationBar: FC = () => {
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
-            className={styles.component}
+            className={cn(styles.component, { [styles.mobile]: view === 'mobile' })}
             ref={containerRef}
             onKeyDown={handleKeyDown}
             data-test-id={TestIds.NAVIGATION_BAR}
