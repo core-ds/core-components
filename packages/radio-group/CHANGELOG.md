@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-radio-group
 
 ## 4.8.0
 

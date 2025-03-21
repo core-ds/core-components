@@ -1,7 +1,10 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { CheckboxGroupDesktop as CheckboxGroup, CheckboxGroupDesktopProps as CheckboxGroupProps } from './desktop';
+import {
+    CheckboxGroupDesktop as CheckboxGroup,
+    CheckboxGroupDesktopProps as CheckboxGroupProps,
+} from './desktop';
 import { Checkbox } from '../../checkbox/src';
 import { Tag } from '../../tag/src';
 

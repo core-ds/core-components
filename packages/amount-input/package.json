@@ -20,8 +20,7 @@
         "@alfalab/data": "^1.9.1",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.2",
     "varsVersion": "9.18.0"
