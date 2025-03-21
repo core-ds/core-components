@@ -300,6 +300,7 @@ export const Gallery: FC<GalleryProps> = ({
                                     className={styles.bottomButton}
                                     onClick={handleBottomButtonClick}
                                     block={true}
+                                    nowrap={true}
                                 >
                                     <Typography.Text color='static-primary-light'>
                                         {bottomButton.text}

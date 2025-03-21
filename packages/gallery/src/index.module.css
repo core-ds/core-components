@@ -45,6 +45,5 @@
 }
 
 .bottomButtonWrapper {
-    max-width: 350px;
-    margin: var(--gap-16) auto;
+    margin: var(--gap-16);
 }
