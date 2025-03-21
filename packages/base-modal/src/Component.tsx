@@ -17,7 +17,7 @@ import React, {
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
-import { TransitionProps as CSSTransitionProps } from 'react-transition-group/Transition';
+import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
