@@ -408,11 +408,11 @@ describe('AmountInput', () => {
         expect(input.value).toBe('123,45');
     });
 
-    it('should not delete any symbol when caret set after space and backspace pressed', async () => {
+    it('should delete the symbol before the space when placing the cursor after the space and pressing the Backspace key', async () => {
         const input = renderAmountInput(null);
 
-        await userEvent.type(input, '1234');
-        expect(input.value).toBe(`1${MMSP}234`);
+        await userEvent.type(input, '12345');
+        expect(input.value).toBe(`12${MMSP}345`);
 
         await userEvent.type(input, '{backspace}', {
             initialSelectionStart: 2,
@@ -420,7 +420,7 @@ describe('AmountInput', () => {
             delay: 10,
         });
 
-        expect(input.value).toBe(`1${MMSP}234`);
+        expect(input.value).toBe(`1${MMSP}345`);
     });
 
     it('should render new amount from props (looped value)', async () => {
