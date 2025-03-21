@@ -235,6 +235,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     }
 
                     const diff = newFormattedValue.length - notFormattedEnteredValueLength;
+
                     caret += diff;
 
                     window.requestAnimationFrame(() => {
