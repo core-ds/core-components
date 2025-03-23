@@ -144,7 +144,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             <button
                               aria-label="закрыть"
                               class="component text size-48 hug size-48 component text component text cc-icon-button button mobile primary component border-32"
-                              style="z-index: 2;"
                               type="button"
                             >
                               <span

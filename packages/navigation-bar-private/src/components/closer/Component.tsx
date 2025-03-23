@@ -68,7 +68,6 @@ export const Closer: FC<CloserProps> = ({
         >
             <IconButton
                 size={view === 'desktop' ? 's' : 'xs'}
-                style={{ zIndex: 2 }}
                 className={cn(styles.button, { [styles.mobile]: view === 'mobile' })}
                 aria-label='закрыть'
                 onClick={handleClick}

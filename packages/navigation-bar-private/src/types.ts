@@ -120,6 +120,11 @@ export type NavigationBarPrivateProps = {
     onClose?: CloserProps['onClose'];
 
     /**
+     * Дополнительные пропсы для компонента Closer.
+     */
+    closerProps?: Omit<CloserProps, 'view' | 'onClick'>;
+
+    /**
      * обработчик клика по кнопке "назад"
      */
     onBack?: () => void;

@@ -10,7 +10,7 @@ import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Closer } from '@alfalab/core-components-navigation-bar-private/shared';
+import { Closer, CloserProps } from '@alfalab/core-components-navigation-bar-private/shared';
 import { createPaddingStyle, easingFns, getDataTestId } from '@alfalab/core-components-shared';
 
 import { PaddingType } from '../../types';
@@ -52,6 +52,11 @@ export type PopupSheetProps = Omit<BaseModalProps, 'onClose' | 'dataTestId'> & {
      * Для кнопки закрытия используется модификатор -closer
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительные пропсы для компонента Closer.
+     */
+    closerProps?: Omit<CloserProps, 'view' | 'onClick'>;
 };
 
 const DEFAULT_PADDING = 32;
@@ -69,6 +74,7 @@ export const PopupSheet = forwardRef<HTMLDivElement, PopupSheetProps>(
             dataTestId,
             backdropProps,
             padding = DEFAULT_PADDING,
+            closerProps = {},
             ...restProps
         },
         ref,
@@ -226,6 +232,7 @@ export const PopupSheet = forwardRef<HTMLDivElement, PopupSheetProps>(
                         className={styles.closer}
                         onClick={onClose}
                         dataTestId={getDataTestId(dataTestId, 'closer')}
+                        {...closerProps}
                     />
                 )}
                 {children}

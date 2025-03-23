@@ -6,6 +6,7 @@ describe('Closer', () => {
     const defaultProps: CloserProps = {
         view: 'mobile',
         onClose: jest.fn(),
+        style: { zIndex: 10, color: 'blue' },
     };
 
     const renderComponent = (props: Partial<CloserProps> = {}) => {
@@ -30,11 +31,11 @@ describe('Closer', () => {
         expect(container.firstChild).toBeInTheDocument();
     });
 
-    it('should have z-index set to 2 inline', () => {
+    it('should have base style to inline', () => {
         const { getByRole } = renderComponent();
         const button = getByRole('button');
 
-        expect(button).toHaveStyle('z-index: 2');
+        expect(button).toHaveStyle({ zIndex: 10, color: 'blue' });
     });
 
     it('should call onClose with "closerClick" reason when clicked', () => {
