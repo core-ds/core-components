@@ -4,17 +4,20 @@
 const path = require('path');
 const glob = require('glob');
 
+const { Once, OnceExit } = require('./tools/postcss/postcss-subtract-mixin.cjs')().prepare();
+
 module.exports = {
     plugins: [
         require('postcss-import')({}),
         require('postcss-for')({}),
         require('postcss-each')({}),
-        require('./tools/postcss/postcss-subtract-mixin.cjs')(),
+        Once,
         require('postcss-mixins')({
             mixinsFiles: glob.sync(path.join(__dirname, 'packages/vars/src/*.css'), {
                 ignore: ['**/alfasans-*.css'],
             }),
         }),
+        OnceExit,
         require('postcss-preset-env')({
             stage: 3,
             features: {
