@@ -229,7 +229,7 @@ export const PopupSheet = forwardRef<HTMLDivElement, PopupSheetProps>(
                 {hasCloser && (
                     <Closer
                         view='mobile'
-                        className={styles.closer}
+                        className={cn(styles.closer, closerProps?.className)}
                         onClick={onClose}
                         dataTestId={getDataTestId(dataTestId, 'closer')}
                         {...closerProps}
