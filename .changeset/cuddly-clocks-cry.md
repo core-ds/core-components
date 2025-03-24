@@ -3,4 +3,4 @@
 '@alfalab/core-components-popup-sheet': minor
 ---
 
-добавлена возможность передовать дополнительные props в компонент Closer
+Добавлена возможность передавать дополнительные props в компонент `Closer` из `NavigationBarPrivate` и `PopupSheet`
