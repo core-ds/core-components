@@ -8,13 +8,18 @@ import React, {
     useState,
 } from 'react';
 import { use100vh } from 'react-div-100vh';
-import mergeRefs from 'react-merge-refs';
 import { SwipeCallback, SwipeEventData, TapCallback, useSwipeable } from 'react-swipeable';
 import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
+import {
+    fnUtils,
+    getDataTestId,
+    internalMergeRefs,
+    isClient,
+    os,
+} from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -87,9 +92,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             swipeThreshold = 5,
             scrollLocked: scrollLockedProp,
             backdropProps,
-            scrollableContainerRef = () => null,
+            scrollableContainerRef,
             bottomSheetInstanceRef,
-            sheetContainerRef = () => null,
+            sheetContainerRef,
             headerOffset = 24,
             adjustContainerHeight = adjustContainerHeightDefault,
             onClose,
@@ -108,6 +113,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backButtonProps,
             iOSLock = false,
             virtualKeyboard = false,
+            contentRef: contentRefFromProps,
         },
         ref,
     ) => {
@@ -647,7 +653,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             ...getHeightStyles(),
                         }}
                         {...sheetSwipeableHandlers}
-                        ref={mergeRefs([sheetRef, sheetContainerRef, sheetSwipeableHandlers.ref])}
+                        ref={internalMergeRefs([
+                            sheetRef,
+                            sheetContainerRef,
+                            sheetSwipeableHandlers.ref,
+                        ])}
                         onTransitionEnd={handleTransitionEnd}
                     >
                         {renderMarker()}
@@ -662,12 +672,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                     [styles.hiddenScrollbar]: hideScrollbar,
                                 },
                             )}
-                            ref={mergeRefs([scrollableContainer, scrollableContainerRef])}
+                            ref={internalMergeRefs([scrollableContainer, scrollableContainerRef])}
                         >
                             {!hideHeader && !emptyHeader && <Header {...headerProps} />}
 
                             <div
-                                ref={contentRef}
+                                ref={internalMergeRefs([contentRef, contentRefFromProps])}
                                 className={cn(styles.content, contentClassName, {
                                     [styles.noHeader]: hideHeader || emptyHeader,
                                     [styles.noFooter]: !actionButton,
