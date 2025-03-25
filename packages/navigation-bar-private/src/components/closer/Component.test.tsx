@@ -3,14 +3,12 @@ import { render, fireEvent } from '@testing-library/react';
 import { Closer, CloserProps } from './Component';
 
 describe('Closer', () => {
-    const defaultProps: CloserProps = {
-        view: 'mobile',
-        onClose: jest.fn(),
+    const defaultProps: Omit<CloserProps, 'view' | 'onClose'> = {
         style: { zIndex: 10, color: 'blue' },
     };
 
     const renderComponent = (props: Partial<CloserProps> = {}) => {
-        return render(<Closer {...defaultProps} {...props} />);
+        return render(<Closer view='desktop' {...defaultProps} {...props} />);
     };
 
     beforeAll(() => {
@@ -34,7 +32,6 @@ describe('Closer', () => {
     it('should have base style to inline', () => {
         const { getByRole } = renderComponent();
         const button = getByRole('button');
-
         expect(button).toHaveStyle({ zIndex: 10, color: 'blue' });
     });
 

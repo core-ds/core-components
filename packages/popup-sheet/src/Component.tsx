@@ -56,7 +56,7 @@ export type PopupSheetProps = Omit<BaseModalProps, 'onClose' | 'dataTestId'> & {
     /**
      * Дополнительные пропсы для компонента Closer.
      */
-    closerProps?: Omit<CloserProps, 'view' | 'onClick'>;
+    closerProps?: Omit<CloserProps, 'view' | 'onClose'>;
 };
 
 const DEFAULT_PADDING = 32;
