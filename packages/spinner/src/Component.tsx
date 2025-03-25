@@ -112,7 +112,7 @@ export const Spinner: FC<SpinnerProps> = (props) => {
         <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox={`0 0 ${size} ${size}`}
-            style={{ ...style, height: size, width: size, boxSizing: 'content-box' }}
+            style={{ ...style, height: size, width: size }}
             className={cn(
                 styles.spinner,
                 colorStyles[colors].component,

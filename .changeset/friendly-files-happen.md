@@ -5,4 +5,5 @@
 '@alfalab/core-components-spinner': minor
 ---
 
-fix(spinner): исправить для спиннера кнопки влияние внешнего box-sizing [DS-9069]
+Добавлен для кмпонента `Spinner` дополнительное свойство box-sizing: content-box для исправления глобального влияния box-sizing: border-box.
+

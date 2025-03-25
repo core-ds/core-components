@@ -142,7 +142,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       >
         <svg
           class="spinner component preset24 visible"
-          style="height: 20px; width: 20px; box-sizing: content-box;"
+          style="height: 20px; width: 20px;"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -342,7 +342,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       >
         <svg
           class="spinner component preset24 visible"
-          style="height: 20px; width: 20px; box-sizing: content-box;"
+          style="height: 20px; width: 20px;"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
