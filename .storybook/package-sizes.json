@@ -320,9 +320,9 @@
         "shared.js": 0.3
     },
     "filter-tag": {
-        "desktop.js": 6.3,
-        "index.js": 8.8,
-        "mobile.js": 6.3
+        "desktop.js": 6.8,
+        "index.js": 9.5,
+        "mobile.js": 6.8
     },
     "file-upload-item": {
         "index.js": 82.4
