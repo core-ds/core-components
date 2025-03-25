@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar",
-    "version": "7.17.12",
+    "version": "7.17.13",
     "description": "Calendar component",
     "keywords": [],
     "license": "MIT",
@@ -28,7 +28,7 @@
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0",
         "react-transition-group": "^4.4.5",
-        "react-virtuoso": "^2.12.0",
+        "react-virtuoso": "^4.12.5",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.2",
