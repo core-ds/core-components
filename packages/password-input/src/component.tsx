@@ -55,8 +55,8 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             rightAddons,
             size = 48,
             passwordHint = {
-                visible: 'Скрыть введённые цифры',
-                hidden: 'Показать введённые цифры',
+                visible: 'Скрыть',
+                hidden: 'Показать',
             },
             className,
             ...restProps

@@ -29,8 +29,8 @@ export const password_input: Story = {
             bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
             readOnly={boolean('readOnly', false)}
             passwordHint={object('passwordHint', {
-                visible: 'Скрыть введённые цифры',
-                hidden: 'Показать введённые цифры',
+                visible: 'Скрыть',
+                hidden: 'Показать',
             })}
         />
     ),
