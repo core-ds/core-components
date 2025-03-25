@@ -2,4 +2,4 @@
 '@alfalab/core-components-checkbox-group': minor
 ---
 
-обернуть компонент BaseCheckboxGroup в forwardRef [DS-9475]
+Обернул компонент `BaseCheckboxGroup` в forwardRef и предоставил возможность прокинуть ref
