@@ -146,9 +146,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                         onKeyDown={handleClear}
                         tabIndex={0}
                     >
-                        <span className={commonStyles.iconWrapper}>
-                            {[40, 32].includes(size) ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
-                        </span>
+                        {[40, 32].includes(size) ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
                     </div>
                 )}
             </div>
