@@ -32,24 +32,6 @@
         }
     }
 
-    &.filled {
-        background-color: var(--tag-filled-mobile-background-color);
-
-        &:disabled {
-            background-color: var(--tag-filled-mobile-background-color-disabled);
-        }
-
-        @media (hover: hover) {
-            &:not(:disabled):hover {
-                background-color: var(--tag-filled-mobile-background-color-hover);
-            }
-        }
-
-        &:not(:disabled):active {
-            background-color: var(--tag-filled-mobile-background-color-active);
-        }
-    }
-
     &.checked {
         &.rectangular {
             &.size-32 {
