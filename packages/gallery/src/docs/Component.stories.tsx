@@ -146,10 +146,9 @@ export const gallery: Story = {
                             name: 'Alfa promo.m3u8',
                             src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
                             bottomButton: {
-                                text: 'Перейти на сайт',
-                                onClick: () => {
-                                    console.log('click');
-                                },
+                                text: 'Кнопка с задержкой 2 секунды',
+                                onClick: () => {},
+                                timeout: 2000,
                             },
                         },
                         {

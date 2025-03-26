@@ -40,11 +40,4 @@
     bottom: 48px;
     left: 32px;
     right: 32px;
-    background-color: var(--color-static-neutral-translucent-500-inverted);
-    &:hover {
-        background-color: var(--color-static-neutral-translucent-500-inverted-hover);
-    }
-    &:active {
-        background-color: var(--color-static-neutral-translucent-500-inverted-press);
-    }
 }

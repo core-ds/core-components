@@ -1,8 +1,12 @@
 import { MouseEvent, RefObject } from 'react';
 
-type BottomButton = {
+export type TBottomButton = {
     text: string;
     onClick: (e: MouseEvent) => void;
+    /**
+     * Задержка появления кнопки в ms
+     */
+    timeout?: number;
 };
 
 export type GalleryImage = {
@@ -14,7 +18,7 @@ export type GalleryImage = {
     /**
      * Нижняя кнопка, есть только у видео
      */
-    bottomButton?: BottomButton;
+    bottomButton?: TBottomButton;
 };
 
 export type ImageMeta =

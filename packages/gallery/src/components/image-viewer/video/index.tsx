@@ -9,13 +9,12 @@ import React, {
 import cn from 'classnames';
 import Hls from 'hls.js';
 
-import { Button } from '@alfalab/core-components-button';
 import { Circle } from '@alfalab/core-components-icon-view/circle';
-import { Typography } from '@alfalab/core-components-typography';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
 
 import { GalleryContext } from '../../../context';
 import { GALLERY_EVENTS } from '../../../utils/constants';
+import { BottomButton } from '../../bottom-button';
 
 import styles from './index.module.css';
 
@@ -202,16 +201,11 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                 </div>
             )}
             {isDesktop && image?.bottomButton && (
-                <Button
-                    size='m'
-                    className={styles.bottomButton}
+                <BottomButton
+                    bottomButton={image.bottomButton}
                     onClick={handleBottomButtonClick}
-                    nowrap={true}
-                >
-                    <Typography.Text color='static-primary-light'>
-                        {image.bottomButton.text}
-                    </Typography.Text>
-                </Button>
+                    className={styles.bottomButton}
+                />
             )}
         </div>
     );

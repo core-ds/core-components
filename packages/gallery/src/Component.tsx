@@ -3,10 +3,9 @@ import cn from 'classnames';
 import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { Button } from '@alfalab/core-components-button';
 import { useIsDesktop } from '@alfalab/core-components-mq';
-import { Typography } from '@alfalab/core-components-typography';
 
+import { BottomButton } from './components/bottom-button';
 import { Single } from './components/image-viewer/single';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { GalleryContext } from './context';
@@ -294,19 +293,11 @@ export const Gallery: FC<GalleryProps> = ({
                         })}
                     >
                         {isCurrentVideo && !isDesktop && bottomButton && (
-                            <div className={styles.bottomButtonWrapper}>
-                                <Button
-                                    size='m'
-                                    className={styles.bottomButton}
-                                    onClick={handleBottomButtonClick}
-                                    block={true}
-                                    nowrap={true}
-                                >
-                                    <Typography.Text color='static-primary-light'>
-                                        {bottomButton.text}
-                                    </Typography.Text>
-                                </Button>
-                            </div>
+                            <BottomButton
+                                bottomButton={bottomButton}
+                                onClick={handleBottomButtonClick}
+                                className={styles.bottomButton}
+                            />
                         )}
                         {showNavigationBar && <NavigationBar />}
                         {!isDesktop && <InfoBar />}

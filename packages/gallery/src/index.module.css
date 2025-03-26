@@ -41,9 +41,7 @@
 }
 
 .bottomButton {
-    background-color: var(--color-static-neutral-translucent-500-inverted);
-}
-
-.bottomButtonWrapper {
+    width: calc(100% - var(--gap-32));
     margin: var(--gap-16);
+    background-color: var(--color-static-neutral-translucent-500-inverted);
 }
