@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.4.11
+
+### Patch Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1604](https://github.com/core-ds/core-components/pull/1604)
+
+-   Добавлена поддержка больших чисел
+
 ## 2.4.10
 
 ### Patch Changes
