@@ -125,7 +125,7 @@
     },
     "select-with-tags": {
         "desktop.js": 198.3,
-        "index.js": 221.4,
+        "index.js": 221.5,
         "mobile.js": 195.3
     },
     "segmented-control": {
@@ -354,7 +354,7 @@
     },
     "custom-picker-button": {
         "desktop.js": 147.5,
-        "index.js": 242,
+        "index.js": 242.1,
         "mobile.js": 214.5
     },
     "custom-button": {
