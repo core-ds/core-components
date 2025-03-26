@@ -213,6 +213,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     <input
                         type='checkbox'
                         onChange={handleChange}
+                        name={name}
                         disabled={disabled || inactive}
                         checked={checked}
                         data-test-id={dataTestId}
