@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
-import startOfMonth from 'date-fns/startOfMonth';
+import { startOfMonth } from 'date-fns';
 
 import { CalendarInput, CalendarInputProps } from '@alfalab/core-components-calendar-input';
 import { isValidInputValue, parseDateString } from '@alfalab/core-components-calendar-input/shared';
