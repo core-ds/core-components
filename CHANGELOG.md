@@ -1,3 +1,66 @@
+## 48.21.0
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1610](https://github.com/core-ds/core-components/pull/1610)
+
+#### Что изменилось
+- Добавление пропса `name` в атрибуты `input` компонента Checkbox
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox` `checkbox-group`
+
+
+### [#1634](https://github.com/core-ds/core-components/pull/1634)
+
+#### Что изменилось
+- RUR удален из deprecated. Удалены dev утилиты для ворнинга.
+
+#### Влияние на компоненты
+- Патчи<br />`amount`
+
+
+### [#1613](https://github.com/core-ds/core-components/pull/1613)
+
+#### Что изменилось
+- Добавлена возможность передавать дополнительные props в компонент `Closer` из `NavigationBarPrivate` и `PopupSheet`
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar-private` `popup-sheet`
+
+
+### [#1609](https://github.com/core-ds/core-components/pull/1609)
+
+#### Что изменилось
+- Обновление ui-primitives
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1604](https://github.com/core-ds/core-components/pull/1604)
+
+#### Что изменилось
+- Добавлена поддержка больших чисел
+
+#### Влияние на компоненты
+- Патчи<br />`pagination`
+
+
+### [#1600](https://github.com/core-ds/core-components/pull/1600)
+
+#### Что изменилось
+- Добавлен `inverted` цвет. Управлять переключением можно с помощью пропса `colors={default | inverted}`
+- Добавлен слот `leftAddons`
+- Переработаны отступы внутри компонента
+- Исправлен размер `clear` иконки для `size=40`
+- Исправлено поведение `border` которое приводило к скачкам компонента
+
+#### Влияние на компоненты
+- Минорное<br />`filter-tag`
+
+
+
 ## 48.20.1
 
 <sup><time>17.03.2025</time></sup>
