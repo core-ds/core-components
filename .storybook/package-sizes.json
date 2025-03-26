@@ -5,7 +5,7 @@
     "universal-modal": {
         "desktop.js": 106.5,
         "index.js": 107.7,
-        "mobile.js": 70.8,
+        "mobile.js": 70.9,
         "shared.js": 49
     },
     "universal-date-input": {
@@ -109,7 +109,7 @@
         "index.js": 1.8
     },
     "side-panel": {
-        "desktop.js": 72.3,
+        "desktop.js": 72.4,
         "index.js": 74.5,
         "mobile.js": 70.6,
         "shared.js": 49.1
@@ -126,7 +126,7 @@
     "select-with-tags": {
         "desktop.js": 198.3,
         "index.js": 221.5,
-        "mobile.js": 195.3
+        "mobile.js": 195.4
     },
     "segmented-control": {
         "index.js": 12.4
@@ -157,7 +157,7 @@
         "index.js": 0.7
     },
     "popup-sheet": {
-        "index.js": 65.9,
+        "index.js": 66,
         "shared.js": 0.2
     },
     "popover": {
@@ -236,7 +236,7 @@
     "modal": {
         "desktop.js": 71.4,
         "index.js": 71.4,
-        "mobile.js": 71.3,
+        "mobile.js": 71.4,
         "shared.js": 49.1
     },
     "masked-input": {
@@ -267,7 +267,7 @@
     },
     "international-phone-input": {
         "desktop.js": 471.3,
-        "index.js": 542.7,
+        "index.js": 542.8,
         "mobile.js": 514.8,
         "shared.js": 2.4
     },
@@ -280,7 +280,7 @@
     "input-autocomplete": {
         "desktop.js": 158.4,
         "index.js": 243,
-        "mobile.js": 215.5,
+        "mobile.js": 215.6,
         "shared.js": 1.7
     },
     "indicator": {
@@ -346,7 +346,7 @@
     },
     "date-range-input": {
         "desktop.js": 150.4,
-        "index.js": 251.2,
+        "index.js": 251.3,
         "mobile.js": 250.6
     },
     "date-input": {
@@ -407,7 +407,7 @@
     "calendar": {
         "desktop.js": 72,
         "index.js": 182.1,
-        "mobile.js": 181.9,
+        "mobile.js": 182,
         "shared.js": 48.4
     },
     "calendar-with-skeleton": {
