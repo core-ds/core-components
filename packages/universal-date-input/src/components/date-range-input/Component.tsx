@@ -9,9 +9,7 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import isAfter from 'date-fns/isAfter';
-import isValid from 'date-fns/isValid';
-import startOfMonth from 'date-fns/startOfMonth';
+import { isAfter, isValid, startOfMonth } from 'date-fns';
 
 import type { CalendarProps } from '@alfalab/core-components-calendar';
 import { Input } from '@alfalab/core-components-input';

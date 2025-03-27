@@ -11,8 +11,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
-import endOfDay from 'date-fns/endOfDay';
-import startOfDay from 'date-fns/startOfDay';
+import { endOfDay, startOfDay } from 'date-fns';
 
 import {
     DATE_RANGE_SEPARATOR,

@@ -1,13 +1,4 @@
-import React, {
-    ChangeEvent,
-    FC,
-    FocusEvent,
-    forwardRef,
-    Ref,
-    useEffect,
-    useMemo,
-    useState,
-} from 'react';
+import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useMemo, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
@@ -84,7 +75,9 @@ export interface NumberInputProps
     /**
      *  Компонент инпута
      */
-    Input: FC<InputProps & { ref?: Ref<HTMLInputElement> }>;
+    // todo: починю как протестирую бетку
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Input: any;
 
     /**
      * Обработчик события изменения значения
