@@ -1,4 +1,5 @@
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
 import { hasOwnProperty, noop } from '@alfalab/core-components-shared';
 

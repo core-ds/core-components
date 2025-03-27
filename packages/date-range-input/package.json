@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-date-range-input",
-    "version": "3.5.22",
+    "version": "3.5.24",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,7 +18,7 @@
     "dependencies": {
         "@alfalab/core-components-input": "^15.5.3",
         "@alfalab/core-components-icon-button": "^6.11.9",
-        "@alfalab/core-components-calendar": "^7.17.12",
+        "@alfalab/core-components-calendar": "^7.17.14",
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/core-components-popover": "^6.3.8",
         "@alfalab/hooks": "^1.13.1",
@@ -30,5 +30,5 @@
         "@alfalab/core-components-shared": "^0.16.0"
     },
     "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "varsVersion": "9.19.0"
 }

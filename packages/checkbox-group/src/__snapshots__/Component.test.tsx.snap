@@ -20,6 +20,7 @@ Object {
             class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              name="one"
               type="checkbox"
             />
             <span
@@ -39,6 +40,7 @@ Object {
             class="component component size-20 start checkbox"
           >
             <input
+              name="two"
               type="checkbox"
             />
             <span
@@ -58,6 +60,7 @@ Object {
             class="component component size-20 start checkbox"
           >
             <input
+              name="three"
               type="checkbox"
             />
             <span
@@ -93,6 +96,7 @@ Object {
           class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            name="one"
             type="checkbox"
           />
           <span
@@ -112,6 +116,7 @@ Object {
           class="component component size-20 start checkbox"
         >
           <input
+            name="two"
             type="checkbox"
           />
           <span
@@ -131,6 +136,7 @@ Object {
           class="component component size-20 start checkbox"
         >
           <input
+            name="three"
             type="checkbox"
           />
           <span
@@ -223,6 +229,7 @@ Object {
             class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              name="one"
               type="checkbox"
             />
             <span
@@ -242,6 +249,7 @@ Object {
             class="component component size-20 start checkbox"
           >
             <input
+              name="two"
               type="checkbox"
             />
             <span
@@ -261,6 +269,7 @@ Object {
             class="component component size-20 start checkbox"
           >
             <input
+              name="three"
               type="checkbox"
             />
             <span
@@ -302,6 +311,7 @@ Object {
           class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            name="one"
             type="checkbox"
           />
           <span
@@ -321,6 +331,7 @@ Object {
           class="component component size-20 start checkbox"
         >
           <input
+            name="two"
             type="checkbox"
           />
           <span
@@ -340,6 +351,7 @@ Object {
           class="component component size-20 start checkbox"
         >
           <input
+            name="three"
             type="checkbox"
           />
           <span
@@ -438,6 +450,7 @@ Object {
             class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              name="one"
               type="checkbox"
             />
             <span
@@ -473,6 +486,7 @@ Object {
           class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            name="one"
             type="checkbox"
           />
           <span

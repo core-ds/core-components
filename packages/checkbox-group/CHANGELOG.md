@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.9.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1610](https://github.com/core-ds/core-components/pull/1610)
+
+-   Добавление пропса `name` в атрибуты `input` компонента Checkbox
+
 ## 4.8.0
 
 ### Minor Changes

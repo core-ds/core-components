@@ -1,5 +1,20 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1613](https://github.com/core-ds/core-components/pull/1613)
+
+-   Добавлена возможность передавать дополнительные props в компонент `Closer` из `NavigationBarPrivate` и `PopupSheet`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.7.0
+
 ## 1.3.20
 
 ### Patch Changes

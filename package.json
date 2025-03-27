@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.20.0",
+    "version": "48.21.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -97,13 +97,14 @@
         "react-textarea-autosize": "^8.3.4",
         "react-transition-group": "^4.4.5",
         "react-virtual": "^2.3.2",
-        "react-virtuoso": "^2.12.0",
+        "react-virtuoso": "^4.12.5",
         "recharts": "^2.12.7",
         "simplebar": "^5.3.8",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^22.7.0"
+        "ui-primitives": "^26.3.0",
+        "use-sync-external-store": "^1.4.0"
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.6.1",
@@ -135,6 +136,7 @@
         "@types/react": "^18.0.15",
         "@types/react-dom": "^18.0.6",
         "@types/swiper": "^5.4.3",
+        "@types/use-sync-external-store": "^0.0.6",
         "@types/webpack-env": "^1.18.0",
         "@typescript-eslint/eslint-plugin": "^5.40.1",
         "@typescript-eslint/parser": "^5.40.1",
