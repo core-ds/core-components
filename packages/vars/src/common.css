@@ -3,7 +3,10 @@
     --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
         sans-serif;
     --disabled-cursor: not-allowed;
-    --arrow-transform: rotate(180deg);
+    --arrow-transform: rotate(180deg); /* deprecated */
+    --arrow-transform-up-down-cw: rotate(180deg);
+    --arrow-transform-up-down-ccw: rotate(-180deg);
+    --arrow-transform-right-down-cw: rotate(90deg);
     --size-xxs-height: 32px;
     --size-xs-height: 40px;
     --size-s-height: 48px;
