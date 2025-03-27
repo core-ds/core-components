@@ -17,6 +17,7 @@ type TFileUploadItemContext = {
     downloadLink?: string;
     download?: string | true;
     disableButtons?: boolean;
+    isClickable?: boolean;
     target?: HTMLAttributeAnchorTarget;
     showDelete?: boolean;
     customIcon?: ElementType<{ className?: string }>;
@@ -42,6 +43,7 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     downloadLink: '',
     download: '',
     disableButtons: false,
+    isClickable: true,
     target: undefined,
     showDelete: false,
     iconStyle: 'gray',
