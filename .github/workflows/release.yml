@@ -1,4 +1,4 @@
-name: Release
+name: release
 
 on:
     push:
@@ -11,7 +11,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
     release:
-        name: Release
+        name: release
         if: github.repository == 'core-ds/core-components'
         runs-on: ubuntu-latest
         steps:
@@ -19,7 +19,7 @@ jobs:
 
             - uses: ./.github/actions/ci-setup
 
-            - name: Create Release Pull Request or Publish to npm
+            - name: create release pull request or publish to npm
               # https://github.com/changesets/action
               uses: changesets/action@v1
               with:

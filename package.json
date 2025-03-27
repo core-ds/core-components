@@ -35,7 +35,8 @@
         "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
         "generate-dark-colors": " node bin/dark-colors-generator.mjs",
         "tsconfig": "node bin/tsconfig/cli.mjs",
-        "write-vars-and-themes-version": "node bin/write-vars-and-themes-version.mjs"
+        "write-vars-and-themes-version": "node bin/write-vars-and-themes-version.mjs",
+        "non-existent-css-vars": "node bin/non-existent-css-vars.mjs"
     },
     "browserslist": {
         "production": [

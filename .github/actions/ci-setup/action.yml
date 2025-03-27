@@ -1,15 +1,15 @@
-name: Setup CI
+name: setup ci
 
 runs:
     using: composite
     steps:
-        - name: Setup Node.js 18.x
+        - name: setup nodejs
           uses: actions/setup-node@v4
           with:
               node-version: 18.x
               cache: yarn
 
-        - name: Install dependencies
+        - name: install dependencies
           shell: bash
           run: |
               yarn install --frozen-lockfile
