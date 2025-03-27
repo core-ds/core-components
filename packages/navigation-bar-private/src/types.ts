@@ -115,11 +115,6 @@ export type NavigationBarPrivateProps = {
     closerIcon?: React.ElementType;
 
     /**
-     * Набор цветов для closer
-     */
-    closerColors?: CloserProps['colors'];
-
-    /**
      * Обработчик закрытия
      */
     onClose?: CloserProps['onClose'];

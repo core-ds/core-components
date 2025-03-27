@@ -12,7 +12,7 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
 export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
