@@ -201,6 +201,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
                 onOpen={handleCountrySelectOpen}
                 open={showCountrySelect}
+                size={size}
             />
         );
 
