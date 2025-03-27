@@ -21,7 +21,6 @@
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
-    --arrow-transform: rotate(-180deg);
 
     @mixin navigation-bar-click;
     @mixin select-click;
