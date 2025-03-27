@@ -9,7 +9,7 @@ Object {
         class="component initial"
       >
         <div
-          class="container"
+          class="container clickable"
         >
           <div
             class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
@@ -96,7 +96,7 @@ Object {
           </div>
         </div>
         <div
-          class="container"
+          class="container clickable"
         >
           <span
             class="title primary component"
@@ -120,7 +120,7 @@ Object {
       class="component initial"
     >
       <div
-        class="container"
+        class="container clickable"
       >
         <div
           class="icon-view__componentWrapper_1avi8 icon-view__size_48_1avi8"
@@ -207,7 +207,7 @@ Object {
         </div>
       </div>
       <div
-        class="container"
+        class="container clickable"
       >
         <span
           class="title primary component"

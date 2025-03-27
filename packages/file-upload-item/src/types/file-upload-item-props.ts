@@ -90,6 +90,11 @@ export type FileUploadItemProps = {
     disableButtons?: boolean;
 
     /**
+     *Управление кликабельностью элемента
+     */
+    isClickable?: boolean;
+
+    /**
      * Указывает, где открыть скачиваемый документ
      */
     target?: HTMLAttributeAnchorTarget;
