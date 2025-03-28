@@ -1,3 +1,34 @@
+## 48.22.0
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1629](https://github.com/core-ds/core-components/pull/1629)
+
+#### Что изменилось
+- Добавили возможность задать `inverted` цвета для компонента `Closer`
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar-private`
+
+<br />
+
+#### Что изменилось
+- Исправили css токен для темной темы
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar-private` `universal-modal`
+
+
+### [#1543](https://github.com/core-ds/core-components/pull/1543)
+
+#### Что изменилось
+- Исправлено количество отображаемых месяцев в `CalendarMobile` при использовании пропсов `minDate/maxDate`
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+
 ## 48.21.0
 
 <sup><time>26.03.2025</time></sup>
