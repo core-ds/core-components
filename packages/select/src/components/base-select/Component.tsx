@@ -707,7 +707,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     <ListPopoverDesktop
                         {...getListPopoverDesktopProps(props)}
                         open={open}
-                        fieldRef={fieldRef}
+                        anchorElement={fieldRef}
                         renderOptionsList={renderOptionsList}
                     />
                 )}
