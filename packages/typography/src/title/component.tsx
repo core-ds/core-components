@@ -2,6 +2,8 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { isObject } from '@alfalab/core-components-shared';
+
 import { Color } from '../colors';
 import { useSkeleton } from '../hooks';
 import { TextSkeletonProps } from '../types';
@@ -19,7 +21,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
     tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
     /**
-     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--page)
+     * [Вариант начертания](?path=/docs/guidelines-typography--page)
      */
     view?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 
@@ -36,7 +38,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
     /**
      * Шрифт текста
      */
-    font?: 'styrene' | 'system';
+    font?: 'styrene' | 'system' | 'alfasans' | { font: 'alfasans'; systemCompat: boolean };
 
     /**
      * Добавляет отступы
@@ -93,9 +95,9 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
         {
             tag: Component = 'div',
             view = 'medium',
-            font = 'styrene',
+            font: fontProp = 'styrene',
             platform,
-            weight = getDefaultWeight(font, platform),
+            weight = getDefaultWeight(isObject(fontProp) ? fontProp.font : fontProp, platform),
             defaultMargins = false,
             color,
             className,
@@ -120,6 +122,16 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
             return skeleton;
         }
 
+        let font: string;
+        let systemCompat: boolean | undefined;
+
+        if (isObject(fontProp)) {
+            font = fontProp.font;
+            systemCompat = fontProp.systemCompat;
+        } else {
+            font = fontProp;
+        }
+
         return (
             <Component
                 className={cn(
@@ -132,6 +144,7 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
                     {
                         [styles[`rowLimit${rowLimit}`]]: rowLimit,
                         [styles.transparent]: showSkeleton,
+                        [styles.systemCompat]: systemCompat,
                     },
                 )}
                 data-test-id={dataTestId}
