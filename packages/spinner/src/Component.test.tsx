@@ -66,10 +66,17 @@ describe('Render tests', () => {
 });
 
 describe('Spinner props', () => {
+    beforeAll(() => {
+        const style = document.createElement('style');
+        style.innerHTML = `.spinner { box-sizing: content-box; }`;
+        document.head.appendChild(style);
+    });
+
     it('should support `size` and `lineWidth`', () => {
         const { container } = render(<Spinner visible size={48} lineWidth={2} />);
         expect(container).toMatchSnapshot();
     });
+
     it('should set correct size', () => {
         const { container } = render(
             <Spinner visible size={40} lineWidth={2} style={{ padding: 4 }} />,
@@ -80,6 +87,7 @@ describe('Spinner props', () => {
             padding: '4px',
         });
     });
+
     it('should support `style`', () => {
         const color = '#EC2D20';
         const padding = 2;
@@ -99,8 +107,15 @@ describe('Spinner props', () => {
         );
     });
 
-    test.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
+    it.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
         const { container } = render(<Spinner visible preset={preset} />);
         expect(container).toMatchSnapshot();
+    });
+
+    it('should have box-sizing set to content-box', () => {
+        const { getByTestId } = render(<Spinner size={20} lineWidth={2} dataTestId={testId} />);
+        const computedStyle = window.getComputedStyle(getByTestId(testId));
+
+        expect(computedStyle.getPropertyValue('box-sizing')).toBe('content-box');
     });
 });
