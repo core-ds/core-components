@@ -12,12 +12,14 @@
     },
     "sideEffects": false,
     "peerDependencies": {
+        "@alfalab/core-components-stack-context": "^0.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
         "@alfalab/core-components-popover": "^6.3.8",
         "@alfalab/core-components-portal": "^3.3.7",
+        "@alfalab/core-components-shared": "^0.16.0",
         "@alfalab/core-components-stack": "^5.0.1",
         "@alfalab/core-components-toast-plate": "^7.3.10",
         "@alfalab/core-components-mq": "^4.4.1",
@@ -25,8 +27,7 @@
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "react-transition-group": "^4.4.5",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.2",
     "varsVersion": "9.19.0"

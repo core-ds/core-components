@@ -3,20 +3,20 @@ import globby from 'globby';
 import shell from 'shelljs';
 import fs from 'node:fs';
 
-const packages = shell.exec(
+const lernaList = shell.exec(
     `lerna list \\
+        --ignore @alfalab/core-components \\
         --ignore @alfalab/core-components-codemod \\
-        --ignore @alfalab/core-components-vars \\
         --ignore @alfalab/core-components-themes \\
+        --ignore @alfalab/core-components-vars \\
+        --json
         --all`,
     { silent: true },
-).stdout;
+);
 
-const packageList = packages
-    .split('\n')
-    .map((pkg) => pkg.trim())
-    .filter(Boolean)
-    .map((pkg) => pkg.replace('@alfalab/core-components-', ''));
+const packageList = JSON.parse(lernaList.stdout).map(({ name }) =>
+    name.replace('@alfalab/core-components-', ''),
+);
 
 const ENTRY_POINTS = [
     'desktop',

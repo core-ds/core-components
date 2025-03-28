@@ -11,6 +11,7 @@ module.exports = {
                     '@babel/plugin-proposal-nullish-coalescing-operator',
                 ],
             },
+            tsconfig: 'tsconfig.test.json',
         },
     },
     moduleNameMapper: {

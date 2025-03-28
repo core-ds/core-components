@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-hatching-progress-bar
 
 ## 2.2.5
 
