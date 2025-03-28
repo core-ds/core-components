@@ -1,5 +1,12 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.0
+
 ## 1.4.0
 
 ### Minor Changes
