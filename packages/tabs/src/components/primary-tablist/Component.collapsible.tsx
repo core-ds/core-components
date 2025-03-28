@@ -128,7 +128,7 @@ export const CollapsiblePrimaryTabList = ({
                                 <Badge view='count' content={collapsedAddonsLength} />
                             ) : null
                         }
-                        size='m'
+                        size={56}
                         view='text'
                         label='Ещё'
                         popoverPosition='bottom-end'

@@ -138,7 +138,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                     onClick={handleSmsHintLinkClick}
                     className={styles.smsBtn}
                     view='text'
-                    size='xs'
+                    size={40}
                 >
                     {texts.linkToHint}
                 </ButtonMobile>

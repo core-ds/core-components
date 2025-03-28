@@ -74,8 +74,8 @@ describe('Plate', () => {
         expect(queryByTestId('button-3')).toHaveClass(`size-${size}`);
 
         expect(queryByTestId('button-1')).toHaveClass('secondary');
-        expect(queryByTestId('button-2')).toHaveClass('link');
-        expect(queryByTestId('button-3')).toHaveClass('link');
+        expect(queryByTestId('button-2')).toHaveClass('transparent');
+        expect(queryByTestId('button-3')).toHaveClass('transparent');
     });
 
     it('should set `background` style', () => {

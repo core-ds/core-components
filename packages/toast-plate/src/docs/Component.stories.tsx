@@ -61,7 +61,7 @@ export const toast_plate: Story = {
                             <Button
                                 view='text'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                size={isMobile ? 'xs' : 's'}
+                                size={isMobile ? 40 : 48}
                             >
                                 Action Button
                             </Button>
@@ -121,7 +121,7 @@ export const toast_plate_mobile: Story = {
                             <Button
                                 view='text'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                size='xs'
+                                size={40}
                             >
                                 Action Button
                             </Button>
@@ -180,7 +180,7 @@ export const toast_plate_desktop: Story = {
                             <Button
                                 view='text'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                size='s'
+                                size={48}
                             >
                                 Action Button
                             </Button>

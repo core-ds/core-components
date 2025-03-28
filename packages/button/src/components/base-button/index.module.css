@@ -166,7 +166,6 @@
         padding-right: 31px;
     }
 
-    &.ghost,
     &.text {
         padding-right: var(--gap-0);
     }
@@ -197,18 +196,15 @@
         padding-left: 31px;
     }
 
-    &.ghost,
     &.text {
         padding-left: var(--gap-0);
     }
 }
 
-.link,
 .transparent {
     min-width: 0;
 }
 
-.ghost.ghost,
 .text.text {
     min-width: 0;
     min-height: 0;
