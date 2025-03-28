@@ -17,6 +17,7 @@ type TFileUploadItemContext = {
     downloadLink?: string;
     download?: string | true;
     disableButtons?: boolean;
+    isClickable?: boolean;
     target?: HTMLAttributeAnchorTarget;
     showDelete?: boolean;
     customIcon?: ElementType<{ className?: string }>;
@@ -25,6 +26,8 @@ type TFileUploadItemContext = {
     customContent?: ElementType;
     truncate?: boolean;
     imageUrl?: string;
+    actionsPresent?: boolean;
+    setActionsPresent?: (present: boolean) => void;
 };
 
 export const FileUploadItemContext = createContext<TFileUploadItemContext>({
@@ -42,6 +45,7 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     downloadLink: '',
     download: '',
     disableButtons: false,
+    isClickable: true,
     target: undefined,
     showDelete: false,
     iconStyle: 'gray',
@@ -50,4 +54,6 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     customContent: undefined,
     truncate: false,
     imageUrl: undefined,
+    actionsPresent: false,
+    setActionsPresent: undefined,
 });
