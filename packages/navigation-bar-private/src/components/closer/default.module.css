@@ -1,0 +1,12 @@
+@import '../../../../vars/src/colors-monochrome.css';
+@import '../../vars.css';
+
+.button {
+    background: var(--color-light-monochrome-white-4);
+    color: var(--color-light-neutral-translucent-1300);
+
+    &.mobile {
+        background: var(--color-light-neutral-translucent-100);
+        color: var(--navigation-bar-closer-mobile-color);
+    }
+}
