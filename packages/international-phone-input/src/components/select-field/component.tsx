@@ -6,6 +6,7 @@ import type { FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus } from '@alfalab/hooks';
 import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
@@ -17,17 +18,6 @@ export const EMPTY_COUNTRY_SELECT_FIELD = {
 
 type SelectFieldProps = FieldProps & {
     size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
-};
-
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
 };
 
 export const SelectField: FC<SelectFieldProps> = ({
