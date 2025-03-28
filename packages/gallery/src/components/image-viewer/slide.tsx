@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { Spinner } from '@alfalab/core-components-spinner';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage, ImageMeta } from '../../types';
@@ -44,9 +44,9 @@ const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, isVideoVie
                 </svg>
             </div>
 
-            <Text view='primary-small' color='static-secondary-light'>
+            <TypographyText view='primary-small' color='static-secondary-light'>
                 Не удалось загрузить {isVideoView ? 'видео' : 'изображение'}
-            </Text>
+            </TypographyText>
         </div>
     ) : (
         children
