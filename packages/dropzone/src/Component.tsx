@@ -38,12 +38,6 @@ export type DropzoneProps = {
     block?: boolean;
 
     /**
-     * @deprecated(используйте Overlay)
-     * Позволяет вручную управлять видимостью заглушки
-     */
-    overlayVisible?: boolean;
-
-    /**
      * Компонент оверлея
      */
     Overlay?: ComponentType<OverlayProps>;
@@ -85,7 +79,6 @@ export const Dropzone: FC<DropzoneProps> = ({
     children,
     text = 'Перетащите файлы',
     error = false,
-    overlayVisible,
     Overlay = DefaultOverlay,
     onDragEnter,
     onDragLeave,
@@ -103,7 +96,7 @@ export const Dropzone: FC<DropzoneProps> = ({
      */
     const dragCounter = useRef(0);
 
-    const isOverlayVisible = Boolean(dragOver || overlayVisible);
+    const isOverlayVisible = Boolean(dragOver);
 
     const handleDragOver = useCallback(
         (event: React.DragEvent<HTMLElement>) => {
