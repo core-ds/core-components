@@ -4,9 +4,12 @@
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "main": "index.js",
+    "module": "./esm/index.js",
     "style": "index.css",
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    }
+    },
+    "sideEffects": false
 }
