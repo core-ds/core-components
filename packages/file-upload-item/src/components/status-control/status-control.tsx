@@ -17,6 +17,7 @@ export const StatusControl = () => {
         uploadStatus = 'INITIAL',
         progressBar,
         imageUrl,
+        actionsPresent,
         isClickable,
     } = useContext(FileUploadItemContext);
     const progressRef = useRef<HTMLDivElement>(null);
@@ -33,7 +34,7 @@ export const StatusControl = () => {
     return (
         <div
             className={cn(styles.container, {
-                [styles.clickable]: isClickable,
+                [styles.clickable]: !actionsPresent && isClickable,
             })}
         >
             <SuperEllipse size={48} {...(imageUrl && { imageUrl })}>
