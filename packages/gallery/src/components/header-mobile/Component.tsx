@@ -27,6 +27,32 @@ export const HeaderMobile = () => {
     const canDownload = currentImage?.canDownload ?? true;
     const showDownloadButton = !meta?.broken && canDownload;
 
+    const handleShareClick = async () => {
+        if (!currentImage) return;
+
+        const title = currentImage.name ?? new Date().toISOString().split('T')[0];
+
+        const image = await fetch(currentImage.src);
+        const blob = await image.blob();
+
+        const filesArray = [
+            new File([blob], title, {
+                type: blob.type,
+                lastModified: new Date().getTime(),
+            }),
+        ];
+
+        const shareData = {
+            files: filesArray,
+        };
+
+        if (navigator.canShare(shareData) && !isVideo(currentImage.src)) {
+            await navigator.share(shareData);
+        } else {
+            await navigator.share({ url: currentImage.src, title });
+        }
+    };
+
     return (
         <div
             className={cn(styles.headerMobile, {
@@ -51,6 +77,7 @@ export const HeaderMobile = () => {
                         dataTestId={TestIds.DOWNLOAD_BUTTON}
                     />
                 )}
+                {!meta?.broken && <Buttons.Share onClick={handleShareClick} />}
             </div>
         </div>
     );
