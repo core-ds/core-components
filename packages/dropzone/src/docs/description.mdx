@@ -16,7 +16,7 @@ render(() => {
         setDownloadStatus(payload.value);
         setFilesList([])
     };
-    
+
     const stylesStatus = {
         display: 'flex',
         flexDirection: 'column',
@@ -34,7 +34,7 @@ render(() => {
     const isError = filesList.length && downloadStatus === 'error';
 
     const statusDropzone = (text, Icon)=> (
-        <div style={stylesStatus}> 
+        <div style={stylesStatus}>
             <Icon />
             <span style={stylesText}>{text}</span>
         </div>
@@ -61,8 +61,8 @@ render(() => {
                 onChange={onDownloadStatusChange}
                 value={downloadStatus}
             >
-                <Radio size='m' label='Успех' value='success' />
-                <Radio size='m' label='Ошибка' value='error' />
+                <Radio size={24} label='Успех' value='success' />
+                <Radio size={24} label='Ошибка' value='error' />
             </RadioGroup>
         </Space>
     );

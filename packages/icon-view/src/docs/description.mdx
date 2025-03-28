@@ -63,7 +63,7 @@ render(() => {
                         <Radio
                             label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
                             value={c}
-                            size='m'
+                            size={24}
                             key={c}
                         />
                     ))}
@@ -146,7 +146,7 @@ render(() => {
                         <Radio
                             label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
                             value={c}
-                            size='m'
+                            size={24}
                             key={c}
                         />
                     ))}
@@ -223,11 +223,11 @@ render(() => {
                         label='Цвет фона'
                         name='background'
                         checked={value.background}
-                        size='m'
+                        size={24}
                     />
-                    <Checkbox label='Изображение' name='image' checked={value.image} size='m' />
-                    <Checkbox label='Текст' name='text' checked={value.text} size='m' />
-                    <Checkbox label='Иконка' name='icon' checked={value.icon} size='m' />
+                    <Checkbox label='Изображение' name='image' checked={value.image} size={24} />
+                    <Checkbox label='Текст' name='text' checked={value.text} size={24} />
+                    <Checkbox label='Иконка' name='icon' checked={value.icon} size={24} />
                 </CheckboxGroup>
             </Row>
 
@@ -242,7 +242,7 @@ render(() => {
                         <Radio
                             label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
                             value={c}
-                            size='m'
+                            size={24}
                             key={c}
                         />
                     ))}
@@ -362,9 +362,9 @@ render(() => {
                     onChange={onChangeContent}
                     value={content}
                 >
-                    <Radio label='Иконка' value='icon' size='m' />
-                    <Radio label='Craftwork Emoji' value='emoji' size='m' />
-                    <Radio label='Без контента' value='noContent' size='m' />
+                    <Radio label='Иконка' value='icon' size={24} />
+                    <Radio label='Craftwork Emoji' value='emoji' size={24} />
+                    <Radio label='Без контента' value='noContent' size={24} />
                 </RadioGroup>
             </Row>
 
@@ -375,10 +375,10 @@ render(() => {
                     onChange={onChangeTopAddons}
                     value={topAddons}
                 >
-                    <Radio label='Маленький индикатор' value='indicatorSmall' size='m' />
-                    <Radio label='Индикатор' value='indicator' size='m' />
-                    <Radio label='IconView' value='iconView' size='m' />
-                    <Radio label='Без контента' value='noContent' size='m' />
+                    <Radio label='Маленький индикатор' value='indicatorSmall' size={24} />
+                    <Radio label='Индикатор' value='indicator' size={24} />
+                    <Radio label='IconView' value='iconView' size={24} />
+                    <Radio label='Без контента' value='noContent' size={24} />
                 </RadioGroup>
             </Row>
 
@@ -389,8 +389,8 @@ render(() => {
                     onChange={onChangeBottomAddons}
                     value={bottomAddons}
                 >
-                    <Radio label='IconView' value='iconView' size='m' />
-                    <Radio label='Без контента' value='noContent' size='m' />
+                    <Radio label='IconView' value='iconView' size={24} />
+                    <Radio label='Без контента' value='noContent' size={24} />
                 </RadioGroup>
             </Row>
         </Container>
