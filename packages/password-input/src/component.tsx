@@ -21,6 +21,14 @@ export type PasswordInputProps = Omit<InputProps, 'size'> & {
     passwordVisible?: boolean;
 
     /**
+     * Управление текстом подсказки
+     */
+    passwordHint?: {
+        visible: string;
+        hidden: string;
+    };
+
+    /**
      * Коллбэк при изменении видимости пароля
      */
     onPasswordVisibleChange?: (visible: boolean) => void;
@@ -46,11 +54,16 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             colors,
             rightAddons,
             size = 48,
+            passwordHint = {
+                visible: 'Скрыть',
+                hidden: 'Показать',
+            },
             className,
             ...restProps
         },
         ref,
     ) => {
+        const { visible, hidden } = passwordHint;
         const uncontrolled = passwordVisible === undefined;
         const [statePasswordVisible, setStatePasswordVisible] = useState(
             uncontrolled ? false : passwordVisible,
@@ -62,7 +75,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             }
 
             if (uncontrolled) {
-                setStatePasswordVisible((visible) => !visible);
+                setStatePasswordVisible((prevVisible) => !prevVisible);
             }
         }, [passwordVisible, uncontrolled, onPasswordVisibleChange]);
 
@@ -88,11 +101,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                             icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
                             onClick={handleButtonClick}
                             disabled={disabled}
-                            title={
-                                isPasswordVisible
-                                    ? 'Скрыть введённые цифры'
-                                    : 'Показать введённые цифры'
-                            }
+                            title={isPasswordVisible ? visible : hidden}
                         />
                     </React.Fragment>
                 }
