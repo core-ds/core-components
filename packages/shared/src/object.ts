@@ -1,9 +1,3 @@
-import { isNonNullable } from './fnUtils';
-
-export function isObject<T>(value: T): value is T & object {
-    return isNonNullable(value) && typeof value === 'object';
-}
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // https://stackoverflow.com/a/74608626
 type Intersect<T> = (T extends any ? (x: T) => any : never) extends (x: infer R) => any ? R : never;
