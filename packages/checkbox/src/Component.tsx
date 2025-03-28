@@ -93,13 +93,6 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     disabled?: boolean;
 
     /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props disabled
-     * Управление состоянием активен / неактивен
-     */
-    inactive?: boolean;
-
-    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -160,7 +153,6 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             className,
             name,
             disabled,
-            inactive,
             dataTestId,
             indeterminate = false,
             hiddenInput = false,
@@ -197,8 +189,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     className,
                     labelProps?.className,
                     {
-                        [styles.disabled]: disabled || inactive,
-                        [colorStyle.disabled]: disabled || inactive,
+                        [styles.disabled]: disabled,
+                        [colorStyle.disabled]: disabled,
                         [styles.checked]: checked,
                         [colorStyle.checked]: checked,
                         [styles.indeterminate]: indeterminate,
@@ -214,7 +206,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         type='checkbox'
                         onChange={handleChange}
                         name={name}
-                        disabled={disabled || inactive}
+                        disabled={disabled}
                         checked={checked}
                         data-test-id={dataTestId}
                         ref={inputRef}
