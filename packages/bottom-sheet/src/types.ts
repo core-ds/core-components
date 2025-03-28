@@ -13,7 +13,7 @@ export type BottomSheetProps = {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
-    adjustContainerHeight?: (height: number) => number
+    adjustContainerHeight?: (height: number) => number;
     /**
      * Контент
      */
@@ -237,12 +237,6 @@ export type BottomSheetProps = {
      * Отключает ловушку фокуса
      */
     disableFocusLock?: boolean;
-
-    /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Не анимировать шторку при изменении размера вьюпорта
-     */
-    ignoreScreenChange?: boolean;
 
     /**
      * Свойства для Бэкдропа
