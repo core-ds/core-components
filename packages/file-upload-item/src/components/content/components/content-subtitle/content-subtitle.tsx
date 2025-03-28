@@ -40,7 +40,7 @@ export const ContentSubtitle = () => {
     if (isUploadingStatus(uploadStatus)) {
         return (
             <Text view='primary-small' color='secondary'>
-                Загрузка{'\u00A0'}
+                Загружено{'\u00A0'}
                 {Math.floor(validProgressBar)}%
             </Text>
         );
