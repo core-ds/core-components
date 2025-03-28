@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { Skeleton } from '@alfalab/core-components-skeleton';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { TextSkeletonProps } from '../types';
+import { Skeleton } from '../../Component';
+import { TextSkeletonProps } from '../../types/text-skeleton-props';
 
 import styles from './use-skeleton.module.css';
 
