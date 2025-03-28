@@ -46,6 +46,11 @@
     opacity: 0.5;
 }
 
+/* Safari :before fix */
+.notVisible:before {
+    display: none;
+}
+
 @supports (backdrop-filter: blur(1px)) {
     .animate:before {
         opacity: 0.4;

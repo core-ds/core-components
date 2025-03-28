@@ -74,11 +74,15 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div />
+      <div
+        class="notVisible"
+      />
     </div>
   </body>,
   "container": <div>
-    <div />
+    <div
+      class="notVisible"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -139,13 +143,17 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
+      <div
+        class="notVisible"
+      >
         text
       </div>
     </div>
   </body>,
   "container": <div>
-    <div>
+    <div
+      class="notVisible"
+    >
       text
     </div>
   </div>,

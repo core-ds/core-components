@@ -95,7 +95,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     }
 
     return (
-        <div data-test-id={dataTestId} className={className} style={style}>
+        <div data-test-id={dataTestId} className={cn(className, styles.notVisible)} style={style}>
             {children}
         </div>
     );
