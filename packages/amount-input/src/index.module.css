@@ -1,4 +1,5 @@
 @import '../../vars/src/index.css';
+@import '../../vars/src/colors-decorative.css';
 
 /*
 * Задача:
@@ -25,6 +26,11 @@
 /* суффикс = текст в поле. Скрываем спейсер, чтобы суффикс выглядел как введенное в поле значение */
 .suffixContainer > *:first-child {
     display: none;
+}
+
+input::selection,
+.suffixContainer::selection {
+    background: var(--color-light-decorative-soft-blue-hover);
 }
 
 .filled .input,
