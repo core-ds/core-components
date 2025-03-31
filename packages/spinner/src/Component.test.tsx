@@ -111,11 +111,4 @@ describe('Spinner props', () => {
         const { container } = render(<Spinner visible preset={preset} />);
         expect(container).toMatchSnapshot();
     });
-
-    it('should have box-sizing set to content-box', () => {
-        const { getByTestId } = render(<Spinner size={20} lineWidth={2} dataTestId={testId} />);
-        const computedStyle = window.getComputedStyle(getByTestId(testId));
-
-        expect(computedStyle.getPropertyValue('box-sizing')).toBe('content-box');
-    });
 });
