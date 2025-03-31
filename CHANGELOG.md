@@ -1,3 +1,17 @@
+## 48.22.1
+
+<sup><time>31.03.2025</time></sup>
+
+### [#1649](https://github.com/core-ds/core-components/pull/1649)
+
+#### Что изменилось
+- Исправлено перезатирание класса компонента у closer, при передаче closerProps
+
+#### Влияние на компоненты
+- Патчи<br />`popup-sheet`
+
+
+
 ## 48.22.0
 
 <sup><time>28.03.2025</time></sup>
