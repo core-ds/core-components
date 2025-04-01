@@ -21,6 +21,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { usePreventViewportScrollOnFocus } from '../../hooks/usePreventScrollOnFocus';
 import { ClearButton } from '../clear-button';
 
 import defaultColors from './default.module.css';
@@ -304,6 +305,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             input.setSelectionRange(input.value.length, input.value.length);
         }, []);
 
+        const preventViewportScrollRef = usePreventViewportScrollOnFocus();
+
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
                 if (!readOnlyProp || disableUserInput) {
@@ -498,7 +501,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     onAnimationStart={handleAnimationStart}
-                    ref={mergeRefs([ref, inputRef])}
+                    ref={mergeRefs([ref, inputRef, preventViewportScrollRef])}
                     type={type}
                     value={uncontrolled ? stateValue : value}
                     readOnly={readOnly}
