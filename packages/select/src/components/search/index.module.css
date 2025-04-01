@@ -4,7 +4,3 @@
 .component.component {
     width: auto;
 }
-
-.size-72 {
-    padding: var(--gap-0) var(--gap-16);
-}
