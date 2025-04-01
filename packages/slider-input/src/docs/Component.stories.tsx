@@ -23,6 +23,7 @@ export const slider_input: Story = {
                 min={number('min', 0)}
                 max={number('max', 100)}
                 step={number('step', 1)}
+                bold={boolean('bold', true)}
                 pips={
                     boolean('pips', false) && {
                         mode: 'values',

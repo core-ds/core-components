@@ -73,6 +73,11 @@ export type SliderInputProps = Omit<
     value?: number | string;
 
     /**
+     * Жирность текста инпута
+     */
+    bold?: boolean;
+
+    /**
      * Значение слайдера
      */
     sliderValue?: number;
@@ -159,6 +164,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             focusedClassName,
             fieldClassName,
             value = '',
+            bold = true,
             min = 0,
             max = 100,
             step = 1,
@@ -253,6 +259,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         [styles.filled]: Boolean(value),
                         [styles.hasLabel]: label,
                         [styles.hasError]: Boolean(error),
+                        [styles.bold]: bold,
                     },
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     className,
