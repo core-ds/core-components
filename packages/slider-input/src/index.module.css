@@ -98,12 +98,18 @@
 .input {
     & input,
     & input + div {
-        font-weight: var(--slider-input-font-weight);
         font-variant-numeric: tabular-nums;
     }
 
     & input::placeholder {
         font-weight: 400;
+    }
+}
+
+.bold .input {
+    & input,
+    & input + div {
+        font-weight: var(--slider-input-font-weight);
     }
 }
 

@@ -190,6 +190,46 @@ render(() => {
 });
 ```
 
+## Bold
+
+Можно установить жирность текста инпута. По умолчанию - жирный.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState(5);
+    const [bold, setBold] = React.useState(true);
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <SliderInput
+                value={value}
+                label='Label'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 48 : 56}
+                pips={{
+                    mode: 'values',
+                    values: [1, 10 / 2, 10],
+                }}
+                min={1}
+                max={10}
+                step={1}
+                block={true}
+                bold={bold}
+                onChange={(_, { value }) => setValue(value)}
+                breakpoint={BREAKPOINT}
+            />
+            <Gap size='xl' />
+            <Switch
+                block={true}
+                checked={bold}
+                label='Жирность текста'
+                onChange={() => setBold((prev) => !prev)}
+            />
+        </div>
+    );
+});
+```
+
 ## Морфология
 
 Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs),
