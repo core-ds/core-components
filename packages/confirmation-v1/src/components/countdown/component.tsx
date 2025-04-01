@@ -171,7 +171,7 @@ export const Countdown: FC<CountdownProps> = ({
         <Container alignContent={alignContent} hasError={hasError}>
             {phone && !hasError && (
                 <div>
-                    Код отправлен на
+                    Отправили на
                     {' '}
                     {hasPhoneMask ? phoneNumber.mask(formattedPhone) : formattedPhone}
                 </div>
@@ -184,7 +184,7 @@ export const Countdown: FC<CountdownProps> = ({
                 retryButton
             ) : (
                 <div>
-                    <div className={styles.info}>Запросить повторно можно через</div>
+                    <div className={styles.info}>Запросить новый можно через</div>
                     <div className={styles.loaderWrap}>
                         <CountdownLoader progress={progress} className={styles.loader} />
 

@@ -1,0 +1,32 @@
+@import '../../../vars.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+    text-align: center;
+}
+
+.typographyTheme.typographyTheme {
+    @mixin _confirmation-text;
+}
+
+.typographyThemeMobile.typographyThemeMobile {
+    color: var(--color-light-text-secondary);
+}
+
+.description.description {
+    margin-bottom: var(--gap-8);
+}
+
+.countdownWrap {
+    display: flex;
+    align-items: center;
+}
+
+.loader {
+    margin-right: var(--gap-8);
+}

@@ -11,7 +11,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       <h3
         class="component header typography styrene-medium medium primary"
       >
-        Введите код из сообщения
+        Введите код из уведомления
       </h3>
       <div
         class="component containerInput codeInput"
@@ -59,7 +59,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       <div
         class="countdownContainer typographyTheme primary-medium"
       >
-        Запросить повторно можно через 01:00
+        Запросить новый можно через 01:00
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -68,7 +68,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         <span
           class="text"
         >
-          Не приходит сообщение?
+          Не приходит код?
         </span>
       </button>
     </div>
@@ -87,7 +87,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       <h3
         class="component header typography styrene-medium medium primary"
       >
-        Введите код из сообщения
+        Введите код из уведомления
       </h3>
       <div
         class="component containerInput codeInput"
@@ -186,7 +186,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         <span
           class="text"
         >
-          Не приходит сообщение?
+          Не приходит код?
         </span>
       </button>
     </div>
@@ -205,7 +205,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       <h3
         class="component header typography styrene-medium medium primary"
       >
-        Введите код из сообщения
+        Введите код из уведомления
       </h3>
       <div
         class="component containerInput codeInput"
@@ -253,13 +253,13 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
           class="error"
           role="alert"
         >
-          Код введён неверно
+          Код не подходит, проверьте его
         </div>
       </div>
       <div
         class="countdownContainer typographyTheme primary-medium"
       >
-        Запросить повторно можно через 01:00
+        Запросить новый можно через 01:00
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -268,7 +268,89 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         <span
           class="text"
         >
-          Не приходит сообщение?
+          Не приходит код?
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED state 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="component left"
+    >
+      <h3
+        class="component header typography styrene-medium medium primary"
+      >
+        Введите код из уведомления
+      </h3>
+      <div
+        class="component containerInput codeInput"
+      >
+        <div
+          class="shake"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="input component hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input component hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input component hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input component hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input component hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+        </div>
+        <div
+          class="error"
+          role="alert"
+        >
+          Код устарел, запросите новый
+        </div>
+      </div>
+      <div
+        class="countdownContainer typographyTheme primary-medium"
+      >
+        Запросить новый можно через 01:00
+      </div>
+      <button
+        class="component secondary pseudo smsComeLink"
+        type="button"
+      >
+        <span
+          class="text"
+        >
+          Не приходит код?
         </span>
       </button>
     </div>
@@ -287,7 +369,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       <h3
         class="component header typography styrene-medium medium primary"
       >
-        Введите код из сообщения
+        Введите код из уведомления
       </h3>
       <div
         class="component containerInput codeInput"
@@ -386,7 +468,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         <span
           class="text"
         >
-          Не приходит сообщение?
+          Не приходит код?
         </span>
       </button>
     </div>
@@ -410,7 +492,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
       <span
         class="typographyTheme primary primary-medium"
       >
-        Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
+        Мы ограничили следующие попытки ввода, потому что код был введён неверно больше 5 раз.
       </span>
       <button
         class="component secondary size-48 hug size-48 component secondary component secondary button"
@@ -438,12 +520,92 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
       <h3
         class="component header typography styrene-medium medium primary"
       >
-        Превышено количество попыток запроса кода
+        Не приходит код?
+      </h3>
+      <span
+        class="text typographyTheme primary primary-medium"
+      >
+        Если сменили номер, позвоните нам или обратитесь в любой офис банка.
+      </span>
+      <div
+        class="phonesWrap"
+      >
+        <div
+          class="phoneWrap"
+        >
+          <a
+            class="component primary withoutUnderline phoneLink"
+            href="tel:+74957888878"
+          >
+            <span
+              class="text"
+            >
+              +7 495 78 888 78
+            </span>
+          </a>
+          <span
+            class="text typographyTheme primary primary-medium"
+          >
+             — в Москве и за границей
+          </span>
+        </div>
+        <div
+          class="phoneWrap"
+        >
+          <a
+            class="component primary withoutUnderline phoneLink"
+            href="tel:88002000000"
+          >
+            <span
+              class="text"
+            >
+              8 800 200 00 00
+            </span>
+          </a>
+          <span
+            class="text typographyTheme primary primary-medium"
+          >
+             — для звонков по России
+          </span>
+        </div>
+      </div>
+      <span
+        class="text typographyTheme primary primary-medium"
+      >
+        Если номер не меняли, попробуйте запросить код позже — возможно, перегружен сервис отправки уведомлений.
+      </span>
+      <button
+        class="component secondary size-48 hug size-48 component secondary component secondary hintButton"
+        type="button"
+      >
+        <span
+          class="label stretchText"
+        >
+          Вернуться к вводу кода
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK screen 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="component left"
+    >
+      <h3
+        class="component header typography styrene-medium medium primary"
+      >
+        Ввести код пока нельзя
       </h3>
       <span
         class="description typographyTheme primary primary-medium"
       >
-        Повторное подтверждение кодом будет возможно через 24 часа
+        Слишком много неверных попыток. Запросите новый позже
       </span>
       <div
         class="countdownWrap typographyTheme"
@@ -471,7 +633,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
 </div>
 `;
 
-exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] = `
+exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER screen 1`] = `
 <div>
   <div
     class="component"
@@ -481,71 +643,31 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
     >
       <h3
         class="component header typography styrene-medium medium primary"
-      >
-        Не приходит сообщение?
-      </h3>
+      />
       <span
-        class="text typographyTheme primary primary-medium"
-      >
-        Если у вас изменился номер телефона, позвоните нам или обратитесь в любое отделение банка.
-      </span>
+        class="description typographyTheme primary primary-medium"
+      />
       <div
-        class="phonesWrap"
+        class="countdownWrap typographyTheme"
       >
-        <div
-          class="phoneWrap"
+        <svg
+          class="loader"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
         >
-          <a
-            class="component primary withoutUnderline phoneLink"
-            href="tel:88002000000"
-          >
-            <span
-              class="text"
-            >
-              8 800 200 00 00
-            </span>
-          </a>
-          <span
-            class="text typographyTheme primary primary-medium"
-          >
-             — для звонков по России
-          </span>
-        </div>
-        <div
-          class="phoneWrap"
-        >
-          <a
-            class="component primary withoutUnderline phoneLink"
-            href="tel:+74957888878"
-          >
-            <span
-              class="text"
-            >
-              +7 495 78 888 78
-            </span>
-          </a>
-          <span
-            class="text typographyTheme primary primary-medium"
-          >
-             — в Москве и за границей
-          </span>
-        </div>
+          <circle
+            class="circle"
+            cx="8"
+            cy="8"
+            r="7"
+            stroke-dasharray="43.98"
+            stroke-dashoffset="0.00"
+            transform="rotate(-90 8 8)"
+          />
+        </svg>
+        24:00:00
       </div>
-      <span
-        class="text typographyTheme primary primary-medium"
-      >
-        Если номер не менялся, возможно, перегружен сервис отправки сообщений. Попробуйте повторить действие через несколько минут.
-      </span>
-      <button
-        class="component secondary size-48 hug size-48 component secondary component secondary hintButton"
-        type="button"
-      >
-        <span
-          class="label stretchText"
-        >
-          Вернуться к вводу кода
-        </span>
-      </button>
     </div>
   </div>
 </div>
