@@ -1,5 +1,33 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.8.0
+
+### Minor Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1629](https://github.com/core-ds/core-components/pull/1629)
+
+-   Добавили возможность задать `inverted` цвета для компонента `Closer`
+
+### Patch Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1629](https://github.com/core-ds/core-components/pull/1629)
+
+-   Исправили css токен для темной темы
+
+## 0.7.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1613](https://github.com/core-ds/core-components/pull/1613)
+
+-   Добавлена возможность передавать дополнительные props в компонент `Closer` из `NavigationBarPrivate` и `PopupSheet`
+
 ## 0.6.2
 
 ### Patch Changes
