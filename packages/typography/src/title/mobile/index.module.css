@@ -1,5 +1,5 @@
-@import '../../../vars/src/index.css';
-@import '../margins.module.css';
+@import '../../../../vars/src/index.css';
+@import '../../margins.module.css';
 
 .styrene-xlarge {
     @mixin headline-mobile_xlarge;
