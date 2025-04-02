@@ -82,7 +82,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency: gh-pages
         needs: [build, params]
-        if: ${{ github.repository }} == 'core-ds/core-components'
+        if: ${{ github.repository == 'core-ds/core-components' }}
         outputs:
             url: ${{ steps.url.outputs.result }}
         steps:

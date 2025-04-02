@@ -34,7 +34,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency: gh-pages
         needs: params
-        if: ${{ github.repository }} == 'core-ds/core-components'
+        if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
             - uses: actions/checkout@v4
               with:
