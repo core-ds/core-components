@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
@@ -35,6 +35,7 @@ export const PrimaryTabList = ({
         onChange,
     });
 
+    // расчет размера и положения нижней полосы
     useEffect(() => {
         if (selectedTab) {
             const updateLineWidth = () => {
@@ -53,6 +54,13 @@ export const PrimaryTabList = ({
         }
 
         return fnUtils.noop;
+    }, [selectedTab, titles]);
+
+    const handleTitleResize = useCallback(() => {
+        if (selectedTab && lineRef.current) {
+            lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
+            lineRef.current.style.transform = `translateX(${selectedTab.offsetLeft}px)`;
+        }
     }, [selectedTab]);
 
     const renderContent = () => (
@@ -73,6 +81,7 @@ export const PrimaryTabList = ({
                             styles={styles}
                             showSkeleton={showSkeleton}
                             skeletonProps={skeletonProps}
+                            onResize={handleTitleResize}
                         />
                     )}
                 </KeyboardFocusable>

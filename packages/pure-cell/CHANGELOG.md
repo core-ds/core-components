@@ -1,5 +1,94 @@
 # Change Log
 
+## 4.14.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.10.1
+
+## 4.14.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+    -   amount@3.10.0
+
+## 4.14.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+    -   comment@2.4.9
+
+## 4.14.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+
+## 4.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   typography@4.11.4
+    -   button@11.11.4
+    -   comment@2.4.8
+
+## 4.14.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   amount@3.9.1
+    -   button@11.11.3
+    -   comment@2.4.7
+    -   typography@4.11.3
+
+## 4.14.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1467](https://github.com/core-ds/core-components/pull/1467)
+
+-   Добавлены атомарные экспорты
+-   В package.json добавлено sideEffects:false
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   comment@2.4.6
+    -   amount@3.9.0
+    -   shared@0.14.1
+    -   button@11.11.2
+    -   typography@4.11.2
+
 ## 4.13.6
 
 ### Patch Changes

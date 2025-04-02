@@ -11,7 +11,7 @@ export const TestIds = {
     UNMUTE_BUTTON: 'unmute-button',
 };
 
-export const PREVIEW_WIDTH_MOBILE = 36;
+export const PREVIEW_WIDTH_MOBILE = 46;
 export const PREVIEW_HEIGHT_MOBILE = 46;
 
 export const PREVIEW_WIDTH_DESKTOP = 56;

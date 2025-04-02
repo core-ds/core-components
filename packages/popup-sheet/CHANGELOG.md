@@ -1,5 +1,107 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.2
+
+### Patch Changes
+
+<sup><time>31.03.2025</time></sup>
+
+### [#1649](https://github.com/core-ds/core-components/pull/1649)
+
+-   Исправлено перезатирание класса компонента у closer, при передаче closerProps
+
+## 1.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.0
+
+## 1.4.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1613](https://github.com/core-ds/core-components/pull/1613)
+
+-   Добавлена возможность передавать дополнительные props в компонент `Closer` из `NavigationBarPrivate` и `PopupSheet`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.7.0
+
+## 1.3.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.6.2
+
+## 1.3.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.6.1
+
+## 1.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   navigation-bar-private@0.6.0
+
+## 1.3.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+
+## 1.3.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   base-modal@5.8.9
+    -   navigation-bar-private@0.5.8
+
+## 1.3.15
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
+## 1.3.14
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.6
+    -   backdrop@3.4.4
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
 ## 1.3.13
 
 ### Patch Changes

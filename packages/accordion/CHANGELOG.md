@@ -1,5 +1,45 @@
 # Change Log
 
+## 1.2.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 1.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+
+## 1.2.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   typography@4.11.3
+
+## 1.2.6
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   typography@4.11.2
+
 ## 1.2.5
 
 ### Patch Changes

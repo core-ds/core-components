@@ -1,0 +1,11 @@
+@import '../../vars.css';
+
+.element {
+    background: var(--page-indicator-color);
+
+    &.active {
+        .progress {
+            background: var(--page-indicator-active-color);
+        }
+    }
+}

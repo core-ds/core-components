@@ -1,5 +1,63 @@
 # Change Log
 
+## 6.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.10
+
+## 6.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   portal@3.3.7
+    -   toast-plate@7.3.9
+    -   popover@6.3.8
+
+## 6.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   portal@3.3.6
+    -   toast-plate@7.3.8
+    -   popover@6.3.7
+
+## 6.3.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   popover@6.3.6
+    -   toast-plate@7.3.7
+
+## 6.3.6
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   popover@6.3.5
+    -   portal@3.3.5
+    -   shared@0.14.1
+    -   toast-plate@7.3.6
+
 ## 6.3.5
 
 ### Patch Changes

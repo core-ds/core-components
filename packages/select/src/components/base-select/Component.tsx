@@ -286,7 +286,10 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputKeyDownArrowDown:
-                        if (!circularNavigation && state.highlightedIndex === options.length - 1) {
+                        if (
+                            !circularNavigation &&
+                            state.highlightedIndex === flatOptions.length - 1
+                        ) {
                             return { ...changes, highlightedIndex: state.highlightedIndex };
                         }
 
@@ -674,7 +677,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     placeholder={placeholder}
                     label={label && <span {...getLabelProps()}>{label}</span>}
                     labelView={labelView}
-                    Arrow={Arrow && <Arrow open={open} disabled={disabled} />}
+                    Arrow={Arrow && <Arrow open={open} size={size} disabled={disabled} />}
                     error={error}
                     hint={hint}
                     valueRenderer={valueRenderer}

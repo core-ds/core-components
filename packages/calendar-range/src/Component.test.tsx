@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, fireEvent, act } from '@testing-library/react';
+import { render, waitFor, fireEvent, act, screen } from '@testing-library/react';
 import setMonth from 'date-fns/setMonth';
 import startOfMonth from 'date-fns/startOfMonth';
 import addMonths from 'date-fns/addMonths';
@@ -11,6 +11,7 @@ import { MONTHS } from '../../calendar/src/utils';
 import { formatDate } from '../../calendar-input/src/utils';
 
 import { CalendarRange } from './index';
+import { getCalendarRangeTestIds } from './utils';
 
 jest.useFakeTimers();
 
@@ -51,9 +52,13 @@ describe('CalendarRange', () => {
 
     it('should set `data-test-id` attribute', () => {
         const testId = 'test-id';
+        const testIds = getCalendarRangeTestIds(testId);
+
         const { getByTestId } = render(<CalendarRange dataTestId={testId} />);
 
-        expect(getByTestId(testId)).toBeInTheDocument();
+        expect(getByTestId(testIds.component)).toBeInTheDocument();
+        expect(getByTestId(testIds.calendarContainerFrom)).toBeInTheDocument();
+        expect(getByTestId(testIds.calendarContainerTo)).toBeInTheDocument();
     });
 
     it('should set custom class', () => {
@@ -563,6 +568,52 @@ describe('CalendarRange', () => {
                 date: new Date('2022-10-10'),
                 value: '10.10.2022',
             });
+        });
+    });
+
+    describe('Calendar container tests', () => {
+        it('should set default calendar-container-from class', () => {
+            const testId = 'test-id';
+            const testIds = getCalendarRangeTestIds(testId);
+
+            render(<CalendarRange dataTestId={testId} />);
+            const container = screen.getByTestId(testIds.calendarContainerFrom);
+
+            expect(container).toHaveClass('calendarContainer');
+        });
+
+        it('should set default calendar-container-to class', () => {
+            const testId = 'test-id';
+            const testIds = getCalendarRangeTestIds(testId);
+
+            render(<CalendarRange dataTestId={testId} />);
+            const container = screen.getByTestId(testIds.calendarContainerFrom);
+
+            expect(container).toHaveClass('calendarContainer');
+        });
+
+        it('should set custom calendar-container-from class', () => {
+            const testId = 'test-id';
+            const testIds = getCalendarRangeTestIds(testId);
+
+            render(
+                <CalendarRange dataTestId={testId} calendarContainerClassName={'customClass'} />,
+            );
+            const container = screen.getByTestId(testIds.calendarContainerFrom);
+
+            expect(container).toHaveClass('calendarContainer customClass');
+        });
+
+        it('should set custom calendar-container-to class', () => {
+            const testId = 'test-id';
+            const testIds = getCalendarRangeTestIds(testId);
+
+            render(
+                <CalendarRange dataTestId={testId} calendarContainerClassName={'customClass'} />,
+            );
+            const container = screen.getByTestId(testIds.calendarContainerFrom);
+
+            expect(container).toHaveClass('calendarContainer customClass');
         });
     });
 

@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, useEffect, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Skeleton, SkeletonProps } from '@alfalab/core-components-skeleton';
@@ -12,6 +13,7 @@ type Props = TabListTitle &
         isOption?: boolean;
         showSkeleton?: boolean;
         skeletonProps?: Omit<SkeletonProps, 'visible'>;
+        onResize?: () => void;
     };
 
 export const Title = forwardRef<HTMLButtonElement, Props>(
@@ -30,19 +32,44 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
             isOption = false,
             showSkeleton = false,
             skeletonProps,
+            onResize,
+            dataTestId,
             ...restProps
         },
         ref,
     ) => {
+        const buttonRef = useRef<HTMLButtonElement | null>(null);
+
         const titleClassName = {
             [styles.content]: true,
             [styles.focused]: focused,
         };
 
+        useEffect(() => {
+            const resizeObserver = new ResizeObserver(() => {
+                if (onResize) {
+                    onResize();
+                }
+            });
+
+            const button = buttonRef.current;
+
+            if (button) {
+                resizeObserver.observe(button);
+            }
+
+            return () => {
+                if (button) {
+                    resizeObserver.unobserve(button);
+                }
+            };
+        }, [onResize]);
+
         return hidden ? null : (
             <button
                 {...restProps}
-                ref={ref}
+                data-test-id={dataTestId}
+                ref={mergeRefs([ref, buttonRef])}
                 disabled={disabled || showSkeleton}
                 type='button'
                 id={String(id)}

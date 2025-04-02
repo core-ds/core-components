@@ -1,0 +1,5 @@
+:root {
+    --color-light-promo-muted-menthol: var(--color-dark-promo-muted-menthol);
+    --color-light-promo-muted-sonata: var(--color-dark-promo-muted-sonata);
+    --color-light-promo-muted-tomato: var(--color-dark-promo-muted-tomato);
+}

@@ -1,5 +1,102 @@
 # Change Log
 
+## 7.9.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.5
+
+## 7.9.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.4
+
+## 7.9.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+    -   bottom-sheet@6.18.3
+
+## 7.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.2
+
+## 7.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   bottom-sheet@6.18.1
+    -   button@11.11.5
+    -   popover@6.3.8
+
+## 7.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.0
+
+## 7.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.17
+
+## 7.9.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1565](https://github.com/core-ds/core-components/pull/1565)
+
+-   Добавлено свойство withTransition
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   bottom-sheet@6.17.16
+    -   button@11.11.4
+    -   popover@6.3.7
+
+## 7.8.4
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.15
+    -   button@11.11.3
+    -   popover@6.3.6
+
+## 7.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   button@11.11.2
+    -   bottom-sheet@6.17.14
+
 ## 7.8.2
 
 ### Patch Changes

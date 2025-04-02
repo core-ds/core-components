@@ -1,5 +1,139 @@
 # @alfalab/core-components-date-time-input
 
+## 4.5.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.0
+
+## 4.5.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.14
+
+## 4.5.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.13
+
+## 4.5.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.12
+    -   icon-button@6.11.9
+    -   input@15.5.3
+
+## 4.5.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.11
+
+## 4.5.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   input@15.5.2
+    -   icon-button@6.11.8
+    -   popover@6.3.8
+
+## 4.5.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+
+## 4.5.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.8
+
+## 4.5.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   calendar@7.17.7
+    -   input@15.5.1
+    -   icon-button@6.11.7
+    -   popover@6.3.7
+
+## 4.5.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.6
+
+## 4.5.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.5
+
+## 4.5.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+
+## 4.5.13
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   calendar@7.17.3
+    -   icon-button@6.11.6
+    -   popover@6.3.6
+    -   input@15.5.0
+
+## 4.5.12
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   calendar@7.17.2
+
 ## 4.5.11
 
 ### Patch Changes

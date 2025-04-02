@@ -1,0 +1,24 @@
+.appear,
+.enter {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+
+.appearActive,
+.enterActive {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms cubic-bezier(0, 0, 0, 1), transform 200ms cubic-bezier(0, 0, 0, 1);
+}
+
+.exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.exitActive,
+.exitDone {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 200ms cubic-bezier(0, 0, 1, 0), transform 200ms cubic-bezier(0, 0, 1, 0);
+}

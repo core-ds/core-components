@@ -1,5 +1,55 @@
 # Change Log
 
+## 2.4.11
+
+### Patch Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1604](https://github.com/core-ds/core-components/pull/1604)
+
+-   Добавлена поддержка больших чисел
+
+## 2.4.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.7
+
+## 2.4.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.6
+
+## 2.4.8
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   tag@8.6.5
+
+## 2.4.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   tag@8.6.4
+
 ## 2.4.6
 
 ### Patch Changes

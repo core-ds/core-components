@@ -1,5 +1,96 @@
 # Change Log
 
+## 6.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+
+## 6.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 6.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.5
+    -   icon-button@6.11.8
+
+## 6.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+    -   spinner@4.0.4
+    -   icon-button@6.11.7
+
+## 6.2.1
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1552](https://github.com/core-ds/core-components/pull/1552)
+
+-   Поправлено обрезание длинного текста при truncate: true
+
+## 6.2.0
+
+### Minor Changes
+
+<sup><time>10.01.2025</time></sup>
+
+### [#1525](https://github.com/core-ds/core-components/pull/1525)
+
+-   Обновление зависимости icons-glyph
+
+## 6.1.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   link@5.3.4
+    -   spinner@4.0.3
+    -   typography@4.11.3
+
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1504](https://github.com/core-ds/core-components/pull/1504)
+
+-   Добавлен импорт типов для статусов и пропсов компонента
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   link@5.3.3
+    -   spinner@4.0.2
+    -   typography@4.11.2
+
 ## 6.0.4
 
 ### Patch Changes

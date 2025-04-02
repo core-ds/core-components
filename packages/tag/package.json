@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tag",
-    "version": "8.6.3",
+    "version": "8.6.7",
     "description": "Tag component",
     "keywords": [],
     "license": "MIT",
@@ -15,13 +15,13 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-mq": "^4.4.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/core-components-mq": "^4.4.1",
+        "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.14.0"
+        "@alfalab/core-components-shared": "^0.16.0"
     },
-    "themesVersion": "13.6.0",
-    "varsVersion": "9.16.0"
+    "themesVersion": "13.7.2",
+    "varsVersion": "9.19.0"
 }

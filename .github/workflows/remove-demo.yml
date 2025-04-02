@@ -1,0 +1,77 @@
+name: remove demo
+
+on:
+    pull_request:
+        types: [closed]
+    workflow_dispatch:
+        inputs:
+            version:
+                description: Version of @alfalab/core-components package, tag or sha to checkout
+                required: true
+                default: ''
+                type: string
+
+concurrency:
+    group: ${{ github.workflow }}-${{ inputs.version || github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    params:
+        name: resolve params
+        runs-on: ubuntu-latest
+        outputs:
+            dir: ${{ steps.resolve.outputs.dir }}
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: ./.github/actions/resolve-demo-params
+              id: resolve
+              with:
+                  version: ${{ inputs.version }}
+
+    remove-demo:
+        name: remove demo
+        runs-on: ubuntu-latest
+        concurrency: gh-pages
+        needs: params
+        if: ${{ github.repository }} == 'core-ds/core-components'
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: gh-pages
+                  lfs: true
+
+            - name: remove demo
+              shell: bash
+              run: |
+                  rm -rf ${{ needs.params.outputs.dir }}
+
+            - name: check git status
+              id: git-status
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      let status = '';
+
+                      await exec.exec('git', ['status', '--porcelain'], {
+                          listeners: {
+                              stdout: (data) => {
+                                  status += data.toString('utf8');
+                              },
+                          }
+                      });
+
+                      return status.split('\n').some((line) => /^ D .*$/.test(line));
+
+            - name: deploy
+              if: ${{ steps.git-status.outputs.result == 'true' }}
+              shell: bash
+              run: |
+                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
+                  git config user.name 'github-actions[bot]'
+                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+                  git add .
+                  git commit -n -m "Deploy to GitHub Pages"
+                  git push

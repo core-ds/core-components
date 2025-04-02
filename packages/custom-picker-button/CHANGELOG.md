@@ -1,5 +1,124 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.6.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+    -   picker-button@11.12.21
+
+## 2.6.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+    -   picker-button@11.12.20
+
+## 2.6.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   picker-button@11.12.19
+    -   custom-button@3.12.4
+
+## 2.6.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+    -   picker-button@11.12.18
+
+## 2.6.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   select@17.20.6
+    -   picker-button@11.12.17
+    -   custom-button@3.12.3
+
+## 2.6.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.5
+    -   picker-button@11.12.16
+
+## 2.6.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.4
+    -   picker-button@11.12.15
+
+## 2.6.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   shared@0.15.0
+    -   picker-button@11.12.14
+    -   custom-button@3.12.2
+
+## 2.6.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.2
+    -   picker-button@11.12.13
+
+## 2.6.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.1
+    -   picker-button@11.12.12
+
+## 2.6.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+    -   picker-button@11.12.11
+
+## 2.6.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   custom-button@3.12.1
+    -   picker-button@11.12.10
+    -   select@17.19.0
+
+## 2.6.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.12.0
+    -   mq@4.4.1
+    -   select@17.18.1
+    -   shared@0.14.1
+    -   picker-button@11.12.9
+
 ## 2.6.8
 
 ### Patch Changes

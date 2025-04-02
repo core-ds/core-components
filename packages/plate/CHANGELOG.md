@@ -1,5 +1,64 @@
 # Change Log
 
+## 7.8.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+    -   icon-button@6.11.9
+
+## 7.8.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+    -   icon-button@6.11.8
+
+## 7.8.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.4
+    -   icon-button@6.11.7
+
+## 7.8.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   icon-button@6.11.6
+
+## 7.8.6
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1479](https://github.com/core-ds/core-components/pull/1479)
+
+-   Исправлена установка цвета `border` для элемента `view=custom shape=rect`
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   button@11.11.2
+
 ## 7.8.5
 
 ### Patch Changes

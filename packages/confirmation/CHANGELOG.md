@@ -1,5 +1,76 @@
 # Change Log
 
+## 13.9.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 13.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 13.9.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+    -   code-input@3.9.7
+    -   spinner@4.0.5
+
+## 13.9.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   typography@4.11.4
+    -   button@11.11.4
+    -   code-input@3.9.6
+    -   spinner@4.0.4
+
+## 13.9.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   code-input@3.9.5
+    -   link@5.3.4
+    -   spinner@4.0.3
+    -   typography@4.11.3
+
+## 13.9.5
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   button@11.11.2
+    -   link@5.3.3
+    -   spinner@4.0.2
+    -   typography@4.11.2
+    -   code-input@3.9.4
+
 ## 13.9.4
 
 ### Patch Changes

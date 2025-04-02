@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import deepEqual from 'deep-equal';
+import reactFastCompare from 'react-fast-compare';
 
 import type { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
 import {
@@ -187,7 +187,7 @@ export function useSelectWithApply({
 
     useEffect(() => {
         // устанавливать selectedDraft если selectedOptions изменились
-        if (!deepEqual(selectedOptionsRef.current, selectedOptions)) {
+        if (!reactFastCompare(selectedOptionsRef.current, selectedOptions)) {
             setSelectedDraft(selectedOptions);
         }
         selectedOptionsRef.current = selectedOptions;
@@ -222,7 +222,6 @@ export function useSelectWithApply({
                 onChange: handleToggleAll,
             },
         },
-        allowUnselect: true,
         multiple: true,
         options: memoizedOptions,
         onChange: handleChange,

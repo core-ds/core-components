@@ -9,12 +9,14 @@
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
             "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"]
         }
     },
     "references": [
         { "path": "../typography" },
+        { "path": "../spinner" },
         { "path": "../tooltip" },
         { "path": "../icon-button" },
         { "path": "../typography" },

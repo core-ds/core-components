@@ -1,3 +1,4 @@
+@import '../../../vars/src/safe-area.css';
 @import '../vars.css';
 
 .component {
@@ -12,6 +13,13 @@
 .component.component {
     position: fixed;
     flex: 1;
+}
+
+.content {
+    @media (display-mode: standalone) {
+        padding-top: var(--sat);
+        padding-bottom: var(--sab);
+    }
 }
 
 .mobileContent {

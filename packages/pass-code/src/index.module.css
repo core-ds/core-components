@@ -3,20 +3,12 @@
 
 .component {
     min-height: var(--pass-code-min-height);
+    box-sizing: border-box;
+    padding: var(--gap-8) var(--gap-16) var(--gap-16);
+    min-width: var(--pass-code-min-width);
 }
 
 .inputProgressContainer {
     position: relative;
     flex: 1 0 auto;
-}
-
-.message {
-    @mixin paragraph_primary_medium;
-
-    min-height: 24px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: var(--color-light-text-primary);
 }

@@ -1,9 +1,10 @@
 @import '../../../../vars/src/index.css';
+@import '../../../../vars/src/colors-monochrome.css';
 @import '../../vars.css';
 
 .component {
     height: 100%;
-    background: var(--color-light-bg-primary-alpha-40);
+    background: var(--color-static-monochrome-white-4);
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius-pill);
     min-width: 48px;

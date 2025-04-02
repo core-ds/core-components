@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-action-button",
-    "version": "1.7.5",
+    "version": "1.7.9",
     "description": "Action Button component",
     "keywords": [],
     "license": "MIT",
@@ -15,13 +15,13 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-spinner": "^4.0.1",
-        "@alfalab/core-components-shared": "^0.14.0",
-        "@alfalab/hooks": "^1.13.0",
+        "@alfalab/core-components-spinner": "^4.0.5",
+        "@alfalab/core-components-shared": "^0.16.0",
+        "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.6.0",
-    "varsVersion": "9.16.0"
+    "themesVersion": "13.7.2",
+    "varsVersion": "9.19.0"
 }

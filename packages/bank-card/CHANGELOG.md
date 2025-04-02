@@ -1,5 +1,46 @@
 # Change Log
 
+## 5.8.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.34
+
+## 5.8.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.33
+
+## 5.8.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.32
+
+## 5.8.12
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   masked-input@6.3.31
+
+## 5.8.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.30
+
 ## 5.8.10
 
 ### Patch Changes
