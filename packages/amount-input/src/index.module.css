@@ -28,12 +28,12 @@
     display: none;
 }
 
-input::selection,
-.suffixContainer::selection {
-    background: var(--color-light-decorative-soft-blue-hover);
+.suffixContainer {
+    z-index: 1;
 }
 
 .filled .input,
 .input:focus {
-    -webkit-text-fill-color: transparent;
+    z-index: 2;
+    font-weight: bold;
 }
