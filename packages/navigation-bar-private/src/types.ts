@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 
 import { BackArrowAddonProps } from './components/back-arrow-addon';
 import type { CloserProps } from './components/closer';
@@ -120,6 +120,11 @@ export type NavigationBarPrivateProps = {
     onClose?: CloserProps['onClose'];
 
     /**
+     * Дополнительные пропсы для компонента Closer.
+     */
+    closerProps?: Omit<CloserProps, 'view' | 'onClose'>;
+
+    /**
      * обработчик клика по кнопке "назад"
      */
     onBack?: () => void;
@@ -133,6 +138,21 @@ export type NavigationBarPrivateProps = {
      * Ссылка на родительскую ноду overflow: auto
      */
     scrollableParentRef?: React.RefObject<HTMLDivElement>;
+
+    /**
+     * Data атрибут для компонента
+     */
+    dataName?: string;
+
+    /**
+     * Дополнительный класс для title
+     */
+    titleClassName?: string;
+
+    /**
+     * Ref для title элемента
+     */
+    titleRef?: RefObject<HTMLDivElement>;
 };
 
 export type ContentParams = {

@@ -1,5 +1,98 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.8.0
+
+### Minor Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1629](https://github.com/core-ds/core-components/pull/1629)
+
+-   Добавили возможность задать `inverted` цвета для компонента `Closer`
+
+### Patch Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1629](https://github.com/core-ds/core-components/pull/1629)
+
+-   Исправили css токен для темной темы
+
+## 0.7.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1613](https://github.com/core-ds/core-components/pull/1613)
+
+-   Добавлена возможность передавать дополнительные props в компонент `Closer` из `NavigationBarPrivate` и `PopupSheet`
+
+## 0.6.2
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1557](https://github.com/core-ds/core-components/pull/1557)
+
+-   Изменены цвета кнопок
+
+-   Обновлены зависимости
+    -   button@11.11.6
+    -   icon-button@6.11.9
+
+## 0.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 0.6.0
+
+### Minor Changes
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+-   Добавлен пропс для установки data атрибута `dataName`
+-   Добавлен дополнительный класс для заголовка `titleClassName`
+-   Добавлен ref для заголовка `titleRef`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+    -   icon-button@6.11.8
+
+## 0.5.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   typography@4.11.4
+    -   button@11.11.4
+    -   icon-button@6.11.7
+
+## 0.5.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   icon-button@6.11.6
+    -   typography@4.11.3
+
 ## 0.5.6
 
 ### Patch Changes

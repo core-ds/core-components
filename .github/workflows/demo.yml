@@ -1,0 +1,150 @@
+name: demo
+
+on:
+    pull_request:
+    push:
+        branches:
+            - master
+            - beta
+            - next
+    workflow_dispatch:
+        inputs:
+            version:
+                description: Version of @alfalab/core-components package, tag or sha to checkout
+                required: true
+                default: ''
+                type: string
+
+concurrency:
+    group: ${{ github.workflow }}-${{ inputs.version || github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    params:
+        name: resolve params
+        runs-on: ubuntu-latest
+        outputs:
+            ref: ${{ steps.resolve.outputs.ref }}
+            dir: ${{ steps.resolve.outputs.dir }}
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: ./.github/actions/resolve-demo-params
+              id: resolve
+              with:
+                  version: ${{ inputs.version }}
+
+    build:
+        name: build
+        needs: params
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ needs.params.outputs.ref }}
+                  lfs: true
+
+            - uses: ./.github/actions/ci-setup
+
+            - name: build dist
+              shell: bash
+              env:
+                  BUILD_CONCURRENCY: 4
+                  BUILD_MODERN_ONLY: 'true'
+              run: |
+                  yarn build
+
+            - name: build demo
+              shell: bash
+              env:
+                  BUILD_STORYBOOK_FROM_DIST: 'true'
+              run: |
+                  yarn build-storybook
+
+            - name: upload build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: build
+                  path: build
+                  if-no-files-found: error
+
+    deploy:
+        name: deploy
+        runs-on: ubuntu-latest
+        concurrency: gh-pages
+        needs: [build, params]
+        if: ${{ github.repository }} == 'core-ds/core-components'
+        outputs:
+            url: ${{ steps.url.outputs.result }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: gh-pages
+                  lfs: true
+
+            - name: clean up
+              shell: bash
+              run: |
+                  rm -rf ${{ needs.params.outputs.dir }}
+
+            - name: download build
+              uses: actions/download-artifact@v4
+              with:
+                  name: build
+                  path: ${{ needs.params.outputs.dir }}
+
+            - name: deploy
+              shell: bash
+              run: |
+                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
+                  git config user.name 'github-actions[bot]'
+                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+                  git add .
+                  git commit -n -m "Deploy to GitHub Pages"
+                  git push
+
+            - name: demo url
+              id: url
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      const owner = process.env.GITHUB_REPOSITORY_OWNER;
+                      const repo = process.env.GITHUB_REPOSITORY.replace(`${owner}/`, '');
+                      const dir = '${{ needs.params.outputs.dir }}';
+
+                      return `https://${owner}.github.io/${repo}/${dir}`;
+
+    comment:
+        name: comment
+        runs-on: ubuntu-latest
+        needs: deploy
+        steps:
+            - name: find open pr
+              uses: jwalton/gh-find-current-pr@v1
+              id: find-pr
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: find comment
+              if: steps.find-pr.outputs.number != ''
+              uses: peter-evans/find-comment@v3
+              id: find-comment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-number: ${{ steps.find-pr.outputs.number }}
+                  comment-author: github-actions[bot]
+                  body-regex: '^Собрана новая \[демка\]\(.*\)\.$'
+
+            - name: create or update comment
+              if: steps.find-pr.outputs.number != ''
+              uses: peter-evans/create-or-update-comment@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  comment-id: ${{ steps.find-comment.outputs.comment-id }}
+                  issue-number: ${{ steps.find-pr.outputs.number }}
+                  body: |
+                      Собрана новая [демка](${{ needs.deploy.outputs.url }}).
+                  reactions: rocket
+                  edit-mode: replace

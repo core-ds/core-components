@@ -1,5 +1,41 @@
 # @alfalab/core-components-pattern-lock-v1
 
+## 1.1.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 1.1.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+
+## 1.1.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   button@11.11.4
+
+## 1.1.11
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+
 ## 1.1.10
 
 ### Patch Changes

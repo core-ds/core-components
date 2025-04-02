@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -15,8 +15,17 @@ export type TBodyProps = HTMLAttributes<HTMLTableSectionElement> & {
     dataTestId?: string;
 };
 
-export const TBody: React.FC<TBodyProps> = ({ className, children, dataTestId, ...restProps }) => (
-    <tbody className={cn(styles.component, className)} data-test-id={dataTestId} {...restProps}>
-        {children}
-    </tbody>
+export const TBody = forwardRef<HTMLTableSectionElement, TBodyProps>(
+    ({ className, children, dataTestId, ...restProps }, ref) => (
+        <tbody
+            className={cn(styles.component, className)}
+            data-test-id={dataTestId}
+            ref={ref}
+            {...restProps}
+        >
+            {children}
+        </tbody>
+    ),
 );
+
+TBody.displayName = 'TBody';

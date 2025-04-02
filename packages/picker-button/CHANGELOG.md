@@ -1,5 +1,110 @@
 # Change Log
 
+## 11.12.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+
+## 11.12.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+
+## 11.12.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   button@11.11.6
+
+## 11.12.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+
+## 11.12.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   select@17.20.6
+    -   button@11.11.5
+    -   popover@6.3.8
+
+## 11.12.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.5
+
+## 11.12.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.4
+
+## 11.12.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   shared@0.15.0
+    -   button@11.11.4
+    -   popover@6.3.7
+
+## 11.12.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.2
+
+## 11.12.12
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1532](https://github.com/core-ds/core-components/pull/1532)
+
+-   Убрана передача невалидных пропсов в DOM
+
+-   Обновлены зависимости
+    -   select@17.20.1
+
+## 11.12.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+
+## 11.12.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   popover@6.3.6
+    -   select@17.19.0
+
 ## 11.12.9
 
 ### Patch Changes

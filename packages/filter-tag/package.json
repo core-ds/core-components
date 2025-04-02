@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-filter-tag",
-    "version": "5.8.4",
+    "version": "5.9.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -21,8 +21,8 @@
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.14.1"
+        "@alfalab/core-components-shared": "^0.16.0"
     },
-    "themesVersion": "13.6.0",
-    "varsVersion": "9.16.0"
+    "themesVersion": "13.7.2",
+    "varsVersion": "9.19.0"
 }

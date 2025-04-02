@@ -1,5 +1,29 @@
 # Change Log
 
+## 12.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 12.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
+## 12.8.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
 ## 12.7.4
 
 ### Patch Changes

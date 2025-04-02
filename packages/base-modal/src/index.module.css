@@ -39,6 +39,18 @@ body:global(.is-locked) {
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    &.hasFooter {
+        @media (display-mode: standalone) {
+            padding-bottom: unset;
+        }
+    }
+
+    &.hasHeader {
+        @media (display-mode: standalone) {
+            padding-top: unset;
+        }
+    }
 }
 
 .hidden {

@@ -1,0 +1,166 @@
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import { boolean, select, number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import {
+    PageIndicatorDynamic,
+    PageIndicatorBullet,
+    PageIndicatorStep,
+    PageIndicatorRunner,
+} from '@alfalab/core-components-page-indicator';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+
+<Meta title='Components/PageIndicator' id='PageIndicator' component={Meta} />
+
+<Story name='PageIndicatorDynamic'>
+    {React.createElement(() => {
+        const colors = select(
+            'colors',
+            ['default', 'inverted', 'static', 'static-inverted'],
+            'default',
+        );
+        return (
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <PageIndicatorDynamic
+                    defaultActiveElement={number('activeElement', 0)}
+                    activeElement={number('activeElement', 0)}
+                    active={boolean('active', true)}
+                    size={number('size', 8)}
+                    gap={number('gap', 8)}
+                    duration={number('duration', 3000)}
+                    elements={number('elements', 10)}
+                    activeElementSize={number('activeElementSize', 56)}
+                    colors={colors}
+                    cycle={boolean('active', false)}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<Story name='PageIndicatorBullet'>
+    {React.createElement(() => {
+        const colors = select(
+            'colors',
+            ['default', 'inverted', 'static', 'static-inverted'],
+            'default',
+        );
+        return (
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <PageIndicatorBullet
+                    activeElement={number('activeElement', 0)}
+                    size={number('size', 8)}
+                    gap={number('gap', 8)}
+                    elements={number('elements', 10)}
+                    colors={colors}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<Story name='PageIndicatorStep'>
+    {React.createElement(() => {
+        const colors = select(
+            'colors',
+            ['default', 'inverted', 'static', 'static-inverted'],
+            'default',
+        );
+        return (
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <PageIndicatorStep
+                    activeElement={number('activeElement', 0)}
+                    size={number('size', 4)}
+                    gap={number('gap', 4)}
+                    elements={number('elements', 10)}
+                    colors={colors}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<Story name='PageIndicatorRunner'>
+    {React.createElement(() => {
+        const colors = select(
+            'colors',
+            ['default', 'inverted', 'static', 'static-inverted'],
+            'default',
+        );
+        return (
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <PageIndicatorRunner
+                    activeElement={number('activeElement', 0)}
+                    size={number('size', 4)}
+                    elements={number('elements', 10)}
+                    colors={colors}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<ComponentHeader
+    name='PageIndicator'
+    children='Используется для индикации состояния и переключения слайдов.'
+/>
+
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

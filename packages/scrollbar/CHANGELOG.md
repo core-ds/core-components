@@ -1,5 +1,26 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+-   Добавлен дополнительный класс для контейнера вертикальной полосы прокрутки `verticalBarClassName`
+-   Добавлен обработчик прокрутки контента `onContentScroll`
+
+## 3.1.3
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
 ## 3.1.2
 
 ### Patch Changes

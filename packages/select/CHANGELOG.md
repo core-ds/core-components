@@ -1,5 +1,163 @@
 # Change Log
 
+## 17.20.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.5
+    -   modal@9.9.10
+
+## 17.20.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.9.0
+    -   bottom-sheet@6.18.4
+    -   modal@9.9.9
+
+## 17.20.8
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1583](https://github.com/core-ds/core-components/pull/1583)
+
+-   Исправлена ошибка навигации клавишей-стрелкой по группированному списку
+
+-   Обновлены зависимости
+    -   modal@9.9.8
+    -   button@11.11.6
+    -   input@15.5.3
+    -   bottom-sheet@6.18.3
+
+## 17.20.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.8.0
+    -   bottom-sheet@6.18.2
+    -   modal@9.9.7
+
+## 17.20.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.2.0
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   bottom-sheet@6.18.1
+    -   modal@9.9.6
+    -   button@11.11.5
+    -   checkbox@4.7.7
+    -   form-control@12.8.2
+    -   input@15.5.2
+    -   popover@6.3.8
+
+## 17.20.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.5
+    -   bottom-sheet@6.18.0
+
+## 17.20.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+    -   bottom-sheet@6.17.17
+    -   modal@9.9.4
+
+## 17.20.3
+
+### Patch Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1561](https://github.com/core-ds/core-components/pull/1561)
+
+-   Поправлена отображаемая высота списка опций при optionsListWidth: 'field'
+
+-   Обновлены зависимости
+    -   skeleton@5.3.0
+    -   shared@0.15.0
+    -   base-modal@5.8.9
+    -   bottom-sheet@6.17.16
+    -   button@11.11.4
+    -   checkbox@4.7.6
+    -   form-control@12.8.1
+    -   input@15.5.1
+    -   modal@9.9.3
+    -   popover@6.3.7
+
+## 17.20.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.2
+
+## 17.20.1
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1537](https://github.com/core-ds/core-components/pull/1537)
+
+-   Убрано проставление пропса allowUnselect: true в хуке useSelectWithApply
+
+## 17.20.0
+
+### Minor Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1508](https://github.com/core-ds/core-components/pull/1508)
+
+Добавлен сплит select/option
+В select/shared добавлены OptionDesktop и OptionMobile
+
+### Patch Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1535](https://github.com/core-ds/core-components/pull/1535)
+
+-   Исправили некорректную передачу выбранных опций в пропсе `selectedItems`, также исправлена работа обработчика `setSelectedItems` в групповом компоненте при использовании виртуального списка
+
+## 17.19.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.4
+    -   base-modal@5.8.8
+    -   bottom-sheet@6.17.15
+    -   button@11.11.3
+    -   checkbox@4.7.5
+    -   modal@9.9.1
+    -   popover@6.3.6
+    -   scrollbar@3.1.3
+    -   skeleton@5.2.3
+    -   form-control@12.8.0
+    -   input@15.5.0
+
 ## 17.18.1
 
 ### Patch Changes

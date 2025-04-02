@@ -1,5 +1,45 @@
 # Change Log
 
+## 5.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+    -   input@15.5.3
+
+## 5.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.2
+    -   icon-button@6.11.8
+
+## 5.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.1
+    -   icon-button@6.11.7
+
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   input@15.5.0
+
 ## 5.6.6
 
 ### Patch Changes

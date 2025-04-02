@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-loader",
-    "version": "3.2.3",
+    "version": "3.2.4",
     "description": "Loader component",
     "keywords": [],
     "license": "MIT",
@@ -19,6 +19,6 @@
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.6.0",
-    "varsVersion": "9.16.0"
+    "themesVersion": "13.7.2",
+    "varsVersion": "9.19.0"
 }

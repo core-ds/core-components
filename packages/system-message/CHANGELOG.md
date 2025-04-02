@@ -1,5 +1,40 @@
 # @alfalab/core-components-system-message
 
+## 2.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 2.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1494](https://github.com/core-ds/core-components/pull/1494)
+
+Добавлены атомные импорты
+Добавлено sideEffects: false
+
+## 2.5.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
 ## 2.5.4
 
 ### Patch Changes
