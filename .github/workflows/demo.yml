@@ -102,6 +102,12 @@ jobs:
                   name: build
                   path: ${{ needs.params.outputs.dir }}
 
+            - name: copy legacy archive-versions.json
+              if: ${{ needs.params.outputs.dir == 'master' }}
+              shell: bash
+              run: |
+                cp archive-versions.json ${{ needs.params.outputs.dir }}
+
             - name: deploy
               shell: bash
               run: |
