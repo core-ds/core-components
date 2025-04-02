@@ -41,7 +41,8 @@
         "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
         "write-vars-and-themes-version": "node ./bin/write-vars-and-themes-version.js",
         "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master",
-        "generate-dark-colors": " node ./tools/dark-colors-generator.js"
+        "generate-dark-colors": " node ./tools/dark-colors-generator.js",
+        "non-existent-css-vars": "node bin/non-existent-css-vars.mjs"
     },
     "browserslist": {
         "production": [
