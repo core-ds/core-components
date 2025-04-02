@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.12.0
+
+### Minor Changes
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1589](https://github.com/core-ds/core-components/pull/1589)
+
+-   Добавлен static-positive цвет для Typography
+
+## 4.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.3.0
+
 ## 4.11.3
 
 ### Patch Changes

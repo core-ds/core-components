@@ -1,5 +1,29 @@
 # Change Log
 
+## 3.4.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 3.4.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+
+## 3.4.8
+
+### Patch Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1523](https://github.com/core-ds/core-components/pull/1523)
+
+-   Апдейт вендора recharts 2.1.2 -> 2.12.7
+
 ## 3.4.7
 
 ### Patch Changes

@@ -36,6 +36,8 @@ import styles from './index.module.css';
 
 const { isNil } = fnUtils;
 
+const adjustContainerHeightDefault = (value: number) => value;
+
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     (
         {
@@ -89,6 +91,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             bottomSheetInstanceRef,
             sheetContainerRef = () => null,
             headerOffset = 24,
+            adjustContainerHeight = adjustContainerHeightDefault,
             onClose,
             onBack,
             onMagnetize,
@@ -110,10 +113,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     ) => {
         const windowHeight = use100vh() ?? 0;
         const visibleViewportSize = useVisibleViewportSize(virtualKeyboard);
-        const fullHeight = virtualKeyboard ? visibleViewportSize?.height ?? 0 : windowHeight;
-
+        let fullHeight = virtualKeyboard ? visibleViewportSize?.height ?? 0 : windowHeight;
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
+
+        fullHeight = adjustContainerHeight(fullHeight);
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
 
@@ -123,15 +127,20 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     convertPercentToNumber(area, fullHeight, headerOffset),
                 );
             }
+            let iOSViewHeight = 0;
 
-            const iOSViewHeight = isClient()
-                ? document?.documentElement?.clientHeight || window?.innerHeight
-                : 0;
+            if (isClient()) {
+                if (document?.documentElement?.clientHeight) {
+                    iOSViewHeight = adjustContainerHeight(document.documentElement.clientHeight);
+                } else {
+                    iOSViewHeight = window?.innerHeight;
+                }
+            }
 
             const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard]);
+        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 

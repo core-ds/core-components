@@ -1,5 +1,46 @@
 # @alfalab/core-components-pass-code
 
+## 2.5.3
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1592](https://github.com/core-ds/core-components/pull/1592)
+
+-   Убрано неработающее свойство 'styles'
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 2.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+
+## 2.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   button@11.11.4
+
+## 2.5.0
+
+### Minor Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1492](https://github.com/core-ds/core-components/pull/1492)
+
+-   Добавлены десктоп/мобайл импорты
+    -   Мелкий рефакторинг css - вынесены общие стили в коммон
+    -   Добавлено sideEffects: false
+
 ## 2.4.11
 
 ### Patch Changes

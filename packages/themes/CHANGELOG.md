@@ -1,5 +1,30 @@
 # Change Log
 
+## 13.7.2
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1595](https://github.com/core-ds/core-components/pull/1595)
+
+-   Обновлена цветовая схема для темы `site`
+
+## 13.7.1
+
+### Patch Changes
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1581](https://github.com/core-ds/core-components/pull/1581)
+
+Из темизаций исключены файлы для цветовых палитр, добавленные в #1501
+
+-   colors-decorative-dark.css
+-   colors-monochrome-dark.css
+-   colors-qualitative-dark.css
+-   colors-sequential-dark.css
+
 ## 13.7.0
 
 ### Minor Changes

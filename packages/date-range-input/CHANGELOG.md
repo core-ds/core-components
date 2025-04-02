@@ -1,5 +1,99 @@
 # @alfalab/core-components-date-range-input
 
+## 3.5.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.0
+
+## 3.5.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.14
+
+## 3.5.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.13
+
+## 3.5.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.12
+    -   icon-button@6.11.9
+    -   input@15.5.3
+
+## 3.5.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.11
+
+## 3.5.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   input@15.5.2
+    -   icon-button@6.11.8
+    -   popover@6.3.8
+
+## 3.5.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+
+## 3.5.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.8
+
+## 3.5.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   calendar@7.17.7
+    -   input@15.5.1
+    -   icon-button@6.11.7
+    -   popover@6.3.7
+
+## 3.5.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.6
+
+## 3.5.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.5
+
+## 3.5.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+
 ## 3.5.13
 
 ### Patch Changes

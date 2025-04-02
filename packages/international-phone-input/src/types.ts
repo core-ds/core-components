@@ -9,18 +9,12 @@ import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-inp
 import type { InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
 import { OptionShape } from '@alfalab/core-components-select/typings';
 
-import type { SharedCountrySelectProps } from './components/country-select';
+import { Country } from '../../types';
 
-export type Country = {
-    name: string;
-    regions?: string[];
-    iso2: string;
-    countryCode: string;
-    dialCode: string;
-    format?: string;
-    priority: number;
-    mainCode?: boolean;
-};
+import type { SharedCountrySelectProps } from './components/country-select';
+import { CountriesData } from './data/country-data';
+
+export { Country };
 
 export type AreaItem = Country & {
     isAreaCode: boolean;
@@ -42,6 +36,11 @@ type CommonPhoneInputProps = {
      * Дефолтный код страны
      */
     defaultIso2?: string;
+
+    /**
+     * Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)
+     */
+    customCountriesList?: CountriesData[];
 
     /**
      * Возможность стереть код страны

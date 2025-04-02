@@ -1,5 +1,39 @@
 # Change Log
 
+## 4.9.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1610](https://github.com/core-ds/core-components/pull/1610)
+
+-   Добавление пропса `name` в атрибуты `input` компонента Checkbox
+
+## 4.8.0
+
+### Minor Changes
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1527](https://github.com/core-ds/core-components/pull/1527)
+
+-   Добавлен пропс `colors`, который отвечает за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+## 4.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 4.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
 ## 4.7.5
 
 ### Patch Changes

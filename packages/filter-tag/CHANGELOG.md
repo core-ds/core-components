@@ -1,5 +1,33 @@
 # Change Log
 
+## 5.9.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1600](https://github.com/core-ds/core-components/pull/1600)
+
+-   Добавлен `inverted` цвет. Управлять переключением можно с помощью пропса `colors={default | inverted}`
+-   Добавлен слот `leftAddons`
+-   Переработаны отступы внутри компонента
+-   Исправлен размер `clear` иконки для `size=40`
+-   Исправлено поведение `border` которое приводило к скачкам компонента
+
+## 5.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 5.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
 ## 5.8.5
 
 ### Patch Changes

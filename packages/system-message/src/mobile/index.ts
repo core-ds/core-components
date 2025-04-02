@@ -1,2 +1,2 @@
-export { SystemMessageMobile } from './Component.mobile';
+export * from './Component.mobile';
 export { SystemMessageMobileProps } from '../types';

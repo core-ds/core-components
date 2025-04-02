@@ -1,5 +1,35 @@
 # Change Log
 
+## 9.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.3
+
+## 9.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.2
+
+## 9.2.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1541](https://github.com/core-ds/core-components/pull/1541)
+
+-   Исправлен обработчик `onBlur`
+-   Пропс `lockLimit` отмечен как `deprecated`. Для установки лимитов обработайте `blur` событие самостоятельно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.1
+
 ## 9.1.0
 
 ### Minor Changes

@@ -1,0 +1,8 @@
+:root {
+    /* display */
+    --input-error-icon-display: none;
+    --input-success-icon-display: flex;
+
+    /* управляет видимостью иконки ошибки, если она стоит рядом с другой иконкой */
+    --input-error-icon-not-alone-display: none;
+}

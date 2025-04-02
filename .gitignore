@@ -12,6 +12,7 @@ node_modules/
 /build
 dist
 *.tsbuildinfo
+package-sizes.json
 
 # misc
 .DS_Store

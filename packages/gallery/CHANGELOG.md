@@ -1,5 +1,81 @@
 # Change Log
 
+## 5.11.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.7
+
+## 5.11.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.6
+
+## 5.11.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+    -   tooltip@7.9.5
+
+## 5.11.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+    -   tooltip@7.9.4
+
+## 5.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   spinner@4.0.5
+    -   tooltip@7.9.3
+    -   icon-button@6.11.8
+
+## 5.11.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.2
+
+## 5.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+    -   tooltip@7.9.1
+
+## 5.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.0
+    -   typography@4.11.4
+    -   base-modal@5.8.9
+    -   spinner@4.0.4
+    -   icon-button@6.11.7
+
+## 5.11.0
+
+### Minor Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1546](https://github.com/core-ds/core-components/pull/1546)
+
+-   Изменены цвета и размеры навигации и заглушек при загрузке
+
 ## 5.10.9
 
 ### Patch Changes

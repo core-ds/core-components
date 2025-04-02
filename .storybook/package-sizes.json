@@ -2,6 +2,12 @@
     "with-suffix": {
         "index.js": 3
     },
+    "universal-modal": {
+        "desktop.js": 106.6,
+        "index.js": 107.9,
+        "mobile.js": 71,
+        "shared.js": 49
+    },
     "universal-date-input": {
         "desktop.js": 142.1,
         "index.js": 142.2,
@@ -12,12 +18,12 @@
         "index.js": 3.4
     },
     "typography": {
-        "index.js": 7.3
+        "index.js": 7.4
     },
     "tooltip": {
-        "desktop.js": 47.2,
-        "index.js": 105.4,
-        "mobile.js": 76.8
+        "desktop.js": 47.3,
+        "index.js": 110.3,
+        "mobile.js": 81.6
     },
     "toast": {
         "desktop.js": 67.4,
@@ -45,30 +51,31 @@
         "mobile.js": 3.5
     },
     "tabs": {
-        "collapsible.js": 153.1,
-        "desktop.js": 37.8,
-        "index.js": 39.1,
-        "mobile.js": 37.9,
+        "collapsible.js": 154.1,
+        "desktop.js": 37.9,
+        "index.js": 39.2,
+        "mobile.js": 38,
         "shared.js": 30.8
     },
     "table": {
-        "index.js": 172.6
+        "index.js": 173.6
     },
     "tab-bar": {
         "index.js": 6.7,
         "shared.js": 0.1
     },
     "system-message": {
-        "desktop.js": 4.3,
-        "index.js": 6.8,
-        "mobile.js": 4.3,
+        "desktop.js": 4.5,
+        "index.js": 7,
+        "mobile.js": 4.5,
         "shared.js": 0.3
     },
     "switch": {
         "index.js": 3.2
     },
     "steps": {
-        "index.js": 7.8
+        "index.js": 8.8,
+        "shared.js": 0.1
     },
     "stepped-progress-bar": {
         "index.js": 4.4
@@ -99,36 +106,36 @@
         "index.js": 57.1
     },
     "skeleton": {
-        "index.js": 1.7
+        "index.js": 1.8
     },
     "side-panel": {
-        "desktop.js": 67.8,
-        "index.js": 69.8,
-        "mobile.js": 66,
-        "shared.js": 44.8
+        "desktop.js": 72.5,
+        "index.js": 74.6,
+        "mobile.js": 70.8,
+        "shared.js": 49.1
     },
     "shared": {
-        "index.js": 3.9
+        "index.js": 8.2
     },
     "select": {
-        "desktop.js": 161.3,
-        "index.js": 230.1,
-        "mobile.js": 203.4,
-        "shared.js": 189.9
+        "desktop.js": 162.2,
+        "index.js": 235.8,
+        "mobile.js": 209.2,
+        "shared.js": 195.2
     },
     "select-with-tags": {
-        "desktop.js": 193,
-        "index.js": 215.9,
-        "mobile.js": 189.8
+        "desktop.js": 198.3,
+        "index.js": 221.6,
+        "mobile.js": 195.5
     },
     "segmented-control": {
         "index.js": 12.4
     },
     "scrollbar": {
-        "index.js": 37.2
+        "index.js": 37.3
     },
     "radio": {
-        "index.js": 3
+        "index.js": 3.2
     },
     "radio-group": {
         "desktop.js": 3,
@@ -136,7 +143,7 @@
         "mobile.js": 3
     },
     "pure-cell": {
-        "index.js": 25,
+        "index.js": 25.1,
         "shared.js": 0.6
     },
     "progress-bar": {
@@ -150,7 +157,7 @@
         "index.js": 0.7
     },
     "popup-sheet": {
-        "index.js": 61.6,
+        "index.js": 66.1,
         "shared.js": 0.2
     },
     "popover": {
@@ -163,9 +170,9 @@
         "shared.js": 0.2
     },
     "picker-button": {
-        "desktop.js": 144.8,
-        "index.js": 234.3,
-        "mobile.js": 207.1,
+        "desktop.js": 145.7,
+        "index.js": 240.1,
+        "mobile.js": 212.8,
         "shared.js": 3.1
     },
     "phone-input": {
@@ -187,7 +194,9 @@
         "index.js": 30
     },
     "pass-code": {
-        "index.js": 22.7,
+        "desktop.js": 24.4,
+        "index.js": 27,
+        "mobile.js": 24.4,
         "shared.js": 0.3
     },
     "pass-code-v1": {
@@ -197,10 +206,13 @@
     "pagination": {
         "index.js": 6.8
     },
+    "page-indicator": {
+        "index.js": 13.1
+    },
     "number-input": {
-        "desktop.js": 45,
-        "index.js": 45.8,
-        "mobile.js": 45,
+        "desktop.js": 49.2,
+        "index.js": 50,
+        "mobile.js": 49.2,
         "shared.js": 0.5
     },
     "notification": {
@@ -212,37 +224,37 @@
     },
     "navigation-bar": {
         "index.js": 2.8,
-        "shared.js": 11.7
+        "shared.js": 11.8
     },
     "navigation-bar-private": {
-        "index.js": 19.6,
-        "shared.js": 16.3
+        "index.js": 20,
+        "shared.js": 16.5
     },
     "mq": {
         "index.js": 3.4
     },
     "modal": {
-        "desktop.js": 66.7,
-        "index.js": 66.8,
-        "mobile.js": 66.7,
-        "shared.js": 44.8
+        "desktop.js": 71.5,
+        "index.js": 71.6,
+        "mobile.js": 71.5,
+        "shared.js": 49.1
     },
     "masked-input": {
         "index.js": 35.9
     },
     "markdown": {
-        "desktop.js": 123.8,
-        "index.js": 126,
-        "mobile.js": 123.8
+        "desktop.js": 123.9,
+        "index.js": 126.1,
+        "mobile.js": 123.9
     },
     "loader": {
         "index.js": 1.5
     },
     "list": {
-        "index.js": 5
+        "index.js": 5.1
     },
     "list-header": {
-        "index.js": 3.8
+        "index.js": 3.9
     },
     "link": {
         "index.js": 3
@@ -251,12 +263,12 @@
         "index.js": 0.7
     },
     "intl-phone-input": {
-        "index.js": 658.6
+        "index.js": 659.5
     },
     "international-phone-input": {
-        "desktop.js": 470.3,
-        "index.js": 536.5,
-        "mobile.js": 508.5,
+        "desktop.js": 471.3,
+        "index.js": 542.9,
+        "mobile.js": 514.9,
         "shared.js": 2.4
     },
     "input": {
@@ -266,10 +278,10 @@
         "shared.js": 12.5
     },
     "input-autocomplete": {
-        "desktop.js": 157.5,
-        "index.js": 236.9,
-        "mobile.js": 209.5,
-        "shared.js": 1.5
+        "desktop.js": 158.4,
+        "index.js": 243.1,
+        "mobile.js": 215.7,
+        "shared.js": 1.7
     },
     "indicator": {
         "index.js": 2.3
@@ -278,7 +290,7 @@
         "circle.js": 17.1,
         "no-shape.js": 5.3,
         "rectangle.js": 12,
-        "super-ellipse.js": 32
+        "super-ellipse.js": 32.8
     },
     "icon-button": {
         "index.js": 10.9
@@ -299,7 +311,7 @@
         "index.js": 1.9
     },
     "gallery": {
-        "index.js": 625.1
+        "index.js": 629.3
     },
     "form-control": {
         "desktop.js": 3.8,
@@ -308,9 +320,9 @@
         "shared.js": 0.3
     },
     "filter-tag": {
-        "desktop.js": 6.3,
-        "index.js": 8.8,
-        "mobile.js": 6.3
+        "desktop.js": 6.8,
+        "index.js": 9.5,
+        "mobile.js": 6.8
     },
     "file-upload-item": {
         "index.js": 82.4
@@ -322,28 +334,28 @@
         "index.js": 3.7
     },
     "drawer": {
-        "index.js": 45.9
+        "index.js": 50.2
     },
     "divider": {
         "index.js": 1.4
     },
     "date-time-input": {
-        "desktop.js": 145.7,
-        "index.js": 246.5,
-        "mobile.js": 245.8
+        "desktop.js": 149.9,
+        "index.js": 250.9,
+        "mobile.js": 250.3
     },
     "date-range-input": {
-        "desktop.js": 146.2,
-        "index.js": 247,
-        "mobile.js": 246.4
+        "desktop.js": 150.4,
+        "index.js": 251.5,
+        "mobile.js": 250.8
     },
     "date-input": {
         "index.js": 71.4
     },
     "custom-picker-button": {
-        "desktop.js": 146.7,
-        "index.js": 236.4,
-        "mobile.js": 208.9
+        "desktop.js": 147.5,
+        "index.js": 242.2,
+        "mobile.js": 214.7
     },
     "custom-button": {
         "desktop.js": 7.7,
@@ -351,10 +363,10 @@
         "mobile.js": 7.7
     },
     "confirmation": {
-        "desktop.js": 30.8,
+        "desktop.js": 30.9,
         "index.js": 31.2,
         "mobile.js": 31,
-        "shared.js": 29.2
+        "shared.js": 29.3
     },
     "confirmation-v1": {
         "index.js": 22.8
@@ -372,10 +384,11 @@
         "shared.js": 0
     },
     "circular-progress-bar": {
-        "index.js": 7.5
+        "index.js": 8.5,
+        "shared.js": 0.3
     },
     "checkbox": {
-        "index.js": 3.6
+        "index.js": 3.9
     },
     "checkbox-group": {
         "desktop.js": 2.7,
@@ -383,31 +396,31 @@
         "mobile.js": 2.7
     },
     "chart": {
-        "index.js": 437.8
+        "index.js": 426
     },
     "cdn-icon": {
-        "index.js": 1.9
+        "index.js": 3.3
     },
     "card-image": {
         "index.js": 2.1
     },
     "calendar": {
-        "desktop.js": 67.8,
-        "index.js": 177.9,
-        "mobile.js": 177.8,
+        "desktop.js": 72,
+        "index.js": 182.3,
+        "mobile.js": 182.2,
         "shared.js": 48.4
     },
     "calendar-with-skeleton": {
-        "index.js": 69.1
+        "index.js": 73.4
     },
     "calendar-range": {
-        "index.js": 255,
+        "index.js": 259.4,
         "shared.js": 0.2
     },
     "calendar-input": {
-        "desktop.js": 147.1,
-        "index.js": 247.6,
-        "mobile.js": 247.3,
+        "desktop.js": 151.3,
+        "index.js": 252,
+        "mobile.js": 251.8,
         "shared.js": 52.1
     },
     "button": {
@@ -417,11 +430,11 @@
         "shared.js": 0.2
     },
     "bottom-sheet": {
-        "index.js": 76.1,
+        "index.js": 80.9,
         "shared.js": 0.3
     },
     "base-modal": {
-        "index.js": 44.7
+        "index.js": 49
     },
     "bank-card": {
         "index.js": 42.7
@@ -442,13 +455,15 @@
         "index.js": 34.4
     },
     "alert": {
-        "index.js": 15.9
+        "desktop.js": 15.6,
+        "index.js": 15.9,
+        "mobile.js": 15.6
     },
     "action-button": {
         "index.js": 6,
         "shared.js": 0.2
     },
     "accordion": {
-        "index.js": 14.7
+        "index.js": 14.8
     }
 }
