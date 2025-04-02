@@ -44,7 +44,16 @@ jobs:
                   ref: ${{ needs.params.outputs.ref }}
                   lfs: true
 
-            - uses: ./.github/actions/ci-setup
+            - name: setup nodejs
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 18.x
+                  cache: yarn
+
+            - name: install dependencies
+              shell: bash
+              run: |
+                  yarn install --frozen-lockfile
 
             - name: build dist
               shell: bash

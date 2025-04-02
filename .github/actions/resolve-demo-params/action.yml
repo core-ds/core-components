@@ -21,12 +21,12 @@ runs:
           with:
               result-encoding: string
               script: |
-                  const version = core.getInput('version');
+                  const version = '${{ inputs.version }}';
 
                   if (version === '') {
                       return process.env.GITHUB_REF;
                   } else if (/^\d+\.\d+\.\d+$/.test(version)) {
-                      const major = version.replace(/^(\d+)/, '$1');
+                      const major = parseInt(version.replace(/^(\d+)(.*)/, '$1'));
 
                       return major < 49 ? `v${version}` : `@alfalab/core-components@${version}`;
                   }
@@ -47,7 +47,7 @@ runs:
               script: |
                   const assert = require('node:assert/strict');
                   const path = require('node:path');
-                  const version = core.getInput('version');
+                  const version = '${{ inputs.version }}';
 
                   async function git(args) {
                       let result = '';
