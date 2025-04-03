@@ -17,7 +17,7 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
         <span
           class="primary-large medium"
         >
-          Зачем нужен аккордион?
+          Зачем нужен аккордeон?
         </span>
       </div>
       <div
