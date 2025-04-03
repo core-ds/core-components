@@ -66,12 +66,6 @@ describe('Render tests', () => {
 });
 
 describe('Spinner props', () => {
-    beforeAll(() => {
-        const style = document.createElement('style');
-        style.innerHTML = `.spinner { box-sizing: content-box; }`;
-        document.head.appendChild(style);
-    });
-
     it('should support `size` and `lineWidth`', () => {
         const { container } = render(<Spinner visible size={48} lineWidth={2} />);
         expect(container).toMatchSnapshot();

@@ -2,5 +2,5 @@
 '@alfalab/core-components-spinner': patch
 ---
 
-Добавлен для кмпонента `Spinner` дополнительное свойство box-sizing: content-box для исправления глобального влияния box-sizing: border-box.
+Для компонента `Spinner` добавлено дополнительное свойство box-sizing: content-box для исправления глобального влияния box-sizing: border-box.
 
