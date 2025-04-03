@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -43,11 +43,11 @@ export const ListHeader: React.FC<ListHeaderProps> = ({
         data-test-id={dataTestId}
         className={cn(styles.component, { [styles.filled]: filled }, className)}
     >
-        <Text view='secondary-large'>{title}</Text>
+        <TypographyText view='secondary-large'>{title}</TypographyText>
         {description && (
-            <Text view='secondary-large' className={cn(styles.description)}>
+            <TypographyText view='secondary-large' className={cn(styles.description)}>
                 {`, ${description}`}
-            </Text>
+            </TypographyText>
         )}
     </div>
 );
