@@ -51,6 +51,7 @@ runs:
                   const assert = require('node:assert/strict');
                   const path = require('node:path');
                   const version = '${{ inputs.version }}';
+                  const pullRequestNumber = '${{ inputs.pull-request-number }}';
 
                   async function git(args) {
                       let result = '';
@@ -70,18 +71,19 @@ runs:
                   }
 
                   if (version === '') {
-                      switch (process.env.GITHUB_REF_NAME) {
-                          case 'master':
-                          case 'beta':
-                          case 'next':
-                              return process.env.GITHUB_REF_NAME;
-                          default: {
-                              const pullRequestNumber = '${{ inputs.pull-request-number }}';
-
-                              assert(/^\d+$/.test(pullRequestNumber));
-
-                              return pullRequestNumber;
+                      if (pullRequestNumber === '') {
+                          switch (process.env.GITHUB_REF_NAME) {
+                              case 'master':
+                              case 'beta':
+                              case 'next':
+                                  return process.env.GITHUB_REF_NAME;
+                              default:
+                                  throw new Error(`Resolving dir for unsupported branch: ${process.env.GITHUB_REF_NAME}`);
                           }
+                      } else {
+                          assert(/^\d+$/.test(pullRequestNumber));
+
+                          return pullRequestNumber;
                       }
                   } else if (/^\d+\.\d+\.\d+$/.test(version)) {
                       return version;
