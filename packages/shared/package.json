@@ -24,5 +24,5 @@
         "@types/detect-browser": "^4.0.3"
     },
     "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "varsVersion": "9.19.0"
 }

@@ -32,6 +32,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             titleSize = 'default',
             subtitle,
             hasCloser,
+            closerProps = {},
             hasBackButton,
             backButtonClassName,
             backButtonProps,
@@ -186,6 +187,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                     icon={closerIcon}
                     dataTestId={getDataTestId(dataTestId, 'closer')}
                     onClose={onClose}
+                    {...closerProps}
                 />
             </div>
         );

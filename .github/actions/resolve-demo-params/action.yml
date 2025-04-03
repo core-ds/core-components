@@ -1,0 +1,115 @@
+name: resolve demo params
+
+inputs:
+    version:
+        description: Version of @alfalab/core-components package, tag or commit sha
+        required: true
+    pull-request-number:
+        description: Pull request number
+        required: true
+
+outputs:
+    ref:
+        description: Checkout ref
+        value: ${{ steps.resolve-ref.outputs.result }}
+    dir:
+        description: Demo directory
+        value: ${{ steps.resolve-dir.outputs.result }}
+
+runs:
+    using: composite
+    steps:
+        - id: resolve-ref
+          uses: actions/github-script@v7
+          with:
+              result-encoding: string
+              script: |
+                  const version = '${{ inputs.version }}';
+
+                  if (version === '') {
+                      return process.env.GITHUB_REF;
+                  } else if (/^\d+\.\d+\.\d+$/.test(version)) {
+                      const major = parseInt(version.replace(/^(\d+)(.*)/, '$1'));
+
+                      return major < 49 ? `v${version}` : `@alfalab/core-components@${version}`;
+                  }
+
+                  return version;
+
+        - uses: actions/checkout@v4
+          if: ${{ inputs.version != '' }}
+          with:
+              ref: ${{ steps.resolve-ref.outputs.result }}
+              fetch-tags: true
+              path: checkout-ref
+
+        - id: resolve-dir
+          uses: actions/github-script@v7
+          with:
+              result-encoding: string
+              script: |
+                  const assert = require('node:assert/strict');
+                  const path = require('node:path');
+                  const version = '${{ inputs.version }}';
+                  const pullRequestNumber = '${{ inputs.pull-request-number }}';
+
+                  async function git(args) {
+                      let result = '';
+
+                      await exec.exec('git', args, {
+                          failOnStdErr: true,
+                          cwd: path.join(process.env.GITHUB_WORKSPACE, 'checkout-ref'),
+                          silent: true,
+                          listeners: {
+                              stdout: (data) => {
+                                  result += data.toString('utf8');
+                              },
+                          },
+                      });
+
+                      return result;
+                  }
+
+                  if (version === '') {
+                      if (pullRequestNumber === '') {
+                          switch (process.env.GITHUB_REF_NAME) {
+                              case 'master':
+                              case 'beta':
+                              case 'next':
+                                  return process.env.GITHUB_REF_NAME;
+                              default:
+                                  throw new Error(`Resolving dir for unsupported branch: ${process.env.GITHUB_REF_NAME}`);
+                          }
+                      } else {
+                          assert(/^\d+$/.test(pullRequestNumber));
+
+                          return pullRequestNumber;
+                      }
+                  } else if (/^\d+\.\d+\.\d+$/.test(version)) {
+                      return version;
+                  }
+
+                  let sha;
+
+                  if (version.startsWith('@alfalab/core-components-')) {
+                      const output = (await git(['rev-list', '-n', '1', version])).trim();
+
+                      assert(output.length > 0);
+
+                      sha = output;
+                  } else {
+                      sha = version;
+                  }
+
+                  const tags = (await git(['tag', '--points-at', sha])).split('\n');
+
+                  for (const tag of tags) {
+                      const match = tag.match(/^v(\d+\.\d+\.\d+)$|^@alfalab\/core-components@(\d+\.\d+\.\d+.*)$/);
+
+                      if (match) {
+                          const [, v1, v2] = match;
+                          return v1 ?? v2;
+                      }
+                  }
+
+                  return sha;

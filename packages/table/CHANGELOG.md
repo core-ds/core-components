@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.10.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+
+## 2.10.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   pagination@2.4.11
+    -   select@17.20.9
+
 ## 2.10.4
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Change Log
 
+## 10.4.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.0
+
+## 10.4.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.14
+
 ## 10.4.23
 
 ### Patch Changes
