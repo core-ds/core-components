@@ -159,7 +159,7 @@ render(() => {
 
 ## Шейп и фоновый контент
 
-На фоновый слой можно передать различные виды контента или их комбинацию. Шейп отсечёт контент по своей форме.
+На фоновый слой можно передать различные виды контента или их комбинацию. Шейп отсечёт контент по своей форме. Для шейпа SuperEllipse есть возможность включить скелетонизацию.
 
 ```jsx live
 render(() => {
@@ -169,6 +169,7 @@ render(() => {
         image: false,
         text: false,
         icon: false,
+        isSkeleton: false,
     });
 
     const Component = {
@@ -180,10 +181,14 @@ render(() => {
 
     const onChangeRadio = (_, payload) => {
         setComponent(payload.value);
+
+        if (payload.value !== "SuperEllipse") {
+            setValue((prevValue) => ({ ...prevValue, isSkeleton: false }));
+        }
     };
 
     const onChange = (_, payload) => {
-        setValue({ ...value, [payload.name]: payload.checked });
+        setValue(prevValue => ({ ...prevValue, [payload.name]: payload.checked }));
     };
 
     return (
@@ -211,6 +216,7 @@ render(() => {
                                 </Typography.Title>
                             )
                         }
+                        isSkeleton={value.isSkeleton}
                     >
                         {value.icon && <DiamondsMIcon />}
                     </Component>
@@ -228,6 +234,7 @@ render(() => {
                     <Checkbox label='Изображение' name='image' checked={value.image} size='m' />
                     <Checkbox label='Текст' name='text' checked={value.text} size='m' />
                     <Checkbox label='Иконка' name='icon' checked={value.icon} size='m' />
+                    {component === 'SuperEllipse' && <Checkbox label='Скелетонизация' name='isSkeleton' checked={value.isSkeleton} size='m' />}
                 </CheckboxGroup>
             </Row>
 

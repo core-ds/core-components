@@ -3,6 +3,7 @@
 :root {
     --icon-view-color: var(--color-light-neutral-translucent-700);
     --icon-view-bg-color: var(--color-light-neutral-100);
+    --skeleton-default-color: var(--color-light-neutral-translucent-100);
 }
 
 .componentWrapper {
@@ -345,4 +346,8 @@
             height: $(size)px;
         }
     }
+}
+
+.skeleton path {
+    fill: var(--skeleton-default-color);
 }
