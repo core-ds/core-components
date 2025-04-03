@@ -18,41 +18,12 @@
         background: var(--select-option-active-background);
         color: var(--select-option-active-color);
     }
-
-    &.checkmarkBefore {
-        padding: var(--gap-0) var(--gap-0) var(--gap-0) var(--gap-12);
-
-        &.mobile {
-            padding-left: var(--gap-16);
-        }
-    }
-
-    &.checkmarkAfter.checkmarkAfter {
-        padding: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-0);
-
-        &.mobile {
-            padding-right: var(--gap-20);
-        }
-    }
-
-    &.textContent {
-        padding: var(--gap-12);
-
-        &.mobile {
-            padding: var(--gap-16) var(--gap-20) var(--gap-16) var(--gap-16);
-        }
-    }
 }
 
 .selected {
     background: var(--select-option-selected-background);
     color: var(--select-option-selected-color);
     cursor: default;
-}
-
-.highlighted {
-    background: var(--select-option-hover-background);
-    color: var(--select-option-hover-color);
 }
 
 .disabled {
