@@ -131,8 +131,8 @@ export const Text: React.FC<TextProps> = ({
                         weight='medium'
                         color='static-primary-dark'
                     >
-                        {`+${numberOfСards}\u00A0`}
-                        {pluralize(numberOfСards || 0, 'карта', 'карты', 'карт')}
+                        {`+${numberOfCards}\u00A0`}
+                        {pluralize(numberOfCards || 0, 'карта', 'карты', 'карт')}
                     </TypographyText>
                 </div>
             )}
