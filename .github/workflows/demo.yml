@@ -33,6 +33,7 @@ jobs:
               id: resolve
               with:
                   version: ${{ inputs.version }}
+                  pull-request-number: ${{ github.event.pull_request.number }}
 
     build:
         name: build
