@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
 
@@ -9,7 +9,14 @@ import { RestoreButton } from './components/restore-button';
 import styles from './actions-control.module.css';
 
 export const Actions = () => {
-    const { showRestore, downloadLink, showDelete } = useContext(FileUploadItemContext);
+    const { showRestore, downloadLink, showDelete, setActionsPresent } =
+        useContext(FileUploadItemContext);
+
+    useEffect(() => {
+        if (setActionsPresent) {
+            setActionsPresent(true);
+        }
+    }, [setActionsPresent]);
 
     return (
         <div className={styles.container}>
