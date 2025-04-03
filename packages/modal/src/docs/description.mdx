@@ -327,7 +327,7 @@ render(() => {
 
             <RadioGroup onChange={handleSizeChange} value={size} label='Размер модалки'>
                 {SIZES.map((item) => (
-                    <Radio size='m' value={item.value} label={item.label} key={item.value} />
+                    <Radio size={24} value={item.value} label={item.label} key={item.value} />
                 ))}
             </RadioGroup>
 
