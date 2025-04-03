@@ -32,7 +32,6 @@ jobs:
     remove-demo:
         name: remove demo
         runs-on: ubuntu-latest
-        concurrency: gh-pages
         needs: params
         if: ${{ github.repository == 'core-ds/core-components' }}
         steps:

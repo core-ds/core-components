@@ -80,7 +80,6 @@ jobs:
     deploy:
         name: deploy
         runs-on: ubuntu-latest
-        concurrency: gh-pages
         needs: [build, params]
         if: ${{ github.repository == 'core-ds/core-components' }}
         outputs:
