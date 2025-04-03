@@ -33,6 +33,7 @@ jobs:
               id: resolve
               with:
                   version: ${{ inputs.version }}
+                  pull-request-number: ${{ github.event.pull_request.number }}
 
     build:
         name: build
@@ -80,9 +81,8 @@ jobs:
     deploy:
         name: deploy
         runs-on: ubuntu-latest
-        concurrency: gh-pages
         needs: [build, params]
-        if: ${{ github.repository }} == 'core-ds/core-components'
+        if: ${{ github.repository == 'core-ds/core-components' }}
         outputs:
             url: ${{ steps.url.outputs.result }}
         steps:
@@ -101,6 +101,12 @@ jobs:
               with:
                   name: build
                   path: ${{ needs.params.outputs.dir }}
+
+            - name: copy legacy archive-versions.json
+              if: ${{ needs.params.outputs.dir == 'master' }}
+              shell: bash
+              run: |
+                cp archive-versions.json ${{ needs.params.outputs.dir }}
 
             - name: deploy
               shell: bash

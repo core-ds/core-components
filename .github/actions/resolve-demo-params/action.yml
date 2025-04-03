@@ -4,6 +4,9 @@ inputs:
     version:
         description: Version of @alfalab/core-components package, tag or commit sha
         required: true
+    pull-request-number:
+        description: Pull request number
+        required: true
 
 outputs:
     ref:
@@ -72,26 +75,37 @@ runs:
                           case 'beta':
                           case 'next':
                               return process.env.GITHUB_REF_NAME;
-                          default:
-                              assert(/^\d+\/merge$/.test(process.env.GITHUB_REF_NAME));
+                          default: {
+                              const pullRequestNumber = '${{ inputs.pull-request-number }}';
 
-                              return process.env.GITHUB_REF_NAME.replace(/\/merge$/, '');
+                              assert(/^\d+$/.test(pullRequestNumber));
+
+                              return pullRequestNumber;
+                          }
                       }
                   } else if (/^\d+\.\d+\.\d+$/.test(version)) {
                       return version;
                   }
 
-                  const sha = version.startsWith('@alfalab/core-components-')
-                      ? (await git(['rev-list', '-n', '1', version])).trim()
-                      : version;
+                  let sha;
 
-                  const tags = (await git(['tag', '--points-at', sha])).trim().split('\n');
+                  if (version.startsWith('@alfalab/core-components-')) {
+                      const output = (await git(['rev-list', '-n', '1', version])).trim();
+
+                      assert(output.length > 0);
+
+                      sha = output;
+                  } else {
+                      sha = version;
+                  }
+
+                  const tags = (await git(['tag', '--points-at', sha])).split('\n');
 
                   for (const tag of tags) {
-                      const match = tag.match(/(^v(\d+\.\d+\.\d+)$|^@alfalab\/core-components@(\d+\.\d+\.\d+.*)$)/);
+                      const match = tag.match(/^v(\d+\.\d+\.\d+)$|^@alfalab\/core-components@(\d+\.\d+\.\d+.*)$/);
 
                       if (match) {
-                          const [, , v1, v2] = match;
+                          const [, v1, v2] = match;
                           return v1 ?? v2;
                       }
                   }
