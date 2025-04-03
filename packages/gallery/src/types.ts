@@ -4,7 +4,7 @@ export type TBottomButton = {
     text: string;
     onClick: (e: MouseEvent) => void;
     /**
-     * Задержка появления кнопки в ms
+     * Задержка появления кнопки в s
      */
     timeout?: number;
 };

@@ -148,7 +148,7 @@ export const gallery: Story = {
                             bottomButton: {
                                 text: 'Кнопка с задержкой 2 секунды',
                                 onClick: () => {},
-                                timeout: 2000,
+                                timeout: 2,
                             },
                         },
                         {

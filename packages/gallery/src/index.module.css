@@ -45,3 +45,17 @@
     margin: var(--gap-16);
     background-color: var(--color-static-neutral-translucent-500-inverted);
 }
+
+.subtitles {
+    padding: var(--gap-0) var(--gap-32);
+    margin-bottom: var(--gap-16);
+    width: 100%;
+    text-align: center;
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 500ms ease-in-out, margin-bottom 270ms ease-in-out;
+}
+
+.hideSubtitles {
+    opacity: 0;
+}

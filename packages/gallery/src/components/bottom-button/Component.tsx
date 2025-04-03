@@ -29,7 +29,7 @@ export const BottomButton = ({ onClick, className, bottomButton }: Props) => {
                 clearTimeout(timer.current);
             }
             setVisible(false);
-            timer.current = setTimeout(() => setVisible(true), bottomButton.timeout);
+            timer.current = setTimeout(() => setVisible(true), bottomButton.timeout * 1000);
         }
     }, [bottomButton.timeout, currentSlideIndex, swiper?.activeIndex]);
 

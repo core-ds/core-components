@@ -224,8 +224,8 @@ export const Gallery: FC<GalleryProps> = ({
                 const endY = e.changedTouches[0].clientY;
                 const deltaY = startY - endY;
 
-                // Если свайп вверх (разница по Y больше 100 пикселей)
-                if (deltaY > 100) {
+                // Если свайп вверх или вниз (разница по Y больше 150 пикселей)
+                if (deltaY > 150 || deltaY < -150) {
                     onClose();
                 }
             },
