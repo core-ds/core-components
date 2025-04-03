@@ -39,6 +39,10 @@ import {
                 key: 'temp-block',
                 content: 'Сценарий, когда форма временно заблокирована',
             },
+            {
+                key: 'temp-block-over',
+                content: 'Сценарий, когда форма временно заблокирована',
+            },
         ];
         const [variant, setVariant] = React.useState({
             key: 'success',
@@ -61,6 +65,9 @@ import {
                     case 'error':
                         setConfirmationState('CODE_ERROR');
                         break;
+                    case 'expired':
+                        setConfirmationState('CODE_EXPIRED');
+                        break;
                     case 'fatal':
                         setConfirmationScreen('FATAL_ERROR');
                         break;
@@ -69,6 +76,9 @@ import {
                         break;
                     case 'temp-block':
                         setConfirmationScreen('TEMP_BLOCK');
+                        break;
+                    case 'temp-block-over':
+                        setConfirmationScreen('TEMP_BLOCK_OVER');
                         break;
                     default:
                         break;
