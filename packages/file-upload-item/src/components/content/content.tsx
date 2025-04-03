@@ -34,7 +34,7 @@ export const Content = () => {
                         [styles.truncate]: truncate,
                         [styles.restore]: showRestore,
                     })}
-                    view='component'
+                    view='component-primary'
                     color='primary'
                 >
                     {title}
