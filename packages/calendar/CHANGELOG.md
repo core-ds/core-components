@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.18.0
+
+### Minor Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1543](https://github.com/core-ds/core-components/pull/1543)
+
+-   Исправлено количество отображаемых месяцев в `CalendarMobile` при использовании пропсов `minDate/maxDate`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.10
+
 ## 7.17.14
 
 ### Patch Changes

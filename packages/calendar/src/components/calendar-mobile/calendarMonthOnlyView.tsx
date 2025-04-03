@@ -3,13 +3,14 @@ import { Virtuoso } from 'react-virtuoso';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import isAfter from 'date-fns/isAfter';
+import isBefore from 'date-fns/isBefore';
 import isSameMonth from 'date-fns/isSameMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { Month } from '../../typings';
+import { ActiveMonths, Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
 import { useRange } from '../../useRange';
 import {
@@ -139,19 +140,34 @@ export const CalendarMonthOnlyView = ({
 
         const generatedMonths = [...prevMonths, ...currYearMonths, ...nextMonths];
 
-        return generatedMonths.map((item) => ({
-            ...item,
-            weeks: generateWeeks(item.date, {
-                minDate,
-                maxDate,
-                selected,
-                eventsMap,
-                offDaysMap,
-                holidaysMap,
-                dayAddonsMap,
-            }),
-            title: `${monthName(item.date)} ${item.date.getFullYear()}`,
-        }));
+        return generatedMonths.reduce<ActiveMonths[]>((acc, item) => {
+            // отсекаем лишние месяцы если задана минимальная дата
+            if (minDate && isBefore(item.date, startOfMonth(minDate))) {
+                return acc;
+            }
+
+            // отсекаем лишние месяцы если задана максимальная дата
+            if (maxDate && isAfter(item.date, startOfMonth(maxDate))) {
+                return acc;
+            }
+
+            return [
+                ...acc,
+                {
+                    ...item,
+                    weeks: generateWeeks(item.date, {
+                        minDate,
+                        maxDate,
+                        selected,
+                        eventsMap,
+                        offDaysMap,
+                        holidaysMap,
+                        dayAddonsMap,
+                    }),
+                    title: `${monthName(item.date)} ${item.date.getFullYear()}`,
+                },
+            ];
+        }, []);
     }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
     const initialMonthIndex = useMemo(() => {
