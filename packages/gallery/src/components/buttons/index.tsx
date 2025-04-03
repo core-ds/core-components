@@ -10,6 +10,7 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { PauseCompactMIcon } from '@alfalab/icons-glyph/PauseCompactMIcon';
 import { PlayCompactMIcon } from '@alfalab/icons-glyph/PlayCompactMIcon';
 import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
+import { ShareMIcon } from '@alfalab/icons-glyph/ShareMIcon';
 import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
 
@@ -130,6 +131,22 @@ export const Download: FC<Props> = (props) => (
         <IconButton
             {...props}
             icon={PointerDownMIcon}
+            aria-label='Скачать'
+            className={styles.iconButton}
+        />
+    </TooltipDesktop>
+);
+
+export const Share: FC<Props> = (props) => (
+    <TooltipDesktop
+        trigger='hover'
+        position='bottom'
+        content='Поделиться'
+        fallbackPlacements={['bottom-end']}
+    >
+        <IconButton
+            {...props}
+            icon={ShareMIcon}
             aria-label='Скачать'
             className={styles.iconButton}
         />

@@ -1,4 +1,13 @@
-import { RefObject } from 'react';
+import { MouseEvent, RefObject } from 'react';
+
+export type TBottomButton = {
+    text: string;
+    onClick: (e: MouseEvent) => void;
+    /**
+     * Задержка появления кнопки в s
+     */
+    timeout?: number;
+};
 
 export type GalleryImage = {
     src: string;
@@ -6,6 +15,10 @@ export type GalleryImage = {
     previewSrc?: string;
     alt?: string;
     canDownload?: boolean;
+    /**
+     * Нижняя кнопка, есть только у видео
+     */
+    bottomButton?: TBottomButton;
 };
 
 export type ImageMeta =

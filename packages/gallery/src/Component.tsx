@@ -1,10 +1,11 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
+import { BottomButton } from './components/bottom-button';
 import { Single } from './components/image-viewer/single';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { GalleryContext } from './context';
@@ -90,6 +91,8 @@ export const Gallery: FC<GalleryProps> = ({
 
     const isCurrentVideo = !!imagesMeta[currentSlideIndex]?.player?.current;
 
+    const bottomButton = images[currentSlideIndex]?.bottomButton;
+
     const slideTo = useCallback(
         (index: number) => {
             if (images[index]) {
@@ -135,6 +138,16 @@ export const Gallery: FC<GalleryProps> = ({
             setImagesMeta(imagesMeta.slice());
         },
         [imagesMeta],
+    );
+
+    const handleBottomButtonClick = useCallback(
+        (e: MouseEvent) => {
+            e.stopPropagation();
+            if (bottomButton?.onClick) {
+                bottomButton.onClick(e);
+            }
+        },
+        [bottomButton],
     );
 
     const handleClose = useCallback(() => {
@@ -192,6 +205,38 @@ export const Gallery: FC<GalleryProps> = ({
         };
     }, [handleKeyDown]);
 
+    useEffect(() => {
+        let startY: number;
+        const abortController = new AbortController();
+        const { signal } = abortController;
+
+        document.addEventListener(
+            'touchstart',
+            (e) => {
+                startY = e.touches[0].clientY;
+            },
+            { signal },
+        );
+
+        document.addEventListener(
+            'touchmove',
+            (e) => {
+                const endY = e.changedTouches[0].clientY;
+                const deltaY = startY - endY;
+
+                // Если свайп вверх или вниз (разница по Y больше 150 пикселей)
+                if (deltaY > 150 || deltaY < -150) {
+                    onClose();
+                }
+            },
+            { signal },
+        );
+
+        return () => {
+            abortController.abort();
+        };
+    }, [onClose]);
+
     const singleSlide = images.length === 1;
 
     const showNavigationBar = !singleSlide && !fullScreen;
@@ -243,9 +288,17 @@ export const Gallery: FC<GalleryProps> = ({
                     <nav
                         className={cn({
                             [styles.navigationVideo]: isCurrentVideo && !isDesktop,
-                            [styles.hideNavigation]: hideNavigation && !isDesktop,
+                            [styles.hide]: showNavigationBar && hideNavigation && !isDesktop,
+                            [styles.hideInfo]: !showNavigationBar && hideNavigation && !isDesktop,
                         })}
                     >
+                        {isCurrentVideo && !isDesktop && bottomButton && (
+                            <BottomButton
+                                bottomButton={bottomButton}
+                                onClick={handleBottomButtonClick}
+                                className={styles.bottomButton}
+                            />
+                        )}
                         {showNavigationBar && <NavigationBar />}
                         {!isDesktop && <InfoBar />}
                     </nav>
