@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select-with-tags",
-    "version": "8.6.9",
+    "version": "8.6.11",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,9 +16,9 @@
     },
     "dependencies": {
         "@alfalab/core-components-form-control": "^12.8.2",
-        "@alfalab/core-components-select": "^17.20.8",
+        "@alfalab/core-components-select": "^17.20.10",
         "@alfalab/core-components-tag": "^8.6.7",
-        "@alfalab/core-components-bottom-sheet": "^6.18.3",
+        "@alfalab/core-components-bottom-sheet": "^6.18.5",
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/core-components-popover": "^6.3.8",
         "@alfalab/hooks": "^1.13.1",
@@ -29,5 +29,5 @@
         "@alfalab/core-components-shared": "^0.16.0"
     },
     "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "varsVersion": "9.19.0"
 }
