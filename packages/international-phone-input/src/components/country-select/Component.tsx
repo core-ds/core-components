@@ -52,6 +52,8 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     size,
     ...restProps
 }) => {
+    const isMobile = useMemo(() => view === 'mobile', [view]);
+
     const options = useMemo(
         () =>
             countries?.map((areas) => {
@@ -65,6 +67,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                             className={cn([
                                 styles.option,
                                 size && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                                isMobile && styles.mobile,
                             ])}
                         >
                             <FlagIcon country={iso2} className={styles.flag} />
@@ -77,7 +80,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     ),
                 };
             }) || [],
-        [countries, size],
+        [countries, size, isMobile],
     );
 
     const renderOptionsList = useCallback(
@@ -114,8 +117,8 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
                     onChange={onChange}
                     Field={SelectField}
-                    OptionsList={view === 'mobile' ? VirtualOptionsList : renderOptionsList}
-                    {...(view === 'mobile' && {
+                    OptionsList={isMobile ? VirtualOptionsList : renderOptionsList}
+                    {...(isMobile && {
                         bottomSheetProps: {
                             title: 'Выберите страну',
                         },

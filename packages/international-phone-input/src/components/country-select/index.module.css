@@ -12,6 +12,7 @@
     align-items: flex-start;
     padding: var(--gap-12);
 
+    &.mobile,
     &.size-72 {
         padding-left: var(--gap-16);
     }
