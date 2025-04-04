@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-system-message",
+    "name": "@balafla/core-components-system-message",
     "version": "2.6.2",
     "description": "System message component",
     "keywords": [],
@@ -15,8 +15,9 @@
         "react": ">=16.8.0"
     },
     "dependencies": {
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-shared": "^0.16.0",
+        "@balafla/core-components-mq": "^4.4.1",
+        "@balafla/core-components-shared": "^0.16.0",
+        "@balafla/core-components-types": "^0.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

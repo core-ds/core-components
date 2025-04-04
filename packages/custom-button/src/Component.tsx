@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { Button } from '@alfalab/core-components-button';
+import { Button } from '@balafla/core-components-button';
 
 import { BaseCustomButton } from './components/base-custom-button';
 import { CustomButtonProps } from './types/props';

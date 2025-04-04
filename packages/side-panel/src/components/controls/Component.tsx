@@ -1,7 +1,6 @@
 import React, { ReactNode, useContext } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ResponsiveContext } from '../../ResponsiveContext';
 

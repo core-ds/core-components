@@ -1,7 +1,6 @@
 import React from 'react';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Text } from '@alfalab/core-components-typography';
 
 import { CircleIcon } from '../../icons/Circle';
 import { CircleLineIcon } from '../../icons/CircleLine';

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
-import { IconButton } from '@alfalab/core-components-icon-button';
+import { IconButton } from '@balafla/core-components-icon-button';
 import {
     getQueryParam,
     stylesStringToObj,

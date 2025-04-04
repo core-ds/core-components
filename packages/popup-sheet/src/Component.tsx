@@ -7,13 +7,11 @@ import React, {
     useState,
 } from 'react';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
+import { BaseModal, BaseModalProps } from '@balafla/core-components-base-modal';
+import { Closer, CloserProps } from '@balafla/core-components-navigation-bar-private/shared';
+import { createPaddingStyle, easingFns, getDataTestId } from '@balafla/core-components-shared';
+import type { PaddingType } from '@balafla/core-components-types';
 import cn from 'classnames';
-
-import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Closer, CloserProps } from '@alfalab/core-components-navigation-bar-private/shared';
-import { createPaddingStyle, easingFns, getDataTestId } from '@alfalab/core-components-shared';
-
-import { PaddingType } from '../../types';
 
 import { PopupBackdrop } from './components/backdrop';
 

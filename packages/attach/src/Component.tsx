@@ -8,11 +8,11 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { Button, ButtonProps } from '@balafla/core-components-button';
+import { KeyboardFocusable } from '@balafla/core-components-keyboard-focusable';
+import { ProgressBar } from '@balafla/core-components-progress-bar';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
-import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 import { PaperclipSIcon } from '@alfalab/icons-glyph/PaperclipSIcon';
 import { pluralize } from '@alfalab/utils';

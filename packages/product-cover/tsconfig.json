@@ -1,18 +1,17 @@
 {
-    "include": ["src", "../../typings", "../types"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-button": ["../button/src"],
+            "@balafla/core-components-button/*": ["../button/src/*"],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"],
+            "@balafla/core-components-typography": ["../typography/src"],
+            "@balafla/core-components-typography/*": ["../typography/src/*"]
         }
     },
-    "references": [
-        { "path": "../button" },
-        { "path": "../typography" },
-        { "path": "../shared" },
-    ]
+    "references": [{ "path": "../button" }, { "path": "../shared" }, { "path": "../typography" }]
 }

@@ -14,10 +14,10 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import type { FormControlProps } from '@balafla/core-components-form-control';
+import type { FieldProps } from '@balafla/core-components-select/shared';
 import cn from 'classnames';
 
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import type { TagComponent } from '../../types';

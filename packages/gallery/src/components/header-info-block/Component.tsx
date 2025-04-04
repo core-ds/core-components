@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-
-import { Text, TitleDesktop } from '@alfalab/core-components-typography';
+import { Text, TitleDesktop } from '@balafla/core-components-typography';
 
 import { splitFilename } from '../../utils';
 

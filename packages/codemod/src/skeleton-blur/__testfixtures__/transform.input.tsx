@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { Button } from '@alfalab/core-components-button';
-import { Skeleton } from '@alfalab/core-components-skeleton';
+import { Button } from '@balafla/core-components-button';
+import { Skeleton } from '@balafla/core-components-skeleton';
 
 export const Component = () => (
     <React.Fragment>

@@ -1,7 +1,6 @@
 import React, { ReactNode, useContext } from 'react';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Text } from '@alfalab/core-components-typography';
 
 import { ListContext } from '../../Component';
 

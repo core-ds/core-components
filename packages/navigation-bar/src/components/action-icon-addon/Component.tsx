@@ -1,7 +1,7 @@
 import React from 'react';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ChevronLeftMIcon } from '@alfalab/icons-glyph/ChevronLeftMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 

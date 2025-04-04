@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import addDays from 'date-fns/addDays';
 import addMonths from 'date-fns/addMonths';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
@@ -22,8 +23,6 @@ import startOfWeek from 'date-fns/startOfWeek';
 import startOfYear from 'date-fns/startOfYear';
 import subDays from 'date-fns/subDays';
 import subMonths from 'date-fns/subMonths';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { DateShift, Day, DayAddons, Month, SpecialDays, SpecialDaysAddon } from './typings';
 import { CalendarProps } from '.';

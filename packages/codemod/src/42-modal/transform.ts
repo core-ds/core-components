@@ -7,7 +7,7 @@ import {
 
 const modalEntryTransformer = (source, j) => {
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]modal\//.test(path) ? path.replace('/responsive', '') : path,
+        /@balafla\/core-components[-/]modal\//.test(path) ? path.replace('/responsive', '') : path,
     );
     modifyIdentifiers(source, j, 'ModalResponsive', 'Modal');
     modifyIdentifiers(source, j, 'ModalResponsiveProps', 'ModalProps');

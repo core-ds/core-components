@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, select } from '@storybook/addon-knobs';
-import { Button } from '@alfalab/core-components-button';
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+import { Button } from '@balafla/core-components-button';
+import { BottomSheet } from '@balafla/core-components-bottom-sheet';
 import {
     getQueryParam,
     stylesStringToObj,

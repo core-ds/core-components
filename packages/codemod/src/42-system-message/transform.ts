@@ -2,7 +2,7 @@ import { modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const systemMessageEntryTransformer = (source, j) => {
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]system-message\//.test(path)
+        /@balafla\/core-components[-/]system-message\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Typography } from '@balafla/core-components-typography';
 
 import { Questions } from './questions';
 import { KeepCssVars } from './answers/keepCssVars';

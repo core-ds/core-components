@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { FilterTag, FilterTagProps } from '@alfalab/core-components/filter-tag';
+import { FilterTag, FilterTagProps } from '@balafla/core-components/filter-tag';
 
 const noop = () => {};
 

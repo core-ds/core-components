@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
-
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { Input, InputProps } from '@balafla/core-components-input';
 
 import {
     format,

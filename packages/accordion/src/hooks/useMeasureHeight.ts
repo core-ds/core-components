@@ -1,7 +1,6 @@
 import { Ref, useEffect, useRef, useState } from 'react';
+import { fnUtils, isClient } from '@balafla/core-components-shared';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
-
-import { fnUtils, isClient } from '@alfalab/core-components-shared';
 
 function createUseMeasureHook<T extends HTMLElement, U>(
     measure: (element: T) => U,

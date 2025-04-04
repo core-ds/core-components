@@ -3,7 +3,8 @@ import {
     hasImportSpecifier,
     isIndexEntry,
     modifyIdentifiers,
-    modifyImportPath, removeEmptyCoreImport,
+    modifyImportPath,
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const confirmationEntryTransformer = (source, j) => {
@@ -26,7 +27,7 @@ const confirmationEntryTransformer = (source, j) => {
     modifyIdentifiers(source, j, 'ConfirmationProps', 'DesktopConfirmationProps');
 
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]confirmation\//.test(path)
+        /@balafla\/core-components[-/]confirmation\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
+import { getDataTestId } from '@balafla/core-components-shared';
 
 import { OptionShape } from '../../../../typings';
 

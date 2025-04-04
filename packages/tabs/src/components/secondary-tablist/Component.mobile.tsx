@@ -1,7 +1,6 @@
 import React from 'react';
+import { TagMobile } from '@balafla/core-components-tag/mobile';
 import cn from 'classnames';
-
-import { TagMobile } from '@alfalab/core-components-tag/mobile';
 
 import { SecondaryTabListProps } from '../../typings';
 

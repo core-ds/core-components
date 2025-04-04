@@ -1,12 +1,15 @@
 {
-    "include": ["src", "../../typings", "src/*.json"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "src/**/*.json", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@balafla/core-components-config": ["../config/src"],
+            "@balafla/core-components-config/*": ["../config/src/*"],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"]
         }
-    }
+    },
+    "references": [{ "path": "../config" }, { "path": "../shared" }]
 }

@@ -1,17 +1,16 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-tag/*": ["../tag/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@balafla/core-components-button": ["../button/src"],
+            "@balafla/core-components-button/*": ["../button/src/*"],
+            "@balafla/core-components-pagination": ["../pagination/src"],
+            "@balafla/core-components-pagination/*": ["../pagination/src/*"],
+            "@balafla/core-components-select": ["../select/src"],
+            "@balafla/core-components-select/*": ["../select/src/*"]
         }
     },
     "references": [{ "path": "../button" }, { "path": "../pagination" }, { "path": "../select" }]

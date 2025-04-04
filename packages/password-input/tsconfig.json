@@ -1,15 +1,15 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-icon-button": ["../icon-button/src"],
+            "@balafla/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@balafla/core-components-input": ["../input/src"],
+            "@balafla/core-components-input/*": ["../input/src/*"]
         }
     },
-    "references": [{ "path": "../input" }, { "path": "../icon-button" }]
+    "references": [{ "path": "../icon-button" }, { "path": "../input" }]
 }

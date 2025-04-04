@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { MaskedInput } from '@alfalab/core-components-masked-input';
+import { MaskedInput } from '@balafla/core-components-masked-input';
 
 const mask = [
     /\d/,

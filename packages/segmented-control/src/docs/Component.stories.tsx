@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
-import { SegmentedControl, Segment } from '@alfalab/core-components-segmented-control';
+import { SegmentedControl, Segment } from '@balafla/core-components-segmented-control';
 
 const meta: Meta<typeof SegmentedControl> = {
     title: 'Components/SegmentedControl',

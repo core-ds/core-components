@@ -1,10 +1,10 @@
 /* eslint-disable */
 import React from 'react';
 
-import { SelectDesktop, SelectDesktopProps } from '@alfalab/core-components/select/desktop';
-import { useLazyLoading, useSelectWithLoading } from '@alfalab/core-components/select/shared';
-import { SelectMobile, SelectMobileProps } from '@alfalab/core-components/select/mobile';
-import { Select } from '@alfalab/core-components/select';
+import { SelectDesktop, SelectDesktopProps } from '@balafla/core-components/select/desktop';
+import { useLazyLoading, useSelectWithLoading } from '@balafla/core-components/select/shared';
+import { SelectMobile, SelectMobileProps } from '@balafla/core-components/select/mobile';
+import { Select } from '@balafla/core-components/select';
 
 const noop = () => {};
 

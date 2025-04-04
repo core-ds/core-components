@@ -2,7 +2,7 @@
 
 .component.size-72 {
     & .contentWrapper {
-        padding: 18px 14px;
+        padding: 18px var(--gap-2s);
     }
 
     & .placeholder {
@@ -16,7 +16,7 @@
 
 .component.size-64 {
     & .contentWrapper {
-        padding: 14px 10px;
+        padding: var(--gap-2s) 10px;
     }
 
     & .placeholder {

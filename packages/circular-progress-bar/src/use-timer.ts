@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-
-import { noop } from '@alfalab/core-components-shared';
+import { noop } from '@balafla/core-components-shared';
 
 const MAX_PERSENT_VALUE = 100;
 

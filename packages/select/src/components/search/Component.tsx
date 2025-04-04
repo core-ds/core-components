@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
+import { Input } from '@balafla/core-components-input';
 import cn from 'classnames';
 
-import { Input } from '@alfalab/core-components-input';
 import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
 
 import { SearchProps } from '../../typings';

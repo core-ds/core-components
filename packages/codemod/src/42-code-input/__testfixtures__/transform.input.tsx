@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { CodeInput, CodeInputProps } from '@alfalab/core-components/code-input';
+import { CodeInput, CodeInputProps } from '@balafla/core-components/code-input';
 
 const noop = () => {};
 

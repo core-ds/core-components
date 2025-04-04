@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { List } from '@alfalab/core-components-list';
+import { List } from '@balafla/core-components-list';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Typography } from '@balafla/core-components-typography';
 
 import { Example } from 'storybook-addon-live-examples';
 import { cssImportsExample, darkModeExample } from './utils';

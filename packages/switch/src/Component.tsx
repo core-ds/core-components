@@ -1,8 +1,8 @@
 import React, { ChangeEvent, forwardRef, InputHTMLAttributes, ReactNode, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { dom } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { Colors } from './types/colors';

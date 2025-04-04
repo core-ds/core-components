@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
-import { Button } from '@alfalab/core-components-button';
-import { Gallery } from '@alfalab/core-components-gallery';
+import { Button } from '@balafla/core-components-button';
+import { Gallery } from '@balafla/core-components-gallery';
 import {
     stylesStringToObj,
     getQueryParam,

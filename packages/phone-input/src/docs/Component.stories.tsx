@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { PhoneInput } from '@alfalab/core-components-phone-input';
+import { PhoneInput } from '@balafla/core-components-phone-input';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
 
 const meta: Meta<typeof PhoneInput> = {

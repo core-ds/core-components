@@ -2,9 +2,9 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { Story } from '@storybook/addon-docs';
 import { radios, text } from '@storybook/addon-knobs';
-import { Markdown } from '@alfalab/core-components-markdown';
-import { Typography } from '@alfalab/core-components-typography';
-import { Gap } from '@alfalab/core-components-gap';
+import { Markdown } from '@balafla/core-components-markdown';
+import { Typography } from '@balafla/core-components-typography';
+import { Gap } from '@balafla/core-components-gap';
 import {
     stylesStringToObj,
     getQueryParam,

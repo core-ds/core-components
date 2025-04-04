@@ -2,7 +2,7 @@ import {
     createImport,
     modifyIdentifiers,
     modifyImportPath,
-    removeEmptyCoreImport
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const calendarInputEntryTransformer = (source, j) => {
@@ -15,7 +15,7 @@ const calendarInputEntryTransformer = (source, j) => {
         path: '/shared',
     });
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]calendar-input\//.test(path)
+        /@balafla\/core-components[-/]calendar-input\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

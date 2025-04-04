@@ -1,10 +1,9 @@
 import React, { useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { InputProps } from '@balafla/core-components-input';
+import { InputDesktop as DefaultInput } from '@balafla/core-components-input/desktop';
+import type { FieldProps } from '@balafla/core-components-select/shared';
 import cn from 'classnames';
-
-import { InputProps } from '@alfalab/core-components-input';
-import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
-import type { FieldProps } from '@alfalab/core-components-select/shared';
 
 import { OnInputReason } from '../enums';
 import { InputAutocompleteCommonProps } from '../types';

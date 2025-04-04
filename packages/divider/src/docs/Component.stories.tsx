@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Divider } from '@alfalab/core-components-divider';
+import { Divider } from '@balafla/core-components-divider';
 
 const meta: Meta<typeof Divider> = {
     title: 'Components/Divider',

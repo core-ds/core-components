@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, ElementType, FC } from 'react';
+import { IconButton, IconButtonProps } from '@balafla/core-components-icon-button';
 import cn from 'classnames';
 
-import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 

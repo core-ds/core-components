@@ -1,15 +1,24 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-toast-plate/*": ["../toast-plate/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-notification": ["../notification/src"],
+            "@balafla/core-components-notification/*": ["../notification/src/*"],
+            "@balafla/core-components-portal": ["../portal/src"],
+            "@balafla/core-components-portal/*": ["../portal/src/*"],
+            "@balafla/core-components-stack": ["../stack/src"],
+            "@balafla/core-components-stack/*": ["../stack/src/*"],
+            "@balafla/core-components-stack-context": ["../stack-context/src"],
+            "@balafla/core-components-stack-context/*": ["../stack-context/src/*"]
         }
     },
-    "references": [{ "path": "../notification" }, { "path": "../portal" }, { "path": "../stack" }]
+    "references": [
+        { "path": "../notification" },
+        { "path": "../portal" },
+        { "path": "../stack" },
+        { "path": "../stack-context" }
+    ]
 }

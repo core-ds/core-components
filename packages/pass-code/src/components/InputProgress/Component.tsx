@@ -1,9 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { useInputProgress } from './useInputProgress';
 

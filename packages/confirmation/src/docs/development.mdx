@@ -7,9 +7,9 @@ import vars from '!!raw-loader!../vars.css';
 ## Подключение
 
 ```jsx
-import { Confirmation } from '@alfalab/core-components/confirmation';
-import { ConfirmationDesktop } from '@alfalab/core-components/confirmation/desktop';
-import { ConfirmationMobile } from '@alfalab/core-components/confirmation/mobile';
+import { Confirmation } from '@balafla/core-components/confirmation';
+import { ConfirmationDesktop } from '@balafla/core-components/confirmation/desktop';
+import { ConfirmationMobile } from '@balafla/core-components/confirmation/mobile';
 ```
 
 ## Как пользоваться
@@ -33,7 +33,7 @@ export type ConfirmationState =
 Для управления экранами и состояниями можно воспользоваться хуком:
 
 ```jsx
-import { Confirmation, useConfirmation } from '@alfalab/core-components/confirmation';
+import { Confirmation, useConfirmation } from '@balafla/core-components/confirmation';
 
 const Example = () => {
     const { confirmationState, confirmationScreen, setConfirmationState, setConfirmationScreen } =

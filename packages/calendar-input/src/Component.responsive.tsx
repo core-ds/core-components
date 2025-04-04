@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { DateInputProps } from '@alfalab/core-components-date-input';
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { DateInputProps } from '@balafla/core-components-date-input';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { CalendarInputProps } from './components/calendar-input/Component';
 import { CalendarInputDesktop } from './desktop';

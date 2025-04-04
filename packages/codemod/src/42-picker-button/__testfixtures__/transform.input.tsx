@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { PickerButton, PickerButtonProps, getIcon } from "@alfalab/core-components/picker-button";
+import { PickerButton, PickerButtonProps, getIcon } from "@balafla/core-components/picker-button";
 
 const noop = () => {};
 

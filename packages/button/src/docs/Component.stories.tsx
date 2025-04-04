@@ -4,9 +4,9 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { StarSIcon } from '@alfalab/icons-glyph/StarSIcon';
-import { Button } from '@alfalab/core-components-button';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { Button } from '@balafla/core-components-button';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
 
 const meta: Meta<typeof Button> = {
     title: 'Components/Button',

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { number, select, boolean } from '@storybook/addon-knobs';
-import { Pagination } from '@alfalab/core-components-pagination';
+import { Pagination } from '@balafla/core-components-pagination';
 
 const meta: Meta<typeof Pagination> = {
     title: 'Components/Pagination',

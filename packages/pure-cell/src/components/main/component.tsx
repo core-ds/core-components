@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { PureCellContext } from '../../component';
 import { MainElement } from '../types';

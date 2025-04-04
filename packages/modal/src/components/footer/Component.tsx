@@ -1,7 +1,6 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';

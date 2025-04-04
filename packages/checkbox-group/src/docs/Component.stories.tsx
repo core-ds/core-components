@@ -2,11 +2,11 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, select } from '@storybook/addon-knobs';
 
-import { Checkbox } from '@alfalab/core-components-checkbox';
-import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';
-import { CheckboxGroupMobile } from '@alfalab/core-components-checkbox-group/mobile';
-import { CheckboxGroupDesktop } from '@alfalab/core-components-checkbox-group/desktop';
-import { Tag } from '@alfalab/core-components-tag';
+import { Checkbox } from '@balafla/core-components-checkbox';
+import { CheckboxGroup } from '@balafla/core-components-checkbox-group';
+import { CheckboxGroupMobile } from '@balafla/core-components-checkbox-group/mobile';
+import { CheckboxGroupDesktop } from '@balafla/core-components-checkbox-group/desktop';
+import { Tag } from '@balafla/core-components-tag';
 
 import {
     getQueryParam,

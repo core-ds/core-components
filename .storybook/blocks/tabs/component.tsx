@@ -7,7 +7,7 @@ import React, {
     isValidElement,
     ReactElement,
 } from 'react';
-import { Tabs as TabsResponsive, Tab, TabsProps } from '@alfalab/core-components-tabs';
+import { Tabs as TabsResponsive, Tab, TabsProps } from '@balafla/core-components-tabs';
 import { Changelog } from '../changelog';
 import styles from './index.module.css';
 

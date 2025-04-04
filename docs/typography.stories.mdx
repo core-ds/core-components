@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/addon-docs';
-import { Plate } from '../packages/plate/src';
-import { StatusBadge } from '@alfalab/core-components-status-badge';
-import { Typography } from '../packages/typography/src';
+import { Plate } from '@balafla/core-components-plate';
+import { StatusBadge } from '@balafla/core-components-status-badge';
+import { Typography } from '@balafla/core-components-typography';
 
 <Meta
     title='Tokens & assets/Типографика'
@@ -14,7 +14,7 @@ import { Typography } from '../packages/typography/src';
 Актуальный набор текстовых стилей доступен в двух вариантах:
 
 -   Компоненты [Typography.Title](/docs/typography--typography-title),
-    [Typography.TitleResponsive](/docs/typography--typography-title-responsive) и 
+    [Typography.TitleResponsive](/docs/typography--typography-title-responsive) и
     [Typography.Text](/docs/typography--typography-text)
 -   Миксины в [core-components/vars/typography.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/typography.css)
 
@@ -42,7 +42,7 @@ import { Typography } from '../packages/typography/src';
 При необходимости используйте миксин:
 
 ```css
-@import '@alfalab/core-components/vars/typography.css';
+@import '@balafla/core-components/vars/typography.css';
 
 .item {
     @mixin headline_small;

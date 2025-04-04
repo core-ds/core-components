@@ -1,4 +1,4 @@
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId } from '@balafla/core-components-shared';
 
 import { Caption } from './components/caption';
 import { Controls } from './components/controls';

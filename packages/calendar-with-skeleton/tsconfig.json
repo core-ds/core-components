@@ -1,16 +1,15 @@
 {
-    "include": ["src", "../../typings", "src/*.json"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@balafla/core-components-calendar": ["../calendar/src"],
+            "@balafla/core-components-calendar/*": ["../calendar/src/*"],
+            "@balafla/core-components-skeleton": ["../skeleton/src"],
+            "@balafla/core-components-skeleton/*": ["../skeleton/src/*"]
         }
     },
-    "references": [{ "path": "../calendar" }, { "path": "../skeleton" }, { "path": "../modal" }]
+    "references": [{ "path": "../calendar" }, { "path": "../skeleton" }]
 }

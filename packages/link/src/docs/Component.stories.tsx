@@ -2,8 +2,8 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { Typography } from '@alfalab/core-components-typography';
-import { Link } from '@alfalab/core-components-link';
+import { Typography } from '@balafla/core-components-typography';
+import { Link } from '@balafla/core-components-link';
 
 const meta: Meta<typeof Link> = {
     title: 'Components/Link',

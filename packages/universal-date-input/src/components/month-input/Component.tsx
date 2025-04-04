@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FocusEvent, forwardRef, useRef, useState } from 'react';
-
-import { Input } from '@alfalab/core-components-input';
+import { Input } from '@balafla/core-components-input';
 
 import { InnerMonthInputProps } from '../../types';
 import { isCompleteMonth } from '../../utils';

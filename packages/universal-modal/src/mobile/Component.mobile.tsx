@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
+import { BaseModal } from '@balafla/core-components-base-modal';
 import cn from 'classnames';
-
-import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content';
 import { FooterMobile } from '../components/footer';

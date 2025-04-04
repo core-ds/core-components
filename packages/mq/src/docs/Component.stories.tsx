@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@alfalab/core-components-button';
-import { Space } from '@alfalab/core-components-space';
-import { Typography } from '@alfalab/core-components-typography';
-import { Mq } from '@alfalab/core-components-mq';
+import { Button } from '@balafla/core-components-button';
+import { Space } from '@balafla/core-components-space';
+import { Typography } from '@balafla/core-components-typography';
+import { Mq } from '@balafla/core-components-mq';
 
 const meta: Meta<typeof Mq> = {
     title: 'Components/Mq',

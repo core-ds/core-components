@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { number, boolean, select, text } from '@storybook/addon-knobs';
-import { Steps } from '@alfalab/core-components-steps';
+import { Steps } from '@balafla/core-components-steps';
 
 const meta: Meta<typeof Steps> = {
     title: 'Components/Steps',

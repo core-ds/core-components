@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-slider-input",
+    "name": "@balafla/core-components-slider-input",
     "version": "9.2.2",
     "description": "Slider input component",
     "keywords": [],
@@ -16,8 +16,8 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^15.5.3",
-        "@alfalab/core-components-slider": "^4.7.3",
+        "@balafla/core-components-input": "^15.5.3",
+        "@balafla/core-components-slider": "^4.7.3",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

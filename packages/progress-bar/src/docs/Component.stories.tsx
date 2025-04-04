@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, number } from '@storybook/addon-knobs';
-import { ProgressBar } from '@alfalab/core-components-progress-bar';
+import { ProgressBar } from '@balafla/core-components-progress-bar';
 
 const meta: Meta<typeof ProgressBar> = {
     title: 'Components/ProgressBar',

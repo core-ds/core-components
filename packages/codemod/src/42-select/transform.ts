@@ -3,7 +3,8 @@ import {
     hasImportSpecifier,
     isIndexEntry,
     modifyIdentifiers,
-    modifyImportPath, removeEmptyCoreImport,
+    modifyImportPath,
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const selectEntryTransformer = (source, j) => {
@@ -24,7 +25,7 @@ const selectEntryTransformer = (source, j) => {
         include: [],
     });
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]select\//.test(path) ? path.replace('/responsive', '') : path,
+        /@balafla\/core-components[-/]select\//.test(path) ? path.replace('/responsive', '') : path,
     );
     modifyImportPath(
         source,

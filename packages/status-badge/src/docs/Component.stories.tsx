@@ -3,8 +3,8 @@ import { Story } from '@storybook/addon-docs';
 import { Meta, StoryObj } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
-import { Gap } from '@alfalab/core-components-gap';
-import { StatusBadge, StatusBadgeProps } from '@alfalab/core-components-status-badge';
+import { Gap } from '@balafla/core-components-gap';
+import { StatusBadge, StatusBadgeProps } from '@balafla/core-components-status-badge';
 
 import {
     stylesStringToObj,

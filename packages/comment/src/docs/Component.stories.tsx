@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
-import { Comment } from '@alfalab/core-components-comment';
+import { Comment } from '@balafla/core-components-comment';
 
 import {
     stylesStringToObj,

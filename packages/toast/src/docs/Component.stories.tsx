@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Button } from '@alfalab/core-components-button';
-import { Toast } from '@alfalab/core-components-toast';
-import { ToastMobile } from '@alfalab/core-components-toast/mobile';
-import { ToastDesktop } from '@alfalab/core-components-toast/desktop';
+import { Button } from '@balafla/core-components-button';
+import { Toast } from '@balafla/core-components-toast';
+import { ToastMobile } from '@balafla/core-components-toast/mobile';
+import { ToastDesktop } from '@balafla/core-components-toast/desktop';
 
 const meta: Meta<typeof Toast> = {
     title: 'Components/Toast',

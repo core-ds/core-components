@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 import { Portal } from './index';
 import { PORTAL_CONTAINER_ATTRIBUTE } from './utils';
-import { PortalContext } from '@alfalab/core-components-shared';
+import { PortalContext } from '@balafla/core-components-shared';
 
 describe('Portal tests', () => {
     it('should render in a different node', () => {

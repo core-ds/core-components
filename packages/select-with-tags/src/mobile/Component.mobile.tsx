@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
+import { BottomSheet } from '@balafla/core-components-bottom-sheet';
+import { FormControlMobile } from '@balafla/core-components-form-control/mobile';
 
 import { BaseSelectWithTags } from '../components/base-select-with-tags';
 import { SelectWithTagsMobileProps } from '../types';

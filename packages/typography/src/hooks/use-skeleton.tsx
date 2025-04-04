@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
+import { Skeleton } from '@balafla/core-components-skeleton';
 import cn from 'classnames';
 
-import { Skeleton } from '@alfalab/core-components-skeleton';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { TextSkeletonProps } from '../types';

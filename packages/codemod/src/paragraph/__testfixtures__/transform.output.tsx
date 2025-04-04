@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Typography } from '@alfalab/core-components/typography';
+import { Typography } from '@balafla/core-components/typography';
 
 const someVar = true;
 

@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 
-import { RadioGroup, RadioGroupProps } from '@alfalab/core-components/radio-group';
-import { Radio } from '@alfalab/core-components/radio';
+import { RadioGroup, RadioGroupProps } from '@balafla/core-components/radio-group';
+import { Radio } from '@balafla/core-components/radio';
 
 const noop = () => {};
 

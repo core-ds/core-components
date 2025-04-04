@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Plate } from '@alfalab/core-components-plate';
+import { Plate } from '@balafla/core-components-plate';
 
 import { type AlertProps, AlertBase } from './Component';
 

@@ -8,15 +8,15 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import type { CalendarProps } from '@balafla/core-components-calendar';
+import { Input } from '@balafla/core-components-input';
+import { Popover } from '@balafla/core-components-popover';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 import isAfter from 'date-fns/isAfter';
 import isValid from 'date-fns/isValid';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import type { CalendarProps } from '@alfalab/core-components-calendar';
-import { Input } from '@alfalab/core-components-input';
-import { Popover } from '@alfalab/core-components-popover';
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 import { CalendarSIcon } from '@alfalab/icons-glyph/CalendarSIcon';
 

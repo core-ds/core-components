@@ -1,8 +1,8 @@
 import React, { FocusEvent, forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
+import { Input, InputProps } from '@balafla/core-components-input';
+import { withSuffix } from '@balafla/core-components-with-suffix';
 import cn from 'classnames';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
-import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
 import { formatAmount, THINSP } from '@alfalab/utils';
 

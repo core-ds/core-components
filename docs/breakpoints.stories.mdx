@@ -1,5 +1,4 @@
 import { Meta, Markdown } from '@storybook/addon-docs';
-import { Plate } from '@alfalab/core-components/plate';
 
 <Meta
     title='Tokens & assets/Брейкпоинты'
@@ -48,7 +47,7 @@ import { Plate } from '@alfalab/core-components/plate';
 При необходимости рендеринга по условию, используйте компонент [Mq](?path=/docs/mq--docs), который основан на `window.matchMedia API`:
 
 ```jsx
-import { Mq, useMatchMedia } from '@alfalab/core-components/mq';
+import { Mq, useMatchMedia } from '@balafla/core-components/mq';
 
 const Component = () => (
     <Mq query='--mobile'>
@@ -63,7 +62,7 @@ const Component = () => {
 };
 ```
 
-## Пример изменения breakpoint в Responsive компонентах
+## Пример изменения breakpoint в core компонентах
 
 По-умолчанию в `core-components` респонсивные компоненты переключаются на десктопный вид, если ширина вьюпорта превышает 1024px.
 Для переопределения этого поведения все респонсивные компоненты имеют проп `breakpoint`.
@@ -74,5 +73,3 @@ const Component = () => {
         breakpoint={768}
         ...
 ```
-
-<Plate limitContentWidth={false}>Для глобального переопределения breakpoint во всех Responsive компонентах [используйте CoreConfig](?path=/docs/instructions-core-config--docs)</Plate>

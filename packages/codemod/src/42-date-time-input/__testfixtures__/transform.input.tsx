@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { DateTimeInputResponsive, DateTimeInputResponsiveProps } from '@alfalab/core-components/date-time-input/responsive';
+import { DateTimeInputResponsive, DateTimeInputResponsiveProps } from '@balafla/core-components/date-time-input/responsive';
 
 const noop = () => {};
 

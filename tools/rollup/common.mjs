@@ -1,19 +1,11 @@
-import { promisify } from 'util';
-import fs from 'fs';
+import path from 'path';
+import { createRequire } from 'module';
 
-export const readDir = promisify(fs.readdir);
-export const mkDir = promisify(fs.mkdir);
-export const readFile = promisify(fs.readFile);
-export const writeFile = promisify(fs.writeFile);
+const require = createRequire(import.meta.url);
 
-export async function checkOrCreateDir(dir) {
-    try {
-        await readDir(dir, 'utf-8');
-    } catch (error) {
-        await mkDir(dir, { recursive: true });
-    }
-}
-
-export const requireRegExp = new RegExp(
-    /(\b(?:require\(|import |from )['"])@alfalab\/core-components-(.*?)(['"])/,
-);
+export const currentPackageDir = process.cwd();
+export const pkg = require(path.join(currentPackageDir, 'package.json'));
+export const currentComponentName =
+    pkg.name === '@balafla/core-components'
+        ? 'root'
+        : pkg.name.replace('@balafla/core-components-', '');

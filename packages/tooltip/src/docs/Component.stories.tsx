@@ -2,8 +2,8 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, number } from '@storybook/addon-knobs';
 
-import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
-import { Tooltip } from '@alfalab/core-components-tooltip';
+import { TooltipDesktop } from '@balafla/core-components-tooltip/desktop';
+import { Tooltip } from '@balafla/core-components-tooltip';
 
 import {
     getQueryParam,

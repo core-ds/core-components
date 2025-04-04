@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect, useState } from 'react';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { getDataTestId } from '@alfalab/core-components-shared';
 import type { Theme, TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
 import { ReactCanvasPatternLock } from '@alfalab/react-canvas-pattern-lock';
 

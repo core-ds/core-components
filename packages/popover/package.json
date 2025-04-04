@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-popover",
+    "name": "@balafla/core-components-popover",
     "version": "6.3.8",
     "description": "Popover component",
     "keywords": [],
@@ -12,14 +12,16 @@
     },
     "sideEffects": false,
     "peerDependencies": {
+        "@balafla/core-components-stack-context": "^0.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "^3.3.7",
-        "@alfalab/core-components-stack": "^5.0.1",
+        "@balafla/core-components-portal": "^3.3.7",
+        "@balafla/core-components-stack": "^5.0.1",
         "@alfalab/hooks": "^1.13.1",
         "@juggle/resize-observer": "^3.3.1",
+        "@types/react-transition-group": "^4.4.5",
         "@popperjs/core": "^2.11.8",
         "classnames": "^2.5.1",
         "popper-max-size-modifier": "^0.2.0",

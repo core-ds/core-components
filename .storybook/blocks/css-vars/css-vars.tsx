@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
-import { Link } from '@alfalab/core-components-link';
+import { Link } from '@balafla/core-components-link';
 import { Example } from 'storybook-addon-live-examples';
 
 import styles from './css-vars.module.css';

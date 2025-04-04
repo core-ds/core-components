@@ -1,12 +1,12 @@
 import React, { ElementType, useCallback, useMemo } from 'react';
-
 import {
     BaseOption,
     BaseSelectProps,
     OptionsListProps,
     VirtualOptionsList,
-} from '@alfalab/core-components-select/shared';
-import { getDataTestId } from '@alfalab/core-components-shared';
+} from '@balafla/core-components-select/shared';
+import { getDataTestId } from '@balafla/core-components-shared';
+
 import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
 import { Country } from '../../types';

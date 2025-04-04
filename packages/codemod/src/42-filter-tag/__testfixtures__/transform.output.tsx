@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { FilterTagDesktop, FilterTagDesktopProps } from '@alfalab/core-components/filter-tag/desktop';
+import { FilterTagDesktop, FilterTagDesktopProps } from '@balafla/core-components/filter-tag/desktop';
 
 const noop = () => {};
 

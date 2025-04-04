@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 
-import { InputAutocompleteDesktop, InputAutocompleteDesktopProps } from '@alfalab/core-components/input-autocomplete/desktop';
-import { InputAutocomplete, InputAutocompleteProps } from '@alfalab/core-components/input-autocomplete';
+import { InputAutocompleteDesktop, InputAutocompleteDesktopProps } from '@balafla/core-components/input-autocomplete/desktop';
+import { InputAutocomplete, InputAutocompleteProps } from '@balafla/core-components/input-autocomplete';
 
 const noop = () => {};
 

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Status } from '@alfalab/core-components-status';
+import { Status } from '@balafla/core-components-status';
 
 export const Component = () => (
     <React.Fragment>

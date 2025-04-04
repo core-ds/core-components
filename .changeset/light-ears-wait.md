@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-file-upload-item': patch
+'@balafla/core-components-file-upload-item': patch
 ---
 
 Исправлен копирайт `subtitle` в компоненте FileUploadItem на `Загружено`

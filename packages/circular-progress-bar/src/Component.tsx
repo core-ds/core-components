@@ -1,9 +1,8 @@
 /* eslint-disable complexity */
 import React, { ElementType, ReactNode, useMemo } from 'react';
+import { getDataTestId, isObject } from '@balafla/core-components-shared';
+import { Text, TitleMobile } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { getDataTestId, isObject } from '@alfalab/core-components-shared';
-import { Text, TitleMobile } from '@alfalab/core-components-typography';
 
 import { ComponentSize } from './types/component-size';
 import { TypographyColor } from './types/typography-color';

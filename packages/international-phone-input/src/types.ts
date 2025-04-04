@@ -1,15 +1,13 @@
 import type { ElementType, FC } from 'react';
 import { FocusEvent } from 'react';
-
-import type { InputProps } from '@alfalab/core-components-input';
-import type { InputDesktopProps } from '@alfalab/core-components-input/desktop';
-import type { InputMobileProps } from '@alfalab/core-components-input/mobile';
-import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
-import type { InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
-import { OptionShape } from '@alfalab/core-components-select/typings';
-
-import { Country } from '../../types';
+import type { InputProps } from '@balafla/core-components-input';
+import type { InputDesktopProps } from '@balafla/core-components-input/desktop';
+import type { InputMobileProps } from '@balafla/core-components-input/mobile';
+import type { InputAutocompleteProps } from '@balafla/core-components-input-autocomplete';
+import type { InputAutocompleteDesktopProps } from '@balafla/core-components-input-autocomplete/desktop';
+import type { InputAutocompleteMobileProps } from '@balafla/core-components-input-autocomplete/mobile';
+import { OptionShape } from '@balafla/core-components-select/typings';
+import { Country } from '@balafla/core-components-types';
 
 import type { SharedCountrySelectProps } from './components/country-select';
 import { CountriesData } from './data/country-data';

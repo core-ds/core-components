@@ -1,7 +1,6 @@
 import React, { FC, ReactNode } from 'react';
+import { TitleDesktop } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { TitleDesktop } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 

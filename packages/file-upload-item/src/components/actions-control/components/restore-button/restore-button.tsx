@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
+import { IconButton } from '@balafla/core-components-icon-button';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
 import ArrowsCwCompactMIcon from '@alfalab/icons-glyph/ArrowsCwCompactMIcon';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';

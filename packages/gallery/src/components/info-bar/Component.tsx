@@ -1,6 +1,5 @@
 import React, { useCallback, useContext } from 'react';
-
-import { Text } from '@alfalab/core-components-typography';
+import { Text } from '@balafla/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { GALLERY_EVENTS, isVideo } from '../../utils';

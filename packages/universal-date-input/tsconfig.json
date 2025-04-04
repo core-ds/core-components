@@ -1,21 +1,27 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-calendar": ["../calendar/src"],
+            "@balafla/core-components-calendar/*": ["../calendar/src/*"],
+            "@balafla/core-components-input": ["../input/src"],
+            "@balafla/core-components-input/*": ["../input/src/*"],
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-popover": ["../popover/src"],
+            "@balafla/core-components-popover/*": ["../popover/src/*"],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
+        { "path": "../calendar" },
         { "path": "../input" },
+        { "path": "../mq" },
         { "path": "../popover" },
-        { "path": "../shared" },
-        { "path": "../calendar" }
+        { "path": "../shared" }
     ]
 }

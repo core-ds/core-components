@@ -1,11 +1,10 @@
 import React, { FC, RefObject, useContext, useEffect } from 'react';
-import cn from 'classnames';
-
-import { BaseModalContext } from '@alfalab/core-components-base-modal';
+import { BaseModalContext } from '@balafla/core-components-base-modal';
 import {
     NavigationBarPrivate,
     NavigationBarPrivateProps,
-} from '@alfalab/core-components-navigation-bar-private';
+} from '@balafla/core-components-navigation-bar-private';
+import cn from 'classnames';
 
 import styles from './index.module.css';
 

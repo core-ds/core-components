@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { ContentDesktop, ContentDesktopProps } from '../desktop/Component.desktop';
 import { ContentMobile, ContentMobileProps } from '../mobile/Component.mobile';

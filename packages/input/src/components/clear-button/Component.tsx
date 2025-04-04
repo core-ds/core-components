@@ -1,7 +1,7 @@
 import React from 'react';
+import { Button } from '@balafla/core-components-button';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 

@@ -1,14 +1,14 @@
 import React, { forwardRef, HTMLAttributes, MouseEvent, ReactNode, useCallback } from 'react';
-import cn from 'classnames';
-
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { IconButton } from '@balafla/core-components-icon-button';
+import { getDataTestId } from '@balafla/core-components-shared';
 import {
     StatusBadge,
     StatusBadgeCustomIcon,
     StatusBadgeProps,
     StatusBadgeViews,
-} from '@alfalab/core-components-status-badge';
+} from '@balafla/core-components-status-badge';
+import cn from 'classnames';
+
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { useCustomIcons } from './hooks/useCustomIcons';

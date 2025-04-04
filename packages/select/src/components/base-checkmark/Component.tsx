@@ -1,7 +1,7 @@
 import React from 'react';
+import { Checkbox } from '@balafla/core-components-checkbox';
 import cn from 'classnames';
 
-import { Checkbox } from '@alfalab/core-components-checkbox';
 import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
 
 import { CheckmarkProps } from '../../typings';

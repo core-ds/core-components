@@ -6,7 +6,7 @@ export const withoutAruiScriptsExample = (answers: Answers) => {
     };
 
     if (answers.product !== 'default') {
-        settings.importFrom = `./node_modules/@alfalab/core-components/themes/${answers.product}.css`;
+        settings.importFrom = `./node_modules/@balafla/core-components/themes/${answers.product}.css`;
     }
 
     return `postcssCustomProperties(${JSON.stringify(settings, null, 4)})`;
@@ -16,7 +16,7 @@ export const aruiScriptsExample = (answers: Answers) => {
     return JSON.stringify(
         {
             keepCssVars: false,
-            componentsTheme: `./node_modules/@alfalab/core-components/themes/${answers.product}.css`,
+            componentsTheme: `./node_modules/@balafla/core-components/themes/${answers.product}.css`,
         },
         null,
         4,

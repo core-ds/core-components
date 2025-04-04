@@ -1,7 +1,7 @@
 import { Story } from '@storybook/addon-docs';
 import { number, text, boolean } from '@storybook/addon-knobs';
 
-import { PassCode, KeyPadButton } from '@alfalab/core-components-pass-code';
+import { PassCode, KeyPadButton } from '@balafla/core-components-pass-code';
 import { SfFaceIdXxlIcon } from '@alfalab/icons-glyph/SfFaceIdXxlIcon';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';

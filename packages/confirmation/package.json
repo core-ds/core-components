@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-confirmation",
+    "name": "@balafla/core-components-confirmation",
     "version": "13.9.10",
     "description": "Sms confirmation component",
     "keywords": [],
@@ -12,16 +12,15 @@
     },
     "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.6",
-        "@alfalab/core-components-code-input": "^3.9.7",
-        "@alfalab/core-components-link": "^5.3.4",
-        "@alfalab/core-components-spinner": "^4.0.5",
-        "@alfalab/core-components-typography": "^4.12.0",
-        "@alfalab/core-components-mq": "^4.4.1",
+        "@balafla/core-components-button": "^11.11.6",
+        "@balafla/core-components-code-input": "^3.9.7",
+        "@balafla/core-components-link": "^5.3.4",
+        "@balafla/core-components-spinner": "^4.0.5",
+        "@balafla/core-components-typography": "^4.12.0",
+        "@balafla/core-components-mq": "^4.4.1",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
+        "tslib": "^2.4.0"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"

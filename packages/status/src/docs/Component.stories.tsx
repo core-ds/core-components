@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { Status } from '@alfalab/core-components-status';
+import { Status } from '@balafla/core-components-status';
 import { COLORS, SIZES } from '../consts';
 
 const meta: Meta<typeof Status> = {

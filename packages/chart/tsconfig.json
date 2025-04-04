@@ -1,11 +1,13 @@
 {
-    "include": ["src", "../../typings", "../typography"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"]
+        "rootDir": "src",
+        "paths": {
+            "@balafla/core-components-typography": ["../typography/src"],
+            "@balafla/core-components-typography/*": ["../typography/src/*"]
+        }
     },
-    "references": [
-        { "path": "../typography" }
-    ]
+    "references": [{ "path": "../typography" }]
 }

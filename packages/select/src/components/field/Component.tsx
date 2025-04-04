@@ -1,8 +1,8 @@
 import React, { ElementType, useCallback, useRef, useState } from 'react';
+import type { FormControlProps } from '@balafla/core-components-form-control';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { FieldProps as BaseFieldProps } from '../../typings';

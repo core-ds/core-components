@@ -8,13 +8,12 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import type { InputAutocompleteProps } from '@balafla/core-components-input-autocomplete';
+import { AnyObject, BaseOption } from '@balafla/core-components-select/shared';
+import type { BaseSelectChangePayload } from '@balafla/core-components-select/typings';
+import { isNullable } from '@balafla/core-components-shared';
 import { maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
-
-import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
-import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
-import { isNullable } from '@alfalab/core-components-shared';
 
 import type { BaseInternationalPhoneInputProps, Country } from '../../types';
 import {

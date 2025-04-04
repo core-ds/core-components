@@ -1,7 +1,6 @@
 import { TransitionProps } from 'react-transition-group/Transition';
-
-import { BackdropProps } from '@alfalab/core-components-backdrop';
-import { exhaustiveCheck } from '@alfalab/core-components-shared';
+import { BackdropProps } from '@balafla/core-components-backdrop';
+import { exhaustiveCheck } from '@balafla/core-components-shared';
 
 import { UniversalModalDesktopProps } from '../types/props';
 

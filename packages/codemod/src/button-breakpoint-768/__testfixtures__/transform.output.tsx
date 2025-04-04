@@ -1,8 +1,7 @@
 import React from 'react';
+import { Tooltip } from '@balafla/core-components/tooltip';
+import { Button as CoreButton, ButtonProps } from '@balafla/core-components-button';
 import { Button } from '@mui/material/Button';
-
-import { Tooltip } from '@alfalab/core-components/tooltip';
-import { Button as CoreButton, ButtonProps } from '@alfalab/core-components-button';
 
 export const Component = (p: ButtonProps) => (
     <React.Fragment>

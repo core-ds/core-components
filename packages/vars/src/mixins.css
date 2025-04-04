@@ -98,7 +98,7 @@
     border: 0;
     margin: var(--gap-0);
     box-shadow: none;
-    border-radius: 0;
+    border-radius: var(--border-radius-0);
     user-select: none;
     vertical-align: middle;
     appearance: none;

@@ -2,7 +2,7 @@ import { modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const dateTimeInputEntryTransformer = (source, j) => {
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]date-time-input\//.test(path)
+        /@balafla\/core-components[-/]date-time-input\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

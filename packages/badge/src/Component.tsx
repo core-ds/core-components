@@ -1,7 +1,6 @@
 import React from 'react';
+import { BackgroundColorType, GraphicColorType } from '@balafla/core-components-types';
 import cn from 'classnames';
-
-import { BackgroundColorType, GraphicColorType } from '../../types';
 
 import styles from './index.module.css';
 

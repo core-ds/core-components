@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-generic-wrapper",
+    "name": "@balafla/core-components-generic-wrapper",
     "version": "1.4.3",
     "description": "",
     "keywords": [],
@@ -15,7 +15,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-gap": "^1.4.2",
+        "@balafla/core-components-gap": "^1.4.2",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

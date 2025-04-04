@@ -1,7 +1,6 @@
 import React, { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 

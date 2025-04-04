@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Tooltip, TooltipProps } from '@alfalab/core-components/tooltip';
+import { Tooltip, TooltipProps } from '@balafla/core-components/tooltip';
 
 const noop = () => {};
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
+import { IntlPhoneInput } from '@balafla/core-components-intl-phone-input';
 
 const meta: Meta<typeof IntlPhoneInput> = {
     title: 'Deprecated components/IntlPhoneInput',

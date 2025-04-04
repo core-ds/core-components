@@ -2,10 +2,10 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 
-import { SelectDesktop } from '@alfalab/core-components-select/desktop';
-import { Select as SelectResponsive } from '@alfalab/core-components-select';
-import { SelectMobile, SelectModalMobile } from '@alfalab/core-components-select/mobile';
-import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
+import { SelectDesktop } from '@balafla/core-components-select/desktop';
+import { Select as SelectResponsive } from '@balafla/core-components-select';
+import { SelectMobile, SelectModalMobile } from '@balafla/core-components-select/mobile';
+import { Arrow as ArrowComponent } from '@balafla/core-components-select/components/arrow';
 import { BaseOption } from '../components';
 
 const options = [

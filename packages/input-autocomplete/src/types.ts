@@ -1,10 +1,9 @@
 import type { ComponentType, RefAttributes } from 'react';
-
-import type { InputProps } from '@alfalab/core-components-input';
+import type { InputProps } from '@balafla/core-components-input';
 import type {
     BaseSelectProps,
     BottomSheetSelectMobileProps,
-} from '@alfalab/core-components-select/shared';
+} from '@balafla/core-components-select/shared';
 
 type OnInputTypeReason = 'close' | 'change';
 

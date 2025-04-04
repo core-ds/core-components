@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { devWarning } from '@alfalab/core-components-shared';
+import { devWarning } from '@balafla/core-components-shared';
 
 import { Spinner } from './index';
 
 jest.mock('@alfalab/hooks', () => ({ useId: () => 1 }));
 
-jest.mock('@alfalab/core-components-shared', () => {
-    const original = jest.requireActual('@alfalab/core-components-shared');
+jest.mock('@balafla/core-components-shared', () => {
+    const original = jest.requireActual('@balafla/core-components-shared');
     return Object.assign({ __esModule: true }, original, { devWarning: jest.fn() });
 });
 

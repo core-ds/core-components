@@ -1,4 +1,4 @@
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId } from '@balafla/core-components-shared';
 
 export function getBaseToastPlateTestIds(dataTestId: string) {
     return {

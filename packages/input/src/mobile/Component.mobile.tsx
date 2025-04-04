@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
+import { FormControlMobile } from '@balafla/core-components-form-control/mobile';
 
 import { BaseInput, BaseInputProps } from '../components/base-input';
 

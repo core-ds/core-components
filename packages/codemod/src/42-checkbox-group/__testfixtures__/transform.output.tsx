@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 
-import { CheckboxGroupDesktop, CheckboxGroupDesktopProps } from '@alfalab/core-components/checkbox-group/desktop';
-import { Checkbox } from '@alfalab/core-components/checkbox';
+import { CheckboxGroupDesktop, CheckboxGroupDesktopProps } from '@balafla/core-components/checkbox-group/desktop';
+import { Checkbox } from '@balafla/core-components/checkbox';
 
 const noop = () => {};
 

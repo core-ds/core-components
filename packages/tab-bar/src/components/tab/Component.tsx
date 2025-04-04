@@ -1,8 +1,7 @@
 import React, { cloneElement, forwardRef, isValidElement, MouseEvent } from 'react';
+import { Indicator } from '@balafla/core-components-indicator';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Indicator } from '@alfalab/core-components-indicator';
-import { Text } from '@alfalab/core-components-typography';
 
 import { INDICATOR_BG_COLOR, INDICATOR_BORDER_COLOR } from '../../consts';
 import { PrivateTabProps, TabProps } from '../../types';

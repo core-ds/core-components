@@ -2,9 +2,9 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs';
 
-import { Tabs, TabsProps, Tab } from '@alfalab/core-components-tabs';
-import { TabsDesktop } from '@alfalab/core-components-tabs/desktop';
-import { TabsMobile } from '@alfalab/core-components-tabs/mobile';
+import { Tabs, TabsProps, Tab } from '@balafla/core-components-tabs';
+import { TabsDesktop } from '@balafla/core-components-tabs/desktop';
+import { TabsMobile } from '@balafla/core-components-tabs/mobile';
 
 const meta: Meta<typeof Tabs> = {
     title: 'Components/Tabs',

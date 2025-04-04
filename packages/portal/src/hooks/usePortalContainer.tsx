@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-
-import { PortalContext } from '@alfalab/core-components-shared';
+import { PortalContext } from '@balafla/core-components-shared';
 
 import { getDefaultPortalContainer } from '../utils';
 

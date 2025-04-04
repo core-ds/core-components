@@ -8,9 +8,8 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { Popover } from '@balafla/core-components-popover';
 import cn from 'classnames';
-
-import { Popover } from '@alfalab/core-components-popover';
 
 import type { TooltipDesktopProps } from '../types';
 

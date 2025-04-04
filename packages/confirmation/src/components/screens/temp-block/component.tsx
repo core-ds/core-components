@@ -1,7 +1,6 @@
 import React, { FC, useContext, useEffect } from 'react';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Text } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes, useCountdown } from '../../../utils';

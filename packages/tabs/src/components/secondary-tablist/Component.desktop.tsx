@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { TagDesktop } from '@alfalab/core-components-tag/desktop';
+import { TagDesktop } from '@balafla/core-components-tag/desktop';
 
 import { SecondaryTabListProps } from '../../typings';
 

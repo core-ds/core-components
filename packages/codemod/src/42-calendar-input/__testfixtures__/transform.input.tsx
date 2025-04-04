@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { CalendarInputResponsive, CalendarInputResponsiveProps } from '@alfalab/core-components/calendar-input/responsive';
+import { CalendarInputResponsive, CalendarInputResponsiveProps } from '@balafla/core-components/calendar-input/responsive';
 
 const noop = () => {};
 

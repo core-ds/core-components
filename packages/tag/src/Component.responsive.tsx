@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { BaseTagProps } from './components/base-tag';
 import { TagDesktop } from './desktop';

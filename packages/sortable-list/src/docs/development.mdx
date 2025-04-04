@@ -4,20 +4,20 @@ import { SortableList } from '..';
 ## Подключение
 
 ```jsx
-import { SortableList } from '@alfalab/core-components/sortable-list';
+import { SortableList } from '@balafla/core-components/sortable-list';
 ```
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getSortableListTestIds(dataTestId, index)`.  
-Импорт из `@alfalab/core-components/sortable-list/shared`.
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getSortableListTestIds(dataTestId, index)`.
+Импорт из `@balafla/core-components/sortable-list/shared`.
 
 Функция возвращает объект:
 
 ```jsx
 {
-    sortableList: `${dataTestId}-container`, 
+    sortableList: `${dataTestId}-container`,
     item: `${dataTestId}-item_${index}`,
 };
 ```

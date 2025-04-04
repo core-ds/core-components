@@ -1,10 +1,9 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Portal, PortalProps } from '@balafla/core-components-portal';
+import { Stack } from '@balafla/core-components-stack';
+import { stackingOrder } from '@balafla/core-components-stack-context';
 import cn from 'classnames';
-
-import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { Stack } from '@alfalab/core-components-stack';
-import { stackingOrder } from '@alfalab/stack-context';
 
 import { Notification, NotificationElement } from './components';
 

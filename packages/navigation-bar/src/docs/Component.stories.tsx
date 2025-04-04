@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, boolean } from '@storybook/addon-knobs';
-import { NavigationBar } from '@alfalab/core-components-navigation-bar';
+import { NavigationBar } from '@balafla/core-components-navigation-bar';
 import {
     stylesStringToObj,
     getQueryParam,

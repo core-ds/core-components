@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { FormControlDesktop, FormControlDesktopProps} from '@alfalab/core-components/form-control/desktop';
+import { FormControlDesktop, FormControlDesktopProps} from '@balafla/core-components/form-control/desktop';
 
 const noop = () => {};
 

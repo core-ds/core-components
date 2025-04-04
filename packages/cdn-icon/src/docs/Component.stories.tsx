@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { CDNIcon } from '@alfalab/core-components-cdn-icon';
+import { CDNIcon } from '@balafla/core-components-cdn-icon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 
 const meta: Meta<typeof CDNIcon> = {

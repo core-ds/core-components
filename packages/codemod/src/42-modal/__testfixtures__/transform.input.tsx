@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { ModalResponsive, ModalResponsiveProps, ModalContext } from '@alfalab/core-components/modal';
+import { ModalResponsive, ModalResponsiveProps, ModalContext } from '@balafla/core-components/modal';
 
 const noop = () => {};
 

@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { Button } from '@alfalab/core-components-button';
+import { Button } from '@balafla/core-components-button';
 import { Plate } from './components/plate';
 import { Logo } from '../../components/logo';
 import { GithubIcon } from '../../components/icons/GithubIcon';

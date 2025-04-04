@@ -4,22 +4,25 @@ import path from 'node:path';
 import shell from 'shelljs';
 import * as process from 'node:process';
 
+const IGNORED_PACKAGES = [
+    '@balafla/core-components-bank-card',
+    '@balafla/core-components-themes',
+    '@balafla/core-components-vars',
+];
+
 const packages = JSON.parse(
     shell.exec(
-        `lerna list \\
-        --ignore @alfalab/core-components-bank-card \\
-        --ignore @alfalab/core-components-themes \\
-        --ignore @alfalab/core-components-vars \\
-        --json \\
-        --all`,
+        `lerna list ${IGNORED_PACKAGES.map((name) => ['--ignore', name])
+            .reduce((a, b) => a.concat(b))
+            .join(' ')} --json --all`,
         { silent: true },
     ).stdout,
 );
 
 const files = await globby(
-    packages.map(({ location }) =>
-        path.relative(process.cwd(), path.join(location, 'dist/**/*.css')),
-    ),
+    packages
+        .map(({ location }) => location.replace(`${process.cwd()}/`, ''))
+        .map((relativeLocation) => path.join(relativeLocation, 'dist/**/*.css')),
 );
 
 const nonExistentVarsEntries = (

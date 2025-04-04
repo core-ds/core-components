@@ -1,8 +1,8 @@
 import React from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
-import { Skeleton } from '@alfalab/core-components-skeleton';
-import { Input } from '@alfalab/core-components-input';
+import { Skeleton } from '@balafla/core-components-skeleton';
+import { Input } from '@balafla/core-components-input';
 import { OptionsList, OptionsListProps, useLazyLoading } from '../../shared';
 import { SelectDesktop as Select } from '../../desktop';
 

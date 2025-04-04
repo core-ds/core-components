@@ -1,8 +1,7 @@
 import React, { forwardRef, useMemo, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { BaseModal } from '@balafla/core-components-base-modal';
 import cn from 'classnames';
-
-import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { SIZE_TO_CLASSNAME_MAP } from './consts';
 import { ResponsiveContext } from './ResponsiveContext';

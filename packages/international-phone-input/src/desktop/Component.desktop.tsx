@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
-
-import { InputDesktop } from '@alfalab/core-components-input/desktop';
-import { InputAutocompleteDesktop } from '@alfalab/core-components-input-autocomplete/desktop';
-import { SelectDesktop } from '@alfalab/core-components-select/desktop';
+import { InputDesktop } from '@balafla/core-components-input/desktop';
+import { InputAutocompleteDesktop } from '@balafla/core-components-input-autocomplete/desktop';
+import { SelectDesktop } from '@balafla/core-components-select/desktop';
 
 import { BaseInternationalPhoneInput } from '../components/base-international-phone-input';
 import type {

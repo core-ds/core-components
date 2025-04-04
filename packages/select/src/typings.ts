@@ -9,13 +9,12 @@ import type {
     RefAttributes,
     SVGProps,
 } from 'react';
-
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { InputProps } from '@alfalab/core-components-input';
-import type { ModalProps } from '@alfalab/core-components-modal';
-import type { ModalFooterProps, ModalHeaderProps } from '@alfalab/core-components-modal/shared';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import type { BottomSheetProps } from '@balafla/core-components-bottom-sheet';
+import type { FormControlProps } from '@balafla/core-components-form-control';
+import type { InputProps } from '@balafla/core-components-input';
+import type { ModalProps } from '@balafla/core-components-modal';
+import type { ModalFooterProps, ModalHeaderProps } from '@balafla/core-components-modal/shared';
+import type { PopoverProps } from '@balafla/core-components-popover';
 
 import type { UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
 

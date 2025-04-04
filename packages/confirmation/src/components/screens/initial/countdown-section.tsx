@@ -1,9 +1,8 @@
 import React, { FC, useContext } from 'react';
+import { Button } from '@balafla/core-components-button';
+import { Spinner } from '@balafla/core-components-spinner';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Button } from '@alfalab/core-components-button';
-import { Spinner } from '@alfalab/core-components-spinner';
-import { Text } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes } from '../../../utils';

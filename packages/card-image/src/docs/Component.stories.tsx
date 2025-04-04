@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, number } from '@storybook/addon-knobs';
-import { CardImage } from '@alfalab/core-components-card-image';
+import { CardImage } from '@balafla/core-components-card-image';
 
 const meta: Meta<typeof CardImage> = {
     title: 'Components/CardImage',

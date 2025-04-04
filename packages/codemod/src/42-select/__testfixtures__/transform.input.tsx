@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Select, SelectProps, useLazyLoading, useSelectWithLoading, SelectMobile, SelectMobileProps } from '@alfalab/core-components/select';
-import { SelectResponsive } from '@alfalab/core-components/select/responsive';
-import '@alfalab/core-components/select';
+import { Select, SelectProps, useLazyLoading, useSelectWithLoading, SelectMobile, SelectMobileProps } from '@balafla/core-components/select';
+import { SelectResponsive } from '@balafla/core-components/select/responsive';
+import '@balafla/core-components/select';
 
 const noop = () => {};
 

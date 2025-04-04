@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import _throttle from 'lodash/throttle';
 
-import { Gap } from '@alfalab/core-components-gap';
-import { Input, InputProps } from '@alfalab/core-components-input';
-import { Typography } from '@alfalab/core-components-typography';
-import { useMatchMedia } from '@alfalab/core-components-mq';
+import { Gap } from '@balafla/core-components-gap';
+import { Input, InputProps } from '@balafla/core-components-input';
+import { Typography } from '@balafla/core-components-typography';
+import { useMatchMedia } from '@balafla/core-components-mq';
 import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
 
 import { Card } from './components/card';

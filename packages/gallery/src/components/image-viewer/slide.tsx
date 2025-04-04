@@ -1,8 +1,7 @@
 import React, { FC, ReactNode, useContext } from 'react';
+import { Spinner } from '@balafla/core-components-spinner';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Spinner } from '@alfalab/core-components-spinner';
-import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage, ImageMeta } from '../../types';

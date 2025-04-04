@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@alfalab/core-components-button';
-import { Notification } from '@alfalab/core-components-notification';
-import { NotificationManager } from '@alfalab/core-components-notification-manager';
+import { Button } from '@balafla/core-components-button';
+import { Notification } from '@balafla/core-components-notification';
+import { NotificationManager } from '@balafla/core-components-notification-manager';
 
 const meta: Meta<typeof NotificationManager> = {
     title: 'Components/NotificationManager',

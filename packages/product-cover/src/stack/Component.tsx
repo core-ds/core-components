@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { Single } from '../single';
 import { Size, StackProps } from '../typings';

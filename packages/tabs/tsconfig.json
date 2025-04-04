@@ -1,26 +1,36 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-tag/*": ["../tag/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@balafla/core-components-badge": ["../badge/src"],
+            "@balafla/core-components-badge/*": ["../badge/src/*"],
+            "@balafla/core-components-icon-button": ["../icon-button/src"],
+            "@balafla/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@balafla/core-components-keyboard-focusable": ["../keyboard-focusable/src"],
+            "@balafla/core-components-keyboard-focusable/*": ["../keyboard-focusable/src/*"],
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-picker-button": ["../picker-button/src"],
+            "@balafla/core-components-picker-button/*": ["../picker-button/src/*"],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"],
+            "@balafla/core-components-skeleton": ["../skeleton/src"],
+            "@balafla/core-components-skeleton/*": ["../skeleton/src/*"],
+            "@balafla/core-components-tag": ["../tag/src"],
+            "@balafla/core-components-tag/*": ["../tag/src/*"]
         }
     },
     "references": [
-        { "path": "../tag" },
-        { "path": "../keyboard-focusable" },
-        { "path": "../picker-button" },
         { "path": "../badge" },
+        { "path": "../icon-button" },
+        { "path": "../keyboard-focusable" },
+        { "path": "../mq" },
+        { "path": "../picker-button" },
         { "path": "../shared" },
-        { "path": "../skeleton" }
+        { "path": "../skeleton" },
+        { "path": "../tag" }
     ]
 }

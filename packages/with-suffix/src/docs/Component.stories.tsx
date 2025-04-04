@@ -2,8 +2,8 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { Input } from '@alfalab/core-components-input';
-import { withSuffix as WithSuffix } from '@alfalab/core-components-with-suffix';
+import { Input } from '@balafla/core-components-input';
+import { withSuffix as WithSuffix } from '@balafla/core-components-with-suffix';
 
 const SuffixInput = WithSuffix(Input);
 

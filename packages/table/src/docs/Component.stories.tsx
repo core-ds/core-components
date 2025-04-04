@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
-import { Amount } from '@alfalab/core-components-amount';
-import { Space } from '@alfalab/core-components-space';
-import { Typography } from '@alfalab/core-components-typography';
-import { Table } from '@alfalab/core-components-table';
+import { Amount } from '@balafla/core-components-amount';
+import { Space } from '@balafla/core-components-space';
+import { Typography } from '@balafla/core-components-typography';
+import { Table } from '@balafla/core-components-table';
 import {
     stylesStringToObj,
     getQueryParam,

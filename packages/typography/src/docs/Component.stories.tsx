@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs';
-import { Typography } from '@alfalab/core-components-typography';
+import { Typography } from '@balafla/core-components-typography';
 import { colors } from '../colors';
 
 const meta: Meta<typeof Typography> = {

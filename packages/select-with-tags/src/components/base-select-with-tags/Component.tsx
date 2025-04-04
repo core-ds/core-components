@@ -10,10 +10,9 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import type { BottomSheetProps } from '@balafla/core-components-bottom-sheet';
+import type { FormControlProps } from '@balafla/core-components-form-control';
+import type { PopoverProps } from '@balafla/core-components-popover';
 import {
     AnyObject,
     Arrow as DefaultArrow,
@@ -26,7 +25,7 @@ import {
     OptionShape,
     OptionsList as DefaultOptionsList,
     Search,
-} from '@alfalab/core-components-select/shared';
+} from '@balafla/core-components-select/shared';
 
 import { SelectWithTagsProps } from '../../types';
 import { filterOptions } from '../../utils';

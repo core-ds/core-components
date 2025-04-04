@@ -1,14 +1,15 @@
 {
-    "include": ["src", "../../typings", "src/*.json", "../utils"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"],
+            "@balafla/core-components-spinner": ["../spinner/src"],
+            "@balafla/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
-    "references": [{ "path": "../spinner" }, { "path": "../shared" }]
+    "references": [{ "path": "../shared" }, { "path": "../spinner" }]
 }

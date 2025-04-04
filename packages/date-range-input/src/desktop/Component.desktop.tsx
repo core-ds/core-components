@@ -1,9 +1,8 @@
 import React, { forwardRef } from 'react';
-
-import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
+import { CalendarDesktop } from '@balafla/core-components-calendar/desktop';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { InputProps } from '@alfalab/core-components-input';
-import { InputDesktop } from '@alfalab/core-components-input/desktop';
+import { InputProps } from '@balafla/core-components-input';
+import { InputDesktop } from '@balafla/core-components-input/desktop';
 
 import {
     ConditionalProps,

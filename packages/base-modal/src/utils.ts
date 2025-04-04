@@ -1,5 +1,5 @@
-import { getModalStore, SavedStyle } from '@alfalab/core-components-global-store';
-import { browser } from '@alfalab/core-components-shared';
+import { getModalStore, SavedStyle } from '@balafla/core-components-global-store';
+import { browser } from '@balafla/core-components-shared';
 
 export function isScrolledToTop(target: HTMLElement) {
     return target.scrollTop <= 0;

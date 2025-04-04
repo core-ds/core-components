@@ -8,10 +8,9 @@ import type {
     RefAttributes,
     RefObject,
 } from 'react';
-
-import type { CalendarProps } from '@alfalab/core-components-calendar';
-import type { InputProps } from '@alfalab/core-components-input';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import type { CalendarProps } from '@balafla/core-components-calendar';
+import type { InputProps } from '@balafla/core-components-input';
+import type { PopoverProps } from '@balafla/core-components-popover';
 
 export type View = 'date' | 'date-time' | 'date-range' | 'time' | 'month';
 

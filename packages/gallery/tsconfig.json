@@ -1,27 +1,33 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"],
-            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
-            "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
-            "@alfalab/core-components-mq/*": ["../mq/src/*"]
+            "@balafla/core-components-base-modal": ["../base-modal/src"],
+            "@balafla/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@balafla/core-components-icon-button": ["../icon-button/src"],
+            "@balafla/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@balafla/core-components-icon-view": ["../icon-view/src"],
+            "@balafla/core-components-icon-view/*": ["../icon-view/src/*"],
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-spinner": ["../spinner/src"],
+            "@balafla/core-components-spinner/*": ["../spinner/src/*"],
+            "@balafla/core-components-tooltip": ["../tooltip/src"],
+            "@balafla/core-components-tooltip/*": ["../tooltip/src/*"],
+            "@balafla/core-components-typography": ["../typography/src"],
+            "@balafla/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
-        { "path": "../typography" },
+        { "path": "../base-modal" },
+        { "path": "../icon-button" },
+        { "path": "../icon-view" },
+        { "path": "../mq" },
         { "path": "../spinner" },
         { "path": "../tooltip" },
-        { "path": "../icon-button" },
-		{ "path": "../icon-view" },
-        { "path": "../typography" },
-        { "path": "../base-modal" },
-        { "path": "../mq" }
+        { "path": "../typography" }
     ]
 }

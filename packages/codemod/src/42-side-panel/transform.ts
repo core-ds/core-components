@@ -2,12 +2,12 @@ import {
     createImport,
     modifyIdentifiers,
     modifyImportPath,
-    removeEmptyCoreImport
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const sidePanelEntryTransformer = (source, j) => {
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]side-panel\//.test(path)
+        /@balafla\/core-components[-/]side-panel\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

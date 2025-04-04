@@ -1,20 +1,15 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-input": ["../input/src"],
+            "@balafla/core-components-input/*": ["../input/src/*"],
+            "@balafla/core-components-with-suffix": ["../with-suffix/src"],
+            "@balafla/core-components-with-suffix/*": ["../with-suffix/src/*"]
         }
     },
-    "references": [
-      { "path": "../input" },
-      { "path": "../with-suffix" },
-      {"path": "../shared"},
-    ]
+    "references": [{ "path": "../input" }, { "path": "../with-suffix" }]
 }

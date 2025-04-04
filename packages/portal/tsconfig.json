@@ -1,11 +1,13 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"]
+        "rootDir": "src",
+        "paths": {
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"]
+        }
     },
-  "references": [
-    { "path": "../shared" },
-  ]
+    "references": [{ "path": "../shared" }]
 }

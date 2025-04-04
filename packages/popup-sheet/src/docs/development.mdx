@@ -6,20 +6,20 @@ import styles from '!!raw-loader!../index.module.css';
 ## Подключение
 
 ```jsx
-import { PopupSheet } from '@alfalab/core-components/popup-sheet';
+import { PopupSheet } from '@balafla/core-components/popup-sheet';
 ```
 
 ## Использование dataTestId
 
-В компоненте используется модификатор для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getPopupSheetTestIds`.  
-Импорт из `@alfalab/core-components/popup-sheet/shared`.
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getPopupSheetTestIds`.
+Импорт из `@balafla/core-components/popup-sheet/shared`.
 
 Функция возвращает объект:
 
 ```jsx
 {
-    popupSheet: dataTestId, 
+    popupSheet: dataTestId,
     closer: `${dataTestId}-closer`,
 };
 ```

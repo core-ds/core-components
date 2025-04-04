@@ -1,13 +1,13 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import cn from 'classnames';
-import { AsYouType, CountryCode } from 'libphonenumber-js';
-
 import {
     InputAutocompleteDesktop,
     InputAutocompleteDesktopProps,
-} from '@alfalab/core-components-input-autocomplete/desktop';
-import type { SelectProps } from '@alfalab/core-components-select';
-import type { OptionShape } from '@alfalab/core-components-select/shared';
+} from '@balafla/core-components-input-autocomplete/desktop';
+import type { SelectProps } from '@balafla/core-components-select';
+import type { OptionShape } from '@balafla/core-components-select/shared';
+import cn from 'classnames';
+import { AsYouType, CountryCode } from 'libphonenumber-js';
+
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
 

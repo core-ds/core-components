@@ -1,6 +1,5 @@
 import { MutableRefObject, useEffect } from 'react';
-
-import { isClient } from '@alfalab/core-components-shared';
+import { isClient } from '@balafla/core-components-shared';
 
 /** Устанавливает необходимую высоту модального окна */
 export const useModalHeight = (

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { TabsResponsive, TabsResponsiveProps, Tab, ScrollableContainer, TabListProps } from '@alfalab/core-components/tabs/responsive';
+import { TabsResponsive, TabsResponsiveProps, Tab, ScrollableContainer, TabListProps } from '@balafla/core-components/tabs/responsive';
 
 const noop = () => {};
 

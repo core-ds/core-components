@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { ToastPlateMobile } from '@alfalab/core-components-toast-plate/mobile';
+import { ToastPlateMobile } from '@balafla/core-components-toast-plate/mobile';
 
 import { BaseToast, BaseToastProps } from '../components/base-toast';
 

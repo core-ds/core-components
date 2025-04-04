@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
-
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
-import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { BottomSheet } from '@balafla/core-components-bottom-sheet';
+import { FormControlMobile } from '@balafla/core-components-form-control/mobile';
+import { ModalMobile } from '@balafla/core-components-modal/mobile';
 
 import { Arrow as DefaultArrow } from '../components/arrow';
 import { BaseSelect } from '../components/base-select';

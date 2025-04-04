@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-popup-sheet",
+    "name": "@balafla/core-components-popup-sheet",
     "version": "1.4.2",
     "description": "Popup sheet mobile component",
     "keywords": [],
@@ -16,10 +16,11 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.0",
-        "@alfalab/core-components-backdrop": "^3.4.5",
-        "@alfalab/core-components-shared": "^0.16.0",
-        "@alfalab/core-components-navigation-bar-private": "^0.8.0",
+        "@balafla/core-components-base-modal": "^5.9.0",
+        "@balafla/core-components-backdrop": "^3.4.5",
+        "@balafla/core-components-shared": "^0.16.0",
+        "@balafla/core-components-navigation-bar-private": "^0.8.0",
+        "@balafla/core-components-types": "^0.0.0",
         "react-swipeable": "^7.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"

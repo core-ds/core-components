@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import type { TPatternLockInstance } from 'react-canvas-pattern-lock';
-
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { PatternLockDesktopV1 } from './desktop';
 import { PatternLockMobileV1 } from './mobile';

@@ -2,16 +2,16 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 
-import { Arrow, BaseOption, OptionShape } from '@alfalab/core-components-select/shared';
+import { Arrow, BaseOption, OptionShape } from '@balafla/core-components-select/shared';
 import {
     InputAutocomplete,
     InputAutocompleteProps,
-} from '@alfalab/core-components-input-autocomplete';
-import { InputAutocompleteDesktop } from '@alfalab/core-components-input-autocomplete/desktop';
+} from '@balafla/core-components-input-autocomplete';
+import { InputAutocompleteDesktop } from '@balafla/core-components-input-autocomplete/desktop';
 import {
     InputAutocompleteMobile,
     InputAutocompleteModalMobile,
-} from '@alfalab/core-components-input-autocomplete/mobile';
+} from '@balafla/core-components-input-autocomplete/mobile';
 
 const matchOption = (option: OptionShape, inputValue = '') =>
     option.key.toLowerCase().includes(inputValue.toLowerCase());

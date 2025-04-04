@@ -1,7 +1,6 @@
 import React, { useContext, useRef } from 'react';
+import { SuperEllipse } from '@balafla/core-components-icon-view/super-ellipse';
 import cn from 'classnames';
-
-import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
 import { MAX_PROGRESS_BAR_VALUE, RADIUS } from '../../const/progress-bar';
 import { FileUploadItemContext } from '../../context/file-upload-item-context';

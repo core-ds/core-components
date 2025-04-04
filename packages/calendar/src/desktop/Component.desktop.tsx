@@ -1,10 +1,10 @@
 import React, { forwardRef, MouseEvent, SyntheticEvent, useMemo, useRef, useState } from 'react';
+import { getDataTestId, hooks } from '@balafla/core-components-shared';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { getDataTestId, hooks } from '@alfalab/core-components-shared';
 import { useDidUpdateEffect, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DaysTable } from '../components/days-table';

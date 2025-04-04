@@ -1,10 +1,9 @@
 import React from 'react';
-
-import { Alert as CoreAlert } from '@alfalab/core-components-alert/esm';
-import { Button } from '@alfalab/core-components-button/cssm';
-import { Calendar, CalendarMobile } from '@alfalab/core-components-calendar/modern';
-import { Modal } from '@alfalab/core-components-modal/esm';
-import { Plate } from '@alfalab/core-components-plate';
+import { Alert as CoreAlert } from '@balafla/core-components-alert/esm';
+import { Button } from '@balafla/core-components-button/cssm';
+import { Calendar, CalendarMobile } from '@balafla/core-components-calendar/modern';
+import { Modal } from '@balafla/core-components-modal/esm';
+import { Plate } from '@balafla/core-components-plate';
 
 import { OtherComponent } from '../OtherComponent';
 

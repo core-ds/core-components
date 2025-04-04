@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-masked-input",
+    "name": "@balafla/core-components-masked-input",
     "version": "6.3.34",
     "description": "",
     "keywords": [],
@@ -15,7 +15,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^15.5.3",
+        "@balafla/core-components-input": "^15.5.3",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "text-mask-core": "^5.1.2",

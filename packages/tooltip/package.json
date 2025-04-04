@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-tooltip",
+    "name": "@balafla/core-components-tooltip",
     "version": "7.9.7",
     "description": "Tooltip component",
     "keywords": [],
@@ -16,14 +16,13 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-bottom-sheet": "^6.18.5",
-        "@alfalab/core-components-button": "^11.11.6",
-        "@alfalab/core-components-popover": "^6.3.8",
-        "@alfalab/core-components-mq": "^4.4.1",
+        "@balafla/core-components-bottom-sheet": "^6.18.5",
+        "@balafla/core-components-button": "^11.11.6",
+        "@balafla/core-components-popover": "^6.3.8",
+        "@balafla/core-components-mq": "^4.4.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.2",
     "varsVersion": "9.19.0"

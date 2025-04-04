@@ -1,9 +1,8 @@
 import React, { forwardRef } from 'react';
+import { Button } from '@balafla/core-components-button';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
 import cn from 'classnames';
-
-import { Button } from '@alfalab/core-components-button';
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { DEFAULT_BUTTON_COLOR, DEFAULT_CONTENT_COLOR } from '../../constants/default-colors';
 import { CustomButtonProps } from '../../types/props';

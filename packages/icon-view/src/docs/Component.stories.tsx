@@ -1,14 +1,14 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs';
-import { Badge } from '@alfalab/core-components-badge';
+import { Badge } from '@balafla/core-components-badge';
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
-import { Circle } from '@alfalab/core-components-icon-view/circle';
-import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
-import { Rectangle } from '@alfalab/core-components-icon-view/rectangle';
-import { NoShape } from '@alfalab/core-components-icon-view/no-shape';
+import { Circle } from '@balafla/core-components-icon-view/circle';
+import { SuperEllipse } from '@balafla/core-components-icon-view/super-ellipse';
+import { Rectangle } from '@balafla/core-components-icon-view/rectangle';
+import { NoShape } from '@balafla/core-components-icon-view/no-shape';
 
 import {
     stylesStringToObj,

@@ -1,4 +1,4 @@
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { BaseModalProps } from '@balafla/core-components-base-modal';
 
 export type BaseUniversalModalMobileProps = {
     /**

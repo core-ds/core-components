@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { PopupSheet } from '@alfalab/core-components-popup-sheet';
-import { SystemMessageMobile } from '@alfalab/core-components-system-message/mobile';
-import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
-import { Typography } from '@alfalab/core-components-typography';
+import { PopupSheet } from '@balafla/core-components-popup-sheet';
+import { SystemMessageMobile } from '@balafla/core-components-system-message/mobile';
+import { SuperEllipse } from '@balafla/core-components-icon-view/super-ellipse';
+import { Typography } from '@balafla/core-components-typography';
 import { MobilePhoneBubbleLineMIcon } from '@alfalab/icons-glyph/MobilePhoneBubbleLineMIcon';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
 import { boolean, number } from '@storybook/addon-knobs';
 import {
     stylesStringToObj,

@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from 'react';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
 
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ChevronLeftMIcon } from '@alfalab/icons-glyph/ChevronLeftMIcon';
 
 import styles from './arrow-button.module.css';

@@ -1,9 +1,8 @@
 /* eslint-disable no-plusplus, no-param-reassign */
 import { RefObject } from 'react';
+import { Country } from '@balafla/core-components-types';
 import type { MaskitoPlugin } from '@maskito/core';
 import { MaskitoPostprocessor, MaskitoPreprocessor } from '@maskito/core';
-
-import { Country } from '../../types';
 
 import { fnUtils, isNonNullable } from './fnUtils';
 

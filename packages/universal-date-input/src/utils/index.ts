@@ -1,12 +1,11 @@
 /* eslint-disable no-negated-condition, complexity */
 import { SyntheticEvent } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import differenceInDays from 'date-fns/differenceInDays';
 import dateFnsFormat from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import parse from 'date-fns/parse';
 import startOfDay from 'date-fns/startOfDay';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { DATE_FORMAT, DATE_RANGE_SEPARATOR } from '../consts';
 

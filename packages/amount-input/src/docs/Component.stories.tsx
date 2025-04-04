@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
-import { AmountInput } from '@alfalab/core-components-amount-input';
+import { AmountInput } from '@balafla/core-components-amount-input';
 
 const meta: Meta<typeof AmountInput> = {
     title: 'Components/AmountInput',

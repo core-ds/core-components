@@ -1,4 +1,4 @@
-import { hasOwnProperty } from '@alfalab/core-components-shared';
+import { hasOwnProperty } from '@balafla/core-components-shared';
 
 import { UniversalModalDesktopProps } from '../types/props';
 

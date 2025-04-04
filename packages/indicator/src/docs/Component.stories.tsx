@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, number, boolean } from '@storybook/addon-knobs';
 
-import { Indicator } from '@alfalab/core-components-indicator';
+import { Indicator } from '@balafla/core-components-indicator';
 
 const meta: Meta<typeof Indicator> = {
     title: 'Components/Indicator',

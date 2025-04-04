@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { devWarning, hasOwnProperty, isNonNullable } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import { devWarning, hasOwnProperty, isNonNullable } from '@alfalab/core-components-shared';
 import { useId } from '@alfalab/hooks';
 
 import defaultColors from './default.module.css';

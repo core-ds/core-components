@@ -1,26 +1,24 @@
 {
-    "include": ["src", "../../typings", "src/*.json"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
-            "@alfalab/core-components-popover/*": ["../popover/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@balafla/core-components-calendar": ["../calendar/src"],
+            "@balafla/core-components-calendar/*": ["../calendar/src/*"],
+            "@balafla/core-components-date-input": ["../date-input/src"],
+            "@balafla/core-components-date-input/*": ["../date-input/src/*"],
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-popover": ["../popover/src"],
+            "@balafla/core-components-popover/*": ["../popover/src/*"]
         }
     },
     "references": [
         { "path": "../calendar" },
         { "path": "../date-input" },
-        { "path": "../popover" },
-        { "path": "../modal" },
         { "path": "../mq" },
-        { "path": "../shared" }
+        { "path": "../popover" }
     ]
 }

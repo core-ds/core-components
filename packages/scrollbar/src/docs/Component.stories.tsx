@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select, number } from '@storybook/addon-knobs';
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
+import { Scrollbar } from '@balafla/core-components-scrollbar';
 
 const meta: Meta<typeof Scrollbar> = {
     title: 'Components/Scrollbar',

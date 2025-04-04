@@ -8,10 +8,9 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { InputProps } from '@balafla/core-components-input';
+import { Portal } from '@balafla/core-components-portal';
 import cn from 'classnames';
-
-import { InputProps } from '@alfalab/core-components-input';
-import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
 

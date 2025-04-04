@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import cn from 'classnames';
-
 import {
     hasOwnProperty,
     isFn,
     isNonNullable,
     isNullable,
     noop,
-} from '@alfalab/core-components-shared';
+} from '@balafla/core-components-shared';
+import cn from 'classnames';
 
 import { PageIndicatorDynamicProps } from '../../types';
 

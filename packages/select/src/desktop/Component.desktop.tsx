@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
-
-import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
-import { Popover } from '@alfalab/core-components-popover';
+import { FormControlDesktop } from '@balafla/core-components-form-control/desktop';
+import { Popover } from '@balafla/core-components-popover';
 
 import { Arrow as DefaultArrow } from '../components/arrow';
 import { BaseSelect } from '../components/base-select';

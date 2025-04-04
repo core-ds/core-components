@@ -1,13 +1,12 @@
 import React, { forwardRef } from 'react';
-
-import { Popover } from '@alfalab/core-components-popover';
+import { Popover } from '@balafla/core-components-popover';
 import {
     AnyObject,
     BaseSelect,
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
     OptionsList as DefaultOptionsList,
-} from '@alfalab/core-components-select/shared';
+} from '@balafla/core-components-select/shared';
 
 import { AutocompleteField } from '../autocomplete-field';
 import { InputAutocompleteCommonProps } from '../types';

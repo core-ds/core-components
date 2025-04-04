@@ -7,8 +7,7 @@ import {
     useRef,
     useState,
 } from 'react';
-
-import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, useIsMounted } from '@balafla/core-components-shared';
 
 import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
 

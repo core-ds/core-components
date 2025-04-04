@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Confirmation, useConfirmation, ConfirmationProps, ConfirmationMedia, defaultTexts } from '@alfalab/core-components/confirmation';
-import { ConfirmationResponsive, ResponsiveConfirmationProps } from '@alfalab/core-components/confirmation/responsive';
+import { Confirmation, useConfirmation, ConfirmationProps, ConfirmationMedia, defaultTexts } from '@balafla/core-components/confirmation';
+import { ConfirmationResponsive, ResponsiveConfirmationProps } from '@balafla/core-components/confirmation/responsive';
 
 const noop = () => {};
 

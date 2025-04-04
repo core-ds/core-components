@@ -1,9 +1,8 @@
 import React, { forwardRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { CalendarDesktop, CalendarDesktopProps } from '@balafla/core-components-calendar/desktop';
+import { Skeleton } from '@balafla/core-components-skeleton';
 import cn from 'classnames';
-
-import { CalendarDesktop, CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
-import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import styles from './index.module.css';
 

@@ -1,11 +1,10 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { useVirtual } from 'react-virtual';
+import { useMatchMedia } from '@balafla/core-components-mq';
+import { Scrollbar } from '@balafla/core-components-scrollbar';
+import { isClient } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { isClient } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';

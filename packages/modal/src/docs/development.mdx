@@ -8,17 +8,17 @@ import vars from '!!raw-loader!../vars.css';
 
 ```jsx
 // Компаунд импорты
-import { Modal } from '@alfalab/core-components/modal';
-import { ModalDesktop } from '@alfalab/core-components/modal/desktop';
-import { ModalMobile } from '@alfalab/core-components/modal/mobile';
+import { Modal } from '@balafla/core-components/modal';
+import { ModalDesktop } from '@balafla/core-components/modal/desktop';
+import { ModalMobile } from '@balafla/core-components/modal/mobile';
 
 // Контекст
-import { ModalContext } from '@alfalab/core-components/modal/shared';
+import { ModalContext } from '@balafla/core-components/modal/shared';
 
 // Атомарные импорты
-import { ModalComponentDesktop, ContentDesktop, HeaderDesktop, FooterDesktop, ControlsDesktop } from '@alfalab/core-components/modal/desktop';
-import { ModalComponentMobile, ContentMobile, HeaderMobile, FooterMobile, ControlsMobile } from '@alfalab/core-components/modal/mobile';
-import { ModalComponentResponsive, ContentResponsive, HeaderResponsive, FooterResponsive, ControlsResponsive } from '@alfalab/core-components/modal';
+import { ModalComponentDesktop, ContentDesktop, HeaderDesktop, FooterDesktop, ControlsDesktop } from '@balafla/core-components/modal/desktop';
+import { ModalComponentMobile, ContentMobile, HeaderMobile, FooterMobile, ControlsMobile } from '@balafla/core-components/modal/mobile';
+import { ModalComponentResponsive, ContentResponsive, HeaderResponsive, FooterResponsive, ControlsResponsive } from '@balafla/core-components/modal';
 
 ```
 
@@ -55,7 +55,7 @@ export type ModalContext = {
 
 В компоненте используются модификаторы для `dataTestId`.
 Для удобного поиска элементов можно воспользоваться функцией `getModalTestIds`.
-Импорт из `@alfalab/core-components/modal/shared`.
+Импорт из `@balafla/core-components/modal/shared`.
 
 Функция возвращает объект:
 

@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { InputMobile } from '@alfalab/core-components-input/mobile';
+import { InputMobile } from '@balafla/core-components-input/mobile';
 
 import { NumberInput, NumberInputProps } from '../components/number-input';
 

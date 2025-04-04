@@ -1,9 +1,9 @@
 import React from 'react';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
+import { getDataTestId } from '@balafla/core-components-shared';
+import { Text as TypographyText } from '@balafla/core-components-typography';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { Text as TypographyText } from '@alfalab/core-components-typography';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { pluralize } from '@alfalab/utils';
 

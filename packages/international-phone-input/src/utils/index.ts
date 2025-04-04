@@ -1,9 +1,8 @@
 import { RefObject } from 'react';
+import type { InputAutocompleteDesktopProps } from '@balafla/core-components-input-autocomplete/desktop';
+import { GroupShape, isGroup, OptionShape } from '@balafla/core-components-select/shared';
+import { getDataTestId, maskUtils } from '@balafla/core-components-shared';
 import type { MaskitoOptions } from '@maskito/core';
-
-import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
-import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select/shared';
-import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
 import { CountriesData, countriesData } from '../data/country-data';

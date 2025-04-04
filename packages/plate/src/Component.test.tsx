@@ -4,7 +4,7 @@ import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon'
 
 import userEvent from '@testing-library/user-event';
 import { PlateDesktop as Plate, PlateDesktopProps as PlateProps } from './desktop';
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
+import { ButtonDesktop as Button } from '@balafla/core-components-button/desktop';
 import { getPlateTestIds } from './utils';
 
 describe('Plate', () => {

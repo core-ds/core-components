@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@alfalab/core-components-button';
-import { CalendarWithSkeleton } from '@alfalab/core-components-calendar-with-skeleton';
+import { Button } from '@balafla/core-components-button';
+import { CalendarWithSkeleton } from '@balafla/core-components-calendar-with-skeleton';
 
 const meta: Meta<typeof CalendarWithSkeleton> = {
     title: 'Components/CalendarWithSkeleton',

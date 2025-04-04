@@ -9,12 +9,11 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import type { InputProps } from '@balafla/core-components-input';
+import { fnUtils, os } from '@balafla/core-components-shared';
 import { MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
-
-import type { InputProps } from '@alfalab/core-components-input';
-import { fnUtils, os } from '@alfalab/core-components-shared';
 
 import {
     createMaskOptions,

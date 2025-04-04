@@ -2,7 +2,7 @@ import React, { ForwardRefRenderFunction } from 'react';
 import { fireEvent, render, screen, waitFor, queryByText } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import * as popoverModule from '@alfalab/core-components-popover';
+import * as popoverModule from '@balafla/core-components-popover';
 
 import { act } from 'react-dom/test-utils';
 import { asyncRender } from '../../utils/test-utils';

@@ -1,4 +1,4 @@
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId } from '@balafla/core-components-shared';
 
 export const TIMEOUT = 500;
 export const SWIPE_VELOCITY = 0.4;

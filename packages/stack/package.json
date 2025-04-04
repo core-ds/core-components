@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-stack",
+    "name": "@balafla/core-components-stack",
     "version": "5.0.1",
     "description": "",
     "keywords": [],
@@ -12,12 +12,12 @@
     },
     "sideEffects": false,
     "peerDependencies": {
+        "@balafla/core-components-stack-context": "^0.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "tslib": "^2.4.0",
-        "@alfalab/stack-context": "^1.16.0"
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.2",
     "varsVersion": "9.19.0"

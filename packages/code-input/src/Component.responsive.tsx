@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { CodeInputDesktop } from './desktop';
 import { CodeInputMobile } from './mobile';

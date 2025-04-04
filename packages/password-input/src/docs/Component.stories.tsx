@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, object } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { PasswordInput } from '@alfalab/core-components-password-input';
+import { PasswordInput } from '@balafla/core-components-password-input';
 
 const meta: Meta<typeof PasswordInput> = {
     title: 'Components/PasswordInput',

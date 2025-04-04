@@ -1,8 +1,7 @@
 import type { MouseEvent, MutableRefObject, ReactElement, ReactNode } from 'react';
 import React from 'react';
-
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { PopoverProps, Position } from '@alfalab/core-components-popover';
+import type { BottomSheetProps } from '@balafla/core-components-bottom-sheet';
+import type { PopoverProps, Position } from '@balafla/core-components-popover';
 
 type Trigger = 'click' | 'hover';
 

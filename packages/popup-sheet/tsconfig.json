@@ -1,20 +1,29 @@
 {
-    "include": ["src", "../../typings", "../types"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-navigation-bar-private/*": ["../navigation-bar-private/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-backdrop": ["../backdrop/src"],
+            "@balafla/core-components-backdrop/*": ["../backdrop/src/*"],
+            "@balafla/core-components-base-modal": ["../base-modal/src"],
+            "@balafla/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@balafla/core-components-navigation-bar-private": ["../navigation-bar-private/src"],
+            "@balafla/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"],
+            "@balafla/core-components-types": ["../types/src"],
+            "@balafla/core-components-types/*": ["../types/src/*"]
         }
     },
     "references": [
+        { "path": "../backdrop" },
         { "path": "../base-modal" },
-        { "path": "../shared" },
         { "path": "../navigation-bar-private" },
-        { "path": "../backdrop" }
+        { "path": "../shared" },
+        { "path": "../types" }
     ]
 }

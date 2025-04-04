@@ -8,7 +8,7 @@ import {
     waitFor,
 } from '@testing-library/react';
 
-import * as popoverModule from '@alfalab/core-components-popover';
+import * as popoverModule from '@balafla/core-components-popover';
 import { TooltipDesktop as Tooltip, TooltipDesktopProps as TooltipProps } from './desktop';
 
 jest.mock('react-transition-group', () => {

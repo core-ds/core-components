@@ -1,4 +1,6 @@
 import React, { forwardRef } from 'react';
+import { Portal } from '@balafla/core-components-portal';
+import { getDataTestId } from '@balafla/core-components-shared';
 import {
     closestCenter,
     DndContext,
@@ -15,9 +17,6 @@ import {
 } from '@dnd-kit/core';
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import cn from 'classnames';
-
-import { Portal } from '@alfalab/core-components-portal';
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SortableItem } from './components/item/Components';
 import type { Items, SortableItemProps, SortableListProps } from './types';

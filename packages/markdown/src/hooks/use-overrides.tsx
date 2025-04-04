@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react';
+import { Link } from '@balafla/core-components-link';
+import { List } from '@balafla/core-components-list';
+import { Text, TitleDesktop, TitleMobile } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Link } from '@alfalab/core-components-link';
-import { List } from '@alfalab/core-components-list';
-import { Text, TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
 
 import { FontType, OverridesComponents, PlatformType } from '../typings';
 

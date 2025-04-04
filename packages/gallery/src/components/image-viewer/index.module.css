@@ -144,7 +144,7 @@
 .brokenImgIcon {
     width: 80px;
     height: 80px;
-    margin-bottom: var(--gap-2xs);
+    margin-bottom: var(--gap-4);
 }
 
 .fullScreenImage {

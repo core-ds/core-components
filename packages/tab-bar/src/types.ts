@@ -7,8 +7,7 @@ import type {
     ReactNode,
     RefAttributes,
 } from 'react';
-
-import type { IndicatorProps } from '@alfalab/core-components-indicator';
+import type { IndicatorProps } from '@balafla/core-components-indicator';
 
 type TabElementType = ReactElement<
     TabProps,

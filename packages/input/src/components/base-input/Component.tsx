@@ -14,11 +14,11 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { FormControlProps } from '@balafla/core-components-form-control';
+import { getDataTestId } from '@balafla/core-components-shared';
+import { StatusBadge } from '@balafla/core-components-status-badge';
 import cn from 'classnames';
 
-import { FormControlProps } from '@alfalab/core-components-form-control';
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { ClearButton } from '../clear-button';

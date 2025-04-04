@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-
-import { PaddingType } from '../../types';
+import type { PaddingType } from '@balafla/core-components-types';
 
 export type SystemMessageBaseProps = {
     /**

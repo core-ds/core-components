@@ -6,7 +6,7 @@ on:
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or sha to checkout
+                description: Version of @balafla/core-components package, tag or sha to checkout
                 required: true
                 default: ''
                 type: string
@@ -34,7 +34,7 @@ jobs:
         name: remove demo
         runs-on: ubuntu-latest
         needs: params
-        if: ${{ github.repository == 'core-ds/core-components' }}
+        if: ${{ github.repository == 'hextion/core-components' }}
         steps:
             - uses: actions/checkout@v4
               with:

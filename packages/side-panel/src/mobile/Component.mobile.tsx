@@ -1,7 +1,6 @@
 import React, { forwardRef, useContext, useMemo } from 'react';
+import { BaseModal, BaseModalProps } from '@balafla/core-components-base-modal';
 import cn from 'classnames';
-
-import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content/Component.mobile';
 import { Controls, ControlsProps } from '../components/controls';

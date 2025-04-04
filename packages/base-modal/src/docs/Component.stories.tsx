@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@alfalab/core-components-button';
-import { BaseModal } from '@alfalab/core-components-base-modal';
+import { Button } from '@balafla/core-components-button';
+import { BaseModal } from '@balafla/core-components-base-modal';
 
 const meta: Meta<typeof BaseModal> = {
     title: 'Components/BaseModal',

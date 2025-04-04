@@ -1,9 +1,13 @@
 {
-    "include": ["src", "../../typings", "../types"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": "."
-    }
+        "rootDir": "src",
+        "paths": {
+            "@balafla/core-components-types": ["../types/src"],
+            "@balafla/core-components-types/*": ["../types/src/*"]
+        }
+    },
+    "references": [{ "path": "../types" }]
 }

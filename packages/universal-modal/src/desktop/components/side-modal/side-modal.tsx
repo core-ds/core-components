@@ -1,7 +1,6 @@
 import React, { forwardRef, useRef } from 'react';
+import { BaseModal } from '@balafla/core-components-base-modal';
 import cn from 'classnames';
-
-import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
+import { KeyboardFocusable } from '@balafla/core-components-keyboard-focusable';
 
 const meta: Meta<typeof KeyboardFocusable> = {
     title: 'Components/KeyboardFocusable',

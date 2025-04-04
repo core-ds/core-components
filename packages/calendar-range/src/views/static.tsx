@@ -1,5 +1,18 @@
 /* eslint-disable complexity */
 import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
+import { CalendarDesktop } from '@balafla/core-components-calendar/desktop';
+import { usePeriodWithReset } from '@balafla/core-components-calendar/shared';
+import {
+    formatDate,
+    isValidInputValue,
+    parseDateString,
+} from '@balafla/core-components-calendar-input/shared';
+import {
+    DateInput,
+    DateInputProps,
+    isCompleteDateInput,
+} from '@balafla/core-components-date-input';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 import addMonths from 'date-fns/addMonths';
 import endOfMonth from 'date-fns/endOfMonth';
@@ -7,20 +20,6 @@ import isSameMonth from 'date-fns/isSameMonth';
 import max from 'date-fns/max';
 import startOfMonth from 'date-fns/startOfMonth';
 import subMonths from 'date-fns/subMonths';
-
-import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
-import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
-import {
-    formatDate,
-    isValidInputValue,
-    parseDateString,
-} from '@alfalab/core-components-calendar-input/shared';
-import {
-    DateInput,
-    DateInputProps,
-    isCompleteDateInput,
-} from '@alfalab/core-components-date-input';
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Attach } from '@alfalab/core-components-attach';
+import { Attach } from '@balafla/core-components-attach';
 
 const meta: Meta<typeof Attach> = {
     title: 'Components/Attach',

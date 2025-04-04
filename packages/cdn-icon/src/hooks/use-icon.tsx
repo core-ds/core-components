@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
+import { hasOwnProperty, noop } from '@balafla/core-components-shared';
 import { useSyncExternalStore } from 'use-sync-external-store/shim';
-
-import { hasOwnProperty, noop } from '@alfalab/core-components-shared';
 
 type Listener = () => void;
 

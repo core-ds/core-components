@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
-import { FormControl } from '@alfalab/core-components-form-control';
-import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
-import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
+import { FormControl } from '@balafla/core-components-form-control';
+import { FormControlMobile } from '@balafla/core-components-form-control/mobile';
+import { FormControlDesktop } from '@balafla/core-components-form-control/desktop';
 
 const meta: Meta<typeof FormControl> = {
     title: 'Components/FormControl',

@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import kebab from 'lodash/kebabCase';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Typography } from '@balafla/core-components-typography';
 
 import { createComponentUrl } from 'storybook/utils/createComponentUrl';
 

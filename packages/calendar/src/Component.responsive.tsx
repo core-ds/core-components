@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { CalendarMobile, CalendarMobileProps } from './components/calendar-mobile';
 import { CalendarDesktop, CalendarDesktopProps } from './desktop';

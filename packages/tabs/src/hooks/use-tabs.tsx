@@ -8,8 +8,7 @@ import {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId } from '@balafla/core-components-shared';
 
 import { TabListTitle, UseTabsProps } from '../typings';
 

@@ -6,10 +6,10 @@ import React, {
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { getDataTestId } from '@balafla/core-components-shared';
+import { Spinner } from '@balafla/core-components-spinner';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
 import { useLoader } from './hooks';

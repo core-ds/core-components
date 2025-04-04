@@ -1,11 +1,11 @@
 import React, { FC, MouseEvent, useMemo } from 'react';
+import { ButtonDesktop as Button } from '@balafla/core-components-button/desktop';
+import { IconButton } from '@balafla/core-components-icon-button';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 
 import { monthName } from '../../utils';

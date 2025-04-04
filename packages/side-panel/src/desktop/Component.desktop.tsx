@@ -1,9 +1,8 @@
 import React, { cloneElement, forwardRef, isValidElement, useContext, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { BaseModalProps } from '@balafla/core-components-base-modal';
+import { Drawer, DrawerProps } from '@balafla/core-components-drawer';
 import cn from 'classnames';
-
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
 import { Controls, ControlsProps } from '../components/controls';

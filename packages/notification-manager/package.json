@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-notification-manager",
+    "name": "@balafla/core-components-notification-manager",
     "version": "5.8.9",
     "description": "Notification manager",
     "keywords": [],
@@ -12,12 +12,13 @@
     },
     "sideEffects": false,
     "peerDependencies": {
+        "@balafla/core-components-stack-context": "^0.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-notification": "^7.5.9",
-        "@alfalab/core-components-portal": "^3.3.7",
-        "@alfalab/core-components-stack": "^5.0.1",
+        "@balafla/core-components-notification": "^7.5.9",
+        "@balafla/core-components-portal": "^3.3.7",
+        "@balafla/core-components-stack": "^5.0.1",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"

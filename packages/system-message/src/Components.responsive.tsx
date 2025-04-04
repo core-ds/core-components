@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { Caption } from './components/caption';
 import { Controls } from './components/controls';

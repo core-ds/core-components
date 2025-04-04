@@ -10,7 +10,7 @@ on:
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or sha to checkout
+                description: Version of @balafla/core-components package, tag or sha to checkout
                 required: true
                 default: ''
                 type: string
@@ -82,7 +82,7 @@ jobs:
         name: deploy
         runs-on: ubuntu-latest
         needs: [build, params]
-        if: ${{ github.repository == 'core-ds/core-components' }}
+        if: ${{ github.repository == 'hextion/core-components' }}
         outputs:
             url: ${{ steps.url.outputs.result }}
         steps:

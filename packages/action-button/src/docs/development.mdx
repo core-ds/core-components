@@ -7,20 +7,20 @@ import invertedColorStyles from '!!raw-loader!../inverted.module.css';
 ## Подключение
 
 ```jsx
-import { ActionButton } from '@alfalab/core-components/action-button';
+import { ActionButton } from '@balafla/core-components/action-button';
 ```
 
 ## Использование dataTestId
 
-В компоненте используется модификатор для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getActionButtonTestIds`.  
-Импорт из `@alfalab/core-components/action-button/shared`.
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getActionButtonTestIds`.
+Импорт из `@balafla/core-components/action-button/shared`.
 
 Функция возвращает объект:
 
 ```jsx
 {
-    actionButton: dataTestId, 
+    actionButton: dataTestId,
     spinner: `${dataTestId}-loader`,
 };
 ```

@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/addon-docs';
 import { radios, boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
-import { PatternLock } from '@alfalab/core-components-pattern-lock';
+import { PatternLock } from '@balafla/core-components-pattern-lock';
 import {
     stylesStringToObj,
     getQueryParam,

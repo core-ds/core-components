@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+import { fnUtils, getDataTestId } from '@balafla/core-components-shared';
 import {
     MaskitoOptions,
     MaskitoPlugin,
@@ -6,8 +7,6 @@ import {
     MaskitoPreprocessor,
     maskitoTransform,
 } from '@maskito/core';
-
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 
 export const MINUS_SIGN = '-';
 export const SEPARATORS = [',', '.'];

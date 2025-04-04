@@ -2,7 +2,7 @@ import { modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const dateRangeInputEntryTransformer = (source, j) => {
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]date-range-input\//.test(path)
+        /@balafla\/core-components[-/]date-range-input\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

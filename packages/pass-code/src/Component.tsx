@@ -1,8 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
+import { Gap } from '@balafla/core-components-gap';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { Gap } from '@alfalab/core-components-gap';
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';

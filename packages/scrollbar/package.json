@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-scrollbar",
+    "name": "@balafla/core-components-scrollbar",
     "version": "3.2.0",
     "description": "Scrollbar component",
     "keywords": [],
@@ -19,10 +19,8 @@
         "@juggle/resize-observer": "^3.3.1",
         "can-use-dom": "^0.1.0",
         "classnames": "^2.5.1",
-        "lodash.debounce": "^4.0.8",
-        "lodash.memoize": "^4.1.2",
-        "lodash.throttle": "^4.1.1",
-        "react-merge-refs": "1.1.0",
+        "lodash": "^4.17.21",
+        "react-merge-refs": "^1.1.0",
         "simplebar": "^5.3.8",
         "tslib": "^2.4.0"
     },

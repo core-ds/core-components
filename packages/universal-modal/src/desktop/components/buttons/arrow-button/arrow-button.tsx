@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent } from 'react';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
+import { Typography } from '@balafla/core-components-typography';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { Typography } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 
 import styles from './arrow-button.module.css';

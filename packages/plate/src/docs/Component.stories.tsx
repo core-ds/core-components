@@ -2,12 +2,12 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, boolean } from '@storybook/addon-knobs';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
-import { Plate } from '@alfalab/core-components-plate';
-import { PlateMobile } from '@alfalab/core-components-plate/mobile';
-import { PlateDesktop } from '@alfalab/core-components-plate/desktop';
+import { Plate } from '@balafla/core-components-plate';
+import { PlateMobile } from '@balafla/core-components-plate/mobile';
+import { PlateDesktop } from '@balafla/core-components-plate/desktop';
 
-import { Button } from '@alfalab/core-components-button';
-import { StatusBadge } from '@alfalab/core-components-status-badge';
+import { Button } from '@balafla/core-components-button';
+import { StatusBadge } from '@balafla/core-components-status-badge';
 
 import {
     stylesStringToObj,

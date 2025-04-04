@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-
-import type { BaseModalProps } from '@alfalab/core-components-base-modal';
+import type { BaseModalProps } from '@balafla/core-components-base-modal';
 
 export type ModalDesktopProps = BaseModalProps & {
     /**

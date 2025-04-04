@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-
-import { CalendarInputProps } from '@alfalab/core-components-calendar-input';
+import { CalendarInputProps } from '@balafla/core-components-calendar-input';
 
 import { CalendarRangePopover } from './views/popover';
 import { CalendarRangeStatic } from './views/static';

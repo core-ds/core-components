@@ -1,11 +1,10 @@
 import React, { forwardRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
+import { ModalMobile } from '@balafla/core-components-modal/mobile';
+import { getDataTestId } from '@balafla/core-components-shared';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
-
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { ModalMobile } from '@alfalab/core-components-modal/mobile';
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { CalendarDesktop } from '../../desktop';
 import { isRangeValue, WEEKDAYS } from '../../utils';

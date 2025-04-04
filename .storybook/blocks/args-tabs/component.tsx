@@ -1,5 +1,5 @@
 import React, { FC, useState, ReactNode } from 'react';
-import { Tabs, Tab, TabsProps } from '@alfalab/core-components-tabs';
+import { Tabs, Tab, TabsProps } from '@balafla/core-components-tabs';
 import { ArgTypes } from '@storybook/addon-docs';
 import cn from 'classnames';
 

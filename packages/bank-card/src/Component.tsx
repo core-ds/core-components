@@ -1,7 +1,7 @@
 import React, { ChangeEvent, MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
+import { MaskedInput } from '@balafla/core-components-masked-input';
 import cn from 'classnames';
 
-import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
 import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
 import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { SliderInput } from '@alfalab/core-components-slider-input';
+import { SliderInput } from '@balafla/core-components-slider-input';
 
 const meta: Meta<typeof SliderInput> = {
     title: 'Components/SliderInput',

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { CalendarInput, CalendarInputProps } from '@alfalab/core-components/calendar-input';
+import { CalendarInput, CalendarInputProps } from '@balafla/core-components/calendar-input';
 
 const noop = () => {};
 

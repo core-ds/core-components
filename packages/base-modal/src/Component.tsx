@@ -18,14 +18,13 @@ import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
+import { Backdrop as DefaultBackdrop, BackdropProps } from '@balafla/core-components-backdrop';
+import { Portal, PortalProps } from '@balafla/core-components-portal';
+import { browser, os } from '@balafla/core-components-shared';
+import { Stack } from '@balafla/core-components-stack';
+import { stackingOrder } from '@balafla/core-components-stack-context';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
-
-import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
-import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { browser, os } from '@alfalab/core-components-shared';
-import { Stack } from '@alfalab/core-components-stack';
-import { stackingOrder } from '@alfalab/stack-context';
 
 import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {

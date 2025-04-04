@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Skeleton } from '@alfalab/core-components-skeleton';
+import { Skeleton } from '@balafla/core-components-skeleton';
 
 import { Option as DefaultOption } from '../../components/option';
 import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';

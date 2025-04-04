@@ -1,7 +1,6 @@
+import { getDataTestId } from '@balafla/core-components-shared';
 import type { ClientRect, Modifier } from '@dnd-kit/core';
 import type { Transform } from '@dnd-kit/utilities';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 export const restrictToParentElement: Modifier = ({
     containerNodeRect,

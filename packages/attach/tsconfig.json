@@ -1,19 +1,21 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@balafla/core-components-button": ["../button/src"],
+            "@balafla/core-components-button/*": ["../button/src/*"],
+            "@balafla/core-components-keyboard-focusable": ["../keyboard-focusable/src"],
+            "@balafla/core-components-keyboard-focusable/*": ["../keyboard-focusable/src/*"],
+            "@balafla/core-components-progress-bar": ["../progress-bar/src"],
+            "@balafla/core-components-progress-bar/*": ["../progress-bar/src/*"]
         }
     },
     "references": [
         { "path": "../button" },
-        { "path": "../loader" },
-        { "path": "../progress-bar" },
-        { "path": "../keyboard-focusable" }
+        { "path": "../keyboard-focusable" },
+        { "path": "../progress-bar" }
     ]
 }

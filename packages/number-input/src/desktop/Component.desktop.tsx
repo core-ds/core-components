@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { InputDesktop } from '@alfalab/core-components-input/desktop';
+import { InputDesktop } from '@balafla/core-components-input/desktop';
 
 import { NumberInput, NumberInputProps } from '../components/number-input';
 

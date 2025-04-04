@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { SystemMessage } from '@alfalab/core-components/system-message/modern';
+import { SystemMessage } from '@balafla/core-components/system-message/modern';
 
 const noop = () => {};
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { IconButton } from '@alfalab/core-components-icon-button';
+import { IconButton } from '@balafla/core-components-icon-button';
 import { ArrowUpMIcon } from '@alfalab/icons-glyph/ArrowUpMIcon';
 
 import styles from './index.module.css';

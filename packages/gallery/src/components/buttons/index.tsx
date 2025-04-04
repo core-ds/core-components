@@ -1,8 +1,8 @@
 import React, { FC, MutableRefObject } from 'react';
+import { IconButton, IconButtonProps } from '@balafla/core-components-icon-button';
+import { TooltipDesktop } from '@balafla/core-components-tooltip/desktop';
 import cn from 'classnames';
 
-import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
-import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
 import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';

@@ -7,7 +7,7 @@ import {
     CustomButton,
     CustomButtonDesktop,
     CustomButtonMobile,
-} from '@alfalab/core-components-custom-button';
+} from '@balafla/core-components-custom-button';
 
 const meta: Meta<typeof CustomButton> = {
     title: 'Components/CustomButton',

@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
+import { FormControlDesktop } from '@balafla/core-components-form-control/desktop';
 
 import { BaseInput, BaseInputProps } from '../components/base-input';
 

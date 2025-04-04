@@ -1,8 +1,8 @@
 import React, { forwardRef, useCallback, useState } from 'react';
+import { IconButton } from '@balafla/core-components-icon-button';
+import { Input, InputProps } from '@balafla/core-components-input';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { Input, InputProps } from '@alfalab/core-components-input';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { EyeOffMIcon } from '@alfalab/icons-glyph/EyeOffMIcon';
 

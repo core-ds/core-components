@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
+import { ButtonDesktop as Button } from '@balafla/core-components-button/desktop';
 
 import { Notification } from './index';
 import { getNotificationTestIds } from './utils/getNotificationTestIds';

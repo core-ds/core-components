@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Text } from '@alfalab/core-components-typography';
 
 import { MAX_PROGRESS_BAR_VALUE } from '../../../../const/progress-bar';
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';

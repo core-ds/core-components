@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Tabs, TabsProps, Tab } from '@alfalab/core-components/tabs';
+import { Tabs, TabsProps, Tab } from '@balafla/core-components/tabs';
 
-import { ScrollableContainer, TabListProps } from '@alfalab/core-components/tabs/shared';
+import { ScrollableContainer, TabListProps } from '@balafla/core-components/tabs/shared';
 
 const noop = () => {};
 

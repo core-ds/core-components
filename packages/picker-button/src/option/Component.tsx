@@ -1,10 +1,9 @@
 import React, { FC, SVGProps } from 'react';
-
 import {
     Option as BaseOption,
     OptionProps as BaseOptionProps,
     OptionShape,
-} from '@alfalab/core-components-select/shared';
+} from '@balafla/core-components-select/shared';
 
 import styles from './index.module.css';
 

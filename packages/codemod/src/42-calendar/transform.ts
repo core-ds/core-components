@@ -3,7 +3,8 @@ import {
     hasImportSpecifier,
     isIndexEntry,
     modifyIdentifiers,
-    modifyImportPath, removeEmptyCoreImport,
+    modifyImportPath,
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const calendarEntryTransformer = (source, j) => {
@@ -26,7 +27,7 @@ const calendarEntryTransformer = (source, j) => {
     modifyIdentifiers(source, j, 'CalendarProps', 'CalendarDesktopProps');
 
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]calendar\//.test(path)
+        /@balafla\/core-components[-/]calendar\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

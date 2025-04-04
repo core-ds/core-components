@@ -9,10 +9,9 @@ import React, {
     ReactNode,
     useCallback,
 } from 'react';
+import { Input as DefaultInput, InputProps } from '@balafla/core-components-input';
+import { Slider, SliderProps } from '@balafla/core-components-slider';
 import cn from 'classnames';
-
-import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
-import { Slider, SliderProps } from '@alfalab/core-components-slider';
 
 import { OnChangeType, OnInputChangeType } from './types/propTypes';
 

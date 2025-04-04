@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
-
-import { InputMobile } from '@alfalab/core-components-input/mobile';
-import { InputAutocompleteMobile } from '@alfalab/core-components-input-autocomplete/mobile';
-import { SelectMobile } from '@alfalab/core-components-select/mobile';
+import { InputMobile } from '@balafla/core-components-input/mobile';
+import { InputAutocompleteMobile } from '@balafla/core-components-input-autocomplete/mobile';
+import { SelectMobile } from '@balafla/core-components-select/mobile';
 
 import { BaseInternationalPhoneInput } from '../components/base-international-phone-input';
 import type {

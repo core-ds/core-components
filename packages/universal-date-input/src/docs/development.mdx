@@ -5,21 +5,21 @@ import { UniversalDateInput } from '../Component.responsive';
 
 ```jsx
 // responsive версия
-import { UniversalDateInput } from '@alfalab/core-components/universal-date-input';
+import { UniversalDateInput } from '@balafla/core-components/universal-date-input';
 
 // desktop версия
-import { UniversalDateInputDesktop } from '@alfalab/core-components/universal-date-input/desktop';
+import { UniversalDateInputDesktop } from '@balafla/core-components/universal-date-input/desktop';
 
 // mobile версия
-import { UniversalDateInputMobile } from '@alfalab/core-components/universal-date-input/mobile';
+import { UniversalDateInputMobile } from '@balafla/core-components/universal-date-input/mobile';
 ```
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Компонент является оберткой над FormControl, поэтому наследует все его модификаторы.  
-Для удобного поиска элементов можно воспользоваться функцией `getUniversalDateInputTestIds`.  
-Импорт из `@alfalab/core-components/universal-date-input/shared`.
+В компоненте используются модификаторы для `dataTestId`.
+Компонент является оберткой над FormControl, поэтому наследует все его модификаторы.
+Для удобного поиска элементов можно воспользоваться функцией `getUniversalDateInputTestIds`.
+Импорт из `@balafla/core-components/universal-date-input/shared`.
 
 Функция возвращает объект:
 
@@ -28,7 +28,7 @@ import { UniversalDateInputMobile } from '@alfalab/core-components/universal-dat
     input: dataTestId,
     componentWrapper: `${dataTestId}-wrapper`,
     popover: `${dataTestId}-popover`,
-    calendar: `${dataTestId}-calendar`,    
+    calendar: `${dataTestId}-calendar`,
     inputWrapper: `${dataTestId}-form-control`,
     inputWrapperInner: `${dataTestId}-form-control-inner`,
     leftAddons: `${dataTestId}-form-control-left-addons`,

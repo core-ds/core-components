@@ -11,6 +11,7 @@ import React, {
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { fnUtils, getDataTestId } from '@balafla/core-components-shared';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import { compute } from 'compute-scroll-into-view';
@@ -21,7 +22,6 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';

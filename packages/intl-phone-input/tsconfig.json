@@ -1,18 +1,14 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"],
-            "@alfalab/core-components-input-autocomplete/*": ["../input-autocomplete/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@balafla/core-components-input-autocomplete": ["../input-autocomplete/src"],
+            "@balafla/core-components-input-autocomplete/*": ["../input-autocomplete/src/*"],
+            "@balafla/core-components-select": ["../select/src"],
+            "@balafla/core-components-select/*": ["../select/src/*"]
         }
     },
     "references": [{ "path": "../input-autocomplete" }, { "path": "../select" }]

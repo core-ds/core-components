@@ -1,4 +1,4 @@
-import { TextProps } from '@alfalab/core-components-typography';
+import { TextProps } from '@balafla/core-components-typography';
 
 export const WIDTH_TO_SIZE: Record<number, number> = {
     16: 24,

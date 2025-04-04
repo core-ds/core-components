@@ -1,4 +1,5 @@
-import { useCoreConfig } from '@alfalab/core-config';
+import { useCoreConfig } from '@balafla/core-components-config';
+import { isFn } from '@balafla/core-components-shared';
 
 import { useMatchMedia } from './useMatchMedia';
 
@@ -7,7 +8,7 @@ export function useIsDesktop(breakpoint?: number, defaultValue?: boolean | (() =
 
     if (typeof defaultValue === 'boolean') {
         client = defaultValue ? 'desktop' : 'mobile';
-    } else if (typeof defaultValue === 'function') {
+    } else if (isFn(defaultValue)) {
         client = defaultValue() ? 'desktop' : 'mobile';
     }
 

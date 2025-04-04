@@ -6,21 +6,21 @@ import { ActionTextAddon } from '../components/action-text-addon';
 ## Подключение
 
 ```jsx
-import { NavigationBar } from '@alfalab/core-components/navigation-bar';
-import { ActionIconAddon, ActionTextAddon  } from '@alfalab/core-components/navigation-bar/shared';
+import { NavigationBar } from '@balafla/core-components/navigation-bar';
+import { ActionIconAddon, ActionTextAddon  } from '@balafla/core-components/navigation-bar/shared';
 ```
 
 ## Использование dataTestId
 
-В компоненте используется модификатор для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getNavigationBarTestIds`.  
-Импорт из `@alfalab/core-components/navigation-bar/shared`.
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getNavigationBarTestIds`.
+Импорт из `@balafla/core-components/navigation-bar/shared`.
 
 Функция возвращает объект:
 
 ```jsx
 {
-    navigationBar: dataTestId, 
+    navigationBar: dataTestId,
     title: `${dataTestId}-title`,
     subtitle: `${dataTestId}-subtitle`,
 };

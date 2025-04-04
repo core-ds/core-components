@@ -6,9 +6,8 @@ import React, {
     useCallback,
     useState,
 } from 'react';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Text } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
 import { useMeasureHeight } from './hooks';

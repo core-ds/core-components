@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, number, text as textAddons, boolean } from '@storybook/addon-knobs';
-import { Text } from '@alfalab/core-components-text';
+import { Text } from '@balafla/core-components-text';
 
 const meta: Meta<typeof Text> = {
     title: 'Components/Text',

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
-import { ProductCover } from '@alfalab/core-components-product-cover';
+import { ProductCover } from '@balafla/core-components-product-cover';
 
 const meta: Meta<typeof ProductCover> = {
     title: 'Components/ProductCover',

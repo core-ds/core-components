@@ -1,7 +1,6 @@
 import type { ChangeEvent, FC, ReactNode } from 'react';
-
-import type { BaseSelectProps, OptionShape } from '@alfalab/core-components-select/shared';
-import type { TagProps as TagPropsBase } from '@alfalab/core-components-tag';
+import type { BaseSelectProps, OptionShape } from '@balafla/core-components-select/shared';
+import type { TagProps as TagPropsBase } from '@balafla/core-components-tag';
 
 export type OptionMatcher = (option: OptionShape, inputValue: string) => boolean;
 

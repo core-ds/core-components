@@ -1,9 +1,8 @@
+import { dateInLimits } from '@balafla/core-components-calendar/shared';
+import { isCompleteDateInput } from '@balafla/core-components-date-input';
 import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import parse from 'date-fns/parse';
-
-import { dateInLimits } from '@alfalab/core-components-calendar/shared';
-import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 
 export const DATE_FORMAT = 'dd.MM.yyyy';
 export const NATIVE_DATE_FORMAT = 'yyyy-MM-dd';

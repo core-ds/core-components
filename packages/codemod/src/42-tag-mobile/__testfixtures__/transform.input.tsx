@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Tag } from '@alfalab/core-components/tag';
+import { Tag } from '@balafla/core-components/tag';
 
 const noop = () => {};
 

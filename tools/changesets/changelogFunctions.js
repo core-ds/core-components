@@ -1,20 +1,12 @@
 const { getInfo } = require('@changesets/get-github-info');
 
-const repo = 'core-ds/core-components';
+const repo = 'hextion/core-components';
 
-const getLinesFromSummary = (summary, prLink, showPrLink = true, isRootChangelog = false) => {
-    let returnVal = '';
-
-    if (!isRootChangelog) {
-        returnVal += `<sup><time>${new Date().toLocaleDateString('ru-RU')}</time></sup>\n\n`;
-    }
+const getLinesFromSummary = (summary, prLink, showPrLink = true) => {
+    let returnVal = `<sup><time>${new Date().toLocaleDateString('ru-RU')}</time></sup>\n\n`;
 
     if (showPrLink) {
-        returnVal += `### ${prLink}\n\n`;
-    }
-
-    if (isRootChangelog) {
-        returnVal += '#### Что изменилось\n';
+        returnVal += `#### ${prLink}\n\n`;
     }
 
     const [firstLine, ...futureLines] = summary.split('\n').map((l) => l.trimRight());
@@ -57,26 +49,24 @@ async function getGithubLinks(commits) {
     );
 }
 
-const getDependencyReleaseLine = (changesets, dependenciesUpdated) => {
+const getDependencyReleaseLine = (_, dependenciesUpdated) => {
     if (dependenciesUpdated.length === 0) return '';
 
     const firstLine = '- Обновлены зависимости';
 
     const updatedDependenciesList = dependenciesUpdated.map(
-        (dependency) =>
-            `  - ${dependency.name.replace('@alfalab/core-components-', '')}@${
-                dependency.newVersion
-            }`,
+        (dependency) => `  - ${dependency.name}@${dependency.newVersion}`,
     );
 
     return [firstLine, ...updatedDependenciesList].join('\n');
 };
 
+/**
+ * @type {import('@changesets/types').ChangelogFunctions}
+ */
 const defaultChangelogFunctions = {
     getReleaseLine,
     getDependencyReleaseLine,
-    getLinesFromSummary,
-    getGithubLinks,
 };
 
 module.exports.default = defaultChangelogFunctions;

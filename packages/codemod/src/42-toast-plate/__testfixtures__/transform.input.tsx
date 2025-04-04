@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { ToastPlate, ToastPlateProps } from '@alfalab/core-components/toast-plate';
+import { ToastPlate, ToastPlateProps } from '@balafla/core-components/toast-plate';
 
 const noop = () => {};
 

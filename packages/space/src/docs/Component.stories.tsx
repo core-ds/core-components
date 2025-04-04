@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs';
-import { Input } from '@alfalab/core-components-input';
-import { Space } from '@alfalab/core-components-space';
+import { Input } from '@balafla/core-components-input';
+import { Space } from '@balafla/core-components-space';
 
 import {
     stylesStringToObj,

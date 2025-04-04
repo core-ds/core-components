@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, number, boolean } from '@storybook/addon-knobs';
-import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
+import { CircularProgressBar } from '@balafla/core-components-circular-progress-bar';
 
 const meta: Meta<typeof CircularProgressBar> = {
     title: 'Components/CircularProgressBar',

@@ -1,10 +1,9 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, number } from '@storybook/addon-knobs';
-import { CodeInput } from '@alfalab/core-components-code-input';
-import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
-import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
-
+import { CodeInput } from '@balafla/core-components-code-input';
+import { CodeInputMobile } from '@balafla/core-components-code-input/mobile';
+import { CodeInputDesktop } from '@balafla/core-components-code-input/desktop';
 
 const meta: Meta<typeof CodeInput> = {
     title: 'Components/CodeInput',
@@ -55,6 +54,5 @@ export const code_input_desktop: Story = {
         );
     },
 };
-    
-export default meta;
 
+export default meta;

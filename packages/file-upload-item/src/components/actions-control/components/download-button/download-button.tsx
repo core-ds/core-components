@@ -1,6 +1,6 @@
 import React, { MouseEvent, useContext } from 'react';
+import { IconButton } from '@balafla/core-components-icon-button';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
 import ArrowDownLineDownCompactMIcon from '@alfalab/icons-glyph/ArrowDownLineDownCompactMIcon';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';

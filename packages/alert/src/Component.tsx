@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
+import { type Plate, type PlateProps } from '@balafla/core-components-plate';
+import { type PlateDesktop } from '@balafla/core-components-plate/desktop';
+import { type PlateMobile } from '@balafla/core-components-plate/mobile';
 import cn from 'classnames';
-
-import { type Plate, type PlateProps } from '@alfalab/core-components-plate';
-import { type PlateDesktop } from '@alfalab/core-components-plate/desktop';
-import { type PlateMobile } from '@alfalab/core-components-plate/mobile';
 
 import styles from './index.module.css';
 

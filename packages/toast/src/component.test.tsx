@@ -1,7 +1,7 @@
 import React, { forwardRef, ForwardRefRenderFunction } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import * as popoverModule from '@alfalab/core-components-popover';
+import * as popoverModule from '@balafla/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { ToastDesktop as Toast, ToastDesktopProps as ToastProps } from './desktop';
 

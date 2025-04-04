@@ -5,9 +5,8 @@ import React, {
     forwardRef,
     ReactElement,
 } from 'react';
+import { Button, ButtonProps } from '@balafla/core-components-button';
 import cn from 'classnames';
-
-import { Button, ButtonProps } from '@alfalab/core-components-button';
 
 import { transformSize } from './helpers/transformSize';
 

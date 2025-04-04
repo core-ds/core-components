@@ -1,7 +1,6 @@
 import React, { Reducer, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
-
-import { InputProps } from '@alfalab/core-components-input';
-import { Skeleton } from '@alfalab/core-components-skeleton';
+import { InputProps } from '@balafla/core-components-input';
+import { Skeleton } from '@balafla/core-components-skeleton';
 
 import { Option as DefaultOption } from '../../components/option';
 import { OptionProps, OptionShape } from '../../typings';

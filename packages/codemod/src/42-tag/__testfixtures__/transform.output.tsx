@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { TagDesktop, TagDesktopProps } from '@alfalab/core-components/tag/desktop';
+import { TagDesktop, TagDesktopProps } from '@balafla/core-components/tag/desktop';
 
 const noop = () => {};
 

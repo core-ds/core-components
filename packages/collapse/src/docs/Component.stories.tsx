@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Collapse } from '@alfalab/core-components-collapse';
-import { Typography } from '@alfalab/core-components-typography';
-import { Gap } from '@alfalab/core-components-gap';
+import { Collapse } from '@balafla/core-components-collapse';
+import { Typography } from '@balafla/core-components-typography';
+import { Gap } from '@balafla/core-components-gap';
 import {
     stylesStringToObj,
     getQueryParam,

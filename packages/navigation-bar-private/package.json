@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-navigation-bar-private",
+    "name": "@balafla/core-components-navigation-bar-private",
     "version": "0.8.0",
     "description": "Navigation bar private component",
     "keywords": [],
@@ -12,10 +12,10 @@
     },
     "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-icon-button": "^6.11.9",
-        "@alfalab/core-components-button": "^11.11.6",
-        "@alfalab/core-components-typography": "^4.12.0",
-        "@alfalab/core-components-shared": "^0.16.0",
+        "@balafla/core-components-icon-button": "^6.11.9",
+        "@balafla/core-components-button": "^11.11.6",
+        "@balafla/core-components-typography": "^4.12.0",
+        "@balafla/core-components-shared": "^0.16.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",

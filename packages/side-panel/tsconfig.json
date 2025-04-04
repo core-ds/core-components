@@ -1,20 +1,27 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-base-modal": ["../base-modal/src"],
+            "@balafla/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@balafla/core-components-drawer": ["../drawer/src"],
+            "@balafla/core-components-drawer/*": ["../drawer/src/*"],
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-navigation-bar-private": ["../navigation-bar-private/src"],
+            "@balafla/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
         { "path": "../base-modal" },
         { "path": "../drawer" },
-        { "path": "../button" },
-        { "path": "../icon-button" },
         { "path": "../mq" },
         { "path": "../navigation-bar-private" },
         { "path": "../shared" }

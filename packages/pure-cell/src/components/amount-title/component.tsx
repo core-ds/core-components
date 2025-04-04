@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
+import { Amount as CoreAmount } from '@balafla/core-components-amount';
+import { getDataTestId } from '@balafla/core-components-shared';
+import { type Color, type TitleProps, TitleResponsive } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Amount as CoreAmount } from '@alfalab/core-components-amount';
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { type Color, type TitleProps, TitleResponsive } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 import { AmountProps as AmountType } from '../typesProps';

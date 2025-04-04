@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
-import { CalendarRange } from '@alfalab/core-components-calendar-range';
+import { CalendarRange } from '@balafla/core-components-calendar-range';
 import {
     getQueryParam,
     stylesStringToObj,

@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { Button } from '@alfalab/core-components-button';
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { Button } from '@balafla/core-components-button';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
 
 export const Component = () => (
     <React.Fragment>

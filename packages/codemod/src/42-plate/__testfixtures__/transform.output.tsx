@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { PlateDesktop, PlateDesktopProps } from '@alfalab/core-components/plate/desktop';
+import { PlateDesktop, PlateDesktopProps } from '@balafla/core-components/plate/desktop';
 
 const noop = () => {};
 

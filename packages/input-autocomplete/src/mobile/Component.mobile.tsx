@@ -1,19 +1,18 @@
 import React, { Ref, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
-import cn from 'classnames';
-import throttle from 'lodash/throttle';
-
 import {
     SelectMobile,
     SelectMobileProps,
     SelectModalMobile,
-} from '@alfalab/core-components-select/mobile';
+} from '@balafla/core-components-select/mobile';
 import {
     AnyObject,
     BottomSheetSelectMobileProps,
     Footer,
     ModalSelectMobileProps,
-} from '@alfalab/core-components-select/shared';
+} from '@balafla/core-components-select/shared';
+import cn from 'classnames';
+import throttle from 'lodash/throttle';
 
 import { AutocompleteMobileField } from '../autocomplete-mobile-field';
 import { OnInputReason } from '../enums';

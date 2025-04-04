@@ -1,7 +1,6 @@
 import React from 'react';
+import { Checkbox, CheckboxProps } from '@balafla/core-components-checkbox';
 import cn from 'classnames';
-
-import { Checkbox, CheckboxProps } from '@alfalab/core-components-checkbox';
 
 import styles from './index.module.css';
 

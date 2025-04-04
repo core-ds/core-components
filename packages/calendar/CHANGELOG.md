@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-calendar
 
 ## 7.18.0
 

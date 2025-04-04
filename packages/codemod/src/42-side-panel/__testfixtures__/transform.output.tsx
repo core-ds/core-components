@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { SidePanel, SidePanelProps } from '@alfalab/core-components/side-panel';
+import { SidePanel, SidePanelProps } from '@balafla/core-components/side-panel';
 
 const noop = () => {};
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, number } from '@storybook/addon-knobs';
-import { HatchingProgressBar } from '@alfalab/core-components-hatching-progress-bar';
+import { HatchingProgressBar } from '@balafla/core-components-hatching-progress-bar';
 
 const meta: Meta<typeof HatchingProgressBar> = {
     title: 'Components/HatchingProgressBar',

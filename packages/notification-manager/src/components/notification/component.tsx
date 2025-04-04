@@ -1,7 +1,6 @@
 import { cloneElement, FC, ReactElement, useCallback, useMemo } from 'react';
+import { NotificationProps as CoreNotificationProps } from '@balafla/core-components-notification';
 import cn from 'classnames';
-
-import { NotificationProps as CoreNotificationProps } from '@alfalab/core-components-notification';
 
 export type NotificationElement = ReactElement<CoreNotificationProps & { id: string }>;
 

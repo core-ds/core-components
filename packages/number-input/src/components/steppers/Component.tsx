@@ -1,9 +1,9 @@
 import React from 'react';
+import { IconButton } from '@balafla/core-components-icon-button';
+import { InputProps } from '@balafla/core-components-input';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { InputProps } from '@alfalab/core-components-input';
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { MinusMIcon } from '@alfalab/icons-glyph/MinusMIcon';
 import { MinusSIcon } from '@alfalab/icons-glyph/MinusSIcon';
 import { PlusMediumMIcon } from '@alfalab/icons-glyph/PlusMediumMIcon';

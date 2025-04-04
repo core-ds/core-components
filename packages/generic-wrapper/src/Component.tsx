@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
+import { GapProps } from '@balafla/core-components-gap';
 import cn from 'classnames';
-
-import { GapProps } from '@alfalab/core-components-gap';
 
 import styles from './index.module.css';
 

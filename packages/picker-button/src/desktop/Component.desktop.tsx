@@ -1,14 +1,13 @@
 import React, { ComponentType, forwardRef, SVGProps } from 'react';
-import cn from 'classnames';
-
-import type { ButtonProps } from '@alfalab/core-components-button';
-import { Popover } from '@alfalab/core-components-popover';
+import type { ButtonProps } from '@balafla/core-components-button';
+import { Popover } from '@balafla/core-components-popover';
 import {
     BaseSelect,
     BaseSelectProps,
     Optgroup as DefaultOptgroup,
     OptionsList as DefaultOptionsList,
-} from '@alfalab/core-components-select/shared';
+} from '@balafla/core-components-select/shared';
+import cn from 'classnames';
 
 import { Field as DefaultField } from '../field';
 import { Option as DefaultOption } from '../option';

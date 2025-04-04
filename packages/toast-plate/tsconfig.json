@@ -1,19 +1,24 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-icon-button": ["../icon-button/src"],
+            "@balafla/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"],
+            "@balafla/core-components-status-badge": ["../status-badge/src"],
+            "@balafla/core-components-status-badge/*": ["../status-badge/src/*"]
         }
     },
     "references": [
-      { "path": "../icon-button" },
-      { "path": "../status-badge" },
-      { "path": "../mq" },
-      { "path": "../shared" },
+        { "path": "../icon-button" },
+        { "path": "../mq" },
+        { "path": "../shared" },
+        { "path": "../status-badge" }
     ]
 }

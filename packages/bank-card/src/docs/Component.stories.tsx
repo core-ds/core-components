@@ -4,7 +4,7 @@ import { text, select } from '@storybook/addon-knobs';
 
 import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
 import { AlfaInvestEnLogoShortLIcon } from '@alfalab/icons-logotype/AlfaInvestEnLogoShortLIcon';
-import { BankCard } from '@alfalab/core-components-bank-card';
+import { BankCard } from '@balafla/core-components-bank-card';
 
 const logo = {
     default: <AlfaBankLIcon />,

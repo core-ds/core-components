@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { object, boolean, select, text } from '@storybook/addon-knobs';
-import { Button } from '@alfalab/core-components-button';
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { Button } from '@balafla/core-components-button';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
 
 import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalMobile } from '../mobile';

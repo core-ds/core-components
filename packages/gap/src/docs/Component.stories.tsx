@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
-import { Gap } from '@alfalab/core-components-gap';
-import { CardImage } from '@alfalab/core-components-card-image';
+import { Gap } from '@balafla/core-components-gap';
+import { CardImage } from '@balafla/core-components-card-image';
 import {
     stylesStringToObj,
     getQueryParam,

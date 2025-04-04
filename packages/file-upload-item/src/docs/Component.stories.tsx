@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
-import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
+import { FileUploadItem } from '@balafla/core-components-file-upload-item';
 
 const meta: Meta<typeof FileUploadItem> = {
     title: 'Components/FileUploadItem',

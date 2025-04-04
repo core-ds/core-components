@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from 'react';
+import { BaseModalContext } from '@balafla/core-components-base-modal';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { BaseModalContext } from '@alfalab/core-components-base-modal';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 

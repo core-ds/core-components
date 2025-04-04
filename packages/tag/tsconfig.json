@@ -1,12 +1,13 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"]
+        "rootDir": "src",
+        "paths": {
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"]
+        }
     },
-    "references": [
-      { "path": "../mq" },
-      { "path": "../shared" },
-    ]
+    "references": [{ "path": "../mq" }]
 }

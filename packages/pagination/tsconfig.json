@@ -1,14 +1,13 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-tag/*": ["../tag/src/*"]
+            "@balafla/core-components-tag": ["../tag/src"],
+            "@balafla/core-components-tag/*": ["../tag/src/*"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../tag" }]
+    "references": [{ "path": "../tag" }]
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, boolean, number } from '@storybook/addon-knobs';
-import { Button } from '@alfalab/core-components-button';
-import { Notification } from '@alfalab/core-components-notification';
+import { Button } from '@balafla/core-components-button';
+import { Notification } from '@balafla/core-components-notification';
 
 const meta: Meta<typeof Notification> = {
     title: 'Components/Notification',

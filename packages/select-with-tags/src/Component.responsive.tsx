@@ -1,10 +1,9 @@
 import React, { forwardRef } from 'react';
-
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
-import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
-import { useIsDesktop } from '@alfalab/core-components-mq';
-import { Popover } from '@alfalab/core-components-popover';
+import { BottomSheet } from '@balafla/core-components-bottom-sheet';
+import { FormControlDesktop } from '@balafla/core-components-form-control/desktop';
+import { FormControlMobile } from '@balafla/core-components-form-control/mobile';
+import { useIsDesktop } from '@balafla/core-components-mq';
+import { Popover } from '@balafla/core-components-popover';
 
 import { BaseSelectWithTags } from './components/base-select-with-tags';
 import { SelectWithTagsProps } from './types';

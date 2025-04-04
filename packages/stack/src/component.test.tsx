@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { render } from '@testing-library/react';
 
-import { Stack } from '.';
-import { stackingOrder } from '@alfalab/stack-context';
+import { Stack } from '@balafla/core-components-stack';
+import { stackingOrder } from '@balafla/core-components-stack-context';
 
 const getZIndex = (element: HTMLElement) =>
     element ? parseInt(element.style.getPropertyValue('z-index'), 10) : 0;

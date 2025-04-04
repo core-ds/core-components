@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-plate",
+    "name": "@balafla/core-components-plate",
     "version": "7.8.10",
     "description": "",
     "keywords": [],
@@ -15,9 +15,10 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.6",
-        "@alfalab/core-components-icon-button": "^6.11.9",
-        "@alfalab/core-components-mq": "^4.4.1",
+        "@balafla/core-components-button": "^11.11.6",
+        "@balafla/core-components-icon-button": "^6.11.9",
+        "@balafla/core-components-mq": "^4.4.1",
+        "@balafla/core-components-shared": "^0.16.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",

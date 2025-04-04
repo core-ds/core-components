@@ -10,19 +10,19 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import cn from 'classnames';
-
-import type { CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
-import type { CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
-import { dateInLimits } from '@alfalab/core-components-calendar/shared';
+import type { CalendarDesktopProps } from '@balafla/core-components-calendar/desktop';
+import type { CalendarMobileProps } from '@balafla/core-components-calendar/mobile';
+import { dateInLimits } from '@balafla/core-components-calendar/shared';
 import {
     DateInput,
     DateInputProps,
     formatDate,
     isCompleteDateInput,
     parseDateString,
-} from '@alfalab/core-components-date-input';
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+} from '@balafla/core-components-date-input';
+import { Popover, PopoverProps } from '@balafla/core-components-popover';
+import cn from 'classnames';
+
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import { SUPPORTS_INPUT_TYPE_DATE } from '../../utils';

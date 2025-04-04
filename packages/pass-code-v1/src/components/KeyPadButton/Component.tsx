@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
+import { ButtonMobile, ButtonMobileProps } from '@balafla/core-components-button/mobile';
 import cn from 'classnames';
-
-import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 
 import styles from './index.module.css';
 

@@ -2,7 +2,7 @@ name: resolve demo params
 
 inputs:
     version:
-        description: Version of @alfalab/core-components package, tag or commit sha
+        description: Version of @balafla/core-components package, tag or commit sha
         required: true
     pull-request-number:
         description: Pull request number
@@ -31,7 +31,7 @@ runs:
                   } else if (/^\d+\.\d+\.\d+$/.test(version)) {
                       const major = parseInt(version.replace(/^(\d+)(.*)/, '$1'));
 
-                      return major < 49 ? `v${version}` : `@alfalab/core-components@${version}`;
+                      return major < 49 ? `v${version}` : `@balafla/core-components@${version}`;
                   }
 
                   return version;
@@ -91,7 +91,7 @@ runs:
 
                   let sha;
 
-                  if (version.startsWith('@alfalab/core-components-')) {
+                  if (version.startsWith('@balafla/core-components-')) {
                       const output = (await git(['rev-list', '-n', '1', version])).trim();
 
                       assert(output.length > 0);
@@ -104,7 +104,7 @@ runs:
                   const tags = (await git(['tag', '--points-at', sha])).split('\n');
 
                   for (const tag of tags) {
-                      const match = tag.match(/^v(\d+\.\d+\.\d+)$|^@alfalab\/core-components@(\d+\.\d+\.\d+.*)$/);
+                      const match = tag.match(/^v(\d+\.\d+\.\d+)$|^@balafla\/core-components@(\d+\.\d+\.\d+.*)$/);
 
                       if (match) {
                           const [, v1, v2] = match;

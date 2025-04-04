@@ -2,12 +2,12 @@ import {
     createImport,
     modifyIdentifiers,
     modifyImportPath,
-    removeEmptyCoreImport
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const tabsEntryTransformer = (source, j) => {
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]tabs\//.test(path) ? path.replace('/responsive', '') : path,
+        /@balafla\/core-components[-/]tabs\//.test(path) ? path.replace('/responsive', '') : path,
     );
     modifyIdentifiers(source, j, 'TabsResponsive', 'Tabs');
     modifyIdentifiers(source, j, 'TabsResponsiveProps', 'TabsProps');

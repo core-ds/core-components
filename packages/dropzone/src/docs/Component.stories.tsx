@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
-import { Dropzone } from '@alfalab/core-components-dropzone';
+import { Dropzone } from '@balafla/core-components-dropzone';
 
 import {
     getQueryParam,

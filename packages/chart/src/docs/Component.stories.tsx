@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { number, boolean, select, text, object } from '@storybook/addon-knobs';
 import format from 'date-fns/format';
-import { Chart } from '@alfalab/core-components-chart';
+import { Chart } from '@balafla/core-components-chart';
 import {
     stylesStringToObj,
     getQueryParam,

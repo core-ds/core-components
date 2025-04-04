@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { DateTimeInput, DateTimeInputProps } from '@alfalab/core-components/date-time-input';
+import { DateTimeInput, DateTimeInputProps } from '@balafla/core-components/date-time-input';
 
 const noop = () => {};
 

@@ -1,8 +1,7 @@
 import React, { FC, KeyboardEvent, MutableRefObject, ReactNode, useCallback } from 'react';
+import { Link } from '@balafla/core-components-link';
+import { Loader } from '@balafla/core-components-loader';
 import cn from 'classnames';
-
-import { Link } from '@alfalab/core-components-link';
-import { Loader } from '@alfalab/core-components-loader';
 
 import { ContentAlign } from '../../component';
 import { CodeInput } from '../code-input';

@@ -1,22 +1,33 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-toast-plate/*": ["../toast-plate/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-popover": ["../popover/src"],
+            "@balafla/core-components-popover/*": ["../popover/src/*"],
+            "@balafla/core-components-portal": ["../portal/src"],
+            "@balafla/core-components-portal/*": ["../portal/src/*"],
+            "@balafla/core-components-shared": ["../shared/src"],
+            "@balafla/core-components-shared/*": ["../shared/src/*"],
+            "@balafla/core-components-stack": ["../stack/src"],
+            "@balafla/core-components-stack/*": ["../stack/src/*"],
+            "@balafla/core-components-stack-context": ["../stack-context/src"],
+            "@balafla/core-components-stack-context/*": ["../stack-context/src/*"],
+            "@balafla/core-components-toast-plate": ["../toast-plate/src"],
+            "@balafla/core-components-toast-plate/*": ["../toast-plate/src/*"]
         }
     },
     "references": [
-        { "path": "../toast-plate" },
+        { "path": "../mq" },
         { "path": "../popover" },
         { "path": "../portal" },
-        { "path": "../stack" },
-        { "path": "../mq" },
         { "path": "../shared" },
+        { "path": "../stack" },
+        { "path": "../stack-context" },
+        { "path": "../toast-plate" }
     ]
 }

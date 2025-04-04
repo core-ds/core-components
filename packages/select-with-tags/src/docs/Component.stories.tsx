@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { pluralize } from '@alfalab/utils';
 
-import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
-import { SelectWithTagsDesktop } from '@alfalab/core-components-select-with-tags/desktop';
-import { SelectWithTagsMobile } from '@alfalab/core-components-select-with-tags/mobile';
-import { OptionShape, Arrow } from '@alfalab/core-components-select/shared';
+import { SelectWithTags } from '@balafla/core-components-select-with-tags';
+import { SelectWithTagsDesktop } from '@balafla/core-components-select-with-tags/desktop';
+import { SelectWithTagsMobile } from '@balafla/core-components-select-with-tags/mobile';
+import { OptionShape, Arrow } from '@balafla/core-components-select/shared';
 
 import type { SelectWithTagsProps } from '../types';
 

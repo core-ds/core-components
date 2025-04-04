@@ -1,11 +1,11 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import TextareaAutosize from 'react-textarea-autosize';
+import { FormControl } from '@balafla/core-components-form-control';
+import { useIsDesktop } from '@balafla/core-components-mq';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import { FormControl } from '@alfalab/core-components-form-control';
-import { useIsDesktop } from '@alfalab/core-components-mq';
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';

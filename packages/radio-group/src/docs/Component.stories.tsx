@@ -2,12 +2,12 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, select } from '@storybook/addon-knobs';
 
-import { Radio } from '@alfalab/core-components-radio';
-import { RadioGroup } from '@alfalab/core-components-radio-group';
-import { RadioGroupMobile } from '@alfalab/core-components-radio-group/mobile';
-import { RadioGroupDesktop } from '@alfalab/core-components-radio-group/desktop';
+import { Radio } from '@balafla/core-components-radio';
+import { RadioGroup } from '@balafla/core-components-radio-group';
+import { RadioGroupMobile } from '@balafla/core-components-radio-group/mobile';
+import { RadioGroupDesktop } from '@balafla/core-components-radio-group/desktop';
 
-import { Tag } from '@alfalab/core-components-tag';
+import { Tag } from '@balafla/core-components-tag';
 
 import {
     getQueryParam,

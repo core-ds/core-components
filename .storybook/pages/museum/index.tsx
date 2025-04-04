@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Typography } from '@alfalab/core-components-typography';
-import { useMatchMedia } from '@alfalab/core-components-mq';
-import { Gap } from '@alfalab/core-components-gap';
-import { Link } from '@alfalab/core-components-link';
-import { Divider } from '@alfalab/core-components-divider';
+import { Typography } from '@balafla/core-components-typography';
+import { useMatchMedia } from '@balafla/core-components-mq';
+import { Gap } from '@balafla/core-components-gap';
+import { Link } from '@balafla/core-components-link';
+import { Divider } from '@balafla/core-components-divider';
 
 export const Museum = () => {
     const [versions, setVersions] = useState<string[]>([]);

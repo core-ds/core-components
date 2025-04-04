@@ -1,8 +1,8 @@
 import React, { forwardRef, RefObject, useEffect, useState } from 'react';
+import { IconButton } from '@balafla/core-components-icon-button';
 import cn from 'classnames';
 import _debounce from 'lodash/debounce';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
 import { ChevronLeftCompactSIcon } from '@alfalab/icons-glyph/ChevronLeftCompactSIcon';
 import { ChevronRightCompactSIcon } from '@alfalab/icons-glyph/ChevronRightCompactSIcon';
 

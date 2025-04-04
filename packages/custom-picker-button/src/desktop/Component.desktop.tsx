@@ -1,10 +1,9 @@
 import React, { forwardRef } from 'react';
-
-import type { CustomButtonProps } from '@alfalab/core-components-custom-button';
+import type { CustomButtonProps } from '@balafla/core-components-custom-button';
 import {
     PickerButtonDesktop,
     PickerButtonDesktopProps,
-} from '@alfalab/core-components-picker-button/desktop';
+} from '@balafla/core-components-picker-button/desktop';
 
 import { Field as DefaultField } from '../field';
 

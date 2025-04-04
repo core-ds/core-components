@@ -1,5 +1,5 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { Plate } from '@alfalab/core-components-plate';
+import { Plate } from '@balafla/core-components-plate';
 import { Button } from '../index';
 import { ButtonDesktop } from '../desktop';
 import { ButtonMobile } from '../mobile';
@@ -22,7 +22,7 @@ import styles from '!!raw-loader!../vars.css';
     768px. Для этого необходимо установить свойство `breakpoint={768}`.
 
     Воспользуйтесь трансформером `button-breakpoint-768`, чтобы добавить брейкпоинт всем кнопкам в
-    проекте. Трансформер доступен в `@alfalab/core-components-codemod`, начиная с версии `2.5.0`.
+    проекте. Трансформер доступен в `@balafla/core-components-codemod`, начиная с версии `2.5.0`.
 
     Если возникнут вопросы — свяжитесь с командой дизайн-системы Альфа-Бизнес в рокетчате
     `#arui-private`.
@@ -32,24 +32,24 @@ import styles from '!!raw-loader!../vars.css';
 ## Подключение
 
 ```jsx
-import { Button } from '@alfalab/core-components/button';
-import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
-import { ButtonMobile } from '@alfalab/core-components/button/mobile';
+import { Button } from '@balafla/core-components/button';
+import { ButtonDesktop } from '@balafla/core-components/button/desktop';
+import { ButtonMobile } from '@balafla/core-components/button/mobile';
 ```
 
 Из индекса импортируется responsive версия компонента.
 
 ## Использование dataTestId
 
-В компоненте используется модификатор для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getButtonTestIds`.  
-Импорт из `@alfalab/core-components/button/shared`.
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getButtonTestIds`.
+Импорт из `@balafla/core-components/button/shared`.
 
 Функция возвращает объект:
 
 ```jsx
 {
-    button: dataTestId, 
+    button: dataTestId,
     spinner: `${dataTestId}-loader`,
 };
 ```

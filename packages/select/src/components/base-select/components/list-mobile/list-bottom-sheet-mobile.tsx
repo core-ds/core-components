@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, RefObject } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 
-import { OptionShape } from '@alfalab/core-components-select/typings';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { OptionShape } from '../../../../typings';
 
 import { ListBottomSheetMobileRestProps } from './types/types';
 

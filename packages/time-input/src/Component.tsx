@@ -1,8 +1,7 @@
 /* eslint-disable no-useless-escape */
 
 import React, { ChangeEvent, useState } from 'react';
-
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { Input, InputProps } from '@balafla/core-components-input';
 
 import { format, isCompleteTimeInput, isValidInputValue } from './utils';
 

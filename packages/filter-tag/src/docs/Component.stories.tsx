@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { FilterTag } from '@alfalab/core-components-filter-tag';
-import { FilterTagMobile } from '@alfalab/core-components-filter-tag/mobile';
-import { FilterTagDesktop } from '@alfalab/core-components-filter-tag/desktop';
+import { FilterTag } from '@balafla/core-components-filter-tag';
+import { FilterTagMobile } from '@balafla/core-components-filter-tag/mobile';
+import { FilterTagDesktop } from '@balafla/core-components-filter-tag/desktop';
 import DiamondsMIcon from '@alfalab/icons-glyph/DiamondsMIcon';
 import DiamondsSIcon from '@alfalab/icons-glyph/DiamondsSIcon';
 

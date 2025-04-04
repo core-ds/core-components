@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import { Notification } from '@alfalab/core-components-notification';
+import { Notification } from '@balafla/core-components-notification';
 
 import { NotificationManager, NotificationManagerProps } from '.';
 

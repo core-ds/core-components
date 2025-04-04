@@ -1,23 +1,24 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@balafla/core-components-custom-button": ["../custom-button/src"],
+            "@balafla/core-components-custom-button/*": ["../custom-button/src/*"],
+            "@balafla/core-components-mq": ["../mq/src"],
+            "@balafla/core-components-mq/*": ["../mq/src/*"],
+            "@balafla/core-components-picker-button": ["../picker-button/src"],
+            "@balafla/core-components-picker-button/*": ["../picker-button/src/*"],
+            "@balafla/core-components-select": ["../select/src"],
+            "@balafla/core-components-select/*": ["../select/src/*"]
         }
     },
     "references": [
         { "path": "../custom-button" },
-        { "path": "../picker-button" },
         { "path": "../mq" },
-        { "path": "../shared" },
+        { "path": "../picker-button" },
+        { "path": "../select" }
     ]
 }

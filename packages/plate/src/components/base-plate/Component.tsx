@@ -9,11 +9,11 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { ButtonProps } from '@balafla/core-components-button';
+import { IconButton } from '@balafla/core-components-icon-button';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import { ButtonProps } from '@alfalab/core-components-button';
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';

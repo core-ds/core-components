@@ -29,16 +29,16 @@ yarn start
 
 ## Импорт компонентов внутри компонентов
 
-Так как у нас монорепозиторий, то все пакеты должны быть независимы. 
-Если при разработке компонента вам потребовался другой компонент, то его нужно добавить как зависимость. 
-Пример можно посмотреть в [Тултипе](https://github.com/core-ds/core-components/tree/master/packages/tooltip). 
+Так как у нас монорепозиторий, то все пакеты должны быть независимы.
+Если при разработке компонента вам потребовался другой компонент, то его нужно добавить как зависимость.
+Пример можно посмотреть в [Тултипе](https://github.com/core-ds/core-components/tree/master/packages/tooltip).
 Также нужно добавить пару опций в `tsconfig.json`:
 
 ```json
 {
     "compilerOptions": {
         "paths": {
-            "@alfalab/core-components-button/*": ["../button/src/*"] // для корректоной сборки rollup
+            "@balafla/core-components-button/*": ["../button/src/*"] // для корректоной сборки rollup
         }
     },
     "references": [{ "path": "../button" }] // для корректной работы IDE
@@ -72,7 +72,7 @@ yarn start
 
 ```
 ---
-'@alfalab/core-components-gap': major
+'@balafla/core-components-gap': major
 ---
 
 Добавлен новый компонент Gap
@@ -138,19 +138,19 @@ $ git push
 
 ```tsx
 //Импорт `ES5`:
-import { Button } from '@alfalab/core-components/button';
+import { Button } from '@balafla/core-components/button';
 // или
-import { Button } from '@alfalab/core-components-button';
+import { Button } from '@balafla/core-components-button';
 
 //Импорт `ES5` с css-модулями:
-import { Button } from '@alfalab/core-components/button/cssm';
+import { Button } from '@balafla/core-components/button/cssm';
 // или
-import { Button } from '@alfalab/core-components-button/cssm';
+import { Button } from '@balafla/core-components-button/cssm';
 
 //Импорт `ES2020`:
-import { Button } from '@alfalab/core-components/button/modern';
+import { Button } from '@balafla/core-components/button/modern';
 // или
-import { Button } from '@alfalab/core-components-button/modern';
+import { Button } from '@balafla/core-components-button/modern';
 ```
 
 ## Правила контрибьютинга

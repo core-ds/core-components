@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-
-import { fnUtils, isClient } from '@alfalab/core-components-shared';
+import { fnUtils, isClient } from '@balafla/core-components-shared';
 
 type VisualViewportSize = Pick<VisualViewport, 'height' | 'offsetTop'>;
 

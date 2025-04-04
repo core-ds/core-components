@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Calendar, CalendarProps, usePeriod } from '@alfalab/core-components/calendar';
-import { CalendarResponsive } from '@alfalab/core-components-calendar/responsive';
+import { Calendar, CalendarProps, usePeriod } from '@balafla/core-components/calendar';
+import { CalendarResponsive } from '@balafla/core-components-calendar/responsive';
 
 const noop = () => {};
 

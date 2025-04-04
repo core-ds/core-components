@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import { Radio } from '@alfalab/core-components-radio';
-import { RadioGroup } from '@alfalab/core-components-radio-group';
-import { Space } from '@alfalab/core-components-space';
-import { Typography } from '@alfalab/core-components-typography';
+import { Radio } from '@balafla/core-components-radio';
+import { RadioGroup } from '@balafla/core-components-radio-group';
+import { Space } from '@balafla/core-components-space';
+import { Typography } from '@balafla/core-components-typography';
 import { Question, Answers } from '../types';
 
 export type QuestionsProps = {

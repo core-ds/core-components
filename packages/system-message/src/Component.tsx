@@ -1,7 +1,6 @@
 import React, { isValidElement, useMemo } from 'react';
+import { createPaddingStyle } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { createPaddingStyle } from '@alfalab/core-components-shared';
 
 import { SystemMessageContext } from './Context';
 import type { SystemMessageBaseProps } from './types';

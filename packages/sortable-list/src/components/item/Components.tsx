@@ -1,9 +1,9 @@
 import React from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { DragMIcon } from '@alfalab/icons-glyph/DragMIcon';
 
 import { SortableItemProps } from '../../types';

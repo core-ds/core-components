@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { ButtonDesktop as Button } from '@balafla/core-components-button/desktop';
 
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 
 import { formatMsAsMinutes } from '../countdown';

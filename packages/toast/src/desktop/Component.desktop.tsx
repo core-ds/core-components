@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { ToastPlateDesktop } from '@alfalab/core-components-toast-plate/desktop';
+import { ToastPlateDesktop } from '@balafla/core-components-toast-plate/desktop';
 
 import { BaseToast, BaseToastProps } from '../components/base-toast';
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { UniversalDateInput } from '@alfalab/core-components-universal-date-input';
-import { UniversalDateInputDesktop } from '@alfalab/core-components-universal-date-input/desktop';
-import { UniversalDateInputMobile } from '@alfalab/core-components-universal-date-input/mobile';
-import { Calendar } from '@alfalab/core-components-calendar';
+import { UniversalDateInput } from '@balafla/core-components-universal-date-input';
+import { UniversalDateInputDesktop } from '@balafla/core-components-universal-date-input/desktop';
+import { UniversalDateInputMobile } from '@balafla/core-components-universal-date-input/mobile';
+import { Calendar } from '@balafla/core-components-calendar';
 import { boolean, select } from '@storybook/addon-knobs';
 
 const meta: Meta<typeof UniversalDateInput> = {

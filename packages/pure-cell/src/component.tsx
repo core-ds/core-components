@@ -9,11 +9,11 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ButtonProps } from '@balafla/core-components-button';
+import { Comment } from '@balafla/core-components-comment';
 import cn from 'classnames';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonProps } from '@alfalab/core-components-button';
-import { Comment } from '@alfalab/core-components-comment';
 import { useFocus } from '@alfalab/hooks';
 
 import { Addon } from './components/addon';

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Grid } from '@alfalab/core-components-grid';
+import { Grid } from '@balafla/core-components-grid';
 import {
     stylesStringToObj,
     getQueryParam,

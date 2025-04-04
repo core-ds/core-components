@@ -11,13 +11,13 @@ const transformPaths = (fileInfo, api, options) => {
 
             if (packages.length > 0) {
                 const reList = packages.map(
-                    (p) => new RegExp(`^@alfalab/core-components-${p}/dist`),
+                    (p) => new RegExp(`^@balafla/core-components-${p}/dist`),
                 );
 
                 return reList.some((re) => re.test(importFrom));
             }
 
-            const re = new RegExp('^(@alfalab/core-components-).+(/dist)');
+            const re = new RegExp('^(@balafla/core-components-).+(/dist)');
 
             return re.test(importFrom);
         })

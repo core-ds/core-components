@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
-import { Link } from '@alfalab/core-components-link';
-import { Typography } from '@alfalab/core-components-typography';
-import { Space } from '@alfalab/core-components-space';
+import { Link } from '@balafla/core-components-link';
+import { Typography } from '@balafla/core-components-typography';
+import { Space } from '@balafla/core-components-space';
 import { pluralize } from '@alfalab/utils';
 import { GithubIcon } from 'storybook/components/icons/GithubIcon';
 
@@ -10,7 +10,7 @@ import figmaLinks from 'storybook/figma-links.json';
 import usages from 'storybook/usages.json';
 
 import styles from './ComponentHeader.module.css';
-import { useMatchMedia } from '@alfalab/core-components-mq';
+import { useMatchMedia } from '@balafla/core-components-mq';
 
 type ComponentHeaderProps = {
     name: string;

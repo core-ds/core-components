@@ -1,9 +1,8 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
+import { BaseModal } from '@balafla/core-components-base-modal';
+import { useIsDesktop } from '@balafla/core-components-mq';
 import cn from 'classnames';
 import SwiperCore from 'swiper';
-
-import { BaseModal } from '@alfalab/core-components-base-modal';
-import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Single } from './components/image-viewer/single';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';

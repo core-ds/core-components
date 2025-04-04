@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-text",
+    "name": "@balafla/core-components-text",
     "version": "1.2.3",
     "description": "Text",
     "keywords": [],
@@ -15,6 +15,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "@balafla/core-components-types": "^0.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

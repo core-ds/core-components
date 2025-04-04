@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-steps",
+    "name": "@balafla/core-components-steps",
     "version": "1.8.0",
     "description": "",
     "keywords": [],
@@ -15,8 +15,8 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-badge": "^5.6.4",
-        "@alfalab/core-components-shared": "^0.16.0",
+        "@balafla/core-components-badge": "^5.6.4",
+        "@balafla/core-components-shared": "^0.16.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",

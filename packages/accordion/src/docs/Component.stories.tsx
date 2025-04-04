@@ -6,7 +6,7 @@ import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
-import { Accordion } from '@alfalab/core-components-accordion';
+import { Accordion } from '@balafla/core-components-accordion';
 
 import './demo.css';
 

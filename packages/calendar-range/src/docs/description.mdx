@@ -2,7 +2,7 @@
 
 ```jsx live desktopOnly
 // import { startOfDay, subMonths, addMonths, startOfMonth, startOfDay } from 'date-fns';
-// import { parseDateString } from '@alfalab/core-components/calendar-input';
+// import { parseDateString } from '@balafla/core-components/calendar-input';
 
 render(() => {
     const [calendarPosition, setCalendarPosition] = React.useState('static');
@@ -37,7 +37,7 @@ render(() => {
                 <Typography.Text view='primary-medium' color='secondary'>
                     Dates: {valueFrom.date && formatDate(valueFrom.date)} — {valueTo.date && formatDate(valueTo.date)}
                 </Typography.Text>
-           </>   
+           </>
             <RadioGroup
                 label='Конфигурация пикера'
                 direction='vertical'

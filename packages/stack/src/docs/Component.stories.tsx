@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Stack } from '@alfalab/core-components-stack';
-import { Button } from '@alfalab/core-components-button';
-import { ModalDesktop } from '@alfalab/core-components-modal/desktop';
-import { Tooltip } from '@alfalab/core-components-tooltip';
+import { Stack } from '@balafla/core-components-stack';
+import { Button } from '@balafla/core-components-button';
+import { ModalDesktop } from '@balafla/core-components-modal/desktop';
+import { Tooltip } from '@balafla/core-components-tooltip';
 
 const meta: Meta<typeof Stack> = {
     title: 'Components/Stack',

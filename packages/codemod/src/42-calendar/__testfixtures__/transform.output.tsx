@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 
-import { CalendarDesktop, CalendarDesktopProps } from '@alfalab/core-components/calendar/desktop';
-import { usePeriod } from '@alfalab/core-components/calendar/shared';
-import { Calendar } from '@alfalab/core-components-calendar';
+import { CalendarDesktop, CalendarDesktopProps } from '@balafla/core-components/calendar/desktop';
+import { usePeriod } from '@balafla/core-components/calendar/shared';
+import { Calendar } from '@balafla/core-components-calendar';
 
 const noop = () => {};
 

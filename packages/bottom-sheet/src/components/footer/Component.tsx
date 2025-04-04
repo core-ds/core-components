@@ -1,7 +1,6 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
+import { BaseModalContext } from '@balafla/core-components-base-modal';
 import cn from 'classnames';
-
-import { BaseModalContext } from '@alfalab/core-components-base-modal';
 
 import styles from './index.module.css';
 

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-
-import { Text } from '@alfalab/core-components-typography';
+import { Text } from '@balafla/core-components-typography';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 

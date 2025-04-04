@@ -1,7 +1,6 @@
 import { FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
-
-import { SkeletonProps } from '@alfalab/core-components-skeleton';
-import { TagProps } from '@alfalab/core-components-tag';
+import { SkeletonProps } from '@balafla/core-components-skeleton';
+import { TagProps } from '@balafla/core-components-tag';
 
 export type SelectedId = string | number;
 

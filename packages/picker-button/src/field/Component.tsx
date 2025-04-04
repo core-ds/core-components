@@ -1,8 +1,7 @@
 import React, { ButtonHTMLAttributes, ComponentType, Fragment, SVGProps } from 'react';
+import { Button, ButtonProps } from '@balafla/core-components-button';
+import { FieldProps as BaseFieldProps } from '@balafla/core-components-select/src/typings';
 import cn from 'classnames';
-
-import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
 
 import type { PickerButtonSize, PickerButtonVariant } from '../types';
 import { getIcon } from '../utils';

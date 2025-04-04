@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
-import { TabBar } from '@alfalab/core-components-tab-bar';
+import { TabBar } from '@balafla/core-components-tab-bar';
 import DiamondsMIcon from '@alfalab/icons-glyph/DiamondsMIcon';
 import {
     getQueryParam,

@@ -1,8 +1,8 @@
 import React from 'react';
+import { ButtonDesktop } from '@balafla/core-components-button/desktop';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { Text } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 

@@ -1,12 +1,12 @@
 import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
+import { CodeInputDesktop } from '@balafla/core-components-code-input/desktop';
+import { CodeInputMobile } from '@balafla/core-components-code-input/mobile';
+import { BaseCodeInputProps, CustomInputRef } from '@balafla/core-components-code-input/shared';
+import { Link } from '@balafla/core-components-link';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
 
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
-import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
-import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
-import { Link } from '@alfalab/core-components-link';
-import { Text } from '@alfalab/core-components-typography';
 import { useLayoutEffect_SAFE_FOR_SSR, usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../../context';

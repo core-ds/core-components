@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
-
-import { Input } from '@alfalab/core-components-input';
+import { Input } from '@balafla/core-components-input';
 
 import { HOURS_MINUTES_SEPARATOR } from '../../consts';
 import type { InnerTimeInputProps } from '../../types';

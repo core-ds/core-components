@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { PlateMobile } from '@alfalab/core-components-plate/mobile';
+import { PlateMobile } from '@balafla/core-components-plate/mobile';
 
 import { type AlertProps, AlertBase } from '../Component';
 

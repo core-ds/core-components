@@ -1,0 +1,13 @@
+{
+    "name": "@balafla/core-components-types",
+    "version": "0.0.0",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "main": "index.js",
+    "module": "./esm/index.js",
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    }
+}

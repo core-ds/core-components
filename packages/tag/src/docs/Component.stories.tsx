@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 
 import { CopyMIcon } from '@alfalab/icons-glyph/CopyMIcon';
-import { Tag } from '@alfalab/core-components-tag';
-import { TagDesktop } from '@alfalab/core-components-tag/desktop';
-import { TagMobile } from '@alfalab/core-components-tag/mobile';
+import { Tag } from '@balafla/core-components-tag';
+import { TagDesktop } from '@balafla/core-components-tag/desktop';
+import { TagMobile } from '@balafla/core-components-tag/mobile';
 
 const meta: Meta<typeof Tag> = {
     title: 'Components/Tag',

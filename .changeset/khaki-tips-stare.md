@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-icon-view': patch
+'@balafla/core-components-icon-view': patch
 ---
 
 -   Фикс пустого css-класса

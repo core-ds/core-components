@@ -45,7 +45,7 @@ export const removeEmptyCoreImport = (source, j, packageName) => {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const modifyImportPath = (source, j, replacer, filterFn = (args: unknown) => true) => {
-    const isCoreComponentImport = (str) => str.startsWith('@alfalab/core-components');
+    const isCoreComponentImport = (str) => str.startsWith('@balafla/core-components');
 
     source
         .find(j.ImportDeclaration)

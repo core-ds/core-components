@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 
-import { ConfirmationDesktop, useConfirmation, DesktopConfirmationProps } from '@alfalab/core-components/confirmation/desktop';
-import { ConfirmationMedia, defaultTexts } from '@alfalab/core-components/confirmation/shared';
-import { Confirmation, ConfirmationProps } from '@alfalab/core-components/confirmation';
+import { ConfirmationDesktop, useConfirmation, DesktopConfirmationProps } from '@balafla/core-components/confirmation/desktop';
+import { ConfirmationMedia, defaultTexts } from '@balafla/core-components/confirmation/shared';
+import { Confirmation, ConfirmationProps } from '@balafla/core-components/confirmation';
 
 const noop = () => {};
 

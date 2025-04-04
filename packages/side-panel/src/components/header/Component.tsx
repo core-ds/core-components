@@ -1,11 +1,10 @@
 import React, { FC, useContext, useEffect } from 'react';
-import cn from 'classnames';
-
 import {
     NavigationBarPrivate,
     NavigationBarPrivateProps,
-} from '@alfalab/core-components-navigation-bar-private';
-import { getDataTestId } from '@alfalab/core-components-shared';
+} from '@balafla/core-components-navigation-bar-private';
+import { getDataTestId } from '@balafla/core-components-shared';
+import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';

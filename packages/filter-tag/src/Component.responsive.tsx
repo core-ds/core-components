@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { PrivateProps } from './types/base-filter-tag-private-props';
 import { BaseFilterTagProps } from './types/base-filter-tag-props';

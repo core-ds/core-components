@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, number } from '@storybook/addon-knobs';
-import { ConfirmationV1 } from '@alfalab/core-components-confirmation-v1';
-import { SelectDesktop } from '@alfalab/core-components-select/desktop';
+import { ConfirmationV1 } from '@balafla/core-components-confirmation-v1';
+import { SelectDesktop } from '@balafla/core-components-select/desktop';
 
 const meta: Meta<typeof ConfirmationV1> = {
     title: 'Deprecated components/ConfirmationV1',

@@ -1,6 +1,7 @@
 /* eslint-disable complexity */
 import React, { FC, RefCallback, useCallback, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { ButtonDesktop as Button } from '@balafla/core-components-button/desktop';
 import cn from 'classnames';
 import isEqual from 'date-fns/isEqual';
 import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
@@ -9,7 +10,6 @@ import isToday from 'date-fns/isToday';
 import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { usePrevious } from '@alfalab/hooks';
 
 import { Day, DayAddons } from '../../typings';

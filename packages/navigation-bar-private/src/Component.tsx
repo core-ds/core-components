@@ -1,9 +1,9 @@
 /* eslint-disable complexity */
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { BackArrowAddon } from './components/back-arrow-addon';

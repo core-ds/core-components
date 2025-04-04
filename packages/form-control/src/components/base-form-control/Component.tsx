@@ -1,7 +1,6 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { getDataTestId } from '@alfalab/core-components-shared';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';

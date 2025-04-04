@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Text } from '@alfalab/core-components-typography';
 
 import { StepBar } from './components/step-bar';
 

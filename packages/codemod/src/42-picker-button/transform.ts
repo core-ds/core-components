@@ -15,7 +15,7 @@ const pickerButtonEntryTransformer = (source, j) => {
         path: '/shared',
     });
     modifyImportPath(source, j, (path) =>
-        /@alfalab\/core-components[-/]picker-button\//.test(path)
+        /@balafla\/core-components[-/]picker-button\//.test(path)
             ? path.replace('/responsive', '')
             : path,
     );

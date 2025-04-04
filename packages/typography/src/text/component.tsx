@@ -103,7 +103,7 @@ const logWarning = (view: Required<TextBaseProps>['view']) => {
     // eslint-disable-next-line no-console
     console.warn(
         // eslint-disable-next-line prefer-template
-        `@alfalab/core-components/typography: view='${view}' будет удален в следующих мажорных версиях. ` +
+        `@balafla/core-components/typography: view='${view}' будет удален в следующих мажорных версиях. ` +
             `Используйте view='${viewsMap[view]}'.`,
     );
 };

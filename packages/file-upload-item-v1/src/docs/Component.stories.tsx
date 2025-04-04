@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
-import { FileUploadItemV1 } from '@alfalab/core-components-file-upload-item-v1';
+import { FileUploadItemV1 } from '@balafla/core-components-file-upload-item-v1';
 
 import {
     getQueryParam,

@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-pure-cell
 
 ## 4.14.6
 

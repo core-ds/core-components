@@ -1,8 +1,7 @@
 import React, { FC, forwardRef, useContext, useMemo } from 'react';
-
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { DrawerProps } from '@alfalab/core-components-drawer';
-import { useIsDesktop } from '@alfalab/core-components-mq';
+import { BaseModalProps } from '@balafla/core-components-base-modal';
+import { DrawerProps } from '@balafla/core-components-drawer';
+import { useIsDesktop } from '@balafla/core-components-mq';
 
 import { Controls } from './components/controls';
 import { Header } from './components/header/Component';

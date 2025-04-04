@@ -7,20 +7,20 @@ import vars from '!!raw-loader!../vars.css';
 ## Подключение
 
 ```jsx
-import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
-import { PatternLockMobileV1 } from '@alfalab/core-components/pattern-lock-v1/mobile';
-import { PatternLockDesktopV1 } from '@alfalab/core-components/pattern-lock-v1/desktop';
+import { PatternLockV1 } from '@balafla/core-components/pattern-lock-v1';
+import { PatternLockMobileV1 } from '@balafla/core-components/pattern-lock-v1/mobile';
+import { PatternLockDesktopV1 } from '@balafla/core-components/pattern-lock-v1/desktop';
 // Хук для очистки ввода
-import { usePatternLockCleanup } from '@alfalab/core-components/pattern-lock-v1/shared';
+import { usePatternLockCleanup } from '@balafla/core-components/pattern-lock-v1/shared';
 // Также можно импортировать объект с состояниями темы
-import { THEME_STATE } from '@alfalab/core-components/pattern-lock';
+import { THEME_STATE } from '@balafla/core-components/pattern-lock';
 ```
 
 ## Использование dataTestId
 
 В компоненте используются модификаторы для `dataTestId`.
 Для удобного поиска элементов можно воспользоваться функцией `getPatternLockTestIds`.
-Импорт из `@alfalab/core-components/pattern-lock/shared`.
+Импорт из `@balafla/core-components/pattern-lock/shared`.
 
 Функция возвращает объект:
 

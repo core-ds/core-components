@@ -1,6 +1,7 @@
-import { BorderColorType, ShadowType } from '../../../types';
+import type { BorderColorType, ShadowType } from '@balafla/core-components-types';
+
 import { BACKGROUND } from '../constants';
-import { BorderSizeType } from '../types';
+import type { BorderSizeType } from '../types';
 
 import styles from '../index.module.css';
 

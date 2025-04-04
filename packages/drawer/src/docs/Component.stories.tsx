@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
-import { Button } from '@alfalab/core-components-button';
-import { Drawer } from '@alfalab/core-components-drawer';
+import { Button } from '@balafla/core-components-button';
+import { Drawer } from '@balafla/core-components-drawer';
 
 const meta: Meta<typeof Drawer> = {
     title: 'Components/Drawer',

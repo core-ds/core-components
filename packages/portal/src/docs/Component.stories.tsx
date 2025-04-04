@@ -2,9 +2,9 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
-import { Button } from '@alfalab/core-components-button';
-import { Space } from '@alfalab/core-components-space';
-import { Portal } from '@alfalab/core-components-portal';
+import { Button } from '@balafla/core-components-button';
+import { Space } from '@balafla/core-components-space';
+import { Portal } from '@balafla/core-components-portal';
 
 const meta: Meta<typeof Portal> = {
     title: 'Components/Portal',

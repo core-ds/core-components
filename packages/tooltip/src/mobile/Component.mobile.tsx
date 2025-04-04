@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from 'react';
+import { BottomSheet } from '@balafla/core-components-bottom-sheet';
+import { ButtonMobile } from '@balafla/core-components-button/mobile';
 import cn from 'classnames';
-
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { TooltipMobileProps } from '../types';
 

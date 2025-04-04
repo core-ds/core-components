@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, number } from '@storybook/addon-knobs';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Amount } from '@alfalab/core-components-amount';
+import { Amount } from '@balafla/core-components-amount';
 
 const meta: Meta<typeof Amount> = {
     title: 'Components/Amount',

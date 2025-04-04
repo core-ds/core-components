@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-tab-bar
 
 ## 2.1.12
 

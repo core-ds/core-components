@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, useCallback, useMemo } from 'react';
+import { SelectDesktop, SelectDesktopProps } from '@balafla/core-components-select/desktop';
+import { OptionsListProps, VirtualOptionsList } from '@balafla/core-components-select/shared';
 
-import { SelectDesktop, SelectDesktopProps } from '@alfalab/core-components-select/desktop';
-import { OptionsListProps, VirtualOptionsList } from '@alfalab/core-components-select/shared';
 import { Country } from '@alfalab/utils';
 
 import { FlagIcon } from '../flag-icon';

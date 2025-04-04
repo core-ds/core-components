@@ -6,20 +6,20 @@ import styles from '!!raw-loader!../index.module.css';
 ## Подключение
 
 ```jsx
-import { TabBar } from '@alfalab/core-components/tab-bar';
+import { TabBar } from '@balafla/core-components/tab-bar';
 ```
 
 ## Использование dataTestId
 
-В компоненте используется модификатор для `dataTestId`.  
-Для удобного поиска элементов можно воспользоваться функцией `getTabBarTestIds`.  
-Импорт из `@alfalab/core-components/tab-bar/shared`.
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getTabBarTestIds`.
+Импорт из `@balafla/core-components/tab-bar/shared`.
 
 Функция возвращает объект:
 
 ```jsx
 {
-    tabBar: dataTestId, 
+    tabBar: dataTestId,
     tab: `${dataTestId}-tab`,
 };
 ```

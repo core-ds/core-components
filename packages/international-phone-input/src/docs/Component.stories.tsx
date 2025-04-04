@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {
     InternationalPhoneInput,
     InternationalPhoneInputProps,
-} from '@alfalab/core-components-international-phone-input';
+} from '@balafla/core-components-international-phone-input';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 const meta: Meta<typeof InternationalPhoneInput> = {

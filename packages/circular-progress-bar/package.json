@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-circular-progress-bar",
+    "name": "@balafla/core-components-circular-progress-bar",
     "version": "3.8.2",
     "description": "",
     "keywords": [],
@@ -12,8 +12,8 @@
     },
     "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.12.0",
-        "@alfalab/core-components-shared": "^0.16.0",
+        "@balafla/core-components-typography": "^4.12.0",
+        "@balafla/core-components-shared": "^0.16.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

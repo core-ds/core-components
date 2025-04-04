@@ -1,9 +1,8 @@
 import React, { FC, useContext } from 'react';
+import { Button } from '@balafla/core-components-button';
+import { Link } from '@balafla/core-components-link';
+import { Text } from '@balafla/core-components-typography';
 import cn from 'classnames';
-
-import { Button } from '@alfalab/core-components-button';
-import { Link } from '@alfalab/core-components-link';
-import { Text } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { getPhoneHref } from '../../../utils';

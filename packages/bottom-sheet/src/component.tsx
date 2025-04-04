@@ -11,10 +11,9 @@ import { use100vh } from 'react-div-100vh';
 import mergeRefs from 'react-merge-refs';
 import { SwipeCallback, SwipeEventData, TapCallback, useSwipeable } from 'react-swipeable';
 import { HandledEvents } from 'react-swipeable/es/types';
+import { BaseModal, unlockScroll } from '@balafla/core-components-base-modal';
+import { fnUtils, getDataTestId, isClient, os } from '@balafla/core-components-shared';
 import cn from 'classnames';
-
-import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';

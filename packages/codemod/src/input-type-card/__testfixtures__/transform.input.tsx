@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { Input } from '@alfalab/core-components-input';
-import { InputDesktop } from '@alfalab/core-components-input/desktop';
-import { InputMobile } from '@alfalab/core-components-input/mobile';
+import { Input } from '@balafla/core-components-input';
+import { InputDesktop } from '@balafla/core-components-input/desktop';
+import { InputMobile } from '@balafla/core-components-input/mobile';
 
 export const Component = () => (
     <React.Fragment>

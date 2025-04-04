@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
+import { getDataTestId } from '@balafla/core-components-shared';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { BackspaceXxlIcon } from '@alfalab/icons-glyph/BackspaceXxlIcon';
 
 import { KeyPadButton } from '../KeyPadButton';

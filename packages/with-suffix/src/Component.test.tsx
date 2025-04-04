@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Input } from '@alfalab/core-components-input';
+import { Input } from '@balafla/core-components-input';
 
 import userEvent from '@testing-library/user-event';
 import { withSuffix } from './index';
@@ -21,7 +21,7 @@ describe('withSuffix', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<SuffixInput value='10' suffix=' лет' />).container).toMatchSnapshot();

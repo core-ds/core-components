@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, boolean } from '@storybook/addon-knobs';
-import { Button } from '@alfalab/core-components-button';
-import { Alert } from '@alfalab/core-components-alert';
+import { Button } from '@balafla/core-components-button';
+import { Alert } from '@balafla/core-components-alert';
 
 const meta: Meta<typeof Alert> = {
     title: 'Deprecated components/Alert',

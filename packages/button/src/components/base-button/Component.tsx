@@ -7,10 +7,10 @@ import React, {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { getDataTestId } from '@balafla/core-components-shared';
+import { Spinner } from '@balafla/core-components-spinner';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
 import { CommonButtonProps, ComponentProps, PrivateButtonProps } from '../../typings';
@@ -43,9 +43,9 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     // eslint-disable-next-line no-console
     console.warn(
         // eslint-disable-next-line prefer-template
-        `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
+        `@balafla/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
             `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
-            'npx @alfalab/core-components-codemod --transformers=button-views-45 src/**/*.tsx',
+            'npx @balafla/core-components-codemod --transformers=button-views-45 src/**/*.tsx',
     );
 };
 

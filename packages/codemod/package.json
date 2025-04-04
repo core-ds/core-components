@@ -1,5 +1,5 @@
 {
-    "name": "@alfalab/core-components-codemod",
+    "name": "@balafla/core-components-codemod",
     "version": "2.7.0",
     "description": "Codemod tools for code transforms",
     "keywords": [],

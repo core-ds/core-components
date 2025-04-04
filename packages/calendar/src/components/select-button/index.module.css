@@ -9,7 +9,7 @@
         position: relative;
         padding: var(--gap-0) var(--gap-8);
         background-color: transparent;
-        border-radius: var(--border-radius-l);
+        border-radius: var(--border-radius-12);
         box-shadow: var(--calendar-select-button-box-shadow);
 
         &:not(:disabled):hover {

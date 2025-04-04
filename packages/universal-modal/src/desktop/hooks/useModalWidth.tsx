@@ -1,6 +1,5 @@
 import { MutableRefObject, useContext, useEffect } from 'react';
-
-import { isClient } from '@alfalab/core-components-shared';
+import { isClient } from '@balafla/core-components-shared';
 
 import { ResponsiveContext } from '../../ResponsiveContext';
 

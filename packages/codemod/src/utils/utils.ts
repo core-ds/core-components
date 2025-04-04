@@ -21,7 +21,7 @@ export const transformTypographyImports = (
 ) => {
     const { from } = opts;
 
-    const to = '@alfalab/core-components/typography';
+    const to = '@balafla/core-components/typography';
     const componentName = 'Typography';
 
     /**
@@ -80,7 +80,7 @@ export function findCoreComponentJSXElement(
     componentName: string,
 ): string | undefined {
     const componentImportDecl = source.find(j.ImportDeclaration).filter((decl) => {
-        const isCoreImport = new RegExp(`@alfalab/core-components[-/]${packageName}`).test(
+        const isCoreImport = new RegExp(`@balafla/core-components[-/]${packageName}`).test(
             String(decl.node.source.value),
         );
 

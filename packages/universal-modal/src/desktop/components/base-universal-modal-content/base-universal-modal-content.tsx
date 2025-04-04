@@ -1,7 +1,6 @@
 import React, { FC, useContext, useEffect, useRef } from 'react';
-
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
+import { BaseModalProps } from '@balafla/core-components-base-modal';
+import { Scrollbar } from '@balafla/core-components-scrollbar';
 
 import { ResponsiveContext } from '../../../ResponsiveContext';
 import { SCROLLBAR_DEFAULT_GAP } from '../../constants';

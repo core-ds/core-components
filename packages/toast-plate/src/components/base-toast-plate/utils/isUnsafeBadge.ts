@@ -1,4 +1,4 @@
-import { StatusBadgeProps } from '@alfalab/core-components-status-badge';
+import { StatusBadgeProps } from '@balafla/core-components-status-badge';
 
 import { unsafe_BadgeProps } from '../types/unsafeBadgeProps';
 

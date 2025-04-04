@@ -1,9 +1,9 @@
 import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent, ReactNode } from 'react';
+import { IconButton } from '@balafla/core-components-icon-button';
+import { Link } from '@balafla/core-components-link';
+import { Spinner } from '@balafla/core-components-spinner';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { Link } from '@alfalab/core-components-link';
-import { Spinner } from '@alfalab/core-components-spinner';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
