@@ -51,6 +51,7 @@ async function calculateBundleSize(location) {
 const packages = JSON.parse(
     shell.exec(
         `lerna list \\
+        --ignore @alfalab/core-components \\
         --ignore @alfalab/core-components-codemod \\
         --ignore @alfalab/core-components-themes \\
         --ignore @alfalab/core-components-vars \\

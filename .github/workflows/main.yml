@@ -34,6 +34,10 @@ jobs:
 
             - uses: ./.github/actions/ci-setup
 
+            - name: check tsconfig
+              run: |
+                  yarn tsconfig check
+
             - name: run lint
               run: |
                   yarn lint
