@@ -1,4 +1,5 @@
 import React, { ElementType, useCallback, useMemo } from 'react';
+import cn from 'classnames';
 
 import {
     BaseOption,
@@ -9,6 +10,7 @@ import {
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { Country } from '../../types';
 import { FlagIcon } from '../flag-icon';
 import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
@@ -47,6 +49,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     onChange,
     view = 'desktop',
     SelectComponent,
+    size,
     ...restProps
 }) => {
     const options = useMemo(
@@ -58,7 +61,12 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     key: iso2,
                     value: areas[0],
                     content: (
-                        <span className={styles.option}>
+                        <span
+                            className={cn([
+                                styles.option,
+                                size && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                            ])}
+                        >
                             <FlagIcon country={iso2} className={styles.flag} />
 
                             <span className={styles.optionTextWrap}>
@@ -69,7 +77,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     ),
                 };
             }) || [],
-        [countries],
+        [countries, size],
     );
 
     const renderOptionsList = useCallback(
@@ -99,6 +107,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
             <div className={styles.component} onClick={(event) => event.stopPropagation()}>
                 <SelectComponent
                     Option={BaseOption}
+                    size={size}
                     {...restProps}
                     dataTestId={getDataTestId(dataTestId, 'country-select')}
                     options={options}
