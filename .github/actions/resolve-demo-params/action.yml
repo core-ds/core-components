@@ -108,7 +108,7 @@ runs:
 
                       if (match) {
                           const [, v1, v2] = match;
-                          return v1 ?? v2;
+                          return `v${v1 ?? v2}`;
                       }
                   }
 
