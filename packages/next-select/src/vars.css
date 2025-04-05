@@ -1,0 +1,59 @@
+@import '../../vars/src/index.css';
+
+:root {
+    --select-error-color: var(--color-light-text-negative);
+    --select-arrow-color: var(--color-light-neutral-translucent-700);
+    --select-arrow-hover-opacity: 0.7;
+
+    /* options list */
+
+    --select-options-list-border-radius: var(--border-radius-8);
+    --select-options-list-box-shadow: var(--shadow-m);
+    --select-options-list-offset: var(--gap-4);
+    --select-options-list-top-padding: var(--gap-0);
+    --select-options-list-bottom-padding: var(--gap-0);
+    --select-options-list-empty-placeholder-color: var(--color-light-text-secondary);
+    --select-option-divider-display: none;
+    --select-option-divider-background: var(--color-light-neutral-400);
+
+    /* option */
+
+    --select-option-left-padding: var(--gap-12);
+    --select-option-right-padding: var(--gap-12);
+    --select-option-l-left-padding: var(--gap-16);
+    --select-option-l-right-padding: var(--gap-16);
+    --select-option-background: var(--color-light-modal-bg-primary);
+    --select-option-selected-background: var(--color-light-modal-bg-primary);
+    --select-option-hover-background: var(--color-light-transparent-default-hover);
+    --select-option-active-background: var(--color-light-transparent-default-press);
+    --select-option-disabled-background: var(--color-light-modal-bg-primary);
+    --select-option-color: var(--color-light-text-primary);
+    --select-option-selected-color: var(--color-light-text-primary);
+    --select-option-hover-color: var(--color-light-text-primary);
+    --select-option-active-color: var(--color-light-text-primary);
+    --select-option-disabled-color: var(--color-light-text-secondary);
+
+    /* checkmark */
+
+    --select-checkmark-margin: var(--gap-0) var(--gap-8) var(--gap-0) var(--gap-0);
+    --select-checkmark-margin-after: var(--select-checkmark-margin);
+    --select-checkmark-size: 4px;
+    --select-checkmark-before-display: 'flex';
+    --select-checkmark-after-display: none;
+    --select-checkmark-before-display-multiple: block;
+    --select-checkmark-after-display-single: none;
+    --select-checkmark-unselected-opacity: 0;
+    --select-checkmark-background: var(--color-light-neutral-translucent-1300);
+    --select-checkmark-border-radius: var(--border-radius-circle);
+    --select-mobile-checkmark-display-icon: block;
+    --select-mobile-checkmark-display-badge: none;
+
+    /* optgroup */
+
+    --select-optgroup-color: var(--color-light-text-secondary);
+    --select-optgroup-background: var(--color-light-modal-bg-primary);
+    --select-optgroup-left-padding: var(--gap-12);
+    --select-optgroup-right-padding: var(--gap-12);
+    --select-optgroup-l-left-padding: var(--gap-16);
+    --select-optgroup-l-right-padding: var(--gap-16);
+}

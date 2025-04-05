@@ -1,0 +1,20 @@
+.component {
+    &.nativeScrollbar {
+        overflow-x: hidden;
+    }
+}
+
+.contentWrapper {
+    position: relative;
+
+    &.matchContent {
+        min-width: 9999px; /* MAGIC NUMBER TO EXPAND CONTENT */
+    }
+}
+
+.content {
+    will-change: transform;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

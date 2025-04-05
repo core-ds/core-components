@@ -7,6 +7,14 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
+"@alfalab/core-components-shared@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-shared/-/core-components-shared-0.13.0.tgz#a1bb62e984fc326c70bea792d3e3111cab596d08"
+  integrity sha512-jaoJ4Znt4xFkrM0ZuoF629QwUdf73+uDTyX2HWXFzzS20EfxXI8XgH5FHwy9H7C9HfASzjVn3qVGFRUVEH8hOg==
+  dependencies:
+    "@alfalab/hooks" "^1.13.0"
+    tslib "^2.4.0"
+
 "@alfalab/core-components@>=35.1.0":
   version "44.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components/-/core-components-44.2.0.tgz#3e7366bc60f6a7b18853961ae6be1af80333528a"
@@ -5111,6 +5119,18 @@
   resolved "https://registry.yarnpkg.com/@swc/types/-/types-0.1.5.tgz#043b731d4f56a79b4897a3de1af35e75d56bc63a"
   integrity sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==
 
+"@tanstack/react-virtual@^3.11.2":
+  version "3.11.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.11.2.tgz#d6b9bd999c181f0a2edce270c87a2febead04322"
+  integrity sha512-OuFzMXPF4+xZgx8UzJha0AieuMihhhaWG0tCqpp6tDzlFwOmNBPYMuLOtMJ1Tr4pXLHmgjcWhG6RlknY2oNTdQ==
+  dependencies:
+    "@tanstack/virtual-core" "3.11.2"
+
+"@tanstack/virtual-core@3.11.2":
+  version "3.11.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.11.2.tgz#00409e743ac4eea9afe5b7708594d5fcebb00212"
+  integrity sha512-vTtpNt7mKCiZ1pwU9hfKPhpdVO2sVzFQsxoVBGtOSHxlrRRzYr8iQ2TlwbAcRYCcEiZ9ECAM8kBzH0v2+VzfKw==
+
 "@testing-library/dom@^8.17.1", "@testing-library/dom@^8.5.0":
   version "8.17.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.17.1.tgz#2d7af4ff6dad8d837630fecd08835aee08320ad7"
@@ -5554,6 +5574,13 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/lockfile/-/lockfile-1.0.2.tgz#3f77e84171a2b7e3198bd5717c7547a54393baf8"
   integrity sha512-jD5VbvhfMhaYN4M3qPJuhMVUg3Dfc4tvPvLEAXn6GXbs/ajDFtCQahX37GIE65ipTI3I+hEvNaXS3MYAn9Ce3Q==
+
+"@types/lodash-es@^4.17.6":
+  version "4.17.12"
+  resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.12.tgz#65f6d1e5f80539aa7cfbfc962de5def0cf4f341b"
+  integrity sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==
+  dependencies:
+    "@types/lodash" "*"
 
 "@types/lodash.throttle@^4.1.7":
   version "4.1.9"
@@ -14494,6 +14521,11 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz"
@@ -19634,6 +19666,22 @@ simple-update-notifier@^2.0.0:
   integrity sha512-a2B9Y0KlNXl9u/vsW6sTIu9vGEpfKu2wRV6l1H3XEas/0gUIzGzBoP/IouTcUQbm9JWZLH3COxyn03TYlFax6w==
   dependencies:
     semver "^7.5.3"
+
+simplebar-core@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/simplebar-core/-/simplebar-core-1.2.6.tgz#8317bb6c1bcb38739eae43f1edc902cdd1d858d9"
+  integrity sha512-H5NYU+O+uvqOH5VXw3+lgoc1vTI6jL8LOZJsw4xgRpV7uIPjRpmLPdz0TrouxwKHBhpVLzVIlyKhaRLelIThMw==
+  dependencies:
+    "@types/lodash-es" "^4.17.6"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+
+simplebar-react@^3.2.6:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-3.2.6.tgz#f44b299a56311912f2faa06b04d9a7603b20ed28"
+  integrity sha512-8jDiBuVCG86JmOrsmkA+4q77iFAEbhU9EX62PohLisg3dnxdLXFFhkxnx2Es3Cxt8IlZFlJsF9GaobFL3ukwiA==
+  dependencies:
+    simplebar-core "^1.2.6"
 
 simplebar@^5.3.8:
   version "5.3.8"

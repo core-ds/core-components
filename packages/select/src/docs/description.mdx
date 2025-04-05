@@ -8,28 +8,34 @@
 Список селекта с единичным выбором закрывается сразу после выбора одного из значений.
 
 ```jsx live mobileHeight={640}
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
+const OPTIONS = [{ key: '1', content: 'Neptunium Neptunium Neptunium Neptunium' }];
 
 render(() => {
+    const [options, setOptions] = React.useState(OPTIONS);
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setOptions([
+                {
+                    key: '1',
+                    content: 'Neptunium Neptunium Neptunium Neptunium Neptunium Neptunium',
+                },
+            ]);
+        }, 3000);
+    }, []);
+
     return (
         <div style={{ width: 320 }}>
             <SelectDesktop
                 allowUnselect={true}
                 size={56}
-                options={OPTIONS}
+                options={options}
                 placeholder='Выберите элемент'
                 label='Одиночный выбор'
                 Option={BaseOption}
                 block={true}
+                optionsListWidth='content'
+                OptionsList={NextVirtualOptionsList}
             />
         </div>
     );
@@ -1024,7 +1030,7 @@ render(() => {
                 placeholder='Выберите один из тысячи'
                 label='Одиночный выбор'
                 options={optionsForVirtualList}
-                OptionsList={VirtualOptionsList}
+                OptionsList={NextVirtualOptionsList}
                 circularNavigation={true}
                 allowUnselect={true}
                 optionsListWidth='field'

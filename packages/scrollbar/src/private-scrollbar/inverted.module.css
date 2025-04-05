@@ -1,0 +1,15 @@
+@import '../vars.css';
+
+.component {
+    & :global(.simplebar-scrollbar) {
+        &:before {
+            background-color: var(--scrollbar-inverted-background-color);
+        }
+    }
+
+    &:global(.simplebar-dragging .track) {
+        & :global(.scrollbar.visible):before {
+            background-color: var(--scrollbar-inverted-background-color-active);
+        }
+    }
+}
