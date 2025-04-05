@@ -21,10 +21,10 @@ import {
     BaseSelectProps,
     FieldProps,
     Footer,
+    NextOptionsList,
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
     OptionShape,
-    OptionsList as DefaultOptionsList,
     Search,
 } from '@alfalab/core-components-select/shared';
 
@@ -42,7 +42,7 @@ type BaseSelectWithTagsProps = SelectWithTagsProps & {
 export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTagsProps>(
     (
         {
-            OptionsList = DefaultOptionsList,
+            OptionsList = NextOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             Arrow = DefaultArrow,

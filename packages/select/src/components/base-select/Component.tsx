@@ -2,6 +2,7 @@
 import React, {
     FocusEvent,
     forwardRef,
+    Fragment,
     KeyboardEvent,
     MouseEvent,
     RefAttributes,
@@ -10,8 +11,7 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-import mergeRefs from 'react-merge-refs';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import cn from 'classnames';
 import { compute } from 'compute-scroll-into-view';
 import {
@@ -21,10 +21,23 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import {
+    getDataTestId,
+    internalMergeRefs,
+    isFn,
+    isNullable,
+    useElementWidth,
+} from '@alfalab/core-components-shared';
 
-import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
+import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_NUMBER_MAP } from '../../consts';
+import type { VirtualOptionsProps } from '../../private-typings';
+import type {
+    AnyObject,
+    GroupShape,
+    OptionShape,
+    OptionsListProps,
+    SearchProps,
+} from '../../typings';
 import {
     defaultAccessor,
     defaultFilterFn,
@@ -34,13 +47,6 @@ import {
 } from '../../utils';
 import { NativeSelect } from '../native-select';
 
-import { getListPopoverDesktopProps } from './components/list-desktop/helpers/get-list-popover-desktop-props';
-import { ListPopoverDesktop } from './components/list-desktop/list-popover-desktop';
-import {
-    getListBottomSheetMobileProps,
-    getListModalMobileProps,
-} from './components/list-mobile/helpers';
-import { ListMobile } from './components/list-mobile/list-mobile';
 import { ComponentProps } from './types/component-types';
 
 import styles from './index.module.css';
@@ -53,14 +59,15 @@ const isItemDisabled = (option: OptionShape | null) => Boolean(option?.disabled)
 export const BaseSelect = forwardRef<unknown, ComponentProps>(
     // TODO: 😭
     // eslint-disable-next-line complexity
-    (props, ref) => {
-        const {
+    (
+        {
             dataTestId,
             className,
             fieldClassName,
             optionGroupClassName,
             optionsListClassName,
             optionClassName,
+            popperClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -71,6 +78,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             nativeSelect = false,
             defaultOpen = false,
             open: openProp,
+            popoverPosition = 'bottom-start',
+            preventFlip = true,
             optionsListWidth = 'content',
             name,
             id,
@@ -103,16 +112,32 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             Optgroup = () => null,
             Option = () => null,
             Search = () => null,
+            updatePopover,
+            zIndexPopover,
             showEmptyOptionsList = false,
-            visibleOptions,
+            visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             view,
             isBottomSheet = true,
+            footer,
+            swipeable,
             modalProps,
+            popoverProps,
+            modalFooterProps,
+            modalHeaderProps,
             bottomSheetProps,
+            Popover,
+            ModalMobile,
+            BottomSheet,
             limitDynamicOptionGroupSize,
-        } = props;
+            fieldWidth: fieldWidthFromProps,
+            legacyMode = false,
+        },
+        ref,
+    ) => {
+        const optionsScrollElementRef = useRef<HTMLDivElement>(null);
+        const optionsContentRef = useRef<HTMLDivElement>(null);
+        const optionsListFooterRef = useRef<HTMLDivElement>(null);
         const shouldSearchBlurRef = useRef(true);
-        const rootRef = useRef<HTMLDivElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
@@ -323,6 +348,63 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 }
             },
         });
+        const [measuredFieldWidth, rootRef] = useElementWidth<HTMLDivElement>();
+        const fieldWidth = fieldWidthFromProps ?? measuredFieldWidth;
+        const adjustScrollRect = useCallback((): [
+            scrollMargin: number,
+            scrollPaddingStart: number,
+            scrollPaddingEnd: number,
+        ] => {
+            const scrollableContainer = scrollableContainerRef.current;
+            const contentElement = optionsContentRef.current;
+            const footerElement = optionsListFooterRef.current;
+            const top =
+                isNullable(scrollableContainer) || isNullable(contentElement)
+                    ? 0
+                    : contentElement.offsetTop - scrollableContainer.offsetTop;
+            const bottom = isNullable(footerElement) ? 0 : footerElement.offsetHeight;
+
+            return [top, top, bottom];
+        }, []);
+
+        const [scrollMargin, scrollPaddingStart, scrollPaddingEnd] = adjustScrollRect();
+        const virtualizer = useVirtualizer<HTMLDivElement, HTMLDivElement>({
+            count: flatOptions.length,
+            estimateSize: () => SIZE_TO_NUMBER_MAP[optionsSize],
+            // eslint-disable-next-line consistent-return
+            getScrollElement: () => {
+                switch (view) {
+                    case 'mobile':
+                        return scrollableContainerRef.current;
+                    case 'desktop':
+                        return optionsScrollElementRef.current;
+                }
+            },
+            scrollMargin,
+            scrollPaddingStart,
+            scrollPaddingEnd,
+            overscan: 15,
+            enabled: open,
+        });
+        const [optionsWrapperWidth, optionsWrapperRef] = useElementWidth<HTMLDivElement>();
+
+        // Т.к. рендерится плоский список, необходимо знать индекс, когда начинается новая группа
+        const groupStartIndexes = useMemo(() => {
+            let currentIndex = 0;
+
+            return legacyMode
+                ? []
+                : options.reduce<Record<number, number>>((acc, option, index) => {
+                      if (isGroup(option)) {
+                          acc[currentIndex] = index;
+                          currentIndex += option.options.length;
+                      } else {
+                          currentIndex += 1;
+                      }
+
+                      return acc;
+                  }, {});
+        }, [legacyMode, options]);
 
         useEffect(() => {
             /*
@@ -338,7 +420,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             }
         }, [openProp, openMenu, closeMenu]);
 
-        const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
+        const inputProps = getInputProps(
+            getDropdownProps({ ref: internalMergeRefs([ref, fieldRef]) }),
+        );
         const { ref: menuRef, ...menuProps } = getMenuProps(
             { ref: listRef },
             { suppressRefError: true },
@@ -471,43 +555,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
-        const calcOptionsListWidth = useCallback(() => {
-            if (view === 'desktop' && listRef.current) {
-                const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
-
-                const optionsListMinWidth = rootRef.current
-                    ? rootRef.current.getBoundingClientRect().width
-                    : 0;
-
-                listRef.current.setAttribute('style', '');
-                listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
-            }
-        }, [view, optionsListWidth]);
-
-        useEffect(() => {
-            if (view === 'desktop') {
-                const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-                const observer = new ResizeObserver(calcOptionsListWidth);
-
-                if (rootRef.current) {
-                    observer.observe(rootRef.current);
-                }
-
-                return () => {
-                    observer.disconnect();
-                };
-            }
-
-            return fnUtils.noop;
-        }, [view, calcOptionsListWidth, open, optionsListWidth]);
-
-        useLayoutEffect_SAFE_FOR_SSR(calcOptionsListWidth, [
-            open,
-            optionsListWidth,
-            filteredOptions,
-            selectedItems,
-        ]);
-
         const renderValue = () =>
             selectedItems.map((option) => (
                 <input type='hidden' name={name} value={option.key} key={option.key} />
@@ -568,7 +615,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         [styles.search]: view === 'desktop',
                         [mobileStyles.search]: view === 'mobile',
                     })}
-                    ref={mergeRefs([searchRef, searchProps?.componentProps?.ref || null])}
+                    ref={internalMergeRefs([searchRef, searchProps?.componentProps?.ref])}
                 />
             );
         };
@@ -604,11 +651,132 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             if (flatOptions.length === 0 && !showEmptyOptionsList && !showSearch) return null;
 
             const listProps = optionsListProps as OptionsListProps & RefAttributes<HTMLDivElement>;
+            let virtualOptionsProps: VirtualOptionsProps | undefined;
+
+            if (!legacyMode) {
+                const virtualItems = virtualizer.getVirtualItems();
+                const [firstVirtualItem] = virtualItems;
+                const computeMinWidth = () => {
+                    const fn = optionsListWidth === 'content' ? 'min' : 'max';
+
+                    switch (typeof fieldWidth) {
+                        case 'number':
+                            return `${fn}(${fieldWidth}px, 100%)`;
+                        default:
+                            return fieldWidth;
+                    }
+                };
+
+                const transform = `translateY(${
+                    isNullable(firstVirtualItem)
+                        ? 0
+                        : firstVirtualItem.start - virtualizer.options.scrollMargin
+                }px)`;
+
+                const renderItem = (option: OptionShape, index: number) => {
+                    const renderGroup = () => {
+                        const group = options[groupStartIndexes[index]] as GroupShape;
+
+                        if (!group) return null;
+
+                        const groupSelectedItems = selectedItems?.filter(
+                            ({ key: selectedItemKey }) =>
+                                group.options.some((opt) => opt.key === selectedItemKey),
+                        );
+                        const handleSelectedItems = (items: OptionShape[]) => {
+                            setSelectedItems(
+                                (
+                                    selectedItems?.filter(
+                                        ({ key: selectedItemKey }) =>
+                                            !group.options.some(
+                                                (opt) => opt.key === selectedItemKey,
+                                            ),
+                                    ) ?? []
+                                ).concat(items),
+                            );
+                        };
+
+                        return (
+                            <Optgroup
+                                label={group.label}
+                                size={optionsSize}
+                                className={optionGroupClassName}
+                                options={group.options}
+                                selectedItems={groupSelectedItems}
+                                setSelectedItems={handleSelectedItems}
+                                search={search}
+                                multiple={multiple}
+                                {...groupOptionProps}
+                            />
+                        );
+                    };
+
+                    return (
+                        <Fragment>
+                            {renderGroup()}
+                            {!isGroup(option) && <Option {...getOptionProps(option, index)} />}
+                        </Fragment>
+                    );
+                };
+
+                const computeHeight = () => {
+                    const index = visibleOptions;
+                    const { count } = virtualizer.options;
+                    const { measurementsCache } = virtualizer;
+
+                    if (
+                        count === 0 ||
+                        index === 0 ||
+                        measurementsCache.length === 0 ||
+                        index >= count - 1
+                    ) {
+                        return undefined;
+                    }
+                    const virtualItem = measurementsCache[index];
+
+                    return Math.ceil(virtualItem.start + virtualItem.size / 2);
+                };
+
+                virtualOptionsProps = {
+                    contentRef: view === 'desktop' ? optionsContentRef : null,
+                    footerRef: view === 'mobile' ? optionsListFooterRef : null,
+                    scrollElementRef: optionsScrollElementRef,
+                    contentHeight: virtualizer.getTotalSize(),
+                    virtualizer,
+                    style: {
+                        width: optionsListWidth === 'content' ? optionsWrapperWidth : undefined,
+                        height: computeHeight(),
+                        minWidth: fieldWidth,
+                    },
+                    render: (listClassName) => (
+                        <div
+                            ref={optionsWrapperRef}
+                            className={listClassName}
+                            style={{ transform, minWidth: computeMinWidth() }}
+                        >
+                            {virtualItems.map(({ key, index }) => (
+                                <div
+                                    key={key.toString()}
+                                    ref={virtualizer.measureElement}
+                                    data-index={index}
+                                >
+                                    {renderItem(flatOptions[index], index)}
+                                </div>
+                            ))}
+                        </div>
+                    ),
+                };
+            }
 
             return (
                 <div
                     {...menuProps}
                     ref={view === 'desktop' ? menuRef : undefined}
+                    style={
+                        view === 'desktop' && optionsListWidth === 'field'
+                            ? { width: fieldWidth }
+                            : { minWidth: fieldWidth }
+                    }
                     className={cn(
                         optionsListClassName,
                         view === 'mobile' && mobileStyles.optionsListWrapper,
@@ -621,11 +789,14 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
                         className={cn({ [mobileStyles.optionsList]: view === 'mobile' })}
                         scrollbarClassName={cn({ [mobileStyles.scrollbar]: view === 'mobile' })}
-                        optionsListWidth={optionsListWidth}
+                        optionsListWidth={
+                            !legacyMode && view === 'mobile' ? 'field' : optionsListWidth
+                        }
                         flatOptions={flatOptions}
                         highlightedIndex={highlightedIndex}
                         open={open}
                         size={size}
+                        optionsSize={optionsSize}
                         options={filteredOptions}
                         Optgroup={Optgroup}
                         Option={Option}
@@ -645,10 +816,138 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         search={search}
                         multiple={multiple}
                         limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
+                        virtualOptionsProps={virtualOptionsProps}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
             );
+        };
+
+        const renderInPopover = () => {
+            if (!nativeSelect && Popover) {
+                return (
+                    <Popover
+                        {...popoverProps}
+                        open={open}
+                        withTransition={false}
+                        anchorElement={fieldRef.current as HTMLElement}
+                        position={popoverPosition}
+                        preventFlip={preventFlip}
+                        popperClassName={cn(styles.popoverInner, popperClassName)}
+                        update={updatePopover}
+                        zIndex={zIndexPopover}
+                    >
+                        {renderOptionsList()}
+                    </Popover>
+                );
+            }
+
+            return null;
+        };
+
+        const renderInBottomSheet = () => {
+            if (!nativeSelect && BottomSheet) {
+                const bottomAddons = bottomSheetProps?.bottomAddons;
+
+                return (
+                    <BottomSheet
+                        dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
+                        open={open}
+                        className={mobileStyles.sheet}
+                        contentClassName={mobileStyles.sheetContent}
+                        containerClassName={mobileStyles.sheetContainer}
+                        title={label || placeholder}
+                        actionButton={footer}
+                        stickyHeader={true}
+                        hasCloser={true}
+                        swipeable={swipeable}
+                        initialHeight={showSearch ? 'full' : 'default'}
+                        {...bottomSheetProps}
+                        sheetContainerRef={menuRef}
+                        scrollableContainerRef={scrollableContainerRef}
+                        contentRef={optionsContentRef}
+                        onClose={() => {
+                            closeMenu();
+                            bottomSheetProps?.onClose?.();
+                        }}
+                        transitionProps={{
+                            ...bottomSheetProps?.transitionProps,
+                            onEntered: handleEntered,
+                        }}
+                        bottomAddons={
+                            <React.Fragment>
+                                {renderSearch()}
+                                {isFn(bottomAddons) ? bottomAddons(flatOptions) : bottomAddons}
+                            </React.Fragment>
+                        }
+                        containerProps={{
+                            ...bottomSheetProps?.containerProps,
+                            onScroll,
+                        }}
+                    >
+                        {renderOptionsList()}
+                    </BottomSheet>
+                );
+            }
+
+            return null;
+        };
+
+        const renderInModalMobile = () => {
+            if (!nativeSelect && ModalMobile) {
+                const bottomAddons = modalHeaderProps?.bottomAddons;
+
+                return (
+                    <ModalMobile
+                        dataTestId={getDataTestId(dataTestId, 'modal')}
+                        open={open}
+                        hasCloser={true}
+                        {...modalProps}
+                        componentRef={menuRef}
+                        onClose={(...args) => {
+                            closeMenu();
+                            modalProps?.onClose?.(...args);
+                        }}
+                        contentClassName={cn(
+                            mobileStyles.sheetContent,
+                            modalProps?.contentClassName,
+                        )}
+                        ref={internalMergeRefs([scrollableContainerRef, modalProps?.ref])}
+                        contentComponentRef={optionsContentRef}
+                        wrapperProps={{
+                            ...modalProps?.wrapperProps,
+                            onScroll,
+                        }}
+                        transitionProps={{
+                            ...modalProps?.transitionProps,
+                            onEntered: handleEntered,
+                        }}
+                    >
+                        <ModalMobile.Header
+                            hasCloser={true}
+                            sticky={true}
+                            {...modalHeaderProps}
+                            title={undefined}
+                            bottomAddons={
+                                <React.Fragment>
+                                    {renderSearch()}
+                                    {isFn(bottomAddons) ? bottomAddons(flatOptions) : bottomAddons}
+                                </React.Fragment>
+                            }
+                        >
+                            {modalHeaderProps?.title || label || placeholder}
+                        </ModalMobile.Header>
+
+                        <ModalMobile.Content flex={true} className={mobileStyles.modalContent}>
+                            {renderOptionsList()}
+                        </ModalMobile.Content>
+
+                        {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
+                    </ModalMobile>
+                );
+            }
+
+            return null;
         };
 
         return (
@@ -703,32 +1002,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
                 {name && !nativeSelect && renderValue()}
 
-                {view === 'desktop' && !nativeSelect && (
-                    <ListPopoverDesktop
-                        {...getListPopoverDesktopProps(props)}
-                        open={open}
-                        fieldRef={fieldRef}
-                        renderOptionsList={renderOptionsList}
-                    />
-                )}
-
-                {view === 'mobile' && (
-                    <ListMobile
-                        baseProps={
-                            isBottomSheet
-                                ? getListBottomSheetMobileProps(props)
-                                : getListModalMobileProps(props)
-                        }
-                        open={open}
-                        menuRef={menuRef}
-                        scrollableContainerRef={scrollableContainerRef}
-                        flatOptions={flatOptions}
-                        renderOptionsList={renderOptionsList}
-                        renderSearch={renderSearch}
-                        closeMenu={closeMenu}
-                        handleEntered={handleEntered}
-                    />
-                )}
+                {view === 'desktop' && renderInPopover()}
+                {view === 'mobile' && isBottomSheet && renderInBottomSheet()}
+                {view === 'mobile' && !isBottomSheet && renderInModalMobile()}
             </div>
         );
     },

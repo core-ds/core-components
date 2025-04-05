@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { SelectDesktop, SelectDesktopProps } from '@alfalab/core-components-select/desktop';
-import { OptionsListProps, VirtualOptionsList } from '@alfalab/core-components-select/shared';
+import { NextOptionsList } from '@alfalab/core-components-select/shared';
 import { Country } from '@alfalab/utils';
 
 import { FlagIcon } from '../flag-icon';
@@ -13,11 +13,10 @@ import styles from './index.module.css';
 
 type CountriesSelectProps = Pick<
     SelectDesktopProps,
-    'size' | 'dataTestId' | 'disabled' | 'onChange' | 'preventFlip'
+    'size' | 'dataTestId' | 'disabled' | 'onChange' | 'preventFlip' | 'fieldWidth'
 > & {
     selected?: string;
     countries: Country[];
-    fieldWidth: number | null;
 };
 
 export const CountriesSelect: FC<CountriesSelectProps> = ({
@@ -49,15 +48,6 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
         [countries],
     );
 
-    const renderOptionsList = useCallback(
-        (props: OptionsListProps) => (
-            <div style={{ width: fieldWidth || 0 }}>
-                <VirtualOptionsList {...props} optionsListWidth='field' />
-            </div>
-        ),
-        [fieldWidth],
-    );
-
     return (
         <div className={styles.component} onClick={(event) => event.stopPropagation()}>
             <SelectDesktop
@@ -68,8 +58,10 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
                 selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
                 onChange={onChange}
                 Field={SelectField}
-                OptionsList={renderOptionsList}
+                OptionsList={NextOptionsList}
                 preventFlip={preventFlip}
+                fieldWidth={fieldWidth}
+                optionsListWidth='field'
             />
         </div>
     );
