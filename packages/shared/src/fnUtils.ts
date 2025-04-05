@@ -9,6 +9,12 @@ export function isNonNullable<T>(value: T): value is NonNullable<T> {
     return value != null;
 }
 
+export function assert(condition: boolean, msg?: string): asserts condition {
+    if (process.env.NODE_ENV === 'development' && !condition) {
+        throw new Error(msg);
+    }
+}
+
 /**
  * Выбор значения между min max границами
  */
