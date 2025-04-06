@@ -19,6 +19,7 @@ export type TMainSize = 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 128;
 export type BaseShapeProps = {
     /**
      * Размер компонента
+     * @default 64
      */
     size?: TMainSize | number | { width: TMainSize | number; height: TMainSize | number };
 
@@ -268,7 +269,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         <div
                             className={cn(
                                 styles.children,
-                                styles[`childrenSize_${mainSize}`],
+                                { [styles[`childrenSize_${mainSize}`]]: mainSize },
                                 iconContainerClassName,
                             )}
                         >
