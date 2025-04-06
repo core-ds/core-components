@@ -33,9 +33,9 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Размер компонента
-     * @description xs, s, m, l deprecated, используйте вместо них 8, 20, 24, 40 соответственно
+     * @description xs, s, m, l deprecated, используйте вместо них 8, 16, 20, 24, 32, 40 соответственно
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 8 | 20 | 24 | 40;
+    size?: 'xs' | 's' | 'm' | 'l' | 8 | 16 | 20 | 24 | 32 | 40;
 
     /**
      * Настройки обводки
@@ -67,6 +67,7 @@ function getSize(height?: number, value?: IndicatorProps['value']) {
     if (height <= 16) return 16;
     if (height <= 20) return 20;
     if (height <= 24) return 24;
+    if (height <= 32) return 32;
     if (height <= 40) return 40;
 
     return 48;
@@ -134,6 +135,8 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
     ) => {
         const showContent =
             typeof value !== 'undefined' && SIZE_TO_CLASSNAME_MAP[size] !== 'size-8';
+
+        console.log({ height, showContent, styles }, styles[SIZE_TO_CLASSNAME_MAP[size]]);
 
         return (
             <div
