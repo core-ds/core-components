@@ -12,13 +12,15 @@ export type StatusProps = {
     className?: string;
 
     /**
-     *  Вид компонента
+     * Вид компонента
+     * @default muted-alt
      * @description soft deprecated, используйте вместо него muted-alt
      */
     view?: 'contrast' | 'soft' | 'muted' | 'muted-alt';
 
     /**
-     * Цветовое оформление иконки
+     * Цветовое оформление компонента
+     * @default green
      */
     color?: (typeof COLORS)[number];
 
