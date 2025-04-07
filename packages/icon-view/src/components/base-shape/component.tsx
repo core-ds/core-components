@@ -104,6 +104,11 @@ export type BaseShapeProps = {
      * Скелетонизация компонента
      */
     isSkeleton?: boolean;
+
+    /**
+     * Флаг явного включения анимации скелета
+     */
+    skeletonAnimate?: boolean;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
@@ -126,6 +131,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             mainSize,
             iconContainerClassName,
             isSkeleton = false,
+            skeletonAnimate = false,
         },
         ref,
     ) => {
@@ -161,7 +167,6 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                     className={cn(
                         styles.componentWrapper,
                         styles[`wrapperSize_${maxDimension}`],
-                        styles.skeleton,
                         className,
                     )}
                     ref={ref}
@@ -175,7 +180,12 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             xmlns='http://www.w3.org/2000/svg'
                             focusable={false}
                         >
-                            <path className={cn(styles.bg, shapeClassName)} d={shapeDPath} />
+                            <path
+                                className={cn(styles.bg, shapeClassName, styles.skeleton, {
+                                    [styles.skeletonAnimate]: skeletonAnimate,
+                                })}
+                                d={shapeDPath}
+                            />
                         </svg>
                     </div>
                 </div>

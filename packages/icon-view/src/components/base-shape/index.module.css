@@ -4,6 +4,8 @@
     --icon-view-color: var(--color-light-neutral-translucent-700);
     --icon-view-bg-color: var(--color-light-neutral-100);
     --skeleton-default-color: var(--color-light-neutral-translucent-100);
+    --skeleton-bg-animation-display: block;
+    --skeleton-bg-animation-color: transparent;
 }
 
 .componentWrapper {
@@ -348,6 +350,31 @@
     }
 }
 
-.skeleton path {
+.skeleton {
     fill: var(--skeleton-default-color);
+}
+
+.skeletonAnimate {
+    animation-name: background;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    opacity: 0.5;
+}
+
+@keyframes background {
+    0% {
+        fill: var(--color-light-neutral-translucent-100);
+    }
+    100% {
+        fill: var(--color-light-neutral-translucent-300);
+    }
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .skeletonAnimate {
+        opacity: 0.4;
+    }
 }
