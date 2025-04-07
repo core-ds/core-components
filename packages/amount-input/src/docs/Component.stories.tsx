@@ -16,6 +16,7 @@ type Story = StoryObj<typeof AmountInput>;
 export const amount_input: Story = {
     name: 'AmountInput',
     render: () => {
+        const view = select('view', ['default', 'withZeroMinorPart'], 'default');
         const size = select('size', [40, 48, 56, 64, 72], 48);
         const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
@@ -23,6 +24,7 @@ export const amount_input: Story = {
             <AmountInput
                 value={number('value', null)}
                 currency={text('currency', 'RUR')}
+                view={view}
                 suffix={text('suffix', undefined)}
                 integerLength={number('integerLength', 9)}
                 minority={number('minority', 100)}
