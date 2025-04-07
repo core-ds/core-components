@@ -17,7 +17,6 @@ export const file_upload_item: Story = {
         return (
             <div style={{ width: 456 }}>
                 <FileUploadItem
-                    isClickable={boolean('isClickable', true)}
                     uploadStatus={select(
                         'uploadStatus',
                         ['INITIAL', 'ERROR', 'SUCCESS', 'UPLOADING'],
@@ -48,11 +47,7 @@ export const file_upload_item_left_addon: Story = {
     render: () => {
         return (
             <div style={{ width: 456 }}>
-                <FileUploadItem
-                    isClickable={boolean('isClickable', true)}
-                    uploadStatus={'UPLOADING'}
-                    progressBar={number('progressBar', 0)}
-                >
+                <FileUploadItem uploadStatus={'UPLOADING'} progressBar={number('progressBar', 0)}>
                     <FileUploadItem.StatusControl />
                 </FileUploadItem>
             </div>

@@ -14,9 +14,9 @@ export const Actions = () => {
 
     useEffect(() => {
         if (setActionsPresent) {
-            setActionsPresent(true);
+            setActionsPresent(!!(showRestore || downloadLink || showDelete));
         }
-    }, [setActionsPresent]);
+    }, [showRestore, downloadLink, showDelete, setActionsPresent]);
 
     return (
         <div className={styles.container}>
