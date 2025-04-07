@@ -1,7 +1,6 @@
 ## Примеры
 
 Скелетон должен максимально точно повторять форму ожидаемого контента.
-Для скелетонизации текстового контента используйте компонент [Typography](/docs/typography--docs).
 
 ```jsx live
 const SHAPRE_STYLE = {
@@ -43,103 +42,131 @@ render(() => {
 
 ## Скелетонизация текста
 
-Пакет `Skeleton` предоставляет хук `useSkeleton`, с помощью которого можно "скелетонизировать" текст, а также кастомизировать его отображение.<br/>
-*<b>Обратите особое внимание на то, что у текста должны быть заданы `fontSize` и `lineHeight`</b>*.
+Скелетон может подстраиваться под заданный фрагмент текста, для этого ему нужно знать fontSize, lineHeight, выравнивание, количество и длину строк.
 
-```jsx live
-const rowsOptions = [
-    { key: 'computed', content: 'Computed' },
-    { key: '2', content: '2' },
-    { key: '4', content: '4' },
-    { key: '6', content: '6' },
-    { key: '8', content: '8' },
-    { key: '10', content: '10' },
-];
-
-const widthOptions = [
-    { key: 'computed', content: 'Computed' },
-    { key: '100', content: '100px' },
-    { key: '200', content: '200px' },
-    { key: '300', content: '300px' },
-    { key: '400', content: '400px' },
-    { key: 'array', content: '100-200-300-400' },
-];
-
-const alignOptions = [
-    { key: 'left', content: 'left' },
-    { key: 'center', content: 'center' },
-    { key: 'right', content: 'right' },
-];
-
+```jsx live desktopOnly
 render(() => {
     const [visible, setVisible] = React.useState(false);
-    const [rows, setRows] = React.useState('computed');
-    const [width, setWidth] = React.useState('computed');
-    const [align, setAlign] = React.useState('left');
 
-    const { renderSkeleton, textRef } = useSkeleton(visible, {
-        align,
-        ...(rows !== 'computed' && { rows: Number(rows) }),
-        ...(width !== 'computed' && width !== 'array' && { width: Number(width) }),
-        ...(width === 'array' && { width: [100, 200, 300, 400] }),
-    });
+    const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(visible, {});
+    const titleSkeleton = renderTitleSkeleton({});
 
-    const skeleton = renderSkeleton({
-        wrapperClassName: 'wrapperClassName',
-        dataTestId: 'dataTestId',
-    });
+    const { renderSkeleton, textRef } = useSkeleton(visible, {});
+    const textSkeleton = renderSkeleton({});
 
     return (
         <>
-            {skeleton ? (
-                skeleton
-            ) : (
-                <div ref={textRef} style={{ lineHeight: '20px' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                </div>
-            )}
-            <Row>
-                <SelectDesktop
-                    size={56}
-                    options={rowsOptions}
-                    selected={rows}
-                    label='Rows'
-                    Option={BaseOption}
-                    disabled={visible}
-                    onChange={({ selected }) => setRows(selected.key)}
-                />
-                <Gap size={12} direction='horizontal' />
-                <SelectDesktop
-                    size={56}
-                    options={widthOptions}
-                    selected={width}
-                    label='Width'
-                    Option={BaseOption}
-                    disabled={visible}
-                    onChange={({ selected }) => setWidth(selected.key)}
-                />
-                <Gap size={12} direction='horizontal' />
-                <SelectDesktop
-                    size={56}
-                    options={alignOptions}
-                    selected={align}
-                    label='Align'
-                    Option={BaseOption}
-                    disabled={visible}
-                    onChange={({ selected }) => setAlign(selected.key)}
-                />
-            </Row>
-            <Gap size={20} />
             <Switch
                 checked={visible}
-                label='Показать скелетон'
+                label='Скелетонизация текста'
                 onChange={() => setVisible((prev) => !prev)}
             />
+            <Gap size={24} />
+
+            {titleSkeleton ? (
+                titleSkeleton
+            ) : (
+                <Typography.Title view='small' font='system' ref={titleRef}>
+                    Почему банк проверяет мои операции?
+                </Typography.Title>
+            )}
+
+            <Gap size={12} />
+
+            {textSkeleton ? (
+                textSkeleton
+            ) : (
+                <Typography.Text view='primary-medium' ref={textRef}>
+                    В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+                    легализации доходов, полученных преступным путём, и финансированию терроризма».
+                    В рамках закона банки могут блокировать карты, отказывать в проведении
+                    сомнительных операций, ограничить доступ в интернет-банк или запрашивать
+                    документы, если по операции клиента возникли подозрения.
+                </Typography.Text>
+            )}
+        </>
+    );
+});
+```
+
+Чтобы получить более естественную форму, каждым параметром можно управлять отдельно.
+
+```jsx live
+render(() => {
+    const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(true, {
+        width: 271,
+    });
+    const titleSkeleton = renderTitleSkeleton({});
+
+    const { renderSkeleton, textRef } = useSkeleton(true, {
+        width: [560, 402, 449, 264],
+    });
+    const textSkeleton = renderSkeleton({});
+
+    return (
+        <>
+            {titleSkeleton ? (
+                titleSkeleton
+            ) : (
+                <Typography.Title view='small' font='system' ref={titleRef}>
+                    Почему банк проверяет мои операции?
+                </Typography.Title>
+            )}
+
+            <Gap size={12} />
+
+            {textSkeleton ? (
+                textSkeleton
+            ) : (
+                <Typography.Text view='primary-medium' ref={textRef}>
+                    В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+                    легализации доходов, полученных преступным путём, и финансированию терроризма».
+                    В рамках закона банки могут блокировать карты, отказывать в проведении
+                    сомнительных операций, ограничить доступ в интернет-банк или запрашивать
+                    документы, если по операции клиента возникли подозрения.
+                </Typography.Text>
+            )}
+        </>
+    );
+});
+
+//MOBILE
+render(() => {
+    const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(true, {
+        width: 271,
+        rows: 1,
+    });
+    const titleSkeleton = renderTitleSkeleton({});
+
+    const { renderSkeleton, textRef } = useSkeleton(true, {
+        width: [320, 276, 301, 255],
+        rows: 4,
+    });
+    const textSkeleton = renderSkeleton({});
+
+    return (
+        <>
+            {titleSkeleton ? (
+                titleSkeleton
+            ) : (
+                <Typography.Title view='small' font='system' ref={titleRef}>
+                    Почему банк проверяет мои операции?
+                </Typography.Title>
+            )}
+
+            <Gap size={12} />
+
+            {textSkeleton ? (
+                textSkeleton
+            ) : (
+                <Typography.Text view='primary-medium' ref={textRef}>
+                    В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+                    легализации доходов, полученных преступным путём, и финансированию терроризма».
+                    В рамках закона банки могут блокировать карты, отказывать в проведении
+                    сомнительных операций, ограничить доступ в интернет-банк или запрашивать
+                    документы, если по операции клиента возникли подозрения.
+                </Typography.Text>
+            )}
         </>
     );
 });
