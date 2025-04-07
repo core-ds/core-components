@@ -11,25 +11,25 @@
 }
 
 .deleteIconColor {
-    fill: var(--icon-button-tertiary-base-color);
+    fill: var(--color-light-text-tertiary);
 
     &:hover {
-        fill: var(--color-light-neutral-translucent-500-hover);
+        fill: var(--color-light-text-tertiary-hover);
     }
 }
 
 .downloadIconColor {
-    fill: var(--icon-button-tertiary-base-color);
+    fill: var(--color-light-text-tertiary);
 
     &:hover {
-        fill: var(--color-light-neutral-translucent-500-hover);
+        fill: var(--color-light-text-tertiary-hover);
     }
 }
 
 .restoreIconColor {
-    fill: var(--icon-button-tertiary-base-color);
+    fill: var(--color-light-text-tertiary);
 
     &:hover {
-        fill: var(--color-light-neutral-translucent-500-hover);
+        fill: var(--color-light-text-tertiary-hover);
     }
 }
