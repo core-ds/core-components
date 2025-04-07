@@ -136,8 +136,6 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
         const showContent =
             typeof value !== 'undefined' && SIZE_TO_CLASSNAME_MAP[size] !== 'size-8';
 
-        console.log({ height, showContent, styles }, styles[SIZE_TO_CLASSNAME_MAP[size]]);
-
         return (
             <div
                 ref={ref}
