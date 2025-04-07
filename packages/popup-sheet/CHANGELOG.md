@@ -1,5 +1,22 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.2
+
+### Patch Changes
+
+<sup><time>31.03.2025</time></sup>
+
+### [#1649](https://github.com/core-ds/core-components/pull/1649)
+
+-   Исправлено перезатирание класса компонента у closer, при передаче closerProps
+
+## 1.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.0
+
 ## 1.4.0
 
 ### Minor Changes
