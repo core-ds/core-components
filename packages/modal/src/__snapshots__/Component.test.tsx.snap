@@ -187,7 +187,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                       </svg>
                     </div>
                     <span
-                      class="text component medium"
+                      class="text component-primary medium"
                       style="opacity: 1;"
                     >
                       Назад
