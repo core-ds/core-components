@@ -14,7 +14,7 @@
     fill: var(--icon-button-tertiary-base-color);
 
     &:hover {
-        fill: var(--icon-button-tertiary-hover-color);
+        fill: var(--color-light-neutral-translucent-500-hover);
     }
 }
 
@@ -22,7 +22,7 @@
     fill: var(--icon-button-tertiary-base-color);
 
     &:hover {
-        fill: var(--icon-button-tertiary-hover-color);
+        fill: var(--color-light-neutral-translucent-500-hover);
     }
 }
 
@@ -30,6 +30,6 @@
     fill: var(--icon-button-tertiary-base-color);
 
     &:hover {
-        fill: var(--icon-button-tertiary-hover-color);
+        fill: var(--color-light-neutral-translucent-500-hover);
     }
 }

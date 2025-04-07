@@ -90,7 +90,7 @@ export type FileUploadItemProps = {
     disableButtons?: boolean;
 
     /**
-     * Управление кликабельностью элемента
+     * Управление отображением кликабельности элемента Content
      */
     isClickable?: boolean;
 
