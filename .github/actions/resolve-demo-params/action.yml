@@ -3,10 +3,10 @@ name: resolve demo params
 inputs:
     version:
         description: Version of @balafla/core-components package, tag or commit sha
-        required: true
+        required: false
     pull-request-number:
         description: Pull request number
-        required: true
+        required: false
 
 outputs:
     ref:
@@ -24,17 +24,10 @@ runs:
           with:
               result-encoding: string
               script: |
-                  const version = '${{ inputs.version }}';
+                  const run = require('./tools/gh-actions/resolve-demo-params/resolve-ref.js');
+                  const inputs = ${{ toJSON(inputs) }};
 
-                  if (version === '') {
-                      return process.env.GITHUB_REF;
-                  } else if (/^\d+\.\d+\.\d+$/.test(version)) {
-                      const major = parseInt(version.replace(/^(\d+)(.*)/, '$1'));
-
-                      return major < 49 ? `v${version}` : `@balafla/core-components@${version}`;
-                  }
-
-                  return version;
+                  return await run({ github, context, core, glob, io, exec, inputs });
 
         - uses: actions/checkout@v4
           if: ${{ inputs.version != '' }}
@@ -48,68 +41,7 @@ runs:
           with:
               result-encoding: string
               script: |
-                  const assert = require('node:assert/strict');
-                  const path = require('node:path');
-                  const version = '${{ inputs.version }}';
-                  const pullRequestNumber = '${{ inputs.pull-request-number }}';
+                  const run = require('./tools/gh-actions/resolve-demo-params/resolve-dir.js');
+                  const inputs = ${{ toJSON(inputs) }};
 
-                  async function git(args) {
-                      let result = '';
-
-                      await exec.exec('git', args, {
-                          failOnStdErr: true,
-                          cwd: path.join(process.env.GITHUB_WORKSPACE, 'checkout-ref'),
-                          silent: true,
-                          listeners: {
-                              stdout: (data) => {
-                                  result += data.toString('utf8');
-                              },
-                          },
-                      });
-
-                      return result;
-                  }
-
-                  if (version === '') {
-                      if (pullRequestNumber === '') {
-                          switch (process.env.GITHUB_REF_NAME) {
-                              case 'master':
-                              case 'beta':
-                              case 'next':
-                                  return process.env.GITHUB_REF_NAME;
-                              default:
-                                  throw new Error(`Resolving dir for unsupported branch: ${process.env.GITHUB_REF_NAME}`);
-                          }
-                      } else {
-                          assert(/^\d+$/.test(pullRequestNumber));
-
-                          return pullRequestNumber;
-                      }
-                  } else if (/^\d+\.\d+\.\d+$/.test(version)) {
-                      return version;
-                  }
-
-                  let sha;
-
-                  if (version.startsWith('@balafla/core-components-')) {
-                      const output = (await git(['rev-list', '-n', '1', version])).trim();
-
-                      assert(output.length > 0);
-
-                      sha = output;
-                  } else {
-                      sha = version;
-                  }
-
-                  const tags = (await git(['tag', '--points-at', sha])).split('\n');
-
-                  for (const tag of tags) {
-                      const match = tag.match(/^v(\d+\.\d+\.\d+)$|^@balafla\/core-components@(\d+\.\d+\.\d+.*)$/);
-
-                      if (match) {
-                          const [, v1, v2] = match;
-                          return v1 ?? v2;
-                      }
-                  }
-
-                  return sha;
+                  return await run({ github, context, core, glob, io, exec, inputs });

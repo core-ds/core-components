@@ -1,0 +1,29 @@
+name: snapshot-release
+
+inputs:
+    version:
+        description: Version script
+        required: true
+    publish:
+        description: Publish script
+        required: true
+
+outputs:
+    published:
+        description: Whether published of not
+        value: ${{ steps.snapshot-release.outputs.published }}
+    published-packages:
+        description: List of published packages as JSON string
+        value: ${{ steps.snapshot-release.outputs.published-packages }}
+
+runs:
+    using: composite
+    steps:
+        - id: snapshot-release
+          uses: actions/github-script@v7
+          with:
+              script: |
+                  const run = require('./tools/gh-actions/snapshot-release/snapshot-release.js');
+                  const inputs = ${{ toJSON(inputs) }};
+
+                  await run({ github, context, core, glob, io, exec, inputs });
