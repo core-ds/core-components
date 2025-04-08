@@ -1,39 +1,98 @@
-module.exports = async ({ core, inputs }) => {
-    const { default: readChangesets } = await import('@changesets/read');
+module.exports = async ({ core, exec, inputs }) => {
+    const fs = require('node:fs');
+    const fsPromises = require('node:fs/promises');
+    const path = require('node:path');
 
-    const changesets = await readChangesets(process.cwd());
+    const changesets = await core.group('Reading changesets', async () => {
+        const { default: readChangesets } = await import('@changesets/read');
+
+        return await readChangesets(process.cwd());
+    });
 
     if (changesets.length === 0) {
+        core.warning("Didn't find any changeset. Nothing to publish");
+
         core.setOutput('published', 'false');
 
         return;
     }
 
-    const versionScript = inputs['version'];
-    const publishScript = inputs['publish'];
+    await core.group('Version packages', async () => {
+        const versionScript = inputs['version'];
+        const [versionCmd, ...versionCmdArgs] = versionScript.split(/\s+/);
 
-    const [versionCmd, ...versionCmdArgs] = versionScript.split(/\s+/);
-
-    await exec.exec(versionCmd, versionCmdArgs, { failOnStdErr: true });
-
-    const [publishCmd, ...publishCmdArgs] = publishScript.split(/\s+/);
-    const publishResult = await exec.getExecOutput(publishCmd, publishCmdArgs, {
-        failOnStdErr: true,
+        await exec.exec(versionCmd, versionCmdArgs);
     });
-    const publishedPackages = publishResult.stdout.split('\n').reduce((packages, line) => {
-        const match = line.match(/^(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)$/);
 
-        if (match) {
-            const [, name, version] = match;
+    await core.group('Setup .npmrc', async () => {
+        const userNpmrcPath = path.join(process.env.HOME, '.npmrc');
 
-            packages.push({ name, version });
+        if (fs.existsSync(userNpmrcPath)) {
+            core.info('Found existing user .npmrc file');
+            const userNpmrcContent = await fsPromises.readFile(userNpmrcPath, { encoding: 'utf8' });
+            const authLine = userNpmrcContent.split('\n').find((line) => {
+                // check based on https://github.com/npm/cli/blob/8f8f71e4dd5ee66b3b17888faad5a7bf6c657eed/test/lib/adduser.js#L103-L105
+                return /^\s*\/\/registry\.npmjs\.org\/:[_-]authToken=/i.test(line);
+            });
+            if (authLine) {
+                core.info('Found existing auth token for the npm registry in the user .npmrc file');
+            } else {
+                core.info(
+                    "Didn't find existing auth token for the npm registry in the user .npmrc file, creating one",
+                );
+                await fsPromises.appendFile(
+                    userNpmrcPath,
+                    `\n//registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}\n`,
+                    { encoding: 'utf8' },
+                );
+            }
+        } else {
+            core.info('No user .npmrc file found, creating one');
+            await fsPromises.writeFile(
+                userNpmrcPath,
+                `//registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}\n`,
+                { encoding: 'utf8' },
+            );
+        }
+    });
+
+    const publishedPackages = await core.group('Publishing packages', async () => {
+        const publishScript = inputs['publish'];
+        const [publishCmd, ...publishCmdArgs] = publishScript.split(/\s+/);
+        const { stdout } = await exec.getExecOutput(publishCmd, publishCmdArgs);
+
+        const successText = 'packages published successfully:';
+        const startIndex = stdout.indexOf(successText);
+
+        if (startIndex === -1) {
+            core.warning('No packages published successfully');
+
+            return [];
         }
 
-        return packages;
-    }, []);
+        const failedText = 'packages failed to publish:';
+        let endIndex = stdout.indexOf(failedText);
 
-    if (publishedPackages.length > 0) {
-        core.setOutput('published', 'true');
-        core.setOutput('published-packages', JSON.stringify(publishedPackages));
-    }
+        if (endIndex === -1) {
+            endIndex = stdout.length;
+        }
+
+        return stdout
+            .slice(startIndex, endIndex)
+            .split('\n')
+            .reduce((packages, line) => {
+                const match = line.match(/^🦋\s+(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)$/);
+
+                if (match) {
+                    const [, name, version] = match;
+
+                    packages.push({ name, version });
+                }
+
+                return packages;
+            }, []);
+    });
+
+    core.setOutput('published', JSON.stringify(publishedPackages.length > 0));
+    core.setOutput('published-packages', JSON.stringify(publishedPackages));
 };

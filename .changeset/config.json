@@ -7,6 +7,10 @@
     "access": "public",
     "baseBranch": "master",
     "updateInternalDependencies": "patch",
+    "snapshot": {
+        "prereleaseTemplate": "{tag}-{commit}",
+        "useCalculatedVersion": true
+    },
     "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
         "onlyUpdatePeerDependentsWhenOutOfRange": true,
         "updateInternalDependents": "always"

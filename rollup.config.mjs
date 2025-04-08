@@ -1,6 +1,6 @@
 import path from 'path';
 import detectIndent from 'detect-indent';
-import glob from 'glob';
+import globby from 'globby';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
@@ -22,7 +22,7 @@ const externals = [
  */
 const baseConfig = {
     cache: false,
-    input: glob.sync('src/**/*.{ts,tsx}', {
+    input: globby.sync('src/**/*.{ts,tsx}', {
         ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
     }),
     plugins: [json()],
@@ -90,7 +90,7 @@ const es5 = {
         }),
         processCss(),
         assetsCopyPlugin('dist'),
-        copy({ flatten: true, targets: [{ src: ['**/package.json'], dest: 'dist' }] }),
+        copy({ flatten: false, targets: [{ src: '**/package.json', dest: 'dist' }] }),
         sourceCopyPlugin,
     ],
 };
