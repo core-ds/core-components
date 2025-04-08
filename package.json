@@ -218,7 +218,7 @@
         "url-loader": "^4.1.1"
     },
     "peerDependencies": {
-        "@alfalab/core-config": "^1.0.0",
+        "@alfalab/core-config": "1.0.0-beta.0",
         "@alfalab/stack-context": "^1.16.0",
         "react": ">=16.8.0",
         "react-dom": ">=16.8.0"
