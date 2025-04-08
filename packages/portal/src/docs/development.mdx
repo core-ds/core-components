@@ -9,19 +9,21 @@ import { Portal } from '@alfalab/core-components/portal';
 
 ## Глобальное переопределение контейнера для рендера
 
-Если вам необходимо переопределить рендер контейнер для группы элементов, вы можете использовать следующую обертку:
-
+Если вам необходимо переопределить рендер контейнер для группы элементов, вы можете использовать глобальный контекст:
 
 ```jsx
-import {PortalContext} from '@alfalab/core-components/shared';
+import { CoreConfigContext } from '@alfalab/core-config';
 
-<PortalContext.Provider value={() => document.querySelector('.foobar')}>
+<CoreConfigContext.Provider value={{
+    portalContainer: Element
+}}>
     ...
-</PortalContext.Provider>;
+</CoreConfigContext.Provider>;
 ```
 
 Все компоненты внутри обертки, которые используют Portal, будут ссылаться на один и тот же DOM элемент.
 Таким образом, вам не потребуется отдельно переопределять контейнер с помощью пропса getPortalContainer.
+Протестировать работу можно [тут](?path=/story/portal--portal-context).
 
 ## Свойства
 
