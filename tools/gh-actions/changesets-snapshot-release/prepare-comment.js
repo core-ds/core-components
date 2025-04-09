@@ -4,8 +4,8 @@ module.exports = async ({ inputs }) => {
     return [
         '# Snapshot Release',
         'Successfully released the following packages:',
-        ...JSON.parse(publishedPackages)
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .map(({ name, version }) => `## ${name}@${version}`),
+        ...JSON.parse(publishedPackages).map(
+            ({ name, version }, index) => `${index + 1}. \`${name}@${version}\``,
+        ),
     ].join('\n\n');
 };

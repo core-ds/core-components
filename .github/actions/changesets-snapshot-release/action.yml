@@ -1,4 +1,4 @@
-name: snapshot-release
+name: changesets-snapshot-release
 
 inputs:
     version:
@@ -10,20 +10,20 @@ inputs:
 
 outputs:
     published:
-        description: Whether published of not
-        value: ${{ steps.snapshot-release.outputs.published }}
+        description: Whether published packages or not
+        value: ${{ steps.main.outputs.published }}
     published-packages:
         description: List of published packages as JSON string
-        value: ${{ steps.snapshot-release.outputs.published-packages }}
+        value: ${{ steps.main.outputs.published-packages }}
 
 runs:
     using: composite
     steps:
-        - id: snapshot-release
+        - id: main
           uses: actions/github-script@v7
           with:
               script: |
-                  const run = require('./tools/gh-actions/snapshot-release/snapshot-release.js');
+                  const run = require('./tools/gh-actions/changesets-snapshot-release/main.js');
                   const inputs = ${{ toJSON(inputs) }};
 
                   await run({ github, context, core, glob, io, exec, inputs });

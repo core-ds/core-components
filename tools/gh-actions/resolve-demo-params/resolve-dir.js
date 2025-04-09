@@ -1,62 +1,122 @@
-module.exports = async ({ exec, inputs }) => {
-    const assert = require('node:assert/strict');
+module.exports = async ({ context, core, exec, inputs }) => {
     const path = require('node:path');
-
-    const version = inputs['version'];
-    const pullRequestNumber = inputs['pull-request-number'];
-
-    if (version === '') {
-        if (pullRequestNumber === '') {
-            switch (process.env.GITHUB_REF_NAME) {
-                case 'master':
-                case 'beta':
-                case 'next':
-                    return process.env.GITHUB_REF_NAME;
-                default:
-                    throw new Error(
-                        `Resolving dir for unsupported branch: ${process.env.GITHUB_REF_NAME}`,
-                    );
-            }
-        } else {
-            assert(/^\d+$/.test(pullRequestNumber));
-
-            return pullRequestNumber;
-        }
-    } else if (/^\d+\.\d+\.\d+$/.test(version)) {
-        return version;
-    }
+    const semver = require('semver');
 
     async function git(args) {
         const { stdout } = await exec.getExecOutput('git', args, {
-            failOnStdErr: true,
             cwd: path.join(process.env.GITHUB_WORKSPACE, 'checkout-ref'),
         });
 
         return stdout;
     }
 
-    let sha;
-
-    if (version.startsWith('@balafla/core-components-')) {
-        const output = (await git(['rev-list', '-n', '1', version])).trim();
-
-        assert(output.length > 0);
-
-        sha = output;
-    } else {
-        sha = version;
+    function demoDirName(coreComponentsVersion) {
+        return `v${semver.clean(coreComponentsVersion)}`;
     }
 
-    const tags = (await git(['tag', '--points-at', sha])).split('\n');
+    const HEADS_PREFIX = 'refs/heads/';
+    const TAGS_PREFIX = 'refs/tags/';
+    // regexp based on https://github.com/changesets/action/blob/06245a4e0a36c064a573d4150030f5ec548e4fcc/src/run.ts#L139
+    const PACKAGE_TAG_REGEXP = /(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)/;
 
-    for (const tag of tags) {
-        const match = tag.match(/^v(\d+\.\d+\.\d+)$|^@balafla\/core-components@(\d+\.\d+\.\d+.*)$/);
+    const dirInput = inputs['dir'];
 
-        if (match) {
-            const [, v1, v2] = match;
-            return `v${v1 ?? v2}`;
+    if (dirInput === '') {
+        let versionInput = inputs['version'];
+        let unsupportedRef = false;
+
+        if (versionInput === '') {
+            if (context.ref.startsWith(HEADS_PREFIX)) {
+                const refName = context.ref.replace(HEADS_PREFIX, '');
+
+                switch (refName) {
+                    case 'master':
+                    case 'beta':
+                    case 'next':
+                        return refName;
+                }
+
+                unsupportedRef = true;
+            } else if (context.ref.startsWith(TAGS_PREFIX)) {
+                const tagName = context.ref.replace(TAGS_PREFIX, '');
+                const tagMatch = tagName.match(PACKAGE_TAG_REGEXP);
+
+                if (tagMatch) {
+                    const [, pkgName] = tagMatch;
+
+                    if (pkgName.startsWith('@balafla/core-components')) {
+                        versionInput = tagName;
+                    } else {
+                        unsupportedRef = true;
+                    }
+                } else {
+                    unsupportedRef = true;
+                }
+            }
         }
+
+        if (unsupportedRef) {
+            core.setFailed(`Resolving dir for unsupported ref: ${context.ref}`);
+
+            return;
+        }
+
+        if (semver.valid(versionInput)) {
+            return demoDirName(versionInput);
+        }
+
+        const packageTagMatch = versionInput.match(PACKAGE_TAG_REGEXP);
+
+        if (packageTagMatch) {
+            core.info('Using version inpit as package tag');
+
+            const [, pkgName, pkgVersion] = packageTagMatch;
+
+            if (!semver.valid(pkgVersion)) {
+                core.setFailed(`Invalid ${pkgName} version: ${pkgVersion}`);
+
+                return;
+            }
+
+            if (pkgName === '@balafla/core-components') {
+                return demoDirName(pkgVersion);
+            } else if (pkgName.startsWith('@balafla/core-components')) {
+                const sha = (await git(['rev-list', '-n', '1', versionInput])).trim();
+
+                if (sha === '') {
+                    core.setFailed(`Didn't find sha for tag: ${versionInput}`);
+
+                    return;
+                }
+
+                const tags = (await git(['tag', '--points-at', sha])).split('\n');
+
+                for (const tag of tags) {
+                    if (semver.valid(tag)) {
+                        return demoDirName(tag);
+                    }
+
+                    const tagMatch = tag.match(PACKAGE_TAG_REGEXP);
+
+                    if (tagMatch) {
+                        const [, pkgName, pkgVersion] = tagMatch;
+
+                        if (pkgName === '@balafla/core-components') {
+                            return demoDirName(pkgVersion);
+                        }
+                    }
+                }
+
+                return sha;
+            } else {
+                core.setFailed(`Resolving dir for unsupported version input: ${versionInput}`);
+
+                return;
+            }
+        }
+
+        return versionInput;
     }
 
-    return sha;
+    return dirInput;
 };

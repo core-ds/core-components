@@ -24,17 +24,9 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      let status = '';
+                      const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);
 
-                      await exec.exec('git', ['status', '--porcelain'], {
-                          listeners: {
-                              stdout: (data) => {
-                                  status += data.toString('utf8');
-                              },
-                          }
-                      });
-
-                      return status.split('\n').some(line => /^ M .*\.png$/.test(line));
+                      return stdout.split('\n').some(line => /^\s+M\s+.*\.png$/.test(line));
 
             - name: update branch
               if: ${{ steps.git-status.outputs.result == 'true' }}

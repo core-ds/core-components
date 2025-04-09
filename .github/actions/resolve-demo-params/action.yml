@@ -4,8 +4,8 @@ inputs:
     version:
         description: Version of @balafla/core-components package, tag or commit sha
         required: false
-    pull-request-number:
-        description: Pull request number
+    dir:
+        description: Demo directory
         required: false
 
 outputs:
@@ -19,6 +19,12 @@ outputs:
 runs:
     using: composite
     steps:
+        - name: install dependencies
+          shell: bash
+          working-directory: tools/gh-actions/resolve-demo-params
+          run: |
+              yarn install --frozen-lockfile
+
         - id: resolve-ref
           uses: actions/github-script@v7
           with:

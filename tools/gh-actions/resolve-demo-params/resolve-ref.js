@@ -1,13 +1,20 @@
-module.exports = async ({ inputs }) => {
-    const version = inputs['version'];
+module.exports = async ({ context, core, inputs }) => {
+    const semver = require('semver');
 
-    if (version === '') {
-        return process.env.GITHUB_REF;
-    } else if (/^\d+\.\d+\.\d+$/.test(version)) {
-        const major = parseInt(version.replace(/^(\d+)(.*)/, '$1'));
+    const versionInput = inputs['version'];
 
-        return major < 49 ? `v${version}` : `@balafla/core-components@${version}`;
+    if (versionInput === '') {
+        core.info('Version input is empty');
+        return context.ref;
+    } else if (semver.valid(versionInput)) {
+        core.info('Resolving as @balafla/core-components version');
+
+        return semver.satisfies(versionInput, '>= 49', { includePrerelease: true })
+            ? `@balafla/core-components@${semver.clean(versionInput)}`
+            : `v${semver.clean(versionInput)}`;
     }
 
-    return version;
+    core.info('Using version input as ref');
+
+    return versionInput;
 };

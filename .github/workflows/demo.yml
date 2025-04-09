@@ -10,9 +10,8 @@ on:
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @balafla/core-components package, tag or sha to checkout
-                required: true
-                default: ''
+                description: Version of @balafla/core-components package, tag or sha
+                required: false
                 type: string
 
 concurrency:
@@ -33,7 +32,7 @@ jobs:
               id: resolve
               with:
                   version: ${{ inputs.version }}
-                  pull-request-number: ${{ github.event.pull_request.number }}
+                  dir: ${{ github.event.pull_request.number }}
 
     build:
         name: build
@@ -125,40 +124,43 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      const owner = process.env.GITHUB_REPOSITORY_OWNER;
-                      const repo = process.env.GITHUB_REPOSITORY.replace(`${owner}/`, '');
-                      const dir = '${{ needs.params.outputs.dir }}';
+                      const { owner, repo } = context.repo;
 
-                      return `https://${owner}.github.io/${repo}/${dir}`;
+                      return `https://${owner}.github.io/${repo}/${{ needs.params.outputs.dir }}`;
+
+    pull-request:
+        name: find pull request
+        runs-on: ubuntu-latest
+        outputs:
+            number: ${{ steps.pull-request.outputs.number }}
+        steps:
+            - name: find pull request
+              uses: jwalton/gh-find-current-pr@v1
+              id: pull-request
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
 
     comment:
         name: comment
         runs-on: ubuntu-latest
-        needs: deploy
+        needs: [deploy, pull-request]
+        if: ${{ needs.pull-request.outputs.number != '' }}
         steps:
-            - name: find open pr
-              uses: jwalton/gh-find-current-pr@v1
-              id: find-pr
-              with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
-
             - name: find comment
-              if: ${{ steps.find-pr.outputs.number != '' }}
               uses: peter-evans/find-comment@v3
-              id: find-comment
+              id: comment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  issue-number: ${{ steps.find-pr.outputs.number }}
+                  issue-number: ${{ needs.pull-request.outputs.number }}
                   comment-author: github-actions[bot]
                   body-regex: '^Собрана новая \[демка\]\(.*\)\.$'
 
             - name: create or update comment
-              if: ${{ steps.find-pr.outputs.number != '' }}
               uses: peter-evans/create-or-update-comment@v3
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  comment-id: ${{ steps.find-comment.outputs.comment-id }}
-                  issue-number: ${{ steps.find-pr.outputs.number }}
+                  comment-id: ${{ steps.comment.outputs.comment-id }}
+                  issue-number: ${{ needs.pull-request.outputs.number }}
                   body: |
                       Собрана новая [демка](${{ needs.deploy.outputs.url }}).
                   reactions: rocket

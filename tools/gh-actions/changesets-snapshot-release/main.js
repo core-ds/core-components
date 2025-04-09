@@ -30,11 +30,11 @@ module.exports = async ({ core, exec, inputs }) => {
         if (fs.existsSync(userNpmrcPath)) {
             core.info('Found existing user .npmrc file');
             const userNpmrcContent = await fsPromises.readFile(userNpmrcPath, { encoding: 'utf8' });
-            const authLine = userNpmrcContent.split('\n').find((line) => {
+            const hasAuthLine = userNpmrcContent.split('\n').some((line) => {
                 // check based on https://github.com/npm/cli/blob/8f8f71e4dd5ee66b3b17888faad5a7bf6c657eed/test/lib/adduser.js#L103-L105
                 return /^\s*\/\/registry\.npmjs\.org\/:[_-]authToken=/i.test(line);
             });
-            if (authLine) {
+            if (hasAuthLine) {
                 core.info('Found existing auth token for the npm registry in the user .npmrc file');
             } else {
                 core.info(
@@ -61,6 +61,7 @@ module.exports = async ({ core, exec, inputs }) => {
         const [publishCmd, ...publishCmdArgs] = publishScript.split(/\s+/);
         const { stdout } = await exec.getExecOutput(publishCmd, publishCmdArgs);
 
+        // text from https://github.com/changesets/changesets/blob/dc83cb4dce0de726ca70593d4bef6f3f2c3d5278/packages/cli/src/commands/publish/index.ts#L91
         const successText = 'packages published successfully:';
         const startIndex = stdout.indexOf(successText);
 
@@ -70,6 +71,7 @@ module.exports = async ({ core, exec, inputs }) => {
             return [];
         }
 
+        // text from https://github.com/changesets/changesets/blob/dc83cb4dce0de726ca70593d4bef6f3f2c3d5278/packages/cli/src/commands/publish/index.ts#L112
         const failedText = 'packages failed to publish:';
         let endIndex = stdout.indexOf(failedText);
 
@@ -81,7 +83,8 @@ module.exports = async ({ core, exec, inputs }) => {
             .slice(startIndex, endIndex)
             .split('\n')
             .reduce((packages, line) => {
-                const match = line.match(/^🦋\s+(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)$/);
+                // regexp based on https://github.com/changesets/action/blob/06245a4e0a36c064a573d4150030f5ec548e4fcc/src/run.ts#L139
+                const match = line.match(/(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)/);
 
                 if (match) {
                     const [, name, version] = match;
