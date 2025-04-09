@@ -7,6 +7,7 @@ import {
     closeBrowser,
     createPreview,
     createSpriteStorybookUrl,
+    generateTestCases,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -62,30 +63,40 @@ describe(
 );
 
 describe(
-    'InputAutocomplete | screenshots rightAddons',
+    'InputAutocomplete site',
     screenshotTesting({
         cases: [
-            [
-                `site theme sprite`,
-                createSpriteStorybookUrl({
-                    componentName: 'InputAutocomplete',
-                    knobs: {
-                        label: 'Автокомплит',
-                        size: 56,
-                        block: true,
-                        selected: [['1']],
-                        options: [[{ key: '1', content: 'Вариант из списка' }]],
-                        success: [true, false],
-                        error: [undefined, 'Error'],
-                    },
-                    size: { width: 200, height: 150 },
-                }),
-            ],
+            ...generateTestCases({
+                componentName: 'InputAutocomplete',
+                subComponentName: 'InputAutocompleteMobile',
+                testStory: false,
+                knobs: {
+                    label: 'Автокомплит',
+                    size: 56,
+                    block: true,
+                    error: 'Error',
+                    showErrorIcon: [false, true],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'InputAutocomplete',
+                testStory: false,
+                knobs: {
+                    label: 'Автокомплит',
+                    size: 56,
+                    block: true,
+                    success: [true, false],
+                },
+            }),
         ],
-        theme: 'site',
-        screenshotOpts: {
-            fullPage: true,
+        viewport: {
+            width: 320,
+            height: 300,
         },
+        screenshotOpts: {
+            fullPage: false,
+        },
+        theme: 'site',
     }),
 );
 
