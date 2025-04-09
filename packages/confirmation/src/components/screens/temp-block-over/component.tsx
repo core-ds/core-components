@@ -1,11 +1,10 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
+import { Button } from '@alfalab/core-components-button';
 import { Text } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
-import { formatMsAsMinutes, useCountdown } from '../../../utils';
-import { CountdownLoader } from '../../countdown-loader';
 import { Header } from '../../header';
 
 import styles from './index.module.css';
@@ -18,20 +17,13 @@ export type TempBlockOverProps = {
 };
 
 export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
-    const { alignContent, texts, tempBlockDuration, onChangeScreen, onTempBlockFinished } =
+    const { alignContent, texts, breakpoint, client, onChangeScreen, onChangeState } =
         useContext(ConfirmationContext);
 
-    const [timeLeft, startTimer] = useCountdown(tempBlockDuration);
-
-    useEffect(() => {
-        startTimer();
-    }, [startTimer]);
-
-    useEffect(() => {
-        if (timeLeft === 0 && onTempBlockFinished) {
-            onTempBlockFinished();
-        }
-    }, [timeLeft, onChangeScreen, onTempBlockFinished]);
+    const handleReturnButtonClick = () => {
+        onChangeScreen('INITIAL');
+        onChangeState('INITIAL');
+    };
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
@@ -48,14 +40,16 @@ export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
                 {texts.tempBlockOverDescription}
             </Text>
 
-            <div className={cn(styles.countdownWrap, { [styles.typographyTheme]: !mobile })}>
-                <CountdownLoader
-                    progress={1 - timeLeft / tempBlockDuration}
-                    className={styles.loader}
-                />
-
-                {formatMsAsMinutes(timeLeft)}
-            </div>
+            <Button
+                size={mobile ? 'xs' : 's'}
+                view='secondary'
+                onClick={handleReturnButtonClick}
+                className={styles.button}
+                breakpoint={breakpoint}
+                client={client}
+            >
+                {texts.tempBlockOverButton}
+            </Button>
         </div>
     );
 };

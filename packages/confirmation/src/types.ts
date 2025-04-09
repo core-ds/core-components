@@ -173,7 +173,8 @@ export type ConfirmationTexts = {
      */
     title?: ReactNode; // заголовок
     codeError?: string; // ошибка проверки кода
-    codeErrorExpired?: string; // код устарел
+    codeErrorExpired?: string; // код устарел, запросите новый
+    codeErrorExpiredEnded?: string; // код устарел
     codeChecking?: string; // код проверяется
     codeSending?: string; // код отправляется
     codeSended?: string; // код отправлен
@@ -210,6 +211,7 @@ export type ConfirmationTexts = {
      */
     tempBlockOverTitle?: ReactNode; // заголовок
     tempBlockOverDescription?: ReactNode; // описание
+    tempBlockOverButton?: string; // кнопка
 };
 
 export type ConfirmationScreen =
@@ -224,7 +226,8 @@ export type ConfirmationState =
     | 'CODE_CHECKING' // проверка кода
     | 'CODE_SENDING' // повторная отправка кода
     | 'CODE_ERROR' // ошибка, когда ввели неверный код
-    | 'CODE_EXPIRED'; // ошибка, когда код устарел
+    | 'CODE_EXPIRED' // ошибка, когда код устарел, но можно запросить новый
+    | 'CODE_EXPIRED_ENDED'; // ошибка, когда код устарел
 
 export type ScreensMap = {
     [key: string]: ComponentType;
@@ -234,6 +237,7 @@ export const defaultTexts: ConfirmationTexts = {
     title: 'Введите код из\xa0уведомления',
     codeError: 'Код не подходит, проверьте его',
     codeErrorExpired: 'Код устарел, запросите новый',
+    codeErrorExpiredEnded: 'Код устарел',
     codeChecking: '',
     codeSending: '',
     buttonRetry: 'Запросить код',
@@ -250,6 +254,9 @@ export const defaultTexts: ConfirmationTexts = {
     fatalErrorButton: 'Понятно',
     tempBlockTitle: 'Ввести код пока нельзя',
     tempBlockDescription: 'Слишком много неверных попыток. Запросите новый позже',
+    tempBlockOverTitle: 'Ввод разблокирован',
+    tempBlockOverDescription: 'Теперь можно запросить новый код',
+    tempBlockOverButton: 'Запросить новый код',
     codeSended: 'Код отправлен',
     countdown: 'Запросить новый можно через',
     domesticPhone: '8 800 200 00 00',

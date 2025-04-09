@@ -643,31 +643,24 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER 
     >
       <h3
         class="component header typography styrene-medium medium primary"
-      />
+      >
+        Ввод разблокирован
+      </h3>
       <span
         class="description typographyTheme primary primary-medium"
-      />
-      <div
-        class="countdownWrap typographyTheme"
       >
-        <svg
-          class="loader"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
+        Теперь можно запросить новый код
+      </span>
+      <button
+        class="component secondary size-48 hug size-48 component secondary component secondary button"
+        type="button"
+      >
+        <span
+          class="label stretchText"
         >
-          <circle
-            class="circle"
-            cx="8"
-            cy="8"
-            r="7"
-            stroke-dasharray="43.98"
-            stroke-dashoffset="0.00"
-            transform="rotate(-90 8 8)"
-          />
-        </svg>
-        24:00:00
-      </div>
+          Запросить новый код
+        </span>
+      </button>
     </div>
   </div>
 </div>

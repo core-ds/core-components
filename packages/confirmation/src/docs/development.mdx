@@ -22,14 +22,15 @@ export type ConfirmationScreen =
     | 'HINT' // экран "Не приходит смс?"
     | 'FATAL_ERROR' // экран критической ошибки
     | 'TEMP_BLOCK'; // экран временной блокировки
-    | 'TEMP_BLOCK_OVER'; // новый экран временной блокировки
+    | 'TEMP_BLOCK_OVER'; // экран "Ввод разблокирован"
 
 export type ConfirmationState =
     | 'INITIAL' // начальное состояние
     | 'CODE_CHECKING' // проверка кода
     | 'CODE_SENDING' // повторная отправка кода
     | 'CODE_ERROR' // ошибка, когда ввели неверный код
-    | 'CODE_EXPIRED'; // ошибка, когда код устарел
+    | 'CODE_EXPIRED' // ошибка, когда код устарел, но можно запросить новый
+    | 'CODE_EXPIRED_ENDED'; // ошибка, когда код устарел
 ```
 
 Для управления экранами и состояниями можно воспользоваться хуком:
@@ -114,6 +115,7 @@ export type ConfirmationTexts = {
      */
     tempBlockOverTitle?: ReactNode; // заголовок
     tempBlockOverDescription?: ReactNode; // описание
+    tempBlockOverButton?: string; // кнопка
 };
 ```
 

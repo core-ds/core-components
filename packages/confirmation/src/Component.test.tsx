@@ -106,6 +106,7 @@ describe('Confirmation', () => {
                 linkToHint: 'Link',
                 codeError: 'Code error',
                 codeErrorExpired: 'Code error expired',
+                codeErrorExpiredEnded: 'Code error expired ended',
                 codeChecking: 'Code checking',
                 codeSending: 'Code sending',
                 hintButton: 'Hint button',
@@ -133,6 +134,10 @@ describe('Confirmation', () => {
             rerender(<ConfirmationDesktop {...props} state='CODE_EXPIRED' />);
 
             expect(getByText(texts.codeErrorExpired)).toBeInTheDocument();
+
+            rerender(<ConfirmationDesktop {...props} state='CODE_EXPIRED_ENDED' />);
+
+            expect(getByText(texts.codeErrorExpiredEnded)).toBeInTheDocument();
         });
 
         it('should render passed texts on HINT screen', () => {
@@ -233,43 +238,43 @@ describe('Confirmation', () => {
     });
 
     it('Should render custom screens', () => {
-        const initialScreenTitlle = 'Initial screen title';
-        const hintScreenTitlle = 'Hint screen title';
-        const fatalErrorScreenTitlle = 'Fatal error screen title';
-        const tempBlockScreenTitlle = 'Temp block screen title';
-        const tempBlockOverScreenTitlle = 'Temp block over screen title';
+        const initialScreenTitle = 'Initial screen title';
+        const hintScreenTitle = 'Hint screen title';
+        const fatalErrorScreenTitle = 'Fatal error screen title';
+        const tempBlockScreenTitle = 'Temp block screen title';
+        const tempBlockOverScreenTitle = 'Temp block over screen title';
 
         const props = {
             ...baseProps,
             getScreensMap: (screensMap: any) => ({
                 ...screensMap,
-                INITIAL: () => <span>{initialScreenTitlle}</span>,
-                HINT: () => <span>{hintScreenTitlle}</span>,
-                FATAL_ERROR: () => <span>{fatalErrorScreenTitlle}</span>,
-                TEMP_BLOCK: () => <span>{tempBlockScreenTitlle}</span>,
-                TEMP_BLOCK_OVER: () => <span>{tempBlockOverScreenTitlle}</span>,
+                INITIAL: () => <span>{initialScreenTitle}</span>,
+                HINT: () => <span>{hintScreenTitle}</span>,
+                FATAL_ERROR: () => <span>{fatalErrorScreenTitle}</span>,
+                TEMP_BLOCK: () => <span>{tempBlockScreenTitle}</span>,
+                TEMP_BLOCK_OVER: () => <span>{tempBlockOverScreenTitle}</span>,
             }),
         };
 
         const { getByText, rerender } = render(<ConfirmationDesktop {...props} />);
 
-        expect(getByText(initialScreenTitlle)).toBeInTheDocument();
+        expect(getByText(initialScreenTitle)).toBeInTheDocument();
 
         rerender(<ConfirmationDesktop {...props} screen='HINT' />);
 
-        expect(getByText(hintScreenTitlle)).toBeInTheDocument();
+        expect(getByText(hintScreenTitle)).toBeInTheDocument();
 
         rerender(<ConfirmationDesktop {...props} screen='FATAL_ERROR' />);
 
-        expect(getByText(fatalErrorScreenTitlle)).toBeInTheDocument();
+        expect(getByText(fatalErrorScreenTitle)).toBeInTheDocument();
 
         rerender(<ConfirmationDesktop {...props} screen='TEMP_BLOCK' />);
 
-        expect(getByText(tempBlockScreenTitlle)).toBeInTheDocument();
+        expect(getByText(tempBlockScreenTitle)).toBeInTheDocument();
 
         rerender(<ConfirmationDesktop {...props} screen='TEMP_BLOCK_OVER' />);
 
-        expect(getByText(tempBlockOverScreenTitlle)).toBeInTheDocument();
+        expect(getByText(tempBlockOverScreenTitle)).toBeInTheDocument();
     });
 
     describe('Input tests', () => {

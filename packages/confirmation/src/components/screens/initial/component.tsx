@@ -124,6 +124,10 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             return texts.codeErrorExpired || true;
         }
 
+        if (state === 'CODE_EXPIRED_ENDED') {
+            return texts.codeErrorExpiredEnded || true;
+        }
+
         if (state === 'CODE_ERROR') {
             return texts.codeError || true;
         }

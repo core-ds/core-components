@@ -22,11 +22,6 @@
     margin-bottom: var(--gap-8);
 }
 
-.countdownWrap {
-    display: flex;
-    align-items: center;
-}
-
-.loader {
-    margin-right: var(--gap-8);
+.button.button {
+    margin-top: var(--gap-32);
 }
