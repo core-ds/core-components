@@ -4,8 +4,7 @@ import type { TransitionProps } from 'react-transition-group/Transition';
 
 import type { BaseModalProps } from '@alfalab/core-components-base-modal';
 import type { NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
-
-import type { BackgroundColorType } from '../../types';
+import type { BackgroundColorType } from '@alfalab/core-components-types';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
@@ -13,7 +12,7 @@ export type BottomSheetProps = {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
-    adjustContainerHeight?: (height: number) => number
+    adjustContainerHeight?: (height: number) => number;
     /**
      * Контент
      */
