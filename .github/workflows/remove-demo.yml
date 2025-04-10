@@ -39,6 +39,7 @@ jobs:
               with:
                   ref: gh-pages
                   lfs: true
+                  token: ${{ secrets.GH_TOKEN }}
 
             - name: remove demo
               shell: bash
@@ -59,10 +60,9 @@ jobs:
               if: ${{ steps.git-status.outputs.result == 'true' }}
               shell: bash
               run: |
-                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
-                  git config user.name 'github-actions[bot]'
-                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+                  git config user.name "hextion"
+                  git config user.email "100ishundred@gmail.com"
 
                   git add .
                   git commit -n -m "Deploy to GitHub Pages"
-                  git push
+                  git push origin $(git branch --show-current)

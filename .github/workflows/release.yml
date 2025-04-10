@@ -16,17 +16,23 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GH_TOKEN }}
 
             - uses: ./.github/actions/ci-setup
 
+            - uses: ./.github/actions/setup-git-user
+              with:
+                  name: 'hextion'
+                  email: '100ishundred@gmail.com'
+
             - name: create release pull request or publish to npm
-              # https://github.com/changesets/action
               uses: changesets/action@v1
               with:
-                  # this expects you to have a script called release which does a build for your packages and calls changeset publish
                   publish: yarn release
                   version: yarn version-packages
                   commit: 'chore: version packages'
+                  setupGitUser: false
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

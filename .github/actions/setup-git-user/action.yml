@@ -1,0 +1,19 @@
+name: setup-git-user
+
+inputs:
+    name:
+        description: The user name
+        required: true
+        type: string
+    email:
+        description: The user email
+        required: true
+        type: string
+
+runs:
+    using: composite
+    steps:
+        - shell: bash
+          run: |
+              git config user.name "${{ inputs.user }}"
+              git config user.email "${{ inputs.email }}"

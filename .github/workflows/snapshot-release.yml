@@ -23,7 +23,7 @@ jobs:
                   version: 'yarn version-packages:snapshot'
                   publish: 'yarn release:snapshot'
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     pull-request:
@@ -36,7 +36,7 @@ jobs:
               uses: jwalton/gh-find-current-pr@v1
               id: pull-request
               with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  github-token: ${{ secrets.GH_TOKEN }}
 
     comment:
         name: comment
@@ -60,7 +60,7 @@ jobs:
             - name: create comment
               uses: peter-evans/create-or-update-comment@v3
               with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GH_TOKEN }}
                   issue-number: ${{ needs.pull-request.outputs.number }}
                   body: ${{ steps.prepare-comment.outputs.result }}
                   reactions: rocket
