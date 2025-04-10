@@ -2,6 +2,10 @@ name: update screenshots
 
 on: workflow_dispatch
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     update:
         name: update screenshots
@@ -14,6 +18,7 @@ jobs:
                   # using GITHUB_TOKEN doesn't trigger any action
                   # https://github.com/orgs/community/discussions/55906
                   token: ${{ secrets.GH_TOKEN }}
+                  lfs: true
 
             - uses: ./.github/actions/ci-setup
 
