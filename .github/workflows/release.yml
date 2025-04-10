@@ -31,5 +31,8 @@ jobs:
                   version: yarn version-packages
                   commit: 'chore: version packages'
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  # used GH_TOKEN to trigger github actions on branch update
+                  # GITHUB_TOKEN doesn't trigger any action
+                  # https://github.com/orgs/community/discussions/55906
+                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
