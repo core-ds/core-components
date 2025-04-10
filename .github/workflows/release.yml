@@ -17,6 +17,9 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
+                  # used GH_TOKEN to trigger github actions on branch update
+                  # GITHUB_TOKEN doesn't trigger any action
+                  # https://github.com/orgs/community/discussions/55906
                   token: ${{ secrets.GH_TOKEN }}
 
             - uses: ./.github/actions/ci-setup
@@ -28,5 +31,5 @@ jobs:
                   version: yarn version-packages
                   commit: 'chore: version packages'
               env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

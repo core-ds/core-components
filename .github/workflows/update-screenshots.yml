@@ -6,6 +6,7 @@ jobs:
     update:
         name: update screenshots
         runs-on: ubuntu-latest
+        if: ${{ github.repository == 'hextion/core-components' }}
         steps:
             - uses: actions/checkout@v4
               with:
