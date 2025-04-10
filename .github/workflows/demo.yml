@@ -89,7 +89,7 @@ jobs:
               with:
                   ref: gh-pages
                   lfs: true
-                  token: ${{ secrets.GH_TOKEN }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: clean up
               shell: bash
@@ -111,8 +111,8 @@ jobs:
             - name: deploy
               shell: bash
               run: |
-                  git config user.name "core-ds-bot"
-                  git config user.email "ds@gitmax.tech"
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
                   git add .
                   git commit -n -m "Deploy to GitHub Pages"
@@ -138,7 +138,7 @@ jobs:
               uses: jwalton/gh-find-current-pr@v1
               id: pull-request
               with:
-                  github-token: ${{ secrets.GH_TOKEN }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
 
     comment:
         name: comment
@@ -150,15 +150,15 @@ jobs:
               uses: peter-evans/find-comment@v3
               id: comment
               with:
-                  token: ${{ secrets.GH_TOKEN }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
                   issue-number: ${{ needs.pull-request.outputs.number }}
-                  comment-author: 'hextion'
+                  comment-author: 'github-actions[bot]'
                   body-includes: Demo build
 
             - name: create or update comment
               uses: peter-evans/create-or-update-comment@v3
               with:
-                  token: ${{ secrets.GH_TOKEN }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
                   comment-id: ${{ steps.comment.outputs.comment-id }}
                   issue-number: ${{ needs.pull-request.outputs.number }}
                   body: |

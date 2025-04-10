@@ -4,20 +4,13 @@ inputs:
     message:
         description: The commit message
         required: true
-        type: string
-    setup-git-user:
-        description: Setup git user
-        required: false
-        type: boolean
-        default: false
 
 runs:
     using: composite
     steps:
         - uses: ./.github/actions/setup-git-user
-          if: ${{ inputs.setup-git-user }}
           with:
-              user: 'github-actions[bot]'
+              name: 'github-actions[bot]'
               email: '41898282+github-actions[bot]@users.noreply.github.com'
 
         - shell: bash

@@ -19,6 +19,6 @@ jobs:
             - name: apply changesets
               shell: bash
               env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   yarn changeset version

@@ -15,5 +15,5 @@ runs:
     steps:
         - shell: bash
           run: |
-              git config user.name "${{ inputs.user }}"
+              git config user.name "${{ inputs.name }}"
               git config user.email "${{ inputs.email }}"

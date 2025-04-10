@@ -9,8 +9,10 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
-                  lfs: true
-                  token: ${{ github.repository == 'hextion/core-components' && secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+                  # used GH_TOKEN to trigger github actions on branch update
+                  # GITHUB_TOKEN doesn't trigger any action
+                  # https://github.com/orgs/community/discussions/55906
+                  token: ${{ secrets.GH_TOKEN }}
 
             - uses: ./.github/actions/ci-setup
 
@@ -23,22 +25,13 @@ jobs:
               id: git-status
               uses: actions/github-script@v7
               with:
-                  result-encoding: string
                   script: |
                       const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);
 
                       return stdout.split('\n').some(line => /^\s+M\s+.*\.png$/.test(line));
 
-            - name: setup git user
-              if: ${{ github.repository == 'hextion/core-components' && steps.git-status.outputs.result == 'true' }}
-              uses: ./.github/actions/setup-git-user
-              with:
-                  name: 'hextion'
-                  email: '100ishundred@gmail.com'
-
             - name: update branch
               if: ${{ steps.git-status.outputs.result == 'true' }}
               uses: ./.github/actions/commit-and-push
               with:
-                  setup-git-user: ${{ github.repository != 'hextion/core-components' }}
                   message: 'test: updated screenshots'
