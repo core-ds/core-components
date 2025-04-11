@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.0.5
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1668](https://github.com/core-ds/core-components/pull/1668)
+
+-   Исправлено закрытие модалки при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header` - хэндлер будет браться с компонента `UniversalModal`
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   navigation-bar-private@0.8.1
+
 ## 1.0.4
 
 ### Patch Changes
