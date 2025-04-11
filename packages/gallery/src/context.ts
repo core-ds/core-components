@@ -28,6 +28,7 @@ export type GalleryContext = {
     setCurrentSlideIndex?: (index: number) => void;
     getCurrentImage: () => GalleryImage | undefined;
     getCurrentImageMeta: () => ImageMeta | undefined;
+    swiperClassName?: string;
 };
 
 const mockFn = () => undefined;
@@ -39,6 +40,7 @@ export const GalleryContext = createContext<GalleryContext>({
     currentSlideIndex: 0,
     images: [],
     imagesMeta: [],
+    swiperClassName: undefined,
     fullScreen: false,
     mutedVideo: false,
     playingVideo: false,
