@@ -28,6 +28,7 @@ export type AutocompleteMobileFieldProps = FormControlMobileProps &
         value?: string;
     };
 
+// eslint-disable-next-line complexity
 export const AutocompleteMobileField = ({
     size = 56,
     open,
@@ -46,6 +47,7 @@ export const AutocompleteMobileField = ({
     FormControlComponent,
     rightAddons,
     error,
+    showErrorIcon,
     readOnly,
     clear,
     success,
@@ -63,6 +65,7 @@ export const AutocompleteMobileField = ({
     const filled = Boolean(value);
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
     const clearButtonVisible = clear && filled && !disabled && !readOnly;
+    const shouldShowErrorIcon = error && showErrorIcon;
 
     const { tabIndex, ...restInnerProps } = innerProps;
 
@@ -73,11 +76,8 @@ export const AutocompleteMobileField = ({
             )}
             {rightAddons}
             {Arrow}
-            {error && (
-                <div
-                    className={cn(styles.errorIcon, styles[`size-${size}`])}
-                    data-addon='error-icon'
-                >
+            {shouldShowErrorIcon && (
+                <div className={cn(styles.errorIcon, styles[`size-${size}`])}>
                     <StatusBadge
                         view='negative-alert'
                         size={size === 40 ? 16 : 20}

@@ -1,6 +1,5 @@
 import React, { useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
-import cn from 'classnames';
 
 import { InputProps } from '@alfalab/core-components-input';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
@@ -8,8 +7,6 @@ import type { FieldProps } from '@alfalab/core-components-select/shared';
 
 import { OnInputReason } from '../enums';
 import { InputAutocompleteCommonProps } from '../types';
-
-import styles from './index.module.css';
 
 export type AutocompleteFieldProps = FieldProps &
     Pick<InputAutocompleteCommonProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'>;
@@ -23,6 +20,7 @@ export const AutocompleteField = ({
     Input = DefaultInput,
     value,
     error,
+    showErrorIcon,
     success,
     hint,
     disabled,
@@ -70,6 +68,7 @@ export const AutocompleteField = ({
             placeholder={placeholder}
             size={size}
             error={error}
+            showErrorIcon={showErrorIcon}
             success={success}
             hint={hint}
             onChange={handleInput}
@@ -81,15 +80,7 @@ export const AutocompleteField = ({
                 (Arrow || inputProps.rightAddons) && (
                     <React.Fragment>
                         {inputProps.rightAddons}
-                        {Arrow && (
-                            <span
-                                className={cn(styles.arrow, {
-                                    [styles.error]: error,
-                                })}
-                            >
-                                {Arrow}
-                            </span>
-                        )}
+                        {Arrow && <span>{Arrow}</span>}
                     </React.Fragment>
                 )
             }

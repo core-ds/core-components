@@ -152,6 +152,7 @@ describe('Input | screenshots hint and error', () => {
                             hint: ['', 'Hint'],
                             error: ['', 'Error'],
                             value: ['', 'Value'],
+                            showErrorIcon: theme === 'site',
                             colors,
                         },
                         size: { width: 350, height: 150 },

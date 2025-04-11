@@ -15,7 +15,3 @@
         margin-left: 6px;
     }
 }
-
-.clearButton + [data-addon='error-icon'] {
-    display: var(--input-error-icon-display);
-}
