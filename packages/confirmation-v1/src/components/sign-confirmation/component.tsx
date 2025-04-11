@@ -159,7 +159,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                         view='secondary'
                         pseudo={true}
                     >
-                        Не приходит сообщение?
+                        Не приходит код?
                     </Link>
                 </div>
             )}
