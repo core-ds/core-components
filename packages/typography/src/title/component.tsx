@@ -2,9 +2,9 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
+
 import { Color } from '../colors';
-import { useSkeleton } from '../hooks';
-import { TextSkeletonProps } from '../types';
 
 import { getDefaultWeight } from './utils';
 
