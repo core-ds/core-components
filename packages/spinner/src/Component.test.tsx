@@ -70,6 +70,7 @@ describe('Spinner props', () => {
         const { container } = render(<Spinner visible size={48} lineWidth={2} />);
         expect(container).toMatchSnapshot();
     });
+
     it('should set correct size', () => {
         const { container } = render(
             <Spinner visible size={40} lineWidth={2} style={{ padding: 4 }} />,
@@ -80,6 +81,7 @@ describe('Spinner props', () => {
             padding: '4px',
         });
     });
+
     it('should support `style`', () => {
         const color = '#EC2D20';
         const padding = 2;
@@ -99,7 +101,7 @@ describe('Spinner props', () => {
         );
     });
 
-    test.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
+    it.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
         const { container } = render(<Spinner visible preset={preset} />);
         expect(container).toMatchSnapshot();
     });

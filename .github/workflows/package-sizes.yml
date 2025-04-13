@@ -1,0 +1,153 @@
+name: package sizes
+
+on: pull_request
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    target:
+        name: analyze target package sizes
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.base_ref }}
+
+            - uses: ./.github/actions/ci-setup
+
+            - name: analyze
+              shell: bash
+              run: |
+                  yarn analyze-package-sizes
+
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: target
+                  path: package-sizes.json
+                  if-no-files-found: error
+
+    current:
+        name: analyze current package sizes
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: ./.github/actions/ci-setup
+
+            - name: analyze
+              shell: bash
+              run: |
+                  yarn analyze-package-sizes
+
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: current
+                  path: package-sizes.json
+                  if-no-files-found: error
+
+    compare:
+        name: check package sizes
+        runs-on: ubuntu-latest
+        needs: [target, current]
+        outputs:
+            result: ${{ steps.compare.outputs.result }}
+        steps:
+            - name: download target
+              uses: actions/download-artifact@v4
+              with:
+                  name: target
+                  path: target
+
+            - name: download current
+              uses: actions/download-artifact@v4
+              with:
+                  name: current
+                  path: current
+
+            - name: compare package sizes
+              id: compare
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      const fs = require('node:fs/promises');
+                      const targetFile = require('./target/package-sizes.json');
+                      const currentFile = require('./current/package-sizes.json');
+
+                      let shouldComment = false;
+
+                      const targetComponents = Object.keys(targetFile);
+                      const currentComponents = Object.keys(currentFile);
+
+                      const table = [...new Set([...targetComponents, ...currentComponents])]
+                         .sort((a, b) => a.localeCompare(b))
+                         .reduce((acc, packageName) => {
+                              const entryPoints = [
+                                  ...new Set([
+                                      ...Object.keys(targetFile[packageName] || {}),
+                                      ...Object.keys(currentFile[packageName] || {}),
+                                  ]),
+                              ];
+
+                              entryPoints.forEach((entryPoint) => {
+                                  const now = currentFile[packageName]?.[entryPoint] || 0;
+                                  const before = targetFile[packageName]?.[entryPoint] || 0;
+
+                                  if (Math.abs(now - before) >= 1) {
+                                      shouldComment = true;
+                                      acc += `| ${packageName}/${entryPoint} | ${now} ${
+                                          now - before > 0
+                                              ? `(+${(now - before).toFixed(2)} KB ❌)`
+                                              : `(-${(before - now).toFixed(2)} KB ✅)`
+                                      } |\n`;
+                                  }
+                              });
+
+                              return acc;
+                          },
+                          '## Bundle size report\n| Entry point | Size (minified) |\n| --- | --- |\n',
+                      );
+
+                      return shouldComment ? table : '';
+
+    comment:
+        name: comment
+        runs-on: ubuntu-latest
+        needs: compare
+        steps:
+            - name: find comment
+              uses: peter-evans/find-comment@v3
+              id: find-comment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-number: ${{ github.event.pull_request.number }}
+                  comment-author: github-actions[bot]
+                  body-includes: Bundle size report
+
+            - name: create or update comment
+              if: ${{ needs.compare.outputs.result != '' }}
+              uses: peter-evans/create-or-update-comment@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  comment-id: ${{ steps.find-comment.outputs.comment-id }}
+                  issue-number: ${{ github.event.pull_request.number }}
+                  body: ${{ needs.compare.outputs.result }}
+                  edit-mode: replace
+
+            - name: delete outdated comment
+              if: ${{ needs.compare.outputs.result == '' && steps.find-comment.outputs.comment-id != '' }}
+              uses: actions/github-script@v7
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  script: |
+                      const owner = process.env.GITHUB_REPOSITORY_OWNER;
+                      const repo = process.env.GITHUB_REPOSITORY.replace(`${owner}/`, '');
+                      const comment_id = '${{ steps.find-comment.outputs.comment-id }}';
+
+                      await github.rest.issues.deleteComment({
+                        owner,
+                        repo,
+                        comment_id,
+                      });

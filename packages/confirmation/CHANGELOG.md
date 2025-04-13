@@ -1,5 +1,13 @@
 # Change Log
 
+## 13.9.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.6
+    -   button@11.11.7
+
 ## 13.9.10
 
 ### Patch Changes
