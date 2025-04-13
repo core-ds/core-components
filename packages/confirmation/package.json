@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-confirmation",
-    "version": "13.9.10",
+    "version": "13.9.11",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
@@ -12,10 +12,10 @@
     },
     "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.6",
+        "@alfalab/core-components-button": "^11.11.7",
         "@alfalab/core-components-code-input": "^3.9.7",
         "@alfalab/core-components-link": "^5.3.4",
-        "@alfalab/core-components-spinner": "^4.0.5",
+        "@alfalab/core-components-spinner": "^4.0.6",
         "@alfalab/core-components-typography": "^4.12.0",
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/hooks": "^1.13.1",

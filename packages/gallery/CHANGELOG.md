@@ -1,5 +1,22 @@
 # Change Log
 
+## 5.11.9
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+-   Фикс импорта `icon-view`
+-   Фикс tsconfig
+
+-   Обновлены зависимости
+    -   spinner@4.0.6
+    -   icon-view@3.10.1
+    -   icon-button@6.11.10
+    -   tooltip@7.9.8
+
 ## 5.11.8
 
 ### Patch Changes
