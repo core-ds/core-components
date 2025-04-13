@@ -18,10 +18,6 @@
     color: var(--color-light-text-secondary);
 }
 
-.description.description {
-    margin-bottom: var(--gap-8);
-}
-
 .button.button {
     margin-top: var(--gap-32);
 }

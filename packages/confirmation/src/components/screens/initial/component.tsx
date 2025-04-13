@@ -98,10 +98,6 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             return;
         }
 
-        if (state === 'CODE_ERROR' && prevState !== 'CODE_ERROR') {
-            inputRef.current.focus(requiredCharAmount - 1);
-        }
-
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
             inputRef.current.focus();
         }

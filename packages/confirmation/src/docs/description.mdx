@@ -6,7 +6,6 @@
 4. Закончились попытки ввода кода, вводимый код некорректен: после ввода кода пользователю будет сообщено, что у него закончились попытки.
 5. Закончились попытки запроса кода, вводимый код устарел: после запроса следующего кода запрос нового будет заблокирован.
 6. Временная блокировка формы: после ввода кода форма будет заблокирована на 24 часа.
-7. Ввод разблокирован: после ввода кода пользователю будет сообщено, что ввод разблокирован.
 
 ```jsx live
 render(() => {
@@ -20,8 +19,7 @@ render(() => {
             key: 'sms-requests-ended',
             content: 'Закончились попытки запроса кода, вводимый код устарел',
         },
-        { key: 'temp-block', content: 'Сценарий, когда форма временно заблокирована' },
-        { key: 'temp-block-over', content: 'Ввод разблокирован' },
+        { key: 'temp-block-over', content: 'Сценарий, когда форма временно заблокирована' },
     ];
 
     const [variant, setVariant] = React.useState(variants[0]);
@@ -54,9 +52,6 @@ render(() => {
                     break;
                 case 'sms-requests-ended':
                     setConfirmationState('CODE_EXPIRED_ENDED');
-                    break;
-                case 'temp-block':
-                    setConfirmationScreen('TEMP_BLOCK');
                     break;
                 case 'temp-block-over':
                     setConfirmationScreen('TEMP_BLOCK');
