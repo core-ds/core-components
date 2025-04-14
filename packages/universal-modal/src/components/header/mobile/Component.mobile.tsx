@@ -65,7 +65,6 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
             bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}
             scrollableParentRef={componentRef}
             titleRef={titleRef}
-            addonClassName={mobileStyles.addon}
             onClose={handleClose}
         >
             {children}
