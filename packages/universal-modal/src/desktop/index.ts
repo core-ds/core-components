@@ -9,5 +9,3 @@ export type { FooterDesktopProps } from '../components/footer';
 
 export { ContentDesktop } from '../components/content';
 export type { ContentDesktopProps } from '../components/content';
-
-export { ArrowButtonDesktop } from './components/buttons/arrow-button';
