@@ -1,4 +1,4 @@
-name: remove demo
+name: remove-demo
 
 on:
     pull_request:
@@ -16,16 +16,10 @@ concurrency:
 
 jobs:
     params:
-        name: resolve params
-        runs-on: ubuntu-latest
-        outputs:
-            dir: ${{ github.event_name == 'pull_request' && github.event.pull_request.number || steps.resolve.outputs.dir }}
-        steps:
-            - uses: hextion/core-components/.github/actions/resolve-demo-params@master
-              if: ${{ github.event_name == 'workflow_dispatch' }}
-              id: resolve
-              with:
-                  version: ${{ inputs.version }}
+        uses: hextion/core-components/.github/workflows/resolve-demo-params.yml@master
+        secrets: inherit
+        with:
+            dir: ${{ github.event.pull_request.number }}
 
     remove-demo:
         name: remove demo

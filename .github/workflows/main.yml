@@ -64,6 +64,12 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
+    demo-params:
+        uses: ./.github/workflows/resolve-demo-params.yml
+        secrets: inherit
+        with:
+            dir: ${{ github.event.pull_request.number }}
+
     build-demo:
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
@@ -72,12 +78,12 @@ jobs:
 
     deploy:
         if: ${{ github.repository == 'hextion/core-components' }}
-        needs: build-demo
+        needs: [demo-params, build-demo]
         uses: ./.github/workflows/deploy-demo.yml
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: ${{ github.event.pull_request.number }}
+            dir: ${{ needs.demo-params.outputs.dir }}
 
     screenshot-test:
         name: screenshot test
