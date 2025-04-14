@@ -425,7 +425,8 @@ render(() => {
                             bigTitle: headerType === 'big',
                         })}
                     {...(headerButtonArrow && {
-                        leftAddons: <ArrowButtonDesktop onClick={() => setOpen(false)} />,
+                        hasBackButton: headerButtonArrow,
+                        onBack: () => setOpen(false),
                         align: 'center',
                         ...(headerType !== 'none' && {
                             bottomAddons: 'Почему банк проверяет мои операции?',
@@ -703,7 +704,20 @@ render(() => {
                             title: 'Почему банк проверяет мои операции?',
                         })}
                     {...(headerButtonArrow && {
-                        leftAddons: <ArrowButtonMobile onClick={() => setOpen(false)} />,
+                        leftAddons: (
+                            <ButtonMobile
+                                shape='rounded'
+                                size={32}
+                                leftAddons={
+                                    <ChevronLeftMIcon
+                                        style={{
+                                            fill: 'var(--color-light-neutral-translucent-700)',
+                                        }}
+                                    />
+                                }
+                                onClick={() => setOpen(false)}
+                            />
+                        ),
                         align: 'left',
                         ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
                     })}
@@ -1245,9 +1259,8 @@ render(() => {
                         ),
                     })}
                     {...(step > 1 && {
-                        leftAddons: (
-                            <ArrowButtonDesktop onClick={() => setStep((prev) => prev - 1)} />
-                        ),
+                        hasBackButton: true,
+                        onBack: () => setStep((prev) => prev - 1),
                     })}
                     hasCloser={true}
                     align='center'
@@ -1347,7 +1360,18 @@ render(() => {
                     })}
                     {...(step > 1 && {
                         leftAddons: (
-                            <ArrowButtonMobile onClick={() => setStep((prev) => prev - 1)} />
+                            <ButtonMobile
+                                shape='rounded'
+                                size={32}
+                                leftAddons={
+                                    <ChevronLeftMIcon
+                                        style={{
+                                            fill: 'var(--color-light-neutral-translucent-700)',
+                                        }}
+                                    />
+                                }
+                                onClick={() => setStep((prev) => prev - 1)}
+                            />
                         ),
                     })}
                     hasCloser={true}
