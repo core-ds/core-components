@@ -1,3 +1,26 @@
+## 48.23.1
+
+<sup><time>14.04.2025</time></sup>
+
+### [#1670](https://github.com/core-ds/core-components/pull/1670)
+
+#### Что изменилось
+- Исправлено закрытие `UniversalModalMobile` при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header`. Хэндлер будет браться с компонента `UniversalModalMobile`.
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1671](https://github.com/core-ds/core-components/pull/1671)
+
+#### Что изменилось
+- Исправлен размер левого аддона компонента `Header` для `UniverslaModalMobile`
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
 ## 48.23.0
 
 <sup><time>11.04.2025</time></sup>
