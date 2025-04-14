@@ -7,15 +7,10 @@ on:
                 description: Checkout ref
                 required: false
                 type: string
-                default: ${{ github.ref }}
         outputs:
             run-id:
                 description: Artifact workflow run id
                 value: ${{ jobs.artifact.outputs.workflow_run_id }}
-
-concurrency:
-    group: ${{ github.workflow }}-${{ inputs.ref }}
-    cancel-in-progress: true
 
 jobs:
     artifact:
