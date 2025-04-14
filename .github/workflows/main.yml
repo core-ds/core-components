@@ -73,8 +73,6 @@ jobs:
     build-demo:
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
-        with:
-            ref: ${{ github.sha }}
 
     deploy:
         if: ${{ github.repository == 'hextion/core-components' }}

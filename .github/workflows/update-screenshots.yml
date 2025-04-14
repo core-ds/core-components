@@ -10,8 +10,6 @@ jobs:
     build-demo:
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
-        with:
-            ref: ${{ github.sha }}
 
     update:
         name: update screenshots
