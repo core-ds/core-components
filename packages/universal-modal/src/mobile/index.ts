@@ -10,5 +10,4 @@ export type { FooterMobileProps } from '../components/footer';
 export { ContentMobile } from '../components/content';
 export type { ContentMobileProps } from '../components/content';
 
-export { CrossButtonMobile } from './components/buttons/cross-button';
 export { ArrowButtonMobile } from './components/buttons/arrow-button';
