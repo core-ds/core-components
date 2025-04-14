@@ -6,7 +6,7 @@ on:
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @balafla/core-components package, tag or sha
+                description: Version of @balafla/core-components package, tag or SHA
                 required: false
                 type: string
 
@@ -19,15 +19,13 @@ jobs:
         name: resolve params
         runs-on: ubuntu-latest
         outputs:
-            dir: ${{ steps.resolve.outputs.dir }}
+            dir: ${{ github.event_name == 'pull_request' && github.event.pull_request.number || steps.resolve.outputs.dir }}
         steps:
-            - uses: actions/checkout@v4
-
-            - uses: ./.github/actions/resolve-demo-params
+            - uses: hextion/core-components/.github/actions/resolve-demo-params@master
+              if: ${{ github.event_name == 'workflow_dispatch' }}
               id: resolve
               with:
                   version: ${{ inputs.version }}
-                  dir: ${{ github.event.pull_request.number }}
 
     remove-demo:
         name: remove demo
@@ -58,11 +56,6 @@ jobs:
 
             - name: deploy
               if: ${{ steps.git-status.outputs.result == 'true' }}
-              shell: bash
-              run: |
-                  git config user.name "github-actions[bot]"
-                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-                  git add .
-                  git commit -n -m "Deploy to GitHub Pages"
-                  git push origin $(git branch --show-current)
+              uses: hextion/core-components/.github/actions/commit-and-push@master
+              with:
+                  message: 'Deploy to GitHub Pages'

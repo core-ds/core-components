@@ -1,12 +1,9 @@
-module.exports = async ({ context, core, inputs }) => {
+module.exports = async ({ core, inputs }) => {
     const semver = require('semver');
 
     const versionInput = inputs['version'];
 
-    if (versionInput === '') {
-        core.info('Version input is empty');
-        return context.ref;
-    } else if (semver.valid(versionInput)) {
+    if (semver.valid(versionInput)) {
         core.info('Resolving as @balafla/core-components version');
 
         return semver.satisfies(versionInput, '>= 49', { includePrerelease: true })
