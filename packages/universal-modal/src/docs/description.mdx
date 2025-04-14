@@ -425,16 +425,15 @@ render(() => {
                             bigTitle: headerType === 'big',
                         })}
                     {...(headerButtonArrow && {
-                        leftAddons: <ArrowButtonDesktop onClick={() => setOpen(false)} />,
+                        hasBackButton: headerButtonArrow,
+                        onBack: () => setOpen(false),
                         align: 'center',
                         ...(headerType !== 'none' && {
                             bottomAddons: 'Почему банк проверяет мои операции?',
                             bigTitle: headerType === 'big',
                         }),
                     })}
-                    {...(headerButtonCross && {
-                        rightAddons: <CrossButtonDesktop onClick={() => setOpen(false)} />,
-                    })}
+                    hasCloser={headerButtonCross}
                 />
                 <UniversalModalDesktop.Content>
                     {contentTitle && (
@@ -705,13 +704,24 @@ render(() => {
                             title: 'Почему банк проверяет мои операции?',
                         })}
                     {...(headerButtonArrow && {
-                        leftAddons: <ArrowButtonMobile onClick={() => setOpen(false)} />,
+                        leftAddons: (
+                            <ButtonMobile
+                                shape='rounded'
+                                size={32}
+                                leftAddons={
+                                    <ChevronLeftMIcon
+                                        style={{
+                                            fill: 'var(--color-light-neutral-translucent-700)',
+                                        }}
+                                    />
+                                }
+                                onClick={() => setOpen(false)}
+                            />
+                        ),
                         align: 'left',
                         ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
                     })}
-                    {...(headerButtonCross && {
-                        rightAddons: <CrossButtonMobile onClick={() => setOpen(false)} />,
-                    })}
+                    hasCloser={headerButtonCross}
                     {...(alignment && { align: 'center' })}
                     {...(subtitle && { subtitle: 'Подпись', titleSize: 'compact' })}
                 />
@@ -947,7 +957,7 @@ render(() => {
                     align='left'
                     sticky={true}
                     title='Почему банк проверяет мои операции?'
-                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
+                    hasCloser={true}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -1081,7 +1091,7 @@ render(() => {
                     align='left'
                     sticky={true}
                     title='Почему банк проверяет мои операции?'
-                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
+                    hasCloser={true}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
@@ -1249,11 +1259,10 @@ render(() => {
                         ),
                     })}
                     {...(step > 1 && {
-                        leftAddons: (
-                            <ArrowButtonDesktop onClick={() => setStep((prev) => prev - 1)} />
-                        ),
+                        hasBackButton: true,
+                        onBack: () => setStep((prev) => prev - 1),
                     })}
-                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
+                    hasCloser={true}
                     align='center'
                     {...(step === 1 && { align: 'left' })}
                 />
@@ -1351,10 +1360,21 @@ render(() => {
                     })}
                     {...(step > 1 && {
                         leftAddons: (
-                            <ArrowButtonMobile onClick={() => setStep((prev) => prev - 1)} />
+                            <ButtonMobile
+                                shape='rounded'
+                                size={32}
+                                leftAddons={
+                                    <ChevronLeftMIcon
+                                        style={{
+                                            fill: 'var(--color-light-neutral-translucent-700)',
+                                        }}
+                                    />
+                                }
+                                onClick={() => setStep((prev) => prev - 1)}
+                            />
                         ),
                     })}
-                    rightAddons={<CrossButtonMobile onClick={() => setOpen(false)} />}
+                    hasCloser={true}
                     align='center'
                     {...(step === 1 && { align: 'left' })}
                 />
@@ -1425,7 +1445,7 @@ render(() => {
                     sticky={true}
                     title='Одна модалка'
                     align='left'
-                    rightAddons={<CrossButtonDesktop onClick={handleCloseModal} />}
+                    hasCloser={true}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text view='primary-medium'>
@@ -1454,7 +1474,7 @@ render(() => {
                     sticky={true}
                     title='Другая модалка'
                     align='left'
-                    rightAddons={<CrossButtonDesktop onClick={handleCloseSecondModal} />}
+                    hasCloser={true}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text view='primary-medium'>
@@ -1499,7 +1519,7 @@ render(() => {
                     align='left'
                     sticky={true}
                     title='Почему банк проверяет мои операции?'
-                    rightAddons={<CrossButtonDesktop onClick={() => setOpen(false)} />}
+                    hasCloser={true}
                 />
                 <UniversalModalDesktop.Content>
                     <Typography.Text tag='p'>
