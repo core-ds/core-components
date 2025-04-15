@@ -246,10 +246,9 @@ export const BaseInternationalPhoneInput = forwardRef<
                     ...(restProps.fieldProps as AnyObject),
                     className: inputProps.className,
                     addonsClassName: inputProps.addonsClassName,
-                    showErrorIcon:
-                        showErrorIcon || (restProps.fieldProps as AnyObject)?.showErrorIcon,
                     ...(view === 'mobile' ? { leftAddons: renderCountrySelect() } : null),
                 }}
+                showErrorIcon={showErrorIcon}
             />
         ) : (
             <Input
