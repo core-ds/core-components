@@ -59,7 +59,13 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       <div
         class="countdownContainer typographyTheme primary-medium"
       >
-        Запросить новый можно через 01:00
+        Запросить новый можно через
+         
+        <time
+          class="timeCounter"
+        >
+          01:00
+        </time>
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -259,7 +265,13 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       <div
         class="countdownContainer typographyTheme primary-medium"
       >
-        Запросить новый можно через 01:00
+        Запросить новый можно через
+         
+        <time
+          class="timeCounter"
+        >
+          01:00
+        </time>
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -341,7 +353,13 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
       <div
         class="countdownContainer typographyTheme primary-medium"
       >
-        Запросить новый можно через 01:00
+        Запросить новый можно через
+         
+        <time
+          class="timeCounter"
+        >
+          01:00
+        </time>
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -626,7 +644,11 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK scree
             transform="rotate(-90 8 8)"
           />
         </svg>
-        24:00:00
+        <time
+          class="timeCounter"
+        >
+          24:00:00
+        </time>
       </div>
     </div>
   </div>
