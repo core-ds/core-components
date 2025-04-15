@@ -148,6 +148,57 @@ describe('Select', () => {
     ['default', 'click'].map(testCase);
 });
 
+describe('Select', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme — showErrorIcon props`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
+                        knobs: {
+                            options: [[]],
+                            block: true,
+                            placeholder: 'Выберите элемент',
+                            size: [48],
+                            label: ['Элемент'],
+                            error: 'error',
+                            showErrorIcon: [true, false],
+                        },
+                        size: { width: 300, height: 120 },
+                    }),
+                ],
+                [
+                    `${theme} theme — success props`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
+                        knobs: {
+                            options: [[]],
+                            block: true,
+                            placeholder: 'Выберите элемент',
+                            size: [48],
+                            label: ['Элемент'],
+                            success: [true, false],
+                        },
+                        size: { width: 300, height: 120 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 700,
+                height: 100,
+            },
+            theme,
+        })();
+
+    ['default', 'site'].map(testCase);
+});
+
 describe(
     'Select',
     screenshotTesting({
