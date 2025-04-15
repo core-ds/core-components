@@ -97,13 +97,13 @@ describe('InputAutocompleteMobile', () => {
                                     leftAddons: 'left',
                                     rightAddons: 'right',
                                     error: 'error',
-                                    showErrorIcon: true,
                                 }}
                                 inputProps={{
                                     error: 'error',
                                     leftAddons: 'left',
                                     rightAddons: 'right',
                                 }}
+                                showErrorIcon={true}
                                 dataTestId={dataTestId}
                             />,
                         );
@@ -169,8 +169,8 @@ describe('InputAutocompleteMobile', () => {
                         leftAddons: 'left',
                         rightAddons: 'right',
                     }}
-                    fieldProps={{ showErrorIcon: true }}
                     dataTestId={dataTestId}
+                    showErrorIcon={true}
                 />,
             );
 

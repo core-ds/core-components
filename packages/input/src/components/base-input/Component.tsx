@@ -429,7 +429,6 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 size={size}
                             />
                         )}
-                        {rightAddons}
                         {shouldShowErrorIcon && (
                             <div className={cn(styles.errorIcon, styles[`size-${size}`])}>
                                 <StatusBadge
@@ -448,6 +447,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 />
                             </div>
                         )}
+                        {rightAddons}
                     </Fragment>
                 )
             );

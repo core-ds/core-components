@@ -1,4 +1,4 @@
-import React, { Ref, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, Ref, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash/throttle';
@@ -22,7 +22,7 @@ import { searchFilterStub } from '../utils';
 
 import styles from './mobile.module.css';
 
-export const InputAutocompleteMobile = React.forwardRef(
+export const InputAutocompleteMobile = forwardRef(
     (
         {
             Input,
@@ -44,6 +44,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             onApply,
             title,
             success,
+            showErrorIcon,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -173,6 +174,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                     clear,
                     onClear: clear ? inputProps?.onClear : undefined,
                     success,
+                    showErrorIcon,
                     ...(restProps.fieldProps as AnyObject),
                 }}
             />

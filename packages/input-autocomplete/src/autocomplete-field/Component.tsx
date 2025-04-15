@@ -9,7 +9,10 @@ import { OnInputReason } from '../enums';
 import { InputAutocompleteCommonProps } from '../types';
 
 export type AutocompleteFieldProps = FieldProps &
-    Pick<InputAutocompleteCommonProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'>;
+    Pick<
+        InputAutocompleteCommonProps,
+        'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly' | 'showErrorIcon'
+    >;
 
 export const AutocompleteField = ({
     label,
@@ -79,8 +82,8 @@ export const AutocompleteField = ({
             rightAddons={
                 (Arrow || inputProps.rightAddons) && (
                     <React.Fragment>
-                        {inputProps.rightAddons}
                         {Arrow && <span>{Arrow}</span>}
+                        {inputProps.rightAddons}
                     </React.Fragment>
                 )
             }

@@ -89,9 +89,7 @@ export const input_autocomplete: Story = {
     name: 'InputAutocomplete',
     render: () =>
         renderComponent(InputAutocomplete, {
-            fieldProps: {
-                showErrorIcon: boolean('showErrorIcon', false),
-            },
+            showErrorIcon: boolean('showErrorIcon', false),
         }),
 };
 
@@ -99,9 +97,7 @@ export const input_autocomplete_desktop: Story = {
     name: 'InputAutocompleteDesktop',
     render: () =>
         renderComponent(InputAutocompleteDesktop, {
-            fieldProps: {
-                showErrorIcon: boolean('showErrorIcon', false),
-            },
+            showErrorIcon: boolean('showErrorIcon', false),
         }),
 };
 
@@ -110,9 +106,7 @@ export const input_autocomplete_mobile: Story = {
     render: () =>
         renderComponent(InputAutocompleteMobile, {
             inputProps: { clear: true },
-            fieldProps: {
-                showErrorIcon: boolean('showErrorIcon', false),
-            },
+            showErrorIcon: boolean('showErrorIcon', false),
         }),
 };
 
@@ -121,9 +115,7 @@ export const input_autocomplete_modal_mobile: Story = {
     render: () =>
         renderComponent(InputAutocompleteModalMobile, {
             inputProps: { clear: true },
-            fieldProps: {
-                showErrorIcon: boolean('showErrorIcon', false),
-            },
+            showErrorIcon: boolean('showErrorIcon', false),
         }),
 };
 
