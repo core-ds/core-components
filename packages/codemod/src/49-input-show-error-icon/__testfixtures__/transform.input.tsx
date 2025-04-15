@@ -30,11 +30,6 @@ export const Component = () => (
         <InputAutocompleteMobile  options={[{ key: 'Fermium' }]} error='Error' />
         <InputAutocompleteModalMobile  options={[{ key: 'Fermium' }]} error='Error' />
 
-        <InputAutocomplete  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{ hint: 'Hint' }} />
-        <InputAutocompleteDesktop  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{ hint: 'Hint' }} />
-        <InputAutocompleteMobile  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{ hint: 'Hint' }} />
-        <InputAutocompleteModalMobile  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{ hint: 'Hint' }} />
-
         <PasswordInput error='error' />
 
         <InternationalPhoneInput error='error' />
@@ -53,11 +48,6 @@ export const Component = () => (
         <SelectDesktop options={[{ key: '1', content: 'Neptunium' }]} error='error' />
         <SelectMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' />
         <SelectModalMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' />
-
-        <Select options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{ hint: 'Hint' }} />
-        <SelectDesktop options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{ hint: 'Hint' }} />
-        <SelectMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{ hint: 'Hint' }} />
-        <SelectModalMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{ hint: 'Hint' }} />
 
         <SliderInput error='error' />
 

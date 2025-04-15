@@ -25,47 +25,10 @@ export const Component = () => (
     <Fragment>
         <Input error='Error' showErrorIcon={true}>Input</Input>
 
-        <InputAutocomplete
-            options={[{ key: 'Fermium' }]}
-            error='Error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-        <InputAutocompleteDesktop
-            options={[{ key: 'Fermium' }]}
-            error='Error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-        <InputAutocompleteMobile
-            options={[{ key: 'Fermium' }]}
-            error='Error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-        <InputAutocompleteModalMobile
-            options={[{ key: 'Fermium' }]}
-            error='Error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-
-        <InputAutocomplete  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
-        <InputAutocompleteDesktop  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
-        <InputAutocompleteMobile  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
-        <InputAutocompleteModalMobile  options={[{ key: 'Fermium' }]} error='Error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
+        <InputAutocomplete options={[{ key: 'Fermium' }]} error='Error' showErrorIcon={true} />
+        <InputAutocompleteDesktop options={[{ key: 'Fermium' }]} error='Error' showErrorIcon={true} />
+        <InputAutocompleteMobile options={[{ key: 'Fermium' }]} error='Error' showErrorIcon={true} />
+        <InputAutocompleteModalMobile options={[{ key: 'Fermium' }]} error='Error' showErrorIcon={true} />
 
         <PasswordInput error='error' showErrorIcon={true} />
 
@@ -81,47 +44,10 @@ export const Component = () => (
 
         <PhoneInput error='error' showErrorIcon={true} />
 
-        <Select
-            options={[{ key: '1', content: 'Neptunium' }]}
-            error='error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-        <SelectDesktop
-            options={[{ key: '1', content: 'Neptunium' }]}
-            error='error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-        <SelectMobile
-            options={[{ key: '1', content: 'Neptunium' }]}
-            error='error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-        <SelectModalMobile
-            options={[{ key: '1', content: 'Neptunium' }]}
-            error='error'
-            fieldProps={{
-                showErrorIcon: true
-            }} />
-
-        <Select options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
-        <SelectDesktop options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
-        <SelectMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
-        <SelectModalMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' fieldProps={{
-            hint: 'Hint',
-            showErrorIcon: true
-        }} />
+        <Select options={[{ key: '1', content: 'Neptunium' }]} error='error' showErrorIcon={true} />
+        <SelectDesktop options={[{ key: '1', content: 'Neptunium' }]} error='error' showErrorIcon={true} />
+        <SelectMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' showErrorIcon={true} />
+        <SelectModalMobile options={[{ key: '1', content: 'Neptunium' }]} error='error' showErrorIcon={true} />
 
         <SliderInput error='error' showErrorIcon={true} />
 

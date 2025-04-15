@@ -4,8 +4,7 @@ const transformer: Transform = (fileInfo, api) => {
     const j = api.jscodeshift;
     const source = j(fileInfo.source);
 
-    // Компоненты в которые можно передавать напрямую showErrorIcon={true}
-    const inputs = [
+    const components = [
         'Input',
         'PasswordInput',
         'InternationalPhoneInput',
@@ -20,27 +19,6 @@ const transformer: Transform = (fileInfo, api) => {
         'UniversalDateInput',
         'UniversalDateInputDesktop',
         'UniversalDateInputMobile',
-    ];
-
-    inputs.forEach((component) => {
-        source.findJSXElements(component).forEach((path) => {
-            j(path).replaceWith((astPath: ASTPath<JSXElement>) => {
-                const { node } = astPath;
-
-                node.openingElement.attributes.push(
-                    j.jsxAttribute(
-                        j.jsxIdentifier('showErrorIcon'),
-                        j.jsxExpressionContainer(j.booleanLiteral(true)),
-                    ),
-                );
-
-                return node;
-            });
-        });
-    });
-
-    // Компоненты в которые нужно передавать как fieldProps={showErrorIcon: true}
-    const componentsUsingInput = [
         'InputAutocomplete',
         'InputAutocompleteDesktop',
         'InputAutocompleteMobile',
@@ -51,44 +29,17 @@ const transformer: Transform = (fileInfo, api) => {
         'SelectModalMobile',
     ];
 
-    componentsUsingInput.forEach((componentName) => {
-        source.findJSXElements(componentName).forEach((path) => {
+    components.forEach((component) => {
+        source.findJSXElements(component).forEach((path) => {
             j(path).replaceWith((astPath: ASTPath<JSXElement>) => {
                 const { node } = astPath;
 
-                const fieldPropsAttribute = j.jsxAttribute(
-                    j.jsxIdentifier('fieldProps'),
-                    j.jsxExpressionContainer(
-                        j.objectExpression([
-                            j.property(
-                                'init',
-                                j.identifier('showErrorIcon'),
-                                j.booleanLiteral(true),
-                            ),
-                        ]),
+                node.openingElement.attributes.push(
+                    j.jsxAttribute(
+                        j.jsxIdentifier('showErrorIcon'),
+                        j.jsxExpressionContainer(j.booleanLiteral(true)),
                     ),
                 );
-
-                const existingFieldProps = node.openingElement.attributes.find(
-                    (attr) => attr.type === 'JSXAttribute' && attr.name.name === 'fieldProps',
-                );
-
-                if (existingFieldProps) {
-                    if (
-                        existingFieldProps.value.type === 'JSXExpressionContainer' &&
-                        existingFieldProps.value.expression.type === 'ObjectExpression'
-                    ) {
-                        existingFieldProps.value.expression.properties.push(
-                            j.property(
-                                'init',
-                                j.identifier('showErrorIcon'),
-                                j.booleanLiteral(true),
-                            ),
-                        );
-                    }
-                } else {
-                    node.openingElement.attributes.push(fieldPropsAttribute);
-                }
 
                 return node;
             });
