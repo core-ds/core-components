@@ -3,3 +3,12 @@
 .separator {
     background-color: var(--color-light-neutral-translucent-300-inverted);
 }
+
+.steppers {
+    background-color: var(--color-light-neutral-translucent-0-inverted);
+}
+
+.steppersFocused,
+.steppersDisabled {
+    background-color: var(--color-light-neutral-translucent-300-inverted);
+}
