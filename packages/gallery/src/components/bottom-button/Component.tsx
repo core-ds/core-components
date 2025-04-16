@@ -19,19 +19,19 @@ export const BottomButton = ({ onClick, className, bottomButton }: Props) => {
     const timer = useRef<ReturnType<typeof setTimeout>>();
 
     const [visible, setVisible] = useState<boolean>(false);
-    const { currentSlideIndex, getSwiper } = useContext(GalleryContext);
+    const { currentSlideIndex, getSwiper, singleSlide } = useContext(GalleryContext);
 
     const swiper = getSwiper();
 
     useEffect(() => {
-        if (currentSlideIndex === swiper?.activeIndex && bottomButton.timeout) {
+        if ((currentSlideIndex === swiper?.activeIndex || singleSlide) && bottomButton.timeout) {
             if (timer.current) {
                 clearTimeout(timer.current);
             }
             setVisible(false);
             timer.current = setTimeout(() => setVisible(true), bottomButton.timeout * 1000);
         }
-    }, [bottomButton.timeout, currentSlideIndex, swiper?.activeIndex]);
+    }, [bottomButton.timeout, currentSlideIndex, swiper?.activeIndex, singleSlide]);
 
     return (
         <Button

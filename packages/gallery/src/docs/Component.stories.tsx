@@ -116,8 +116,13 @@ export const gallery: Story = {
                     }}
                     images={[
                         {
-                            name: 'Горизонтальное изображение.jpg',
-                            src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI1MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDUwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjNDU0Nzc4Ii8+Cjwvc3ZnPgo=',
+                            name: 'Alfa promo.m3u8',
+                            src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
+                            bottomButton: {
+                                text: 'Кнопка с задержкой 2 секунды',
+                                onClick: () => {},
+                                timeout: 2,
+                            },
                         },
                     ]}
                     loop={boolean('loop', true)}
