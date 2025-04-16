@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
-import { AmountInput } from '@alfalab/core-components-amount-input';
+import { AmountInput, AmountInputProps } from '@alfalab/core-components-amount-input';
 
 const meta: Meta<typeof AmountInput> = {
     title: 'Components/AmountInput',
@@ -16,12 +16,25 @@ type Story = StoryObj<typeof AmountInput>;
 export const amount_input: Story = {
     name: 'AmountInput',
     render: () => {
+        const [value, setValue] = useState(1000);
+
         const size = select('size', [40, 48, 56, 64, 72], 48);
         const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
+        const stepper = boolean('stepper', false);
+        const step = stepper && number('step', 100);
+        const min = stepper && number('min', 0);
+        const max = stepper && number('max', 1500);
+
+        const handleChange: AmountInputProps['onChange'] = (_, payload) => {
+            if (payload?.value) {
+                setValue(payload.value);
+            }
+        };
+
         return (
             <AmountInput
-                value={number('value', null)}
+                value={value}
                 currency={text('currency', 'RUR')}
                 suffix={text('suffix', undefined)}
                 integerLength={number('integerLength', 9)}
@@ -41,6 +54,8 @@ export const amount_input: Story = {
                 clear={boolean('clear', false)}
                 readOnly={boolean('readOnly', false)}
                 labelView={select('labelView', ['inner', 'outer'], 'inner')}
+                stepper={stepper && { step, min, max }}
+                onChange={handleChange}
             />
         );
     },
