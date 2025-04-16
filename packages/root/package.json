@@ -128,7 +128,8 @@
         "@balafla/core-components-universal-date-input": "^2.7.3",
         "@balafla/core-components-universal-modal": "^1.0.4",
         "@balafla/core-components-vars": "^9.19.0",
-        "@balafla/core-components-with-suffix": "^4.2.15"
+        "@balafla/core-components-with-suffix": "^4.2.15",
+        "resolve-from": "^5.0.0"
     },
     "peerDependencies": {
         "@balafla/core-components-config": "^0.0.0",
