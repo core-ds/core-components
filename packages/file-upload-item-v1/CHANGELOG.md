@@ -1,5 +1,22 @@
 # @alfalab/core-components-file-upload-item-v1
 
+## 1.0.9
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-icon-button@6.11.10
+    -   @balafla/core-components-link@5.3.5
+    -   @balafla/core-components-spinner@4.0.6
+
 ## 1.0.8
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-keyboard-focusable",
-    "version": "4.1.1",
+    "version": "4.1.2",
     "description": "Component and hook for keyboard only focus",
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
@@ -19,6 +19,6 @@
         "@alfalab/hooks": "^1.13.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

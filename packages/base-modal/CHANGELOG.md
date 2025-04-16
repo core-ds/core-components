@@ -1,5 +1,33 @@
 # @alfalab/core-components-base-modal
 
+## 6.0.0
+
+### Major Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Пакет `@alfalab/stack-context` перенесен в `@balafla/core-components-stack-context`. При обновлении необходимо заменить `as-is`.
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-backdrop@3.4.6
+    -   @balafla/core-components-global-store@2.1.1
+    -   @balafla/core-components-portal@3.3.8
+    -   @balafla/core-components-shared@0.16.1
+    -   @balafla/core-components-stack@6.0.0
+    -   @balafla/core-components-stack-context@1.0.0
+
 ## 5.9.0
 
 ### Minor Changes

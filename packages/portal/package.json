@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-portal",
-    "version": "3.3.7",
+    "version": "3.3.8",
     "description": "Portal component",
     "keywords": [],
     "license": "MIT",
@@ -17,8 +17,8 @@
     },
     "dependencies": {
         "tslib": "^2.4.0",
-        "@balafla/core-components-shared": "^0.16.0"
+        "@balafla/core-components-shared": "^0.16.1"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

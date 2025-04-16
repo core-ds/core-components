@@ -1,5 +1,21 @@
 # @alfalab/core-components-with-suffix
 
+## 4.2.16
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-input@15.5.4
+    -   @balafla/core-components-portal@3.3.8
+
 ## 4.2.15
 
 ### Patch Changes

@@ -1,5 +1,24 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.3
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-types@1.0.0
+    -   @balafla/core-components-backdrop@3.4.6
+    -   @balafla/core-components-base-modal@6.0.0
+    -   @balafla/core-components-navigation-bar-private@0.8.1
+    -   @balafla/core-components-shared@0.16.1
+
 ## 1.4.2
 
 ### Patch Changes

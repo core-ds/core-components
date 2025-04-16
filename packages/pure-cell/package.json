@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-pure-cell",
-    "version": "4.14.6",
+    "version": "4.14.7",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,17 +16,17 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-amount": "^3.10.1",
-        "@balafla/core-components-button": "^11.11.6",
-        "@balafla/core-components-typography": "^4.12.0",
-        "@balafla/core-components-comment": "^2.4.9",
-        "@balafla/core-components-shared": "^0.16.0",
+        "@balafla/core-components-amount": "^3.10.2",
+        "@balafla/core-components-button": "^11.11.7",
+        "@balafla/core-components-typography": "^4.12.1",
+        "@balafla/core-components-comment": "^2.4.10",
+        "@balafla/core-components-shared": "^0.16.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/data": "^1.9.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

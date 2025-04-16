@@ -1,5 +1,23 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.6.22
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-custom-button@3.12.5
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-picker-button@11.12.22
+    -   @balafla/core-components-select@17.20.11
+
 ## 2.6.21
 
 ### Patch Changes

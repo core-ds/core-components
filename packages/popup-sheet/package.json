@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-popup-sheet",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "description": "Popup sheet mobile component",
     "keywords": [],
     "license": "MIT",
@@ -16,15 +16,15 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-base-modal": "^5.9.0",
-        "@balafla/core-components-backdrop": "^3.4.5",
-        "@balafla/core-components-shared": "^0.16.0",
-        "@balafla/core-components-navigation-bar-private": "^0.8.0",
-        "@balafla/core-components-types": "^0.0.0",
+        "@balafla/core-components-base-modal": "^6.0.0",
+        "@balafla/core-components-backdrop": "^3.4.6",
+        "@balafla/core-components-shared": "^0.16.1",
+        "@balafla/core-components-navigation-bar-private": "^0.8.1",
+        "@balafla/core-components-types": "^1.0.0",
         "react-swipeable": "^7.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

@@ -1,5 +1,22 @@
 # @alfalab/core-components-product-cover
 
+## 1.3.1
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-button@11.11.7
+    -   @balafla/core-components-shared@0.16.1
+    -   @balafla/core-components-typography@4.12.1
+
 ## 1.3.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-side-panel",
-    "version": "5.9.11",
+    "version": "5.9.12",
     "description": "SidePanel component",
     "keywords": [],
     "license": "MIT",
@@ -15,15 +15,15 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-base-modal": "^5.9.0",
-        "@balafla/core-components-drawer": "^5.1.11",
-        "@balafla/core-components-mq": "^4.4.1",
-        "@balafla/core-components-navigation-bar-private": "^0.8.0",
-        "@balafla/core-components-shared": "^0.16.0",
+        "@balafla/core-components-base-modal": "^6.0.0",
+        "@balafla/core-components-drawer": "^5.1.12",
+        "@balafla/core-components-mq": "^5.0.0",
+        "@balafla/core-components-navigation-bar-private": "^0.8.1",
+        "@balafla/core-components-shared": "^0.16.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

@@ -1,5 +1,20 @@
 # @alfalab/core-components-pagination
 
+## 2.4.12
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-tag@8.6.8
+
 ## 2.4.11
 
 ### Patch Changes

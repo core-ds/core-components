@@ -1,5 +1,24 @@
 # @alfalab/core-components-input
 
+## 15.5.4
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-button@11.11.7
+    -   @balafla/core-components-form-control@12.8.3
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-shared@0.16.1
+    -   @balafla/core-components-status-badge@1.2.4
+
 ## 15.5.3
 
 ### Patch Changes

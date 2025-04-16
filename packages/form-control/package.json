@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-form-control",
-    "version": "12.8.2",
+    "version": "12.8.3",
     "description": "FormControl component",
     "keywords": [],
     "license": "MIT",
@@ -15,11 +15,11 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-mq": "^4.4.1",
-        "@balafla/core-components-shared": "^0.16.0",
+        "@balafla/core-components-mq": "^5.0.0",
+        "@balafla/core-components-shared": "^0.16.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

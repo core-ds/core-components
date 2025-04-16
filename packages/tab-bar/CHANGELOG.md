@@ -1,5 +1,22 @@
 # @alfalab/core-components-tab-bar
 
+## 2.1.13
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-indicator@2.2.5
+    -   @balafla/core-components-shared@0.16.1
+    -   @balafla/core-components-typography@4.12.1
+
 ## 2.1.12
 
 ### Patch Changes

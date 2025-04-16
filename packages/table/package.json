@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-table",
-    "version": "2.10.6",
+    "version": "2.10.7",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,12 +16,12 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-button": "^11.11.6",
-        "@balafla/core-components-pagination": "^2.4.11",
-        "@balafla/core-components-select": "^17.20.10",
+        "@balafla/core-components-button": "^11.11.7",
+        "@balafla/core-components-pagination": "^2.4.12",
+        "@balafla/core-components-select": "^17.20.11",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

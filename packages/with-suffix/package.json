@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-with-suffix",
-    "version": "4.2.15",
+    "version": "4.2.16",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,12 +15,12 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-input": "^15.5.3",
-        "@balafla/core-components-portal": "^3.3.7",
+        "@balafla/core-components-input": "^15.5.4",
+        "@balafla/core-components-portal": "^3.3.8",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }
