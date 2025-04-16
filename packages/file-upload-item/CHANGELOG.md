@@ -1,5 +1,26 @@
 # Change Log
 
+## 6.2.6
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1641](https://github.com/core-ds/core-components/pull/1641)
+
+-   Исправлен копирайт `subtitle` в компоненте FileUploadItem на `Загружено`
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+-   Фикс импорта `icon-view`
+-   Фикс tsconfig
+
+-   Обновлены зависимости
+    -   icon-view@3.10.1
+    -   icon-button@6.11.10
+
 ## 6.2.5
 
 ### Patch Changes

@@ -1,3 +1,122 @@
+## 48.23.1
+
+<sup><time>14.04.2025</time></sup>
+
+### [#1670](https://github.com/core-ds/core-components/pull/1670)
+
+#### Что изменилось
+- Исправлено закрытие `UniversalModalMobile` при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header`. Хэндлер будет браться с компонента `UniversalModalMobile`.
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1671](https://github.com/core-ds/core-components/pull/1671)
+
+#### Что изменилось
+- Исправлен размер левого аддона компонента `Header` для `UniverslaModalMobile`
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
+## 48.23.0
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1489](https://github.com/core-ds/core-components/pull/1489)
+
+#### Что изменилось
+- Исправлено название пропса numberOfCards. Старый пропс (numberOfСards с русской C) оставлен для обратной совместимости, но помечен как деприкейт. При использовании сразу обоих, новый имеет приоритет.
+
+#### Влияние на компоненты
+- Патчи<br />`product-cover`
+
+
+### [#1615](https://github.com/core-ds/core-components/pull/1615)
+
+#### Что изменилось
+- fix(input): Добавлен props `passwordHint` в компонент `PasswordInput` для возможности управлять текстом подсказки
+
+#### Влияние на компоненты
+- Минорное<br />`password-input`
+
+
+### [#1663](https://github.com/core-ds/core-components/pull/1663)
+
+#### Что изменилось
+- Добавлен пропс `leftAddons` позволяющий размещать контент в левый слот
+
+#### Влияние на компоненты
+- Минорное<br />`status`
+
+
+### [#1612](https://github.com/core-ds/core-components/pull/1612)
+
+#### Что изменилось
+- Обернул компонент `BaseCheckboxGroup` в forwardRef и предоставил возможность прокинуть ref
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox-group`
+
+
+### [#1621](https://github.com/core-ds/core-components/pull/1621)
+
+#### Что изменилось
+- Для компонента `Spinner` добавлено дополнительное свойство box-sizing: content-box для исправления глобального влияния box-sizing: border-box.
+
+#### Влияние на компоненты
+- Патчи<br />`spinner`
+
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+#### Что изменилось
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+<br />
+
+#### Что изменилось
+-   Фикс импорта `icon-view`
+-   Фикс tsconfig
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item` `gallery`
+
+
+### [#1641](https://github.com/core-ds/core-components/pull/1641)
+
+#### Что изменилось
+- Исправлен копирайт `subtitle` в компоненте FileUploadItem на `Загружено`
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#1667](https://github.com/core-ds/core-components/pull/1667)
+
+#### Что изменилось
+-   Added support for using animated images
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1668](https://github.com/core-ds/core-components/pull/1668)
+
+#### Что изменилось
+- Исправлено закрытие модалки при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header`. Хэндлер будет браться с компонента `UniversalModal`.
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
 ## 48.22.1
 
 <sup><time>31.03.2025</time></sup>
