@@ -1,7 +1,6 @@
 ## Примеры
 
 Скелетон должен максимально точно повторять форму ожидаемого контента.
-Для скелетонизации текстового контента используйте компонент [Typography](/docs/typography--docs).
 
 ```jsx live
 const SHAPRE_STYLE = {
@@ -23,7 +22,7 @@ render(() => {
                 onChange={() => setVisible((p) => !p)}
             />
 
-            <Gap size='l' />
+            <Gap size={20} />
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Skeleton visible={visible}>
@@ -36,6 +35,138 @@ render(() => {
                     <Status view='contrast'>This is fine</Status>
                 </Skeleton>
             </div>
+        </>
+    );
+});
+```
+
+## Скелетонизация текста
+
+Скелетон может подстраиваться под заданный фрагмент текста, для этого ему нужно знать fontSize, lineHeight, выравнивание, количество и длину строк.
+
+```jsx live desktopOnly
+render(() => {
+    const [visible, setVisible] = React.useState(false);
+
+    const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(visible, {});
+    const titleSkeleton = renderTitleSkeleton({});
+
+    const { renderSkeleton, textRef } = useSkeleton(visible, {});
+    const textSkeleton = renderSkeleton({});
+
+    return (
+        <>
+            <Switch
+                checked={visible}
+                label='Скелетонизация текста'
+                onChange={() => setVisible((prev) => !prev)}
+            />
+            <Gap size={24} />
+
+            {titleSkeleton ? (
+                titleSkeleton
+            ) : (
+                <Typography.Title view='small' font='system' ref={titleRef}>
+                    Почему банк проверяет мои операции?
+                </Typography.Title>
+            )}
+
+            <Gap size={12} />
+
+            {textSkeleton ? (
+                textSkeleton
+            ) : (
+                <Typography.Text view='primary-medium' ref={textRef}>
+                    В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+                    легализации доходов, полученных преступным путём, и финансированию терроризма».
+                    В рамках закона банки могут блокировать карты, отказывать в проведении
+                    сомнительных операций, ограничить доступ в интернет-банк или запрашивать
+                    документы, если по операции клиента возникли подозрения.
+                </Typography.Text>
+            )}
+        </>
+    );
+});
+```
+
+Чтобы получить более естественную форму, каждым параметром можно управлять отдельно.
+
+```jsx live
+render(() => {
+    const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(true, {
+        width: 271,
+    });
+    const titleSkeleton = renderTitleSkeleton({});
+
+    const { renderSkeleton, textRef } = useSkeleton(true, {
+        width: [560, 402, 449, 264],
+    });
+    const textSkeleton = renderSkeleton({});
+
+    return (
+        <>
+            {titleSkeleton ? (
+                titleSkeleton
+            ) : (
+                <Typography.Title view='small' font='system' ref={titleRef}>
+                    Почему банк проверяет мои операции?
+                </Typography.Title>
+            )}
+
+            <Gap size={12} />
+
+            {textSkeleton ? (
+                textSkeleton
+            ) : (
+                <Typography.Text view='primary-medium' ref={textRef}>
+                    В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+                    легализации доходов, полученных преступным путём, и финансированию терроризма».
+                    В рамках закона банки могут блокировать карты, отказывать в проведении
+                    сомнительных операций, ограничить доступ в интернет-банк или запрашивать
+                    документы, если по операции клиента возникли подозрения.
+                </Typography.Text>
+            )}
+        </>
+    );
+});
+
+//MOBILE
+render(() => {
+    const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(true, {
+        width: 271,
+        rows: 1,
+    });
+    const titleSkeleton = renderTitleSkeleton({});
+
+    const { renderSkeleton, textRef } = useSkeleton(true, {
+        width: [320, 276, 301, 255],
+        rows: 4,
+    });
+    const textSkeleton = renderSkeleton({});
+
+    return (
+        <>
+            {titleSkeleton ? (
+                titleSkeleton
+            ) : (
+                <Typography.Title view='small' font='system' ref={titleRef}>
+                    Почему банк проверяет мои операции?
+                </Typography.Title>
+            )}
+
+            <Gap size={12} />
+
+            {textSkeleton ? (
+                textSkeleton
+            ) : (
+                <Typography.Text view='primary-medium' ref={textRef}>
+                    В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+                    легализации доходов, полученных преступным путём, и финансированию терроризма».
+                    В рамках закона банки могут блокировать карты, отказывать в проведении
+                    сомнительных операций, ограничить доступ в интернет-банк или запрашивать
+                    документы, если по операции клиента возникли подозрения.
+                </Typography.Text>
+            )}
         </>
     );
 });
