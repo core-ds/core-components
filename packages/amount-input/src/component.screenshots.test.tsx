@@ -30,6 +30,25 @@ describe('AmountInput ', () =>
         },
     ));
 
+describe('AmountInput with stepper', () =>
+    createPreview(
+        {
+            componentName: 'AmountInput',
+            knobs: {
+                label: 'Сумма',
+                value: 123400,
+                size: 56,
+                bold: false,
+                block: true,
+                stepper: ['{"step": 1}'],
+            },
+        },
+        'width:800px;padding: 0 270px; transform:scale(2.1)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
+    ));
+
 describe(
     'AmountInput | screenshots',
     screenshotTesting({
@@ -45,17 +64,6 @@ describe(
                         bold: [true, false],
                     },
                     size: { width: 300, height: 70 },
-                }),
-            ],
-            [
-                'inverted',
-                createStorybookUrl({
-                    componentName: 'AmountInput',
-                    knobs: {
-                        value: 12300,
-                        minority: 100,
-                        colors: 'inverted',
-                    },
                 }),
             ],
             [
@@ -82,13 +90,57 @@ describe(
                     },
                 }),
             ],
+        ],
+    }),
+);
+
+describe(
+    'NumberInput | size',
+    screenshotTesting({
+        cases: [
             [
-                'sprite size',
+                'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'AmountInput',
                     knobs: {
                         minority: 100,
                         size: [40, 48, 56, 64, 72],
+                        colors: 'default',
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        minority: 100,
+                        size: [40, 48, 56, 64, 72],
+                        colors: 'inverted',
+                    },
+                }),
+            ],
+            [
+                'with stepper sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        minority: 100,
+                        size: [40, 48, 56, 64, 72],
+                        colors: 'default',
+                        stepper: ['{"step": 1}'],
+                    },
+                }),
+            ],
+            [
+                'with stepper sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        minority: 100,
+                        size: [40, 48, 56, 64, 72],
+                        colors: 'inverted',
+                        stepper: ['{"step": 1}'],
                     },
                 }),
             ],
