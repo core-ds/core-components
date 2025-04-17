@@ -1,0 +1,19 @@
+.subtitles {
+    position: absolute;
+    align-self: flex-end;
+    padding: var(--gap-0) var(--gap-32);
+    margin-bottom: var(--gap-16);
+    width: 100%;
+    text-align: center;
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 500ms ease-in-out, margin-bottom 270ms ease-in-out;
+
+    &.mobile {
+        position: unset;
+    }
+}
+
+.hideSubtitles {
+    opacity: 0;
+}

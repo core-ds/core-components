@@ -21,6 +21,8 @@
     width: 100vw;
     height: 100vh;
     background: transparent;
+    padding: env(safe-area-inset-top, var(--gap-0)) var(--gap-0),
+        env(safe-area-inset-bottom, var(--gap-0));
 }
 
 .navigationVideo {
@@ -30,10 +32,11 @@
     bottom: 0;
     left: 0;
     transition: transform 0.3s ease-in-out;
+    text-align: center;
 }
 
 .hide {
-    transform: translateY(106px);
+    transform: translateY(114px);
 }
 
 .hideInfo {

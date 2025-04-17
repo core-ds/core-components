@@ -10,17 +10,16 @@ import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
 
-import { GalleryContext } from '../../context';
-import { GalleryImage } from '../../types';
 import {
-    getImageAlt,
-    isVideo,
     PREVIEW_HEIGHT_DESKTOP,
     PREVIEW_HEIGHT_MOBILE,
     PREVIEW_VIDEO_MULTIPLIER,
     PREVIEW_WIDTH_DESKTOP,
     PREVIEW_WIDTH_MOBILE,
-} from '../../utils';
+} from '../../constants';
+import { GalleryContext } from '../../context';
+import { GalleryImage } from '../../types';
+import { getImageAlt, isVideo } from '../../utils';
 
 import { NoImagePaths } from './paths';
 

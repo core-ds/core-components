@@ -21,9 +21,9 @@ export const BottomButton = ({ onClick, className, bottomButton }: Props) => {
     const [visible, setVisible] = useState<boolean>(false);
     const { currentSlideIndex, getSwiper, singleSlide } = useContext(GalleryContext);
 
-    const swiper = getSwiper();
-
     useEffect(() => {
+        const swiper = getSwiper();
+
         if ((currentSlideIndex === swiper?.activeIndex || singleSlide) && bottomButton.timeout) {
             if (timer.current) {
                 clearTimeout(timer.current);
@@ -31,18 +31,18 @@ export const BottomButton = ({ onClick, className, bottomButton }: Props) => {
             setVisible(false);
             timer.current = setTimeout(() => setVisible(true), bottomButton.timeout * 1000);
         }
-    }, [bottomButton.timeout, currentSlideIndex, swiper?.activeIndex, singleSlide]);
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    }, [bottomButton.timeout, currentSlideIndex, singleSlide]);
 
     return (
         <Button
-            size='m'
+            size={56}
             className={cn(
                 styles.component,
                 { [styles.notVisible]: !visible && bottomButton.timeout },
                 className,
             )}
             onClick={onClick}
-            nowrap={true}
         >
             <Typography.Text color='static-primary-light'>{bottomButton.text}</Typography.Text>
         </Button>

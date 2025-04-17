@@ -19,6 +19,22 @@ export type GalleryImage = {
      * Нижняя кнопка, есть только у видео
      */
     bottomButton?: TBottomButton;
+    /**
+     * Callback при нажатии на кнопку Play, есть только у видео
+     */
+    onPlay?: () => void;
+    /**
+     * Callback при нажатии на кнопку Pause, есть только у видео
+     */
+    onPause?: () => void;
+    /**
+     * Callback при нажатии на кнопку Mute, есть только у видео
+     */
+    onMute?: () => void;
+    /**
+     * Callback при нажатии на кнопку Unmute, есть только у видео
+     */
+    onUnmute?: () => void;
 };
 
 export type ImageMeta =

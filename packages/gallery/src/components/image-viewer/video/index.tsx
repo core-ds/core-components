@@ -10,13 +10,11 @@ import cn from 'classnames';
 import Hls from 'hls.js';
 
 import { Circle } from '@alfalab/core-components-icon-view/circle';
-import { Typography } from '@alfalab/core-components-typography';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
 
 import { GalleryContext } from '../../../context';
-import { useCustomSubtitles } from '../../../hooks';
-import { GALLERY_EVENTS } from '../../../utils/constants';
 import { BottomButton } from '../../bottom-button';
+import { Subtitles } from '../../subtitles';
 
 import styles from './index.module.css';
 
@@ -30,8 +28,6 @@ type Props = {
 export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const timer = useRef<ReturnType<typeof setTimeout>>();
-
-    const { showSub, currentSub } = useCustomSubtitles();
 
     const {
         setImageMeta,
@@ -154,12 +150,10 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         [image?.bottomButton],
     );
 
-    const onPlay: ReactEventHandler<HTMLVideoElement> = (e) => {
-        const customEvent = new CustomEvent(GALLERY_EVENTS.ON_PLAY, {
-            detail: { player: e.target },
-        });
-
-        dispatchEvent(customEvent);
+    const onPlay: ReactEventHandler<HTMLVideoElement> = () => {
+        if (image && image.onPlay) {
+            image.onPlay();
+        }
 
         if (timer.current) {
             clearTimeout(timer.current);
@@ -170,16 +164,16 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         }, 3000);
     };
 
-    const onPause: ReactEventHandler<HTMLVideoElement> = (e) => {
-        const customEvent = new CustomEvent(GALLERY_EVENTS.ON_PAUSE, {
-            detail: { player: e.target },
-        });
+    const onPause: ReactEventHandler<HTMLVideoElement> = () => {
+        if (image && image.onPause) {
+            image.onPause();
+        }
 
-        dispatchEvent(customEvent);
         if (timer.current) {
             clearTimeout(timer.current);
             timer.current = undefined;
         }
+
         setHideNavigation(false);
     };
 
@@ -205,17 +199,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                     </Circle>
                 </div>
             )}
-            {showSub && (
-                <Typography.Text
-                    className={cn(styles.subtitles, {
-                        [styles.hideSubtitles]: !showSub,
-                        [styles.mobile]: view === 'mobile',
-                    })}
-                    color='static-primary-light'
-                >
-                    {currentSub}
-                </Typography.Text>
-            )}
+            {isDesktop && <Subtitles />}
             {isDesktop && image?.bottomButton && (
                 <BottomButton
                     bottomButton={image.bottomButton}

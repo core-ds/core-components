@@ -4,33 +4,27 @@ import cn from 'classnames';
 import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
-import { GALLERY_EVENTS, isVideo } from '../../utils';
+import { isVideo } from '../../utils';
 import * as Buttons from '../buttons';
 
 import styles from './index.module.css';
 
 export const InfoBar = () => {
-    const {
-        getCurrentImage,
-        mutedVideo,
-        setMutedVideo,
-        playingVideo,
-        setPlayingVideo,
-        getCurrentImageMeta,
-    } = useContext(GalleryContext);
+    const { getCurrentImage, mutedVideo, setMutedVideo, playingVideo, setPlayingVideo } =
+        useContext(GalleryContext);
 
     const image = getCurrentImage();
-    const meta = getCurrentImageMeta();
 
     const handleMuteVideo = useCallback(() => {
-        const eventType = mutedVideo ? GALLERY_EVENTS.ON_UNMUTE : GALLERY_EVENTS.ON_MUTE;
-        const customEvent = new CustomEvent(eventType, {
-            detail: { player: meta?.player?.current },
-        });
-
-        dispatchEvent(customEvent);
+        if (image) {
+            if (mutedVideo && image.onUnmute) {
+                image.onUnmute();
+            } else if (image.onMute) {
+                image.onMute();
+            }
+        }
         setMutedVideo(!mutedVideo);
-    }, [meta?.player, mutedVideo, setMutedVideo]);
+    }, [image, mutedVideo, setMutedVideo]);
 
     const handlePlayVideo = useCallback(() => {
         setPlayingVideo(!playingVideo);

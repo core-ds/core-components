@@ -8,10 +8,12 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 import { BottomButton } from './components/bottom-button';
 import { Single } from './components/image-viewer/single';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
+import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
 
 import styles from './index.module.css';
+import { Subtitles } from './components/subtitles';
 
 export type GalleryProps = {
     /**
@@ -225,7 +227,7 @@ export const Gallery: FC<GalleryProps> = ({
                 const deltaY = startY - endY;
 
                 // Если свайп вниз, закрываем галерею
-                if (deltaY < -250) {
+                if (deltaY < SWIPE_THRESHOLD) {
                     onClose();
                 }
             },
@@ -292,6 +294,7 @@ export const Gallery: FC<GalleryProps> = ({
                             [styles.hideInfo]: !showNavigationBar && hideNavigation && !isDesktop,
                         })}
                     >
+                        {!isDesktop && <Subtitles />}
                         {isCurrentVideo && !isDesktop && bottomButton && (
                             <BottomButton
                                 bottomButton={bottomButton}
@@ -299,6 +302,7 @@ export const Gallery: FC<GalleryProps> = ({
                                 className={styles.bottomButton}
                             />
                         )}
+
                         {showNavigationBar && <NavigationBar />}
                         {!isDesktop && <InfoBar />}
                     </nav>

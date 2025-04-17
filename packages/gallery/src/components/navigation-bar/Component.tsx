@@ -1,12 +1,4 @@
-import React, {
-    FC,
-    KeyboardEventHandler,
-    useCallback,
-    useContext,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import throttle from 'lodash/throttle';
 
@@ -82,12 +74,6 @@ export const NavigationBar: FC = () => {
         }
     }, 150);
 
-    const handleKeyDown: KeyboardEventHandler = (event) => {
-        if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
-            event.preventDefault();
-        }
-    };
-
     const handlePreviewPosition = useCallback(
         (preview: Element, containerWidth: number) => {
             const { right, left, x } = preview.getBoundingClientRect();
@@ -126,7 +112,6 @@ export const NavigationBar: FC = () => {
         <div
             className={cn(styles.component, { [styles.mobile]: view === 'mobile' })}
             ref={containerRef}
-            onKeyDown={handleKeyDown}
             data-test-id={TestIds.NAVIGATION_BAR}
             onMouseDown={handlePreviewMouseDown}
             onMouseUp={handlePreviewMouseUp}
