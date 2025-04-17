@@ -87,19 +87,6 @@ import { Typography } from '../packages/typography/src';
 }
 ```
 
-<Plate
-    view='attention'
-    rounded={false}
-    limitContentWidth={false}
-    leftAddons={<StatusBadge view='attention-alert' />}
->
-    <Typography.Text tag='div'>Рекомендуем использовать своё хранилище.</Typography.Text>
-    <Typography.Text tag='div'>
-        CDN alfabank.servicecdn.ru — ненадёжный вариант, можно рассматривать только как временное
-        решение.
-    </Typography.Text>
-</Plate>
-
 <p style={{ marginTop: '24px' }}>
     Для всех Styrene-элементов должна быть включена настройка `font-feature-settings: 'ss01';`, и
     рекомендуем не забыть про сглаживание `-webkit-font-smoothing: antialiased;
@@ -133,20 +120,7 @@ import { Typography } from '../packages/typography/src';
 }
 ```
 
-<Plate
-    view='attention'
-    rounded={false}
-    limitContentWidth={false}
-    leftAddons={<StatusBadge view='attention-alert' />}
->
-    <Typography.Text tag='div'>Рекомендуем использовать своё хранилище.</Typography.Text>
-    <Typography.Text tag='div'>
-        CDN alfabank.servicecdn.ru — ненадёжный вариант, можно рассматривать только как временное
-        решение.
-    </Typography.Text>
-</Plate>
-
-Pекомендуем не забыть про сглаживание.
+Не забудьте задать сглаживание.
 
 ```css
 -webkit-font-smoothing: antialiased;
