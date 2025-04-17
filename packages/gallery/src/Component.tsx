@@ -7,13 +7,13 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BottomButton } from './components/bottom-button';
 import { Single } from './components/image-viewer/single';
+import { Subtitles } from './components/subtitles';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
 import { GalleryImage, ImageMeta } from './types';
 
 import styles from './index.module.css';
-import { Subtitles } from './components/subtitles';
 
 export type GalleryProps = {
     /**
