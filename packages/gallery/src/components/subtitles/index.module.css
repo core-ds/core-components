@@ -1,3 +1,5 @@
+@import '../../../../vars/src/index.css';
+
 .subtitles {
     position: absolute;
     align-self: flex-end;
