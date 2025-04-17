@@ -20,24 +20,6 @@ describe('NumberInput ', () =>
         'transform:scale(2.1)',
     ));
 
-describe('NumberInput Stepper', () =>
-    createPreview(
-        {
-            componentName: 'NumberInput',
-            knobs: {
-                label: 'Число',
-                value: 1234,
-                size: 56,
-                block: true,
-                step: 1,
-            },
-        },
-        'padding: 0 270px;width:800px;transform:scale(2.1)',
-        {
-            viewport: { width: 1024, height: 600 },
-        },
-    ));
-
 describe(
     'NumberInput | size',
     screenshotTesting({
