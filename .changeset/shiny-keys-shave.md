@@ -4,3 +4,5 @@
 ---
 
 Добавлена поддержка шрифта `Alfa Interface Sans`
+
+Подробнее смотрите в разделе [Типографика](?path=/docs/guidelines-typography--docs)

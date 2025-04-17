@@ -120,7 +120,7 @@ import { Typography } from '../packages/typography/src';
 }
 ```
 
-Не забудьте задать сглаживание.
+Не забудьте задать сглаживание:
 
 ```css
 -webkit-font-smoothing: antialiased;
@@ -135,9 +135,9 @@ import { Typography } from '../packages/typography/src';
 <Typography.Title font='alfasans'>Заголовок</Typography.Title>
 ```
 
-#### Системно-совместимый шрифт Alfa Interface Sans
+#### Перевод на Alfa Interface Sans системных заголовков
 
-Для достижения системно-совместимого поведения шрифта `Alfa Interface Sans` необходимо использовать пропс `font` соответствующим образом, например:
+Если у вас использовались компонент `Typography.Title` c системным шрифтом, при переходе на `Alfa Interface Sans` необходимо использовать `systemCompat: true`:
 
 ```typescript
 <Typography.Title
@@ -155,26 +155,37 @@ import { Typography } from '../packages/typography/src';
 Использование шрифта `Alfa Interface Sans` подразумевает бесшовный переход с миксинов текущей типографики (системной, `Styrene`) на миксины `Alfa Interface Sans`.
 То есть, названия те же, но изменилось наполнение миксинов.
 
-Для этого необходимо в местах использования импорта миксина типографики заменить путь:
+<br />
 
-```diff
-- @import '@alfalab/core-components/vars/src/typography.css';
-+ @import '@alfalab/core-components/vars/src/alfasans-typography.css';
-```
-
-или для использования только одного шрифта `Alfa Interface Sans` в продукте необходимо заменить импорт переменных:
-
-```diff
-- @import '@alfalab/core-components/vars/src/index.css';
-+ @import '@alfalab/core-components/vars/src/alfasans-index.css';
-```
-
-#### Использование Alfa Interface Sans в существующем продукте
+#### Переход на Alfa Interface Sans в продукте
 
 Для этого необходимо пройти 3 шага:
 
 1. Подключить шрифт `Alfa Interface Sans`
 2. Задать соответствующий пропс `font` в компонентах типографики
-3. Заменить пути импорта миксинов типографики
+3. Заменить пути импорта:
 
-> Заметьте, что шрифты системный, `Styrene` и `Alfa Interface Sans` могут безконфликтно использоваться в рамках одного продукта
+    - `css`переменных:
+
+    ```diff
+    - @import '@alfalab/core-components/vars/src/index.css';
+    + @import '@alfalab/core-components/vars/src/alfasans-index.css';
+    ```
+
+    - продуктового набора переменных:
+
+    ```diff
+    - @import '@alfalab/core-components/vars/src/bundle/click.css';
+    - @import '@alfalab/core-components/vars/src/bundle/corp.css';
+    - @import '@alfalab/core-components/vars/src/bundle/intranet.css';
+    + @import '@alfalab/core-components/vars/src/bundle/alfasans-click.css';
+    + @import '@alfalab/core-components/vars/src/bundle/alfasans-corp.css';
+    + @import '@alfalab/core-components/vars/src/bundle/alfasans-intranet.css';
+    ```
+
+    - миксинов:
+
+    ```diff
+    - @import '@alfalab/core-components/vars/src/typography.css';
+    + @import '@alfalab/core-components/vars/src/alfasans-typography.css';
+    ```
