@@ -1,4 +1,3 @@
-//Нужно для тестов codemod-а
 module.exports = {
     plugins: [
         '@babel/plugin-transform-modules-commonjs',

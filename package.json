@@ -25,7 +25,7 @@
         "lint:deps": "node bin/lint-deps.mjs",
         "test": "jest --watchAll=false",
         "test:screenshots": "bin/run-screenshots.sh",
-        "test:codemod": "jest --config=jest.codemod.config.js packages/codemod/",
+        "test:codemod": "yarn workspace @alfalab/core-components-codemod test",
         "format": "prettier --write \"{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{*.tsbuildinfo,dist,.rollup.cache} {dist,build} packages/**/__diff_output__ .storybook/public/images/*preview-snap.png package-sizes.json",
         "cm": "git-cz",
