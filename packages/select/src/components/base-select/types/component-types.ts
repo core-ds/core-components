@@ -8,12 +8,13 @@ import type {
 } from '@alfalab/core-components-modal/shared';
 import type { ModalMobileProps } from '@alfalab/core-components-modal/typings';
 import type { PopoverProps } from '@alfalab/core-components-popover';
+
 import type {
     AdditionalMobileProps,
     BaseSelectProps,
     BottomSheetSelectMobileProps,
     ModalSelectMobileProps,
-} from '@alfalab/core-components-select/typings';
+} from '../../../typings';
 
 type PopoverType = ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>;
 type BottomSheetType = React.ForwardRefExoticComponent<

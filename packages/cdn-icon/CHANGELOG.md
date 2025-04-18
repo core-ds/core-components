@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-cdn-icon
 
 ## 5.3.4
 
