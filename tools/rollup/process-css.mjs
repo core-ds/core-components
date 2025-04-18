@@ -8,9 +8,14 @@ import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
 import stringHash from 'string-hash';
 import globby from 'globby';
+import * as process from 'node:process';
+import { getPackages } from '@manypkg/get-packages';
 import { currentComponentName, currentPackageDir, pkg } from './common.mjs';
 
 import postcssConfig from '../../postcss.config.js';
+
+const { packages } = await getPackages(process.cwd());
+const vars = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-vars');
 
 export function processCss(options = {}) {
     const config = {
@@ -106,10 +111,9 @@ async function processPostcss(filePath, config = {}) {
         plugins = plugins.map((plugin) =>
             plugin.postcssPlugin === 'postcss-mixins'
                 ? postcssMixins({
-                      mixinsFiles: globby.sync(
-                          path.join(process.env.LERNA_ROOT_PATH, 'packages/vars/src/*.css'),
-                          { ignore: ['**/@(index|typography).css'] },
-                      ),
+                      mixinsFiles: globby.sync(path.join(vars.dir, 'src/*.css'), {
+                          ignore: ['**/@(index|typography).css'],
+                      }),
                   })
                 : plugin,
         );

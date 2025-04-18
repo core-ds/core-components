@@ -5,6 +5,11 @@ import postcss from 'postcss';
 import postcssColorMod from 'postcss-color-mod-function';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
+import * as process from 'node:process';
+import { getPackages } from '@manypkg/get-packages';
+
+const { packages } = await getPackages(process.cwd());
+const vars = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-vars');
 
 /**
  * @returns {import('postcss').AcceptedPlugin}
@@ -41,10 +46,9 @@ const postcssAddImports = ({ files }) => ({
  * @returns {Promise<string>}
  */
 const processComponentTheme = async (cssFile) => {
-    const colors = await globby(
-        path.join(process.env.LERNA_ROOT_PATH, 'packages/vars/src/colors-*.css'),
-        { ignore: ['**/*-indigo.css'] },
-    );
+    const colors = await globby(path.join(vars.dir, 'src/colors-*.css'), {
+        ignore: ['**/*-indigo.css'],
+    });
 
     const content = await fs.readFile(cssFile, { encoding: 'utf8' });
 
@@ -73,7 +77,7 @@ const processRootTheme = async (cssFile) => {
     const getImports = async () => {
         if (cssFile.includes('dark.css')) return [];
 
-        return globby(path.join(process.env.LERNA_ROOT_PATH, 'packages/vars/src/*.css'), {
+        return globby(path.join(vars.dir, 'src/*.css'), {
             absolute: true,
             ignore: [
                 '**/colors-!(@(addons|bluetint|monochrome|transparent)).css',

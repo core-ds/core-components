@@ -25,8 +25,8 @@ async function main() {
         ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
     );
 
-    const themesPkg = await getPackage('@alfalab/core-components-themes');
-    const varsPkg = await getPackage('@alfalab/core-components-vars');
+    const themes = await getPackage('@alfalab/core-components-themes');
+    const vars = await getPackage('@alfalab/core-components-vars');
 
     for (const { packageJson, dir } of packages) {
         const { name, version } = packageJson;
@@ -38,8 +38,8 @@ async function main() {
         );
         const pkg = JSON.parse(JSON.stringify(packageJson));
 
-        pkg.themesVersion = themesPkg.packageJson.version;
-        pkg.varsVersion = varsPkg.packageJson.version;
+        pkg.themesVersion = themes.packageJson.version;
+        pkg.varsVersion = vars.packageJson.version;
 
         await fs.writeFile(packageJsonLocation, `${JSON.stringify(pkg, null, indent)}\n`, {
             encoding: 'utf8',
