@@ -2,4 +2,4 @@
 '@alfalab/core-components-custom-button': patch
 ---
 
-- Реализация прозрачного `border` для компенсации размеров отступов
+- Реализация прозрачного `border` для синхронизации размеров Button/CustomButton
