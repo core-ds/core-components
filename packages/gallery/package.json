@@ -22,6 +22,7 @@
         "@alfalab/core-components-tooltip": "^7.9.8",
         "@alfalab/core-components-typography": "^4.12.0",
         "@alfalab/core-components-icon-view": "^3.10.1",
+        "@alfalab/core-components-button": "^11.11.7",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
