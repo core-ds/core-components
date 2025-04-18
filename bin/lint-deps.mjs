@@ -37,49 +37,56 @@ const options = {
     ],
 };
 
-const packages = (await getPackages(process.cwd())).packages.filter(
-    ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
-);
+async function main() {
+    const packages = (await getPackages(process.cwd())).packages.filter(
+        ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
+    );
 
-const result = (
-    await Promise.all(
-        packages.map(async ({ dir, packageJson: { name } }) => ({
-            name,
-            results: await depcheck(dir, options),
-        })),
-    )
-).reduce((result, { name, results: { dependencies, missing } }) => {
-    if (dependencies.length > 0 || Object.keys(missing).length > 0) {
-        result[name] = { unusedDeps: dependencies, missingDeps: missing };
+    const result = (
+        await Promise.all(
+            packages.map(async ({ dir, packageJson: { name } }) => ({
+                name,
+                results: await depcheck(dir, options),
+            })),
+        )
+    ).reduce((result, { name, results: { dependencies, missing } }) => {
+        if (dependencies.length > 0 || Object.keys(missing).length > 0) {
+            result[name] = { unusedDeps: dependencies, missingDeps: missing };
+        }
+
+        return result;
+    }, {});
+
+    if (Object.keys(result).length === 0) {
+        console.log('No unused dependencies found.');
+
+        return;
     }
 
-    return result;
-}, {});
+    console.log('Found unused or missing dependencies:\n');
 
-if (Object.keys(result).length === 0) {
-    console.log('No unused dependencies found.');
+    Object.entries(result).forEach(([pkgName, { unusedDeps, missingDeps }]) => {
+        console.log(pkgName + ':');
+
+        if (unusedDeps.length > 0) {
+            console.log('Unused dependencies:');
+            unusedDeps.forEach((depName) => {
+                console.log('  ', depName);
+            });
+        }
+
+        if (Object.keys(missingDeps).length > 0) {
+            console.log('Missing dependencies:');
+            Object.entries(missingDeps).forEach(([depName, fileNames]) => {
+                console.log('  ', depName);
+                fileNames.forEach((fileName) => {
+                    console.log('     ', fileName);
+                });
+            });
+        }
+    });
+
+    // TODO нужен process.exit(1). Сейчас depcheck не проверяет /mobile, /desktop, так как там есть package.json. https://github.com/depcheck/depcheck/issues/704
 }
 
-console.log('Found unused or missing dependencies:\n');
-
-Object.entries(result).forEach(([pkgName, { unusedDeps, missingDeps }]) => {
-    console.log(pkgName + ':');
-    if (unusedDeps.length > 0) {
-        console.log('Unused dependencies:');
-        unusedDeps.forEach((depName) => {
-            console.log('  ', depName);
-        });
-    }
-
-    if (Object.keys(missingDeps).length > 0) {
-        console.log('Missing dependencies:');
-        Object.keys(missingDeps).forEach((depName) => {
-            console.log('  ', depName);
-            missingDeps[depName].forEach((fileName) => {
-                console.log('     ', fileName);
-            });
-        });
-    }
-});
-
-// TODO нужен process.exit(1). Сейчас depcheck не проверяет /mobile, /desktop, так как там есть package.json. https://github.com/depcheck/depcheck/issues/704
+await main();

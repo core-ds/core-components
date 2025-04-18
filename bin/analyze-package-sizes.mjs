@@ -56,17 +56,21 @@ async function calculateBundleSize(location) {
     return Object.fromEntries(entries);
 }
 
-const packages = (await getPackages(process.cwd())).packages.filter(
-    ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
-);
+async function main() {
+    const packages = (await getPackages(process.cwd())).packages.filter(
+        ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
+    );
 
-const packageSizes = Object.fromEntries(
-    await Promise.all(
-        packages.map(async ({ dir, packageJson: { name } }) => [
-            name,
-            await calculateBundleSize(dir),
-        ]),
-    ),
-);
+    const packageSizes = Object.fromEntries(
+        await Promise.all(
+            packages.map(async ({ dir, packageJson: { name } }) => [
+                name,
+                await calculateBundleSize(dir),
+            ]),
+        ),
+    );
 
-await fs.writeFile('package-sizes.json', JSON.stringify(packageSizes), { encoding: 'utf8' });
+    await fs.writeFile('package-sizes.json', JSON.stringify(packageSizes), { encoding: 'utf8' });
+}
+
+await main();

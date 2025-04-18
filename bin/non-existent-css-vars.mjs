@@ -10,32 +10,36 @@ const IGNORED_PACKAGES = [
     '@alfalab/core-components-vars',
 ];
 
-const packages = (await getPackages(process.cwd())).packages.filter(
-    ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
-);
+async function main() {
+    const packages = (await getPackages(process.cwd())).packages.filter(
+        ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
+    );
 
-const files = await globby(
-    packages.map(({ relativeDir }) => path.join(relativeDir, 'dist/**/*.css')),
-);
+    const files = await globby(
+        packages.map(({ relativeDir }) => path.join(relativeDir, 'dist/**/*.css')),
+    );
 
-const nonExistentVarsEntries = (
-    await Promise.all(
-        files.map(async (file) => {
-            const content = await fs.readFile(file, { encoding: 'utf8' });
-            const re = /(?<=var\().+?(?=\))/g;
-            let match = null;
-            const result = [];
+    const nonExistentVarsEntries = (
+        await Promise.all(
+            files.map(async (file) => {
+                const content = await fs.readFile(file, { encoding: 'utf8' });
+                const re = /(?<=var\().+?(?=\))/g;
+                let match = null;
+                const result = [];
 
-            while ((match = re.exec(content)) != null) {
-                result.push(match[0]);
-            }
+                while ((match = re.exec(content)) != null) {
+                    result.push(match[0]);
+                }
 
-            return [file, result];
-        }),
-    )
-).filter(([, vars]) => vars.length > 0);
+                return [file, result];
+            }),
+        )
+    ).filter(([, vars]) => vars.length > 0);
 
-if (nonExistentVarsEntries.length > 0) {
+    if (nonExistentVarsEntries.length === 0) {
+        return;
+    }
+
     console.log(
         [
             'Found non-existent css vars:',
@@ -50,3 +54,5 @@ if (nonExistentVarsEntries.length > 0) {
 
     process.exit(-1);
 }
+
+await main();

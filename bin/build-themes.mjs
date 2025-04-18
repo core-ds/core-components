@@ -1,6 +1,6 @@
 import globby from 'globby';
 import path from 'node:path';
-import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import fs from 'node:fs/promises';
 import postcss from 'postcss';
 import postcssColorMod from 'postcss-color-mod-function';
 import postcssImport from 'postcss-import';
@@ -12,10 +12,10 @@ import postcssMixins from 'postcss-mixins';
 const postcssMixinToRoot = () => ({
     postcssPlugin: 'postcss-mixin-to-root',
     Once(root, { Rule }) {
-        root.walkAtRules((atrule) => {
-            if (atrule.name === 'define-mixin') {
-                atrule.replaceWith(
-                    new Rule({ selector: ':root', raws: atrule.raws, nodes: atrule.nodes }),
+        root.walkAtRules((atRule) => {
+            if (atRule.name === 'define-mixin') {
+                atRule.replaceWith(
+                    new Rule({ selector: ':root', raws: atRule.raws, nodes: atRule.nodes }),
                 );
             }
         });
@@ -41,12 +41,12 @@ const postcssAddImports = ({ files }) => ({
  * @returns {Promise<string>}
  */
 const processComponentTheme = async (cssFile) => {
-    const colors = globby.sync(
+    const colors = await globby(
         path.join(process.env.LERNA_ROOT_PATH, 'packages/vars/src/colors-*.css'),
-        { ignore: '**/*-indigo.css' },
+        { ignore: ['**/*-indigo.css'] },
     );
 
-    const content = await readFile(cssFile, { encoding: 'utf8' });
+    const content = await fs.readFile(cssFile, { encoding: 'utf8' });
 
     const result = await postcss([
         postcssImport({}),
@@ -70,10 +70,10 @@ const processRootTheme = async (cssFile) => {
      * Это необходимо, так как некоторые проекты используют arui-scripts, который под капотом использует postcss-custom-properties
      * 'postcss-custom-properties' - заменяет переменные значениями, что без дублирования импортов переменных будет приводить к потере значений
      */
-    const getImports = () => {
+    const getImports = async () => {
         if (cssFile.includes('dark.css')) return [];
 
-        return globby.sync(path.join(process.env.LERNA_ROOT_PATH, 'packages/vars/src/*.css'), {
+        return globby(path.join(process.env.LERNA_ROOT_PATH, 'packages/vars/src/*.css'), {
             absolute: true,
             ignore: [
                 '**/colors-!(@(addons|bluetint|monochrome|transparent)).css',
@@ -83,11 +83,11 @@ const processRootTheme = async (cssFile) => {
         });
     };
 
-    const content = await readFile(cssFile, { encoding: 'utf8' });
+    const content = await fs.readFile(cssFile, { encoding: 'utf8' });
 
     const result = await postcss([
         // добавляем импорты переменных
-        postcssAddImports({ files: getImports() }),
+        postcssAddImports({ files: await getImports() }),
         // меняем миксин на :root
         postcssMixinToRoot(),
         postcssImport({}),
@@ -100,26 +100,28 @@ const processRootTheme = async (cssFile) => {
     return result.css;
 };
 
-(async function main() {
+async function main() {
     // Переходим в папку с мисинами и парсим темы
-    const themes = globby.sync('src/mixins/*.css');
+    const themes = await globby('src/mixins/*.css');
 
     for (const themeFile of themes) {
         const { name: themeName } = path.parse(themeFile);
         // Извлекаем переменные из файлов с миксинами и генерируем css-файлы, записывая переменные в :root
-        const cssFiles = globby.sync(`src/mixins/?*/${themeName}.css`);
+        const cssFiles = await globby(`src/mixins/?*/${themeName}.css`);
 
         for (let cssFile of cssFiles) {
             const componentName = path.basename(path.dirname(cssFile));
 
-            await mkdir(`dist/${componentName}`, { recursive: true });
+            await fs.mkdir(`dist/${componentName}`, { recursive: true });
 
             const content = await processComponentTheme(cssFile);
 
-            await writeFile(`dist/${componentName}/${themeName}.css`, content);
+            await fs.writeFile(`dist/${componentName}/${themeName}.css`, content);
         }
 
         const content = await processRootTheme(themeFile);
-        await writeFile(`dist/${themeName}.css`, content);
+        await fs.writeFile(`dist/${themeName}.css`, content);
     }
-})();
+}
+
+await main();

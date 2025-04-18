@@ -34,26 +34,30 @@ const postcssLightToDarkColors = () => ({
  * PR https://github.com/core-ds/core-components/pull/1514
  */
 
-const files = await globby('packages/vars/src/colors-*.css', {
-    ignore: ['**/colors-bluetint.css', '**/colors-indigo.css', '**/*dark.css'],
-});
+async function main() {
+    const files = await globby('packages/vars/src/colors-*.css', {
+        ignore: ['**/colors-bluetint.css', '**/colors-indigo.css', '**/*dark.css'],
+    });
 
-for (const file of files) {
-    const content = await fs.readFile(file, { encoding: 'utf8' });
-    const result = await postcss(postcssLightToDarkColors()).process(content, { from: file });
+    for (const file of files) {
+        const content = await fs.readFile(file, { encoding: 'utf8' });
+        const result = await postcss(postcssLightToDarkColors()).process(content, { from: file });
 
-    // Find all :root selectors
-    const rootSelectors = result.root.nodes.filter(
-        (node) => node.type === 'rule' && node.selector === ':root',
-    );
+        // Find all :root selectors
+        const rootSelectors = result.root.nodes.filter(
+            (node) => node.type === 'rule' && node.selector === ':root',
+        );
 
-    // Check if any :root selector has any declaration
-    if (rootSelectors.some((root) => root.nodes.some((node) => node.type === 'decl'))) {
-        const outputFile = file.replace(/\.css$/, '-dark.css');
+        // Check if any :root selector has any declaration
+        if (rootSelectors.some((root) => root.nodes.some((node) => node.type === 'decl'))) {
+            const outputFile = file.replace(/\.css$/, '-dark.css');
 
-        await fs.writeFile(outputFile, result.css);
-        console.log('[+] Переменные записаны в файл:', outputFile);
-    } else {
-        console.log(`[!] Отсутствуют парные переменные, пропуск файла: ${file}`);
+            await fs.writeFile(outputFile, result.css);
+            console.log('[+] Переменные записаны в файл:', outputFile);
+        } else {
+            console.log(`[!] Отсутствуют парные переменные, пропуск файла: ${file}`);
+        }
     }
 }
+
+await main();

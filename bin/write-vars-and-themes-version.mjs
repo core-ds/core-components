@@ -14,33 +14,39 @@ const IGNORED_PACKAGES = [
     '@alfalab/core-components-vars',
 ];
 
-async function getPackage(name) {
-    return (await getPackages(process.cwd())).packages.find(
-        ({ packageJson }) => packageJson.name === name,
+async function main() {
+    async function getPackage(name) {
+        return (await getPackages(process.cwd())).packages.find(
+            ({ packageJson }) => packageJson.name === name,
+        );
+    }
+
+    const packages = (await getPackages(process.cwd())).packages.filter(
+        ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
     );
+
+    const themesPkg = await getPackage('@alfalab/core-components-themes');
+    const varsPkg = await getPackage('@alfalab/core-components-vars');
+
+    for (const { packageJson, dir } of packages) {
+        const { name, version } = packageJson;
+        console.log(`=> Processing ${name}@${version}`);
+
+        const packageJsonLocation = path.join(dir, 'package.json');
+        const { indent } = detectIndent(
+            await fs.readFile(packageJsonLocation, { encoding: 'utf8' }),
+        );
+        const pkg = JSON.parse(JSON.stringify(packageJson));
+
+        pkg.themesVersion = themesPkg.packageJson.version;
+        pkg.varsVersion = varsPkg.packageJson.version;
+
+        await fs.writeFile(packageJsonLocation, `${JSON.stringify(pkg, null, indent)}\n`, {
+            encoding: 'utf8',
+        });
+
+        console.log(`=> Done\n`);
+    }
 }
 
-const packages = (await getPackages(process.cwd())).packages.filter(
-    ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
-);
-
-const themesPkg = await getPackage('@alfalab/core-components-themes');
-const varsPkg = await getPackage('@alfalab/core-components-vars');
-
-for (const { packageJson, dir } of packages) {
-    const { name, version } = packageJson;
-    console.log(`=> Processing ${name}@${version}`);
-
-    const packageJsonLocation = path.join(dir, 'package.json');
-    const { indent } = detectIndent(await fs.readFile(packageJsonLocation, { encoding: 'utf8' }));
-    const pkg = JSON.parse(JSON.stringify(packageJson));
-
-    pkg.themesVersion = themesPkg.packageJson.version;
-    pkg.varsVersion = varsPkg.packageJson.version;
-
-    await fs.writeFile(packageJsonLocation, `${JSON.stringify(pkg, null, indent)}\n`, {
-        encoding: 'utf8',
-    });
-
-    console.log(`=> Done\n`);
-}
+await main();
