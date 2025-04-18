@@ -54,6 +54,10 @@ export type GalleryProps = {
      * Дополнительный класс для попапа
      */
     popupClassName?: string;
+    /**
+     * Дополнительный класс для swiper инстанса
+     */
+    swiperClassName?: string;
 };
 
 const DEFAULT_FULL_SCREEN = false;
@@ -72,6 +76,7 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
+    swiperClassName,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -216,6 +221,7 @@ export const Gallery: FC<GalleryProps> = ({
         slideNext,
         slidePrev,
         slideTo,
+        swiperClassName,
         getSwiper: () => swiper,
         setSwiper,
         onClose: handleClose,
