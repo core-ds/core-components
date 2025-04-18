@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   navigation-bar-private@0.8.2
+
 ## 1.0.6
 
 ### Patch Changes

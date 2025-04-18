@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.12.6
+
+### Patch Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1669](https://github.com/core-ds/core-components/pull/1669)
+
+-   Реализация прозрачного `border` для синхронизации размеров Button/CustomButton
+
 ## 3.12.5
 
 ### Patch Changes

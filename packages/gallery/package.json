@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-gallery",
-    "version": "5.11.9",
+    "version": "5.12.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -19,8 +19,8 @@
         "@alfalab/core-components-icon-button": "^6.11.10",
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/core-components-spinner": "^4.0.6",
-        "@alfalab/core-components-tooltip": "^7.9.8",
-        "@alfalab/core-components-typography": "^4.12.0",
+        "@alfalab/core-components-tooltip": "^7.9.9",
+        "@alfalab/core-components-typography": "^4.13.0",
         "@alfalab/core-components-icon-view": "^3.10.1",
         "@alfalab/core-components-button": "^11.11.7",
         "@alfalab/hooks": "^1.13.1",
@@ -32,5 +32,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "varsVersion": "9.20.0"
 }
