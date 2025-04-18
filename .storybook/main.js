@@ -61,6 +61,8 @@ function modifyCssRules(config) {
                 loader: 'css-loader',
                 options: {
                     modules: {
+                        namedExport: false,
+                        exportLocalsConvention: 'as-is',
                         localIdentName: '[local]_[hash:base64:5]',
                     },
                     importLoaders: 1,
