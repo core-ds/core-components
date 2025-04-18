@@ -6,6 +6,10 @@
     padding: var(--gap-12);
     outline: none;
 
+    &.size-72 {
+        padding: var(--gap-12) var(--gap-16);
+    }
+
     & > .button + .button {
         margin-left: var(--select-option-list-footer-button-gap);
     }
