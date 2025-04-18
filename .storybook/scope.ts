@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import path from 'node:path';
+import path from 'path';
 import * as dateUtils from 'date-fns';
 import * as knobs from '@storybook/addon-knobs';
 import * as grid from './blocks/grid';
