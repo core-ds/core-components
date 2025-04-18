@@ -1,5 +1,4 @@
 import { ComponentType } from 'react';
-import path from 'path';
 import * as dateUtils from 'date-fns';
 import * as knobs from '@storybook/addon-knobs';
 import * as grid from './blocks/grid';
@@ -17,11 +16,7 @@ const coreComponentsContext =
               /^\.\/(.*)\/src\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).ts$/,
           );
 
-const glyphContext = require.context(
-    path.dirname(require.resolve('@alfalab/icons-glyph/package.json')),
-    true,
-    /(.*).js$/,
-);
+const glyphContext = require.context('../node_modules/@alfalab/icons-glyph', true, /(.*).js$/);
 
 const requireComponents = (context: __WebpackModuleApi.RequireContext) =>
     context.keys().reduce((acc: Record<string, ComponentType<unknown>>, key) => {
