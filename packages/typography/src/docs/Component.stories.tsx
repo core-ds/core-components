@@ -16,7 +16,7 @@ export const typography_title: Story = {
     name: 'Typography.Title',
     render: () => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
-        const color = select('color', colors, '');
+        const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
         const systemCompat = boolean('systemCompat', false);
@@ -44,7 +44,7 @@ export const typography_title_responsive: Story = {
     name: 'Typography.TitleResponsive',
     render: () => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
-        const color = select('color', colors, '');
+        const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
         const systemCompat = boolean('systemCompat', false);
@@ -71,7 +71,7 @@ export const typography_title_mobile: Story = {
     name: 'Typography.TitleMobile',
     render: () => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
-        const color = select('color', colors, '');
+        const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
         const systemCompat = boolean('systemCompat', false);

@@ -33,11 +33,11 @@ async function generateCssFile(source, options) {
     }
 
     // replace `typography.css` mixins by `alfasans-typography.css` mixins
-    if (/\/aflasans-.*\.css$/.test(source)) {
+    if (/\/alfasans-.*\.css$/.test(source)) {
         plugins = plugins.map((plugin) =>
             plugin.postcssPlugin === 'postcss-mixins'
                 ? require('postcss-mixins')({
-                      mixinsFiles: glob.sync(
+                      mixinsFiles: globby.sync(
                           path.join(process.env.LERNA_ROOT_PATH, 'packages/vars/src/*.css'),
                           { ignore: ['**/@(index|typography).css'] },
                       ),

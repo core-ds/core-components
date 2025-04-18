@@ -35,4 +35,4 @@ yalc.lock
 lerna-debug.log
 .npmrc
 
-.storybook/public/images/*-preview-snap.png
+.storybook/public/images/*preview-snap.png
