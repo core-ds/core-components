@@ -115,9 +115,9 @@ export const Field = ({
                                         dataTestId={getDataTestId(dataTestId, 'success-icon')}
                                     />
                                 )}
+                                {rightAddons}
                                 {/* TODO: стоит переделать, но это будет мажорка */}
                                 {Arrow && React.cloneElement(Arrow, { className: styles.arrow })}
-                                {rightAddons}
                             </Fragment>
                         )
                     }
