@@ -78,6 +78,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             size = 48,
             optionsSize = size,
             error,
+            showErrorIcon,
+            success,
             hint,
             block,
             label,
@@ -679,6 +681,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     labelView={labelView}
                     Arrow={Arrow && <Arrow open={open} size={size} disabled={disabled} />}
                     error={error}
+                    showErrorIcon={showErrorIcon}
+                    success={success}
                     hint={hint}
                     valueRenderer={valueRenderer}
                     className={fieldClassName}

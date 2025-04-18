@@ -48,6 +48,13 @@ export interface InputAutocompleteCommonProps
      * Обработчик ввода
      */
     onInput?: (value: string, reason?: OnInputTypeReason) => void;
+
+    /**
+     * Позволяет управлять отображением иконки ошибки для статуса error
+     * @default false
+     * @description Отобразится при условии, что передан пропс error
+     */
+    showErrorIcon?: InputProps['showErrorIcon'];
 }
 
 type MobileProps = {
