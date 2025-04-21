@@ -9,7 +9,7 @@ Object {
         class="component initial"
       >
         <div
-          class="container"
+          class="container clickable"
         >
           <div
             class="componentWrapper wrapperSize_48"
@@ -96,7 +96,7 @@ Object {
           </div>
         </div>
         <div
-          class="container"
+          class="container clickable"
         >
           <span
             class="title primary component"
@@ -120,7 +120,7 @@ Object {
       class="component initial"
     >
       <div
-        class="container"
+        class="container clickable"
       >
         <div
           class="componentWrapper wrapperSize_48"
@@ -207,7 +207,7 @@ Object {
         </div>
       </div>
       <div
-        class="container"
+        class="container clickable"
       >
         <span
           class="title primary component"

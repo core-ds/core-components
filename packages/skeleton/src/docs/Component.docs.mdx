@@ -1,4 +1,4 @@
-import { Meta, Markdown } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import * as Stories from './Component.stories';
 
@@ -6,12 +6,11 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
 
-<Meta of={Stories} />
+<Meta title='Components/Skeleton' of={Stories} />
 
-<ComponentHeader
-    name='Skeleton'
-    children='Используется как индикатор загрузки контента.'
-/>
+{/* Docs */}
+
+<ComponentHeader name='Skeleton' children='Используется как индикатор загрузки контента.' />
 
 <Tabs
     description={<Description />}

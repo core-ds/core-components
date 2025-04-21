@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.22.1",
+    "version": "48.24.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -17,6 +17,7 @@
     "scripts": {
         "build": "./bin/build.sh",
         "start": "storybook dev -p 9009",
+        "prebuild-storybook": "node bin/prebuild-storybook.mjs",
         "build-storybook": "storybook build -o build --quiet",
         "build-storybook-from-dist": "cross-env BUILD_MODERN_ONLY=true yarn build && cross-env BUILD_STORYBOOK_FROM_DIST=true yarn build-storybook",
         "serve-storybook": "http-server build -p 9009",

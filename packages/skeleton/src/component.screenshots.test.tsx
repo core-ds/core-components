@@ -15,15 +15,11 @@ const screenshotTesting = setupScreenshotTesting({
 describe('Skeleton', () => {
     createPreview(
         {
+            testStory: false,
             componentName: 'Skeleton',
-            knobs: {
-                children:
-                    'Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton',
-                animate: true,
-                visible: true,
-            },
+            knobs: {},
         },
-        'transform:scale(2.5);padding:0 300px',
+        'transform:scale(2.5)',
     );
 });
 

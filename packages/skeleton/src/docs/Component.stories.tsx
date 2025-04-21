@@ -1,8 +1,11 @@
 import React, { Fragment, RefObject } from 'react';
-import { Story } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { Skeleton, useSkeleton } from '@alfalab/core-components-skeleton';
-import type { Meta, StoryObj } from '@storybook/react';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
+import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Skeleton> = {
     title: 'Components/Skeleton',
@@ -15,6 +18,37 @@ type Story = StoryObj<typeof Skeleton>;
 export const skeleton: Story = {
     name: 'Skeleton',
     render: () => {
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+
+        if (isPreview) {
+            return (
+                <div style={previewStyles}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '4px',
+                            alignItems: 'start',
+                        }}
+                    >
+                        <Skeleton visible={true}>
+                            <div style={{ width: 168, height: 16 }} />
+                        </Skeleton>
+                        <Skeleton visible={true}>
+                            <div style={{ width: 132, height: 16 }} />
+                        </Skeleton>
+                        <Skeleton visible={true}>
+                            <div style={{ width: 180, height: 16 }} />
+                        </Skeleton>
+                        <Skeleton visible={true}>
+                            <div style={{ width: 160, height: 16 }} />
+                        </Skeleton>
+                    </div>
+                </div>
+            );
+        }
+
         const colors = select('colors', ['default', 'inverted'], 'default');
         const borderRadius = select(
             'borderRadius',

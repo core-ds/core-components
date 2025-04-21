@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.11
+
 ## 6.3.10
 
 ### Patch Changes

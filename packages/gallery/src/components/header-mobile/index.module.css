@@ -4,7 +4,7 @@
     position: relative;
     height: 72px;
     z-index: 3;
-    padding: var(--gap-12) var(--gap-8);
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +12,6 @@
     &.video {
         position: absolute;
         width: 100%;
-        padding: 0;
         background-color: var(--color-static-neutral-0-inverted);
         transition: transform 0.3s ease-in-out;
     }
