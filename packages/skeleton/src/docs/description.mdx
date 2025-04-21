@@ -44,7 +44,7 @@ render(() => {
 
 Скелетон может подстраиваться под заданный фрагмент текста, для этого ему нужно знать fontSize, lineHeight, выравнивание, количество и длину строк.
 
-```jsx live desktopOnly
+```jsx live
 render(() => {
     const [visible, setVisible] = React.useState(false);
 
@@ -53,6 +53,8 @@ render(() => {
 
     const { renderSkeleton, textRef } = useSkeleton(visible, {});
     const textSkeleton = renderSkeleton({});
+
+    const TitleComponent = isMobile() ? Typography.TitleMobile : Typography.Title;
 
     return (
         <>
@@ -66,9 +68,9 @@ render(() => {
             {titleSkeleton ? (
                 titleSkeleton
             ) : (
-                <Typography.Title view='small' font='system' ref={titleRef}>
+                <TitleComponent view='small' font='system' ref={titleRef}>
                     Почему банк проверяет мои операции?
-                </Typography.Title>
+                </TitleComponent>
             )}
 
             <Gap size={12} />
