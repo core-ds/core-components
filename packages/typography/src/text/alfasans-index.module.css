@@ -18,6 +18,7 @@
     @each $kind in primary, secondary {
         @each $size in large, medium, small {
             &.$(kind)-$(size) {
+                /* prettier-ignore */
                 @mixin paragraph_$(kind)_$(size);
 
                 &.bold {
@@ -39,7 +40,6 @@
 
             &.medium {
                 @subtract-mixin action_component_$(kind), paragraph_component_$(kind), medium;
-
             }
         }
     }
