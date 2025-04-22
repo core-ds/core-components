@@ -9,7 +9,7 @@ import { useModalWidth } from '../../hooks/useModalWidth';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getMarginStyles } from '../../utils/get-margin-styles';
-import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
+import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
@@ -86,9 +86,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             onClose={onClose}
         >
             <div className={styles.container}>
-                <BaseUniversalModalContent wheelDeltaY={wheelDeltaY}>
-                    {children}
-                </BaseUniversalModalContent>
+                <ModalContent wheelDeltaY={wheelDeltaY}>{children}</ModalContent>
             </div>
         </BaseModal>
     );

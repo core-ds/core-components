@@ -6,13 +6,13 @@ import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { ResponsiveContext } from '../../../ResponsiveContext';
 import { SCROLLBAR_DEFAULT_GAP } from '../../constants';
 
-import styles from './base-universal-modal-content.module.css';
+import styles from './modal-content.module.css';
 
 type Props = {
     wheelDeltaY: number;
 } & Pick<BaseModalProps, 'children'>;
 
-export const BaseUniversalModalContent: FC<Props> = (props) => {
+export const ModalContent: FC<Props> = (props) => {
     const { children, wheelDeltaY } = props;
     const { setModalHeaderHighlighted, setModalFooterHighlighted } =
         useContext(ResponsiveContext) || {};
