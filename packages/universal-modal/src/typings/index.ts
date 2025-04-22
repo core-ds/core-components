@@ -1,5 +1,5 @@
-import { UniversalModalDesktopProps } from '../desktop/types/props';
-import { UniversalModalMobileProps } from '../mobile/types/props';
+import { UniversalModalDesktopProps } from '../desktop';
+import { UniversalModalMobileProps } from '../mobile';
 
 export type TResponsiveModalContext = {
     modalWidth?: number;

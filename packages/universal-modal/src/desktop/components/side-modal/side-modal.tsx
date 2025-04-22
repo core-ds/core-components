@@ -6,7 +6,7 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
-import { ModalBySideProps } from '../../types/props';
+import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getMargins } from '../../utils/get-margins';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
@@ -15,7 +15,7 @@ import { getDefaultTransitionProps } from './get-default-transition-props';
 
 import styles from './styles/index.module.css';
 
-export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
+export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
         width = 500,
         height = 'fullHeight',

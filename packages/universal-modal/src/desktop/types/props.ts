@@ -60,7 +60,3 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
         | 'transitionProps'
         | 'backdropProps'
     >;
-
-export type ModalBySideProps = UniversalModalDesktopProps;
-
-export type ModalByCenterProps = UniversalModalDesktopProps;

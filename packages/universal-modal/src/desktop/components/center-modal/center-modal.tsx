@@ -7,7 +7,7 @@ import { browser, os } from '@alfalab/core-components-shared';
 import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
-import { ModalByCenterProps } from '../../types/props';
+import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getMargins } from '../../utils/get-margins';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
@@ -19,7 +19,7 @@ import transitions from './styles/transitions/transitions.module.css';
 // в safari некорректно отрабатывает transform:scale (???), поэтому применяем немного другую анимацию
 const transitionProps = os.isMacOS() && browser.isSafari() ? safariTransitions : transitions;
 
-export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
+export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
         dataTestId,
         className,

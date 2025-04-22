@@ -1,11 +1,12 @@
 import { MutableRefObject, useEffect } from 'react';
 
 import { isClient } from '@alfalab/core-components-shared';
+import { UniversalModalDesktopProps } from '../types/props';
 
 /** Устанавливает необходимую высоту модального окна */
 export const useModalHeight = (
-    height: number | 'fullHeight',
-    open: boolean,
+    height: Exclude<UniversalModalDesktopProps['height'], undefined>,
+    open: UniversalModalDesktopProps['open'],
     componentRef: MutableRefObject<HTMLDivElement | null>,
 ) => {
     const ref = componentRef;
