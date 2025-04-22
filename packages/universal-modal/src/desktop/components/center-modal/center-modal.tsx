@@ -9,7 +9,7 @@ import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
-import { getMargins } from '../../utils/get-margins';
+import { getMarginStyles } from '../../utils/get-margin-styles';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import styles from './styles/index.module.css';
@@ -36,8 +36,8 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
 
     const componentRef = useRef<HTMLDivElement>(null);
 
-    useModalWidth(width, open, componentRef);
-    useModalHeight(height, open, componentRef);
+    useModalWidth({ width, open, componentRef, margin });
+    useModalHeight({ height, open, componentRef, margin });
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const {
@@ -66,7 +66,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 [styles.overlayHidden]: !overlay,
                 [styles.verticalTop]: verticalAlign === 'top',
                 [styles.verticalBottom]: verticalAlign === 'bottom',
-                ...getMargins({ styles, margin }),
+                ...getMarginStyles({ styles, margin }),
             })}
             scrollHandler='content'
             open={open}

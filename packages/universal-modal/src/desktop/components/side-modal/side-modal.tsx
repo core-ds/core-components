@@ -8,7 +8,7 @@ import { useModalWheel } from '../../hooks/useModalWheel';
 import { useModalWidth } from '../../hooks/useModalWidth';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
-import { getMargins } from '../../utils/get-margins';
+import { getMarginStyles } from '../../utils/get-margin-styles';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
@@ -33,8 +33,8 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
     const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    useModalWidth(width, open, componentRef);
-    useModalHeight(height, open, componentRef);
+    useModalWidth({ width, open, componentRef, margin });
+    useModalHeight({ height, open, componentRef, margin });
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const isHorizontalStart = horizontalAlign === 'start';
@@ -66,7 +66,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             })}
             className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
-                ...getMargins({ styles, margin }),
+                ...getMarginStyles({ styles, margin }),
             })}
             contentClassName={styles.content}
             transitionProps={{

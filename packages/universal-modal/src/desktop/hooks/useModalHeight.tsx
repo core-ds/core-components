@@ -1,22 +1,25 @@
 import { MutableRefObject, useEffect } from 'react';
 
-import { isClient } from '@alfalab/core-components-shared';
+import { hasOwnProperty, isClient } from '@alfalab/core-components-shared';
 
 import { UniversalModalDesktopProps } from '../types/props';
 
+type Params = {
+    height: Exclude<UniversalModalDesktopProps['height'], undefined>;
+    open: UniversalModalDesktopProps['open'];
+    componentRef: MutableRefObject<HTMLDivElement | null>;
+    margin: UniversalModalDesktopProps['margin'];
+};
+
 /** Устанавливает необходимую высоту модального окна */
-export const useModalHeight = (
-    height: Exclude<UniversalModalDesktopProps['height'], undefined>,
-    open: UniversalModalDesktopProps['open'],
-    componentRef: MutableRefObject<HTMLDivElement | null>,
-) => {
+export const useModalHeight = (params: Params) => {
+    const { height, open, componentRef, margin } = params;
+
     const ref = componentRef;
 
     useEffect(() => {
         if (ref.current) {
             let viewportHeight = 0;
-            let computedMarginTop = 0;
-            let computedMarginBottom = 0;
             let computedHeight = 0;
 
             if (isClient()) {
@@ -24,17 +27,16 @@ export const useModalHeight = (
                     document.documentElement.clientHeight || 0,
                     window.innerHeight || 0,
                 );
-                // рассчитываем margin'ы для дальнейшего вычитания из высоты viewport'а
-                computedMarginTop = parseFloat(window.getComputedStyle(ref.current).marginTop);
-                computedMarginBottom = parseFloat(
-                    window.getComputedStyle(ref.current).marginBottom,
-                );
 
                 computedHeight = parseFloat(window.getComputedStyle(ref.current).height);
             }
 
             if (height > viewportHeight || height === 'fullHeight') {
-                ref.current.style.height = `calc(100% - ${computedMarginTop}px - ${computedMarginBottom}px)`;
+                const marginTop = (margin && hasOwnProperty(margin, 'top') && margin.top) || 0;
+                const marginBottom =
+                    (margin && hasOwnProperty(margin, 'bottom') && margin.bottom) || 0;
+
+                ref.current.style.height = `calc(100% - ${marginTop}px - ${marginBottom}px)`;
 
                 return;
             }
@@ -49,5 +51,5 @@ export const useModalHeight = (
                 ref.current.style.height = `${parseFloat(String(height))}px`;
             }
         }
-    }, [open, height, ref]);
+    }, [open, height, ref, margin]);
 };
