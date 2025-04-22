@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import { UniversalModalDesktopProps } from '../../types/props';
 
-import transitions from './styles/transitions/transitions.module.css';
+import transitions from './transitions/transitions.module.css';
 
 type Params = {
     horizontalAlign: UniversalModalDesktopProps['horizontalAlign'];

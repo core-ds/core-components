@@ -12,9 +12,9 @@ import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-tra
 import { getMarginStyles } from '../../utils/get-margin-styles';
 import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
 
-import styles from './styles/index.module.css';
-import safariTransitions from './styles/transitions/safari-transitions.module.css';
-import transitions from './styles/transitions/transitions.module.css';
+import styles from './index.module.css';
+import safariTransitions from './transitions/safari-transitions.module.css';
+import transitions from './transitions/transitions.module.css';
 
 // в safari некорректно отрабатывает transform:scale (???), поэтому применяем немного другую анимацию
 const transitionProps = os.isMacOS() && browser.isSafari() ? safariTransitions : transitions;

@@ -13,7 +13,7 @@ import { BaseUniversalModalContent } from '../base-universal-modal-content/base-
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
-import styles from './styles/index.module.css';
+import styles from './index.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
