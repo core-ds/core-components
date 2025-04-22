@@ -47,8 +47,6 @@ export const super_ellipse: Story = {
                 : '20';
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
-        const isSkeleton = boolean('isSkeleton', false);
-        const skeletonAnimate = boolean('skeletonAnimate', false);
         const addonsIcon = (
             <Circle size={sizeAddons}>
                 {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}{' '}
@@ -56,6 +54,9 @@ export const super_ellipse: Story = {
         );
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
+        const isSkeleton = boolean('isSkeleton', false);
+        const skeletonAnimate = boolean('skeletonAnimate', false);
+
         return isPreview ? (
             <div style={previewStyles}>
                 <SuperEllipse size={size} backgroundColor={backgroundColor} border={border}>
@@ -115,6 +116,9 @@ export const circle: Story = {
                 {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}
             </Circle>
         );
+        const isSkeleton = boolean('isSkeleton', false);
+        const skeletonAnimate = boolean('skeletonAnimate', false);
+
         return (
             <Circle
                 size={size}
@@ -126,6 +130,8 @@ export const circle: Story = {
                 indicator={indicator && <Badge view='count' />}
                 text={text('text', '')}
                 mainSize={mainSize}
+                isSkeleton={isSkeleton}
+                skeletonAnimate={skeletonAnimate}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
@@ -154,6 +160,9 @@ export const rectangle: Story = {
         );
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
+        const isSkeleton = boolean('isSkeleton', false);
+        const skeletonAnimate = boolean('skeletonAnimate', false);
+
         return (
             <Rectangle
                 size={size}
@@ -162,6 +171,8 @@ export const rectangle: Story = {
                 imageUrl={text('imageUrl', '')}
                 text={text('text', '')}
                 mainSize={mainSize}
+                isSkeleton={isSkeleton}
+                skeletonAnimate={skeletonAnimate}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
@@ -189,6 +200,9 @@ export const no_shape: Story = {
             undefined,
         );
         const backgroundColor = text('backgroundColor', '#f3f4f5');
+        const isSkeleton = boolean('isSkeleton', false);
+        const skeletonAnimate = boolean('skeletonAnimate', false);
+
         return (
             <NoShape
                 size={size}
@@ -196,6 +210,8 @@ export const no_shape: Story = {
                 imageUrl={text('imageUrl', '')}
                 text={text('text', '')}
                 mainSize={mainSize}
+                isSkeleton={isSkeleton}
+                skeletonAnimate={skeletonAnimate}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />

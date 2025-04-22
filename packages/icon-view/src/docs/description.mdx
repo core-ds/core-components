@@ -157,10 +157,10 @@ render(() => {
 });
 ```
 
-## Шейп и фоновый контент
+## Шейп, фоновый контент и скелетонизация
 
 На фоновый слой можно передать различные виды контента или их комбинацию. Шейп отсечёт контент по своей форме.
-Для шейпа SuperEllipse есть возможность включить скелетонизацию и анимацию скелетонизации.
+Есть возможность включить скелетонизацию и анимацию скелетонизации.
 
 ```jsx live
 render(() => {
@@ -183,14 +183,14 @@ render(() => {
 
     const onChangeRadio = (_, payload) => {
         setComponent(payload.value);
-
-        if (payload.value !== "SuperEllipse") {
-            setValue((prevValue) => ({ ...prevValue, isSkeleton: false, skeletonAnimate: false }));
-        }
     };
 
     const onChange = (_, payload) => {
         setValue(prevValue => ({ ...prevValue, [payload.name]: payload.checked }));
+
+        if (!value.isSkeleton) {
+            setValue(prevValue => ({ ...prevValue, skeletonAnimate: false }));
+        };
     };
 
     return (
@@ -219,6 +219,7 @@ render(() => {
                             )
                         }
                         isSkeleton={value.isSkeleton}
+                        skeletonAnimate={value.skeletonAnimate}
                     >
                         {value.icon && <DiamondsMIcon />}
                     </Component>
@@ -236,12 +237,8 @@ render(() => {
                     <Checkbox label='Изображение' name='image' checked={value.image} size='m' />
                     <Checkbox label='Текст' name='text' checked={value.text} size='m' />
                     <Checkbox label='Иконка' name='icon' checked={value.icon} size='m' />
-                    {component === 'SuperEllipse' &&
-                        <Checkbox label='Скелетонизация' name='isSkeleton' checked={value.isSkeleton} size='m' />
-                    }
-                    {component === 'SuperEllipse' && value.isSkeleton &&
-                        <Checkbox label='Анимация скелетона' name='skeletonAnimate' checked={value.skeletonAnimate} size='m' />
-                    }
+                    <Checkbox label='Скелетонизация' name='isSkeleton' checked={value.isSkeleton} size='m' />
+                    { value.isSkeleton && <Checkbox label='Анимация скелетона' name='skeletonAnimate' checked={value.skeletonAnimate} size='m' /> }
                 </CheckboxGroup>
             </Row>
 
