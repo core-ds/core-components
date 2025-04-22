@@ -1,4 +1,5 @@
 import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { Page } from 'playwright';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -116,6 +117,49 @@ describe(
                     'footer.sticky': true,
                     verticalAlign: ['bottom'],
                     margin: ['{"bottom":0}', '{"bottom":12}', '{"bottom":56}'],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'Modal Hug Content',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    verticalAlign: ['top', 'center', 'bottom'],
+                    height: 'hugContent',
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    verticalAlign: 'top',
+                    margin: ['{"top":12}'],
+                    height: 'hugContent',
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'UniversalModal',
+                subComponentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    verticalAlign: 'bottom',
+                    margin: ['{"bottom":12}'],
+                    height: 'hugContent',
                 },
             }),
         ],
