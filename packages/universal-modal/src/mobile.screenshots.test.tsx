@@ -33,20 +33,6 @@ describe(
                     'footer.layout': ['column'],
                 },
             }),
-            ...generateTestCases({
-                componentName: 'UniversalModal',
-                subComponentName: 'Mobile',
-                testStory: false,
-                knobs: {
-                    open: true,
-                    'footer.sticky': true,
-                    bigTitle: [false, true],
-                    'header.title': [
-                        'Заголовок',
-                        'Очень длинный заголовок Очень длинный заголовок',
-                    ],
-                },
-            }),
         ],
         screenshotOpts: {
             fullPage: true,

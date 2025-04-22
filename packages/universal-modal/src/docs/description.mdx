@@ -141,16 +141,11 @@ render(() => {
 });
 ```
 
-## Примеры наполнения
+## Модальный экран
 
-В десктопных модалках в зависимости от положения и размера меняется стиль заголовка в хедере и размер кнопок в футере.
+Для десктопа в зависимости от положения и размера меняется стиль заголовка в хедере и размер кнопок в футере.
 
 ```jsx live mobileHeight={640}
-const horizontalOptions = [
-    { key: 'start', content: 'Start' },
-    { key: 'center', content: 'Center' },
-    { key: 'end', content: 'End' },
-];
 const verticalOptions = [
     { key: 'top', content: 'Top' },
     { key: 'center', content: 'Center' },
@@ -174,14 +169,13 @@ const widthOptions = [
 
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [horizontalAlign, setHorizontalAlign] = React.useState('center');
     const [verticalAlign, setVerticalAlign] = React.useState('center');
     const [modalWidth, setModalWidth] = React.useState('500');
-    const [modalHeight, setModalHeight] = React.useState('500');
+    const [modalHeight, setModalHeight] = React.useState('hugContent');
 
     const [headerButtonCross, setHeaderButtonCross] = React.useState(true);
     const [headerButtonArrow, setHeaderButtonArrow] = React.useState(false);
-    const [headerType, setHeaderType] = React.useState('none');
+    const [headerTitle, setHeaderTitle] = React.useState(false);
 
     const [mainFooterButton, setMainFooterButton] = React.useState(true);
     const [additionalFooterButton, setAdditionalFooterButton] = React.useState(false);
@@ -191,63 +185,51 @@ render(() => {
     const [contentTitle, setContentTitle] = React.useState(false);
     const [contentButton, setContentButton] = React.useState(false);
 
-    const handleRadioChange = (state) => {
-        setHeaderType(state);
-    };
-
     const getButtonSize = () => {
-        if (horizontalAlign !== 'center') {
+        if (modalWidth >= 800) {
             return 56;
-        } else {
-            if (modalWidth >= 800) {
-                return 56;
-            }
-            return 48;
         }
+        return 48;
     };
 
     const getMargin = () => {
-        if (horizontalAlign === 'center') {
-            if (verticalAlign === 'top') {
-                return {
-                    top: 12,
-                    ...(modalWidth === 'fullWidth' && {
-                        right: 12,
-                        left: 12,
-                    }),
-                    ...(modalHeight === 'fullHeight' && {
-                        bottom: 12,
-                    }),
-                };
-            }
-
-            if (verticalAlign === 'center') {
-                return {
-                    ...(modalWidth === 'fullWidth' && {
-                        right: 12,
-                        left: 12,
-                    }),
-                    ...(modalHeight === 'fullHeight' && {
-                        top: 12,
-                        bottom: 12,
-                    }),
-                };
-            }
-
-            if (verticalAlign === 'bottom') {
-                return {
+        if (verticalAlign === 'top') {
+            return {
+                top: 12,
+                ...(modalWidth === 'fullWidth' && {
+                    right: 12,
+                    left: 12,
+                }),
+                ...(modalHeight === 'fullHeight' && {
                     bottom: 12,
-                    ...(modalWidth === 'fullWidth' && {
-                        right: 12,
-                        left: 12,
-                    }),
-                    ...(modalHeight === 'fullHeight' && {
-                        top: 12,
-                    }),
-                };
-            }
-        } else {
-            return { top: 12, right: 12, bottom: 12, left: 12 };
+                }),
+            };
+        }
+
+        if (verticalAlign === 'center') {
+            return {
+                ...(modalWidth === 'fullWidth' && {
+                    right: 12,
+                    left: 12,
+                }),
+                ...(modalHeight === 'fullHeight' && {
+                    top: 12,
+                    bottom: 12,
+                }),
+            };
+        }
+
+        if (verticalAlign === 'bottom') {
+            return {
+                bottom: 12,
+                ...(modalWidth === 'fullWidth' && {
+                    right: 12,
+                    left: 12,
+                }),
+                ...(modalHeight === 'fullHeight' && {
+                    top: 12,
+                }),
+            };
         }
     };
 
@@ -257,57 +239,40 @@ render(() => {
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-            <div style={{ display: 'flex', flexDirection: 'column', width: 532 }}>
-                <div style={{ display: 'flex' }}>
-                    <div style={{ width: 260 }}>
-                        <SelectDesktop
-                            size={56}
-                            options={horizontalOptions}
-                            selected={horizontalAlign}
-                            label='Положение по горизонтали'
-                            block={true}
-                            onChange={({ selected }) => setHorizontalAlign(selected.key)}
-                        />
-                    </div>
-                    <Gap size={12} direction={'horizontal'} />
-                    <div style={{ width: 260 }}>
-                        <SelectDesktop
-                            size={56}
-                            options={verticalOptions}
-                            selected={verticalAlign}
-                            label='Положение по вертикали'
-                            block={true}
-                            onChange={({ selected }) => setVerticalAlign(selected.key)}
-                        />
-                    </div>
+            <Space size={12}>
+                <div style={{ width: 360 }}>
+                    <SelectDesktop
+                        size={56}
+                        options={heightOptions}
+                        selected={modalHeight}
+                        label='Высота'
+                        block={true}
+                        onChange={({ selected }) => setModalHeight(selected.key)}
+                    />
                 </div>
-                <Gap size={12} />
-                <div style={{ display: 'flex' }}>
-                    <div style={{ width: 260 }}>
-                        <SelectDesktop
-                            size={56}
-                            options={heightOptions}
-                            selected={modalHeight}
-                            label='Высота'
-                            block={true}
-                            onChange={({ selected }) => setModalHeight(selected.key)}
-                        />
-                    </div>
-                    <Gap size={12} direction={'horizontal'} />
-                    <div style={{ width: 260 }}>
-                        <SelectDesktop
-                            size={56}
-                            options={widthOptions}
-                            selected={modalWidth}
-                            label='Ширина'
-                            block={true}
-                            onChange={({ selected }) => setModalWidth(selected.key)}
-                        />
-                    </div>
+                <div style={{ width: 360 }}>
+                    <SelectDesktop
+                        size={56}
+                        options={widthOptions}
+                        selected={modalWidth}
+                        label='Ширина'
+                        block={true}
+                        onChange={({ selected }) => setModalWidth(selected.key)}
+                    />
                 </div>
-            </div>
+                <div style={{ width: 360 }}>
+                    <SelectDesktop
+                        size={56}
+                        options={verticalOptions}
+                        selected={verticalAlign}
+                        label='Положение по вертикали'
+                        block={true}
+                        onChange={({ selected }) => setVerticalAlign(selected.key)}
+                    />
+                </div>
+            </Space>
             <Gap size={24} />
-            Навигация
+            Шапка
             <Gap size={12} />
             <div>
                 <Switch
@@ -322,30 +287,12 @@ render(() => {
                     onChange={() => setHeaderButtonArrow((prev) => !prev)}
                 />
                 <Gap size={12} />
-                Заголовок в шапке
-                <Gap size={12} />
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Radio
-                        size={24}
-                        onChange={() => handleRadioChange('normal')}
-                        checked={headerType === 'normal'}
-                        label='Обычный'
-                        hint='Для модалок шириной до 800 рх'
-                    />
-                    <Gap size={12} />
-                    <Radio
-                        size={24}
-                        onChange={() => handleRadioChange('big')}
-                        checked={headerType === 'big'}
-                        label='Крупный'
-                        hint='Для широких модалок и сайдпанелей'
-                    />
-                    <Gap size={12} />
-                    <Radio
-                        size={24}
-                        onChange={() => handleRadioChange('none')}
-                        checked={headerType === 'none'}
-                        label='Без заголовка'
+                <div style={{ width: 532 }}>
+                    <Switch
+                        label='Заголовок'
+                        hint='Для модалок шириной до 800 рх используется обычный заголовок, для модалок с большей шириной — крупный'
+                        checked={headerTitle}
+                        onChange={() => setHeaderTitle((prev) => !prev)}
                     />
                 </div>
             </div>
@@ -412,26 +359,26 @@ render(() => {
                 open={open}
                 width={modalWidth}
                 height={modalHeight}
-                horizontalAlign={horizontalAlign}
+                horizontalAlign='center'
                 verticalAlign={verticalAlign}
                 margin={getMargin()}
                 onClose={() => setOpen(false)}
             >
                 <UniversalModalDesktop.Header
                     sticky={true}
-                    {...(headerType !== 'none' &&
+                    {...(headerTitle &&
                         !headerButtonArrow && {
                             align: 'left',
                             title: 'Почему банк проверяет мои операции?',
-                            bigTitle: headerType === 'big',
+                            bigTitle: modalWidth >= 800,
                         })}
                     {...(headerButtonArrow && {
                         hasBackButton: headerButtonArrow,
                         onBack: () => setOpen(false),
                         align: 'center',
-                        ...(headerType !== 'none' && {
+                        ...(headerTitle && {
                             bottomAddons: 'Почему банк проверяет мои операции?',
-                            bigTitle: headerType === 'big',
+                            bigTitle: modalWidth >= 800,
                         }),
                     })}
                     hasCloser={headerButtonCross}
