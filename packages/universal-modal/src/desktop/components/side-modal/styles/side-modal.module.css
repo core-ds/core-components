@@ -23,7 +23,6 @@
 .component {
     min-width: 500px;
     min-height: 264px;
-    height: 100%;
     border-radius: var(--border-radius-24);
     overflow-x: hidden;
     margin: unset;

@@ -1,6 +1,7 @@
 import { MutableRefObject, useEffect } from 'react';
 
 import { isClient } from '@alfalab/core-components-shared';
+
 import { UniversalModalDesktopProps } from '../types/props';
 
 /** Устанавливает необходимую высоту модального окна */
@@ -16,6 +17,7 @@ export const useModalHeight = (
             let viewportHeight = 0;
             let computedMarginTop = 0;
             let computedMarginBottom = 0;
+            let computedHeight = 0;
 
             if (isClient()) {
                 viewportHeight = Math.max(
@@ -27,10 +29,18 @@ export const useModalHeight = (
                 computedMarginBottom = parseFloat(
                     window.getComputedStyle(ref.current).marginBottom,
                 );
+
+                computedHeight = parseFloat(window.getComputedStyle(ref.current).height);
             }
 
             if (height > viewportHeight || height === 'fullHeight') {
                 ref.current.style.height = `calc(100% - ${computedMarginTop}px - ${computedMarginBottom}px)`;
+
+                return;
+            }
+
+            if (height === 'hugContent') {
+                ref.current.style.height = `${computedHeight}px`;
 
                 return;
             }
