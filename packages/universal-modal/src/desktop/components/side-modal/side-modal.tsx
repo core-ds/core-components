@@ -3,12 +3,12 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
-import { useModalWidth } from '../../hooks/useModalWidth';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
+import { getHeightStyle } from '../../utils/get-height-style';
 import { getMarginStyles } from '../../utils/get-margin-styles';
+import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
@@ -30,11 +30,8 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         onClose,
         ...restProps
     } = props;
-    const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    useModalWidth({ width, open, componentRef, margin });
-    useModalHeight({ height, open, componentRef, margin });
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const isHorizontalStart = horizontalAlign === 'start';
@@ -54,7 +51,6 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             open={open}
             dataTestId={dataTestId}
             ref={ref}
-            componentRef={componentRef}
             contentElementRef={contentRef}
             scrollHandler='content'
             disableBlockingScroll={!overlay}
@@ -84,6 +80,12 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             }}
             onWheel={handleWheel}
             onClose={onClose}
+            componentDivProps={{
+                style: {
+                    width: getWidthStyle(width, margin),
+                    height: getHeightStyle(height, margin),
+                },
+            }}
         >
             <div className={styles.container}>
                 <ModalContent wheelDeltaY={wheelDeltaY}>{children}</ModalContent>

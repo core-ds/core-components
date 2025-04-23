@@ -1,15 +1,15 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { browser, os } from '@alfalab/core-components-shared';
 
-import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
-import { useModalWidth } from '../../hooks/useModalWidth';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
+import { getHeightStyle } from '../../utils/get-height-style';
 import { getMarginStyles } from '../../utils/get-margin-styles';
+import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
 
 import styles from './index.module.css';
@@ -34,10 +34,6 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         ...restProps
     } = props;
 
-    const componentRef = useRef<HTMLDivElement>(null);
-
-    useModalWidth({ width, open, componentRef, margin });
-    useModalHeight({ height, open, componentRef, margin });
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const {
@@ -51,7 +47,6 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             {...restProps}
             dataTestId={dataTestId}
             ref={ref}
-            componentRef={componentRef}
             transitionProps={{
                 classNames: transitionProps,
                 ...(isFullSizeModal && fullSizeModalContentTransitions),
@@ -73,6 +68,12 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             disableBlockingScroll={!overlay}
             onWheel={handleWheel}
             onClose={onClose}
+            componentDivProps={{
+                style: {
+                    width: getWidthStyle(width, margin),
+                    height: getHeightStyle(height, margin),
+                },
+            }}
         >
             <div className={styles.container}>
                 <ModalContent wheelDeltaY={wheelDeltaY}>{children}</ModalContent>
