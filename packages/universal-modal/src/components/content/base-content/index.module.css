@@ -13,6 +13,6 @@
     }
 
     &.withFooter {
-        padding-bottom: var(--gap-16);
+        padding-bottom: var(--gap-0);
     }
 }

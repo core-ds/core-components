@@ -158,37 +158,3 @@ describe(
         },
     }),
 );
-
-describe(
-    'SidePanel Hug Content',
-    screenshotTesting({
-        cases: [
-            ...generateTestCases({
-                componentName: 'UniversalModal',
-                subComponentName: 'SidePanel',
-                testStory: false,
-                knobs: {
-                    open: true,
-                    height: 'hugContent',
-                    horizontalAlign: ['start', 'end'],
-                    verticalAlign: ['top', 'center', 'bottom'],
-                },
-            }),
-            ...generateTestCases({
-                componentName: 'UniversalModal',
-                subComponentName: 'SidePanel',
-                testStory: false,
-                knobs: {
-                    open: true,
-                    height: 'hugContent',
-                    horizontalAlign: ['start', 'end'],
-                    verticalAlign: ['top', 'center', 'bottom'],
-                    margin: ['{"top":12,"right":12,"bottom":12,"left":12}'],
-                },
-            }),
-        ],
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);

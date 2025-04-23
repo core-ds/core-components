@@ -3,12 +3,12 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { useHugContentHeight } from '../../hooks/useHugContentHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
 import { getMarginStyles } from '../../utils/get-margin-styles';
+import { getMaxHeightStyle } from '../../utils/get-max-height-style';
 import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
 
@@ -34,7 +34,6 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
     const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    useHugContentHeight(componentRef, open, height);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const isHorizontalStart = horizontalAlign === 'start';
@@ -82,16 +81,21 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
             }}
-            onWheel={handleWheel}
-            onClose={onClose}
             componentDivProps={{
                 style: {
                     width: getWidthStyle(width, margin),
                     height: getHeightStyle(height, margin),
+                    ...(height === 'hugContent' && {
+                        maxHeight: getMaxHeightStyle(margin),
+                    }),
                 },
             }}
+            onWheel={handleWheel}
+            onClose={onClose}
         >
-            <ModalContent wheelDeltaY={wheelDeltaY}>{children}</ModalContent>
+            <ModalContent height={height} wheelDeltaY={wheelDeltaY}>
+                {children}
+            </ModalContent>
         </BaseModal>
     );
 });

@@ -1,19 +1,22 @@
 import React, { FC, useContext, useEffect, useRef } from 'react';
+import cn from 'classnames';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import { ResponsiveContext } from '../../../ResponsiveContext';
 import { SCROLLBAR_DEFAULT_GAP } from '../../constants';
+import { UniversalModalDesktopProps } from '../../types/props';
 
 import styles from './modal-content.module.css';
 
 type Props = {
+    height: UniversalModalDesktopProps['height'];
     wheelDeltaY: number;
 } & Pick<BaseModalProps, 'children'>;
 
 export const ModalContent: FC<Props> = (props) => {
-    const { children, wheelDeltaY } = props;
+    const { children, wheelDeltaY, height } = props;
     const { setModalHeaderHighlighted, setModalFooterHighlighted } =
         useContext(ResponsiveContext) || {};
 
@@ -144,7 +147,9 @@ export const ModalContent: FC<Props> = (props) => {
             }}
             contentNodeProps={{
                 ref: scrollbarContentNodeRef,
-                className: styles.contentNode,
+                className: cn(styles.contentNode, {
+                    [styles.hugContent]: height === 'hugContent',
+                }),
             }}
             onContentScroll={handleScroll}
         >
