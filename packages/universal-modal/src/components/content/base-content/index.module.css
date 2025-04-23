@@ -6,6 +6,7 @@
     width: 100%;
     z-index: 0;
     padding: var(--gap-32) var(--gap-32) var(--gap-32);
+    flex: 1 1 auto;
 
     &.withHeader {
         padding-top: var(--gap-0);
@@ -14,8 +15,4 @@
     &.withFooter {
         padding-bottom: var(--gap-16);
     }
-}
-
-.flex {
-    flex: 1 1 auto;
 }

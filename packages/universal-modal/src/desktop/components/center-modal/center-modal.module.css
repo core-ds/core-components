@@ -16,10 +16,6 @@
     &.overlayHidden {
         box-shadow: var(--shadow-m);
     }
-
-    & .container {
-        height: 100%;
-    }
 }
 
 .verticalTop {

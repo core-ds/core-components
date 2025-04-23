@@ -78,9 +78,8 @@ export const ModalContent: FC<Props> = (props) => {
     // расчет размера полосы прокрутки
     useEffect(() => {
         if (scrollbarRef.current) {
-            const verticalBar = scrollbarRef.current.querySelector<HTMLDivElement>(
-                `.${styles.verticalBarContainer}`,
-            );
+            const verticalBar =
+                scrollbarRef.current.querySelector<HTMLDivElement>('.verticalBarClassName');
 
             if (verticalBar) {
                 const headerHeight = headerElementRef?.current?.offsetHeight || 0;
@@ -136,16 +135,16 @@ export const ModalContent: FC<Props> = (props) => {
 
     return (
         <Scrollbar
-            className={styles.scrollbarWrapper}
-            verticalBarClassName={styles.verticalBarContainer}
+            className={styles.scrollable}
+            verticalBarClassName='verticalBarClassName'
             ref={scrollbarRef}
             scrollableNodeProps={{
                 ref: scrollableNodeRef,
-                className: styles.scrollContentWrapper,
+                className: styles.scrollableNode,
             }}
             contentNodeProps={{
                 ref: scrollbarContentNodeRef,
-                className: styles.scrollbarContainer,
+                className: styles.contentNode,
             }}
             onContentScroll={handleScroll}
         >

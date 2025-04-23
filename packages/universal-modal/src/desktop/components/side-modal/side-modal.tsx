@@ -91,9 +91,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 },
             }}
         >
-            <div className={styles.container}>
-                <ModalContent wheelDeltaY={wheelDeltaY}>{children}</ModalContent>
-            </div>
+            <ModalContent wheelDeltaY={wheelDeltaY}>{children}</ModalContent>
         </BaseModal>
     );
 });

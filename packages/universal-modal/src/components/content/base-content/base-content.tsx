@@ -29,7 +29,7 @@ export const BaseContent: FC<ContentProps> = ({ children, className, dataTestId 
 
     return (
         <div
-            className={cn(styles.content, styles.flex, className, {
+            className={cn(styles.content, className, {
                 [styles.withHeader]: hasHeader,
                 [styles.withFooter]: hasFooter,
             })}
