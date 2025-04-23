@@ -157,10 +157,9 @@ render(() => {
 });
 ```
 
-## Шейп, фоновый контент и скелетонизация
+## Шейп и фоновый контент
 
 На фоновый слой можно передать различные виды контента или их комбинацию. Шейп отсечёт контент по своей форме.
-Есть возможность включить скелетонизацию и анимацию скелетонизации.
 
 ```jsx live
 render(() => {
@@ -170,8 +169,6 @@ render(() => {
         image: false,
         text: false,
         icon: false,
-        isSkeleton: false,
-        skeletonAnimate: false,
     });
 
     const Component = {
@@ -186,11 +183,7 @@ render(() => {
     };
 
     const onChange = (_, payload) => {
-        setValue(prevValue => ({ ...prevValue, [payload.name]: payload.checked }));
-
-        if (!value.isSkeleton) {
-            setValue(prevValue => ({ ...prevValue, skeletonAnimate: false }));
-        };
+        setValue((prevValue) => ({ ...prevValue, [payload.name]: payload.checked }));
     };
 
     return (
@@ -218,8 +211,6 @@ render(() => {
                                 </Typography.Title>
                             )
                         }
-                        isSkeleton={value.isSkeleton}
-                        skeletonAnimate={value.skeletonAnimate}
                     >
                         {value.icon && <DiamondsMIcon />}
                     </Component>
@@ -237,8 +228,6 @@ render(() => {
                     <Checkbox label='Изображение' name='image' checked={value.image} size='m' />
                     <Checkbox label='Текст' name='text' checked={value.text} size='m' />
                     <Checkbox label='Иконка' name='icon' checked={value.icon} size='m' />
-                    <Checkbox label='Скелетонизация' name='isSkeleton' checked={value.isSkeleton} size='m' />
-                    { value.isSkeleton && <Checkbox label='Анимация скелетона' name='skeletonAnimate' checked={value.skeletonAnimate} size='m' /> }
                 </CheckboxGroup>
             </Row>
 
@@ -258,6 +247,96 @@ render(() => {
                         />
                     ))}
                 </RadioGroup>
+            </Row>
+        </Container>
+    );
+});
+```
+
+## Скелетонизация
+
+Скелетон может подстраиваться под заданный размер и форму шейпа компонента.
+
+```jsx live
+render(() => {
+    const [component, setComponent] = React.useState('SuperEllipse');
+    const [isSkeleton, setIsSkeleton] = React.useState(false);
+    const [skeletonAnimate, setSkeletonAnimate] = React.useState(false);
+
+    const Component = {
+        Circle,
+        SuperEllipse,
+        Rectangle,
+        NoShape,
+    }[component];
+
+    const onChangeRadio = (_, payload) => {
+        setComponent(payload.value);
+    };
+
+    const onChangeSkeleton = (_, payload) => {
+        setIsSkeleton((prevValue) => (payload.checked));
+
+        if (isSkeleton) {
+           setSkeletonAnimate(false)
+        }
+    };
+
+    const onChangeAnimate = (_, payload) => {
+        setSkeletonAnimate((prevValue) => (payload.checked ));
+    };
+
+    return (
+        <Container>
+            <Row>
+                <Col>
+                    <Component
+                        size='80'
+                        mainSize={64}
+                        backgroundColor='var(--color-light-base-bg-secondary)'
+                        isSkeleton={isSkeleton}
+                        skeletonAnimate={skeletonAnimate}
+                    >
+                        <DiamondsMIcon />
+                    </Component>
+                </Col>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    name='radioGroup'
+                    onChange={onChangeRadio}
+                    label='Форма шейпа'
+                    value={component}
+                >
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map((c) => (
+                        <Radio
+                            label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
+                            value={c}
+                            size='m'
+                            key={c}
+                        />
+                    ))}
+                </RadioGroup>
+            </Row>
+
+            <Row>
+                <Col>
+                    <Switch
+                        block={true}
+                        checked={isSkeleton}
+                        label='Скелетонизация контента'
+                        onChange={onChangeSkeleton}
+                    />
+                    <Gap size={12} />
+                    <Switch
+                        block={true}
+                        checked={skeletonAnimate}
+                        label='Анимация скелетона'
+                        onChange={onChangeAnimate}
+                        disabled={!isSkeleton}
+                    />
+                </Col>
             </Row>
         </Container>
     );
