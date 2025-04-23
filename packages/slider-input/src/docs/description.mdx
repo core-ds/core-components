@@ -190,13 +190,13 @@ render(() => {
 });
 ```
 
-## Bold
+## Вес значения
 
-Можно установить жирность текста инпута. По умолчанию - жирный.
+Весом можно управлять с помощью пропсы `bold`.
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState(5);
+    const [value, setValue] = React.useState(3);
     const [bold, setBold] = React.useState(true);
 
     return (
@@ -222,7 +222,7 @@ render(() => {
             <Switch
                 block={true}
                 checked={bold}
-                label='Жирность текста'
+                label='Bold'
                 onChange={() => setBold((prev) => !prev)}
             />
         </div>

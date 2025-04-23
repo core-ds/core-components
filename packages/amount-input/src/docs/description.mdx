@@ -21,14 +21,14 @@ render(() => {
 
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
-            <AmountInput 
-                value={1234567} 
+            <AmountInput
+                value={1234567}
                 placeholder='Введите сумму'
                 labelView={isMobile() ? 'outer': 'inner'}
-                label='Сумма' 
-                minority={minor ? 100 : 1} 
+                label='Сумма'
+                minority={minor ? 100 : 1}
                 integersOnly={!minor}
-                bold={false} 
+                bold={false}
                 suffix={suffixInput}
                 block={true}
                 size={isMobile() ? 48 : 56}
@@ -48,6 +48,39 @@ render(() => {
                 <Radio size='m' label='Процент' value='percent' />
                 <Radio size='m' label='Нет' value='noSuffix' />
             </RadioGroup>
+        </div>
+    );
+});
+```
+
+## Вес значения
+
+Весом можно управлять с помощью пропсы `bold`.
+
+```jsx live
+render(() => {
+    const [bold, setBold] = React.useState(true);
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <AmountInput
+                value={1234567}
+                placeholder='Введите сумму'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                label='Сумма'
+                minority={100}
+                bold={bold}
+                block={true}
+                size={isMobile() ? 48 : 56}
+                breakpoint={BREAKPOINT}
+            />
+            <Gap size='xl' />
+            <Switch
+                block={true}
+                checked={bold}
+                label='Bold'
+                onChange={() => setBold((prev) => !prev)}
+            />
         </div>
     );
 });
