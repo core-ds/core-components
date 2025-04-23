@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
+import { useHugContentHeight } from '../../hooks/useHugContentHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
 import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
@@ -30,8 +31,10 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         onClose,
         ...restProps
     } = props;
+    const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
+    useHugContentHeight(componentRef, open, height);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const isHorizontalStart = horizontalAlign === 'start';
@@ -51,6 +54,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             open={open}
             dataTestId={dataTestId}
             ref={ref}
+            componentRef={componentRef}
             contentElementRef={contentRef}
             scrollHandler='content'
             disableBlockingScroll={!overlay}
