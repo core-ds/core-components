@@ -2,6 +2,7 @@ import React, {
     forwardRef,
     ForwardRefExoticComponent,
     ForwardRefRenderFunction,
+    Fragment,
     RefAttributes,
     useMemo,
     useRef,
@@ -161,6 +162,7 @@ function SelectRenderFunction<ValueType extends BaseValueType>(
         getSearchProps,
         getToggleButtonProps,
         getClearButtonProps,
+        contextHolder,
     } = useCombobox({
         autoFocus,
         options: filteredOptions,
@@ -247,73 +249,76 @@ function SelectRenderFunction<ValueType extends BaseValueType>(
     );
 
     return (
-        <div
-            ref={rootElementRef}
-            onKeyDown={disabled ? undefined : fieldProps.onKeyDown}
-            onBlur={fieldProps.onBlur}
-        >
-            <FieldAdapter
-                // required in LegacyField but didn't used in FieldAdapter
-                setSelectedItems={noop}
-                toggleMenu={toggleMenu}
-                value={selectedValue}
-                onValueChange={setValue}
-                multiple={multiple}
-                open={open}
-                disabled={disabled}
-                size={size}
-                placeholder={placeholder}
-                // TODO label props
-                label={label === null ? null : <span>{label}</span>}
-                // labelView={labelView}
-                ArrowComponent={Arrow}
-                // error={error}
-                // hint={hint}
-                // valueRenderer={valueRenderer}
-                // className={fieldClassName}
-                innerProps={{
-                    onFocus: disabled ? undefined : fieldProps.onFocus,
-                    onMouseDown: disabled ? undefined : fieldProps.onMouseDown,
-                    onClick: disabled ? undefined : fieldProps.onClick,
-                    ref: mergeRefs([fieldRef, fieldProps.ref ?? null]),
-                    id: 'TODO',
-                    tabIndex: disabled ? undefined : 0,
-                }}
-                LegacyField={LegacyField}
-                FormControlComponent={FormControlDesktop}
-                clear={clearFromProps}
-                clearProps={clearFromProps ? getClearButtonProps() : undefined}
-            />
-            <Popover
-                open={!disabled && open}
-                anchorElement={fieldRef.current}
-                position='bottom-start'
-                preventFlip={true}
-                // needs for correct virtual list work
-                withTransition={false}
+        <Fragment>
+            {contextHolder}
+            <div
+                ref={rootElementRef}
+                onKeyDown={disabled ? undefined : fieldProps.onKeyDown}
+                onBlur={fieldProps.onBlur}
             >
-                <OptionsList
-                    ref={optionsListRootRef}
-                    header={
-                        (isObj(searchFromProps) || searchFromProps) && (
-                            <Input
-                                ref={searchProps.ref}
-                                value={searchProps.value}
-                                onChange={searchProps.onChange}
-                            />
-                        )
-                    }
-                    listRef={optionsListRef}
-                    innerProps={menuProps}
-                    options={filteredOptions}
-                    visibleOptions={visibleOptions}
-                    width={optionsListWidth}
-                    minWidth={rootElementWidth}
-                    renderOption={renderOption}
-                    size={optionSize}
+                <FieldAdapter
+                    // required in LegacyField but didn't used in FieldAdapter
+                    setSelectedItems={noop}
+                    toggleMenu={toggleMenu}
+                    value={selectedValue}
+                    onValueChange={setValue}
+                    multiple={multiple}
+                    open={open}
+                    disabled={disabled}
+                    size={size}
+                    placeholder={placeholder}
+                    // TODO label props
+                    label={label === null ? null : <span>{label}</span>}
+                    // labelView={labelView}
+                    ArrowComponent={Arrow}
+                    // error={error}
+                    // hint={hint}
+                    // valueRenderer={valueRenderer}
+                    // className={fieldClassName}
+                    innerProps={{
+                        onFocus: disabled ? undefined : fieldProps.onFocus,
+                        onMouseDown: disabled ? undefined : fieldProps.onMouseDown,
+                        onClick: disabled ? undefined : fieldProps.onClick,
+                        ref: mergeRefs([fieldRef, fieldProps.ref ?? null]),
+                        id: 'TODO',
+                        tabIndex: disabled ? undefined : 0,
+                    }}
+                    LegacyField={LegacyField}
+                    FormControlComponent={FormControlDesktop}
+                    clear={clearFromProps}
+                    clearProps={clearFromProps ? getClearButtonProps() : undefined}
                 />
-            </Popover>
-        </div>
+                <Popover
+                    open={!disabled && open}
+                    anchorElement={fieldRef.current}
+                    position='bottom-start'
+                    preventFlip={true}
+                    // needs for correct virtual list work
+                    withTransition={false}
+                >
+                    <OptionsList
+                        ref={optionsListRootRef}
+                        header={
+                            (isObj(searchFromProps) || searchFromProps) && (
+                                <Input
+                                    ref={searchProps.ref}
+                                    value={searchProps.value}
+                                    onChange={searchProps.onChange}
+                                />
+                            )
+                        }
+                        listRef={optionsListRef}
+                        innerProps={menuProps}
+                        options={filteredOptions}
+                        visibleOptions={visibleOptions}
+                        width={optionsListWidth}
+                        minWidth={rootElementWidth}
+                        renderOption={renderOption}
+                        size={optionSize}
+                    />
+                </Popover>
+            </div>
+        </Fragment>
     );
 }
 

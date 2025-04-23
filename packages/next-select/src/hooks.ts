@@ -22,6 +22,7 @@ import {
     returnTrue,
     shallowEqual,
     useDidUpdate,
+    useFocusInput,
 } from '@alfalab/core-components-shared';
 
 import { Action, createStore, Reducer } from './nano-redux';
@@ -323,6 +324,7 @@ export function useCombobox<OptionType>({
     getOptionsElement = returnNull,
     scrollToIndex,
 }: UseComboboxProps<OptionType>) {
+    const [focusInput, focusInputRender] = useFocusInput(environment);
     const optionsElement = getOptionsElement();
     const optionsElementRef = useRef(optionsElement);
 
@@ -558,8 +560,17 @@ export function useCombobox<OptionType>({
                 handleKeyDown(event);
             },
             onClick: (event) => {
+                // read state before any changes
+                const { open: wasOpenBefore } = latestStateRef.current;
+
                 toggleButtonProps.onClick?.(event);
                 toggleMenu();
+
+                if (wasOpenBefore) {
+                    return;
+                }
+
+                focusInput();
             },
             onMouseDown: (event) => {
                 toggleButtonProps.onMouseDown?.(event);
@@ -585,7 +596,7 @@ export function useCombobox<OptionType>({
                 toggleButtonProps.onFocus?.(event);
             },
         }),
-        [handleKeyDown, toggleMenu],
+        [focusInput, handleKeyDown, toggleMenu],
     );
     const getOptionProps = useCallback(
         <T extends HTMLElement>(
@@ -885,5 +896,6 @@ export function useCombobox<OptionType>({
         getSearchProps,
         getToggleButtonProps,
         getClearButtonProps,
+        contextHolder: focusInputRender,
     } as const;
 }
