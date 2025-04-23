@@ -793,6 +793,597 @@ render(() => {
 });
 ```
 
+## Сайдпанель
+
+Выровненные по левому или правому краю модалки, занимающие всю доступную высоту, мы назывем сайд-панелями.
+
+```jsx live mobileHeight={640}
+const horizontalOptions = [
+    { key: 'start', content: 'Start' },
+    { key: 'end', content: 'End' },
+];
+
+const widthOptions = [
+    { key: '500', content: '500' },
+    { key: '600', content: '600' },
+    { key: '800', content: '800' },
+    { key: 'fullWidth', content: 'Full' },
+];
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [horizontalAlign, setHorizontalAlign] = React.useState('end');
+    const [modalWidth, setModalWidth] = React.useState('500');
+
+    const [headerButtonCross, setHeaderButtonCross] = React.useState(true);
+    const [headerButtonArrow, setHeaderButtonArrow] = React.useState(false);
+    const [headerTitle, setHeaderTitle] = React.useState(false);
+
+    const [mainFooterButton, setMainFooterButton] = React.useState(true);
+    const [additionalFooterButton, setAdditionalFooterButton] = React.useState(false);
+    const [verticalFooterButtons, setVerticalFooterButtons] = React.useState(false);
+    const [stretchFooterButtons, setStretchFooterButtons] = React.useState(false);
+
+    const [contentTitle, setContentTitle] = React.useState(false);
+    const [contentButton, setContentButton] = React.useState(false);
+
+    const getButtonSize = () => {
+        return 56;
+    };
+
+    const getMargin = () => {
+        return { top: 12, right: 12, bottom: 12, left: 12 };
+    };
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Space size={12}>
+                <div style={{ width: 360 }}>
+                    <SelectDesktop
+                        size={56}
+                        options={widthOptions}
+                        selected={modalWidth}
+                        label='Ширина'
+                        block={true}
+                        onChange={({ selected }) => setModalWidth(selected.key)}
+                    />
+                </div>
+                <div style={{ width: 360 }}>
+                    <SelectDesktop
+                        size={56}
+                        options={horizontalOptions}
+                        selected={horizontalAlign}
+                        label='Положение по горизонтали'
+                        block={true}
+                        onChange={({ selected }) => setHorizontalAlign(selected.key)}
+                    />
+                </div>
+            </Space>
+            <Gap size={24} />
+            Шапка
+            <Gap size={12} />
+            <div>
+                <Switch
+                    label='Крестик'
+                    checked={headerButtonCross}
+                    onChange={() => setHeaderButtonCross((prev) => !prev)}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Стрелка назад'
+                    checked={headerButtonArrow}
+                    onChange={() => setHeaderButtonArrow((prev) => !prev)}
+                />
+                <Gap size={12} />
+                <div style={{ width: 532 }}>
+                    <Switch
+                        label='Заголовок'
+                        hint='Для модалок шириной до 800 рх используется обычный заголовок, для модалок с большей шириной — крупный'
+                        checked={headerTitle}
+                        onChange={() => setHeaderTitle((prev) => !prev)}
+                    />
+                </div>
+            </div>
+            <Gap size={24} />
+            Настройки футера
+            <Gap size={12} />
+            <div>
+                <Switch
+                    label='Основная кнопка'
+                    checked={mainFooterButton}
+                    onChange={() => {
+                        setContentButton(false);
+                        setMainFooterButton((prev) => !prev);
+                    }}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Дополнительная кнопка'
+                    checked={additionalFooterButton}
+                    onChange={() => {
+                        setContentButton(false);
+                        setAdditionalFooterButton((prev) => !prev);
+                    }}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Вертикальная ориентация'
+                    checked={verticalFooterButtons}
+                    onChange={() => setVerticalFooterButtons((prev) => !prev)}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Растянуть кнопки на всю ширину'
+                    hint='Только для горизонтального расположения'
+                    checked={stretchFooterButtons}
+                    onChange={() => setStretchFooterButtons((prev) => !prev)}
+                />
+            </div>
+            <Gap size={24} />
+            Настройки контента
+            <Gap size={12} />
+            <div>
+                <Switch
+                    label='Заголовок'
+                    hint='Если не стали размещать его в шапке'
+                    checked={contentTitle}
+                    onChange={() => {
+                        setContentTitle((prev) => !prev);
+                    }}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Кнопка'
+                    hint='Если не стали размещать его в футере'
+                    checked={contentButton}
+                    onChange={() => {
+                        setMainFooterButton(false);
+                        setAdditionalFooterButton(false);
+                        setContentButton((prev) => !prev);
+                    }}
+                />
+            </div>
+            <UniversalModalDesktop
+                open={open}
+                width={modalWidth}
+                height={'fullHeight'}
+                horizontalAlign={horizontalAlign}
+                margin={getMargin()}
+                onClose={() => setOpen(false)}
+            >
+                <UniversalModalDesktop.Header
+                    sticky={true}
+                    {...(headerTitle &&
+                        !headerButtonArrow && {
+                            align: 'left',
+                            title: 'Почему банк проверяет мои операции?',
+                            bigTitle: modalWidth >= 800,
+                        })}
+                    {...(headerButtonArrow && {
+                        hasBackButton: headerButtonArrow,
+                        onBack: () => setOpen(false),
+                        align: 'center',
+                        ...(headerTitle && {
+                            bottomAddons: 'Почему банк проверяет мои операции?',
+                            bigTitle: modalWidth >= 800,
+                        }),
+                    })}
+                    hasCloser={headerButtonCross}
+                />
+                <UniversalModalDesktop.Content>
+                    {contentTitle && (
+                        <React.Fragment>
+                            <Typography.Title view='medium' font='system'>
+                                Почему банк проверяет мои операции?
+                            </Typography.Title>
+                            <Gap size={16} />
+                        </React.Fragment>
+                    )}
+
+                    <Typography.Text tag='p'>
+                        В 2001 году в России начал действовать Федеральный закон №115 «О
+                        противодействии легализации доходов, полученных преступным путём, и
+                        финансированию терроризма». В рамках закона банки могут блокировать карты,
+                        отказывать в проведении сомнительных операций, ограничить доступ в
+                        интернет-банк или запрашивать документы, если по операции клиента возникли
+                        подозрения.
+                    </Typography.Text>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
+                        предприниматели не всегда успевают за ними следить. Последствия нарушений
+                        «антиотмывочного» законодательства всегда неприятны: приходится остановить
+                        бизнес-процессы и доказать банку законность операций. Специалисты
+                        «Альфа-банка» собрали понятные рекомендации, как сэкономить время на
+                        объяснения и предотвратить блокировки
+                    </Typography.Text>
+
+                    <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+                        <Typography.Text tag='p'>
+                            115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто
+                            пользуется банковским счётом для бизнеса, крупных денежных переводов или
+                            личных расчётов. Ограничения интернет-банка, блокировка карт
+                            добросовестных компаний могут произойти из-за неправильно оформленных
+                            документов, ошибок в платёжке или попыток снизить налоги.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Клиенты воспринимают ограничения как атаку со стороны банка, но чаще
+                            всего сами допускают ошибки или нарушения, которых можно избежать. Банки
+                            не преследуют цели доставить неудобства клиентам — они обязаны соблюдать
+                            законодательство и следовать инструкциям и рекомендациям ЦБ, а в
+                            противном случае рискуют лишиться лицензии.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Обналичивание — сомнительные операции, когда юрлицо или предприниматель
+                            снимает со счёта более 80% от оборота или переводит деньги на счета
+                            физлиц, которые затем снимают в наличной форме.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Вывод капитала за границу — это переводы нерезидентам по договорам об
+                            импорте работ/услуг и результатов интеллектуальной деятельности, по
+                            которым проведение расчётов осуществляется без одновременной уплаты НДС;
+                            по сделкам купли-продажи ценных бумаг, а также товаров, которые не
+                            пересекают границу России.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Транзитные операции — операции, в процессе которых деньги поступают на
+                            счёт компании от других резидентов и списываются в короткие сроки. При
+                            этом, как правило, в этих случаях по счёту нет начислений зарплат,
+                            уплаты налогов, и они не соответствуют заявленному компанией виду
+                            деятельности.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Запрашивать могут любые документы и устанавливать разные сроки их
+                            предоставления — это зависит от службы контроля конкретного банка.
+                            Обычно банки запрашивают чеки, счета или договора с контрагентами. В
+                            некоторых случаях бывает достаточно устных объяснений. Для проверки
+                            информации и пересмотра уровня риска банк может пригласить клиента в
+                            банк для устного разъяснения или выехать по месту ведения бизнеса
+                            клиента.
+                        </Typography.Text>
+                    </Collapse>
+                    {contentButton && (
+                        <React.Fragment>
+                            <Gap size={16} />
+                            <Gap size={24} />
+                            <Button size={48} onClick={() => setOpen(false)}>
+                                Кнопка
+                            </Button>
+                        </React.Fragment>
+                    )}
+                </UniversalModalDesktop.Content>
+                {(mainFooterButton || additionalFooterButton) && (
+                    <UniversalModalDesktop.Footer
+                        sticky={true}
+                        layout={verticalFooterButtons ? 'column' : 'start'}
+                    >
+                        {mainFooterButton && (
+                            <Button
+                                size={getButtonSize()}
+                                view='primary'
+                                block={stretchFooterButtons}
+                                onClick={() => setOpen(false)}
+                            >
+                                Primary
+                            </Button>
+                        )}
+
+                        {additionalFooterButton && (
+                            <Button
+                                size={getButtonSize()}
+                                view='secondary'
+                                block={stretchFooterButtons}
+                                onClick={() => setOpen(false)}
+                            >
+                                Secondary
+                            </Button>
+                        )}
+                    </UniversalModalDesktop.Footer>
+                )}
+            </UniversalModalDesktop>
+        </React.Fragment>
+    );
+});
+
+//MOBILE
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    const [headerButtonCross, setHeaderButtonCross] = React.useState(true);
+    const [headerButtonArrow, setHeaderButtonArrow] = React.useState(false);
+    const [headerTitle, setHeaderTitle] = React.useState(true);
+
+    const [mainFooterButton, setMainFooterButton] = React.useState(true);
+    const [additionalFooterButton, setAdditionalFooterButton] = React.useState(false);
+    const [verticalFooterButtons, setVerticalFooterButtons] = React.useState(false);
+    const [subtitle, setSubtitle] = React.useState(false);
+    const [alignment, setAlignment] = React.useState(false);
+
+    const [contentTitle, setContentTitle] = React.useState(false);
+    const [contentButton, setContentButton] = React.useState(false);
+
+    const [modalAppearance, setModalAppearance] = React.useState('bottom');
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            Появление модалки
+            <Gap size={12} />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <Radio
+                    size={24}
+                    label='Снизу'
+                    hint='Для обычных модалок'
+                    checked={modalAppearance === 'bottom'}
+                    onChange={() => setModalAppearance('bottom')}
+                />
+                <Gap size={12} />
+                <Radio
+                    size={24}
+                    label='Справа'
+                    hint='Для сайдпанелей'
+                    checked={modalAppearance === 'right'}
+                    onChange={() => setModalAppearance('right')}
+                />
+            </div>
+            <Gap size={24} />
+            Навигация
+            <Gap size={12} />
+            <div>
+                <Switch
+                    label='Крестик'
+                    checked={headerButtonCross}
+                    onChange={() => setHeaderButtonCross((prev) => !prev)}
+                />
+                <Gap size={12} />
+
+                <Switch
+                    label='Стрелка назад'
+                    checked={headerButtonArrow}
+                    onChange={() => setHeaderButtonArrow((prev) => !prev)}
+                />
+                <Gap size={12} />
+
+                <Switch
+                    label='Заголовок'
+                    checked={headerTitle}
+                    onChange={() => {
+                        setContentTitle(false);
+                        setHeaderTitle((prev) => !prev);
+                    }}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Подпись'
+                    checked={subtitle}
+                    onChange={() => setSubtitle((prev) => !prev)}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Выравнивание по центру'
+                    checked={alignment}
+                    onChange={() => setAlignment((prev) => !prev)}
+                />
+            </div>
+            <Gap size={24} />
+            Настройки футера
+            <Gap size={12} />
+            <div>
+                <Switch
+                    label='Основная кнопка'
+                    checked={mainFooterButton}
+                    onChange={() => {
+                        setContentButton(false);
+                        setMainFooterButton((prev) => !prev);
+                    }}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Дополнительная кнопка'
+                    checked={additionalFooterButton}
+                    onChange={() => {
+                        setContentButton(false);
+                        setAdditionalFooterButton((prev) => !prev);
+                    }}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Вертикальная ориентация'
+                    checked={verticalFooterButtons}
+                    onChange={() => setVerticalFooterButtons((prev) => !prev)}
+                />
+            </div>
+            <Gap size={24} />
+            Настройки контента
+            <Gap size={12} />
+            <div>
+                <Switch
+                    label='Заголовок'
+                    hint='Если не стали размещать его в шапке'
+                    checked={contentTitle}
+                    onChange={() => {
+                        setHeaderTitle(false);
+                        setContentTitle((prev) => !prev);
+                    }}
+                />
+                <Gap size={12} />
+                <Switch
+                    label='Кнопка'
+                    hint='Если не стали размещать его в футере'
+                    checked={contentButton}
+                    onChange={() => {
+                        setMainFooterButton(false);
+                        setAdditionalFooterButton(false);
+                        setContentButton((prev) => !prev);
+                    }}
+                />
+            </div>
+            <UniversalModalMobile
+                open={open}
+                onClose={() => setOpen(false)}
+                appearance={modalAppearance}
+            >
+                <UniversalModalMobile.Header
+                    sticky={true}
+                    {...(headerTitle &&
+                        !headerButtonArrow && {
+                            align: 'left',
+                            title: 'Почему банк проверяет мои операции?',
+                        })}
+                    {...(headerButtonArrow && {
+                        leftAddons: (
+                            <ButtonMobile
+                                shape='rounded'
+                                size={32}
+                                leftAddons={
+                                    <ChevronLeftMIcon
+                                        style={{
+                                            fill: 'var(--color-light-neutral-translucent-700)',
+                                        }}
+                                    />
+                                }
+                                onClick={() => setOpen(false)}
+                            />
+                        ),
+                        align: 'left',
+                        ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
+                    })}
+                    hasCloser={headerButtonCross}
+                    {...(alignment && { align: 'center' })}
+                    {...(subtitle && { subtitle: 'Подпись', titleSize: 'compact' })}
+                />
+                <UniversalModalMobile.Content>
+                    {contentTitle && (
+                        <React.Fragment>
+                            <Typography.Title view='medium' font='system'>
+                                Почему банк проверяет мои операции?
+                            </Typography.Title>
+                            <Gap size={16} />
+                        </React.Fragment>
+                    )}
+
+                    <Typography.Text tag='p'>
+                        В 2001 году в России начал действовать Федеральный закон №115 «О
+                        противодействии легализации доходов, полученных преступным путём, и
+                        финансированию терроризма». В рамках закона банки могут блокировать карты,
+                        отказывать в проведении сомнительных операций, ограничить доступ в
+                        интернет-банк или запрашивать документы, если по операции клиента возникли
+                        подозрения.
+                    </Typography.Text>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
+                        предприниматели не всегда успевают за ними следить. Последствия нарушений
+                        «антиотмывочного» законодательства всегда неприятны: приходится остановить
+                        бизнес-процессы и доказать банку законность операций. Специалисты
+                        «Альфа-банка» собрали понятные рекомендации, как сэкономить время на
+                        объяснения и предотвратить блокировки
+                    </Typography.Text>
+
+                    <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+                        <Typography.Text tag='p'>
+                            115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто
+                            пользуется банковским счётом для бизнеса, крупных денежных переводов или
+                            личных расчётов. Ограничения интернет-банка, блокировка карт
+                            добросовестных компаний могут произойти из-за неправильно оформленных
+                            документов, ошибок в платёжке или попыток снизить налоги.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Клиенты воспринимают ограничения как атаку со стороны банка, но чаще
+                            всего сами допускают ошибки или нарушения, которых можно избежать. Банки
+                            не преследуют цели доставить неудобства клиентам — они обязаны соблюдать
+                            законодательство и следовать инструкциям и рекомендациям ЦБ, а в
+                            противном случае рискуют лишиться лицензии.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Обналичивание — сомнительные операции, когда юрлицо или предприниматель
+                            снимает со счёта более 80% от оборота или переводит деньги на счета
+                            физлиц, которые затем снимают в наличной форме.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Вывод капитала за границу — это переводы нерезидентам по договорам об
+                            импорте работ/услуг и результатов интеллектуальной деятельности, по
+                            которым проведение расчётов осуществляется без одновременной уплаты НДС;
+                            по сделкам купли-продажи ценных бумаг, а также товаров, которые не
+                            пересекают границу России.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Транзитные операции — операции, в процессе которых деньги поступают на
+                            счёт компании от других резидентов и списываются в короткие сроки. При
+                            этом, как правило, в этих случаях по счёту нет начислений зарплат,
+                            уплаты налогов, и они не соответствуют заявленному компанией виду
+                            деятельности.
+                        </Typography.Text>
+                        <br />
+                        <Typography.Text tag='p'>
+                            Запрашивать могут любые документы и устанавливать разные сроки их
+                            предоставления — это зависит от службы контроля конкретного банка.
+                            Обычно банки запрашивают чеки, счета или договора с контрагентами. В
+                            некоторых случаях бывает достаточно устных объяснений. Для проверки
+                            информации и пересмотра уровня риска банк может пригласить клиента в
+                            банк для устного разъяснения или выехать по месту ведения бизнеса
+                            клиента.
+                        </Typography.Text>
+                    </Collapse>
+                    {contentButton && (
+                        <React.Fragment>
+                            <Gap size={32} />
+                            <Button size={48} onClick={() => setOpen(false)}>
+                                Кнопка
+                            </Button>
+                        </React.Fragment>
+                    )}
+                </UniversalModalMobile.Content>
+                {(mainFooterButton || additionalFooterButton) && (
+                    <UniversalModalMobile.Footer
+                        sticky={true}
+                        layout={verticalFooterButtons ? 'column' : 'start'}
+                    >
+                        {mainFooterButton && (
+                            <Button
+                                size={56}
+                                view='primary'
+                                block={true}
+                                onClick={() => setOpen(false)}
+                            >
+                                Primary
+                            </Button>
+                        )}
+
+                        {additionalFooterButton && (
+                            <Button
+                                size={56}
+                                view='secondary'
+                                block={true}
+                                onClick={() => setOpen(false)}
+                            >
+                                Secondary
+                            </Button>
+                        )}
+                    </UniversalModalMobile.Footer>
+                )}
+            </UniversalModalMobile>
+        </React.Fragment>
+    );
+});
+```
+
 ## Изменение отступов
 
 Для того чтобы корректно расположить модалку вблизи края экрана можно воспользоваться изменяемыми отступами.
