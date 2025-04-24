@@ -5,7 +5,7 @@
     padding: var(--gap-16);
 
     @media (display-mode: standalone) {
-        padding-bottom: var(--sab);
+        padding-bottom: max(var(--sab), var(--gap-16));
     }
 }
 
