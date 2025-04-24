@@ -21,7 +21,7 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, os, useFocusBridge } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
@@ -117,6 +117,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
         const searchRef = useRef<HTMLInputElement>(null);
+        const focusBridgeRef = useFocusBridge();
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
         const onOpenRef = useRef(onOpen);
 
@@ -415,6 +416,10 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 toggleMenu();
             } else {
                 openMenu();
+            }
+
+            if (os.isIOS()) {
+                focusBridgeRef.current?.focus();
             }
         };
 
