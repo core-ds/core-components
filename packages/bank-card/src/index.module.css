@@ -84,12 +84,10 @@
 
 .bankLogo {
     position: absolute;
-    top: var(--gap-20);
-    left: var(--gap-20);
+    top: var(--gap-16);
+    left: var(--gap-16);
 
     & svg {
-        max-height: 32px;
-        width: auto;
         display: block;
 
         & g {

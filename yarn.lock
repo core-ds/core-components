@@ -98,6 +98,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.211.0.tgz#84c3b7a450ceec355909e33554c191e880324995"
   integrity sha512-uyHHAHs73Aj5Sbai4cviAOs9OqzQHi4NTtkQ2UeASIwYg7qCGdHOm35GViKI0rJnZcc17rxopltReb1WtD7N1w==
 
+"@alfalab/icons-logo@^1.39.0":
+  version "1.39.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logo/-/icons-logo-1.39.0.tgz#8b0625dd3703468b71c09fa564b32f84287f01a8"
+  integrity sha512-yeSNuGkTGnOCyMyYQ79Co3v2XnKoG7GVg+hkwJ2kf+wiAGClJfzL8gpHnQ1JDMuVVVdkhfaTJYBTo0tJ46bAgQ==
+
 "@alfalab/icons-logotype@^2.27.0":
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.27.0.tgz#74510f49dbf0790b73b26d494cb77fde5b4cf9d0"
