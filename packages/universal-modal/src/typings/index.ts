@@ -2,10 +2,9 @@ import { UniversalModalDesktopProps } from '../desktop';
 import { UniversalModalMobileProps } from '../mobile';
 
 export type TResponsiveModalContext = {
-    modalWidth?: number;
+    modalWidth: UniversalModalDesktopProps['width'];
     modalHeaderHighlighted?: boolean;
     modalFooterHighlighted?: boolean;
-    setModalWidth?: (width: number) => void;
     setModalHeaderHighlighted?: (value: boolean) => void;
     setModalFooterHighlighted?: (value: boolean) => void;
 } | null;

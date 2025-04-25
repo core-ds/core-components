@@ -14,20 +14,18 @@ export const UniversalModalDesktopComponent = forwardRef<
     HTMLDivElement,
     UniversalModalDesktopProps
 >(({ children, horizontalAlign = 'center', ...restProps }, ref) => {
-    const [modalWidth, setModalWidth] = useState<number>(0);
     const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
     const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
 
     const contextValue = useMemo<TResponsiveModalContext>(
         () => ({
-            modalWidth,
+            modalWidth: restProps.width,
             modalHeaderHighlighted,
             modalFooterHighlighted,
-            setModalWidth,
             setModalHeaderHighlighted,
             setModalFooterHighlighted,
         }),
-        [modalWidth, modalHeaderHighlighted, modalFooterHighlighted],
+        [restProps.width, modalHeaderHighlighted, modalFooterHighlighted],
     );
 
     const renderModal = () => {

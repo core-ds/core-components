@@ -24,11 +24,13 @@ export const FooterDesktop: FC<FooterDesktopProps> = ({
     const responsiveContext = useContext(ResponsiveContext);
     const { modalWidth = 500, modalFooterHighlighted } = responsiveContext || {};
 
+    const isMiddle = modalWidth === 'fullWidth' || modalWidth >= FOOTER_MEDIUM_BREAKPOINT;
+
     return (
         <BaseFooter
             className={cn(layoutStyles[layout], className, {
                 [styles.sticky]: sticky,
-                [layoutStyles.middle]: modalWidth >= FOOTER_MEDIUM_BREAKPOINT,
+                [layoutStyles.middle]: isMiddle,
             })}
             sticky={sticky}
             layout={layout}

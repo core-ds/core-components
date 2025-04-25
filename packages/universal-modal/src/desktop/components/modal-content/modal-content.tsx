@@ -81,6 +81,7 @@ export const ModalContent: FC<Props> = (props) => {
     // расчет размера полосы прокрутки
     useEffect(() => {
         if (scrollbarRef.current) {
+            // todo вывести наружу ref скроллбара, чтобы не использовать querySelector
             const verticalBar =
                 scrollbarRef.current.querySelector<HTMLDivElement>('.verticalBarClassName');
 
