@@ -60,7 +60,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         class="countdownContainer typographyTheme primary-medium"
       >
         Запросить новый можно через
-         
+         
         <time
           class="timeCounter"
         >
@@ -266,7 +266,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         class="countdownContainer typographyTheme primary-medium"
       >
         Запросить новый можно через
-         
+         
         <time
           class="timeCounter"
         >
@@ -354,7 +354,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
         class="countdownContainer typographyTheme primary-medium"
       >
         Запросить новый можно через
-         
+         
         <time
           class="timeCounter"
         >
