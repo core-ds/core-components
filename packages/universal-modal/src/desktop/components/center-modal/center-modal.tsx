@@ -48,9 +48,21 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
     return (
         <BaseModal
             {...restProps}
+            open={open}
             dataTestId={dataTestId}
             ref={ref}
             componentRef={componentRef}
+            scrollHandler='content'
+            disableBlockingScroll={!overlay}
+            wrapperClassName={cn({
+                [styles.wrapperJustifyStart]: verticalAlign === 'top',
+                [styles.wrapperJustifyCenter]: verticalAlign === 'center',
+                [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
+            })}
+            className={cn(styles.component, className, {
+                [styles.overlayHidden]: !overlay,
+                ...getMarginStyles({ styles, margin }),
+            })}
             transitionProps={{
                 classNames: transitionProps,
                 ...(isFullSizeModal && fullSizeModalContentTransitions),
@@ -61,15 +73,6 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
             }}
-            className={cn(styles.component, className, {
-                [styles.overlayHidden]: !overlay,
-                [styles.verticalTop]: verticalAlign === 'top',
-                [styles.verticalBottom]: verticalAlign === 'bottom',
-                ...getMarginStyles({ styles, margin }),
-            })}
-            scrollHandler='content'
-            open={open}
-            disableBlockingScroll={!overlay}
             componentDivProps={{
                 style: {
                     width: getWidthStyle(width, margin),

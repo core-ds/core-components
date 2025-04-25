@@ -264,47 +264,6 @@ render(() => {
         return 48;
     };
 
-    const getMargin = () => {
-        if (verticalAlign === 'top') {
-            return {
-                top: 12,
-                ...(modalWidth === 'fullWidth' && {
-                    right: 12,
-                    left: 12,
-                }),
-                ...(modalHeight === 'fullHeight' && {
-                    bottom: 12,
-                }),
-            };
-        }
-
-        if (verticalAlign === 'center') {
-            return {
-                ...(modalWidth === 'fullWidth' && {
-                    right: 12,
-                    left: 12,
-                }),
-                ...(modalHeight === 'fullHeight' && {
-                    top: 12,
-                    bottom: 12,
-                }),
-            };
-        }
-
-        if (verticalAlign === 'bottom') {
-            return {
-                bottom: 12,
-                ...(modalWidth === 'fullWidth' && {
-                    right: 12,
-                    left: 12,
-                }),
-                ...(modalHeight === 'fullHeight' && {
-                    top: 12,
-                }),
-            };
-        }
-    };
-
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
@@ -435,7 +394,7 @@ render(() => {
                 height={modalHeight}
                 horizontalAlign='center'
                 verticalAlign={verticalAlign}
-                margin={getMargin()}
+                margin={{ top: 12, right: 12, bottom: 12, left: 12 }}
                 onClose={() => setOpen(false)}
             >
                 <UniversalModalDesktop.Header
@@ -893,10 +852,6 @@ render(() => {
         return 56;
     };
 
-    const getMargin = () => {
-        return { top: 12, right: 12, bottom: 12, left: 12 };
-    };
-
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать сайдпанель</Button>
@@ -1006,7 +961,7 @@ render(() => {
                 width={modalWidth}
                 height={'fullHeight'}
                 horizontalAlign={horizontalAlign}
-                margin={getMargin()}
+                margin={{ top: 12, right: 12, bottom: 12, left: 12 }}
                 onClose={() => setOpen(false)}
             >
                 <UniversalModalDesktop.Header
@@ -1594,6 +1549,7 @@ render(() => {
             <UniversalModalDesktop
                 open={open}
                 width={modalWidth}
+                margin={{ top: 12, right: 12, bottom: 12, left: 12 }}
                 height={'fullHeight'}
                 horizontalAlign={'end'}
                 verticalAlign={'center'}

@@ -5,6 +5,7 @@
     min-height: 264px;
     border-radius: var(--border-radius-24);
     overflow-x: hidden;
+    margin: unset;
 
     /*
         Применяем аппаратное ускорение с помощью will-change и backface-visibility
@@ -18,10 +19,14 @@
     }
 }
 
-.verticalTop {
-    margin-top: 0;
+.wrapperJustifyStart {
+    justify-content: start;
 }
 
-.verticalBottom {
-    margin-bottom: 0;
+.wrapperJustifyCenter {
+    justify-content: center;
+}
+
+.wrapperJustifyEnd {
+    justify-content: end;
 }

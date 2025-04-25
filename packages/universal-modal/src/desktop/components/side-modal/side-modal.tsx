@@ -36,11 +36,6 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
 
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
-    const isHorizontalStart = horizontalAlign === 'start';
-    const isHorizontalEnd = horizontalAlign === 'end';
-    const isVerticalCenter = verticalAlign === 'center';
-    const isVerticalBottom = verticalAlign === 'bottom';
-
     const {
         isFullSizeModal,
         componentTransitions: fullSizeModalContentTransitions,
@@ -58,10 +53,10 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             scrollHandler='content'
             disableBlockingScroll={!overlay}
             wrapperClassName={cn(styles.wrapper, {
-                [styles.wrapperAlignStart]: isHorizontalStart,
-                [styles.wrapperAlignEnd]: isHorizontalEnd,
-                [styles.wrapperJustifyCenter]: isVerticalCenter,
-                [styles.wrapperJustifyEnd]: isVerticalBottom,
+                [styles.wrapperAlignStart]: horizontalAlign === 'start',
+                [styles.wrapperAlignEnd]: horizontalAlign === 'end',
+                [styles.wrapperJustifyCenter]: verticalAlign === 'center',
+                [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
             })}
             className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
