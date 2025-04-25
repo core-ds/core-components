@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext } from 'react';
+import React, { FC, ReactNode, useContext, Fragment } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
@@ -78,9 +78,9 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     }
 
     return renderText(
-        <React.Fragment>
-            {texts.countdown}{' '}
+        <Fragment>
+            {texts.countdown}{'\u00A0'}
             <time className={styles.timeCounter}>{formatMsAsMinutes(timeLeft)}</time>
-        </React.Fragment>,
+        </Fragment>,
     );
 };
