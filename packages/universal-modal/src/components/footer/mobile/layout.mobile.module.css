@@ -1,4 +1,5 @@
 @import '../../../vars.css';
+@import '../../../../vars/src/safe-area.css';
 
 .column {
     display: flex;
