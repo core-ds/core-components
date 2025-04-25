@@ -25,14 +25,11 @@ export type ContentProps = {
 };
 
 export const BaseContent: FC<ContentProps> = ({ children, className, dataTestId }) => {
-    const { contentRef, hasHeader, hasFooter } = useContext(ModalContext);
+    const { contentRef } = useContext(ModalContext);
 
     return (
         <div
-            className={cn(styles.content, className, {
-                [styles.withHeader]: hasHeader,
-                [styles.withFooter]: hasFooter,
-            })}
+            className={cn(styles.content, className)}
             ref={contentRef as Ref<HTMLDivElement>}
             data-test-id={getDataTestId(dataTestId, 'content')}
         >

@@ -1,8 +1,8 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
+import { ResponsiveContext } from '../../../context/responsive-context';
 import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/constants';
-import { ResponsiveContext } from '../../../ResponsiveContext';
 import { BaseFooter, FooterProps } from '../base-footer/base-footer';
 
 import styles from './desktop.module.css';
@@ -21,8 +21,7 @@ export const FooterDesktop: FC<FooterDesktopProps> = ({
     layout = 'start',
     ...restProps
 }) => {
-    const responsiveContext = useContext(ResponsiveContext);
-    const { modalWidth = 500, modalFooterHighlighted } = responsiveContext || {};
+    const { modalWidth = 500, modalFooterHighlighted } = useContext(ResponsiveContext);
 
     const isMiddle = modalWidth === 'fullWidth' || modalWidth >= FOOTER_MEDIUM_BREAKPOINT;
 
@@ -39,3 +38,5 @@ export const FooterDesktop: FC<FooterDesktopProps> = ({
         />
     );
 };
+
+FooterDesktop.displayName = 'FooterDesktop';

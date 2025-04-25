@@ -3,12 +3,13 @@ import React, { forwardRef, useMemo, useState } from 'react';
 import { ContentDesktop } from '../components/content';
 import { FooterDesktop } from '../components/footer';
 import { HeaderDesktop } from '../components/header';
-import { ResponsiveContext } from '../ResponsiveContext';
+import { ResponsiveContext } from '../context/responsive-context';
 import { TResponsiveModalContext } from '../typings';
 
 import { CenterModal } from './components/center-modal';
 import { SideModal } from './components/side-modal';
 import { UniversalModalDesktopProps } from './types/props';
+import { checkHeaderAndFooter } from './utils/check-header-and-footer';
 
 export const UniversalModalDesktopComponent = forwardRef<
     HTMLDivElement,
@@ -17,15 +18,19 @@ export const UniversalModalDesktopComponent = forwardRef<
     const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
     const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
 
+    const { hasHeader, hasFooter } = checkHeaderAndFooter(children);
+
     const contextValue = useMemo<TResponsiveModalContext>(
         () => ({
             modalWidth: restProps.width,
             modalHeaderHighlighted,
             modalFooterHighlighted,
+            hasHeader,
+            hasFooter,
             setModalHeaderHighlighted,
             setModalFooterHighlighted,
         }),
-        [restProps.width, modalHeaderHighlighted, modalFooterHighlighted],
+        [restProps.width, modalHeaderHighlighted, modalFooterHighlighted, hasHeader, hasFooter],
     );
 
     const renderModal = () => {

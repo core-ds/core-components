@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
-import { ResponsiveContext } from '../../../ResponsiveContext';
+import { ResponsiveContext } from '../../../context/responsive-context';
 import { SCROLLBAR_DEFAULT_GAP } from '../../constants';
 import { UniversalModalDesktopProps } from '../../types/props';
 

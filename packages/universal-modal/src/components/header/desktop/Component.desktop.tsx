@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef } from 'react';
+import React, { FC, useContext, useRef } from 'react';
 import cn from 'classnames';
 
 import {
@@ -8,7 +8,7 @@ import {
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../../Context';
-import { ResponsiveContext } from '../../../ResponsiveContext';
+import { ResponsiveContext } from '../../../context/responsive-context';
 
 import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
@@ -37,8 +37,8 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     onClose,
     ...restProps
 }) => {
-    const { setHasHeader, componentRef, onClose: handleCloseByContext } = useContext(ModalContext);
-    const { modalHeaderHighlighted } = useContext(ResponsiveContext) || {};
+    const { componentRef, onClose: handleCloseByContext } = useContext(ModalContext);
+    const { modalHeaderHighlighted } = useContext(ResponsiveContext);
 
     const titleRef = useRef<HTMLDivElement>(null);
 
@@ -51,10 +51,6 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
 
         return handleCloseByContext(...args);
     };
-
-    useEffect(() => {
-        setHasHeader(true);
-    }, [setHasHeader]);
 
     return (
         <NavigationBarPrivate
@@ -85,3 +81,5 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
         </NavigationBarPrivate>
     );
 };
+
+HeaderDesktop.displayName = 'HeaderDesktop';

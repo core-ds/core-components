@@ -1,0 +1,7 @@
+.withHeader {
+    padding-top: var(--gap-0);
+}
+
+.withFooter {
+    padding-bottom: var(--gap-0);
+}

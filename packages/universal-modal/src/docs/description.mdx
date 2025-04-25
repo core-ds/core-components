@@ -397,25 +397,27 @@ render(() => {
                 margin={{ top: 12, right: 12, bottom: 12, left: 12 }}
                 onClose={() => setOpen(false)}
             >
-                <UniversalModalDesktop.Header
-                    sticky={true}
-                    {...(headerTitle &&
-                        !headerButtonArrow && {
-                            align: 'left',
-                            title: 'Почему банк проверяет мои операции?',
-                            bigTitle: modalWidth >= 800,
+                {(headerTitle || headerButtonArrow || headerButtonCross) && (
+                    <UniversalModalDesktop.Header
+                        sticky={true}
+                        {...(headerTitle &&
+                            !headerButtonArrow && {
+                                align: 'left',
+                                title: 'Почему банк проверяет мои операции?',
+                                bigTitle: modalWidth >= 800,
+                            })}
+                        {...(headerButtonArrow && {
+                            hasBackButton: headerButtonArrow,
+                            onBack: () => setOpen(false),
+                            align: 'center',
+                            ...(headerTitle && {
+                                bottomAddons: 'Почему банк проверяет мои операции?',
+                                bigTitle: modalWidth >= 800,
+                            }),
                         })}
-                    {...(headerButtonArrow && {
-                        hasBackButton: headerButtonArrow,
-                        onBack: () => setOpen(false),
-                        align: 'center',
-                        ...(headerTitle && {
-                            bottomAddons: 'Почему банк проверяет мои операции?',
-                            bigTitle: modalWidth >= 800,
-                        }),
-                    })}
-                    hasCloser={headerButtonCross}
-                />
+                        hasCloser={headerButtonCross}
+                    />
+                )}
                 <UniversalModalDesktop.Content>
                     {contentTitle && (
                         <React.Fragment>
@@ -657,35 +659,37 @@ render(() => {
                 />
             </div>
             <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
-                <UniversalModalMobile.Header
-                    sticky={true}
-                    {...(headerTitle &&
-                        !headerButtonArrow && {
+                {(headerTitle || headerButtonArrow || headerButtonCross) && (
+                    <UniversalModalMobile.Header
+                        sticky={true}
+                        {...(headerTitle &&
+                            !headerButtonArrow && {
+                                align: 'left',
+                                title: 'Почему банк проверяет мои операции?',
+                            })}
+                        {...(headerButtonArrow && {
+                            leftAddons: (
+                                <ButtonMobile
+                                    shape='rounded'
+                                    size={32}
+                                    leftAddons={
+                                        <ChevronLeftMIcon
+                                            style={{
+                                                fill: 'var(--color-light-neutral-translucent-700)',
+                                            }}
+                                        />
+                                    }
+                                    onClick={() => setOpen(false)}
+                                />
+                            ),
                             align: 'left',
-                            title: 'Почему банк проверяет мои операции?',
+                            ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
                         })}
-                    {...(headerButtonArrow && {
-                        leftAddons: (
-                            <ButtonMobile
-                                shape='rounded'
-                                size={32}
-                                leftAddons={
-                                    <ChevronLeftMIcon
-                                        style={{
-                                            fill: 'var(--color-light-neutral-translucent-700)',
-                                        }}
-                                    />
-                                }
-                                onClick={() => setOpen(false)}
-                            />
-                        ),
-                        align: 'left',
-                        ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
-                    })}
-                    hasCloser={headerButtonCross}
-                    {...(alignment && { align: 'center' })}
-                    {...(subtitle && { subtitle: 'Подпись', titleSize: 'compact' })}
-                />
+                        hasCloser={headerButtonCross}
+                        {...(alignment && { align: 'center' })}
+                        {...(subtitle && { subtitle: 'Подпись', titleSize: 'compact' })}
+                    />
+                )}
                 <UniversalModalMobile.Content>
                     {contentTitle && (
                         <React.Fragment>
