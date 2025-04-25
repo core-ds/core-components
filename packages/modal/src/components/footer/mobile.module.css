@@ -2,11 +2,7 @@
 @import '../../vars.css';
 
 .footer {
-    padding: var(--gap-16);
-
-    @media (display-mode: standalone) {
-        padding-bottom: max(var(--sab), var(--gap-16));
-    }
+    padding: var(--gap-16) var(--gap-16) calc(var(--sab) + var(--gap-16));
 }
 
 .sticky {

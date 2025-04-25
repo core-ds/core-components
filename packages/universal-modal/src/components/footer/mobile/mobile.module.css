@@ -1,7 +1,7 @@
 @import '../../../vars.css';
 
 .footer {
-    padding: var(--gap-16);
+    padding: var(--gap-16) var(--gap-16) calc(var(--sab) + var(--gap-16));
 }
 
 .sticky {
