@@ -117,9 +117,10 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
         const searchRef = useRef<HTMLInputElement>(null);
-        const focusBridgeRef = useFocusBridge();
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
         const onOpenRef = useRef(onOpen);
+
+        const focusBridgeRef = useFocusBridge();
 
         const [searchState, setSearchState] = React.useState('');
 

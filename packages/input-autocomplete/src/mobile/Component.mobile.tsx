@@ -1,4 +1,4 @@
-import React, { Ref, useMemo, useRef, useState } from 'react';
+import React, { Ref, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash/throttle';
@@ -14,6 +14,7 @@ import {
     Footer,
     ModalSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+import { os, useFocusBridge } from '@alfalab/core-components-shared';
 
 import { AutocompleteMobileField } from '../autocomplete-mobile-field';
 import { OnInputReason } from '../enums';
@@ -52,6 +53,7 @@ export const InputAutocompleteMobile = React.forwardRef(
         const frozenValue = useRef<string>('');
         const searchInputRef = useRef<HTMLInputElement>(null);
         const targetRef = useRef<HTMLDivElement>(null);
+        const focusBridgeRef = useFocusBridge();
 
         const restorePrevValue = () => onInput?.(frozenValue.current, OnInputReason.Close);
 
@@ -99,6 +101,25 @@ export const InputAutocompleteMobile = React.forwardRef(
             transitionProps?.onExiting?.(node);
         };
 
+        useEffect(() => {
+            let timeoutId: NodeJS.Timeout;
+
+            if (open && os.isIOS()) {
+                focusBridgeRef.current?.focus();
+                timeoutId = setTimeout(() => {
+                    if (searchInputRef.current) {
+                        searchInputRef.current.focus();
+                    }
+                }, 500);
+            }
+
+            return () => {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+            };
+        }, [open, focusBridgeRef]);
+
         const isOpen = Boolean(open || openProp);
 
         const Component = isBottomSheet ? SelectMobile : SelectModalMobile;
@@ -115,6 +136,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             [isBottomSheet ? 'containerProps' : 'componentDivProps']: {
                 onTouchMove: handleOptionsListTouchMove,
             },
+            disableFocusLock: os.isIOS(),
         };
 
         const clear = inputProps?.clear ?? false;
