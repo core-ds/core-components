@@ -15,7 +15,6 @@ import {
 } from './tools/rollup/core-components-resolver.mjs';
 import ignoreCss from './tools/rollup/ignore-css.mjs';
 import processCss from './tools/rollup/process-css.mjs';
-import inlineThemes from './tools/rollup/inline-themes.mjs';
 import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver.mjs';
 import createPackageJson from './tools/rollup/create-package-json.mjs';
 import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator.mjs';
@@ -120,7 +119,6 @@ const es5 = {
     plugins: [
         ...baseConfig.plugins,
         multiInputPlugin,
-        inlineThemes(),
         typescript({
             tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
@@ -157,7 +155,6 @@ const modern = {
     plugins: [
         ...baseConfig.plugins,
         multiInputPlugin,
-        inlineThemes(),
         typescript({
             outDir: 'dist/modern',
             tsconfig: (resolvedConfig) => ({
@@ -267,7 +264,6 @@ const esm = {
     plugins: [
         ...baseConfig.plugins,
         multiInputPlugin,
-        inlineThemes(),
         typescript({
             outDir: 'dist/esm',
             tsconfig: (resolvedConfig) => ({
