@@ -21,18 +21,44 @@
     width: 100vw;
     height: 100vh;
     background: transparent;
+    padding: env(safe-area-inset-top, var(--gap-0)) var(--gap-0),
+        env(safe-area-inset-bottom, var(--gap-0));
 }
 
 .navigationVideo {
-    background-color: var(--color-static-neutral-0-inverted);
     z-index: 3;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     transition: transform 0.3s ease-in-out;
+    text-align: center;
 }
 
-.hideNavigation {
-    transform: translateY(106px);
+.hide {
+    transform: translateY(114px);
+}
+
+.hideInfo {
+    transform: translateY(48px);
+}
+
+.bottomButton {
+    width: calc(100% - var(--gap-32));
+    margin: var(--gap-16);
+    background-color: var(--color-static-neutral-translucent-500-inverted);
+}
+
+.subtitles {
+    padding: var(--gap-0) var(--gap-32);
+    margin-bottom: var(--gap-16);
+    width: 100%;
+    text-align: center;
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 500ms ease-in-out, margin-bottom 270ms ease-in-out;
+}
+
+.hideSubtitles {
+    opacity: 0;
 }

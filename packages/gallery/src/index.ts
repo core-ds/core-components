@@ -1,2 +1,2 @@
 export * from './Component';
-export { GALLERY_EVENTS, TestIds } from './utils';
+export { TestIds } from './utils';

@@ -28,13 +28,13 @@ jobs:
               id: resolve
               with:
                   version: ${{ inputs.version }}
+                  pull-request-number: ${{ github.event.pull_request.number }}
 
     remove-demo:
         name: remove demo
         runs-on: ubuntu-latest
-        concurrency: gh-pages
         needs: params
-        if: ${{ github.repository }} == 'core-ds/core-components'
+        if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
             - uses: actions/checkout@v4
               with:

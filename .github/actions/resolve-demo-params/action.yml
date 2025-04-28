@@ -4,6 +4,9 @@ inputs:
     version:
         description: Version of @alfalab/core-components package, tag or commit sha
         required: true
+    pull-request-number:
+        description: Pull request number
+        required: true
 
 outputs:
     ref:
@@ -21,12 +24,12 @@ runs:
           with:
               result-encoding: string
               script: |
-                  const version = core.getInput('version');
+                  const version = '${{ inputs.version }}';
 
                   if (version === '') {
                       return process.env.GITHUB_REF;
                   } else if (/^\d+\.\d+\.\d+$/.test(version)) {
-                      const major = version.replace(/^(\d+)/, '$1');
+                      const major = parseInt(version.replace(/^(\d+)(.*)/, '$1'));
 
                       return major < 49 ? `v${version}` : `@alfalab/core-components@${version}`;
                   }
@@ -47,7 +50,8 @@ runs:
               script: |
                   const assert = require('node:assert/strict');
                   const path = require('node:path');
-                  const version = core.getInput('version');
+                  const version = '${{ inputs.version }}';
+                  const pullRequestNumber = '${{ inputs.pull-request-number }}';
 
                   async function git(args) {
                       let result = '';
@@ -67,32 +71,44 @@ runs:
                   }
 
                   if (version === '') {
-                      switch (process.env.GITHUB_REF_NAME) {
-                          case 'master':
-                          case 'beta':
-                          case 'next':
-                              return process.env.GITHUB_REF_NAME;
-                          default:
-                              assert(/^\d+\/merge$/.test(process.env.GITHUB_REF_NAME));
+                      if (pullRequestNumber === '') {
+                          switch (process.env.GITHUB_REF_NAME) {
+                              case 'master':
+                              case 'beta':
+                              case 'next':
+                                  return process.env.GITHUB_REF_NAME;
+                              default:
+                                  throw new Error(`Resolving dir for unsupported branch: ${process.env.GITHUB_REF_NAME}`);
+                          }
+                      } else {
+                          assert(/^\d+$/.test(pullRequestNumber));
 
-                              return process.env.GITHUB_REF_NAME.replace(/\/merge$/, '');
+                          return pullRequestNumber;
                       }
                   } else if (/^\d+\.\d+\.\d+$/.test(version)) {
                       return version;
                   }
 
-                  const sha = version.startsWith('@alfalab/core-components-')
-                      ? (await git(['rev-list', '-n', '1', version])).trim()
-                      : version;
+                  let sha;
 
-                  const tags = (await git(['tag', '--points-at', sha])).trim().split('\n');
+                  if (version.startsWith('@alfalab/core-components-')) {
+                      const output = (await git(['rev-list', '-n', '1', version])).trim();
+
+                      assert(output.length > 0);
+
+                      sha = output;
+                  } else {
+                      sha = version;
+                  }
+
+                  const tags = (await git(['tag', '--points-at', sha])).split('\n');
 
                   for (const tag of tags) {
-                      const match = tag.match(/(^v(\d+\.\d+\.\d+)$|^@alfalab\/core-components@(\d+\.\d+\.\d+.*)$)/);
+                      const match = tag.match(/^v(\d+\.\d+\.\d+)$|^@alfalab\/core-components@(\d+\.\d+\.\d+.*)$/);
 
                       if (match) {
-                          const [, , v1, v2] = match;
-                          return v1 ?? v2;
+                          const [, v1, v2] = match;
+                          return `v${v1 ?? v2}`;
                       }
                   }
 
