@@ -78,6 +78,12 @@ type MobileProps = {
      * Если не передан, то заголовок будет совпадать с label. Если не передан и label, то заголовок будет равен placeholder
      */
     title?: string;
+
+    /**
+     * Учитывать высоту виртуальной клавиатуры в BottomSheet
+     * @default false
+     */
+    virtualKeyboard?: boolean;
 };
 
 export type InputAutocompleteMobileProps = InputAutocompleteCommonProps & MobileProps;

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-indicator",
-    "version": "2.2.4",
+    "version": "2.3.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,5 +18,5 @@
         "classnames": "^2.5.1"
     },
     "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "varsVersion": "9.20.0"
 }
