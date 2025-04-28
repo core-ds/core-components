@@ -34,3 +34,5 @@ storybook-static
 yalc.lock
 lerna-debug.log
 .npmrc
+
+.storybook/public/images/*preview-snap.png

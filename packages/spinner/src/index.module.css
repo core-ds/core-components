@@ -2,6 +2,7 @@
 
 .spinner {
     display: none;
+    box-sizing: content-box;
     animation: spin_animation var(--spinner-animation-duration) infinite
         var(--spinner-animation-timing-function);
 }

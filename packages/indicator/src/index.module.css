@@ -17,7 +17,7 @@
     color: var(--color-static-text-primary-inverted);
 
     &.border {
-        outline: 2px solid var(--color-light-neutral-translucent-1300-inverted);
+        outline: 2px solid var(--color-light-base-bg-primary);
     }
 }
 
@@ -26,7 +26,7 @@
     color: var(--color-light-text-primary);
 
     &.border {
-        outline: 2px solid var(--color-light-neutral-translucent-1300-inverted);
+        outline: 2px solid var(--color-light-base-bg-primary);
     }
 }
 
@@ -35,7 +35,7 @@
     color: var(--color-light-text-primary);
 
     &.border {
-        outline: 2px solid var(--color-light-neutral-translucent-1300-inverted);
+        outline: 2px solid var(--color-light-base-bg-primary);
     }
 }
 
@@ -71,6 +71,16 @@
     & .content {
         @mixin accent_primary_small;
         padding: var(--gap-0) var(--gap-4);
+    }
+}
+
+.size-32 {
+    height: 32px;
+    min-width: 32px;
+
+    & .content {
+        @mixin accent_primary_medium;
+        padding: var(--gap-0) var(--gap-8);
     }
 }
 
