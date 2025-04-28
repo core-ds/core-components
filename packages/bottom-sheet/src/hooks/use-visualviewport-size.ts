@@ -1,39 +1,77 @@
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
-import { fnUtils, isClient } from '@alfalab/core-components-shared';
+import { isClient, isNullable, noop } from '@alfalab/core-components-shared';
 
-type VisualViewportSize = Pick<VisualViewport, 'height' | 'offsetTop'>;
+type VisualViewportSize = Pick<
+    VisualViewport,
+    'height' | 'offsetLeft' | 'offsetTop' | 'pageLeft' | 'pageTop' | 'scale' | 'width'
+>;
 
-const measureVisualViewport = (
-    visualViewport: VisualViewport | null,
-): VisualViewportSize | null => {
-    if (!visualViewport) return null;
-    const { height, offsetTop } = visualViewport;
+let visualViewportSize = isClient() ? getVisualViewportSize() : null;
 
-    return { height, offsetTop };
-};
+let listeners: Array<() => void> = [];
 
-export function useVisibleViewportSize(enabled = false): VisualViewportSize | null {
-    const [size, setSize] = useState<Pick<VisualViewport, 'height' | 'offsetTop'> | null>(() =>
-        isClient() ? measureVisualViewport(window.visualViewport) : null,
-    );
+function getVisualViewportSize(): VisualViewportSize | null {
+    const { visualViewport } = window;
 
-    useEffect(() => {
-        const { visualViewport } = window;
+    if (isNullable(visualViewport)) {
+        return null;
+    }
 
-        if (!isClient() || !enabled || !visualViewport) return fnUtils.noop;
+    const { height, offsetLeft, offsetTop, pageLeft, pageTop, scale, width } = visualViewport;
 
-        const listener = (event: Event) =>
-            setSize(measureVisualViewport(event.target as VisualViewport));
+    return { height, offsetLeft, offsetTop, pageLeft, pageTop, scale, width };
+}
 
-        visualViewport.addEventListener('resize', listener);
-        visualViewport.addEventListener('scroll', listener);
+function callback() {
+    visualViewportSize = getVisualViewportSize();
 
-        return () => {
-            visualViewport.removeEventListener('resize', listener);
-            visualViewport.removeEventListener('scroll', listener);
-        };
-    }, [enabled]);
+    listeners.forEach((listener) => {
+        listener();
+    });
+}
 
-    return size;
+function subscribe(listener: () => void) {
+    const { visualViewport } = window;
+
+    if (isNullable(visualViewport)) {
+        return noop;
+    }
+
+    if (listeners.length === 0) {
+        visualViewport.addEventListener('resize', callback);
+        visualViewport.addEventListener('scroll', callback);
+    }
+
+    listeners = [...listeners, listener];
+
+    return () => {
+        listeners = listeners.filter((l) => l !== listener);
+
+        if (listeners.length === 0) {
+            visualViewport.removeEventListener('resize', callback);
+            visualViewport.removeEventListener('scroll', callback);
+        }
+    };
+}
+
+function getSnapshot() {
+    return visualViewportSize;
+}
+
+function getServerSnapshot() {
+    return null;
+}
+
+export function useVisualViewportSize() {
+    return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+}
+
+/**
+ * @deprecated use {@link useVisualViewportSize}
+ */
+export function useVisibleViewportSize(enabled = false) {
+    const size = useVisualViewportSize();
+
+    return enabled ? size : null;
 }

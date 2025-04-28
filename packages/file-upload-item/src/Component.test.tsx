@@ -141,7 +141,7 @@ describe('FileUploadItem', () => {
                 </FileUploadItem>,
             );
 
-            const element = screen.getByText('Загрузка 75%');
+            const element = screen.getByText('Загружено 75%');
 
             expect(element).toBeInTheDocument();
         });

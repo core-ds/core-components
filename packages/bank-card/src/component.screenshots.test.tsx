@@ -1,4 +1,8 @@
-import { createSpriteStorybookUrl, setupScreenshotTesting } from '../../screenshot-utils';
+import {
+    createPreview,
+    createSpriteStorybookUrl,
+    setupScreenshotTesting,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -12,6 +16,16 @@ const MC_VALID_NUMBER = '5500000000000004';
 const MIR_VALID_NUMBER = '2201382000000013';
 const MAESTRO_VALID_NUMBER = '6759649826438453';
 const NOT_VALID_CARD = '1234567891111111';
+
+describe('BankCard', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'BankCard',
+        },
+        'transform:scale(1.3)',
+    );
+});
 
 describe(
     'BankCard | screenshots',
