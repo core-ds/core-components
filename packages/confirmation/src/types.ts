@@ -173,6 +173,8 @@ export type ConfirmationTexts = {
      */
     title?: ReactNode; // заголовок
     codeError?: string; // ошибка проверки кода
+    codeErrorExpired?: string; // код устарел, запросите новый
+    codeErrorExpiredEnded?: string; // код устарел
     codeChecking?: string; // код проверяется
     codeSending?: string; // код отправляется
     codeSended?: string; // код отправлен
@@ -184,9 +186,13 @@ export type ConfirmationTexts = {
     /**
      * Экран HINT
      */
+    hintTitle?: string; // заголовок
+    hintDescription?: string; // описание
+    hintNotification?: string; // уведомление
     hintButton?: string; // кнопка 'Вернуться'
     domesticPhone?: string; // номер телефона для звонков по России
     internationalPhone?: string; // номер телефона для звонков из-за границы
+
     /**
      * Экран FATAL_ERROR
      */
@@ -199,41 +205,60 @@ export type ConfirmationTexts = {
      */
     tempBlockTitle?: ReactNode; // заголовок
     tempBlockDescription?: ReactNode; // описание
+
+    /**
+     * Экран TEMP_BLOCK_OVER
+     */
+    tempBlockOverTitle?: ReactNode; // заголовок
+    tempBlockOverDescription?: ReactNode; // описание
+    tempBlockOverButton?: string; // кнопка
 };
 
 export type ConfirmationScreen =
     | 'INITIAL' // начальный экран
     | 'HINT' // экран "Не приходит смс?"
     | 'FATAL_ERROR' // экран критической ошибки
-    | 'TEMP_BLOCK'; // экран временной блокировки
+    | 'TEMP_BLOCK' // экран временной блокировки
+    | 'TEMP_BLOCK_OVER'; // экран todo
 
 export type ConfirmationState =
     | 'INITIAL' // начальное состояние
     | 'CODE_CHECKING' // проверка кода
     | 'CODE_SENDING' // повторная отправка кода
-    | 'CODE_ERROR'; // ошибка, когда ввели неверный код
+    | 'CODE_ERROR' // ошибка, когда ввели неверный код
+    | 'CODE_EXPIRED' // ошибка, когда код устарел, но можно запросить новый
+    | 'CODE_EXPIRED_ENDED'; // ошибка, когда код устарел
 
 export type ScreensMap = {
     [key: string]: ComponentType;
 };
 
 export const defaultTexts: ConfirmationTexts = {
-    title: 'Введите код из\xa0сообщения',
-    codeError: 'Код введён неверно',
+    title: 'Введите код из\xa0уведомления',
+    codeError: 'Код не подходит, проверьте его',
+    codeErrorExpired: 'Код устарел, запросите новый',
+    codeErrorExpiredEnded: 'Код устарел',
     codeChecking: '',
     codeSending: '',
-    buttonRetry: 'Запросить код повторно',
-    linkToHint: 'Не\xa0приходит сообщение?',
+    buttonRetry: 'Запросить код',
+    hintTitle: 'Не\xa0приходит код?',
+    hintDescription: 'Если\xa0сменили номер, позвоните нам или обратитесь в\xa0любой офис банка.',
+    hintNotification:
+        'Если номер не\xa0меняли, попробуйте запросить код позже — возможно, перегружен сервис отправки уведомлений.',
+    linkToHint: 'Не\xa0приходит код?',
     hintButton: 'Вернуться к\xa0вводу кода',
     noAttemptsLeft: 'Не\xa0осталось попыток запроса кода',
     fatalErrorTitle: 'Ввести код больше нельзя',
     fatalErrorDescription:
-        'Вы\xa0ввели код неверно более 5\xa0раз. В\xa0целях безопасности мы\xa0ограничили дальнейший ввод.',
+        'Мы ограничили следующие попытки ввода, потому\xa0что код был введён неверно больше 5 раз.',
     fatalErrorButton: 'Понятно',
-    tempBlockTitle: 'Превышено количество попыток запроса кода',
-    tempBlockDescription: 'Повторное подтверждение кодом будет возможно через 24\xa0часа',
-    codeSended: 'Код выслан',
-    countdown: 'Запросить повторно можно через',
+    tempBlockTitle: 'Ввести код пока нельзя',
+    tempBlockDescription: 'Слишком много неверных попыток. Запросите новый позже',
+    tempBlockOverTitle: 'Ввод разблокирован',
+    tempBlockOverDescription: 'Теперь можно запросить новый код',
+    tempBlockOverButton: 'Запросить новый код',
+    codeSended: 'Код отправлен',
+    countdown: 'Запросить новый можно через',
     domesticPhone: '8 800 200 00 00',
     internationalPhone: '+7 495 78 888 78',
 };

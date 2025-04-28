@@ -98,10 +98,6 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             return;
         }
 
-        if (state === 'CODE_ERROR' && prevState !== 'CODE_ERROR') {
-            inputRef.current.focus(requiredCharAmount - 1);
-        }
-
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
             inputRef.current.focus();
         }
@@ -120,6 +116,14 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
     }, [prevState, state, clearTimer]);
 
     const getCodeInputError = (): string | boolean => {
+        if (state === 'CODE_EXPIRED') {
+            return texts.codeErrorExpired || true;
+        }
+
+        if (state === 'CODE_EXPIRED_ENDED') {
+            return texts.codeErrorExpiredEnded || true;
+        }
+
         if (state === 'CODE_ERROR') {
             return texts.codeError || true;
         }
@@ -176,7 +180,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         [styles.typographyThemeMobile]: mobile,
                     })}
                 >
-                    Код отправлен на {phone}
+                    Отправили на {phone}
                 </TypographyText>
             ) : null}
             <ComponentCodeInput

@@ -74,9 +74,9 @@ export const parameters = {
                 </h2>
             ),
             h3: ({ children, ...restProps }) => (
-                <h2 {...restProps} className={cn(restProps.className, 'sbdocs-h3')}>
+                <h3 {...restProps} className={cn(restProps.className, 'sbdocs-h3')}>
                     {children}
-                </h2>
+                </h3>
             ),
             h4: ({ children, ...restProps }) => (
                 <h4 {...restProps} className={cn(restProps.className, 'sbdocs-h4')}>

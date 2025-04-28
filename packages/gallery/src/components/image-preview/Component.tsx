@@ -1,19 +1,25 @@
-import React, { FC, KeyboardEventHandler, useContext, useEffect, useRef } from 'react';
+import React, {
+    FC,
+    KeyboardEventHandler,
+    MouseEventHandler,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
 
-import { GalleryContext } from '../../context';
-import { GalleryImage } from '../../types';
 import {
-    getImageAlt,
-    isVideo,
     PREVIEW_HEIGHT_DESKTOP,
     PREVIEW_HEIGHT_MOBILE,
     PREVIEW_VIDEO_MULTIPLIER,
     PREVIEW_WIDTH_DESKTOP,
     PREVIEW_WIDTH_MOBILE,
-} from '../../utils';
+} from '../../constants';
+import { GalleryContext } from '../../context';
+import { GalleryImage } from '../../types';
+import { getImageAlt, isVideo } from '../../utils';
 
 import { NoImagePaths } from './paths';
 
@@ -75,6 +81,10 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         if (event.key === 'Enter') {
             onSelect(index);
         }
+    };
+
+    const handleDragStart: MouseEventHandler<HTMLDivElement> = (e) => {
+        e.preventDefault();
     };
 
     const [focused] = useFocus(ref, 'keyboard');
@@ -182,6 +192,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             onClick={handleClick}
             role='button'
             onKeyDown={handleKeyDown}
+            onMouseDown={handleDragStart}
             tabIndex={0}
             ref={ref}
             aria-label={`Перейти к ${index + 1} элементу`}

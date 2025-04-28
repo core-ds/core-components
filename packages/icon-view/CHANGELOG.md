@@ -1,5 +1,22 @@
 # Change Log
 
+## 3.10.1
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1667](https://github.com/core-ds/core-components/pull/1667)
+
+-   Added support for using animated images
+
 ## 3.10.0
 
 ### Minor Changes

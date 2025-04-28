@@ -53,8 +53,7 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
                     progress={1 - timeLeft / tempBlockDuration}
                     className={styles.loader}
                 />
-
-                {formatMsAsMinutes(timeLeft)}
+                <time className={styles.timeCounter}>{formatMsAsMinutes(timeLeft)}</time>
             </div>
         </div>
     );
