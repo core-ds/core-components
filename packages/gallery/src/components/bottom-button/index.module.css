@@ -1,0 +1,18 @@
+@import '../../../../vars/src/index.css';
+
+.component {
+    background-color: var(--color-static-neutral-translucent-500-inverted);
+    &:hover {
+        background-color: var(--color-static-neutral-translucent-500-inverted-hover);
+    }
+    &:active {
+        background-color: var(--color-static-neutral-translucent-500-inverted-press);
+    }
+
+    transition: transform 1s ease-in-out;
+    will-change: transform;
+}
+
+.notVisible {
+    transform: translateY(250%);
+}

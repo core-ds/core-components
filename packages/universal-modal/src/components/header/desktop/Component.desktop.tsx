@@ -34,14 +34,23 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     titleClassName,
     dataTestId,
     bottomAddonsClassName,
+    onClose,
     ...restProps
 }) => {
-    const { setHasHeader, componentRef } = useContext(ModalContext);
+    const { setHasHeader, componentRef, onClose: handleCloseByContext } = useContext(ModalContext);
     const { modalHeaderHighlighted } = useContext(ResponsiveContext) || {};
 
     const titleRef = useRef<HTMLDivElement>(null);
 
     const hasContent = Boolean(title || children || restProps.bottomAddons);
+
+    const handleClose: NavigationBarPrivateProps['onClose'] = (...args) => {
+        if (onClose) {
+            return onClose(...args);
+        }
+
+        return handleCloseByContext(...args);
+    };
 
     useEffect(() => {
         setHasHeader(true);
@@ -70,6 +79,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
                 [desktopStyles.medium]: bigTitle,
             })}
             titleRef={titleRef}
+            onClose={handleClose}
         >
             {children}
         </NavigationBarPrivate>

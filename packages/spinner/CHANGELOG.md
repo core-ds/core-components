@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.0.6
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1621](https://github.com/core-ds/core-components/pull/1621)
+
+-   Для компонента `Spinner` добавлено дополнительное свойство box-sizing: content-box для исправления глобального влияния box-sizing: border-box.
+
 ## 4.0.5
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 5.8.0
+
+### Minor Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1615](https://github.com/core-ds/core-components/pull/1615)
+
+-   fix(input): Добавлен props `passwordHint` в компонент `PasswordInput` для возможности управлять текстом подсказки
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+    -   input@15.5.4
+
 ## 5.7.3
 
 ### Patch Changes

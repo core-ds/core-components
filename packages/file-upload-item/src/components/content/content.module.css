@@ -4,7 +4,10 @@
     padding: var(--gap-2) 0 0 var(--gap-16);
     flex-grow: 1;
     min-width: 0;
-    cursor: pointer;
+
+    &.clickable {
+        cursor: pointer;
+    }
 
     &.single {
         display: flex;
