@@ -32,7 +32,7 @@
         "test:screenshots": "./bin/run-screenshots.sh",
         "test:codemod": "jest --config=jest.codemod.config.js packages/codemod/",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
-        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png",
+        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png packages/themes/{src,src/compiled}/*.ts",
         "cm": "git-cz",
         "postbuild": "yarn purgecss",
         "purgecss": "./bin/purgecss.sh",
