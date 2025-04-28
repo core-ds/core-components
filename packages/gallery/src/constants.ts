@@ -1,0 +1,9 @@
+export const SWIPE_THRESHOLD = -250;
+
+export const PREVIEW_WIDTH_MOBILE = 46;
+export const PREVIEW_HEIGHT_MOBILE = 46;
+
+export const PREVIEW_WIDTH_DESKTOP = 56;
+export const PREVIEW_HEIGHT_DESKTOP = 56;
+
+export const PREVIEW_VIDEO_MULTIPLIER = 12;

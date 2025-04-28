@@ -1,13 +1,17 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
 import { ProductCover } from '@alfalab/core-components-product-cover';
 
-const meta: Meta<typeof ProductCover> = {
+const meta: Meta<typeof ProductCover.Single> = {
     title: 'Components/ProductCover',
-    component: ProductCover,
+    component: ProductCover.Single,
     id: 'ProductCover',
 };
 
@@ -40,7 +44,9 @@ export const product_cover_single: Story = {
 export const product_cover_stack: Story = {
     name: 'ProductCover.Stack',
     render: () => {
-        const sizes = select('size', [128, 40, 32, 16], 128);
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+
+        const size = select('size', [128, 40, 32, 16], 128);
         const shadow = text('shadow', '2px 2px 2px 0px rgba(0, 0, 0, 0.20)');
 
         const firstCard = {
@@ -58,11 +64,13 @@ export const product_cover_stack: Story = {
         };
 
         return (
-            <ProductCover.Stack
-                size={sizes}
-                firstCard={firstCard}
-                secondCard={select('secondCard', [secondCard, null], secondCard)}
-            />
+            <div style={previewStyles}>
+                <ProductCover.Stack
+                    size={size}
+                    firstCard={firstCard}
+                    secondCard={boolean('secondCard', true) ? secondCard : undefined}
+                />
+            </div>
         );
     },
 };
