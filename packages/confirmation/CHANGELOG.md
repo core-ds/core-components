@@ -1,5 +1,32 @@
 # Change Log
 
+## 13.10.0
+
+### Minor Changes
+
+<sup><time>28.04.2025</time></sup>
+
+### [#1652](https://github.com/core-ds/core-components/pull/1652)
+
+-   Исправлены копирайты для экранов `INITIAL`, `HINT`, `FATAL_ERROR`, `TEMP_BLOCK`
+-   Добавлен новый экран `TEMP_BLOCK_OVER`
+-   Добавлена возможность проброса через prop texts текстовок для экрана `HINT`
+
+## 13.9.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+
+## 13.9.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.6
+    -   button@11.11.7
+
 ## 13.9.10
 
 ### Patch Changes

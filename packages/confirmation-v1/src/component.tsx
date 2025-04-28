@@ -222,7 +222,7 @@ export const ConfirmationV1 = forwardRef<HTMLDivElement, ConfirmationV1Props>(
             hasSmsCountdown = true,
             phone,
             requiredCharAmount = 5,
-            signTitle = 'Введите код из\xa0сообщения',
+            signTitle = 'Введите код из\xa0уведомления',
             overlimitTitle = 'Превышено количество\n попыток ввода кода',
             overlimitText = 'Повторное подтверждение кодом из SMS\n будет возможно через',
             overlimitCountdownDuration,

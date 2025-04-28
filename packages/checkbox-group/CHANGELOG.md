@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.10.0
+
+### Minor Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1612](https://github.com/core-ds/core-components/pull/1612)
+
+-   Обернул компонент `BaseCheckboxGroup` в forwardRef и предоставил возможность прокинуть ref
+
 ## 4.9.0
 
 ### Minor Changes

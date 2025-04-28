@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: auto;
     position: relative;
 }
 
@@ -33,4 +33,11 @@
 
 .iconShape {
     fill: var(--color-static-neutral-translucent-700);
+}
+
+.bottomButton {
+    position: absolute;
+    bottom: 48px;
+    left: 32px;
+    right: 32px;
 }

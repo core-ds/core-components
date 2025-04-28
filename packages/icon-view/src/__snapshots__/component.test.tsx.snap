@@ -270,22 +270,24 @@ exports[`IconView Snapshots tests should match snapshot with image 1`] = `
             d="M1 16.4A18 18 0 0 1 16.4 1a110 110 0 0 1 31.2 0A18 18 0 0 1 63 16.4a110 110 0 0 1 0 31.2A18 18 0 0 1 47.6 63a110 110 0 0 1-31.2 0A18 18 0 0 1 1 47.6a110 110 0 0 1 0-31.2"
           />
           <defs>
-            <pattern
-              height="100%"
+            <clippath
               id=":r4:"
-              width="100%"
             >
-              <image
-                height="100%"
-                href="https://picsum.photos/id/1081/5512/3708"
-                preserveAspectRatio="xMidYMid slice"
-                width="100%"
+              <path
+                d="M1 16.4A18 18 0 0 1 16.4 1a110 110 0 0 1 31.2 0A18 18 0 0 1 63 16.4a110 110 0 0 1 0 31.2A18 18 0 0 1 47.6 63a110 110 0 0 1-31.2 0A18 18 0 0 1 1 47.6a110 110 0 0 1 0-31.2"
               />
-            </pattern>
+            </clippath>
           </defs>
+          <image
+            clip-path="url(#:r4:)"
+            height="100%"
+            href="https://picsum.photos/id/1081/5512/3708"
+            preserveAspectRatio="xMidYMid slice"
+            width="100%"
+          />
           <path
             d="M1 16.4A18 18 0 0 1 16.4 1a110 110 0 0 1 31.2 0A18 18 0 0 1 63 16.4a110 110 0 0 1 0 31.2A18 18 0 0 1 47.6 63a110 110 0 0 1-31.2 0A18 18 0 0 1 1 47.6a110 110 0 0 1 0-31.2"
-            style="fill: url(#:r4:);"
+            fill="none"
           />
         </svg>
       </div>
