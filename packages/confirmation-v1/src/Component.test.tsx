@@ -217,7 +217,7 @@ describe('Confirmation', () => {
     describe('Sms retry tests', () => {
         const buttonReturnInHintText = ConfirmationV1.defaultProps?.buttonReturnText as string;
         const buttonRetryText = ConfirmationV1.defaultProps?.buttonRetryText as string;
-        const hintLinkText = 'Не приходит сообщение?';
+        const hintLinkText = 'Не приходит код?';
 
         it('should display retry button', async () => {
             const { findByText } = render(<ConfirmationV1 {...baseProps} countdownDuration={0} />);

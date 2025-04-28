@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.20.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1617](https://github.com/core-ds/core-components/pull/1617)
+
+Добавлена поддержка шрифта `Alfa Interface Sans`
+
+Подробнее смотрите в разделе [Типографика](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--docs)
+
 ## 9.19.0
 
 ### Minor Changes
