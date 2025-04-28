@@ -16,6 +16,8 @@ export const Content = () => {
         truncate,
         subtitle,
         showRestore,
+        actionsPresent,
+        isClickable,
     } = useContext(FileUploadItemContext);
 
     if (CustomContent) {
@@ -26,6 +28,7 @@ export const Content = () => {
         <div
             className={cn(styles.container, {
                 [styles.single]: !subtitle,
+                [styles.clickable]: !actionsPresent && isClickable,
             })}
         >
             {title && (

@@ -44,6 +44,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             onApply,
             title,
             success,
+            virtualKeyboard = false,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -124,7 +125,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 Field={AutocompleteMobileField}
                 {...restProps}
                 {...(isBottomSheet
-                    ? { bottomSheetProps: componentProps }
+                    ? { bottomSheetProps: { ...componentProps, virtualKeyboard } }
                     : {
                           modalProps: componentProps,
                           modalHeaderProps: { title },

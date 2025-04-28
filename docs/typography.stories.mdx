@@ -11,12 +11,13 @@ import { Typography } from '../packages/typography/src';
 
 # Типографика
 
-Актуальный набор текстовых стилей доступен в двух вариантах:
+Актуальный набор текстовых стилей доступен в трех вариантах:
 
 -   Компоненты [Typography.Title](/docs/typography--typography-title),
     [Typography.TitleResponsive](/docs/typography--typography-title-responsive) и 
     [Typography.Text](/docs/typography--typography-text)
 -   Миксины в [core-components/vars/typography.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/typography.css)
+-   Миксины в [core-components/vars/alfasans-typography.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/alfasans-typography.css)
 
 Большинство кейсов, в которых нужно задать текстовый стиль, покрывает использование компонентов типографики и, если есть возможность использовать компонент, то используйте именно его.
 Миксины - это гораздо более гибкий вариант. Он подойдет в случаях,
@@ -49,7 +50,7 @@ import { Typography } from '../packages/typography/src';
 }
 ```
 
-> Если в Figma не видно название стиля или для него не оказалось компонента или миксина, спросите у дизайнера почему :)
+> Если в Figma не видно название стиля или для него не оказалось компонента или миксина, спросите у дизайнера почему :)
 
 ## Шрифты
 
@@ -57,9 +58,9 @@ import { Typography } from '../packages/typography/src';
 
 `--font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif;`
 
-## Styrene
+### Styrene
 
-Если в вашем продукте используется шрифт Styrene, его необходимо подключить:
+Если в вашем продукте используется шрифт `Styrene`, его необходимо подключить:
 
 ```css
 @font-face {
@@ -86,21 +87,105 @@ import { Typography } from '../packages/typography/src';
 }
 ```
 
-<Plate
-    view='attention'
-    rounded={false}
-    limitContentWidth={false}
-    leftAddons={<StatusBadge view='attention-alert' />}
->
-    <Typography.Text tag='div'>Рекомендуем использовать своё хранилище.</Typography.Text>
-    <Typography.Text tag='div'>
-        CDN alfabank.servicecdn.ru — ненадёжный вариант, можно рассматривать только как временное
-        решение.
-    </Typography.Text>
-</Plate>
-
 <p style={{ marginTop: '24px' }}>
     Для всех Styrene-элементов должна быть включена настройка `font-feature-settings: 'ss01';`, и
     рекомендуем не забыть про сглаживание `-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;`.
 </p>
+
+### Alfa Interface Sans
+
+#### Подключение
+
+Если в вашем продукте используется шрифт `Alfa Interface Sans`, его необходимо подключить:
+
+```css
+@font-face {
+    font-family: 'Alfa Interface Sans';
+    src: url('https://alfabank.servicecdn.ru/media/fonts/alfa-interface-sans_regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Alfa Interface Sans';
+    src: url('https://alfabank.servicecdn.ru/media/fonts/alfa-interface-sans_medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Alfa Interface Sans';
+    src: url('https://alfabank.servicecdn.ru/media/fonts/alfa-interface-sans_bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+```
+
+Не забудьте задать сглаживание:
+
+```css
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+```
+
+#### Использование
+
+Для использования шрифта `Alfa Interface Sans` достаточно задать соответствующий пропс `font` в компоненте типографики, например:
+
+```typescript
+<Typography.Title font='alfasans'>Заголовок</Typography.Title>
+```
+
+#### Перевод на Alfa Interface Sans системных заголовков
+
+Если у вас использовались компонент `Typography.Title` c системным шрифтом, при переходе на `Alfa Interface Sans` необходимо использовать `systemCompat: true`:
+
+```typescript
+<Typography.Title
+    font={{
+        font: 'alfasans',
+        systemCompat: true,
+    }}
+>
+    Заголовок
+</Typography.Title>
+```
+
+#### Миксины
+
+Использование шрифта `Alfa Interface Sans` подразумевает бесшовный переход с миксинов текущей типографики (системной, `Styrene`) на миксины `Alfa Interface Sans`.
+То есть, названия те же, но изменилось наполнение миксинов.
+
+<br />
+
+#### Переход на Alfa Interface Sans в продукте
+
+Для этого необходимо пройти 3 шага:
+
+1. Подключить шрифт `Alfa Interface Sans`
+2. Задать соответствующий пропс `font` в компонентах типографики
+3. Заменить пути импорта:
+
+    - `css`переменных:
+
+    ```diff
+    - @import '@alfalab/core-components/vars/src/index.css';
+    + @import '@alfalab/core-components/vars/src/alfasans-index.css';
+    ```
+
+    - продуктового набора переменных:
+
+    ```diff
+    - @import '@alfalab/core-components/vars/src/bundle/click.css';
+    - @import '@alfalab/core-components/vars/src/bundle/corp.css';
+    - @import '@alfalab/core-components/vars/src/bundle/intranet.css';
+    + @import '@alfalab/core-components/vars/src/bundle/alfasans-click.css';
+    + @import '@alfalab/core-components/vars/src/bundle/alfasans-corp.css';
+    + @import '@alfalab/core-components/vars/src/bundle/alfasans-intranet.css';
+    ```
+
+    - миксинов:
+
+    ```diff
+    - @import '@alfalab/core-components/vars/src/typography.css';
+    + @import '@alfalab/core-components/vars/src/alfasans-typography.css';
+    ```

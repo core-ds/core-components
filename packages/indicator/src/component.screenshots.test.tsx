@@ -34,7 +34,7 @@ describe(
                     componentName: 'Indicator',
                     knobs: {
                         view: ['red', 'grey'],
-                        size: [8, 20, 24, 40],
+                        size: [8, 16, 20, 24, 32, 40],
                         value: [1, 10, 100],
                     },
                 }),
@@ -46,7 +46,7 @@ describe(
                     inverted: true,
                     knobs: {
                         view: 'white',
-                        size: [8, 20, 24, 40],
+                        size: [8, 16, 20, 24, 32, 40],
                         value: [1, 10, 100],
                     },
                 }),

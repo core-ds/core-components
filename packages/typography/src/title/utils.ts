@@ -1,5 +1,8 @@
-export function getDefaultWeight(font: 'styrene' | 'system', platform: 'mobile' | 'desktop') {
-    if (font === 'styrene') {
+export function getDefaultWeight(
+    font: 'styrene' | 'system' | 'alfasans',
+    platform: 'mobile' | 'desktop',
+) {
+    if (font === 'styrene' || font === 'alfasans') {
         return 'medium';
     }
 

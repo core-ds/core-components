@@ -3,11 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, color } from '@storybook/addon-knobs';
 
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import {
-    CustomButton,
-    CustomButtonDesktop,
-    CustomButtonMobile,
-} from '@alfalab/core-components-custom-button';
+import { CustomButton } from '@alfalab/core-components-custom-button';
+import { CustomButtonDesktop } from '@alfalab/core-components-custom-button/desktop';
+import { CustomButtonMobile } from '@alfalab/core-components-custom-button/mobile';
 
 const meta: Meta<typeof CustomButton> = {
     title: 'Components/CustomButton',
