@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.12.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.10
+
 ## 5.12.0
 
 ### Minor Changes
