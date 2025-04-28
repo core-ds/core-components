@@ -33,9 +33,9 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Размер компонента
-     * @description xs, s, m, l deprecated, используйте вместо них 8, 20, 24, 40 соответственно
+     * @description xs, s, m, l deprecated, используйте вместо них 8, 16, 20, 24, 32, 40 соответственно
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 8 | 20 | 24 | 40;
+    size?: 'xs' | 's' | 'm' | 'l' | 8 | 16 | 20 | 24 | 32 | 40;
 
     /**
      * Настройки обводки
@@ -67,6 +67,7 @@ function getSize(height?: number, value?: IndicatorProps['value']) {
     if (height <= 16) return 16;
     if (height <= 20) return 20;
     if (height <= 24) return 24;
+    if (height <= 32) return 32;
     if (height <= 40) return 40;
 
     return 48;
@@ -96,7 +97,7 @@ function borderStyles(
 
     return {
         outlineWidth: 2,
-        outlineColor: 'var(--color-light-neutral-translucent-1300)',
+        outlineColor: 'var(--color-light-base-bg-primary)',
         outlineStyle: 'solid',
     };
 }
@@ -110,6 +111,7 @@ export const SIZE_TO_CLASSNAME_MAP = {
     16: 'size-16',
     20: 'size-20',
     24: 'size-24',
+    32: 'size-32',
     40: 'size-40',
     48: 'size-48',
 };
