@@ -19,6 +19,7 @@ export type TMainSize = 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 128;
 export type BaseShapeProps = {
     /**
      * Размер компонента
+     * @default 64
      */
     size?: TMainSize | number | { width: TMainSize | number; height: TMainSize | number };
 
@@ -125,7 +126,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         const [width, height] = typeof size === 'object' ? [size.width, size.height] : [size, size];
         const imageLoadingState = useImageLoadingState({ src: imageUrl || '' });
 
-        const imagePatternId = useId();
+        const clipPathId = useId();
 
         const svgPatternId = useId();
 
@@ -176,22 +177,20 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         {imageUrl && imageLoadingState !== 'error' && (
                             <Fragment>
                                 <defs>
-                                    <pattern id={imagePatternId} width='100%' height='100%'>
-                                        <image
-                                            href={imageUrl}
-                                            width='100%'
-                                            height='100%'
-                                            preserveAspectRatio='xMidYMid slice'
-                                        />
-                                    </pattern>
+                                    <clipPath id={clipPathId}>
+                                        <path d={shapeDPath} />
+                                    </clipPath>
                                 </defs>
 
-                                <path
-                                    style={{
-                                        fill: `url(#${imagePatternId})`,
-                                    }}
-                                    d={shapeDPath}
+                                <image
+                                    href={imageUrl}
+                                    width='100%'
+                                    height='100%'
+                                    clipPath={`url(#${clipPathId})`}
+                                    preserveAspectRatio='xMidYMid slice'
                                 />
+
+                                <path d={shapeDPath} fill='none' />
                             </Fragment>
                         )}
 
@@ -234,7 +233,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         <div
                             className={cn(
                                 styles.children,
-                                styles[`childrenSize_${mainSize}`],
+                                { [styles[`childrenSize_${mainSize}`]]: mainSize },
                                 iconContainerClassName,
                             )}
                         >

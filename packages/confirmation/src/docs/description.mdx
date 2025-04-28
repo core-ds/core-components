@@ -2,9 +2,10 @@
 
 1. Корректный код: любой введеный код будет корректным.
 2. Некорректный код: любой введеный код будет некорректным.
-3. Закончились попытки ввода кода: после ввода кода пользователю будет сообщено, что у него закончились попытки.
-4. Закончились попытки запроса кода: после запроса следующего кода запрос нового будет заблокирован.
-5. Временная блокировка формы: после ввода кода форма будет заблокирована на 24 часа.
+3. Код устарел: после ввода кода пользователю будет сообщено, что код устарел.
+4. Закончились попытки ввода кода, вводимый код некорректен: после ввода кода пользователю будет сообщено, что у него закончились попытки.
+5. Закончились попытки запроса кода, вводимый код устарел: после запроса следующего кода запрос нового будет заблокирован.
+6. Временная блокировка формы: после ввода кода форма будет заблокирована на 24 часа.
 
 ```jsx live
 render(() => {
@@ -12,9 +13,13 @@ render(() => {
     const variants = [
         { key: 'success', content: 'Корректный код' },
         { key: 'error', content: 'Некорректный код' },
-        { key: 'fatal', content: 'Закончились попытки ввода кода' },
-        { key: 'sms-requests-ended', content: 'Закончились попытки запроса кода' },
-        { key: 'temp-block', content: 'Сценарий, когда форма временно заблокирована' },
+        { key: 'expired', content: 'Код устарел' },
+        { key: 'fatal', content: 'Закончились попытки ввода кода, вводимый код некорректен' },
+        {
+            key: 'sms-requests-ended',
+            content: 'Закончились попытки запроса кода, вводимый код устарел',
+        },
+        { key: 'temp-block-over', content: 'Сценарий, когда форма временно заблокирована' },
     ];
 
     const [variant, setVariant] = React.useState(variants[0]);
@@ -39,13 +44,16 @@ render(() => {
                 case 'error':
                     setConfirmationState('CODE_ERROR');
                     break;
+                case 'expired':
+                    setConfirmationState('CODE_EXPIRED');
+                    break;
                 case 'fatal':
                     setConfirmationScreen('FATAL_ERROR');
                     break;
                 case 'sms-requests-ended':
-                    setConfirmationState('CODE_ERROR');
+                    setConfirmationState('CODE_EXPIRED_ENDED');
                     break;
-                case 'temp-block':
+                case 'temp-block-over':
                     setConfirmationScreen('TEMP_BLOCK');
                     break;
                 default:
@@ -53,6 +61,13 @@ render(() => {
             }
         }, 1000);
     };
+
+    const durations = {
+        'temp-block': 24 * 60 * 60 * 1000,
+        'temp-block-over': 10000,
+    };
+
+    const currentTempBlockDuration = durations[variant.key] || 10000;
 
     const handleSmsRetryClick = () => {
         setTimeout(() => {
@@ -64,8 +79,12 @@ render(() => {
     };
 
     const handleTempBlockFinished = () => {
-        setConfirmationScreen('INITIAL');
-        setConfirmationState('CODE_SENDING');
+        if (variant.key === 'temp-block-over') {
+            setConfirmationScreen('TEMP_BLOCK_OVER');
+        } else {
+            setConfirmationScreen('INITIAL');
+            setConfirmationState('CODE_SENDING');
+        }
     };
 
     const Component = isMobileFrame ? ConfirmationMobile : Confirmation;
@@ -135,6 +154,7 @@ render(() => {
                         alignContent='center'
                         blockSmsRetry={confirmationBlockSmsRetry}
                         countdownDuration={10000}
+                        tempBlockDuration={currentTempBlockDuration}
                         onChangeState={setConfirmationState}
                         onChangeScreen={setConfirmationScreen}
                         onInputFinished={handleInputFinished}

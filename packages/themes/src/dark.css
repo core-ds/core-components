@@ -683,4 +683,6 @@
     --color-light-text-link-tint-50: var(--color-dark-text-link-shade-50);
     --color-light-text-link-shade-20: var(--color-dark-text-link-tint-20);
     --color-light-text-link-shade-40: var(--color-dark-text-link-tint-40);
+    --color-light-monochrome-white-4: var(--color-dark-monochrome-white-4);
+    --color-light-monochrome-white-4-inverted: var(--color-dark-monochrome-white-4-inverted);
 }

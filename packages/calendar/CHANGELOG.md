@@ -1,5 +1,37 @@
 # Change Log
 
+## 7.18.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   modal@9.9.12
+
+## 7.18.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   icon-button@6.11.10
+    -   modal@9.9.11
+
+## 7.18.0
+
+### Minor Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1543](https://github.com/core-ds/core-components/pull/1543)
+
+-   Исправлено количество отображаемых месяцев в `CalendarMobile` при использовании пропсов `minDate/maxDate`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.10
+
 ## 7.17.14
 
 ### Patch Changes

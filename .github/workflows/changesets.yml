@@ -1,43 +1,24 @@
-name: "Changesets"
+name: changesets
 
-on:
-  pull_request:
-    branches:
-      - master
+on: pull_request
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  main:
-    name: changesets check
+    changesets:
+        name: changesets check
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@v4
 
-    runs-on: ubuntu-latest
+            - uses: ./.github/actions/ci-setup
 
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-
-      - name: parse changesets
-        uses: actions/github-script@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        with:
-          script: |
-            const shell = require('shelljs');
-
-            try {
-              const ret = shell.exec(`GITHUB_TOKEN=${process.env.GITHUB_TOKEN} yarn changeset version`);
-
-              console.info(ret.code);
-
-              if (ret.code !== 0) {
-                core.setFailed(ret.stderr);
-              }
-            } catch(e) {
-              core.setFailed(e);
-            }
+            - name: apply changesets
+              shell: bash
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  yarn changeset version
