@@ -1,3 +1,4 @@
+@import '../../../../vars/src/safe-area.css';
 @import '../../vars.css';
 
 .content {
@@ -5,5 +6,9 @@
 
     &:last-child {
         padding-bottom: var(--gap-16);
+
+        @media (display-mode: standalone) {
+            padding-bottom: calc(var(--sab) + var(--gap-16));
+        }
     }
 }
