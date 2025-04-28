@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef } from 'react';
+import React, { forwardRef, useContext, useRef } from 'react';
 import cn from 'classnames';
 
 import {
@@ -8,7 +8,7 @@ import {
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../../Context';
-import { ResponsiveContext } from '../../../context/responsive-context';
+import { UniversalModalContext } from '../../../context/universal-modal-context';
 
 import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
@@ -24,21 +24,23 @@ export type HeaderDesktopProps = Omit<
     bigTitle?: boolean;
 };
 
-export const HeaderDesktop: FC<HeaderDesktopProps> = ({
-    className,
-    children,
-    contentClassName,
-    title,
-    sticky,
-    bigTitle = false,
-    titleClassName,
-    dataTestId,
-    bottomAddonsClassName,
-    onClose,
-    ...restProps
-}) => {
+export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((props, ref) => {
+    const {
+        className,
+        children,
+        contentClassName,
+        title,
+        sticky,
+        bigTitle = false,
+        titleClassName,
+        dataTestId,
+        bottomAddonsClassName,
+        onClose,
+        ...restProps
+    } = props;
+
     const { componentRef, onClose: handleCloseByContext } = useContext(ModalContext);
-    const { modalHeaderHighlighted } = useContext(ResponsiveContext);
+    const { modalHeaderHighlighted } = useContext(UniversalModalContext);
 
     const titleRef = useRef<HTMLDivElement>(null);
 
@@ -55,6 +57,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     return (
         <NavigationBarPrivate
             {...restProps}
+            ref={ref}
             view='desktop'
             dataTestId={getDataTestId(dataTestId, 'header')}
             dataName='modalHeaderDesktop'
@@ -80,6 +83,6 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
             {children}
         </NavigationBarPrivate>
     );
-};
+});
 
 HeaderDesktop.displayName = 'HeaderDesktop';

@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from 'react';
+import { Children, isValidElement, ReactNode } from 'react';
 
 import { FooterDesktop } from '../../components/footer';
 import { HeaderDesktop } from '../../components/header';
@@ -10,7 +10,7 @@ export const checkHeaderAndFooter = (children: ReactNode) => {
     let hasFooter = false;
 
     Children.forEach(children, (child) => {
-        if (React.isValidElement(child)) {
+        if (isValidElement(child)) {
             const { displayName } = child.type as ChildType;
 
             if (displayName === 'HeaderDesktop') {

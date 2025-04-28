@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext, useEffect } from 'react';
+import React, { forwardRef, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -39,13 +39,8 @@ export type FooterProps = {
     isHighlighted?: boolean;
 };
 
-export const BaseFooter: FC<FooterProps> = ({
-    children,
-    className,
-    sticky,
-    dataTestId,
-    isHighlighted,
-}) => {
+export const BaseFooter = forwardRef<HTMLDivElement, FooterProps>((props, ref) => {
+    const { children, className, sticky, dataTestId, isHighlighted } = props;
     const { setHasFooter } = useContext(ModalContext);
 
     useEffect(() => {
@@ -58,6 +53,7 @@ export const BaseFooter: FC<FooterProps> = ({
 
     return (
         <div
+            ref={ref}
             className={cn(styles.footer, className, {
                 [styles.highlighted]: sticky && isHighlighted,
                 [styles.sticky]: sticky,
@@ -68,4 +64,4 @@ export const BaseFooter: FC<FooterProps> = ({
             {children}
         </div>
     );
-};
+});

@@ -1,7 +1,7 @@
-import React, { FC, useContext } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import cn from 'classnames';
 
-import { ResponsiveContext } from '../../../context/responsive-context';
+import { UniversalModalContext } from '../../../context/universal-modal-context';
 import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/constants';
 import { BaseFooter, FooterProps } from '../base-footer/base-footer';
 
@@ -15,18 +15,15 @@ export type FooterDesktopProps = FooterProps & {
     size?: 's' | 500;
 };
 
-export const FooterDesktop: FC<FooterDesktopProps> = ({
-    className,
-    sticky,
-    layout = 'start',
-    ...restProps
-}) => {
-    const { modalWidth = 500, modalFooterHighlighted } = useContext(ResponsiveContext);
+export const FooterDesktop = forwardRef<HTMLDivElement, FooterDesktopProps>((props, ref) => {
+    const { className, sticky, layout = 'start', ...restProps } = props;
+    const { modalWidth = 500, modalFooterHighlighted } = useContext(UniversalModalContext);
 
     const isMiddle = modalWidth === 'fullWidth' || modalWidth >= FOOTER_MEDIUM_BREAKPOINT;
 
     return (
         <BaseFooter
+            ref={ref}
             className={cn(layoutStyles[layout], className, {
                 [styles.sticky]: sticky,
                 [layoutStyles.middle]: isMiddle,
@@ -37,6 +34,6 @@ export const FooterDesktop: FC<FooterDesktopProps> = ({
             {...restProps}
         />
     );
-};
+});
 
 FooterDesktop.displayName = 'FooterDesktop';

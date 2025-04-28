@@ -3,8 +3,8 @@ import React, { forwardRef, useMemo, useState } from 'react';
 import { ContentDesktop } from '../components/content';
 import { FooterDesktop } from '../components/footer';
 import { HeaderDesktop } from '../components/header';
-import { ResponsiveContext } from '../context/responsive-context';
-import { TResponsiveModalContext } from '../typings';
+import { UniversalModalContext } from '../context/universal-modal-context';
+import { UniversalModalContextType } from '../typings';
 
 import { CenterModal } from './components/center-modal';
 import { SideModal } from './components/side-modal';
@@ -20,7 +20,7 @@ export const UniversalModalDesktopComponent = forwardRef<
 
     const { hasHeader, hasFooter } = checkHeaderAndFooter(children);
 
-    const contextValue = useMemo<TResponsiveModalContext>(
+    const contextValue = useMemo<UniversalModalContextType>(
         () => ({
             modalWidth: restProps.width,
             modalHeaderHighlighted,
@@ -50,9 +50,9 @@ export const UniversalModalDesktopComponent = forwardRef<
     };
 
     return (
-        <ResponsiveContext.Provider value={contextValue}>
+        <UniversalModalContext.Provider value={contextValue}>
             {renderModal()}
-        </ResponsiveContext.Provider>
+        </UniversalModalContext.Provider>
     );
 });
 

@@ -1,7 +1,7 @@
 import { UniversalModalDesktopProps } from '../desktop';
 import { UniversalModalMobileProps } from '../mobile';
 
-export type TResponsiveModalContext = {
+export type UniversalModalContextType = {
     modalWidth: UniversalModalDesktopProps['width'];
     modalHeaderHighlighted?: boolean;
     modalFooterHighlighted?: boolean;
