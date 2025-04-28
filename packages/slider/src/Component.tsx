@@ -53,6 +53,12 @@ export type SliderProps = {
     range?: RangeOptions;
 
     /**
+     * Флаг точной привязки к range
+     * https://refreshless.com/nouislider/examples/#section-skipping
+     */
+    snap?: boolean;
+
+    /**
      * Значение слайдера
      */
     value?: number;
@@ -130,6 +136,7 @@ export const Slider: FC<SliderProps> = ({
     onStart,
     onEnd,
     dataTestId,
+    snap = false,
 }) => {
     const sliderRef = useRef<(HTMLDivElement & { noUiSlider: API }) | null>(null);
     const busyRef = useRef<boolean>(false);
@@ -147,6 +154,7 @@ export const Slider: FC<SliderProps> = ({
             step,
             pips: pips as Options['pips'],
             range,
+            snap,
         });
 
         // eslint-disable-next-line consistent-return
