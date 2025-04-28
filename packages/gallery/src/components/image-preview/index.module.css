@@ -2,7 +2,6 @@
 
 .component {
     display: flex;
-    padding: var(--gap-4);
     z-index: 3;
     overflow: hidden;
     transition: border 0.15s ease-in-out;

@@ -54,7 +54,7 @@ export const Single: FC = () => {
                         image={currentImage}
                         containerHeight={wrapperRect?.height || 0}
                         meta={currentImageMeta}
-                        index={0}
+                        index={currentSlideIndex}
                         imageAspectRatio={imageAspectRatio}
                         slideVisible={true}
                     />
