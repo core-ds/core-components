@@ -1,1 +1,1 @@
-export { useVisibleViewportSize } from './use-visualviewport-size';
+export { useVisualViewportSize, useVisibleViewportSize } from './use-visualviewport-size';

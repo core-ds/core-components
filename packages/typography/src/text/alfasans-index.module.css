@@ -1,0 +1,52 @@
+@import '../../../vars/src/alfasans-index.css';
+
+@define-mixin bold {
+    font-weight: 700;
+}
+
+@define-mixin medium {
+    font-weight: 500;
+}
+
+.text {
+    @each $view in component, caps, tagline {
+        &.$(view) {
+            @mixin paragraph_$(view);
+        }
+    }
+
+    @each $kind in primary, secondary {
+        @each $size in large, medium, small {
+            &.$(kind)-$(size) {
+                /* prettier-ignore */
+                @mixin paragraph_$(kind)_$(size);
+
+                &.bold {
+                    @subtract-mixin accent_$(kind)_$(size), paragraph_$(kind)_$(size), bold;
+                }
+
+                &.medium {
+                    @subtract-mixin action_$(kind)_$(size), paragraph_$(kind)_$(size), medium;
+                }
+            }
+        }
+
+        &.component-$(kind) {
+            @mixin paragraph_component_$(kind);
+
+            &.bold {
+                @subtract-mixin accent_component_$(kind), paragraph_component_$(kind), bold;
+            }
+
+            &.medium {
+                @subtract-mixin action_component_$(kind), paragraph_component_$(kind), medium;
+            }
+        }
+    }
+
+    @each $weight in bold, medium {
+        &.$(weight) {
+            @mixin $(weight);
+        }
+    }
+}

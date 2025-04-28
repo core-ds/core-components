@@ -1,5 +1,43 @@
 # Change Log
 
+## 1.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   navigation-bar-private@0.8.2
+
+## 1.0.6
+
+### Patch Changes
+
+<sup><time>14.04.2025</time></sup>
+
+### [#1670](https://github.com/core-ds/core-components/pull/1670)
+
+-   Исправлено закрытие `UniversalModalMobile` при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header`. Хэндлер будет браться с компонента `UniversalModalMobile`.
+
+<sup><time>14.04.2025</time></sup>
+
+### [#1671](https://github.com/core-ds/core-components/pull/1671)
+
+-   Исправлен размер левого аддона компонента `Header` для `UniverslaModalMobile`
+
+## 1.0.5
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1668](https://github.com/core-ds/core-components/pull/1668)
+
+-   Исправлено закрытие модалки при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header`. Хэндлер будет браться с компонента `UniversalModal`.
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   navigation-bar-private@0.8.1
+
 ## 1.0.4
 
 ### Patch Changes

@@ -94,9 +94,15 @@ export type SingleCommonProps = {
     cardNumber?: number;
 
     /**
-     * Количество карт
+     * (Устаревший) Количество карт
+     * @deprecated Используйте 'numberOfCards'
      */
     numberOfСards?: number;
+
+    /**
+     * Количество карт
+     */
+    numberOfCards?: number;
 
     /**
      * Управление ориентацией стопки карт компонента
@@ -124,11 +130,11 @@ export type SingleCommonProps = {
     dataTestId?: string;
 };
 
-export type SingleProps = Omit<SingleCommonProps, 'numberOfСards' | 'align'>;
+export type SingleProps = Omit<SingleCommonProps, 'numberOfСards' | 'numberOfCards' | 'align'>;
 
 export type BankCardImageProps = Omit<
     SingleCommonProps,
-    'size' | 'numberOfСards' | 'className' | 'dataTestId' | 'align'
+    'size' | 'numberOfСards' | 'numberOfCards' | 'className' | 'dataTestId' | 'align'
 >;
 
 export type SizeStack = Exclude<Size, 48 | 96 | 164>;
@@ -168,9 +174,15 @@ export type StackProps = ConditionalProps & {
     secondCard?: BankCardImageProps;
 
     /**
-     * Количество карт
+     * (Устаревший) Количество карт
+     * @deprecated Используйте 'numberOfCards'
      */
     numberOfСards?: number;
+
+    /**
+     * Количество карт
+     */
+    numberOfCards?: number;
 
     /**
      * Идентификатор для систем автоматизированного тестирования

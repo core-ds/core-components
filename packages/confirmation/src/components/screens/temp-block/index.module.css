@@ -27,6 +27,14 @@
     align-items: center;
 }
 
+.timeCounter {
+    display: inline-block;
+    min-width: 47px;
+    color: var(--color-light-text-secondary);
+    text-align: left;
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
 .loader {
     margin-right: var(--gap-8);
 }

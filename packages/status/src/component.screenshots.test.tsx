@@ -93,3 +93,31 @@ describe(
         },
     }),
 );
+
+describe(
+    'Status | leftAddons prop',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Status',
+                    knobs: {
+                        children: 'Label',
+                        uppercase: false,
+                        leftAddons: 'left',
+                        size: [...SIZES],
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: {
+                x: 0,
+                y: 0,
+                width: 1024,
+                height: 200,
+            },
+        },
+    }),
+);

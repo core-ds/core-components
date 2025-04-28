@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import cn from 'classnames';
 
-import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
+import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
 import { MAX_PROGRESS_BAR_VALUE, RADIUS } from '../../const/progress-bar';
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
@@ -13,7 +13,13 @@ import { StatusControlProgressBar } from './components/status-control-progress-b
 import styles from './status-control.module.css';
 
 export const StatusControl = () => {
-    const { uploadStatus = 'INITIAL', progressBar, imageUrl } = useContext(FileUploadItemContext);
+    const {
+        uploadStatus = 'INITIAL',
+        progressBar,
+        imageUrl,
+        actionsPresent,
+        isClickable,
+    } = useContext(FileUploadItemContext);
     const progressRef = useRef<HTMLDivElement>(null);
 
     if (progressRef.current && progressBar) {
@@ -26,7 +32,11 @@ export const StatusControl = () => {
         uploadStatus === 'INITIAL' || uploadStatus === 'UPLOADED' || uploadStatus === 'DELETED';
 
     return (
-        <div className={styles.container}>
+        <div
+            className={cn(styles.container, {
+                [styles.clickable]: !actionsPresent && isClickable,
+            })}
+        >
             <SuperEllipse size={48} {...(imageUrl && { imageUrl })}>
                 <StatusControlIcon />
             </SuperEllipse>
