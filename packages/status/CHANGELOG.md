@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.7.0
+
+### Minor Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1663](https://github.com/core-ds/core-components/pull/1663)
+
+-   Добавлен пропс `leftAddons` позволяющий размещать контент в левый слот
+
 ## 3.6.3
 
 ### Patch Changes

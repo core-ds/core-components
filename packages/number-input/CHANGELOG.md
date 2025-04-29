@@ -1,5 +1,13 @@
 # @alfalab/core-components-number-input
 
+## 2.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+    -   input@15.5.4
+
 ## 2.6.3
 
 ### Patch Changes

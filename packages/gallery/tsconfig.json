@@ -17,10 +17,10 @@
     "references": [
         { "path": "../typography" },
         { "path": "../spinner" },
+        { "path": "../icon-view" },
         { "path": "../tooltip" },
         { "path": "../icon-button" },
-		{ "path": "../icon-view" },
-        { "path": "../typography" },
+        { "path": "../button" },
         { "path": "../base-modal" },
         { "path": "../mq" }
     ]
