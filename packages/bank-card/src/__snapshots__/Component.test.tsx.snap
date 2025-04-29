@@ -18,14 +18,14 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
           <svg
             fill="currentColor"
             focusable="false"
-            height="32"
+            height="40"
             role="img"
-            viewBox="0 0 21 32"
-            width="21"
+            viewBox="0 0 18 24"
+            width="30"
           >
             <path
               clip-rule="evenodd"
-              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              d="M9.103 2c-1.485 0-1.946.879-2.342 2l-4.08 11.557h2.706l.942-2.747h5.206l.873 2.747h2.877L11.397 4c-.376-1.117-.81-2-2.294-2zm-.071 3.01h-.069l-1.85 5.479h3.665L9.032 5.01zM15.593 22H2.407v-2.73h13.186V22z"
               fill-rule="evenodd"
             />
           </svg>
@@ -135,14 +135,14 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
           <svg
             fill="currentColor"
             focusable="false"
-            height="32"
+            height="40"
             role="img"
-            viewBox="0 0 21 32"
-            width="21"
+            viewBox="0 0 18 24"
+            width="30"
           >
             <path
               clip-rule="evenodd"
-              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              d="M9.103 2c-1.485 0-1.946.879-2.342 2l-4.08 11.557h2.706l.942-2.747h5.206l.873 2.747h2.877L11.397 4c-.376-1.117-.81-2-2.294-2zm-.071 3.01h-.069l-1.85 5.479h3.665L9.032 5.01zM15.593 22H2.407v-2.73h13.186V22z"
               fill-rule="evenodd"
             />
           </svg>
@@ -250,14 +250,14 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
           <svg
             fill="currentColor"
             focusable="false"
-            height="32"
+            height="40"
             role="img"
-            viewBox="0 0 21 32"
-            width="21"
+            viewBox="0 0 18 24"
+            width="30"
           >
             <path
               clip-rule="evenodd"
-              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              d="M9.103 2c-1.485 0-1.946.879-2.342 2l-4.08 11.557h2.706l.942-2.747h5.206l.873 2.747h2.877L11.397 4c-.376-1.117-.81-2-2.294-2zm-.071 3.01h-.069l-1.85 5.479h3.665L9.032 5.01zM15.593 22H2.407v-2.73h13.186V22z"
               fill-rule="evenodd"
             />
           </svg>
@@ -365,14 +365,14 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
           <svg
             fill="currentColor"
             focusable="false"
-            height="32"
+            height="40"
             role="img"
-            viewBox="0 0 21 32"
-            width="21"
+            viewBox="0 0 18 24"
+            width="30"
           >
             <path
               clip-rule="evenodd"
-              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              d="M9.103 2c-1.485 0-1.946.879-2.342 2l-4.08 11.557h2.706l.942-2.747h5.206l.873 2.747h2.877L11.397 4c-.376-1.117-.81-2-2.294-2zm-.071 3.01h-.069l-1.85 5.479h3.665L9.032 5.01zM15.593 22H2.407v-2.73h13.186V22z"
               fill-rule="evenodd"
             />
           </svg>
@@ -464,14 +464,14 @@ exports[`BankCard Snapshots tests should match snapshots 5`] = `
           <svg
             fill="currentColor"
             focusable="false"
-            height="32"
+            height="40"
             role="img"
-            viewBox="0 0 21 32"
-            width="21"
+            viewBox="0 0 18 24"
+            width="30"
           >
             <path
               clip-rule="evenodd"
-              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              d="M9.103 2c-1.485 0-1.946.879-2.342 2l-4.08 11.557h2.706l.942-2.747h5.206l.873 2.747h2.877L11.397 4c-.376-1.117-.81-2-2.294-2zm-.071 3.01h-.069l-1.85 5.479h3.665L9.032 5.01zM15.593 22H2.407v-2.73h13.186V22z"
               fill-rule="evenodd"
             />
           </svg>
@@ -579,14 +579,14 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
           <svg
             fill="currentColor"
             focusable="false"
-            height="32"
+            height="40"
             role="img"
-            viewBox="0 0 21 32"
-            width="21"
+            viewBox="0 0 18 24"
+            width="30"
           >
             <path
               clip-rule="evenodd"
-              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              d="M9.103 2c-1.485 0-1.946.879-2.342 2l-4.08 11.557h2.706l.942-2.747h5.206l.873 2.747h2.877L11.397 4c-.376-1.117-.81-2-2.294-2zm-.071 3.01h-.069l-1.85 5.479h3.665L9.032 5.01zM15.593 22H2.407v-2.73h13.186V22z"
               fill-rule="evenodd"
             />
           </svg>
