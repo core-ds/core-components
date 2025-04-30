@@ -6,9 +6,8 @@ export type ModalDesktopProps = BaseModalProps & {
     /**
      * Ширина модального окна
      * @default 600
-     * @description s, m, l, xl deprecated, используйте вместо них 500, 600, 800, 1140 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 'fullscreen' | 500 | 600 | 800 | 1140;
+    size?: 'fullscreen' | 500 | 600 | 800 | 1140;
 
     /**
      * Растягивает модальное окно на весь экран
