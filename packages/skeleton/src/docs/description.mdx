@@ -23,14 +23,14 @@ render(() => {
                 onChange={() => setVisible((p) => !p)}
             />
 
-            <Gap size='l' />
+            <Gap size={20} />
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Skeleton visible={visible}>
                     <div style={SHAPRE_STYLE} />
                 </Skeleton>
 
-                <Gap size='s' direction='horizontal' />
+                <Gap size={12} direction='horizontal' />
 
                 <Skeleton visible={visible} style={{ borderRadius: 'var(--border-radius-4)' }}>
                     <Status view='contrast'>This is fine</Status>
