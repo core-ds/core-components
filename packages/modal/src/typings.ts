@@ -10,12 +10,6 @@ export type ModalDesktopProps = BaseModalProps & {
     size?: 'fullscreen' | 500 | 600 | 800 | 1140;
 
     /**
-     * Растягивает модальное окно на весь экран
-     * @deprecated Используйте размер fullscreen
-     */
-    fullscreen?: boolean;
-
-    /**
      * Фиксирует позицию модального окна после открытия,
      * предотвращая скачки, если контент внутри будет меняться
      */
@@ -33,7 +27,7 @@ export type ModalDesktopProps = BaseModalProps & {
     iOSLock?: boolean;
 };
 
-export type ModalMobileProps = Omit<ModalDesktopProps, 'size' | 'fixedPosition' | 'fullscreen'>;
+export type ModalMobileProps = Omit<ModalDesktopProps, 'size' | 'fixedPosition'>;
 
 export type ModalResponsiveProps = ModalDesktopProps & {
     /**

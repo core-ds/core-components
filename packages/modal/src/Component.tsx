@@ -17,7 +17,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
         {
             size = 500,
             fixedPosition,
-            fullscreen,
             children,
             className,
             wrapperClassName,
@@ -28,9 +27,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
         },
         ref,
     ) => {
-        // TODO: удалить, после удаления пропсы fullscreen
-        const componentSize = fullscreen ? 'fullscreen' : size;
-
         const modalRef = useRef<HTMLElement>(null);
 
         const handleEntered = (node: HTMLElement, isAppearing: boolean) => {
@@ -56,7 +52,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
                 ? {
                       ref: mergeRefs([ref, modalRef]),
                       wrapperClassName: cn(desktopStyles.wrapper, wrapperClassName, {
-                          [desktopStyles.fullscreen]: componentSize === 'fullscreen',
+                          [desktopStyles.fullscreen]: size === 'fullscreen',
                       }),
                       className: cn(
                           desktopStyles.component,
@@ -64,7 +60,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
                           desktopStyles[getSizeStyle(size)],
                       ),
                       backdropProps: {
-                          invisible: componentSize === 'fullscreen',
+                          invisible: size === 'fullscreen',
                           ...restProps.backdropProps,
                       },
                       transitionProps: {
@@ -87,10 +83,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
                       },
                   };
 
-        const contextValue = useMemo(
-            () => ({ size: componentSize, view, dataTestId }),
-            [componentSize, view, dataTestId],
-        );
+        const contextValue = useMemo(() => ({ size, view, dataTestId }), [size, view, dataTestId]);
 
         return (
             <ResponsiveContext.Provider value={contextValue}>
