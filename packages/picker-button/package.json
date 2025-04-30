@@ -26,6 +26,6 @@
         "tslib": "^2.4.0",
         "@alfalab/core-components-shared": "^0.16.0"
     },
-    "themesVersion": "13.7.2",
+    "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"
 }
