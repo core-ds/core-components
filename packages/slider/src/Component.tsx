@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import noUiSlider, { API, Options } from 'nouislider';
 
@@ -131,8 +131,10 @@ export const Slider: FC<SliderProps> = ({
     onEnd,
     dataTestId,
 }) => {
+    const [syncValues, setSyncValues] = useState(false);
     const sliderRef = useRef<(HTMLDivElement & { noUiSlider: API }) | null>(null);
     const busyRef = useRef<boolean>(false);
+
     const hasValueTo = valueTo !== undefined;
 
     const getSlider = () => sliderRef.current?.noUiSlider;
@@ -167,6 +169,7 @@ export const Slider: FC<SliderProps> = ({
 
         slider.on('change', () => {
             busyRef.current = false;
+            setSyncValues(true);
             onEnd?.();
         });
 
@@ -196,14 +199,16 @@ export const Slider: FC<SliderProps> = ({
         const slider = getSlider();
 
         // Пропускаем обновление, если происходит взаимодействие со слайдером
-        if (slider && busyRef.current === false) {
+        if (slider && (!busyRef.current || syncValues)) {
             if (valueTo) {
                 slider.set([value, valueTo], false);
             } else {
                 slider.set(value, false);
             }
+
+            setSyncValues(false);
         }
-    }, [value, valueTo]);
+    }, [value, valueTo, syncValues]);
 
     useEffect(() => {
         const slider = getSlider();
