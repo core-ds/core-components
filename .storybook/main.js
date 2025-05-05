@@ -170,7 +170,7 @@ module.exports = {
                 }
 
                 resource.request = resource.request.replace(
-                    /^@alfalab\/core-components[-\/]([^\/]+)\/?(.*)/,
+                    /^@alfalab\/core-components[-/]([^/]+)\/?(.*)/,
                     (_, componentName, entrypoint) =>
                         process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
                             ? path.join(
