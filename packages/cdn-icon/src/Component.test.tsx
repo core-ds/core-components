@@ -2,6 +2,7 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 
 import { CDNIcon } from './index';
+import * as useIconModule from './hooks/use-icon';
 
 describe('CDNIcon', () => {
     /*
@@ -36,6 +37,11 @@ describe('CDNIcon', () => {
     });
 
     it('should render fallback node if loading failed', async () => {
+        jest.spyOn(useIconModule, 'useIcon').mockReturnValue([
+            undefined,
+            useIconModule.LoadingStatus.FAILURE,
+        ]);
+
         const fallbackText = 'fallback-node';
         const { container } = render(
             <CDNIcon name='fake' fallback={<span>{fallbackText}</span>} />,
@@ -49,14 +55,17 @@ describe('CDNIcon', () => {
     });
 
     it('should render fallback node if fallback is function', async () => {
+        jest.spyOn(useIconModule, 'useIcon').mockReturnValue([
+            undefined,
+            useIconModule.LoadingStatus.FAILURE,
+        ]);
+
         const fallbackText = 'fallback-fn';
         const fallbackFn = jest.fn(() => <span>{fallbackText}</span>);
-
         const { container } = render(<CDNIcon name='fake' fallback={fallbackFn} />);
 
         await waitFor(() => {
             const span = container.querySelector('span');
-
             expect(span).toBeInTheDocument();
             expect(span).toHaveTextContent(fallbackText);
         });
