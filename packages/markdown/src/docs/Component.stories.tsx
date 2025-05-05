@@ -29,7 +29,7 @@ export const markdown: Story = {
                     <Typography.Title view='xsmall' tag='div' font='system'>
                         ### Markdown
                     </Typography.Title>
-                    <Gap size='m' />
+                    <Gap size={16} />
                     <Typography.Text view='primary-medium'>
                         Облегчённый язык разметки, созданный с целью обозначения форматирования
                         в простом тексте.

@@ -101,13 +101,13 @@ render(() => {
                     ),
                 }}
             />
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch
                 checked={shownChevron}
                 label='Шеврон'
                 onChange={() => setShownChevron((prevState) => !prevState)}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch
                 checked={multiple}
                 label='Мультивыбор'
@@ -118,7 +118,7 @@ render(() => {
             />
             {isMobile() && (
                 <>
-                    <Gap size='m' />
+                    <Gap size={16} />
                     <Switch
                         checked={showInModal}
                         label='Открывать в модалке'
@@ -189,7 +189,7 @@ render(() => {
         <BaseOption {...props}>
             <div style={{ padding: 'var(--gap-12)' }}>
                 <Typography.Text view='component-primary'>{props.option.content}</Typography.Text>
-                <Gap size='2xs' />
+                <Gap size={4} />
                 <Typography.Text view='primary-small' color='secondary'>
                     {props.option.key}
                 </Typography.Text>

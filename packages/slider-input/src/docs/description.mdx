@@ -27,7 +27,7 @@ render(() => {
                 onChange={(_, { value }) => setValue1(value)}
                 breakpoint={BREAKPOINT}
             />
-            <Gap size='xl' />
+            <Gap size={24} />
             <SliderInput
                 value={value2}
                 label='Label'
@@ -101,7 +101,7 @@ render(() => {
                     {...props}
                 />
             </div>
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Space direction='horizontal' wrap={true}>
                 <Button onClick={() => setProps({})} size={32} view='secondary'>

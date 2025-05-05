@@ -19,7 +19,7 @@ render(() => {
         setRightAddonsWithIcon(!rightAddonsWithIcon)
         setRightAddons(false)
     };
-    
+
     const styleAddons = {
         borderRadius: '99px',
         background: 'linear-gradient(264deg, #FF42CA 0%, #FF8A00 100%)',
@@ -30,7 +30,7 @@ render(() => {
         marginLeft: '4px'
     }
 
-    const rightAddonsContent = rightAddons && ( 
+    const rightAddonsContent = rightAddons && (
         <span style={styleAddons}>
             <Typography.Text view='primary-medium' weight='medium' font='system' color='primary-inverted'>
                 Custom
@@ -38,10 +38,10 @@ render(() => {
         </span>
     )
 
-    const rightAddonsWithIconContent = rightAddonsWithIcon && ( 
+    const rightAddonsWithIconContent = rightAddonsWithIcon && (
         <span style={{ marginLeft: '5px', display: "inline-flex" }}>
-            <CDNIcon 
-                color='var(--color-dark-accent-primary)' 
+            <CDNIcon
+                color='var(--color-dark-accent-primary)'
                 name='glyph_diamonds_s'
             />
         </span>
@@ -50,30 +50,30 @@ render(() => {
     return (
         <Container>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    currency={currency && 'RUB'}  
-                    bold='none' 
-                    view={ minor ? 'withZeroMinorPart' : 'default'} 
+                <Amount
+                    value={123456700}
+                    minority={100}
+                    currency={currency && 'RUB'}
+                    bold='none'
+                    view={ minor ? 'withZeroMinorPart' : 'default'}
                     rightAddons={rightAddonsContent || rightAddonsWithIconContent}
                 />
             </Typography.Title>
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <Switch label='Минорная часть' checked={minor} onChange={handleMinorChange} />
-            <Gap size='l'/>
+            <Gap size={20}/>
             <Switch
                 label='Валюта'
                 checked={currency}
                 onChange={handleCurrencyChange}
             />
-            <Gap size='l'/>
+            <Gap size={20}/>
             <Switch
                 label='Кастомный слот'
                 checked={rightAddons}
                 onChange={handleRightAddonsChange}
             />
-            <Gap size='l'/>
+            <Gap size={20}/>
             <Switch
                 label='Кастомный слот с иконкой'
                 checked={rightAddonsWithIcon}
@@ -93,19 +93,19 @@ render(() => {
     const [plus, setPlus] = React.useState(false);
 
     const handlePlusChange = () => setPlus(!plus);
-    
+
     return (
         <Container>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    bold='none' 
+                <Amount
+                    value={123456700}
+                    minority={100}
+                    bold='none'
                     showPlus={plus}
                     view='withZeroMinorPart'
                 />
             </Typography.Title>
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <Switch label='Отображать плюс' checked={plus} onChange={handlePlusChange} />
         </Container>
     );
@@ -121,27 +121,27 @@ render(() => {
     const [minor, setMinor] = React.useState(false);
 
     const handleMinorChange = () => setMinor(!minor);
-    
+
     return (
         <Container>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456789} 
-                    minority={100} 
-                    bold='none' 
+                <Amount
+                    value={123456789}
+                    minority={100}
+                    bold='none'
                     view='withZeroMinorPart'
                 />
             </Typography.Title>
-            <Gap size='l'/>
+            <Gap size={20}/>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    bold='none' 
+                <Amount
+                    value={123456700}
+                    minority={100}
+                    bold='none'
                     view={ minor ? 'default' : 'withZeroMinorPart'}
                 />
             </Typography.Title>
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <Switch label='Не отображать нулевую минорную часть' checked={minor} onChange={handleMinorChange} />
         </Container>
     );
@@ -155,21 +155,21 @@ render(() => {
 ```jsx live
     <Container>
         <Typography.Title font='system' view='medium' weight='regular'>
-            <Amount 
-                value={123400} 
-                minority={100} 
+            <Amount
+                value={123400}
+                minority={100}
                 currency='RUB'
-                bold='none' 
+                bold='none'
             />
         </Typography.Title>
-        <Gap size='l'/>
+        <Gap size={20}/>
         <Typography.Title font='system' view='medium' weight='regular'>
-            <Amount 
-                value={123400} 
-                minority={100} 
+            <Amount
+                value={123400}
+                minority={100}
                 currency='RUB'
                 codeFormat='letter'
-                bold='none' 
+                bold='none'
             />
         </Typography.Title>
     </Container>
@@ -203,16 +203,16 @@ render(() => {
     return (
         <Container>
             <Component font='system' color={textStyle} view={isHeadline ? 'medium' : 'primary-large'} weight={isHeadline ? 'bold' : 'regular'} >
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    bold={!isHeadline && bold} 
+                <Amount
+                    value={123456700}
+                    minority={100}
+                    bold={!isHeadline && bold}
                     currency='RUB'
                     view='withZeroMinorPart'
                     transparentMinor={transparent === 'minor'}
                 />
             </Component>
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <RadioGroup
                     label='Стиль текста'
                     direction='vertical'
@@ -225,7 +225,7 @@ render(() => {
                 <Radio size='m' label='Зелёный текст' value='positive' />
                 <Radio size='m' label='Красный текст' value='accent' />
             </RadioGroup>
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <RadioGroup
                 label='Модификатор «bold»'
                 direction='vertical'
@@ -237,7 +237,7 @@ render(() => {
                 <Radio size='m' label='Только для мажорной части' value='major' />
                 <Radio size='m' label='Для всей суммы' value='full' />
             </RadioGroup>
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <RadioGroup
                 label='Модификатор «transparent»'
                 direction='vertical'
