@@ -54,21 +54,37 @@ describe('CDNIcon', () => {
         });
     });
 
-    it('should render fallback node if fallback is function', async () => {
+    it('should call onError if loading failed', async () => {
         jest.spyOn(useIconModule, 'useIcon').mockReturnValue([
             undefined,
             useIconModule.LoadingStatus.FAILURE,
         ]);
 
-        const fallbackText = 'fallback-fn';
-        const fallbackFn = jest.fn(() => <span>{fallbackText}</span>);
-        const { container } = render(<CDNIcon name='fake' fallback={fallbackFn} />);
+        const onError = jest.fn();
+        render(<CDNIcon name='fake' fallback={{ onError }} />);
+
+        await waitFor(() => {
+            expect(onError).toHaveBeenCalled();
+        });
+    });
+
+    it('should render node and call onError if both provided', async () => {
+        jest.spyOn(useIconModule, 'useIcon').mockReturnValue([
+            undefined,
+            useIconModule.LoadingStatus.FAILURE,
+        ]);
+
+        const fallbackText = 'fallback-both';
+        const onError = jest.fn();
+        const { container } = render(
+            <CDNIcon name='fake' fallback={{ node: <span>{fallbackText}</span>, onError }} />,
+        );
 
         await waitFor(() => {
             const span = container.querySelector('span');
             expect(span).toBeInTheDocument();
             expect(span).toHaveTextContent(fallbackText);
+            expect(onError).toHaveBeenCalled();
         });
-        expect(fallbackFn).toHaveBeenCalled();
     });
 });
