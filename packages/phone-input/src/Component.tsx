@@ -44,9 +44,24 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     ? deleteFormatting(previousConformedValue)
                     : '';
 
-                /*
-                 * Удаляем лишний символ маски при вводе или вставке значений перед знаком + или после него.
-                 */
+                // Вставка номера с 10 или 11 цифрами без кода страны
+                const digits = rawValue.replace(/\D/g, '');
+
+                if ((digits.length === 10 || digits.length === 11) && !rawValue.startsWith('+7')) {
+                    let processedDigits = digits;
+
+                    if (
+                        digits.length === 11 &&
+                        (digits.startsWith('7') || digits.startsWith('8'))
+                    ) {
+                        processedDigits = digits.slice(1);
+                    }
+                    const masked = conformToMask(`+7${processedDigits}`, mask, config);
+
+                    return masked.conformedValue;
+                }
+
+                // Удаление символов маски при вводе не с начала
                 if (previousConformedValue && rawValue.indexOf('+7') !== 0) {
                     const newRaw = deleteMaskChar(previousValueWithoutFormatting, rawValue);
 
@@ -86,23 +101,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     return rawValue;
                 }
 
-                // Вставка номера с 10 цифрами без кода страны
-                if (rawValue.length === 10 && conformedValue.length === mask.length) {
-                    const masked = conformToMask(`+7${rawValue}`, mask, config);
-
-                    return masked.conformedValue;
-                }
-
-                /*
-                 * Код нужен для исправления ошибки в библиотеке text-mask: если цифра 7 находится на второй позиции при вставке, то она удаляется
-                 * Это происходит потому что цифра 7 есть уже в маске
-                 */
-                if (rawValue[1] === '7') {
-                    const masked = conformToMask(`+7${rawValue}`, mask, config);
-
-                    return masked.conformedValue;
-                }
-
                 const insertedNumber = getInsertedNumber({
                     rawValue,
                     clearableCountryCode,
@@ -112,8 +110,8 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
                 // Вставка номера, начинающегося с 8 или 7: 89990313131, 71112223344
                 if (
-                    conformedValue.length === mask.length &&
-                    (insertedNumber.startsWith('8') || insertedNumber.startsWith('7'))
+                    (insertedNumber.startsWith('7') || insertedNumber.startsWith('8')) &&
+                    insertedNumber.length >= 10
                 ) {
                     const masked = conformToMask(`+7${insertedNumber.slice(1)}`, mask, config);
 
@@ -125,14 +123,11 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     return countryPrefix;
                 }
 
-                const abortCountryCodeClearing = !clearableCountryCode && !conformedValue;
-
-                if (abortCountryCodeClearing) {
+                // Запрет на удаление кода страны
+                if (!clearableCountryCode && !conformedValue) {
                     setCaretPosition({ position: countryPrefix.length, inputRef });
 
-                    if (!rawValue.length) return countryPrefix;
-
-                    return false;
+                    return rawValue.length ? false : countryPrefix;
                 }
 
                 return conformedValue;
