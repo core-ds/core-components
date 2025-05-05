@@ -14,7 +14,11 @@ describe('CDNIcon', () => {
 
     it('should pass an invalid value to the `name` prop', async () => {
         const { container } = render(<CDNIcon name='fake-fake-fake' />);
-        await waitFor(() => expect(container.querySelector('span')).toHaveTextContent(''));
+        await waitFor(() => {
+            const span = container.querySelector('span');
+            expect(span).toBeInTheDocument();
+            expect(span).toBeEmptyDOMElement();
+        });
     });
 
     it('should use the `color` prop', async () => {
@@ -29,5 +33,33 @@ describe('CDNIcon', () => {
         const { container } = render(<CDNIcon name='name' className={className} />);
 
         expect(container.firstElementChild).toHaveClass('class');
+    });
+
+    it('should render fallback node if loading failed', async () => {
+        const fallbackText = 'fallback-node';
+        const { container } = render(
+            <CDNIcon name='fake' fallback={<span>{fallbackText}</span>} />,
+        );
+
+        await waitFor(() => {
+            const span = container.querySelector('span');
+            expect(span).toBeInTheDocument();
+            expect(span).toHaveTextContent(fallbackText);
+        });
+    });
+
+    it('should render fallback node if fallback is function', async () => {
+        const fallbackText = 'fallback-fn';
+        const fallbackFn = jest.fn(() => <span>{fallbackText}</span>);
+
+        const { container } = render(<CDNIcon name='fake' fallback={fallbackFn} />);
+
+        await waitFor(() => {
+            const span = container.querySelector('span');
+
+            expect(span).toBeInTheDocument();
+            expect(span).toHaveTextContent(fallbackText);
+        });
+        expect(fallbackFn).toHaveBeenCalled();
     });
 });

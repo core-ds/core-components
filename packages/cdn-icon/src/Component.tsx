@@ -31,7 +31,7 @@ type CDNIconProps = {
     /**
      * Fallback на случай, если не удастся загрузить иконку
      */
-    fallback?: ReactNode;
+    fallback?: ReactNode | (() => ReactNode);
 };
 
 export const CDNIcon: React.FC<CDNIconProps> = ({
@@ -43,8 +43,13 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     fallback,
 }) => {
     const [icon, status] = useIcon(`${baseUrl}/${name}.svg`);
+    let fallbackNode: ReactNode = null;
 
     const isMonoIcon = !name.includes('_color');
+
+    if (status === LoadingStatus.FAILURE && fallback) {
+        fallbackNode = typeof fallback === 'function' ? fallback() : fallback;
+    }
 
     return (
         <span
@@ -59,7 +64,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
                 status === LoadingStatus.SUCCESS ? { __html: icon! } : undefined
             }
         >
-            {status === LoadingStatus.FAILURE ? fallback : undefined}
+            {fallbackNode}
         </span>
     );
 };
