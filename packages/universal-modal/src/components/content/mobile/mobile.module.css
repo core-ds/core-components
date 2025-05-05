@@ -4,7 +4,7 @@
     padding: var(--gap-16) var(--gap-16) var(--gap-0);
 
     &:last-child {
-        padding-bottom: calc(var(--sab) + var(--gap-16));
+        padding-bottom: var(--gap-16);
     }
 
     &.withFooter {

@@ -6,9 +6,5 @@
 
     &:last-child {
         padding-bottom: var(--gap-16);
-
-        @media (display-mode: standalone) {
-            padding-bottom: calc(var(--sab) + var(--gap-16));
-        }
     }
 }
