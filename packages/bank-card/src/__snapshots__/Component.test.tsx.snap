@@ -68,7 +68,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-56"
             >
               <button
                 class="usePhoto"
@@ -185,7 +185,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-56"
             >
               <button
                 class="usePhoto"
@@ -300,7 +300,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-56"
             >
               <button
                 class="usePhoto"
@@ -415,7 +415,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-56"
             >
               <button
                 class="usePhoto"
@@ -514,7 +514,7 @@ exports[`BankCard Snapshots tests should match snapshots 5`] = `
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-56"
             >
               <button
                 class="usePhoto"
@@ -629,7 +629,7 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-56"
             >
               <button
                 class="usePhoto"
