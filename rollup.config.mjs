@@ -10,11 +10,10 @@ import {
 } from './tools/rollup/core-components-resolver.mjs';
 import { processCss } from './tools/rollup/process-css.mjs';
 import { pkg, currentComponentName } from './tools/rollup/common.mjs';
-import { externalsWithEntryPoints } from './tools/rollup/external-with-entry-points.mjs';
 
 const externals = [
-    ...externalsWithEntryPoints(Object.keys(pkg.dependencies || {})),
-    ...Object.keys(pkg.peerDependencies || {}),
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg.peerDependencies ?? {}),
 ];
 
 /**

@@ -1,28 +1,36 @@
 /**
  * Заменяет импорты компонентов для сборки modern/cssm/moderncssm/esm
+ *
+ * @param {string} buildPath путь до сборки
+ * @returns {import('rollup').Plugin}
  */
 export const coreComponentsResolver = (buildPath) => ({
     name: 'core-components-resolver',
     resolveId: (id) => {
-        if (id.includes('@alfalab/core-components')) {
-            const m = /(@alfalab\/core-components-[^/]+)(.*)?$/.exec(id);
-            if (m) {
-                const componentName = m[1];
-                const emtryPoint = m[2] ?? '';
+        const match = id.match(/^(@alfalab\/core-components-[^/]+)\/?(.*)$/);
 
-                return { id: `${componentName}/${buildPath}${emtryPoint}`, external: true };
-            }
+        if (match) {
+            const [, componentName, entryPoint] = match;
+
+            return {
+                id: [componentName, buildPath, entryPoint].filter(Boolean).join('/'),
+                external: true,
+            };
         }
     },
 });
 
 /**
- * Заменяет настройку external. Нужно, чтобы дать возможность отработать плагину coreComponentsResolver
+ * Заменяет настройку external. Нужно, чтобы дать возможность отработать плагину {@link coreComponentsResolver}
+ *
+ * @see [Rollup external](https://rollupjs.org/configuration-options/#external)
+ * @param {string[]} externals массив внешних зависимостей
+ * @returns {import('rollup').Plugin}
  */
 export const externalsResolver = (externals) => ({
     name: 'externals-resolver',
     resolveId: (id) => {
-        if (externals.includes(id)) {
+        if (externals.some((external) => id.startsWith(external))) {
             return { id, external: true };
         }
     },
