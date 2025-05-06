@@ -1,0 +1,20 @@
+@import '../../vars/src/index.css';
+
+:root {
+    --scrollbar-rail-size: 12px;
+    --scrollbar-thumb-size: 4px;
+    --scrollbar-hover-size: 6px;
+    --scrollbar-thumb-border-radius: 3px;
+    --scrollbar-thumb-side-outer-offset: var(--gap-4);
+    --scrollbar-thumb-margin: 3px;
+
+    /* default */
+    --scrollbar-background-color: var(--color-light-neutral-translucent-500);
+    --scrollbar-background-color-active: var(--color-light-neutral-translucent-500-press);
+
+    /* inverted */
+    --scrollbar-inverted-background-color: var(--color-light-neutral-translucent-500-inverted);
+    --scrollbar-inverted-background-color-active: var(
+        --color-light-neutral-translucent-500-inverted-press
+    );
+}

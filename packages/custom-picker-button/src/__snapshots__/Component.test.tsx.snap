@@ -234,7 +234,6 @@ exports[`Snapshots tests should display opened correctly 2`] = `
           class="optionsListWrapper"
           id="downshift-:r3:-menu"
           role="listbox"
-          style="min-width: 0px;"
         >
           <div
             class="optionsList size-56"
@@ -637,7 +636,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
           class="optionsListWrapper"
           id="downshift-:r7:-menu"
           role="listbox"
-          style="min-width: 0px;"
         >
           <div
             class="optionsList size-56"
@@ -1040,7 +1038,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
           class="optionsListWrapper"
           id="downshift-:rb:-menu"
           role="listbox"
-          style="min-width: 0px;"
         >
           <div
             class="optionsList size-56"

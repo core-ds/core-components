@@ -1,13 +1,13 @@
-@import './vars.css';
+@import '../vars.css';
 
 .component {
-    & :global(.scrollbar) {
+    & :global(.simplebar-scrollbar) {
         &:before {
             background-color: var(--scrollbar-inverted-background-color);
         }
     }
 
-    &:global(.dragging .track) {
+    &:global(.simplebar-dragging .track) {
         & :global(.scrollbar.visible):before {
             background-color: var(--scrollbar-inverted-background-color-active);
         }
