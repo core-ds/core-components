@@ -1,5 +1,15 @@
 # @alfalab/core-components-select
 
+## 17.20.12
+
+### Patch Changes
+
+<sup><time>06.05.2025</time></sup>
+
+#### [#28](https://github.com/hextion/core-components/pull/28)
+
+-   Патч
+
 ## 17.20.11
 
 ### Patch Changes
