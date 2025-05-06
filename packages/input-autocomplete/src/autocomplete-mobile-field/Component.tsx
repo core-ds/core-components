@@ -1,4 +1,4 @@
-import React, { ElementType, useRef, useState } from 'react';
+import React, { ElementType, Fragment, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import {
@@ -67,17 +67,14 @@ export const AutocompleteMobileField = ({
     const { tabIndex, ...restInnerProps } = innerProps;
 
     const formRightAddons = (Arrow || rightAddons || clearButtonVisible || error || success) && (
-        <React.Fragment>
+        <Fragment>
             {clearButtonVisible && (
                 <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
             )}
             {rightAddons}
             {Arrow}
             {error && (
-                <div
-                    className={cn(styles.errorIcon, styles[`size-${size}`])}
-                    data-addon='error-icon'
-                >
+                <div className={styles.errorIcon} data-addon='error-icon'>
                     <StatusBadge
                         view='negative-alert'
                         size={size === 40 ? 16 : 20}
@@ -86,7 +83,7 @@ export const AutocompleteMobileField = ({
                 </div>
             )}
             {success && !error && (
-                <div className={cn(styles.successIcon, styles[`size-${size}`])}>
+                <div className={styles.successIcon}>
                     <StatusBadge
                         view='positive-checkmark'
                         size={size === 40 ? 16 : 20}
@@ -94,7 +91,7 @@ export const AutocompleteMobileField = ({
                     />
                 </div>
             )}
-        </React.Fragment>
+        </Fragment>
     );
 
     return (
