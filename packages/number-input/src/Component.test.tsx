@@ -108,7 +108,7 @@ describe('NumberInput', () => {
     });
 
     it('should render error icon', () => {
-        const { container } = render(<NumberInput error={true} />);
+        const { container } = render(<NumberInput error={true} showErrorIcon={true} />);
 
         expect(container.getElementsByClassName('errorIcon').length).toBe(1);
     });

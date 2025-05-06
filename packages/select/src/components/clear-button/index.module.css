@@ -1,4 +1,4 @@
-@import '../../../../input/src/vars.css';
+@import '../../../../vars/src/index.css';
 @import '../../vars.css';
 
 .clearIcon {
@@ -12,10 +12,6 @@
     &:active {
         color: var(--color-light-neutral-translucent-500-press);
     }
-}
-
-.clearButton + [data-addon='error-icon'] {
-    display: var(--input-error-icon-display);
 }
 
 .clearButton + * {

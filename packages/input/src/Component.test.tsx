@@ -48,6 +48,7 @@ describe('Input', () => {
                 block={true}
                 dataTestId={dti}
                 error='error message'
+                showErrorIcon={true}
                 leftAddons={<span />}
                 rightAddons={<span />}
             />,
@@ -94,7 +95,7 @@ describe('Input', () => {
     });
 
     it('should render error icon', () => {
-        const { container } = render(<Input error={true} />);
+        const { container } = render(<Input error={true} showErrorIcon={true} />);
 
         expect(container.getElementsByClassName('errorIcon').length).toBe(1);
     });

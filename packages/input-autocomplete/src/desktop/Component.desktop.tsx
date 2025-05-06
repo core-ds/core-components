@@ -26,6 +26,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             readOnly,
             closeOnSelect = false,
             options,
+            showErrorIcon,
             ...restProps
         },
         ref,
@@ -50,6 +51,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
                 inputProps,
                 readOnly,
                 success,
+                showErrorIcon,
             }}
         />
     ),
