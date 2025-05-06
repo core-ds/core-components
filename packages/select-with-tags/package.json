@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-select-with-tags",
-    "version": "8.6.12",
+    "version": "8.6.13",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@balafla/core-components-form-control": "^12.8.3",
-        "@balafla/core-components-select": "^17.20.11",
+        "@balafla/core-components-select": "^17.20.12",
         "@balafla/core-components-tag": "^8.6.8",
         "@balafla/core-components-bottom-sheet": "^6.18.6",
         "@balafla/core-components-mq": "^5.0.0",

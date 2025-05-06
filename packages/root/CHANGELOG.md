@@ -1,5 +1,20 @@
 # @alfalab/core-components
 
+## 49.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-select@17.20.12
+    -   @balafla/core-components-custom-picker-button@2.6.23
+    -   @balafla/core-components-input-autocomplete@12.8.9
+    -   @balafla/core-components-international-phone-input@2.7.11
+    -   @balafla/core-components-intl-phone-input@9.12.4
+    -   @balafla/core-components-picker-button@11.12.23
+    -   @balafla/core-components-select-with-tags@8.6.13
+    -   @balafla/core-components-table@2.10.8
+    -   @balafla/core-components-tabs@8.12.24
+
 ## 49.0.0
 
 ### Major Changes
