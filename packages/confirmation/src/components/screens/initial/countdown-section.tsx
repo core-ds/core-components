@@ -1,9 +1,9 @@
-import React, { FC, Fragment,ReactNode, useContext } from 'react';
+import React, { FC, Fragment, ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 import { Spinner } from '@alfalab/core-components-spinner';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes } from '../../../utils';
@@ -29,7 +29,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         useContext(ConfirmationContext);
 
     const renderText = (content: ReactNode) => (
-        <Text
+        <TypographyText
             className={cn(styles.countdownContainer, {
                 [styles.countdownMobile]: mobile,
                 [styles.typographyTheme]: !mobile,
@@ -38,7 +38,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
             tag='div'
         >
             {content}
-        </Text>
+        </TypographyText>
     );
 
     if (codeSendHintVisible) return renderText(texts.codeSended);
@@ -79,7 +79,8 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
 
     return renderText(
         <Fragment>
-            {texts.countdown}{'\u00A0'}
+            {texts.countdown}
+            {'\u00A0'}
             <time className={styles.timeCounter}>{formatMsAsMinutes(timeLeft)}</time>
         </Fragment>,
     );

@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { getPhoneHref } from '../../../utils';
@@ -33,7 +33,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.hintTitle}</Header>
 
-            <Text
+            <TypographyText
                 view='primary-medium'
                 color='primary'
                 className={cn(styles.text, {
@@ -42,7 +42,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 })}
             >
                 {texts.hintDescription}
-            </Text>
+            </TypographyText>
 
             <div
                 className={cn(styles.phonesWrap, {
@@ -57,7 +57,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     >
                         {internationalPhone}
                     </Link>
-                    <Text
+                    <TypographyText
                         view='primary-medium'
                         color='primary'
                         className={cn(styles.text, {
@@ -68,7 +68,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         {mobile
                             ? 'В\u00A0Москве и\u00A0за\u00A0границей'
                             : ' \u2014\u00A0в\u00A0Москве и\u00A0за\u00A0границей'}
-                    </Text>
+                    </TypographyText>
                 </div>
 
                 <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
@@ -79,7 +79,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     >
                         {domesticPhone}
                     </Link>
-                    <Text
+                    <TypographyText
                         view='primary-medium'
                         color='primary'
                         className={cn(styles.text, {
@@ -90,11 +90,11 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         {mobile
                             ? 'Для\u00A0звонков по\u00A0России'
                             : ' \u2014\u00A0для звонков по\u00A0России'}
-                    </Text>
+                    </TypographyText>
                 </div>
             </div>
 
-            <Text
+            <TypographyText
                 view='primary-medium'
                 color='primary'
                 className={cn(styles.text, {
@@ -103,7 +103,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 })}
             >
                 {texts.hintNotification}
-            </Text>
+            </TypographyText>
             <Button
                 size={mobile ? 'xs' : 's'}
                 view='secondary'
