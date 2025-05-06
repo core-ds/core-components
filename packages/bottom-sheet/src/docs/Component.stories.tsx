@@ -73,7 +73,7 @@ export const bottom_sheet: Story = {
                             <Button
                                 view={isPreview ? 'primary' : 'secondary'}
                                 block={true}
-                                size='s'
+                                size={48}
                                 onClick={handleClose}
                             >
                                 {isPreview ? 'Кнопка' : 'Понятно'}

@@ -194,7 +194,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                 <Button
                     type='button'
                     view='text'
-                    size='xs'
+                    size={40}
                     disabled={day.disabled}
                     className={cn(styles.day, styles[shape], {
                         [styles.dayAddons]: day.dayAddon,

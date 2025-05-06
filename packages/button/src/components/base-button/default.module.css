@@ -91,26 +91,6 @@
     }
 }
 
-.filled {
-    color: var(--color-light-text-primary);
-    background-color: var(--color-light-neutral-translucent-300);
-    border: 1px solid transparent;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--color-light-neutral-translucent-300-hover);
-        }
-    }
-
-    &:active {
-        background-color: var(--color-light-neutral-translucent-300-press);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-}
-
 .transparent {
     color: var(--button-transparent-base-color);
     background-color: transparent;
@@ -135,26 +115,6 @@
     }
 }
 
-.link {
-    color: var(--button-link-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-link-hover-bg-color);
-        }
-    }
-
-    &:active {
-        background-color: var(--button-link-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-}
-
 .text {
     background-color: transparent;
     color: var(--button-text-base-color);
@@ -171,21 +131,6 @@
 
     & .hint {
         color: var(--button-text-base-hint-color);
-    }
-}
-
-.ghost {
-    background-color: transparent;
-    color: var(--button-ghost-base-color);
-
-    @media (hover: hover) {
-        &:hover {
-            color: var(--button-ghost-hover-color);
-        }
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
     }
 }
 
@@ -230,16 +175,6 @@
         }
     }
 
-    &.filled {
-        color: var(--color-light-text-tertiary);
-        background-color: var(--color-light-neutral-translucent-100);
-
-        &.loading {
-            color: var(--color-light-text-primary);
-            background-color: var(--color-light-neutral-translucent-300);
-        }
-    }
-
     &.transparent {
         background-color: transparent;
 
@@ -248,23 +183,9 @@
         }
     }
 
-    &.link {
-        background-color: transparent;
-
-        &.loading {
-            color: var(--button-link-base-color);
-        }
-    }
-
     &.text {
         &.loading {
             color: var(--button-text-base-color);
-        }
-    }
-
-    &.ghost {
-        &.loading {
-            color: var(--button-ghost-base-color);
         }
     }
 }

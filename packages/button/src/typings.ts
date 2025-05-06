@@ -9,22 +9,12 @@ export type StyleColors = {
     };
 };
 
-export type ComponentProps = {
+type ComponentProps = {
     /**
      * Тип кнопки
      * @default secondary
      */
-    view?:
-        | 'accent'
-        | 'primary'
-        | 'secondary'
-        | 'outlined'
-        | 'transparent'
-        | 'text'
-        | 'tertiary'
-        | 'filled' // deprecated
-        | 'link' // deprecated
-        | 'ghost'; // deprecated;
+    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text' | 'tertiary';
 
     /**
      * Форма кнопки
@@ -56,9 +46,8 @@ export type ComponentProps = {
     /**
      * Размер компонента
      * @default 56
-     * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 32 | 40 | 48 | 56 | 64 | 72;
+    size?: 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера

@@ -132,7 +132,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     <React.Fragment>
                         <ButtonMobile
                             view='secondary'
-                            size='m'
+                            size={56}
                             block={true}
                             onClick={handleClear}
                             dataTestId={getDataTestId(dataTestId, 'btn-reset')}
@@ -141,7 +141,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         </ButtonMobile>
                         <ButtonMobile
                             view='primary'
-                            size='m'
+                            size={56}
                             block={true}
                             onClick={handleApply}
                             disabled={selectButtonDisabled}
@@ -161,7 +161,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 return (
                     <ButtonMobile
                         view='primary'
-                        size='m'
+                        size={56}
                         block={true}
                         onClick={handleApply}
                         dataTestId={getDataTestId(dataTestId, 'btn-apply')}
@@ -174,7 +174,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             return (
                 <ButtonMobile
                     view='secondary'
-                    size='m'
+                    size={56}
                     block={true}
                     onClick={handleClose}
                     dataTestId={getDataTestId(dataTestId, 'btn-reset')}
