@@ -12,6 +12,7 @@ export function useTimer(
     time: number,
     active = true,
     counting: 'forward' | 'backward',
+    onFinish: () => void,
     interval = 1000,
     step = 1,
 ): [value: number, title: string] {
@@ -21,6 +22,10 @@ export function useTimer(
 
     useEffect(() => {
         if (!active || isCompleted) {
+            if (isCompleted) {
+                onFinish();
+            }
+
             return noop;
         }
 
@@ -29,7 +34,7 @@ export function useTimer(
         }, interval);
 
         return () => clearInterval(timer);
-    }, [interval, isCompleted, active, step]);
+    }, [interval, isCompleted, active, step, onFinish]);
 
     return [persentValue, makeTitle(counting === 'backward' ? time - passedTime : passedTime)];
 }
