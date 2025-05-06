@@ -26,6 +26,8 @@
 
 .arrow {
     z-index: 1;
+    position: absolute;
+    bottom: 100%;
 }
 
 .arrow:after {

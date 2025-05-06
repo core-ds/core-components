@@ -442,7 +442,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         <Popover
                             open={open}
                             useAnchorWidth={useAnchorWidth}
-                            anchorElement={inputWrapperRef.current as HTMLElement}
+                            anchorElement={inputWrapperRef}
                             popperClassName={cn(styles.calendarContainer, {
                                 [styles.calendarResponsive]: calendarResponsive,
                             })}

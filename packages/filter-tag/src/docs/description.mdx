@@ -97,7 +97,7 @@ render(() => {
     };
 
     // Диапазон значений
-    const [filterTag, setFilterTag] = React.useState(null);
+    const filterTagRef = React.useRef(null);
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState();
     const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
@@ -117,10 +117,6 @@ render(() => {
         if (selectedFrom) {
             setOpen(false);
         }
-    };
-
-    const handleFilterTagRef = (node) => {
-        setFilterTag(node);
     };
 
     const handleBlur = (ref, handleClick) => {
@@ -143,7 +139,7 @@ render(() => {
     const calendarRef = React.useRef(null);
 
     handleBlur(calendarRef, (event) => {
-        if (filterTag && !filterTag.contains(event.target)) {
+        if (filterTag.current && !filterTag.current.contains(event.target)) {
             handleOpen();
         }
     });
@@ -206,7 +202,7 @@ render(() => {
             />
             <Gap size='m' />
             <Popover
-                anchorElement={filterTag}
+                anchorElement={filterTagRef}
                 offset={[0, 4]}
                 open={open}
                 preventFlip={true}
@@ -225,7 +221,7 @@ render(() => {
             </Popover>
 
             <FilterTag
-                ref={handleFilterTagRef}
+                ref={filterTagRef}
                 size={32}
                 onClick={handleOpen}
                 onClear={handleClear}
