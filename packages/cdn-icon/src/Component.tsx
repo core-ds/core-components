@@ -1,7 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { isValidElement, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { LoadingStatus, useIcon } from './hooks/use-icon';
+import { isFallbackObject, TFallbackObject } from './utils';
 
 import styles from './index.module.css';
 
@@ -30,8 +31,9 @@ type CDNIconProps = {
 
     /**
      * Fallback на случай, если не удастся загрузить иконку
+     * @deprecated ReactNode (fallback={<SomeIcon />}) устарел, используйте объект { node, onError }
      */
-    fallback?: ReactNode;
+    fallback?: ReactNode | TFallbackObject;
 };
 
 export const CDNIcon: React.FC<CDNIconProps> = ({
@@ -43,8 +45,18 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     fallback,
 }) => {
     const [icon, status] = useIcon(`${baseUrl}/${name}.svg`);
+    let fallbackNode: ReactNode = null;
 
     const isMonoIcon = !name.includes('_color');
+
+    if (status === LoadingStatus.FAILURE && fallback) {
+        if (isValidElement(fallback)) {
+            fallbackNode = fallback;
+        } else if (isFallbackObject(fallback)) {
+            fallback?.onError?.();
+            fallbackNode = fallback.node ?? null;
+        }
+    }
 
     return (
         <span
@@ -59,7 +71,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
                 status === LoadingStatus.SUCCESS ? { __html: icon! } : undefined
             }
         >
-            {status === LoadingStatus.FAILURE ? fallback : undefined}
+            {fallbackNode}
         </span>
     );
 };
