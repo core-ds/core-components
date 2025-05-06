@@ -1,5 +1,21 @@
 # @alfalab/core-components-slider-input
 
+## 9.2.3
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-input@15.5.4
+    -   @balafla/core-components-slider@4.7.4
+
 ## 9.2.2
 
 ### Patch Changes

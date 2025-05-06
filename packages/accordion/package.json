@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-accordion",
-    "version": "1.2.9",
+    "version": "1.2.10",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,9 +18,9 @@
         "tslib": "^2.4.0",
         "@alfalab/icons-glyph": "^2.210.0",
         "@juggle/resize-observer": "^3.3.1",
-        "@balafla/core-components-typography": "^4.12.0",
-        "@balafla/core-components-shared": "^0.16.0"
+        "@balafla/core-components-typography": "^4.12.1",
+        "@balafla/core-components-shared": "^0.16.1"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

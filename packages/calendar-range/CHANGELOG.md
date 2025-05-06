@@ -1,5 +1,23 @@
 # @alfalab/core-components-calendar-range
 
+## 7.8.14
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-calendar@7.18.1
+    -   @balafla/core-components-calendar-input@10.4.26
+    -   @balafla/core-components-date-input@4.4.16
+    -   @balafla/core-components-shared@0.16.1
+
 ## 7.8.13
 
 ### Patch Changes

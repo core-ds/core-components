@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-select-with-tags",
-    "version": "8.6.11",
+    "version": "8.6.12",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,18 +15,18 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-form-control": "^12.8.2",
-        "@balafla/core-components-select": "^17.20.10",
-        "@balafla/core-components-tag": "^8.6.7",
-        "@balafla/core-components-bottom-sheet": "^6.18.5",
-        "@balafla/core-components-mq": "^4.4.1",
-        "@balafla/core-components-popover": "^6.3.8",
+        "@balafla/core-components-form-control": "^12.8.3",
+        "@balafla/core-components-select": "^17.20.11",
+        "@balafla/core-components-tag": "^8.6.8",
+        "@balafla/core-components-bottom-sheet": "^6.18.6",
+        "@balafla/core-components-mq": "^5.0.0",
+        "@balafla/core-components-popover": "^7.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

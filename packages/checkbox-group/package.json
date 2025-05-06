@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-checkbox-group",
-    "version": "4.9.0",
+    "version": "4.9.1",
     "description": "Checkbox group",
     "keywords": [],
     "license": "MIT",
@@ -16,10 +16,10 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-mq": "^4.4.1",
+        "@balafla/core-components-mq": "^5.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

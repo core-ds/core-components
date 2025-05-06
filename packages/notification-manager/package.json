@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-notification-manager",
-    "version": "5.8.9",
+    "version": "6.0.0",
     "description": "Notification manager",
     "keywords": [],
     "license": "MIT",
@@ -12,17 +12,17 @@
     },
     "sideEffects": false,
     "peerDependencies": {
-        "@balafla/core-components-stack-context": "^0.0.0",
+        "@balafla/core-components-stack-context": "^1.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-notification": "^7.5.9",
-        "@balafla/core-components-portal": "^3.3.7",
-        "@balafla/core-components-stack": "^5.0.1",
+        "@balafla/core-components-notification": "^8.0.0",
+        "@balafla/core-components-portal": "^3.3.8",
+        "@balafla/core-components-stack": "^6.0.0",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

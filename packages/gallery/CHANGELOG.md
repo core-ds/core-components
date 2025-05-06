@@ -1,5 +1,33 @@
 # @alfalab/core-components-gallery
 
+## 5.11.9
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+-   Фикс импорта `icon-view`
+-   Фикс tsconfig
+
+-   Обновлены зависимости
+    -   @balafla/core-components-base-modal@6.0.0
+    -   @balafla/core-components-icon-button@6.11.10
+    -   @balafla/core-components-icon-view@3.10.1
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-spinner@4.0.6
+    -   @balafla/core-components-tooltip@7.9.8
+    -   @balafla/core-components-typography@4.12.1
+
 ## 5.11.8
 
 ### Patch Changes

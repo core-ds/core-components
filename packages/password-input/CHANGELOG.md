@@ -1,5 +1,29 @@
 # @alfalab/core-components-password-input
 
+## 5.8.0
+
+### Minor Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1615](https://github.com/core-ds/core-components/pull/1615)
+
+-   fix(input): Добавлен props `passwordHint` в компонент `PasswordInput` для возможности управлять текстом подсказки
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-icon-button@6.11.10
+    -   @balafla/core-components-input@15.5.4
+
 ## 5.7.3
 
 ### Patch Changes

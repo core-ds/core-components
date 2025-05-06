@@ -1,5 +1,17 @@
 # @alfalab/core-components-segmented-control
 
+## 1.7.4
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
 ## 1.7.3
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # @alfalab/core-components-modal
 
+## 9.9.11
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-base-modal@6.0.0
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-navigation-bar-private@0.8.1
+    -   @balafla/core-components-shared@0.16.1
+
 ## 9.9.10
 
 ### Patch Changes

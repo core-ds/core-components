@@ -1,5 +1,20 @@
 # @alfalab/core-components-custom-button
 
+## 3.12.5
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-button@11.11.7
+
 ## 3.12.4
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # @alfalab/core-components-select-with-tags
 
+## 8.6.12
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-bottom-sheet@6.18.6
+    -   @balafla/core-components-form-control@12.8.3
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-popover@7.0.0
+    -   @balafla/core-components-select@17.20.11
+    -   @balafla/core-components-tag@8.6.8
+
 ## 8.6.11
 
 ### Patch Changes

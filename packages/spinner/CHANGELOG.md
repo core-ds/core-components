@@ -1,5 +1,26 @@
 # @alfalab/core-components-spinner
 
+## 4.0.6
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1621](https://github.com/core-ds/core-components/pull/1621)
+
+-   Для компонента `Spinner` добавлено дополнительное свойство box-sizing: content-box для исправления глобального влияния box-sizing: border-box.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-shared@0.16.1
+
 ## 4.0.5
 
 ### Patch Changes

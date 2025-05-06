@@ -1,5 +1,22 @@
 # @alfalab/core-components-table
 
+## 2.10.7
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-button@11.11.7
+    -   @balafla/core-components-pagination@2.4.12
+    -   @balafla/core-components-select@17.20.11
+
 ## 2.10.6
 
 ### Patch Changes

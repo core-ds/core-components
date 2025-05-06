@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-custom-picker-button",
-    "version": "2.6.21",
+    "version": "2.6.22",
     "description": "Custom picker button component",
     "keywords": [],
     "license": "MIT",
@@ -16,13 +16,13 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-picker-button": "^11.12.21",
-        "@balafla/core-components-custom-button": "^3.12.4",
-        "@balafla/core-components-mq": "^4.4.1",
-        "@balafla/core-components-select": "^17.20.10",
+        "@balafla/core-components-picker-button": "^11.12.22",
+        "@balafla/core-components-custom-button": "^3.12.5",
+        "@balafla/core-components-mq": "^5.0.0",
+        "@balafla/core-components-select": "^17.20.11",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

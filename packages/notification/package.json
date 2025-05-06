@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-notification",
-    "version": "7.5.9",
+    "version": "8.0.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -12,20 +12,20 @@
     },
     "sideEffects": false,
     "peerDependencies": {
-        "@balafla/core-components-stack-context": "^0.0.0",
+        "@balafla/core-components-stack-context": "^1.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-portal": "^3.3.7",
-        "@balafla/core-components-stack": "^5.0.1",
-        "@balafla/core-components-toast-plate": "^7.3.10",
-        "@balafla/core-components-shared": "^0.16.0",
+        "@balafla/core-components-portal": "^3.3.8",
+        "@balafla/core-components-stack": "^6.0.0",
+        "@balafla/core-components-toast-plate": "^7.3.11",
+        "@balafla/core-components-shared": "^0.16.1",
         "classnames": "^2.5.1",
         "element-closest": "^3.0.2",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^7.0.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

@@ -1,5 +1,25 @@
 # @alfalab/core-components-confirmation
 
+## 13.9.11
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-button@11.11.7
+    -   @balafla/core-components-code-input@3.9.8
+    -   @balafla/core-components-link@5.3.5
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-spinner@4.0.6
+    -   @balafla/core-components-typography@4.12.1
+
 ## 13.9.10
 
 ### Patch Changes

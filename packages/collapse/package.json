@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-collapse",
-    "version": "4.5.4",
+    "version": "4.5.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-link": "^5.3.4",
+        "@balafla/core-components-link": "^5.3.5",
         "@alfalab/icons-glyph": "^2.210.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
@@ -25,6 +25,6 @@
     "devDependencies": {
         "@types/lodash": "^4.17.13"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

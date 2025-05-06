@@ -1,7 +1,7 @@
 {
     "name": "@balafla/core-components-markdown",
     "description": "",
-    "version": "1.6.10",
+    "version": "1.6.11",
     "main": "index.js",
     "license": "MIT",
     "publishConfig": {
@@ -15,16 +15,16 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-typography": "^4.12.0",
-        "@balafla/core-components-list": "^3.5.1",
-        "@balafla/core-components-link": "^5.3.4",
-        "@balafla/core-components-mq": "^4.4.1",
+        "@balafla/core-components-typography": "^4.12.1",
+        "@balafla/core-components-list": "^3.5.2",
+        "@balafla/core-components-link": "^5.3.5",
+        "@balafla/core-components-mq": "^5.0.0",
         "tslib": "^2.4.0",
         "classnames": "^2.5.1",
         "mdast-util-gfm-strikethrough": "^0.2.3",
         "micromark-extension-gfm-strikethrough": "^0.6.5",
         "react-markdown": "6.0.2"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

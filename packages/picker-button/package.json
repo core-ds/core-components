@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-picker-button",
-    "version": "11.12.21",
+    "version": "11.12.22",
     "description": "Picker button component",
     "keywords": [],
     "license": "MIT",
@@ -16,16 +16,16 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-button": "^11.11.6",
-        "@balafla/core-components-mq": "^4.4.1",
-        "@balafla/core-components-select": "^17.20.10",
-        "@balafla/core-components-popover": "^6.3.8",
+        "@balafla/core-components-button": "^11.11.7",
+        "@balafla/core-components-mq": "^5.0.0",
+        "@balafla/core-components-select": "^17.20.11",
+        "@balafla/core-components-popover": "^7.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0",
-        "@balafla/core-components-shared": "^0.16.0"
+        "@balafla/core-components-shared": "^0.16.1"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

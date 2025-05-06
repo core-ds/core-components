@@ -1,5 +1,20 @@
 # @alfalab/core-components-radio-group
 
+## 4.8.1
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-mq@5.0.0
+
 ## 4.8.0
 
 ### Minor Changes

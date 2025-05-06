@@ -1,5 +1,20 @@
 # @alfalab/core-components-phone-input
 
+## 7.5.4
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-masked-input@6.3.35
+
 ## 7.5.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-global-store",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,6 +10,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

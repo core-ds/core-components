@@ -1,5 +1,32 @@
 # @alfalab/core-components-select
 
+## 17.20.11
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-badge@5.6.5
+    -   @balafla/core-components-base-modal@6.0.0
+    -   @balafla/core-components-bottom-sheet@6.18.6
+    -   @balafla/core-components-button@11.11.7
+    -   @balafla/core-components-checkbox@4.9.1
+    -   @balafla/core-components-form-control@12.8.3
+    -   @balafla/core-components-input@15.5.4
+    -   @balafla/core-components-modal@9.9.11
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-popover@7.0.0
+    -   @balafla/core-components-scrollbar@3.2.1
+    -   @balafla/core-components-shared@0.16.1
+    -   @balafla/core-components-skeleton@5.3.1
+
 ## 17.20.10
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-date-range-input",
-    "version": "3.5.25",
+    "version": "3.5.26",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,11 +16,11 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-input": "^15.5.3",
-        "@balafla/core-components-icon-button": "^6.11.9",
-        "@balafla/core-components-calendar": "^7.18.0",
-        "@balafla/core-components-mq": "^4.4.1",
-        "@balafla/core-components-popover": "^6.3.8",
+        "@balafla/core-components-input": "^15.5.4",
+        "@balafla/core-components-icon-button": "^6.11.10",
+        "@balafla/core-components-calendar": "^7.18.1",
+        "@balafla/core-components-mq": "^5.0.0",
+        "@balafla/core-components-popover": "^7.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
@@ -28,6 +28,6 @@
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

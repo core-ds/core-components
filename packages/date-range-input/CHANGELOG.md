@@ -1,5 +1,24 @@
 # @alfalab/core-components-date-range-input
 
+## 3.5.26
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-calendar@7.18.1
+    -   @balafla/core-components-icon-button@6.11.10
+    -   @balafla/core-components-input@15.5.4
+    -   @balafla/core-components-mq@5.0.0
+    -   @balafla/core-components-popover@7.0.0
+
 ## 3.5.25
 
 ### Patch Changes

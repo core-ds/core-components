@@ -1,5 +1,24 @@
 # @alfalab/core-components-pure-cell
 
+## 4.14.7
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-amount@3.10.2
+    -   @balafla/core-components-button@11.11.7
+    -   @balafla/core-components-comment@2.4.10
+    -   @balafla/core-components-shared@0.16.1
+    -   @balafla/core-components-typography@4.12.1
+
 ## 4.14.6
 
 ### Patch Changes

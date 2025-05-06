@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-input-autocomplete",
-    "version": "12.8.7",
+    "version": "12.8.8",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,13 +15,13 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-form-control": "^12.8.2",
-        "@balafla/core-components-input": "^15.5.3",
-        "@balafla/core-components-popover": "^6.3.8",
-        "@balafla/core-components-select": "^17.20.10",
-        "@balafla/core-components-status-badge": "^1.2.3",
-        "@balafla/core-components-shared": "^0.16.0",
-        "@balafla/core-components-mq": "^4.4.1",
+        "@balafla/core-components-form-control": "^12.8.3",
+        "@balafla/core-components-input": "^15.5.4",
+        "@balafla/core-components-popover": "^7.0.0",
+        "@balafla/core-components-select": "^17.20.11",
+        "@balafla/core-components-status-badge": "^1.2.4",
+        "@balafla/core-components-shared": "^0.16.1",
+        "@balafla/core-components-mq": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "lodash": "^4.17.21",
@@ -31,6 +31,6 @@
     "devDependencies": {
         "@types/lodash": "^4.17.13"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

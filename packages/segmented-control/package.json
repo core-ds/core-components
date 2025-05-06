@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-segmented-control",
-    "version": "1.7.3",
+    "version": "1.7.4",
     "description": "SegmentedControl component",
     "keywords": [],
     "license": "MIT",
@@ -21,6 +21,6 @@
         "react-merge-refs": "^1.1.0",
         "@juggle/resize-observer": "^3.3.1"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.19.1"
 }

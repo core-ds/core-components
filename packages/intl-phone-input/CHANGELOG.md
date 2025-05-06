@@ -1,5 +1,21 @@
 # @alfalab/core-components-intl-phone-input
 
+## 9.12.3
+
+### Patch Changes
+
+<sup><time>16.04.2025</time></sup>
+
+#### [#1](https://github.com/hextion/core-components/pull/1)
+
+-   Обновлена сборка.
+-   Добавлены пропущенные зависимости.
+-   Синхронизированы версии зависимостей.
+
+-   Обновлены зависимости
+    -   @balafla/core-components-input-autocomplete@12.8.8
+    -   @balafla/core-components-select@17.20.11
+
 ## 9.12.2
 
 ### Patch Changes
