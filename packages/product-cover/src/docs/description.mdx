@@ -216,22 +216,22 @@ render(() => {
                     onChange={onChangeSizeCard}
                     value={sizeAndAlignCard}
                 >
-                    <Radio label='128х205' value='128-default' size='m' />
+                    <Radio label='128х205' value='128-default' size={24} />
                     <Radio
                         label='40х65 со смещением в правый нижний угол'
                         value='40-default'
-                        size='m'
+                        size={24}
                     />
-                    <Radio label='40х65 со смещением вниз' value='40-bottom' size='m' />
+                    <Radio label='40х65 со смещением вниз' value='40-bottom' size={24} />
                     <Radio
                         label='32х51 со смещением в правый нижний угол'
                         value='32-default'
-                        size='m'
+                        size={24}
                     />
                     <Radio
                         label='16х24 со смещением в правый нижний угол'
                         value='16-default'
-                        size='m'
+                        size={24}
                     />
                 </RadioGroup>
             </Row>
@@ -243,8 +243,8 @@ render(() => {
                     onChange={onChangeNumberOfCards}
                     value={numberOfCards}
                 >
-                    <Radio label='Две' value='2' size='m' />
-                    <Radio label='Больше двух' value='3' size='m' />
+                    <Radio label='Две' value='2' size={24} />
+                    <Radio label='Больше двух' value='3' size={24} />
                 </RadioGroup>
             </Row>
         </Container>
