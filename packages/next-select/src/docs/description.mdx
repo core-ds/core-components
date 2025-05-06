@@ -1,0 +1,66 @@
+## Примеры
+
+У компонента есть стандартные размеры: 16, 24 и 48px.
+
+```jsx live
+const SIZES = [16, 24, 48];
+
+render(() => {
+    const [options, setOptions] = React.useState([
+        // { label: <span>A</span>, value: 'A' },
+        // { label: <span>B</span>, value: 'B' },
+        // { label: <span>C</span>, value: 'C' },
+        // { label: <span>D</span>, value: 'D' },
+        // { label: <span>E</span>, value: 'E' },
+        {
+            label: <span>manager</span>,
+            title: 'manager',
+            options: [
+                { label: <span>Jack</span>, value: 'Jack' },
+                { label: <span>Lucy</span>, value: 'Lucy' },
+            ],
+        },
+        {
+            label: <span>engineer</span>,
+            title: 'engineer',
+            options: [
+                { label: <span>Chloe</span>, value: 'Chloe' },
+                { label: <span>Lucas</span>, value: 'Lucas' },
+                { label: <span>Harry</span>, value: 'Harry' },
+            ],
+        },
+    ]);
+
+    return (
+        <div style={{ width: 320 }}>
+            <NextSelect
+                autoFocus={true}
+                defaultValue={[{ label: 'foo', value: null }]}
+                clear={true}
+                onClear={() => {
+                    console.log('clear');
+                }}
+                disabled={false}
+                search={true}
+                label='Foo'
+                mode='multiple'
+                optionsListWidth='content'
+                visibleOptions={4}
+                onBlur={() => {
+                    console.log('blur');
+                }}
+                onFocus={() => {
+                    console.log('focus');
+                }}
+                onOpenChange={(open) => {
+                    console.log('onOpenChange', open);
+                }}
+                onChange={(values, options) => {
+                    console.log('onChange', values, options);
+                }}
+                options={options}
+            />
+        </div>
+    );
+});
+```

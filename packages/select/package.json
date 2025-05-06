@@ -23,6 +23,7 @@
         "@alfalab/core-components-checkbox": "^4.9.0",
         "@alfalab/core-components-form-control": "^12.8.2",
         "@alfalab/core-components-input": "^15.5.4",
+        "@alfalab/core-components-list": "^3.5.2",
         "@alfalab/core-components-modal": "^9.9.12",
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/core-components-popover": "^6.3.8",

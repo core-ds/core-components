@@ -1,0 +1,46 @@
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.header {
+    border-bottom: 1px solid var(--color-light-neutral-300);
+    transition: border-color 0.2s ease;
+
+    &.transparent {
+        border-bottom-color: transparent;
+    }
+}
+
+.footer {
+    position: sticky;
+    bottom: 0;
+    border-top: 1px solid var(--color-light-neutral-300);
+    transition: border-color 0.2s ease;
+
+    &.transparent {
+        border-top-color: transparent;
+    }
+}
+
+.emptyPlaceholder {
+    color: var(--select-options-list-empty-placeholder-color);
+
+    &,
+    .size48 &,
+    .size56 & {
+        padding: var(--gap-16) var(--gap-12);
+    }
+
+    .size64 &,
+    .size72 & {
+        padding: var(--gap-24) var(--gap-16);
+    }
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}

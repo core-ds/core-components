@@ -1,11 +1,4 @@
-@import '../../vars/src/index.css';
-
-:root {
-    --scrollbar-inverted-background-color: var(--color-light-neutral-translucent-500-inverted);
-    --scrollbar-inverted-background-color-active: var(
-        --color-light-neutral-translucent-500-inverted-press
-    );
-}
+@import './vars.css';
 
 .component {
     & :global(.scrollbar) {
