@@ -32,7 +32,7 @@ async function main() {
         ...rootPkg.packageJson.peerDependencies,
     }).filter((name) => name.startsWith('@alfalab/core-components-'));
 
-    await fs.mkdir('dist');
+    await fs.mkdir('dist', { recursive: true });
 
     await Promise.all(
         packages

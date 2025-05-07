@@ -1,8 +1,11 @@
-const path = require('path');
+const path = require('node:path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { patchWebpackConfig } = require('storybook-addon-live-examples/dist/cjs/utils');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { DefinePlugin, NormalModuleReplacementPlugin } = require('webpack');
+const postcssConfig = require('../postcss.config');
+const postcssImport = require('postcss-import');
+const loadCss = require('postcss-import/lib/load-content');
 
 const cssModuleRegex = /\.module\.css$/;
 const cssRegex = /\.css$/;
@@ -69,7 +72,31 @@ function modifyCssRules(config) {
                     sourceMap: true,
                 },
             },
-            'postcss-loader',
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                        config: process.env.BUILD_STORYBOOK_FROM_DIST === 'true',
+                        plugins: [...postcssConfig.plugins].map((plugin) =>
+                            plugin.postcssPlugin === 'postcss-import'
+                                ? postcssImport({
+                                      warnOnEmpty: false,
+                                      load: async (filename, importOptions) => {
+                                          if (filename.includes('/vars/src/index.css')) {
+                                              // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
+                                              // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
+                                              // https://github.com/postcss/postcss-import/issues/84
+                                              return '/* */';
+                                          }
+
+                                          return loadCss(filename);
+                                      },
+                                  })
+                                : plugin,
+                        ),
+                    },
+                },
+            },
         ],
     };
 }
@@ -165,7 +192,10 @@ module.exports = {
             new NormalModuleReplacementPlugin(/^@alfalab\/core-components[-\/]/, function (
                 resource,
             ) {
-                if (resource.request === '@alfalab/core-components/package.json') {
+                if (
+                    resource.request === '@alfalab/core-components/package.json' ||
+                    resource.request === '@alfalab/core-components-vars/src/index.css'
+                ) {
                     return;
                 }
 

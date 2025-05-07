@@ -8391,7 +8391,7 @@ cosmiconfig-typescript-loader@^2.0.0:
     cosmiconfig "^7"
     ts-node "^10.8.1"
 
-cosmiconfig@9.0.0:
+cosmiconfig@9.0.0, cosmiconfig@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-9.0.0.tgz#34c3fc58287b915f3ae905ab6dc3de258b55ad9d"
   integrity sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==
@@ -13906,6 +13906,11 @@ jiti@^1.18.2:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.18.2.tgz#80c3ef3d486ebf2450d9335122b32d121f2a83cd"
   integrity sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg==
 
+jiti@^1.20.0:
+  version "1.21.7"
+  resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.7.tgz#9dd81043424a3d28458b193d965f0d18a2300ba9"
+  integrity sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==
+
 jju@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/jju/-/jju-1.4.0.tgz#a3abe2718af241a2b2904f84a625970f389ae32a"
@@ -17054,6 +17059,15 @@ postcss-loader@^6.2.1:
     cosmiconfig "^7.0.0"
     klona "^2.0.5"
     semver "^7.3.5"
+
+postcss-loader@^8.1.1:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-8.1.1.tgz#2822589e7522927344954acb55bbf26e8b195dfe"
+  integrity sha512-0IeqyAsG6tYiDRCYKQJLAmgQr47DX6N7sFSWvQxt6AcupX8DIdmykuk/o/tx0Lze3ErGHJEp5OSRxrelC6+NdQ==
+  dependencies:
+    cosmiconfig "^9.0.0"
+    jiti "^1.20.0"
+    semver "^7.5.4"
 
 postcss-logical@^3.0.0:
   version "3.0.0"
