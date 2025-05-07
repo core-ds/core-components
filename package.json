@@ -7,8 +7,9 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/core-ds/core-components.git"
+        "url": "https://github.com/core-ds/core-components"
     },
+    "homepage": "https://core-ds.github.io/core-components",
     "scripts": {
         "build": "bin/build.sh",
         "start": "storybook dev -p 9009",
