@@ -1,11 +1,16 @@
-const path = require('path');
+const path = require('node:path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { patchWebpackConfig } = require('storybook-addon-live-examples/dist/cjs/utils');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const ComponentResolverPlugin = require('./utils/componentsResolver');
-const DefinePlugin = require('webpack').DefinePlugin;
+const { DefinePlugin, NormalModuleReplacementPlugin } = require('webpack');
+const postcssConfig = require('../postcss.config');
+const postcssImport = require('postcss-import');
+const loadCss = require('postcss-import/lib/load-content');
+
 const cssModuleRegex = /\.module\.css$/;
 const cssRegex = /\.css$/;
+const packagesDir = path.resolve(__dirname, '../packages');
+const distDir = path.resolve(__dirname, '../dist');
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -16,8 +21,7 @@ const addDirsForTranspile = (config) => {
                     nestedRule.test.test('.tsx') &&
                     nestedRule.loader.includes('babel-loader')
                 ) {
-                    const paths = [path.resolve(__dirname, '../packages')];
-                    nestedRule.include.push(...paths);
+                    nestedRule.include.push(packagesDir);
                 }
             });
         }
@@ -34,7 +38,7 @@ function modifyCssRules(config) {
     );
 
     group.oneOf[cssRuleIndex] = {
-        test: /\.css$/,
+        test: cssRegex,
         exclude: cssModuleRegex,
         use: [
             {
@@ -60,13 +64,39 @@ function modifyCssRules(config) {
                 loader: 'css-loader',
                 options: {
                     modules: {
+                        namedExport: false,
+                        exportLocalsConvention: 'as-is',
                         localIdentName: '[local]_[hash:base64:5]',
                     },
                     importLoaders: 1,
                     sourceMap: true,
                 },
             },
-            'postcss-loader',
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                        config: process.env.BUILD_STORYBOOK_FROM_DIST === 'true',
+                        plugins: [...postcssConfig.plugins].map((plugin) =>
+                            plugin.postcssPlugin === 'postcss-import'
+                                ? postcssImport({
+                                      warnOnEmpty: false,
+                                      load: async (filename, importOptions) => {
+                                          if (filename.includes('/vars/src/index.css')) {
+                                              // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
+                                              // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
+                                              // https://github.com/postcss/postcss-import/issues/84
+                                              return '/* */';
+                                          }
+
+                                          return loadCss(filename);
+                                      },
+                                  })
+                                : plugin,
+                        ),
+                    },
+                },
+            },
         ],
     };
 }
@@ -127,7 +157,7 @@ module.exports = {
                 ...config.resolve.fallback,
                 querystring: require.resolve('querystring-es3'),
             },
-            plugins: [...config.resolve.plugins, new ComponentResolverPlugin()],
+            plugins: config.resolve.plugins,
             alias: {
                 ...config.resolve.alias,
                 storybook: path.resolve(__dirname),
@@ -157,6 +187,36 @@ module.exports = {
                 plugin.constructor.name,
             );
         });
+
+        config.plugins.unshift(
+            new NormalModuleReplacementPlugin(/^@alfalab\/core-components[-\/]/, function (
+                resource,
+            ) {
+                if (
+                    resource.request === '@alfalab/core-components/package.json' ||
+                    resource.request === '@alfalab/core-components-vars/src/index.css'
+                ) {
+                    return;
+                }
+
+                resource.request = resource.request.replace(
+                    /^@alfalab\/core-components[-/]([^/]+)\/?(.*)/,
+                    (_, componentName, entrypoint) =>
+                        process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
+                            ? path.join(
+                                  distDir,
+                                  componentName,
+                                  entrypoint.startsWith('modern') ? '' : 'modern',
+                                  entrypoint,
+                              )
+                            : path.join(packagesDir, componentName, 'src', entrypoint),
+                );
+
+                if (resource.createData) {
+                    resource.createData.request = resource.request;
+                }
+            }),
+        );
 
         config.plugins.push(
             new MiniCssExtractPlugin({

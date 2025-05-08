@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-portal
 
 ## 3.3.7
 
