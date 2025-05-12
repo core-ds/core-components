@@ -1,5 +1,13 @@
 # @alfalab/core-components-universal-modal
 
+## 1.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0
+    -   @balafla/core-components-navigation-bar-private@0.8.2
+
 ## 1.0.6-next.0
 
 ### Patch Changes

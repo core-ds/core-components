@@ -1,5 +1,12 @@
 # @alfalab/core-components-table
 
+## 2.10.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-select@17.20.13
+
 ## 2.10.9-next.0
 
 ### Patch Changes

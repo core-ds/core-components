@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-universal-modal",
-    "version": "1.0.6-next.0",
+    "version": "1.0.6",
     "description": "UniversalModal component",
     "keywords": [],
     "license": "MIT",
@@ -17,11 +17,11 @@
     "dependencies": {
         "@balafla/core-components-base-modal": "^6.0.0",
         "@balafla/core-components-mq": "^5.0.0",
-        "@balafla/core-components-navigation-bar-private": "^0.8.2-next.0",
+        "@balafla/core-components-navigation-bar-private": "^0.8.2",
         "@balafla/core-components-shared": "^0.16.1",
         "@balafla/core-components-button": "^11.11.7",
         "@balafla/core-components-scrollbar": "^3.2.1",
-        "@balafla/core-components-typography": "^5.0.0-next.0",
+        "@balafla/core-components-typography": "^5.0.0",
         "@balafla/core-components-backdrop": "^3.4.6",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"

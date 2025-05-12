@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-pure-cell",
-    "version": "4.14.8-next.0",
+    "version": "4.14.8",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,8 +18,8 @@
     "dependencies": {
         "@balafla/core-components-amount": "^3.10.2",
         "@balafla/core-components-button": "^11.11.7",
-        "@balafla/core-components-typography": "^5.0.0-next.0",
-        "@balafla/core-components-comment": "^2.4.11-next.0",
+        "@balafla/core-components-typography": "^5.0.0",
+        "@balafla/core-components-comment": "^2.4.11",
         "@balafla/core-components-shared": "^0.16.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/data": "^1.9.1",

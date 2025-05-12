@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-confirmation",
-    "version": "13.9.12-next.0",
+    "version": "13.9.12",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
         "@balafla/core-components-code-input": "^3.9.8",
         "@balafla/core-components-link": "^5.3.5",
         "@balafla/core-components-spinner": "^4.0.6",
-        "@balafla/core-components-typography": "^5.0.0-next.0",
+        "@balafla/core-components-typography": "^5.0.0",
         "@balafla/core-components-mq": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",

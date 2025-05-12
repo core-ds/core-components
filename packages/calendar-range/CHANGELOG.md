@@ -1,5 +1,13 @@
 # @alfalab/core-components-calendar-range
 
+## 7.8.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-calendar@7.18.2
+    -   @balafla/core-components-calendar-input@10.4.27
+
 ## 7.8.15-next.0
 
 ### Patch Changes
