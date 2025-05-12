@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-calendar-input",
-    "version": "10.4.26",
+    "version": "10.4.27",
     "description": "Calendar input component",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-calendar": "^7.18.1",
+        "@balafla/core-components-calendar": "^7.18.2",
         "@balafla/core-components-date-input": "^4.4.16",
         "@balafla/core-components-mq": "^5.0.0",
         "@balafla/core-components-popover": "^7.0.0",

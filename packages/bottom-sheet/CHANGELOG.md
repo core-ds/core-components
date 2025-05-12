@@ -1,5 +1,19 @@
 # @alfalab/core-components-bottom-sheet
 
+## 6.18.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-navigation-bar-private@0.8.2
+
+## 6.18.7-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-navigation-bar-private@0.8.2-next.0
+
 ## 6.18.6
 
 ### Patch Changes

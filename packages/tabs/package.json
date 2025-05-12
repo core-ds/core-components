@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-tabs",
-    "version": "8.12.24",
+    "version": "8.12.25",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -17,7 +17,7 @@
     "dependencies": {
         "@balafla/core-components-keyboard-focusable": "^4.1.2",
         "@balafla/core-components-tag": "^8.6.8",
-        "@balafla/core-components-picker-button": "^11.12.23",
+        "@balafla/core-components-picker-button": "^11.12.24",
         "@balafla/core-components-badge": "^5.6.5",
         "@balafla/core-components-mq": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",

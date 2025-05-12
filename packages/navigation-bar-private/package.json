@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-navigation-bar-private",
-    "version": "0.8.1",
+    "version": "0.8.2",
     "description": "Navigation bar private component",
     "keywords": [],
     "license": "MIT",
@@ -14,7 +14,7 @@
     "dependencies": {
         "@balafla/core-components-icon-button": "^6.11.10",
         "@balafla/core-components-button": "^11.11.7",
-        "@balafla/core-components-typography": "^4.12.1",
+        "@balafla/core-components-typography": "^5.0.0",
         "@balafla/core-components-shared": "^0.16.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",

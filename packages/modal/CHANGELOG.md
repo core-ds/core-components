@@ -1,5 +1,19 @@
 # @alfalab/core-components-modal
 
+## 9.9.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-navigation-bar-private@0.8.2
+
+## 9.9.12-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-navigation-bar-private@0.8.2-next.0
+
 ## 9.9.11
 
 ### Patch Changes

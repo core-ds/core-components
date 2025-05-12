@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-input-autocomplete",
-    "version": "12.8.9",
+    "version": "12.8.10",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,7 +18,7 @@
         "@balafla/core-components-form-control": "^12.8.3",
         "@balafla/core-components-input": "^15.5.4",
         "@balafla/core-components-popover": "^7.0.0",
-        "@balafla/core-components-select": "^17.20.12",
+        "@balafla/core-components-select": "^17.20.13",
         "@balafla/core-components-status-badge": "^1.2.4",
         "@balafla/core-components-shared": "^0.16.1",
         "@balafla/core-components-mq": "^5.0.0",

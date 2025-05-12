@@ -1,5 +1,19 @@
 # @alfalab/core-components-tabs
 
+## 8.12.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-picker-button@11.12.24
+
+## 8.12.25-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-picker-button@11.12.24-next.0
+
 ## 8.12.24
 
 ### Patch Changes

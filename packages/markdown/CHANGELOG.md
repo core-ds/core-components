@@ -1,5 +1,21 @@
 # @alfalab/core-components-markdown
 
+## 1.6.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0
+    -   @balafla/core-components-list@3.5.3
+
+## 1.6.12-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0-next.0
+    -   @balafla/core-components-list@3.5.3-next.0
+
 ## 1.6.11
 
 ### Patch Changes

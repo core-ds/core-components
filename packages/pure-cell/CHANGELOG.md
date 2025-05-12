@@ -1,5 +1,21 @@
 # @alfalab/core-components-pure-cell
 
+## 4.14.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0
+    -   @balafla/core-components-comment@2.4.11
+
+## 4.14.8-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0-next.0
+    -   @balafla/core-components-comment@2.4.11-next.0
+
 ## 4.14.7
 
 ### Patch Changes

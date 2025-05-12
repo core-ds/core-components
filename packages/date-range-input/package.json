@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-date-range-input",
-    "version": "3.5.26",
+    "version": "3.5.27",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,7 +18,7 @@
     "dependencies": {
         "@balafla/core-components-input": "^15.5.4",
         "@balafla/core-components-icon-button": "^6.11.10",
-        "@balafla/core-components-calendar": "^7.18.1",
+        "@balafla/core-components-calendar": "^7.18.2",
         "@balafla/core-components-mq": "^5.0.0",
         "@balafla/core-components-popover": "^7.0.0",
         "@alfalab/hooks": "^1.13.1",

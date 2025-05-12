@@ -1,5 +1,19 @@
 # @alfalab/core-components-universal-date-input
 
+## 2.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-calendar@7.18.2
+
+## 2.7.5-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-calendar@7.18.2-next.0
+
 ## 2.7.4
 
 ### Patch Changes

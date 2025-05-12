@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-list",
-    "version": "3.5.2",
+    "version": "3.5.3",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-typography": "^4.12.1",
+        "@balafla/core-components-typography": "^5.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-list-header",
-    "version": "3.3.10",
+    "version": "3.3.11",
     "description": "ListHeader component",
     "keywords": [],
     "license": "MIT",
@@ -12,7 +12,7 @@
     },
     "sideEffects": false,
     "dependencies": {
-        "@balafla/core-components-typography": "^4.12.1",
+        "@balafla/core-components-typography": "^5.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

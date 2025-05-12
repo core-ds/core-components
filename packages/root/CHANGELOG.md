@@ -1,5 +1,95 @@
 # @alfalab/core-components
 
+## 49.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0
+    -   @balafla/core-components-accordion@1.2.11
+    -   @balafla/core-components-calendar@7.18.2
+    -   @balafla/core-components-chart@3.4.12
+    -   @balafla/core-components-circular-progress-bar@3.8.4
+    -   @balafla/core-components-comment@2.4.11
+    -   @balafla/core-components-confirmation@13.9.12
+    -   @balafla/core-components-file-upload-item@6.2.7
+    -   @balafla/core-components-gallery@5.11.10
+    -   @balafla/core-components-list@3.5.3
+    -   @balafla/core-components-list-header@3.3.11
+    -   @balafla/core-components-markdown@1.6.12
+    -   @balafla/core-components-navigation-bar@1.2.19
+    -   @balafla/core-components-navigation-bar-private@0.8.2
+    -   @balafla/core-components-product-cover@1.3.2
+    -   @balafla/core-components-pure-cell@4.14.8
+    -   @balafla/core-components-stepped-progress-bar@2.4.11
+    -   @balafla/core-components-tab-bar@2.1.14
+    -   @balafla/core-components-universal-modal@1.0.6
+    -   @balafla/core-components-calendar-input@10.4.27
+    -   @balafla/core-components-calendar-range@7.8.15
+    -   @balafla/core-components-calendar-with-skeleton@5.3.30
+    -   @balafla/core-components-date-range-input@3.5.27
+    -   @balafla/core-components-date-time-input@4.5.27
+    -   @balafla/core-components-universal-date-input@2.7.5
+    -   @balafla/core-components-bottom-sheet@6.18.7
+    -   @balafla/core-components-modal@9.9.12
+    -   @balafla/core-components-popup-sheet@1.4.4
+    -   @balafla/core-components-side-panel@5.9.13
+    -   @balafla/core-components-select@17.20.13
+    -   @balafla/core-components-select-with-tags@8.6.14
+    -   @balafla/core-components-tooltip@7.9.9
+    -   @balafla/core-components-custom-picker-button@2.6.24
+    -   @balafla/core-components-input-autocomplete@12.8.10
+    -   @balafla/core-components-international-phone-input@2.7.12
+    -   @balafla/core-components-intl-phone-input@9.12.5
+    -   @balafla/core-components-picker-button@11.12.24
+    -   @balafla/core-components-table@2.10.9
+    -   @balafla/core-components-tabs@8.12.25
+
+## 49.0.2-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0-next.0
+    -   @balafla/core-components-accordion@1.2.11-next.0
+    -   @balafla/core-components-calendar@7.18.2-next.0
+    -   @balafla/core-components-chart@3.4.12-next.0
+    -   @balafla/core-components-circular-progress-bar@3.8.4-next.0
+    -   @balafla/core-components-comment@2.4.11-next.0
+    -   @balafla/core-components-confirmation@13.9.12-next.0
+    -   @balafla/core-components-file-upload-item@6.2.7-next.0
+    -   @balafla/core-components-gallery@5.11.10-next.0
+    -   @balafla/core-components-list@3.5.3-next.0
+    -   @balafla/core-components-list-header@3.3.11-next.0
+    -   @balafla/core-components-markdown@1.6.12-next.0
+    -   @balafla/core-components-navigation-bar@1.2.19-next.0
+    -   @balafla/core-components-navigation-bar-private@0.8.2-next.0
+    -   @balafla/core-components-product-cover@1.3.2-next.0
+    -   @balafla/core-components-pure-cell@4.14.8-next.0
+    -   @balafla/core-components-stepped-progress-bar@2.4.11-next.0
+    -   @balafla/core-components-tab-bar@2.1.14-next.0
+    -   @balafla/core-components-universal-modal@1.0.6-next.0
+    -   @balafla/core-components-calendar-input@10.4.27-next.0
+    -   @balafla/core-components-calendar-range@7.8.15-next.0
+    -   @balafla/core-components-calendar-with-skeleton@5.3.30-next.0
+    -   @balafla/core-components-date-range-input@3.5.27-next.0
+    -   @balafla/core-components-date-time-input@4.5.27-next.0
+    -   @balafla/core-components-universal-date-input@2.7.5-next.0
+    -   @balafla/core-components-bottom-sheet@6.18.7-next.0
+    -   @balafla/core-components-modal@9.9.12-next.0
+    -   @balafla/core-components-popup-sheet@1.4.4-next.0
+    -   @balafla/core-components-side-panel@5.9.13-next.0
+    -   @balafla/core-components-select@17.20.13-next.0
+    -   @balafla/core-components-select-with-tags@8.6.14-next.0
+    -   @balafla/core-components-tooltip@7.9.9-next.0
+    -   @balafla/core-components-custom-picker-button@2.6.24-next.0
+    -   @balafla/core-components-input-autocomplete@12.8.10-next.0
+    -   @balafla/core-components-international-phone-input@2.7.12-next.0
+    -   @balafla/core-components-intl-phone-input@9.12.5-next.0
+    -   @balafla/core-components-picker-button@11.12.24-next.0
+    -   @balafla/core-components-table@2.10.9-next.0
+    -   @balafla/core-components-tabs@8.12.25-next.0
+
 ## 49.0.1
 
 ### Patch Changes
