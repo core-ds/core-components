@@ -23,6 +23,6 @@
         "@maskito/core": "^1.7.0",
         "@types/detect-browser": "^4.0.3"
     },
-    "themesVersion": "13.7.2",
+    "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"
 }

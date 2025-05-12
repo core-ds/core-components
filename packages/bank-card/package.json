@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-bank-card",
-    "version": "5.8.16",
+    "version": "5.8.17",
     "description": "Bank card component",
     "keywords": [],
     "license": "MIT",
@@ -18,10 +18,11 @@
     "dependencies": {
         "@alfalab/core-components-masked-input": "^6.3.35",
         "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-logo": "^1.39.0",
         "@alfalab/icons-logotype": "^2.27.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
+    "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"
 }

@@ -21,6 +21,6 @@
         "@juggle/resize-observer": "^3.3.1",
         "@alfalab/core-components-typography": "^4.13.0"
     },
-    "themesVersion": "13.7.2",
+    "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"
 }

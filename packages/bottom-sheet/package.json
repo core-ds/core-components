@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-bottom-sheet",
-    "version": "6.18.7",
+    "version": "6.18.8",
     "description": "Bottom sheet mobile component",
     "keywords": [],
     "license": "MIT",
@@ -25,8 +25,9 @@
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^7.0.0",
         "react-transition-group": "^4.4.5",
-        "tslib": "^2.4.0"
+        "tslib": "^2.4.0",
+        "use-sync-external-store": "^1.4.0"
     },
-    "themesVersion": "13.7.2",
+    "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"
 }

@@ -1,3 +1,59 @@
+## 48.25.1
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1400](https://github.com/core-ds/core-components/pull/1400)
+
+#### Что изменилось
+- Импорт JS-файла темы больше не зависит от webpack-лоадера. Теперь содержимое темы представлено в виде строки.
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1677](https://github.com/core-ds/core-components/pull/1677)
+
+#### Что изменилось
+- Изменён логотип по умолчанию
+
+#### Влияние на компоненты
+- Патчи<br />`bank-card`
+
+
+
+## 48.25.0
+
+<sup><time>28.04.2025</time></sup>
+
+### [#1678](https://github.com/core-ds/core-components/pull/1678)
+
+#### Что изменилось
+- Добавлен проп `virtualKeyboard` для учета высоты виртуальной клавиатуры в `BottomSheet`
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete`
+
+<br />
+
+#### Что изменилось
+- Добавлен хук `useVisualViewportSize`. Хук `useVisibleViewportSize` помечен как `@deprecated`
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#1652](https://github.com/core-ds/core-components/pull/1652)
+
+#### Что изменилось
+- Исправлены копирайты для экранов `INITIAL`, `HINT`, `FATAL_ERROR`, `TEMP_BLOCK`
+- Добавлен новый экран `TEMP_BLOCK_OVER`
+- Добавлена возможность проброса через prop texts текстовок для экрана `HINT`
+
+#### Влияние на компоненты
+- Минорное<br />`confirmation`
+
+
+
 ## 48.24.0
 
 <sup><time>18.04.2025</time></sup>
