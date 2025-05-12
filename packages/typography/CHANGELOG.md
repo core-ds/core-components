@@ -1,5 +1,15 @@
 # @alfalab/core-components-typography
 
+## 5.0.0-next.0
+
+### Major Changes
+
+<sup><time>12.05.2025</time></sup>
+
+#### [#37](https://github.com/hextion/core-components/pull/37)
+
+-   Major
+
 ## 4.12.1
 
 ### Patch Changes

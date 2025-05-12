@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-popup-sheet",
-    "version": "1.4.3",
+    "version": "1.4.4-next.0",
     "description": "Popup sheet mobile component",
     "keywords": [],
     "license": "MIT",
@@ -19,7 +19,7 @@
         "@balafla/core-components-base-modal": "^6.0.0",
         "@balafla/core-components-backdrop": "^3.4.6",
         "@balafla/core-components-shared": "^0.16.1",
-        "@balafla/core-components-navigation-bar-private": "^0.8.1",
+        "@balafla/core-components-navigation-bar-private": "^0.8.2-next.0",
         "@balafla/core-components-types": "^1.0.0",
         "react-swipeable": "^7.0.0",
         "classnames": "^2.5.1",

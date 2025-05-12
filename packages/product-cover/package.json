@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-product-cover",
-    "version": "1.3.1",
+    "version": "1.3.2-next.0",
     "description": "ProductCover component",
     "keywords": [],
     "license": "MIT",
@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@balafla/core-components-button": "^11.11.7",
-        "@balafla/core-components-typography": "^4.12.1",
+        "@balafla/core-components-typography": "^5.0.0-next.0",
         "@balafla/core-components-shared": "^0.16.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/hooks": "^1.13.1",

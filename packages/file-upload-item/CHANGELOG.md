@@ -1,5 +1,12 @@
 # @alfalab/core-components-file-upload-item
 
+## 6.2.7-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0-next.0
+
 ## 6.2.6
 
 ### Patch Changes

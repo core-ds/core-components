@@ -1,5 +1,12 @@
 # @alfalab/core-components-list-header
 
+## 3.3.11-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-typography@5.0.0-next.0
+
 ## 3.3.10
 
 ### Patch Changes

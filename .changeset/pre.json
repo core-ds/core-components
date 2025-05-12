@@ -128,5 +128,7 @@
     "@balafla/core-components-vars": "9.19.1",
     "@balafla/core-components-with-suffix": "4.2.16"
   },
-  "changesets": []
+  "changesets": [
+    "stale-trains-work"
+  ]
 }

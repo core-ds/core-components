@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components-modal",
-    "version": "9.9.11",
+    "version": "9.9.12-next.0",
     "description": "Modal component",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
     "sideEffects": false,
     "dependencies": {
         "@balafla/core-components-base-modal": "^6.0.0",
-        "@balafla/core-components-navigation-bar-private": "^0.8.1",
+        "@balafla/core-components-navigation-bar-private": "^0.8.2-next.0",
         "@balafla/core-components-shared": "^0.16.1",
         "@balafla/core-components-mq": "^5.0.0",
         "classnames": "^2.5.1",

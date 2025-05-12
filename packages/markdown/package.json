@@ -1,7 +1,7 @@
 {
     "name": "@balafla/core-components-markdown",
     "description": "",
-    "version": "1.6.11",
+    "version": "1.6.12-next.0",
     "main": "index.js",
     "license": "MIT",
     "publishConfig": {
@@ -15,8 +15,8 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@balafla/core-components-typography": "^4.12.1",
-        "@balafla/core-components-list": "^3.5.2",
+        "@balafla/core-components-typography": "^5.0.0-next.0",
+        "@balafla/core-components-list": "^3.5.3-next.0",
         "@balafla/core-components-link": "^5.3.5",
         "@balafla/core-components-mq": "^5.0.0",
         "tslib": "^2.4.0",
