@@ -1,21 +1,22 @@
 /* eslint-disable complexity */
-import React, { type FC, type MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { type FC, type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { addMonths, endOfMonth, isSameMonth, max, startOfMonth, subMonths } from 'date-fns';
 
 import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
+import { CalendarInputProps } from '@alfalab/core-components-calendar-input/index';
 import {
     formatDate,
     isValidInputValue,
     parseDateString,
 } from '@alfalab/core-components-calendar-input/shared';
-import {
-    DateInput,
-    type DateInputProps,
-    isCompleteDateInput,
-} from '@alfalab/core-components-date-input';
+import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import {
+    UniversalDateInput,
+    UniversalDateInputProps,
+} from '@alfalab/core-components-universal-date-input';
 
 import { type CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
@@ -24,12 +25,29 @@ import { isDayButton } from '../utils';
 
 import styles from './index.module.css';
 
-export type CalendarRangeStaticProps = Omit<CalendarRangeProps, 'calendarPosition'> & {
+type DateInputProps = Omit<CalendarInputProps, 'onCalendarOpen' | 'onCalendarClose' | 'onChange'>;
+
+export type CalendarRangeStaticProps = Omit<
+    CalendarRangeProps,
+    'calendarPosition' | 'inputFromProps' | 'inputToProps'
+> & {
     /**
      * Отображать начальный месяц слева или справа (влияет только на начальный рендер)
      */
     defaultMonthPosition?: 'left' | 'right';
+
+    /**
+     * Пропсы для инпута даты от
+     */
+    inputFromProps?: DateInputProps;
+
+    /**
+     * Пропсы для инпута даты до
+     */
+    inputToProps?: DateInputProps;
 };
+
+type CorrectionToggleRef = { handleCorrection: () => void };
 
 export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     className,
@@ -42,7 +60,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     onDateFromChange = () => null,
     onDateToChange = () => null,
     onChange = () => null,
-    onError,
     inputFromProps = {},
     inputToProps = {},
     offDays,
@@ -53,6 +70,21 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
 }) => {
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
     const [inputToValue, setInputToValue] = useState<string>(valueTo);
+
+    const toggleCorrectionFromRef = useRef<CorrectionToggleRef>(null);
+    const toggleCorrectionToRef = useRef<CorrectionToggleRef>(null);
+
+    if (
+        isCompleteDateInput(inputFromValue) &&
+        isCompleteDateInput(inputToValue) &&
+        parseDateString(inputFromValue).getTime() > parseDateString(inputToValue).getTime()
+    ) {
+        setInputFromValue(inputToValue);
+        setInputToValue(inputFromValue);
+
+        toggleCorrectionFromRef.current?.handleCorrection();
+        toggleCorrectionToRef.current?.handleCorrection();
+    }
 
     let dateFrom = isValidInputValue(inputFromValue, minDate, maxDate, offDays)
         ? parseDateString(inputFromValue).getTime()
@@ -66,11 +98,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         dateFrom = null;
     }
 
-    const bothInvalid =
-        isCompleteDateInput(inputFromValue) &&
-        isCompleteDateInput(inputToValue) &&
-        parseDateString(inputFromValue).getTime() > parseDateString(inputToValue).getTime();
-
     const [highlightedDate, setHighlightedDate] = useState<number | undefined>(undefined);
 
     const period = usePeriodWithReset({
@@ -78,26 +105,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         initialSelectedTo: dateTo ? parseDateString(inputToValue).getTime() : undefined,
     });
 
-    const validateInputFromValue = useCallback(
-        (value: string) => isValidInputValue(value, minDate, dateFrom || maxDate, offDays),
-        [dateFrom, maxDate, minDate, offDays],
-    );
-
-    const validateInputToValue = useCallback(
-        (value: string) => isValidInputValue(value, dateFrom || minDate, maxDate, offDays),
-
-        [dateFrom, minDate, maxDate, offDays],
-    );
-
-    const [inputFromInvalid, setInputFromInvalid] = useState<boolean>(
-        isCompleteDateInput(inputFromValue) && dateFrom === null,
-    );
-
-    const [inputToInvalid, setInputToInvalid] = useState<boolean>(
-        isCompleteDateInput(inputToValue) && dateTo === null,
-    );
-
-    const hasValidateError = bothInvalid || inputFromInvalid || inputToInvalid;
     const {
         calendarProps: calendarFromProps,
         onInputChange: onInputChangeFrom,
@@ -118,22 +125,36 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         },
     );
 
-    const handleValidInputFrom = useCallback(() => {
-        setInputFromInvalid(inputFromValue !== '' && !validateInputFromValue(inputFromValue));
-    }, [inputFromValue, validateInputFromValue]);
-
-    const handleValidInputTo = useCallback(() => {
-        setInputToInvalid(inputToValue !== '' && !validateInputToValue(inputToValue));
-    }, [inputToValue, validateInputToValue]);
-
-    const handleInputFromChange: Required<DateInputProps>['onChange'] = (event, payload) => {
+    const handleInputFromChange: Required<UniversalDateInputProps>['onInputChange'] = (
+        event,
+        payload,
+    ) => {
         setInputFromValue(payload.value);
-        onInputChangeFrom?.(event, payload);
+
+        const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
+
+        console.log('handleInputFromChange', {
+            date: parseDateString(payload.value),
+            value: payload.value,
+        });
+
+        onInputChangeFrom?.(event, payloadWithDate);
     };
 
-    const handleInputToChange: Required<DateInputProps>['onChange'] = (event, payload) => {
+    const handleInputToChange: Required<UniversalDateInputProps>['onInputChange'] = (
+        event,
+        payload,
+    ) => {
         setInputToValue(payload.value);
-        onInputChangeTo?.(event, payload);
+
+        const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
+
+        console.log('handleInputToChange', {
+            date: parseDateString(payload.value),
+            value: payload.value,
+        });
+
+        onInputChangeTo?.(event, payloadWithDate);
     };
 
     const handleMouseOver = useCallback((event: MouseEvent<HTMLDivElement>) => {
@@ -180,10 +201,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     }, [valueTo]);
 
     useEffect(() => {
-        if (!inputFromValue || isCompleteDateInput(inputFromValue)) {
-            handleValidInputFrom();
-        }
-
         period.setStart(dateFrom || undefined);
         if (dateTo) {
             period.setEnd(dateTo);
@@ -206,10 +223,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     }, [inputFromValue]);
 
     useEffect(() => {
-        if (!inputToValue || isCompleteDateInput(inputToValue)) {
-            handleValidInputTo();
-        }
-
         period.setEnd(dateTo || undefined);
         if (dateFrom) {
             period.setStart(dateFrom);
@@ -238,19 +251,15 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputToValue]);
 
-    useEffect(() => {
-        if (onError) {
-            onError(hasValidateError);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [hasValidateError]);
-
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
 
     const CalendarFromComponent = dateInputFromProps.Calendar || CalendarDesktop;
     const CalendarToComponent = dateInputToProps.Calendar || CalendarDesktop;
 
     const minMaxInSameMonth = minDate && maxDate && isSameMonth(minDate, maxDate);
+
+    console.log(inputFromProps);
+    console.log(inputToProps);
 
     return (
         // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
@@ -261,20 +270,24 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
             data-test-id={dataTestId}
         >
             <div>
-                <DateInput
+                <UniversalDateInput
                     {...dateInputFromProps}
-                    mobileMode={
-                        dateInputFromProps.mobileMode === 'popover'
-                            ? 'input'
-                            : dateInputFromProps.mobileMode
-                    }
+                    Calendar={undefined}
+                    view='date'
+                    picker={false}
                     value={inputFromValue}
-                    onChange={handleInputFromChange}
+                    onInputChange={handleInputFromChange}
                     onClear={handleClearFrom}
-                    onBlur={handleValidInputFrom}
-                    error={bothInvalid || inputFromInvalid || dateInputFromProps.error}
+                    toggleCorrectionRef={toggleCorrectionFromRef}
+                    error={dateInputFromProps.error}
                     clear={true}
                     block={true}
+                    minDate={minDate}
+                    maxDate={
+                        minMaxInSameMonth
+                            ? maxDate
+                            : maxDate && max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()
+                    }
                 />
                 <div
                     className={cn(styles.calendarContainer, calendarContainerClassName)}
@@ -304,20 +317,24 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
             <Divider inputFromProps={inputFromProps} inputToProps={inputToProps} />
 
             <div>
-                <DateInput
+                <UniversalDateInput
                     {...dateInputToProps}
-                    mobileMode={
-                        dateInputToProps.mobileMode === 'popover'
-                            ? 'input'
-                            : dateInputToProps.mobileMode
-                    }
+                    Calendar={undefined}
+                    view='date'
+                    picker={false}
                     value={inputToValue}
-                    onChange={handleInputToChange}
+                    onInputChange={handleInputToChange}
                     onClear={handleClearTo}
-                    onBlur={handleValidInputTo}
-                    error={bothInvalid || inputToInvalid || dateInputToProps.error}
+                    error={dateInputToProps.error}
+                    toggleCorrectionRef={toggleCorrectionToRef}
                     clear={true}
                     block={true}
+                    minDate={
+                        minMaxInSameMonth
+                            ? minDate
+                            : minDate && startOfMonth(addMonths(minDate, 1)).getTime()
+                    }
+                    maxDate={maxDate}
                 />
                 <div data-test-id={getDataTestId(dataTestId, 'container-to')}>
                     <CalendarToComponent
