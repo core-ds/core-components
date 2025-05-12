@@ -7,30 +7,34 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
   >
     <div>
       <div
-        class="component component size-48 size-48 block hasRightAddons"
+        class="wrapper block"
+        tabindex="-1"
       >
         <div
-          class="inner inner inner inner"
+          class="component component size-48 size-48 block hasRightAddons"
         >
           <div
-            class="inputWrapper"
+            class="inner inner inner inner"
           >
             <div
-              class="input size-48"
+              class="inputWrapper"
             >
-              <input
-                class="input size-48 input"
-                inputmode="decimal"
-                pattern="[0-9\\\\.]*"
-                placeholder="ДД.ММ.ГГГГ"
-                type="text"
-                value=""
-              />
+              <div
+                class="input size-48"
+              >
+                <input
+                  class="input size-48 input"
+                  inputmode="decimal"
+                  placeholder="ДД.ММ.ГГГГ"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
+            <div
+              class="addons rightAddons"
+            />
           </div>
-          <div
-            class="addons rightAddons rightAddons size-48"
-          />
         </div>
       </div>
       <div
@@ -927,30 +931,34 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
     />
     <div>
       <div
-        class="component component size-48 size-48 block hasRightAddons"
+        class="wrapper block"
+        tabindex="-1"
       >
         <div
-          class="inner inner inner inner"
+          class="component component size-48 size-48 block hasRightAddons"
         >
           <div
-            class="inputWrapper"
+            class="inner inner inner inner"
           >
             <div
-              class="input size-48"
+              class="inputWrapper"
             >
-              <input
-                class="input size-48 input"
-                inputmode="decimal"
-                pattern="[0-9\\\\.]*"
-                placeholder="ДД.ММ.ГГГГ"
-                type="text"
-                value=""
-              />
+              <div
+                class="input size-48"
+              >
+                <input
+                  class="input size-48 input"
+                  inputmode="decimal"
+                  placeholder="ДД.ММ.ГГГГ"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
+            <div
+              class="addons rightAddons"
+            />
           </div>
-          <div
-            class="addons rightAddons rightAddons size-48"
-          />
         </div>
       </div>
       <div>
