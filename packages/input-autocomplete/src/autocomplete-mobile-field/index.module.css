@@ -11,8 +11,6 @@
 }
 
 .errorIcon {
-    display: var(--input-error-icon-display);
-
     &:not(:only-child) {
         margin-left: var(--gap-4);
     }
@@ -20,10 +18,6 @@
     &.size-40:not(:only-child) {
         margin-left: 6px;
     }
-}
-
-* + .errorIcon {
-    display: var(--input-error-icon-not-alone-display);
 }
 
 button[class*='eye'] + .errorIcon {
