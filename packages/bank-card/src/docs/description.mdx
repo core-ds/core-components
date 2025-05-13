@@ -11,11 +11,11 @@ render(() => {
     return (
         <>
             <BankCard value={value} onChange={handleChange} />
-            <Gap size='xl' />
+            <Gap size={24} />
             <Button size='xxs' onClick={() => setValue('2201382000000013')}>
                 Вставить номер карты
             </Button>
-            <Gap size='s' direction='horizontal' />
+            <Gap size={12} direction='horizontal' />
             <Button size='xxs' onClick={() => setValue('')}>
                 Очистить
             </Button>
@@ -40,11 +40,11 @@ render(() => {
         <>
             <div>
                 <BankCard value={value1} maskType={'card'} onChange={handleChange1} />
-                <Gap size='xl' />
+                <Gap size={24} />
                 <Button size='xxs' onClick={() => setValue1('2201382000000013')}>
                     Вставить номер карты
                 </Button>
-                <Gap size='s' direction='horizontal' />
+                <Gap size={12} direction='horizontal' />
                 <Button size='xxs' onClick={() => setValue1('')}>
                     Очистить
                 </Button>
@@ -52,11 +52,11 @@ render(() => {
             <br/>
             <div>
                 <BankCard value={value2} maskType={'account-number'} onChange={handleChange2} />
-                <Gap size='xl' />
+                <Gap size={24} />
                 <Button size='xxs' onClick={() => setValue2('22013820000000131234')}>
                     Вставить номер карты
                 </Button>
-                <Gap size='s' direction='horizontal' />
+                <Gap size={12} direction='horizontal' />
                 <Button size='xxs' onClick={() => setValue2('')}>
                     Очистить
                 </Button>

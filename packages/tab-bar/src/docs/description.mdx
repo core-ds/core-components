@@ -68,7 +68,7 @@ render(() => {
                     {selectedId}
                 </Typography.Text>
 
-                <Gap size='s' />
+                <Gap size={12} />
 
                 <Switch
                     label='Длинное название таба'
@@ -76,7 +76,7 @@ render(() => {
                     onChange={() => setTextOverflow((p) => !p)}
                 />
 
-                <Gap size='xl' />
+                <Gap size={24} />
 
                 <RadioGroup
                     onChange={(_, { value }) => setOptionId(value)}
@@ -88,7 +88,7 @@ render(() => {
                     ))}
                 </RadioGroup>
 
-                <Gap size='xl' />
+                <Gap size={24} />
 
                 <RadioGroup
                     onChange={(_, { value }) => setAccentColor(value)}
@@ -99,7 +99,7 @@ render(() => {
                     <Radio label='Accent-secondary' value='secondary' size='m' />
                 </RadioGroup>
 
-                <Gap size='xl' />
+                <Gap size={24} />
 
                 <RadioGroup
                     onChange={(_, { value }) => setBgColor(value)}
@@ -109,7 +109,7 @@ render(() => {
                     <Radio label='Modal-bg-primary' value='modal-bg-primary' size='m' />
                     <Radio label='Modal-bg-alt-primary' value='modal-bg-alt-primary' size='m' />
                 </RadioGroup>
-                <Gap size='l' />
+                <Gap size={20} />
             </div>
 
             <div style={{ margin: '0 -20px -20px' }}>

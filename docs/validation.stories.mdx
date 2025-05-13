@@ -86,7 +86,7 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <NumberInput />
-            <Gap size='m' />
+            <Gap size={16} />
             <MaskedNumberInput />
         </div>
     );
@@ -142,7 +142,7 @@ render(() => {
                 patronymic='сергеевич'
                 errMsg='Александр Сергеевич – наше всё'
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <InputWrapper
                 placeholder='Отчество Афанасия Фета'
                 patronymic='афанасьевич'
@@ -237,11 +237,11 @@ render(() => {
                         block={true}
                         placeholder={data[key].desc}
                     />
-                    {idx !== dataKeys.length - 1 && <Gap size='m' />}
+                    {idx !== dataKeys.length - 1 && <Gap size={16} />}
                 </span>
             ))}
 
-            <Gap size='m' />
+            <Gap size={16} />
             <Button view='primary' size='m' type='submit'>
                 Отправить форму
             </Button>

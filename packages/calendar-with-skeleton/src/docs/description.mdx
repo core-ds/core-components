@@ -3,7 +3,7 @@
 ```jsx live desktopOnly
 render(() => {
     const [visible, setVisible] = React.useState(true);
-    
+
     const calendarStyles = {
         border: '1px solid rgba(233, 233, 235, 1)',
         borderRadius: '8px',
@@ -18,7 +18,7 @@ render(() => {
             <div style={calendarStyles}>
                 <CalendarWithSkeleton calendarVisible={visible} />
             </div>
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <Switch
                 block={true}
                 checked={!visible}
