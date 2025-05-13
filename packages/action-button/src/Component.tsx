@@ -115,6 +115,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         },
         ref,
     ) => {
+        // comment
         const componentRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(componentRef, 'keyboard');
