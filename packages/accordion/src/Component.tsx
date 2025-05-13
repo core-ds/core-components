@@ -104,7 +104,6 @@ export const Accordion: FC<AccordionProps> = ({
     bodyContentClassName,
     ...rest
 }) => {
-    // comment
     const uncontrolled = expanded === undefined;
     const [expandedState, setExpanded] = useState(uncontrolled ? defaultExpanded : expanded);
     const isExpanded = uncontrolled ? expandedState : expanded;
