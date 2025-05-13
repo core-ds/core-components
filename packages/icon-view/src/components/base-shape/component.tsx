@@ -99,6 +99,16 @@ export type BaseShapeProps = {
      * Размер основного слота
      */
     mainSize?: TMainSize;
+
+    /**
+     * Скелетонизация компонента
+     */
+    isSkeleton?: boolean;
+
+    /**
+     * Флаг явного включения анимации скелета
+     */
+    skeletonAnimate?: boolean;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
@@ -120,6 +130,8 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             dataTestId,
             mainSize,
             iconContainerClassName,
+            isSkeleton = false,
+            skeletonAnimate = false,
         },
         ref,
     ) => {
@@ -142,11 +154,43 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             hasTopAddons,
             hasBottomAddons,
             hasIndicator,
+            isSkeleton,
         });
 
         const shapeDPath = getPath(polygonName, maxDimension, pathsMap.shape);
 
         const borderDPath = getPath(polygonName, maxDimension, pathsMap.border);
+
+        if (isSkeleton) {
+            return (
+                <div
+                    className={cn(
+                        styles.componentWrapper,
+                        styles[`wrapperSize_${maxDimension}`],
+                        className,
+                    )}
+                    ref={ref}
+                    data-test-id={dataTestId}
+                >
+                    <div className={cn(styles.component)} style={{ width, height }}>
+                        <svg
+                            width={width}
+                            height={height}
+                            viewBox={`0 0 ${width} ${height}`}
+                            xmlns='http://www.w3.org/2000/svg'
+                            focusable={false}
+                        >
+                            <path
+                                className={cn(styles.bg, shapeClassName, styles.skeleton, {
+                                    [styles.skeletonAnimate]: skeletonAnimate,
+                                })}
+                                d={shapeDPath}
+                            />
+                        </svg>
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <div

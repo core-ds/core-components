@@ -17,6 +17,7 @@ type GetPathParams = {
     hasTopAddons: boolean;
     hasBottomAddons: boolean;
     hasIndicator: boolean;
+    isSkeleton: boolean;
 };
 
 export type PathsMap = {
@@ -31,7 +32,12 @@ export const getPathName = ({
     hasTopAddons,
     hasBottomAddons,
     hasIndicator,
+    isSkeleton,
 }: GetPathParams): TNames => {
+    if (isSkeleton) {
+        return 'none';
+    }
+
     if (hasBottomAddons) {
         if (hasTopAddons) {
             return 'topBottom';

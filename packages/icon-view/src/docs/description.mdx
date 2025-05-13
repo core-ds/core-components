@@ -183,7 +183,7 @@ render(() => {
     };
 
     const onChange = (_, payload) => {
-        setValue({ ...value, [payload.name]: payload.checked });
+        setValue((prevValue) => ({ ...prevValue, [payload.name]: payload.checked }));
     };
 
     return (
@@ -249,6 +249,73 @@ render(() => {
                 </RadioGroup>
             </Row>
         </Container>
+    );
+});
+```
+
+## Скелетонизация
+
+Скелетон может подстраиваться под заданный размер и форму шейпа компонента.
+
+```jsx live
+render(() => {
+    const [component, setComponent] = React.useState('SuperEllipse');
+    const [isSkeleton, setIsSkeleton] = React.useState(false);
+
+    const Component = {
+        Circle,
+        SuperEllipse,
+        Rectangle,
+        NoShape,
+    }[component];
+
+    const onChangeRadio = (_, payload) => {
+        setComponent(payload.value);
+    };
+
+    const onChangeSkeleton = (_, payload) => {
+        setIsSkeleton((prevValue) => payload.checked);
+    };
+
+    return (
+        <>
+            <Component
+                size='80'
+                mainSize={64}
+                backgroundColor='var(--color-light-base-bg-secondary)'
+                isSkeleton={isSkeleton}
+                skeletonAnimate={true}
+            >
+                <DiamondsMIcon />
+            </Component>
+            <Gap size='20' />
+
+            <RadioGroup
+                name='radioGroup'
+                onChange={onChangeRadio}
+                label='Форма шейпа'
+                value={component}
+            >
+                {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map((c) => (
+                    <Radio
+                        label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
+                        value={c}
+                        size='m'
+                        key={c}
+                    />
+                ))}
+            </RadioGroup>
+            <Gap size='20' />
+            <Divider />
+            <Gap size='20' />
+
+            <Switch
+                block={true}
+                checked={isSkeleton}
+                label='Скелетонизация контента'
+                onChange={onChangeSkeleton}
+            />
+        </>
     );
 });
 ```
