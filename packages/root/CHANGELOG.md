@@ -1,5 +1,13 @@
 # @alfalab/core-components
 
+## 49.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @balafla/core-components-action-button@1.7.11
+    -   @balafla/core-components-accordion@1.2.12
+
 ## 49.0.2
 
 ### Patch Changes

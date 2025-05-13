@@ -1,6 +1,6 @@
 {
     "name": "@balafla/core-components",
-    "version": "49.0.2",
+    "version": "49.0.3",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
@@ -8,8 +8,8 @@
     "homepage": "https://github.com/core-ds/core-components#readme",
     "scripts": {},
     "dependencies": {
-        "@balafla/core-components-accordion": "^1.2.11",
-        "@balafla/core-components-action-button": "^1.7.10",
+        "@balafla/core-components-accordion": "^1.2.12",
+        "@balafla/core-components-action-button": "^1.7.11",
         "@balafla/core-components-alert": "^4.2.17",
         "@balafla/core-components-amount": "^3.10.2",
         "@balafla/core-components-amount-input": "^7.14.1",
