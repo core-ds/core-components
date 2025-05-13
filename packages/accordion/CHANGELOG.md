@@ -1,5 +1,15 @@
 # @alfalab/core-components-accordion
 
+## 2.0.0
+
+### Major Changes
+
+<sup><time>13.05.2025</time></sup>
+
+#### [#49](https://github.com/hextion/core-components/pull/49)
+
+-   Удален комментарий
+
 ## 1.2.12
 
 ### Patch Changes
