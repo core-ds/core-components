@@ -1,5 +1,15 @@
 # @alfalab/core-components-action-button
 
+## 2.0.0
+
+### Major Changes
+
+<sup><time>13.05.2025</time></sup>
+
+#### [#50](https://github.com/hextion/core-components/pull/50)
+
+-   Удален комментарий
+
 ## 1.7.11
 
 ### Patch Changes
