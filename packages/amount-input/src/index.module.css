@@ -1,4 +1,5 @@
 @import '../../vars/src/index.css';
+@import '../../vars/src/colors-decorative.css';
 
 /*
 * Задача:
@@ -27,7 +28,12 @@
     display: none;
 }
 
+.suffixContainer {
+    z-index: 1;
+}
+
 .filled .input,
 .input:focus {
-    -webkit-text-fill-color: transparent;
+    z-index: 2;
+    font-weight: bold;
 }
