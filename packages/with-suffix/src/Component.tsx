@@ -48,6 +48,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
         ) => {
             const uncontrolled = value === undefined;
 
+            // add new info
             const [inputNode, setInputNode] = useState<HTMLInputElement | null>(null);
 
             const [stateValue, setStateValue] = useState(defaultValue || '');
