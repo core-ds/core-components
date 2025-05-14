@@ -53,6 +53,7 @@ export const InputAutocompleteMobile = React.forwardRef(
         const frozenValue = useRef<string>('');
         const searchInputRef = useRef<HTMLInputElement>(null);
         const targetRef = useRef<HTMLDivElement>(null);
+        const timerIdRef = useRef<ReturnType<typeof setTimeout>>();
         const focusBridgeRef = useFocusBridge();
 
         const restorePrevValue = () => onInput?.(frozenValue.current, OnInputReason.Close);
@@ -102,11 +103,9 @@ export const InputAutocompleteMobile = React.forwardRef(
         };
 
         useEffect(() => {
-            let timeoutId: NodeJS.Timeout;
-
             if (open && os.isIOS()) {
                 focusBridgeRef.current?.focus();
-                timeoutId = setTimeout(() => {
+                timerIdRef.current = setTimeout(() => {
                     if (searchInputRef.current) {
                         searchInputRef.current.focus();
                     }
@@ -114,8 +113,8 @@ export const InputAutocompleteMobile = React.forwardRef(
             }
 
             return () => {
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
+                if (timerIdRef.current) {
+                    clearTimeout(timerIdRef.current);
                 }
             };
         }, [open, focusBridgeRef]);
