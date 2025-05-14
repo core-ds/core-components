@@ -74,16 +74,10 @@ describe('CDNIcon', () => {
             useIconModule.LoadingStatus.FAILURE,
         ]);
 
-        const fallbackText = 'fallback-both';
         const onError = jest.fn();
-        const { container } = render(
-            <CDNIcon name='fake' fallback={{ node: <span>{fallbackText}</span>, onError }} />,
-        );
+        render(<CDNIcon name='fake' fallback={{ onError }} />);
 
         await waitFor(() => {
-            const span = container.querySelector('span');
-            expect(span).toBeInTheDocument();
-            expect(span).toHaveTextContent(fallbackText);
             expect(onError).toHaveBeenCalled();
         });
     });

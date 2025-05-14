@@ -31,7 +31,6 @@ type CDNIconProps = {
 
     /**
      * Fallback на случай, если не удастся загрузить иконку
-     * @deprecated ReactNode (fallback={<SomeIcon />}) устарел, используйте объект { node, onError }
      */
     fallback?: ReactNode | TFallbackObject;
 };
@@ -54,7 +53,6 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
             fallbackNode = fallback;
         } else if (isFallbackObject(fallback)) {
             fallback?.onError?.();
-            fallbackNode = fallback.node ?? null;
         }
     }
 
