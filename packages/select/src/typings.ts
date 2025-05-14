@@ -234,6 +234,7 @@ export type BaseSelectProps = {
 
     /**
      * Количество видимых пунктов меню (5 = 5.5)
+     * @default 5
      */
     visibleOptions?: number;
 
@@ -264,6 +265,11 @@ export type BaseSelectProps = {
     fieldProps?: unknown;
 
     /**
+     * Ширина поля
+     */
+    fieldWidth?: number | undefined;
+
+    /**
      * Пропсы, которые будут прокинуты в компонент списка
      */
     optionsListProps?: unknown;
@@ -280,6 +286,7 @@ export type BaseSelectProps = {
 
     /**
      * Компонент выпадающего меню
+     * @deprecated
      */
     OptionsList?: ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>;
 
@@ -385,6 +392,11 @@ export type BaseSelectProps = {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: boolean;
+
+    /**
+     * @default true
+     */
+    legacyMode?: boolean
 };
 
 // TODO: использовать InputProps
@@ -533,9 +545,14 @@ export type OptionsListProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
     size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+
+    /**
+     * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     */
+    optionsSize?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Компонент пункта меню
@@ -672,6 +689,11 @@ export type OptionsListProps = {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: BaseSelectProps['limitDynamicOptionGroupSize'];
+
+    /**
+     * @deprecated
+     */
+    virtualOptionsProps?: unknown;
 };
 
 export type OptgroupProps = {

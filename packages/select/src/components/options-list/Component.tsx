@@ -24,6 +24,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
         {
             size = 48,
+            optionsSize = size,
             className,
             optionGroupClassName,
             footerClassName,
@@ -105,7 +106,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     className={optionGroupClassName}
                     label={group.label}
                     key={group.label}
-                    size={size}
+                    size={optionsSize}
                     options={group.options}
                     selectedItems={groupSelectedItems}
                     setSelectedItems={handleSelectedItems}
@@ -129,13 +130,13 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             actualOptionsCount,
             size: actualOptionsCount
                 ? (() => {
-                      switch (typeof size) {
+                      switch (typeof optionsSize) {
                           case 'string':
                               throw new Error(
-                                  'OptionsList with `limitDynamicOptionGroupSize` enabled needs a `size` with number type',
+                                  'OptionsList with `limitDynamicOptionGroupSize` enabled needs a `optionsSize` with number type',
                               );
                           default:
-                              return size;
+                              return optionsSize;
                       }
                   })()
                 : undefined,

@@ -338,14 +338,16 @@ export function defaultAccessor(option: OptionShape) {
 }
 
 // TODO: перенести
-export function usePrevious<T>(value: T) {
-    const ref = useRef<T>();
+export function usePrevious<T>(value: T): T | undefined {
+    const prevRef = useRef<T>();
+    const ref = useRef(value);
 
-    useEffect(() => {
+    if (!(ref.current === value)) {
+        prevRef.current = ref.current;
         ref.current = value;
-    }, [value]);
+    }
 
-    return ref.current;
+    return prevRef.current;
 }
 
 // TODO: перенести
