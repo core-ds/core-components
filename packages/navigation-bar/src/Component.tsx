@@ -139,6 +139,7 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
             });
         }, [hasLeftAddons, leftAddons, rightAddons]);
 
+        // add new info
         return (
             <div
                 ref={ref}
