@@ -58,6 +58,11 @@ Object {
         </div>
       </div>
     </div>
+    <input
+      aria-hidden="true"
+      style="border: 0px !important; height: 0px !important; margin: 0px !important; padding: 0px !important; width: 0px;"
+      tab-index="-1"
+    />
     <div
       alfa-portal-container=""
     />
