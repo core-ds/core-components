@@ -1,5 +1,15 @@
 # @alfalab/core-components-with-suffix
 
+## 4.2.17
+
+### Patch Changes
+
+<sup><time>14.05.2025</time></sup>
+
+#### [#53](https://github.com/hextion/core-components/pull/53)
+
+-   Hello World
+
 ## 4.2.16
 
 ### Patch Changes
