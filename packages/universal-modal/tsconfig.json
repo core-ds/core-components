@@ -1,9 +1,9 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-backdrop": ["../backdrop/src"],
             "@alfalab/core-components-backdrop/*": ["../backdrop/src/*"],
@@ -17,12 +17,18 @@
             "@alfalab/core-components-navigation-bar-private/*": [
                 "../navigation-bar-private/src/*"
             ],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-scrollbar": ["../scrollbar/src"],
             "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-typography": ["../typography/src"],
-            "@alfalab/core-components-typography/*": ["../typography/src/*"]
+            "@alfalab/core-components-typography/*": ["../typography/src/*"],
+            "@alfalab/core-components-universal-modal": ["./src"],
+            "@alfalab/core-components-universal-modal/*": ["./src/*"]
         }
     },
     "references": [
@@ -31,8 +37,10 @@
         { "path": "../button" },
         { "path": "../mq" },
         { "path": "../navigation-bar-private" },
+        { "path": "../screenshot-utils" },
         { "path": "../scrollbar" },
         { "path": "../shared" },
+        { "path": "../test-utils" },
         { "path": "../typography" }
     ]
 }

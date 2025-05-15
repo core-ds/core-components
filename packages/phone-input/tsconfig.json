@@ -1,13 +1,23 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-masked-input": ["../masked-input/src"],
-            "@alfalab/core-components-masked-input/*": ["../masked-input/src/*"]
+            "@alfalab/core-components-masked-input/*": ["../masked-input/src/*"],
+            "@alfalab/core-components-phone-input": ["./src"],
+            "@alfalab/core-components-phone-input/*": ["./src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../masked-input" }]
+    "references": [
+        { "path": "../masked-input" },
+        { "path": "../screenshot-utils" },
+        { "path": "../test-utils" }
+    ]
 }

@@ -1,6 +1,5 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "./tsconfig.base.json",
-    "include": ["typings"],
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
     "compilerOptions": {}
 }

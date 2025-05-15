@@ -5,7 +5,7 @@ import {
     closeBrowser,
     Knobs,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 768, height: 200 };
 

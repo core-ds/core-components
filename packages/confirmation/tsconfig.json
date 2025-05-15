@@ -1,20 +1,26 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-code-input": ["../code-input/src"],
             "@alfalab/core-components-code-input/*": ["../code-input/src/*"],
+            "@alfalab/core-components-confirmation": ["./src"],
+            "@alfalab/core-components-confirmation/*": ["./src/*"],
             "@alfalab/core-components-link": ["../link/src"],
             "@alfalab/core-components-link/*": ["../link/src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-spinner": ["../spinner/src"],
             "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-typography": ["../typography/src"],
             "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
@@ -24,7 +30,9 @@
         { "path": "../code-input" },
         { "path": "../link" },
         { "path": "../mq" },
+        { "path": "../screenshot-utils" },
         { "path": "../spinner" },
+        { "path": "../test-utils" },
         { "path": "../typography" }
     ]
 }

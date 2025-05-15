@@ -34,6 +34,7 @@ declare module 'text-mask-core' {
         config?: TextMaskConfig,
     ): conformToMaskResult;
 
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     export type conformToMaskResult = {
         conformedValue: string;
         meta: {

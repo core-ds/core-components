@@ -4,7 +4,7 @@ import {
     matchHtml,
     closeBrowser,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 describe('CalendarInput', () =>
     createPreview(

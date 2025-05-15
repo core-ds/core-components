@@ -1,7 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "./tsconfig.base.json",
-    "include": ["typings"],
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
     "compilerOptions": {
         "paths": {
             "@alfalab/core-components-accordion": ["./packages/accordion/src"],
@@ -208,6 +207,8 @@
             "@alfalab/core-components-radio/*": ["./packages/radio/src/*"],
             "@alfalab/core-components-radio-group": ["./packages/radio-group/src"],
             "@alfalab/core-components-radio-group/*": ["./packages/radio-group/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["./packages/screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["./packages/screenshot-utils/src/*"],
             "@alfalab/core-components-scrollbar": ["./packages/scrollbar/src"],
             "@alfalab/core-components-scrollbar/*": ["./packages/scrollbar/src/*"],
             "@alfalab/core-components-segmented-control": ["./packages/segmented-control/src"],
@@ -260,6 +261,8 @@
             "@alfalab/core-components-tabs/*": ["./packages/tabs/src/*"],
             "@alfalab/core-components-tag": ["./packages/tag/src"],
             "@alfalab/core-components-tag/*": ["./packages/tag/src/*"],
+            "@alfalab/core-components-test-utils": ["./packages/test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["./packages/test-utils/src/*"],
             "@alfalab/core-components-text": ["./packages/text/src"],
             "@alfalab/core-components-text/*": ["./packages/text/src/*"],
             "@alfalab/core-components-textarea": ["./packages/textarea/src"],

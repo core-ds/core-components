@@ -1,9 +1,9 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-bottom-sheet": ["../bottom-sheet/src"],
             "@alfalab/core-components-bottom-sheet/*": ["../bottom-sheet/src/*"],
@@ -13,10 +13,16 @@
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-popover": ["../popover/src"],
             "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-select": ["../select/src"],
             "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-select-with-tags": ["./src"],
+            "@alfalab/core-components-select-with-tags/*": ["./src/*"],
             "@alfalab/core-components-tag": ["../tag/src"],
-            "@alfalab/core-components-tag/*": ["../tag/src/*"]
+            "@alfalab/core-components-tag/*": ["../tag/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
@@ -24,7 +30,9 @@
         { "path": "../form-control" },
         { "path": "../mq" },
         { "path": "../popover" },
+        { "path": "../screenshot-utils" },
         { "path": "../select" },
-        { "path": "../tag" }
+        { "path": "../tag" },
+        { "path": "../test-utils" }
     ]
 }

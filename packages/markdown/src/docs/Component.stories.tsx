@@ -8,7 +8,7 @@ import { Gap } from '@alfalab/core-components-gap';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Markdown> = {
     title: 'Components/Markdown',

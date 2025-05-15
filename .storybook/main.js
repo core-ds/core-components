@@ -6,11 +6,18 @@ const { DefinePlugin, NormalModuleReplacementPlugin } = require('webpack');
 const postcssConfig = require('../postcss.config');
 const postcssImport = require('postcss-import');
 const loadCss = require('postcss-import/lib/load-content');
+const { getPackagesSync } = require('@manypkg/get-packages');
 
 const cssModuleRegex = /\.module\.css$/;
 const cssRegex = /\.css$/;
-const packagesDir = path.resolve(__dirname, '../packages');
 const distDir = path.resolve(__dirname, '../dist');
+const repositoryRoot = path.resolve(__dirname, '..');
+const { packages } = getPackagesSync(repositoryRoot);
+const rootPkg = packages.find(({ packageJson }) => packageJson.name === '@alfalab/core-components');
+const rootPkgDependencies = Object.keys({
+    ...rootPkg.packageJson.dependencies,
+    ...rootPkg.packageJson.peerDependencies,
+}).filter((name) => name.startsWith('@alfalab/core-components-'));
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -21,7 +28,7 @@ const addDirsForTranspile = (config) => {
                     nestedRule.test.test('.tsx') &&
                     nestedRule.loader.includes('babel-loader')
                 ) {
-                    nestedRule.include.push(packagesDir);
+                    nestedRule.include = [...nestedRule.include, ...packages.map(({ dir }) => dir)];
                 }
             });
         }
@@ -201,15 +208,24 @@ module.exports = {
 
                 resource.request = resource.request.replace(
                     /^@alfalab\/core-components[-/]([^/]+)\/?(.*)/,
-                    (_, componentName, entrypoint) =>
-                        process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
-                            ? path.join(
-                                  distDir,
-                                  componentName,
-                                  entrypoint.startsWith('modern') ? '' : 'modern',
-                                  entrypoint,
-                              )
-                            : path.join(packagesDir, componentName, 'src', entrypoint),
+                    (_, componentName, entrypoint) => {
+                        const pkgName = `@alfalab/core-components-${componentName}`;
+
+                        if (
+                            process.env.BUILD_STORYBOOK_FROM_DIST === 'true' &&
+                            rootPkgDependencies.includes(pkgName)
+                        ) {
+                            return path.join(
+                                distDir,
+                                componentName,
+                                entrypoint.startsWith('modern') ? '' : 'modern',
+                                entrypoint,
+                            );
+                        }
+                        const pkg = packages.find(({ packageJson: { name } }) => name === pkgName);
+
+                        return path.join(pkg.dir, 'src', entrypoint);
+                    },
                 );
 
                 if (resource.createData) {

@@ -1,15 +1,26 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-input-autocomplete": ["../input-autocomplete/src"],
             "@alfalab/core-components-input-autocomplete/*": ["../input-autocomplete/src/*"],
+            "@alfalab/core-components-intl-phone-input": ["./src"],
+            "@alfalab/core-components-intl-phone-input/*": ["./src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-select": ["../select/src"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../input-autocomplete" }, { "path": "../select" }]
+    "references": [
+        { "path": "../input-autocomplete" },
+        { "path": "../screenshot-utils" },
+        { "path": "../select" },
+        { "path": "../test-utils" }
+    ]
 }

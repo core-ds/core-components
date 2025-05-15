@@ -1,13 +1,23 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-gap": ["../gap/src"],
-            "@alfalab/core-components-gap/*": ["../gap/src/*"]
+            "@alfalab/core-components-gap/*": ["../gap/src/*"],
+            "@alfalab/core-components-generic-wrapper": ["./src"],
+            "@alfalab/core-components-generic-wrapper/*": ["./src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../gap" }]
+    "references": [
+        { "path": "../gap" },
+        { "path": "../screenshot-utils" },
+        { "path": "../test-utils" }
+    ]
 }

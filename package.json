@@ -22,7 +22,7 @@
         "update-usages": "node tools/update-usages.js",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
         "lint:css": "stylelint packages/**/*.css",
-        "lint:js": "eslint packages --ext .ts,.tsx,.js,.jsx --max-warnings 0",
+        "lint:js": "bin/lint-js.sh",
         "lint:deps": "node bin/lint-deps.mjs",
         "test": "jest --watchAll=false",
         "test:screenshots": "bin/run-screenshots.sh",
@@ -69,17 +69,17 @@
         "@storybook/preset-create-react-app": "^7.6.2",
         "@storybook/react": "^7.6.2",
         "@storybook/react-webpack5": "^7.6.2",
-        "@testing-library/dom": "^8.17.1",
-        "@testing-library/jest-dom": "^5.16.5",
-        "@testing-library/react": "^13.3.0",
+        "@testing-library/dom": "^10.4.0",
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/react": "^16.2.0",
         "@testing-library/react-hooks": "^8.0.1",
-        "@testing-library/user-event": "^14.4.3",
+        "@testing-library/user-event": "^14.6.1",
         "@types/detect-browser": "^4.0.3",
         "@types/element-closest": "^3.0.0",
         "@types/jest": "^26.0.15",
         "@types/jest-image-snapshot": "^6.1.0",
         "@types/lodash": "^4.17.13",
-        "@types/node": "^18.19.80",
+        "@types/node": "^22.15.18",
         "@types/react": "^18.0.15",
         "@types/react-dom": "^18.0.6",
         "@types/swiper": "^5.4.3",
@@ -168,49 +168,6 @@
         "yargs": "^17.7.2"
     },
     "prettier": "arui-presets-lint/prettier",
-    "eslintConfig": {
-        "parserOptions": {
-            "project": [
-                "./tsconfig.eslint.json",
-                "./packages/*/tsconfig.json"
-            ]
-        },
-        "ignorePatterns": [
-            "**/*.test*",
-            "**/*.stories*"
-        ],
-        "extends": "./node_modules/arui-presets-lint/eslint",
-        "overrides": [
-            {
-                "files": [
-                    "**/*.tsx",
-                    "**/*.ts",
-                    "**/*.jsx",
-                    "**/*.js"
-                ],
-                "rules": {
-                    "import/no-extraneous-dependencies": 0,
-                    "unicorn/filename-case": 0,
-                    "react/no-unused-prop-types": 0,
-                    "dirnames/match-kebab-case": 0,
-                    "import/no-relative-packages": 0
-                }
-            }
-        ],
-        "rules": {
-            "@typescript-eslint/no-unused-vars": [
-                "error",
-                {
-                    "ignoreRestSiblings": true,
-                    "argsIgnorePattern": "^_"
-                }
-            ],
-            "multiline-comment-style": [
-                "error",
-                "starred-block"
-            ]
-        }
-    },
     "stylelint": {
         "extends": "arui-presets-lint/stylelint",
         "rules": {
@@ -224,16 +181,6 @@
                 }
             ]
         }
-    },
-    "lint-staged": {
-        "{packages,bin}/**/*.{js,jsx,ts,tsx}": [
-            "prettier --write",
-            "eslint"
-        ],
-        "*.css": [
-            "prettier --write",
-            "stylelint"
-        ]
     },
     "husky": {
         "hooks": {

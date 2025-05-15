@@ -1,15 +1,26 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-input": ["../input/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-slider": ["../slider/src"],
-            "@alfalab/core-components-slider/*": ["../slider/src/*"]
+            "@alfalab/core-components-slider/*": ["../slider/src/*"],
+            "@alfalab/core-components-slider-input": ["./src"],
+            "@alfalab/core-components-slider-input/*": ["./src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../input" }, { "path": "../slider" }]
+    "references": [
+        { "path": "../input" },
+        { "path": "../screenshot-utils" },
+        { "path": "../slider" },
+        { "path": "../test-utils" }
+    ]
 }

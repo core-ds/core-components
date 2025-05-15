@@ -1,9 +1,9 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-badge": ["../badge/src"],
             "@alfalab/core-components-badge/*": ["../badge/src/*"],
@@ -15,12 +15,18 @@
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-picker-button": ["../picker-button/src"],
             "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-skeleton": ["../skeleton/src"],
             "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"],
+            "@alfalab/core-components-tabs": ["./src"],
+            "@alfalab/core-components-tabs/*": ["./src/*"],
             "@alfalab/core-components-tag": ["../tag/src"],
-            "@alfalab/core-components-tag/*": ["../tag/src/*"]
+            "@alfalab/core-components-tag/*": ["../tag/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
@@ -29,8 +35,10 @@
         { "path": "../keyboard-focusable" },
         { "path": "../mq" },
         { "path": "../picker-button" },
+        { "path": "../screenshot-utils" },
         { "path": "../shared" },
         { "path": "../skeleton" },
-        { "path": "../tag" }
+        { "path": "../tag" },
+        { "path": "../test-utils" }
     ]
 }

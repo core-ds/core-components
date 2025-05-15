@@ -1,9 +1,9 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-badge": ["../badge/src"],
             "@alfalab/core-components-badge/*": ["../badge/src/*"],
@@ -25,12 +25,18 @@
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-popover": ["../popover/src"],
             "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-scrollbar": ["../scrollbar/src"],
             "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
+            "@alfalab/core-components-select": ["./src"],
+            "@alfalab/core-components-select/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-skeleton": ["../skeleton/src"],
-            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"]
+            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
@@ -44,8 +50,10 @@
         { "path": "../modal" },
         { "path": "../mq" },
         { "path": "../popover" },
+        { "path": "../screenshot-utils" },
         { "path": "../scrollbar" },
         { "path": "../shared" },
-        { "path": "../skeleton" }
+        { "path": "../skeleton" },
+        { "path": "../test-utils" }
     ]
 }

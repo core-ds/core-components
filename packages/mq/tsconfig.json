@@ -1,15 +1,26 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "src/**/*.json", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-config": ["../config/src"],
             "@alfalab/core-components-config/*": ["../config/src/*"],
+            "@alfalab/core-components-mq": ["./src"],
+            "@alfalab/core-components-mq/*": ["./src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../config" }, { "path": "../shared" }]
+    "references": [
+        { "path": "../config" },
+        { "path": "../screenshot-utils" },
+        { "path": "../shared" },
+        { "path": "../test-utils" }
+    ]
 }

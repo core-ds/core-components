@@ -2,8 +2,6 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
         "skipLibCheck": true,
-        "target": "ES5",
-        "module": "CommonJS",
         "jsx": "react",
         "allowJs": true,
         "esModuleInterop": true,
@@ -13,7 +11,7 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "composite": true,
-        "declaration": true
-    },
-    "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"]
+        "declaration": true,
+        "types": ["@alfalab/core-components-env", "@testing-library/jest-dom"]
+    }
 }

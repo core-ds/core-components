@@ -1,24 +1,32 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-icon-button": ["../icon-button/src"],
             "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-status-badge": ["../status-badge/src"],
-            "@alfalab/core-components-status-badge/*": ["../status-badge/src/*"]
+            "@alfalab/core-components-status-badge/*": ["../status-badge/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
+            "@alfalab/core-components-toast-plate": ["./src"],
+            "@alfalab/core-components-toast-plate/*": ["./src/*"]
         }
     },
     "references": [
         { "path": "../icon-button" },
         { "path": "../mq" },
+        { "path": "../screenshot-utils" },
         { "path": "../shared" },
-        { "path": "../status-badge" }
+        { "path": "../status-badge" },
+        { "path": "../test-utils" }
     ]
 }

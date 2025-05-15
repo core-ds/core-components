@@ -7,8 +7,11 @@ import { getPackages } from '@manypkg/get-packages';
 const IGNORED_PACKAGES = [
     '@alfalab/core-components',
     '@alfalab/core-components-codemod',
+    '@alfalab/core-components-env',
     '@alfalab/core-components-config',
+    '@alfalab/core-components-screenshot-utils',
     '@alfalab/core-components-stack-context',
+    '@alfalab/core-components-test-utils',
     '@alfalab/core-components-themes',
     '@alfalab/core-components-types',
     '@alfalab/core-components-vars',

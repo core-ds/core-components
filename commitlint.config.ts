@@ -1,13 +1,9 @@
-const assert = require('assert');
-const { getPackages } = require('@manypkg/get-packages');
+import { getPackages, Packages } from '@manypkg/get-packages';
+import assert from 'node:assert';
 
 const PACKAGE_NAME_PREFIX_REG_EXP = /^@alfalab\/core-components-/;
 
-/**
- * @param {import('@manypkg/get-packages').Packages} packages
- * @returns {string[]}
- */
-function getScopes({ packages }) {
+function getScopes({ packages }: Packages) {
     return packages.map(({ packageJson: { name } }) => {
         if (name === '@alfalab/core-components') {
             return 'root';
@@ -22,10 +18,10 @@ function getScopes({ packages }) {
 module.exports = {
     extends: ['@commitlint/config-conventional'],
     rules: {
-        'scope-enum': async (ctx) => [
+        'scope-enum': async (): Promise<[number, string, string[]]> => [
             2,
             'always',
-            getScopes(await getPackages(ctx?.cwd ?? process.cwd())),
+            getScopes(await getPackages(__dirname)),
         ],
     },
 };

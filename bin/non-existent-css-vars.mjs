@@ -6,6 +6,8 @@ import { getPackages } from '@manypkg/get-packages';
 
 const IGNORED_PACKAGES = [
     '@alfalab/core-components-bank-card',
+    '@alfalab/core-components-screenshot-utils',
+    '@alfalab/core-components-test-utils',
     '@alfalab/core-components-themes',
     '@alfalab/core-components-vars',
 ];

@@ -1,9 +1,9 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-base-modal": ["../base-modal/src"],
             "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
@@ -15,8 +15,14 @@
             "@alfalab/core-components-navigation-bar-private/*": [
                 "../navigation-bar-private/src/*"
             ],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-side-panel": ["./src"],
+            "@alfalab/core-components-side-panel/*": ["./src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
@@ -24,6 +30,8 @@
         { "path": "../drawer" },
         { "path": "../mq" },
         { "path": "../navigation-bar-private" },
-        { "path": "../shared" }
+        { "path": "../screenshot-utils" },
+        { "path": "../shared" },
+        { "path": "../test-utils" }
     ]
 }

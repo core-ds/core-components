@@ -12,6 +12,9 @@ import { processCss } from './tools/rollup/process-css.mjs';
 import { cwd } from 'node:process';
 import { getPackages } from '@manypkg/get-packages';
 import { defineConfig } from 'rollup';
+import ts from 'typescript';
+
+const { ScriptTarget } = ts;
 
 const { packages } = await getPackages(cwd());
 const pkg = packages.find(({ dir }) => dir === cwd()).packageJson;
@@ -89,6 +92,8 @@ const es5 = () => {
             ...base.plugins,
             externalsResolver(externals),
             typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES5,
                 outDir: 'dist',
                 declarationDir: 'dist',
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
@@ -130,6 +135,8 @@ const cssm = () => {
             coreComponentsResolver('cssm'),
             externalsResolver(externals),
             typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES5,
                 outDir: 'dist/cssm',
                 declarationDir: 'dist/cssm',
                 tsBuildInfoFile: 'tsconfig.cssm.tsbuildinfo',
@@ -166,7 +173,8 @@ const modern = () => {
             coreComponentsResolver('modern'),
             externalsResolver(externals),
             typescript({
-                target: 'es2020',
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES2020,
                 outDir: 'dist/modern',
                 declarationDir: 'dist/modern',
                 tsBuildInfoFile: 'tsconfig.modern.tsbuildinfo',
@@ -205,7 +213,8 @@ const moderncssm = () => {
             coreComponentsResolver('moderncssm'),
             externalsResolver(externals),
             typescript({
-                target: 'es2020',
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES2020,
                 outDir: 'dist/moderncssm',
                 declarationDir: 'dist/moderncssm',
                 tsBuildInfoFile: 'tsconfig.moderncssm.tsbuildinfo',
@@ -244,6 +253,8 @@ const esm = () => {
             coreComponentsResolver('esm'),
             externalsResolver(externals),
             typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES5,
                 outDir: 'dist/esm',
                 declarationDir: 'dist/esm',
                 tsBuildInfoFile: 'tsconfig.esm.tsbuildinfo',
@@ -256,7 +267,7 @@ const esm = () => {
 
 const root = () =>
     defineConfig({
-        input: 'postinstall.js',
+        input: 'src/postinstall.js',
         plugins: [
             copy({
                 targets: [

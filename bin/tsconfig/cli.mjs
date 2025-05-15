@@ -10,12 +10,21 @@ import { fileURLToPath } from 'node:url';
 import { getPackages } from '@manypkg/get-packages';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repositoryRoot = path.join(__dirname, '../..');
 const require = createRequire(import.meta.url);
+const storybookPath = path.join(repositoryRoot, '.storybook');
 
 const IGNORED_PACKAGES = ['@alfalab/core-components', '@alfalab/core-components-codemod'];
 
-const packages = (await getPackages(process.cwd())).packages.filter(
-    ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
+const TEST_PACKAGES = [
+    '@alfalab/core-components-screenshot-utils',
+    '@alfalab/core-components-test-utils',
+];
+
+const DEV_PACKAGES = ['@alfalab/core-components-env'];
+
+const packages = (await getPackages(repositoryRoot)).packages.filter(
+    ({ packageJson }) => !IGNORED_PACKAGES.includes(packageJson.name),
 );
 
 yargs(hideBin(process.argv))
@@ -51,7 +60,7 @@ yargs(hideBin(process.argv))
         function handler(args) {
             if (args.s || args.a) {
                 fs.writeFileSync(
-                    path.join(process.cwd(), '.storybook', 'tsconfig.json'),
+                    path.join(storybookPath, 'tsconfig.json'),
                     // TODO prettier format
                     JSON.stringify(generateStorybookTsConfig()),
                     { encoding: 'utf8' },
@@ -59,7 +68,7 @@ yargs(hideBin(process.argv))
             }
             if (args.t || args.a) {
                 fs.writeFileSync(
-                    path.join(process.cwd(), 'tsconfig.test.json'),
+                    path.join(repositoryRoot, 'tsconfig.test.json'),
                     // TODO prettier format
                     JSON.stringify(generateTestsTsConfig()),
                     { encoding: 'utf8' },
@@ -89,17 +98,13 @@ yargs(hideBin(process.argv))
         function handler() {
             let errors = [];
 
-            const storybookTsConfig = require(path.join(
-                process.cwd(),
-                '.storybook',
-                'tsconfig.json',
-            ));
+            const storybookTsConfig = require(path.join(storybookPath, 'tsconfig.json'));
 
             if (!isDummyEqual(storybookTsConfig, generateStorybookTsConfig())) {
                 errors.push('Please generate tsconfig.json via "yarn tsconfig generate -s"');
             }
 
-            const testsTsConfig = require(path.join(process.cwd(), 'tsconfig.test.json'));
+            const testsTsConfig = require(path.join(repositoryRoot, 'tsconfig.test.json'));
 
             if (!isDummyEqual(testsTsConfig, generateTestsTsConfig())) {
                 errors.push('Please generate tsconfig.json via "yarn tsconfig generate -t"');
@@ -140,17 +145,21 @@ yargs(hideBin(process.argv))
  * @returns {string}
  */
 function normalizePath(relativePath) {
+    if (relativePath === '') {
+        return '.';
+    }
+
     return relativePath.startsWith('.') ? relativePath : `./${relativePath}`;
 }
 
 /**
- * @param {string[]} packageNames
+ * @param {Array<import('@manypkg/get-packages').Package>} forPackages
+ * @param {string} [cwd]
  * @returns {Record<string, string[]>}
  */
-function generatePaths(packageNames, cwd = process.cwd()) {
+function generatePaths(forPackages, cwd = repositoryRoot) {
     return Object.fromEntries(
-        packages
-            .filter(({ packageJson: { name } }) => packageNames.includes(name))
+        forPackages
             .map(({ packageJson: { name }, dir }) => {
                 const relativePackageLocation = normalizePath(path.relative(cwd, dir));
 
@@ -171,13 +180,14 @@ function generateStorybookTsConfig() {
         path.join(__dirname, 'templates', 'tsconfig.storybook.json'),
     );
 
-    const atomicPackages = packages
-        .map(({ packageJson: { name } }) => name)
-        .filter((name) => !(name === '@alfalab/core-components'));
+    const atomicPackages = packages.filter(
+        ({ packageJson: { name } }) =>
+            !(name === '@alfalab/core-components') && !DEV_PACKAGES.includes(name),
+    );
 
     storybookTsConfigTemplate.compilerOptions.paths = {
         ...storybookTsConfigTemplate.compilerOptions.paths,
-        ...generatePaths(atomicPackages, path.join(process.cwd(), '.storybook')),
+        ...generatePaths(atomicPackages, storybookPath),
     };
 
     return storybookTsConfigTemplate;
@@ -191,9 +201,10 @@ function generateTestsTsConfig() {
         path.join(__dirname, 'templates', 'tsconfig.test.json'),
     );
 
-    const atomicPackages = packages
-        .map(({ packageJson: { name } }) => name)
-        .filter((name) => !(name === '@alfalab/core-components'));
+    const atomicPackages = packages.filter(
+        ({ packageJson: { name } }) =>
+            !(name === '@alfalab/core-components') && !DEV_PACKAGES.includes(name),
+    );
 
     testsTsConfigTemplate.compilerOptions.paths = {
         ...testsTsConfigTemplate.compilerOptions.paths,
@@ -220,23 +231,62 @@ function generatePackageTsConfig({ dir, packageJson }) {
         packageTsConfigTemplate.include.splice(srcIndex + 1, 0, 'src/**/*.json');
     }
 
-    const corePackages = Object.keys({
+    const coreDependencies = Object.keys({
         ...packageJson.dependencies,
         ...packageJson.peerDependencies,
     }).filter((name) => name.startsWith('@alfalab/core-components-'));
 
-    if (packageJson.name === '@alfalab/core-components' || corePackages.length === 0) {
-        return packageTsConfigTemplate;
-    }
+    switch (packageJson.name) {
+        case '@alfalab/core-components': {
+            return packageTsConfigTemplate;
+        }
+        case '@alfalab/core-components-screenshot-utils': {
+            const relativeStorybookPath = path.relative(dir, storybookPath);
 
-    if (corePackages.length > 0) {
-        packageTsConfigTemplate.compilerOptions.paths = generatePaths(corePackages, dir);
-        packageTsConfigTemplate.references = packages
-            .filter(({ packageJson: { name } }) => corePackages.includes(name))
-            .map((pkg) => ({ path: path.relative(dir, pkg.dir) }));
-    }
+            packageTsConfigTemplate.compilerOptions.types = [
+                '@alfalab/core-components-env',
+                '@testing-library/jest-dom',
+                '@types/webpack-env',
+            ];
 
-    return packageTsConfigTemplate;
+            packageTsConfigTemplate.compilerOptions.paths = {
+                'storybook/*': [`${relativeStorybookPath}/*`],
+            };
+            packageTsConfigTemplate.references = [{ path: relativeStorybookPath }];
+
+            return packageTsConfigTemplate;
+        }
+        default: {
+            const devDependencies =
+                packageJson.name === '@alfalab/core-components-env' ||
+                packageJson.name === '@alfalab/core-components-test-utils'
+                    ? []
+                    : TEST_PACKAGES.filter((name) => !(name === packageJson.name));
+            const packagesOfPackage = packages.filter(
+                ({ packageJson: { name } }) =>
+                    name === packageJson.name ||
+                    coreDependencies.includes(name) ||
+                    devDependencies.includes(name),
+            );
+
+            if (packagesOfPackage.length > 0) {
+                packageTsConfigTemplate.compilerOptions.paths = generatePaths(
+                    packagesOfPackage,
+                    dir,
+                );
+
+                packageTsConfigTemplate.references = packagesOfPackage
+                    .filter(({ packageJson: { name } }) => !(name === packageJson.name))
+                    .map((pkg) => ({ path: path.relative(dir, pkg.dir) }));
+            }
+
+            if (packageTsConfigTemplate.references.length === 0) {
+                packageTsConfigTemplate.references = undefined;
+            }
+
+            return packageTsConfigTemplate;
+        }
+    }
 }
 
 /**

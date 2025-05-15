@@ -1,7 +1,6 @@
 import kebab from 'lodash/kebabCase';
 
-import findComponentPath from '../../tools/storybook/findComponentPath';
-
+import { findComponentPath } from './findComponentPath';
 import { STORYBOOK_URL } from './setupScreenshotTesting';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

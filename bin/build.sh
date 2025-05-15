@@ -26,6 +26,9 @@ lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/build-vars.m
 # собираю все подпакеты с компонентами
 lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
+    --ignore @alfalab/core-components-env \
+    --ignore @alfalab/core-components-screenshot-utils \
+    --ignore @alfalab/core-components-test-utils \
     -- rollup -c $(pwd)/rollup.config.mjs --silent
 
 # удаляем неиспользуемые css-переменные из сборки во всех подпакетах

@@ -1,9 +1,9 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.base.json",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src"],
     "compilerOptions": {
-        "rootDir": "src",
+        "outDir": "dist",
         "paths": {
             "@alfalab/core-components-amount": ["../amount/src"],
             "@alfalab/core-components-amount/*": ["../amount/src/*"],
@@ -11,8 +11,14 @@
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-comment": ["../comment/src"],
             "@alfalab/core-components-comment/*": ["../comment/src/*"],
+            "@alfalab/core-components-pure-cell": ["./src"],
+            "@alfalab/core-components-pure-cell/*": ["./src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-typography": ["../typography/src"],
             "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
@@ -21,7 +27,9 @@
         { "path": "../amount" },
         { "path": "../button" },
         { "path": "../comment" },
+        { "path": "../screenshot-utils" },
         { "path": "../shared" },
+        { "path": "../test-utils" },
         { "path": "../typography" }
     ]
 }

@@ -13,7 +13,7 @@ const coreComponentsContext =
         : require.context(
               '../packages',
               true,
-              /^\.\/(.*)\/src\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).ts$/,
+              /^\.\/((?!(env|screenshot-utils|test-utils)).)*\/src\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).ts$/,
           );
 
 const glyphContext = require.context('../node_modules/@alfalab/icons-glyph', true, /(.*).js$/);

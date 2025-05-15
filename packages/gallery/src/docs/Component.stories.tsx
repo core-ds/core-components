@@ -6,7 +6,7 @@ import { Gallery } from '@alfalab/core-components-gallery';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Gallery> = {
     title: 'Components/Gallery',
