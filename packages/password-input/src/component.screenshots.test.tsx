@@ -48,3 +48,116 @@ describe(
         ],
     }),
 );
+
+describe('PasswordInputDesktop | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            block: true,
+                            size: [48, 56, 64, 72],
+                            breakpoint: 300,
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            success: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [48, 56, 64, 72],
+                            breakpoint: 300,
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            error: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [48, 56, 64, 72],
+                            breakpoint: 300,
+                        },
+                    }),
+                ],
+            ],
+            viewport: {
+                width: 350,
+                height: 800,
+            },
+            theme,
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
+
+describe('PasswordInputMobile | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            block: true,
+                            size: [48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            success: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            error: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            viewport: {
+                width: 350,
+                height: 800,
+            },
+            theme,
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
