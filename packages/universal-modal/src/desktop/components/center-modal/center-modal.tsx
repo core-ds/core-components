@@ -4,22 +4,23 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { browser, os } from '@alfalab/core-components-shared';
 
-import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
-import { useModalWidth } from '../../hooks/useModalWidth';
-import { ModalByCenterProps } from '../../types/props';
+import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
-import { getMargins } from '../../utils/get-margins';
-import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
+import { getHeightStyle } from '../../utils/get-height-style';
+import { getMarginStyles } from '../../utils/get-margin-styles';
+import { getMaxHeightStyle } from '../../utils/get-max-height-style';
+import { getWidthStyle } from '../../utils/get-width-style';
+import { ModalContent } from '../modal-content/modal-content';
 
-import styles from './styles/index.module.css';
-import safariTransitions from './styles/transitions/safari-transitions.module.css';
-import transitions from './styles/transitions/transitions.module.css';
+import styles from './index.module.css';
+import safariTransitions from './transitions/safari-transitions.module.css';
+import transitions from './transitions/transitions.module.css';
 
 // в safari некорректно отрабатывает transform:scale (???), поэтому применяем немного другую анимацию
 const transitionProps = os.isMacOS() && browser.isSafari() ? safariTransitions : transitions;
 
-export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props, ref) => {
+export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
         dataTestId,
         className,
@@ -30,14 +31,13 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
         verticalAlign = 'center',
         overlay = true,
         margin,
+        scrollableContainerRef,
         onClose,
         ...restProps
     } = props;
 
     const componentRef = useRef<HTMLDivElement>(null);
 
-    useModalWidth(width, open, componentRef);
-    useModalHeight(height, open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
 
     const {
@@ -49,9 +49,21 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
     return (
         <BaseModal
             {...restProps}
+            open={open}
             dataTestId={dataTestId}
             ref={ref}
             componentRef={componentRef}
+            scrollHandler='content'
+            disableBlockingScroll={!overlay}
+            wrapperClassName={cn({
+                [styles.wrapperJustifyStart]: verticalAlign === 'top',
+                [styles.wrapperJustifyCenter]: verticalAlign === 'center',
+                [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
+            })}
+            className={cn(styles.component, className, {
+                [styles.overlayHidden]: !overlay,
+                ...getMarginStyles({ styles, margin }),
+            })}
             transitionProps={{
                 classNames: transitionProps,
                 ...(isFullSizeModal && fullSizeModalContentTransitions),
@@ -62,23 +74,25 @@ export const CenterModal = forwardRef<HTMLDivElement, ModalByCenterProps>((props
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
             }}
-            className={cn(styles.component, className, {
-                [styles.overlayHidden]: !overlay,
-                [styles.verticalTop]: verticalAlign === 'top',
-                [styles.verticalBottom]: verticalAlign === 'bottom',
-                ...getMargins({ styles, margin }),
-            })}
-            scrollHandler='content'
-            open={open}
-            disableBlockingScroll={!overlay}
+            componentDivProps={{
+                style: {
+                    width: getWidthStyle(width, margin),
+                    height: getHeightStyle(height, margin),
+                    ...(height === 'hugContent' && {
+                        maxHeight: getMaxHeightStyle(margin),
+                    }),
+                },
+            }}
             onWheel={handleWheel}
             onClose={onClose}
         >
-            <div className={styles.container}>
-                <BaseUniversalModalContent wheelDeltaY={wheelDeltaY}>
-                    {children}
-                </BaseUniversalModalContent>
-            </div>
+            <ModalContent
+                height={height}
+                wheelDeltaY={wheelDeltaY}
+                scrollableContainerRef={scrollableContainerRef}
+            >
+                {children}
+            </ModalContent>
         </BaseModal>
     );
 });
