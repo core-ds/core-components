@@ -3,31 +3,31 @@ const { getPackagesSync } = require('@manypkg/get-packages');
 
 const eslintIgnoredPackages = ['@alfalab/core-components-themes', '@alfalab/core-components-vars'];
 
-const eslintConfigPath = path.join(__dirname, '.eslintrc.cjs');
-
 const packages = getPackagesSync(__dirname).packages.filter(
     ({ packageJson: { name } }) => !eslintIgnoredPackages.includes(name),
 );
 
 module.exports = {
-    'packages/**/*.{js,jsx,ts,tsx,cjs,mjs}': (filenames) => {
-        const sources = filenames.filter((filename) => !/\.(stories|test)\.(ts|js)x?$/.test(filename));
-
-        return packages.reduce((commands, { dir, packageJson: { name } }) => {
+    'packages/*/src/?(**/)*.{js,jsx,ts,tsx,cjs,mjs}': (filenames) =>
+        packages.reduce((commands, { dir, packageJson: { name } }) => {
             const src = path.join(dir, 'src');
-            const files = sources.filter((filename) => filename.startsWith(src));
+            const files = filenames
+                .filter((filename) => filename.startsWith(src))
+                .map((file) => `'${path.relative(dir, file)}'`);
 
             if (files.length > 0) {
+                const filesStr = files.join(' ');
+                const config = path.relative(dir, path.join(__dirname, '.eslintrc.cjs'));
+
                 commands.push(
-                    `lerna exec --stream --scope ${name} -- eslint ${files
-                        .map((file) => path.relative(dir, file))
-                        .join(' ')} --config ${eslintConfigPath}`,
+                    `
+                    lerna exec --stream --scope ${name} -- "eslint ${filesStr} --config ${config}"
+                    `.trim(),
                 );
             }
 
             return commands;
-        }, []);
-    },
-    '{bin,packages,tools}/**/*.{js,jsx,ts,tsx,cjs,mjs}': ['prettier --write'],
+        }, []),
+    '*.{js,jsx,ts,tsx,cjs,mjs}': ['prettier --write'],
     '*.css': ['prettier --write', 'stylelint'],
 };
