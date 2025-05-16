@@ -4,6 +4,7 @@ import React, {
     KeyboardEvent,
     MouseEvent,
     useEffect,
+    useImperativeHandle,
     useMemo,
     useRef,
     useState,
@@ -45,6 +46,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             readOnly,
             fieldClassName,
             disableUserInput,
+            toggleCorrectionRef,
             ...restProps
         },
         ref,
@@ -69,6 +71,8 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
         );
 
         const maskRef = useMaskito({ options: maskOptions });
+
+        useImperativeHandle(toggleCorrectionRef, () => ({ handleCorrection }));
 
         useEffect(() => {
             let timeoutId: ReturnType<typeof setTimeout>;
