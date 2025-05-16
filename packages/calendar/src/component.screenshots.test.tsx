@@ -2,7 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 jest.mock('date-fns', () => ({ isThisMonth: () => false }));
 

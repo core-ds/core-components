@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const handlebars = require('handlebars');
 
-const typography = require('../node_modules/ui-primitives/styles/typography_web.json');
+const typography = require('ui-primitives/styles/typography_web.json');
 
 const out = [compileTemplate('font-vars.css.hbs')];
 
