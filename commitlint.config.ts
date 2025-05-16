@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const assert = require('node:assert/strict');
-const { getPackages } = require('@manypkg/get-packages');
+import { getPackages } from '@manypkg/get-packages';
+import assert from 'node:assert/strict';
 
 const CORE_COMPONENTS_REGEXP = /^@alfalab\/core-components-/;
 
@@ -16,7 +15,7 @@ function getScopes({ packages }: import('@manypkg/get-packages').Packages) {
     });
 }
 
-module.exports = {
+export default {
     extends: ['@commitlint/config-conventional'],
     rules: {
         'scope-enum': async () => [2, 'always', getScopes(await getPackages(__dirname))] as const,

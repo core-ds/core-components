@@ -1,17 +1,12 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@tsconfig/node22/tsconfig.json",
     "include": ["bin", "commitlint.config.ts", "tools"],
     "compilerOptions": {
-        "noEmit": true,
-        "target": "ESNext",
-        "module": "ESNext",
-        "moduleResolution": "nodenext",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
+        "lib": ["es2020"],
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
-        "allowJs": true,
-        "checkJs": true
+        "noEmit": true,
+        "allowJs": true
     }
 }

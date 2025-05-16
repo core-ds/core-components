@@ -30,6 +30,7 @@ module.exports = {
         }),
         require('postcss-custom-media')({
             importFrom: {
+                // eslint-disable-next-line import/no-dynamic-require
                 customMedia: require(path.join(mq.dir, 'src/mq.json')),
             },
         }),
