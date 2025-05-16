@@ -1,5 +1,15 @@
 # @alfalab/core-components-shared
 
+## 0.17.0
+
+### Minor Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1697](https://github.com/core-ds/core-components/pull/1697)
+
+-   Добавлена утилита get-color-var
+
 ## 0.16.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 13.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   code-input@3.9.8
+    -   spinner@4.0.7
+    -   typography@4.13.1
+
 ## 13.10.0
 
 ### Minor Changes

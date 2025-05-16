@@ -1,5 +1,12 @@
 # @alfalab/core-components-page-indicator
 
+## 1.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
 ## 1.0.0
 
 ### Major Changes
