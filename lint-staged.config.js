@@ -28,7 +28,7 @@ module.exports = {
 
             return commands;
         }, []),
-    '*.{js,jsx,ts,tsx,cjs,mjs,json}': 'prettier --write',
+    '*.{js,jsx,ts,tsx,cjs,mjs,json,yml}': 'prettier --write',
     'bin/tsconfig/templates/tsconfig*.json': 'yarn tsconfig check',
     'packages/*/{package,tsconfig}.json': 'yarn tsconfig check',
     '*.css': ['prettier --write', 'stylelint'],
