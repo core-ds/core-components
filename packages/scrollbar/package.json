@@ -26,9 +26,6 @@
         "simplebar": "^5.3.8",
         "tslib": "^2.4.0"
     },
-    "devDependencies": {
-        "@types/lodash.throttle": "^4.1.7"
-    },
     "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"
 }
