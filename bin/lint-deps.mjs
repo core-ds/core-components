@@ -15,6 +15,9 @@ const IGNORED_PACKAGES = [
     '@alfalab/core-components-vars',
 ];
 
+/**
+ * @type {depcheck.Options}
+ */
 const options = {
     ignorePatterns: [
         // files matching these patterns will be ignored
@@ -89,7 +92,7 @@ async function main() {
         }
     });
 
-    // TODO нужен process.exit(1). Сейчас depcheck не проверяет /mobile, /desktop, так как там есть package.json. https://github.com/depcheck/depcheck/issues/704
+    process.exit(1);
 }
 
 await main();

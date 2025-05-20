@@ -17,6 +17,7 @@
     "dependencies": {
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/core-components-types": "^0.0.0",
+        "@maskito/core": "^1.7.0",
         "detect-browser": "^5.3.0",
         "tslib": "^2.4.0"
     },
