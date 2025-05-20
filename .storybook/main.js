@@ -18,6 +18,9 @@ const rootPkgDependencies = Object.keys({
     ...rootPkg.packageJson.dependencies,
     ...rootPkg.packageJson.peerDependencies,
 }).filter((name) => name.startsWith('@alfalab/core-components-'));
+const vars = packages.find(
+    ({ packageJson }) => packageJson.name === '@alfalab/core-components-vars',
+);
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -89,7 +92,13 @@ function modifyCssRules(config) {
                                 ? postcssImport({
                                       warnOnEmpty: false,
                                       load: async (filename, importOptions) => {
-                                          if (filename.includes('/vars/src/index.css')) {
+                                          if (
+                                              // check if file the same
+                                              path.relative(
+                                                  filename,
+                                                  path.join(vars.dir, 'src/index.css'),
+                                              ) === ''
+                                          ) {
                                               // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
                                               // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
                                               // https://github.com/postcss/postcss-import/issues/84

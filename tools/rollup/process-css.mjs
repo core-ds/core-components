@@ -93,7 +93,10 @@ async function processPostcss(filePath, config = {}) {
                 ? postcssImport({
                       warnOnEmpty: false,
                       load: async (filename, importOptions) => {
-                          if (filename.includes('/vars/src/index.css')) {
+                          if (
+                              // check if file the same
+                              path.relative(filename, path.join(vars.dir, 'src/index.css')) === ''
+                          ) {
                               // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
                               // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
                               // https://github.com/postcss/postcss-import/issues/84
@@ -113,7 +116,7 @@ async function processPostcss(filePath, config = {}) {
             plugin.postcssPlugin === 'postcss-mixins'
                 ? postcssMixins({
                       mixinsFiles: globby.sync(path.join(vars.dir, 'src/*.css'), {
-                          ignore: ['**/@(index|typography).css'],
+                          ignore: ['**/{indextypography}.css'],
                       }),
                   })
                 : plugin,

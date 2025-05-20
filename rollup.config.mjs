@@ -49,18 +49,6 @@ const sourceCopyPlugin = copy({
                 '!src/**/*.test.{ts,tsx}',
             ],
             dest: 'dist/src',
-            transform: (contents, name) => {
-                if (name.endsWith('.css')) {
-                    return contents
-                        .toString()
-                        .replaceAll(
-                            /@import.*\/(.*)\/src\/(.*)\.css['"];/g,
-                            "@import '@alfalab/core-components-$1/src/$2.css';",
-                        );
-                }
-
-                return contents;
-            },
         },
     ],
 });

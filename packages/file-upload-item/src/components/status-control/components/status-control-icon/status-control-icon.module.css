@@ -1,5 +1,5 @@
-@import '../../../../../../vars/src/index.css';
-@import '../../../../../../vars/src/colors-decorative.css';
+@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/colors-decorative.css';
 
 .iconPDFColored {
     fill: var(--color-light-decorative-red);
