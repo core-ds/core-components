@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-typography
 
 ## 4.13.1
 

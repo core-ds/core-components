@@ -19,8 +19,7 @@
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.17.0"
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"

@@ -1,16 +1,13 @@
-import {
-    hasImportSpecifier,
-    isIndexEntry,
-    modifyIdentifiers,
-    modifyImportPath,
-} from '../42-utils';
+import { hasImportSpecifier, isIndexEntry, modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const checkboxGroupTransformer = (source, j) => {
     modifyImportPath(
         source,
         j,
         (path) => (isIndexEntry(path, 'checkbox-group') ? `${path}/desktop` : path),
-        (path) => hasImportSpecifier(path, 'CheckboxGroup') || hasImportSpecifier(path, 'CheckboxGroupProps'),
+        (path) =>
+            hasImportSpecifier(path, 'CheckboxGroup') ||
+            hasImportSpecifier(path, 'CheckboxGroupProps'),
     );
     modifyIdentifiers(source, j, 'CheckboxGroup', 'CheckboxGroupDesktop');
     modifyIdentifiers(source, j, 'CheckboxGroupProps', 'CheckboxGroupDesktopProps');

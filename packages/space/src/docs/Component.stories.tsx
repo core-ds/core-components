@@ -7,7 +7,7 @@ import { Space } from '@alfalab/core-components-space';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const DIRECTIONS = ['horizontal', 'vertical'];
 const ALIGNES = ['start', 'end', 'center'];

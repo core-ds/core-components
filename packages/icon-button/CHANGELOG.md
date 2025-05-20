@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-icon-button
 
 ## 6.11.11
 

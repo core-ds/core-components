@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-custom-button
 
 ## 3.12.7
 

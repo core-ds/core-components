@@ -15,6 +15,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "@alfalab/core-components-calendar": "^7.18.3",
         "@alfalab/core-components-input": "^15.5.5",
         "@alfalab/core-components-shared": "^0.17.0",
         "@alfalab/core-components-popover": "^6.3.9",
@@ -26,9 +27,6 @@
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
-    },
-    "devDependencies": {
-        "@alfalab/core-components-calendar": "^7.18.3"
     },
     "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"

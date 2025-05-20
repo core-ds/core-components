@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-accordion
 
 ## 1.2.11
 

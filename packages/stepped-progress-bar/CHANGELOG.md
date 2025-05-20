@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-stepped-progress-bar
 
 ## 2.4.11
 

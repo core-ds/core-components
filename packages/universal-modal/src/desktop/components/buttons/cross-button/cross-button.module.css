@@ -1,5 +1,5 @@
-@import '../../../../../../vars/src/index.css';
-@import '../../../../../../vars/src/colors-monochrome.css';
+@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/colors-monochrome.css';
 
 .button.button {
     background-color: var(--color-light-monochrome-white-4);

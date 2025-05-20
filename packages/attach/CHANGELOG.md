@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-attach
 
 ## 6.7.2
 

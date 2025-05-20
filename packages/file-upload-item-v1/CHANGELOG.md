@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-file-upload-item-v1
 
 ## 1.0.10
 

@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .size-40 {
     margin-right: var(--gap-8-neg);
