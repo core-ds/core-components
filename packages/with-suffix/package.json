@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^15.5.5",
+        "@alfalab/core-components-number-input": "^2.6.5",
         "@alfalab/core-components-portal": "^3.3.8",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
