@@ -1,5 +1,30 @@
 # Change Log
 
+## 1.0.8
+
+### Patch Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1703](https://github.com/core-ds/core-components/pull/1703)
+
+-   Исправлена типизация опциональных пропсов
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   button@11.11.8
+    -   navigation-bar-private@0.8.3
+    -   typography@4.13.1
+
+## 1.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   navigation-bar-private@0.8.2
+
 ## 1.0.6
 
 ### Patch Changes

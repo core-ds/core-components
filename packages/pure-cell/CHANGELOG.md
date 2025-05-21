@@ -1,5 +1,29 @@
 # Change Log
 
+## 4.14.9
+
+### Patch Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1618](https://github.com/core-ds/core-components/pull/1618)
+
+-   Исправлено active состояние при mouseup событии за пределами компонента
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   typography@4.13.1
+    -   comment@2.4.11
+
+## 4.14.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   comment@2.4.10
+
 ## 4.14.7
 
 ### Patch Changes

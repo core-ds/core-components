@@ -1,5 +1,38 @@
 # Change Log
 
+## 12.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   form-control@12.8.3
+    -   input@15.5.5
+    -   select@17.20.14
+    -   popover@6.3.9
+
+## 12.9.0
+
+### Minor Changes
+
+<sup><time>28.04.2025</time></sup>
+
+### [#1678](https://github.com/core-ds/core-components/pull/1678)
+
+-   Добавлен проп `virtualKeyboard` для учета высоты виртуальной клавиатуры в `BottomSheet`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.13
+
+## 12.8.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+
 ## 12.8.8
 
 ### Patch Changes

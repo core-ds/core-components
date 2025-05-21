@@ -1,5 +1,21 @@
 # Change Log
 
+## 2.1.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   typography@4.13.1
+
+## 2.1.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   indicator@2.3.0
+    -   typography@4.13.0
+
 ## 2.1.12
 
 ### Patch Changes

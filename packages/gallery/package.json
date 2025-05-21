@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-gallery",
-    "version": "5.11.9",
+    "version": "5.12.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,13 +15,14 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.0",
-        "@alfalab/core-components-icon-button": "^6.11.10",
+        "@alfalab/core-components-base-modal": "^5.9.1",
+        "@alfalab/core-components-icon-button": "^6.11.11",
         "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-spinner": "^4.0.6",
-        "@alfalab/core-components-tooltip": "^7.9.8",
-        "@alfalab/core-components-typography": "^4.12.0",
+        "@alfalab/core-components-spinner": "^4.0.7",
+        "@alfalab/core-components-tooltip": "^7.9.11",
+        "@alfalab/core-components-typography": "^4.13.1",
         "@alfalab/core-components-icon-view": "^3.10.1",
+        "@alfalab/core-components-button": "^11.11.8",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
@@ -30,6 +31,6 @@
         "swiper": "^6.8.2",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.20.0"
 }
