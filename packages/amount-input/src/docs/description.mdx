@@ -21,22 +21,22 @@ render(() => {
 
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
-            <AmountInput 
-                value={1234567} 
+            <AmountInput
+                value={1234567}
                 placeholder='Введите сумму'
                 labelView={isMobile() ? 'outer': 'inner'}
-                label='Сумма' 
-                minority={minor ? 100 : 1} 
+                label='Сумма'
+                minority={minor ? 100 : 1}
                 integersOnly={!minor}
-                bold={false} 
+                bold={false}
                 suffix={suffixInput}
                 block={true}
                 size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
             />
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <Switch label='Минорная часть' checked={minor} onChange={handleMinorChange} />
-            <Gap size='xl'/>
+            <Gap size={24}/>
             <RadioGroup
                 label='Суффикс'
                 direction='vertical'

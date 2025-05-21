@@ -33,11 +33,11 @@ render(() => {
                 <Typography.Text view='primary-medium' color='secondary'>
                     Values: {valueFrom.value} — {valueTo.value}
                 </Typography.Text>
-                <Gap size='m'/>
+                <Gap size={16}/>
                 <Typography.Text view='primary-medium' color='secondary'>
                     Dates: {valueFrom.date && formatDate(valueFrom.date)} — {valueTo.date && formatDate(valueTo.date)}
                 </Typography.Text>
-           </>   
+           </>
             <RadioGroup
                 label='Конфигурация пикера'
                 direction='vertical'

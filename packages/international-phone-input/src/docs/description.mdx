@@ -33,11 +33,11 @@ render(() => {
                 block={true}
                 clearableCountryCode={clearableCountryCode}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <Typography.Text color='secondary'>
                 Код выбранной страны: {selectedCountry && selectedCountry.iso2}
             </Typography.Text>
-            <Gap size='xl' />
+            <Gap size={24} />
             <RadioGroup
                 label='Разрешить удаление кода страны'
                 direction='vertical'
@@ -49,7 +49,7 @@ render(() => {
                 <Radio size='m' label='Да' value='true' />
                 <Radio size='m' label='Сохранить' value='preserve' />
             </RadioGroup>
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch
                 checked={autocomplete}
                 label='Режим автокомплита'
@@ -85,7 +85,7 @@ render(() => {
                 block={true}
                 countrySelectProps={{ hideCountrySelect: true }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <Typography.Text color='secondary'>
                 Код выбранной страны: {selectedCountry && selectedCountry.iso2}
             </Typography.Text>

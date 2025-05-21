@@ -29,7 +29,7 @@ export const collapse: Story = {
                         сомнительных операций, ограничить доступ в интернет-банк или запрашивать
                         документы, если по операции клиента возникли подозрения.
                     </Typography.Text>
-                    <Gap size='m' />
+                    <Gap size={16} />
                     <Collapse collapsedLabel='Подробнее' />
                 </div>
             </div>

@@ -116,7 +116,7 @@ render(() => {
             >
                 {shownSuccessScreen ? (
                     <div style={{ display: 'flex', flexFlow: 'column nowrap', height: 266 }}>
-                        <Gap size='2xl' />
+                        <Gap size={32} />
                         <div
                             style={{
                                 display: 'flex',
@@ -133,14 +133,14 @@ render(() => {
                                     <CheckmarkMIcon style={{ fill: '#fff' }} />
                                 </SuperEllipse>
 
-                                <Gap size='m' />
+                                <Gap size={16} />
 
                                 <Typography.Text view='primary-medium' weight='bold'>
                                     Введён корректный код
                                 </Typography.Text>
                             </div>
 
-                            <Gap size={isMobileFrame ? '2xl' : '4xl'} />
+                            <Gap size={isMobileFrame ? 32 : 48} />
 
                             <Button onClick={() => setShownSuccessScreen(false)} size='xs'>
                                 Попробовать ещё раз
