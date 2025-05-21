@@ -12,7 +12,6 @@ import cn from 'classnames';
 
 import { InputProps } from '@alfalab/core-components-input';
 import { NumberInputProps } from '@alfalab/core-components-number-input';
-
 import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
