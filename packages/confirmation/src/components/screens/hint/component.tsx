@@ -105,7 +105,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 {texts.hintNotification}
             </Text>
             <Button
-                size={mobile ? 'xs' : 's'}
+                size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={handleReturnButtonClick}
                 className={styles.hintButton}

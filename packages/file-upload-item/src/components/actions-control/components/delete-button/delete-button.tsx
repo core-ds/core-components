@@ -19,7 +19,7 @@ export const DeleteButton = () => {
     return (
         <IconButton
             className={styles.icon}
-            size='xxs'
+            size={24}
             aria-label='удалить'
             icon={<CrossMIcon className={styles.deleteIconColor} />}
             disabled={disableButtons}

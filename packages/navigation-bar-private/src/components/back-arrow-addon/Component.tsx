@@ -49,7 +49,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     return (
         <ButtonDesktop
             view='text'
-            size={isMobileView ? 'xxs' : 's'}
+            size={isMobileView ? 32 : 48}
             onClick={onClick}
             aria-label='назад'
             className={cn(styles.component, { [styles.mobileComponent]: isMobileView }, className)}

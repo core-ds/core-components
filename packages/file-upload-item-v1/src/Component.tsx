@@ -247,7 +247,7 @@ export const FileUploadItemV1: React.FC<FileUploadItemProps> = ({
 
             {showDownload && (
                 <IconButton
-                    size='xxs'
+                    size={24}
                     icon={PointerDownSIcon}
                     className={styles.download}
                     aria-label='скачать'
@@ -261,7 +261,7 @@ export const FileUploadItemV1: React.FC<FileUploadItemProps> = ({
 
             {showDelete && !showRestore && (
                 <IconButton
-                    size='xxs'
+                    size={24}
                     icon={CrossSIcon}
                     onClick={handleDelete}
                     disabled={disableButtons}

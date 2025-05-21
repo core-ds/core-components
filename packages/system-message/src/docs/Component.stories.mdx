@@ -114,7 +114,7 @@ import {
                             <SystemMessage.Controls direction={controlDirection}>
                                 {showPrimaryButton && (
                                     <Button
-                                        size={document.body.clientWidth < 371 ? 'm' : 's'}
+                                        size={document.body.clientWidth < 371 ? 56 : 48}
                                         view={isPreview ? 'secondary' : 'primary'}
                                         breakpoint={breakpoint}
                                     >
@@ -123,7 +123,7 @@ import {
                                 )}
                                 {showSecondaryButton && !isPreview && (
                                     <Button
-                                        size={document.body.clientWidth < 371 ? 'm' : 's'}
+                                        size={document.body.clientWidth < 371 ? 56 : 48}
                                         breakpoint={breakpoint}
                                     >
                                         Отмена

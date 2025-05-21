@@ -1,4 +1,4 @@
-import React, { FC, Fragment,ReactNode, useContext } from 'react';
+import React, { FC, Fragment, ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
@@ -65,7 +65,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     if (timePassed) {
         return (
             <Button
-                size={mobile ? 'xs' : 'xxs'}
+                size={mobile ? 40 : 32}
                 view='secondary'
                 onClick={handleSmsRetryClick}
                 className={cn(styles.getCodeButton, { [styles.getCodeButtonMobile]: mobile })}
@@ -79,7 +79,8 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
 
     return renderText(
         <Fragment>
-            {texts.countdown}{'\u00A0'}
+            {texts.countdown}
+            {'\u00A0'}
             <time className={styles.timeCounter}>{formatMsAsMinutes(timeLeft)}</time>
         </Fragment>,
     );

@@ -91,26 +91,6 @@
     }
 }
 
-.filled {
-    color: var(--color-light-text-primary-inverted);
-    background-color: var(--color-light-neutral-translucent-300-inverted);
-    border: 1px solid transparent;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--color-light-neutral-translucent-300-inverted-hover);
-        }
-    }
-
-    &:active {
-        background-color: var(--color-light-neutral-translucent-300-inverted-press);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-inverted-color);
-    }
-}
-
 .transparent {
     color: var(--button-inverted-transparent-base-color);
     background-color: transparent;
@@ -135,27 +115,6 @@
     }
 }
 
-.link {
-    color: var(--button-inverted-link-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-inverted-link-hover-bg-color);
-        }
-    }
-
-    &:active {
-        /* TODO: какой цвет? */
-        background-color: var(--button-inverted-link-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-inverted-color);
-    }
-}
-
 .text {
     background-color: transparent;
     color: var(--button-inverted-text-base-color);
@@ -172,21 +131,6 @@
 
     & .hint {
         color: var(--button-inverted-text-base-hint-color);
-    }
-}
-
-.ghost {
-    background-color: transparent;
-    color: var(--button-inverted-ghost-base-color);
-
-    @media (hover: hover) {
-        &:hover {
-            color: var(--button-inverted-ghost-hover-color);
-        }
-    }
-
-    & > .loader {
-        color: var(--button-spinner-inverted-color);
     }
 }
 
@@ -227,16 +171,6 @@
         }
     }
 
-    &.filled {
-        color: var(--color-light-text-tertiary-inverted);
-        background-color: var(--color-light-neutral-translucent-100-inverted);
-
-        &.loading {
-            color: var(--color-light-text-primary-inverted);
-            background-color: var(--color-light-neutral-translucent-300-inverted);
-        }
-    }
-
     &.transparent {
         background-color: transparent;
 
@@ -245,23 +179,9 @@
         }
     }
 
-    &.link {
-        background-color: transparent;
-
-        &.loading {
-            color: var(--button-inverted-link-base-color);
-        }
-    }
-
     &.text {
         &.loading {
             color: var(--button-inverted-text-base-color);
-        }
-    }
-
-    &.ghost {
-        &.loading {
-            color: var(--button-inverted-ghost-base-color);
         }
     }
 }
