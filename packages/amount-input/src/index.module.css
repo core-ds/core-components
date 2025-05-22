@@ -31,3 +31,10 @@
 .input:focus {
     -webkit-text-fill-color: transparent;
 }
+
+.fieldClassName {
+    &.withStepper.withDisableUserInput {
+        background-color: var(--form-control-bg-color);
+        box-shadow: var(--form-control-box-shadow);
+    }
+}

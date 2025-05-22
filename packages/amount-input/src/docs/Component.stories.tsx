@@ -62,6 +62,7 @@ export const amount_input: Story = {
                     block={boolean('block', false)}
                     size={size}
                     disabled={boolean('disabled', false)}
+                    disableUserInput={boolean('disableUserInput', false)}
                     placeholder={text('placeholder', undefined)}
                     label={text('label', '')}
                     hint={text('hint', '')}

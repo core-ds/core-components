@@ -167,6 +167,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             labelView,
             stepper = {},
             rightAddons,
+            fieldClassName,
+            disableUserInput,
             ...restProps
         },
         ref,
@@ -396,7 +398,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             colors={colors}
                             dataTestId={dataTestId}
                             disabled={restProps.disabled}
-                            focused={isFocused}
+                            focused={isFocused && !disableUserInput}
                             value={parseNumber(value)}
                             min={minStepperValue}
                             max={maxStepperValue}
@@ -448,6 +450,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     className={cn(styles.component, className)}
                     focusedClassName={focusedClassName}
                     inputClassName={cn(styles.input, inputClassName)}
+                    fieldClassName={cn(styles.fieldClassName, fieldClassName, {
+                        [styles.withStepper]: withStepper,
+                        [styles.withDisableUserInput]: disableUserInput,
+                    })}
                     onChange={handleChange}
                     onClear={handleClear}
                     onBlur={handleBlur}
@@ -459,6 +465,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     ref={ref}
                     breakpoint={breakpoint}
                     client={client}
+                    disableUserInput={disableUserInput}
                 />
             </div>
         );
