@@ -42,7 +42,7 @@ render(() => {
 
 ## Скелетонизация текста
 
-Скелетон может подстраиваться под заданный фрагмент текста, для этого ему нужно знать fontSize, lineHeight, выравнивание, количество и длину строк.
+Скелетон умеет подстраиваться под заданный фрагмент текста, для этого тексту должны быть заданы fontSize и lineHeight.
 
 ```jsx live
 render(() => {
@@ -79,11 +79,13 @@ render(() => {
                 textSkeleton
             ) : (
                 <Typography.Text view='primary-medium' ref={textRef}>
-                    В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
-                    легализации доходов, полученных преступным путём, и финансированию терроризма».
-                    В рамках закона банки могут блокировать карты, отказывать в проведении
-                    сомнительных операций, ограничить доступ в интернет-банк или запрашивать
-                    документы, если по операции клиента возникли подозрения.
+                    В 2001 году в России начал действовать Федеральный закон №115
+                    <br /> «О противодействии легализации доходов, полученных преступным
+                    <br /> путём, и финансированию терроризма».
+                    <br /> В рамках закона банки могут блокировать карты, отказывать
+                    <br /> в проведении сомнительных операций, ограничить доступ
+                    <br /> в интернет-банк или запрашивать документы, если по операции
+                    <br /> клиента возникли подозрения.
                 </Typography.Text>
             )}
         </>
@@ -91,22 +93,25 @@ render(() => {
 });
 ```
 
-Чтобы получить более естественную форму, каждым параметром можно управлять отдельно.
+Управляя параметрами по отдельности, можно получить требуемую форму скелетона.
 
 ```jsx live
 render(() => {
     const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(true, {
         width: 271,
+        align: 'center',
     });
     const titleSkeleton = renderTitleSkeleton({});
 
     const { renderSkeleton, textRef } = useSkeleton(true, {
-        width: [560, 402, 449, 264],
+        width: ['100%', 402, 449, 264],
+        rows: 4,
+        align: 'center',
     });
     const textSkeleton = renderSkeleton({});
 
     return (
-        <>
+        <div style={{ width: 560, marginRight: 'auto', marginLeft: 'auto' }}>
             {titleSkeleton ? (
                 titleSkeleton
             ) : (
@@ -115,7 +120,7 @@ render(() => {
                 </Typography.Title>
             )}
 
-            <Gap size={12} />
+            <div style={{ height: 10 }} />
 
             {textSkeleton ? (
                 textSkeleton
@@ -128,7 +133,7 @@ render(() => {
                     документы, если по операции клиента возникли подозрения.
                 </Typography.Text>
             )}
-        </>
+        </div>
     );
 });
 
@@ -137,12 +142,14 @@ render(() => {
     const { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(true, {
         width: 271,
         rows: 1,
+        align: 'center',
     });
     const titleSkeleton = renderTitleSkeleton({});
 
     const { renderSkeleton, textRef } = useSkeleton(true, {
-        width: [320, 276, 301, 255],
+        width: ['100%', 276, 301, 255],
         rows: 4,
+        align: 'center',
     });
     const textSkeleton = renderSkeleton({});
 
@@ -156,7 +163,7 @@ render(() => {
                 </Typography.Title>
             )}
 
-            <Gap size={12} />
+            <div style={{ height: 10 }} />
 
             {textSkeleton ? (
                 textSkeleton
