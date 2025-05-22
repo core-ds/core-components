@@ -1,3 +1,5 @@
+import type { RefObject } from 'react';
+
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 
 import { TMargin } from '../../typings/margin-type';
@@ -62,4 +64,9 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
             | 'transitionProps'
             | 'backdropProps'
         >
-    >;
+    > & {
+        /**
+         * Реф контейнера на котором происходит scroll
+         */
+        scrollableContainerRef?: RefObject<HTMLDivElement>;
+    };

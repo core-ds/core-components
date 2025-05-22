@@ -1,4 +1,5 @@
 import React, { FC, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
@@ -12,13 +13,13 @@ import { setFooterAndHeaderRefs } from '../../utils/set-footer-and-header-refs';
 
 import styles from './modal-content.module.css';
 
-type Props = {
-    height: UniversalModalDesktopProps['height'];
-    wheelDeltaY: number;
-} & Pick<BaseModalProps, 'children'>;
+type Props = Pick<BaseModalProps, 'children'> &
+    Pick<UniversalModalDesktopProps, 'height' | 'scrollableContainerRef'> & {
+        wheelDeltaY: number;
+    };
 
 export const ModalContent: FC<Props> = (props) => {
-    const { children, wheelDeltaY, height } = props;
+    const { children, wheelDeltaY, height, scrollableContainerRef = null } = props;
 
     const scrollableNodeRef = useRef<HTMLDivElement>(null);
     const scrollbarContentNodeRef = useRef<HTMLDivElement>(null);
@@ -45,7 +46,7 @@ export const ModalContent: FC<Props> = (props) => {
             ref={scrollbarRef}
             verticalBarRef={verticalBarRef}
             scrollableNodeProps={{
-                ref: scrollableNodeRef,
+                ref: mergeRefs([scrollableNodeRef, scrollableContainerRef]),
                 className: styles.scrollableNode,
             }}
             contentNodeProps={{
