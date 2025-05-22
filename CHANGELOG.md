@@ -1,3 +1,85 @@
+## 48.26.0
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1697](https://github.com/core-ds/core-components/pull/1697)
+
+#### Что изменилось
+- Добавлена утилита get-color-var
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+
+### [#1703](https://github.com/core-ds/core-components/pull/1703)
+
+#### Что изменилось
+- Исправлена типизация опциональных пропсов
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1618](https://github.com/core-ds/core-components/pull/1618)
+
+#### Что изменилось
+- Исправлено active состояние при mouseup событии за пределами компонента
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#1700](https://github.com/core-ds/core-components/pull/1700)
+
+#### Что изменилось
+- Добавлен callback на завершение таймера
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+### [#1684](https://github.com/core-ds/core-components/pull/1684)
+
+#### Что изменилось
+- Добавлен props snap для точного шага слайдера по range
+
+#### Влияние на компоненты
+- Минорное<br />`slider`
+
+
+### [#1681](https://github.com/core-ds/core-components/pull/1681)
+
+#### Что изменилось
+- Добавлен отступ по умолчанию для устройств без нижней safe area
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+
+
+## 48.25.1
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1400](https://github.com/core-ds/core-components/pull/1400)
+
+#### Что изменилось
+- Импорт JS-файла темы больше не зависит от webpack-лоадера. Теперь содержимое темы представлено в виде строки.
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1677](https://github.com/core-ds/core-components/pull/1677)
+
+#### Что изменилось
+- Изменён логотип по умолчанию
+
+#### Влияние на компоненты
+- Патчи<br />`bank-card`
+
+
+
 ## 48.25.0
 
 <sup><time>28.04.2025</time></sup>

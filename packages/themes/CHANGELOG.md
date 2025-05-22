@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.7.3
+
+### Patch Changes
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1400](https://github.com/core-ds/core-components/pull/1400)
+
+-   Импорт JS-файла темы больше не зависит от webpack-лоадера. Теперь содержимое темы представлено в виде строки.
+
 ## 13.7.2
 
 ### Patch Changes

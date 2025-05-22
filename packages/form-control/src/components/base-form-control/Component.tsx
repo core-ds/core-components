@@ -304,6 +304,8 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                             className={cn(
                                 commonStyles.addons,
                                 commonStyles.rightAddons,
+                                styles.rightAddons,
+                                styles[SIZE_TO_CLASSNAME_MAP[size]],
                                 addonsClassName,
                                 rightAddonsProps?.className,
                             )}

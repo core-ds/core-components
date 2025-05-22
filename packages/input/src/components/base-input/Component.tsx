@@ -430,7 +430,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             />
                         )}
                         {shouldShowErrorIcon && (
-                            <div className={cn(styles.errorIcon, styles[`size-${size}`])}>
+                            <div className={styles.errorIcon}>
                                 <StatusBadge
                                     view='negative-alert'
                                     size={size === 40 ? 16 : 20}
@@ -439,7 +439,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             </div>
                         )}
                         {success && !error && (
-                            <div className={cn(styles.successIcon, styles[`size-${size}`])}>
+                            <div className={styles.successIcon}>
                                 <StatusBadge
                                     view='positive-checkmark'
                                     size={size === 40 ? 16 : 20}

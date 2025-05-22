@@ -13,15 +13,3 @@
         color: var(--color-light-neutral-translucent-500-press);
     }
 }
-
-.clearButton + * {
-    margin-left: var(--gap-4);
-}
-
-.clearButton {
-    &.size-40 {
-        & + * {
-            margin-left: 6px;
-        }
-    }
-}
