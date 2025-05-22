@@ -1,9 +1,10 @@
 import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
-    createStorybookUrl,
     createPreview,
+    generateTestCases,
 } from '../../screenshot-utils';
+import { Page } from 'playwright';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -145,5 +146,45 @@ describe(
                 }),
             ],
         ],
+    }),
+);
+
+describe(
+    'AmountInput | disableUserInput focus state with stepper',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'AmountInput',
+                knobs: {
+                    label: 'Сумма',
+                    value: 123400,
+                    size: 56,
+                    bold: false,
+                    stepper: ['{"step": 1}'],
+                    disableUserInput: false,
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'AmountInput',
+                knobs: {
+                    label: 'Сумма',
+                    value: 123400,
+                    size: 56,
+                    bold: false,
+                    stepper: ['{"step": 1}'],
+                    disableUserInput: true,
+                },
+            }),
+        ],
+        evaluate: (page: Page) => {
+            return page.mouse
+                .move(26, 26)
+                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
+        },
+        screenshotOpts: {},
+        viewport: {
+            width: 360,
+            height: 100,
+        },
     }),
 );
