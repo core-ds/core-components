@@ -1,20 +1,20 @@
 @import '../../../../../vars/src/index.css';
 
-.scrollbarWrapper.scrollbarWrapper {
+.scrollable {
     height: 100%;
 
-    & .verticalBarContainer {
-        box-sizing: border-box;
-    }
-
-    & .scrollContentWrapper {
+    & .scrollableNode {
         display: flex;
         flex-direction: column;
 
-        & .scrollbarContainer {
+        & .contentNode {
             display: flex;
+
             flex-direction: column;
-            flex: 1;
+
+            &:not(.hugContent) {
+                flex: 1 1 auto;
+            }
         }
     }
 }

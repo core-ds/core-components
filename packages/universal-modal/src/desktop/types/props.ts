@@ -26,10 +26,11 @@ export type BaseUniversalModalProps = {
     /**
      * Высота модального окна
      * fullHeight - высота модального окна подстроится под viewport
+     * hugContent - высота модального окна зафиксируется под размер содержимого
      * minHeight - 264
      * @default fullHeight
      */
-    height?: number | 'fullHeight';
+    height?: number | 'fullHeight' | 'hugContent';
 
     /**
      * Наличие оверлея
@@ -62,7 +63,3 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
             | 'backdropProps'
         >
     >;
-
-export type ModalBySideProps = UniversalModalDesktopProps;
-
-export type ModalByCenterProps = UniversalModalDesktopProps;
