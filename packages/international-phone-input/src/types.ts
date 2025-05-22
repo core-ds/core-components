@@ -60,6 +60,12 @@ type CommonPhoneInputProps = {
     clear?: boolean;
 
     /**
+     * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     */
+    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
+
+    /**
      * Функция фильтрации номеров для автокомплита
      */
     filterFn?: (value: string | undefined, option: OptionShape) => boolean;
