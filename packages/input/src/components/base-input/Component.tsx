@@ -75,9 +75,17 @@ export type BaseInputProps = Omit<
     colors?: 'default' | 'inverted';
 
     /**
-     * Отображение ошибки
+     * Отображение статуса ошибки
+     * @description По дефолту выводится ошибка и добавляется обводка, иконка ошибки контролируется отдельно с помощью пропса showErrorIcon
      */
     error?: ReactNode | boolean;
+
+    /**
+     * Позволяет управлять отображением иконки ошибки для статуса error
+     * @default false
+     * @description Отобразится при условии, что передан пропс error
+     */
+    showErrorIcon?: boolean;
 
     /**
      * Отображение иконки успеха
@@ -237,6 +245,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             clear = false,
             disabled,
             error,
+            showErrorIcon = false,
             success,
             hint,
             className,
@@ -406,6 +415,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 
         const renderRightAddons = () => {
             const addonsVisible = clearButtonVisible || rightAddons || error || success;
+            const shouldShowErrorIcon = error && showErrorIcon;
 
             return (
                 addonsVisible && (
@@ -419,9 +429,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 size={size}
                             />
                         )}
-                        {rightAddons}
-                        {error && (
-                            <div className={cn(styles.errorIcon)} data-addon='error-icon'>
+                        {shouldShowErrorIcon && (
+                            <div className={styles.errorIcon}>
                                 <StatusBadge
                                     view='negative-alert'
                                     size={size === 40 ? 16 : 20}
@@ -430,7 +439,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             </div>
                         )}
                         {success && !error && (
-                            <div className={cn(styles.successIcon)}>
+                            <div className={styles.successIcon}>
                                 <StatusBadge
                                     view='positive-checkmark'
                                     size={size === 40 ? 16 : 20}
@@ -438,6 +447,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 />
                             </div>
                         )}
+                        {rightAddons}
                     </Fragment>
                 )
             );
