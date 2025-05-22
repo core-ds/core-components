@@ -96,7 +96,7 @@ describe(
 );
 
 describe(
-    'NumberInput | size',
+    'AmountInput | size',
     screenshotTesting({
         cases: [
             [
