@@ -1,4 +1,4 @@
-import React, { isValidElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
 import { LoadingStatus, useIcon } from './hooks/use-icon';
