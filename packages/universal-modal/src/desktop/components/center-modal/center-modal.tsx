@@ -31,6 +31,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         verticalAlign = 'center',
         overlay = true,
         margin,
+        scrollableContainerRef,
         onClose,
         ...restProps
     } = props;
@@ -85,7 +86,11 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             onWheel={handleWheel}
             onClose={onClose}
         >
-            <ModalContent height={height} wheelDeltaY={wheelDeltaY}>
+            <ModalContent
+                height={height}
+                wheelDeltaY={wheelDeltaY}
+                scrollableContainerRef={scrollableContainerRef}
+            >
                 {children}
             </ModalContent>
         </BaseModal>

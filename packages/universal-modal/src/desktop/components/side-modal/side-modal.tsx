@@ -28,6 +28,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         className,
         children,
         margin,
+        scrollableContainerRef,
         onClose,
         ...restProps
     } = props;
@@ -88,7 +89,11 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             onWheel={handleWheel}
             onClose={onClose}
         >
-            <ModalContent height={height} wheelDeltaY={wheelDeltaY}>
+            <ModalContent
+                height={height}
+                wheelDeltaY={wheelDeltaY}
+                scrollableContainerRef={scrollableContainerRef}
+            >
                 {children}
             </ModalContent>
         </BaseModal>
