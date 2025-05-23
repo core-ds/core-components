@@ -11,6 +11,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { InputProps } from '@alfalab/core-components-input';
+import { NumberInputProps } from '@alfalab/core-components-number-input';
 import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
@@ -29,7 +30,9 @@ export type withSuffixProps = InputProps & {
     suffixContainerClassName?: string;
 };
 
-export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement>>) =>
+export const withSuffix = (
+    Input: FC<(InputProps | NumberInputProps) & RefAttributes<HTMLInputElement>>,
+) =>
     forwardRef<HTMLInputElement, withSuffixProps>(
         (
             {
