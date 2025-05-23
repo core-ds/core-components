@@ -21,6 +21,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { hasStepperInRightAddon } from '../../helpers/has-stepper-in-right-addon';
 import { ClearButton } from '../clear-button';
 
 import defaultColors from './default.module.css';
@@ -306,14 +307,21 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
-                if (!readOnlyProp || disableUserInput) {
-                    setFocused(true);
-                }
-
                 if (onFocus) {
                     onFocus(event);
                 }
+
+                if (readOnlyProp) {
+                    return;
+                }
+
+                if (disableUserInput && hasStepperInRightAddon(rightAddons)) {
+                    return;
+                }
+
+                setFocused(true);
             },
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             [onFocus, readOnlyProp, disableUserInput],
         );
 
