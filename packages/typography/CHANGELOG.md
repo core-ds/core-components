@@ -1,5 +1,20 @@
 # Change Log
 
+## 4.14.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1606](https://github.com/core-ds/core-components/pull/1606)
+
+-   Перенос хука useSkeleton из `Typography` в `Skeleton`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.4.0
+
 ## 4.13.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.18.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   modal@9.9.14
+
 ## 7.18.3
 
 ### Patch Changes

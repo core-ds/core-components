@@ -1,5 +1,31 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1679](https://github.com/core-ds/core-components/pull/1679)
+
+-   Добавлен тип высоты `hugContent` который позволяет фиксировать высоту по содержимому контента
+-   Изменены механизмы установки размеров `Modal` и `SidePanel`
+-   Изменены механизмы позиционирования `Modal`
+-   Исправлены отступы в `ModalMobile`
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1713](https://github.com/core-ds/core-components/pull/1713)
+
+-   Добавлен ref пропс (scrollableContainerRef) для контейнера на котором происходит scroll
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.3.0
+    -   typography@4.14.0
+    -   navigation-bar-private@0.8.4
+
 ## 1.0.8
 
 ### Patch Changes

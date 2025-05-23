@@ -1,5 +1,27 @@
 # Change Log
 
+## 15.6.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Расширена логика `focus` состояния если в `rightAddons` передан компонент `Steppers`
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   form-control@12.8.4
+
 ## 15.5.5
 
 ### Patch Changes

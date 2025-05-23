@@ -1,5 +1,21 @@
 # @alfalab/core-components-number-input
 
+## 2.7.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Внутренняя оптимизация кодовой базы компонента
+-   `Stepper` теперь доступен для импорта из директории `shared`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
 ## 2.6.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.12.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.4.0
+    -   picker-button@11.12.26
+
 ## 8.12.26
 
 ### Patch Changes
