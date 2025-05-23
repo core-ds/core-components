@@ -106,3 +106,5 @@ export const Steppers: FC<SteppersProps> = ({
         </div>
     );
 };
+
+Steppers.displayName = 'Steppers';

@@ -12,7 +12,7 @@ Object {
           class="component component component hasSuffix size-48 size-48"
         >
           <div
-            class="fieldClassName inner inner inner inner"
+            class="inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -61,7 +61,7 @@ Object {
         class="component component component hasSuffix size-48 size-48"
       >
         <div
-          class="fieldClassName inner inner inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -167,7 +167,7 @@ Object {
           class="component component component hasSuffix size-48 size-48"
         >
           <div
-            class="fieldClassName inner inner inner inner"
+            class="inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -215,7 +215,7 @@ Object {
           class="component component component suffixVisible hasSuffix size-48 size-48"
         >
           <div
-            class="fieldClassName inner inner inner inner filled"
+            class="inner inner inner inner filled"
           >
             <div
               class="inputWrapper"
@@ -268,7 +268,7 @@ Object {
         class="component component component suffixVisible hasSuffix size-48 size-48"
       >
         <div
-          class="fieldClassName inner inner inner inner filled"
+          class="inner inner inner inner filled"
         >
           <div
             class="inputWrapper"

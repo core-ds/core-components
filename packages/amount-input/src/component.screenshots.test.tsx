@@ -175,6 +175,30 @@ describe(
                     disableUserInput: true,
                 },
             }),
+            ...generateTestCases({
+                componentName: 'AmountInput',
+                knobs: {
+                    label: 'Сумма',
+                    value: 123400,
+                    size: 56,
+                    bold: false,
+                    stepper: ['{"step": 1}'],
+                    disableUserInput: false,
+                    colors: 'inverted',
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'AmountInput',
+                knobs: {
+                    label: 'Сумма',
+                    value: 123400,
+                    size: 56,
+                    bold: false,
+                    stepper: ['{"step": 1}'],
+                    disableUserInput: true,
+                    colors: 'inverted',
+                },
+            }),
         ],
         evaluate: (page: Page) => {
             return page.mouse
