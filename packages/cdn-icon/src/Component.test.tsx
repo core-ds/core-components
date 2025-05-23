@@ -61,21 +61,23 @@ describe('CDNIcon', () => {
         ]);
 
         const onError = jest.fn();
-        render(<CDNIcon name='fake' fallback={{ onError }} />);
+        render(<CDNIcon name='fake' onError={onError} />);
 
         await waitFor(() => {
             expect(onError).toHaveBeenCalled();
         });
     });
 
-    it('should render node and call onError if both provided', async () => {
+    it('should render fallback and call onError if both provided', async () => {
         jest.spyOn(useIconModule, 'useIcon').mockReturnValue([
             undefined,
             useIconModule.LoadingStatus.FAILURE,
         ]);
 
         const onError = jest.fn();
-        render(<CDNIcon name='fake' fallback={{ onError }} />);
+        const fallbackText = 'fallback-node';
+
+        render(<CDNIcon name='fake' onError={onError} fallback={<span>{fallbackText}</span>} />);
 
         await waitFor(() => {
             expect(onError).toHaveBeenCalled();

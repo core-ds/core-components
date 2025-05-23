@@ -2,7 +2,6 @@ import React, { isValidElement, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { LoadingStatus, useIcon } from './hooks/use-icon';
-import { isFallbackObject, TFallbackObject } from './utils';
 
 import styles from './index.module.css';
 
@@ -28,11 +27,14 @@ type CDNIconProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-
     /**
      * Fallback на случай, если не удастся загрузить иконку
      */
-    fallback?: ReactNode | TFallbackObject;
+    fallback?: ReactNode;
+    /**
+     * Callback, вызываемый при ошибке загрузки иконки
+     */
+    onError?: () => void;
 };
 
 export const CDNIcon: React.FC<CDNIconProps> = ({
@@ -42,18 +44,13 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     className,
     baseUrl = 'https://alfabank.servicecdn.ru/icons',
     fallback,
+    onError,
 }) => {
     const [icon, status] = useIcon(`${baseUrl}/${name}.svg`);
-    let fallbackNode: ReactNode = null;
-
     const isMonoIcon = !name.includes('_color');
 
-    if (status === LoadingStatus.FAILURE && fallback) {
-        if (isValidElement(fallback)) {
-            fallbackNode = fallback;
-        } else if (isFallbackObject(fallback)) {
-            fallback?.onError?.();
-        }
+    if (status === LoadingStatus.FAILURE) {
+        onError?.();
     }
 
     return (
@@ -69,7 +66,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
                 status === LoadingStatus.SUCCESS ? { __html: icon! } : undefined
             }
         >
-            {fallbackNode}
+            {status === LoadingStatus.FAILURE ? fallback : undefined}
         </span>
     );
 };
