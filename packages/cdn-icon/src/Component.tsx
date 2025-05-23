@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 
 import { LoadingStatus, useIcon } from './hooks/use-icon';
@@ -49,9 +49,11 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     const [icon, status] = useIcon(`${baseUrl}/${name}.svg`);
     const isMonoIcon = !name.includes('_color');
 
-    if (status === LoadingStatus.FAILURE) {
-        onError?.();
-    }
+    useEffect(() => {
+        if (status === LoadingStatus.FAILURE) {
+            onError?.();
+        }
+    }, [onError, status]);
 
     return (
         <span
