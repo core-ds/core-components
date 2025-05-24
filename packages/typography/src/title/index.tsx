@@ -7,7 +7,7 @@ import commonStyles from './common.module.css';
 import styles from './index.module.css';
 
 const allStyles =
-    process.env.NODE_ENV === 'test'
+    process.env.CORE_COMPONENTS_ENV === 'test'
         ? commonStyles
         : { ...commonStyles, ...styles, ...alfasansStyles };
 
