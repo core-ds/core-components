@@ -1,5 +1,12 @@
 # Change Log
 
+## 11.12.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
 ## 11.12.26
 
 ### Patch Changes

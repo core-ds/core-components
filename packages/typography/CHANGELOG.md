@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.14.1
+
+### Patch Changes
+
+<sup><time>26.05.2025</time></sup>
+
+### [#1721](https://github.com/core-ds/core-components/pull/1721)
+
+-   Исправлено использование переменной окружения `NODE_ENV`
+
 ## 4.14.0
 
 ### Minor Changes

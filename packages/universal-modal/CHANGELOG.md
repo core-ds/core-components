@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.1.1
+
+### Patch Changes
+
+<sup><time>26.05.2025</time></sup>
+
+### [#1724](https://github.com/core-ds/core-components/pull/1724)
+
+-   Исправлены расчеты параметров компонента при передаче responsive header и responsive footer
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   navigation-bar-private@0.8.5
+
 ## 1.1.0
 
 ### Minor Changes

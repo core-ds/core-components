@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   tooltip@7.9.13
+
 ## 5.12.3
 
 ### Patch Changes
