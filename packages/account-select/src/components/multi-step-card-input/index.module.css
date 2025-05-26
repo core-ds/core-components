@@ -1,0 +1,8 @@
+.multistepInput {
+    display: flex;
+    gap: 24px;
+}
+
+.input {
+    all: unset;
+}

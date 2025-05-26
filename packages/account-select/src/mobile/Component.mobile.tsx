@@ -1,9 +1,25 @@
 import React from 'react';
 
-import { SelectMobile, SelectMobileProps } from '@alfalab/core-components-select/mobile';
-import { Arrow } from '@alfalab/core-components-select/shared';
+import { Select } from '@alfalab/core-components-select';
 
+import { AccountSelectProps } from '../types';
 
-export const AccountSelectMobile: React.FC<SelectMobileProps> = (props) => {
-    return <SelectMobile valueRenderer={() => <div>test</div>} Arrow={Arrow} {...props}></SelectMobile>;
+export const AccountSelectMobile: React.FC<AccountSelectProps> = ({
+    isAddingNewCard,
+    options,
+    onChange,
+    ...restProps
+}) => {
+    
+
+    return (
+        <Select
+            {...restProps}
+            options={enhancedOptions}
+            onChange={handleChange}
+            Field={CustomField}
+            open={isAddingCard ? false : restProps.open}
+            isBottomSheet={true}
+        />
+    );
 };

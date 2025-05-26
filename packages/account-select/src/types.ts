@@ -1,5 +1,34 @@
-import { FormControlProps } from '@alfalab/core-components-form-control';
-import { SelectProps } from '@alfalab/core-components-select';
+import { BaseSelectProps } from '@alfalab/core-components-select/shared';
 
-export type AccountSelectProps = Omit<SelectProps, 'label' | 'error' | 'hint' | 'block' | 'size'> &
-    Pick<FormControlProps, 'label' | 'error' | 'hint' | 'block' | 'size'>;
+export interface CardData {
+    number: string;
+    expiryDate: Date;
+    cvv: string;
+}
+
+export interface AccountSelectProps
+    extends Omit<
+        BaseSelectProps,
+        | 'autocomplete'
+        | 'Field'
+        | 'nativeSelect'
+        | 'searchProps'
+        | 'showSearch'
+        | 'Search'
+        | 'valueRenderer'
+    > {
+    /**
+     * Включить возможность добавления новой карты
+     */
+    hasNewCardAdding?: boolean;
+
+    /**
+     * Обработчик ввода для новой карты
+     */
+    onInput?: (value: CardData) => void;
+
+    /**
+     * Обработчик отправки новой карты
+     */
+    onSubmit?: (value: CardData) => void;
+}

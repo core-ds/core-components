@@ -7,8 +7,20 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@alfalab/core-components-select/*": ["../select/src/*"],   
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-masked-input/*": ["../masked-input/src/*"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"],
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"]
         }
     },
-    "references": [{ "path": "../select" }, { "path": "../shared" }, { "path": "../mq" }]
+    "references": [
+        { "path": "../shared" },
+        { "path": "../mq" },
+        { "path": "../select" },
+        { "path": "../masked-input" },
+        { "path": "../popover" },
+        { "path": "../typography" },
+        { "path": "../form-control" }
+    ]
 }
