@@ -1,5 +1,32 @@
 # Change Log
 
+## 12.9.2
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input@15.6.0
+    -   form-control@12.8.4
+
+## 12.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   form-control@12.8.3
+    -   input@15.5.5
+    -   select@17.20.14
+    -   popover@6.3.9
+
 ## 12.9.0
 
 ### Minor Changes

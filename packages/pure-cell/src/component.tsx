@@ -134,7 +134,11 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
 
         const mouseEvents = {
             onMouseEnter: setHover,
-            onMouseLeave: unsetHover,
+            onMouseLeave: () => {
+                unsetHover();
+                // Убираем на случай, если уводим курсор за пределы компонента при сработавшем onMouseDown
+                unsetActive();
+            },
             onMouseDown: setActive,
             onMouseUp: unsetActive,
         };

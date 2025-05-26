@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 
 import { LoadingStatus, useIcon } from './hooks/use-icon';
@@ -27,11 +27,14 @@ type CDNIconProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-
     /**
      * Fallback на случай, если не удастся загрузить иконку
      */
     fallback?: ReactNode;
+    /**
+     * Callback, вызываемый при ошибке загрузки иконки
+     */
+    onError?: () => void;
 };
 
 export const CDNIcon: React.FC<CDNIconProps> = ({
@@ -41,10 +44,16 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     className,
     baseUrl = 'https://alfabank.servicecdn.ru/icons',
     fallback,
+    onError,
 }) => {
     const [icon, status] = useIcon(`${baseUrl}/${name}.svg`);
-
     const isMonoIcon = !name.includes('_color');
+
+    useEffect(() => {
+        if (status === LoadingStatus.FAILURE) {
+            onError?.();
+        }
+    }, [onError, status]);
 
     return (
         <span

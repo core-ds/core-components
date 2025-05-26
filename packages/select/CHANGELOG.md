@@ -1,5 +1,54 @@
 # Change Log
 
+## 17.21.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1715](https://github.com/core-ds/core-components/pull/1715)
+
+-   Добавлена возможность проброса applyName и resetName, заданы значения по умолчанию
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1714](https://github.com/core-ds/core-components/pull/1714)
+
+-   Разрешен ввод пробелов в textarea
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   scrollbar@3.3.0
+    -   checkbox@4.9.2
+    -   skeleton@5.4.0
+    -   input@15.6.0
+    -   form-control@12.8.4
+    -   bottom-sheet@6.18.10
+    -   modal@9.9.14
+
+## 17.20.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   modal@9.9.13
+    -   base-modal@5.9.1
+    -   bottom-sheet@6.18.9
+    -   button@11.11.8
+    -   checkbox@4.9.1
+    -   form-control@12.8.3
+    -   input@15.5.5
+    -   popover@6.3.9
+
 ## 17.20.13
 
 ### Patch Changes
