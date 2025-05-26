@@ -8,7 +8,13 @@ export function modifyColor(color: string): string {
         return color;
     }
 
-    const [alpha, red, green, blue] = color.match(/([0-9a-fA-F]{2})/g)!.map((s) => parseInt(s, 16));
+    const matches = color.match(/([0-9a-fA-F]{2})/g);
+
+    if (!matches) {
+        return color;
+    }
+
+    const [alpha, red, green, blue] = matches.map((s) => parseInt(s, 16));
 
     return `rgba(${red}, ${green}, ${blue}, ${(alpha / 255).toFixed(2)})`;
 }
