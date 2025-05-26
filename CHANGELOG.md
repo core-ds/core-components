@@ -1,3 +1,26 @@
+## 48.27.1
+
+<sup><time>26.05.2025</time></sup>
+
+### [#1724](https://github.com/core-ds/core-components/pull/1724)
+
+#### Что изменилось
+- Исправлены расчеты параметров компонента при передаче responsive header и responsive footer
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1721](https://github.com/core-ds/core-components/pull/1721)
+
+#### Что изменилось
+- Исправлено использование переменной окружения `NODE_ENV`
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
 ## 48.27.0
 
 <sup><time>23.05.2025</time></sup>
