@@ -1,3 +1,17 @@
+## 48.27.2
+
+<sup><time>27.05.2025</time></sup>
+
+### [#1718](https://github.com/core-ds/core-components/pull/1718)
+
+#### Что изменилось
+- Добавлена поддержка и преобразование argb в rgba у функции get-color-var
+
+#### Влияние на компоненты
+- Патчи<br />`shared`
+
+
+
 ## 48.27.1
 
 <sup><time>26.05.2025</time></sup>
