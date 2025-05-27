@@ -1,210 +1,196 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import cn from 'classnames';
+import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
 
-import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
-import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { Arrow, Field, FieldProps } from '@alfalab/core-components-select/shared';
-import { Typography } from '@alfalab/core-components-typography';
+import { ProductCover } from '@alfalab/core-components-product-cover';
 
-import { ADD_CARD_KEY } from '../../constants';
-import { AccountSelectProps } from '../../types';
+import { CARD_MASK, CVV_MASK, EXPIRY_MASK } from '../../constants';
+import { AccountSelectProps, CardData } from '../../types';
+import { validateCardNumber, validateCvv, validateExpiry } from '../../utils/validate';
 
 import styles from './index.module.css';
 
-export type MultiStepCardInputProps = FieldProps & Pick<AccountSelectProps, 'onSubmit' | 'onInput'>;
+type MultiStepCardInputProps = Pick<AccountSelectProps, 'onSubmit' | 'onInput'>;
 
-type TField = 'card' | 'expiry' | 'cvv';
+const createMaskConfig = (mask: TextMaskConfig['mask']): TextMaskConfig => ({
+    mask,
+    guide: false,
+    keepCharPositions: false,
+    showMask: false,
+    currentCaretPosition: 0,
+    rawValue: '',
+    previousConformedValue: '',
+});
 
-const fieldToStep = (field: TField) => ({ card: 0, expiry: 1, cvv: 2 }[field]);
+const getMaskedCardNumber = (value: string) => {
+    if (!value || value.length < 16) return value;
+    const cleanValue = value.replace(/\s/g, '');
+    const lastFour = cleanValue.slice(-4);
 
-const nextField = (field: TField): TField | null =>
-    ({ card: 'expiry', expiry: 'cvv', cvv: null }[field] as TField | null);
-
-// Маски для каждого поля
-const cardMask = [
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-];
-const expiryMask = [/\d/, /\d/, '/', /\d/, /\d/];
-const cvvMask = [/\d/, /\d/, /\d/];
-
-const getMask = (field: TField) => {
-    switch (field) {
-        case 'card':
-            return cardMask;
-        case 'expiry':
-            return expiryMask;
-        case 'cvv':
-            return cvvMask;
-        default:
-            return cardMask;
-    }
+    return `··${lastFour}`;
 };
 
-const parseExpiryDate = (value: string): Date | null => {
-    const [month, year] = value.split('/');
+export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = ({ onSubmit, onInput }) => {
+    const [step, setStep] = useState<number>(1);
+    const [cardNumber, setCardNumber] = useState<CardData['number']>('');
+    const [cardExpiry, setCardExpiry] = useState<CardData['expiryDate']>('');
+    const [cardCvv, setCardCvv] = useState<CardData['cvv']>('');
+    const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
 
-    return new Date(2000 + parseInt(year, 10), parseInt(month, 10) - 1);
-};
+    const numberRef = useRef<HTMLInputElement>(null);
+    const expiryRef = useRef<HTMLInputElement>(null);
+    const cvvRef = useRef<HTMLInputElement>(null);
 
-const validate = (field: TField, value: string) => {
-    switch (field) {
-        case 'card':
-            return /^\d{16}$/.test(value.replace(/\s/g, ''));
-        case 'expiry':
-            // Проверяем только что введены 2 цифры месяца (01-12) и 2 цифры года
-            return /^(0[1-9]|1[0-2])\/\d{2}$/.test(value);
-        case 'cvv':
-            return /^\d{3}$/.test(value);
-        default:
-            return false;
-    }
-};
-
-export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = ({
-    onSubmit,
-    selected,
-    label,
-    innerProps,
-    onInput,
-    ...restProps
-}) => {
-    const [step, setStep] = useState(0);
-    const [values, setValues] = useState<{ card: string; expiry: Date | null; cvv: string }>({
-        card: '',
-        expiry: null,
-        cvv: '',
-    });
-    const [isValid, setIsValid] = useState({ card: false, expiry: false, cvv: false });
-    const [focusedField, setFocusedField] = useState<'card' | 'expiry' | 'cvv' | null>('card');
+    const numberMask = useRef<TextMaskInputElement | null>(null);
+    const expiryMask = useRef<TextMaskInputElement | null>(null);
+    const cvvMask = useRef<TextMaskInputElement | null>(null);
 
     useEffect(() => {
-        if (Object.values(isValid).every(Boolean) && values.expiry !== null) {
-            onSubmit?.({
-                number: values.card,
-                expiryDate: values.expiry,
-                cvv: values.cvv,
+        onInput?.({
+            number: cardNumber,
+            expiryDate: cardExpiry,
+            cvv: cardCvv,
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cardNumber, cardExpiry, cardCvv]);
+
+    useEffect(() => {
+        if (step === 1) {
+            numberRef.current?.focus();
+        }
+    }, [step]);
+
+    useEffect(() => {
+        if (numberRef.current) {
+            numberMask.current = createTextMaskInputElement({
+                ...createMaskConfig(CARD_MASK),
+                inputElement: numberRef.current,
             });
-            setFocusedField(null);
         }
-    }, [isValid, onSubmit, values]);
+    }, []);
 
-    const handleChange = (field: TField, value: string) => {
-        const valid = validate(field, value);
-
-        if (field === 'expiry' && valid) {
-            const expiryDate = parseExpiryDate(value);
-
-            setValues((prev) => ({ ...prev, [field]: expiryDate }));
-        } else {
-            setValues((prev) => ({ ...prev, [field]: value }));
+    useEffect(() => {
+        if (expiryRef.current && step >= 2) {
+            expiryMask.current = createTextMaskInputElement({
+                ...createMaskConfig(EXPIRY_MASK),
+                inputElement: expiryRef.current,
+            });
         }
+    }, [step]);
 
-        setIsValid((prev) => ({ ...prev, [field]: valid }));
-
-        if (valid && step === fieldToStep(field)) {
-            setStep(step + 1);
-            setFocusedField(nextField(field));
+    useEffect(() => {
+        if (cvvRef.current && step >= 3) {
+            cvvMask.current = createTextMaskInputElement({
+                ...createMaskConfig(CVV_MASK),
+                inputElement: cvvRef.current,
+            });
         }
+    }, [step]);
+
+    const handleCardNumberFocus = () => {
+        setIsCardNumberFocused(true);
     };
 
-    const getDisplayValue = (field: TField, value: string | Date | null) => {
-        switch (field) {
-            case 'card':
-                return value ? `··${(value as string).slice(-4)}` : '····';
-            case 'expiry': {
-                if (!value) return 'MM/YY';
-                const date = value as Date;
+    const handleCardNumberBlur = () => {
+        setIsCardNumberFocused(false);
+    };
 
-                return `${String(date.getMonth() + 1).padStart(2, '0')}/${String(
-                    date.getFullYear(),
-                ).slice(-2)}`;
+    const handleCardNumberChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+        if (numberMask.current) {
+            numberMask.current.update(value);
+            const maskedValue = numberRef.current?.value || '';
+
+            setCardNumber(maskedValue);
+
+            if (validateCardNumber(maskedValue)) {
+                setStep(2);
+                setTimeout(() => expiryRef.current?.focus(), 100);
             }
-            case 'cvv':
-                return '···';
-            default:
-                return '';
         }
     };
 
-    const getInputValue = (field: TField, value: string | Date | null): string => {
-        if (field === 'expiry' && value instanceof Date) {
-            return `${String(value.getMonth() + 1).padStart(2, '0')}/${String(
-                value.getFullYear(),
-            ).slice(-2)}`;
+    const handleExpiryChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+        if (expiryMask.current) {
+            expiryMask.current.update(value);
+            const maskedValue = expiryRef.current?.value || '';
+
+            setCardExpiry(maskedValue);
+
+            if (validateExpiry(maskedValue)) {
+                setStep(3);
+                setTimeout(() => cvvRef.current?.focus(), 100);
+            }
+        }
+    };
+
+    const handleCvvChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+        if (cvvMask.current) {
+            cvvMask.current.update(value);
+            const maskedValue = cvvRef.current?.value || '';
+
+            setCardCvv(maskedValue);
+
+            if (validateCvv(maskedValue)) {
+                onSubmit?.({
+                    number: cardNumber,
+                    expiryDate: cardExpiry,
+                    cvv: maskedValue,
+                });
+            }
+        }
+    };
+
+    const getDisplayCardNumber = () => {
+        if (isCardNumberFocused || step === 1 || !validateCardNumber(cardNumber)) {
+            return cardNumber;
         }
 
-        return (value as string) || '';
+        return getMaskedCardNumber(cardNumber);
     };
-
-    const renderInput = (field: TField) => {
-        const isVisible = fieldToStep(field) <= step;
-        const isEditing = focusedField === field;
-
-        if (!isVisible) return null;
-
-        return isEditing ? (
-            <MaskedInput
-                key={field}
-                inputClassName={styles.input}
-                mask={getMask(field)}
-                value={getInputValue(field, values[field])}
-                onClick={() => {
-                    // Не блокируем всплытие события
-                    setFocusedField(field);
-                }}
-                onChange={(e) => handleChange(field, e.target.value)}
-                onBlur={() => {
-                    if (isValid[field]) setFocusedField(null);
-                }}
-                type={field === 'cvv' ? 'password' : 'text'}
-            />
-        ) : (
-            <Typography.Text
-                onClick={() => {
-                    // Не блокируем всплытие события
-                    setFocusedField(field);
-                }}
-            >
-                {getDisplayValue(field, values[field])}
-            </Typography.Text>
-        );
-    };
-
-    if (selected?.key === ADD_CARD_KEY) {
-        return (
-            <div className={styles.multistepInput} {...innerProps}>
-                {renderInput('card')}
-                {renderInput('expiry')}
-                {renderInput('cvv')}
-                <Arrow />
-            </div>
-        );
-    }
 
     return (
-        <Field
-            FormControlComponent={FormControlDesktop}
-            selected={selected}
-            label={selected ? null : label}
-            innerProps={innerProps}
-            {...restProps}
-        />
+        <div
+            className={styles.multistepCardInputWrapper}
+            onClick={(e) => e.stopPropagation()}
+            aria-hidden='true'
+        >
+            <ProductCover.Single size={32} />
+            <input
+                ref={numberRef}
+                type='text'
+                value={getDisplayCardNumber()}
+                onChange={handleCardNumberChange}
+                onFocus={handleCardNumberFocus}
+                onBlur={handleCardNumberBlur}
+                className={cn(styles.multistepInput, styles.cardNumberInput)}
+                inputMode='numeric'
+                pattern='[0-9]*'
+            />
+            {step >= 2 && (
+                <input
+                    ref={expiryRef}
+                    type='text'
+                    value={cardExpiry}
+                    onChange={handleExpiryChange}
+                    className={cn(styles.multistepInput, styles.expiryInput)}
+                    inputMode='numeric'
+                    pattern='[0-9]*'
+                    placeholder='ММ/ГГ'
+                />
+            )}
+            {step >= 3 && (
+                <input
+                    ref={cvvRef}
+                    type='password'
+                    value={cardCvv}
+                    onChange={handleCvvChange}
+                    className={cn(styles.multistepInput, styles.cvvInput)}
+                    inputMode='numeric'
+                    pattern='[0-9]*'
+                    placeholder='CVC'
+                    maxLength={3}
+                />
+            )}
+        </div>
     );
 };

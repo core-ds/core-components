@@ -10,7 +10,7 @@ import {
     OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
-import { MultiStepCardInput } from '../components/multi-step-card-input';
+import { CustomField } from '../components/custom-field';
 import { ADD_CARD_KEY } from '../constants';
 import { AccountSelectProps } from '../types';
 
@@ -29,7 +29,6 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
         },
         ref,
     ) => {
-
         const enhancedOptions = useMemo(() => {
             if (!hasNewCardAdding) return options;
 
@@ -51,7 +50,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                 options={enhancedOptions}
                 closeOnSelect={closeOnSelect}
                 Option={Option}
-                Field={MultiStepCardInput}
+                Field={CustomField}
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
                 Arrow={Arrow}

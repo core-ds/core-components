@@ -1,8 +1,42 @@
 .multistepInput {
-    display: flex;
-    gap: 24px;
+    transition: width 0.3s ease-in-out;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus {
+        outline: none;
+    }
 }
 
-.input {
-    all: unset;
+.cardNumberInput {
+    width: 19ch;
+}
+
+.cardNumberInput:not(:focus) {
+    width: 5ch;
+}
+
+.expiryInput {
+    width: 5ch;
+}
+
+.cvvInput {
+    width: 4ch;
+}
+
+.multistepCardInputWrapper {
+    border: none;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    gap: 24px;
+    align-items: center;
 }

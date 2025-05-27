@@ -2,7 +2,7 @@ import { BaseSelectProps } from '@alfalab/core-components-select/shared';
 
 export interface CardData {
     number: string;
-    expiryDate: Date;
+    expiryDate: string;
     cvv: string;
 }
 
