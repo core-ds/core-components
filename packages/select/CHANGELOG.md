@@ -1,5 +1,20 @@
 # Change Log
 
+## 17.21.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   bottom-sheet@6.18.12
+    -   button@11.11.9
+    -   checkbox@4.9.3
+    -   form-control@12.8.5
+    -   input@15.6.1
+    -   modal@9.9.16
+    -   popover@6.3.10
+
 ## 17.21.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   button@11.11.9
+    -   navigation-bar-private@0.8.6
+    -   typography@4.14.2
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @alfalab/core-components-shared
 
+## 0.17.1
+
+### Patch Changes
+
+<sup><time>27.05.2025</time></sup>
+
+### [#1718](https://github.com/core-ds/core-components/pull/1718)
+
+-   Добавлена поддержка и преобразование argb в rgba у функции get-color-var
+
 ## 0.17.0
 
 ### Minor Changes

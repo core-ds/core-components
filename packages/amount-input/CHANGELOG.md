@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   number-input@2.7.1
+    -   with-suffix@4.2.19
+
 ## 7.15.0
 
 ### Minor Changes

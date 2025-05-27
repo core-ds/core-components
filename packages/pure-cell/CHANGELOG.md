@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.14.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   typography@4.14.2
+    -   comment@2.4.14
+
 ## 4.14.11
 
 ### Patch Changes
