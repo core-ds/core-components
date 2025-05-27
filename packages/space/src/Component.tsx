@@ -116,25 +116,27 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         [styles.spaceItemFullWidth]: fullWidth,
     });
 
-    const nodes = childNodes.map((child, i) => (
-        /* eslint-disable react/no-array-index-key */
-        <Item
-            className={itemClassName}
-            dividerClassName={styles.divider}
-            key={isValidElement(child) ? child.key : `${itemClassName}-${i}`}
-            direction={direction}
-            horizontalSize={horizontalSize}
-            verticalSize={verticalSize}
-            length={childNodes.length}
-            index={i}
-            wrap={wrap}
-            divider={divider}
-            useCssGaps={useCssGaps}
-        >
-            {child}
-        </Item>
-        /* eslint-enable */
-    ));
+    const nodes = childNodes
+        .filter((child) => child !== null && child !== undefined)
+        .map((child, i) => (
+            /* eslint-disable react/no-array-index-key */
+            <Item
+                className={itemClassName}
+                dividerClassName={styles.divider}
+                key={isValidElement(child) ? child.key : `${itemClassName}-${i}`}
+                direction={direction}
+                horizontalSize={horizontalSize}
+                verticalSize={verticalSize}
+                length={childNodes.length}
+                index={i}
+                wrap={wrap}
+                divider={divider}
+                useCssGaps={useCssGaps}
+            >
+                {child}
+            </Item>
+            /* eslint-enable */
+        ));
 
     return (
         <div
