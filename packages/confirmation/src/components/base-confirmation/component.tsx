@@ -130,7 +130,12 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
 
     return (
         <ConfirmationContext.Provider value={contextValue}>
-            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
+            <div
+                className={cn(styles.component, className, {
+                    [styles.alignLeft]: alignContent === 'left',
+                })}
+                data-test-id={dataTestId}
+            >
                 {CurrentScreen && <CurrentScreen mobile={mobile} />}
             </div>
         </ConfirmationContext.Provider>
