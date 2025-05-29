@@ -183,7 +183,7 @@
 
     & .indicator {
         top: var(--gap-8-neg);
-        right: var(--gap-8-neg);
+        right: var(--gap-16-neg);
     }
 }
 
