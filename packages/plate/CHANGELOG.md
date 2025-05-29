@@ -1,5 +1,13 @@
 # @alfalab/core-components-plate
 
+## 7.8.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+    -   icon-button@6.11.12
+
 ## 7.8.12
 
 ### Patch Changes

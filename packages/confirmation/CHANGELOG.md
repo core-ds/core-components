@@ -1,5 +1,30 @@
 # @alfalab/core-components-confirmation
 
+## 13.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   code-input@3.9.9
+    -   spinner@4.0.8
+    -   typography@4.14.2
+
+## 13.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 13.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
 ## 13.10.1
 
 ### Patch Changes

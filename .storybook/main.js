@@ -264,6 +264,10 @@ module.exports = {
                 'process.env.BUILD_STORYBOOK_FROM_DIST': JSON.stringify(
                     process.env.BUILD_STORYBOOK_FROM_DIST,
                 ),
+                'process.env.CORE_COMPONENTS_ENV': JSON.stringify(
+                    mode /* 'DEVELOPMENT' | 'PRODUCTION' */
+                        .toLowerCase(),
+                ),
             }),
         );
         return config;

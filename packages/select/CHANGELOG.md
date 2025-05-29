@@ -1,5 +1,62 @@
 # @alfalab/core-components-select
 
+## 17.21.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   bottom-sheet@6.18.12
+    -   button@11.11.9
+    -   checkbox@4.9.3
+    -   form-control@12.8.5
+    -   input@15.6.1
+    -   modal@9.9.16
+    -   popover@6.3.10
+
+## 17.21.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.11
+    -   modal@9.9.15
+
+## 17.21.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1715](https://github.com/core-ds/core-components/pull/1715)
+
+-   Добавлена возможность проброса applyName и resetName, заданы значения по умолчанию
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1714](https://github.com/core-ds/core-components/pull/1714)
+
+-   Разрешен ввод пробелов в textarea
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   scrollbar@3.3.0
+    -   checkbox@4.9.2
+    -   skeleton@5.4.0
+    -   input@15.6.0
+    -   form-control@12.8.4
+    -   bottom-sheet@6.18.10
+    -   modal@9.9.14
+
 ## 17.20.14
 
 ### Patch Changes

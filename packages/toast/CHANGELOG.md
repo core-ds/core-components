@@ -1,5 +1,15 @@
 # @alfalab/core-components-toast
 
+## 6.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   portal@3.3.9
+    -   toast-plate@7.3.13
+    -   popover@6.3.10
+
 ## 6.3.12
 
 ### Patch Changes

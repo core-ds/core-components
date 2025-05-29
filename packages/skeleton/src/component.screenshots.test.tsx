@@ -48,3 +48,44 @@ describe(
         },
     }),
 );
+
+describe(
+    'SkeletonText',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'Skeleton',
+                subComponentName: 'SkeletonText',
+                testStory: false,
+                knobs: {
+                    rows: [undefined, 6, 8],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'Skeleton',
+                subComponentName: 'SkeletonText',
+                testStory: false,
+                knobs: {
+                    width: [undefined, '[100, 200, 300, 400]'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'Skeleton',
+                subComponentName: 'SkeletonText',
+                testStory: false,
+                knobs: {
+                    width: '200px',
+                    align: ['left', 'center', 'right'],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            clip: {
+                x: 0,
+                y: 0,
+                width: 1024,
+                height: 250,
+            },
+        },
+    }),
+);

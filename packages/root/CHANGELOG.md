@@ -1,5 +1,175 @@
 # @alfalab/core-components
 
+## 48.27.2
+
+<sup><time>27.05.2025</time></sup>
+
+### [#1718](https://github.com/core-ds/core-components/pull/1718)
+
+#### Что изменилось
+- Добавлена поддержка и преобразование argb в rgba у функции get-color-var
+
+#### Влияние на компоненты
+- Патчи<br />`shared`
+
+
+
+## 48.27.1
+
+<sup><time>26.05.2025</time></sup>
+
+### [#1724](https://github.com/core-ds/core-components/pull/1724)
+
+#### Что изменилось
+- Исправлены расчеты параметров компонента при передаче responsive header и responsive footer
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1721](https://github.com/core-ds/core-components/pull/1721)
+
+#### Что изменилось
+- Исправлено использование переменной окружения `NODE_ENV`
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
+## 48.27.0
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1679](https://github.com/core-ds/core-components/pull/1679)
+
+#### Что изменилось
+- Добавлен ref для вертикальной полосы прокрутки
+
+#### Влияние на компоненты
+- Минорное<br />`scrollbar`
+
+<br />
+
+#### Что изменилось
+- Добавлен тип высоты `hugContent` который позволяет фиксировать высоту по содержимому контента
+- Изменены механизмы установки размеров `Modal` и `SidePanel`
+- Изменены механизмы позиционирования `Modal`
+- Исправлены отступы в `ModalMobile`
+
+#### Влияние на компоненты
+- Минорное<br />`universal-modal`
+
+
+### [#1717](https://github.com/core-ds/core-components/pull/1717)
+
+#### Что изменилось
+- Фикс hover эффекта при unhover событии для touch экранов
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox`
+
+
+### [#1709](https://github.com/core-ds/core-components/pull/1709)
+
+#### Что изменилось
+- Улучшен механизм угадывания страны по пользовательскому вводу
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+### [#1606](https://github.com/core-ds/core-components/pull/1606)
+
+#### Что изменилось
+- Перенос хука useSkeleton из `Typography` в `Skeleton`
+
+#### Влияние на компоненты
+- Минорное<br />`skeleton`
+
+<br />
+
+#### Что изменилось
+- Перенос хука useSkeleton из `Typography` в `Skeleton`
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+#### Что изменилось
+- Внутренняя оптимизация кодовой базы компонента
+- `Stepper` теперь доступен для импорта из директории `shared`
+
+#### Влияние на компоненты
+- Минорное<br />`number-input`
+
+<br />
+
+#### Что изменилось
+- Расширена логика `focus` состояния если в `rightAddons` передан компонент `Steppers`
+
+#### Влияние на компоненты
+- Минорное<br />`input`
+
+<br />
+
+#### Что изменилось
+- Добавлена возможность включить в правом аддоне компонент `Stepper` с помощью пропса `stepper`
+- Расширен тип пропса `onChange`
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input`
+
+
+### [#1715](https://github.com/core-ds/core-components/pull/1715)
+
+#### Что изменилось
+- Добавлена возможность проброса applyName и resetName, заданы значения по умолчанию
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+#### Что изменилось
+- Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+- Исправлено выравнивание иконки ошибки для размера `40`
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `input` `input-autocomplete` `password-input` `select`<br />
+
+
+### [#1696](https://github.com/core-ds/core-components/pull/1696)
+
+#### Что изменилось
+- Добавлена возможность пробросить колбек onError в компонент CDNIcon
+
+#### Влияние на компоненты
+- Минорное<br />`cdn-icon`
+
+
+### [#1714](https://github.com/core-ds/core-components/pull/1714)
+
+#### Что изменилось
+- Разрешен ввод пробелов в textarea
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1713](https://github.com/core-ds/core-components/pull/1713)
+
+#### Что изменилось
+- Добавлен ref пропс (scrollableContainerRef) для контейнера на котором происходит scroll
+
+#### Влияние на компоненты
+- Минорное<br />`universal-modal`
+
+
+
 ## 48.26.0
 
 <sup><time>16.05.2025</time></sup>

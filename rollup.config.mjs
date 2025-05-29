@@ -13,6 +13,7 @@ import { cwd } from 'node:process';
 import { getPackages } from '@manypkg/get-packages';
 import { defineConfig } from 'rollup';
 import ts from 'typescript';
+import replace from '@rollup/plugin-replace';
 
 const { ScriptTarget } = ts;
 
@@ -30,7 +31,10 @@ const baseConfig = () =>
         input: globby.sync('src/**/*.{ts,tsx}', {
             ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
         }),
-        plugins: [json()],
+        plugins: [
+            json(),
+            replace({ 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') }),
+        ],
     });
 
 const assetsCopyPlugin = (dest) =>
@@ -52,7 +56,6 @@ const sourceCopyPlugin = copy({
         },
     ],
 });
-
 /**
  * Сборка ES5 с commonjs модулями.
  */

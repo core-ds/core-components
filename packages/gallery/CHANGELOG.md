@@ -1,5 +1,33 @@
 # @alfalab/core-components-gallery
 
+## 5.12.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.2
+    -   button@11.11.9
+    -   spinner@4.0.8
+    -   tooltip@7.9.14
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 5.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   tooltip@7.9.13
+
+## 5.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   tooltip@7.9.12
+
 ## 5.12.2
 
 ### Patch Changes

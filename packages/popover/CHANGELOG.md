@@ -1,5 +1,12 @@
 # @alfalab/core-components-popover
 
+## 6.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.9
+
 ## 6.3.9
 
 ### Patch Changes

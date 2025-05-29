@@ -1,5 +1,12 @@
 # @alfalab/core-components-code-input
 
+## 3.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
 ## 3.9.8
 
 ### Patch Changes

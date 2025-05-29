@@ -1,6 +1,4 @@
 {
-    "name": "@alfalab/core-components-repository",
-    "version": "1.0.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -61,6 +59,7 @@
         "@commitlint/config-conventional": "^19.8.1",
         "@manypkg/get-packages": "^2.2.2",
         "@rollup/plugin-json": "^6.1.0",
+        "@rollup/plugin-replace": "^6.0.2",
         "@rollup/plugin-typescript": "^12.1.2",
         "@storybook/addon-a11y": "^7.6.2",
         "@storybook/addon-docs": "^7.6.2",

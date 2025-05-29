@@ -1,5 +1,12 @@
 # @alfalab/core-components-filter-tag
 
+## 5.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
 ## 5.9.1
 
 ### Patch Changes
