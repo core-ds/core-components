@@ -1,10 +1,18 @@
-import type { ComponentType, RefAttributes } from 'react';
+import {
+    AriaAttributes,
+    ComponentType,
+    FocusEvent,
+    MouseEvent as ReactMouseEvent,
+    RefAttributes,
+} from 'react';
 
 import type { InputProps } from '@alfalab/core-components-input';
 import type {
     BaseSelectProps,
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+import { FieldProps } from '@alfalab/core-components-select/shared';
+import { TextareaProps } from '@alfalab/core-components-textarea/typings';
 
 type OnInputTypeReason = 'close' | 'change';
 
@@ -27,7 +35,7 @@ export interface InputAutocompleteCommonProps
     /**
      * Пропсы, которые будут прокинуты в инпут
      */
-    inputProps?: InputProps & Record<string, unknown>;
+    inputProps?: InputProps & TextareaProps & Record<string, unknown>;
 
     /**
      * Значение поля ввода
@@ -48,6 +56,12 @@ export interface InputAutocompleteCommonProps
      * Обработчик ввода
      */
     onInput?: (value: string, reason?: OnInputTypeReason) => void;
+
+    /**
+     * Многострочный режим. Работает только с компонентом InputAutocompleteDesktop
+     * @default false
+     */
+    multiline?: boolean;
 }
 
 type MobileProps = {
@@ -111,3 +125,22 @@ export interface InputAutocompleteProps extends InputAutocompleteCommonProps {
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
 }
+
+type AutocompleteFieldInnerProps = {
+    onBlur?: (event: FocusEvent<HTMLInputElement | HTMLDivElement | HTMLTextAreaElement>) => void;
+    onFocus?: (event: FocusEvent<HTMLInputElement | HTMLDivElement | HTMLTextAreaElement>) => void;
+    onClick?: (
+        event: ReactMouseEvent<HTMLInputElement | HTMLDivElement | HTMLTextAreaElement>,
+    ) => void;
+    tabIndex?: number;
+    id: string;
+} & RefAttributes<HTMLInputElement | HTMLDivElement | HTMLTextAreaElement> &
+    AriaAttributes;
+
+export type AutocompleteFieldProps = {
+    /**
+     * Внутренние свойства, которые должны быть установлены компоненту.
+     */
+    innerProps: AutocompleteFieldInnerProps;
+} & Pick<InputAutocompleteCommonProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'> &
+    Omit<FieldProps, 'innerProps'>;

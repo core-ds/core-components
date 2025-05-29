@@ -411,7 +411,10 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         };
 
         const handleFieldClick = (event: MouseEvent) => {
-            if (!autocomplete || (event.target as HTMLElement).tagName !== 'INPUT') {
+            const { tagName } = event.target as HTMLElement;
+            const isInput = tagName === 'INPUT' || tagName === 'TEXTAREA';
+
+            if (!autocomplete || !isInput) {
                 toggleMenu();
             } else {
                 openMenu();

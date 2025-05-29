@@ -1,3 +1,19 @@
 .arrow.error ~ * {
     display: none;
 }
+
+.successIcon {
+    display: var(--input-success-icon-display);
+
+    &:not(:only-child) {
+        margin-left: var(--gap-4);
+    }
+
+    &.size-40:not(:only-child) {
+        margin-left: 6px;
+    }
+}
+
+button[class*='eye'] + .successIcon {
+    margin-right: var(--gap-12);
+}

@@ -7,7 +7,7 @@ import { InputAutocompleteMobile } from './mobile';
 import { InputAutocompleteProps } from './types';
 
 export const InputAutocomplete = forwardRef<
-    HTMLInputElement | HTMLDivElement,
+    HTMLInputElement | HTMLTextAreaElement | HTMLDivElement,
     InputAutocompleteProps
 >(
     (
@@ -23,7 +23,10 @@ export const InputAutocomplete = forwardRef<
         const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         return isDesktop ? (
-            <InputAutocompleteDesktop {...restProps} ref={ref as React.Ref<HTMLInputElement>} />
+            <InputAutocompleteDesktop
+                {...restProps}
+                ref={ref as React.Ref<HTMLInputElement | HTMLTextAreaElement>}
+            />
         ) : (
             <InputAutocompleteMobile {...restProps} {...mobileProps} ref={ref} />
         );

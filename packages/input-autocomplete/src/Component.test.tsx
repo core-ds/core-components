@@ -246,6 +246,19 @@ describe('InputAutocompleteMobile', () => {
                 title,
             );
         });
+
+        it('should render textarea when multiline is true (desktop)', () => {
+            const { getByRole } = render(
+                <InputAutocompleteDesktop
+                    options={[{ key: 'Fermium' }]}
+                    multiline={true}
+                    open={true}
+                    dataTestId={dataTestId}
+                />,
+            );
+
+            expect(getByRole('textbox').tagName).toBe('TEXTAREA');
+        });
     });
 
     describe('Interactions tests', () => {
