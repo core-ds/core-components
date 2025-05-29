@@ -5,10 +5,7 @@ import { Indicator } from '@alfalab/core-components-indicator';
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
-import { Circle } from '@alfalab/core-components-icon-view/circle';
-import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
-import { Rectangle } from '@alfalab/core-components-icon-view/rectangle';
-import { NoShape } from '@alfalab/core-components-icon-view/no-shape';
+import { SuperEllipse, Circle, Rectangle, NoShape } from '../components';
 
 import {
     stylesStringToObj,
