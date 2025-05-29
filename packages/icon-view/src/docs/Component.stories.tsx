@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs';
-import { Badge } from '@alfalab/core-components-badge';
+import { Indicator } from '@alfalab/core-components-indicator';
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
@@ -23,44 +23,72 @@ const meta: Meta<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof
 
 type Story = StoryObj<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof NoShape>;
 
+const getAddonSize = (size: string) => {
+    if (size === '128') {
+        return 40;
+    }
+
+    if (size === '80' || size === '72' || size === '64' || size === '56') {
+        return 24;
+    }
+
+    return 20;
+};
+
+const getChildren = (size: string) => {
+    if (size === '128' || size === '80') {
+        return <DiamondsXxlIcon />;
+    }
+
+    if (size <= '20') {
+        return <DiamondsSIcon />;
+    }
+
+    return <DiamondsMIcon />;
+};
+
 export const super_ellipse: Story = {
     name: 'SuperEllipse',
     render: () => {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
+
         const size = select(
             'size',
             ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
             '64',
         );
+
         const mainSize = select(
             'mainSize',
             [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
             undefined,
         );
-        const sizeAddons =
-            size === '128'
-                ? '40'
-                : size === '80' || size === '72' || size === '64' || size === '56'
-                ? '24'
-                : '20';
+
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
+
         const addonsIcon = (
-            <Circle size={sizeAddons}>
+            <Circle size={getAddonSize(size)}>
                 {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}{' '}
             </Circle>
         );
+
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
-        return isPreview ? (
-            <div style={previewStyles}>
-                <SuperEllipse size={size} backgroundColor={backgroundColor} border={border}>
-                    <DiamondsXxlIcon />
-                </SuperEllipse>
-            </div>
-        ) : (
+
+        if (isPreview) {
+            return (
+                <div style={previewStyles}>
+                    <SuperEllipse size={size} backgroundColor={backgroundColor} border={border}>
+                        <DiamondsXxlIcon />
+                    </SuperEllipse>
+                </div>
+            );
+        }
+
+        return (
             <SuperEllipse
                 size={size}
                 backgroundColor={backgroundColor}
@@ -68,17 +96,11 @@ export const super_ellipse: Story = {
                 imageUrl={text('imageUrl', '')}
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
-                indicator={indicator && <Badge view='count' />}
+                indicator={indicator && <Indicator view='red' />}
                 text={text('text', '')}
                 mainSize={mainSize}
             >
-                {size === '128' || size === '80' ? (
-                    <DiamondsXxlIcon />
-                ) : size <= '20' ? (
-                    <DiamondsSIcon />
-                ) : (
-                    <DiamondsMIcon />
-                )}
+                {getChildren(size)}
             </SuperEllipse>
         );
     },
@@ -119,7 +141,7 @@ export const circle: Story = {
                 imageUrl={text('imageUrl', '')}
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
-                indicator={indicator && <Badge view='count' />}
+                indicator={indicator && <Indicator view='count' />}
                 text={text('text', '')}
                 mainSize={mainSize}
             >
