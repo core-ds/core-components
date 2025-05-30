@@ -10,9 +10,9 @@ import type { InputProps } from '@alfalab/core-components-input';
 import type {
     BaseSelectProps,
     BottomSheetSelectMobileProps,
+    FieldProps,
 } from '@alfalab/core-components-select/shared';
-import { FieldProps } from '@alfalab/core-components-select/shared';
-import { TextareaProps } from '@alfalab/core-components-textarea/typings';
+import type { TextareaProps } from '@alfalab/core-components-textarea';
 
 type OnInputTypeReason = 'close' | 'change';
 
