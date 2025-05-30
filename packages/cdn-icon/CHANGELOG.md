@@ -1,5 +1,22 @@
 # Change Log
 
+## 5.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 5.4.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1696](https://github.com/core-ds/core-components/pull/1696)
+
+-   Добавлена возможность пробросить колбек onError в компонент CDNIcon
+
 ## 5.3.5
 
 ### Patch Changes

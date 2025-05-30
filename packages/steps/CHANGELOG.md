@@ -1,5 +1,12 @@
 # @alfalab/core-components-steps
 
+## 1.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
 ## 1.8.1
 
 ### Patch Changes

@@ -1,5 +1,27 @@
 # Change Log
 
+## 3.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   typography@4.14.2
+
+## 3.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 3.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
 ## 3.9.0
 
 ### Minor Changes

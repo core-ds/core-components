@@ -402,7 +402,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 !autocomplete &&
                 !nativeSelect &&
                 (event.target as HTMLElement).tagName !== 'INPUT' &&
-                (event.target as HTMLElement).tagName !== 'BUTTON'
+                (event.target as HTMLElement).tagName !== 'BUTTON' &&
+                (event.target as HTMLElement).tagName !== 'TEXTAREA'
             ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
