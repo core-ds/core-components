@@ -1,4 +1,17 @@
-import { createPreview } from '@alfalab/core-components-screenshot-utils';
+import {
+    createPreview,
+    createSpriteStorybookUrl,
+    generateTestCases,
+    setupScreenshotTesting,
+} from '@alfalab/core-components-screenshot-utils';
+import { Page } from 'playwright';
+
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
+});
 
 describe('NumberInput ', () =>
     createPreview(
