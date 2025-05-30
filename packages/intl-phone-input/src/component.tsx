@@ -399,7 +399,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             onChange(newValue);
         };
 
-        const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        const handleKeyDown = (
+            event: React.KeyboardEvent<HTMLInputElement & HTMLTextAreaElement>,
+        ) => {
             const input = event.target as HTMLInputElement;
             const caretPosition = input.selectionStart || 0;
             const disallowedSymbols = /[/|?!@#$%^&*()_=A-Za-zА-Яа-яЁё,. ]/;
@@ -444,7 +446,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = (event) => {
+        const handlePaste: React.ClipboardEventHandler<HTMLInputElement & HTMLTextAreaElement> = (
+            event,
+        ) => {
             inputProps?.onPaste?.(event);
 
             event.preventDefault();

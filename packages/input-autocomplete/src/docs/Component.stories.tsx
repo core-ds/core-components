@@ -77,6 +77,7 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
             onChange={handleChange}
             onInput={handleInput}
             value={value}
+            multiline={boolean('multiline', false)}
             inputProps={{
                 ...props?.inputProps,
                 onClear: () => setValue(''),
