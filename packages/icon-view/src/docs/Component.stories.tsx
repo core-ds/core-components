@@ -109,27 +109,25 @@ export const circle: Story = {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
+
         const size = select(
             'size',
             ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
             '64',
         );
+
         const mainSize = select(
             'mainSize',
             [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
             undefined,
         );
-        const sizeAddons =
-            size === '128'
-                ? '40'
-                : size === '80' || size === '72' || size === '64' || size === '56'
-                ? '24'
-                : '20';
+
         const addonsIcon = (
-            <Circle size={sizeAddons}>
+            <Circle size={getAddonSize(size)}>
                 {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}
             </Circle>
         );
+
         return (
             <Circle
                 size={size}
@@ -142,13 +140,7 @@ export const circle: Story = {
                 text={text('text', '')}
                 mainSize={mainSize}
             >
-                {size === '128' || size === '80' ? (
-                    <DiamondsXxlIcon />
-                ) : size <= '20' ? (
-                    <DiamondsSIcon />
-                ) : (
-                    <DiamondsMIcon />
-                )}
+                {getChildren(size)}
             </Circle>
         );
     },
