@@ -1,8 +1,8 @@
-// super-ellipse|circle for icon-view
+// super-ellipse|circle|rectangle|no-shape for icon-view
 const req = require.context(
     '../../',
     true,
-    /^\.\/(.*)\/src\/(index|(desktop|mobile|super-ellipse|circle)\/index).ts$/,
+    /^\.\/(.*)\/src\/(index|(desktop|mobile|super-ellipse|circle|rectangle|no-shape)\/index).ts$/,
 );
 
 const packages = req.keys().reduce((acc, key) => {
