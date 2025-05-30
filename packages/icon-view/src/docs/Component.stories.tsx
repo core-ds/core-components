@@ -154,13 +154,16 @@ export const rectangle: Story = {
             ['20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
             '64',
         );
+
         const mainSize = select(
             'mainSize',
             [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
             undefined,
         );
+
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
+
         return (
             <Rectangle
                 size={size}
@@ -170,13 +173,7 @@ export const rectangle: Story = {
                 text={text('text', '')}
                 mainSize={mainSize}
             >
-                {size === '128' || size === '80' ? (
-                    <DiamondsXxlIcon />
-                ) : size === '20' ? (
-                    <DiamondsSIcon />
-                ) : (
-                    <DiamondsMIcon />
-                )}
+                {getChildren(size)}
             </Rectangle>
         );
     },
@@ -190,12 +187,15 @@ export const no_shape: Story = {
             ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
             '64',
         );
+
         const mainSize = select(
             'mainSize',
             [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
             undefined,
         );
+
         const backgroundColor = text('backgroundColor', '#f3f4f5');
+
         return (
             <NoShape
                 size={size}
@@ -204,13 +204,7 @@ export const no_shape: Story = {
                 text={text('text', '')}
                 mainSize={mainSize}
             >
-                {size === '128' || size === '80' ? (
-                    <DiamondsXxlIcon />
-                ) : size <= '20' ? (
-                    <DiamondsSIcon />
-                ) : (
-                    <DiamondsMIcon />
-                )}
+                {getChildren(size)}
             </NoShape>
         );
     },
