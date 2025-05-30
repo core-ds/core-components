@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.8.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+    -   calendar-input@10.4.32
+
 ## 7.8.19
 
 ### Patch Changes

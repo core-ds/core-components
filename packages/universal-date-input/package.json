@@ -28,7 +28,7 @@
         "tslib": "^2.4.0"
     },
     "devDependencies": {
-        "@alfalab/core-components-calendar": "^7.18.6"
+        "@alfalab/core-components-calendar": "^7.18.7"
     },
     "themesVersion": "13.7.3",
     "varsVersion": "9.20.0"

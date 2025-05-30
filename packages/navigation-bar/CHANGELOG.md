@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.2.24
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1513](https://github.com/core-ds/core-components/pull/1513)
+
+-   Замена импорта button десктоп на мобайл
+
 ## 1.2.23
 
 ### Patch Changes

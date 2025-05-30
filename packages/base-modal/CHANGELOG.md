@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1614](https://github.com/core-ds/core-components/pull/1614)
+
+-   Исправлен тип `TransitionProps` на `CSSTransitionProps` в `base-modal`
+
 ## 5.9.2
 
 ### Patch Changes
