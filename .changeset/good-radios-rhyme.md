@@ -2,4 +2,4 @@
 '@alfalab/core-components-filter-tag': patch
 ---
 
-Исправлен проброс classname undefined на div элемента при disabled состоянии
+Исправлен проброс classname undefined `[styles.disabled]: disabled`
