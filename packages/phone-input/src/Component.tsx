@@ -5,6 +5,7 @@ import { conformToMask, TextMaskConfig } from 'text-mask-core';
 
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
+import { checkInsertBefore } from './utils/check-insert-before';
 import { deleteFormatting, deleteMaskChar, getInsertedNumber, setCaretPosition } from './utils';
 
 const mask = [
@@ -47,7 +48,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 /*
                  * Удаляем лишний символ маски при вводе или вставке значений перед знаком + или после него.
                  */
-                if (previousConformedValue && rawValue.indexOf('+7') !== 0) {
+                if (checkInsertBefore(previousConformedValue, rawValue)) {
                     const newRaw = deleteMaskChar(previousValueWithoutFormatting, rawValue);
 
                     conformedValue = conformToMask(newRaw, mask, config).conformedValue;
