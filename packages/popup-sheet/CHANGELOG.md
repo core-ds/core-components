@@ -1,5 +1,12 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
 ## 1.4.8
 
 ### Patch Changes

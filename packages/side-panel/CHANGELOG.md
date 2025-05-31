@@ -1,5 +1,13 @@
 # @alfalab/core-components-side-panel
 
+## 5.9.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+    -   drawer@5.1.14
+
 ## 5.9.17
 
 ### Patch Changes

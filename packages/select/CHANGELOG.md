@@ -1,5 +1,14 @@
 # @alfalab/core-components-select
 
+## 17.21.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+    -   bottom-sheet@6.18.13
+    -   modal@9.9.17
+
 ## 17.21.2
 
 ### Patch Changes

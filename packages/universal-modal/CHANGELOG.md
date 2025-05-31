@@ -1,5 +1,12 @@
 # @alfalab/core-components-universal-modal
 
+## 1.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
 ## 1.1.2
 
 ### Patch Changes

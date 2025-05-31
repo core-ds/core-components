@@ -1,5 +1,12 @@
 # @alfalab/core-components-file-upload-item
 
+## 6.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.2
+
 ## 6.3.4
 
 ### Patch Changes

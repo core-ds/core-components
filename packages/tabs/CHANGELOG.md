@@ -1,5 +1,12 @@
 # @alfalab/core-components-tabs
 
+## 8.12.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.29
+
 ## 8.12.29
 
 ### Patch Changes

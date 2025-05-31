@@ -1,5 +1,15 @@
 # @alfalab/core-components-icon-view
 
+## 3.10.2
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1650](https://github.com/core-ds/core-components/pull/1650)
+
+-   Исправлено положение фона для Rectangle
+
 ## 3.10.1
 
 ### Patch Changes
