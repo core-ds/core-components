@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-text
 
 ## 1.2.3
 

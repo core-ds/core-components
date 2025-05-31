@@ -2,7 +2,7 @@ import {
     setupScreenshotTesting,
     generateTestCases,
     customSnapshotIdentifier,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,

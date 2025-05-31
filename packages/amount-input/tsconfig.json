@@ -1,22 +1,33 @@
 {
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
+        "rootDir": "src",
         "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-amount-input": ["./src"],
+            "@alfalab/core-components-amount-input/*": ["./src/*"],
+            "@alfalab/core-components-input": ["../input/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-number-input": ["../number-input/src"],
             "@alfalab/core-components-number-input/*": ["../number-input/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
+            "@alfalab/core-components-with-suffix": ["../with-suffix/src"],
+            "@alfalab/core-components-with-suffix/*": ["../with-suffix/src/*"]
         }
     },
     "references": [
         { "path": "../input" },
-        { "path": "../with-suffix" },
+        { "path": "../number-input" },
+        { "path": "../screenshot-utils" },
         { "path": "../shared" },
-        { "path": "../number-input" }
+        { "path": "../test-utils" },
+        { "path": "../with-suffix" }
     ]
 }

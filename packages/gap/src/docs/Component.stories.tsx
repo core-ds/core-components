@@ -6,7 +6,7 @@ import { CardImage } from '@alfalab/core-components-card-image';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const SIZES = [
     '3xs',

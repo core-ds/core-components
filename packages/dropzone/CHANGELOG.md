@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-dropzone
 
 ## 4.1.4
 

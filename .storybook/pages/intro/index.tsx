@@ -5,7 +5,7 @@ import { Plate } from './components/plate';
 import { Logo } from '../../components/logo';
 import { GithubIcon } from '../../components/icons/GithubIcon';
 import { MODE_COLORS_TAG_ID } from '../../addons/utils';
-import packageJson from '../../../package.json';
+import packageJson from '@alfalab/core-components/package.json';
 
 import styles from './index.module.css';
 
