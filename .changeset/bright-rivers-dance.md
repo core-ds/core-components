@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-phone-input': minor
+'@alfalab/core-components-phone-input': patch
 ---
 
 При вставке номера телефона без знака "+" номер не обрезается.
