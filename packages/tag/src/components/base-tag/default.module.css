@@ -25,6 +25,27 @@
         }
     }
 
+    &.transparent {
+        color: var(--tag-text-color);
+        border-color: var(--tag-transparent-border-color);
+        background-color: var(--tag-transparent-background-color);
+
+        &:disabled {
+            color: var(--tag-text-color-disabled);
+            background-color: var(--tag-transparent-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-transparent-background-color-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-transparent-background-color-active);
+        }
+    }
+
     &.filled {
         color: var(--tag-text-color);
         border-color: var(--tag-filled-border-color);
