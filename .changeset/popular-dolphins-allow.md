@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-tag': minor
+'@alfalab/core-components-tag': major
 ---
 
 - Добавлен view: transparent для компонента <Tag />
