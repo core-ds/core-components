@@ -1,5 +1,5 @@
 import * as esbuild from 'esbuild';
-import globby from 'globby';
+import { globby } from 'globby';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import * as process from 'node:process';

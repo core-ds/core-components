@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-import globby from 'globby';
+import { globby } from 'globby';
 import path from 'node:path';
 import * as process from 'node:process';
 import { getPackages } from '@manypkg/get-packages';

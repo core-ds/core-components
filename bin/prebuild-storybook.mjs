@@ -1,4 +1,4 @@
-import globby from 'globby';
+import { globby } from 'globby';
 import path from 'node:path';
 import fs from 'fs/promises';
 import * as process from 'node:process';

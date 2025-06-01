@@ -5,7 +5,7 @@ import exportCustomVariables, {
 import postcssImport from 'postcss-import';
 import postcss from 'postcss';
 import fs from 'node:fs/promises';
-import globby from 'globby';
+import { globby } from 'globby';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import handlebars from 'handlebars';

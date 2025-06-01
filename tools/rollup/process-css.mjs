@@ -7,7 +7,7 @@ import postcssModules from 'postcss-modules';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
 import stringHash from 'string-hash';
-import globby from 'globby';
+import { globbySync } from 'globby';
 import { cwd } from 'node:process';
 import { getPackages } from '@manypkg/get-packages';
 import postcssConfig from '../../postcss.config.js';
@@ -115,7 +115,7 @@ async function processPostcss(filePath, config = {}) {
         plugins = plugins.map((plugin) =>
             plugin.postcssPlugin === 'postcss-mixins'
                 ? postcssMixins({
-                      mixinsFiles: globby.sync(path.join(vars.dir, 'src/*.css'), {
+                      mixinsFiles: globbySync(path.join(vars.dir, 'src/*.css'), {
                           ignore: ['**/{indextypography}.css'],
                       }),
                   })

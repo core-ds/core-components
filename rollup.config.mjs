@@ -1,6 +1,6 @@
 import path from 'path';
 import detectIndent from 'detect-indent';
-import globby from 'globby';
+import { globbySync } from 'globby';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
@@ -28,7 +28,7 @@ const externals = [
 const baseConfig = () =>
     defineConfig({
         cache: false,
-        input: globby.sync('src/**/*.{ts,tsx}', {
+        input: globbySync('src/**/*.{ts,tsx}', {
             ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
         }),
         plugins: [
