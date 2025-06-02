@@ -2,12 +2,9 @@ module.exports = async ({ core, exec, inputs }) => {
     const { existsSync } = require('node:fs');
     const fs = require('node:fs/promises');
     const path = require('node:path');
+    const { default: readChangesets } = require('@changesets/read');
 
-    const changesets = await core.group('Reading changesets', async () => {
-        const { default: readChangesets } = await import('@changesets/read');
-
-        return await readChangesets(process.cwd());
-    });
+    const changesets = await core.group('Reading changesets', () => readChangesets(process.cwd()));
 
     if (changesets.length === 0) {
         core.warning("Didn't find any changeset. Nothing to publish");
