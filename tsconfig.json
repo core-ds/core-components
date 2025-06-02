@@ -1,6 +1,5 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "@tsconfig/node22/tsconfig.json",
     "include": [
         ".eslintrc.cjs",
         "bin",
@@ -10,6 +9,15 @@
         "tools"
     ],
     "compilerOptions": {
+        "lib": ["es2022"],
+        "module": "nodenext",
+        "target": "es2022",
+
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node16",
+
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "noEmit": true,
