@@ -36,6 +36,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         clearCodeOnError,
         hideCountdownSection,
         initialScreenHintSlot,
+        initialScreenDescription,
         errorVisibleDuration,
         onChangeState,
         onInputFinished,
@@ -167,6 +168,8 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     const ComponentCodeInput = mobile ? CodeInputMobile : CodeInputDesktop;
 
+    const description = initialScreenDescription || `Отправили на ${phone}`;
+
     return (
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.title}</Header>
@@ -180,7 +183,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         [styles.typographyThemeMobile]: mobile,
                     })}
                 >
-                    Отправили на {phone}
+                    {description}
                 </Text>
             ) : null}
             <ComponentCodeInput

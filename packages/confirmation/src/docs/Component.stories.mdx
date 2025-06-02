@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { select, number, boolean } from '@storybook/addon-knobs';
+import { select, number, boolean, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { SelectDesktop } from '@alfalab/core-components-select/desktop';
@@ -168,6 +168,9 @@ import {
                         onSmsRetryClick={handleSmsRetryClick}
                         onTempBlockFinished={handleTempBlockFinished}
                         phone={'+7 ··· ··· 07 24'}
+                        initialScreenDescription={
+                            text('initialScreenDescription', '')
+                        }
                         initialScreenHintSlot={
                             boolean('initialScreenHintSlot', false) ? (
                                 <Button size='s'>Custom Button</Button>
