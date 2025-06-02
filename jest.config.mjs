@@ -5,62 +5,57 @@ import { createJsWithTsLegacyPreset } from 'ts-jest';
 
 const { packages } = getPackagesSync(cwd());
 
-/**
- * @type {import('ts-jest').JestConfigWithTsJest['moduleNameMapper']}
- */
-const moduleNameMapper = packages.reduce(
-    (map, { relativeDir, packageJson: { name } }) =>
-        Object.assign(map, {
-            [`${name}$`]: `<rootDir>/${relativeDir}/src`,
-            [`${name}/(.*)$`]: `<rootDir>/${relativeDir}/src/$1`,
-        }),
-    { '\\.css$': 'identity-obj-proxy' },
-);
-
 const ignoredModules = ['@alfalab/hooks', 'simplebar', 'uuid'];
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
 
 /**
+ * @type {NonNullable<import('ts-jest').JestConfigWithTsJest['projects']>[number]}
+ */
+const initialProjectOptions = {
+    ...tsJestPreset,
+    globalSetup: '<rootDir>/tools/jest/globalSetup.ts',
+    setupFilesAfterEnv: ['<rootDir>/tools/jest/setupTests.ts'],
+    modulePathIgnorePatterns: ['/dist/'],
+    moduleNameMapper: packages.reduce(
+        (map, { relativeDir, packageJson: { name } }) =>
+            Object.assign(map, {
+                [`${name}$`]: `<rootDir>/${relativeDir}/src`,
+                [`${name}/(.*)$`]: `<rootDir>/${relativeDir}/src/$1`,
+            }),
+        { '\\.css$': 'identity-obj-proxy' },
+    ),
+    testPathIgnorePatterns: packages
+        .filter(({ packageJson: { name } }) => name === '@alfalab/core-components-codemod')
+        .map(({ relativeDir }) => `<rootDir>/${relativeDir}`),
+    transformIgnorePatterns: [`/node_modules/(?!(${ignoredModules.join('|')}))/`],
+    // see https://jestjs.io/blog/2022/08/25/jest-29
+    snapshotFormat: {
+        escapeString: true,
+        printBasicPrototype: true,
+    },
+};
+
+/**
  * @type {import('ts-jest').JestConfigWithTsJest}
  */
 const config = {
-    coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
     projects: [
         {
-            ...tsJestPreset,
+            ...initialProjectOptions,
             displayName: 'csr' /* client side rendering */,
-            globalSetup: '<rootDir>/tools/jest/globalSetup.ts',
             testEnvironment: 'jsdom',
-            modulePathIgnorePatterns: ['dist'],
-            moduleNameMapper,
-            setupFilesAfterEnv: ['<rootDir>/tools/jest/setupTests.ts'],
-            testMatch: ['**/*.test.ts?(x)', '!**/*.(screenshots|ssr).test.ts?(x)'],
-            testPathIgnorePatterns: ['codemod'],
-            transformIgnorePatterns: [`/node_modules/(?!(${ignoredModules.join('|')}))/`],
-            snapshotFormat: {
-                escapeString: true,
-                printBasicPrototype: true,
-            },
-            coveragePathIgnorePatterns: ['index.ts'],
+            testMatch: ['**/*.test.ts?(x)', '!**/*.{screenshots,ssr}.test.ts?(x)'],
         },
         {
-            ...tsJestPreset,
+            ...initialProjectOptions,
             displayName: 'ssr' /* server side rendering */,
-            globalSetup: '<rootDir>/tools/jest/globalSetup.ts',
             testEnvironment: 'node',
-            modulePathIgnorePatterns: ['dist'],
-            moduleNameMapper,
-            setupFilesAfterEnv: ['<rootDir>/tools/jest/setupTests.ts'],
             testMatch: ['**/*.ssr.test.ts?(x)'],
-            testPathIgnorePatterns: ['codemod'],
-            transformIgnorePatterns: [`/node_modules/(?!(${ignoredModules.join('|')}))/`],
-            snapshotFormat: {
-                escapeString: true,
-                printBasicPrototype: true,
-            },
         },
     ],
+    coveragePathIgnorePatterns: ['/index.ts?(x)'],
+    coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
 };
 
 export default config;
