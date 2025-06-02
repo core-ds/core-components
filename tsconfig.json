@@ -1,7 +1,14 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "@tsconfig/node22/tsconfig.json",
-    "include": [".eslintrc.cjs", "bin", "commitlint.config.ts", "tools"],
+    "include": [
+        ".eslintrc.cjs",
+        "bin",
+        "commitlint.config.ts",
+        "jest.config.mjs",
+        "jest.screenshots.config.mjs",
+        "tools"
+    ],
     "compilerOptions": {
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,

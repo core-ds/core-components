@@ -111,10 +111,10 @@ describe('Toast', () => {
             await render(<Toast {...baseProps} anchorElement={anchorElement} {...popoverProps} />);
         });
 
-        const popoverLastCall =
-            popoverComponentSpy.mock.calls[popoverComponentSpy.mock.calls.length - 1];
-
-        expect(popoverLastCall[0]).toMatchObject(popoverProps);
+        expect(popoverComponentSpy).toHaveBeenCalledWith(
+            expect.objectContaining(popoverProps),
+            null,
+        );
     });
 
     it('should set bottomOffset', () => {
