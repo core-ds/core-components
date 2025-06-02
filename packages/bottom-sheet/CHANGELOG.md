@@ -1,5 +1,68 @@
 # Change Log
 
+## 6.18.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 6.18.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+
+## 6.18.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 6.18.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 6.18.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
+
+## 6.18.8
+
+### Patch Changes
+
+<sup><time>28.04.2025</time></sup>
+
+### [#1678](https://github.com/core-ds/core-components/pull/1678)
+
+-   Добавлен хук `useVisualViewportSize`. Хук `useVisibleViewportSize` помечен как `@deprecated`
+
+## 6.18.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.2
+
+## 6.18.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.1
+
 ## 6.18.5
 
 ### Patch Changes

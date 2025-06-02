@@ -1,5 +1,67 @@
 # Change Log
 
+## 5.9.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+    -   drawer@5.1.14
+
+## 5.9.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+    -   drawer@5.1.13
+
+## 5.9.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 5.9.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 5.9.14
+
+### Patch Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1681](https://github.com/core-ds/core-components/pull/1681)
+
+-   Добавлен отступ по умолчанию для устройств без нижней safe area
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
+    -   drawer@5.1.12
+
+## 5.9.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.2
+
+## 5.9.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.1
+
 ## 5.9.11
 
 ### Patch Changes

@@ -1,5 +1,69 @@
 # Change Log
 
+## 8.12.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.29
+
+## 8.12.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   picker-button@11.12.28
+    -   tag@8.6.9
+    -   icon-button@6.11.12
+
+## 8.12.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.27
+
+## 8.12.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.4.0
+    -   picker-button@11.12.26
+
+## 8.12.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   picker-button@11.12.25
+    -   tag@8.6.8
+    -   icon-button@6.11.11
+
+## 8.12.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.24
+
+## 8.12.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.23
+
+## 8.12.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+    -   picker-button@11.12.22
+
 ## 8.12.22
 
 ### Patch Changes

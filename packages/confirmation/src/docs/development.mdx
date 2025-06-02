@@ -22,12 +22,15 @@ export type ConfirmationScreen =
     | 'HINT' // экран "Не приходит смс?"
     | 'FATAL_ERROR' // экран критической ошибки
     | 'TEMP_BLOCK'; // экран временной блокировки
+    | 'TEMP_BLOCK_OVER'; // экран "Ввод разблокирован"
 
 export type ConfirmationState =
     | 'INITIAL' // начальное состояние
     | 'CODE_CHECKING' // проверка кода
     | 'CODE_SENDING' // повторная отправка кода
-    | 'CODE_ERROR'; // ошибка, когда ввели неверный код
+    | 'CODE_ERROR' // ошибка, когда ввели неверный код
+    | 'CODE_EXPIRED' // ошибка, когда код устарел, но можно запросить новый
+    | 'CODE_EXPIRED_ENDED'; // ошибка, когда код устарел
 ```
 
 Для управления экранами и состояниями можно воспользоваться хуком:
@@ -75,6 +78,7 @@ export type ConfirmationTexts = {
      */
     title?: ReactNode; // заголовок
     codeError?: string; // ошибка проверки кода
+    codeErrorExpired?: string; // код устарел
     codeChecking?: string; // код проверяется
     codeSending?: string; // код отправляется
     codeSended?: string; // код отправлен
@@ -86,7 +90,12 @@ export type ConfirmationTexts = {
     /**
      * Экран HINT
      */
+    hintTitle?: string // заголовок
+    hintDescription?: string // описание
+    hintNotification?: string // уведомление
     hintButton?: string; // кнопка 'Вернуться'
+    domesticPhone?: string; // номер телефона для звонков по России
+    internationalPhone?: string; // номер телефона для звонков из-за границы
 
     /**
      * Экран FATAL_ERROR
@@ -100,6 +109,13 @@ export type ConfirmationTexts = {
      */
     tempBlockTitle?: ReactNode; // заголовок
     tempBlockDescription?: ReactNode; // описание
+
+    /**
+     * Экран TEMP_BLOCK_OVER
+     */
+    tempBlockOverTitle?: ReactNode; // заголовок
+    tempBlockOverDescription?: ReactNode; // описание
+    tempBlockOverButton?: string; // кнопка
 };
 ```
 

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider-input",
-    "version": "9.2.2",
+    "version": "9.2.6",
     "description": "Slider input component",
     "keywords": [],
     "license": "MIT",
@@ -16,11 +16,11 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^15.5.3",
-        "@alfalab/core-components-slider": "^4.7.3",
+        "@alfalab/core-components-input": "^15.6.1",
+        "@alfalab/core-components-slider": "^4.8.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.20.0"
 }

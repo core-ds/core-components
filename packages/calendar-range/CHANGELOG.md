@@ -1,5 +1,67 @@
 # Change Log
 
+## 7.8.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+    -   calendar-input@10.4.32
+
+## 7.8.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   calendar@7.18.6
+    -   calendar-input@10.4.31
+    -   date-input@4.4.19
+
+## 7.8.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+    -   calendar-input@10.4.30
+
+## 7.8.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.4.18
+    -   calendar@7.18.4
+    -   calendar-input@10.4.29
+
+## 7.8.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   calendar@7.18.3
+    -   calendar-input@10.4.28
+    -   date-input@4.4.17
+
+## 7.8.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.2
+    -   calendar-input@10.4.27
+
+## 7.8.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.1
+    -   calendar-input@10.4.26
+    -   date-input@4.4.16
+
 ## 7.8.13
 
 ### Patch Changes

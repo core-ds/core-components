@@ -107,7 +107,7 @@ export type InternationalPhoneInputDesktopProps = CommonPhoneInputProps &
           >)
         | ({ options: InputAutocompleteDesktopProps['options'] } & Omit<
               InputAutocompleteDesktopProps,
-              'onChange' | 'onInput'
+              'onChange' | 'onInput' | 'onClear'
           >)
     );
 
@@ -119,7 +119,7 @@ export type InternationalPhoneInputMobileProps = CommonPhoneInputProps &
           >)
         | ({ options: InputAutocompleteMobileProps['options'] } & Omit<
               InputAutocompleteMobileProps,
-              'onChange' | 'onInput'
+              'onChange' | 'onInput' | 'onClear'
           >)
     );
 

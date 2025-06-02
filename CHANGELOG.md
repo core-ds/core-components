@@ -1,3 +1,525 @@
+## 48.27.3
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1517](https://github.com/core-ds/core-components/pull/1517)
+
+#### Что изменилось
+- Парные иконки заменены на одну иконку и css-rotate
+
+#### Влияние на компоненты
+- Патчи<br />`collapse`
+
+
+### [#1614](https://github.com/core-ds/core-components/pull/1614)
+
+#### Что изменилось
+- Исправлен тип `TransitionProps` на `CSSTransitionProps` в `base-modal`
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#1650](https://github.com/core-ds/core-components/pull/1650)
+
+#### Что изменилось
+- Исправлено положение фона для Rectangle
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1722](https://github.com/core-ds/core-components/pull/1722)
+
+#### Что изменилось
+- Убран не используемый проп onClear(обработчик можно пробросить в inputProps)
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+### [#1513](https://github.com/core-ds/core-components/pull/1513)
+
+#### Что изменилось
+- Замена импорта button десктоп на мобайл
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+
+## 48.27.2
+
+<sup><time>27.05.2025</time></sup>
+
+### [#1718](https://github.com/core-ds/core-components/pull/1718)
+
+#### Что изменилось
+- Добавлена поддержка и преобразование argb в rgba у функции get-color-var
+
+#### Влияние на компоненты
+- Патчи<br />`shared`
+
+
+
+## 48.27.1
+
+<sup><time>26.05.2025</time></sup>
+
+### [#1724](https://github.com/core-ds/core-components/pull/1724)
+
+#### Что изменилось
+- Исправлены расчеты параметров компонента при передаче responsive header и responsive footer
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1721](https://github.com/core-ds/core-components/pull/1721)
+
+#### Что изменилось
+- Исправлено использование переменной окружения `NODE_ENV`
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
+## 48.27.0
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1679](https://github.com/core-ds/core-components/pull/1679)
+
+#### Что изменилось
+- Добавлен ref для вертикальной полосы прокрутки
+
+#### Влияние на компоненты
+- Минорное<br />`scrollbar`
+
+<br />
+
+#### Что изменилось
+- Добавлен тип высоты `hugContent` который позволяет фиксировать высоту по содержимому контента
+- Изменены механизмы установки размеров `Modal` и `SidePanel`
+- Изменены механизмы позиционирования `Modal`
+- Исправлены отступы в `ModalMobile`
+
+#### Влияние на компоненты
+- Минорное<br />`universal-modal`
+
+
+### [#1717](https://github.com/core-ds/core-components/pull/1717)
+
+#### Что изменилось
+- Фикс hover эффекта при unhover событии для touch экранов
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox`
+
+
+### [#1709](https://github.com/core-ds/core-components/pull/1709)
+
+#### Что изменилось
+- Улучшен механизм угадывания страны по пользовательскому вводу
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+### [#1606](https://github.com/core-ds/core-components/pull/1606)
+
+#### Что изменилось
+- Перенос хука useSkeleton из `Typography` в `Skeleton`
+
+#### Влияние на компоненты
+- Минорное<br />`skeleton`
+
+<br />
+
+#### Что изменилось
+- Перенос хука useSkeleton из `Typography` в `Skeleton`
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+#### Что изменилось
+- Внутренняя оптимизация кодовой базы компонента
+- `Stepper` теперь доступен для импорта из директории `shared`
+
+#### Влияние на компоненты
+- Минорное<br />`number-input`
+
+<br />
+
+#### Что изменилось
+- Расширена логика `focus` состояния если в `rightAddons` передан компонент `Steppers`
+
+#### Влияние на компоненты
+- Минорное<br />`input`
+
+<br />
+
+#### Что изменилось
+- Добавлена возможность включить в правом аддоне компонент `Stepper` с помощью пропса `stepper`
+- Расширен тип пропса `onChange`
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input`
+
+
+### [#1715](https://github.com/core-ds/core-components/pull/1715)
+
+#### Что изменилось
+- Добавлена возможность проброса applyName и resetName, заданы значения по умолчанию
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+#### Что изменилось
+- Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+- Исправлено выравнивание иконки ошибки для размера `40`
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `input` `input-autocomplete` `password-input` `select`<br />
+
+
+### [#1696](https://github.com/core-ds/core-components/pull/1696)
+
+#### Что изменилось
+- Добавлена возможность пробросить колбек onError в компонент CDNIcon
+
+#### Влияние на компоненты
+- Минорное<br />`cdn-icon`
+
+
+### [#1714](https://github.com/core-ds/core-components/pull/1714)
+
+#### Что изменилось
+- Разрешен ввод пробелов в textarea
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1713](https://github.com/core-ds/core-components/pull/1713)
+
+#### Что изменилось
+- Добавлен ref пропс (scrollableContainerRef) для контейнера на котором происходит scroll
+
+#### Влияние на компоненты
+- Минорное<br />`universal-modal`
+
+
+
+## 48.26.0
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1697](https://github.com/core-ds/core-components/pull/1697)
+
+#### Что изменилось
+- Добавлена утилита get-color-var
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+
+### [#1703](https://github.com/core-ds/core-components/pull/1703)
+
+#### Что изменилось
+- Исправлена типизация опциональных пропсов
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1618](https://github.com/core-ds/core-components/pull/1618)
+
+#### Что изменилось
+- Исправлено active состояние при mouseup событии за пределами компонента
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#1700](https://github.com/core-ds/core-components/pull/1700)
+
+#### Что изменилось
+- Добавлен callback на завершение таймера
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+### [#1684](https://github.com/core-ds/core-components/pull/1684)
+
+#### Что изменилось
+- Добавлен props snap для точного шага слайдера по range
+
+#### Влияние на компоненты
+- Минорное<br />`slider`
+
+
+### [#1681](https://github.com/core-ds/core-components/pull/1681)
+
+#### Что изменилось
+- Добавлен отступ по умолчанию для устройств без нижней safe area
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+
+
+## 48.25.1
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1400](https://github.com/core-ds/core-components/pull/1400)
+
+#### Что изменилось
+- Импорт JS-файла темы больше не зависит от webpack-лоадера. Теперь содержимое темы представлено в виде строки.
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1677](https://github.com/core-ds/core-components/pull/1677)
+
+#### Что изменилось
+- Изменён логотип по умолчанию
+
+#### Влияние на компоненты
+- Патчи<br />`bank-card`
+
+
+
+## 48.25.0
+
+<sup><time>28.04.2025</time></sup>
+
+### [#1678](https://github.com/core-ds/core-components/pull/1678)
+
+#### Что изменилось
+- Добавлен проп `virtualKeyboard` для учета высоты виртуальной клавиатуры в `BottomSheet`
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete`
+
+<br />
+
+#### Что изменилось
+- Добавлен хук `useVisualViewportSize`. Хук `useVisibleViewportSize` помечен как `@deprecated`
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#1652](https://github.com/core-ds/core-components/pull/1652)
+
+#### Что изменилось
+- Исправлены копирайты для экранов `INITIAL`, `HINT`, `FATAL_ERROR`, `TEMP_BLOCK`
+- Добавлен новый экран `TEMP_BLOCK_OVER`
+- Добавлена возможность проброса через prop texts текстовок для экрана `HINT`
+
+#### Влияние на компоненты
+- Минорное<br />`confirmation`
+
+
+
+## 48.24.0
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1669](https://github.com/core-ds/core-components/pull/1669)
+
+#### Что изменилось
+- Реализация прозрачного `border` для синхронизации размеров Button/CustomButton
+
+#### Влияние на компоненты
+- Патчи<br />`custom-button`
+
+
+### [#1662](https://github.com/core-ds/core-components/pull/1662)
+
+#### Что изменилось
+- Заменен дефолтный цвет обводки `border` на `--color-light-base-bg-primary`
+- Добавлен размер `size-32` для компонента `Indicator`
+
+#### Влияние на компоненты
+- Минорное<br />`indicator`
+
+
+### [#1640](https://github.com/core-ds/core-components/pull/1640)
+
+#### Что изменилось
+1. Если в компоненте `FileUploadItem` отсутствуют кнопки (то есть ни `showRestore`, ни `downloadLink`, ни `showDelete` не активны), то элемент `Content` отображается с курсором в виде `pointer`, сигнализируя о том, что он кликабельный.
+
+2. Если хотя бы одна из кнопок присутствует, кликабельность `Content` меняется в соответствии с логикой отображения.
+
+3. Добавлен пропс `isClickable`, который позволяет управлять визуальным отображением кликабельности элемента `Content` в случае отсутствия кнопок.
+
+#### Влияние на компоненты
+- Минорное<br />`file-upload-item`
+
+
+### [#1617](https://github.com/core-ds/core-components/pull/1617)
+
+#### Что изменилось
+Добавлена поддержка шрифта `Alfa Interface Sans`
+
+Подробнее смотрите в разделе [Типографика](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--docs)
+
+#### Влияние на компоненты
+- Минорное<br />`typography` `vars`
+
+
+### [#1568](https://github.com/core-ds/core-components/pull/1568)
+
+#### Что изменилось
+Кастомные эвенты для событий у видео: onPlay, onPause, onMute, onUnmute, заменены на коллбэки, которые можно прокинуть в images
+
+- Десктоп:
+
+1. Добавлено пролистывание превью с зажатой кнопкой ЛКМ
+2. Про воспроизведении, видео пробелом ставится видео на паузу;
+
+- Мобайл:
+
+1. В хедер добавлена кнопка «Поделиться»;
+2. В навигации если это одна из первых или последних миниатюр, она не центририруется, чтобы по краям не возникало пустое пространство. Активная миниатюра центрируется, если справа и слева от нее достаточно элементов, чтобы заполнить всю область, отведённую под миниатюры;
+3. При свайпе вниз, галерея закрывается
+
+#### Влияние на компоненты
+- Минорное<br />`gallery`
+
+
+
+## 48.23.1
+
+<sup><time>14.04.2025</time></sup>
+
+### [#1670](https://github.com/core-ds/core-components/pull/1670)
+
+#### Что изменилось
+- Исправлено закрытие `UniversalModalMobile` при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header`. Хэндлер будет браться с компонента `UniversalModalMobile`.
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+### [#1671](https://github.com/core-ds/core-components/pull/1671)
+
+#### Что изменилось
+- Исправлен размер левого аддона компонента `Header` для `UniverslaModalMobile`
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
+## 48.23.0
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1489](https://github.com/core-ds/core-components/pull/1489)
+
+#### Что изменилось
+- Исправлено название пропса numberOfCards. Старый пропс (numberOfСards с русской C) оставлен для обратной совместимости, но помечен как деприкейт. При использовании сразу обоих, новый имеет приоритет.
+
+#### Влияние на компоненты
+- Патчи<br />`product-cover`
+
+
+### [#1615](https://github.com/core-ds/core-components/pull/1615)
+
+#### Что изменилось
+- fix(input): Добавлен props `passwordHint` в компонент `PasswordInput` для возможности управлять текстом подсказки
+
+#### Влияние на компоненты
+- Минорное<br />`password-input`
+
+
+### [#1663](https://github.com/core-ds/core-components/pull/1663)
+
+#### Что изменилось
+- Добавлен пропс `leftAddons` позволяющий размещать контент в левый слот
+
+#### Влияние на компоненты
+- Минорное<br />`status`
+
+
+### [#1612](https://github.com/core-ds/core-components/pull/1612)
+
+#### Что изменилось
+- Обернул компонент `BaseCheckboxGroup` в forwardRef и предоставил возможность прокинуть ref
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox-group`
+
+
+### [#1621](https://github.com/core-ds/core-components/pull/1621)
+
+#### Что изменилось
+- Для компонента `Spinner` добавлено дополнительное свойство box-sizing: content-box для исправления глобального влияния box-sizing: border-box.
+
+#### Влияние на компоненты
+- Патчи<br />`spinner`
+
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+#### Что изменилось
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+<br />
+
+#### Что изменилось
+-   Фикс импорта `icon-view`
+-   Фикс tsconfig
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item` `gallery`
+
+
+### [#1641](https://github.com/core-ds/core-components/pull/1641)
+
+#### Что изменилось
+- Исправлен копирайт `subtitle` в компоненте FileUploadItem на `Загружено`
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#1667](https://github.com/core-ds/core-components/pull/1667)
+
+#### Что изменилось
+-   Added support for using animated images
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1668](https://github.com/core-ds/core-components/pull/1668)
+
+#### Что изменилось
+- Исправлено закрытие модалки при использовании пропса `hasCloser`. Теперь не нужно прокидывать `onClose` компоненту `Header`. Хэндлер будет браться с компонента `UniversalModal`.
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
 ## 48.22.1
 
 <sup><time>31.03.2025</time></sup>

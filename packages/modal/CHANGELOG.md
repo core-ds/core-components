@@ -1,5 +1,64 @@
 # Change Log
 
+## 9.9.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 9.9.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+
+## 9.9.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 9.9.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 9.9.13
+
+### Patch Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1681](https://github.com/core-ds/core-components/pull/1681)
+
+-   Добавлен отступ по умолчанию для устройств без нижней safe area
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
+
+## 9.9.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.2
+
+## 9.9.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.1
+
 ## 9.9.10
 
 ### Patch Changes

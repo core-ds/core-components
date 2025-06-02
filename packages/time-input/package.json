@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-time-input",
-    "version": "2.2.53",
+    "version": "2.2.57",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,9 +16,9 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^15.5.3",
+        "@alfalab/core-components-input": "^15.6.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.20.0"
 }

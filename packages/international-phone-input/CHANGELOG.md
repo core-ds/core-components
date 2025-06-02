@@ -1,5 +1,87 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.7.17
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1722](https://github.com/core-ds/core-components/pull/1722)
+
+-   Убран не используемый проп onClear(обработчик можно пробросить в inputProps)
+
+-   Обновлены зависимости
+    -   select@17.21.3
+    -   input-autocomplete@12.9.5
+
+## 2.7.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   input-autocomplete@12.9.4
+    -   select@17.21.2
+
+## 2.7.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+    -   input-autocomplete@12.9.3
+
+## 2.7.14
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1709](https://github.com/core-ds/core-components/pull/1709)
+
+-   Улучшен механизм угадывания страны по пользовательскому вводу
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input@15.6.0
+    -   input-autocomplete@12.9.2
+
+## 2.7.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   input@15.5.5
+    -   input-autocomplete@12.9.1
+    -   select@17.20.14
+
+## 2.7.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.0
+    -   select@17.20.13
+
+## 2.7.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+    -   input-autocomplete@12.8.9
+
+## 2.7.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
+    -   select@17.20.11
+    -   input-autocomplete@12.8.8
+
 ## 2.7.9
 
 ### Patch Changes

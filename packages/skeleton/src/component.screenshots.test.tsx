@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
+    generateTestCases,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,15 +15,11 @@ const screenshotTesting = setupScreenshotTesting({
 describe('Skeleton', () => {
     createPreview(
         {
+            testStory: false,
             componentName: 'Skeleton',
-            knobs: {
-                children:
-                    'Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton',
-                animate: true,
-                visible: true,
-            },
+            knobs: {},
         },
-        'transform:scale(2.5);padding:0 300px',
+        'transform:scale(2.5)',
     );
 });
 
@@ -49,6 +46,47 @@ describe(
         viewport: {
             width: 450,
             height: 100,
+        },
+    }),
+);
+
+describe(
+    'SkeletonText',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'Skeleton',
+                subComponentName: 'SkeletonText',
+                testStory: false,
+                knobs: {
+                    rows: [undefined, 6, 8],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'Skeleton',
+                subComponentName: 'SkeletonText',
+                testStory: false,
+                knobs: {
+                    width: [undefined, '[100, 200, 300, 400]'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'Skeleton',
+                subComponentName: 'SkeletonText',
+                testStory: false,
+                knobs: {
+                    width: '200px',
+                    align: ['left', 'center', 'right'],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            clip: {
+                x: 0,
+                y: 0,
+                width: 1024,
+                height: 250,
+            },
         },
     }),
 );

@@ -56,7 +56,7 @@ describe('ProductCover', () => {
                     secondCard={{
                         cardNumber: 1234000000001234,
                     }}
-                    numberOfСards={2}
+                    numberOfCards={2}
                     dataTestId={dataTestId}
                 />,
             );
