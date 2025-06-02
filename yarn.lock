@@ -23981,10 +23981,10 @@ uglify-js@^3.1.4:
   resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.12.3.tgz"
   integrity sha512-feZzR+kIcSVuLi3s/0x0b2Tx4Iokwqt+8PJM7yRHKuldg4MLdam4TCFeICv+lgDtuYiCtdmrtIP+uN9LWvDasw==
 
-ui-primitives@^22.7.0:
-  version "22.7.0"
-  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-22.7.0.tgz#cce0dce244b33b9fe465edd634ddecb145c45b80"
-  integrity sha512-cdbDvvxoe6/HLMSl3hIQFGi5QYiskAoVgC22xYjw1jCb7wdhqdsCW0llsk78dGnqtfHrRwi7BmHZwf3feeM8PQ==
+ui-primitives@^26.3.0:
+  version "26.17.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-26.17.0.tgz#6eebd79d2f132271869bbd9b49e54b58b1394f63"
+  integrity sha512-xZbFFR8xdOh1yUlOplFcQNdYPqLAo/KRL9ghirmZ5UrsM8S1f8kVctueOPQCNoJpVq9kkDq2/lVVULeQU6iQPQ==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
@@ -24327,15 +24327,6 @@ url-join@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/url-join/-/url-join-4.0.1.tgz"
   integrity sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==
-
-url-loader@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/url-loader/-/url-loader-4.1.1.tgz"
-  integrity sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==
-  dependencies:
-    loader-utils "^2.0.0"
-    mime-types "^2.1.27"
-    schema-utils "^3.0.0"
 
 url-parse@^1.5.3:
   version "1.5.10"

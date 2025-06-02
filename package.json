@@ -166,8 +166,7 @@
         "svgo": "^3.0.2",
         "ts-jest": "^26.4.4",
         "typescript": "~4.7.4",
-        "ui-primitives": "^22.7.0",
-        "url-loader": "^4.1.1",
+        "ui-primitives": "^26.3.0",
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },
