@@ -4,7 +4,7 @@ import {
     matchHtml,
     closeBrowser,
     CreateStorybookUrlParams,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 
 const DEFAULT_CLIP = {

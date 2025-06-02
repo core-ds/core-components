@@ -1,4 +1,4 @@
-@import '../../../../packages/themes/src/mixins/mobile.css';
+@import '@alfalab/core-components-themes/src/mixins/mobile.css';
 
 :root {
     @mixin theme-mobile;

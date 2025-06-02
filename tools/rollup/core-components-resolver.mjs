@@ -1,81 +1,37 @@
-import path from 'path';
-
-import { requireRegExp } from './common.mjs';
-
-/**
- * Заменяет все импорты кор-компонентов на относительные пути.
- * Используется для сборки агрегирующего пакета.
- */
-export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
-    name: 'core-components-root-package-resolver',
-    generateBundle: (_, bundles) => {
-        Object.keys(bundles).forEach((bundleName) => {
-            let code = bundles[bundleName].code;
-
-            let matches;
-            while ((matches = requireRegExp.exec(code))) {
-                const componentName = matches[2];
-
-                const distDir = path.resolve(currentPackageDir, 'dist');
-                const bundleAbsPath = path.join(distDir, bundleName);
-                const bundleDir = path.dirname(bundleAbsPath);
-                const componentRelativePath = path
-                    .relative(bundleDir, componentName)
-                    .replace('/dist', ''); // удаляем dist из пути, так как в рут-пакете его нет
-
-                code = code.replace(requireRegExp, `$1${componentRelativePath}$3`);
-            }
-
-            bundles[bundleName].code = code;
-        });
-
-        return bundles;
-    },
-});
-
 /**
  * Заменяет импорты компонентов для сборки modern/cssm/moderncssm/esm
+ *
+ * @param {string} buildPath путь до сборки
+ * @returns {import('rollup').Plugin}
  */
-export const coreComponentsResolver = ({ importFrom }) => ({
+export const coreComponentsResolver = (buildPath) => ({
     name: 'core-components-resolver',
-    generateBundle: (_, bundles) => {
-        Object.keys(bundles).forEach((bundleName) => {
-            let code = bundles[bundleName].code;
+    resolveId: (id) => {
+        const match = id.match(/^(@alfalab\/core-components-[^/]+)\/?(.*)$/);
 
-            if (code) {
-                const requireRegExp = new RegExp(
-                    /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-[^\/\n]+)(\/.*)?(['"])/,
-                    'g',
-                );
+        if (match) {
+            const [, componentName, entryPoint] = match;
 
-                bundles[bundleName].code = code.replaceAll(requireRegExp, `$1$2/${importFrom}$3$4`);
-            }
-        });
-
-        return bundles;
+            return {
+                id: [componentName, buildPath, entryPoint].filter(Boolean).join('/'),
+                external: true,
+            };
+        }
     },
 });
 
 /**
- * Заменяет импорты типов в d.ts с packages/{packageName}/src/* на @alfalab/core-components-{packageName}/*
+ * Заменяет настройку external. Нужно, чтобы дать возможность отработать плагину {@link coreComponentsResolver}
+ *
+ * @see [Rollup external](https://rollupjs.org/configuration-options/#external)
+ * @param {string[]} externals массив внешних зависимостей
+ * @returns {import('rollup').Plugin}
  */
-export const packagesTypingResolver = () => ({
-    name: 'packages-typings-resolver',
-    generateBundle: (_, bundles) => {
-        Object.keys(bundles).forEach((bundleName) => {
-            if (bundleName.endsWith('.d.ts')) {
-                let source = bundles[bundleName].source;
-                if (source) {
-                    const re = /import\((['"])packages\/(.+)\/src(\/.*?)?(['"])\)/g;
-
-                    bundles[bundleName].source = source.replaceAll(
-                        re,
-                        'import($1@alfalab/core-components-$2$3$4)',
-                    );
-                }
-            }
-        });
-
-        return bundles;
+export const externalsResolver = (externals) => ({
+    name: 'externals-resolver',
+    resolveId: (id) => {
+        if (externals.some((external) => id.startsWith(external))) {
+            return { id, external: true };
+        }
     },
 });

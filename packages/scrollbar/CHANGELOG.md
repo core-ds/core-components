@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-scrollbar
 
 ## 3.3.0
 

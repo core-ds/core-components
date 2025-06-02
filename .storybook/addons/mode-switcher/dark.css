@@ -1,4 +1,4 @@
-@import '../../../packages/themes/src/dark.css';
+@import '@alfalab/core-components-themes/src/dark.css';
 
 body {
     background: var(--color-dark-base-bg-primary);

@@ -8,7 +8,7 @@ import React from 'react';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof PassCode> = {
     title: 'Components/PassCode',

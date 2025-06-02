@@ -12,7 +12,7 @@ import { StatusBadge } from '@alfalab/core-components-status-badge';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Plate> = {
     title: 'Components/Plate',
