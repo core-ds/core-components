@@ -231,24 +231,22 @@ export function useVirtualVisibleOptions({
 export function useVisibleOptions({
     visibleOptions,
     listRef,
-    styleTargetRef = listRef,
     open,
-    invalidate,
     options,
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
     const [, runIfMounted] = useIsMounted();
     const [measured, setMeasured] = useState(false);
+    const [height, setHeight] = useState<number | undefined>();
 
     useEffect(() => {
         const measureOptionHeight = (element: HTMLElement) =>
             typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
 
         const list = listRef.current;
-        const styleTarget = styleTargetRef.current;
 
-        if (open && list && styleTarget && visibleOptions > 0) {
+        if (open && list && visibleOptions > 0) {
             const childCount = list.children.length;
             const optionsNodes = ([] as HTMLElement[]).slice.call(
                 list.children,
@@ -292,32 +290,19 @@ export function useVisibleOptions({
                 }
             }
 
-            const prevHeight = styleTarget.style.height;
-
-            styleTarget.style.height = `${height}px`;
+            setHeight(height);
 
             setMeasured(true);
 
             return () => {
-                styleTarget.style.height = prevHeight;
                 runIfMounted(() => setMeasured(false));
             };
         }
 
         return fnUtils.noop;
-    }, [
-        actualOptionsCount,
-        listRef,
-        open,
-        options,
-        size,
-        styleTargetRef,
-        visibleOptions,
-        invalidate,
-        runIfMounted,
-    ]);
+    }, [actualOptionsCount, listRef, open, options, size, visibleOptions, runIfMounted]);
 
-    return measured;
+    return [measured, height] as const;
 }
 
 export function defaultFilterFn(optionText: string, search: string) {
