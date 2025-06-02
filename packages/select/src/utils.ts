@@ -254,7 +254,7 @@ export function useVisibleOptions({
                 visibleOptions + 1,
             );
 
-            let height = optionsNodes
+            let measuredHeight = optionsNodes
                 .slice(0, visibleOptions)
                 .reduce((acc, child) => acc + measureOptionHeight(child), 0);
 
@@ -264,7 +264,7 @@ export function useVisibleOptions({
                 );
 
                 // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
-                height += Math.round(
+                measuredHeight += Math.round(
                     childCount - visibleOptions === 1
                         ? lastVisibleOptionHeight
                         : lastVisibleOptionHeight / 2,
@@ -279,18 +279,18 @@ export function useVisibleOptions({
                     0,
                 );
 
-                height =
+                measuredHeight =
                     Math.min(
                         actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
                         visibleOptions,
                     ) * size;
 
                 if (visibleOptions < actualCount) {
-                    height += size / 2;
+                    measuredHeight += size / 2;
                 }
             }
 
-            setHeight(height);
+            setHeight(measuredHeight);
 
             setMeasured(true);
 
