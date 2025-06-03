@@ -21,7 +21,7 @@ export const BaseOption: FC<OptionProps> = ({
     innerProps,
     dataTestId,
     mobile = false,
-    size = 48,
+    size,
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
@@ -50,7 +50,7 @@ export const BaseOption: FC<OptionProps> = ({
     return (
         <div
             {...innerProps}
-            className={cn(styles.option, styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
+            className={cn(styles.option, size && styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
                 [styles.highlighted]: !mobile && highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
