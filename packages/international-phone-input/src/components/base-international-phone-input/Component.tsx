@@ -191,6 +191,7 @@ export const BaseInternationalPhoneInput = forwardRef<
         const renderCountrySelect = (compact = false) => (
             <CountrySelect
                 dataTestId={restProps?.dataTestId}
+                size={size}
                 {...countrySelectProps}
                 view={view}
                 SelectComponent={SelectComponent}
@@ -201,7 +202,6 @@ export const BaseInternationalPhoneInput = forwardRef<
                 fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
                 onOpen={handleCountrySelectOpen}
                 open={showCountrySelect}
-                size={size}
             />
         );
 
