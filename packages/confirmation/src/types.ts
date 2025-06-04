@@ -118,6 +118,11 @@ export type ConfirmationProps = {
     initialScreenHintSlot?: ReactNode;
 
     /**
+     *  Текст описания на главном экране
+     */
+    initialScreenDescription?: string;
+
+    /**
      * Контрольная точка для кнопки, с нее начинается desktop версия
      * @default 1024
      */
@@ -160,6 +165,7 @@ export type TConfirmationContext = Required<
         | 'onTempBlockFinished'
         | 'clearCodeOnError'
         | 'initialScreenHintSlot'
+        | 'initialScreenDescription'
         | 'errorVisibleDuration'
         | 'breakpoint'
         | 'client'
