@@ -16,7 +16,7 @@ const meta: Meta<typeof BottomSheet> = {
 
 type Story = StoryObj<typeof BottomSheet>;
 
-const BACKGROUND = ['primary', 'secondary'];
+const BACKGROUND = ['primary', 'secondary', undefined];
 const COLORS = ['default', 'inverted'];
 
 const shortText =
@@ -37,7 +37,7 @@ export const bottom_sheet: Story = {
         const isPreview = Object.keys(previewStyles).length > 0;
 
         const colors = select('colors', COLORS, 'default');
-        const view = select('backgroundColor', BACKGROUND, 'secondary');
+        const view = select('backgroundColor', BACKGROUND, undefined);
 
         return (
             <div

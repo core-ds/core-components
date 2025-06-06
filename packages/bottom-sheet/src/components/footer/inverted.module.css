@@ -6,7 +6,7 @@
     border-top: var(--bottom-sheet-inverted-footer-border-top);
 }
 
-.hasContent.hasContent {
+.hasContent {
     background-color: var(--bottom-sheet-inverted-footer-background-color);
     color: var(--bottom-sheet-inverted-text-color);
 }
