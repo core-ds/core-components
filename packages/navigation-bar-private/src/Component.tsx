@@ -31,6 +31,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             title,
             titleSize = 'default',
             subtitle,
+            subtitleClassName,
             hasCloser,
             closerProps = {},
             hasBackButton,
@@ -47,6 +48,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             dataName,
             titleClassName,
             titleRef,
+            colors = 'default',
         },
         ref,
     ) => {
@@ -137,6 +139,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                     <BackArrowAddon
                         data-test-id={getDataTestId(dataTestId, 'back-button')}
                         {...backButtonProps}
+                        colors={colors}
                         textOpacity={textOpacity}
                         view={view}
                         onClick={onBack}
@@ -170,7 +173,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                     )}
                     {compactTitle && subtitle && (
                         <div
-                            className={styles.subtitle}
+                            className={cn(styles.subtitle, subtitleClassName)}
                             data-test-id={getDataTestId(dataTestId, 'subtitle')}
                         >
                             {subtitle}
@@ -185,6 +188,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                 <Closer
                     view={view}
                     icon={closerIcon}
+                    colors={colors}
                     dataTestId={getDataTestId(dataTestId, 'closer')}
                     onClose={onClose}
                     {...closerProps}
