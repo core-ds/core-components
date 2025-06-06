@@ -1,0 +1,19 @@
+@import '../../vars/src/index.css';
+@import './vars.css';
+
+.component.component {
+    background-color: var(--bottom-sheet-background-color);
+}
+
+.content {
+    color: var(--bottom-sheet-text-color);
+}
+
+.defaultMarker {
+    background-color: var(--bottom-sheet-marker-color);
+}
+
+.hasContent {
+    background-color: var(--bottom-sheet-background-color);
+    color: var(--bottom-sheet-text-color);
+}

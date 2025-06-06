@@ -1,0 +1,14 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+
+.title {
+    color: var(--bottom-sheet-inverted-text-color);
+}
+
+.subtitle {
+    color: var(--bottom-sheet-inverted-text-color);
+}
+
+.highlighted {
+    border-bottom: var(--bottom-sheet-inverted-header-border-bottom);
+}
