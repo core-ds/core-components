@@ -579,7 +579,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component component size-48 size-48 transparent transparent rounded transparent my-tag"
+              class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
               type="button"
             >
               <span>
@@ -597,7 +597,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component component size-48 size-48 transparent transparent rounded transparent"
+              class="component component component size-48 size-48 outlined outlined rounded outlined"
               type="button"
             >
               <span>
@@ -615,7 +615,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component component size-48 size-48 transparent transparent rounded transparent"
+              class="component component component size-48 size-48 outlined outlined rounded outlined"
               type="button"
             >
               <span>
@@ -649,7 +649,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component component size-48 size-48 transparent transparent rounded transparent my-tag"
+            class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
             type="button"
           >
             <span>
@@ -667,7 +667,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component component size-48 size-48 transparent transparent rounded transparent"
+            class="component component component size-48 size-48 outlined outlined rounded outlined"
             type="button"
           >
             <span>
@@ -685,7 +685,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component component size-48 size-48 transparent transparent rounded transparent"
+            class="component component component size-48 size-48 outlined outlined rounded outlined"
             type="button"
           >
             <span>

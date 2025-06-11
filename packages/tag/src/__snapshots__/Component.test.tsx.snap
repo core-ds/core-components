@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component component size-48 size-48 transparent transparent rounded transparent"
+        class="component component component size-48 size-48 outlined outlined rounded outlined"
         type="button"
       >
         <span>
@@ -17,7 +17,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component component size-48 size-48 transparent transparent rounded transparent"
+      class="component component component size-48 size-48 outlined outlined rounded outlined"
       type="button"
     >
       <span>
@@ -85,7 +85,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component component size-48 size-48 transparent transparent rectangular transparent"
+        class="component component component size-48 size-48 outlined outlined rectangular outlined"
         type="button"
       >
         <span>
@@ -96,7 +96,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component component size-48 size-48 transparent transparent rectangular transparent"
+      class="component component component size-48 size-48 outlined outlined rectangular outlined"
       type="button"
     >
       <span>
@@ -164,7 +164,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component component size-48 size-48 transparent transparent rounded transparent withLeftAddons"
+        class="component component component size-48 size-48 outlined outlined rounded outlined withLeftAddons"
         type="button"
       >
         <span
@@ -182,7 +182,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component component size-48 size-48 transparent transparent rounded transparent withLeftAddons"
+      class="component component component size-48 size-48 outlined outlined rounded outlined withLeftAddons"
       type="button"
     >
       <span
@@ -257,7 +257,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component component size-48 size-48 transparent transparent rounded transparent withRightAddons"
+        class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons"
         type="button"
       >
         <span>
@@ -275,7 +275,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component component size-48 size-48 transparent transparent rounded transparent withRightAddons"
+      class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons"
       type="button"
     >
       <span>
@@ -350,14 +350,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component component size-48 size-48 transparent transparent rounded transparent"
+        class="component component component size-48 size-48 outlined outlined rounded outlined"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component component component size-48 size-48 transparent transparent rounded transparent"
+      class="component component component size-48 size-48 outlined outlined rounded outlined"
       type="button"
     />
   </div>,

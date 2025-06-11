@@ -98,10 +98,7 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
     /**
      * Стиль тега
      */
-    view?:
-        | 'filled'
-        | 'transparent'
-        | /** @deprecated Используйте 'transparent' для навбара или 'filled' для остальных случаев */ 'outlined';
+    view?: 'filled' | 'transparent' | 'outlined';
 
     /**
      * Включает размытие фона для некоторых вариантов тега
@@ -151,7 +148,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
             onClick,
             variant = 'default',
             shape,
-            view = 'transparent',
+            view = 'outlined',
             childrenClassName,
             childrenRef,
             styles = {},
