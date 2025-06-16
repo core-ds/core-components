@@ -56,7 +56,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             if (inputRef.current) {
-                inputRef.current.focus();
+                inputRef.current?.focus();
             }
         };
 
