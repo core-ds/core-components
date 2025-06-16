@@ -1,5 +1,7 @@
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { ModalResponsiveProps } from './typings';
+
 export function getModalTestIds(dataTestId: string) {
     return {
         modal: dataTestId,
@@ -12,3 +14,11 @@ export function getModalTestIds(dataTestId: string) {
         backButton: getDataTestId(dataTestId, 'header-back-button'),
     };
 }
+
+export const getSizeStyle = (size: ModalResponsiveProps['size']) => {
+    if (size === 'fullscreen') {
+        return size;
+    }
+
+    return `size-${size}`;
+};
