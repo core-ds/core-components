@@ -28,6 +28,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             closeOnSelect = false,
             options,
             multiline,
+            textareaProps = {},
             ...restProps
         },
         ref,
@@ -53,6 +54,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
                 readOnly,
                 success,
                 multiline,
+                textareaProps,
             }}
         />
     ),
