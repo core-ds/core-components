@@ -12,7 +12,7 @@ import type {
     BottomSheetSelectMobileProps,
     FieldProps,
 } from '@alfalab/core-components-select/shared';
-import type { TextareaProps } from '@alfalab/core-components-textarea';
+import { TextareaProps } from '@alfalab/core-components-textarea';
 
 type OnInputTypeReason = 'close' | 'change';
 
@@ -35,8 +35,7 @@ export interface InputAutocompleteCommonProps
     /**
      * Пропсы, которые будут прокинуты в инпут
      */
-    inputProps?: InputProps & TextareaProps & Record<string, unknown>;
-
+    inputProps?: InputProps & Record<string, unknown>;
     /**
      * Значение поля ввода
      */
@@ -59,9 +58,17 @@ export interface InputAutocompleteCommonProps
 
     /**
      * Многострочный режим. Работает только с компонентом InputAutocompleteDesktop
-     * @default false
      */
     multiline?: boolean;
+
+    /**
+     * Пропсы, которые будут прокинуты в textarea при включенном режиме multiline
+     * Работает только с компонентом InputAutocompleteDesktop
+     */
+    textareaProps?: TextareaProps & {
+        onClear?: InputProps['onClear'];
+        clear?: InputProps['clear'];
+    } & Record<string, unknown>;
 }
 
 type MobileProps = {
@@ -142,5 +149,8 @@ export type AutocompleteFieldProps = {
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
     innerProps: AutocompleteFieldInnerProps;
-} & Pick<InputAutocompleteCommonProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'> &
+} & Pick<
+    InputAutocompleteCommonProps,
+    'Input' | 'inputProps' | 'textareaProps' | 'value' | 'onInput' | 'readOnly'
+> &
     Omit<FieldProps, 'innerProps'>;

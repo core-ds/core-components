@@ -23,10 +23,7 @@ export const InputAutocomplete = forwardRef<
         const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         return isDesktop ? (
-            <InputAutocompleteDesktop
-                {...restProps}
-                ref={ref as React.Ref<HTMLInputElement | HTMLTextAreaElement>}
-            />
+            <InputAutocompleteDesktop {...restProps} ref={ref as React.Ref<HTMLInputElement>} />
         ) : (
             <InputAutocompleteMobile {...restProps} {...mobileProps} ref={ref} />
         );

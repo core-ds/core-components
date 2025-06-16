@@ -132,9 +132,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             );
         };
 
-        const handleInput = ({
-            target: { value: inputValue },
-        }: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>) => {
+        const handleInput = ({ target: { value: inputValue } }: ChangeEvent<HTMLInputElement>) => {
             updatePhoneData(inputValue);
         };
 

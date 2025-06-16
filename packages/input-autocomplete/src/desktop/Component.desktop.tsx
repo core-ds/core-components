@@ -13,10 +13,7 @@ import {
 import { AutocompleteField } from '../autocomplete-field';
 import { InputAutocompleteCommonProps } from '../types';
 
-export const InputAutocompleteDesktop = forwardRef<
-    HTMLInputElement | HTMLTextAreaElement,
-    InputAutocompleteCommonProps
->(
+export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutocompleteCommonProps>(
     (
         {
             OptionsList = DefaultOptionsList,

@@ -82,6 +82,10 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
                 ...props?.inputProps,
                 onClear: () => setValue(''),
             }}
+            textareaProps={{
+                ...props?.textareaProps,
+                onClear: () => setValue(''),
+            }}
         />
     );
 };
@@ -98,12 +102,20 @@ export const input_autocomplete_desktop: Story = {
 
 export const input_autocomplete_mobile: Story = {
     name: 'InputAutocompleteMobile',
-    render: () => renderComponent(InputAutocompleteMobile, { inputProps: { clear: true } }),
+    render: () =>
+        renderComponent(InputAutocompleteMobile, {
+            inputProps: { clear: true },
+            textareaProps: { clear: true },
+        }),
 };
 
 export const input_autocomplete_modal_mobile: Story = {
     name: 'InputAutocompleteModalMobile',
-    render: () => renderComponent(InputAutocompleteModalMobile, { inputProps: { clear: true } }),
+    render: () =>
+        renderComponent(InputAutocompleteModalMobile, {
+            inputProps: { clear: true },
+            textareaProps: { clear: true },
+        }),
 };
 
 export default meta;

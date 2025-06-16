@@ -3,12 +3,11 @@ import React, { MouseEvent, useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { InputProps } from '@alfalab/core-components-input';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
 import { ClearButton } from '@alfalab/core-components-input/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
-import { Textarea, TextareaProps } from '@alfalab/core-components-textarea';
+import { Textarea } from '@alfalab/core-components-textarea';
 
 import { OnInputReason } from '../enums';
 import { AutocompleteFieldProps } from '../types';
@@ -33,6 +32,7 @@ export const AutocompleteField = ({
     innerProps,
     dataTestId,
     multiline = false,
+    textareaProps = {},
 }: AutocompleteFieldProps) => {
     const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
@@ -52,27 +52,31 @@ export const AutocompleteField = ({
         [onClick],
     );
 
-    const handleInput: InputProps['onChange'] & TextareaProps['onChange'] = (_, payload) =>
-        onInput?.(payload.value, OnInputReason.Change);
-
-    const handleClear = (event: MouseEvent<HTMLButtonElement>) => inputProps.onClear?.(event);
+    const handleInput = (
+        _: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+        payload: {
+            value: string;
+        },
+    ) => onInput?.(payload.value, OnInputReason.Change);
 
     if (multiline) {
-        const { onClear, clear, ...textareaProps } = inputProps;
+        const clearButtonVisible = textareaProps.clear && !!value && !disabled && !readOnly;
+        const addonsVisible = clearButtonVisible || textareaProps.rightAddons || error || success;
 
-        const clearButtonVisible = clear && !!value && !disabled && !readOnly;
-        const addonsVisible = clearButtonVisible || inputProps.rightAddons || error || success;
+        const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
+            textareaProps?.onClear?.(event);
+        };
 
         return (
             <Textarea
                 dataTestId={dataTestId}
-                {...textareaProps}
                 {...innerProps}
+                {...textareaProps}
                 wrapperRef={mergeRefs([
                     innerProps.ref as React.Ref<HTMLElement>,
-                    inputProps.wrapperRef as React.Ref<HTMLElement>,
+                    textareaProps.wrapperRef as React.Ref<HTMLElement>,
                 ])}
-                ref={mergeRefs([inputRef, inputProps.ref as React.Ref<HTMLElement>])}
+                ref={mergeRefs([inputRef, textareaProps.ref as React.Ref<HTMLElement>])}
                 disabled={disabled}
                 readOnly={readOnly}
                 block={true}
@@ -87,21 +91,22 @@ export const AutocompleteField = ({
                 onFocus={inputDisabled ? undefined : onFocus}
                 autoComplete='off'
                 value={value}
-                maxRows={inputProps.maxRows || 3}
+                tabIndex={innerProps.tabIndex}
+                id={innerProps.id}
                 rightAddons={
                     addonsVisible && (
                         <React.Fragment>
                             {clearButtonVisible && (
                                 <ClearButton
                                     onClick={handleClear}
-                                    colors={inputProps.colors || 'default'}
+                                    colors={textareaProps.colors || 'default'}
                                     dataTestId={getDataTestId(dataTestId, 'clear-icon')}
                                     size={size}
                                 />
                             )}
-                            {(Arrow || inputProps.rightAddons) && (
+                            {(Arrow || textareaProps.rightAddons) && (
                                 <React.Fragment>
-                                    {inputProps.rightAddons}
+                                    {textareaProps.rightAddons}
                                     {Arrow && (
                                         <span
                                             className={cn(styles.arrow, {
