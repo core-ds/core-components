@@ -63,6 +63,7 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
             | 'onUnmount'
             | 'transitionProps'
             | 'backdropProps'
+            | 'disableBackdropClick'
         >
     > & {
         /**
