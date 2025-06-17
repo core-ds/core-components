@@ -1,3 +1,17 @@
+## 48.27.5
+
+<sup><time>17.06.2025</time></sup>
+
+### [#1743](https://github.com/core-ds/core-components/pull/1743)
+
+#### Что изменилось
+- Открыт для использования пропс `disableBackdropClick` в десктопной версии
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
 ## 48.27.4
 
 <sup><time>16.06.2025</time></sup>
