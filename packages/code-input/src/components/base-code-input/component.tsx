@@ -55,9 +55,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
 
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
-            if (inputRef.current) {
-                inputRef.current?.focus();
-            }
+            inputRef.current?.focus();
         };
 
         const focus = (index = 0) => {
