@@ -596,9 +596,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             return null;
         };
 
-        const bgClassName = backgroundColor && styles[`background-${backgroundColor}`];
+        const bgClassName =
+            backgroundColor &&
+            styles[`background-${backgroundColor}${colors === 'inverted' ? '-inverted' : ''}`];
 
-        console.log(bgClassName);
 
         return (
             <BaseModal

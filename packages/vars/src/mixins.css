@@ -68,7 +68,7 @@
         primary, primary-inverted, secondary, secondary-inverted, tertiary, tertiary-inverted,
         quaternary, quaternary-inverted
     {
-        .background-$(backgroundColorBg) {
+        .background-$(backgroundColorBg)[class] {
             background-color: var(--color-light-bg-$(backgroundColorBg));
         }
     }

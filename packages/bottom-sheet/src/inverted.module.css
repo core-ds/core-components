@@ -14,6 +14,5 @@
 }
 
 .hasContent {
-    background-color: var(--bottom-sheet-background-color-inverted);
     color: var(--bottom-sheet-text-color-inverted);
 }

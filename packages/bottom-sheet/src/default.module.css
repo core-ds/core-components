@@ -14,6 +14,5 @@
 }
 
 .hasContent {
-    background-color: var(--bottom-sheet-background-color);
     color: var(--bottom-sheet-text-color);
 }
