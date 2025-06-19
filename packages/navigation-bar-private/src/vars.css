@@ -9,4 +9,11 @@
 
     /* back-arrow */
     --navigation-bar-back-arrow-mobile-fill: var(--color-light-neutral-translucent-700);
+    --navigation-bar-back-arrow-mobile-fill-inverted: var(
+        --color-light-neutral-translucent-700-inverted
+    );
+
+    /* button-text */
+    --button-inverted-text-base-color: var(--color-light-text-primary-inverted);
+    --button-text-base-color: var(--color-light-text-primary);
 }

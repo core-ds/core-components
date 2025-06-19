@@ -1,0 +1,19 @@
+@import '../../vars/src/index.css';
+@import './vars.css';
+
+.component.component {
+    background-color: var(--bottom-sheet-background-color-inverted);
+}
+
+.content {
+    color: var(--bottom-sheet-text-color-inverted);
+}
+
+.defaultMarker {
+    background-color: var(--bottom-sheet-marker-color-inverted);
+}
+
+.hasContent {
+    background-color: var(--bottom-sheet-background-color-inverted);
+    color: var(--bottom-sheet-text-color-inverted);
+}

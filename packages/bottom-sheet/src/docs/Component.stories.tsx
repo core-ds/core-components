@@ -17,6 +17,7 @@ const meta: Meta<typeof BottomSheet> = {
 type Story = StoryObj<typeof BottomSheet>;
 
 const BACKGROUND = ['primary', 'secondary', undefined];
+const COLORS = ['default', 'inverted'];
 
 const shortText =
     'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через 60 секунд после после оформления.';
@@ -34,30 +35,47 @@ export const bottom_sheet: Story = {
         const renderActionButton = boolean('renderActionButton', true);
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
+        const colors = select('colors', COLORS, 'default');
+
         return (
-            <div style={{ ...previewStyles, maxWidth: 'none' }}>
+            <div
+                style={{
+                    ...previewStyles,
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-base-bg-primary-inverted)'
+                            : 'transparent',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <style>
                     {`.preview{transform:${previewStyles.transform};top: ${previewStyles.top};max-width:${previewStyles.maxWidth}  `}
                 </style>
                 {!isPreview && (
                     <>
                         <Button
+                            id='button-1'
                             onClick={() => {
                                 setTextContent(shortText);
                                 setOpen(true);
                             }}
                             style={{ margin: '15px' }}
-                            id='button-1'
+                            colors={colors}
                         >
                             Открыть шторку
                         </Button>
                         <Button
+                            id='button-2'
                             onClick={() => {
                                 setTextContent(longText);
                                 setOpen(true);
                             }}
                             style={{ margin: '15px' }}
-                            id='button-2'
+                            colors={colors}
                         >
                             Открыть шторку с длинным контентом
                         </Button>
@@ -72,6 +90,7 @@ export const bottom_sheet: Story = {
                         renderActionButton && (
                             <Button
                                 view={isPreview ? 'primary' : 'secondary'}
+                                colors={colors}
                                 block={true}
                                 size='s'
                                 onClick={handleClose}
@@ -82,6 +101,7 @@ export const bottom_sheet: Story = {
                     }
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
+                    colors={colors}
                     titleAlign={select('titleAlign', ['center', 'left'], 'center')}
                     trimTitle={boolean('trimTitle', false)}
                     stickyHeader={boolean('stickyHeader', false)}

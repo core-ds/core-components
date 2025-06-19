@@ -26,13 +26,16 @@ import type { BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
     convertPercentToNumber,
+    getColorStyles,
     MARKER_HEIGHT,
     SCROLL_OFFSET,
     SWIPE_VELOCITY,
     TIMEOUT,
 } from './utils';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
 
 const { isNil } = fnUtils;
 
@@ -108,6 +111,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backButtonProps,
             iOSLock = false,
             virtualKeyboard = false,
+            colors = 'default',
         },
         ref,
     ) => {
@@ -160,6 +164,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const emptyHeader = !hasCloser && !leftAddons && !title && !hasBacker && !rightAddons;
         const titleIsReactElement = React.isValidElement(title);
 
+        const colorStyle = getColorStyles(colors, defaultColors, invertedColors);
+
         const headerProps: HeaderProps = {
             ...(titleIsReactElement
                 ? { children: title }
@@ -167,7 +173,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             scrollableParentRef: scrollableContainer,
             headerRef,
             headerOffset,
-            className: headerClassName,
+            colors,
+            className: cn(headerClassName, colorStyle.hasContent),
             addonClassName,
             closerClassName,
             backButtonClassName: backerClassName,
@@ -579,6 +586,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         className={cn(
                             styles.marker,
                             styles.defaultMarker,
+                            colorStyle.defaultMarker,
                             swipeableMarkerClassName,
                         )}
                     />
@@ -589,6 +597,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const bgClassName = backgroundColor && styles[`background-${backgroundColor}`];
+
+        console.log(bgClassName);
 
         return (
             <BaseModal
@@ -638,10 +648,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     onTransitionEnd={setSheetHeight}
                 >
                     <div
-                        className={cn(styles.component, bgClassName, className, {
-                            [styles.withTransition]: swipingInProgress === false,
-                            [styles.safeAreaBottom]: os.isIOS(),
-                        })}
+                        className={cn(
+                            styles.component,
+                            bgClassName,
+                            colorStyle.component,
+                            className,
+                            {
+                                [styles.withTransition]: swipingInProgress === false,
+                                [styles.safeAreaBottom]: os.isIOS(),
+                            },
+                        )}
                         style={{
                             ...getSwipeStyles(),
                             ...getHeightStyles(),
@@ -668,10 +684,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
                             <div
                                 ref={contentRef}
-                                className={cn(styles.content, contentClassName, {
-                                    [styles.noHeader]: hideHeader || emptyHeader,
-                                    [styles.noFooter]: !actionButton,
-                                })}
+                                className={cn(
+                                    styles.content,
+                                    colorStyle.content,
+                                    contentClassName,
+                                    {
+                                        [styles.noHeader]: hideHeader || emptyHeader,
+                                        [styles.noFooter]: !actionButton,
+                                    },
+                                )}
                                 data-test-id={getDataTestId(dataTestId, 'content')}
                             >
                                 {children}
@@ -681,6 +702,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                 <Footer
                                     sticky={stickyFooter}
                                     className={cn(bgClassName, footerClassName)}
+                                    colors={colors}
                                     dataTestId={getDataTestId(dataTestId, 'footer')}
                                 >
                                     {actionButton}
