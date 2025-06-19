@@ -2,4 +2,4 @@
 '@alfalab/core-components-scrollbar': patch
 ---
 
-forwarding classname to horizontal scroll bar element
+Добавлен дополнительный класс для контейнера горизонтальной полосы прокрутки horizontalBarClassName
