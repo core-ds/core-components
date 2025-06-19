@@ -11,6 +11,8 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
+const sizes = [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128];
+
 describe(
     'IconView | sprite',
     screenshotTesting({
@@ -63,7 +65,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'Circle',
             knobs: {
-                size: [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
+                size: sizes,
                 topAddons: true,
                 bottomAddons: true,
             },
@@ -82,7 +84,7 @@ describe(
             componentName: 'IconView',
             subComponentName: 'Circle',
             knobs: {
-                size: [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
+                size: sizes,
                 indicator: 'true',
             },
             testStory: false,

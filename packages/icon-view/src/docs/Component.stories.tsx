@@ -50,6 +50,8 @@ const getChildren = (size: number | string) => {
     return <DiamondsMIcon />;
 };
 
+const sizes = [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128] as const;
+
 export const super_ellipse: Story = {
     name: 'SuperEllipse',
     render: () => {
@@ -57,13 +59,9 @@ export const super_ellipse: Story = {
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
 
-        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
+        const size = select('size', sizes, 64);
 
-        const mainSize = select(
-            'mainSize',
-            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
-            undefined,
-        );
+        const mainSize = select('mainSize', sizes, undefined);
 
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
@@ -112,13 +110,9 @@ export const circle: Story = {
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
 
-        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
+        const size = select('size', sizes, 64);
 
-        const mainSize = select(
-            'mainSize',
-            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
-            undefined,
-        );
+        const mainSize = select('mainSize', sizes, undefined);
 
         const addonsIcon = (
             <Circle size={getAddonSize(size)}>
@@ -149,11 +143,7 @@ export const rectangle: Story = {
     render: () => {
         const size = select('size', [20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
 
-        const mainSize = select(
-            'mainSize',
-            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
-            undefined,
-        );
+        const mainSize = select('mainSize', sizes, undefined);
 
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
@@ -176,13 +166,9 @@ export const rectangle: Story = {
 export const no_shape: Story = {
     name: 'NoShape',
     render: () => {
-        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
+        const size = select('size', sizes, 64);
 
-        const mainSize = select(
-            'mainSize',
-            [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128],
-            undefined,
-        );
+        const mainSize = select('mainSize', sizes, undefined);
 
         const backgroundColor = text('backgroundColor', '#f3f4f5');
 
