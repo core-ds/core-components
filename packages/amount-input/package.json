@@ -25,5 +25,5 @@
         "@alfalab/core-components-number-input": "^2.7.1"
     },
     "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "varsVersion": "9.20.1"
 }

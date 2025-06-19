@@ -35,8 +35,7 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 ');
         });
 
-        // todo тест рандомно падает, попробовать разобраться почему
-        xit('with clearableCountryCode === true', async () => {
+        it('with clearableCountryCode === true', async () => {
             const { getByTestId } = render(
                 <PhoneInput dataTestId={dataTestId} clearableCountryCode={true} />,
             );
@@ -65,10 +64,28 @@ describe('PhoneInput', () => {
 
             expect(inputElement.value).toBe('+7 ');
         });
-        /*
-         * TODO: хотелось бы добавить тестов на проверку удаления цифр в номере,
-         * но не нашел способа двигать каретку
-         */
+
+        it('should keep caret after +7 when deleting digit before country code', () => {
+            const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(input, { target: { value: '+7 1' } });
+            input.setSelectionRange(3, 3);
+            fireEvent.keyDown(input, { key: 'Backspace' });
+
+            expect(input.selectionStart).toBe(3);
+        });
+
+        it('should handle caret when deleting through spaces/dashes', () => {
+            const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(input, { target: { value: '+7 123 456 78 90' } });
+            input.setSelectionRange(8, 8);
+            fireEvent.keyDown(input, { key: 'Backspace' });
+
+            expect(input.selectionStart).toBeLessThanOrEqual(8);
+        });
     });
 
     describe('should update input by value prop', () => {
@@ -186,6 +203,20 @@ describe('PhoneInput', () => {
 
             fireEvent.change(inputElement, { target: { value: '111222334455' } });
             expect(inputElement.value).toBe('+7 111 222 33 44');
+        });
+
+        it('insert "8 (999) 123-45-67" -> "+7 999 123 45 67"', () => {
+            const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.paste(input, {
+                clipboardData: {
+                    getData: () => '8 (999) 123-45-67',
+                },
+            });
+
+            fireEvent.change(input, { target: { value: '8 (999) 123-45-67' } });
+            expect(input.value).toBe('+7 999 123 45 67');
         });
     });
 });

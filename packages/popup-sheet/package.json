@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popup-sheet",
-    "version": "1.4.8",
+    "version": "1.4.9",
     "description": "Popup sheet mobile component",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.2",
+        "@alfalab/core-components-base-modal": "^5.9.3",
         "@alfalab/core-components-backdrop": "^3.4.5",
         "@alfalab/core-components-shared": "^0.17.1",
         "@alfalab/core-components-navigation-bar-private": "^0.8.6",
@@ -25,5 +25,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "varsVersion": "9.20.1"
 }
