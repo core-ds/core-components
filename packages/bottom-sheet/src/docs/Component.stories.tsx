@@ -45,6 +45,7 @@ export const bottom_sheet: Story = {
                         colors === 'inverted'
                             ? 'var(--color-light-base-bg-primary-inverted)'
                             : 'transparent',
+                    padding: '8px',
                     position: 'absolute',
                     top: 0,
                     left: 0,
