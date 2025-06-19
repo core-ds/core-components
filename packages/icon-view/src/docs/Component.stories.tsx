@@ -20,24 +20,30 @@ const meta: Meta<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof
 
 type Story = StoryObj<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof NoShape>;
 
-const getAddonSize = (size: string) => {
-    if (size === '128') {
+const getAddonSize = (size: number | string) => {
+    // knobs приходят в строковом формате, преобразуем для корректной работы скриншот тестирования
+    const addonSize = typeof size === 'string' ? Number(size) : size;
+
+    if (addonSize === 128) {
         return 40;
     }
 
-    if (size === '80' || size === '72' || size === '64' || size === '56') {
+    if ([80, 72, 64, 56].includes(addonSize)) {
         return 24;
     }
 
     return 20;
 };
 
-const getChildren = (size: string) => {
-    if (size === '128' || size === '80') {
+const getChildren = (size: number | string) => {
+    // knobs приходят в строковом формате, преобразуем для корректной работы скриншот тестирования
+    const childrenSize = typeof size === 'string' ? Number(size) : size;
+
+    if ([128, 80].includes(childrenSize)) {
         return <DiamondsXxlIcon />;
     }
 
-    if (size <= '20') {
+    if (childrenSize <= 20) {
         return <DiamondsSIcon />;
     }
 
@@ -51,11 +57,7 @@ export const super_ellipse: Story = {
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
 
-        const size = select(
-            'size',
-            ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
-            '64',
-        );
+        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
 
         const mainSize = select(
             'mainSize',
@@ -68,7 +70,7 @@ export const super_ellipse: Story = {
 
         const addonsIcon = (
             <Circle size={getAddonSize(size)}>
-                {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}{' '}
+                {size === 20 ? <DiamondsSIcon /> : <DiamondsMIcon />}
             </Circle>
         );
 
@@ -110,11 +112,7 @@ export const circle: Story = {
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
 
-        const size = select(
-            'size',
-            ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
-            '64',
-        );
+        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
 
         const mainSize = select(
             'mainSize',
@@ -124,7 +122,7 @@ export const circle: Story = {
 
         const addonsIcon = (
             <Circle size={getAddonSize(size)}>
-                {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}
+                {size === 20 ? <DiamondsSIcon /> : <DiamondsMIcon />}
             </Circle>
         );
 
@@ -136,7 +134,7 @@ export const circle: Story = {
                 imageUrl={text('imageUrl', '')}
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
-                indicator={indicator && <Indicator view='count' />}
+                indicator={indicator && <Indicator view='red' />}
                 text={text('text', '')}
                 mainSize={mainSize}
             >
@@ -149,11 +147,7 @@ export const circle: Story = {
 export const rectangle: Story = {
     name: 'Rectangle',
     render: () => {
-        const size = select(
-            'size',
-            ['20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
-            '64',
-        );
+        const size = select('size', [20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
 
         const mainSize = select(
             'mainSize',
@@ -182,11 +176,7 @@ export const rectangle: Story = {
 export const no_shape: Story = {
     name: 'NoShape',
     render: () => {
-        const size = select(
-            'size',
-            ['16', '20', '24', '32', '40', '48', '56', '64', '72', '80', '128'],
-            '64',
-        );
+        const size = select('size', [16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128], 64);
 
         const mainSize = select(
             'mainSize',
