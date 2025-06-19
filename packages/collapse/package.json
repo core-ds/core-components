@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-collapse",
-    "version": "4.5.4",
+    "version": "4.5.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -26,5 +26,5 @@
         "@types/lodash": "^4.17.13"
     },
     "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "varsVersion": "9.20.1"
 }

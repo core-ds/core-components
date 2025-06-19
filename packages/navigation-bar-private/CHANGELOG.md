@@ -1,5 +1,15 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 0.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
 ## 0.8.5
 
 ### Patch Changes

@@ -1,3 +1,95 @@
+## 48.27.5
+
+<sup><time>17.06.2025</time></sup>
+
+### [#1743](https://github.com/core-ds/core-components/pull/1743)
+
+#### Что изменилось
+- Открыт для использования пропс `disableBackdropClick` в десктопной версии
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
+## 48.27.4
+
+<sup><time>16.06.2025</time></sup>
+
+### [#1741](https://github.com/core-ds/core-components/pull/1741)
+
+#### Что изменилось
+- Добавлен `colors-promo` в сборку цветовых наборов в виде js модулей
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+
+## 48.27.3
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1517](https://github.com/core-ds/core-components/pull/1517)
+
+#### Что изменилось
+- Парные иконки заменены на одну иконку и css-rotate
+
+#### Влияние на компоненты
+- Патчи<br />`collapse`
+
+
+### [#1614](https://github.com/core-ds/core-components/pull/1614)
+
+#### Что изменилось
+- Исправлен тип `TransitionProps` на `CSSTransitionProps` в `base-modal`
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#1650](https://github.com/core-ds/core-components/pull/1650)
+
+#### Что изменилось
+- Исправлено положение фона для Rectangle
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1722](https://github.com/core-ds/core-components/pull/1722)
+
+#### Что изменилось
+- Убран не используемый проп onClear(обработчик можно пробросить в inputProps)
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+### [#1513](https://github.com/core-ds/core-components/pull/1513)
+
+#### Что изменилось
+- Замена импорта button десктоп на мобайл
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+
+## 48.27.2
+
+<sup><time>27.05.2025</time></sup>
+
+### [#1718](https://github.com/core-ds/core-components/pull/1718)
+
+#### Что изменилось
+- Добавлена поддержка и преобразование argb в rgba у функции get-color-var
+
+#### Влияние на компоненты
+- Патчи<br />`shared`
+
+
+
 ## 48.27.1
 
 <sup><time>26.05.2025</time></sup>

@@ -1,5 +1,29 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.7.17
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1722](https://github.com/core-ds/core-components/pull/1722)
+
+-   Убран не используемый проп onClear(обработчик можно пробросить в inputProps)
+
+-   Обновлены зависимости
+    -   select@17.21.3
+    -   input-autocomplete@12.9.5
+
+## 2.7.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   input-autocomplete@12.9.4
+    -   select@17.21.2
+
 ## 2.7.15
 
 ### Patch Changes

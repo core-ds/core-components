@@ -1,5 +1,33 @@
 # Change Log
 
+## 1.1.4
+
+### Patch Changes
+
+<sup><time>17.06.2025</time></sup>
+
+### [#1743](https://github.com/core-ds/core-components/pull/1743)
+
+-   Открыт для использования пропс `disableBackdropClick` в десктопной версии
+
+## 1.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 1.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   button@11.11.9
+    -   navigation-bar-private@0.8.6
+    -   typography@4.14.2
+
 ## 1.1.1
 
 ### Patch Changes

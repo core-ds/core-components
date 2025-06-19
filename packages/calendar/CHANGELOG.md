@@ -1,5 +1,23 @@
 # Change Log
 
+## 7.18.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.17
+
+## 7.18.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   modal@9.9.16
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
 ## 7.18.5
 
 ### Patch Changes
