@@ -45,7 +45,10 @@ describe('PhoneInput', () => {
 
             expect(inputElement.value).toBe('+7 2');
 
-            await userEvent.type(inputElement, '{backspace>10}');
+            await userEvent.type(inputElement, '{backspace}', {
+                initialSelectionStart: 0,
+                initialSelectionEnd: inputElement.value.length,
+            });
 
             expect(inputElement.value).toBe('');
         });
@@ -60,7 +63,10 @@ describe('PhoneInput', () => {
 
             expect(inputElement.value).toBe('+7 2');
 
-            await userEvent.type(inputElement, '{backspace>10}');
+            await userEvent.type(inputElement, '{backspace}', {
+                initialSelectionStart: 0,
+                initialSelectionEnd: inputElement.value.length,
+            });
 
             expect(inputElement.value).toBe('+7 ');
         });
@@ -217,6 +223,46 @@ describe('PhoneInput', () => {
 
             fireEvent.change(input, { target: { value: '8 (999) 123-45-67' } });
             expect(input.value).toBe('+7 999 123 45 67');
+        });
+    });
+
+    describe('insertion tests', () => {
+        it('should process insertion after plus', () => {
+            const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} value={'111'} />);
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(inputElement, { target: { value: '+2227 111' } });
+
+            expect(inputElement).toHaveValue('+7 222 111');
+        });
+
+        it('should process insertion before plus', () => {
+            const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} value={'111'} />);
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(inputElement, { target: { value: '222+7 111' } });
+
+            expect(inputElement).toHaveValue('+7 222 111');
+        });
+
+        it('should process change value', () => {
+            const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} value={'111'} />);
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(inputElement, { target: { value: '7666' } });
+
+            expect(inputElement).toHaveValue('+7 666');
+        });
+
+        it('should process change value with renderer', () => {
+            const { getByTestId, rerender } = render(
+                <PhoneInput dataTestId={dataTestId} value={'111'} />,
+            );
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            rerender(<PhoneInput dataTestId={dataTestId} value={'7666'} />);
+
+            expect(inputElement).toHaveValue('+7 666');
         });
     });
 });
