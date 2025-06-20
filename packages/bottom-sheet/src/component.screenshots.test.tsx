@@ -28,7 +28,7 @@ describe('BottomSheet', () =>
                 hasCloser: true,
             },
         },
-        'transform:scale(1.3);top:250px;maxWidth:500px;',
+        'transform:scale(1.3);top:250px;',
         {
             viewport: {
                 width: 860,
@@ -132,6 +132,39 @@ describe(
         },
     }),
 );
+
+describe('BottomSheet | inverted views', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme inverted`,
+                    createStorybookUrl({
+                        componentName: 'BottomSheet',
+                        knobs: {
+                            open: true,
+                            title: 'Заголовок',
+                            titleAlign: 'center',
+                            children: 'Контент',
+                            hasCloser: true,
+                            hasBacker: true,
+                            hideOverlay: false,
+                            colors: 'inverted',
+                            initialHeight: 'full',
+                            renderActionButton: true,
+                            backgroundColor: 'secondary',
+                        },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
+});
 
 describe('BottomSheet | interactions tests', () => {
     test('Open sheet', async () => {
