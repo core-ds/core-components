@@ -28,7 +28,7 @@ describe('BottomSheet', () =>
                 hasCloser: true,
             },
         },
-        'transform:scale(1.3);top:250px;maxWidth:500px;',
+        'transform:scale(1.3);top:250px;',
         {
             viewport: {
                 width: 860,
