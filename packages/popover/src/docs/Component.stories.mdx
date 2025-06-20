@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { boolean, select, number } from '@storybook/addon-knobs';
+import { boolean, select, number, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
@@ -34,16 +34,14 @@ import {
             'left-end',
         ];
         const [open, setOpen] = React.useState(false);
-        const [buttonElement, setButtonElement] = React.useState(null);
+        const anchorElementRef = React.useRef(null);
         const toggle = () => {
             setOpen(!open);
-        };
-        const handleRef = (node) => {
-            setButtonElement(node);
         };
         const transitionTimeout = number('transition.timeout (ms)', 150);
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
+        const buttonLabel = text('buttonLabel', 'Popover');
         return (
             <div
                 style={
@@ -60,7 +58,7 @@ import {
             >
                 <style>{`.popover {border-radius: var(--border-radius-8)}  `}</style>
                 <Popover
-                    anchorElement={buttonElement}
+                    anchorElement={anchorElementRef}
                     popperClassName='popover'
                     useAnchorWidth={boolean('useAnchorWidth', false)}
                     position={select('position', POSITION_OPTIONS, 'bottom')}
@@ -81,10 +79,10 @@ import {
                     </div>
                 </Popover>
                 {isPreview ? (
-                    <div ref={handleRef} />
+                    <div ref={anchorElementRef} />
                 ) : (
-                    <Button ref={handleRef} onClick={toggle}>
-                        {open ? 'Скрыть' : 'Показать'} Popover
+                    <Button ref={anchorElementRef} onClick={toggle}>
+                        {open ? 'Скрыть' : 'Показать'} {buttonLabel}
                     </Button>
                 )}
             </div>

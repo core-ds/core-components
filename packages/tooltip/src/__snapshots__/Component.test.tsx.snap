@@ -89,10 +89,8 @@ Object {
     >
       <div
         class="component"
-        data-popper-escaped="true"
         data-popper-placement="left"
-        data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
+        style="z-index: 50; position: fixed; left: 0px; top: 0px; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper tooltip tooltip popper"
@@ -110,7 +108,7 @@ Object {
           </div>
           <div
             class="arrow arrow arrow"
-            style="position: absolute; top: 0px; transform: translate(0px, 0px);"
+            style="transform: translate(0px, 0px);"
           />
         </div>
       </div>
@@ -197,10 +195,8 @@ Object {
     >
       <div
         class="component"
-        data-popper-escaped="true"
         data-popper-placement="left"
-        data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
+        style="z-index: 50; position: fixed; left: 0px; top: 0px; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper hint hint hint"
@@ -218,7 +214,7 @@ Object {
           </div>
           <div
             class="arrow arrow arrow"
-            style="position: absolute; top: 0px; transform: translate(0px, 0px);"
+            style="transform: translate(0px, 0px);"
           />
         </div>
       </div>
