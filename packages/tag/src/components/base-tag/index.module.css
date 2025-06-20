@@ -43,6 +43,14 @@
     &:only-child {
         margin: var(--gap-0);
     }
+
+    .withoutContent &:first-child:not(:only-child) {
+        margin-right: auto;
+    }
+
+    .withoutContent &:last-child:not(:only-child) {
+        margin-left: auto;
+    }
 }
 
 .size-48,
