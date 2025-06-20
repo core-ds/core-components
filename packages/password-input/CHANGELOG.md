@@ -1,5 +1,51 @@
 # Change Log
 
+## 5.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+    -   icon-button@6.11.12
+
+## 5.8.2
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.5
+    -   icon-button@6.11.11
+
+## 5.8.0
+
+### Minor Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1615](https://github.com/core-ds/core-components/pull/1615)
+
+-   fix(input): Добавлен props `passwordHint` в компонент `PasswordInput` для возможности управлять текстом подсказки
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+    -   input@15.5.4
+
 ## 5.7.3
 
 ### Patch Changes

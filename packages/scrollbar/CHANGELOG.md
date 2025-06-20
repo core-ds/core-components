@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1679](https://github.com/core-ds/core-components/pull/1679)
+
+-   Добавлен ref для вертикальной полосы прокрутки
+
 ## 3.2.0
 
 ### Minor Changes

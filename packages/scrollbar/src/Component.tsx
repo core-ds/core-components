@@ -87,9 +87,19 @@ export type ScrollbarProps = {
     verticalBarClassName?: string;
 
     /**
+     * Дополнительный класс контейнера горизонтальной полосы прокрутки
+     */
+    horizontalBarClassName?: string;
+
+    /**
      * Обработчик изменения скролла
      */
     onContentScroll?: (e: Event) => void;
+
+    /**
+     * Ref для вертикальной полосы прокрутки
+     */
+    verticalBarRef?: React.RefObject<HTMLDivElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
 const classNames = {
@@ -145,7 +155,9 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             widthPropName = 'minWidth',
             maskProps,
             verticalBarClassName,
+            horizontalBarClassName,
             onContentScroll,
+            verticalBarRef,
             ...htmlAttributes
         },
         ref,
@@ -293,10 +305,15 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     </div>
                     <div className={classNames.placeholder} />
                 </div>
-                <div className={cn(classNames.track, classNames.horizontal)}>
+                <div
+                    className={cn(classNames.track, classNames.horizontal, horizontalBarClassName)}
+                >
                     <div className={classNames.scrollbar} />
                 </div>
-                <div className={cn(classNames.track, classNames.vertical, verticalBarClassName)}>
+                <div
+                    ref={verticalBarRef}
+                    className={cn(classNames.track, classNames.vertical, verticalBarClassName)}
+                >
                     <div className={classNames.scrollbar} />
                 </div>
             </div>

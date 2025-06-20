@@ -28,6 +28,15 @@ lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/export-css-c
 # собираю все подпакеты с компонентами
 lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
+    --ignore @alfalab/core-components-themes \
+    -- $(pwd)/bin/rollup.sh
+
+# собираю скомпилированные темы
+lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-compiled-themes.mjs
+
+# собираем пакет themes в последнюю очередь
+lerna exec --concurrency $CONCURRENCY \
+    --scope @alfalab/core-components-themes \
     -- $(pwd)/bin/rollup.sh
 
 # копирую package.json в сборку корневого пакета

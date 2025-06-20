@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.5.5
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1517](https://github.com/core-ds/core-components/pull/1517)
+
+-   Парные иконки заменены на одну иконку и css-rotate
+
 ## 4.5.4
 
 ### Patch Changes

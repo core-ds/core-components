@@ -21,7 +21,7 @@ import { Header, HeaderProps } from './components/header/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 import { horizontalDirections } from './consts/swipeConsts';
 import { ShouldSkipSwipingParams } from './types/swipeTypes';
-import { useVisibleViewportSize } from './hooks';
+import { useVisualViewportSize } from './hooks';
 import type { BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
@@ -112,8 +112,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         ref,
     ) => {
         const windowHeight = use100vh() ?? 0;
-        const visibleViewportSize = useVisibleViewportSize(virtualKeyboard);
-        let fullHeight = virtualKeyboard ? visibleViewportSize?.height ?? 0 : windowHeight;
+        const visualViewportSize = useVisualViewportSize();
+        let fullHeight = virtualKeyboard ? visualViewportSize?.height ?? 0 : windowHeight;
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
 
@@ -559,8 +559,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     : 'unset',
             maxHeight: isFirstRender ? 0 : `${lastMagneticArea}px`,
             marginBottom:
-                virtualKeyboard && visibleViewportSize && windowHeight > visibleViewportSize.height
-                    ? windowHeight - visibleViewportSize.height - visibleViewportSize.offsetTop
+                virtualKeyboard && visualViewportSize && windowHeight > visualViewportSize.height
+                    ? windowHeight - visualViewportSize.height - visualViewportSize.offsetTop
                     : undefined,
         });
 

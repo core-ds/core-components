@@ -1,5 +1,43 @@
 # Change Log
 
+## 5.8.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.38
+
+## 5.8.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.37
+
+## 5.8.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.36
+
+## 5.8.17
+
+### Patch Changes
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1677](https://github.com/core-ds/core-components/pull/1677)
+
+-   Изменён логотип по умолчанию
+
+## 5.8.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.35
+
 ## 5.8.15
 
 ### Patch Changes

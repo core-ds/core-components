@@ -1,5 +1,66 @@
 # Change Log
 
+## 2.10.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+
+## 2.10.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+    -   select@17.21.2
+    -   pagination@2.4.13
+
+## 2.10.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
+## 2.10.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+
+## 2.10.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
+    -   select@17.20.14
+    -   pagination@2.4.12
+
+## 2.10.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.13
+
+## 2.10.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+
+## 2.10.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   select@17.20.11
+
 ## 2.10.6
 
 ### Patch Changes

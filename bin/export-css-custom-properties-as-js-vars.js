@@ -17,6 +17,7 @@ const PALETTES = [
     'colors-decorative',
     'colors-indigo',
     'colors-pfm',
+    'colors-promo',
     'colors-qualitative',
     'colors-sequential',
     'colors-students',
@@ -120,7 +121,7 @@ function buildPalettesCustomCSSProperties() {
 
                 ensureDirectoryExist(destJsPath);
 
-                console.log(`build [ ${palette} => ${buildName} ]`);
+                console.log(`build color module [ ${palette} => ${buildName} ]`);
 
                 return postcss()
                     .use(

@@ -2,6 +2,9 @@
 
 .desktop {
     padding: var(--gap-12);
+    &.size-72 {
+        padding-left: var(--gap-16);
+    }
 }
 
 .mobile {

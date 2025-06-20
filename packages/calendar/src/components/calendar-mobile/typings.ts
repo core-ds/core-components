@@ -1,5 +1,7 @@
 import React from 'react';
 
+import type { ModalHeaderProps } from '@alfalab/core-components-modal/shared';
+
 import { CalendarDesktopProps } from '../../desktop';
 
 type OmittedCalendarProps = 'headerClassName' | 'contentClassName';
@@ -87,4 +89,5 @@ export type CalendarMobileProps = {
      */
     resetButtonContent?: string;
 } & CalendarContentProps &
-    Pick<CalendarDesktopProps, OmittedCalendarContentProps>;
+    Pick<CalendarDesktopProps, OmittedCalendarContentProps> &
+    Pick<ModalHeaderProps, 'hasBackButton' | 'onBack'>;
