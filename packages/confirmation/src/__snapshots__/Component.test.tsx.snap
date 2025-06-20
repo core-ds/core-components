@@ -3,7 +3,7 @@
 exports[`Confirmation Snapshot tests should match snapshot 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -85,7 +85,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
 exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING state 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -203,7 +203,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
 exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -291,7 +291,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
 exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED state 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -379,7 +379,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
 exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING state 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -497,7 +497,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
 exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR screen 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -530,7 +530,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
 exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -610,7 +610,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
 exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK screen 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"
@@ -658,7 +658,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK scree
 exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER screen 1`] = `
 <div>
   <div
-    class="component alignLeft"
+    class="component"
   >
     <div
       class="component left"

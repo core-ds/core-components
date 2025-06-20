@@ -132,7 +132,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         <ConfirmationContext.Provider value={contextValue}>
             <div
                 className={cn(styles.component, className, {
-                    [styles.alignLeft]: alignContent === 'left',
+                    [styles.center]: alignContent === 'center',
                 })}
                 data-test-id={dataTestId}
             >
