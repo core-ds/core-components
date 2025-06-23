@@ -36,21 +36,22 @@ export const bottom_sheet: Story = {
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
         const colors = select('colors', COLORS, 'default');
+        const backgroundColor = select('backgroundColor', BACKGROUND, undefined);
+
+        const getBackgroundColor = () => {
+            const isInverted = colors === 'inverted';
+            const bgType = backgroundColor === 'secondary' ? 'primary' : 'alt-primary';
+            const themeSuffix = isInverted ? '-inverted' : '';
+
+            return `var(--color-light-base-bg-${bgType}${themeSuffix})`;
+        };
 
         return (
             <div
                 style={{
                     ...previewStyles,
-                    backgroundColor:
-                        colors === 'inverted'
-                            ? 'var(--color-light-base-bg-primary-inverted)'
-                            : 'transparent',
-                    padding: '8px',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
+                    backgroundColor: getBackgroundColor(),
+                    maxWidth: 'none'
                 }}
             >
                 <style>

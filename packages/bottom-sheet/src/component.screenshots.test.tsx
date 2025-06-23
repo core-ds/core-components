@@ -35,12 +35,7 @@ describe('BottomSheet', () =>
                 height: 600,
             },
             screenshotOpts: {
-                clip: {
-                    x: 8,
-                    y: 8,
-                    width: 860,
-                    height: 600,
-                },
+                fullPage: true,
             },
         },
     ));
