@@ -81,22 +81,18 @@ export const AutocompleteMobileField = ({
                 <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
             )}
             {shouldShowErrorIcon && (
-                <div className={styles.errorIcon}>
-                    <StatusBadge
-                        view='negative-alert'
-                        size={statusBadgeSize}
-                        dataTestId={getDataTestId(dataTestId, 'error-icon')}
-                    />
-                </div>
+                <StatusBadge
+                    view='negative-alert'
+                    size={statusBadgeSize}
+                    dataTestId={getDataTestId(dataTestId, 'error-icon')}
+                />
             )}
             {shouldShowSuccessIcon && (
-                <div className={styles.successIcon}>
-                    <StatusBadge
-                        view='positive-checkmark'
-                        size={statusBadgeSize}
-                        dataTestId={getDataTestId(dataTestId, 'success-icon')}
-                    />
-                </div>
+                <StatusBadge
+                    view='positive-checkmark'
+                    size={statusBadgeSize}
+                    dataTestId={getDataTestId(dataTestId, 'success-icon')}
+                />
             )}
             {Arrow}
             {rightAddons}

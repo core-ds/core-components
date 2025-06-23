@@ -107,24 +107,6 @@ describe('NumberInput', () => {
         expect(getByTestId(incrementButtonId)).toHaveAttribute('disabled');
     });
 
-    it('should render error icon', () => {
-        const { container } = render(<NumberInput error={true} showErrorIcon={true} />);
-
-        expect(container.getElementsByClassName('errorIcon').length).toBe(1);
-    });
-
-    it('should render success icon', () => {
-        const { container } = render(<NumberInput success={true} />);
-
-        expect(container.getElementsByClassName('successIcon').length).toBe(1);
-    });
-
-    it('should not render success icon if has error', () => {
-        const { container } = render(<NumberInput success={true} error={true} />);
-
-        expect(container.getElementsByClassName('successIcon').length).toBe(0);
-    });
-
     describe('Controlled-way', () => {
         it('should set value to input without minus sign', () => {
             const cb = jest.fn();

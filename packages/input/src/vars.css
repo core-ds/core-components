@@ -23,7 +23,4 @@
     /* error */
     --input-error-color: var(--color-light-text-primary);
     --input-inverted-error-color: var(--color-light-text-primary-inverted);
-
-    /* display */
-    --input-success-icon-display: flex;
 }

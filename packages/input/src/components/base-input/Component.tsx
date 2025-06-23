@@ -424,6 +424,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         const renderRightAddons = () => {
             const addonsVisible = clearButtonVisible || rightAddons || error || success;
             const shouldShowErrorIcon = error && showErrorIcon;
+            const shouldShowSuccessIcon = success && !error;
+            const statusBadgeSize = size === 40 ? 16 : 20;
 
             return (
                 addonsVisible && (
@@ -438,22 +440,18 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             />
                         )}
                         {shouldShowErrorIcon && (
-                            <div className={styles.errorIcon}>
-                                <StatusBadge
-                                    view='negative-alert'
-                                    size={size === 40 ? 16 : 20}
-                                    dataTestId={getDataTestId(dataTestId, 'error-icon')}
-                                />
-                            </div>
+                            <StatusBadge
+                                view='negative-alert'
+                                size={statusBadgeSize}
+                                dataTestId={getDataTestId(dataTestId, 'error-icon')}
+                            />
                         )}
-                        {success && !error && (
-                            <div className={styles.successIcon}>
-                                <StatusBadge
-                                    view='positive-checkmark'
-                                    size={size === 40 ? 16 : 20}
-                                    dataTestId={getDataTestId(dataTestId, 'success-icon')}
-                                />
-                            </div>
+                        {shouldShowSuccessIcon && (
+                            <StatusBadge
+                                view='positive-checkmark'
+                                size={statusBadgeSize}
+                                dataTestId={getDataTestId(dataTestId, 'success-icon')}
+                            />
                         )}
                         {rightAddons}
                     </Fragment>

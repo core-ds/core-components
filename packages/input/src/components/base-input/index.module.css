@@ -55,10 +55,6 @@
     width: 100%;
 }
 
-.successIcon {
-    display: var(--input-success-icon-display);
-}
-
 /* DISABLED STATE */
 
 .input:disabled {
