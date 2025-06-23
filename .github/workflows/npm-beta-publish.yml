@@ -18,6 +18,13 @@ jobs:
       fail-fast: false
 
     steps:
+      - name: Check permissions
+        if: ${{ contains(fromJSON('["reme3d2y","SiebenSieben","hextion","fulcanellee"]'), github.actor) == false }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            core.setFailed("You don't have permission to run this workflow!");
+
       - uses: actions/checkout@v1
         with:
           fetch-depth: 0

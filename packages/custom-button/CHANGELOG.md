@@ -1,5 +1,39 @@
 # Change Log
 
+## 3.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 3.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+
+## 3.12.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.4
+
+## 3.12.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+
 ## 3.12.0
 
 ### Minor Changes

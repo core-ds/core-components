@@ -1,39 +1,49 @@
-name: Update screenshots
+name: update screenshots
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+    update:
+        name: update screenshots
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  lfs: true
 
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          lfs: true
-          token: ${{ secrets.BOT_AUTH_TOKEN }}
+            - uses: ./.github/actions/ci-setup
 
-      - name: Checkout LFS objects
-        run: git lfs checkout
+            - name: update screenshots
+              shell: bash
+              run: |
+                  yarn test:screenshots -u
 
-      - name: Install dependencies
-        run: yarn --pure-lockfile
+            - name: check git status
+              id: git-status
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      let status = '';
 
-      - name: Update screenshots tests
-        run: yarn test:screenshots -u
-        env:
-          CI: true
-          CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-          CI_USER_PASSWORD: ${{ secrets.CI_USER_PASSWORD }}
+                      await exec.exec('git', ['status', '--porcelain'], {
+                          listeners: {
+                              stdout: (data) => {
+                                  status += data.toString('utf8');
+                              },
+                          }
+                      });
 
-      - name: Check git status
-        id: git_status
-        run: echo "porcelain=$(git status --porcelain | sed 's/ //g' | cut -b1)" | head -1 >> $GITHUB_OUTPUT
+                      return status.split('\n').some(line => /^ M .*\.png$/.test(line));
 
-      - name: Change commit
-        if: ${{ steps.git_status.outputs.porcelain }} == 'M'
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: core-ds-bot,
-          author_email: ds@gitmax.tech,
-          message: 'test: update screenshots'
+            - name: update branch
+              if: ${{ steps.git-status.outputs.result == 'true' }}
+              shell: bash
+              run: |
+                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
+                  git config user.name 'github-actions[bot]'
+                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+                  git add .
+                  git commit -n -m "test: updated screenshots"
+                  git push

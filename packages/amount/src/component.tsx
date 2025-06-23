@@ -3,7 +3,6 @@ import cn from 'classnames';
 
 import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, formatAmount } from '@alfalab/utils';
 
-import { logWarning } from './utils/logWarning';
 import { trimTrailingZeros } from './utils/trimTrailingZeros';
 import { AmountProps } from './types';
 
@@ -36,8 +35,6 @@ export const Amount: React.FC<AmountProps> = ({
     });
 
     const defaultStyles = bold === undefined && transparentMinor === undefined;
-
-    logWarning(currency);
 
     return (
         <span

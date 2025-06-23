@@ -43,6 +43,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             onCancel,
             onApply,
             title,
+            success,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -171,6 +172,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                     value: isOpen ? frozenValue.current : value,
                     clear,
                     onClear: clear ? inputProps?.onClear : undefined,
+                    success,
                     ...(restProps.fieldProps as AnyObject),
                 }}
             />

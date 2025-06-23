@@ -13,7 +13,7 @@ export const Single: FC = () => {
     const { fullScreen, currentSlideIndex, getCurrentImage, getCurrentImageMeta } =
         useContext(GalleryContext);
 
-    const { handleLoad, handleLoadError, handleWrapperClick, isMobile } = useHandleImageViewer();
+    const { handleWrapperClick, isMobile } = useHandleImageViewer();
 
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -57,8 +57,6 @@ export const Single: FC = () => {
                         index={0}
                         imageAspectRatio={imageAspectRatio}
                         slideVisible={true}
-                        handleLoad={handleLoad}
-                        handleLoadError={handleLoadError}
                     />
                 </div>
             )}

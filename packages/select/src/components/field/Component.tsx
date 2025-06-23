@@ -90,6 +90,7 @@ export const Field = ({
                                         onClick={onClear}
                                         disabled={disabled}
                                         dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                                        size={size}
                                     />
                                 ) : null}
                                 {/* TODO: стоит переделать, но это будет мажорка */}
@@ -103,7 +104,7 @@ export const Field = ({
                     {...restProps}
                     {...innerProps}
                 >
-                    <div className={styles.contentWrapper}>
+                    <div className={cn(styles.contentWrapper, styles[`size-${size}`])}>
                         {showPlaceholder && (
                             <span
                                 className={cn(styles.placeholder, {
@@ -113,7 +114,9 @@ export const Field = ({
                                 {placeholder}
                             </span>
                         )}
-                        {filled && <div className={styles.value}>{value}</div>}
+                        {filled && (
+                            <div className={cn(styles.value, styles[`size-${size}`])}>{value}</div>
+                        )}
                     </div>
                 </FormControlComponent>
             ) : null}

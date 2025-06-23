@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { number, boolean } from '@storybook/addon-knobs';
+import { number, boolean, select, text } from '@storybook/addon-knobs';
 import { Steps } from '@alfalab/core-components-steps';
 
 const meta: Meta<typeof Steps> = {
@@ -20,6 +20,8 @@ export const steps: Story = {
             isVerticalAlign={boolean('isVerticalAlign', false)}
             ordered={boolean('ordered', false)}
             interactive={boolean('interactive', true)}
+            minSpaceBetweenSteps={select('minSpaceBetweenSteps', [16, 24, 32], 24)}
+            completedDashColor={text('completedDashColor', '')}
         >
             <div>Шаг 1</div>
             <div>Шаг 2</div>

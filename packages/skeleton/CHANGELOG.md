@@ -1,5 +1,25 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1539](https://github.com/core-ds/core-components/pull/1539)
+
+-   Добавлена пропса borderRadius для задания одинакового скругления углам
+
+## 5.2.3
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
 ## 5.2.2
 
 ### Patch Changes

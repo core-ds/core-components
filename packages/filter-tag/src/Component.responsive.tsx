@@ -2,11 +2,12 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BaseFilterTagProps } from './components/base-filter-tag';
+import { PrivateProps } from './types/base-filter-tag-private-props';
+import { BaseFilterTagProps } from './types/base-filter-tag-props';
 import { FilterTagDesktop } from './desktop';
 import { FilterTagMobile } from './mobile';
 
-export type FilterTagProps = Omit<BaseFilterTagProps, 'styles'> & {
+export type FilterTagProps = Omit<BaseFilterTagProps, keyof PrivateProps> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

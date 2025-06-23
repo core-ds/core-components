@@ -1,5 +1,43 @@
 # Change Log
 
+## 1.0.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+
+## 1.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.5
+    -   icon-button@6.11.8
+
+## 1.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.4
+    -   icon-button@6.11.7
+
+## 1.0.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   link@5.3.4
+    -   spinner@4.0.3
+
 ## 1.0.4
 
 ### Patch Changes

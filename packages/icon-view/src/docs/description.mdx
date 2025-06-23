@@ -109,7 +109,7 @@ render(() => {
         64: 56,
         80: 64,
         128: 80,
-    }
+    };
 
     return (
         <Container>
@@ -194,7 +194,9 @@ render(() => {
                         size='80'
                         mainSize={64}
                         backgroundColor={
-                            value.background ? 'var(--color-light-base-bg-secondary)' : 'transparent'
+                            value.background
+                                ? 'var(--color-light-base-bg-secondary)'
+                                : 'transparent'
                         }
                         imageUrl={value.image && './images/imgBg.png'}
                         text={
@@ -318,7 +320,9 @@ render(() => {
     };
 
     const iconView = (
-        <Circle size='24' mainSize={16}><DiamondsSIcon/></Circle>
+        <Circle size='24' mainSize={16}>
+            <DiamondsSIcon />
+        </Circle>
     );
 
     const indicatorSmall = topAddons === 'indicatorSmall' && <Indicator view='red' />;
@@ -326,7 +330,7 @@ render(() => {
 
     const contentIconView = {
         icon: <DiamondsMIcon />,
-        emoji: <img src='./images/heart.png' alt='emoji heart'  />,
+        emoji: <img src='./images/heart.png' alt='emoji heart' />,
         noContent: null,
     }[content];
 

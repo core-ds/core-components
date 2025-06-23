@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rounded size-48 component rounded size-48"
+        class="component component rounded size-48 component rounded size-48"
       >
         <button
-          class="valueButton valueButton size-48 size-48 rounded rounded outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined withClear"
           type="button"
         >
           <span
@@ -18,7 +18,7 @@ Object {
             Press me
           </span>
           <span
-            class="chevron"
+            class="chevron chevron"
           >
             <svg
               fill="currentColor"
@@ -39,10 +39,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rounded size-48 component rounded size-48"
+      class="component component rounded size-48 component rounded size-48"
     >
       <button
-        class="valueButton valueButton size-48 size-48 rounded rounded outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined withClear"
         type="button"
       >
         <span
@@ -51,7 +51,7 @@ Object {
           Press me
         </span>
         <span
-          class="chevron"
+          class="chevron chevron"
         >
           <svg
             fill="currentColor"
@@ -129,10 +129,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rectangular size-48 component rectangular size-48"
+        class="component component rectangular size-48 component rectangular size-48"
       >
         <button
-          class="valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined withClear"
           type="button"
         >
           <span
@@ -141,7 +141,7 @@ Object {
             Press me
           </span>
           <span
-            class="chevron"
+            class="chevron chevron"
           >
             <svg
               fill="currentColor"
@@ -162,10 +162,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rectangular size-48 component rectangular size-48"
+      class="component component rectangular size-48 component rectangular size-48"
     >
       <button
-        class="valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined withClear"
         type="button"
       >
         <span
@@ -174,7 +174,7 @@ Object {
           Press me
         </span>
         <span
-          class="chevron"
+          class="chevron chevron"
         >
           <svg
             fill="currentColor"
@@ -252,10 +252,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rectangular size-48 component rectangular size-48"
+        class="component component rectangular size-48 component rectangular size-48"
       >
         <button
-          class="valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined withClear"
           type="button"
         >
           <span
@@ -264,7 +264,7 @@ Object {
             Press me
           </span>
           <span
-            class="chevron"
+            class="chevron chevron"
           >
             <svg
               fill="currentColor"
@@ -285,10 +285,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rectangular size-48 component rectangular size-48"
+      class="component component rectangular size-48 component rectangular size-48"
     >
       <button
-        class="valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rectangular rectangular outlined outlined outlined withClear"
         type="button"
       >
         <span
@@ -297,7 +297,7 @@ Object {
           Press me
         </span>
         <span
-          class="chevron"
+          class="chevron chevron"
         >
           <svg
             fill="currentColor"
@@ -375,17 +375,17 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rounded size-48 component rounded size-48"
+        class="component component rounded size-48 component rounded size-48"
       >
         <button
-          class="valueButton valueButton size-48 size-48 rounded rounded outlined outlined"
+          class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined withClear"
           type="button"
         >
           <span
             class="content"
           />
           <span
-            class="chevron"
+            class="chevron chevron"
           >
             <svg
               fill="currentColor"
@@ -406,17 +406,17 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rounded size-48 component rounded size-48"
+      class="component component rounded size-48 component rounded size-48"
     >
       <button
-        class="valueButton valueButton size-48 size-48 rounded rounded outlined outlined"
+        class="valueButton valueButton valueButton valueButton size-48 size-48 rounded rounded outlined outlined outlined withClear"
         type="button"
       >
         <span
           class="content"
         />
         <span
-          class="chevron"
+          class="chevron chevron"
         >
           <svg
             fill="currentColor"

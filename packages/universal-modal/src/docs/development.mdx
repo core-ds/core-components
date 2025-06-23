@@ -1,0 +1,117 @@
+import { ArgsTabs, CssVars } from 'storybook/blocks';
+import { UniversalModalMobile } from '../mobile';
+import { UniversalModalDesktop } from '../desktop';
+import { UniversalModalResponsive } from '..';
+import vars from '!!raw-loader!../vars.css';
+
+## Подключение Responsive
+
+```jsx
+// Atom import
+import { UniversalModal } from '@alfalab/core-components/universal-modal';
+import type {UniversalModalResponsiveProps } from '@alfalab/core-components/universal-modal';
+
+import { ContentResponsive } from '@alfalab/core-components/universal-modal';
+import type { ContentResponsiveProps } from '@alfalab/core-components/universal-modal';
+
+import { HeaderResponsive } from '@alfalab/core-components/universal-modal';
+import type { HeaderResponsiveProps } from '@alfalab/core-components/universal-modal';
+
+import { FooterResponsive } from '@alfalab/core-components/universal-modal';
+import type { FooterResponsiveProps } from '@alfalab/core-components/universal-modal';
+
+// Compound import
+import { UniversalModalResponsive } from '@alfalab/core-components/universal-modal';
+import type {UniversalModalResponsiveProps } from '@alfalab/core-components/universal-modal';
+```
+
+## Подключение Desktop
+
+```jsx
+// Atom import
+import { UniversalModalDesktopComponent } from '@alfalab/core-components/universal-modal/desktop';
+import type { UniversalModalDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
+
+import { ContentDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { ContentDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
+
+import { HeaderDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { HeaderPropsDesktop } from '@alfalab/core-components/universal-modal/desktop';
+
+import { FooterDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { FooterDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
+
+// Compound import
+import { UniversalModalDesktop } from '@alfalab/core-components/universal-modal/desktop';
+import type { UniversalModalDesktopProps } from '@alfalab/core-components/universal-modal/desktop';
+
+// Components
+import { ArrowButtonDesktop, CrossButtonDesktop } from '@alfalab/core-components/universal-modal/desktop';
+```
+
+## Подключение Mobile
+
+```jsx
+// Atom import
+import { UniversalModalMobileComponent } from '@alfalab/core-components/universal-modal/mobile';
+import type { UniversalModalMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+import { ContentMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { ContentMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+import { HeaderMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { HeaderMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+import { FooterMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { FooterMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+// Compound import
+import { UniversalModalMobile } from '@alfalab/core-components/universal-modal/mobile';
+import type { UniversalModalMobileProps } from '@alfalab/core-components/universal-modal/mobile';
+
+// Components
+import { ArrowButtonDesktopMobile, CrossButtonDesktopMobile } from '@alfalab/core-components/universal-modal/mobile';
+```
+
+Из индекса импортируется responsive версия компонента.
+
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getUniversalModalTestIds`.
+Импорт из `@alfalab/core-components/universal-modal/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+        modal: dataTestId,
+        header: `${dataTestId}-header`,
+        title: `${dataTestId}-header-title`,
+        content: `${dataTestId}-content`,
+        footer: `${dataTestId}-footer`,
+};
+```
+
+## Свойства
+
+<ArgsTabs
+    components={{
+        UniversalModalDesktop,
+        UniversalModalMobile,
+        UniversalModalResponsive,
+        'UniversalModalResponsive.Header': UniversalModalResponsive.Header,
+        'UniversalModalResponsive.Content': UniversalModalResponsive.Content,
+        'UniversalModalResponsive.Footer': UniversalModalResponsive.Footer,
+        'UniversalModalDesktop.Header': UniversalModalDesktop.Header,
+        'UniversalModalDesktop.Content': UniversalModalDesktop.Content,
+        'UniversalModalDesktop.Footer': UniversalModalDesktop.Footer,
+        'UniversalModalMobile.Header': UniversalModalMobile.Header,
+        'UniversalModalMobile.Content': UniversalModalMobile.Content,
+        'UniversalModalMobile.Footer': UniversalModalMobile.Footer,
+    }}
+/>
+
+## Переменные
+
+<CssVars css={vars} />

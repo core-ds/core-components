@@ -1,5 +1,42 @@
 # Change Log
 
+## 7.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+
+## 7.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   icon-button@6.11.8
+
+## 7.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   icon-button@6.11.7
+
+## 7.3.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   status-badge@1.2.3
+
 ## 7.3.6
 
 ### Patch Changes

@@ -1,5 +1,34 @@
 # Change Log
 
+## 1.7.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   spinner@4.0.5
+
+## 1.7.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   spinner@4.0.4
+
+## 1.7.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   spinner@4.0.3
+
 ## 1.7.6
 
 ### Patch Changes

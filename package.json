@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.7.0",
+    "version": "48.22.1",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -20,7 +20,7 @@
         "build-storybook": "storybook build -o build --quiet",
         "build-storybook-from-dist": "cross-env BUILD_MODERN_ONLY=true yarn build && cross-env BUILD_STORYBOOK_FROM_DIST=true yarn build-storybook",
         "serve-storybook": "http-server build -p 9009",
-        "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix && prettier --write \"./packages/{themes,vars}/**/*.css\"",
+        "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix && prettier --write \"./packages/{themes,vars}/**/*.css\" && yarn generate-dark-colors",
         "update-typography": "node ./tools/update-typography.js",
         "update-usages": "node ./tools/update-usages.js",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
@@ -40,7 +40,9 @@
         "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
         "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
         "write-vars-and-themes-version": "node ./bin/write-vars-and-themes-version.js",
-        "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master"
+        "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master",
+        "generate-dark-colors": " node ./tools/dark-colors-generator.js",
+        "non-existent-css-vars": "node bin/non-existent-css-vars.mjs"
     },
     "browserslist": {
         "production": [
@@ -58,10 +60,10 @@
     "dependencies": {
         "@alfalab/data": "^1.9.1",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.189.0",
+        "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/icons-logotype": "^2.27.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
-        "@alfalab/utils": "^1.17.1",
+        "@alfalab/utils": "^1.18.0",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
         "@juggle/resize-observer": "^3.3.1",
@@ -74,6 +76,7 @@
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
         "date-fns": "^2.16.1",
+        "detect-browser": "^5.3.0",
         "downshift": "8.4.0",
         "element-closest": "^3.0.2",
         "hls.js": "^1.5.13",
@@ -95,13 +98,14 @@
         "react-textarea-autosize": "^8.3.4",
         "react-transition-group": "^4.4.5",
         "react-virtual": "^2.3.2",
-        "react-virtuoso": "^2.12.0",
-        "recharts": "^2.1.2",
+        "react-virtuoso": "^4.12.5",
+        "recharts": "^2.12.7",
         "simplebar": "^5.3.8",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^22.7.0"
+        "ui-primitives": "^26.3.0",
+        "use-sync-external-store": "^1.4.0"
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.6.1",
@@ -124,6 +128,7 @@
         "@testing-library/react": "^13.3.0",
         "@testing-library/react-hooks": "^8.0.1",
         "@testing-library/user-event": "^14.4.3",
+        "@types/detect-browser": "^4.0.3",
         "@types/element-closest": "^3.0.0",
         "@types/jest": "^26.0.15",
         "@types/jest-image-snapshot": "^6.1.0",
@@ -132,6 +137,7 @@
         "@types/react": "^18.0.15",
         "@types/react-dom": "^18.0.6",
         "@types/swiper": "^5.4.3",
+        "@types/use-sync-external-store": "^0.0.6",
         "@types/webpack-env": "^1.18.0",
         "@typescript-eslint/eslint-plugin": "^5.40.1",
         "@typescript-eslint/parser": "^5.40.1",

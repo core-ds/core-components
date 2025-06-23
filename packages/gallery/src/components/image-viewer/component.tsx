@@ -33,14 +33,7 @@ export const ImageViewer: FC = () => {
         getCurrentImage,
     } = useContext(GalleryContext);
 
-    const {
-        handleLoad,
-        handleLoadError,
-        handleWrapperClick,
-        isMobile,
-        rightArrowRef,
-        leftArrowRef,
-    } = useHandleImageViewer();
+    const { handleWrapperClick, isMobile, rightArrowRef, leftArrowRef } = useHandleImageViewer();
 
     const [leftArrowFocused] = useFocus(leftArrowRef, 'keyboard');
     const [rightArrowFocused] = useFocus(rightArrowRef, 'keyboard');
@@ -176,8 +169,6 @@ export const ImageViewer: FC = () => {
                                     index={index}
                                     imageAspectRatio={imageAspectRatio}
                                     slideVisible={slideVisible}
-                                    handleLoad={handleLoad}
-                                    handleLoadError={handleLoadError}
                                 />
                             )}
                         </SwiperSlide>

@@ -1,5 +1,39 @@
 # Change Log
 
+## 5.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+
+## 5.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+
+## 5.1.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.9
+
+## 5.1.8
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   base-modal@5.8.8
+
 ## 5.1.7
 
 ### Patch Changes

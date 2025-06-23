@@ -1,5 +1,48 @@
 # Change Log
 
+## 6.7.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 6.6.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+
+## 6.6.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.4
+
+## 6.6.24
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   progress-bar@3.5.2
+
 ## 6.6.23
 
 ### Patch Changes

@@ -1,5 +1,41 @@
 # Change Log
 
+## 4.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.3
+
+## 4.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.2
+    -   portal@3.3.7
+
+## 4.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.1
+    -   portal@3.3.6
+
+## 4.2.12
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   input@15.5.0
+
 ## 4.2.11
 
 ### Patch Changes
