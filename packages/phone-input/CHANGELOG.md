@@ -1,5 +1,24 @@
 # @alfalab/core-components-phone-input
 
+## 7.5.8
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1698](https://github.com/core-ds/core-components/pull/1698)
+
+-   При вставке номера телефона без знака "+" номер не обрезается.
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1729](https://github.com/core-ds/core-components/pull/1729)
+
+-   Исправлено определение вставки чисел перед знаком `+` или после него. Ранее могло приводить к ошибкам при управлении компонентом с помощью изменения `value`
+
+-   Обновлены зависимости
+    -   masked-input@6.3.39
+
 ## 7.5.7
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @alfalab/core-components-checkbox
 
+## 4.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 4.9.3
 
 ### Patch Changes

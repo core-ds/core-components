@@ -1,5 +1,15 @@
 # @alfalab/core-components-calendar-input
 
+## 10.4.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   calendar@7.19.0
+    -   date-input@4.4.20
+    -   popover@6.3.11
+
 ## 10.4.32
 
 ### Patch Changes

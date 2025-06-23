@@ -1,5 +1,13 @@
 # @alfalab/core-components-base-modal
 
+## 5.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   portal@3.3.10
+
 ## 5.9.3
 
 ### Patch Changes

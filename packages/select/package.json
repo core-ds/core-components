@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "17.21.3",
+    "version": "17.21.4",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -17,18 +17,18 @@
     },
     "dependencies": {
         "@alfalab/core-components-badge": "^5.6.4",
-        "@alfalab/core-components-base-modal": "^5.9.3",
-        "@alfalab/core-components-bottom-sheet": "^6.18.13",
-        "@alfalab/core-components-button": "^11.11.9",
-        "@alfalab/core-components-checkbox": "^4.9.3",
-        "@alfalab/core-components-form-control": "^12.8.5",
-        "@alfalab/core-components-input": "^15.6.1",
-        "@alfalab/core-components-modal": "^9.9.17",
+        "@alfalab/core-components-base-modal": "^5.9.4",
+        "@alfalab/core-components-bottom-sheet": "^6.18.14",
+        "@alfalab/core-components-button": "^11.11.10",
+        "@alfalab/core-components-checkbox": "^4.9.4",
+        "@alfalab/core-components-form-control": "^12.8.6",
+        "@alfalab/core-components-input": "^15.6.2",
+        "@alfalab/core-components-modal": "^9.9.18",
         "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-popover": "^6.3.10",
-        "@alfalab/core-components-scrollbar": "^3.3.0",
+        "@alfalab/core-components-popover": "^6.3.11",
+        "@alfalab/core-components-scrollbar": "^3.4.0",
         "@alfalab/core-components-skeleton": "^5.4.0",
-        "@alfalab/core-components-shared": "^0.17.1",
+        "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "@juggle/resize-observer": "^3.3.1",
@@ -41,6 +41,6 @@
         "react-virtual": "^2.3.2",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

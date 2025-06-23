@@ -1,5 +1,12 @@
 # @alfalab/core-components-portal
 
+## 3.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 3.3.9
 
 ### Patch Changes

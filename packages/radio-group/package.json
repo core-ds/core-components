@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-radio-group",
-    "version": "4.8.2",
+    "version": "4.8.3",
     "description": "Radio group",
     "keywords": [],
     "license": "MIT",
@@ -21,6 +21,6 @@
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

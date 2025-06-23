@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-international-phone-input",
-    "version": "2.7.17",
+    "version": "2.7.18",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,11 +15,11 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input-autocomplete": "12.9.5",
+        "@alfalab/core-components-input-autocomplete": "12.9.6",
         "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-input": "^15.6.1",
-        "@alfalab/core-components-select": "^17.21.3",
-        "@alfalab/core-components-shared": "^0.17.1",
+        "@alfalab/core-components-input": "^15.6.2",
+        "@alfalab/core-components-select": "^17.21.4",
+        "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/core-components-types": "^0.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
@@ -29,6 +29,6 @@
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

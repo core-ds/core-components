@@ -1,5 +1,22 @@
 # @alfalab/core-components-confirmation
 
+## 13.10.5
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1730](https://github.com/core-ds/core-components/pull/1730)
+
+-   Исправлено выравнивание компонента для `alignContent=left`. Теперь контейнер будет прижат к левому краю, а не располагаться по центру.
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   code-input@3.9.10
+    -   button@11.11.10
+    -   spinner@4.0.9
+    -   typography@4.14.3
+
 ## 13.10.4
 
 ### Patch Changes

@@ -72,7 +72,6 @@
     flex: 1;
 }
 
-.size-64 .emptyPlaceholder,
 .size-72 .emptyPlaceholder {
     padding: var(--gap-24) var(--gap-16);
 }

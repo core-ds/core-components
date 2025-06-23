@@ -14,6 +14,8 @@ import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import startOfDay from 'date-fns/startOfDay';
 
+import { hasOwnProperty } from '@alfalab/core-components-shared';
+
 import {
     DATE_RANGE_SEPARATOR,
     DEFAULT_MAX_DATE,
@@ -30,13 +32,15 @@ import { TimeInput } from '../time-input';
 import styles from '../../index.module.css';
 
 export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversalDateInputProps>(
-    (
-        {
+    (props, ref) => {
+        const {
             autoCorrection = true,
             minDate = DEFAULT_MIN_DATE,
             maxDate = DEFAULT_MAX_DATE,
             view,
             picker,
+            calendarOpen = false,
+            onCalendarOpenChange,
             onCalendarClose,
             onCalendarOpen,
             platform,
@@ -46,11 +50,47 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             fieldClassName,
             disableUserInput,
             ...restProps
-        },
-        ref,
-    ) => {
+        } = props;
         const [correctionOccurred, setCorrectionOccurred] = useState(false);
-        const [open, setOpen] = useState(false);
+        const [open, setOpen] = useState(calendarOpen);
+        const prevOpenRef = useRef(open);
+        const isControlledCalendarOpen = hasOwnProperty(props, 'calendarOpen');
+
+        // getDerivedStateFromProps
+        if (isControlledCalendarOpen && calendarOpen !== open) {
+            setOpen(calendarOpen);
+        }
+
+        useEffect(() => {
+            const prevOpen = prevOpenRef.current;
+
+            if (prevOpen === open) {
+                return;
+            }
+
+            prevOpenRef.current = open;
+
+            if (!picker || isControlledCalendarOpen) {
+                return;
+            }
+
+            onCalendarOpenChange?.(open);
+
+            if (prevOpen && !open) {
+                onCalendarClose?.();
+            }
+
+            if (!prevOpen && open) {
+                onCalendarOpen?.();
+            }
+        }, [
+            isControlledCalendarOpen,
+            onCalendarClose,
+            onCalendarOpen,
+            onCalendarOpenChange,
+            open,
+            picker,
+        ]);
 
         const inputRef = useRef<HTMLInputElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
@@ -82,21 +122,27 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
 
         const openCalendar = () => {
             if (picker) {
-                setOpen((p) => {
-                    if (!p) onCalendarOpen?.();
+                if (isControlledCalendarOpen) {
+                    onCalendarOpen?.();
+                    onCalendarOpenChange?.(true);
 
-                    return true;
-                });
+                    return;
+                }
+
+                setOpen(true);
             }
         };
 
         const closeCalendar = () => {
             if (picker) {
-                setOpen((p) => {
-                    if (p) onCalendarClose?.();
+                if (isControlledCalendarOpen) {
+                    onCalendarClose?.();
+                    onCalendarOpenChange?.(false);
 
-                    return false;
-                });
+                    return;
+                }
+
+                setOpen(false);
             }
         };
 

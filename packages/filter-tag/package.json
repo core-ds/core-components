@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-filter-tag",
-    "version": "5.9.2",
+    "version": "5.9.3",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -22,6 +22,6 @@
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

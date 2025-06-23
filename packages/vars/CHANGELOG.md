@@ -1,5 +1,15 @@
 # @alfalab/core-components-vars
 
+## 9.20.1
+
+### Patch Changes
+
+<sup><time>16.06.2025</time></sup>
+
+### [#1741](https://github.com/core-ds/core-components/pull/1741)
+
+-   Добавлен `colors-promo` в сборку цветовых наборов в виде js модулей
+
 ## 9.20.0
 
 ### Minor Changes

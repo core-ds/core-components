@@ -1,5 +1,12 @@
 # @alfalab/core-components-typography
 
+## 4.14.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 4.14.2
 
 ### Patch Changes

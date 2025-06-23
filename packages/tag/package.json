@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tag",
-    "version": "8.6.9",
+    "version": "8.6.10",
     "description": "Tag component",
     "keywords": [],
     "license": "MIT",
@@ -21,6 +21,6 @@
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

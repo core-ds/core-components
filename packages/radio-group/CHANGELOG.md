@@ -1,5 +1,12 @@
 # @alfalab/core-components-radio-group
 
+## 4.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 4.8.2
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @alfalab/core-components-product-cover
 
+## 1.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   typography@4.14.3
+
 ## 1.3.6
 
 ### Patch Changes
