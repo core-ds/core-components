@@ -78,6 +78,13 @@
         --color-light-transparent-default-inverted-press
     );
 
+    /* background-color transparent */
+    --tag-inverted-transparent-background-color: transparent;
+    --tag-inverted-transparent-background-color-hover: var(--color-light-transparent-default-inverted-hover);
+    --tag-inverted-transparent-background-color-active: var(--color-light-transparent-default-inverted-press);
+    --tag-inverted-transparent-background-color-disabled: transparent;
+    --tag-inverted-transparent-border-color: transparent;
+
     /* background-color filled */
     --tag-inverted-filled-background-color: var(--color-light-neutral-translucent-300-inverted);
     --tag-inverted-filled-background-color-hover: var(
