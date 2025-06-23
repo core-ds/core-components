@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.6.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 8.6.9
 
 ### Patch Changes

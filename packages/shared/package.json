@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-shared",
-    "version": "0.17.1",
+    "version": "0.18.0",
     "description": "Shared package for core-components",
     "keywords": [],
     "license": "MIT",
@@ -23,6 +23,6 @@
     "devDependencies": {
         "@types/detect-browser": "^4.0.3"
     },
-    "themesVersion": "13.7.3",
+    "themesVersion": "13.7.4",
     "varsVersion": "9.20.1"
 }

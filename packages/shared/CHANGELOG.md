@@ -1,5 +1,15 @@
 # @alfalab/core-components-shared
 
+## 0.18.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+-   Добавлена проверка `isMaskitoMask`
+
 ## 0.17.1
 
 ### Patch Changes

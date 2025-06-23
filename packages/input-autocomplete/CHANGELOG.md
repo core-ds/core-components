@@ -1,5 +1,22 @@
 # Change Log
 
+## 12.9.6
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+-   Исправлено отображение маскированного значения в компоненте `InputAutocompleteMobile`
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   form-control@12.8.6
+    -   input@15.6.2
+    -   popover@6.3.11
+
 ## 12.9.5
 
 ### Patch Changes

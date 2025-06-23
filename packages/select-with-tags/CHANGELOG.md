@@ -1,5 +1,25 @@
 # Change Log
 
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1706](https://github.com/core-ds/core-components/pull/1706)
+
+-   Исключение возможности проброса onClear через компонент `SelectWithTag` в `BaseFormControl`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   bottom-sheet@6.18.14
+    -   form-control@12.8.6
+    -   tag@8.6.10
+    -   popover@6.3.11
+
 ## 8.6.19
 
 ### Patch Changes

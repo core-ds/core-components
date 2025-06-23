@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.11.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   spinner@4.0.9
+
 ## 11.11.9
 
 ### Patch Changes

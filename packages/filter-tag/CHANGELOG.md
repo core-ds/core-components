@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1707](https://github.com/core-ds/core-components/pull/1707)
+
+-   Исправлен проброс classname undefined `[styles.disabled]: disabled`
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 5.9.2
 
 ### Patch Changes
