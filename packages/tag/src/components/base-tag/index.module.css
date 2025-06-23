@@ -44,11 +44,11 @@
         margin: var(--gap-0);
     }
 
-    .withoutContent &:first-child:not(:only-child) {
+    .noContent &:first-child:not(:only-child) {
         margin-right: auto;
     }
 
-    .withoutContent &:last-child:not(:only-child) {
+    .noContent &:last-child:not(:only-child) {
         margin-left: auto;
     }
 }
