@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-form-control",
-    "version": "12.8.2",
+    "version": "12.8.6",
     "description": "FormControl component",
     "keywords": [],
     "license": "MIT",
@@ -16,10 +16,10 @@
     },
     "dependencies": {
         "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-shared": "^0.16.0",
+        "@alfalab/core-components-shared": "^0.18.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

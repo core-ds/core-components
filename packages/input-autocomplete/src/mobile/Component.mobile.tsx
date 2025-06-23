@@ -1,5 +1,6 @@
 import React, { Ref, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { maskitoTransform } from '@maskito/core';
 import cn from 'classnames';
 import throttle from 'lodash/throttle';
 
@@ -14,6 +15,7 @@ import {
     Footer,
     ModalSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
+import { isMaskitoMask, isNonNullable } from '@alfalab/core-components-shared';
 
 import { AutocompleteMobileField } from '../autocomplete-mobile-field';
 import { OnInputReason } from '../enums';
@@ -44,6 +46,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             onApply,
             title,
             success,
+            virtualKeyboard = false,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -119,12 +122,22 @@ export const InputAutocompleteMobile = React.forwardRef(
 
         const clear = inputProps?.clear ?? false;
 
+        const displayValue = isOpen ? frozenValue.current : value;
+
+        const fieldValue = useMemo(() => {
+            const mask = inputProps?.mask;
+
+            return isNonNullable(displayValue) && isMaskitoMask(mask)
+                ? maskitoTransform(displayValue, { mask })
+                : displayValue;
+        }, [displayValue, inputProps?.mask]);
+
         return (
             <Component
                 Field={AutocompleteMobileField}
                 {...restProps}
                 {...(isBottomSheet
-                    ? { bottomSheetProps: componentProps }
+                    ? { bottomSheetProps: { ...componentProps, virtualKeyboard } }
                     : {
                           modalProps: componentProps,
                           modalHeaderProps: { title },
@@ -169,7 +182,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                     ...(restProps.optionsListProps as AnyObject),
                 }}
                 fieldProps={{
-                    value: isOpen ? frozenValue.current : value,
+                    value: fieldValue,
                     clear,
                     onClear: clear ? inputProps?.onClear : undefined,
                     success,

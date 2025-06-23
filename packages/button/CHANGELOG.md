@@ -1,5 +1,36 @@
 # Change Log
 
+## 11.11.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   spinner@4.0.9
+
+## 11.11.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   spinner@4.0.8
+
+## 11.11.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   spinner@4.0.7
+
+## 11.11.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.6
+
 ## 11.11.6
 
 ### Patch Changes

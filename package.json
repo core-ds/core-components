@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.22.1",
+    "version": "48.28.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -17,6 +17,7 @@
     "scripts": {
         "build": "./bin/build.sh",
         "start": "storybook dev -p 9009",
+        "prebuild-storybook": "node bin/prebuild-storybook.mjs",
         "build-storybook": "storybook build -o build --quiet",
         "build-storybook-from-dist": "cross-env BUILD_MODERN_ONLY=true yarn build && cross-env BUILD_STORYBOOK_FROM_DIST=true yarn build-storybook",
         "serve-storybook": "http-server build -p 9009",
@@ -31,7 +32,7 @@
         "test:screenshots": "./bin/run-screenshots.sh",
         "test:codemod": "jest --config=jest.codemod.config.js packages/codemod/",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
-        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png",
+        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build} && rimraf packages/**/__diff_output__ && rimraf .storybook/public/images/*preview-snap.png packages/themes/{src,src/compiled}/*.ts",
         "cm": "git-cz",
         "postbuild": "yarn purgecss",
         "purgecss": "./bin/purgecss.sh",
@@ -61,6 +62,7 @@
         "@alfalab/data": "^1.9.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-logo": "^1.39.0",
         "@alfalab/icons-logotype": "^2.27.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
         "@alfalab/utils": "^1.18.0",
@@ -115,6 +117,7 @@
         "@commitlint/config-lerna-scopes": "^17.2.1",
         "@oat-sa/rollup-plugin-wildcard-external": "^0.1.0",
         "@rollup/plugin-json": "^5.0.2",
+        "@rollup/plugin-replace": "^6.0.2",
         "@storybook/addon-a11y": "^7.6.2",
         "@storybook/addon-docs": "^7.6.2",
         "@storybook/addon-knobs": "^7.0.2",

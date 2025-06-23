@@ -1,5 +1,32 @@
 # Change Log
 
+## 3.9.10
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1742](https://github.com/core-ds/core-components/pull/1742)
+
+-   Добавлен оператор опциональной последовательности при вызове фокуса
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 3.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 3.9.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
 ## 3.9.7
 
 ### Patch Changes

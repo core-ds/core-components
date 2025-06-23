@@ -13,7 +13,7 @@ export const Museum = () => {
         const ac = new AbortController();
         const { signal } = ac;
 
-        fetch('https://core-ds.github.io/core-components/master/archive-versions.json', { signal })
+        fetch('https://core-ds.github.io/core-components/archive-versions.json', { signal })
             .then((res) => res.json())
             .then((res: string[]) => setVersions(res.sort((a, b) => b.localeCompare(a))))
             .catch((e) => {

@@ -1,5 +1,26 @@
 # Change Log
 
+## 4.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 4.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 4.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
 ## 4.8.0
 
 ### Minor Changes

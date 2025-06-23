@@ -12,12 +12,24 @@
 
 .deleteIconColor {
     fill: var(--color-light-text-tertiary);
+
+    &:hover {
+        fill: var(--color-light-text-tertiary-hover);
+    }
 }
 
 .downloadIconColor {
     fill: var(--color-light-text-tertiary);
+
+    &:hover {
+        fill: var(--color-light-text-tertiary-hover);
+    }
 }
 
 .restoreIconColor {
     fill: var(--color-light-text-tertiary);
+
+    &:hover {
+        fill: var(--color-light-text-tertiary-hover);
+    }
 }
