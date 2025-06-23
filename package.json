@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.26.0",
+    "version": "48.28.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -117,6 +117,7 @@
         "@commitlint/config-lerna-scopes": "^17.2.1",
         "@oat-sa/rollup-plugin-wildcard-external": "^0.1.0",
         "@rollup/plugin-json": "^5.0.2",
+        "@rollup/plugin-replace": "^6.0.2",
         "@storybook/addon-a11y": "^7.6.2",
         "@storybook/addon-docs": "^7.6.2",
         "@storybook/addon-knobs": "^7.0.2",

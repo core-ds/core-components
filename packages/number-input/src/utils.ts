@@ -9,10 +9,10 @@ import {
 
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 
+import { MAX_SAFE_INTEGER, MIN_SAFE_INTEGER } from './constants/min-max-safe-integer';
+
 export const MINUS_SIGN = '-';
 export const SEPARATORS = [',', '.'];
-export const MAX_SAFE_INTEGER = 2 ** 53 - 1;
-export const MIN_SAFE_INTEGER = -MAX_SAFE_INTEGER;
 export const MAX_DIGITS = 15; // с 16 уже упираемся в MAX_SAFE_INTEGER
 
 export function parseNumber(value: string | number | null = '') {
@@ -336,3 +336,20 @@ export function getNumberInputTestIds(dataTestId: string) {
         incrementButton: getDataTestId(dataTestId, 'increment-button'),
     };
 }
+
+/**
+ * Определение минимального / максимального значения
+ * @description Если значение не передано, вернется { Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER }
+ */
+export const getMinMaxOrDefault = ({
+    minProp,
+    maxProp,
+}: {
+    minProp?: number;
+    maxProp?: number;
+}) => {
+    const min = Math.max(MIN_SAFE_INTEGER, minProp ?? MIN_SAFE_INTEGER);
+    const max = Math.min(MAX_SAFE_INTEGER, maxProp ?? MAX_SAFE_INTEGER);
+
+    return { min, max };
+};

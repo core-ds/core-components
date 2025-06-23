@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { Text } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
@@ -41,7 +41,7 @@ export const ActionTextAddon: React.FC<ActionTextAddonProps> = ({
     dataTestId,
     ...htmlAttributes
 }) => (
-    <ButtonDesktop
+    <ButtonMobile
         view='text'
         size='s'
         onClick={onClick}
@@ -57,5 +57,5 @@ export const ActionTextAddon: React.FC<ActionTextAddonProps> = ({
         >
             {text}
         </Text>
-    </ButtonDesktop>
+    </ButtonMobile>
 );

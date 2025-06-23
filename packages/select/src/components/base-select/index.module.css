@@ -69,6 +69,11 @@
 .search {
     margin: var(--gap-12) var(--gap-12) var(--gap-0);
 
+    &.size-72 {
+        margin-left: var(--gap-16);
+        margin-right: var(--gap-16);
+    }
+
     &:last-child {
         margin-bottom: var(--gap-12);
     }

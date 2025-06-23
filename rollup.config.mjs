@@ -19,6 +19,7 @@ import coreComponentsTypingsResolver from './tools/rollup/core-components-typing
 import createPackageJson from './tools/rollup/create-package-json.mjs';
 import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator.mjs';
 import externalsWithEntryPoints from './tools/rollup/external-with-entry-points.mjs';
+import replace from '@rollup/plugin-replace';
 
 const require = createRequire(import.meta.url);
 
@@ -100,6 +101,8 @@ const postcssPlugin = postcss.default({
     packageVersion: pkg.version,
 });
 
+const replacePlugin = replace({ 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') });
+
 /**
  * Сборка ES5 с commonjs модулями.
  */
@@ -131,6 +134,7 @@ const es5 = {
         copy({ flatten: false, targets: [{ src: ['**/package.json'], dest: 'dist' }] }),
         sourceCopyPlugin,
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
+        replacePlugin,
     ],
 };
 
@@ -166,6 +170,7 @@ const modern = {
         json(),
         postcssPlugin,
         assetsCopyPlugin('dist/modern'),
+        replacePlugin,
     ],
 };
 
@@ -200,6 +205,7 @@ const cssm = {
         json(),
         processCss({ folder: 'cssm' }),
         assetsCopyPlugin('dist/cssm'),
+        replacePlugin,
     ],
 };
 
@@ -240,6 +246,7 @@ const moderncssm = {
             noCommonVars: true,
         }),
         assetsCopyPlugin('dist/moderncssm'),
+        replacePlugin,
     ],
     external: (id) => externals.includes(id) || id.endsWith('.module.css'),
 };
@@ -274,6 +281,7 @@ const esm = {
         json(),
         postcssPlugin,
         assetsCopyPlugin('dist/esm'),
+        replacePlugin,
     ],
 };
 
@@ -304,6 +312,7 @@ const root = {
             ],
         }),
         coreComponentsRootPackageResolver({ currentPackageDir }),
+        replacePlugin,
     ],
     output: [
         {

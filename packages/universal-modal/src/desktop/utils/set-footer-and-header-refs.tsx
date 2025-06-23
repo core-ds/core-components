@@ -12,6 +12,9 @@ import mergeRefs from 'react-merge-refs';
 import { FooterDesktop } from '../../components/footer';
 import { HeaderDesktop } from '../../components/header';
 
+import { isFooterNode } from './isFooterNode';
+import { isHeaderNode } from './isHeaderNode';
+
 type Params = {
     children: ReactNode;
     headerElementRef: RefObject<HTMLDivElement>;
@@ -29,13 +32,13 @@ export const setFooterAndHeaderRefs = (params: Params) => {
 
         const { displayName } = child.type as typeof HeaderDesktop | typeof FooterDesktop;
 
-        if (displayName === 'HeaderDesktop') {
+        if (displayName && isHeaderNode(displayName)) {
             const existingRef = child as ReactElement & { ref: MutableRefObject<HTMLDivElement> };
 
             return cloneElement(child, { ref: mergeRefs([existingRef.ref, headerElementRef]) });
         }
 
-        if (displayName === 'FooterDesktop') {
+        if (displayName && isFooterNode(displayName)) {
             const existingRef = child as ReactElement & { ref: MutableRefObject<HTMLDivElement> };
 
             return cloneElement(child, { ref: mergeRefs([existingRef.ref, footerElementRef]) });

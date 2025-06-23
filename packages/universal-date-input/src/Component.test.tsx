@@ -4,6 +4,7 @@ import { UniversalDateInputDesktop } from './desktop';
 import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getUniversalDateInputTestIds } from './utils';
+import { Calendar } from '../../calendar/src';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -300,6 +301,26 @@ describe('UniversalDateInput', () => {
                 />,
             );
             expect(input.value).toBe(`12.12.2021${DATE_RANGE_SEPARATOR}13.12.2024`);
+        });
+
+        it('should call onBlur callback', async () => {
+            const onBlur = jest.fn();
+
+            const { queryByRole } = render(
+                <UniversalDateInputDesktop
+                    view='date-range'
+                    onBlur={onBlur}
+                    picker={true}
+                    Calendar={Calendar}
+                />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            await userEvent.click(input);
+            fireEvent.blur(input);
+
+            expect(onBlur).toBeCalledTimes(1);
         });
 
         describe('onInputChange tests', () => {

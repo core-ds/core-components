@@ -1,5 +1,29 @@
 # Change Log
 
+## 4.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 4.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 4.9.2
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1717](https://github.com/core-ds/core-components/pull/1717)
+
+-   Фикс hover эффекта при unhover событии для touch экранов
+
 ## 4.9.1
 
 ### Patch Changes
