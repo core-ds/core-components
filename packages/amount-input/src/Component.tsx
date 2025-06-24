@@ -7,7 +7,7 @@ import { getMinMaxOrDefault, parseNumber } from '@alfalab/core-components-number
 import { fnUtils } from '@alfalab/core-components-shared';
 import { withSuffix, withSuffixProps } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
-import { formatAmount, THINSP } from '@alfalab/utils';
+import { formatAmount, MMSP, THINSP } from '@alfalab/utils';
 
 import {
     getAmountValueFromStr,
@@ -232,12 +232,17 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 `(^${positiveOnly ? '' : '-?'}[0-9]{0,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
             ).test(enteredValue);
 
+            let caret = input.selectionStart as number;
+
             if (isCorrectEnteredValue) {
+                if (inputValue[caret] === MMSP) {
+                    enteredValue = enteredValue.slice(0, caret - 1) + enteredValue.slice(caret);
+                    caret -= 1;
+                }
+
                 const newFormattedValue = getFormattedValue(enteredValue, currency, minority);
 
                 if (newFormattedValue === inputValue) {
-                    const caret = input.selectionStart;
-
                     window.requestAnimationFrame(() => {
                         input.selectionStart = caret;
                         input.selectionEnd = caret;
@@ -263,7 +268,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     }
 
                     const diff = newFormattedValue.length - notFormattedEnteredValueLength;
-                    const caret = (input.selectionStart as number) + diff;
+
+                    caret += diff;
 
                     window.requestAnimationFrame(() => {
                         input.selectionStart = caret;
@@ -278,7 +284,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 });
             } else {
                 // Не двигаем каретку когда вставляется невалидный символ
-                const caret = (input.selectionStart as number) - 1;
+                caret -= 1;
 
                 window.requestAnimationFrame(() => {
                     input.selectionStart = caret;
