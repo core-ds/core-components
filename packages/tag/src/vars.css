@@ -32,6 +32,13 @@
     --tag-outlined-background-color-active: var(--color-light-transparent-default-press);
     --tag-outlined-background-color-disabled: transparent;
 
+    /* background-color transparent */
+    --tag-transparent-background-color: transparent;
+    --tag-transparent-background-color-hover: var(--color-light-transparent-default-hover);
+    --tag-transparent-background-color-active: var(--color-light-transparent-default-press);
+    --tag-transparent-background-color-disabled: transparent;
+    --tag-transparent-border-color: transparent;
+
     /* background-color filled */
     --tag-filled-background-color: var(--color-light-neutral-translucent-300);
     --tag-filled-background-color-hover: var(--color-light-neutral-translucent-300-hover);
@@ -70,6 +77,13 @@
     --tag-inverted-outlined-background-color-active: var(
         --color-light-transparent-default-inverted-press
     );
+
+    /* background-color transparent */
+    --tag-inverted-transparent-background-color: transparent;
+    --tag-inverted-transparent-background-color-hover: var(--color-light-transparent-default-inverted-hover);
+    --tag-inverted-transparent-background-color-active: var(--color-light-transparent-default-inverted-press);
+    --tag-inverted-transparent-background-color-disabled: transparent;
+    --tag-inverted-transparent-border-color: transparent;
 
     /* background-color filled */
     --tag-inverted-filled-background-color: var(--color-light-neutral-translucent-300-inverted);
