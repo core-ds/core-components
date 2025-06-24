@@ -43,6 +43,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     breakpoint,
     client,
     initialScreenHintSlot,
+    initialScreenDescription,
     errorVisibleDuration,
     ...restProps
 }) => {
@@ -114,6 +115,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         clearCodeOnError,
         errorVisibleDuration,
         initialScreenHintSlot,
+        initialScreenDescription,
         onInputFinished: handleInputFinished,
         onSmsRetryClick: handleSmsRetry,
         onFatalErrorOkButtonClick: handleFatalErrorOkButtonClick,
