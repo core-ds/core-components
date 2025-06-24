@@ -1,19 +1,37 @@
 @import '../../vars/src/index.css';
 
 :root {
+    /* component */
     --bottom-sheet-in-transition: transform 0.5s cubic-bezier(0.09, 0.91, 0.18, 0.99);
     --bottom-sheet-out-transition: transform 0.3s ease;
     --bottom-sheet-top-radius: var(--border-radius-16);
     --bottom-sheet-shadow: none;
 
-    /* header */
-    --bottom-sheet-header-border-bottom: 1px solid var(--color-light-neutral-300);
+    /* title */
     --bottom-sheet-title-font-size: 20px;
     --bottom-sheet-title-font-weight: 600;
     --bottom-sheet-title-line-height: 28px;
     --bottom-sheet-title-font-family: var(--font-family-system);
 
-    /* footer */
-    --bottom-sheet-footer-border-top: 1px solid var(--color-light-neutral-300);
+    /* subtitle */
+    --bottom-sheet-subtitle-font-size: 14px;
+    --bottom-sheet-subtitle-font-weight: 400;
+    --bottom-sheet-subtitle-line-height: 20px;
+    --bottom-sheet-subtitle-font-family: var(--font-family-system);
+
+    /* default colors */
+    --bottom-sheet-background-color: var(--color-light-modal-bg-primary);
+    --bottom-sheet-marker-color: var(--color-light-neutral-translucent-300);
+    --bottom-sheet-header-border-bottom: 1px solid var(--color-light-neutral-300);
+    --bottom-sheet-text-color: var(--color-light-text-primary);
     --bottom-sheet-footer-background-color: var(--color-light-modal-bg-primary);
+    --bottom-sheet-footer-border-top: 1px solid var(--color-light-neutral-300);
+
+    /* inverted colors */
+    --bottom-sheet-background-color-inverted: var(--color-light-modal-bg-primary-inverted);
+    --bottom-sheet-marker-color-inverted: var(--color-light-neutral-translucent-300-inverted);
+    --bottom-sheet-header-border-bottom-inverted: 1px solid var(--color-light-neutral-300-inverted);
+    --bottom-sheet-text-color-inverted: var(--color-light-text-primary-inverted);
+    --bottom-sheet-footer-background-color-inverted: var(--color-light-modal-bg-primary-inverted);
+    --bottom-sheet-footer-border-top-inverted: 1px solid var(--color-light-neutral-300-inverted);
 }
