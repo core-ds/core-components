@@ -51,7 +51,10 @@ describe(
                 open: true,
                 header: true,
                 showMore: true,
-                'header.title': 'Заголовок',
+                'header.title': [
+                    'Заголовок',
+                    'Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок',
+                ],
                 'header.sticky': true,
                 'header.align': ['left', 'center'],
                 'header.hasCloser': true,
@@ -79,7 +82,10 @@ describe(
                 open: true,
                 header: true,
                 showMore: true,
-                'header.title': 'Заголовок',
+                'header.title': [
+                    'Заголовок',
+                    'Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок',
+                ],
                 'header.sticky': true,
                 'header.align': ['left', 'center'],
                 'header.hasCloser': true,
@@ -94,9 +100,11 @@ describe(
             fullPage: true,
         },
         evaluate: async (page) => {
+            await page.waitForTimeout(500);
             await page.$eval('button[class*=showMoreButton]', (el) => {
                 el.scrollIntoView();
             });
+            await page.waitForTimeout(500);
         },
     }),
 );

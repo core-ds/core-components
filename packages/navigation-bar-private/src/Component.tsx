@@ -145,6 +145,15 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             );
         };
 
+        // Анимированный заголовок в верхнем положении в любом случае должен располагаться по центру
+        const gitTitleAlign = () => {
+            if (showAnimatedContentOnTop) {
+                return 'center';
+            }
+
+            return align;
+        };
+
         const renderContent = (args: ContentParams = {}) => {
             const { extraClassName, wrapperRef, style, hidden } = args;
 
@@ -152,10 +161,17 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                 <div
                     style={{ ...style, visibility: hidden ? 'hidden' : 'visible' }}
                     ref={wrapperRef}
-                    className={cn(styles.content, extraClassName, contentClassName, styles[align], {
-                        [styles.trim]: trim,
-                        [styles.withCompactTitle]: view === 'mobile' && compactTitle && hasContent,
-                    })}
+                    className={cn(
+                        styles.content,
+                        extraClassName,
+                        contentClassName,
+                        styles[gitTitleAlign()],
+                        {
+                            [styles.trim]: trim,
+                            [styles.withCompactTitle]:
+                                view === 'mobile' && compactTitle && hasContent,
+                        },
+                    )}
                     aria-hidden={hidden}
                 >
                     {children && <div className={styles.children}>{children}</div>}

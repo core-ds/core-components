@@ -86,6 +86,7 @@ export type NavigationBarPrivateProps = {
 
     /**
      * Выравнивание заголовка
+     * @default left
      */
     align?: 'left' | 'center';
 
