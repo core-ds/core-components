@@ -187,6 +187,65 @@ describe(
     }),
 );
 
+describe(
+    'ModalMobile | header title alignment',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Modal',
+            testStory: false,
+            knobs: {
+                ModalComponent: 'ModalMobile',
+                open: true,
+                header: true,
+                showMore: true,
+                'header.title': 'Заголовок',
+                'header.sticky': true,
+                'header.align': ['left', 'center'],
+                'header.hasBackButton': true,
+            },
+        }),
+        viewport: {
+            width: 320,
+            height: 600,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'ModalMobile | header scrolled title alignment',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Modal',
+            testStory: false,
+            knobs: {
+                ModalComponent: 'ModalMobile',
+                open: true,
+                header: true,
+                showMore: true,
+                'header.title': 'Заголовок',
+                'header.sticky': true,
+                'header.align': ['left', 'center'],
+                'header.hasBackButton': true,
+            },
+        }),
+        viewport: {
+            width: 320,
+            height: 600,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+        evaluate: async (page) => {
+            await page.$eval('button[class*=showMoreButton]', (el) => {
+                el.scrollIntoView();
+            });
+        },
+    }),
+);
+
 // DESKTOP
 
 describe('ModalDesktop', () => {
