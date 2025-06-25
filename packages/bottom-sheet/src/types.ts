@@ -117,6 +117,11 @@ export type BottomSheetProps = {
     modalWrapperClassName?: string;
 
     /**
+     * Дефолтный маркер
+     */
+    isDefaultMarkerAvailable?: boolean
+
+    /**
      * Дополнительный класс для маркера
      */
     swipeableMarkerClassName?: string;

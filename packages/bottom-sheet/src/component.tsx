@@ -103,6 +103,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             keepMounted,
             onMagnetizeEnd,
             onOffsetChange,
+            isDefaultMarkerAvailable = true,
             swipeableMarker,
             swipeableMarkerClassName,
             backButtonProps,
@@ -578,7 +579,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(
                             styles.marker,
-                            styles.defaultMarker,
+                            {[styles.defaultMarker]: isDefaultMarkerAvailable},
                             swipeableMarkerClassName,
                         )}
                     />
