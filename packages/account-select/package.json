@@ -22,8 +22,9 @@
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/core-components-masked-input": "^6.3.21",
         "@alfalab/hooks": "^1.13.1",
+        "@maskito/core": "^1.7.0",
+        "@maskito/react": "^1.7.0",
         "classnames": "^2.5.1",
-        "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0"
     }
 }

@@ -1,0 +1,9 @@
+@import '../../../vars/src/index.css';
+
+.accountSelect {
+    min-width: 400px;
+}
+
+.optionContent {
+    padding-left: var(--gap-12);
+}

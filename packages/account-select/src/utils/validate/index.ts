@@ -1,4 +1,6 @@
-export const validateCardNumber = (value: string) => value.replace(/\s/g, '').length === 16;
+const isNumericString = (str: string) => /^\d+$/.test(str);
+
+export const validateCardNumber = (value: string) => value.length === 16 && isNumericString(value);
 
 export const validateExpiry = (value: string) => {
     if (value.length !== 5) return false;
@@ -17,4 +19,8 @@ export const validateExpiry = (value: string) => {
     );
 };
 
-export const validateCvv = (value: string) => value.length === 3;
+export const validateCvv = (value: string | number | undefined) => {
+    if (typeof value === 'number') return value.toString().length === 3;
+
+    return value?.length === 3 && isNumericString(value);
+};

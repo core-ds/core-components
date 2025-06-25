@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
+import { boolean, text } from '@storybook/addon-knobs';
 import { AccountSelectDesktop } from '../desktop';
-import { PureCell } from '../../../pure-cell/src';
-import { ProductCover } from '../../../product-cover/src';
-import { Amount } from '../../../amount/src';
+import { PureCell } from '@alfalab/core-components-pure-cell';
+import { ProductCover } from '@alfalab/core-components-product-cover';
+import { PlusMIcon } from '@alfalab/icons-glyph/PlusMIcon';
+import { AccountSelectMobile } from '../mobile';
+import { CardData } from '../types';
+
+const baseCard = {
+    baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+    layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+    cardId: 'RM',
+};
 
 const meta: Meta<typeof AccountSelectDesktop> = {
     title: 'Components/AccountSelect',
     component: AccountSelectDesktop,
-    tags: ['autodocs'],
-    argTypes: {
-        hasNewCardAdding: {
-            control: 'boolean',
-            description: 'Включить возможность добавления новой карты',
-        },
-    },
+    id: 'AccountSelect',
 };
 
-export default meta;
 type Story = StoryObj<typeof AccountSelectDesktop>;
 
 const options = [
@@ -45,7 +47,6 @@ const options = [
                 </PureCell.Content>
             </PureCell>
         ),
-        value: '1',
     },
     {
         key: '2',
@@ -71,18 +72,92 @@ const options = [
                 </PureCell.Content>
             </PureCell>
         ),
-        value: '2',
     },
 ];
 
 export const account_select_desktop: Story = {
     name: 'AccountSelectDesktop',
+    render: () => {
+        const [cardImage, setCardImage] = useState<typeof baseCard | undefined>(undefined);
+        const handleInput = (data: CardData) => {
+            if (data.number.startsWith('111111')) {
+                setCardImage(baseCard);
+            }
+        };
+        const handleSubmit = (data: CardData) => {
+            console.log(data);
+        };
+
+        return (
+            <AccountSelectDesktop
+                onChange={(e) => {
+                    console.log(e);
+                }}
+                label={text('label', 'Выберите карту')}
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                cardAddingProps={{
+                    content: (
+                        <PureCell verticalPadding='airy'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={32}
+                                    iconColor='var(--color-light-neutral-700)'
+                                    icon={PlusMIcon}
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <PureCell.Text titleColor='primary' view='primary-small'>
+                                        Новая карта
+                                    </PureCell.Text>
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    ),
+                    onInput: handleInput,
+                    onSubmit: handleSubmit,
+                    needCvv: boolean('needCvv', true),
+                    needExpiryDate: boolean('needExpiryDate', true),
+                    expiryAsDate: boolean('expiryAsDate', true),
+                    cardImage,
+                }}
+                options={options}
+            />
+        );
+    },
+};
+
+export const account_select_mobile: Story = {
+    name: 'AccountSelectMobile',
     render: () => (
-        <AccountSelectDesktop
-            onInput={(values) => console.log(values)}
-            label='Выберите карту'
+        <AccountSelectMobile
+            label={text('label', 'Выберите карту')}
             options={options}
-            hasNewCardAdding={true}
+            cardAddingProps={{
+                content: (
+                    <PureCell verticalPadding='airy'>
+                        <PureCell.Graphics verticalAlign='center'>
+                            <ProductCover.Single
+                                size={32}
+                                iconColor='var(--color-light-neutral-700)'
+                                icon={PlusMIcon}
+                            />
+                        </PureCell.Graphics>
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='primary' view='primary-small'>
+                                    Новая карта
+                                </PureCell.Text>
+                            </PureCell.Main>
+                        </PureCell.Content>
+                    </PureCell>
+                ),
+                needCvv: boolean('needCvv', true),
+                needExpiryDate: boolean('needExpiryDate', true),
+                expiryAsDate: boolean('expiryAsDate', true),
+            }}
         />
     ),
 };
+
+export default meta;

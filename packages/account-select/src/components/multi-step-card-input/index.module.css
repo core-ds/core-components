@@ -1,3 +1,5 @@
+@import '../../../../vars/src/index.css';
+
 .multistepInput {
     transition: width 0.3s ease-in-out;
     border: none;
@@ -25,7 +27,7 @@
 }
 
 .expiryInput {
-    width: 5ch;
+    width: 7ch;
 }
 
 .cvvInput {

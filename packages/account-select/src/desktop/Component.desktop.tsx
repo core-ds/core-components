@@ -1,18 +1,28 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 
 import { Popover } from '@alfalab/core-components-popover';
 import {
     AnyObject,
     Arrow,
+    BaseOption,
     BaseSelect,
     Optgroup as DefaultOptgroup,
-    Option as DefaultOption,
+    OptionProps,
     OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
 import { CustomField } from '../components/custom-field';
 import { ADD_CARD_KEY } from '../constants';
+import { AccountSelectContext } from '../context';
 import { AccountSelectProps } from '../types';
+
+import styles from './index.module.css';
+
+const DefaultOption = (props: OptionProps) => (
+    <BaseOption {...props}>
+        <div className={styles.optionContent}>{props.option.content}</div>
+    </BaseOption>
+);
 
 export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectProps>(
     (
@@ -20,47 +30,55 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
             OptionsList = DefaultOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            onInput,
-            hasNewCardAdding,
-            onSubmit,
             closeOnSelect = true,
             options,
+            cardAddingProps,
+            dataTestId,
             ...restProps
         },
         ref,
     ) => {
+        const [error, setError] = useState<string | null>(null);
+        const { content, ...restCardAddingProps } = cardAddingProps || {};
         const enhancedOptions = useMemo(() => {
-            if (!hasNewCardAdding) return options;
+            if (!content) return options;
 
             return [
                 {
                     key: ADD_CARD_KEY,
-                    content: 'Новая карта',
+                    content,
                     value: ADD_CARD_KEY,
                 },
                 ...options,
             ];
-        }, [hasNewCardAdding, options]);
+        }, [content, options]);
+
+        const contextValue = useMemo(() => ({ setError }), [setError]);
 
         return (
-            <BaseSelect
-                view='desktop'
-                Popover={Popover}
-                ref={ref}
-                options={enhancedOptions}
-                closeOnSelect={closeOnSelect}
-                Option={Option}
-                Field={CustomField}
-                Optgroup={Optgroup}
-                OptionsList={OptionsList}
-                Arrow={Arrow}
-                {...restProps}
-                fieldProps={{
-                    ...(restProps.fieldProps as AnyObject),
-                    onInput,
-                    onSubmit,
-                }}
-            />
+            <AccountSelectContext.Provider value={contextValue}>
+                <BaseSelect
+                    dataTestId={dataTestId}
+                    className={styles.accountSelect}
+                    error={error}
+                    view='desktop'
+                    Popover={Popover}
+                    ref={ref}
+                    options={enhancedOptions}
+                    closeOnSelect={closeOnSelect}
+                    Option={Option}
+                    Field={CustomField}
+                    Optgroup={Optgroup}
+                    OptionsList={OptionsList}
+                    Arrow={Arrow}
+                    optionClassName={styles.option}
+                    {...restProps}
+                    fieldProps={{
+                        ...(restProps.fieldProps as AnyObject),
+                        ...restCardAddingProps,
+                    }}
+                />
+            </AccountSelectContext.Provider>
         );
     },
 );

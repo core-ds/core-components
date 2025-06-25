@@ -1,196 +1,222 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
-import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
 
 import { ProductCover } from '@alfalab/core-components-product-cover';
 
 import { CARD_MASK, CVV_MASK, EXPIRY_MASK } from '../../constants';
-import { AccountSelectProps, CardData } from '../../types';
+import { useAccountSelectContext } from '../../context';
+import { CardAddingProps, CardData } from '../../types';
+import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
+import { parseDate } from '../../utils/parse-date';
 import { validateCardNumber, validateCvv, validateExpiry } from '../../utils/validate';
 
 import styles from './index.module.css';
 
-type MultiStepCardInputProps = Pick<AccountSelectProps, 'onSubmit' | 'onInput'>;
+type MultiStepCardInputProps = Pick<
+    CardAddingProps,
+    'onSubmit' | 'onInput' | 'cardImage' | 'needCvv' | 'needExpiryDate' | 'expiryAsDate'
+>;
 
-const createMaskConfig = (mask: TextMaskConfig['mask']): TextMaskConfig => ({
-    mask,
-    guide: false,
-    keepCharPositions: false,
-    showMask: false,
-    currentCaretPosition: 0,
-    rawValue: '',
-    previousConformedValue: '',
-});
+export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
+    ({
+        onSubmit,
+        onInput,
+        cardImage,
+        needCvv = true,
+        needExpiryDate = true,
+        expiryAsDate = true,
+    }) => {
+        const [step, setStep] = useState<number>(1);
+        const [cardNumber, setCardNumber] = useState<CardData['number']>('');
+        const [cardExpiry, setCardExpiry] = useState<CardData['expiryDate']>('');
+        const [cardCvv, setCardCvv] = useState<string>('');
+        const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
 
-const getMaskedCardNumber = (value: string) => {
-    if (!value || value.length < 16) return value;
-    const cleanValue = value.replace(/\s/g, '');
-    const lastFour = cleanValue.slice(-4);
+        const { setError } = useAccountSelectContext();
 
-    return `··${lastFour}`;
-};
+        const numberRef = useRef<HTMLInputElement | null>(null);
+        const expiryRef = useRef<HTMLInputElement | null>(null);
+        const cvvRef = useRef<HTMLInputElement | null>(null);
 
-export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = ({ onSubmit, onInput }) => {
-    const [step, setStep] = useState<number>(1);
-    const [cardNumber, setCardNumber] = useState<CardData['number']>('');
-    const [cardExpiry, setCardExpiry] = useState<CardData['expiryDate']>('');
-    const [cardCvv, setCardCvv] = useState<CardData['cvv']>('');
-    const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
+        const numberMaskRef = useMaskito({ options: CARD_MASK });
+        const expiryMaskRef = useMaskito({ options: EXPIRY_MASK });
+        const cvvMaskRef = useMaskito({ options: CVV_MASK });
 
-    const numberRef = useRef<HTMLInputElement>(null);
-    const expiryRef = useRef<HTMLInputElement>(null);
-    const cvvRef = useRef<HTMLInputElement>(null);
+        const numberRefCallback = useCallback(
+            (element: HTMLInputElement | null) => {
+                (numberRef as React.MutableRefObject<HTMLInputElement | null>).current = element;
+                numberMaskRef(element);
+            },
+            [numberMaskRef],
+        );
 
-    const numberMask = useRef<TextMaskInputElement | null>(null);
-    const expiryMask = useRef<TextMaskInputElement | null>(null);
-    const cvvMask = useRef<TextMaskInputElement | null>(null);
+        const expiryRefCallback = useCallback(
+            (element: HTMLInputElement | null) => {
+                (expiryRef as React.MutableRefObject<HTMLInputElement | null>).current = element;
+                expiryMaskRef(element);
+            },
+            [expiryMaskRef],
+        );
 
-    useEffect(() => {
-        onInput?.({
-            number: cardNumber,
-            expiryDate: cardExpiry,
-            cvv: cardCvv,
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [cardNumber, cardExpiry, cardCvv]);
+        const cvvRefCallback = useCallback(
+            (element: HTMLInputElement | null) => {
+                (cvvRef as React.MutableRefObject<HTMLInputElement | null>).current = element;
+                cvvMaskRef(element);
+            },
+            [cvvMaskRef],
+        );
 
-    useEffect(() => {
-        if (step === 1) {
-            numberRef.current?.focus();
-        }
-    }, [step]);
-
-    useEffect(() => {
-        if (numberRef.current) {
-            numberMask.current = createTextMaskInputElement({
-                ...createMaskConfig(CARD_MASK),
-                inputElement: numberRef.current,
+        useEffect(() => {
+            onInput?.({
+                number: cardNumber,
+                ...(needExpiryDate && { expiryDate: cardExpiry }),
+                ...(needCvv && cardCvv && { cvv: cardCvv }),
             });
-        }
-    }, []);
 
-    useEffect(() => {
-        if (expiryRef.current && step >= 2) {
-            expiryMask.current = createTextMaskInputElement({
-                ...createMaskConfig(EXPIRY_MASK),
-                inputElement: expiryRef.current,
-            });
-        }
-    }, [step]);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [cardNumber, cardExpiry, cardCvv, needExpiryDate, needCvv]);
 
-    useEffect(() => {
-        if (cvvRef.current && step >= 3) {
-            cvvMask.current = createTextMaskInputElement({
-                ...createMaskConfig(CVV_MASK),
-                inputElement: cvvRef.current,
-            });
-        }
-    }, [step]);
-
-    const handleCardNumberFocus = () => {
-        setIsCardNumberFocused(true);
-    };
-
-    const handleCardNumberBlur = () => {
-        setIsCardNumberFocused(false);
-    };
-
-    const handleCardNumberChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
-        if (numberMask.current) {
-            numberMask.current.update(value);
-            const maskedValue = numberRef.current?.value || '';
-
-            setCardNumber(maskedValue);
-
-            if (validateCardNumber(maskedValue)) {
-                setStep(2);
-                setTimeout(() => expiryRef.current?.focus(), 100);
+        useEffect(() => {
+            if (step === 1) {
+                numberRef.current?.focus();
             }
-        }
-    };
+        }, [step]);
 
-    const handleExpiryChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
-        if (expiryMask.current) {
-            expiryMask.current.update(value);
-            const maskedValue = expiryRef.current?.value || '';
+        const handleCardNumberFocus = () => {
+            setIsCardNumberFocused(true);
+            setTimeout(() => {
+                const { current } = numberRef;
 
-            setCardExpiry(maskedValue);
+                if (current) {
+                    const { length } = current.value;
 
-            if (validateExpiry(maskedValue)) {
-                setStep(3);
-                setTimeout(() => cvvRef.current?.focus(), 100);
+                    current.setSelectionRange(length, length);
+                }
+            }, 0);
+        };
+
+        const handleCardNumberBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+            setIsCardNumberFocused(false);
+            setError(validateCardNumber(e.target.value) ? null : 'Номер карты введён неверно');
+        };
+
+        const handleExpiryBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+            setError(validateExpiry(e.target.value) ? null : 'Срок действия карты введён неверно');
+        };
+
+        const handleCvvBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+            setError(validateCvv(e.target.value) ? null : 'Нужно заполнить CVV');
+        };
+
+        const handleCardNumberChange = ({
+            target: { value },
+        }: React.ChangeEvent<HTMLInputElement>) => {
+            const cleanValue = value.replace(/\s/g, '');
+
+            setCardNumber(cleanValue);
+
+            if (validateCardNumber(cleanValue)) {
+                if (needExpiryDate) {
+                    setStep(2);
+                    setTimeout(() => expiryRef.current?.focus(), 100);
+                } else {
+                    numberRef.current?.blur();
+                    onSubmit?.({
+                        number: cleanValue,
+                    });
+                }
             }
-        }
-    };
+        };
 
-    const handleCvvChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
-        if (cvvMask.current) {
-            cvvMask.current.update(value);
-            const maskedValue = cvvRef.current?.value || '';
+        const handleExpiryChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+            setCardExpiry(value);
 
-            setCardCvv(maskedValue);
+            if (validateExpiry(value)) {
+                if (needCvv) {
+                    setStep(3);
+                    setTimeout(() => cvvRef.current?.focus(), 100);
+                } else {
+                    expiryRef.current?.blur();
+                    onSubmit?.({
+                        number: cardNumber,
+                        expiryDate: expiryAsDate ? parseDate(value as string) : value,
+                    });
+                }
+            }
+        };
 
-            if (validateCvv(maskedValue)) {
+        const handleCvvChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+            setCardCvv(value);
+
+            if (validateCvv(value)) {
+                cvvRef.current?.blur();
                 onSubmit?.({
                     number: cardNumber,
-                    expiryDate: cardExpiry,
-                    cvv: maskedValue,
+                    expiryDate: expiryAsDate ? parseDate(cardExpiry as string) : cardExpiry,
+                    cvv: value,
                 });
             }
-        }
-    };
+        };
 
-    const getDisplayCardNumber = () => {
-        if (isCardNumberFocused || step === 1 || !validateCardNumber(cardNumber)) {
-            return cardNumber;
-        }
+        const getDisplayCardNumber = () => {
+            if (isCardNumberFocused || !validateCardNumber(cardNumber)) {
+                return formatCardNumber(cardNumber);
+            }
 
-        return getMaskedCardNumber(cardNumber);
-    };
+            return getMaskedCardNumber(cardNumber);
+        };
 
-    return (
-        <div
-            className={styles.multistepCardInputWrapper}
-            onClick={(e) => e.stopPropagation()}
-            aria-hidden='true'
-        >
-            <ProductCover.Single size={32} />
-            <input
-                ref={numberRef}
-                type='text'
-                value={getDisplayCardNumber()}
-                onChange={handleCardNumberChange}
-                onFocus={handleCardNumberFocus}
-                onBlur={handleCardNumberBlur}
-                className={cn(styles.multistepInput, styles.cardNumberInput)}
-                inputMode='numeric'
-                pattern='[0-9]*'
-            />
-            {step >= 2 && (
+        return (
+            <div
+                className={styles.multistepCardInputWrapper}
+                onClick={(e) => e.stopPropagation()}
+                aria-hidden='true'
+            >
+                <ProductCover.Single
+                    cardNumber={cardNumber.length > 5 ? Number(cardNumber) : undefined}
+                    size={32}
+                    {...cardImage}
+                />
                 <input
-                    ref={expiryRef}
+                    ref={numberRefCallback}
                     type='text'
-                    value={cardExpiry}
-                    onChange={handleExpiryChange}
-                    className={cn(styles.multistepInput, styles.expiryInput)}
+                    value={getDisplayCardNumber()}
+                    onInput={handleCardNumberChange}
+                    onFocus={handleCardNumberFocus}
+                    onBlur={handleCardNumberBlur}
+                    className={cn(styles.multistepInput, styles.cardNumberInput)}
                     inputMode='numeric'
                     pattern='[0-9]*'
-                    placeholder='ММ/ГГ'
                 />
-            )}
-            {step >= 3 && (
-                <input
-                    ref={cvvRef}
-                    type='password'
-                    value={cardCvv}
-                    onChange={handleCvvChange}
-                    className={cn(styles.multistepInput, styles.cvvInput)}
-                    inputMode='numeric'
-                    pattern='[0-9]*'
-                    placeholder='CVC'
-                    maxLength={3}
-                />
-            )}
-        </div>
-    );
-};
+                {needExpiryDate && step >= 2 && (
+                    <input
+                        ref={expiryRefCallback}
+                        type='text'
+                        value={cardExpiry as string}
+                        onInput={handleExpiryChange}
+                        onBlur={handleExpiryBlur}
+                        className={cn(styles.multistepInput, styles.expiryInput)}
+                        inputMode='numeric'
+                        pattern='[0-9]*'
+                        placeholder='ММ/ГГ'
+                    />
+                )}
+                {needCvv && step >= 3 && (
+                    <input
+                        ref={cvvRefCallback}
+                        type='password'
+                        value={cardCvv || ''}
+                        onInput={handleCvvChange}
+                        onBlur={handleCvvBlur}
+                        className={cn(styles.multistepInput, styles.cvvInput)}
+                        inputMode='numeric'
+                        pattern='[0-9]*'
+                        placeholder='CVC'
+                        maxLength={3}
+                    />
+                )}
+            </div>
+        );
+    },
+);

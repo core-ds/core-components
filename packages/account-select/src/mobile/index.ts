@@ -1,1 +1,1 @@
-export { default as AccountSelectMobile } from './Component.mobile';
+export { AccountSelectMobile } from './Component.mobile';

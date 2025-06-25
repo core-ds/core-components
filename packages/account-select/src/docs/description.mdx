@@ -1,0 +1,389 @@
+## Выбор счёта
+
+```jsx live
+render(() => {
+    const options = [
+        {
+            key: '1',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Экспресс-счёт ··1234
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+        {
+            key: '2',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Экспресс-счёт ··1111
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+        {
+            key: '3',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Экспресс-счёт ··4567
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={0}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+    ];
+    return <AccountSelect label='Куда' options={options} />;
+});
+```
+
+## Выбор карты
+
+```jsx live
+render(() => {
+    const options = [
+        {
+            key: '1',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single size={32} />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Альфа-карта с преимуществами
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+        {
+            key: '2',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single size={32} />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Альфа-карта с кредитным лимитом
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+    ];
+    return (
+        <AccountSelect
+            label='Карта получателя'
+            fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+            options={options}
+        />
+    );
+});
+```
+
+## Добавление новой карты отправителя
+
+Для карты отправителя можно использовать механику с запросом CVC или без него.
+После ввода 6-го символа определяется банк и платёжная система. При необходимости, можно настроить отображение различных рубашек карт для банков РФ. В примере для карты начинающейся с номера 1234 56 будет определён банк и изменится рубашка.
+
+```jsx live
+render(() => {
+    const options = [
+        {
+            key: '1',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single
+                            size={32}
+                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                            cardId='RM'
+                        />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Альфа-карта с преимуществами
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+        {
+            key: '2',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single
+                            size={32}
+                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                            cardId='RM'
+                        />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Альфа-карта с кредитным лимитом
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+    ];
+
+    const [cvv, setCvv] = React.useState(true);
+    const [expiry, setExpiry] = React.useState(true);
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        }
+    };
+
+    return (
+        <div>
+            <AccountSelect
+                label='Карта отправителя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                options={options}
+                cardAddingProps={{
+                    content: (
+                        <PureCell verticalPadding='airy'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={32}
+                                    iconColor='var(--color-light-neutral-700)'
+                                    icon={PlusMIcon}
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <PureCell.Text titleColor='primary' view='primary-small'>
+                                        Новая карта
+                                    </PureCell.Text>
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    ),
+                    needCvv: cvv,
+                    needExpiryDate: expiry,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+            <Gap size='m' />
+            <Switch
+                checked={cvv}
+                label='Нужен CVV'
+                onChange={() => {
+                    setCvv((prevState) => !prevState);
+                }}
+            />
+            <Switch
+                checked={expiry}
+                label='Нужна дата окончания действия карты'
+                onChange={() => {
+                    setExpiry((prevState) => !prevState);
+                }}
+            />
+        </div>
+    );
+});
+```
+
+## Добавление новой карты получателя
+
+```jsx live
+render(() => {
+    const options = [
+        {
+            key: '1',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single
+                            size={32}
+                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                            cardId='RM'
+                        />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Альфа-карта с преимуществами
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+        {
+            key: '2',
+            content: (
+                <PureCell verticalPadding='compact'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single
+                            size={32}
+                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                            cardId='RM'
+                        />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                Альфа-карта с кредитным лимитом
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={100099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        },
+    ];
+
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        }
+    };
+
+    return (
+        <div>
+            <AccountSelect
+                label='Карта получателя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                options={options}
+                cardAddingProps={{
+                    content: (
+                        <PureCell verticalPadding='airy'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={32}
+                                    iconColor='var(--color-light-neutral-700)'
+                                    icon={PlusMIcon}
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <PureCell.Text titleColor='primary' view='primary-small'>
+                                        Новая карта
+                                    </PureCell.Text>
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    ),
+                    needCvv: false,
+                    needExpiryDate: false,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+        </div>
+    );
+});
+```

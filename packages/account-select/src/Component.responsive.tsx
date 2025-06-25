@@ -4,30 +4,17 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { AccountSelectDesktop } from './desktop';
 import { AccountSelectMobile } from './mobile';
-import type { AccountSelectProps } from './types';
+import type { AccountSelectResonsiveProps } from './types';
 
-export const AccountSelectResponsive = forwardRef<HTMLDivElement, AccountSelectProps>(
-    (
-        {
-            breakpoint,
-            client,
-            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
-            ...restProps
-        },
-        ref,
-    ) => {
-        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
+export const AccountSelectResponsive = forwardRef<HTMLInputElement, AccountSelectResonsiveProps>(
+    ({ breakpoint, client, ...restProps }, ref) => {
+        const isDesktop = useIsDesktop(breakpoint);
 
-        if (isDesktop) {
-            return <AccountSelectDesktop {...restProps} ref={ref} />;
+        if (isDesktop || client === 'desktop') {
+            return <AccountSelectDesktop ref={ref} {...restProps} />;
         }
 
-        const mobileProps = {
-            ...restProps,
-            ...restProps.originalProps,
-        };
-
-        return <AccountSelectMobile {...mobileProps} ref={ref} />;
+        return <AccountSelectMobile ref={ref} {...restProps} />;
     },
 );
 
