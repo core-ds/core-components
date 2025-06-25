@@ -65,4 +65,7 @@
 
     /* size xl */
     --secondary-tablist-xl-gaps: var(--gap-16);
+
+    /* default transparent gaps */
+    --secondary-tablist-transparent-gaps: var(--gap-0);
 }
