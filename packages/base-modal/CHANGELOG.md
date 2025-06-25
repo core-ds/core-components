@@ -1,5 +1,56 @@
 # Change Log
 
+## 5.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   portal@3.3.10
+
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1614](https://github.com/core-ds/core-components/pull/1614)
+
+-   Исправлен тип `TransitionProps` на `CSSTransitionProps` в `base-modal`
+
+## 5.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   portal@3.3.9
+
+## 5.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   portal@3.3.8
+
+## 5.9.0
+
+### Minor Changes
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+-   Добавлен пропс `contentElementRef` для контентной области
+-   Добавлен обработчик события `onWheel`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   portal@3.3.7
+
 ## 5.8.10
 
 ### Patch Changes

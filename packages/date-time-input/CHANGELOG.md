@@ -1,5 +1,131 @@
 # @alfalab/core-components-date-time-input
 
+## 4.5.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   calendar@7.19.0
+    -   input@15.6.2
+    -   icon-button@6.11.13
+    -   popover@6.3.11
+
+## 4.5.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+
+## 4.5.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   calendar@7.18.6
+    -   input@15.6.1
+    -   icon-button@6.11.12
+    -   popover@6.3.10
+
+## 4.5.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+
+## 4.5.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+    -   calendar@7.18.4
+
+## 4.5.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   calendar@7.18.3
+    -   input@15.5.5
+    -   icon-button@6.11.11
+    -   popover@6.3.9
+
+## 4.5.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.2
+
+## 4.5.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.1
+    -   icon-button@6.11.10
+    -   input@15.5.4
+
+## 4.5.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.0
+
+## 4.5.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.14
+
+## 4.5.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.13
+
+## 4.5.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.12
+    -   icon-button@6.11.9
+    -   input@15.5.3
+
+## 4.5.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.11
+
+## 4.5.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   input@15.5.2
+    -   icon-button@6.11.8
+    -   popover@6.3.8
+
+## 4.5.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+
 ## 4.5.18
 
 ### Patch Changes

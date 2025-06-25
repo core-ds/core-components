@@ -12,6 +12,7 @@ node_modules/
 /build
 dist
 *.tsbuildinfo
+package-sizes.json
 
 # misc
 .DS_Store
@@ -33,3 +34,5 @@ storybook-static
 yalc.lock
 lerna-debug.log
 .npmrc
+
+.storybook/public/images/*preview-snap.png

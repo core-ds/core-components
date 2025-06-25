@@ -1,5 +1,25 @@
 # Change Log
 
+## 3.10.1
+
+### Patch Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1634](https://github.com/core-ds/core-components/pull/1634)
+
+-   RUR удален из deprecated. Удалены dev утилиты для ворнинга.
+
+## 3.10.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
 ## 3.9.1
 
 ### Patch Changes

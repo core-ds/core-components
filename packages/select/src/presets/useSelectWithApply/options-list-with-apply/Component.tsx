@@ -39,6 +39,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             header,
             headerProps,
             setSelectedDraft,
+            size,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
@@ -98,7 +99,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
                 <React.Fragment>
                     {header}
                     {showHeaderWithSelectAll && flatOptions.length > 0 && (
-                        <Header {...headerProps} />
+                        <Header {...headerProps} size={size} />
                     )}
                 </React.Fragment>
             );
@@ -107,6 +108,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
         return (
             <OptionsList
                 {...restProps}
+                size={size}
                 ref={ref}
                 visibleOptions={visibleOptions}
                 toggleMenu={toggleMenu}
@@ -124,6 +126,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
                         showClear={showClear}
                         selectedDraft={selectedDraft}
                         dataTestId={restProps?.dataTestId}
+                        size={size}
                     />
                 }
             />

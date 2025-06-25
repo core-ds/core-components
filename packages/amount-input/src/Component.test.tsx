@@ -3,7 +3,7 @@
  */
 
 import React, { useState } from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
 import { MMSP, THINSP } from '@alfalab/utils';
@@ -606,6 +606,88 @@ describe('AmountInput', () => {
     it('should has passed `inputClassName` too', () => {
         const input = renderAmountInput(null, 'RUR', { inputClassName: 'foo' });
         expect(input).toHaveClass('foo');
+    });
+
+    describe('stepper tests', () => {
+        it('should render stepper increment', () => {
+            const dataTestId = 'test-id';
+
+            render(<AmountInput dataTestId={dataTestId} value={1000} stepper={{ step: 1 }} />);
+
+            expect(screen.queryByTestId(`${dataTestId}-increment-button`)).toBeInTheDocument();
+        });
+
+        it('should render stepper decrement', () => {
+            const dataTestId = 'test-id';
+
+            render(<AmountInput dataTestId={dataTestId} value={1000} stepper={{ step: 1 }} />);
+
+            expect(screen.queryByTestId(`${dataTestId}-decrement-button`)).toBeInTheDocument();
+        });
+
+        it('should increment', () => {
+            const dataTestId = 'test-id';
+
+            const Component = () => {
+                const [value, setValue] = useState(1000);
+                const handleChange: AmountInputProps['onChange'] = (e, payload) => {
+                    if (payload.value) {
+                        setValue(payload.value);
+                    }
+                };
+
+                return (
+                    <AmountInput
+                        dataTestId={dataTestId}
+                        value={value}
+                        stepper={{ step: 1 }}
+                        onChange={handleChange}
+                    />
+                );
+            };
+
+            render(<Component />);
+
+            const incrementButton = screen.getByTestId(`${dataTestId}-increment-button`);
+            const input: HTMLInputElement = screen.getByTestId(dataTestId);
+
+            fireEvent.click(incrementButton);
+            fireEvent.click(incrementButton);
+
+            expect(input.value).toBe('10,02');
+        });
+
+        it('should decrement', () => {
+            const dataTestId = 'test-id';
+
+            const Component = () => {
+                const [value, setValue] = useState(1000);
+                const handleChange: AmountInputProps['onChange'] = (e, payload) => {
+                    if (payload.value) {
+                        setValue(payload.value);
+                    }
+                };
+
+                return (
+                    <AmountInput
+                        dataTestId={dataTestId}
+                        value={value}
+                        stepper={{ step: 1 }}
+                        onChange={handleChange}
+                    />
+                );
+            };
+
+            render(<Component />);
+
+            const decrementButton = screen.getByTestId(`${dataTestId}-decrement-button`);
+            const input: HTMLInputElement = screen.getByTestId(dataTestId);
+
+            fireEvent.click(decrementButton);
+            fireEvent.click(decrementButton);
+
+            expect(input.value).toBe('9,98');
+        });
     });
 
     /**

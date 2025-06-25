@@ -1,5 +1,43 @@
 # Change Log
 
+## 4.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 4.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 4.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 4.4.0
+
+### Minor Changes
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1527](https://github.com/core-ds/core-components/pull/1527)
+
+-   Добавлен пропс `colors`, который отвечает за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+## 4.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
 ## 4.3.7
 
 ### Patch Changes

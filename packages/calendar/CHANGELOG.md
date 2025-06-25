@@ -1,5 +1,152 @@
 # Change Log
 
+## 7.19.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1725](https://github.com/core-ds/core-components/pull/1725)
+
+-   Добавлена возможность управлять кнопкой назад для CalendarMobile (пропсы hasBackButton, onBack)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   modal@9.9.18
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 7.18.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.17
+
+## 7.18.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   modal@9.9.16
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 7.18.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   modal@9.9.15
+
+## 7.18.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   modal@9.9.14
+
+## 7.18.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   modal@9.9.13
+    -   button@11.11.8
+    -   typography@4.13.1
+    -   icon-button@6.11.11
+
+## 7.18.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   modal@9.9.12
+
+## 7.18.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   icon-button@6.11.10
+    -   modal@9.9.11
+
+## 7.18.0
+
+### Minor Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1543](https://github.com/core-ds/core-components/pull/1543)
+
+-   Исправлено количество отображаемых месяцев в `CalendarMobile` при использовании пропсов `minDate/maxDate`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.10
+
+## 7.17.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.9
+
+## 7.17.13
+
+### Patch Changes
+
+<sup><time>17.03.2025</time></sup>
+
+### [#1616](https://github.com/core-ds/core-components/pull/1616)
+
+-   Обновление react-virtuoso
+
+## 7.17.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.8
+    -   button@11.11.6
+    -   icon-button@6.11.9
+
+## 7.17.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+    -   modal@9.9.7
+
+## 7.17.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   modal@9.9.6
+    -   button@11.11.5
+    -   icon-button@6.11.8
+
+## 7.17.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.5
+
 ## 7.17.8
 
 ### Patch Changes

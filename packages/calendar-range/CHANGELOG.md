@@ -1,5 +1,136 @@
 # Change Log
 
+## 7.8.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   calendar@7.19.0
+    -   calendar-input@10.4.33
+    -   date-input@4.4.20
+
+## 7.8.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+    -   calendar-input@10.4.32
+
+## 7.8.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   calendar@7.18.6
+    -   calendar-input@10.4.31
+    -   date-input@4.4.19
+
+## 7.8.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+    -   calendar-input@10.4.30
+
+## 7.8.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.4.18
+    -   calendar@7.18.4
+    -   calendar-input@10.4.29
+
+## 7.8.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   calendar@7.18.3
+    -   calendar-input@10.4.28
+    -   date-input@4.4.17
+
+## 7.8.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.2
+    -   calendar-input@10.4.27
+
+## 7.8.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.1
+    -   calendar-input@10.4.26
+    -   date-input@4.4.16
+
+## 7.8.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.0
+    -   calendar-input@10.4.25
+
+## 7.8.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.14
+    -   calendar-input@10.4.24
+
+## 7.8.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.13
+    -   calendar-input@10.4.23
+
+## 7.8.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.12
+    -   calendar-input@10.4.22
+    -   date-input@4.4.15
+
+## 7.8.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.11
+    -   calendar-input@10.4.21
+
+## 7.8.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   calendar-input@10.4.20
+    -   date-input@4.4.14
+
+## 7.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+    -   calendar-input@10.4.19
+
 ## 7.8.6
 
 ### Patch Changes

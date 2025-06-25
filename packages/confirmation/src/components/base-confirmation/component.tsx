@@ -6,7 +6,7 @@ import { usePrevious } from '@alfalab/hooks';
 import { ConfirmationContext } from '../../context';
 import { ConfirmationProps, defaultTexts, TConfirmationContext } from '../../types';
 import { ONE_DAY, ONE_MINUTE, useCountdown } from '../../utils';
-import { FatalError, Hint, Initial, TempBlock } from '../screens';
+import { FatalError, Hint, Initial, TempBlock, TempBlockOver } from '../screens';
 
 import styles from './index.module.css';
 
@@ -15,6 +15,7 @@ const confirmationScreens: { [key: string]: ComponentType<{ mobile?: boolean }> 
     HINT: Hint,
     FATAL_ERROR: FatalError,
     TEMP_BLOCK: TempBlock,
+    TEMP_BLOCK_OVER: TempBlockOver,
 };
 
 export const BaseConfirmation: FC<ConfirmationProps> = ({
@@ -66,7 +67,10 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         /**
          * Останавливаем таймер, если новый экран/состояние не содержит таймер
          */
-        if (!['INITIAL', 'HINT', 'TEMP_BLOCK'].includes(screen) || blockSmsRetry) {
+        if (
+            !['INITIAL', 'HINT', 'TEMP_BLOCK', 'TEMP_BLOCK_OVER'].includes(screen) ||
+            blockSmsRetry
+        ) {
             stopTimer();
         }
     }, [state, screen, blockSmsRetry, stopTimer]);
@@ -126,7 +130,12 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
 
     return (
         <ConfirmationContext.Provider value={contextValue}>
-            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
+            <div
+                className={cn(styles.component, className, {
+                    [styles.center]: alignContent === 'center',
+                })}
+                data-test-id={dataTestId}
+            >
                 {CurrentScreen && <CurrentScreen mobile={mobile} />}
             </div>
         </ConfirmationContext.Provider>

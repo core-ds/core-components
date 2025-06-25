@@ -1,5 +1,51 @@
 # Change Log
 
+## 7.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   icon-button@6.11.13
+
+## 7.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   icon-button@6.11.12
+
+## 7.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   icon-button@6.11.11
+
+## 7.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+
+## 7.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+
+## 7.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   icon-button@6.11.8
+
 ## 7.3.8
 
 ### Patch Changes

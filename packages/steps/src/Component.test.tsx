@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { Steps } from './index';
+import { getStepsTestIds } from './utils/getStepsTestIds';
 
 describe('Steps', () => {
     describe('Snapshots tests', () => {
@@ -43,10 +44,12 @@ describe('Steps', () => {
     });
 
     describe('Attributes tests', () => {
-        it('should set `data-test-id` atribute', () => {
+        it('should set `data-test-id` attribute', () => {
             const dataTestId = 'test-id';
 
-            const { getByTestId } = render(
+            const testIds = getStepsTestIds(dataTestId);
+
+            const { getByTestId, getAllByTestId } = render(
                 <Steps dataTestId={dataTestId}>
                     <div>Шаг 1</div>
                     <div>Шаг 2</div>
@@ -54,6 +57,8 @@ describe('Steps', () => {
             );
 
             expect(getByTestId(dataTestId).tagName).toBe('DIV');
+            expect(getByTestId(testIds.steps)).toBeInTheDocument();
+            expect(getAllByTestId(testIds.step).length).toBe(2);
         });
     });
 
@@ -111,6 +116,50 @@ describe('Steps', () => {
             );
 
             expect(unmount).not.toThrowError();
+        });
+    });
+
+    describe('Custom dash color', () => {
+        it('should set custom color', () => {
+            const dataTestId = 'test-id';
+
+            const testIds = getStepsTestIds(dataTestId);
+
+            const { getAllByTestId } = render(
+                <Steps activeStep={3} dataTestId={dataTestId} completedDashColor='tomato'>
+                    <div>Шаг 1</div>
+                    <div>Шаг 2</div>
+                    <div>Шаг 3</div>
+                </Steps>,
+            );
+
+            const stepCollection = getAllByTestId(testIds.step);
+            const dash = stepCollection[0].querySelector('.dash');
+
+            expect(dash).toHaveStyle('border-color:tomato');
+        });
+
+        it('should set custom var color', () => {
+            const dataTestId = 'test-id';
+
+            const testIds = getStepsTestIds(dataTestId);
+
+            const { getAllByTestId } = render(
+                <Steps
+                    activeStep={3}
+                    dataTestId={dataTestId}
+                    completedDashColor='var(--color-dark-status-attention)'
+                >
+                    <div>Шаг 1</div>
+                    <div>Шаг 2</div>
+                    <div>Шаг 3</div>
+                </Steps>,
+            );
+
+            const stepCollection = getAllByTestId(testIds.step);
+            const dash = stepCollection[0].querySelector('.dash');
+
+            expect(dash).toHaveStyle('border-color:var(--color-dark-status-attention)');
         });
     });
 });

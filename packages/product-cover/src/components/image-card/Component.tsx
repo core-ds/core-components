@@ -34,9 +34,15 @@ export type ImageCardProps = {
     height?: number;
 
     /**
-     * Количество карт
+     * (Устаревший) Количество карт
+     * @deprecated Используйте 'numberOfCards'
      */
     numberOfСards?: number;
+
+    /**
+     * Количество карт
+     */
+    numberOfCards?: number;
 };
 
 export const ImageCard: FC<ImageCardProps> = ({
@@ -46,6 +52,7 @@ export const ImageCard: FC<ImageCardProps> = ({
     width,
     height,
     numberOfСards,
+    numberOfCards = numberOfСards,
 }) => {
     const imagePatternId = useId();
 
@@ -106,5 +113,5 @@ export const ImageCard: FC<ImageCardProps> = ({
         return null;
     };
 
-    return height === 16 && numberOfСards ? renderCardMack() : renderImageCard();
+    return height === 16 && numberOfCards ? renderCardMack() : renderImageCard();
 };

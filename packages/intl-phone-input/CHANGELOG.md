@@ -1,5 +1,133 @@
 # Change Log
 
+## 9.12.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   input-autocomplete@12.9.6
+
+## 9.12.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+    -   input-autocomplete@12.9.5
+
+## 9.12.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.4
+    -   select@17.21.2
+
+## 9.12.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+    -   input-autocomplete@12.9.3
+
+## 9.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input-autocomplete@12.9.2
+
+## 9.12.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.1
+    -   select@17.20.14
+
+## 9.12.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.0
+    -   select@17.20.13
+
+## 9.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+    -   input-autocomplete@12.8.9
+
+## 9.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.11
+    -   input-autocomplete@12.8.8
+
+## 9.12.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+    -   input-autocomplete@12.8.7
+
+## 9.12.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+    -   input-autocomplete@12.8.6
+
+## 9.12.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   input-autocomplete@12.8.5
+
+## 9.11.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+    -   input-autocomplete@12.8.4
+
+## 9.11.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.6
+    -   input-autocomplete@12.8.3
+
+## 9.11.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.5
+    -   input-autocomplete@12.8.2
+
 ## 9.11.15
 
 ### Patch Changes

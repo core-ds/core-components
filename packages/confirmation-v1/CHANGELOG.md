@@ -1,5 +1,55 @@
 # Change Log
 
+## 1.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.10
+
+## 1.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+
+## 1.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
+
+## 1.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+
+## 1.10.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 1.9.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+
 ## 1.9.13
 
 ### Patch Changes

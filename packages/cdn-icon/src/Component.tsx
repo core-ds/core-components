@@ -1,5 +1,7 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import cn from 'classnames';
+
+import { LoadingStatus, useIcon } from './hooks/use-icon';
 
 import styles from './index.module.css';
 
@@ -25,21 +27,15 @@ type CDNIconProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-
     /**
      * Fallback на случай, если не удастся загрузить иконку
      */
     fallback?: ReactNode;
+    /**
+     * Callback, вызываемый при ошибке загрузки иконки
+     */
+    onError?: () => void;
 };
-
-enum LoadingStatus {
-    INITIAL,
-    SUCCESS,
-    FAILURE,
-}
-
-// Кэшируем загруженные иконки, чтобы предотвратить их повторную загрузку при каждом монтировании
-const cache: Record<string, string> = {};
 
 export const CDNIcon: React.FC<CDNIconProps> = ({
     name,
@@ -48,49 +44,31 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     className,
     baseUrl = 'https://alfabank.servicecdn.ru/icons',
     fallback,
+    onError,
 }) => {
-    const url = `${baseUrl}/${name}.svg`;
-
-    const [loadingStatus, setLoadingStatus] = useState<LoadingStatus>(LoadingStatus.INITIAL);
-    const [icon, setIcon] = useState(cache[url]);
-
-    const monoIcon = !name.includes('_color');
+    const [icon, status] = useIcon(`${baseUrl}/${name}.svg`);
+    const isMonoIcon = !name.includes('_color');
 
     useEffect(() => {
-        if (icon) return undefined;
-
-        const xhr = new XMLHttpRequest();
-
-        xhr.open('GET', url);
-        xhr.send();
-        xhr.onload = function onload() {
-            setLoadingStatus(LoadingStatus.SUCCESS);
-            const svg = xhr.response;
-
-            if (svg.startsWith('<svg')) {
-                cache[url] = svg;
-
-                setIcon(svg);
-            }
-        };
-
-        xhr.onerror = function onError() {
-            setLoadingStatus(LoadingStatus.FAILURE);
-        };
-
-        return () => xhr.abort();
-    }, [url, icon]);
+        if (status === LoadingStatus.FAILURE) {
+            onError?.();
+        }
+    }, [onError, status]);
 
     return (
         <span
             style={{ color }}
             className={cn('cc-cdn-icon', styles.component, className, {
-                [styles.parentColor]: monoIcon,
+                [styles.parentColor]: isMonoIcon,
             })}
             data-test-id={dataTestId}
-            {...(loadingStatus === LoadingStatus.FAILURE
-                ? { children: fallback }
-                : { dangerouslySetInnerHTML: { __html: icon } })}
-        />
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                status === LoadingStatus.SUCCESS ? { __html: icon! } : undefined
+            }
+        >
+            {status === LoadingStatus.FAILURE ? fallback : undefined}
+        </span>
     );
 };

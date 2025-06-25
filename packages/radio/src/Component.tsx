@@ -14,10 +14,17 @@ import cn from 'classnames';
 import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
-import styles from './index.module.css';
+import defaultColors from './styles/default.module.css';
+import styles from './styles/index.module.css';
+import invertedColors from './styles/inverted.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 type Align = 'start' | 'center';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type RadioProps = Omit<
     NativeProps,
@@ -111,6 +118,12 @@ export type RadioProps = Omit<
             name?: string;
         },
     ) => void;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -139,6 +152,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             addons,
             block,
             labelProps,
+            colors = 'default',
             ...restProps
         },
         ref,
@@ -146,6 +160,8 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         const labelRef = useRef<HTMLLabelElement>(null);
 
         const [focused] = useFocus(labelRef, 'keyboard');
+
+        const colorStyle = colorStyles[colors];
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
@@ -158,13 +174,16 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                 {...labelProps}
                 className={cn(
                     styles.container,
+                    colorStyle.container,
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles[align],
                     className,
                     labelProps?.className,
                     {
                         [styles.disabled]: disabled || inactive,
+                        [colorStyle.disabled]: disabled || inactive,
                         [styles.checked]: checked,
+                        [colorStyle.checked]: checked,
                         [styles.focused]: focused,
                         [styles.block]: block,
                     },
@@ -180,11 +199,13 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     name={name}
                     {...restProps}
                 />
-                <span className={cn(styles.circle, circleClassName)} />
+                <span className={cn(styles.circle, colorStyle.circle, circleClassName)} />
                 {(label || hint) && (
                     <span className={cn(styles.content, contentClassName)}>
-                        {label && <span className={styles.label}>{label}</span>}
-                        {hint && <span className={styles.hint}>{hint}</span>}
+                        {label && (
+                            <span className={cn(styles.label, colorStyle.label)}>{label}</span>
+                        )}
+                        {hint && <span className={cn(styles.hint, colorStyle.hint)}>{hint}</span>}
                     </span>
                 )}
                 {addons && (

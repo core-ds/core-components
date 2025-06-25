@@ -1,5 +1,43 @@
 # Change Log
 
+## 2.4.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.10
+
+## 2.4.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.9
+
+## 2.4.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.8
+
+## 2.4.11
+
+### Patch Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1604](https://github.com/core-ds/core-components/pull/1604)
+
+-   Добавлена поддержка больших чисел
+
+## 2.4.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.7
+
 ## 2.4.9
 
 ### Patch Changes

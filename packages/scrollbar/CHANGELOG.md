@@ -1,5 +1,36 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1747](https://github.com/core-ds/core-components/pull/1747)
+
+-   Добавлен дополнительный класс для контейнера горизонтальной полосы прокрутки horizontalBarClassName
+
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1679](https://github.com/core-ds/core-components/pull/1679)
+
+-   Добавлен ref для вертикальной полосы прокрутки
+
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+-   Добавлен дополнительный класс для контейнера вертикальной полосы прокрутки `verticalBarClassName`
+-   Добавлен обработчик прокрутки контента `onContentScroll`
+
 ## 3.1.3
 
 ### Patch Changes

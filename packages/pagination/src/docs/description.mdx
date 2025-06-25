@@ -25,6 +25,32 @@ render(() => {
 });
 ```
 
+Чтобы избежать скачка при переключении с первой на вторую страницу можно использовать проп `hideArrows`.
+
+```jsx live
+render(() => {
+    const DATA_SIZE = isMobile() ? 5 : 20;
+    const PER_PAGE = 1;
+
+    const [page, setPage] = React.useState(0);
+
+    const handlePageChange = pageIndex => setPage(pageIndex);
+
+    const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
+
+    return (
+        <Container align='center'>
+            <Pagination
+                hideArrows={false}
+                currentPageIndex={page}
+                pagesCount={pagesCount}
+                onPageChange={handlePageChange}
+            />
+        </Container>
+    );
+});
+```
+
 Пагинация с постраничным переключением.
 
 ```jsx live

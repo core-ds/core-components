@@ -80,6 +80,26 @@ export type ScrollbarProps = {
      * HTML-aтрибуты маски.
      */
     maskProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+    /**
+     * Дополнительный класс контейнера вертикальной полосы прокрутки
+     */
+    verticalBarClassName?: string;
+
+    /**
+     * Дополнительный класс контейнера горизонтальной полосы прокрутки
+     */
+    horizontalBarClassName?: string;
+
+    /**
+     * Обработчик изменения скролла
+     */
+    onContentScroll?: (e: Event) => void;
+
+    /**
+     * Ref для вертикальной полосы прокрутки
+     */
+    verticalBarRef?: React.RefObject<HTMLDivElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
 const classNames = {
@@ -134,6 +154,10 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             horizontalAutoStretch = false,
             widthPropName = 'minWidth',
             maskProps,
+            verticalBarClassName,
+            horizontalBarClassName,
+            onContentScroll,
+            verticalBarRef,
             ...htmlAttributes
         },
         ref,
@@ -161,10 +185,17 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     scrollableNode: scrollableNodeRef.current,
                     contentNode: contentNodeRef.current,
                 });
+
+                if (onContentScroll) {
+                    instance.getScrollElement().addEventListener('scroll', onContentScroll);
+                }
             }
 
             return () => {
                 if (instance) {
+                    if (onContentScroll) {
+                        instance.getScrollElement().removeEventListener('scroll', onContentScroll);
+                    }
                     instance.unMount();
                     instance = null;
                 }
@@ -274,10 +305,15 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     </div>
                     <div className={classNames.placeholder} />
                 </div>
-                <div className={cn(classNames.track, classNames.horizontal)}>
+                <div
+                    className={cn(classNames.track, classNames.horizontal, horizontalBarClassName)}
+                >
                     <div className={classNames.scrollbar} />
                 </div>
-                <div className={cn(classNames.track, classNames.vertical)}>
+                <div
+                    ref={verticalBarRef}
+                    className={cn(classNames.track, classNames.vertical, verticalBarClassName)}
+                >
                     <div className={classNames.scrollbar} />
                 </div>
             </div>

@@ -1,5 +1,205 @@
 # Change Log
 
+## 17.21.4
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1644](https://github.com/core-ds/core-components/pull/1644)
+
+-   Для размера XL горизонтальные паддинги исправлены на 16px в соответствии с дизайном
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1734](https://github.com/core-ds/core-components/pull/1734)
+
+-   Исправлено использование `useLazyLoading`
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   scrollbar@3.4.0
+    -   base-modal@5.9.4
+    -   bottom-sheet@6.18.14
+    -   button@11.11.10
+    -   checkbox@4.9.4
+    -   form-control@12.8.6
+    -   input@15.6.2
+    -   modal@9.9.18
+    -   popover@6.3.11
+
+## 17.21.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+    -   bottom-sheet@6.18.13
+    -   modal@9.9.17
+
+## 17.21.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   bottom-sheet@6.18.12
+    -   button@11.11.9
+    -   checkbox@4.9.3
+    -   form-control@12.8.5
+    -   input@15.6.1
+    -   modal@9.9.16
+    -   popover@6.3.10
+
+## 17.21.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.11
+    -   modal@9.9.15
+
+## 17.21.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1715](https://github.com/core-ds/core-components/pull/1715)
+
+-   Добавлена возможность проброса applyName и resetName, заданы значения по умолчанию
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1714](https://github.com/core-ds/core-components/pull/1714)
+
+-   Разрешен ввод пробелов в textarea
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   scrollbar@3.3.0
+    -   checkbox@4.9.2
+    -   skeleton@5.4.0
+    -   input@15.6.0
+    -   form-control@12.8.4
+    -   bottom-sheet@6.18.10
+    -   modal@9.9.14
+
+## 17.20.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   modal@9.9.13
+    -   base-modal@5.9.1
+    -   bottom-sheet@6.18.9
+    -   button@11.11.8
+    -   checkbox@4.9.1
+    -   form-control@12.8.3
+    -   input@15.5.5
+    -   popover@6.3.9
+
+## 17.20.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.8
+
+## 17.20.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.7
+    -   modal@9.9.12
+
+## 17.20.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   input@15.5.4
+    -   bottom-sheet@6.18.6
+    -   modal@9.9.11
+
+## 17.20.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.5
+    -   modal@9.9.10
+
+## 17.20.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.9.0
+    -   bottom-sheet@6.18.4
+    -   modal@9.9.9
+
+## 17.20.8
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1583](https://github.com/core-ds/core-components/pull/1583)
+
+-   Исправлена ошибка навигации клавишей-стрелкой по группированному списку
+
+-   Обновлены зависимости
+    -   modal@9.9.8
+    -   button@11.11.6
+    -   input@15.5.3
+    -   bottom-sheet@6.18.3
+
+## 17.20.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.8.0
+    -   bottom-sheet@6.18.2
+    -   modal@9.9.7
+
+## 17.20.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@3.2.0
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   bottom-sheet@6.18.1
+    -   modal@9.9.6
+    -   button@11.11.5
+    -   checkbox@4.7.7
+    -   form-control@12.8.2
+    -   input@15.5.2
+    -   popover@6.3.8
+
+## 17.20.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.5
+    -   bottom-sheet@6.18.0
+
 ## 17.20.4
 
 ### Patch Changes

@@ -1,5 +1,44 @@
 # Change Log
 
+## 1.7.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   spinner@4.0.9
+
+## 1.7.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   spinner@4.0.8
+
+## 1.7.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   spinner@4.0.7
+
+## 1.7.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.6
+
+## 1.7.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   spinner@4.0.5
+
 ## 1.7.8
 
 ### Patch Changes

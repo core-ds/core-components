@@ -2,7 +2,10 @@ import React, { FocusEvent, forwardRef, Fragment, useCallback, useEffect, useSta
 import cn from 'classnames';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
-import { withSuffix } from '@alfalab/core-components-with-suffix';
+import { Steppers } from '@alfalab/core-components-number-input/shared';
+import { getMinMaxOrDefault, parseNumber } from '@alfalab/core-components-number-input/utils';
+import { fnUtils } from '@alfalab/core-components-shared';
+import { withSuffix, withSuffixProps } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
 import { formatAmount, THINSP } from '@alfalab/utils';
 
@@ -84,7 +87,7 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
      * Обработчик события изменения значения
      */
     onChange?: (
-        e: React.ChangeEvent<HTMLInputElement>,
+        e: React.ChangeEvent<HTMLInputElement> | null,
         payload: {
             /**
              * Денежное значение в минорных единицах
@@ -102,6 +105,26 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
      * Делает минорную часть полупрозрачной
      */
     transparentMinor?: boolean;
+
+    /**
+     * Добавляет компонент "Stepper" в правый аддон
+     */
+    stepper?: {
+        /**
+         * Шаг инкремента / декремента
+         */
+        step: number;
+        /**
+         * Минимальное значение
+         * @default Number.MIN_SAFE_INTEGER
+         */
+        min?: number;
+        /**
+         * Максимальное значение
+         * @default Number.MAX_SAFE_INTEGER
+         */
+        max?: number;
+    };
 };
 
 /**
@@ -136,6 +159,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onChange,
             onClear,
             onBlur,
+            onFocus,
             onKeyDown,
             breakpoint,
             client,
@@ -143,11 +167,19 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             inputClassName,
             label,
             labelView,
+            stepper = {},
+            rightAddons,
             ...restProps
         },
         ref,
     ) => {
         const integerLength = Math.min(integerLengthProp, 15);
+
+        const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
+            minProp: stepper.min,
+            maxProp: stepper.max,
+        });
+        const withStepper = !fnUtils.isNil(stepper?.step);
 
         const getFormattedAmount = useCallback(
             (val: string | number | null) => {
@@ -165,6 +197,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         );
 
         const [inputValue, setInputValue] = useState<string>(() => getFormattedAmount(value));
+        const [isFocused, setIsFocused] = useState<boolean>(false);
 
         const [majorPart, minorPart] = inputValue.split(',');
         const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
@@ -267,6 +300,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onKeyDown?.(event);
         };
 
+        const handleFocus: withSuffixProps['onFocus'] = (e) => {
+            setIsFocused(true);
+
+            onFocus?.(e);
+        };
+
         const handleClear = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
                 setInputValue('');
@@ -293,7 +332,61 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 }
             }
 
+            setIsFocused(false);
+
             onBlur?.(event);
+        };
+
+        const handleDecrement = () => {
+            if (stepper.step) {
+                const newValue = parseNumber(value) - stepper.step;
+                const newFormattedValue = getFormattedAmount(newValue);
+
+                setInputValue(newFormattedValue);
+
+                onChange?.(null, {
+                    value: newValue,
+                    valueString: newFormattedValue,
+                });
+            }
+        };
+
+        const handleIncrement = () => {
+            if (stepper.step) {
+                const newValue = parseNumber(value) + stepper.step;
+                const newFormattedValue = getFormattedAmount(newValue);
+
+                setInputValue(newFormattedValue);
+
+                onChange?.(null, {
+                    value: newValue,
+                    valueString: newFormattedValue,
+                });
+            }
+        };
+
+        const renderRightAddons = () => {
+            if (withStepper) {
+                return (
+                    <Fragment>
+                        {rightAddons}
+                        <Steppers
+                            colors={colors}
+                            dataTestId={dataTestId}
+                            disabled={restProps.disabled}
+                            focused={isFocused && !restProps.disableUserInput}
+                            value={parseNumber(value)}
+                            min={minStepperValue}
+                            max={maxStepperValue}
+                            onIncrement={handleIncrement}
+                            onDecrement={handleDecrement}
+                            size={restProps.size}
+                        />
+                    </Fragment>
+                );
+            }
+
+            return rightAddons;
         };
 
         return (
@@ -305,6 +398,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             >
                 <SuffixInput
                     {...restProps}
+                    rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
                             {majorPart}
@@ -336,6 +430,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onClear={handleClear}
                     onBlur={handleBlur}
                     onKeyDown={handleKeyDown}
+                    onFocus={handleFocus}
                     inputMode='decimal'
                     pattern={`[${positiveOnly ? '' : '\\-'}0-9\\s\\.,]*`}
                     dataTestId={dataTestId}

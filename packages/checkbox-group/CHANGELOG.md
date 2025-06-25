@@ -1,5 +1,63 @@
 # Change Log
 
+## 4.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 4.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 4.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 4.10.0
+
+### Minor Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1612](https://github.com/core-ds/core-components/pull/1612)
+
+-   Обернул компонент `BaseCheckboxGroup` в forwardRef и предоставил возможность прокинуть ref
+
+## 4.9.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1610](https://github.com/core-ds/core-components/pull/1610)
+
+-   Добавление пропса `name` в атрибуты `input` компонента Checkbox
+
+## 4.8.0
+
+### Minor Changes
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1527](https://github.com/core-ds/core-components/pull/1527)
+
+-   Добавлен пропс `colors`, который отвечает за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+## 4.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
 ## 4.7.6
 
 ### Patch Changes

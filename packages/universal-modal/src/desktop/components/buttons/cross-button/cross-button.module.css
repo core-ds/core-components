@@ -1,0 +1,7 @@
+@import '../../../../../../vars/src/index.css';
+@import '../../../../../../vars/src/colors-monochrome.css';
+
+.button.button {
+    background-color: var(--color-light-monochrome-white-4);
+    backdrop-filter: blur(10px);
+}

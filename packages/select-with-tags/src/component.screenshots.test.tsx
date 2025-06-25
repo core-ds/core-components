@@ -1,4 +1,5 @@
 import {
+    createPreview,
     createStorybookUrl,
     closeBrowser,
     matchHtml,
@@ -23,6 +24,19 @@ const screenshotOpts = {
     fullPage: false,
     omitBackground: false,
 };
+
+describe('SelectWithTags', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'SelectWithTags',
+            knobs: {
+                size: 56,
+            },
+        },
+        'transform:scale(2.1)',
+    );
+});
 
 describe('SelectWithTags', () => {
     test('hover & pressed', async () => {

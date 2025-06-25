@@ -1,5 +1,50 @@
 # Change Log
 
+## 13.7.4
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1745](https://github.com/core-ds/core-components/pull/1745)
+
+-   Для темы click в side-panel footer приведен к общей теме
+
+## 13.7.3
+
+### Patch Changes
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1400](https://github.com/core-ds/core-components/pull/1400)
+
+-   Импорт JS-файла темы больше не зависит от webpack-лоадера. Теперь содержимое темы представлено в виде строки.
+
+## 13.7.2
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1595](https://github.com/core-ds/core-components/pull/1595)
+
+-   Обновлена цветовая схема для темы `site`
+
+## 13.7.1
+
+### Patch Changes
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1581](https://github.com/core-ds/core-components/pull/1581)
+
+Из темизаций исключены файлы для цветовых палитр, добавленные в #1501
+
+-   colors-decorative-dark.css
+-   colors-monochrome-dark.css
+-   colors-qualitative-dark.css
+-   colors-sequential-dark.css
+
 ## 13.7.0
 
 ### Minor Changes

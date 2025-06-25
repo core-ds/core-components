@@ -1,5 +1,33 @@
 # Change Log
 
+## 6.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.10
+
+## 6.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.9
+
+## 6.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.8
+
+## 6.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.7
+
 ## 6.3.7
 
 ### Patch Changes

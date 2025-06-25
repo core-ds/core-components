@@ -143,14 +143,15 @@ describe('IconView', () => {
             );
 
             const image = baseElement.querySelector('image') as SVGImageElement;
-            const imagePattern = baseElement.querySelector('pattern') as SVGPatternElement;
+            const clipPath = baseElement.querySelector('clipPath') as SVGClipPathElement;
             const path = baseElement.querySelector('path:not(.bg)') as SVGPathElement;
 
-            const patternId = imagePattern.getAttribute('id');
+            const clipPathId = clipPath.getAttribute('id');
 
             expect(image).toBeInTheDocument();
-            expect(imagePattern).toBeInTheDocument();
-            expect(path).toHaveStyle({ fill: `url(#${patternId})` });
+            expect(clipPath).toBeInTheDocument();
+            expect(path).toBeInTheDocument();
+            expect(image.getAttribute('clip-path')).toBe(`url(#${clipPathId})`);
         });
 
         it('should render top addons', () => {

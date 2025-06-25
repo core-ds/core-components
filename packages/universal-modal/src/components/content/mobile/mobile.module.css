@@ -1,0 +1,13 @@
+@import '../../../vars.css';
+
+.content {
+    padding: var(--gap-16);
+
+    &.withHeader {
+        padding-top: var(--gap-0);
+    }
+
+    &.withFooter {
+        padding-bottom: var(--gap-20);
+    }
+}

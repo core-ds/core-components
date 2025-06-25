@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { Status } from './index';
 import { COLORS, SIZES } from './consts';
@@ -89,6 +89,14 @@ describe('Status', () => {
             const { container } = render(<Status uppercase={false}>Label</Status>);
             expect(container.firstElementChild).not.toHaveClass('uppercase');
         });
+    });
+
+    it('should set rightAddons', () => {
+        render(<Status leftAddons={<div data-test-id='left-addons-id'>leftAddons</div>} />);
+
+        const leftAddon = screen.queryByTestId('left-addons-id');
+
+        expect(leftAddon).toBeInTheDocument();
     });
 
     it('should unmount without errors', () => {
