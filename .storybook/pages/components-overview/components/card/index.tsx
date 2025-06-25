@@ -1,6 +1,6 @@
 import React from 'react';
-import kebab from 'lodash.kebabcase';
 import cn from 'classnames';
+import kebab from 'lodash/kebabCase';
 
 import { Typography } from '@alfalab/core-components-typography';
 
@@ -76,5 +76,7 @@ export const Card: React.FC<CardProps> = ({ componentName, mode }) => {
 };
 
 function createImageUrl(componentName: string, mode: string) {
-    return `./images/${kebab(componentName)}-${mode === 'dark' ? 'dark-' : ''}preview-snap.png`;
+    return `./images/${[kebab(componentName), mode === 'light' ? '' : 'dark', 'preview-snap.png']
+        .filter(Boolean)
+        .join('-')}`;
 }

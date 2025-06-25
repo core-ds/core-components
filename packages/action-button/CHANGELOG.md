@@ -1,5 +1,102 @@
 # Change Log
 
+## 1.7.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   spinner@4.0.9
+
+## 1.7.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   spinner@4.0.8
+
+## 1.7.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   spinner@4.0.7
+
+## 1.7.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.6
+
+## 1.7.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   spinner@4.0.5
+
+## 1.7.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   spinner@4.0.4
+
+## 1.7.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   spinner@4.0.3
+
+## 1.7.6
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   shared@0.14.1
+    -   spinner@4.0.2
+
+## 1.7.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   spinner@4.0.1
+
+## 1.7.4
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
 ## 1.7.3
 
 ### Patch Changes

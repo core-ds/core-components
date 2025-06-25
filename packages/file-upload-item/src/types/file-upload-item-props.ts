@@ -1,5 +1,7 @@
 import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
 
+import { type FileUploadItemStatus } from './status';
+
 export type FileUploadItemProps = {
     /**
      * Дополнительный класс
@@ -55,7 +57,7 @@ export type FileUploadItemProps = {
     /**
      * Статус загрузки файла
      */
-    uploadStatus?: string;
+    uploadStatus?: FileUploadItemStatus;
 
     /**
      * Сообщение об ошибке
@@ -86,6 +88,11 @@ export type FileUploadItemProps = {
      * Управление активностью кнопок
      */
     disableButtons?: boolean;
+
+    /**
+     * Управление отображением кликабельности элемента Content
+     */
+    isClickable?: boolean;
 
     /**
      * Указывает, где открыть скачиваемый документ

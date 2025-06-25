@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { StepBar } from './components/step-bar';
 
@@ -86,13 +86,13 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
                 ))}
             </div>
             {description && (
-                <Typography.Text
+                <Text
                     tag='div'
                     className={cn(styles.description, colorStyles[colors].description)}
                     view='primary-small'
                 >
                     Шаг {step} из {maxStep}: {description}
-                </Typography.Text>
+                </Text>
             )}
         </div>
     );

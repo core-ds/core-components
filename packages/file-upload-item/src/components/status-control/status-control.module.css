@@ -2,7 +2,10 @@
 
 .container {
     position: relative;
-    cursor: pointer;
+
+    &.clickable {
+        cursor: pointer;
+    }
 
     & .progress {
         position: absolute;

@@ -5,7 +5,7 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { PureCell } from '@alfalab/core-components-pure-cell';
 import { Typography } from '@alfalab/core-components-typography';
-import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ChevronForwardMIcon } from '@alfalab/icons-glyph/ChevronForwardMIcon';
 
@@ -233,7 +233,9 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                                 </PureCell.Text>
                             </PureCell.Main>
                             <PureCell.Addon verticalAlign='center'>
-                                <InformationCircleMIcon style={{ color: '#c5c5c7' }} />
+                                <div style={{ width: 24, height: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <StatusBadge size={20} view='neutral-information' />
+                                </div>
                             </PureCell.Addon>
                         </PureCell.Content>
                     </PureCell>
@@ -329,7 +331,9 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             </PureCell.Text>
                         </PureCell.Main>
                         <PureCell.Addon verticalAlign='center' addonPadding={addonPadding}>
-                            <InformationCircleMIcon style={{ color: '#c5c5c7' }} />
+                            <div style={{ width: 24, height: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <StatusBadge size={20} view='neutral-information' />
+                            </div>
                         </PureCell.Addon>
                     </PureCell.Content>
                 </PureCell>
@@ -678,7 +682,9 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             />
                         </PureCell.Main>
                         <PureCell.Addon>
-                            <InformationCircleMIcon />
+                            <div style={{ width: 24, height: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <StatusBadge size={20} view='neutral-information' />
+                            </div>
                         </PureCell.Addon>
                     </PureCell.Content>
                 </PureCell>

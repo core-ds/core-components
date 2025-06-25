@@ -16,10 +16,10 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 1`] = `
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           >
             <input
-              class="input input"
+              class="input size-48 input"
               inputmode="decimal"
               placeholder="ДД.ММ.ГГГГ"
               type="text"
@@ -28,7 +28,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         />
       </div>
     </div>
@@ -52,10 +52,10 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 2`] = `
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           >
             <input
-              class="input input"
+              class="input size-48 input"
               inputmode="decimal"
               placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ"
               type="text"
@@ -64,7 +64,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 2`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         />
       </div>
     </div>
@@ -88,10 +88,10 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 3`] = `
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           >
             <input
-              class="input input"
+              class="input size-48 input"
               inputmode="decimal"
               placeholder="ДД.ММ.ГГГГ – ДД.ММ.ГГГГ"
               type="text"
@@ -100,7 +100,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 3`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         />
       </div>
     </div>
@@ -120,10 +120,10 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 4`] = `
         class="inputWrapper"
       >
         <div
-          class="input"
+          class="input size-48"
         >
           <input
-            class="input input"
+            class="input size-48 input"
             inputmode="decimal"
             placeholder="ЧЧ:ММ"
             type="text"

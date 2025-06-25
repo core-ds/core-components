@@ -1,5 +1,120 @@
 # Change Log
 
+## 4.14.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 4.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 4.14.1
+
+### Patch Changes
+
+<sup><time>26.05.2025</time></sup>
+
+### [#1721](https://github.com/core-ds/core-components/pull/1721)
+
+-   Исправлено использование переменной окружения `NODE_ENV`
+
+## 4.14.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1606](https://github.com/core-ds/core-components/pull/1606)
+
+-   Перенос хука useSkeleton из `Typography` в `Skeleton`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.4.0
+
+## 4.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 4.13.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1617](https://github.com/core-ds/core-components/pull/1617)
+
+Добавлена поддержка шрифта `Alfa Interface Sans`
+
+Подробнее смотрите в разделе [Типографика](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--docs)
+
+## 4.12.0
+
+### Minor Changes
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1589](https://github.com/core-ds/core-components/pull/1589)
+
+-   Добавлен static-positive цвет для Typography
+
+## 4.11.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.3.0
+
+## 4.11.3
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   skeleton@5.2.3
+
+## 4.11.2
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   skeleton@5.2.2
+
+## 4.11.1
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   skeleton@5.2.1
+
 ## 4.11.0
 
 ### Minor Changes

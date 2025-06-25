@@ -26,6 +26,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             size = 48,
             className,
             optionGroupClassName,
+            footerClassName,
             scrollbarClassName,
             Option,
             getOptionProps,
@@ -119,8 +120,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
 
-        const measured = useVisibleOptions({
-            ...(!nativeScrollbar && { styleTargetRef: scrollbarRef }),
+        const [measured, height] = useVisibleOptions({
             visibleOptions,
             listRef,
             open,
@@ -167,10 +167,19 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 <Scrollbar
                     className={cn(styles.scrollable, scrollbarClassName)}
                     ref={scrollbarRef}
+                    style={{ height }}
                     horizontalAutoStretch={optionsListWidth === 'content'}
                     scrollableNodeProps={scrollableNodeProps}
                     contentNodeProps={{ ref: listRef }}
-                    maskProps={{ className: measured ? undefined : styles.mask }}
+                    maskProps={{
+                        /*
+                         * Для корректного подсчета высоты опций(иначе для optionsListWidth: 'field'
+                         * высота опции всегда будет равна высоте одной строчки)
+                         */
+                        className: cn({
+                            [styles.mask]: optionsListWidth === 'content' && !measured,
+                        }),
+                    }}
                 >
                     {renderListItems()}
                 </Scrollbar>
@@ -182,6 +191,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 className={cn(styles.scrollable, scrollbarClassName)}
                 ref={mergeRefs([listRef, ref])}
                 onScroll={handleScroll}
+                style={{ height }}
             >
                 {renderListItems()}
             </div>
@@ -210,7 +220,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 {showFooter && footer && (
                     <div
                         onMouseEnter={resetHighlightedIndex}
-                        className={cn(styles.optionsListFooter, {
+                        className={cn(styles.optionsListFooter, footerClassName, {
                             [styles.withBorder]:
                                 visibleOptions &&
                                 flatOptions.length > visibleOptions &&

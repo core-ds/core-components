@@ -1,5 +1,201 @@
 # Change Log
 
+## 6.18.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   base-modal@5.9.4
+    -   navigation-bar-private@0.8.7
+
+## 6.18.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 6.18.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+
+## 6.18.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 6.18.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 6.18.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
+
+## 6.18.8
+
+### Patch Changes
+
+<sup><time>28.04.2025</time></sup>
+
+### [#1678](https://github.com/core-ds/core-components/pull/1678)
+
+-   Добавлен хук `useVisualViewportSize`. Хук `useVisibleViewportSize` помечен как `@deprecated`
+
+## 6.18.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.2
+
+## 6.18.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.1
+
+## 6.18.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.0
+
+## 6.18.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.7.0
+
+## 6.18.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.6.2
+
+## 6.18.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.6.1
+
+## 6.18.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   navigation-bar-private@0.6.0
+
+## 6.18.0
+
+### Minor Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+-   Добавлено свойство _adjustContainerHeight_ для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
+
+## 6.17.17
+
+### Patch Changes
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+-   Исправление работы safe-area
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+
+## 6.17.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   base-modal@5.8.9
+    -   navigation-bar-private@0.5.8
+
+## 6.17.15
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
+## 6.17.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.5.6
+    -   backdrop@3.4.4
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
+## 6.17.13
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   backdrop@3.4.3
+    -   base-modal@5.8.6
+    -   navigation-bar-private@0.5.5
+
+## 6.17.12
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   backdrop@3.4.2
+    -   base-modal@5.8.5
+    -   navigation-bar-private@0.5.4
+
 ## 6.17.11
 
 ### Patch Changes

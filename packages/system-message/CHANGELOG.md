@@ -1,5 +1,85 @@
 # @alfalab/core-components-system-message
 
+## 2.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 2.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 2.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 2.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 2.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>16.01.2025</time></sup>
+
+### [#1494](https://github.com/core-ds/core-components/pull/1494)
+
+Добавлены атомные импорты
+Добавлено sideEffects: false
+
+## 2.5.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 2.5.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+
+## 2.5.3
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
 ## 2.5.2
 
 ### Patch Changes

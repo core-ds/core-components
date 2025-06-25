@@ -4,6 +4,8 @@ import { text, select, boolean, color } from '@storybook/addon-knobs';
 
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { CustomButton } from '@alfalab/core-components-custom-button';
+import { CustomButtonDesktop } from '@alfalab/core-components-custom-button/desktop';
+import { CustomButtonMobile } from '@alfalab/core-components-custom-button/mobile';
 
 const meta: Meta<typeof CustomButton> = {
     title: 'Components/CustomButton',
@@ -26,6 +28,11 @@ export const custom_button: Story = {
                 backgroundColor={color('backgroundColor', '#FF45C3')}
                 contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                 stateType={select('stateType', STATE_TYPES, 'darkening')}
+                disableType={select(
+                    'disableType',
+                    ['default', 'static', 'inverted', 'static-inverted'],
+                    'default',
+                )}
                 href={text('href', '')}
                 loading={boolean('loading', false)}
                 disabled={boolean('disabled', false)}
@@ -36,6 +43,52 @@ export const custom_button: Story = {
             >
                 {text('label', 'Оплатить')}
             </CustomButton>
+        );
+    },
+};
+
+export const custom_button_desktop: Story = {
+    name: 'CustomButtonDesktop',
+    render: () => {
+        return (
+            <CustomButtonDesktop
+                size={select('size', SIZES, 56)}
+                backgroundColor={color('backgroundColor', '#FF45C3')}
+                contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+                stateType={select('stateType', STATE_TYPES, 'darkening')}
+                href={text('href', '')}
+                loading={boolean('loading', false)}
+                disabled={boolean('disabled', false)}
+                block={boolean('block', false)}
+                nowrap={boolean('nowrap', false)}
+                leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                rightAddons={boolean('rightAddons', false) && <StarMIcon />}
+            >
+                {text('label', 'Оплатить')}
+            </CustomButtonDesktop>
+        );
+    },
+};
+
+export const custom_button_mobile: Story = {
+    name: 'CustomButtonMobile',
+    render: () => {
+        return (
+            <CustomButtonMobile
+                size={select('size', SIZES, 56)}
+                backgroundColor={color('backgroundColor', '#FF45C3')}
+                contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+                stateType={select('stateType', STATE_TYPES, 'darkening')}
+                href={text('href', '')}
+                loading={boolean('loading', false)}
+                disabled={boolean('disabled', false)}
+                block={boolean('block', false)}
+                nowrap={boolean('nowrap', false)}
+                leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                rightAddons={boolean('rightAddons', false) && <StarMIcon />}
+            >
+                {text('label', 'Оплатить')}
+            </CustomButtonMobile>
         );
     },
 };

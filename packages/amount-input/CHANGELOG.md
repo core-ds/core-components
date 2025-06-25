@@ -1,5 +1,153 @@
 # Change Log
 
+## 7.15.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   input@15.6.2
+    -   number-input@2.7.2
+    -   with-suffix@4.2.20
+
+## 7.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   number-input@2.7.1
+    -   with-suffix@4.2.19
+
+## 7.15.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Добавлена возможность включить в правом аддоне компонент `Stepper` с помощью пропса `stepper`
+-   Расширен тип пропса `onChange`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   number-input@2.7.0
+    -   input@15.6.0
+    -   with-suffix@4.2.18
+
+## 7.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   input@15.5.5
+    -   with-suffix@4.2.17
+
+## 7.14.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
+    -   with-suffix@4.2.16
+
+## 7.14.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.3
+    -   with-suffix@4.2.15
+
+## 7.13.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   input@15.5.2
+    -   with-suffix@4.2.14
+
+## 7.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   input@15.5.1
+    -   with-suffix@4.2.13
+
+## 7.13.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   with-suffix@4.2.12
+    -   input@15.5.0
+
+## 7.12.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   input@15.4.0
+    -   shared@0.14.1
+    -   with-suffix@4.2.11
+
+## 7.12.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input@15.3.4
+    -   with-suffix@4.2.10
+
+## 7.12.5
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   input@15.3.3
+    -   with-suffix@4.2.9
+
 ## 7.12.4
 
 ### Patch Changes

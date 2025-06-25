@@ -19,12 +19,12 @@ export type SelectWithTagsProps = Omit<
     /**
      * Значение поля ввода
      */
-    value: string;
+    value?: string;
 
     /**
      * Обработчик ввода
      */
-    onInput: (event: ChangeEvent<HTMLInputElement>) => void;
+    onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
 
     /**
      * Список выбранных пунктов (controlled-селект)

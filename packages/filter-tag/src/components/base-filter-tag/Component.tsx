@@ -1,4 +1,4 @@
-import React, { forwardRef, KeyboardEvent, MouseEvent, ReactNode, useRef } from 'react';
+import React, { forwardRef, KeyboardEvent, MouseEvent, useRef } from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
@@ -7,93 +7,18 @@ import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
+import { isKeyBoardEvent } from '../../helpers/is-keyboard-event';
+import { PrivateProps } from '../../types/base-filter-tag-private-props';
+import { BaseFilterTagProps } from '../../types/base-filter-tag-props';
+
+import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
+import invertedColors from './inverted.module.css';
 
-export type BaseFilterTagProps = {
-    /**
-     * Состояние выбора
-     */
-    checked?: boolean;
-
-    /**
-     * Состояние открытия
-     */
-    open?: boolean;
-
-    /**
-     * Состояние блокировки
-     */
-    disabled?: boolean;
-
-    /**
-     * Обработчик клика
-     */
-    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Обработчик очистки
-     */
-    onClear?: () => void;
-
-    /**
-     * Контент
-     */
-    children?: ReactNode;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Размер компонента
-     * @description xxs, xs, s deprecated, используйте вместо них 32, 40, 48 соответственно
-     */
-    size?: 'xxs' | 'xs' | 's' | 32 | 40 | 48;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Показывать крестик для очистки выбора
-     */
-    showClear?: boolean;
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     * @default false
-     */
-    block?: boolean;
-
-    /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props shape и view
-     * Вариант тега
-     */
-    variant?: 'default' | 'alt';
-
-    /**
-     * Форма тега
-     */
-    shape?: 'rounded' | 'rectangular';
-
-    /**
-     * Стиль тега
-     */
-    view?: 'outlined' | 'filled';
-
-    /**
-     * Основные стили компонента.
-     */
-    styles?: { [key: string]: string };
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
 };
-
-const isKeyBoardEvent = (
-    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
-): event is KeyboardEvent<HTMLDivElement> =>
-    (event as KeyboardEvent<HTMLDivElement>).key !== undefined;
 
 const SIZE_TO_CLASSNAME_MAP = {
     xxs: 'size-32',
@@ -104,7 +29,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     48: 'size-48',
 };
 
-export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
+export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & PrivateProps>(
     (
         {
             children,
@@ -122,6 +47,9 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             className,
             dataTestId,
             styles = {},
+            colors = 'default',
+            colorStylesMap = { default: {}, inverted: {} },
+            leftAddons,
         },
         ref,
     ) => {
@@ -153,6 +81,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                 className={cn(
                     className,
                     commonStyles.component,
+                    colorStyles[colors].component,
                     commonStyles[shapeClassName],
                     commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles.component,
@@ -160,9 +89,10 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     {
                         [commonStyles.checked]: checked,
+                        [colorStyles[colors].checked]: checked,
                         [styles.checked]: checked,
                         [commonStyles.disabled]: disabled,
-                        [styles.disabled]: disabled,
+                        [colorStyles[colors].disabled]: disabled,
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
                         [commonStyles.block]: block,
@@ -178,25 +108,32 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                     disabled={disabled}
                     className={cn(
                         commonStyles.valueButton,
+                        colorStyles[colors].valueButton,
                         styles.valueButton,
+                        colorStylesMap[colors].valueButton,
                         commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                         styles[SIZE_TO_CLASSNAME_MAP[size]],
                         commonStyles[shapeClassName],
                         styles[shapeClassName],
                         commonStyles[view],
+                        colorStyles[colors][view],
                         {
                             [styles[view]]: Boolean(styles[view]),
+                            [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
                             [commonStyles.checked]: checked,
+                            [colorStyles[colors].checked]: checked,
                             [styles.checked]: checked,
                             [commonStyles.open]: open,
                             [commonStyles.close]: !showClear,
                             [styles.close]: !showClear,
                             [commonStyles.block]: block,
+                            [commonStyles.withClear]: showClear,
                         },
                     )}
                 >
+                    {leftAddons && <div className={commonStyles.addons}>{leftAddons}</div>}
                     <span className={commonStyles.content}>{children}</span>
-                    <span className={commonStyles.chevron}>
+                    <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
                         {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
                             <ChevronDownCompactSIcon />
                         ) : (
@@ -210,6 +147,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         role='button'
                         className={cn(
                             commonStyles.clear,
+                            [colorStyles[colors].clear],
                             styles.clear,
                             commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                             styles[SIZE_TO_CLASSNAME_MAP[size]],
@@ -220,13 +158,11 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         onKeyDown={handleClear}
                         tabIndex={0}
                     >
-                        <span className={commonStyles.iconWrapper}>
-                            {SIZE_TO_CLASSNAME_MAP[size] === 'size-32' ? (
-                                <CrossCircleSIcon />
-                            ) : (
-                                <CrossCircleMIcon />
-                            )}
-                        </span>
+                        {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
+                            <CrossCircleSIcon />
+                        ) : (
+                            <CrossCircleMIcon />
+                        )}
                     </div>
                 )}
             </div>

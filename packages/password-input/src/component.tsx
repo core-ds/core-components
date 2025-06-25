@@ -8,27 +8,30 @@ import { EyeOffMIcon } from '@alfalab/icons-glyph/EyeOffMIcon';
 
 import styles from './index.module.css';
 
-export type PasswordInputProps = InputProps & {
+export type PasswordInputProps = Omit<InputProps, 'size'> & {
+    /**
+     * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     */
+    size?: Exclude<InputProps['size'], 40>;
+
     /**
      * Управление видимостью пароля (controlled)
      */
     passwordVisible?: boolean;
 
     /**
+     * Управление текстом подсказки
+     */
+    passwordHint?: {
+        visible: string;
+        hidden: string;
+    };
+
+    /**
      * Коллбэк при изменении видимости пароля
      */
     onPasswordVisibleChange?: (visible: boolean) => void;
-};
-
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
 };
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
@@ -40,11 +43,16 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             colors,
             rightAddons,
             size = 48,
+            passwordHint = {
+                visible: 'Скрыть',
+                hidden: 'Показать',
+            },
             className,
             ...restProps
         },
         ref,
     ) => {
+        const { visible, hidden } = passwordHint;
         const uncontrolled = passwordVisible === undefined;
         const [statePasswordVisible, setStatePasswordVisible] = useState(
             uncontrolled ? false : passwordVisible,
@@ -56,7 +64,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             }
 
             if (uncontrolled) {
-                setStatePasswordVisible((visible) => !visible);
+                setStatePasswordVisible((prevVisible) => !prevVisible);
             }
         }, [passwordVisible, uncontrolled, onPasswordVisibleChange]);
 
@@ -70,7 +78,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                 size={size}
                 ref={ref}
                 colors={colors}
-                className={cn(className, styles[SIZE_TO_CLASSNAME_MAP[size]])}
+                className={cn(className)}
                 rightAddons={
                     <React.Fragment>
                         {rightAddons}
@@ -78,19 +86,14 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                             className={styles.eye}
                             colors={colors}
                             view='secondary'
-                            size='s'
+                            size={24}
                             icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
                             onClick={handleButtonClick}
                             disabled={disabled}
-                            title={
-                                isPasswordVisible
-                                    ? 'Скрыть введённые цифры'
-                                    : 'Показать введённые цифры'
-                            }
+                            title={isPasswordVisible ? visible : hidden}
                         />
                     </React.Fragment>
                 }
-                addonsClassName={styles.addons}
                 inputClassName={styles.input}
             />
         );

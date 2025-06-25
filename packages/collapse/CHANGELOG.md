@@ -1,5 +1,60 @@
 # Change Log
 
+## 4.5.5
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1517](https://github.com/core-ds/core-components/pull/1517)
+
+-   Парные иконки заменены на одну иконку и css-rotate
+
+## 4.5.4
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   link@5.3.4
+
+## 4.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.3.3
+
+## 4.5.2
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1477](https://github.com/core-ds/core-components/pull/1477)
+
+-   Замена использование lodash на коммон пакет
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+-   Обновлены зависимости
+    -   link@5.3.2
+
 ## 4.5.1
 
 ### Patch Changes

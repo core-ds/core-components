@@ -1,5 +1,123 @@
 # Change Log
 
+## 5.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   portal@3.3.10
+
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1614](https://github.com/core-ds/core-components/pull/1614)
+
+-   Исправлен тип `TransitionProps` на `CSSTransitionProps` в `base-modal`
+
+## 5.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   portal@3.3.9
+
+## 5.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   portal@3.3.8
+
+## 5.9.0
+
+### Minor Changes
+
+<sup><time>19.02.2025</time></sup>
+
+### [#1428](https://github.com/core-ds/core-components/pull/1428)
+
+-   Добавлен пропс `contentElementRef` для контентной области
+-   Добавлен обработчик события `onWheel`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   portal@3.3.7
+
+## 5.8.10
+
+### Patch Changes
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+-   Исправление работы safe-area
+
+## 5.8.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   portal@3.3.6
+
+## 5.8.8
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   backdrop@3.4.5
+
+## 5.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.4.4
+    -   portal@3.3.5
+    -   shared@0.14.1
+
+## 5.8.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   backdrop@3.4.3
+    -   stack@5.0.1
+
+## 5.8.5
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   backdrop@3.4.2
+
 ## 5.8.4
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import deepEqual from 'deep-equal';
+import reactFastCompare from 'react-fast-compare';
 
 import type { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
 import {
@@ -67,6 +67,18 @@ export type UseSelectWithApplyProps = {
      * Показывать пункт "Выбрать все" в заголовке списка
      */
     showHeaderWithSelectAll?: boolean;
+
+    /**
+     * Значение name при применении выбора
+     * @default 'apply-footer'
+     */
+    applyName?: string;
+
+    /**
+     * Значение name при сбросе выбора
+     * @default 'reset-footer'
+     */
+    resetName?: string;
 };
 
 export const SELECT_ALL_KEY = 'select_all';
@@ -85,6 +97,8 @@ export function useSelectWithApply({
     showHeaderWithSelectAll = false,
     showSearch = false,
     searchProps = {},
+    applyName = 'apply-footer',
+    resetName = 'reset-footer',
 }: UseSelectWithApplyProps) {
     const [searchState, setSearchState] = useState('');
 
@@ -131,7 +145,7 @@ export function useSelectWithApply({
             selected: selectedDraft[0],
             selectedMultiple: selectedDraft,
             initiator: null,
-            name: 'apply-footer',
+            name: applyName,
         });
     };
 
@@ -141,7 +155,7 @@ export function useSelectWithApply({
             selected: null,
             selectedMultiple: [],
             initiator: null,
-            name: 'reset-footer',
+            name: resetName,
         });
     };
 
@@ -187,7 +201,7 @@ export function useSelectWithApply({
 
     useEffect(() => {
         // устанавливать selectedDraft если selectedOptions изменились
-        if (!deepEqual(selectedOptionsRef.current, selectedOptions)) {
+        if (!reactFastCompare(selectedOptionsRef.current, selectedOptions)) {
             setSelectedDraft(selectedOptions);
         }
         selectedOptionsRef.current = selectedOptions;
@@ -222,7 +236,6 @@ export function useSelectWithApply({
                 onChange: handleToggleAll,
             },
         },
-        allowUnselect: true,
         multiple: true,
         options: memoizedOptions,
         onChange: handleChange,
@@ -247,6 +260,8 @@ export function useSelectWithApply({
             showHeaderWithSelectAll,
             showSearch,
             searchProps,
+            applyName,
+            resetName,
         },
     };
 }

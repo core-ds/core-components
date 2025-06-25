@@ -1,5 +1,211 @@
 # Change Log
 
+## 6.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.3
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 6.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.2
+
+## 6.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 6.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 6.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 6.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.1
+    -   icon-button@6.11.11
+
+## 6.3.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1640](https://github.com/core-ds/core-components/pull/1640)
+
+1. Если в компоненте `FileUploadItem` отсутствуют кнопки (то есть ни `showRestore`, ни `downloadLink`, ни `showDelete` не активны), то элемент `Content` отображается с курсором в виде `pointer`, сигнализируя о том, что он кликабельный.
+
+2. Если хотя бы одна из кнопок присутствует, кликабельность `Content` меняется в соответствии с логикой отображения.
+
+3. Добавлен пропс `isClickable`, который позволяет управлять визуальным отображением кликабельности элемента `Content` в случае отсутствия кнопок.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+
+## 6.2.6
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1641](https://github.com/core-ds/core-components/pull/1641)
+
+-   Исправлен копирайт `subtitle` в компоненте FileUploadItem на `Загружено`
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+-   Фикс импорта `icon-view`
+-   Фикс tsconfig
+
+-   Обновлены зависимости
+    -   icon-view@3.10.1
+    -   icon-button@6.11.10
+
+## 6.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+
+## 6.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 6.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@4.0.5
+    -   icon-button@6.11.8
+
+## 6.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+    -   spinner@4.0.4
+    -   icon-button@6.11.7
+
+## 6.2.1
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1552](https://github.com/core-ds/core-components/pull/1552)
+
+-   Поправлено обрезание длинного текста при truncate: true
+
+## 6.2.0
+
+### Minor Changes
+
+<sup><time>10.01.2025</time></sup>
+
+### [#1525](https://github.com/core-ds/core-components/pull/1525)
+
+-   Обновление зависимости icons-glyph
+
+## 6.1.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   link@5.3.4
+    -   spinner@4.0.3
+    -   typography@4.11.3
+
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1504](https://github.com/core-ds/core-components/pull/1504)
+
+-   Добавлен импорт типов для статусов и пропсов компонента
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   link@5.3.3
+    -   spinner@4.0.2
+    -   typography@4.11.2
+
+## 6.0.4
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   icon-button@6.11.4
+    -   link@5.3.2
+    -   spinner@4.0.1
+    -   typography@4.11.1
+
+## 6.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.3
+
 ## 6.0.2
 
 ### Patch Changes

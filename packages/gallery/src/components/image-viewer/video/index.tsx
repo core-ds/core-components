@@ -1,12 +1,20 @@
-import React, { MouseEvent, ReactEventHandler, useContext, useEffect, useRef } from 'react';
+import React, {
+    MouseEvent,
+    ReactEventHandler,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
 import cn from 'classnames';
 import Hls from 'hls.js';
 
-import { Circle } from '@alfalab/core-components/icon-view/circle';
+import { Circle } from '@alfalab/core-components-icon-view/circle';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
 
 import { GalleryContext } from '../../../context';
-import { GALLERY_EVENTS } from '../../../utils/constants';
+import { BottomButton } from '../../bottom-button';
+import { Subtitles } from '../../subtitles';
 
 import styles from './index.module.css';
 
@@ -21,10 +29,20 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const timer = useRef<ReturnType<typeof setTimeout>>();
 
-    const { setImageMeta, mutedVideo, view, playingVideo, setPlayingVideo, setHideNavigation } =
-        useContext(GalleryContext);
+    const {
+        setImageMeta,
+        mutedVideo,
+        view,
+        playingVideo,
+        setPlayingVideo,
+        setHideNavigation,
+        getCurrentImage,
+    } = useContext(GalleryContext);
 
     const isMobile = view === 'mobile';
+    const isDesktop = view === 'desktop';
+
+    const image = getCurrentImage();
 
     useEffect(() => {
         setImageMeta({ player: playerRef }, index);
@@ -54,6 +72,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             hls.loadSource(url);
             if (playerRef.current) {
                 hls.attachMedia(playerRef.current);
+                hls.subtitleDisplay = false;
             }
         }
 
@@ -67,6 +86,38 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         };
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [url, index]);
+
+    useEffect(() => {
+        if (playerRef.current && isActive) {
+            if (playingVideo) {
+                playerRef.current.play();
+            } else {
+                playerRef.current.pause();
+            }
+        }
+        if (playerRef.current && !isActive) {
+            playerRef.current.pause();
+            playerRef.current.currentTime = 0;
+        }
+    }, [isActive, playingVideo]);
+
+    useEffect(() => {
+        const handleSpacePress = (e: KeyboardEvent) => {
+            if ((e.key === ' ' || e.code === 'Space') && isActive) {
+                if (playingVideo) {
+                    setPlayingVideo(false);
+                } else {
+                    setPlayingVideo(true);
+                }
+            }
+        };
+
+        document.addEventListener('keyup', handleSpacePress);
+
+        return () => {
+            document.removeEventListener('keyup', handleSpacePress);
+        };
+    }, [isActive, playingVideo, setPlayingVideo]);
 
     const handleWrapperClick = (e: MouseEvent) => {
         e.stopPropagation();
@@ -89,26 +140,20 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         setPlayingVideo(!playingVideo);
     };
 
-    useEffect(() => {
-        if (playerRef.current && isActive) {
-            if (playingVideo) {
-                playerRef.current.play();
-            } else {
-                playerRef.current.pause();
+    const handleBottomButtonClick = useCallback(
+        (e: MouseEvent) => {
+            e.stopPropagation();
+            if (image?.bottomButton) {
+                image.bottomButton.onClick(e);
             }
-        }
-        if (playerRef.current && !isActive) {
-            playerRef.current.pause();
-            playerRef.current.currentTime = 0;
-        }
-    }, [isActive, playingVideo]);
+        },
+        [image?.bottomButton],
+    );
 
-    const onPlay: ReactEventHandler<HTMLVideoElement> = (e) => {
-        const customEvent = new CustomEvent(GALLERY_EVENTS.ON_PLAY, {
-            detail: { player: e.target },
-        });
-
-        dispatchEvent(customEvent);
+    const onPlay: ReactEventHandler<HTMLVideoElement> = () => {
+        if (image && image.onPlay) {
+            image.onPlay();
+        }
 
         if (timer.current) {
             clearTimeout(timer.current);
@@ -119,16 +164,16 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         }, 3000);
     };
 
-    const onPause: ReactEventHandler<HTMLVideoElement> = (e) => {
-        const customEvent = new CustomEvent(GALLERY_EVENTS.ON_PAUSE, {
-            detail: { player: e.target },
-        });
+    const onPause: ReactEventHandler<HTMLVideoElement> = () => {
+        if (image && image.onPause) {
+            image.onPause();
+        }
 
-        dispatchEvent(customEvent);
         if (timer.current) {
             clearTimeout(timer.current);
             timer.current = undefined;
         }
+
         setHideNavigation(false);
     };
 
@@ -147,12 +192,20 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             >
                 <track kind='captions' />
             </video>
-            {view === 'desktop' && !playingVideo && (
+            {isDesktop && !playingVideo && (
                 <div className={styles.videoButton}>
                     <Circle size={64} shapeClassName={styles.iconShape}>
                         <PlayCompactMIcon className={styles.icon} />
                     </Circle>
                 </div>
+            )}
+            {isDesktop && <Subtitles />}
+            {isDesktop && image?.bottomButton && (
+                <BottomButton
+                    bottomButton={image.bottomButton}
+                    onClick={handleBottomButtonClick}
+                    className={styles.bottomButton}
+                />
             )}
         </div>
     );

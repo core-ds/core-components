@@ -1,5 +1,121 @@
 # Change Log
 
+## 9.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+
+## 9.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+
+## 9.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 9.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   slider@4.8.0
+    -   input@15.5.5
+
+## 9.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
+
+## 9.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.3
+
+## 9.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.2
+
+## 9.2.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1541](https://github.com/core-ds/core-components/pull/1541)
+
+-   Исправлен обработчик `onBlur`
+-   Пропс `lockLimit` отмечен как `deprecated`. Для установки лимитов обработайте `blur` событие самостоятельно
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.1
+
+## 9.1.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   slider@4.7.3
+    -   input@15.5.0
+
+## 9.0.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   input@15.4.0
+
+## 9.0.3
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input@15.3.4
+    -   slider@4.7.2
+
+## 9.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.3
+
 ## 9.0.1
 
 ### Patch Changes

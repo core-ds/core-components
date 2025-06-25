@@ -14,11 +14,11 @@ jobs:
 
     steps:
       - name: Check permissions
-        if: ${{ contains(fromJSON('["reme3d2y","Valeri8888","SiebenSieben","hextion","fulcanellee"]'), github.actor) == false }}
+        if: ${{ contains(fromJSON('["dHIM24","SiebenSieben","hextion","fulcanellee"]'), github.actor) == false }}
         uses: actions/github-script@v6
         with:
           script: |
-            core.setFailed("you don't have permission to run this workflow!");
+            core.setFailed("You don't have permission to run this workflow!");
 
       - uses: actions/checkout@v3
         with:

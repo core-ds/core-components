@@ -12,3 +12,6 @@ export * from './exhaustiveCheck';
 export * from './context/PortalContext';
 export * from './warning';
 export * from './object';
+export * from './type-checks';
+export * from './get-color-var';
+export * from './mask';

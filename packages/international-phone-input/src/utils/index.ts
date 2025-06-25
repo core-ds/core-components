@@ -1,3 +1,4 @@
+import { RefObject } from 'react';
 import type { MaskitoOptions } from '@maskito/core';
 
 import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
@@ -5,13 +6,14 @@ import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-selec
 import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
-import { countriesData } from '../data/country-data';
+import { CountriesData, countriesData } from '../data/country-data';
 import type { AreaItem, Country } from '../types';
 
-export function initCountries(iso2s?: string[]) {
+export function initCountries(iso2s?: string[], customCountriesList?: CountriesData[]) {
+    const data = customCountriesList ?? countriesData;
     const filteredCountriesData = Array.isArray(iso2s)
-        ? countriesData.filter((country) => iso2s.includes(country[2]))
-        : countriesData;
+        ? data.filter((country) => iso2s.includes(country[2]))
+        : data;
 
     return filteredCountriesData.map((country) => {
         const countryItem: Country = {
@@ -50,8 +52,8 @@ export function initCountries(iso2s?: string[]) {
 
 export function findCountry(
     countries: Country[][],
-    value?: string,
-    iso2?: string,
+    value: string | undefined,
+    iso2: string | undefined,
     country?: Country,
 ) {
     if (country) return country;
@@ -94,8 +96,13 @@ export function guessCountry(inputNumber: string, data: Country[][]) {
         return guess || selectedCountry;
     }, undefined as Country | undefined);
 
-    if (!result && inputNumber.length > 5 && inputNumber.startsWith('8'))
-        return data.find((countryData) => countryData[0].iso2 === 'ru')?.[0];
+    if (!result && inputNumber.startsWith('8')) {
+        const matchContry = data.some(([{ dialCode }]) => dialCode.startsWith(inputNumberDialCode));
+
+        if (!matchContry) {
+            return data.find(([{ iso2 }]) => iso2 === 'ru')?.[0];
+        }
+    }
 
     return result;
 }
@@ -162,18 +169,27 @@ export function createMaskOptions(
     country: Country | undefined,
     clearableCountryCode: boolean,
     preserveCountryCode: boolean,
+    lastCountryRef: RefObject<Country | null>,
 ): MaskitoOptions {
     const countryCode = country?.countryCode;
     const prefix = countryCode ? getInitialValueFromCountry(countryCode) : '';
     const prefixLen = !clearableCountryCode && prefix ? prefix.length : 0;
     const mask = createPhoneMaskExpression(country, clearableCountryCode);
 
+    const preprocessors = [
+        maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
+    ];
+
+    if (preserveCountryCode) {
+        const createMask = (lastCountry: Country) =>
+            createPhoneMaskExpression(lastCountry, clearableCountryCode);
+
+        preprocessors.push(maskUtils.preserveCountryCodePreprocessor(lastCountryRef, createMask));
+    }
+
     return {
         mask,
-        preprocessors: [
-            maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
-            maskUtils.preserveCountryCodePreprocessor(countryCode, preserveCountryCode),
-        ],
+        preprocessors,
         postprocessors: [maskUtils.prefixPostprocessor(prefixLen > 0 ? prefix : '')],
         plugins: [
             maskUtils.caretGuard((value, [from, to]) => [
@@ -222,7 +238,7 @@ export function getPhoneData(phone: string, countries: Country[][], defaultIso2?
     const inputNumber = clearMask(nextPhone);
     const nextCountry = findCountry(countries, phone, defaultIso2);
 
-    if (nextCountry?.iso2 === 'ru' && inputNumber.length > 5 && inputNumber.startsWith('8')) {
+    if (nextCountry?.iso2 === 'ru' && inputNumber.startsWith('8')) {
         nextPhone = phone.replace(/\+?8/, '+7');
     }
 

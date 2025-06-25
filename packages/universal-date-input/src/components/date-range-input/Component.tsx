@@ -18,6 +18,7 @@ import { Input } from '@alfalab/core-components-input';
 import { Popover } from '@alfalab/core-components-popover';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
+import { CalendarSIcon } from '@alfalab/icons-glyph/CalendarSIcon';
 
 import { DATE_RANGE_SEPARATOR, DEFAULT_MAX_DATE, DEFAULT_MIN_DATE } from '../../consts';
 import { InnerDateRangeInputProps } from '../../types';
@@ -178,8 +179,6 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-            if (open) return;
-
             onBlur?.(event);
 
             if (autoCorrection) {
@@ -224,6 +223,8 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             return null;
         };
 
+        const CalendarIcon = restProps.size === 40 ? CalendarSIcon : CalendarMIcon;
+
         return (
             <div
                 {...wrapperHandlers}
@@ -251,9 +252,12 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
                         <React.Fragment>
                             {rightAddons}
                             {picker && (
-                                <CalendarMIcon
+                                <CalendarIcon
                                     onClick={onPickerClick}
-                                    className={styles.calendarIcon}
+                                    className={cn(
+                                        styles.calendarIcon,
+                                        styles[`size-${restProps.size}`],
+                                    )}
                                     onMouseDown={preventDefault}
                                 />
                             )}

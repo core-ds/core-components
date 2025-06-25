@@ -1,5 +1,110 @@
 # Change Log
 
+## 7.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   icon-button@6.11.13
+
+## 7.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   icon-button@6.11.12
+
+## 7.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   icon-button@6.11.11
+
+## 7.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+
+## 7.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+
+## 7.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   icon-button@6.11.8
+
+## 7.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   icon-button@6.11.7
+
+## 7.3.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   status-badge@1.2.3
+
+## 7.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   status-badge@1.2.2
+
+## 7.3.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+-   Обновлены зависимости
+    -   icon-button@6.11.4
+    -   status-badge@1.2.1
+
+## 7.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.3
+
 ## 7.3.3
 
 ### Patch Changes

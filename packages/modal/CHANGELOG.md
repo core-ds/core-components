@@ -1,5 +1,219 @@
 # Change Log
 
+## 9.9.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   base-modal@5.9.4
+    -   navigation-bar-private@0.8.7
+
+## 9.9.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 9.9.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+
+## 9.9.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 9.9.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 9.9.13
+
+### Patch Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1681](https://github.com/core-ds/core-components/pull/1681)
+
+-   Добавлен отступ по умолчанию для устройств без нижней safe area
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
+
+## 9.9.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.2
+
+## 9.9.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.1
+
+## 9.9.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.0
+
+## 9.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.7.0
+
+## 9.9.8
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1582](https://github.com/core-ds/core-components/pull/1582)
+
+-   Исправлено дерганье из-за скролла в `fullscreen` `ModalDesktop`
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.6.2
+
+## 9.9.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.6.1
+
+## 9.9.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.0
+    -   shared@0.16.0
+    -   navigation-bar-private@0.6.0
+
+## 9.9.5
+
+### Patch Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1572](https://github.com/core-ds/core-components/pull/1572)
+
+-   Фикс паддинга заголовка компонента SidePanel в PWA c safe-area
+-   Фикс паддинга заголовка компонента Modal в PWA c safe-area
+
+## 9.9.4
+
+### Patch Changes
+
+<sup><time>11.02.2025</time></sup>
+
+### [#1570](https://github.com/core-ds/core-components/pull/1570)
+
+-   Исправление работы safe-area
+
+-   Обновлены зависимости
+    -   base-modal@5.8.10
+
+## 9.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   base-modal@5.8.9
+    -   navigation-bar-private@0.5.8
+
+## 9.9.2
+
+### Patch Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+-   Добавлена обработка safe-area
+
+## 9.9.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   base-modal@5.8.8
+    -   navigation-bar-private@0.5.7
+
+## 9.9.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1474](https://github.com/core-ds/core-components/pull/1474)
+
+-   Добавлены атомарные импорты
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   navigation-bar-private@0.5.6
+    -   shared@0.14.1
+    -   base-modal@5.8.7
+
+## 9.8.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+-   Обновлены зависимости
+    -   base-modal@5.8.6
+    -   navigation-bar-private@0.5.5
+
+## 9.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.8.5
+    -   navigation-bar-private@0.5.4
+
 ## 9.8.4
 
 ### Patch Changes

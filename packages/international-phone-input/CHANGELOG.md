@@ -1,5 +1,284 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.7.18
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1644](https://github.com/core-ds/core-components/pull/1644)
+
+-   Для размера XL горизонтальные паддинги исправлены на 16px в соответствии с дизайном
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   input-autocomplete@12.9.6
+    -   input@15.6.2
+
+## 2.7.17
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1722](https://github.com/core-ds/core-components/pull/1722)
+
+-   Убран не используемый проп onClear(обработчик можно пробросить в inputProps)
+
+-   Обновлены зависимости
+    -   select@17.21.3
+    -   input-autocomplete@12.9.5
+
+## 2.7.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   input-autocomplete@12.9.4
+    -   select@17.21.2
+
+## 2.7.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+    -   input-autocomplete@12.9.3
+
+## 2.7.14
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1709](https://github.com/core-ds/core-components/pull/1709)
+
+-   Улучшен механизм угадывания страны по пользовательскому вводу
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input@15.6.0
+    -   input-autocomplete@12.9.2
+
+## 2.7.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   input@15.5.5
+    -   input-autocomplete@12.9.1
+    -   select@17.20.14
+
+## 2.7.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.0
+    -   select@17.20.13
+
+## 2.7.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+    -   input-autocomplete@12.8.9
+
+## 2.7.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
+    -   select@17.20.11
+    -   input-autocomplete@12.8.8
+
+## 2.7.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+    -   input-autocomplete@12.8.7
+
+## 2.7.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+    -   input-autocomplete@12.8.6
+
+## 2.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   input-autocomplete@12.8.5
+    -   input@15.5.3
+
+## 2.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+    -   input-autocomplete@12.8.4
+
+## 2.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   select@17.20.6
+    -   input@15.5.2
+    -   input-autocomplete@12.8.3
+
+## 2.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.5
+    -   input-autocomplete@12.8.2
+
+## 2.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.4
+    -   input-autocomplete@12.8.1
+
+## 2.7.2
+
+### Patch Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1533](https://github.com/core-ds/core-components/pull/1533)
+
+-   Исправлено автозаполнение номера в Safari 18
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   shared@0.15.0
+    -   input-autocomplete@12.8.0
+    -   input@15.5.1
+
+## 2.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.2
+    -   input-autocomplete@12.7.3
+
+## 2.7.0
+
+### Minor Changes
+
+<sup><time>05.02.2025</time></sup>
+
+### [#1566](https://github.com/core-ds/core-components/pull/1566)
+
+-   Экспорт массива countriesData и его типа (для модификации по месту использования)
+
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>04.02.2025</time></sup>
+
+### [#1562](https://github.com/core-ds/core-components/pull/1562)
+
+-   добавлен опциональный проп customCountriesList, который можно использовать, чтобы переопределить дефолтный массив country-data
+
+## 2.5.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.1
+    -   input-autocomplete@12.7.2
+
+## 2.5.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+    -   input-autocomplete@12.7.1
+
+## 2.5.8
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   input@15.5.0
+    -   input-autocomplete@12.7.0
+    -   select@17.19.0
+
+## 2.5.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   select@17.18.1
+    -   shared@0.14.1
+    -   input-autocomplete@12.6.9
+
+## 2.5.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.6.8
+    -   input@15.3.4
+    -   select@17.18.0
+
+## 2.5.5
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   input@15.3.3
+    -   input-autocomplete@12.6.7
+    -   select@17.17.5
+
 ## 2.5.4
 
 ### Patch Changes

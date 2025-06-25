@@ -1,5 +1,87 @@
 # @alfalab/core-components-steps
 
+## 1.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 1.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 1.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 1.8.0
+
+### Minor Changes
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1580](https://github.com/core-ds/core-components/pull/1580)
+
+-   Изменена работа пропса `minSpaceBetweenSteps`. Теперь отступы между шагами определяются как расстояние от контента до нижней границы шага с учётом нижнего дополнительного отступа. Размер `8` в расчетах не учитывается. Добавлен отступ `32`. Также `minSpaceBetweenSteps` теперь никак не влияет на работу компонента в горизонтальном расположении.
+-   Добавлен пропс `completedDashColor` с помощью которого можно переопределить цвет "тире" выполенного шага.
+-   Добавлен новый статус `CriticalError`
+
+## 1.7.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   badge@5.6.4
+
+## 1.7.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+## 1.7.3
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+-   Обновлены зависимости
+    -   badge@5.6.3
+
+## 1.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.2
+
 ## 1.7.1
 
 ### Patch Changes

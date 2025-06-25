@@ -1,4 +1,5 @@
 @import '../../../vars/src/index.css';
+@import '../vars.css';
 
 .component {
     width: 100%;
@@ -7,6 +8,18 @@
 
 .field:not(.disabled) {
     cursor: pointer;
+}
+
+.errorIcon {
+    display: var(--input-error-icon-display);
+}
+
+* + .errorIcon {
+    display: var(--input-error-icon-not-alone-display);
+}
+
+.successIcon {
+    display: var(--input-success-icon-display);
 }
 
 .disabled {

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 
 import { Actions } from './components/actions-control';
 import { Content } from './components/content';
 import { StatusControl } from './components/status-control';
 import { FileUploadItemContext } from './context/file-upload-item-context';
-import { FileUploadItemProps } from './types/file-upload-item-props';
+import { type FileUploadItemProps } from './types/file-upload-item-props';
 
 import styles from './index.module.css';
 
@@ -27,6 +27,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     onDownload,
     onRestore,
     disableButtons,
+    isClickable = true,
     target,
     dataTestId,
     customIcon,
@@ -35,46 +36,53 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     customContent,
     truncate,
     imageUrl,
-}) => (
-    <div
-        className={cn(
-            className,
-            styles.component,
-            uploadStatus && styles[uploadStatus.toLocaleLowerCase()],
-        )}
-        data-test-id={dataTestId}
-    >
-        <FileUploadItemContext.Provider
-            // eslint-disable-next-line react/jsx-no-constructed-context-values
-            value={{
-                showRestore,
-                uploadStatus,
-                error,
-                title,
-                subtitle,
-                uploadDate,
-                size,
-                id,
-                onDownload,
-                onDelete,
-                onRestore,
-                downloadLink,
-                download,
-                disableButtons,
-                target,
-                showDelete,
-                customIcon,
-                iconStyle,
-                progressBar,
-                customContent,
-                truncate,
-                imageUrl,
-            }}
+}) => {
+    const [actionsPresent, setActionsPresent] = useState(false);
+
+    return (
+        <div
+            className={cn(
+                className,
+                styles.component,
+                uploadStatus && styles[uploadStatus.toLocaleLowerCase()],
+            )}
+            data-test-id={dataTestId}
         >
-            {children}
-        </FileUploadItemContext.Provider>
-    </div>
-);
+            <FileUploadItemContext.Provider
+                // eslint-disable-next-line react/jsx-no-constructed-context-values
+                value={{
+                    showRestore,
+                    uploadStatus,
+                    error,
+                    title,
+                    subtitle,
+                    uploadDate,
+                    size,
+                    id,
+                    onDownload,
+                    onDelete,
+                    onRestore,
+                    downloadLink,
+                    download,
+                    disableButtons,
+                    isClickable,
+                    target,
+                    showDelete,
+                    customIcon,
+                    iconStyle,
+                    progressBar,
+                    customContent,
+                    truncate,
+                    imageUrl,
+                    actionsPresent,
+                    setActionsPresent,
+                }}
+            >
+                {children}
+            </FileUploadItemContext.Provider>
+        </div>
+    );
+};
 
 export const FileUploadItem = Object.assign(FileUploadItemComponent, {
     StatusControl,

@@ -2,7 +2,6 @@
 
 .component {
     display: flex;
-    padding: var(--gap-4);
     z-index: 3;
     overflow: hidden;
     transition: border 0.15s ease-in-out;
@@ -32,7 +31,7 @@
     user-select: none;
 
     &.mobile {
-        width: 36px;
+        width: 46px;
         height: 46px;
         border-radius: var(--border-radius-8);
     }

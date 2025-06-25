@@ -1,5 +1,115 @@
 # Change Log
 
+## 7.5.8
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1698](https://github.com/core-ds/core-components/pull/1698)
+
+-   При вставке номера телефона без знака "+" номер не обрезается.
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1729](https://github.com/core-ds/core-components/pull/1729)
+
+-   Исправлено определение вставки чисел перед знаком `+` или после него. Ранее могло приводить к ошибкам при управлении компонентом с помощью изменения `value`
+
+-   Обновлены зависимости
+    -   masked-input@6.3.39
+
+## 7.5.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.38
+
+## 7.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.37
+
+## 7.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.36
+
+## 7.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.35
+
+## 7.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.34
+
+## 7.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.33
+
+## 7.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.32
+
+## 7.5.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.31
+
+## 7.4.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.30
+
+## 7.4.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+-   Обновлены зависимости
+    -   masked-input@6.3.29
+
+## 7.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.28
+
 ## 7.4.4
 
 ### Patch Changes

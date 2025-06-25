@@ -20,8 +20,14 @@ import styles from './index.module.css';
 
 export type SliderInputProps = Omit<
     InputProps,
-    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons'
+    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons' | 'size'
 > & {
+    /**
+     * Размер компонента
+     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     */
+    size?: Exclude<InputProps['size'], 40>;
+
     /**
      * Мин. допустимое число
      */
@@ -36,6 +42,7 @@ export type SliderInputProps = Omit<
      * Предотвращает ввод числа если оно больше или меньше допустимого.
      * При событии blur установится число по верхней границе, если оно больше допустимого, и наоборот - по нижней границе, если число меньше допустимого.
      * @default false
+     * @deprecated Обработайте установку лимитов самостоятельно в событии onBlur. Пропс будет удален в версии core-components@49.0
      */
     lockLimit?: boolean;
 
@@ -206,7 +213,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         );
 
         const handleInputBlur = useCallback(
-            (event: FocusEvent) => {
+            (event: FocusEvent<HTMLInputElement>) => {
                 const { value: inputValue } = event.target as HTMLInputElement;
                 const validValue = getValidInputValue(inputValue);
 
@@ -234,8 +241,12 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         });
                     }
                 }
+
+                if (restProps.onBlur) {
+                    restProps.onBlur(event);
+                }
             },
-            [getValidInputValue, lockLimit, max, min, onChange, onInputChange],
+            [getValidInputValue, lockLimit, max, min, onChange, onInputChange, restProps],
         );
 
         return (

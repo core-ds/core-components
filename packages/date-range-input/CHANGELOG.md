@@ -1,5 +1,242 @@
 # @alfalab/core-components-date-range-input
 
+## 3.5.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   calendar@7.19.0
+    -   input@15.6.2
+    -   icon-button@6.11.13
+    -   popover@6.3.11
+
+## 3.5.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+
+## 3.5.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   calendar@7.18.6
+    -   input@15.6.1
+    -   icon-button@6.11.12
+    -   popover@6.3.10
+
+## 3.5.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+
+## 3.5.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+    -   calendar@7.18.4
+
+## 3.5.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   calendar@7.18.3
+    -   input@15.5.5
+    -   icon-button@6.11.11
+    -   popover@6.3.9
+
+## 3.5.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.2
+
+## 3.5.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.1
+    -   icon-button@6.11.10
+    -   input@15.5.4
+
+## 3.5.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.0
+
+## 3.5.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.14
+
+## 3.5.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.13
+
+## 3.5.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.12
+    -   icon-button@6.11.9
+    -   input@15.5.3
+
+## 3.5.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.11
+
+## 3.5.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   input@15.5.2
+    -   icon-button@6.11.8
+    -   popover@6.3.8
+
+## 3.5.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+
+## 3.5.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.8
+
+## 3.5.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   calendar@7.17.7
+    -   input@15.5.1
+    -   icon-button@6.11.7
+    -   popover@6.3.7
+
+## 3.5.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.6
+
+## 3.5.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.5
+
+## 3.5.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+
+## 3.5.13
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   calendar@7.17.3
+    -   icon-button@6.11.6
+    -   popover@6.3.6
+    -   input@15.5.0
+
+## 3.5.12
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   calendar@7.17.2
+
+## 3.5.11
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   calendar@7.17.1
+    -   icon-button@6.11.4
+    -   input@15.3.4
+    -   popover@6.3.4
+
+## 3.5.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+    -   input@15.3.3
+    -   icon-button@6.11.3
+
+## 3.5.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+
 ## 3.5.8
 
 ### Patch Changes

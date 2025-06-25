@@ -1,0 +1,20 @@
+@import '../../../../../vars/src/index.css';
+
+.scrollable {
+    height: 100%;
+
+    & .scrollableNode {
+        display: flex;
+        flex-direction: column;
+
+        & .contentNode {
+            display: flex;
+
+            flex-direction: column;
+
+            &:not(.hugContent) {
+                flex: 1 1 auto;
+            }
+        }
+    }
+}

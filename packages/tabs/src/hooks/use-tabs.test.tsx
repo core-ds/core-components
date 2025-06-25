@@ -5,6 +5,12 @@ import userEvent from '@testing-library/user-event';
 import { TabsDesktop } from '../desktop';
 import { Tab } from '../components/tab';
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+}));
+
 const renderTabs = async (props = { selectedId: 'tab-1' }) => {
     const renderResult = render(
         <TabsDesktop {...props}>

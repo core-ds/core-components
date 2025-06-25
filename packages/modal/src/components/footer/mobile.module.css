@@ -1,7 +1,12 @@
+@import '../../../../vars/src/safe-area.css';
 @import '../../vars.css';
 
 .footer {
     padding: var(--gap-16);
+
+    @media (display-mode: standalone) {
+        padding-bottom: calc(var(--sab) + var(--gap-16));
+    }
 }
 
 .sticky {

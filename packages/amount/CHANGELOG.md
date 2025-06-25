@@ -1,5 +1,73 @@
 # Change Log
 
+## 3.10.1
+
+### Patch Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1634](https://github.com/core-ds/core-components/pull/1634)
+
+-   RUR удален из deprecated. Удалены dev утилиты для ворнинга.
+
+## 3.10.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+## 3.9.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 3.9.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1515](https://github.com/core-ds/core-components/pull/1515)
+
+-   Добавлены атомарные импорты
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+## 3.8.2
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+## 3.8.1
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
 ## 3.8.0
 
 ### Minor Changes

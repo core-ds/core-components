@@ -1,5 +1,136 @@
 # @alfalab/core-components-number-input
 
+## 2.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   input@15.6.2
+    -   icon-button@6.11.13
+
+## 2.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   icon-button@6.11.12
+
+## 2.7.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Внутренняя оптимизация кодовой базы компонента
+-   `Stepper` теперь доступен для импорта из директории `shared`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 2.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   input@15.5.5
+    -   icon-button@6.11.11
+
+## 2.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+    -   input@15.5.4
+
+## 2.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+    -   input@15.5.3
+
+## 2.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   input@15.5.2
+    -   icon-button@6.11.8
+
+## 2.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   input@15.5.1
+    -   icon-button@6.11.7
+
+## 2.6.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   input@15.5.0
+
+## 2.5.7
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   input@15.4.0
+    -   shared@0.14.1
+
+## 2.5.6
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   icon-button@6.11.4
+    -   input@15.3.4
+
+## 2.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.3
+    -   icon-button@6.11.3
+
 ## 2.5.4
 
 ### Patch Changes

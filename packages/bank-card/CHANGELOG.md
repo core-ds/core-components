@@ -1,5 +1,117 @@
 # Change Log
 
+## 5.8.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.39
+
+## 5.8.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.38
+
+## 5.8.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.37
+
+## 5.8.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.36
+
+## 5.8.17
+
+### Patch Changes
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1677](https://github.com/core-ds/core-components/pull/1677)
+
+-   Изменён логотип по умолчанию
+
+## 5.8.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.35
+
+## 5.8.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.34
+
+## 5.8.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.33
+
+## 5.8.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.32
+
+## 5.8.12
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   masked-input@6.3.31
+
+## 5.8.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.30
+
+## 5.8.10
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   masked-input@6.3.29
+
+## 5.8.9
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   masked-input@6.3.28
+
 ## 5.8.8
 
 ### Patch Changes

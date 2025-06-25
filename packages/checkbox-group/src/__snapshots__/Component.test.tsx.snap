@@ -17,57 +17,60 @@ Object {
           class="checkboxList checkboxList"
         >
           <label
-            class="component size-20 start my-checkbox checkbox"
+            class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              name="one"
               type="checkbox"
             />
             <span
-              class="box"
+              class="box box"
             />
             <span
               class="content"
             >
               <span
-                class="label"
+                class="label label"
               >
                 Первый вариант
               </span>
             </span>
           </label>
           <label
-            class="component size-20 start checkbox"
+            class="component component size-20 start checkbox"
           >
             <input
+              name="two"
               type="checkbox"
             />
             <span
-              class="box"
+              class="box box"
             />
             <span
               class="content"
             >
               <span
-                class="label"
+                class="label label"
               >
                 Второй вариант
               </span>
             </span>
           </label>
           <label
-            class="component size-20 start checkbox"
+            class="component component size-20 start checkbox"
           >
             <input
+              name="three"
               type="checkbox"
             />
             <span
-              class="box"
+              class="box box"
             />
             <span
               class="content"
             >
               <span
-                class="label"
+                class="label label"
               >
                 Третий вариант
               </span>
@@ -90,57 +93,60 @@ Object {
         class="checkboxList checkboxList"
       >
         <label
-          class="component size-20 start my-checkbox checkbox"
+          class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            name="one"
             type="checkbox"
           />
           <span
-            class="box"
+            class="box box"
           />
           <span
             class="content"
           >
             <span
-              class="label"
+              class="label label"
             >
               Первый вариант
             </span>
           </span>
         </label>
         <label
-          class="component size-20 start checkbox"
+          class="component component size-20 start checkbox"
         >
           <input
+            name="two"
             type="checkbox"
           />
           <span
-            class="box"
+            class="box box"
           />
           <span
             class="content"
           >
             <span
-              class="label"
+              class="label label"
             >
               Второй вариант
             </span>
           </span>
         </label>
         <label
-          class="component size-20 start checkbox"
+          class="component component size-20 start checkbox"
         >
           <input
+            name="three"
             type="checkbox"
           />
           <span
-            class="box"
+            class="box box"
           />
           <span
             class="content"
           >
             <span
-              class="label"
+              class="label label"
             >
               Третий вариант
             </span>
@@ -220,57 +226,60 @@ Object {
           class="checkboxList checkboxList"
         >
           <label
-            class="component size-20 start my-checkbox checkbox"
+            class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              name="one"
               type="checkbox"
             />
             <span
-              class="box"
+              class="box box"
             />
             <span
               class="content"
             >
               <span
-                class="label"
+                class="label label"
               >
                 Первый вариант
               </span>
             </span>
           </label>
           <label
-            class="component size-20 start checkbox"
+            class="component component size-20 start checkbox"
           >
             <input
+              name="two"
               type="checkbox"
             />
             <span
-              class="box"
+              class="box box"
             />
             <span
               class="content"
             >
               <span
-                class="label"
+                class="label label"
               >
                 Второй вариант
               </span>
             </span>
           </label>
           <label
-            class="component size-20 start checkbox"
+            class="component component size-20 start checkbox"
           >
             <input
+              name="three"
               type="checkbox"
             />
             <span
-              class="box"
+              class="box box"
             />
             <span
               class="content"
             >
               <span
-                class="label"
+                class="label label"
               >
                 Третий вариант
               </span>
@@ -299,57 +308,60 @@ Object {
         class="checkboxList checkboxList"
       >
         <label
-          class="component size-20 start my-checkbox checkbox"
+          class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            name="one"
             type="checkbox"
           />
           <span
-            class="box"
+            class="box box"
           />
           <span
             class="content"
           >
             <span
-              class="label"
+              class="label label"
             >
               Первый вариант
             </span>
           </span>
         </label>
         <label
-          class="component size-20 start checkbox"
+          class="component component size-20 start checkbox"
         >
           <input
+            name="two"
             type="checkbox"
           />
           <span
-            class="box"
+            class="box box"
           />
           <span
             class="content"
           >
             <span
-              class="label"
+              class="label label"
             >
               Второй вариант
             </span>
           </span>
         </label>
         <label
-          class="component size-20 start checkbox"
+          class="component component size-20 start checkbox"
         >
           <input
+            name="three"
             type="checkbox"
           />
           <span
-            class="box"
+            class="box box"
           />
           <span
             class="content"
           >
             <span
-              class="label"
+              class="label label"
             >
               Третий вариант
             </span>
@@ -435,19 +447,20 @@ Object {
           class="checkboxList checkboxList"
         >
           <label
-            class="component size-20 start my-checkbox checkbox"
+            class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              name="one"
               type="checkbox"
             />
             <span
-              class="box"
+              class="box box"
             />
             <span
               class="content"
             >
               <span
-                class="label"
+                class="label label"
               >
                 Первый вариант
               </span>
@@ -470,19 +483,20 @@ Object {
         class="checkboxList checkboxList"
       >
         <label
-          class="component size-20 start my-checkbox checkbox"
+          class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            name="one"
             type="checkbox"
           />
           <span
-            class="box"
+            class="box box"
           />
           <span
             class="content"
           >
             <span
-              class="label"
+              class="label label"
             >
               Первый вариант
             </span>

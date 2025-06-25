@@ -97,8 +97,9 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
 
     /**
      * Стиль тега
+     * @default outlined
      */
-    view?: 'outlined' | 'filled';
+    view?: 'outlined' | 'filled' | 'transparent';
 
     /**
      * Включает размытие фона для некоторых вариантов тега

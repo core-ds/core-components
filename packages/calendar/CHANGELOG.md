@@ -1,5 +1,280 @@
 # Change Log
 
+## 7.19.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1725](https://github.com/core-ds/core-components/pull/1725)
+
+-   Добавлена возможность управлять кнопкой назад для CalendarMobile (пропсы hasBackButton, onBack)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   modal@9.9.18
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 7.18.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.17
+
+## 7.18.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   modal@9.9.16
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 7.18.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   modal@9.9.15
+
+## 7.18.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   modal@9.9.14
+
+## 7.18.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   modal@9.9.13
+    -   button@11.11.8
+    -   typography@4.13.1
+    -   icon-button@6.11.11
+
+## 7.18.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   modal@9.9.12
+
+## 7.18.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   icon-button@6.11.10
+    -   modal@9.9.11
+
+## 7.18.0
+
+### Minor Changes
+
+<sup><time>28.03.2025</time></sup>
+
+### [#1543](https://github.com/core-ds/core-components/pull/1543)
+
+-   Исправлено количество отображаемых месяцев в `CalendarMobile` при использовании пропсов `minDate/maxDate`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.10
+
+## 7.17.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.9
+
+## 7.17.13
+
+### Patch Changes
+
+<sup><time>17.03.2025</time></sup>
+
+### [#1616](https://github.com/core-ds/core-components/pull/1616)
+
+-   Обновление react-virtuoso
+
+## 7.17.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.8
+    -   button@11.11.6
+    -   icon-button@6.11.9
+
+## 7.17.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+    -   modal@9.9.7
+
+## 7.17.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   modal@9.9.6
+    -   button@11.11.5
+    -   icon-button@6.11.8
+
+## 7.17.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.5
+
+## 7.17.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.4
+
+## 7.17.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   typography@4.11.4
+    -   button@11.11.4
+    -   modal@9.9.3
+    -   icon-button@6.11.7
+
+## 7.17.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.2
+
+## 7.17.5
+
+### Patch Changes
+
+<sup><time>27.01.2025</time></sup>
+
+### [#1556](https://github.com/core-ds/core-components/pull/1556)
+
+-   Критическое исправление `month-only` календаря связанное с работой minDate/maxDate пропсов
+
+## 7.17.4
+
+### Patch Changes
+
+<sup><time>15.01.2025</time></sup>
+
+### [#1531](https://github.com/core-ds/core-components/pull/1531)
+
+-   Исправление предотвращающие ошибки типизации
+
+## 7.17.3
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   icon-button@6.11.6
+    -   modal@9.9.1
+    -   typography@4.11.3
+
+## 7.17.2
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   mq@4.4.1
+    -   modal@9.9.0
+    -   shared@0.14.1
+    -   button@11.11.2
+    -   typography@4.11.2
+
+## 7.17.1
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   icon-button@6.11.4
+    -   modal@9.8.6
+    -   typography@4.11.1
+
+## 7.17.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1460](https://github.com/core-ds/core-components/pull/1460)
+
+-   Добавлены пропсы для передачи кастомного текста в кнопки мобильного календаря
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   icon-button@6.11.3
+    -   modal@9.8.5
+
+## 7.16.0
+
+### Minor Changes
+
+<sup><time>06.12.2024</time></sup>
+
+### [#1465](https://github.com/core-ds/core-components/pull/1465)
+
+-   Изменено поведение пропса clickableMonth. Добавлена возможность выбирать промежуток между месяцами. Первый клик по лейблу месяца выбирает весь месяц. Второй клик на следующий месяц выбирает промежуток между этими двумя месяцами.
+
 ## 7.15.4
 
 ### Patch Changes

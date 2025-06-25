@@ -1,5 +1,229 @@
 # Change Log
 
+## 11.12.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   popover@6.3.11
+
+## 11.12.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+
+## 11.12.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   select@17.21.2
+    -   popover@6.3.10
+
+## 11.12.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
+## 11.12.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+
+## 11.12.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   select@17.20.14
+    -   popover@6.3.9
+
+## 11.12.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.13
+
+## 11.12.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+
+## 11.12.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   select@17.20.11
+
+## 11.12.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+
+## 11.12.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+
+## 11.12.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   button@11.11.6
+
+## 11.12.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+
+## 11.12.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   select@17.20.6
+    -   button@11.11.5
+    -   popover@6.3.8
+
+## 11.12.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.5
+
+## 11.12.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.4
+
+## 11.12.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   shared@0.15.0
+    -   button@11.11.4
+    -   popover@6.3.7
+
+## 11.12.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.2
+
+## 11.12.12
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1532](https://github.com/core-ds/core-components/pull/1532)
+
+-   Убрана передача невалидных пропсов в DOM
+
+-   Обновлены зависимости
+    -   select@17.20.1
+
+## 11.12.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+
+## 11.12.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   popover@6.3.6
+    -   select@17.19.0
+
+## 11.12.9
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   select@17.18.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   button@11.11.2
+
+## 11.12.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   popover@6.3.4
+    -   select@17.18.0
+
+## 11.12.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   select@17.17.5
+
 ## 11.12.6
 
 ### Patch Changes

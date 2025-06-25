@@ -11,30 +11,19 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import { MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
-import cn from 'classnames';
 
 import type { InputProps } from '@alfalab/core-components-input';
 import { fnUtils, os } from '@alfalab/core-components-shared';
 
 import {
     createMaskOptions,
+    getMinMaxOrDefault,
     MAX_DIGITS,
-    MAX_SAFE_INTEGER,
-    MIN_SAFE_INTEGER,
     MINUS_SIGN,
     parseNumber,
     stringifyNumberWithoutExp,
 } from '../../utils';
 import { Steppers } from '../steppers';
-
-import defaultColors from './default.module.css';
-import styles from './index.module.css';
-import invertedColors from './inverted.module.css';
-
-const colorStyles = {
-    default: defaultColors,
-    inverted: invertedColors,
-};
 
 export interface NumberInputProps
     extends Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue' | 'dataTestId'> {
@@ -98,17 +87,6 @@ export interface NumberInputProps
     dataTestId?: string;
 }
 
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
-};
-
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     (
         {
@@ -135,8 +113,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
         },
         ref,
     ) => {
-        const min = Math.max(MIN_SAFE_INTEGER, minProp ?? MIN_SAFE_INTEGER);
-        const max = Math.min(MAX_SAFE_INTEGER, maxProp ?? MAX_SAFE_INTEGER);
+        const { min, max } = getMinMaxOrDefault({ minProp, maxProp });
         const withStepper = stepProp !== undefined;
 
         const maskOptions: MaskitoOptions = useMemo(
@@ -273,19 +250,13 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                                 colors={colors}
                                 dataTestId={dataTestId}
                                 disabled={disabled}
+                                focused={focused}
                                 value={parseNumber(value)}
                                 min={min}
                                 max={max}
-                                className={cn(
-                                    colorStyles[colors].steppers,
-                                    styles[SIZE_TO_CLASSNAME_MAP[size]],
-                                    {
-                                        [colorStyles[colors].steppersFocused]: focused,
-                                        [colorStyles[colors].steppersDisabled]: disabled,
-                                    },
-                                )}
                                 onIncrement={handleIncrement}
                                 onDecrement={handleDecrement}
+                                size={size}
                             />
                         </React.Fragment>
                     ) : (

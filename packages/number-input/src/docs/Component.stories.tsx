@@ -3,6 +3,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { NumberInput } from '@alfalab/core-components-number-input';
+import { NumberInputDesktop } from '@alfalab/core-components-number-input/desktop';
+import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof NumberInput> = {
     title: 'Components/NumberInput',
@@ -15,8 +21,23 @@ type Story = StoryObj<typeof NumberInput>;
 export const number_input: Story = {
     name: 'NumberInput',
     render: () => {
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+
+        if (isPreview) {
+            return (
+                <div style={previewStyles}>
+                    <div style={{ width: 256 }}>
+                        <NumberInputDesktop label='Число' size={56} value={1234} step={1} />
+                    </div>
+                </div>
+            );
+        }
+
         const colors = select('colors', ['default', 'inverted'], 'default');
         const stepper = boolean('stepper', false);
+        const size = select('size', [40, 48, 56, 64, 72], 48);
+        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
         return (
             <div
                 style={{
@@ -34,7 +55,7 @@ export const number_input: Story = {
             >
                 {stepper ? (
                     <NumberInput
-                        size={select('size', [48, 56, 64, 72], 48)}
+                        size={size}
                         colors={colors}
                         disabled={boolean('disabled', false)}
                         step={number('step', 1)}
@@ -47,7 +68,7 @@ export const number_input: Story = {
                         fractionLength={number('fractionLength', 2)}
                         block={boolean('block', false)}
                         clear={boolean('clear', false)}
-                        size={select('size', [48, 56, 64, 72], 48)}
+                        size={size}
                         colors={colors}
                         disabled={boolean('disabled', false)}
                         placeholder={text('placeholder', '')}
@@ -56,8 +77,8 @@ export const number_input: Story = {
                         hint={text('hint', '')}
                         error={text('error', '')}
                         success={boolean('success', false)}
-                        rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                        rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                        leftAddons={boolean('leftAddons', false) && <IconComponent />}
                         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                         readOnly={boolean('readOnly', false)}
                     />

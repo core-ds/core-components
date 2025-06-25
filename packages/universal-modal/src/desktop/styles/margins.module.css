@@ -1,0 +1,27 @@
+/* prettier-ignore */
+@for $i from 0 to 128 {
+    .marginTop-$(i) {
+        margin-top: $(i)px;
+    }
+}
+
+/* prettier-ignore */
+@for $i from 0 to 128 {
+    .marginRight-$(i) {
+        margin-right: $(i)px;
+    }
+}
+
+/* prettier-ignore */
+@for $i from 0 to 128 {
+    .marginBottom-$(i) {
+        margin-bottom: $(i)px;
+    }
+}
+
+/* prettier-ignore */
+@for $i from 0 to 128 {
+    .marginLeft-$(i) {
+        margin-left: $(i)px;
+    }
+}

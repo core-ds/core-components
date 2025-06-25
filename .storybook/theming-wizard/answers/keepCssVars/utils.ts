@@ -11,7 +11,9 @@ import darkMode from '@alfalab/core-components/themes/dark';
 
 export const cssImportsExample = (answers: Answers) => {
     const cssImports: string[] = [
-        "@import '@alfalab/core-components/vars/index.css';",
+        answers.product === 'default'
+            ? "@import '@alfalab/core-components/vars/index.css';"
+            : `@import '@alfalab/core-components/vars/bundle/${answers.product}.css';`,
         answers.product !== 'default'
             ? `@import '@alfalab/core-components/themes/${answers.product}.css';`
             : '',

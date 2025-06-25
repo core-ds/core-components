@@ -1,5 +1,68 @@
 # Change Log
 
+## 9.20.1
+
+### Patch Changes
+
+<sup><time>16.06.2025</time></sup>
+
+### [#1741](https://github.com/core-ds/core-components/pull/1741)
+
+-   Добавлен `colors-promo` в сборку цветовых наборов в виде js модулей
+
+## 9.20.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1617](https://github.com/core-ds/core-components/pull/1617)
+
+Добавлена поддержка шрифта `Alfa Interface Sans`
+
+Подробнее смотрите в разделе [Типографика](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--docs)
+
+## 9.19.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1609](https://github.com/core-ds/core-components/pull/1609)
+
+-   Обновление ui-primitives
+
+## 9.18.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1530](https://github.com/core-ds/core-components/pull/1530)
+
+-   Палитра `colors-indigo.css` помечена как `deprecated` и будет удалена в одном из будущих мажорных релизов
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1501](https://github.com/core-ds/core-components/pull/1501)
+
+Добавлены `-dark.css` файлы для цветовых палитр
+
+-   colors-decorative-dark.css
+-   colors-monochrome-dark.css
+-   colors-qualitative-dark.css
+-   colors-sequential-dark.css
+
+## 9.17.0
+
+### Minor Changes
+
+<sup><time>07.02.2025</time></sup>
+
+### [#1563](https://github.com/core-ds/core-components/pull/1563)
+
+-   Добавлена единица длины для нулевого значения
+
 ## 9.16.0
 
 ### Minor Changes

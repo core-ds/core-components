@@ -1,5 +1,147 @@
 # Change Log
 
+## 3.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   typography@4.14.3
+
+## 3.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   typography@4.14.2
+
+## 3.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 3.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 3.9.0
+
+### Minor Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1700](https://github.com/core-ds/core-components/pull/1700)
+
+-   Добавлен callback на завершение таймера
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   typography@4.13.1
+
+## 3.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+
+## 3.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+
+## 3.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 3.8.0
+
+### Minor Changes
+
+<sup><time>18.02.2025</time></sup>
+
+### [#1584](https://github.com/core-ds/core-components/pull/1584)
+
+-   Обновление зависимостей
+
+## 3.7.0
+
+### Minor Changes
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1538](https://github.com/core-ds/core-components/pull/1538)
+
+-   Добавлен размер 96
+-   Добавлен пропс для изменения цвета заголовка `titleColor`
+-   Добавлен пропс для изменения цвета подзаголовка `subtitleColor`
+-   Добавлен пропс `timer` который переводит компонент в режим таймера
+
+## 3.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.4
+
+## 3.6.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   typography@4.11.3
+
+## 3.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.11.2
+
+## 3.6.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   typography@4.11.1
+
 ## 3.6.4
 
 ### Patch Changes

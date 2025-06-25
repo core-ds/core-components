@@ -1,5 +1,107 @@
 # Change Log
 
+## 7.5.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.10
+    -   toast-plate@7.3.14
+
+## 7.5.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.9
+    -   toast-plate@7.3.13
+
+## 7.5.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.8
+    -   toast-plate@7.3.12
+
+## 7.5.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.11
+
+## 7.5.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.10
+
+## 7.5.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.7
+    -   toast-plate@7.3.9
+
+## 7.5.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.6
+    -   toast-plate@7.3.8
+
+## 7.5.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.7
+
+## 7.5.5
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   portal@3.3.5
+    -   toast-plate@7.3.6
+
+## 7.5.4
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.5
+    -   stack@5.0.1
+
+## 7.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.4
+
 ## 7.5.2
 
 ### Patch Changes

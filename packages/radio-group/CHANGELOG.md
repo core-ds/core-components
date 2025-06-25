@@ -1,5 +1,90 @@
 # Change Log
 
+## 4.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 4.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 4.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 4.8.0
+
+### Minor Changes
+
+<sup><time>21.02.2025</time></sup>
+
+### [#1527](https://github.com/core-ds/core-components/pull/1527)
+
+-   Добавлен пропс `colors`, который отвечает за набор цветов в компоненте (возможность переключить на inverted цвета для тёмного фона)
+
+## 4.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 4.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
+## 4.7.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 4.7.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+
+## 4.7.3
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
 ## 4.7.2
 
 ### Patch Changes

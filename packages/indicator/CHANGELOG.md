@@ -1,5 +1,46 @@
 # @alfalab/core-components-indicator
 
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1662](https://github.com/core-ds/core-components/pull/1662)
+
+-   Заменен дефолтный цвет обводки `border` на `--color-light-base-bg-primary`
+-   Добавлен размер `size-32` для компонента `Indicator`
+
+## 2.2.4
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 2.2.3
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+## 2.2.2
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
 ## 2.2.1
 
 ### Patch Changes

@@ -1,5 +1,260 @@
 # Change Log
 
+## 8.12.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   picker-button@11.12.30
+    -   tag@8.6.10
+    -   icon-button@6.11.13
+
+## 8.12.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.29
+
+## 8.12.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   picker-button@11.12.28
+    -   tag@8.6.9
+    -   icon-button@6.11.12
+
+## 8.12.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.27
+
+## 8.12.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.4.0
+    -   picker-button@11.12.26
+
+## 8.12.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   picker-button@11.12.25
+    -   tag@8.6.8
+    -   icon-button@6.11.11
+
+## 8.12.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.24
+
+## 8.12.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.23
+
+## 8.12.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+    -   picker-button@11.12.22
+
+## 8.12.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.21
+
+## 8.12.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.20
+
+## 8.12.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.19
+    -   icon-button@6.11.9
+
+## 8.12.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.18
+
+## 8.12.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   picker-button@11.12.17
+    -   tag@8.6.7
+    -   icon-button@6.11.8
+
+## 8.12.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.16
+
+## 8.12.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.15
+
+## 8.12.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.3.0
+    -   shared@0.15.0
+    -   picker-button@11.12.14
+    -   tag@8.6.6
+    -   icon-button@6.11.7
+
+## 8.12.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.13
+
+## 8.12.13
+
+### Patch Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1532](https://github.com/core-ds/core-components/pull/1532)
+
+-   Убрана передача невалидных пропсов в DOM
+
+-   Обновлены зависимости
+    -   picker-button@11.12.12
+
+## 8.12.12
+
+### Patch Changes
+
+<sup><time>24.01.2025</time></sup>
+
+### [#1528](https://github.com/core-ds/core-components/pull/1528)
+
+-   Исправлен расчет размера и положения нижней полосы при удалении/добавлении таба в PrimaryTabList
+
+## 8.12.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.11
+
+## 8.12.10
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   badge@5.6.4
+    -   icon-button@6.11.6
+    -   picker-button@11.12.10
+    -   skeleton@5.2.3
+    -   tag@8.6.5
+
+## 8.12.9
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1482](https://github.com/core-ds/core-components/pull/1482)
+
+-   Исправлен расчет положения нижней линии таба
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   keyboard-focusable@4.1.1
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   skeleton@5.2.2
+    -   picker-button@11.12.9
+    -   tag@8.6.4
+
+## 8.12.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1477](https://github.com/core-ds/core-components/pull/1477)
+
+-   Замена использование lodash на коммон пакет
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
+-   Обновлены зависимости
+    -   badge@5.6.3
+    -   icon-button@6.11.4
+    -   picker-button@11.12.8
+    -   skeleton@5.2.1
+    -   tag@8.6.3
+
+## 8.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.6.2
+    -   picker-button@11.12.7
+    -   icon-button@6.11.3
+
 ## 8.12.6
 
 ### Patch Changes

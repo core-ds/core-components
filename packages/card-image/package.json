@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-card-image",
-    "version": "3.2.1",
+    "version": "3.2.3",
     "description": "Card Image component",
     "keywords": [],
     "license": "MIT",
@@ -10,14 +10,15 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.6.0",
-    "varsVersion": "9.16.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

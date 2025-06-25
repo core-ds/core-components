@@ -1,5 +1,79 @@
 # @alfalab/core-components-sortable-list
 
+## 1.6.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   portal@3.3.10
+
+## 1.6.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   portal@3.3.9
+
+## 1.6.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   portal@3.3.8
+
+## 1.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   portal@3.3.7
+
+## 1.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   portal@3.3.6
+
+## 1.6.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 1.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.5
+    -   shared@0.14.1
+
+## 1.6.4
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
 ## 1.6.3
 
 ### Patch Changes

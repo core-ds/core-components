@@ -1,5 +1,107 @@
 # Change Log
 
+## 6.3.39
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+
+## 6.3.38
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+
+## 6.3.37
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 6.3.36
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.5
+
+## 6.3.35
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
+
+## 6.3.34
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.3
+
+## 6.3.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.2
+
+## 6.3.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.1
+
+## 6.3.31
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   input@15.5.0
+
+## 6.3.30
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+-   Обновлены зависимости
+    -   input@15.4.0
+
+## 6.3.29
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   input@15.3.4
+
+## 6.3.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.3
+
 ## 6.3.27
 
 ### Patch Changes

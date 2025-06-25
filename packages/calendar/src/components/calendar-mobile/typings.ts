@@ -1,5 +1,7 @@
 import React from 'react';
 
+import type { ModalHeaderProps } from '@alfalab/core-components-modal/shared';
+
 import { CalendarDesktopProps } from '../../desktop';
 
 type OmittedCalendarProps = 'headerClassName' | 'contentClassName';
@@ -68,5 +70,24 @@ export type CalendarMobileProps = {
      * При клике на месяц будут выбраны все доступные дни месяца
      */
     clickableMonth?: boolean;
+
+    /**
+     * Контент кнопки "Отмена"
+     * @default Отмена
+     */
+    cancelButtonContent?: string;
+
+    /**
+     * Контент кнопки "Выбрать"
+     * @default Выбрать
+     */
+    selectButtonContent?: string;
+
+    /**
+     * Контент кнопки "Сбросить"
+     * @default Сбросить
+     */
+    resetButtonContent?: string;
 } & CalendarContentProps &
-    Pick<CalendarDesktopProps, OmittedCalendarContentProps>;
+    Pick<CalendarDesktopProps, OmittedCalendarContentProps> &
+    Pick<ModalHeaderProps, 'hasBackButton' | 'onBack'>;

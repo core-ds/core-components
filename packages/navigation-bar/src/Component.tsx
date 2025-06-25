@@ -121,25 +121,23 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
         const rightAddonsRef = useRef<HTMLDivElement>(null);
         const hasLeftAddons = leftAddons && align !== 'left';
 
+        // добавляет отступ для того чтобы title находился по центру не зависимо от ширины аддонов
         useEffect(() => {
-            if (hasLeftAddons) {
-                const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
-                const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
+            const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
+            const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
 
-                const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
-                const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
+            const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
+            const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
 
-                setTitleMargin((prev) => {
-                    const newState = shouldAddLeftMargin
-                        ? { left: marginSize, right: 0 }
-                        : { left: 0, right: marginSize };
+            setTitleMargin((prev) => {
+                const newState = shouldAddLeftMargin
+                    ? { left: marginSize, right: 0 }
+                    : { left: 0, right: marginSize };
 
-                    const isStateChanged =
-                        prev.left !== newState.left || prev.right !== newState.right;
+                const isStateChanged = prev.left !== newState.left || prev.right !== newState.right;
 
-                    return isStateChanged ? newState : prev;
-                });
-            }
+                return isStateChanged ? newState : prev;
+            });
         }, [hasLeftAddons, leftAddons, rightAddons]);
 
         return (

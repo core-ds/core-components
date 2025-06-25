@@ -1,5 +1,135 @@
 # Change Log
 
+## 5.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+    -   icon-button@6.11.13
+
+## 5.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+    -   icon-button@6.11.12
+
+## 5.8.2
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.5
+    -   icon-button@6.11.11
+
+## 5.8.0
+
+### Minor Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1615](https://github.com/core-ds/core-components/pull/1615)
+
+-   fix(input): Добавлен props `passwordHint` в компонент `PasswordInput` для возможности управлять текстом подсказки
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.10
+    -   input@15.5.4
+
+## 5.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.9
+    -   input@15.5.3
+
+## 5.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.2
+    -   icon-button@6.11.8
+
+## 5.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.1
+    -   icon-button@6.11.7
+
+## 5.7.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.11.6
+    -   input@15.5.0
+
+## 5.6.6
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   icon-button@6.11.5
+    -   input@15.4.0
+
+## 5.6.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   icon-button@6.11.4
+    -   input@15.3.4
+
+## 5.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.3.3
+    -   icon-button@6.11.3
+
 ## 5.6.3
 
 ### Patch Changes

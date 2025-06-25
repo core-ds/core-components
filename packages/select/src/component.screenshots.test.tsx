@@ -76,7 +76,7 @@ describe('Select', () => {
                             options: [[]],
                             block: true,
                             placeholder: 'Выберите элемент',
-                            size: [48, 56, 64],
+                            size: [40, 48, 56, 64],
                             label: ['Элемент', ''],
                         },
                         size: { width: 300, height: 120 },
@@ -114,6 +114,22 @@ describe('Select', () => {
                             hint: 'Hint',
                             error: 'Error',
                             disabled: [false, true],
+                        },
+                        size: { width: 300, height: 120 },
+                    }),
+                ],
+                [
+                    `${theme} theme — disabled props`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
+                        knobs: {
+                            options: [[]],
+                            block: true,
+                            placeholder: 'Выберите элемент',
+                            size: [48],
+                            label: ['Элемент'],
+                            disabled: [true, false],
                         },
                         size: { width: 300, height: 120 },
                     }),
@@ -356,4 +372,100 @@ describe('Select | multiple', () => {
         })();
 
     ['default', 'click'].map(testCase);
+});
+
+describe('SelectDesktop | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
+                        knobs: {
+                            options: JSON.stringify([{ key: '1', content: 'Neptunium' }]),
+                            selected: JSON.stringify(['1']),
+                            block: true,
+                            clear: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
+                        knobs: {
+                            options: JSON.stringify([{ key: '1', content: 'Neptunium' }]),
+                            selected: JSON.stringify(['1']),
+                            block: true,
+                            clear: true,
+                            error: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 350,
+                height: 560,
+            },
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
+
+describe('SelectMobile | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectMobile',
+                        knobs: {
+                            options: JSON.stringify([{ key: '1', content: 'Neptunium' }]),
+                            selected: JSON.stringify(['1']),
+                            block: true,
+                            clear: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectMobile',
+                        knobs: {
+                            options: JSON.stringify([{ key: '1', content: 'Neptunium' }]),
+                            selected: JSON.stringify(['1']),
+                            block: true,
+                            clear: true,
+                            error: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 350,
+                height: 560,
+            },
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
 });

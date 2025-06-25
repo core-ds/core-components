@@ -10,6 +10,7 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { PauseCompactMIcon } from '@alfalab/icons-glyph/PauseCompactMIcon';
 import { PlayCompactMIcon } from '@alfalab/icons-glyph/PlayCompactMIcon';
 import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
+import { ShareMIcon } from '@alfalab/icons-glyph/ShareMIcon';
 import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
 
@@ -31,7 +32,6 @@ export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             {...restProps}
             ref={buttonRef}
             icon={ArrowsOutwardMIcon}
-            colors='inverted'
             aria-label='Открыть в полноэкранном режиме'
             className={styles.iconButton}
         />
@@ -43,7 +43,6 @@ export const BackArrow: FC<Props> = ({ buttonRef, ...restProps }) => (
         {...restProps}
         ref={buttonRef}
         icon={ArrowLeftMIcon}
-        colors='inverted'
         aria-label='Вернуться назад'
         className={styles.iconButton}
     />
@@ -54,7 +53,6 @@ export const Play: FC<Props> = ({ buttonRef, className, ...restProps }) => (
         {...restProps}
         ref={buttonRef}
         icon={PlayCompactMIcon}
-        colors='inverted'
         aria-label='Проиграть видео'
         className={cn(styles.iconButton, className)}
     />
@@ -65,7 +63,6 @@ export const Pause: FC<Props> = ({ buttonRef, className, ...restProps }) => (
         {...restProps}
         ref={buttonRef}
         icon={PauseCompactMIcon}
-        colors='inverted'
         aria-label='Поставить паузу на видео'
         className={cn(styles.iconButton, className)}
     />
@@ -82,7 +79,6 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             {...restProps}
             ref={buttonRef}
             icon={ArrowsInwardMIcon}
-            colors='inverted'
             aria-label='Выйти из полноэкранного режима'
             className={styles.iconButton}
         />
@@ -101,7 +97,6 @@ export const MuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) => 
             {...restProps}
             ref={buttonRef}
             icon={SoundMIcon}
-            colors='inverted'
             aria-label='Выключить звук'
             className={styles.iconButton}
         />
@@ -120,7 +115,6 @@ export const UnmuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) =
             {...restProps}
             ref={buttonRef}
             icon={SoundCrossMIcon}
-            colors='inverted'
             aria-label='Включить звук'
             className={styles.iconButton}
         />
@@ -137,7 +131,22 @@ export const Download: FC<Props> = (props) => (
         <IconButton
             {...props}
             icon={PointerDownMIcon}
-            colors='inverted'
+            aria-label='Скачать'
+            className={styles.iconButton}
+        />
+    </TooltipDesktop>
+);
+
+export const Share: FC<Props> = (props) => (
+    <TooltipDesktop
+        trigger='hover'
+        position='bottom'
+        content='Поделиться'
+        fallbackPlacements={['bottom-end']}
+    >
+        <IconButton
+            {...props}
+            icon={ShareMIcon}
             aria-label='Скачать'
             className={styles.iconButton}
         />
@@ -145,11 +154,5 @@ export const Download: FC<Props> = (props) => (
 );
 
 export const Exit: FC<Props> = (props) => (
-    <IconButton
-        {...props}
-        icon={CrossMIcon}
-        colors='inverted'
-        aria-label='Закрыть'
-        className={styles.iconButton}
-    />
+    <IconButton {...props} icon={CrossMIcon} aria-label='Закрыть' className={styles.iconButton} />
 );

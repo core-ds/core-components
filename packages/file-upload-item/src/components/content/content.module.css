@@ -2,8 +2,12 @@
 
 .container {
     padding: var(--gap-2) 0 0 var(--gap-16);
-    width: 100%;
-    cursor: pointer;
+    flex-grow: 1;
+    min-width: 0;
+
+    &.clickable {
+        cursor: pointer;
+    }
 
     &.single {
         display: flex;
@@ -19,10 +23,8 @@
 
     & .title {
         margin-bottom: var(--gap-4);
-    }
-
-    & .title {
         display: block;
+        overflow-wrap: break-word;
 
         &.truncate {
             white-space: nowrap;

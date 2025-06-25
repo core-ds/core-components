@@ -1,5 +1,266 @@
 # Change Log
 
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1706](https://github.com/core-ds/core-components/pull/1706)
+
+-   Исключение возможности проброса onClear через компонент `SelectWithTag` в `BaseFormControl`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   bottom-sheet@6.18.14
+    -   form-control@12.8.6
+    -   tag@8.6.10
+    -   popover@6.3.11
+
+## 8.6.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.13
+    -   select@17.21.3
+
+## 8.6.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   bottom-sheet@6.18.12
+    -   form-control@12.8.5
+    -   select@17.21.2
+    -   tag@8.6.9
+    -   popover@6.3.10
+
+## 8.6.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.11
+    -   select@17.21.1
+
+## 8.6.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   form-control@12.8.4
+    -   bottom-sheet@6.18.10
+
+## 8.6.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   bottom-sheet@6.18.9
+    -   form-control@12.8.3
+    -   select@17.20.14
+    -   tag@8.6.8
+    -   popover@6.3.9
+
+## 8.6.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.8
+    -   select@17.20.13
+
+## 8.6.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.7
+    -   select@17.20.12
+
+## 8.6.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.11
+    -   bottom-sheet@6.18.6
+
+## 8.6.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.5
+    -   select@17.20.10
+
+## 8.6.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+    -   bottom-sheet@6.18.4
+
+## 8.6.9
+
+### Patch Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1596](https://github.com/core-ds/core-components/pull/1596)
+
+-   Убрана обязвтельность пропсов `value` и `OnInput`
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   bottom-sheet@6.18.3
+
+## 8.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+    -   bottom-sheet@6.18.2
+
+## 8.6.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   select@17.20.6
+    -   bottom-sheet@6.18.1
+    -   form-control@12.8.2
+    -   tag@8.6.7
+    -   popover@6.3.8
+
+## 8.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.0
+    -   select@17.20.5
+
+## 8.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.17
+    -   select@17.20.4
+
+## 8.6.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   shared@0.15.0
+    -   bottom-sheet@6.17.16
+    -   form-control@12.8.1
+    -   tag@8.6.6
+    -   popover@6.3.7
+
+## 8.6.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.2
+
+## 8.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.1
+
+## 8.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+
+## 8.6.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.15
+    -   popover@6.3.6
+    -   tag@8.6.5
+    -   form-control@12.8.0
+    -   select@17.19.0
+
+## 8.5.9
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   select@17.18.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   tag@8.6.4
+    -   form-control@12.7.4
+    -   bottom-sheet@6.17.14
+
+## 8.5.8
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.13
+    -   form-control@12.7.3
+    -   popover@6.3.4
+    -   select@17.18.0
+    -   tag@8.6.3
+
+## 8.5.7
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.17.12
+    -   select@17.17.5
+
 ## 8.5.6
 
 ### Patch Changes

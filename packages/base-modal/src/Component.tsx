@@ -12,11 +12,12 @@ import React, {
     useMemo,
     useRef,
     useState,
+    WheelEvent,
 } from 'react';
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
-import { TransitionProps } from 'react-transition-group/Transition';
+import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
@@ -151,7 +152,7 @@ export type BaseModalProps = {
     /**
      * Пропсы для анимации (CSSTransition)
      */
-    transitionProps?: Partial<TransitionProps>;
+    transitionProps?: Partial<CSSTransitionProps>;
 
     /**
      * Рендерить ли в контейнер через портал.
@@ -205,9 +206,19 @@ export type BaseModalProps = {
     componentRef?: MutableRefObject<HTMLDivElement | null>;
 
     /**
+     * Реф контентной области
+     */
+    contentElementRef?: MutableRefObject<HTMLDivElement | null>;
+
+    /**
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
      */
     iOSLock?: boolean;
+
+    /**
+     * Хэндлер события прокрутки колесиком
+     */
+    onWheel?: (e: WheelEvent<HTMLElement>) => void;
 };
 
 export type BaseModalContext = {
@@ -274,8 +285,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             dataTestId,
             zIndex = stackingOrder.MODAL,
             componentRef = null,
+            contentElementRef = null,
             usePortal = true,
             iOSLock = false,
+            onWheel,
         },
         ref,
     ) => {
@@ -432,7 +445,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             return scrollHandler.current || wrapperRef.current;
         }, [scrollHandler]);
 
-        const handleEntered: Required<TransitionProps>['onEntered'] = useCallback(
+        const handleEntered: Required<CSSTransitionProps>['onEntered'] = useCallback(
             (node, isAppearing) => {
                 scrollableNodeRef.current = getScrollHandler();
 
@@ -452,7 +465,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             [addResizeHandle, getScrollHandler, handleScroll, onMount, transitionProps],
         );
 
-        const handleExited: Required<TransitionProps>['onExited'] = useCallback(
+        const handleExited: Required<CSSTransitionProps>['onExited'] = useCallback(
             (node) => {
                 removeResizeHandle();
 
@@ -590,6 +603,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 onKeyDown={handleKeyDown}
                                 onMouseDown={handleBackdropMouseDown}
                                 onMouseUp={handleBackdropMouseUp}
+                                onWheel={onWheel}
                                 tabIndex={-1}
                                 data-test-id={dataTestId}
                                 style={{
@@ -625,7 +639,12 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                                 styles.content,
                                                 contentClassName,
                                                 contentProps?.className,
+                                                {
+                                                    [styles.hasFooter]: hasFooter,
+                                                    [styles.hasHeader]: hasHeader,
+                                                },
                                             )}
+                                            ref={contentElementRef}
                                         >
                                             {children}
                                         </div>

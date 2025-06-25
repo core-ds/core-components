@@ -33,14 +33,7 @@ export const ImageViewer: FC = () => {
         getCurrentImage,
     } = useContext(GalleryContext);
 
-    const {
-        handleLoad,
-        handleLoadError,
-        handleWrapperClick,
-        isMobile,
-        rightArrowRef,
-        leftArrowRef,
-    } = useHandleImageViewer();
+    const { handleWrapperClick, isMobile, rightArrowRef, leftArrowRef } = useHandleImageViewer();
 
     const [leftArrowFocused] = useFocus(leftArrowRef, 'keyboard');
     const [rightArrowFocused] = useFocus(rightArrowRef, 'keyboard');
@@ -75,10 +68,7 @@ export const ImageViewer: FC = () => {
     const swiperProps = useMemo<Swiper>(
         () => ({
             slidesPerView: 1,
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true,
-            },
+            effect: 'slide',
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
@@ -91,9 +81,10 @@ export const ImageViewer: FC = () => {
             },
             initialSlide,
             simulateTouch: false,
-            zoom: { maxRatio: 4 },
+            zoom: { maxRatio: 4, minRatio: 1, toggle: true },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
+            lazy: { loadPrevNext: true },
         }),
         [
             fullScreen,
@@ -176,8 +167,6 @@ export const ImageViewer: FC = () => {
                                     index={index}
                                     imageAspectRatio={imageAspectRatio}
                                     slideVisible={slideVisible}
-                                    handleLoad={handleLoad}
-                                    handleLoadError={handleLoadError}
                                 />
                             )}
                         </SwiperSlide>

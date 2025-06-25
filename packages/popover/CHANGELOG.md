@@ -1,5 +1,82 @@
 # Change Log
 
+## 6.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.10
+
+## 6.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.9
+
+## 6.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.8
+
+## 6.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.7
+
+## 6.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.6
+
+## 6.3.6
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 6.3.5
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   portal@3.3.5
+
+## 6.3.4
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   stack@5.0.1
+
 ## 6.3.3
 
 ### Patch Changes

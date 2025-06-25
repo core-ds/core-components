@@ -14,6 +14,11 @@
     text-overflow: ellipsis;
     box-sizing: border-box;
     -webkit-appearance: none;
+
+    &.size-40 {
+        @mixin paragraph_component_secondary;
+        padding: var(--gap-0) var(--gap-8);
+    }
 }
 
 .input::placeholder {
@@ -23,6 +28,10 @@
 .hasInnerLabel {
     &::placeholder {
         opacity: 0;
+    }
+
+    &.size-40 {
+        height: var(--form-control-40-min-height);
     }
 
     &.size-48 {
@@ -48,30 +57,14 @@
 
 .errorIcon {
     display: var(--input-error-icon-display);
-
-    &:not(:only-child) {
-        margin-left: var(--gap-4);
-    }
 }
 
 * + .errorIcon {
     display: var(--input-error-icon-not-alone-display);
 }
 
-button[class*='eye'] + .errorIcon {
-    margin-right: var(--gap-12);
-}
-
 .successIcon {
     display: var(--input-success-icon-display);
-
-    &:not(:only-child) {
-        margin-left: var(--gap-4);
-    }
-}
-
-button[class*='eye'] + .successIcon {
-    margin-right: var(--gap-12);
 }
 
 /* DISABLED STATE */

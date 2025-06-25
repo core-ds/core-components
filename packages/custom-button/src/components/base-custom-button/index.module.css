@@ -1,0 +1,120 @@
+@import '../../../../vars/src/index.css';
+
+.customButton {
+    overflow: hidden;
+    position: relative;
+
+    &.border {
+        border: 1px solid transparent;
+    }
+
+    &.white * {
+        color: var(--color-light-text-primary-inverted);
+    }
+
+    &.black * {
+        color: var(--color-light-text-primary);
+    }
+
+    &.static-white * {
+        color: var(--color-static-text-primary-inverted);
+    }
+
+    &.static-black * {
+        color: var(--color-static-text-primary);
+    }
+
+    & span {
+        position: relative;
+        z-index: 3;
+    }
+
+    &:before {
+        position: absolute;
+        left: var(--gap-0);
+        right: var(--gap-0);
+        top: var(--gap-0);
+        bottom: var(--gap-0);
+        background-color: rgba(0, 0, 0, 0);
+        content: '';
+        transition: 0.2s;
+        opacity: 1;
+        pointer-events: none;
+    }
+
+    &.darkening {
+        &:hover:before {
+            background-color: var(--color-light-neutral-translucent-200);
+        }
+
+        &:active:before {
+            background-color: var(--color-light-neutral-translucent-400);
+        }
+    }
+
+    &.lightening {
+        &:hover:before {
+            background-color: var(--color-light-neutral-translucent-200-inverted);
+        }
+
+        &:active:before {
+            background-color: var(--color-light-neutral-translucent-400-inverted);
+        }
+    }
+
+    &.static-darkening {
+        &:hover:before {
+            background-color: rgba(0, 0, 0, 0.07);
+        }
+
+        &:active:before {
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &.static-lightening {
+        &:hover:before {
+            background-color: rgba(255, 255, 255, 0.07);
+        }
+
+        &:active:before {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+    }
+}
+
+/* Disabled */
+
+.customButton:disabled {
+    &.disableType-default {
+        background-color: var(--color-light-neutral-translucent-100);
+
+        & span {
+            color: var(--color-light-text-tertiary);
+        }
+    }
+
+    &.disableType-static {
+        background-color: var(--color-static-neutral-translucent-100);
+
+        & span {
+            color: var(--color-static-text-tertiary);
+        }
+    }
+
+    &.disableType-inverted {
+        background-color: var(--color-light-neutral-translucent-100-inverted);
+
+        & span {
+            color: var(--color-light-text-tertiary-inverted);
+        }
+    }
+
+    &.disableType-static-inverted {
+        background-color: var(--color-static-neutral-translucent-100-inverted);
+
+        & span {
+            color: var(--color-static-text-tertiary-inverted);
+        }
+    }
+}

@@ -127,6 +127,36 @@
     }
 }
 
+.wrapperSize_72 {
+    width: 72px;
+    height: 72px;
+
+    & .children {
+        width: 56px;
+        height: 56px;
+    }
+
+    & .addons {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .topAddons {
+        top: -5px;
+        right: -5px;
+    }
+
+    & .bottomAddons {
+        bottom: -5px;
+        right: -5px;
+    }
+
+    & .indicator {
+        top: -8px;
+        right: -16px;
+    }
+}
+
 .wrapperSize_64 {
     width: 64px;
     height: 64px;
@@ -153,7 +183,7 @@
 
     & .indicator {
         top: var(--gap-8-neg);
-        right: var(--gap-8-neg);
+        right: var(--gap-16-neg);
     }
 }
 
@@ -308,7 +338,7 @@
 }
 
 /* prettier-ignore */
-@each $size in 16, 20, 24, 32, 40, 48, 56, 64, 80, 128 {
+@each $size in 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 128 {
     .children {
         &.childrenSize_$(size) {
             width: $(size)px;

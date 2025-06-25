@@ -1,5 +1,120 @@
 # Change Log
 
+## 1.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.10
+
+## 1.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+
+## 1.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
+
+## 1.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+
+## 1.10.0
+
+### Minor Changes
+
+<sup><time>28.02.2025</time></sup>
+
+### [#1588](https://github.com/core-ds/core-components/pull/1588)
+
+-   Обновлена версия @alfalab/utils до 1.18.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 1.9.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+
+## 1.9.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.4
+
+## 1.9.12
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   link@5.3.4
+    -   loader@3.2.4
+
+## 1.9.11
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   loader@3.2.3
+    -   button@11.11.2
+    -   link@5.3.3
+
+## 1.9.10
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   link@5.3.2
+    -   loader@3.2.2
+
+## 1.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
 ## 1.9.8
 
 ### Patch Changes

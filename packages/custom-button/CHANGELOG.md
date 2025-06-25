@@ -1,5 +1,126 @@
 # Change Log
 
+## 3.12.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.10
+
+## 3.12.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+
+## 3.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
+
+## 3.12.6
+
+### Patch Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1669](https://github.com/core-ds/core-components/pull/1669)
+
+-   Реализация прозрачного `border` для синхронизации размеров Button/CustomButton
+
+## 3.12.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+
+## 3.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 3.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.5
+
+## 3.12.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.4
+
+## 3.12.1
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+
+## 3.12.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1472](https://github.com/core-ds/core-components/pull/1472)
+
+-   Добавлена возможность импортировать desktop / mobile по отдельности
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+-   Обновлены зависимости
+    -   button@11.11.2
+
+## 3.11.1
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   button@11.11.1
+
+## 3.11.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1452](https://github.com/core-ds/core-components/pull/1452)
+
+-   Изменены цвета заблокированного состояния
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
 ## 3.10.2
 
 ### Patch Changes

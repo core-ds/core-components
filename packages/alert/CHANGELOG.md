@@ -1,5 +1,110 @@
 # Change Log
 
+## 4.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.14
+
+## 4.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.13
+
+## 4.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.12
+
+## 4.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.11
+
+## 4.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.10
+
+## 4.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.9
+
+## 4.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.8
+
+## 4.2.13
+
+### Patch Changes
+
+<sup><time>24.01.2025</time></sup>
+
+### [#1516](https://github.com/core-ds/core-components/pull/1516)
+
+-   Добавлены десктоп/мобайл импорты
+
+## 4.2.12
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   plate@7.8.7
+
+## 4.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.8.6
+
+## 4.2.10
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   plate@7.8.5
+
+## 4.2.9
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   plate@7.8.4
+
 ## 4.2.8
 
 ### Patch Changes

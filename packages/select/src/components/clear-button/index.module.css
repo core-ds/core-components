@@ -17,7 +17,3 @@
 .clearButton + [data-addon='error-icon'] {
     display: var(--input-error-icon-display);
 }
-
-.clearButton + * {
-    margin-left: var(--gap-4);
-}

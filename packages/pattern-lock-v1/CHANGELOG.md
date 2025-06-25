@@ -1,5 +1,107 @@
 # @alfalab/core-components-pattern-lock-v1
 
+## 1.1.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+
+## 1.1.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+
+## 1.1.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+
+## 1.1.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+
+## 1.1.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 1.1.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+
+## 1.1.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   button@11.11.4
+
+## 1.1.11
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+
+## 1.1.10
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1509](https://github.com/core-ds/core-components/pull/1509)
+
+-   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   button@11.11.2
+
+## 1.1.9
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   button@11.11.1
+
+## 1.1.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
 ## 1.1.7
 
 ### Patch Changes

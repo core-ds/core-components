@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import { FilterTagDesktop as FilterTag } from './desktop';
 
@@ -98,6 +98,27 @@ describe('Render tests', () => {
         const { container, getByText } = render(<FilterTag>{text}</FilterTag>);
 
         expect(container.firstElementChild).toContainElement(getByText(text));
+    });
+
+    test('should render leftAddons', () => {
+        const leftAddonsTestId = 'leftAddonsTestId';
+
+        render(<FilterTag leftAddons={<div data-test-id={leftAddonsTestId}>left addons</div>} />);
+
+        const addon = screen.queryByTestId(leftAddonsTestId);
+
+        expect(addon).toBeInTheDocument();
+    });
+
+    test('should render leftAddons content', () => {
+        const leftAddonsTestId = 'leftAddonsTestId';
+        const content = 'left addons';
+
+        render(<FilterTag leftAddons={<div data-test-id={leftAddonsTestId}>{content}</div>} />);
+
+        const addon = screen.queryByTestId(leftAddonsTestId);
+
+        expect(addon).toHaveTextContent(content);
     });
 });
 

@@ -1,5 +1,231 @@
 # Change Log
 
+## 10.4.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   calendar@7.19.0
+    -   date-input@4.4.20
+    -   popover@6.3.11
+
+## 10.4.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+
+## 10.4.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   calendar@7.18.6
+    -   date-input@4.4.19
+    -   popover@6.3.10
+
+## 10.4.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+
+## 10.4.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.4.18
+    -   calendar@7.18.4
+
+## 10.4.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   calendar@7.18.3
+    -   date-input@4.4.17
+    -   popover@6.3.9
+
+## 10.4.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.2
+
+## 10.4.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.1
+    -   date-input@4.4.16
+
+## 10.4.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.0
+
+## 10.4.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.14
+
+## 10.4.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.13
+
+## 10.4.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.12
+    -   date-input@4.4.15
+
+## 10.4.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.11
+
+## 10.4.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   calendar@7.17.10
+    -   date-input@4.4.14
+    -   popover@6.3.8
+
+## 10.4.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.9
+
+## 10.4.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.8
+
+## 10.4.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   calendar@7.17.7
+    -   date-input@4.4.13
+    -   popover@6.3.7
+
+## 10.4.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.6
+
+## 10.4.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.5
+
+## 10.4.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.17.4
+
+## 10.4.13
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   calendar@7.17.3
+    -   date-input@4.4.12
+    -   popover@6.3.6
+
+## 10.4.12
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   popover@6.3.5
+    -   shared@0.14.1
+    -   calendar@7.17.2
+    -   date-input@4.4.11
+
+## 10.4.11
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+-   Обновлены зависимости
+    -   calendar@7.17.1
+    -   popover@6.3.4
+    -   date-input@4.4.10
+
+## 10.4.10
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   calendar@7.17.0
+    -   date-input@4.4.9
+
+## 10.4.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.16.0
+
 ## 10.4.8
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import React, { ElementType, useRef, useState } from 'react';
+import React, { ElementType, Fragment, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import {
@@ -8,6 +8,7 @@ import {
 import { ClearButton } from '@alfalab/core-components-input/shared';
 import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
@@ -47,6 +48,7 @@ export const AutocompleteMobileField = ({
     error,
     readOnly,
     clear,
+    success,
     onClear,
     onInput,
     colors = 'default',
@@ -63,6 +65,34 @@ export const AutocompleteMobileField = ({
     const clearButtonVisible = clear && filled && !disabled && !readOnly;
 
     const { tabIndex, ...restInnerProps } = innerProps;
+
+    const formRightAddons = (Arrow || rightAddons || clearButtonVisible || error || success) && (
+        <Fragment>
+            {clearButtonVisible && (
+                <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
+            )}
+            {rightAddons}
+            {Arrow}
+            {error && (
+                <div className={styles.errorIcon} data-addon='error-icon'>
+                    <StatusBadge
+                        view='negative-alert'
+                        size={size === 40 ? 16 : 20}
+                        dataTestId={getDataTestId(dataTestId, 'error-icon')}
+                    />
+                </div>
+            )}
+            {success && !error && (
+                <div className={styles.successIcon}>
+                    <StatusBadge
+                        view='positive-checkmark'
+                        size={size === 40 ? 16 : 20}
+                        dataTestId={getDataTestId(dataTestId, 'success-icon')}
+                    />
+                </div>
+            )}
+        </Fragment>
+    );
 
     return (
         <div
@@ -90,21 +120,7 @@ export const AutocompleteMobileField = ({
                 readOnly={readOnly}
                 colors={colors}
                 error={error}
-                rightAddons={
-                    (Arrow || rightAddons || clearButtonVisible) && (
-                        <React.Fragment>
-                            {clearButtonVisible && (
-                                <ClearButton
-                                    onClick={onClear}
-                                    disabled={disabled}
-                                    colors={colors}
-                                />
-                            )}
-                            {rightAddons}
-                            {Arrow}
-                        </React.Fragment>
-                    )
-                }
+                rightAddons={formRightAddons}
             >
                 <div className={styles.contentWrapper}>
                     {showPlaceholder && <span className={styles.placeholder}>{placeholder}</span>}

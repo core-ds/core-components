@@ -1,5 +1,229 @@
 # Change Log
 
+## 2.10.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   button@11.11.10
+    -   pagination@2.4.14
+
+## 2.10.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+
+## 2.10.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+    -   select@17.21.2
+    -   pagination@2.4.13
+
+## 2.10.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
+## 2.10.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+
+## 2.10.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
+    -   select@17.20.14
+    -   pagination@2.4.12
+
+## 2.10.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.13
+
+## 2.10.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+
+## 2.10.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   select@17.20.11
+
+## 2.10.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+
+## 2.10.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   pagination@2.4.11
+    -   select@17.20.9
+
+## 2.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.8
+    -   button@11.11.6
+
+## 2.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.7
+
+## 2.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.6
+    -   button@11.11.5
+    -   pagination@2.4.10
+
+## 2.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.5
+
+## 2.10.0
+
+### Minor Changes
+
+<sup><time>14.02.2025</time></sup>
+
+### [#1574](https://github.com/core-ds/core-components/pull/1574)
+
+-   Добавлен forawdRef для TBody
+
+## 2.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.4
+
+## 2.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.3
+    -   button@11.11.4
+    -   pagination@2.4.9
+
+## 2.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.2
+
+## 2.9.0
+
+### Minor Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1540](https://github.com/core-ds/core-components/pull/1540)
+
+-   Добавлен forwardRef для TRow компонента, добавлена возможность прокидывать реф для TRow через TExpnandableRow
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.1
+
+## 2.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.0
+
+## 2.8.4
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   pagination@2.4.8
+    -   select@17.19.0
+
+## 2.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.18.1
+    -   pagination@2.4.7
+    -   button@11.11.2
+
+## 2.8.2
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1486](https://github.com/core-ds/core-components/pull/1486)
+
+-   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   pagination@2.4.6
+    -   select@17.18.0
+
+## 2.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.0
+    -   select@17.17.5
+
 ## 2.8.0
 
 ### Minor Changes

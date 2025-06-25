@@ -1,5 +1,99 @@
 # Change Log
 
+## 3.10.3
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1733](https://github.com/core-ds/core-components/pull/1733)
+
+-   Исправлено позиционирование индикатора для размера 64
+
+## 3.10.2
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1650](https://github.com/core-ds/core-components/pull/1650)
+
+-   Исправлено положение фона для Rectangle
+
+## 3.10.1
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1667](https://github.com/core-ds/core-components/pull/1667)
+
+-   Added support for using animated images
+
+## 3.10.0
+
+### Minor Changes
+
+<sup><time>31.01.2025</time></sup>
+
+### [#1524](https://github.com/core-ds/core-components/pull/1524)
+
+-   Добавлен компонент SuperEllipseBlank без предзагузки иконок
+-   Добавлены импорты предзагруженных иконок (по размерам)
+
+## 3.9.3
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 3.9.2
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1497](https://github.com/core-ds/core-components/pull/1497)
+
+-   Добавлено sideEffects: false (package.json)
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+## 3.9.1
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+## 3.9.0
+
+### Minor Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1454](https://github.com/core-ds/core-components/pull/1454)
+
+-   Добавлен размер 72
+
 ## 3.8.4
 
 ### Patch Changes

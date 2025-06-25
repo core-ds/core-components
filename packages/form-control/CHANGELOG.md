@@ -1,5 +1,79 @@
 # Change Log
 
+## 12.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 12.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 12.8.4
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+## 12.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 12.8.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 12.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
+## 12.8.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+## 12.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+
+## 12.7.3
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
 ## 12.7.2
 
 ### Patch Changes

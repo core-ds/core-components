@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { ListContext } from '../../Component';
 
@@ -17,9 +17,19 @@ export type ItemProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Дополнительный класс для маркера
+     */
+    markerClassName?: string;
 };
 
-export const Item: React.FC<ItemProps> = ({ caption, children }) => {
+export const Item: React.FC<ItemProps> = ({ caption, children, className, markerClassName }) => {
     const {
         orderedList,
         markerType,
@@ -31,7 +41,7 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
 
     const markerLowerAlpha = markerType === 'lower-alpha';
 
-    const itemClassNames = cn(styles.item, {
+    const itemClassNames = cn(styles.item, className, {
         [styles.unorderedItem]: markerLowerAlpha,
         [styles.reversed]: reversed,
     });
@@ -44,32 +54,32 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
     return (
         <li className={cn(itemClassNames)}>
             {!markerLowerAlpha && (
-                <Typography.Text
+                <Text
                     tag='div'
                     color={colorMarker}
                     monospaceNumbers={true}
                     view='primary-medium'
-                    className={cn(styles.slot, {
+                    className={cn(styles.slot, markerClassName, {
                         [styles.disc]: isDisc && !orderedList,
                         [styles.defaultColor]: !colorMarker,
                     })}
                 >
                     {marker}
-                </Typography.Text>
+                </Text>
             )}
             <div>
-                <Typography.Text tag='div' view='primary-medium'>
+                <Text tag='div' view='primary-medium'>
                     {children}
-                </Typography.Text>
+                </Text>
                 {caption && (
-                    <Typography.Text
+                    <Text
                         tag='div'
                         view='primary-small'
                         color='secondary'
                         className={styles.caption}
                     >
                         {caption}
-                    </Typography.Text>
+                    </Text>
                 )}
             </div>
         </li>

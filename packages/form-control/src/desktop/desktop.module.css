@@ -14,6 +14,14 @@
 
 /* SIZES */
 
+.size-40 .inner {
+    border-radius: var(--form-control-40-border-radius);
+
+    &:before {
+        left: 0;
+    }
+}
+
 .size-48 .inner {
     border-radius: var(--form-control-s-border-radius);
 }
@@ -28,4 +36,12 @@
 
 .size-72 .inner {
     border-radius: var(--form-control-xl-border-radius);
+}
+
+.rightAddons {
+    gap: var(--gap-4);
+
+    &.size-40 {
+        gap: 6px;
+    }
 }

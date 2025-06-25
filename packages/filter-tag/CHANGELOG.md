@@ -1,5 +1,100 @@
 # Change Log
 
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1707](https://github.com/core-ds/core-components/pull/1707)
+
+-   Исправлен проброс classname undefined `[styles.disabled]: disabled`
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 5.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 5.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+
+## 5.9.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1600](https://github.com/core-ds/core-components/pull/1600)
+
+-   Добавлен `inverted` цвет. Управлять переключением можно с помощью пропса `colors={default | inverted}`
+-   Добавлен слот `leftAddons`
+-   Переработаны отступы внутри компонента
+-   Исправлен размер `clear` иконки для `size=40`
+-   Исправлено поведение `border` которое приводило к скачкам компонента
+
+## 5.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 5.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+
+## 5.8.5
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+## 5.8.4
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+
+## 5.8.3
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1491](https://github.com/core-ds/core-components/pull/1491)
+
+-   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+
 ## 5.8.2
 
 ### Patch Changes

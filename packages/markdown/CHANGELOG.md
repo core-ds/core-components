@@ -1,5 +1,137 @@
 # @alfalab/core-components-markdown
 
+## 1.6.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   typography@4.14.3
+    -   list@3.5.7
+
+## 1.6.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   typography@4.14.2
+    -   list@3.5.6
+
+## 1.6.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   list@3.5.5
+
+## 1.6.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   list@3.5.4
+
+## 1.6.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   typography@4.13.1
+    -   list@3.5.3
+
+## 1.6.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   list@3.5.2
+
+## 1.6.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.12.0
+    -   list@3.5.1
+
+## 1.6.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+
+## 1.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   list@3.5.0
+    -   shared@0.15.0
+    -   typography@4.11.4
+
+## 1.6.7
+
+### Patch Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Обновление зависимостей
+
+-   Обновлены зависимости
+    -   link@5.3.4
+    -   list@3.4.7
+    -   typography@4.11.3
+
+## 1.6.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   link@5.3.3
+    -   typography@4.11.2
+    -   list@3.4.6
+
+## 1.6.5
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1473](https://github.com/core-ds/core-components/pull/1473)
+
+-   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+
+-   Обновлены зависимости
+    -   link@5.3.2
+    -   list@3.4.5
+    -   typography@4.11.1
+
+## 1.6.4
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
 ## 1.6.3
 
 ### Patch Changes

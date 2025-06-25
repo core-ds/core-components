@@ -15,7 +15,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -33,7 +33,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -108,12 +108,12 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
         <span
-          class="sub error error"
+          class="sub size-48 error error"
           role="alert"
         >
           error
@@ -132,12 +132,12 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
       <span
-        class="sub error error"
+        class="sub size-48 error error"
         role="alert"
       >
         error
@@ -213,7 +213,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -234,7 +234,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -312,12 +312,12 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
         <span
-          class="sub error error"
+          class="sub size-48 error error"
           role="alert"
         >
           This is error
@@ -336,12 +336,12 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
       <span
-        class="sub error error"
+        class="sub size-48 error error"
         role="alert"
       >
         This is error
@@ -417,12 +417,12 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
         <span
-          class="sub sub hint"
+          class="sub size-48 sub hint"
         >
           This is hint
         </span>
@@ -440,12 +440,12 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
       <span
-        class="sub sub hint"
+        class="sub size-48 sub hint"
       >
         This is hint
       </span>
@@ -539,7 +539,7 @@ Object {
               </span>
             </div>
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -576,7 +576,7 @@ Object {
             </span>
           </div>
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -658,7 +658,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -683,7 +683,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -752,7 +752,7 @@ Object {
         class="component component size-48 size-48"
       >
         <span
-          class="above above label"
+          class="above size-48 above label"
         >
           <span>
             This is label
@@ -765,7 +765,7 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
         </div>
@@ -777,7 +777,7 @@ Object {
       class="component component size-48 size-48"
     >
       <span
-        class="above above label"
+        class="above size-48 above label"
       >
         <span>
           This is label
@@ -790,7 +790,7 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
       </div>
@@ -865,11 +865,11 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="input"
+              class="input size-48"
             />
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           >
             <div>
               Right addons
@@ -890,11 +890,11 @@ Object {
           class="inputWrapper"
         >
           <div
-            class="input"
+            class="input size-48"
           />
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         >
           <div>
             Right addons

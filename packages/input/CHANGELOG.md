@@ -1,5 +1,162 @@
 # Change Log
 
+## 15.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   form-control@12.8.6
+
+## 15.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   form-control@12.8.5
+
+## 15.6.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Расширена логика `focus` состояния если в `rightAddons` передан компонент `Steppers`
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   form-control@12.8.4
+
+## 15.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   form-control@12.8.3
+
+## 15.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+
+## 15.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.6
+
+## 15.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.16.0
+    -   button@11.11.5
+    -   form-control@12.8.2
+
+## 15.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.15.0
+    -   button@11.11.4
+    -   form-control@12.8.1
+
+## 15.5.0
+
+### Minor Changes
+
+<sup><time>09.01.2025</time></sup>
+
+### [#1461](https://github.com/core-ds/core-components/pull/1461)
+
+-   Добавлен 40 размер
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.3
+    -   status-badge@1.2.3
+    -   form-control@12.8.0
+
+## 15.4.0
+
+### Minor Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1422](https://github.com/core-ds/core-components/pull/1422)
+
+-   Запрещен ввод и вставка символов `[eE]` в input[type=number]
+
+### Patch Changes
+
+<sup><time>26.12.2024</time></sup>
+
+### [#1502](https://github.com/core-ds/core-components/pull/1502)
+
+-   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+
+-   Обновлены зависимости
+    -   mq@4.4.1
+    -   shared@0.14.1
+    -   status-badge@1.2.2
+    -   button@11.11.2
+    -   form-control@12.7.4
+
+## 15.3.4
+
+### Patch Changes
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1478](https://github.com/core-ds/core-components/pull/1478)
+
+-   Вендор classnames обновлён 2.3.1 -> 2.5.1
+
+<sup><time>13.12.2024</time></sup>
+
+### [#1488](https://github.com/core-ds/core-components/pull/1488)
+
+-   Фикс вызова input.setSelectionRange
+
+-   Обновлены зависимости
+    -   button@11.11.1
+    -   form-control@12.7.3
+    -   status-badge@1.2.1
+
+## 15.3.3
+
+### Patch Changes
+
+<sup><time>10.12.2024</time></sup>
+
+### [#1480](https://github.com/core-ds/core-components/pull/1480)
+
+-   Добавлено sideEffects: false
+
+-   Обновлены зависимости
+    -   button@11.11.0
+
 ## 15.3.2
 
 ### Patch Changes
