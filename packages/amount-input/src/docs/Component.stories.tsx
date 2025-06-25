@@ -16,6 +16,7 @@ type Story = StoryObj<typeof AmountInput>;
 export const amount_input: Story = {
     name: 'AmountInput',
     render: () => {
+        const view = select('view', ['default', 'withZeroMinorPart'], 'default');
         const [value, setValue] = useState(1000);
 
         const size = select('size', [40, 48, 56, 64, 72], 48);
@@ -53,6 +54,7 @@ export const amount_input: Story = {
                     value={value}
                     colors={colors}
                     currency={text('currency', 'RUR')}
+                    view={view}
                     suffix={text('suffix', undefined)}
                     integerLength={number('integerLength', 9)}
                     minority={number('minority', 100)}
