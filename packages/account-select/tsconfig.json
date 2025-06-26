@@ -12,6 +12,7 @@
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-product-cover/*": ["../product-cover/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-modal/*": ["../modal/src/*"]
         }
     },
     "references": [
