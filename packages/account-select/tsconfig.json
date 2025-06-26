@@ -11,6 +11,7 @@
             "@alfalab/core-components-popover/*": ["../popover/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-product-cover/*": ["../product-cover/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
         }
     },
     "references": [
@@ -20,5 +21,6 @@
         { "path": "../popover" },
         { "path": "../form-control" },
         { "path": "../product-cover" },
+        { "path": "../button" },
     ]
 }
