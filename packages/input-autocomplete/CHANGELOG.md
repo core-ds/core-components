@@ -1,5 +1,63 @@
 # Change Log
 
+## 12.9.6
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+-   Исправлено отображение маскированного значения в компоненте `InputAutocompleteMobile`
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   form-control@12.8.6
+    -   input@15.6.2
+    -   popover@6.3.11
+
+## 12.9.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+
+## 12.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   form-control@12.8.5
+    -   input@15.6.1
+    -   select@17.21.2
+    -   popover@6.3.10
+
+## 12.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
+## 12.9.2
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input@15.6.0
+    -   form-control@12.8.4
+
 ## 12.9.1
 
 ### Patch Changes

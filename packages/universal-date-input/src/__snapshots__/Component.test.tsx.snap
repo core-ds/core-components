@@ -28,7 +28,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         />
       </div>
     </div>
@@ -64,7 +64,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 2`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         />
       </div>
     </div>
@@ -100,7 +100,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 3`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         />
       </div>
     </div>

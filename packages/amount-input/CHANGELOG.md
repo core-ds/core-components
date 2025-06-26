@@ -1,5 +1,43 @@
 # Change Log
 
+## 7.15.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   input@15.6.2
+    -   number-input@2.7.2
+    -   with-suffix@4.2.20
+
+## 7.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   number-input@2.7.1
+    -   with-suffix@4.2.19
+
+## 7.15.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Добавлена возможность включить в правом аддоне компонент `Stepper` с помощью пропса `stepper`
+-   Расширен тип пропса `onChange`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   number-input@2.7.0
+    -   input@15.6.0
+    -   with-suffix@4.2.18
+
 ## 7.14.2
 
 ### Patch Changes

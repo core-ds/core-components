@@ -46,6 +46,10 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
 
     useEffect(() => {
         setHasHeader(true);
+
+        return () => {
+            setHasHeader(false);
+        };
     }, [setHasHeader]);
 
     return (

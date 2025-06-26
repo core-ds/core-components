@@ -1,5 +1,21 @@
 # Change Log
 
+## 7.5.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.10
+    -   toast-plate@7.3.14
+
+## 7.5.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.9
+    -   toast-plate@7.3.13
+
 ## 7.5.11
 
 ### Patch Changes

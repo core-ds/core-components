@@ -29,7 +29,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           />
         </div>
       </div>
@@ -949,7 +949,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           />
         </div>
       </div>

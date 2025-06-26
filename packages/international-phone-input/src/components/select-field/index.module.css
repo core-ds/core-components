@@ -33,7 +33,6 @@
     outline: none;
 }
 
-.size-64 .inner,
 .size-72 .inner {
     padding-left: var(--gap-16);
 }
