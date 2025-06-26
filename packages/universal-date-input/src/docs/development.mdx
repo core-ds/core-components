@@ -16,9 +16,9 @@ import { UniversalDateInputMobile } from '@alfalab/core-components/universal-dat
 
 ## Использование dataTestId
 
-В компоненте используются модификаторы для `dataTestId`.  
-Компонент является оберткой над FormControl, поэтому наследует все его модификаторы.  
-Для удобного поиска элементов можно воспользоваться функцией `getUniversalDateInputTestIds`.  
+В компоненте используются модификаторы для `dataTestId`.
+Компонент является оберткой над FormControl, поэтому наследует все его модификаторы.
+Для удобного поиска элементов можно воспользоваться функцией `getUniversalDateInputTestIds`.
 Импорт из `@alfalab/core-components/universal-date-input/shared`.
 
 Функция возвращает объект:
@@ -28,7 +28,8 @@ import { UniversalDateInputMobile } from '@alfalab/core-components/universal-dat
     input: dataTestId,
     componentWrapper: `${dataTestId}-wrapper`,
     popover: `${dataTestId}-popover`,
-    calendar: `${dataTestId}-calendar`,    
+    calendar: `${dataTestId}-calendar`,
+    calendarIcon: `${dataTestId}-calendar-icon`,
     inputWrapper: `${dataTestId}-form-control`,
     inputWrapperInner: `${dataTestId}-form-control-inner`,
     leftAddons: `${dataTestId}-form-control-left-addons`,
@@ -37,6 +38,13 @@ import { UniversalDateInputMobile } from '@alfalab/core-components/universal-dat
     hint: `${dataTestId}-form-control-hint`,
 };
 ```
+
+## Определение источника ввода (инпут / календарь)
+Для компонентов с view: `'date'`, `'date-time'` и `'date-range'` можно определить, каким образом пользователь изменил значение.
+
+Третий аргумент `source`, передаваемый в `onChange`, указывает источник изменения:
+* 'input' — значение введено вручную;
+* 'calendar' — значение выбрано из календаря.
 
 ## Свойства
 
