@@ -1,8 +1,10 @@
 import React from 'react';
+import { fireEvent, render, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import { Calendar } from '@alfalab/core-components-calendar';
 import { DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from './consts';
 import { UniversalDateInputDesktop } from './desktop';
-import { fireEvent, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { getUniversalDateInputTestIds } from './utils';
 
 Object.defineProperty(window, 'matchMedia', {
@@ -98,7 +100,33 @@ describe('UniversalDateInput', () => {
                 await userEvent.type(input, '12122022');
 
                 expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(new Date('2022-12-12'), '12.12.2022');
+                expect(onChange).toBeCalledWith(new Date('2022-12-12'), '12.12.2022', 'input');
+            });
+
+            it(`should call onChange with the correct source when picking a date from calendar`, async () => {
+                const onChange = jest.fn();
+                const { getByTestId, getByRole } = render(
+                    <UniversalDateInputDesktop
+                        view='date'
+                        dataTestId='date-input'
+                        picker={true}
+                        Calendar={Calendar}
+                        onChange={onChange}
+                        minDate={1748736000000}
+                        maxDate={1751241600000}
+                    />,
+                );
+
+                const calendarIcon = getByTestId('date-input-calendar-icon');
+                await userEvent.click(calendarIcon);
+
+                const calendar = getByRole('table');
+
+                const dayButton = within(calendar).getByRole('button', { name: '1' });
+                await userEvent.click(dayButton);
+
+                expect(onChange).toBeCalledTimes(1);
+                expect(onChange).toBeCalledWith(new Date('2025-06-01'), '01.06.2025', 'calendar');
             });
 
             it(`should call onChange when clear input`, async () => {
@@ -118,7 +146,7 @@ describe('UniversalDateInput', () => {
                 });
 
                 expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(null, '');
+                expect(onChange).toBeCalledWith(null, '', 'input');
             });
         });
 
@@ -235,6 +263,7 @@ describe('UniversalDateInput', () => {
                 expect(onChange).toBeCalledWith(
                     new Date('2022-12-12T12:12:00'),
                     `12.12.2022${DATE_TIME_SEPARATOR}12:12`,
+                    'input',
                 );
             });
 
@@ -255,7 +284,7 @@ describe('UniversalDateInput', () => {
                 });
 
                 expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(null, '');
+                expect(onChange).toBeCalledWith(null, '', 'input');
             });
         });
     });
@@ -361,6 +390,42 @@ describe('UniversalDateInput', () => {
                         dateTo: new Date('2023-12-12'),
                     },
                     `12.12.2022${DATE_RANGE_SEPARATOR}12.12.2023`,
+                    'input',
+                );
+            });
+
+            it(`should call onChange with the correct source when picking a date from calendar`, async () => {
+                const onChange = jest.fn();
+                const { getByTestId, getByRole } = render(
+                    <UniversalDateInputDesktop
+                        view='date-range'
+                        dataTestId='date-range-input'
+                        picker={true}
+                        Calendar={Calendar}
+                        onChange={onChange}
+                        minDate={1748736000000}
+                        maxDate={1751241600000}
+                    />,
+                );
+
+                const calendarIcon = getByTestId('date-range-input-calendar-icon');
+                await userEvent.click(calendarIcon);
+
+                const calendar = getByRole('table');
+
+                const dayFromButton = within(calendar).getByRole('button', { name: '1' });
+                const dayToButton = within(calendar).getByRole('button', { name: '15' });
+                await userEvent.click(dayFromButton);
+                await userEvent.click(dayToButton);
+
+                expect(onChange).toBeCalledTimes(1);
+                expect(onChange).toBeCalledWith(
+                    {
+                        dateFrom: new Date('2025-06-01'),
+                        dateTo: new Date('2025-06-15'),
+                    },
+                    `01.06.2025${DATE_RANGE_SEPARATOR}15.06.2025`,
+                    'calendar',
                 );
             });
 
@@ -384,7 +449,7 @@ describe('UniversalDateInput', () => {
                 });
 
                 expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith({ dateFrom: null, dateTo: null }, '');
+                expect(onChange).toBeCalledWith({ dateFrom: null, dateTo: null }, '', 'input');
             });
         });
     });
@@ -454,7 +519,7 @@ describe('UniversalDateInput', () => {
         it('should set `data-test-id` attribute', () => {
             const dataTestId = 'test-id';
 
-            const { getByTestId, getByRole } = render(
+            const { getByTestId } = render(
                 <UniversalDateInputDesktop
                     error='error message'
                     leftAddons={<span />}
