@@ -1,7 +1,7 @@
 @import '../../../vars/src/index.css';
 
 .accountSelect {
-    min-width: 400px;
+    min-width: 200px;
 }
 
 .optionContent {

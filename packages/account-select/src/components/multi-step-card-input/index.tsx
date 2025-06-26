@@ -97,8 +97,8 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         };
 
         const handleCardNumberBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-            setIsCardNumberFocused(false);
             setError(validateCardNumber(e.target.value) ? null : 'Номер карты введён неверно');
+            setIsCardNumberFocused(false);
         };
 
         const handleExpiryBlur = (e: React.FocusEvent<HTMLInputElement>) => {

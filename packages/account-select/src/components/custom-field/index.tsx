@@ -22,6 +22,7 @@ export const CustomField = ({
     expiryAsDate,
     view = 'desktop',
     cardImage,
+    leftAddons,
     ...restProps
 }: CustomFieldProps) => {
     const valueRenderer = useCallback(
@@ -52,6 +53,7 @@ export const CustomField = ({
             label={selected ? null : label}
             selected={selected}
             innerProps={innerProps}
+            leftAddons={selected ? undefined : leftAddons}
             {...restProps}
             valueRenderer={valueRenderer}
         />

@@ -1,6 +1,10 @@
 const isNumericString = (str: string) => /^\d+$/.test(str);
 
-export const validateCardNumber = (value: string) => value.length === 16 && isNumericString(value);
+export const validateCardNumber = (value: string) => {
+    const trimmedValue = value.replace(/\s/g, '');
+
+    return trimmedValue.length === 16 && isNumericString(trimmedValue);
+};
 
 export const validateExpiry = (value: string) => {
     if (value.length !== 5) return false;
