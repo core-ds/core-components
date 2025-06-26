@@ -1,2 +1,2 @@
-export { AccountSelectResponsive } from './Component.responsive';
+export { AccountSelectResponsive as AccountSelect } from './Component.responsive';
 export type { AccountSelectProps } from './types';
