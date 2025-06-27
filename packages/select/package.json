@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-badge": "^5.6.4",
+        "@alfalab/core-components-status-badge": "^1.2.3",
         "@alfalab/core-components-base-modal": "^5.9.4",
         "@alfalab/core-components-bottom-sheet": "^6.18.14",
         "@alfalab/core-components-button": "^11.11.10",

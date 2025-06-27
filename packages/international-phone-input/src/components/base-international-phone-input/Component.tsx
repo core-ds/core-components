@@ -56,6 +56,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             open: openProps,
             defaultOpen,
             customCountriesList,
+            showErrorIcon,
             ...restProps
         },
         ref,
@@ -248,6 +249,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                     addonsClassName: inputProps.addonsClassName,
                     ...(view === 'mobile' ? { leftAddons: renderCountrySelect() } : null),
                 }}
+                showErrorIcon={showErrorIcon}
             />
         ) : (
             <Input
@@ -259,6 +261,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 onInput={handleInput}
                 value={value}
                 disabled={disabled}
+                showErrorIcon={showErrorIcon}
             />
         );
     },
