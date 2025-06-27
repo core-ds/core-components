@@ -46,15 +46,16 @@ const config = {
             displayName: 'csr' /* client side rendering */,
             testEnvironment: 'jsdom',
             testMatch: ['**/*.test.ts?(x)', '!**/*.{screenshots,ssr}.test.ts?(x)'],
+            coveragePathIgnorePatterns: ['/index.tsx?$'],
         },
         {
             ...initialProjectOptions,
             displayName: 'ssr' /* server side rendering */,
             testEnvironment: 'node',
             testMatch: ['**/*.ssr.test.ts?(x)'],
+            coveragePathIgnorePatterns: ['/index.tsx?$'],
         },
     ],
-    coveragePathIgnorePatterns: ['/index.ts?(x)'],
     coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
 };
 
