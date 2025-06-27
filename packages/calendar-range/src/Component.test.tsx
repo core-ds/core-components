@@ -7,7 +7,7 @@ import setDate from 'date-fns/setDate';
 import endOfMonth from 'date-fns/endOfMonth';
 import startOfDay from 'date-fns/startOfDay';
 import addDays from 'date-fns/addDays';
-import { MONTHS } from '../../calendar/src/utils';
+import { MONTHS } from '@alfalab/core-components-calendar/utils';
 import { formatDate } from '../../calendar-input/src/utils';
 
 import { CalendarRange } from './index';
@@ -251,7 +251,7 @@ describe('CalendarRange', () => {
 
     describe('isPopover', () => {
         it('should open empty input calendar with month from filled input', async () => {
-            const { queryAllByRole, container } = render(
+            const { queryAllByRole } = render(
                 <CalendarRange
                     inputFromProps={{ calendarProps: { className: 'from-calendar' } }}
                     inputToProps={{ calendarProps: { className: 'to-calendar' } }}
