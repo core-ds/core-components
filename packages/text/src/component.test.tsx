@@ -39,13 +39,15 @@ describe('Text', () => {
         it('should set `color: red` to style attribute', () => {
             const { container } = render(<Text color='red' />);
 
-            expect(container.firstElementChild).toHaveStyle('color: red');
+            expect(container.firstElementChild).toHaveStyle({ color: 'red' });
         });
 
         it('should set `backgroundColor: red` to style attribute', () => {
             const { container } = render(<Text textBackgroundColor='red' />);
 
-            expect(container.firstElementChild).toHaveStyle('backgroundColor: red');
+            expect(container.firstElementChild).toHaveStyle({
+                'background-color': 'red',
+            });
         });
 
         it('should set `view` class', () => {

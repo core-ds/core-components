@@ -1,16 +1,12 @@
-import {
-    hasImportSpecifier,
-    isIndexEntry,
-    modifyIdentifiers,
-    modifyImportPath,
-} from '../42-utils';
+import { hasImportSpecifier, isIndexEntry, modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const formControlTransformer = (source, j) => {
     modifyImportPath(
         source,
         j,
         (path) => (isIndexEntry(path, 'form-control') ? `${path}/desktop` : path),
-        (path) => hasImportSpecifier(path, 'FormControl') || hasImportSpecifier(path, 'FormControlProps'),
+        (path) =>
+            hasImportSpecifier(path, 'FormControl') || hasImportSpecifier(path, 'FormControlProps'),
     );
     modifyIdentifiers(source, j, 'FormControl', 'FormControlDesktop');
     modifyIdentifiers(source, j, 'FormControlProps', 'FormControlDesktopProps');

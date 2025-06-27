@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-grid
 
 ## 3.2.4
 

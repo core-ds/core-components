@@ -18,7 +18,7 @@ describe('TimeInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(render(<TimeInput defaultValue='19:37' />).container).toMatchSnapshot();

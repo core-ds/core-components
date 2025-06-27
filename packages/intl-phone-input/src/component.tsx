@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { AsYouType, CountryCode } from 'libphonenumber-js';
+import { AsYouType, CountryCode } from 'libphonenumber-js/min';
 
 import {
     InputAutocompleteDesktop,
@@ -485,7 +485,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             import(/* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/min')
                 .then((utils) => {
-                    phoneLibUtils.current = utils.AsYouType as typeof AsYouType;
+                    phoneLibUtils.current = utils.AsYouType;
 
                     if (canBeEmptyCountry) {
                         changePhone(value);

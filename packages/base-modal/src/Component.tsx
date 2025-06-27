@@ -25,7 +25,7 @@ import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-compon
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { browser, os } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
-import { stackingOrder } from '@alfalab/stack-context';
+import { stackingOrder } from '@alfalab/core-components-stack-context';
 
 import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {

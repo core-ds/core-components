@@ -21,7 +21,7 @@ describe('MaskedInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<MaskedInput />)).toMatchSnapshot();

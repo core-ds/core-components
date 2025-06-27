@@ -3,21 +3,23 @@
 
 const path = require('path');
 const glob = require('glob');
+const { getPackagesSync } = require('@manypkg/get-packages');
 
-const { Once, OnceExit } = require('./tools/postcss/postcss-subtract-mixin.cjs')().prepare();
+const { packages } = getPackagesSync(process.cwd());
+const vars = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-vars');
+const mq = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-mq');
 
 module.exports = {
     plugins: [
         require('postcss-import')({}),
         require('postcss-for')({}),
         require('postcss-each')({}),
-        Once,
+        require('./tools/postcss/postcss-subtract-mixin.cjs')({}),
         require('postcss-mixins')({
-            mixinsFiles: glob.sync(path.join(__dirname, 'packages/vars/src/*.css'), {
+            mixinsFiles: glob.sync(path.join(vars.dir, 'src/*.css'), {
                 ignore: ['**/alfasans-*.css'],
             }),
         }),
-        OnceExit,
         require('postcss-preset-env')({
             stage: 3,
             features: {
@@ -28,7 +30,8 @@ module.exports = {
         }),
         require('postcss-custom-media')({
             importFrom: {
-                customMedia: require('./packages/mq/src/mq.json'),
+                // eslint-disable-next-line import/no-dynamic-require
+                customMedia: require(path.join(mq.dir, 'src/mq.json')),
             },
         }),
         ...(process.env.BUILD_WITHOUT_CSS_VARS === 'true'

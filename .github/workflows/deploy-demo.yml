@@ -1,0 +1,100 @@
+name: deploy-demo
+
+on:
+    workflow_call:
+        inputs:
+            run-id:
+                description: Artifact workflow run id
+                required: true
+                type: string
+            dir:
+                description: Deploy directory
+                required: true
+                type: string
+
+jobs:
+    deploy:
+        name: deploy
+        runs-on: ubuntu-latest
+        outputs:
+            url: ${{ steps.url.outputs.result }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: gh-pages
+                  lfs: true
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: clean up
+              shell: bash
+              run: |
+                  rm -rf ${{ inputs.dir }}
+
+            - name: download build
+              uses: actions/download-artifact@v4
+              with:
+                  name: build
+                  path: ${{ inputs.dir }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  run-id: ${{ inputs.run-id }}
+
+            - name: copy legacy archive-versions.json
+              if: ${{ inputs.dir == 'master' }}
+              shell: bash
+              run: |
+                  cp archive-versions.json ${{ inputs.dir }}
+
+            - name: deploy
+              uses: core-ds/core-components/.github/actions/commit-and-push@refactor/next-gen-monorepo
+              with:
+                  message: 'Deploy to GitHub Pages'
+
+            - name: demo url
+              id: url
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      const { owner, repo } = context.repo;
+
+                      return `https://${owner}.github.io/${repo}/${{ inputs.dir }}`;
+
+    pull-request:
+        name: find pull request
+        runs-on: ubuntu-latest
+        outputs:
+            number: ${{ steps.pull-request.outputs.number }}
+        steps:
+            - name: find pull request
+              uses: jwalton/gh-find-current-pr@v1
+              id: pull-request
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    comment:
+        name: comment
+        runs-on: ubuntu-latest
+        needs: [deploy, pull-request]
+        if: ${{ needs.pull-request.outputs.number != '' }}
+        steps:
+            - name: find comment
+              uses: peter-evans/find-comment@v3
+              id: comment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-number: ${{ needs.pull-request.outputs.number }}
+                  comment-author: 'github-actions[bot]'
+                  body-includes: Demo build
+
+            - name: create or update comment
+              uses: peter-evans/create-or-update-comment@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  comment-id: ${{ steps.comment.outputs.comment-id }}
+                  issue-number: ${{ needs.pull-request.outputs.number }}
+                  body: |
+                      ## Demo build
+
+                      [${{ needs.deploy.outputs.url }}](${{ needs.deploy.outputs.url }})
+                  reactions: rocket
+                  edit-mode: replace
