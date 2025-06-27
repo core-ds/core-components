@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { TooltipMobileProps } from '../types';
 
@@ -19,6 +20,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
     getPortalContainer,
     targetTag: TargetTag = 'div',
     open: openProp,
+    dataTestId,
     ...restProps
 }) => {
     const [visible, setVisible] = useState(!!openProp);
@@ -50,6 +52,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
                 {...restProps}
                 container={getPortalContainer}
                 onClose={handleClose}
+                dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
             >
                 {content}
             </BottomSheet>
@@ -61,6 +64,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
                 className={cn(styles.target, targetClassName, {
                     [styles.inline]: TargetTag === 'span',
                 })}
+                data-test-id={getDataTestId(dataTestId, 'target')}
             >
                 {children?.props.disabled && <div className={styles.overlap} />}
                 {children}
