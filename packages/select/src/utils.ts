@@ -10,8 +10,8 @@ import {
 
 import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
 
-import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
 import { DEFAULT_SEPARATOR } from './consts';
+import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
