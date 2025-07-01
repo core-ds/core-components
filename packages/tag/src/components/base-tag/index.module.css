@@ -171,7 +171,7 @@ button.noContent {
         padding-right: var(--gap-24);
 
         &.noContent {
-            padding-right: var(--gap-28);
+            padding-right: 28px;
         }
     }
 
@@ -217,7 +217,7 @@ button.noContent {
         padding-left: var(--gap-24);
 
         &.noContent {
-            padding-left: var(--gap-28);
+            padding-left: 28px;
         }
     }
 
