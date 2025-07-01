@@ -1,4 +1,4 @@
-@import '../../../../packages/themes/src/mixins/click.css';
+@import '@alfalab/core-components-themes/src/mixins/click.css';
 
 :root {
     @mixin theme-click;

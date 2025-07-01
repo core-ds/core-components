@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import * as popoverModule from '@alfalab/core-components-popover';
 
 import { act } from 'react-dom/test-utils';
-import { asyncRender } from '../../utils/test-utils';
+import { asyncRender } from '@alfalab/core-components-test-utils';
 
 import {
     FieldProps as BaseFieldProps,

@@ -22,7 +22,7 @@
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "libphonenumber-js": "^1.10.30",
-        "react-merge-refs": "1.1.0",
+        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.4",

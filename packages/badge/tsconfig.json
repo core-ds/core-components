@@ -1,12 +1,24 @@
 {
-    "include": ["src", "../../typings", "../types"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
+        "rootDir": "src",
         "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-badge": ["./src"],
+            "@alfalab/core-components-badge/*": ["./src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
+            "@alfalab/core-components-types": ["../types/src"],
+            "@alfalab/core-components-types/*": ["../types/src/*"]
         }
-    }
+    },
+    "references": [
+        { "path": "../screenshot-utils" },
+        { "path": "../test-utils" },
+        { "path": "../types" }
+    ]
 }

@@ -1,24 +1,39 @@
 {
-    "include": ["src", "../../typings", "src/*.json"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
+        "rootDir": "src",
         "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-code-input/*": ["../code-input/src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
+            "@alfalab/core-components-code-input": ["../code-input/src"],
+            "@alfalab/core-components-code-input/*": ["../code-input/src/*"],
+            "@alfalab/core-components-confirmation": ["./src"],
+            "@alfalab/core-components-confirmation/*": ["./src/*"],
+            "@alfalab/core-components-link": ["../link/src"],
+            "@alfalab/core-components-link/*": ["../link/src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-spinner": ["../spinner/src"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
+            "@alfalab/core-components-typography": ["../typography/src"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
         { "path": "../button" },
-        { "path": "../loader" },
-        { "path": "../link" },
-        { "path": "../typography" },
         { "path": "../code-input" },
+        { "path": "../link" },
         { "path": "../mq" },
-        { "path": "../shared" },
+        { "path": "../screenshot-utils" },
+        { "path": "../spinner" },
+        { "path": "../test-utils" },
+        { "path": "../typography" }
     ]
 }

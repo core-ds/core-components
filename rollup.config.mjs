@@ -1,57 +1,43 @@
-import { createRequire } from 'module';
-import ts from 'typescript';
-import path from 'path';
-import multiInput from 'rollup-plugin-multi-input';
-import postcss, { addCssImports, generateClassNameHash } from '@alfalab/rollup-plugin-postcss';
-import wildcardExternal from '@oat-sa/rollup-plugin-wildcard-external';
-import typescript from 'rollup-plugin-ts';
-import copy from 'rollup-plugin-copy';
+/* eslint-disable import/no-extraneous-dependencies, no-nested-ternary */
+
 import json from '@rollup/plugin-json';
+import replace from '@rollup/plugin-replace';
+import typescript from '@rollup/plugin-typescript';
+import detectIndent from 'detect-indent';
+import fse from 'fs-extra';
+import { globbySync } from 'globby';
+import path from 'node:path';
+import { cwd } from 'node:process';
+import { defineConfig } from 'rollup';
+import copy from 'rollup-plugin-copy';
+import ts from 'typescript';
 
 import {
-    coreComponentsRootPackageResolver,
     coreComponentsResolver,
-    packagesTypingResolver,
+    externalsResolver,
 } from './tools/rollup/core-components-resolver.mjs';
-import ignoreCss from './tools/rollup/ignore-css.mjs';
-import processCss from './tools/rollup/process-css.mjs';
-import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver.mjs';
-import createPackageJson from './tools/rollup/create-package-json.mjs';
-import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator.mjs';
-import externalsWithEntryPoints from './tools/rollup/external-with-entry-points.mjs';
-import replace from '@rollup/plugin-replace';
-
-const require = createRequire(import.meta.url);
+import { processCss } from './tools/rollup/process-css.mjs';
 
 const { ScriptTarget } = ts;
 
-const currentPackageDir = process.cwd();
-
-const currentPkg = path.join(currentPackageDir, 'package.json');
-
-const rootPkg = require(path.resolve(currentPackageDir, '../../package.json'));
-const pkg = require(currentPkg);
-
-const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
+const pkg = fse.readJsonSync(path.join(cwd(), 'package.json'), { encoding: 'utf8' });
 
 const externals = [
-    ...externalsWithEntryPoints(Object.keys(pkg.dependencies || {})),
-    ...Object.keys(pkg.peerDependencies || {}),
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg.peerDependencies ?? {}),
 ];
 
-const baseConfig = {
-    cache: false,
-    input: [
-        'src/**/*.{ts,tsx}',
-        '!src/**/*.{test,stories}.{ts,tsx}',
-        '!src/**/*.mdx',
-        '!src/**/*.d.ts',
-    ],
-    plugins: [wildcardExternal(['@alfalab/core-components-*/**'])],
-    external: externals,
-};
-
-const multiInputPlugin = multiInput.default();
+const baseConfig = () =>
+    defineConfig({
+        cache: false,
+        input: globbySync('src/**/*.{ts,tsx}', {
+            ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
+        }),
+        plugins: [
+            json(),
+            replace({ 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') }),
+        ],
+    });
 
 const assetsCopyPlugin = (dest) =>
     copy({
@@ -69,144 +55,127 @@ const sourceCopyPlugin = copy({
                 '!src/**/*.test.{ts,tsx}',
             ],
             dest: 'dist/src',
-            transform: (contents, name) => {
-                if (name.endsWith('.css')) {
-                    return contents
-                        .toString()
-                        .replaceAll(
-                            /@import.*\/(.*)\/src\/(.*)\.css['"];/g,
-                            "@import '@alfalab/core-components-$1/src/$2.css';",
-                        );
-                }
-
-                return contents;
-            },
         },
     ],
 });
-
-const postcssPlugin = postcss.default({
-    modules: {
-        generateScopedName: function (name, fileName) {
-            const relativeFileName = path.relative(currentPackageDir, fileName);
-
-            const hash = generateClassNameHash(pkg.name, rootPkg.version, relativeFileName);
-
-            return `${currentComponentName}__${name}_${hash}`;
-        },
-    },
-    extract: true,
-    separateCssFiles: true,
-    packageName: pkg.name,
-    packageVersion: pkg.version,
-});
-
-const replacePlugin = replace({ 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') });
-
 /**
  * Сборка ES5 с commonjs модулями.
  */
-const es5 = {
-    ...baseConfig,
-    output: [
-        {
-            esModule: true,
-            dir: 'dist',
-            format: 'cjs',
-            interop: 'compat',
-            dynamicImportInCjs: false,
-            plugins: [addCssImports({ currentPackageDir }), packagesTypingResolver()],
-            hoistTransitiveImports: false,
-        },
-    ],
-    plugins: [
-        ...baseConfig.plugins,
-        multiInputPlugin,
-        typescript({
-            tsconfig: (resolvedConfig) => ({
-                ...resolvedConfig,
-                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
-            }),
-        }),
-        json(),
-        postcssPlugin,
-        assetsCopyPlugin('dist'),
-        copy({ flatten: false, targets: [{ src: ['**/package.json'], dest: 'dist' }] }),
-        sourceCopyPlugin,
-        compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
-        replacePlugin,
-    ],
-};
+const es5 = () => {
+    const base = baseConfig();
 
-/**
- * Сборка ES2020 с esm модулями.
- */
-const modern = {
-    ...baseConfig,
-    output: [
-        {
-            dir: 'dist/modern',
-            format: 'esm',
-            generatedCode: 'es2015',
-            plugins: [
-                addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'modern' }),
-                packagesTypingResolver(),
-            ],
-            hoistTransitiveImports: false,
-        },
-    ],
-    plugins: [
-        ...baseConfig.plugins,
-        multiInputPlugin,
-        typescript({
-            outDir: 'dist/modern',
-            tsconfig: (resolvedConfig) => ({
-                ...resolvedConfig,
-                target: ScriptTarget.ES2020,
+    return defineConfig({
+        ...base,
+        output: [
+            {
+                esModule: true,
+                dir: 'dist',
+                format: 'cjs',
+                interop: 'compat',
+                dynamicImportInCjs: false,
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                hoistTransitiveImports: false,
+                sourcemap: true,
+                sourcemapPathTransform: (relativeSourcePath) =>
+                    path.relative('..', relativeSourcePath),
+            },
+        ],
+        plugins: [
+            ...base.plugins,
+            externalsResolver(externals),
+            typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES5,
+                outDir: 'dist',
+                declarationDir: 'dist',
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
-        }),
-        json(),
-        postcssPlugin,
-        assetsCopyPlugin('dist/modern'),
-        replacePlugin,
-    ],
+            processCss(),
+            assetsCopyPlugin('dist'),
+            copy({ flatten: false, targets: [{ src: '**/package.json', dest: 'dist' }] }),
+            sourceCopyPlugin,
+        ],
+    });
 };
 
 /**
  * Сборка ES5 с commonjs модулями.
  * Css-модули поставляются как есть, не компилируются.
  */
-const cssm = {
-    ...baseConfig,
-    output: [
-        {
-            esModule: true,
-            dir: 'dist/cssm',
-            format: 'cjs',
-            interop: 'compat',
-            dynamicImportInCjs: false,
-            plugins: [coreComponentsResolver({ importFrom: 'cssm' }), packagesTypingResolver()],
-            hoistTransitiveImports: false,
-        },
-    ],
-    plugins: [
-        ...baseConfig.plugins,
-        multiInputPlugin,
-        ignoreCss(),
-        typescript({
-            outDir: 'dist/cssm',
-            tsconfig: (resolvedConfig) => ({
-                ...resolvedConfig,
-                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+const cssm = () => {
+    const base = baseConfig();
+
+    return defineConfig({
+        ...base,
+        output: [
+            {
+                esModule: true,
+                dir: 'dist/cssm',
+                format: 'cjs',
+                interop: 'compat',
+                dynamicImportInCjs: false,
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                hoistTransitiveImports: false,
+                sourcemap: true,
+                sourcemapPathTransform: (relativeSourcePath) =>
+                    path.relative('../..', relativeSourcePath),
+            },
+        ],
+        plugins: [
+            ...base.plugins,
+            coreComponentsResolver('cssm'),
+            externalsResolver(externals),
+            typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES5,
+                outDir: 'dist/cssm',
+                declarationDir: 'dist/cssm',
+                tsBuildInfoFile: 'tsconfig.cssm.tsbuildinfo',
             }),
-        }),
-        json(),
-        processCss({ folder: 'cssm' }),
-        assetsCopyPlugin('dist/cssm'),
-        replacePlugin,
-    ],
+            processCss({ modules: false }),
+            assetsCopyPlugin('dist/cssm'),
+        ],
+    });
+};
+
+/**
+ * Сборка ES2020 с esm модулями.
+ */
+const modern = () => {
+    const base = baseConfig();
+
+    return defineConfig({
+        ...base,
+        output: [
+            {
+                dir: 'dist/modern',
+                format: 'esm',
+                generatedCode: 'es2015',
+                hoistTransitiveImports: false,
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                sourcemap: true,
+                sourcemapPathTransform: (relativeSourcePath) =>
+                    path.relative('../..', relativeSourcePath),
+            },
+        ],
+        plugins: [
+            ...base.plugins,
+            coreComponentsResolver('modern'),
+            externalsResolver(externals),
+            typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES2020,
+                outDir: 'dist/modern',
+                declarationDir: 'dist/modern',
+                tsBuildInfoFile: 'tsconfig.modern.tsbuildinfo',
+            }),
+            processCss(),
+            assetsCopyPlugin('dist/modern'),
+        ],
+    });
 };
 
 /**
@@ -214,125 +183,118 @@ const cssm = {
  * Css-модули поставляются как есть, не компилируются.
  * Отключен импорт базовых токенов.
  */
-const moderncssm = {
-    ...baseConfig,
-    output: [
-        {
-            dir: 'dist/moderncssm',
-            format: 'esm',
-            generatedCode: 'es2015',
-            plugins: [
-                addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'moderncssm' }),
-                packagesTypingResolver(),
-            ],
-            hoistTransitiveImports: false,
-        },
-    ],
-    plugins: [
-        ...baseConfig.plugins,
-        multiInputPlugin,
-        typescript({
-            outDir: 'dist/moderncssm',
-            tsconfig: (resolvedConfig) => ({
-                ...resolvedConfig,
+const moderncssm = () => {
+    const base = baseConfig();
+
+    return defineConfig({
+        ...base,
+        output: [
+            {
+                dir: 'dist/moderncssm',
+                format: 'esm',
+                generatedCode: 'es2015',
+                hoistTransitiveImports: false,
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                sourcemap: true,
+                sourcemapPathTransform: (relativeSourcePath) =>
+                    path.relative('../..', relativeSourcePath),
+            },
+        ],
+        plugins: [
+            ...base.plugins,
+            coreComponentsResolver('moderncssm'),
+            externalsResolver(externals),
+            typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
                 target: ScriptTarget.ES2020,
-                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+                outDir: 'dist/moderncssm',
+                declarationDir: 'dist/moderncssm',
+                tsBuildInfoFile: 'tsconfig.moderncssm.tsbuildinfo',
             }),
-        }),
-        json(),
-        processCss({
-            folder: 'moderncssm',
-            noCommonVars: true,
-        }),
-        assetsCopyPlugin('dist/moderncssm'),
-        replacePlugin,
-    ],
-    external: (id) => externals.includes(id) || id.endsWith('.module.css'),
+            processCss({
+                noCommonVars: true,
+                modules: false,
+            }),
+            assetsCopyPlugin('dist/moderncssm'),
+        ],
+    });
 };
 
 /**
  * Сборка ES5 с esm модулями.
  */
-const esm = {
-    ...baseConfig,
-    output: [
-        {
-            dir: 'dist/esm',
-            format: 'esm',
-            plugins: [
-                addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'esm' }),
-                packagesTypingResolver(),
-            ],
-            hoistTransitiveImports: false,
-        },
-    ],
-    plugins: [
-        ...baseConfig.plugins,
-        multiInputPlugin,
-        typescript({
-            outDir: 'dist/esm',
-            tsconfig: (resolvedConfig) => ({
-                ...resolvedConfig,
-                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+const esm = () => {
+    const base = baseConfig();
+
+    return defineConfig({
+        ...base,
+        output: [
+            {
+                dir: 'dist/esm',
+                format: 'esm',
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                hoistTransitiveImports: false,
+                sourcemap: true,
+                sourcemapPathTransform: (relativeSourcePath) =>
+                    path.relative('../..', relativeSourcePath),
+            },
+        ],
+        plugins: [
+            ...base.plugins,
+            coreComponentsResolver('esm'),
+            externalsResolver(externals),
+            typescript({
+                exclude: ['**/*.stories*', '**/*.test*'],
+                target: ScriptTarget.ES5,
+                outDir: 'dist/esm',
+                declarationDir: 'dist/esm',
+                tsBuildInfoFile: 'tsconfig.esm.tsbuildinfo',
             }),
-        }),
-        json(),
-        postcssPlugin,
-        assetsCopyPlugin('dist/esm'),
-        replacePlugin,
-    ],
+            processCss(),
+            assetsCopyPlugin('dist'),
+        ],
+    });
 };
 
-const rootDir = `../../dist/${currentComponentName}`;
+const root = () =>
+    defineConfig({
+        input: 'src/postinstall.js',
+        plugins: [
+            copy({
+                targets: [
+                    {
+                        src: 'package.json',
+                        dest: 'dist',
+                        transform: (contents) => {
+                            const content = contents.toString('utf8');
+                            const { indent } = detectIndent(content);
+                            const pkgJson = JSON.parse(content);
 
-/**
- * Сборка рут-пакета
- */
-const root = {
-    input: ['dist/**/*.js'],
-    external: (id, parentId) =>
-        externals.includes(id) ||
-        (parentId.includes('dist/moderncssm') && id.endsWith('.module.css')),
-    plugins: [
-        ...baseConfig.plugins,
-        multiInput.default({
-            relative: 'dist',
-        }),
-        copy({
-            flatten: false,
-            targets: [
-                { src: ['dist/**/*', '!**/*.js', '!dist/src/**'], dest: rootDir },
-                {
-                    src: 'package.json',
-                    dest: `../../dist/${currentComponentName}`,
-                    transform: () => createPackageJson('./esm/index.js'),
-                },
-            ],
-        }),
-        coreComponentsRootPackageResolver({ currentPackageDir }),
-        replacePlugin,
-    ],
-    output: [
-        {
-            dir: rootDir,
-            plugins: [coreComponentsTypingsResolver({ rootDir })],
-        },
-    ],
-};
+                            pkgJson.scripts.postinstall = 'node postinstall.js';
 
-const configs = (
-    process.env.BUILD_MODERN_ONLY === 'true'
-        ? [modern, root]
-        : [
-              es5,
-              modern,
-              esm,
-              currentComponentName !== 'themes' && cssm,
-              currentComponentName !== 'themes' && moderncssm,
-              root,
-          ]
-).filter(Boolean);
+                            return `${JSON.stringify(pkgJson, null, indent)}\n`;
+                        },
+                    },
+                ],
+            }),
+        ],
+        output: { dir: 'dist' },
+    });
 
-export default configs;
+export default pkg.name === '@alfalab/core-components'
+    ? root()
+    : process.env.BUILD_MODERN_ONLY === 'true'
+    ? modern()
+    : [
+          es5(),
+          modern(),
+          esm(),
+          pkg.name !== '@alfalab/core-components-themes' &&
+              pkg.name !== '@alfalab/core-components-vars' &&
+              cssm(),
+          pkg.name !== '@alfalab/core-components-themes' &&
+              pkg.name !== '@alfalab/core-components-vars' &&
+              moderncssm(),
+      ].filter(Boolean);

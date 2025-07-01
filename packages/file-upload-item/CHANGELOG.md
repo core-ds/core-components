@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-file-upload-item
 
 ## 6.3.6
 
