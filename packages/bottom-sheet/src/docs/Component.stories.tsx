@@ -28,29 +28,27 @@ export const bottom_sheet: Story = {
     name: 'BottomSheet',
     render: () => {
         const [open, setOpen] = React.useState(false);
-        const handleClose = React.useCallback(() => {
-            setOpen(false);
-        }, []);
         const [textContent, setTextContent] = React.useState('Пример текстового контента.');
-        const renderActionButton = boolean('renderActionButton', true);
+        const handleClose = React.useCallback(() => setOpen(false), []);
+
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
         const colors = select('colors', COLORS, 'default');
-        const backgroundColor = select('backgroundColor', BACKGROUND, undefined);
 
-        const getBackgroundColor = () => {
-            const isInverted = colors === 'inverted';
-            const bgType = backgroundColor === 'secondary' ? 'primary' : 'alt-primary';
-            const themeSuffix = isInverted ? '-inverted' : '';
-
-            return `var(--color-light-base-bg-${bgType}${themeSuffix})`;
+        const openSheet = (content: string) => () => {
+            setTextContent(content);
+            setOpen(true);
         };
+
+        const bgColor = colors === 'inverted'
+        ? 'var(--color-light-base-bg-primary-inverted)'
+        : 'transparent';
 
         return (
             <div
                 style={{
                     ...previewStyles,
-                    backgroundColor: getBackgroundColor(),
+                    backgroundColor: bgColor,
                     maxWidth: 'none'
                 }}
             >
@@ -61,10 +59,7 @@ export const bottom_sheet: Story = {
                     <>
                         <Button
                             id='button-1'
-                            onClick={() => {
-                                setTextContent(shortText);
-                                setOpen(true);
-                            }}
+                            onClick={openSheet(shortText)}
                             style={{ margin: '15px' }}
                             colors={colors}
                         >
@@ -72,10 +67,7 @@ export const bottom_sheet: Story = {
                         </Button>
                         <Button
                             id='button-2'
-                            onClick={() => {
-                                setTextContent(longText);
-                                setOpen(true);
-                            }}
+                            onClick={openSheet(longText)}
                             style={{ margin: '15px' }}
                             colors={colors}
                         >
@@ -83,13 +75,14 @@ export const bottom_sheet: Story = {
                         </Button>
                     </>
                 )}
+
                 <BottomSheet
                     key={textContent}
                     open={open || boolean('open', false)}
                     title={text('title', 'Тайтл')}
                     modalClassName={isPreview ? 'preview' : undefined}
                     actionButton={
-                        renderActionButton && (
+                        boolean('renderActionButton', true) && (
                             <Button
                                 view={isPreview ? 'primary' : 'secondary'}
                                 colors={colors}

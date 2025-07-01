@@ -107,7 +107,7 @@ render(() => {
 Ниже представлены самые популярные кейсы настройки шторки.
 
 ```jsx live mobileHeight={640} mobileOnly
-const Text = ({ onClose }) => (
+const Text = ({ colors, onClose }) => (
     <>
         <Typography.Text tag='p'>
             В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
@@ -115,9 +115,11 @@ const Text = ({ onClose }) => (
             закона банки могут блокировать карты, отказывать в проведении сомнительных операций,
             ограничить доступ в интернет-банк или запрашивать документы, если по операции клиента
             возникли подозрения.{' '}
-            <Link onClick={onClose}>Нажмите сюда, чтобы закрыть шторку без крестика</Link>
+            <Link colors={colors} onClick={onClose}>
+                Нажмите сюда, чтобы закрыть шторку без крестика
+            </Link>
         </Typography.Text>
-        <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+        <Collapse colors={colors} collapsedLabel='Подробнее' expandedLabel='Скрыть'>
             <Typography.Text tag='p'>
                 Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
                 предприниматели не всегда успевают за ними следить. Последствия нарушений
@@ -199,6 +201,12 @@ render(() => {
         MECHANICS_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
     );
 
+    const [themeSettings, setThemeSettings] = React.useState(() => ({
+        inverted: false,
+    }));
+
+    const [backgroundColorSelected, setBackgroundColor] = React.useState('primary');
+
     const showHeader =
         headerViewSelected !== HEADER_SELECT_OPTIONS[0].key ||
         headerSettings.hasCloser ||
@@ -211,6 +219,8 @@ render(() => {
             ...headerSettings,
             ...mechanics,
             ...footerSettings,
+            ...themeSettings,
+            backgroundColor: backgroundColorSelected,
         })}-${headerViewSelected}-${footerViewSelected}`;
 
     const handleOpen = () => setOpen(true);
@@ -227,6 +237,10 @@ render(() => {
 
     const handleMechanicsChange = (_, { name, checked }) => {
         setMechanics((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
+    const handleThemeChange = (_, { name, checked }) => {
+        setThemeSettings((prevState) => ({ ...prevState, [name]: checked }));
     };
 
     return (
@@ -317,6 +331,28 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
+            <Gap size='2xl' />
+
+            <CheckboxGroup label='Инверсия' onChange={handleThemeChange}>
+                <Switch
+                    size='m'
+                    label='Инвертировать цвета'
+                    name='inverted'
+                    checked={themeSettings.inverted}
+                />
+            </CheckboxGroup>
+
+            <Gap size='m' />
+
+            <RadioGroup
+                label='Цвет шторки'
+                value={backgroundColorSelected}
+                onChange={(_, { value }) => setBackgroundColor(value)}
+            >
+                <Radio size='m' label='Primary' value='primary' />
+                <Radio size='m' label='Alt-primary' value='secondary' />
+            </RadioGroup>
+
             <BottomSheet
                 open={open}
                 onClose={handleClose}
@@ -365,6 +401,8 @@ render(() => {
                 stickyFooter={footerSettings.sticky}
                 swipeable={mechanics.swipeable}
                 initialHeight={mechanics.adaptive ? 'default' : 'full'}
+                colors={themeSettings.inverted ? 'inverted' : 'default'}
+                backgroundColor={backgroundColorSelected}
                 actionButton={
                     showFooter ? (
                         <div
@@ -413,7 +451,10 @@ render(() => {
                     </>
                 ) : undefined}
 
-                <Text onClose={handleClose} />
+                <Text
+                    onClose={handleClose}
+                    colors={themeSettings.inverted ? 'inverted' : 'default'}
+                />
             </BottomSheet>
         </Container>
     );
