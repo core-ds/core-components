@@ -23,6 +23,8 @@ type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
 
 export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
     <TooltipDesktop
+        view='hint'
+        colors='inverted'
         trigger='hover'
         position='bottom'
         content='Открыть в полноэкранном режиме'
