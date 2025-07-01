@@ -1,24 +1,26 @@
-import path from 'path';
-import detectIndent from 'detect-indent';
-import { globbySync } from 'globby';
-import typescript from '@rollup/plugin-typescript';
-import copy from 'rollup-plugin-copy';
+/* eslint-disable import/no-extraneous-dependencies, no-nested-ternary */
+
 import json from '@rollup/plugin-json';
+import replace from '@rollup/plugin-replace';
+import typescript from '@rollup/plugin-typescript';
+import detectIndent from 'detect-indent';
+import fse from 'fs-extra';
+import { globbySync } from 'globby';
+import path from 'node:path';
+import { cwd } from 'node:process';
+import { defineConfig } from 'rollup';
+import copy from 'rollup-plugin-copy';
+import ts from 'typescript';
+
 import {
     coreComponentsResolver,
     externalsResolver,
 } from './tools/rollup/core-components-resolver.mjs';
 import { processCss } from './tools/rollup/process-css.mjs';
-import { cwd } from 'node:process';
-import { getPackages } from '@manypkg/get-packages';
-import { defineConfig } from 'rollup';
-import ts from 'typescript';
-import replace from '@rollup/plugin-replace';
 
 const { ScriptTarget } = ts;
 
-const { packages } = await getPackages(cwd());
-const pkg = packages.find(({ dir }) => dir === cwd()).packageJson;
+const pkg = fse.readJsonSync(path.join(cwd(), 'package.json'), { encoding: 'utf8' });
 
 const externals = [
     ...Object.keys(pkg.dependencies ?? {}),

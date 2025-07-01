@@ -1,40 +1,45 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { getPackagesSync } from '@manypkg/get-packages';
-import { cwd } from 'node:process';
-import { createJsWithTsLegacyPreset } from 'ts-jest';
 
-const { packages } = getPackagesSync(cwd());
+import fse from 'fs-extra';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createJsWithTsLegacyPreset, pathsToModuleNameMapper } from 'ts-jest';
 
-const ignoredModules = ['@alfalab/hooks', 'simplebar', 'uuid'];
+import { getPackages } from './tools/monorepo.cjs';
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
+const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
+
+const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
+const IGNORED_MODULES = ['@alfalab/hooks', 'simplebar', 'uuid'];
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
+const { packages } = getPackages();
 
 /**
- * @type {NonNullable<import('ts-jest').JestConfigWithTsJest['projects']>[number]}
+ * @type {import('ts-jest').JestConfigWithTsJest['projects']}
  */
-const initialProjectOptions = {
-    ...tsJestPreset,
-    globalSetup: '<rootDir>/tools/jest/globalSetup.ts',
-    setupFilesAfterEnv: ['<rootDir>/tools/jest/setupTests.ts'],
-    modulePathIgnorePatterns: ['/dist/'],
-    moduleNameMapper: packages.reduce(
-        (map, { relativeDir, packageJson: { name } }) =>
-            Object.assign(map, {
-                [`${name}$`]: `<rootDir>/${relativeDir}/src`,
-                [`${name}/(.*)$`]: `<rootDir>/${relativeDir}/src/$1`,
-            }),
-        { '\\.css$': 'identity-obj-proxy' },
-    ),
-    testPathIgnorePatterns: packages
-        .filter(({ packageJson: { name } }) => name === '@alfalab/core-components-codemod')
-        .map(({ relativeDir }) => `<rootDir>/${relativeDir}`),
-    transformIgnorePatterns: [`/node_modules/(?!(${ignoredModules.join('|')}))/`],
-    // see https://jestjs.io/blog/2022/08/25/jest-29
-    snapshotFormat: {
-        escapeString: true,
-        printBasicPrototype: true,
+const [initialProjectOptions] = [
+    {
+        ...tsJestPreset,
+        globalSetup: '<rootDir>/tools/jest/globalSetup.ts',
+        setupFilesAfterEnv: ['<rootDir>/tools/jest/setupTests.ts'],
+        modulePathIgnorePatterns: ['/dist/'],
+        moduleNameMapper: {
+            ...pathsToModuleNameMapper(tsconfig.compilerOptions.paths, { prefix: '<rootDir>/' }),
+            '\\.css$': 'identity-obj-proxy',
+        },
+        testPathIgnorePatterns: packages
+            .filter(({ packageJson }) => IGNORED_PACKAGES.includes(packageJson.name))
+            .map(({ relativeDir }) => `<rootDir>/${relativeDir}`),
+        transformIgnorePatterns: [`/node_modules/(?!(${IGNORED_MODULES.join('|')}))/`],
+        // see https://jestjs.io/blog/2022/08/25/jest-29
+        snapshotFormat: {
+            escapeString: true,
+            printBasicPrototype: true,
+        },
     },
-};
+];
 
 /**
  * @type {import('ts-jest').JestConfigWithTsJest}

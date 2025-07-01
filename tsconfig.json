@@ -3,10 +3,16 @@
     "include": [
         ".eslintrc.cjs",
         "bin",
+        "bin/.eslintrc.cjs",
         "commitlint.config.ts",
         "jest.config.mjs",
         "jest.screenshots.config.mjs",
-        "tools"
+        "lint-staged.config.mjs",
+        "playwright.config.js",
+        "rollup.config.mjs",
+        "tools",
+        "tools/.eslintrc.cjs",
+        "tools/gh-actions/.eslintrc.cjs"
     ],
     "compilerOptions": {
         "lib": ["es2022"],

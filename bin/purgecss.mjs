@@ -1,7 +1,8 @@
-import { PurgeCSS } from 'purgecss';
-import { globby } from 'globby';
 import fs from 'fs/promises';
+
+import { globby } from 'globby';
 import postcss from 'postcss';
+import { PurgeCSS } from 'purgecss';
 
 /**
  * @returns {import('postcss').AcceptedPlugin}

@@ -1,23 +1,21 @@
 import { globby } from 'globby';
-import path from 'node:path';
+import handlebars from 'handlebars';
 import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import postcss from 'postcss';
 import postcssColorMod from 'postcss-color-mod-function';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
-import * as process from 'node:process';
-import { getPackages } from '@manypkg/get-packages';
-import { fileURLToPath } from 'node:url';
-import handlebars from 'handlebars';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const { packages } = await getPackages(process.cwd());
+import { getPackages } from '../tools/monorepo.cjs';
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
+const { packages } = getPackages();
 const vars = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-vars');
 
 const renderStyles = handlebars.compile(
-    await fs.readFile(path.join(__dirname, 'templates/css-styles-module.hbs'), {
-        encoding: 'utf8',
-    }),
+    await fs.readFile(path.join(dirname, 'templates/css-styles-module.hbs'), { encoding: 'utf8' }),
     { noEscape: true },
 );
 
@@ -56,8 +54,10 @@ const postcssAddImports = ({ files }) => ({
  * @returns {Promise<string>}
  */
 const processComponentTheme = async (cssFile) => {
-    const colors = await globby(path.join(vars.dir, 'src/colors-*.css'), {
+    const colors = await globby('src/colors-*.css', {
         ignore: ['**/*-indigo.css'],
+        cwd: vars.dir,
+        absolute: true,
     });
 
     const content = await fs.readFile(cssFile, { encoding: 'utf8' });
@@ -87,13 +87,14 @@ const processRootTheme = async (cssFile) => {
     const getImports = async () => {
         if (cssFile.includes('dark.css')) return [];
 
-        return globby(path.join(vars.dir, 'src/*.css'), {
-            absolute: true,
+        return globby('src/*.css', {
             ignore: [
-                '**/colors-!(@(addons|bluetint|monochrome|transparent)).css',
+                '**/colors-!({addons,bluetint,monochrome,transparent}).css',
                 '**/shadows-!(bluetint).css',
-                '**/*@(index|dark).css',
+                '**/*{index,dark}.css',
             ],
+            cwd: vars.dir,
+            absolute: true,
         });
     };
 
@@ -136,6 +137,7 @@ async function main() {
         }
 
         const content = await processRootTheme(themeFile);
+
         await fs.writeFile(`dist/${themeName}.css`, content, { encoding: 'utf8' });
         await fs.writeFile(`src/${themeName}.ts`, renderStyles({ styles: content }), {
             encoding: 'utf8',

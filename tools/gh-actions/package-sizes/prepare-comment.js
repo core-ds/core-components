@@ -1,7 +1,18 @@
+const path = require('node:path');
+const fs = require('fs/promises');
+
+/**
+ * @param {import('node:fs').PathLike | import('node:fs/promises').FileHandle} p
+ */
+async function readJson(p) {
+    const content = await fs.readFile(p, { encoding: 'utf8' });
+
+    return JSON.parse(content);
+}
+
 module.exports = async () => {
-    const path = require('node:path');
-    const targetFile = require(path.join(process.cwd(), 'target/package-sizes.json'));
-    const currentFile = require(path.join(process.cwd(), 'current/package-sizes.json'));
+    const targetFile = await readJson(path.join(process.cwd(), 'target/package-sizes.json'));
+    const currentFile = await readJson(path.join(process.cwd(), 'current/package-sizes.json'));
 
     let shouldComment = false;
 
@@ -18,21 +29,24 @@ module.exports = async () => {
                 ]),
             ];
 
+            let result = acc;
+
             entryPoints.forEach((entryPoint) => {
                 const now = currentFile[packageName]?.[entryPoint] ?? 0;
                 const before = targetFile[packageName]?.[entryPoint] ?? 0;
+                const diff = now - before;
 
-                if (Math.abs(now - before) >= 1) {
+                if (Math.abs(diff) >= 1) {
                     shouldComment = true;
-                    acc += `| ${packageName}/${entryPoint} | ${now} ${
-                        now - before > 0
-                            ? `(+${(now - before).toFixed(2)} KB ❌)`
-                            : `(-${(before - now).toFixed(2)} KB ✅)`
+                    result += `| ${packageName}/${entryPoint} | ${now} ${
+                        diff > 0
+                            ? `(+${diff.toFixed(2)} KB ❌)`
+                            : `(-${(diff * -1).toFixed(2)} KB ✅)`
                     } |\n`;
                 }
             });
 
-            return acc;
+            return result;
         }, '## Bundle size report\n| Entry point | Size (minified) |\n| --- | --- |\n');
 
     return shouldComment ? table : '';

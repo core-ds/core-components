@@ -1,5 +1,9 @@
-bin
-tools
+# TODO fix eslint errors
+tools/unused-colors.js
+tools/update-colors.js
+tools/update-flags.js
+tools/update-typography.js
+tools/update-usages.js
+
 **/dist
 **/node_modules
-rollup.config.mjs

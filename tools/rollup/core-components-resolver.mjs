@@ -17,13 +17,15 @@ export const coreComponentsResolver = (buildPath) => ({
                 external: true,
             };
         }
+
+        return null;
     },
 });
 
 /**
  * Заменяет настройку external. Нужно, чтобы дать возможность отработать плагину {@link coreComponentsResolver}
  *
- * @see [Rollup external](https://rollupjs.org/configuration-options/#external)
+ * @see {@link https://rollupjs.org/configuration-options/#external}
  * @param {string[]} externals массив внешних зависимостей
  * @returns {import('rollup').Plugin}
  */
@@ -33,5 +35,7 @@ export const externalsResolver = (externals) => ({
         if (externals.some((external) => id.startsWith(external))) {
             return { id, external: true };
         }
+
+        return null;
     },
 });

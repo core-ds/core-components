@@ -6,13 +6,13 @@ const { DefinePlugin, NormalModuleReplacementPlugin } = require('webpack');
 const postcssConfig = require('../postcss.config');
 const postcssImport = require('postcss-import');
 const loadCss = require('postcss-import/lib/load-content');
-const { getPackagesSync } = require('@manypkg/get-packages');
+const { getPackages } = require('../tools/monorepo.cjs');
+const { isSamePath } = require('../tools/path.cjs');
 
 const cssModuleRegex = /\.module\.css$/;
 const cssRegex = /\.css$/;
 const distDir = path.resolve(__dirname, '../dist');
-const repositoryRoot = path.resolve(__dirname, '..');
-const { packages } = getPackagesSync(repositoryRoot);
+const { packages } = getPackages();
 const rootPkg = packages.find(({ packageJson }) => packageJson.name === '@alfalab/core-components');
 const rootPkgDependencies = Object.keys({
     ...rootPkg.packageJson.dependencies,
@@ -91,13 +91,12 @@ function modifyCssRules(config) {
                             plugin.postcssPlugin === 'postcss-import'
                                 ? postcssImport({
                                       warnOnEmpty: false,
-                                      load: async (filename, importOptions) => {
+                                      load: async (filename) => {
                                           if (
-                                              // check if file the same
-                                              path.relative(
+                                              isSamePath(
                                                   filename,
                                                   path.join(vars.dir, 'src/index.css'),
-                                              ) === ''
+                                              )
                                           ) {
                                               // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
                                               // В текущей версиии postcss-import импорт пустого файла вызывает ошибку

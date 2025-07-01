@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 
-import path from 'node:path';
+import fse from 'fs-extra';
 import fs from 'node:fs';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
-import { createRequire } from 'node:module';
+import path from 'node:path';
 import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
-import { getPackages } from '@manypkg/get-packages';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const repositoryRoot = path.join(__dirname, '../..');
-const require = createRequire(import.meta.url);
+import { getPackages } from '../../tools/monorepo.cjs';
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
+const repositoryRoot = path.join(dirname, '../..');
 const storybookPath = path.join(repositoryRoot, '.storybook');
-
 const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
 
 const TEST_PACKAGES = [
@@ -23,7 +22,7 @@ const TEST_PACKAGES = [
 
 const DEV_PACKAGES = ['@alfalab/core-components-env'];
 
-const packages = (await getPackages(repositoryRoot)).packages.filter(
+const packages = getPackages().packages.filter(
     ({ packageJson }) => !IGNORED_PACKAGES.includes(packageJson.name),
 );
 
@@ -31,8 +30,9 @@ yargs(hideBin(process.argv))
     .command(
         'generate',
         'Generate tsconfig.json',
-        function builder(yargs) {
-            return yargs
+        // eslint-disable-next-line @typescript-eslint/no-shadow
+        (yargs) =>
+            yargs
                 .option('a', {
                     alias: 'all',
                     desc: 'Generate all tsconfig.json',
@@ -55,9 +55,8 @@ yargs(hideBin(process.argv))
                     type: 'array',
                     string: true,
                     choices: packages.map(({ packageJson: { name } }) => name),
-                });
-        },
-        function handler(args) {
+                }),
+        (args) => {
             if (args.s || args.a) {
                 fs.writeFileSync(
                     path.join(storybookPath, 'tsconfig.json'),
@@ -92,19 +91,24 @@ yargs(hideBin(process.argv))
     .command(
         'check',
         'Check tsconfig.json',
-        function builder(yargs) {
-            return yargs;
-        },
-        function handler() {
-            let errors = [];
+        // eslint-disable-next-line @typescript-eslint/no-shadow
+        (yargs) => yargs,
+        async () => {
+            const errors = [];
 
-            const storybookTsConfig = require(path.join(storybookPath, 'tsconfig.json'));
+            const storybookTsConfig = await fse.readJson(
+                path.join(storybookPath, 'tsconfig.json'),
+                { encoding: 'utf8' },
+            );
 
             if (!isDummyEqual(storybookTsConfig, generateStorybookTsConfig())) {
                 errors.push('Please generate tsconfig.json via `yarn tsconfig generate -s`');
             }
 
-            const testsTsConfig = require(path.join(repositoryRoot, 'tsconfig.test.json'));
+            const testsTsConfig = await fse.readJson(
+                path.join(repositoryRoot, 'tsconfig.test.json'),
+                { encoding: 'utf8' },
+            );
 
             if (!isDummyEqual(testsTsConfig, generateTestsTsConfig())) {
                 errors.push('Please generate tsconfig.json via `yarn tsconfig generate -t`');
@@ -113,7 +117,9 @@ yargs(hideBin(process.argv))
             const errorPackages = [];
 
             packages.forEach((pkg) => {
-                const packageTsConfig = require(path.join(pkg.dir, 'tsconfig.json'));
+                const packageTsConfig = fse.readJsonSync(path.join(pkg.dir, 'tsconfig.json'), {
+                    encoding: 'utf8',
+                });
 
                 if (!isDummyEqual(packageTsConfig, generatePackageTsConfig(pkg))) {
                     errorPackages.push(pkg.packageJson.name);
@@ -121,10 +127,10 @@ yargs(hideBin(process.argv))
             });
 
             if (errorPackages.length > 0) {
-                const packages = errorPackages.join(' ');
+                const packagesList = errorPackages.join(' ');
 
                 errors.push(
-                    `Please generate packages tsconfig.json via \`yarn tsconfig generate -p ${packages}\``,
+                    `Please generate packages tsconfig.json via \`yarn tsconfig generate -p ${packagesList}\``,
                 );
             }
 
@@ -176,8 +182,9 @@ function generatePaths(forPackages, cwd = repositoryRoot) {
  * @returns {Object}
  */
 function generateStorybookTsConfig() {
-    const storybookTsConfigTemplate = readTsConfig(
-        path.join(__dirname, 'templates', 'tsconfig.storybook.json'),
+    const storybookTsConfigTemplate = fse.readJsonSync(
+        path.join(dirname, 'templates', 'tsconfig.storybook.json'),
+        { encoding: 'utf8' },
     );
 
     const atomicPackages = packages.filter(
@@ -197,8 +204,9 @@ function generateStorybookTsConfig() {
  * @returns {Object}
  */
 function generateTestsTsConfig() {
-    const testsTsConfigTemplate = readTsConfig(
-        path.join(__dirname, 'templates', 'tsconfig.test.json'),
+    const testsTsConfigTemplate = fse.readJsonSync(
+        path.join(dirname, 'templates', 'tsconfig.test.json'),
+        { encoding: 'utf8' },
     );
 
     const atomicPackages = packages.filter(
@@ -218,10 +226,10 @@ function generateTestsTsConfig() {
  * @param {import('@manypkg/get-packages').Package} pkg
  * @returns {Object}
  */
-function generatePackageTsConfig(pkg) {
-    const { dir, packageJson } = pkg;
-    const packageTsConfigTemplate = readTsConfig(
-        path.join(__dirname, 'templates', 'tsconfig.package.json'),
+function generatePackageTsConfig({ dir, packageJson }) {
+    const packageTsConfigTemplate = fse.readJsonSync(
+        path.join(dirname, 'templates', 'tsconfig.package.json'),
+        { encoding: 'utf8' },
     );
 
     const coreDependencies = Object.keys({
@@ -297,13 +305,4 @@ function generatePackageTsConfig(pkg) {
  */
 function isDummyEqual(a, b) {
     return JSON.stringify(a) === JSON.stringify(b);
-}
-
-/**
- * @param {string} path
- * @returns {Object}
- */
-function readTsConfig(path) {
-    // read and parse for mutation
-    return JSON.parse(fs.readFileSync(path, { encoding: 'utf8' }));
 }

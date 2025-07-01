@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires, global-require */
 
 const path = require('path');
-const glob = require('glob');
-const { getPackagesSync } = require('@manypkg/get-packages');
+const fse = require('fs-extra');
+const { globbySync } = require('globby');
+const { getPackages } = require('./tools/monorepo.cjs');
 
-const { packages } = getPackagesSync(process.cwd());
+const { packages } = getPackages();
 const vars = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-vars');
 const mq = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-mq');
 
@@ -16,8 +16,10 @@ module.exports = {
         require('postcss-each')({}),
         require('./tools/postcss/postcss-subtract-mixin.cjs')({}),
         require('postcss-mixins')({
-            mixinsFiles: glob.sync(path.join(vars.dir, 'src/*.css'), {
+            mixinsFiles: globbySync('src/*.css', {
                 ignore: ['**/alfasans-*.css'],
+                cwd: vars.dir,
+                absolute: true,
             }),
         }),
         require('postcss-preset-env')({
@@ -30,8 +32,9 @@ module.exports = {
         }),
         require('postcss-custom-media')({
             importFrom: {
-                // eslint-disable-next-line import/no-dynamic-require
-                customMedia: require(path.join(mq.dir, 'src/mq.json')),
+                customMedia: fse.readJsonSync(path.join(mq.dir, 'src/mq.json'), {
+                    encoding: 'utf8',
+                }),
             },
         }),
         ...(process.env.BUILD_WITHOUT_CSS_VARS === 'true'

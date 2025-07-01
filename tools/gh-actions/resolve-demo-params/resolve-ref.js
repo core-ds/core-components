@@ -1,6 +1,6 @@
-module.exports = async ({ core, inputs }) => {
-    const semver = require('semver');
+const semver = require('semver');
 
+module.exports = async ({ core, inputs }) => {
     const versionInput = inputs['version'];
 
     if (semver.valid(versionInput)) {

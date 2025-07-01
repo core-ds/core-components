@@ -1,26 +1,24 @@
+import { globby } from 'globby';
+import handlebars from 'handlebars';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import postcss from 'postcss';
 import exportCustomVariables, {
     defaultAssigner,
     defaultPropertySetAssigner,
 } from 'postcss-export-custom-variables';
 import postcssImport from 'postcss-import';
-import postcss from 'postcss';
-import fs from 'node:fs/promises';
-import { globby } from 'globby';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import handlebars from 'handlebars';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const renderVariables = handlebars.compile(
-    await fs.readFile(path.join(__dirname, 'templates/css-vars-module.hbs'), { encoding: 'utf8' }),
+    await fs.readFile(path.join(dirname, 'templates/css-vars-module.hbs'), { encoding: 'utf8' }),
     { noEscape: true },
 );
 
 const renderStyles = handlebars.compile(
-    await fs.readFile(path.join(__dirname, 'templates/css-styles-module.hbs'), {
-        encoding: 'utf8',
-    }),
+    await fs.readFile(path.join(dirname, 'templates/css-styles-module.hbs'), { encoding: 'utf8' }),
     { noEscape: true },
 );
 
@@ -35,7 +33,10 @@ function createExportOptions(destination) {
             const next = node.next();
 
             if (next && next.type === 'comment' && next.text === 'deprecated') {
-                Object.assign(deprecated, ...Object.keys(result).map((name) => ({ [name]: true })));
+                Object.assign(
+                    deprecated,
+                    ...Object.keys(result).map((varName) => ({ [varName]: true })),
+                );
             }
 
             return result;
@@ -84,7 +85,7 @@ async function buildCssIndex() {
 }
 
 async function buildPalettes() {
-    const matches = await globby('src/@(colors|shadows)*.css');
+    const matches = await globby('src/{colors,shadows}*.css');
 
     return Promise.all(
         matches.map(async (cssPath) => {

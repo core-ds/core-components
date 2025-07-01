@@ -1,25 +1,10 @@
-import fs from 'node:fs/promises';
+/* eslint-disable no-cond-assign */
 import { globby } from 'globby';
-import path from 'node:path';
+import fs from 'node:fs/promises';
 import * as process from 'node:process';
-import { getPackages } from '@manypkg/get-packages';
-
-const IGNORED_PACKAGES = [
-    '@alfalab/core-components-bank-card',
-    '@alfalab/core-components-screenshot-utils',
-    '@alfalab/core-components-test-utils',
-    '@alfalab/core-components-themes',
-    '@alfalab/core-components-vars',
-];
 
 async function main() {
-    const packages = (await getPackages(process.cwd())).packages.filter(
-        ({ packageJson: { name } }) => !IGNORED_PACKAGES.includes(name),
-    );
-
-    const files = await globby(
-        packages.map(({ relativeDir }) => path.join(relativeDir, 'dist/**/*.css')),
-    );
+    const files = await globby('dist/**/*.css', { absolute: true });
 
     const nonExistentVarsEntries = (
         await Promise.all(

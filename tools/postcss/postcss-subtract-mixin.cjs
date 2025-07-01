@@ -1,9 +1,5 @@
 const assert = require('node:assert/strict');
-const crypto = require('node:crypto');
-
-function sha256(str) {
-    return crypto.createHash('sha256').update(str, 'utf8').digest('hex');
-}
+const stringHash = require('string-hash');
 
 /**
  * @returns {import('postcss').AcceptedPlugin}
@@ -19,13 +15,16 @@ const postcssSubtractMixin = () => ({
                     if (atRule.name === 'subtract-mixin') {
                         const mixinNames = atRule.params.split(',').map((name) => name.trim());
 
-                        const rules = mixinNames.map(
-                            (mixinName) =>
-                                new Rule({
-                                    selector: `.${sha256(`${mixinName}-${Math.random()}`)}`,
-                                    nodes: [new AtRule({ name: 'mixin', params: mixinName })],
-                                }),
-                        );
+                        const rules = mixinNames.map((mixinName) => {
+                            const selector = `.${stringHash(
+                                `${mixinName}-${Math.random()}`,
+                            ).toString(36)}`;
+
+                            return new Rule({
+                                selector,
+                                nodes: [new AtRule({ name: 'mixin', params: mixinName })],
+                            });
+                        });
 
                         atRule.replaceWith(rules);
                         store.push(rules);
@@ -35,9 +34,10 @@ const postcssSubtractMixin = () => ({
             OnceExit: () => {
                 while (store.length > 0) {
                     const rules = store.pop();
+
                     rules.forEach((rule) => {
                         assert(
-                            rule.nodes.every((node) => node.type == 'decl'),
+                            rule.nodes.every((node) => node.type === 'decl'),
                             'Every rule must have declarations only',
                         );
                     });
@@ -54,7 +54,9 @@ const postcssSubtractMixin = () => ({
                     );
 
                     source.parent.append(result);
-                    rules.forEach((rule) => rule.remove());
+                    rules.forEach((rule) => {
+                        rule.remove();
+                    });
                 }
             },
         };

@@ -1,7 +1,13 @@
-module.exports = async ({ context, core, exec, inputs }) => {
-    const path = require('node:path');
-    const semver = require('semver');
+/* eslint-disable complexity */
 
+const path = require('node:path');
+const semver = require('semver');
+
+module.exports = async ({ context, core, exec, inputs }) => {
+    /**
+     * @param {string[]} args
+     * @returns {Promise<string>}
+     */
     async function git(args) {
         const { stdout } = await exec.getExecOutput('git', args, {
             cwd: path.join(process.env.GITHUB_WORKSPACE, 'checkout-ref'),
@@ -58,7 +64,7 @@ module.exports = async ({ context, core, exec, inputs }) => {
         if (unsupportedRef) {
             core.setFailed(`Resolving dir for unsupported ref: ${context.ref}`);
 
-            return;
+            return undefined;
         }
 
         if (semver.valid(versionInput)) {
@@ -75,18 +81,19 @@ module.exports = async ({ context, core, exec, inputs }) => {
             if (!semver.valid(pkgVersion)) {
                 core.setFailed(`Invalid ${pkgName} version: ${pkgVersion}`);
 
-                return;
+                return undefined;
             }
 
             if (pkgName === '@alfalab/core-components') {
                 return demoDirName(pkgVersion);
-            } else if (pkgName.startsWith('@alfalab/core-components')) {
+            }
+            if (pkgName.startsWith('@alfalab/core-components')) {
                 const sha = (await git(['rev-list', '-n', '1', versionInput])).trim();
 
                 if (sha === '') {
                     core.setFailed(`Didn't find sha for tag: ${versionInput}`);
 
-                    return;
+                    return undefined;
                 }
 
                 const tags = (await git(['tag', '--points-at', sha])).split('\n');
@@ -99,6 +106,7 @@ module.exports = async ({ context, core, exec, inputs }) => {
                     const tagMatch = tag.match(PACKAGE_TAG_REGEXP);
 
                     if (tagMatch) {
+                        // eslint-disable-next-line @typescript-eslint/no-shadow
                         const [, pkgName, pkgVersion] = tagMatch;
 
                         if (pkgName === '@alfalab/core-components') {
@@ -108,11 +116,10 @@ module.exports = async ({ context, core, exec, inputs }) => {
                 }
 
                 return sha;
-            } else {
-                core.setFailed(`Resolving dir for unsupported version input: ${versionInput}`);
-
-                return;
             }
+            core.setFailed(`Resolving dir for unsupported version input: ${versionInput}`);
+
+            return undefined;
         }
 
         core.info('Resolving version input as sha');

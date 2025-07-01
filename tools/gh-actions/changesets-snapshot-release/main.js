@@ -1,9 +1,9 @@
-module.exports = async ({ core, exec, inputs }) => {
-    const { existsSync } = require('node:fs');
-    const fs = require('node:fs/promises');
-    const path = require('node:path');
-    const { default: readChangesets } = require('@changesets/read');
+const { existsSync } = require('node:fs');
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const { default: readChangesets } = require('@changesets/read');
 
+module.exports = async ({ core, exec, inputs }) => {
     const changesets = await core.group('Reading changesets', () => readChangesets(process.cwd()));
 
     if (changesets.length === 0) {
@@ -27,10 +27,11 @@ module.exports = async ({ core, exec, inputs }) => {
         if (existsSync(userNpmrcPath)) {
             core.info('Found existing user .npmrc file');
             const userNpmrcContent = await fs.readFile(userNpmrcPath, { encoding: 'utf8' });
-            const hasAuthLine = userNpmrcContent.split('\n').some((line) => {
+            const hasAuthLine = userNpmrcContent.split('\n').some((line) =>
                 // check based on https://github.com/npm/cli/blob/8f8f71e4dd5ee66b3b17888faad5a7bf6c657eed/test/lib/adduser.js#L103-L105
-                return /^\s*\/\/registry\.npmjs\.org\/:[_-]authToken=/i.test(line);
-            });
+                /^\s*\/\/registry\.npmjs\.org\/:[_-]authToken=/i.test(line),
+            );
+
             if (hasAuthLine) {
                 core.info('Found existing auth token for the npm registry in the user .npmrc file');
             } else {

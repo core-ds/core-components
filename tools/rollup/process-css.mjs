@@ -1,22 +1,26 @@
-import fsExtra from 'fs-extra';
+/* eslint-disable @typescript-eslint/no-shadow, import/no-extraneous-dependencies, no-param-reassign */
+
+import fse from 'fs-extra';
+import { globbySync } from 'globby';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { createFilter } from 'rollup-pluginutils';
+import * as process from 'node:process';
 import postcss from 'postcss';
-import postcssModules from 'postcss-modules';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
+import postcssModules from 'postcss-modules';
+import { createFilter } from 'rollup-pluginutils';
 import stringHash from 'string-hash';
-import { globbySync } from 'globby';
-import { cwd } from 'node:process';
-import { getPackages } from '@manypkg/get-packages';
-import postcssConfig from '../../postcss.config.js';
 
-const { packages } = await getPackages(cwd());
+import postcssConfig from '../../postcss.config.js';
+import { getPackages } from '../monorepo.cjs';
+import { isSamePath } from '../path.cjs';
+
+const { packages } = getPackages();
 const vars = packages.find(
     ({ packageJson }) => packageJson.name === '@alfalab/core-components-vars',
 );
-const pkg = packages.find(({ dir }) => dir === cwd());
+const pkg = fse.readJsonSync(path.join(process.cwd(), 'package.json'), { encoding: 'utf8' });
 
 export function processCss(options = {}) {
     const config = {
@@ -70,6 +74,7 @@ export function processCss(options = {}) {
                 Object.values(cssAssets).map(async (cssAsset) => {
                     if (!config.modules) {
                         const result = await processPostcss(cssAsset.filepath, config);
+
                         cssAsset.css = result.css;
                     }
 
@@ -92,14 +97,13 @@ async function processPostcss(filePath, config = {}) {
             plugin.postcssPlugin === 'postcss-import'
                 ? postcssImport({
                       warnOnEmpty: false,
-                      load: async (filename, importOptions) => {
-                          if (
-                              // check if file the same
-                              path.relative(filename, path.join(vars.dir, 'src/index.css')) === ''
-                          ) {
-                              // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
-                              // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
-                              // https://github.com/postcss/postcss-import/issues/84
+                      load: async (filename) => {
+                          if (isSamePath(filename, path.join(vars.dir, 'src/index.css'))) {
+                              /*
+                               * TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
+                               * В текущей версиии postcss-import импорт пустого файла вызывает ошибку
+                               * https://github.com/postcss/postcss-import/issues/84
+                               */
                               return '/* */';
                           }
 
@@ -115,8 +119,10 @@ async function processPostcss(filePath, config = {}) {
         plugins = plugins.map((plugin) =>
             plugin.postcssPlugin === 'postcss-mixins'
                 ? postcssMixins({
-                      mixinsFiles: globbySync(path.join(vars.dir, 'src/*.css'), {
-                          ignore: ['**/{indextypography}.css'],
+                      mixinsFiles: globbySync('src/*.css', {
+                          ignore: ['**/{index,typography}.css'],
+                          cwd: vars.dir,
+                          absolute: true,
                       }),
                   })
                 : plugin,
@@ -126,17 +132,10 @@ async function processPostcss(filePath, config = {}) {
     if (config.modules) {
         plugins.push(
             postcssModules({
-                generateScopedName: function (name, fileName) {
-                    const relativeFileName = path.relative(pkg.dir, fileName);
-                    const componentName = pkg.packageJson.name.replace(
-                        '@alfalab/core-components-',
-                        '',
-                    );
-                    const hash = generateClassNameHash(
-                        pkg.packageJson.name,
-                        pkg.packageJson.version,
-                        relativeFileName,
-                    );
+                generateScopedName(name, fileName) {
+                    const relativeFileName = path.relative(process.cwd(), fileName);
+                    const componentName = pkg.name.replace('@alfalab/core-components-', '');
+                    const hash = generateClassNameHash(pkg.name, pkg.version, relativeFileName);
 
                     return `${componentName}__${name}_${hash}`;
                 },
@@ -165,6 +164,7 @@ async function saveCssAsset(cssAsset, outputOptions, modules = true) {
     const { dir, preserveModulesRoot } = outputOptions;
 
     let dest = cssAsset.filepath.replace(preserveModulesRoot, dir);
+
     if (modules) {
         dest = dest.replace('.module.css', '.css');
     }
@@ -175,7 +175,7 @@ async function saveCssAsset(cssAsset, outputOptions, modules = true) {
         );
     }
 
-    await fsExtra.ensureDir(path.dirname(dest));
+    await fse.ensureDir(path.dirname(dest));
 
     await fs.writeFile(dest, cssAsset.css, { encoding: 'utf8' });
 }
