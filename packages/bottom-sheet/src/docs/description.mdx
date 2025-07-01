@@ -205,6 +205,8 @@ render(() => {
         inverted: false,
     }));
 
+    const colors = themeSettings.inverted ? 'inverted' : 'default'
+
     const [backgroundColorSelected, setBackgroundColor] = React.useState('primary');
 
     const showHeader =
@@ -401,7 +403,7 @@ render(() => {
                 stickyFooter={footerSettings.sticky}
                 swipeable={mechanics.swipeable}
                 initialHeight={mechanics.adaptive ? 'default' : 'full'}
-                colors={themeSettings.inverted ? 'inverted' : 'default'}
+                colors={colors}
                 backgroundColor={backgroundColorSelected}
                 actionButton={
                     showFooter ? (
@@ -415,6 +417,7 @@ render(() => {
                             {footerSettings.hasSecondaryButton && (
                                 <ButtonMobile
                                     view='secondary'
+                                    colors={colors}
                                     size='m'
                                     onClick={handleClose}
                                     block={true}
@@ -431,6 +434,7 @@ render(() => {
                             {footerSettings.hasPrimaryButton && (
                                 <ButtonMobile
                                     view='primary'
+                                    colors={colors}
                                     size='m'
                                     onClick={handleClose}
                                     block={true}
@@ -453,7 +457,7 @@ render(() => {
 
                 <Text
                     onClose={handleClose}
-                    colors={themeSettings.inverted ? 'inverted' : 'default'}
+                    colors={colors}
                 />
             </BottomSheet>
         </Container>
