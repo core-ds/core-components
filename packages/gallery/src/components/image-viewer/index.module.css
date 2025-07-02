@@ -32,7 +32,7 @@
     height: 100%;
 
     max-height: calc(100vh - 80px);
-    padding: var(--gap-32);
+    padding: var(--gap-0) var(--gap-32) var(--gap-32);
     box-sizing: border-box;
 
     &.mobile {
@@ -129,7 +129,7 @@
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius-8);
-    background-color: var(--color-static-neutral-300-inverted);
+    background-color: var(--color-static-neutral-translucent-inverted-100);
 }
 
 .brokenImgWrapper {
