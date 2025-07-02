@@ -1,7 +1,7 @@
 @import '../../vars/src/index.css';
 @import './vars.css';
 
-.component.component {
+.component {
     background-color: var(--bottom-sheet-background-color);
 }
 

@@ -5,6 +5,10 @@
     color: var(--bottom-sheet-text-color-inverted);
 }
 
+.hasContent {
+    background-color: inherit;
+}
+
 .subtitle {
     color: var(--bottom-sheet-text-color-inverted);
 }

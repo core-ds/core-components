@@ -8,10 +8,6 @@
     z-index: 1;
 }
 
-.hasContent {
-    background-color: inherit;
-}
-
 .header {
     display: flex;
 }

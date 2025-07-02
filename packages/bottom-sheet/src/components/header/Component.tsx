@@ -54,8 +54,8 @@ export const Header: FC<HeaderProps> = ({
             view='mobile'
             className={cn(styles.headerWrapper, className, {
                 [colorStyle.highlighted]: hasContent && headerHighlighted && sticky,
+                [colorStyle.hasContent]: hasContent,
                 [styles.sticky]: sticky,
-                [styles.hasContent]: hasContent,
             })}
             contentClassName={cn(styles.title)}
             titleClassName={cn(colorStyle.title)}

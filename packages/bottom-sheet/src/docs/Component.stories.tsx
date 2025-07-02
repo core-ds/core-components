@@ -40,16 +40,20 @@ export const bottom_sheet: Story = {
             setOpen(true);
         };
 
-        const bgColor = colors === 'inverted'
-        ? 'var(--color-light-base-bg-primary-inverted)'
-        : 'transparent';
+        const bgColor =
+            colors === 'inverted' ? 'var(--color-light-base-bg-primary-inverted)' : 'transparent';
 
         return (
             <div
                 style={{
                     ...previewStyles,
                     backgroundColor: bgColor,
-                    maxWidth: 'none'
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
                 }}
             >
                 <style>

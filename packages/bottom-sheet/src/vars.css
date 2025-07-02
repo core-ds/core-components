@@ -22,6 +22,7 @@
     /* default colors */
     --bottom-sheet-background-color: var(--color-light-modal-bg-primary);
     --bottom-sheet-marker-color: var(--color-light-neutral-translucent-300);
+    --bottom-sheet-header-background-color: var(--color-light-modal-bg-primary);
     --bottom-sheet-header-border-bottom: 1px solid var(--color-light-neutral-300);
     --bottom-sheet-text-color: var(--color-light-text-primary);
     --bottom-sheet-footer-background-color: var(--color-light-modal-bg-primary);
@@ -30,6 +31,7 @@
     /* inverted colors */
     --bottom-sheet-background-color-inverted: var(--color-light-modal-bg-primary-inverted);
     --bottom-sheet-marker-color-inverted: var(--color-light-neutral-translucent-300-inverted);
+    --bottom-sheet-header-background-color-inverted: var(--color-light-modal-bg-primary-inverted);
     --bottom-sheet-header-border-bottom-inverted: 1px solid var(--color-light-neutral-300-inverted);
     --bottom-sheet-text-color-inverted: var(--color-light-text-primary-inverted);
     --bottom-sheet-footer-background-color-inverted: var(--color-light-modal-bg-primary-inverted);
