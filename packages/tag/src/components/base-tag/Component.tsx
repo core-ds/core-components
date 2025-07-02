@@ -187,6 +187,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                     [commonStyles.focused]: focused,
                     [commonStyles.withRightAddons]: Boolean(rightAddons),
                     [commonStyles.withLeftAddons]: Boolean(leftAddons),
+                    [commonStyles.noContent]: Boolean((leftAddons || rightAddons) && !children),
                 },
                 className,
             ),
