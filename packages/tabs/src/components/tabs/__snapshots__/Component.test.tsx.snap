@@ -105,15 +105,15 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
 <div>
   <div>
     <div
-      class="container"
+      class=""
     >
       <div
-        class="component s"
+        class=""
         role="tablist"
       >
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons"
           role="tab"
           tabindex="-1"
           type="button"
@@ -129,7 +129,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="true"
-          class="component component component size-48 size-48 outlined outlined checked rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined checked rounded outlined"
           role="tab"
           tabindex="0"
           type="button"
@@ -140,7 +140,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined"
           role="tab"
           tabindex="-1"
           type="button"
@@ -151,7 +151,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined"
           role="tab"
           tabindex="-1"
           type="button"
@@ -162,7 +162,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined"
           role="tab"
           tabindex="-1"
           type="button"
@@ -479,15 +479,15 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
 <div>
   <div>
     <div
-      class="container"
+      class=""
     >
       <div
-        class="component s"
+        class=""
         role="tablist"
       >
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons"
           role="tab"
           tabindex="-1"
           type="button"
@@ -503,7 +503,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="true"
-          class="component component component size-48 size-48 outlined outlined checked rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined checked rounded outlined"
           role="tab"
           tabindex="0"
           type="button"
@@ -514,7 +514,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined"
           role="tab"
           tabindex="-1"
           type="button"
@@ -525,7 +525,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined"
           role="tab"
           tabindex="-1"
           type="button"
@@ -536,7 +536,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component component size-48 size-48 outlined outlined rounded outlined title"
+          class="component component component size-48 size-48 outlined outlined rounded outlined"
           role="tab"
           tabindex="-1"
           type="button"
