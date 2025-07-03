@@ -16,6 +16,10 @@
     &:not(.vertical) {
         align-items: center;
     }
+
+    &:last-of-type .textWrapper.vertical {
+        margin-bottom: var(--gap-0);
+    }
 }
 
 .step.interactive:not(.disabled):hover {
