@@ -151,7 +151,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
             return (
                 <div
                     className={cn(styles.preview, styles.image, {
-                        [styles.loading]: !meta,
+                        [styles.loading]: !meta || !meta.loaded,
                         [styles.mobile]: isMobile,
                     })}
                 >

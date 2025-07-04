@@ -43,10 +43,12 @@ export type ImageMeta =
           height: number;
           broken?: boolean;
           player?: never;
+          loaded?: boolean;
       }
     | {
-          width?: never;
-          height?: never;
+          width?: number;
+          height?: number;
           broken?: boolean;
           player: RefObject<HTMLVideoElement>;
+          loaded?: boolean;
       };
