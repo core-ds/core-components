@@ -39,6 +39,7 @@ const { isNil } = fnUtils;
 const adjustContainerHeightDefault = (value: number) => value;
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
+    // eslint-disable-next-line complexity
     (
         {
             open,
@@ -103,6 +104,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             keepMounted,
             onMagnetizeEnd,
             onOffsetChange,
+            isSwipeMarkerAvailable = true,
             swipeableMarker,
             swipeableMarkerClassName,
             backButtonProps,
@@ -578,7 +580,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(
                             styles.marker,
-                            styles.defaultMarker,
+                            { [styles.defaultMarker]: isSwipeMarkerAvailable },
                             swipeableMarkerClassName,
                         )}
                     />
@@ -664,7 +666,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             )}
                             ref={mergeRefs([scrollableContainer, scrollableContainerRef])}
                         >
-                            {!hideHeader && !emptyHeader && <Header {...headerProps} />}
+                            {!hideHeader && !emptyHeader && (
+                                <Header
+                                    {...headerProps}
+                                    isSwipeMarkerAvailable={isSwipeMarkerAvailable}
+                                />
+                            )}
 
                             <div
                                 ref={contentRef}
