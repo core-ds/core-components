@@ -1,0 +1,163 @@
+import React, { useState } from 'react';
+import { Meta, StoryObj } from '@storybook/react';
+import { boolean, text } from '@storybook/addon-knobs';
+import { AccountSelectDesktop } from '../desktop';
+import { PureCell } from '@alfalab/core-components-pure-cell';
+import { ProductCover } from '@alfalab/core-components-product-cover';
+import { PlusMIcon } from '@alfalab/icons-glyph/PlusMIcon';
+import { AccountSelectMobile } from '../mobile';
+import { CardData } from '../types';
+
+const baseCard = {
+    baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+    layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+    cardId: 'RM',
+};
+
+const meta: Meta<typeof AccountSelectDesktop> = {
+    title: 'Components/AccountSelect',
+    component: AccountSelectDesktop,
+    id: 'AccountSelect',
+};
+
+type Story = StoryObj<typeof AccountSelectDesktop>;
+
+const options = [
+    {
+        key: '1',
+        content: (
+            <PureCell verticalPadding='compact'>
+                <PureCell.Graphics verticalAlign='center'>
+                    <ProductCover.Single size={32} />
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                            Альфа-карта с преимуществами
+                        </PureCell.Text>
+                        <PureCell.Amount
+                            value={100000099}
+                            minorUnits={100}
+                            currency='RUR'
+                            color='primary'
+                            view={'withZeroMinorPart'}
+                            transparentMinor={true}
+                        />
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+        ),
+    },
+    {
+        key: '2',
+        content: (
+            <PureCell verticalPadding='compact'>
+                <PureCell.Graphics verticalAlign='center'>
+                    <ProductCover.Single size={32} />
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                            Альфа-карта с кредитным лимитом
+                        </PureCell.Text>
+                        <PureCell.Amount
+                            value={100099}
+                            minorUnits={100}
+                            currency='RUR'
+                            color='primary'
+                            view={'withZeroMinorPart'}
+                            transparentMinor={true}
+                        />
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+        ),
+    },
+];
+
+export const account_select_desktop: Story = {
+    name: 'AccountSelectDesktop',
+    render: () => {
+        const [cardImage, setCardImage] = useState<typeof baseCard | undefined>(undefined);
+        const handleInput = (data: CardData) => {
+            if (data.number.startsWith('111111')) {
+                setCardImage(baseCard);
+            }
+        };
+        const handleSubmit = (data: CardData) => {
+            console.log(data);
+        };
+
+        return (
+            <AccountSelectDesktop
+                onChange={(e) => {
+                    console.log(e);
+                }}
+                label={text('label', 'Выберите карту')}
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                cardAddingProps={{
+                    content: (
+                        <PureCell verticalPadding='airy'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={32}
+                                    iconColor='var(--color-light-neutral-700)'
+                                    icon={PlusMIcon}
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <PureCell.Text titleColor='primary' view='primary-small'>
+                                        Новая карта
+                                    </PureCell.Text>
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    ),
+                    onInput: handleInput,
+                    onSubmit: handleSubmit,
+                    needCvv: boolean('needCvv', true),
+                    needExpiryDate: boolean('needExpiryDate', true),
+                    expiryAsDate: boolean('expiryAsDate', true),
+                    cardImage,
+                }}
+                options={options}
+            />
+        );
+    },
+};
+
+export const account_select_mobile: Story = {
+    name: 'AccountSelectMobile',
+    render: () => (
+        <AccountSelectMobile
+            label={text('label', 'Выберите карту')}
+            options={options}
+            cardAddingProps={{
+                content: (
+                    <PureCell verticalPadding='airy'>
+                        <PureCell.Graphics verticalAlign='center'>
+                            <ProductCover.Single
+                                size={32}
+                                iconColor='var(--color-light-neutral-700)'
+                                icon={PlusMIcon}
+                            />
+                        </PureCell.Graphics>
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='primary' view='primary-small'>
+                                    Новая карта
+                                </PureCell.Text>
+                            </PureCell.Main>
+                        </PureCell.Content>
+                    </PureCell>
+                ),
+                needCvv: boolean('needCvv', true),
+                needExpiryDate: boolean('needExpiryDate', true),
+                expiryAsDate: boolean('expiryAsDate', true),
+            }}
+        />
+    ),
+};
+
+export default meta;
