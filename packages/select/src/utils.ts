@@ -10,6 +10,7 @@ import {
 
 import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
 
+import { DEFAULT_SEPARATOR } from './consts';
 import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
@@ -21,9 +22,11 @@ export const isOptionShape = (item: OptionShape | string | null): item is Option
 export const joinOptions = ({
     selected,
     selectedMultiple,
+    valueSeparator = DEFAULT_SEPARATOR,
 }: {
     selected?: OptionShape;
     selectedMultiple?: OptionShape[];
+    valueSeparator?: string;
 }) => {
     const options = selectedMultiple || (selected ? [selected] : []);
 
@@ -36,7 +39,7 @@ export const joinOptions = ({
             acc.push(option.content);
         }
 
-        if (index < options.length - 1) acc.push(', ');
+        if (index < options.length - 1) acc.push(valueSeparator);
 
         return acc;
     }, []);
