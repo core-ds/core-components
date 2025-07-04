@@ -174,7 +174,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 aria-hidden='true'
             >
                 <ProductCover.Single
-                    cardNumber={cardNumber.length > 5 ? Number(cardNumber) : undefined}
+                    cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
                     size={32}
                     {...cardImage}
                 />

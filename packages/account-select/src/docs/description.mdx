@@ -70,7 +70,7 @@ render(() => {
             ),
         },
     ];
-    return <AccountSelect label='Куда' options={options} />;
+    return <AccountSelect size='m' label='Куда' options={options} />;
 });
 ```
 
@@ -142,7 +142,7 @@ render(() => {
 
 ## Добавление новой карты отправителя
 
-Для карты отправителя можно использовать механику с запросом CVC или без него.
+Для карты отправителя можно использовать механику с запросом CVV или без него.
 После ввода 6-го символа определяется банк и платёжная система. При необходимости, можно настроить отображение различных рубашек карт для банков РФ. В примере для карты начинающейся с номера 1234 56 будет определён банк и изменится рубашка.
 
 ```jsx live
@@ -235,7 +235,7 @@ render(() => {
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={32}
-                                    iconColor='var(--color-light-neutral-700)'
+                                    iconColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}
                                 />
                             </PureCell.Graphics>
@@ -262,6 +262,7 @@ render(() => {
                     setCvv((prevState) => !prevState);
                 }}
             />
+            <Gap size='s' />
             <Switch
                 checked={expiry}
                 label='Нужна дата окончания действия карты'
@@ -364,7 +365,7 @@ render(() => {
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={32}
-                                    iconColor='var(--color-light-neutral-700)'
+                                    iconColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}
                                 />
                             </PureCell.Graphics>
