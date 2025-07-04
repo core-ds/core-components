@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.28.0",
+    "version": "48.29.0",
     "private": true,
     "workspaces": [
         "packages/*"
