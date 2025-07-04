@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.10.2
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+-   Версия пакета @alfalab/data обновлена до 1.9.2
+
 ## 3.10.1
 
 ### Patch Changes

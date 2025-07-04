@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+    -   select@17.21.5
+
 ## 8.7.0
 
 ### Minor Changes
