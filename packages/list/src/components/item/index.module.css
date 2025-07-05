@@ -30,7 +30,7 @@
     min-width: 20px;
     display: flex;
     box-sizing: border-box;
-    justify-content: start;
+    justify-content: flex-start;
     padding-right: var(--gap-4);
     flex-shrink: 0;
 

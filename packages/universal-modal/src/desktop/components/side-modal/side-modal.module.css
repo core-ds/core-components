@@ -9,7 +9,7 @@
 }
 
 .wrapperAlignEnd {
-    align-items: end;
+    align-items: flex-end;
 }
 
 .wrapperJustifyCenter {
@@ -17,7 +17,7 @@
 }
 
 .wrapperJustifyEnd {
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .component {
