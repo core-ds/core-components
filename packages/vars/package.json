@@ -5,8 +5,11 @@
     "keywords": [],
     "license": "MIT",
     "style": "index.css",
+    "main": "index.js",
+    "module": "esm/index.js",
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    }
+    },
+    "sideEffects": false
 }
