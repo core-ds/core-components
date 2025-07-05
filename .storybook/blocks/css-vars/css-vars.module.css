@@ -1,4 +1,4 @@
-@import '../../../packages/vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .cssVars {
     margin: var(--gap-24) var(--gap-0);
