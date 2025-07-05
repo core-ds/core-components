@@ -8,11 +8,17 @@
         "paths": {
             "@alfalab/core-components-icon-view": ["./src"],
             "@alfalab/core-components-icon-view/*": ["./src/*"],
+            "@alfalab/core-components-indicator": ["../indicator/src"],
+            "@alfalab/core-components-indicator/*": ["../indicator/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
             "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../screenshot-utils" }, { "path": "../test-utils" }]
+    "references": [
+        { "path": "../indicator" },
+        { "path": "../screenshot-utils" },
+        { "path": "../test-utils" }
+    ]
 }
