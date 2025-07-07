@@ -30,10 +30,6 @@ describe('BottomSheet', () =>
         },
         'transform:scale(1.3);top:250px;maxWidth:500px;',
         {
-            viewport: {
-                width: 860,
-                height: 600,
-            },
             screenshotOpts: {
                 clip: {
                     x: 8,

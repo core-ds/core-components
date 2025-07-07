@@ -42,13 +42,12 @@ export const bottom_sheet: Story = {
 
         const bgColor =
             colors === 'inverted'
-                ? 'var(--color-light-base-bg-primary-inverted)'
-                : 'var(--color-light-base-bg-primary)';
+                ? 'var(--color-light-base-bg-secondary-inverted)'
+                : 'var(--color-light-base-bg-secondary)';
 
         return (
             <div
                 style={{
-                    ...previewStyles,
                     backgroundColor: bgColor,
                     padding: '8px',
                     position: 'absolute',
