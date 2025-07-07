@@ -880,7 +880,10 @@ export const colorMapper: TColorMapper = {
     staticNeutralTranslucentColor100Press: getWithoutThemeValue(
         'static-neutral-translucent-100-press',
     ),
-
+    staticNeutralTranslucentColor1300: getWithoutThemeValue('static-neutral-translucent-1300'),
+    staticNeutralTranslucentColor1300Inverted: getWithoutThemeValue(
+        'static-neutral-translucent-1300-inverted',
+    ),
     staticNeutralTranslucentColor1500Hover: getWithoutThemeValue(
         'static-neutral-translucent-1500-hover',
     ),

@@ -702,6 +702,8 @@ export type PaletteColor =
     | 'staticNeutralTranslucentColor100InvertedHover'
     | 'staticNeutralTranslucentColor100InvertedPress'
     | 'staticNeutralTranslucentColor100Press'
+    | 'staticNeutralTranslucentColor1300'
+    | 'staticNeutralTranslucentColor1300Inverted'
     | 'staticNeutralTranslucentColor1500Hover'
     | 'staticNeutralTranslucentColor1500InvertedHover'
     | 'staticNeutralTranslucentColor1500InvertedPress'
