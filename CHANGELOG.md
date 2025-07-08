@@ -1,3 +1,62 @@
+## 48.29.0
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1756](https://github.com/core-ds/core-components/pull/1756)
+
+#### Что изменилось
+- safe-area отступы перенесены из modal в container
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+### [#1758](https://github.com/core-ds/core-components/pull/1758)
+
+#### Что изменилось
+- Добавлен новый тип `max` отступа от графики
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1755](https://github.com/core-ds/core-components/pull/1755)
+
+#### Что изменилось
+- Удален отступ у последнего дочернего элемента списка Steps
+
+#### Влияние на компоненты
+- Патчи<br />`steps`
+
+
+### [#1727](https://github.com/core-ds/core-components/pull/1727)
+
+#### Что изменилось
+- Добавлен view: transparent для компонента <Tag />
+
+#### Влияние на компоненты
+- Минорное<br />`tag`
+
+
+### [#1759](https://github.com/core-ds/core-components/pull/1759)
+
+#### Что изменилось
+- Изменен `border-radius` для десктопной модалки с 12px на 24px во всех темах и для всех размеров (кроме fullscreen, у него нет скруглений)
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+#### Что изменилось
+- Версия пакета @alfalab/data обновлена до 1.9.2
+
+#### Влияние на компоненты
+- Патчи<br />`amount` `amount-input` `pure-cell`
+
+
+
 ## 48.28.0
 
 <sup><time>23.06.2025</time></sup>

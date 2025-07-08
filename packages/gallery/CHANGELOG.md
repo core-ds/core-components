@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.12.8
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1756](https://github.com/core-ds/core-components/pull/1756)
+
+-   safe-area отступы перенесены из modal в container
+
 ## 5.12.7
 
 ### Patch Changes

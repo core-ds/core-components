@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.28.0",
+    "version": "48.29.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -59,7 +59,7 @@
         ]
     },
     "dependencies": {
-        "@alfalab/data": "^1.9.1",
+        "@alfalab/data": "^1.9.2",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/icons-logo": "^1.39.0",
