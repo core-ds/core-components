@@ -7,6 +7,30 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.4.2.tgz#c836b1bd81e6d62cd6cdf3ee4948bcdce8ea79c8"
   integrity sha512-baYZExFpsdkBNuvGKTKWCwKH57HRZLVtycZS05WTQNVOiXVSeAki3nU35zlRbToeMW8aHlJfyS+1C4BOv27q0A==
 
+"@alfalab/core-components-input-autocomplete@12.9.6":
+  version "12.9.6"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-input-autocomplete/-/core-components-input-autocomplete-12.9.6.tgz#3dcf677b8a2b3d814f3d1483862fcb7af624bde5"
+  integrity sha512-BffrNDB2pBQ0GDd7EJ5krLGaHgrDPmZ38VFtOa7TWnVyJ6pTspbPzRh18DqrQAg8Kuc4PVeljFM90nTsvVWTVg==
+  dependencies:
+    "@alfalab/core-components-form-control" "^12.8.6"
+    "@alfalab/core-components-input" "^15.6.2"
+    "@alfalab/core-components-mq" "^4.4.1"
+    "@alfalab/core-components-popover" "^6.3.11"
+    "@alfalab/core-components-select" "^17.21.4"
+    "@alfalab/core-components-shared" "^0.18.0"
+    "@alfalab/core-components-status-badge" "^1.2.3"
+    "@alfalab/hooks" "^1.13.1"
+    "@maskito/core" "^1.7.0"
+    classnames "^2.5.1"
+    lodash "^4.17.21"
+    react-merge-refs "^1.1.0"
+    tslib "^2.4.0"
+
+"@alfalab/core-config@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-config/-/core-config-1.0.0.tgz#e20d7d2ad36e58b1b65a071eebeed1776ae3cf57"
+  integrity sha512-9msIAhOYlZ7Ydpf490P1694Oc60UmsodJpDeAvhQ84XzWzGc1rRH6+FWXWtzoS1tOlNlybyhR2y7Gq6Ontth3w==
+
 "@alfalab/data@^1.9.1", "@alfalab/data@^1.9.2":
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.9.2.tgz#666e9b2b593256473329ebb026b7b59f4d6542f7"
@@ -11644,7 +11668,7 @@ es-to-primitive@^1.3.0:
     is-date-object "^1.0.5"
     is-symbol "^1.0.4"
 
-es5-ext@0.10.53, es5-ext@^0.10.35, es5-ext@^0.10.50:
+es5-ext@0.10.53, es5-ext@^0.10.35, es5-ext@^0.10.64:
   version "0.10.53"
   resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.53.tgz#93c5a3acfdbef275220ad72644ad02ee18368de1"
   integrity sha512-Xs2Stw6NiNHWypzRTY1MtaG/uJlwCk8kH81920ma8mvN8Xq1gsfhZvpkImLQArw8AHnv8MT2I45J3c0R8slE+Q==
