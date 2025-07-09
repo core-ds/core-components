@@ -109,6 +109,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     {...(view === 'mobile' && {
                         bottomSheetProps: {
                             title: 'Выберите страну',
+                            isSwipeMarkerAvailable: false,
                         },
                     })}
                 />

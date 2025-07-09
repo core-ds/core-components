@@ -17,6 +17,7 @@ import invertedColors from './inverted.module.css';
 export type HeaderProps = Omit<NavigationBarPrivateProps, 'view' | 'size'> & {
     headerRef: RefObject<HTMLDivElement>;
     headerOffset: number;
+    isSwipeMarkerAvailable?: boolean;
     colors?: ColorType;
 };
 
@@ -26,6 +27,7 @@ export const Header: FC<HeaderProps> = ({
     sticky,
     headerRef,
     headerOffset,
+    isSwipeMarkerAvailable,
     title,
     children,
     ...restProps
@@ -52,7 +54,9 @@ export const Header: FC<HeaderProps> = ({
             onClose={onClose}
             sticky={sticky}
             view='mobile'
-            className={cn(styles.headerWrapper, className, {
+            className={cn(className, {
+                [styles.headerWrapper]: isSwipeMarkerAvailable,
+                [styles.headerWrapperWithoutSwipeMarker]: !isSwipeMarkerAvailable,
                 [colorStyle.highlighted]: hasContent && headerHighlighted && sticky,
                 [colorStyle.hasContent]: hasContent,
                 [styles.sticky]: sticky,
