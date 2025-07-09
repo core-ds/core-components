@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
-export type CoreConfigContext = {
-    breakpoint: number;
+export type CoreConfigContextT = {
+    breakpoint?: number;
     client: 'desktop' | 'mobile';
     components: CoreConfigContextComponents;
 };
@@ -10,13 +10,13 @@ export type CoreConfigContext = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CoreConfigContextComponents = Record<string, any>;
 
-export const CoreConfigContext = createContext<CoreConfigContext>({
+export const CoreConfigContext = createContext<CoreConfigContextT>({
     breakpoint: 1024,
     client: 'desktop',
     components: {},
 });
 
-export const useCoreConfig = (overrides: Partial<CoreConfigContext> = {}) => {
+export const useCoreConfig = (overrides: Partial<CoreConfigContextT> = {}) => {
     const config = useContext(CoreConfigContext);
 
     Object.entries(overrides).forEach(([key, value]) => {
