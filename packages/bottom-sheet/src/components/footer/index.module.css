@@ -10,5 +10,3 @@
     bottom: var(--gap-0);
     z-index: 1;
 }
-
-@mixin bg-class-list;
