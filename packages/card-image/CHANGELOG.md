@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-card-image
 
 ## 3.2.3
 

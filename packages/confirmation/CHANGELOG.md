@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-confirmation
 
 ## 13.10.5
 

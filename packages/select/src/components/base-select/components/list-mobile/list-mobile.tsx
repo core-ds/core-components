@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, RefObject } from 'react';
 
-import { OptionShape } from '@alfalab/core-components-select/typings';
+import { OptionShape } from '../../../../typings';
 
 import { ListBottomSheetMobileRestProps, ListModalMobileRestProps } from './types/types';
 import { ListBottomSheetMobile } from './list-bottom-sheet-mobile';

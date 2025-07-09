@@ -4,7 +4,7 @@ import {
     matchHtml,
     closeBrowser,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 1920, height: 200 };
 

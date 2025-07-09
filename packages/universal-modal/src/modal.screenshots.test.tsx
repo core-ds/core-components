@@ -1,5 +1,7 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
-import { Page } from 'playwright';
+import {
+    setupScreenshotTesting,
+    generateTestCases,
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,

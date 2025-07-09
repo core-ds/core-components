@@ -10,8 +10,6 @@ CONCURRENCY=${BUILD_CONCURRENCY:=10}
 
 echo "start build on $CONCURRENCY parallel process"
 
-mkdir -p dist
-
 # собираю css пакеты
 copy_css="yarn copyfiles -u 1 \"src/**/*.{css,js}\" dist"
 lerna exec \
@@ -20,30 +18,22 @@ lerna exec \
     -- "$copy_css"
 
 # собираю пакет themes
-lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
+lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.mjs
 
-# экспорт CSS-переменных в JS-переменные
-lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/export-css-custom-properties-as-js-vars.js
+# собираю пакет vars
+lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/build-vars.mjs
 
 # собираю все подпакеты с компонентами
 lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
-    --ignore @alfalab/core-components-themes \
-    -- $(pwd)/bin/rollup.sh
+    --ignore @alfalab/core-components-env \
+    --ignore @alfalab/core-components-screenshot-utils \
+    --ignore @alfalab/core-components-test-utils \
+    -- rollup -c $(pwd)/rollup.config.mjs --silent
 
-# собираю скомпилированные темы
-lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-compiled-themes.mjs
-
-# собираем пакет themes в последнюю очередь
+# удаляем неиспользуемые css-переменные из сборки во всех подпакетах
 lerna exec --concurrency $CONCURRENCY \
-    --scope @alfalab/core-components-themes \
-    -- $(pwd)/bin/rollup.sh
-
-# копирую package.json в сборку корневого пакета
-cp package.json dist/package.json
-
-# копирую README.md в сборку корневого пакета
-cp README.md dist/README.md
-
-# делаю корневой пакет публичным
-yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"
+    --ignore @alfalab/core-components-grid \
+    --ignore @alfalab/core-components-themes \
+    --ignore @alfalab/core-components-vars \
+    -- node $(pwd)/bin/purgecss.mjs

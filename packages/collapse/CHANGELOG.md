@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-collapse
 
 ## 4.5.5
 

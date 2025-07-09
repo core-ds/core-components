@@ -16,13 +16,13 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^15.6.2",
+        "@alfalab/core-components-shared": "^0.18.0",
+        "@alfalab/core-components-number-input": "^2.7.2",
         "@alfalab/core-components-with-suffix": "^4.2.20",
         "@alfalab/data": "^1.9.2",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.18.0",
-        "@alfalab/core-components-number-input": "^2.7.2"
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.20.1"

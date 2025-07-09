@@ -6,7 +6,7 @@ import {
     matchHtml,
     createStorybookUrl,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const options = [
     { key: '4', content: 'Открыть' },

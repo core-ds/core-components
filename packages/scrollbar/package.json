@@ -22,13 +22,10 @@
         "lodash.debounce": "^4.0.8",
         "lodash.memoize": "^4.1.2",
         "lodash.throttle": "^4.1.1",
-        "react-merge-refs": "1.1.0",
+        "react-merge-refs": "^1.1.0",
         "simplebar": "^5.3.8",
         "tslib": "^2.4.0"
     },
-    "devDependencies": {
-        "@types/lodash.throttle": "^4.1.7"
-    },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.20.1"
+    "themesVersion": "13.7.3",
+    "varsVersion": "9.20.0"
 }

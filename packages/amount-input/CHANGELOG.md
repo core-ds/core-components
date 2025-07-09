@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-amount-input
 
 ## 7.15.3
 

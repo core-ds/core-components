@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-loader
 
 ## 3.2.4
 

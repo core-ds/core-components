@@ -1,45 +1,32 @@
-import * as fs from 'node:fs/promises';
-import globby from 'globby';
-import path from 'node:path';
-import shell from 'shelljs';
+/* eslint-disable no-cond-assign */
+import { globby } from 'globby';
+import fs from 'node:fs/promises';
 import * as process from 'node:process';
 
-const packages = JSON.parse(
-    shell.exec(
-        `lerna list \\
-        --ignore @alfalab/core-components-bank-card \\
-        --ignore @alfalab/core-components-themes \\
-        --ignore @alfalab/core-components-vars \\
-        --json \\
-        --all`,
-        { silent: true },
-    ).stdout,
-);
+async function main() {
+    const files = await globby('dist/**/*.css', { absolute: true });
 
-const files = await globby(
-    packages.map(({ location }) =>
-        path.relative(process.cwd(), path.join(location, 'dist/**/*.css')),
-    ),
-);
+    const nonExistentVarsEntries = (
+        await Promise.all(
+            files.map(async (file) => {
+                const content = await fs.readFile(file, { encoding: 'utf8' });
+                const re = /(?<=var\().+?(?=\))/g;
+                let match = null;
+                const result = [];
 
-const nonExistentVarsEntries = (
-    await Promise.all(
-        files.map(async (file) => {
-            const content = await fs.readFile(file, { encoding: 'utf8' });
-            const re = /(?<=var\().+?(?=\))/g;
-            let match = null;
-            const result = [];
+                while ((match = re.exec(content)) != null) {
+                    result.push(match[0]);
+                }
 
-            while ((match = re.exec(content)) != null) {
-                result.push(match[0]);
-            }
+                return [file, result];
+            }),
+        )
+    ).filter(([, vars]) => vars.length > 0);
 
-            return [file, result];
-        }),
-    )
-).filter(([, vars]) => vars.length > 0);
+    if (nonExistentVarsEntries.length === 0) {
+        return;
+    }
 
-if (nonExistentVarsEntries.length > 0) {
     console.log(
         [
             'Found non-existent css vars:',
@@ -54,3 +41,5 @@ if (nonExistentVarsEntries.length > 0) {
 
     process.exit(-1);
 }
+
+await main();

@@ -1,20 +1,30 @@
 {
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
+        "rootDir": "src",
         "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-file-upload-item": ["./src"],
+            "@alfalab/core-components-file-upload-item/*": ["./src/*"],
+            "@alfalab/core-components-icon-button": ["../icon-button/src"],
             "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@alfalab/core-components-icon-view": ["../icon-view/src"],
             "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
+            "@alfalab/core-components-typography": ["../typography/src"],
             "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
         { "path": "../icon-button" },
         { "path": "../icon-view" },
+        { "path": "../screenshot-utils" },
+        { "path": "../test-utils" },
         { "path": "../typography" }
     ]
 }
