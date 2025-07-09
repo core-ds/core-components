@@ -137,7 +137,13 @@ export const InputAutocompleteMobile = React.forwardRef(
                 Field={AutocompleteMobileField}
                 {...restProps}
                 {...(isBottomSheet
-                    ? { bottomSheetProps: { ...componentProps, virtualKeyboard } }
+                    ? {
+                          bottomSheetProps: {
+                              ...componentProps,
+                              virtualKeyboard,
+                              isSwipeMarkerAvailable: false,
+                          },
+                      }
                     : {
                           modalProps: componentProps,
                           modalHeaderProps: { title },
