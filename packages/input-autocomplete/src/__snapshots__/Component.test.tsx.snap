@@ -121,13 +121,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                 style="max-height: 744px; height: 744px;"
               >
                 <div
-                  class="marker defaultMarker defaultMarker"
-                />
-                <div
                   class="scrollableContainer sheetContainer"
                 >
                   <div
-                    class="header headerWrapper hasContent sticky"
+                    class="header hasContent headerWrapperWithoutSwipeMarker sticky"
                   >
                     <div
                       class="mainLine"

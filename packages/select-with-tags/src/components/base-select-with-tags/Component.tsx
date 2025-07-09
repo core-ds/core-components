@@ -224,6 +224,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                                   },
                               },
                               bottomSheetProps: {
+                                  isSwipeMarkerAvailable: false,
                                   onClose: handleClose,
                                   containerProps: {
                                       onTouchMove: handleOptionsListTouchMove,
