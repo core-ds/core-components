@@ -37,7 +37,7 @@ export type ImageProps = {
     inViewOption?: boolean;
     /** Id компонента для тестов */
     dataTestId?: string;
-    /** Мапа проксирующих ресурсов */
+    /** Карта проксирующих ресурсов */
     proxyMap?: ImageProxyMap;
 } & ImgHTMLAttributes<unknown>;
 /**
