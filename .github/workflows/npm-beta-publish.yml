@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Check permissions
-        if: ${{ contains(fromJSON('["reme3d2y","SiebenSieben","hextion","fulcanellee"]'), github.actor) == false }}
+        if: ${{ contains(fromJSON('["dHIM24","SiebenSieben","hextion","fulcanellee"]'), github.actor) == false }}
         uses: actions/github-script@v6
         with:
           script: |
