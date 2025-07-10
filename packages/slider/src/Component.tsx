@@ -2,6 +2,8 @@ import React, { FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import noUiSlider, { API, Options } from 'nouislider';
 
+import { useSliderMarkers } from './hooks';
+
 import styles from './index.module.css';
 
 type SubRange = number | [number] | [number, number];
@@ -12,7 +14,6 @@ type RangeOptions = {
 };
 
 type PipsType = -1 | 0 | 1 | 2;
-
 type Pips = {
     mode: 'range' | 'steps' | 'positions' | 'count' | 'values';
     values: number | number[];
@@ -144,6 +145,16 @@ export const Slider: FC<SliderProps> = ({
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
+    const { updateMarkersState, createSlideHandler } = useSliderMarkers({
+        sliderRef,
+        hasValueTo,
+        value,
+        valueTo,
+        min,
+        max,
+        onChange,
+    });
+
     useEffect(() => {
         if (!sliderRef.current) return;
 
@@ -219,27 +230,17 @@ export const Slider: FC<SliderProps> = ({
 
         if (!slider) return;
 
-        const handler = () => {
-            if (onChange) {
-                if (hasValueTo) {
-                    const sliderValues = slider.get() as string[];
-                    const from = Number(sliderValues[0]);
-                    const to = Number(sliderValues[1]);
-
-                    if (from <= to) {
-                        onChange({ value: from, valueTo: to });
-                    } else {
-                        onChange({ value: to, valueTo: from });
-                    }
-                } else {
-                    onChange({ value: Number(slider.get()) });
-                }
-            }
-        };
+        const handler = createSlideHandler(slider);
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange, hasValueTo]);
+
+        if (hasValueTo) {
+            updateMarkersState(value, valueTo);
+        } else {
+            updateMarkersState(value);
+        }
+    }, [onChange, hasValueTo, value, valueTo, createSlideHandler, updateMarkersState]);
 
     return (
         <div
