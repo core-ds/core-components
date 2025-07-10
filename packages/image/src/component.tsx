@@ -1,4 +1,4 @@
-import React, { type ImgHTMLAttributes, useMemo } from 'react';
+import React, { type ImgHTMLAttributes, memo, useMemo } from 'react';
 import cn from 'classnames';
 
 import { useComponentOverrides } from '@alfalab/core-components-config';
@@ -6,8 +6,6 @@ import { useComponentOverrides } from '@alfalab/core-components-config';
 import { useInViewRef } from './hooks/use-in-view-ref';
 
 import styles from './index.module.css';
-
-const LazyImageCdnIntegration = React.lazy(() => import('./components/dev-component'));
 
 export type ImageProxyMap = Array<{ from: string; to: string }>;
 
@@ -50,41 +48,36 @@ export type ImageProps = {
  *
  * [Макет]()
  */
-export const Image = ({
-    className,
-    dataTestId,
-    src,
-    proxyMap,
-    inViewOption,
-    ...props
-}: ImageProps) => {
-    const componentContext = useComponentOverrides<ImageProps>('Image');
-    const [imgRef, inView] = useInViewRef({
-        inViewOption: inViewOption || componentContext?.inViewOption,
-    });
+export const Image = memo(
+    ({ className, dataTestId, src, proxyMap, inViewOption, ...props }: ImageProps) => {
+        const componentContext = useComponentOverrides<ImageProps>('Image');
+        const [imgRef, inView] = useInViewRef({
+            inViewOption: inViewOption || componentContext?.inViewOption,
+        });
 
-    const url = useMemo(() => {
-        const map = proxyMap || componentContext?.proxyMap || [];
+        const url = useMemo(() => {
+            const map = proxyMap || componentContext?.proxyMap || [];
 
-        const resourseMap = map.find((resourse) => src.includes(resourse.from));
+            const resourseMap = map.find((resourse) => src.includes(resourse.from));
 
-        if (resourseMap) {
-            return src.replace(resourseMap.from, resourseMap.to);
-        }
+            if (resourseMap) {
+                return src.replace(resourseMap.from, resourseMap.to);
+            }
 
-        return src;
-    }, [src, componentContext?.proxyMap, proxyMap]);
+            return src;
+        }, [src, componentContext?.proxyMap, proxyMap]);
 
-    return (
-        <img
-            alt=''
-            {...props}
-            src={inView ? url : undefined}
-            className={cn(className, {
-                [styles.fullSize]: Boolean(props.style?.objectFit),
-            })}
-            data-test-id={dataTestId}
-            ref={imgRef}
-        />
-    );
-};
+        return (
+            <img
+                alt=''
+                {...props}
+                src={inView ? url : undefined}
+                className={cn(className, {
+                    [styles.fullSize]: Boolean(props.style?.objectFit),
+                })}
+                data-test-id={dataTestId}
+                ref={imgRef}
+            />
+        );
+    },
+);

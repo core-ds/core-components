@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
 
+import { type ImageProps } from '@alfalab/core-components-image';
+
 export type CoreConfigContextValue = {
     breakpoint?: number;
     client?: 'desktop' | 'mobile';
@@ -8,12 +10,16 @@ export type CoreConfigContextValue = {
 
 // Добавить типы из компонентов нет возможности, так как будет зацикленный импорт зависимостей
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CoreConfigContextComponents = Record<string, any>;
+export type CoreConfigContextComponents = {
+    Image: Partial<ImageProps>;
+};
 
 export const CoreConfigContext = createContext<CoreConfigContextValue>({
     breakpoint: 1024,
     client: 'desktop',
-    components: {},
+    components: {
+        Image: {},
+    },
 });
 
 export const useCoreConfig = (overrides: Partial<CoreConfigContextValue> = {}) => {
