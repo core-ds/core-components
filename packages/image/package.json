@@ -15,6 +15,6 @@
     },
     "dependencies": {
         "tslib": "^2.4.0",
-        "@alfalab/core-config": "^1.0.0"
+        "@alfalab/core-components-config": "^0.0.0"
     }
 }

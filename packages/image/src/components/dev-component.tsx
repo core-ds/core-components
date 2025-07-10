@@ -4,7 +4,7 @@ import { ImageProps } from '../component';
 
 import styles from './index.module.css';
 
-const opimizeImageSizeInKb = 100;
+const opimizeImageSizeInKb = 10;
 
 type Props = {
     src: string;
@@ -19,6 +19,7 @@ const ImageCdnIntegration = ({ src, warning }: Props) => {
             .then((response) => response.blob())
             .then((response) => {
                 const valid = Number(response.size) / 1000 < opimizeImageSizeInKb;
+                console.log('🚀 ~ .then ~ valid:', valid);
 
                 if (!valid) {
                     setNotValid(true);

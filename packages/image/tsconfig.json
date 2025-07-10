@@ -1,13 +1,18 @@
 {
-    "include": ["src", "../../typings", "../../external"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
-        "outDir": "dist",
         "rootDirs": ["src"],
-        "baseUrl": ".",
+        "outDir": "dist",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-config": ["../../external/core-config/src"]
+            "@alfalab/core-components-config": ["../config/src"],
+            "@alfalab/core-components-config/*": ["../config/src/*"]
         }
-    }
+    },
+    "references": [
+        { "path": "../screenshot-utils" },
+        { "path": "../test-utils" },
+        { "path": "../config" }
+    ]
 }

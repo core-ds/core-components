@@ -1,7 +1,7 @@
-import React, { type ImgHTMLAttributes, Suspense, useMemo, useRef } from 'react';
+import React, { type ImgHTMLAttributes, Suspense, useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
-import { useComponentOverrides } from '@alfalab/core-config';
+import { useComponentOverrides } from '@alfalab/core-components-config';
 
 import { useInViewRef } from './hooks/use-in-view-ref';
 
@@ -35,6 +35,8 @@ export type ImageProps = {
     src: string;
     /** Сss класс для стилизации общей обёртки */
     className?: string;
+    /** Загружать ли изображение, если оно находится в viewPort пользователя */
+    inViewOption?: boolean;
     /** Id компонента для тестов */
     dataTestId?: string;
     /** Мапа проксирующих ресурсов */
@@ -46,8 +48,6 @@ export type ImageProps = {
         // Ссылка на доку
         url?: string;
     };
-
-    quality?: number;
 } & ImgHTMLAttributes<unknown>;
 
 /**
@@ -58,12 +58,20 @@ export type ImageProps = {
  *
  * [Макет]()
  */
-export const Image = ({ className, dataTestId, src, proxyMap, warning, ...props }: ImageProps) => {
-    // BLA BLA replace by new IntersectionObserver native api
-    const [imgRef, inView] = useInViewRef();
-    const loaded = useRef(false);
-
+export const Image = ({
+    className,
+    dataTestId,
+    src,
+    proxyMap,
+    warning,
+    inViewOption,
+    ...props
+}: ImageProps) => {
     const componentContext = useComponentOverrides<ImageProps>('Image');
+    const [imgRef, inView] = useInViewRef({
+        inViewOption: inViewOption || componentContext?.inViewOption,
+    });
+    const loaded = useRef(false);
 
     const url = useMemo(() => {
         const map = proxyMap || componentContext?.proxyMap || [];
@@ -81,7 +89,7 @@ export const Image = ({ className, dataTestId, src, proxyMap, warning, ...props 
         <img
             alt=''
             {...props}
-            src={inView || loaded.current ? url : undefined}
+            src={inView ? url : undefined}
             className={cn(className, {
                 [styles.fullSize]: Boolean(props.style?.objectFit),
             })}
@@ -93,7 +101,7 @@ export const Image = ({ className, dataTestId, src, proxyMap, warning, ...props 
 
                 loaded.current = true;
             }}
-            ref={imgRef.current}
+            ref={imgRef}
         />
     );
 

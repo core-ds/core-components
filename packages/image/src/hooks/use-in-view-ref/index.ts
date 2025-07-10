@@ -6,15 +6,18 @@ const defaultConfig: IntersectionObserverInit = {
     threshold: [0, 1],
 };
 
-export const useInViewRef = (
-    options?: IntersectionObserver,
-): [React.MutableRefObject<null>, boolean] => {
-    const [inView, setInView] = useState<boolean>(false);
+type Params = {
+    inViewOption?: boolean;
+} & Partial<IntersectionObserverInit>;
+
+export const useInViewRef = (options?: Params): [React.MutableRefObject<null>, boolean] => {
+    const enabled = options?.inViewOption;
+    const [inView, setInView] = useState<boolean>(!enabled);
     const ref = useRef(null);
 
     // eslint-disable-next-line consistent-return
     useEffect(() => {
-        if (ref.current) {
+        if (ref.current && enabled) {
             const observer = new IntersectionObserver(([entry]) => {
                 setInView(entry.isIntersecting);
             }, options || defaultConfig);
@@ -25,7 +28,7 @@ export const useInViewRef = (
                 observer.disconnect();
             };
         }
-    }, [options]);
+    }, [options, ref.current]);
 
     return [ref, inView];
 };

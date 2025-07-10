@@ -2,8 +2,8 @@ import { createContext, useContext } from 'react';
 
 export type CoreConfigContextValue = {
     breakpoint?: number;
-    client: 'desktop' | 'mobile';
-    components: CoreConfigContextComponents;
+    client?: 'desktop' | 'mobile';
+    components?: CoreConfigContextComponents;
 };
 
 // Добавить типы из компонентов нет возможности, так как будет зацикленный импорт зависимостей
