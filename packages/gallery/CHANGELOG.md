@@ -1,5 +1,77 @@
 # Change Log
 
+## 5.12.8
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1756](https://github.com/core-ds/core-components/pull/1756)
+
+-   safe-area отступы перенесены из modal в container
+
+## 5.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.3
+    -   base-modal@5.9.4
+    -   button@11.11.10
+    -   spinner@4.0.9
+    -   tooltip@7.9.16
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 5.12.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+    -   icon-view@3.10.2
+    -   tooltip@7.9.15
+
+## 5.12.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.2
+    -   button@11.11.9
+    -   spinner@4.0.8
+    -   tooltip@7.9.14
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 5.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   tooltip@7.9.13
+
+## 5.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   tooltip@7.9.12
+
+## 5.12.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.1
+    -   button@11.11.8
+    -   spinner@4.0.7
+    -   tooltip@7.9.11
+    -   typography@4.13.1
+    -   icon-button@6.11.11
+
 ## 5.12.1
 
 ### Patch Changes

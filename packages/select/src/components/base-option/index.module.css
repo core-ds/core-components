@@ -30,6 +30,10 @@
     &.checkmarkAfter.checkmarkAfter {
         padding: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-0);
 
+        &.size-72 {
+            padding-right: var(--gap-16);
+        }
+
         &.mobile {
             padding-right: var(--gap-20);
         }
@@ -37,6 +41,11 @@
 
     &.textContent {
         padding: var(--gap-12);
+
+        &.size-72 {
+            padding-left: var(--gap-16);
+            padding-right: var(--gap-16);
+        }
 
         &.mobile {
             padding: var(--gap-16) var(--gap-20) var(--gap-16) var(--gap-16);

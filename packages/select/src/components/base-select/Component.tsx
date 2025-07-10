@@ -24,6 +24,7 @@ import {
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
 import {
     defaultAccessor,
@@ -402,7 +403,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 !autocomplete &&
                 !nativeSelect &&
                 (event.target as HTMLElement).tagName !== 'INPUT' &&
-                (event.target as HTMLElement).tagName !== 'BUTTON'
+                (event.target as HTMLElement).tagName !== 'BUTTON' &&
+                (event.target as HTMLElement).tagName !== 'TEXTAREA'
             ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
@@ -564,10 +566,14 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     onChange={handleChange}
                     dataTestId={getDataTestId(dataTestId, 'search')}
                     onClear={handleClear}
-                    className={cn(searchProps?.componentProps?.className, {
-                        [styles.search]: view === 'desktop',
-                        [mobileStyles.search]: view === 'mobile',
-                    })}
+                    className={cn(
+                        searchProps?.componentProps?.className,
+                        {
+                            [styles.search]: view === 'desktop',
+                            [mobileStyles.search]: view === 'mobile',
+                        },
+                        size && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    )}
                     ref={mergeRefs([searchRef, searchProps?.componentProps?.ref || null])}
                 />
             );

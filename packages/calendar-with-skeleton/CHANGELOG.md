@@ -1,5 +1,55 @@
 # Change Log
 
+## 5.3.37
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.1
+
+## 5.3.36
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.0
+
+## 5.3.35
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+
+## 5.3.34
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.6
+
+## 5.3.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+
+## 5.3.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.4.0
+    -   calendar@7.18.4
+
+## 5.3.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.3
+
 ## 5.3.30
 
 ### Patch Changes

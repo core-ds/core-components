@@ -1,5 +1,35 @@
 # @alfalab/core-components-shared
 
+## 0.18.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+-   Добавлена проверка `isMaskitoMask`
+
+## 0.17.1
+
+### Patch Changes
+
+<sup><time>27.05.2025</time></sup>
+
+### [#1718](https://github.com/core-ds/core-components/pull/1718)
+
+-   Добавлена поддержка и преобразование argb в rgba у функции get-color-var
+
+## 0.17.0
+
+### Minor Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1697](https://github.com/core-ds/core-components/pull/1697)
+
+-   Добавлена утилита get-color-var
+
 ## 0.16.0
 
 ### Minor Changes

@@ -89,12 +89,24 @@ export interface BaseUniversalDateInputProps
     inputWrapperRef?: React.Ref<HTMLDivElement> | null;
 
     /**
-     *  Обработчик открытия календаря
+     * Флаг, открыт ли календарь
+     */
+    calendarOpen?: boolean;
+
+    /**
+     * Обработчик изменения открытия календаря
+     */
+    onCalendarOpenChange?: (open: boolean) => void;
+
+    /**
+     * Обработчик открытия календаря
+     * @deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange}
      */
     onCalendarOpen?: () => void;
 
     /**
-     *  Обработчик закрытия календаря
+     * Обработчик закрытия календаря
+     * @deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange}
      */
     onCalendarClose?: () => void;
 
@@ -262,7 +274,12 @@ type WithPickerRequiredProps = Required<Pick<BaseUniversalDateInputProps, 'Calen
 
 type WithPickerNotRequiredProps = Pick<
     BaseUniversalDateInputProps,
-    'calendarProps' | 'popoverProps' | 'onCalendarOpen' | 'onCalendarClose'
+    | 'calendarProps'
+    | 'popoverProps'
+    | 'onCalendarOpen'
+    | 'onCalendarClose'
+    | 'calendarOpen'
+    | 'onCalendarOpenChange'
 >;
 
 type WithPickerProps = WithPickerRequiredProps & WithPickerNotRequiredProps;

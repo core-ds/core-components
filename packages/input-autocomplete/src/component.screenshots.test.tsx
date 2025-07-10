@@ -230,3 +230,113 @@ describe('InputAutocompleteModalMobile | interactions', () => {
         }
     });
 });
+
+describe('InputAutocompleteDesktop | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `theme ${theme}`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input-autocomplete',
+                        componentName: 'InputAutocompleteDesktop',
+                        knobs: {
+                            block: true,
+                            value: 'Neptunium',
+                            selected: JSON.stringify([{ key: 'Neptunium' }]),
+                            options: JSON.stringify([
+                                { key: 'Neptunium', content: 'Вариант из списка' },
+                            ]),
+                            success: true,
+                            inputProps: ['{"rightAddons":"right","clear":true}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `theme ${theme}`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input-autocomplete',
+                        componentName: 'InputAutocompleteDesktop',
+                        knobs: {
+                            block: true,
+                            value: 'Neptunium',
+                            selected: JSON.stringify([{ key: 'Neptunium' }]),
+                            options: JSON.stringify([
+                                { key: 'Neptunium', content: 'Вариант из списка' },
+                            ]),
+                            error: true,
+                            inputProps: ['{"rightAddons":"right","clear":true}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            theme,
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 350,
+                height: 620,
+            },
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
+
+describe('InputAutocompleteMobile | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `theme ${theme}`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input-autocomplete',
+                        componentName: 'InputAutocompleteMobile',
+                        knobs: {
+                            block: true,
+                            value: 'Neptunium',
+                            selected: JSON.stringify([{ key: 'Neptunium' }]),
+                            options: JSON.stringify([
+                                { key: 'Neptunium', content: 'Вариант из списка' },
+                            ]),
+                            success: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            inputProps: ['{"clear":true}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `theme ${theme}`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input-autocomplete',
+                        componentName: 'InputAutocompleteMobile',
+                        knobs: {
+                            block: true,
+                            value: 'Neptunium',
+                            selected: JSON.stringify([{ key: 'Neptunium' }]),
+                            options: JSON.stringify([
+                                { key: 'Neptunium', content: 'Вариант из списка' },
+                            ]),
+                            error: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            inputProps: ['{"clear":true}'],
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            theme,
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 350,
+                height: 620,
+            },
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});

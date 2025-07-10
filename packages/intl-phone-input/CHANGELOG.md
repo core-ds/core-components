@@ -1,5 +1,61 @@
 # Change Log
 
+## 9.12.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+    -   input-autocomplete@12.9.7
+
+## 9.12.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   input-autocomplete@12.9.6
+
+## 9.12.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+    -   input-autocomplete@12.9.5
+
+## 9.12.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.4
+    -   select@17.21.2
+
+## 9.12.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+    -   input-autocomplete@12.9.3
+
+## 9.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input-autocomplete@12.9.2
+
+## 9.12.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.1
+    -   select@17.20.14
+
 ## 9.12.5
 
 ### Patch Changes

@@ -345,4 +345,14 @@ describe('Confirmation', () => {
             });
         });
     });
+
+    describe('Classes tests', () => {
+        it('should add "center" class', () => {
+            const { container } = render(
+                <ConfirmationDesktop {...baseProps} alignContent={'center'} />,
+            );
+
+            expect(container.firstElementChild).toHaveClass('center');
+        });
+    });
 });

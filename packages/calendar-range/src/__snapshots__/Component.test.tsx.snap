@@ -931,34 +931,30 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
     />
     <div>
       <div
-        class="wrapper block"
-        tabindex="-1"
+        class="component component size-48 size-48 block hasRightAddons"
       >
         <div
-          class="component component size-48 size-48 block hasRightAddons"
+          class="inner inner inner inner"
         >
           <div
-            class="inner inner inner inner"
+            class="inputWrapper"
           >
             <div
-              class="inputWrapper"
+              class="input size-48"
             >
-              <div
-                class="input size-48"
-              >
-                <input
-                  class="input size-48 input"
-                  inputmode="decimal"
-                  placeholder="ДД.ММ.ГГГГ"
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                class="input size-48 input"
+                inputmode="decimal"
+                pattern="[0-9\\\\.]*"
+                placeholder="ДД.ММ.ГГГГ"
+                type="text"
+                value=""
+              />
             </div>
-            <div
-              class="addons rightAddons"
-            />
           </div>
+          <div
+            class="addons rightAddons"
+          />
         </div>
       </div>
       <div>

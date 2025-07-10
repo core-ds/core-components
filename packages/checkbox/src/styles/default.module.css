@@ -45,9 +45,11 @@
     color: var(--checkbox-icon-color);
 }
 
-.component:hover:not(.disabled) .box {
-    background-color: var(--checkbox-hover-bg-color);
-    border-color: var(--checkbox-hover-border-color);
+@media (hover: hover) {
+    .component:hover:not(.disabled) .box {
+        background-color: var(--checkbox-hover-bg-color);
+        border-color: var(--checkbox-hover-border-color);
+    }
 }
 
 .component:active:not(.disabled) .box {

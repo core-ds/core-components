@@ -47,9 +47,11 @@
     color: var(--checkbox-icon-color-inverted);
 }
 
-.component:hover:not(.disabled) .box {
-    background-color: var(--checkbox-hover-bg-color-inverted);
-    border-color: var(--checkbox-hover-border-color-inverted);
+@media (hover: hover) {
+    .component:hover:not(.disabled) .box {
+        background-color: var(--checkbox-hover-bg-color-inverted);
+        border-color: var(--checkbox-hover-border-color-inverted);
+    }
 }
 
 .component:active:not(.disabled) .box {

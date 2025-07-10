@@ -282,7 +282,7 @@ render(() => {
     const [count, setCount] = React.useState('3');
     const [size, setSize] = React.useState(IS_MOBILE ? 'xs' : 's');
     const [shape, setShape] = React.useState('rounded');
-    const [tagView, setTagView] = React.useState('outlined');
+    const [tagView, setTagView] = React.useState('filled');
 
     const handleChange = (event, { selectedId }) => {
         setSelectedId(selectedId);
@@ -400,6 +400,8 @@ render(() => {
                     selectedId={selectedSecondaryId}
                     onChange={handleSecondaryChange}
                     view='secondary'
+                    tagShape='rounded'
+                    tagView='filled'
                     size='xs'
                 >
                     <Tab title='Aurum' id='tab-1' rightAddons={addon} />
@@ -445,6 +447,8 @@ render(() => {
                     selectedId={selectedSecondaryId}
                     onChange={handleSecondaryChange}
                     view='secondary'
+                    tagShape='rounded'
+                    tagView='filled'
                     size='xs'
                 >
                     <Tab title='Aurum' id='tab-1' rightAddons={addon} />
@@ -476,10 +480,10 @@ render(() => {
 
     return (
         <Space size={20}>
-            <TabsDesktop 
-                size='xs' 
-                selectedId={selectedId} 
-                onChange={handleChange}  
+            <TabsDesktop
+                size='xs'
+                selectedId={selectedId}
+                onChange={handleChange}
                 showSkeleton={showSkeleton}
             >
                 <Tab title='Aurum' id='tab-1' />
@@ -494,6 +498,8 @@ render(() => {
                 selectedId={selectedSecondaryId}
                 onChange={handleSecondaryChange}
                 view='secondary'
+                tagShape='rounded'
+                tagView='filled'
                 size='xs'
                 showSkeleton={showSkeleton}
             >
@@ -524,10 +530,10 @@ render(() => {
 
     return (
         <Space size={20}>
-            <TabsMobile 
-                size='xs' 
-                selectedId={selectedId} 
-                onChange={handleChange} 
+            <TabsMobile
+                size='xs'
+                selectedId={selectedId}
+                onChange={handleChange}
                 showSkeleton={showSkeleton}
             >
                 <Tab title='Aurum' id='tab-1' />
@@ -542,6 +548,8 @@ render(() => {
                 selectedId={selectedSecondaryId}
                 onChange={handleSecondaryChange}
                 view='secondary'
+                tagShape='rounded'
+                tagView='filled'
                 size='xs'
                 showSkeleton={showSkeleton}
             >
