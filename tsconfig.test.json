@@ -294,7 +294,9 @@
             "@alfalab/core-components-vars": ["./packages/vars/src"],
             "@alfalab/core-components-vars/*": ["./packages/vars/src/*"],
             "@alfalab/core-components-with-suffix": ["./packages/with-suffix/src"],
-            "@alfalab/core-components-with-suffix/*": ["./packages/with-suffix/src/*"]
+            "@alfalab/core-components-with-suffix/*": ["./packages/with-suffix/src/*"],
+            "@alfalab/core-components-image": ["./packages/image/src"],
+            "@alfalab/core-components-image/*": ["./packages/image/src/*"]
         }
     }
 }
