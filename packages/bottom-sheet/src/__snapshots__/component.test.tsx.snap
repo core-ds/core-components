@@ -40,17 +40,17 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
               class="wrapper"
             >
               <div
-                class="component"
+                class="component component"
                 style="max-height: 744px;"
               >
                 <div
-                  class="marker defaultMarker"
+                  class="marker defaultMarker defaultMarker"
                 />
                 <div
                   class="scrollableContainer"
                 >
                   <div
-                    class="header headerWrapper hasContent"
+                    class="header headerWrapper hasContent hasContent"
                   >
                     <div
                       class="mainLine"
@@ -60,7 +60,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                         style="visibility: visible;"
                       >
                         <div
-                          class="title"
+                          class="title title"
                         >
                           Bottom sheet title
                         </div>
@@ -68,7 +68,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="content noFooter"
+                    class="content content noFooter"
                   >
                     <div>
                       Bottom sheet content
@@ -129,17 +129,17 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
               class="wrapper"
             >
               <div
-                class="component"
+                class="component component"
                 style="max-height: 744px;"
               >
                 <div
-                  class="marker defaultMarker"
+                  class="marker defaultMarker defaultMarker"
                 />
                 <div
                   class="scrollableContainer"
                 >
                   <div
-                    class="header headerWrapper hasContent"
+                    class="header headerWrapper hasContent hasContent"
                   >
                     <div
                       class="mainLine"
@@ -149,7 +149,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                         style="visibility: visible;"
                       >
                         <div
-                          class="title"
+                          class="title title"
                         >
                           Bottom sheet title
                         </div>
@@ -157,14 +157,14 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                     </div>
                   </div>
                   <div
-                    class="content"
+                    class="content content"
                   >
                     <div>
                       Bottom sheet content
                     </div>
                   </div>
                   <div
-                    class="footer sticky"
+                    class="footer hasContent sticky"
                   >
                     <div />
                   </div>

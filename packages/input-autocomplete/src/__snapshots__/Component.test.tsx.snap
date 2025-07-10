@@ -117,17 +117,17 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
               class="wrapper"
             >
               <div
-                class="component sheet"
+                class="component component sheet"
                 style="max-height: 744px; height: 744px;"
               >
                 <div
-                  class="marker defaultMarker"
+                  class="marker defaultMarker defaultMarker"
                 />
                 <div
                   class="scrollableContainer sheetContainer"
                 >
                   <div
-                    class="header headerWrapper sticky"
+                    class="header headerWrapper hasContent sticky"
                   >
                     <div
                       class="mainLine"
@@ -200,7 +200,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     </div>
                   </div>
                   <div
-                    class="content sheetContent noFooter"
+                    class="content content sheetContent noFooter"
                   >
                     <div
                       aria-labelledby="downshift-:r1:-label"
