@@ -18,8 +18,11 @@ export const useInViewRef = (options?: Params): [React.MutableRefObject<null>, b
     // eslint-disable-next-line consistent-return
     useEffect(() => {
         if (ref.current && enabled) {
-            const observer = new IntersectionObserver(([entry]) => {
-                setInView(entry.isIntersecting);
+            const observer = new IntersectionObserver(([entry], observer) => {
+                if (entry.isIntersecting) {
+                    setInView(entry.isIntersecting);
+                    observer.disconnect();
+                }
             }, options || defaultConfig);
 
             observer.observe(ref.current);

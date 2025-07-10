@@ -1,4 +1,4 @@
-import React, { type ImgHTMLAttributes, Suspense, useEffect, useMemo, useRef } from 'react';
+import React, { type ImgHTMLAttributes, useMemo } from 'react';
 import cn from 'classnames';
 
 import { useComponentOverrides } from '@alfalab/core-components-config';
@@ -41,15 +41,7 @@ export type ImageProps = {
     dataTestId?: string;
     /** Мапа проксирующих ресурсов */
     proxyMap?: ImageProxyMap;
-    // Настройки overlay с предупреждением, что картинка слишком большая
-    warning?: {
-        // Сообщение в overlay
-        message?: string;
-        // Ссылка на доку
-        url?: string;
-    };
 } & ImgHTMLAttributes<unknown>;
-
 /**
  * Компонент, который проксирует картинки из источников
  * Также смотрящий за viewPort пользователя, загружая то что видит человек
@@ -63,7 +55,6 @@ export const Image = ({
     dataTestId,
     src,
     proxyMap,
-    warning,
     inViewOption,
     ...props
 }: ImageProps) => {
@@ -71,7 +62,6 @@ export const Image = ({
     const [imgRef, inView] = useInViewRef({
         inViewOption: inViewOption || componentContext?.inViewOption,
     });
-    const loaded = useRef(false);
 
     const url = useMemo(() => {
         const map = proxyMap || componentContext?.proxyMap || [];
@@ -85,7 +75,7 @@ export const Image = ({
         return src;
     }, [src, componentContext?.proxyMap, proxyMap]);
 
-    const imgCom = (
+    return (
         <img
             alt=''
             {...props}
@@ -94,36 +84,7 @@ export const Image = ({
                 [styles.fullSize]: Boolean(props.style?.objectFit),
             })}
             data-test-id={dataTestId}
-            onLoad={(e) => {
-                if (props.onLoad) {
-                    props.onLoad(e);
-                }
-
-                loaded.current = true;
-            }}
             ref={imgRef}
         />
-    );
-
-    const warningOptions = warning || componentContext?.warning;
-
-    if (!warningOptions) {
-        return imgCom;
-    }
-
-    return (
-        <div
-            className={cn(styles.imgWrapper, {
-                [styles.fullSize]: Boolean(props.style?.objectFit),
-            })}
-        >
-            {imgCom}
-
-            {(inView || loaded.current) && (
-                <Suspense fallback=''>
-                    <LazyImageCdnIntegration src={url} warning={warning} />
-                </Suspense>
-            )}
-        </div>
     );
 };
