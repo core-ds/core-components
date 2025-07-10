@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.10.3
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1733](https://github.com/core-ds/core-components/pull/1733)
+
+-   Исправлено позиционирование индикатора для размера 64
+
 ## 3.10.2
 
 ### Patch Changes

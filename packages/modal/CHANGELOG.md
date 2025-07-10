@@ -1,5 +1,24 @@
 # Change Log
 
+## 9.9.19
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1759](https://github.com/core-ds/core-components/pull/1759)
+
+-   Изменен `border-radius` для десктопной модалки с 12px на 24px во всех темах и для всех размеров (кроме fullscreen, у него нет скруглений)
+
+## 9.9.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   base-modal@5.9.4
+    -   navigation-bar-private@0.8.7
+
 ## 9.9.17
 
 ### Patch Changes

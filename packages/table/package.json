@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-table",
-    "version": "2.10.14",
+    "version": "2.10.16",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,12 +16,12 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.9",
-        "@alfalab/core-components-pagination": "^2.4.13",
-        "@alfalab/core-components-select": "^17.21.3",
+        "@alfalab/core-components-button": "^11.11.10",
+        "@alfalab/core-components-pagination": "^2.4.15",
+        "@alfalab/core-components-select": "^17.21.5",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }

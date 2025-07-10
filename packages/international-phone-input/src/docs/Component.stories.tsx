@@ -28,10 +28,12 @@ export const international_phone_input: Story = {
         const [value, setValue] = useState('');
 
         const handleChange: InternationalPhoneInputProps['onChange'] = (phone) => setValue(phone);
+        const size = select('size', [48, 56, 64, 72], 48);
 
         return (
             <div style={{ width: '320px' }}>
                 <InternationalPhoneInput
+                    size={size}
                     label='Номер телефона'
                     placeholder='Введите номер телефона'
                     value={value}

@@ -1,4 +1,9 @@
-const req = require.context('../../', true, /^\.\/(.*)\/src\/(index|(desktop|mobile)\/index).ts$/);
+// super-ellipse|circle|rectangle|no-shape for icon-view
+const req = require.context(
+    '../../',
+    true,
+    /^\.\/(.*)\/src\/(index|(desktop|mobile|super-ellipse|circle|rectangle|no-shape)\/index).ts$/,
+);
 
 const packages = req.keys().reduce((acc, key) => {
     const packageName = key.split('/')[1];

@@ -25,6 +25,27 @@
         }
     }
 
+    &.transparent {
+        color: var(--tag-inverted-text-color);
+        border-color: var(--tag-inverted-transparent-border-color);
+        background-color: var(--tag-inverted-transparent-background-color);
+
+        &:disabled {
+            color: var(--tag-inverted-text-color-disabled);
+            background-color: var(--tag-inverted-transparent-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-inverted-transparent-background-color-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-inverted-transparent-background-color-active);
+        }
+    }
+
     &.filled {
         color: var(--tag-inverted-text-color);
         border-color: var(--tag-inverted-filled-border-color);

@@ -1,5 +1,25 @@
 # Change Log
 
+## 7.15.3
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+-   Версия пакета @alfalab/data обновлена до 1.9.2
+
+## 7.15.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   input@15.6.2
+    -   number-input@2.7.2
+    -   with-suffix@4.2.20
+
 ## 7.15.1
 
 ### Patch Changes

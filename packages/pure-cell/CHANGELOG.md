@@ -1,5 +1,36 @@
 # Change Log
 
+## 4.15.0
+
+### Minor Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1758](https://github.com/core-ds/core-components/pull/1758)
+
+-   Добавлен новый тип `max` отступа от графики
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+-   Версия пакета @alfalab/data обновлена до 1.9.2
+
+-   Обновлены зависимости
+    -   amount@3.10.2
+
+## 4.14.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   typography@4.14.3
+    -   comment@2.4.15
+
 ## 4.14.12
 
 ### Patch Changes

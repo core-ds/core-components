@@ -1,5 +1,31 @@
 # Change Log
 
+## 7.19.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.19
+
+## 7.19.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1725](https://github.com/core-ds/core-components/pull/1725)
+
+-   Добавлена возможность управлять кнопкой назад для CalendarMobile (пропсы hasBackButton, onBack)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   modal@9.9.18
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
 ## 7.18.7
 
 ### Patch Changes

@@ -1,3 +1,249 @@
+## 48.29.0
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1756](https://github.com/core-ds/core-components/pull/1756)
+
+#### Что изменилось
+- safe-area отступы перенесены из modal в container
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+### [#1758](https://github.com/core-ds/core-components/pull/1758)
+
+#### Что изменилось
+- Добавлен новый тип `max` отступа от графики
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1755](https://github.com/core-ds/core-components/pull/1755)
+
+#### Что изменилось
+- Удален отступ у последнего дочернего элемента списка Steps
+
+#### Влияние на компоненты
+- Патчи<br />`steps`
+
+
+### [#1727](https://github.com/core-ds/core-components/pull/1727)
+
+#### Что изменилось
+- Добавлен view: transparent для компонента <Tag />
+
+#### Влияние на компоненты
+- Минорное<br />`tag`
+
+
+### [#1759](https://github.com/core-ds/core-components/pull/1759)
+
+#### Что изменилось
+- Изменен `border-radius` для десктопной модалки с 12px на 24px во всех темах и для всех размеров (кроме fullscreen, у него нет скруглений)
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+#### Что изменилось
+- Версия пакета @alfalab/data обновлена до 1.9.2
+
+#### Влияние на компоненты
+- Патчи<br />`amount` `amount-input` `pure-cell`
+
+
+
+## 48.28.0
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1698](https://github.com/core-ds/core-components/pull/1698)
+
+#### Что изменилось
+- При вставке номера телефона без знака "+" номер не обрезается.
+
+#### Влияние на компоненты
+- Патчи<br />`phone-input`
+
+
+### [#1744](https://github.com/core-ds/core-components/pull/1744)
+
+#### Что изменилось
+Добавлены пропсы для управления открытием календаря `calendarOpen` и `onCalendarOpenChange`.
+
+Пропсы `onCalendarOpen` и `onCalendarClose` помечены как `deprecated`. Вместо них используйте `onCalendarOpenChange`.
+
+#### Влияние на компоненты
+- Минорное<br />`universal-date-input`
+
+
+### [#1644](https://github.com/core-ds/core-components/pull/1644)
+
+#### Что изменилось
+- Для размера XL горизонтальные паддинги исправлены на 16px в соответствии с дизайном
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input` `select`
+
+
+### [#1733](https://github.com/core-ds/core-components/pull/1733)
+
+#### Что изменилось
+- Исправлено позиционирование индикатора для размера 64
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1734](https://github.com/core-ds/core-components/pull/1734)
+
+#### Что изменилось
+- Исправлено использование `useLazyLoading`
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#1729](https://github.com/core-ds/core-components/pull/1729)
+
+#### Что изменилось
+- Исправлено определение вставки чисел перед знаком `+` или после него. Ранее могло приводить к ошибкам при управлении компонентом с помощью изменения `value`
+
+#### Влияние на компоненты
+- Патчи<br />`phone-input`
+
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+#### Что изменилось
+- Добавлена проверка `isMaskitoMask`
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+<br />
+
+#### Что изменилось
+- Исправлено отображение маскированного значения в компоненте `InputAutocompleteMobile`
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#1707](https://github.com/core-ds/core-components/pull/1707)
+
+#### Что изменилось
+- Исправлен проброс classname undefined `[styles.disabled]: disabled`
+
+#### Влияние на компоненты
+- Патчи<br />`filter-tag`
+
+
+### [#1723](https://github.com/core-ds/core-components/pull/1723)
+
+#### Что изменилось
+- Исправлена работа пропса onBlur для date-range варианта при использовании пикера
+
+#### Влияние на компоненты
+- Патчи<br />`universal-date-input`
+
+
+### [#1745](https://github.com/core-ds/core-components/pull/1745)
+
+#### Что изменилось
+- Для темы click в side-panel footer приведен к общей теме
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#1725](https://github.com/core-ds/core-components/pull/1725)
+
+#### Что изменилось
+- Добавлена возможность управлять кнопкой назад для CalendarMobile (пропсы hasBackButton, onBack)
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#1742](https://github.com/core-ds/core-components/pull/1742)
+
+#### Что изменилось
+- Добавлен оператор опциональной последовательности при вызове фокуса
+
+#### Влияние на компоненты
+- Патчи<br />`code-input`
+
+
+### [#1730](https://github.com/core-ds/core-components/pull/1730)
+
+#### Что изменилось
+- Исправлено выравнивание компонента для `alignContent=left`. Теперь контейнер будет прижат к левому краю, а не располагаться по центру.
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+### [#1747](https://github.com/core-ds/core-components/pull/1747)
+
+#### Что изменилось
+- Добавлен дополнительный класс для контейнера горизонтальной полосы прокрутки horizontalBarClassName
+
+#### Влияние на компоненты
+- Минорное<br />`scrollbar`
+
+
+### [#1545](https://github.com/core-ds/core-components/pull/1545)
+
+#### Что изменилось
+- Исправлена валидация вводимого времени, которая раннее могла приводить к выводу неправильной даты в разных таймзонах
+
+#### Влияние на компоненты
+- Патчи<br />`universal-date-input`
+
+
+### [#1706](https://github.com/core-ds/core-components/pull/1706)
+
+#### Что изменилось
+- Исключение возможности проброса onClear через компонент `SelectWithTag` в `BaseFormControl`
+
+#### Влияние на компоненты
+- Минорное<br />`select-with-tags`
+
+
+
+## 48.27.5
+
+<sup><time>17.06.2025</time></sup>
+
+### [#1743](https://github.com/core-ds/core-components/pull/1743)
+
+#### Что изменилось
+- Открыт для использования пропс `disableBackdropClick` в десктопной версии
+
+#### Влияние на компоненты
+- Патчи<br />`universal-modal`
+
+
+
+## 48.27.4
+
+<sup><time>16.06.2025</time></sup>
+
+### [#1741](https://github.com/core-ds/core-components/pull/1741)
+
+#### Что изменилось
+- Добавлен `colors-promo` в сборку цветовых наборов в виде js модулей
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+
 ## 48.27.3
 
 <sup><time>30.05.2025</time></sup>

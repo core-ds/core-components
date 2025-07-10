@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1727](https://github.com/core-ds/core-components/pull/1727)
+
+-   Добавлен view: transparent для компонента <Tag />
+
+## 8.6.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 8.6.9
 
 ### Patch Changes
