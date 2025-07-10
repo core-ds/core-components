@@ -106,7 +106,7 @@
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^26.3.0",
+        "ui-primitives": "^28.8.0",
         "use-sync-external-store": "^1.4.0"
     },
     "devDependencies": {
