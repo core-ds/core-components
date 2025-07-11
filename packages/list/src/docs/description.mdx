@@ -11,41 +11,41 @@ render(() => {
         backgroundColor: 'rgba(55, 120, 251, 0.1)',
         border: '1px dashed rgb(55, 120, 251)',
         boxSizing: 'border-box',
-    }
+    };
 
     return (
-      <Container>
-        <Row align='middle'>
-          <div style={styleContent}></div> 
-          <Typography.Text view='primary-medium'>Пример текстовой части</Typography.Text>
-        </Row>
-      </Container>
+        <Container>
+            <Row align='middle'>
+                <div style={styleContent}></div>
+                <Typography.Text view='primary-medium'>Пример текстовой части</Typography.Text>
+            </Row>
+        </Container>
     );
 });
 ```
 
 ## Примеры
 
-Доступны нумерованные и маркированные виды списков. 
+Доступны нумерованные и маркированные виды списков.
 При необходимости, цвет маркера можно изменить. Каждому пункту можно добавить подпись.
 
 ```jsx live
 <Space>
-  <Typography.Text view='primary-medium'>Пример маркированного списка:</Typography.Text>    
-     <List tag='ul' marker='•'>
+    <Typography.Text view='primary-medium'>Пример маркированного списка:</Typography.Text>
+    <List tag='ul' marker='–'>
         <List.Item>Пример элемента списка</List.Item>
         <List.Item>Пример элемента списка</List.Item>
         <List.Item>Пример элемента списка</List.Item>
-         <List.Item>Пример элемента списка</List.Item>
+        <List.Item>Пример элемента списка</List.Item>
         <List.Item>Пример элемента списка</List.Item>
     </List>
-  <Typography.Text view='primary-medium'>Пример нумерованного списка:</Typography.Text>    
+    <Typography.Text view='primary-medium'>Пример нумерованного списка:</Typography.Text>
 
-     <List tag='ol' colorMarker='tertiary'>
+    <List tag='ol' colorMarker='tertiary'>
         <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>
         <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>
         <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>
-            <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>
+        <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>
         <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>
     </List>
 </Space>
