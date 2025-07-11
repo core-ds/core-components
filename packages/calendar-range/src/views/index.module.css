@@ -18,6 +18,8 @@
 }
 
 .static {
+    flex-direction: column;
+
     & .calendar {
         width: var(--calendar-inner-width);
 
@@ -25,6 +27,15 @@
             padding: var(--gap-16) var(--gap-0) var(--gap-12);
         }
     }
+}
+
+.inputsContainer {
+    display: flex;
+}
+
+.calendarContainers {
+    display: flex;
+    gap: 32px;
 }
 
 .calendarContainer {

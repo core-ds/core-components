@@ -5,7 +5,9 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
   <div
     class="component static"
   >
-    <div>
+    <div
+      class="inputsContainer"
+    >
       <div
         class="wrapper block"
         tabindex="-1"
@@ -32,11 +34,49 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-48"
             />
           </div>
         </div>
       </div>
+      <span
+        class="component s"
+      />
+      <div
+        class="wrapper block"
+        tabindex="-1"
+      >
+        <div
+          class="component component size-48 size-48 block hasRightAddons"
+        >
+          <div
+            class="inner inner inner inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="input size-48"
+              >
+                <input
+                  class="input size-48 input"
+                  inputmode="decimal"
+                  placeholder="ДД.ММ.ГГГГ"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="calendarContainers"
+    >
       <div
         class="calendarContainer"
       >
@@ -922,42 +962,6 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      class="component s"
-    />
-    <div>
-      <div
-        class="wrapper block"
-        tabindex="-1"
-      >
-        <div
-          class="component component size-48 size-48 block hasRightAddons"
-        >
-          <div
-            class="inner inner inner inner"
-          >
-            <div
-              class="inputWrapper"
-            >
-              <div
-                class="input size-48"
-              >
-                <input
-                  class="input size-48 input"
-                  inputmode="decimal"
-                  placeholder="ДД.ММ.ГГГГ"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-            <div
-              class="addons rightAddons"
-            />
           </div>
         </div>
       </div>
