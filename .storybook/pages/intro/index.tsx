@@ -9,7 +9,7 @@ import packageJson from '../../../package.json';
 
 import styles from './index.module.css';
 
-const MAINTAINERS = ['reme3d2y', 'Oladii', 'SiebenSieben', 'hextion', 'fulcanellee'];
+const MAINTAINERS = ['dHIM24', 'Oladii', 'SiebenSieben', 'hextion', 'fulcanellee'];
 const MAINTAINERS_COUNT = MAINTAINERS.length;
 const PHOTO_SIZE = 40;
 const PHOTO_OFFSET = 9;
