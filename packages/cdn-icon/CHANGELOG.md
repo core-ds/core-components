@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.4.3
+
+### Patch Changes
+
+<sup><time>14.07.2025</time></sup>
+
+### [#1777](https://github.com/core-ds/core-components/pull/1777)
+
+-   Исправлен `SSR`
+
 ## 5.4.2
 
 ### Patch Changes

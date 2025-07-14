@@ -26,5 +26,5 @@
         "@types/lodash": "^4.17.13"
     },
     "themesVersion": "13.7.4",
-    "varsVersion": "9.20.1"
+    "varsVersion": "9.20.2"
 }
