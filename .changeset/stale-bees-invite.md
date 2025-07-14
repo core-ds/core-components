@@ -2,4 +2,4 @@
 '@alfalab/core-components-pass-code': patch
 ---
 
-правка hover на "не-iOS" мобилках
+- Исправлено hover состояние KeyPadButton для android устройств
