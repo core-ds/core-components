@@ -182,6 +182,7 @@ export function getUniversalDateInputTestIds(dataTestId: string) {
         componentWrapper: getDataTestId(dataTestId, 'wrapper'),
         popover: getDataTestId(dataTestId, 'popover'),
         calendar: getDataTestId(dataTestId, 'calendar'),
+        calendarIcon: getDataTestId(dataTestId, 'calendar-icon'),
         inputWrapper: getDataTestId(dataTestId, 'form-control'),
         inputWrapperInner: getDataTestId(dataTestId, 'form-control-inner'),
         leftAddons: getDataTestId(dataTestId, 'form-control-left-addons'),

@@ -20,7 +20,6 @@
         "paths": {
             "@alfalab/core-components-modal/*": ["packages/modal/src/*"],
             "@alfalab/core-components-select/*": ["packages/select/src/*"],
-            "@alfalab/core-components-*": ["packages/*/src"],
             "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
             "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"],
             "@alfalab/core-components-plate/*": ["packages/plate/src/*"],
@@ -42,7 +41,8 @@
             "@alfalab/core-components-number-input/*": ["packages/number-input/src/*"],
             "@alfalab/core-components-navigation-bar-private/*": ["packages/navigation-bar-private/src/*"],
             "@alfalab/core-components-spinner/*": ["packages/spinner/src/*"],
-            "@alfalab/core-components-universal-date-input/*": ["packages/universal-date-input/src/*"]
+            "@alfalab/core-components-universal-date-input/*": ["packages/universal-date-input/src/*"],
+            "@alfalab/core-components-*": ["packages/*/src"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
