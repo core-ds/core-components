@@ -188,25 +188,38 @@ describe(
 );
 
 describe(
-    'ModalMobile | header title alignment',
+    'ModalMobile | title alignment',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Modal',
-            testStory: false,
-            knobs: {
-                ModalComponent: 'ModalMobile',
-                open: true,
-                header: true,
-                showMore: true,
-                'header.title': [
-                    'Заголовок',
-                    'Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок',
-                ],
-                'header.sticky': true,
-                'header.align': ['left', 'center'],
-                'header.hasBackButton': true,
-            },
-        }),
+        cases: [
+            ...generateTestCases({
+                componentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    ModalComponent: 'ModalMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.hasBackButton': true,
+                    'header.sticky': [true, false],
+                    'header.align': ['left', 'center'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    ModalComponent: 'ModalMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.sticky': true,
+                    'header.hasBackButton': false,
+                    'header.align': ['left', 'center'],
+                },
+            }),
+        ],
         viewport: {
             width: 320,
             height: 600,
@@ -218,7 +231,7 @@ describe(
 );
 
 describe(
-    'ModalMobile | header scrolled title alignment',
+    'ModalMobile | animated title alignment',
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'Modal',
@@ -228,13 +241,10 @@ describe(
                 open: true,
                 header: true,
                 showMore: true,
-                'header.title': [
-                    'Заголовок',
-                    'Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок',
-                ],
+                'header.title': 'Заголовок',
                 'header.sticky': true,
-                'header.align': ['left', 'center'],
                 'header.hasBackButton': true,
+                'header.align': ['left', 'center'],
             },
         }),
         viewport: {

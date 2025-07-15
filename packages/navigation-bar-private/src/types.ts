@@ -161,4 +161,5 @@ export type ContentParams = {
     wrapperRef?: React.RefObject<HTMLDivElement>;
     style?: React.CSSProperties;
     hidden?: boolean;
+    extraAlign?: NavigationBarPrivateProps['align'];
 };

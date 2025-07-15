@@ -114,6 +114,7 @@ export const ModalComponent = ModalDesktop;
                             title={headerTitle}
                             trim={trim}
                             align={align}
+                            {...(isMobile && {titleSize: select('titleSize', ['default', 'compact'], 'default')})}
                         />
                     )}
                     <ModalComponent.Content flex={flexContent}>

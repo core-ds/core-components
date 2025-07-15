@@ -202,25 +202,38 @@ describe(
 );
 
 describe(
-    'SidePanelMobile | header title alignment',
+    'SidePanelMobile | title alignment',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'SidePanel',
-            testStory: false,
-            knobs: {
-                SidePanelComponent: 'SidePanelMobile',
-                open: true,
-                header: true,
-                showMore: true,
-                'header.title': [
-                    'Заголовок',
-                    'Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок',
-                ],
-                'header.sticky': true,
-                'header.align': ['left', 'center'],
-                'header.hasBackButton': true,
-            },
-        }),
+        cases: [
+            ...generateTestCases({
+                componentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    SidePanelComponent: 'SidePanelMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.hasBackButton': true,
+                    'header.sticky': [true, false],
+                    'header.align': ['left', 'center'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    SidePanelComponent: 'SidePanelMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.sticky': true,
+                    'header.hasBackButton': false,
+                    'header.align': ['left', 'center'],
+                },
+            }),
+        ],
         viewport: {
             width: 320,
             height: 600,
@@ -232,7 +245,7 @@ describe(
 );
 
 describe(
-    'SidePanelMobile | header scrolled title alignment',
+    'SidePanelMobile | animated title alignment',
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'SidePanel',
@@ -242,13 +255,10 @@ describe(
                 open: true,
                 header: true,
                 showMore: true,
-                'header.title': [
-                    'Заголовок',
-                    'Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок',
-                ],
+                'header.title': 'Заголовок',
                 'header.sticky': true,
-                'header.align': ['left', 'center'],
                 'header.hasBackButton': true,
+                'header.align': ['left', 'center'],
             },
         }),
         viewport: {

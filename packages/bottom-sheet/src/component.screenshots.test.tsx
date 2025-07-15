@@ -206,6 +206,7 @@ const titleTest = async (knobs: Knobs, scroll: boolean = false) => {
             stickyHeader: true,
             stickyFooter: false,
             trimTitle: true,
+            title: 'Заголовок',
             ...knobs,
         },
     });
@@ -245,20 +246,13 @@ const titleTest = async (knobs: Knobs, scroll: boolean = false) => {
 };
 
 describe('BottomSheet | header', () => {
-    const shortTitle = 'Заголовок';
-    const longTitle = 'Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок';
+    test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: true }));
+    test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', stickyHeader: true }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', stickyHeader: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'left', hasBacker: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', hasBacker: false }));
 
-    test('title alignment', () => titleTest({ title: shortTitle, titleAlign: 'left' }));
-    test('title alignment', () => titleTest({ title: shortTitle, titleAlign: 'center' }));
-    test('title alignment', () => titleTest({ title: longTitle, titleAlign: 'left' }));
-    test('title alignment', () => titleTest({ title: longTitle, titleAlign: 'center' }));
-
-    test('scrolled title alignment', () =>
-        titleTest({ title: shortTitle, titleAlign: 'left' }, true));
-    test('scrolled title alignment', () =>
-        titleTest({ title: shortTitle, titleAlign: 'center' }, true));
-    test('scrolled title alignment', () =>
-        titleTest({ title: longTitle, titleAlign: 'left' }, true));
-    test('scrolled title alignment', () =>
-        titleTest({ title: longTitle, titleAlign: 'center' }, true));
+    test('animated title alignment', () => titleTest({ titleAlign: 'left' }, true));
+    test('animated title alignment', () => titleTest({ titleAlign: 'center' }, true));
 });

@@ -112,6 +112,7 @@ export let SidePanelComponent = SidePanelDesktop;
                             title={headerTitle}
                             trim={trim}
                             align={headerAlign}
+                            {...(isMobile && {titleSize: select('titleSize', ['default', 'compact'], 'default')})}
                         />
                     )}
                     <SidePanelComponent.Content>
