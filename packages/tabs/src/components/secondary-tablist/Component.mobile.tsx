@@ -20,14 +20,18 @@ export type SecondaryTabListMobileProps = Omit<SecondaryTabListProps, 'tagSize'>
 export const SecondaryTabListMobile = ({
     className,
     size,
+    tagView,
     ...restProps
 }: SecondaryTabListMobileProps) => (
     <SecondaryTabList
         {...restProps}
         TagComponent={TagMobile}
         styles={styles}
-        className={cn(className, styles.mobile)}
+        className={cn(className, styles.mobile, {
+            [styles.transparentView]: tagView === 'transparent',
+        })}
         tagSize={size}
+        tagView={tagView}
         platform='mobile'
     />
 );
