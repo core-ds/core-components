@@ -1,6 +1,6 @@
 import React, { FC, KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
-import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
+import SwiperCore, { A11y, Controller, Lazy, Zoom } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useFocus } from '@alfalab/hooks';
@@ -16,7 +16,7 @@ import { Slide } from './slide';
 import 'swiper/swiper.min.css';
 import styles from './index.module.css';
 
-SwiperCore.use([EffectFade, A11y, Controller]);
+SwiperCore.use([A11y, Controller, Zoom, Lazy]);
 
 export const ImageViewer: FC = () => {
     const {
@@ -68,7 +68,6 @@ export const ImageViewer: FC = () => {
     const swiperProps = useMemo<Swiper>(
         () => ({
             slidesPerView: 1,
-            effect: 'slide',
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
@@ -81,7 +80,13 @@ export const ImageViewer: FC = () => {
             },
             initialSlide,
             simulateTouch: false,
-            zoom: { maxRatio: 4, minRatio: 1, toggle: true },
+            zoom: {
+                maxRatio: 4,
+                minRatio: 1,
+                toggle: true,
+                containerClass: 'zoom-container',
+                zoomedSlideClass: 'zoomed-slide',
+            },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
             lazy: { loadPrevNext: true },

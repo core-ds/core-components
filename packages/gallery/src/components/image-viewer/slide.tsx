@@ -99,23 +99,25 @@ export const Slide: FC<SlideProps> = ({
 
     return (
         <SlideInner active={isActive} broken={broken} loading={!meta}>
-            <img
-                src={image.src}
-                alt={getImageAlt(image, index)}
-                className={cn({
-                    [styles.smallImage]: small,
-                    [styles.image]: !small && meta,
-                    [styles.mobile]: view === 'mobile',
-                    [styles.verticalImageFit]: verticalImageFit,
-                    [styles.horizontalImageFit]: horizontalImageFit,
-                })}
-                onLoad={(event) => handleLoad(event, index)}
-                onError={() => handleLoadError(index)}
-                style={{
-                    maxHeight: `${containerHeight}px`,
-                }}
-                data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
-            />
+            <div className='zoom-container'>
+                <img
+                    src={image.src}
+                    alt={getImageAlt(image, index)}
+                    className={cn('zoomed-slide', {
+                        [styles.smallImage]: small,
+                        [styles.image]: !small && meta,
+                        [styles.mobile]: view === 'mobile',
+                        [styles.verticalImageFit]: verticalImageFit,
+                        [styles.horizontalImageFit]: horizontalImageFit,
+                    })}
+                    onLoad={(event) => handleLoad(event, index)}
+                    onError={() => handleLoadError(index)}
+                    style={{
+                        maxHeight: `${containerHeight}px`,
+                    }}
+                    data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
+                />
+            </div>
         </SlideInner>
     );
 };
