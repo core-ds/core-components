@@ -22,7 +22,7 @@
     white-space: nowrap;
 }
 
-.desktop[class] {
+.desktop.desktop {
     &.transparentView.transparentView {
         .title.title {
             margin-left: var(--secondary-tablist-transparent-gaps);
