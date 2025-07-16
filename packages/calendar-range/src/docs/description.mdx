@@ -1,5 +1,7 @@
 ## Примеры
 
+Доступные даты с 10 декабря 2021 по 10 июня 2022.
+
 ```jsx live desktopOnly
 // import { startOfDay, subMonths, addMonths, startOfMonth, startOfDay } from 'date-fns';
 // import { parseDateString } from '@alfalab/core-components/calendar-input';
@@ -33,11 +35,12 @@ render(() => {
                 <Typography.Text view='primary-medium' color='secondary'>
                     Values: {valueFrom.value} — {valueTo.value}
                 </Typography.Text>
-                <Gap size='m'/>
+                <Gap size='m' />
                 <Typography.Text view='primary-medium' color='secondary'>
-                    Dates: {valueFrom.date && formatDate(valueFrom.date)} — {valueTo.date && formatDate(valueTo.date)}
+                    Dates: {valueFrom.date && formatDate(valueFrom.date)} —{' '}
+                    {valueTo.date && formatDate(valueTo.date)}
                 </Typography.Text>
-           </>   
+            </>
             <RadioGroup
                 label='Конфигурация пикера'
                 direction='vertical'
