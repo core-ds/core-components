@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createJsWithTsLegacyPreset, pathsToModuleNameMapper } from 'ts-jest';
 
-import { getPackages } from './tools/monorepo.cjs';
+import { resolveInternal } from './tools/resolve-internal.cjs';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
@@ -14,7 +14,6 @@ const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
 const IGNORED_MODULES = ['@alfalab/hooks', 'simplebar', 'uuid'];
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
-const { packages } = getPackages();
 
 /**
  * @type {import('ts-jest').JestConfigWithTsJest['projects']}
@@ -29,9 +28,9 @@ const [initialProjectOptions] = [
             ...pathsToModuleNameMapper(tsconfig.compilerOptions.paths, { prefix: '<rootDir>/' }),
             '\\.css$': 'identity-obj-proxy',
         },
-        testPathIgnorePatterns: packages
-            .filter(({ packageJson }) => IGNORED_PACKAGES.includes(packageJson.name))
-            .map(({ relativeDir }) => `<rootDir>/${relativeDir}`),
+        testPathIgnorePatterns: IGNORED_PACKAGES.map(
+            (pkg) => `<rootDir>/${path.relative(dirname, resolveInternal(pkg))}`,
+        ),
         transformIgnorePatterns: [`/node_modules/(?!(${IGNORED_MODULES.join('|')}))/`],
         // see https://jestjs.io/blog/2022/08/25/jest-29
         snapshotFormat: {

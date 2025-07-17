@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PLAYWRIGHT_VERSION=1.33.0
 CONTAINER_NAME='playwright-'$PLAYWRIGHT_VERSION''
@@ -13,7 +13,7 @@ check_error () {
 
 if [ ! -d "./build" ]
 then
-    yarn build-storybook-from-dist
+    yarn build-storybook
     check_error
 fi
 

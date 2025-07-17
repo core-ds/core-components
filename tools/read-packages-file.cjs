@@ -1,14 +1,28 @@
-const fs = require('node:fs');
+const { readFileSync } = require('node:fs');
+const { readFile } = require('node:fs/promises');
 
 /**
- * @param {import('node:fs').PathOrFileDescriptor} path
+ * @param {string} content
  */
-function readPackagesFile(path) {
-    return fs
-        .readFileSync(path, { encoding: 'utf8' })
+function process(content) {
+    return content
         .split('\n')
         .map((line) => line.trim())
         .filter((str) => str.length > 0);
 }
 
-module.exports = { readPackagesFile };
+/**
+ * @param {import('node:fs').PathLike | import('node:fs/promises').FileHandle} path
+ */
+async function readPackagesFile(path) {
+    return process(await readFile(path, { encoding: 'utf8' }));
+}
+
+/**
+ * @param {import('node:fs').PathOrFileDescriptor} path
+ */
+function readPackagesFileSync(path) {
+    return process(readFileSync(path, { encoding: 'utf8' }));
+}
+
+module.exports = { readPackagesFile, readPackagesFileSync };

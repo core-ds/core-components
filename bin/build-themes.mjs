@@ -8,11 +8,9 @@ import postcssColorMod from 'postcss-color-mod-function';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
 
-import { getPackages } from '../tools/monorepo.cjs';
+import { resolveInternal } from '../tools/resolve-internal.cjs';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
-const { packages } = getPackages();
-const vars = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-vars');
 
 const renderStyles = handlebars.compile(
     await fs.readFile(path.join(dirname, 'templates/css-styles-module.hbs'), { encoding: 'utf8' }),
@@ -56,7 +54,7 @@ const postcssAddImports = ({ files }) => ({
 const processComponentTheme = async (cssFile) => {
     const colors = await globby('src/colors-*.css', {
         ignore: ['**/*-indigo.css'],
-        cwd: vars.dir,
+        cwd: resolveInternal('@alfalab/core-components-vars'),
         absolute: true,
     });
 
@@ -93,7 +91,7 @@ const processRootTheme = async (cssFile) => {
                 '**/shadows-!(bluetint).css',
                 '**/*{index,dark}.css',
             ],
-            cwd: vars.dir,
+            cwd: resolveInternal('@alfalab/core-components-vars'),
             absolute: true,
         });
     };

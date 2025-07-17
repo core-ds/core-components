@@ -9,7 +9,6 @@
         "jest.screenshots.config.mjs",
         "lint-staged.config.mjs",
         "playwright.config.js",
-        "rollup.config.mjs",
         "tools",
         "tools/.eslintrc.cjs",
         "tools/gh-actions/.eslintrc.cjs"

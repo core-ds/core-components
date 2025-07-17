@@ -8,19 +8,18 @@ const postcssImport = require('postcss-import');
 const loadCss = require('postcss-import/lib/load-content');
 const { getPackages } = require('../tools/monorepo.cjs');
 const { isSamePath } = require('../tools/path.cjs');
+const { resolveInternal } = require('../tools/resolve-internal.cjs');
+const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
 
-const cssModuleRegex = /\.module\.css$/;
-const cssRegex = /\.css$/;
+const INTERNAL_PACKAGES = readPackagesFileSync(
+    path.resolve(__dirname, '../tools/.internal-packages'),
+);
+
+const CSS_MODULE_REGEXP = /\.module\.css$/;
+const CSS_REGEXP = /\.css$/;
+
 const distDir = path.resolve(__dirname, '../dist');
 const { packages } = getPackages();
-const rootPkg = packages.find(({ packageJson }) => packageJson.name === '@alfalab/core-components');
-const rootPkgDependencies = Object.keys({
-    ...rootPkg.packageJson.dependencies,
-    ...rootPkg.packageJson.peerDependencies,
-}).filter((name) => name.startsWith('@alfalab/core-components-'));
-const vars = packages.find(
-    ({ packageJson }) => packageJson.name === '@alfalab/core-components-vars',
-);
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -41,15 +40,15 @@ const addDirsForTranspile = (config) => {
 function modifyCssRules(config) {
     const group = config.module.rules.find((rule) => rule.oneOf !== undefined);
     const cssRuleIndex = group.oneOf.findIndex(
-        (rule) => rule.test.toString() === cssRegex.toString(),
+        (rule) => rule.test.toString() === CSS_REGEXP.toString(),
     );
     const cssModuleRuleIndex = group.oneOf.findIndex(
-        (rule) => rule.test.toString() === cssModuleRegex.toString(),
+        (rule) => rule.test.toString() === CSS_MODULE_REGEXP.toString(),
     );
 
     group.oneOf[cssRuleIndex] = {
-        test: cssRegex,
-        exclude: cssModuleRegex,
+        test: CSS_REGEXP,
+        exclude: CSS_MODULE_REGEXP,
         use: [
             {
                 loader: MiniCssExtractPlugin.loader,
@@ -65,7 +64,7 @@ function modifyCssRules(config) {
         ],
     };
     group.oneOf[cssModuleRuleIndex] = {
-        test: cssModuleRegex,
+        test: CSS_MODULE_REGEXP,
         use: [
             {
                 loader: MiniCssExtractPlugin.loader,
@@ -95,7 +94,10 @@ function modifyCssRules(config) {
                                           if (
                                               isSamePath(
                                                   filename,
-                                                  path.join(vars.dir, 'src/index.css'),
+                                                  resolveInternal(
+                                                      '@alfalab/core-components-vars/src/index.css',
+                                                      false,
+                                                  ),
                                               )
                                           ) {
                                               // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
@@ -221,7 +223,7 @@ module.exports = {
 
                         if (
                             process.env.BUILD_STORYBOOK_FROM_DIST === 'true' &&
-                            rootPkgDependencies.includes(pkgName)
+                            !INTERNAL_PACKAGES.includes(pkgName)
                         ) {
                             return path.join(
                                 distDir,

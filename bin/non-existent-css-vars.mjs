@@ -1,7 +1,6 @@
-/* eslint-disable no-cond-assign */
 import { globby } from 'globby';
 import fs from 'node:fs/promises';
-import * as process from 'node:process';
+import { exit } from 'node:process';
 
 async function main() {
     const files = await globby('dist/**/*.css', { absolute: true });
@@ -10,13 +9,7 @@ async function main() {
         await Promise.all(
             files.map(async (file) => {
                 const content = await fs.readFile(file, { encoding: 'utf8' });
-                const re = /(?<=var\().+?(?=\))/g;
-                let match = null;
-                const result = [];
-
-                while ((match = re.exec(content)) != null) {
-                    result.push(match[0]);
-                }
+                const result = content.match(/(?<=var\().+?(?=\))/g) ?? [];
 
                 return [file, result];
             }),
@@ -39,7 +32,7 @@ async function main() {
         ].join('\n\n'),
     );
 
-    process.exit(-1);
+    exit(1);
 }
 
 await main();

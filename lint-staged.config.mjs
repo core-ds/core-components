@@ -6,14 +6,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { getPackages } from './tools/monorepo.cjs';
-import { readPackagesFile } from './tools/read-packages-file.cjs';
+import { readPackagesFileSync } from './tools/read-packages-file.cjs';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.json'), { encoding: 'utf8' });
 
-const ESLINT_IGNORED_PACKAGES = readPackagesFile(
-    path.join(dirname, 'tools/eslint/ignored-packages'),
+const ESLINT_IGNORED_PACKAGES = readPackagesFileSync(
+    path.join(dirname, 'tools/.eslint-ignored-packages'),
 );
 
 const EXTENSIONS = ['js', 'ts', 'cjs', 'mjs'];
@@ -41,7 +41,7 @@ const config = {
                         .join(' ');
                     const eslintConfig = path.relative(dir, path.join(dirname, '.eslintrc.cjs'));
 
-                    return `lerna exec --scope ${name} -- "eslint ${files} --max-warnings 0 --config '${eslintConfig}'"`;
+                    return `lerna exec --scope ${name} -- "eslint ${files} --max-warnings 0 --no-ignore --config '${eslintConfig}'"`;
                 },
             };
         }, {}),
@@ -58,11 +58,11 @@ const config = {
         .reduce(
             (patterns, file) => ({
                 ...patterns,
-                [`./${convertPathToPattern(file)}`]: 'eslint --max-warnings 0',
+                [`./${convertPathToPattern(file)}`]: 'eslint --max-warnings 0 --no-ignore',
             }),
             {},
         ),
-    [`./{${DIRS.join(',')}}/**/*.{${EXTENSIONS.join(',')}}`]: 'eslint --max-warnings 0',
+    [`./{${DIRS.join(',')}}/**/*.{${EXTENSIONS.join(',')}}`]: 'eslint --max-warnings 0 --no-ignore',
     './bin/tsconfig/templates/tsconfig*.json': 'yarn tsconfig check',
     '*.{js,jsx,ts,tsx,cjs,mjs,json,yml}': 'prettier --write',
     '*.css': ['prettier --write', 'stylelint'],

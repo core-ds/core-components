@@ -4,7 +4,7 @@ import fse from 'fs-extra';
 import { globbySync } from 'globby';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import * as process from 'node:process';
+import { cwd } from 'node:process';
 import postcss from 'postcss';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
@@ -13,15 +13,16 @@ import { createFilter } from 'rollup-pluginutils';
 import stringHash from 'string-hash';
 
 import postcssConfig from '../../postcss.config.js';
-import { getPackages } from '../monorepo.cjs';
 import { isSamePath } from '../path.cjs';
+import { resolveInternal } from '../resolve-internal.cjs';
 
-const { packages } = getPackages();
-const vars = packages.find(
-    ({ packageJson }) => packageJson.name === '@alfalab/core-components-vars',
-);
-const pkg = fse.readJsonSync(path.join(process.cwd(), 'package.json'), { encoding: 'utf8' });
+const pkg = fse.readJsonSync('package.json', { encoding: 'utf8' });
 
+/**
+ *
+ * @param {} options
+ * @returns {import('rollup').Plugin}
+ */
 export function processCss(options = {}) {
     const config = {
         name: 'process-css',
@@ -98,7 +99,15 @@ async function processPostcss(filePath, config = {}) {
                 ? postcssImport({
                       warnOnEmpty: false,
                       load: async (filename) => {
-                          if (isSamePath(filename, path.join(vars.dir, 'src/index.css'))) {
+                          if (
+                              isSamePath(
+                                  filename,
+                                  resolveInternal(
+                                      '@alfalab/core-components-vars/src/index.css',
+                                      false,
+                                  ),
+                              )
+                          ) {
                               /*
                                * TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
                                * В текущей версиии postcss-import импорт пустого файла вызывает ошибку
@@ -121,7 +130,7 @@ async function processPostcss(filePath, config = {}) {
                 ? postcssMixins({
                       mixinsFiles: globbySync('src/*.css', {
                           ignore: ['**/{index,typography}.css'],
-                          cwd: vars.dir,
+                          cwd: resolveInternal('@alfalab/core-components-vars'),
                           absolute: true,
                       }),
                   })
@@ -133,7 +142,7 @@ async function processPostcss(filePath, config = {}) {
         plugins.push(
             postcssModules({
                 generateScopedName(name, fileName) {
-                    const relativeFileName = path.relative(process.cwd(), fileName);
+                    const relativeFileName = path.relative(cwd(), fileName);
                     const componentName = pkg.name.replace('@alfalab/core-components-', '');
                     const hash = generateClassNameHash(pkg.name, pkg.version, relativeFileName);
 

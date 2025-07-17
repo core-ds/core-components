@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires, global-require */
 
-const path = require('path');
 const fse = require('fs-extra');
 const { globbySync } = require('globby');
-const { getPackages } = require('./tools/monorepo.cjs');
-
-const { packages } = getPackages();
-const vars = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-vars');
-const mq = packages.find(({ packageJson: { name } }) => name === '@alfalab/core-components-mq');
+const { resolveInternal } = require('./tools/resolve-internal.cjs');
 
 module.exports = {
     plugins: [
@@ -18,7 +13,7 @@ module.exports = {
         require('postcss-mixins')({
             mixinsFiles: globbySync('src/*.css', {
                 ignore: ['**/alfasans-*.css'],
-                cwd: vars.dir,
+                cwd: resolveInternal('@alfalab/core-components-vars'),
                 absolute: true,
             }),
         }),
@@ -32,9 +27,10 @@ module.exports = {
         }),
         require('postcss-custom-media')({
             importFrom: {
-                customMedia: fse.readJsonSync(path.join(mq.dir, 'src/mq.json'), {
-                    encoding: 'utf8',
-                }),
+                customMedia: fse.readJsonSync(
+                    resolveInternal('@alfalab/core-components-mq/src/mq.json', false),
+                    { encoding: 'utf8' },
+                ),
             },
         }),
         ...(process.env.BUILD_WITHOUT_CSS_VARS === 'true'

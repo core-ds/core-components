@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import fse from 'fs-extra';
-import fs from 'node:fs';
 import path from 'node:path';
 import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -11,8 +10,8 @@ import { hideBin } from 'yargs/helpers';
 import { getPackages } from '../../tools/monorepo.cjs';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
-const repositoryRoot = path.join(dirname, '../..');
-const storybookPath = path.join(repositoryRoot, '.storybook');
+const storybookPath = path.join(process.cwd(), '.storybook');
+
 const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
 
 const TEST_PACKAGES = [
@@ -56,21 +55,19 @@ yargs(hideBin(process.argv))
                     string: true,
                     choices: packages.map(({ packageJson: { name } }) => name),
                 }),
-        (args) => {
+        async (args) => {
             if (args.s || args.a) {
-                fs.writeFileSync(
+                await fse.writeJson(
                     path.join(storybookPath, 'tsconfig.json'),
-                    // TODO prettier format
-                    JSON.stringify(generateStorybookTsConfig()),
-                    { encoding: 'utf8' },
+                    generateStorybookTsConfig(),
+                    { spaces: 4, encoding: 'utf8' },
                 );
             }
             if (args.t || args.a) {
-                fs.writeFileSync(
-                    path.join(repositoryRoot, 'tsconfig.test.json'),
-                    // TODO prettier format
-                    JSON.stringify(generateTestsTsConfig()),
-                    { encoding: 'utf8' },
+                await fse.writeJson(
+                    path.join(process.cwd(), 'tsconfig.test.json'),
+                    generateTestsTsConfig(),
+                    { spaces: 4, encoding: 'utf8' },
                 );
             }
 
@@ -78,14 +75,15 @@ yargs(hideBin(process.argv))
                 ? packages
                 : packages.filter(({ packageJson: { name } }) => args.p?.includes(name));
 
-            packagesToHandle?.forEach((pkg) => {
-                fs.writeFileSync(
-                    path.join(pkg.dir, 'tsconfig.json'),
-                    // TODO prettier format
-                    JSON.stringify(generatePackageTsConfig(pkg)),
-                    { encoding: 'utf8' },
-                );
-            });
+            await Promise.all(
+                packagesToHandle.map((pkg) =>
+                    fse.writeJson(
+                        path.join(pkg.dir, 'tsconfig.json'),
+                        generatePackageTsConfig(pkg),
+                        { spaces: 4, encoding: 'utf8' },
+                    ),
+                ),
+            );
         },
     )
     .command(
@@ -106,7 +104,7 @@ yargs(hideBin(process.argv))
             }
 
             const testsTsConfig = await fse.readJson(
-                path.join(repositoryRoot, 'tsconfig.test.json'),
+                path.join(process.cwd(), 'tsconfig.test.json'),
                 { encoding: 'utf8' },
             );
 
@@ -139,7 +137,7 @@ yargs(hideBin(process.argv))
             }
 
             console.error(errors.join('\n'));
-            process.exit(-1);
+            process.exit(1);
         },
     )
     .demandCommand()
@@ -163,7 +161,7 @@ function normalizePath(relativePath) {
  * @param {string} [cwd]
  * @returns {Record<string, string[]>}
  */
-function generatePaths(forPackages, cwd = repositoryRoot) {
+function generatePaths(forPackages, cwd = process.cwd()) {
     return Object.fromEntries(
         forPackages
             .map(({ packageJson: { name }, dir }) => {
@@ -235,6 +233,7 @@ function generatePackageTsConfig({ dir, packageJson }) {
     const coreDependencies = Object.keys({
         ...packageJson.dependencies,
         ...packageJson.peerDependencies,
+        ...packageJson.devDependencies,
     }).filter((name) => name.startsWith('@alfalab/core-components-'));
     const devDependencies = TEST_PACKAGES;
 

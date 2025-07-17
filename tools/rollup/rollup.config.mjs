@@ -12,15 +12,12 @@ import { defineConfig } from 'rollup';
 import copy from 'rollup-plugin-copy';
 import ts from 'typescript';
 
-import {
-    coreComponentsResolver,
-    externalsResolver,
-} from './tools/rollup/core-components-resolver.mjs';
-import { processCss } from './tools/rollup/process-css.mjs';
+import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
+import { processCss } from './process-css.mjs';
 
 const { ScriptTarget } = ts;
 
-const pkg = fse.readJsonSync(path.join(cwd(), 'package.json'), { encoding: 'utf8' });
+const pkg = fse.readJsonSync(path.resolve(cwd(), 'package.json'), { encoding: 'utf8' });
 
 const externals = [
     ...Object.keys(pkg.dependencies ?? {}),
@@ -35,7 +32,10 @@ const baseConfig = () =>
         }),
         plugins: [
             json(),
-            replace({ 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') }),
+            replace({
+                values: { 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') },
+                preventAssignment: true,
+            }),
         ],
     });
 

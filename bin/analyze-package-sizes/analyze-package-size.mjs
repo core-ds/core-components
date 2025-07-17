@@ -1,8 +1,8 @@
-import * as esbuild from 'esbuild';
+import { build } from 'esbuild';
 import fse from 'fs-extra';
 import { globby } from 'globby';
-import path from 'node:path';
-import * as process from 'node:process';
+import { EOL } from 'node:os';
+import { cwd, stdout } from 'node:process';
 
 const ENTRY_POINTS = [
     'desktop',
@@ -17,14 +17,14 @@ const ENTRY_POINTS = [
 ];
 
 async function main() {
+    const pkg = await fse.readJson('package.json', { encoding: 'utf8' });
     const entryPoints = await globby([`src/{${ENTRY_POINTS.join(',')}}/index.ts`, 'src/index.ts']);
-
-    const result = await esbuild.build({
+    const result = await build({
         entryPoints,
         bundle: true,
         write: false,
         legalComments: 'none',
-        outdir: process.cwd(),
+        outdir: cwd(),
         minify: true,
         minifyWhitespace: true,
         minifyIdentifiers: true,
@@ -33,18 +33,17 @@ async function main() {
         treeShaking: true,
         target: 'esnext',
         format: 'esm',
-        external: ['react', 'react-dom', '*.css'],
+        external: [...Object.keys(pkg.peerDependencies ?? {}), '*.css'],
         metafile: true,
     });
-
     const sizes = Object.fromEntries(
         Object.entries(result.metafile.outputs).map(([file, { bytes }]) => [
-            path.relative(process.cwd(), file),
+            file,
             Number((bytes / 1024).toFixed(1)),
         ]),
     );
 
-    await fse.writeJson('package-size.json', sizes, { spaces: 4, encoding: 'utf8' });
+    stdout.write(`${JSON.stringify(sizes, null, 4)}${EOL}`);
 }
 
 await main();
