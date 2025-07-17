@@ -17,7 +17,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-types": "^0.0.0",
-        "classnames": "^2.5.1"
+        "classnames": "^2.5.1",
+        "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.20.1"
