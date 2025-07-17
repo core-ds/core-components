@@ -1,0 +1,27 @@
+{
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],   
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-product-cover/*": ["../product-cover/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-modal/*": ["../modal/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../shared" },
+        { "path": "../mq" },
+        { "path": "../select" },
+        { "path": "../popover" },
+        { "path": "../form-control" },
+        { "path": "../product-cover" },
+        { "path": "../button" },
+    ]
+}
