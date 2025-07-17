@@ -30,6 +30,6 @@
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "themesVersion": "13.7.4",
+    "varsVersion": "9.20.1"
 }
