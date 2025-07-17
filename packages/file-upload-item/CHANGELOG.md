@@ -1,5 +1,14 @@
 # Change Log
 
+## 6.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.3
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
 ## 6.3.5
 
 ### Patch Changes

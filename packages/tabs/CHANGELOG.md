@@ -1,5 +1,23 @@
 # Change Log
 
+## 8.12.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+    -   picker-button@11.12.31
+
+## 8.12.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   picker-button@11.12.30
+    -   tag@8.6.10
+    -   icon-button@6.11.13
+
 ## 8.12.30
 
 ### Patch Changes

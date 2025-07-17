@@ -26,16 +26,10 @@
     color: var(--color-light-text-primary);
     background-color: var(--color-light-transparent-default);
 
-    &:active {
-        background-color: var(--color-light-transparent-default-press);
-    }
-}
-
-/* todo разделить стили KeyPadButton на desktop и mobile (:hover в ios работает по типу :active) */
-.secondary.secondary:not(.isIOS),
-.button.button:not(.isIOS) {
-    &:hover {
-        background-color: var(--color-light-transparent-default-hover);
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--color-light-transparent-default-hover);
+        }
     }
 
     &:active {

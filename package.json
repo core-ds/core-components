@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "48.27.5",
+    "version": "48.29.1",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -59,7 +59,7 @@
         ]
     },
     "dependencies": {
-        "@alfalab/data": "^1.9.1",
+        "@alfalab/data": "^1.9.2",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/icons-logo": "^1.39.0",
@@ -106,7 +106,7 @@
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^26.3.0",
+        "ui-primitives": "^28.8.0",
         "use-sync-external-store": "^1.4.0"
     },
     "devDependencies": {

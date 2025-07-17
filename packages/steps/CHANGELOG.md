@@ -1,5 +1,22 @@
 # @alfalab/core-components-steps
 
+## 1.8.4
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1755](https://github.com/core-ds/core-components/pull/1755)
+
+-   Удален отступ у последнего дочернего элемента списка Steps
+
+## 1.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
 ## 1.8.2
 
 ### Patch Changes

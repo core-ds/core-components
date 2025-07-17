@@ -39,7 +39,11 @@ const iconsStore = {
 };
 
 export function useIcon(url: string): [icon: string | undefined, status: LoadingStatus] {
-    const icons = useSyncExternalStore(iconsStore.subscribe, iconsStore.getSnapshot);
+    const icons = useSyncExternalStore(
+        iconsStore.subscribe,
+        iconsStore.getSnapshot,
+        iconsStore.getSnapshot,
+    );
     const [loadingStatus, setLoadingStatus] = useState(LoadingStatus.INITIAL);
 
     useEffect(() => {

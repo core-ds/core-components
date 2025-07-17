@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   typography@4.14.3
+
 ## 2.1.17
 
 ### Patch Changes

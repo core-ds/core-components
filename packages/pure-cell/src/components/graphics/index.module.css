@@ -22,6 +22,10 @@
         margin-right: var(--gap-0);
     }
 
+    &.max {
+        margin-right: var(--gap-24);
+    }
+
     &.airy {
         margin-right: var(--gap-16);
     }
@@ -43,6 +47,11 @@
     &.none {
         margin-bottom: var(--gap-0);
     }
+
+    &.max {
+        margin-bottom: var(--gap-24);
+    }
+
     &.airy {
         margin-bottom: var(--gap-16);
     }

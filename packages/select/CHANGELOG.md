@@ -1,5 +1,40 @@
 # Change Log
 
+## 17.21.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.19
+
+## 17.21.4
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1644](https://github.com/core-ds/core-components/pull/1644)
+
+-   Для размера XL горизонтальные паддинги исправлены на 16px в соответствии с дизайном
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1734](https://github.com/core-ds/core-components/pull/1734)
+
+-   Исправлено использование `useLazyLoading`
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   scrollbar@3.4.0
+    -   base-modal@5.9.4
+    -   bottom-sheet@6.18.14
+    -   button@11.11.10
+    -   checkbox@4.9.4
+    -   form-control@12.8.6
+    -   input@15.6.2
+    -   modal@9.9.18
+    -   popover@6.3.11
+
 ## 17.21.3
 
 ### Patch Changes

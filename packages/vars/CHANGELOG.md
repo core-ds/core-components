@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.20.2
+
+### Patch Changes
+
+<sup><time>14.07.2025</time></sup>
+
+### [#1768](https://github.com/core-ds/core-components/pull/1768)
+
+-   Добавлены новые цвета в тип Color и маппер цветов
+
 ## 9.20.1
 
 ### Patch Changes
