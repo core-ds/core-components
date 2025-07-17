@@ -30,8 +30,8 @@
     min-width: 20px;
     display: flex;
     box-sizing: border-box;
-    justify-content: start;
-    padding-right: var(--gap-4);
+    justify-content: end;
+    padding-right: 6px;
     flex-shrink: 0;
 
     &.defaultColor {
