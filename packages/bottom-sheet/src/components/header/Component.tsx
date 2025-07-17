@@ -7,18 +7,27 @@ import {
     NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 
+import { ColorType } from '../../types';
+import { getColorStyles } from '../../utils';
+
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
 
 export type HeaderProps = Omit<NavigationBarPrivateProps, 'view' | 'size'> & {
     headerRef: RefObject<HTMLDivElement>;
     headerOffset: number;
+    colors?: ColorType;
+    isSwipeMarkerAvailable?: boolean;
 };
 
 export const Header: FC<HeaderProps> = ({
     className,
+    colors = 'default',
     sticky,
     headerRef,
     headerOffset,
+    isSwipeMarkerAvailable,
     title,
     children,
     ...restProps
@@ -34,6 +43,7 @@ export const Header: FC<HeaderProps> = ({
         setHasHeader(true);
     }, [setHasHeader]);
 
+    const colorStyle = getColorStyles(colors, defaultColors, invertedColors);
     const hasContent = Boolean(title || children);
 
     return (
@@ -44,12 +54,17 @@ export const Header: FC<HeaderProps> = ({
             onClose={onClose}
             sticky={sticky}
             view='mobile'
-            className={cn(styles.headerWrapper, className, {
-                [styles.highlighted]: hasContent && headerHighlighted && sticky,
+            className={cn(className, {
+                [styles.headerWrapper]: isSwipeMarkerAvailable,
+                [styles.headerWrapperWithoutSwipeMarker]: !isSwipeMarkerAvailable,
+                [colorStyle.highlighted]: hasContent && headerHighlighted && sticky,
+                [colorStyle.hasContent]: hasContent,
                 [styles.sticky]: sticky,
-                [styles.hasContent]: hasContent,
             })}
             contentClassName={cn(styles.title)}
+            titleClassName={cn(colorStyle.title)}
+            subtitleClassName={cn(styles.subtitle, colorStyle.subtitle)}
+            colors={colors}
         >
             {children}
         </NavigationBarPrivate>

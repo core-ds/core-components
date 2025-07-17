@@ -1,6 +1,5 @@
 @import './slider/intranet.css';
 @import './calendar/intranet.css';
-@import './bottom-sheet/intranet.css';
 @import './confirmation/intranet.css';
 @import './checkbox-group/intranet.css';
 @import './radio-group/intranet.css';
@@ -8,7 +7,6 @@
 @define-mixin theme-intranet {
     @mixin slider-intranet;
     @mixin calendar-intranet;
-    @mixin bottom-sheet-intranet;
     @mixin confirmation-intranet;
     @mixin checkbox-group-intranet;
     @mixin radio-group-intranet;
