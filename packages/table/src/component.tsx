@@ -20,3 +20,15 @@ export const Table = Object.assign(TableComponent, {
     TExpandableRow,
     Pagination,
 });
+
+export {
+    TableComponent,
+    TBody,
+    THead,
+    THeadCell,
+    TSortableHeadCell,
+    TCell,
+    TRow,
+    TExpandableRow,
+    Pagination,
+};
