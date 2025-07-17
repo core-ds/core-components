@@ -200,14 +200,20 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                 className={cn(
                     commonStyles.component,
                     commonStyles[type],
-                    { [commonStyles.error]: error },
+                    { [styles.error]: error },
                     className,
                 )}
                 data-test-id={dataTestId}
                 ref={ref}
             >
                 {label ? (
-                    <span className={cn(commonStyles.label, styles.label)}>{label}</span>
+                    <span
+                        className={cn(styles.label, {
+                            [styles.tag]: type === 'tag',
+                        })}
+                    >
+                        {label}
+                    </span>
                 ) : null}
 
                 {children ? (
@@ -233,7 +239,13 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
 
                 {errorMessage && (
                     <span
-                        className={cn(commonStyles.sub, styles.sub, commonStyles.errorMessage)}
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.errorMessage,
+                        )}
                         role='alert'
                     >
                         {errorMessage}
@@ -241,7 +253,15 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                 )}
 
                 {hint && !errorMessage && (
-                    <span className={cn(commonStyles.sub, styles.sub, commonStyles.hint)}>
+                    <span
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.hint,
+                        )}
+                    >
                         {hint}
                     </span>
                 )}

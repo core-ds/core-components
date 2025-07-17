@@ -162,13 +162,19 @@ export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupPro
                     commonStyles.component,
                     commonStyles[type],
                     commonStyles[direction],
-                    { [commonStyles.error]: error },
+                    { [styles.error]: error },
                     className,
                 )}
                 data-test-id={dataTestId}
             >
                 {label ? (
-                    <span className={cn(commonStyles.label, styles.label)}>{label}</span>
+                    <span
+                        className={cn(styles.label, {
+                            [styles.tag]: type === 'tag',
+                        })}
+                    >
+                        {label}
+                    </span>
                 ) : null}
 
                 {children ? (
@@ -193,7 +199,13 @@ export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupPro
 
                 {errorMessage && (
                     <span
-                        className={cn(commonStyles.sub, styles.sub, commonStyles.errorMessage)}
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.errorMessage,
+                        )}
                         role='alert'
                     >
                         {errorMessage}
@@ -201,7 +213,15 @@ export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupPro
                 )}
 
                 {hint && !errorMessage && (
-                    <span className={cn(commonStyles.sub, styles.sub, commonStyles.hint)}>
+                    <span
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.hint,
+                        )}
+                    >
                         {hint}
                     </span>
                 )}

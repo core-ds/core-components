@@ -7,9 +7,29 @@
 .label {
     @mixin paragraph_component_secondary;
     color: var(--radio-group-mobile-label-color);
+    margin-bottom: var(--gap-8);
     padding-left: var(--radio-group-mobile-sub-padding-left);
+
+    &.tag {
+        margin-bottom: var(--gap-8);
+    }
 }
 
 .sub {
+    @mixin paragraph_component_secondary;
+    margin-top: var(--gap-8);
     padding-left: var(--radio-group-mobile-sub-padding-left);
+
+    &.tag {
+        margin-bottom: var(--gap-8);
+    }
+}
+
+.error {
+    padding-left: var(--radio-group-mobile-error-padding-left);
+    border-left: var(--radio-group-mobile-error-border-left);
+
+    &.tag {
+        padding-left: var(--gap-8);
+    }
 }
