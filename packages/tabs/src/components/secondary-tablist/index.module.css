@@ -22,6 +22,14 @@
     white-space: nowrap;
 }
 
+.desktop.desktop {
+    &.transparentView.transparentView {
+        .title.title {
+            margin-left: var(--secondary-tablist-transparent-gaps);
+        }
+    }
+}
+
 /* sizes */
 
 .xxs {
