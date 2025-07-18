@@ -1,3 +1,129 @@
+## 48.30.0
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1769](https://github.com/core-ds/core-components/pull/1769)
+
+#### Что изменилось
+- Помечен как deprecated
+
+#### Влияние на компоненты
+- Патчи<br />`loader`
+
+
+### [#1771](https://github.com/core-ds/core-components/pull/1771)
+
+#### Что изменилось
+- Обновление ui-primitives
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1626](https://github.com/core-ds/core-components/pull/1626)
+
+#### Что изменилось
+- Фикс пустого css-класса
+- Добавлено описание дефолта в пропс `mainSize`
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1633](https://github.com/core-ds/core-components/pull/1633)
+
+#### Что изменилось
+- Теперь удаляется символ перед пробелом при размещении курсора после пробела и нажатии клавиши `Backspace`
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+### [#1780](https://github.com/core-ds/core-components/pull/1780)
+
+#### Что изменилось
+- Добавлены data-test-id атрибуты для компонентов Checbox, CheckboxGroup, List, RadioGroup
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox` `checkbox-group` `list` `radio-group`
+
+
+### [#1765](https://github.com/core-ds/core-components/pull/1765)
+
+#### Что изменилось
+-   Заменено длинное тире на среднее "–" в маркерах списков
+-   Изменено выравнивание текста в контейнере с маркером на правое с сохранением ширины
+
+#### Влияние на компоненты
+- Минорное<br />`list` `markdown`
+
+
+### [#1779](https://github.com/core-ds/core-components/pull/1779)
+
+#### Что изменилось
+- Добавлен нижний safe-area отступ для standalone мода
+
+#### Влияние на компоненты
+- Патчи<br />`tab-bar`
+
+
+### [#1521](https://github.com/core-ds/core-components/pull/1521)
+
+#### Что изменилось
+- Добавлены атомарные импорты
+- Поправлена ts-конфигурация зависимостей
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1781](https://github.com/core-ds/core-components/pull/1781)
+
+#### Что изменилось
+- Добавлен кастомный проп valueSeparator в Select, который позволяет прокинуть свой разделитель вместо значений, не создавая новую утилиту valueRenderer
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1766](https://github.com/core-ds/core-components/pull/1766)
+
+#### Что изменилось
+- Исправлена проблема с появлением значения класса "undefined" у элементов span внутри компонента Tabs
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#1778](https://github.com/core-ds/core-components/pull/1778)
+
+#### Что изменилось
+- Исправлено hover состояние KeyPadButton для android устройств
+
+#### Влияние на компоненты
+- Патчи<br />`pass-code`
+
+
+### [#1751](https://github.com/core-ds/core-components/pull/1751)
+
+#### Что изменилось
+- Добавлен tagViews: transparent для компонента <Tabs />
+- Для <Tabs /> типа secondary c tagViews: transparent убраны отступы
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1625](https://github.com/core-ds/core-components/pull/1625)
+
+#### Что изменилось
+- Добавлены (починены) атомарные импорты при корневом (респонсивном) подключении
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+
 ## 48.29.1
 
 <sup><time>14.07.2025</time></sup>
