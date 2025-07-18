@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.12.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.4
+
 ## 5.12.8
 
 ### Patch Changes

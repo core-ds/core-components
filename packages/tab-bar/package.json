@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tab-bar",
-    "version": "2.1.18",
+    "version": "2.1.19",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -23,5 +23,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.4",
-    "varsVersion": "9.20.2"
+    "varsVersion": "9.21.0"
 }

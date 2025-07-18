@@ -1,5 +1,21 @@
 # Change Log
 
+## 2.11.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1521](https://github.com/core-ds/core-components/pull/1521)
+
+-   Добавлены атомарные импорты
+-   Поправлена ts-конфигурация зависимостей
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
 ## 2.10.16
 
 ### Patch Changes

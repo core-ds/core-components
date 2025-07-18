@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.9.5
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1780](https://github.com/core-ds/core-components/pull/1780)
+
+-   Добавлены data-test-id атрибуты для компонентов Checbox, CheckboxGroup, List, RadioGroup
+
 ## 4.9.4
 
 ### Patch Changes

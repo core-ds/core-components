@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.9.20
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1625](https://github.com/core-ds/core-components/pull/1625)
+
+-   Добавлены (починены) атомарные импорты при корневом (респонсивном) подключении
+
 ## 9.9.19
 
 ### Patch Changes

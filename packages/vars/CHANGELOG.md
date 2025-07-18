@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.21.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1771](https://github.com/core-ds/core-components/pull/1771)
+
+-   Обновление ui-primitives
+
 ## 9.20.2
 
 ### Patch Changes
