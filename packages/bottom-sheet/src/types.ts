@@ -361,6 +361,7 @@ export type BottomSheetProps = {
 
     /**
      * Набор цветов для компонента
+     * @default default
      */
     colors?: ColorType;
 };

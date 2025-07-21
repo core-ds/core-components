@@ -33,6 +33,7 @@ export type FooterProps = {
 
     /**
      * Набор цветов для компонента
+     * @default default
      */
     colors?: ColorType;
 };
