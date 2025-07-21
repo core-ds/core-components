@@ -148,7 +148,7 @@ export type PopoverProps = {
     children?: ReactNode;
 
     /**
-     *
+     * Класс для скролл контейнера
      */
     scrollableContentClassName?: string;
 };
