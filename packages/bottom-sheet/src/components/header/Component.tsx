@@ -12,7 +12,7 @@ import styles from './index.module.css';
 export type HeaderProps = Omit<NavigationBarPrivateProps, 'view' | 'size'> & {
     headerRef: RefObject<HTMLDivElement>;
     headerOffset: number;
-    isSwipeMarkerAvailable?: boolean;
+    showSwipeMarker?: boolean;
 };
 
 export const Header: FC<HeaderProps> = ({
@@ -20,7 +20,7 @@ export const Header: FC<HeaderProps> = ({
     sticky,
     headerRef,
     headerOffset,
-    isSwipeMarkerAvailable,
+    showSwipeMarker,
     title,
     children,
     ...restProps
@@ -47,8 +47,8 @@ export const Header: FC<HeaderProps> = ({
             sticky={sticky}
             view='mobile'
             className={cn(className, {
-                [styles.headerWrapper]: isSwipeMarkerAvailable,
-                [styles.headerWrapperWithoutSwipeMarker]: !isSwipeMarkerAvailable,
+                [styles.headerWrapper]: showSwipeMarker,
+                [styles.headerWrapperWithoutSwipeMarker]: !showSwipeMarker,
                 [styles.highlighted]: hasContent && headerHighlighted && sticky,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,

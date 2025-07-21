@@ -94,7 +94,7 @@ render(() => {
                 onClose={handleClose}
                 title={<Header />}
                 actionButton={<div style={footerStyle} />}
-                isSwipeMarkerAvailable={false}
+                showSwipeMarker={false}
             >
                 <div style={contentStyle} />
             </BottomSheet>
@@ -365,7 +365,7 @@ render(() => {
                 }
                 stickyFooter={footerSettings.sticky}
                 swipeable={mechanics.swipeable}
-                isSwipeMarkerAvailable={false}
+                showSwipeMarker={false}
                 initialHeight={mechanics.adaptive ? 'default' : 'full'}
                 actionButton={
                     showFooter ? (
@@ -489,7 +489,7 @@ render(() => {
                 hasBacker={step !== 1}
                 title={item.title}
                 onBack={() => setStep(step - 1)}
-                isSwipeMarkerAvailable={false}
+                showSwipeMarker={false}
                 actionButton={
                     <ButtonMobile
                         size='m'

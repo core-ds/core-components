@@ -82,7 +82,7 @@ export const bottom_sheet: Story = {
                     }
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
-                    isSwipeMarkerAvailable={boolean('isSwipeMarkerAvailable', true)}
+                    showSwipeMarker={boolean('showSwipeMarker', true)}
                     titleAlign={select('titleAlign', ['center', 'left'], 'center')}
                     trimTitle={boolean('trimTitle', false)}
                     stickyHeader={boolean('stickyHeader', false)}

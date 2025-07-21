@@ -50,7 +50,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
                 {...restProps}
                 container={getPortalContainer}
                 onClose={handleClose}
-                isSwipeMarkerAvailable={false}
+                showSwipeMarker={false}
             >
                 {content}
             </BottomSheet>

@@ -141,7 +141,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                           bottomSheetProps: {
                               ...componentProps,
                               virtualKeyboard,
-                              isSwipeMarkerAvailable: false,
+                              showSwipeMarker: false,
                           },
                       }
                     : {

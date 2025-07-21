@@ -104,7 +104,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             keepMounted,
             onMagnetizeEnd,
             onOffsetChange,
-            isSwipeMarkerAvailable = true,
+            showSwipeMarker = true,
             swipeableMarker,
             swipeableMarkerClassName,
             backButtonProps,
@@ -575,7 +575,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 );
             }
 
-            if (isSwipeMarkerAvailable) {
+            if (showSwipeMarker) {
                 return (
                     <div
                         className={cn(
@@ -669,7 +669,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             {!hideHeader && !emptyHeader && (
                                 <Header
                                     {...headerProps}
-                                    isSwipeMarkerAvailable={isSwipeMarkerAvailable}
+                                    showSwipeMarker={showSwipeMarker}
                                 />
                             )}
 

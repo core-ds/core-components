@@ -120,7 +120,7 @@ export type BottomSheetProps = {
      * Дефолтный маркер
      * @default true
      */
-    isSwipeMarkerAvailable?: boolean;
+    showSwipeMarker?: boolean;
 
     /*
      * Дополнительный класс для маркера
