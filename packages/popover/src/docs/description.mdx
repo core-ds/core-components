@@ -1,12 +1,11 @@
 ## Пример
 
-Под капотом использует popper.js и react-transition-group.
-Если положение поповера не пересчитывается (например, при измененнии размера элемента-якоря), то можно воспользоваться методом update:
+Под капотом использует floating-ui и react-transition-group.
 
 ```jsx live mobileWidth={400}
 render(() => {
     const [count, setCount] = React.useState(0);
-    const [buttonElement, setButtonElement] = React.useState(null);
+    const buttonElementRef = React.useRef(null);
 
     const label = {
         0: 'Показать поповер снизу',
@@ -23,28 +22,11 @@ render(() => {
         4: 'right',
     };
 
-    // updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера
-    const updatePopover = React.useRef();
-
     const onClick = () => {
-        setCount((count) => count + 1);
-
-        if (updatePopover.current) {
-            // Обновляем положение поповера
-            updatePopover.current();
-        }
-        if (count === 4) {
-            setCount(0);
-        }
-    };
-
-    const handleButtonRef = (node) => {
-        if (count !== 0) {
-            setButtonElement(node);
-        }
+        setCount((count) => count === 4 ? 0 : count + 1);
     };
     const popoverChildren = (
-        <>{count !== 0 && <div style={{ padding: '15px', width: '156px' }}>Popover</div>}</>
+        <>{count !== 0 && <div style={{ padding: '15px', minWidth: '156px' }}>Popover</div>}</>
     );
 
     return (
@@ -58,17 +40,16 @@ render(() => {
             }}
         >
             <Popover
-                anchorElement={buttonElement}
+                anchorElement={buttonElementRef}
                 useAnchorWidth={true}
                 position={position[count]}
                 open={count !== 0}
-                update={updatePopover}
                 offset={[0, 4]}
             >
                 {popoverChildren}
             </Popover>
 
-            <Button size='s' ref={handleButtonRef} onClick={onClick}>
+            <Button size='s' ref={buttonElementRef} onClick={onClick}>
                 {label[count]}
             </Button>
         </div>
@@ -77,7 +58,7 @@ render(() => {
 //MOBILE
 render(() => {
     const [count, setCount] = React.useState(0);
-    const [buttonElement, setButtonElement] = React.useState(null);
+    const buttonElementRef = React.useRef(null);
 
     const label = {
         0: 'Показать поповер снизу',
@@ -94,26 +75,10 @@ render(() => {
         4: 'right',
     };
 
-    // updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера
-    const updatePopover = React.useRef();
-
     const onClick = () => {
-        setCount((count) => count + 1);
-
-        if (updatePopover.current) {
-            // Обновляем положение поповера
-            updatePopover.current();
-        }
-        if (count === 4) {
-            setCount(0);
-        }
+        setCount((count) => count === 4 ? 0 : count + 1);
     };
 
-    const handleButtonRef = (node) => {
-        if (count !== 0) {
-            setButtonElement(node);
-        }
-    };
     const popoverChildren = (
         <>{count !== 0 && <div style={{ padding: '15px', width: '66px' }}>Popover</div>}</>
     );
@@ -129,17 +94,16 @@ render(() => {
             }}
         >
             <Popover
-                anchorElement={buttonElement}
+                anchorElement={buttonElementRef}
                 useAnchorWidth={position[count] !== 'left'}
                 position={position[count]}
                 open={count !== 0}
-                update={updatePopover}
                 offset={[0, 4]}
             >
                 {popoverChildren}
             </Popover>
 
-            <Button size='s' ref={handleButtonRef} onClick={onClick}>
+            <Button size='s' ref={buttonElementRef} onClick={onClick}>
                 {label[count]}
             </Button>
         </div>
