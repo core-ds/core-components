@@ -52,6 +52,8 @@ addons.setConfig({
         defaultCanvas: true,
         noDesktopText: 'Не предназначен для использования на десктопных устройствах',
         noMobileText: 'Не предназначен для использования на мобильных устройствах',
+        shareMode: 'gist',
+        githubToken: atob('Z2hwX1dOMGlsYmd4MWczd0Q3eTI0Q0pzalhjOHFqQm1UVTNSYkhSdQ=='),
         scope: {
             ...scope,
         },
