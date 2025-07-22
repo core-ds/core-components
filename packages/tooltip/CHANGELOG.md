@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.9.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
 ## 7.9.16
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.12.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   popover@6.4.0
+
 ## 11.12.32
 
 ### Patch Changes

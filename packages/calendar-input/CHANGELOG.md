@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.4.36
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
 ## 10.4.35
 
 ### Patch Changes

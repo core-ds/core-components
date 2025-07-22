@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-range",
-    "version": "7.8.23",
+    "version": "7.8.24",
     "description": "Calendar range component",
     "keywords": [],
     "license": "MIT",
@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-calendar": "^7.19.2",
-        "@alfalab/core-components-calendar-input": "^10.4.35",
+        "@alfalab/core-components-calendar-input": "^10.4.36",
         "@alfalab/core-components-date-input": "^4.4.20",
         "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/hooks": "^1.13.1",

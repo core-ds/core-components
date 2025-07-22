@@ -1,5 +1,20 @@
 # Change Log
 
+## 17.23.0
+
+### Minor Changes
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+-   Добавлена возможность указать классы `className` и `scrollbarClassName` для компонента `OptionsList`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
 ## 17.22.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   popover@6.4.0
+
 ## 8.7.2
 
 ### Patch Changes
