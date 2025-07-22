@@ -1,3 +1,26 @@
+## 48.31.0
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+#### Что изменилось
+-   Добавлена возможность указать классы `className` и `scrollbarClassName` для компонента `OptionsList`
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+<br />
+
+#### Что изменилось
+-   Добавлена возможность указать DOM элемент в качестве контейнера для пропса `availableHeight`
+-   Добавлен проп `scrollableContentClassName`
+
+#### Влияние на компоненты
+- Минорное<br />`popover`
+
+
+
 ## 48.30.0
 
 <sup><time>18.07.2025</time></sup>
