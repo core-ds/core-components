@@ -1,5 +1,9 @@
 @import '../../vars/src/index.css';
 
+button.arrow.arrow {
+    width: 32px;
+}
+
 .component {
     @mixin paragraph_primary_small;
 

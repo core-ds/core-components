@@ -13,6 +13,9 @@ export const Tag: FC<TagProps> = ({ className, checked, ...restProps }) => (
         {...restProps}
         checked={checked}
         size='xxs'
-        className={cn(className, styles.tag, { [styles.checked]: checked })}
+        className={cn(className, styles.tag, {
+            [styles.checked]: checked,
+            [styles.arrow]: className,
+        })}
     />
 );
