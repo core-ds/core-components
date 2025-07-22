@@ -381,10 +381,13 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                     </div>
 
                     {hasSubAddons && (
-                        <div ref={subAddonsRef} className={commonStyles.subAddons}>
+                        <div
+                            ref={subAddonsRef}
+                            className={cn(commonStyles.subAddons, subAddonsClassName)}
+                        >
                             <ButtonList
                                 buttons={subAddons}
-                                containerClassName={cn(subAddonsClassName, commonStyles.rowReverse)}
+                                containerClassName={cn(commonStyles.rowReverse)}
                                 buttonClassName={commonStyles.button}
                             />
                         </div>
