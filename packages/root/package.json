@@ -2,6 +2,9 @@
     "name": "@alfalab/core-components",
     "version": "48.28.0",
     "license": "MIT",
+    "bin": {
+        "alfalab-core-components": "./bootstap.js"
+    },
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
     },

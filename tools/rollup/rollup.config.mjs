@@ -260,7 +260,7 @@ const esm = () => {
 
 const root = () =>
     defineConfig({
-        input: 'src/postinstall.js',
+        input: 'src/bootstrap.js',
         plugins: [
             copy({
                 targets: [
@@ -272,7 +272,7 @@ const root = () =>
                             const { indent } = detectIndent(content);
                             const pkgJson = JSON.parse(content);
 
-                            pkgJson.scripts.postinstall = 'node postinstall.js';
+                            pkgJson.scripts.postinstall = 'node bootstrap.js';
 
                             return `${JSON.stringify(pkgJson, null, indent)}\n`;
                         },
