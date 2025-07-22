@@ -49,6 +49,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             readOnly,
             fieldClassName,
             disableUserInput,
+            toggleCorrectionRef,
             ...restProps
         } = props;
         const [correctionOccurred, setCorrectionOccurred] = useState(false);
