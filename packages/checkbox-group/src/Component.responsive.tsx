@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
@@ -25,15 +25,20 @@ export type CheckboxGroupProps = Omit<BaseCheckboxGroupProps, 'styles'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
-export const CheckboxGroup: FC<CheckboxGroupProps> = ({
-    breakpoint,
-    client,
-    defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
-    ...restProps
-}) => {
-    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
+export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
+    (
+        {
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
+            ...restProps
+        },
+        ref,
+    ) => {
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
-    const Component = isDesktop ? CheckboxGroupDesktop : CheckboxGroupMobile;
+        const Component = isDesktop ? CheckboxGroupDesktop : CheckboxGroupMobile;
 
-    return <Component {...restProps} />;
-};
+        return <Component {...restProps} ref={ref} />;
+    },
+);
