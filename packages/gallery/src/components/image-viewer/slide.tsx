@@ -91,7 +91,12 @@ export const Slide: FC<SlideProps> = ({
 
     if (isVideo(image.src)) {
         return (
-            <SlideInner isVideoView={true} active={isActive} broken={broken} loading={!meta}>
+            <SlideInner
+                isVideoView={true}
+                active={isActive}
+                broken={broken}
+                loading={!meta || !meta.loaded}
+            >
                 <Video url={image.src} index={index} isActive={isActive} />
             </SlideInner>
         );
@@ -114,6 +119,7 @@ export const Slide: FC<SlideProps> = ({
                 style={{
                     maxHeight: `${containerHeight}px`,
                 }}
+                data-content-area='true'
                 data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
             />
         </SlideInner>

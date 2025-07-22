@@ -88,6 +88,7 @@ export const Gallery: FC<GalleryProps> = ({
     const [mutedVideo, setMutedVideo] = useState<boolean>(DEFAULT_MUTED_VIDEO);
     const [playingVideo, setPlayingVideo] = useState<boolean>(DEFAULT_PLAYING_VIDEO);
     const [hideNavigation, setHideNavigation] = useState<boolean>(DEFAULT_HIDE_NAVIGATION);
+    const [swipeY, setSwipeY] = useState<number>(0);
 
     const isDesktop = useIsDesktop();
 
@@ -226,10 +227,19 @@ export const Gallery: FC<GalleryProps> = ({
                 const endY = e.changedTouches[0].clientY;
                 const deltaY = startY - endY;
 
-                // Если свайп вниз, закрываем галерею
-                if (deltaY < SWIPE_THRESHOLD) {
+                setSwipeY(-deltaY);
+
+                if (deltaY < SWIPE_THRESHOLD || deltaY > -SWIPE_THRESHOLD) {
                     onClose();
                 }
+            },
+            { signal },
+        );
+
+        document.addEventListener(
+            'touchend',
+            () => {
+                setSwipeY(0);
             },
             { signal },
         );
@@ -281,6 +291,9 @@ export const Gallery: FC<GalleryProps> = ({
                 onUnmount={onUnmount}
             >
                 <div
+                    style={{
+                        transform: `translateY(${swipeY}px)`,
+                    }}
                     className={cn(styles.container, {
                         [styles.mobile]: !isDesktop,
                     })}
