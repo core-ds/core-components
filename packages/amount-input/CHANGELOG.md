@@ -1,5 +1,25 @@
 # @alfalab/core-components-amount-input
 
+## 7.15.4
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1633](https://github.com/core-ds/core-components/pull/1633)
+
+-   Теперь удаляется символ перед пробелом при размещении курсора после пробела и нажатии клавиши `Backspace`
+
+## 7.15.3
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+-   Версия пакета @alfalab/data обновлена до 1.9.2
+
 ## 7.15.2
 
 ### Patch Changes

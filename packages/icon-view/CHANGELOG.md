@@ -1,5 +1,16 @@
 # @alfalab/core-components-icon-view
 
+## 3.10.4
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1626](https://github.com/core-ds/core-components/pull/1626)
+
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
+
 ## 3.10.3
 
 ### Patch Changes

@@ -1,5 +1,27 @@
 # @alfalab/core-components-input-autocomplete
 
+## 12.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   popover@6.4.0
+
+## 12.9.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
+## 12.9.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+
 ## 12.9.6
 
 ### Patch Changes

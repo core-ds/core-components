@@ -1,5 +1,43 @@
 # @alfalab/core-components-select
 
+## 17.23.0
+
+### Minor Changes
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+-   Добавлена возможность указать классы `className` и `scrollbarClassName` для компонента `OptionsList`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
+## 17.22.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1781](https://github.com/core-ds/core-components/pull/1781)
+
+-   Добавлен кастомный проп valueSeparator в Select, который позволяет прокинуть свой разделитель вместо значений, не создавая новую утилиту valueRenderer
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.9.5
+    -   modal@9.9.20
+
+## 17.21.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.19
+
 ## 17.21.4
 
 ### Patch Changes

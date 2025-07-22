@@ -1,5 +1,15 @@
 # @alfalab/core-components-tab-bar
 
+## 2.1.19
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1779](https://github.com/core-ds/core-components/pull/1779)
+
+-   Добавлен нижний safe-area отступ для standalone мода
+
 ## 2.1.18
 
 ### Patch Changes

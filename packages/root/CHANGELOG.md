@@ -1,5 +1,236 @@
 # @alfalab/core-components
 
+## 48.31.0
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+#### Что изменилось
+-   Добавлена возможность указать классы `className` и `scrollbarClassName` для компонента `OptionsList`
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+<br />
+
+#### Что изменилось
+-   Добавлена возможность указать DOM элемент в качестве контейнера для пропса `availableHeight`
+-   Добавлен проп `scrollableContentClassName`
+
+#### Влияние на компоненты
+- Минорное<br />`popover`
+
+
+
+## 48.30.0
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1769](https://github.com/core-ds/core-components/pull/1769)
+
+#### Что изменилось
+- Помечен как deprecated
+
+#### Влияние на компоненты
+- Патчи<br />`loader`
+
+
+### [#1771](https://github.com/core-ds/core-components/pull/1771)
+
+#### Что изменилось
+- Обновление ui-primitives
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#1626](https://github.com/core-ds/core-components/pull/1626)
+
+#### Что изменилось
+- Фикс пустого css-класса
+- Добавлено описание дефолта в пропс `mainSize`
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#1633](https://github.com/core-ds/core-components/pull/1633)
+
+#### Что изменилось
+- Теперь удаляется символ перед пробелом при размещении курсора после пробела и нажатии клавиши `Backspace`
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+### [#1780](https://github.com/core-ds/core-components/pull/1780)
+
+#### Что изменилось
+- Добавлены data-test-id атрибуты для компонентов Checbox, CheckboxGroup, List, RadioGroup
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox` `checkbox-group` `list` `radio-group`
+
+
+### [#1765](https://github.com/core-ds/core-components/pull/1765)
+
+#### Что изменилось
+-   Заменено длинное тире на среднее "–" в маркерах списков
+-   Изменено выравнивание текста в контейнере с маркером на правое с сохранением ширины
+
+#### Влияние на компоненты
+- Минорное<br />`list` `markdown`
+
+
+### [#1779](https://github.com/core-ds/core-components/pull/1779)
+
+#### Что изменилось
+- Добавлен нижний safe-area отступ для standalone мода
+
+#### Влияние на компоненты
+- Патчи<br />`tab-bar`
+
+
+### [#1521](https://github.com/core-ds/core-components/pull/1521)
+
+#### Что изменилось
+- Добавлены атомарные импорты
+- Поправлена ts-конфигурация зависимостей
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#1781](https://github.com/core-ds/core-components/pull/1781)
+
+#### Что изменилось
+- Добавлен кастомный проп valueSeparator в Select, который позволяет прокинуть свой разделитель вместо значений, не создавая новую утилиту valueRenderer
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#1766](https://github.com/core-ds/core-components/pull/1766)
+
+#### Что изменилось
+- Исправлена проблема с появлением значения класса "undefined" у элементов span внутри компонента Tabs
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#1778](https://github.com/core-ds/core-components/pull/1778)
+
+#### Что изменилось
+- Исправлено hover состояние KeyPadButton для android устройств
+
+#### Влияние на компоненты
+- Патчи<br />`pass-code`
+
+
+### [#1751](https://github.com/core-ds/core-components/pull/1751)
+
+#### Что изменилось
+- Добавлен tagViews: transparent для компонента <Tabs />
+- Для <Tabs /> типа secondary c tagViews: transparent убраны отступы
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#1625](https://github.com/core-ds/core-components/pull/1625)
+
+#### Что изменилось
+- Добавлены (починены) атомарные импорты при корневом (респонсивном) подключении
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+
+## 48.29.1
+
+<sup><time>14.07.2025</time></sup>
+
+### [#1768](https://github.com/core-ds/core-components/pull/1768)
+
+#### Что изменилось
+- Добавлены новые цвета в тип Color и маппер цветов
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+### [#1777](https://github.com/core-ds/core-components/pull/1777)
+
+#### Что изменилось
+- Исправлен `SSR`
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+
+
+## 48.29.0
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1756](https://github.com/core-ds/core-components/pull/1756)
+
+#### Что изменилось
+- safe-area отступы перенесены из modal в container
+
+#### Влияние на компоненты
+- Патчи<br />`gallery`
+
+
+### [#1758](https://github.com/core-ds/core-components/pull/1758)
+
+#### Что изменилось
+- Добавлен новый тип `max` отступа от графики
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#1755](https://github.com/core-ds/core-components/pull/1755)
+
+#### Что изменилось
+- Удален отступ у последнего дочернего элемента списка Steps
+
+#### Влияние на компоненты
+- Патчи<br />`steps`
+
+
+### [#1727](https://github.com/core-ds/core-components/pull/1727)
+
+#### Что изменилось
+- Добавлен view: transparent для компонента <Tag />
+
+#### Влияние на компоненты
+- Минорное<br />`tag`
+
+
+### [#1759](https://github.com/core-ds/core-components/pull/1759)
+
+#### Что изменилось
+- Изменен `border-radius` для десктопной модалки с 12px на 24px во всех темах и для всех размеров (кроме fullscreen, у него нет скруглений)
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+#### Что изменилось
+- Версия пакета @alfalab/data обновлена до 1.9.2
+
+#### Влияние на компоненты
+- Патчи<br />`amount` `amount-input` `pure-cell`
+
+
+
 ## 48.28.0
 
 <sup><time>23.06.2025</time></sup>

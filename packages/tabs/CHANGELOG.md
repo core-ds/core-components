@@ -1,5 +1,42 @@
 # @alfalab/core-components-tabs
 
+## 8.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.33
+
+## 8.13.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1751](https://github.com/core-ds/core-components/pull/1751)
+
+-   Добавлен tagViews: transparent для компонента <Tabs />
+-   Для <Tabs /> типа secondary c tagViews: transparent убраны отступы
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1766](https://github.com/core-ds/core-components/pull/1766)
+
+-   Исправлена проблема с появлением значения класса "undefined" у элементов span внутри компонента Tabs
+
+-   Обновлены зависимости
+    -   picker-button@11.12.32
+
+## 8.12.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+    -   picker-button@11.12.31
+
 ## 8.12.31
 
 ### Patch Changes

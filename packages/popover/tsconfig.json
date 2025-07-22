@@ -12,6 +12,8 @@
             "@alfalab/core-components-portal/*": ["../portal/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-stack": ["../stack/src"],
             "@alfalab/core-components-stack/*": ["../stack/src/*"],
             "@alfalab/core-components-stack-context": ["../stack-context/src"],
@@ -23,6 +25,7 @@
     "references": [
         { "path": "../portal" },
         { "path": "../screenshot-utils" },
+        { "path": "../shared" },
         { "path": "../stack" },
         { "path": "../stack-context" },
         { "path": "../test-utils" }

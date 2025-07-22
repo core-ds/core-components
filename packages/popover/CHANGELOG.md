@@ -1,5 +1,16 @@
 # @alfalab/core-components-popover
 
+## 6.4.0
+
+### Minor Changes
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+-   Добавлена возможность указать DOM элемент в качестве контейнера для пропса `availableHeight`
+-   Добавлен проп `scrollableContentClassName`
+
 ## 6.3.11
 
 ### Patch Changes

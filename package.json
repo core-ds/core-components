@@ -166,7 +166,7 @@
         "svgo": "^3.0.2",
         "ts-jest": "^29.3.4",
         "typescript": "~4.7.4",
-        "ui-primitives": "^26.3.0",
+        "ui-primitives": "^28.8.0",
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },
@@ -195,9 +195,6 @@
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
         }
-    },
-    "resolutions": {
-        "es5-ext": "0.10.53"
     },
     "packageManager": "yarn@1.22.22"
 }

@@ -1,5 +1,15 @@
 # @alfalab/core-components-radio-group
 
+## 4.8.4
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1780](https://github.com/core-ds/core-components/pull/1780)
+
+-   Добавлены data-test-id атрибуты для компонентов Checbox, CheckboxGroup, List, RadioGroup
+
 ## 4.8.3
 
 ### Patch Changes

@@ -16,6 +16,10 @@
     &.modal-bg-alt-primary {
         background-color: var(--color-light-base-bg-alt-primary);
     }
+
+    @media (display-mode: standalone) {
+        padding-bottom: var(--sab);
+    }
 }
 
 .border {

@@ -12,6 +12,8 @@
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
             "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
@@ -19,6 +21,7 @@
     "references": [
         { "path": "../mq" },
         { "path": "../screenshot-utils" },
+        { "path": "../shared" },
         { "path": "../test-utils" }
     ]
 }

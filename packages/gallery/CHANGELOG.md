@@ -1,5 +1,29 @@
 # @alfalab/core-components-gallery
 
+## 5.12.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.17
+
+## 5.12.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.4
+
+## 5.12.8
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1756](https://github.com/core-ds/core-components/pull/1756)
+
+-   safe-area отступы перенесены из modal в container
+
 ## 5.12.7
 
 ### Patch Changes

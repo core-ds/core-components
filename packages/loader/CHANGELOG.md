@@ -1,5 +1,15 @@
 # @alfalab/core-components-loader
 
+## 3.2.5
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1769](https://github.com/core-ds/core-components/pull/1769)
+
+-   Помечен как deprecated
+
 ## 3.2.4
 
 ### Patch Changes

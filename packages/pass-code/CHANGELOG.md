@@ -1,5 +1,15 @@
 # @alfalab/core-components-pass-code
 
+## 2.5.8
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1778](https://github.com/core-ds/core-components/pull/1778)
+
+-   Исправлено hover состояние KeyPadButton для android устройств
+
 ## 2.5.7
 
 ### Patch Changes

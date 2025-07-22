@@ -1,5 +1,28 @@
 # @alfalab/core-components-select-with-tags
 
+## 8.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   popover@6.4.0
+
+## 8.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
+## 8.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+    -   select@17.21.5
+
 ## 8.7.0
 
 ### Minor Changes

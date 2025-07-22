@@ -35,13 +35,10 @@ const config = {
 
             return {
                 ...patterns,
-                [pattern]: (filenames) => {
-                    const files = filenames
-                        .map((file) => `'${path.relative(dir, file)}'`)
-                        .join(' ');
+                [pattern]: () => {
                     const eslintConfig = path.relative(dir, path.join(dirname, '.eslintrc.cjs'));
 
-                    return `lerna exec --scope ${name} -- "eslint ${files} --max-warnings 0 --no-ignore --config '${eslintConfig}'"`;
+                    return `lerna exec --scope ${name} -- "eslint src --max-warnings 0 --config '${eslintConfig}'"`;
                 },
             };
         }, {}),
@@ -58,7 +55,7 @@ const config = {
         .reduce(
             (patterns, file) => ({
                 ...patterns,
-                [`./${convertPathToPattern(file)}`]: 'eslint --max-warnings 0 --no-ignore',
+                [`./${convertPathToPattern(file)}`]: 'eslint --max-warnings 0',
             }),
             {},
         ),

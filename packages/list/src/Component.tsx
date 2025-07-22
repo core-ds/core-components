@@ -14,7 +14,7 @@ export type TListContext = {
 
     /**
      * Маркер
-     * @default '—' for ul and 'decimal' for ol
+     * @default '–' for ul and 'decimal' for ol
      */
     markerType?: 'lower-alpha' | 'decimal' | string | ReactNode;
 
@@ -63,7 +63,7 @@ export type ListProps = {
 
     /**
      * Маркер
-     * @default '—' for ul and 'decimal' for ol
+     * @default '–' for ul and 'decimal' for ol
      */
     marker?: 'lower-alpha' | 'decimal' | string | ReactNode;
 
@@ -109,7 +109,7 @@ const ListComponent: React.FC<ListProps> = ({
     start,
     ...restProps
 }) => {
-    const markerType = marker || (tag === 'ul' ? '—' : 'decimal');
+    const markerType = marker || (tag === 'ul' ? '–' : 'decimal');
     const alphaMarker = markerType === 'lower-alpha';
     const decimalMarker = markerType === 'decimal';
     const Component = tag === 'ul' || alphaMarker ? 'ul' : 'ol';

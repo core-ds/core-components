@@ -1,5 +1,24 @@
 # @alfalab/core-components-list
 
+## 3.6.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1765](https://github.com/core-ds/core-components/pull/1765)
+
+-   Заменено длинное тире на среднее "–" в маркерах списков
+-   Изменено выравнивание текста в контейнере с маркером на правое с сохранением ширины
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1780](https://github.com/core-ds/core-components/pull/1780)
+
+-   Добавлены data-test-id атрибуты для компонентов Checbox, CheckboxGroup, List, RadioGroup
+
 ## 3.5.7
 
 ### Patch Changes

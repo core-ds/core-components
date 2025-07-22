@@ -1,5 +1,36 @@
 # @alfalab/core-components-table
 
+## 2.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+
+## 2.11.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1521](https://github.com/core-ds/core-components/pull/1521)
+
+-   Добавлены атомарные импорты
+-   Поправлена ts-конфигурация зависимостей
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
+## 2.10.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   pagination@2.4.15
+    -   select@17.21.5
+
 ## 2.10.15
 
 ### Patch Changes

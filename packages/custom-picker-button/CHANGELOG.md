@@ -1,5 +1,29 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.6.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   picker-button@11.12.33
+
+## 2.6.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+    -   picker-button@11.12.32
+
+## 2.6.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+    -   picker-button@11.12.31
+
 ## 2.6.30
 
 ### Patch Changes
