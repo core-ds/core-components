@@ -1,0 +1,35 @@
+@import '../../../../vars/src/colors-monochrome.css';
+@import '../../vars.css';
+
+.component {
+    background: var(--color-light-monochrome-white-4);
+
+    & svg > path {
+        fill: var(--color-light-neutral-translucent-1300);
+    }
+
+    &:hover {
+        & svg > path {
+            fill: var(--color-light-neutral-translucent-1300-hover);
+        }
+    }
+
+    &:active {
+        & svg > path {
+            fill: var(--color-light-neutral-translucent-1300-press);
+        }
+    }
+}
+
+.text {
+    color: var(--button-text-base-color);
+}
+
+.mobileWrapper {
+    background: var(--color-light-neutral-translucent-100);
+    color: var(--color-light-neutral-translucent-100);
+
+    & svg > path {
+        fill: var(--navigation-bar-back-arrow-mobile-fill);
+    }
+}

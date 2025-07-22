@@ -17,6 +17,7 @@ const meta: Meta<typeof BottomSheet> = {
 type Story = StoryObj<typeof BottomSheet>;
 
 const BACKGROUND = ['primary', 'secondary', undefined];
+const COLORS = ['default', 'inverted'];
 
 const shortText =
     'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через 60 секунд после после оформления.';
@@ -27,51 +28,69 @@ export const bottom_sheet: Story = {
     name: 'BottomSheet',
     render: () => {
         const [open, setOpen] = React.useState(false);
-        const handleClose = React.useCallback(() => {
-            setOpen(false);
-        }, []);
         const [textContent, setTextContent] = React.useState('Пример текстового контента.');
-        const renderActionButton = boolean('renderActionButton', true);
+        const handleClose = React.useCallback(() => setOpen(false), []);
+
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
+        const colors = select('colors', COLORS, 'default');
+
+        const openSheet = (content: string) => () => {
+            setTextContent(content);
+            setOpen(true);
+        };
+
+        const bgColor =
+            colors === 'inverted'
+                ? 'var(--color-light-base-bg-secondary-inverted)'
+                : 'var(--color-light-base-bg-secondary)';
+
         return (
-            <div style={{ ...previewStyles, maxWidth: 'none' }}>
+            <div
+                style={{
+                    backgroundColor: bgColor,
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <style>
                     {`.preview{transform:${previewStyles.transform};top: ${previewStyles.top};max-width:${previewStyles.maxWidth}  `}
                 </style>
                 {!isPreview && (
                     <>
                         <Button
-                            onClick={() => {
-                                setTextContent(shortText);
-                                setOpen(true);
-                            }}
-                            style={{ margin: '15px' }}
                             id='button-1'
+                            onClick={openSheet(shortText)}
+                            style={{ margin: '15px' }}
+                            colors={colors}
                         >
                             Открыть шторку
                         </Button>
                         <Button
-                            onClick={() => {
-                                setTextContent(longText);
-                                setOpen(true);
-                            }}
-                            style={{ margin: '15px' }}
                             id='button-2'
+                            onClick={openSheet(longText)}
+                            style={{ margin: '15px' }}
+                            colors={colors}
                         >
                             Открыть шторку с длинным контентом
                         </Button>
                     </>
                 )}
+
                 <BottomSheet
                     key={textContent}
                     open={open || boolean('open', false)}
                     title={text('title', 'Тайтл')}
                     modalClassName={isPreview ? 'preview' : undefined}
                     actionButton={
-                        renderActionButton && (
+                        boolean('renderActionButton', true) && (
                             <Button
                                 view={isPreview ? 'primary' : 'secondary'}
+                                colors={colors}
                                 block={true}
                                 size='s'
                                 onClick={handleClose}
@@ -82,6 +101,7 @@ export const bottom_sheet: Story = {
                     }
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
+                    colors={colors}
                     titleAlign={select('titleAlign', ['center', 'left'], 'center')}
                     trimTitle={boolean('trimTitle', false)}
                     stickyHeader={boolean('stickyHeader', false)}
