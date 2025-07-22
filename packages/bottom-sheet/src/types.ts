@@ -7,13 +7,15 @@ import type { NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/c
 
 import type { BackgroundColorType } from '../../types';
 
+export type ColorType = 'default' | 'inverted';
+
 export type BottomSheetTitleAlign = 'center' | 'left';
 
 export type BottomSheetProps = {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
-    adjustContainerHeight?: (height: number) => number
+    adjustContainerHeight?: (height: number) => number;
     /**
      * Контент
      */
@@ -117,6 +119,12 @@ export type BottomSheetProps = {
     modalWrapperClassName?: string;
 
     /**
+     * Дефолтный маркер
+     * @default true
+     */
+    isSwipeMarkerAvailable?: boolean;
+
+    /*
      * Дополнительный класс для маркера
      */
     swipeableMarkerClassName?: string;
@@ -356,4 +364,9 @@ export type BottomSheetProps = {
      * Учитывать высоту виртуальной клавиатуры
      */
     virtualKeyboard?: boolean;
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: ColorType;
 };
