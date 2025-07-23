@@ -12,21 +12,41 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 async function main() {
     const IGNORED_PACKAGES = await readPackagesFile(path.join(dirname, '.ignored-packages'));
 
-    const result = await $(
-        'lerna',
-        [
-            'exec',
-            '--no-bail',
-            '--stream',
-            ...IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-            '--',
-            'node',
-            path.join(dirname, 'lint-package-deps.mjs'),
-        ],
-        { preferLocal: true, stdio: 'inherit', reject: false },
-    );
+    const exitCodes = (
+        await Promise.all([
+            $(
+                'lerna',
+                [
+                    'exec',
+                    '--no-bail',
+                    '--stream',
+                    ...IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
+                    '--',
+                    'node',
+                    path.join(dirname, 'lint-package-deps.mjs'),
+                ],
+                { preferLocal: true, stdio: 'inherit', reject: false },
+            ),
+            $(
+                'lerna',
+                [
+                    'exec',
+                    '--no-bail',
+                    '--stream',
+                    '--',
+                    'node',
+                    path.join(dirname, 'lint-versions.mjs'),
+                ],
+                { preferLocal: true, stdio: 'inherit', reject: false },
+            ),
+        ])
+    ).map(({ exitCode }) => exitCode);
 
-    exit(result.exitCode);
+    if (exitCodes.every((exitCode) => exitCode === 0)) {
+        return;
+    }
+
+    exit(1);
 }
 
 await main();

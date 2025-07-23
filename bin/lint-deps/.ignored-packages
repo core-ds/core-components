@@ -1,6 +1,5 @@
 @alfalab/core-components
 @alfalab/core-components-codemod
-@alfalab/core-components-env
 @alfalab/core-components-screenshot-utils
 @alfalab/core-components-scrollbar
 @alfalab/core-components-test-utils
