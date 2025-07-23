@@ -35,9 +35,6 @@
 }
 
 .image-fit {
-    width: auto;
-    height: 100%;
-    transform-origin: center;
     object-fit: contain;
 }
 
