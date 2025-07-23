@@ -94,3 +94,30 @@ describe(
         },
     }),
 );
+
+describe(
+    'IconView | Circle with Image scale',
+    screenshotTesting({
+        cases: [
+            [
+                'Circle scale',
+                createSpriteStorybookUrl({
+                    packageName: 'icon-view',
+                    componentName: 'Circle',
+                    knobs: {
+                        size: [32, 64, 80, 128],
+                        imageUrl: './images/imgBg.png',
+                        scale: ['fit', 'fill'],
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 600,
+            height: 720,
+        },
+        screenshotOpts: {
+            fullPage: false,
+        },
+    }),
+);

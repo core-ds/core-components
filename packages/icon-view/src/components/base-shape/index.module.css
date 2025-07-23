@@ -34,6 +34,14 @@
     fill: transparent;
 }
 
+.image-fit {
+    object-fit: contain;
+}
+
+.image-fill {
+    object-fit: cover;
+}
+
 .text {
     display: flex;
     justify-content: center;
