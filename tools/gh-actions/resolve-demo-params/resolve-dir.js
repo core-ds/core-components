@@ -37,7 +37,6 @@ module.exports = async ({ context, core, exec, inputs }) => {
 
                 switch (refName) {
                     case 'master':
-                    case 'beta':
                     case 'next':
                         return refName;
                 }
