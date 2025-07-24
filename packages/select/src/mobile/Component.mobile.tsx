@@ -49,6 +49,7 @@ export const SelectMobile = forwardRef(
             showClear = true,
             showSelectAll,
             showHeaderWithSelectAll,
+            checkmarkPosition = 'before',
             useWithApplyHook = multiple,
             showSearch,
             searchProps,
@@ -69,6 +70,7 @@ export const SelectMobile = forwardRef(
             onChange,
             showClear,
             showSelectAll,
+            checkmarkPosition,
         });
 
         const bottomAddons = (flatOptions: OptionShape[]) =>

@@ -8,5 +8,18 @@
 }
 
 .mobile {
-    padding: var(--gap-12) var(--gap-8);
+    padding: var(--gap-12) var(--gap-12) var(--gap-12) var(--gap-8);
+}
+
+.checkmarkBeforeContent {
+    margin-right: var(--gap-12);
+}
+
+.checkmarkAfterContent {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    & .content.content {
+        margin-left: 0;
+    }
 }
