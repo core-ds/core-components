@@ -7,4 +7,13 @@ function isNonNullable(val) {
     return val != null;
 }
 
-module.exports = { isNonNullable };
+/**
+ * @template T
+ * @param {T} val
+ * @returns {val is T & (null | undefined)}
+ */
+function isNullable(val) {
+    return !isNonNullable(val);
+}
+
+module.exports = { isNonNullable, isNullable };

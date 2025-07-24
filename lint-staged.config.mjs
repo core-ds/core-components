@@ -47,7 +47,7 @@ const config = {
 
         return {
             ...patterns,
-            [pattern]: 'yarn tsconfig check',
+            [pattern]: () => 'yarn tsconfig check',
         };
     }, {}),
     ...tsconfig.include
@@ -60,7 +60,7 @@ const config = {
             {},
         ),
     [`./{${DIRS.join(',')}}/**/*.{${EXTENSIONS.join(',')}}`]: 'eslint --max-warnings 0 --no-ignore',
-    './bin/tsconfig/templates/tsconfig*.json': 'yarn tsconfig check',
+    './bin/tsconfig/templates/tsconfig*.json': () => 'yarn tsconfig check',
     '*.{js,jsx,ts,tsx,cjs,mjs,json,yml}': 'prettier --write',
     '*.css': ['prettier --write', 'stylelint'],
 };

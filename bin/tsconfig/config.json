@@ -1,0 +1,33 @@
+{
+    "override": {
+        "@alfalab/core-components": {
+            "exclude": ["**"]
+        },
+        "@alfalab/core-components-screenshot-utils": {
+            "storybook": true,
+            "template": "templates/tsconfig.screenshot-utils.json"
+        },
+        "storybook": {
+            "include": ["**"],
+            "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
+            "storybook": true,
+            "template": "templates/tsconfig.storybook.json",
+            "references": false
+        },
+        "test": {
+            "include": ["**"],
+            "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
+            "out": "tsconfig.test.json",
+            "template": "templates/tsconfig.test.json",
+            "references": false
+        }
+    },
+    "rules": {
+        "include": [
+            "@alfalab/core-components-screenshot-utils",
+            "@alfalab/core-components-test-utils"
+        ],
+        "template": "templates/tsconfig.package.json",
+        "references": true
+    }
+}
