@@ -4,15 +4,17 @@
 const fs = require('fs');
 const path = require('path');
 const resolve = require('resolve/sync');
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 
 const CORE_COMPONENTS_REGEXP = /^@alfalab\/core-components-/;
+
+const basedir = path.resolve(__dirname, '..');
 
 Object.keys(pkg.dependencies)
     .filter((name) => CORE_COMPONENTS_REGEXP.test(name))
     .forEach((name) => {
-        const targetPath = path.join(__dirname, name.replace(CORE_COMPONENTS_REGEXP, ''));
-        const pkgPath = path.dirname(resolve(`${name}/package.json`, { basedir: __dirname }));
+        const targetPath = path.join(basedir, name.replace(CORE_COMPONENTS_REGEXP, ''));
+        const pkgPath = path.dirname(resolve(`${name}/package.json`, { basedir }));
 
         if (fs.existsSync(targetPath)) {
             fs.rmSync(targetPath, { recursive: true, force: true, maxRetries: 3 });

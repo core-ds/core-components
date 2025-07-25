@@ -260,7 +260,7 @@ const esm = () => {
 
 const root = () =>
     defineConfig({
-        input: 'src/bootstrap.js',
+        input: 'src/bin/bootstrap.js',
         plugins: [
             copy({
                 targets: [
@@ -272,7 +272,7 @@ const root = () =>
                             const { indent } = detectIndent(content);
                             const pkgJson = JSON.parse(content);
 
-                            pkgJson.scripts.postinstall = 'node bootstrap.js';
+                            pkgJson.scripts.postinstall = 'node bin/bootstrap.js';
 
                             return `${JSON.stringify(pkgJson, null, indent)}\n`;
                         },
@@ -280,7 +280,11 @@ const root = () =>
                 ],
             }),
         ],
-        output: { dir: 'dist' },
+        output: {
+            dir: 'dist',
+            preserveModules: true,
+            preserveModulesRoot: 'src',
+        },
     });
 
 export default pkg.name === '@alfalab/core-components'
