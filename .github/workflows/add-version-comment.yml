@@ -33,6 +33,6 @@ jobs:
           body: |
             ✅ **Изменения успешно влиты**
             > Текущая версия master: **${{ env.version }}**.
-            > Ветка: **${{ github.ref }}**
+            > Ветка: **${{ github.head_ref }}**
             > Автор PR: [@${{ github.actor }}](https://github.com/${{ github.actor }})
           token: ${{ secrets.GITHUB_TOKEN }}
