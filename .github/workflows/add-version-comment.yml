@@ -1,0 +1,37 @@
+name: Add Version Comment to PR
+
+on:
+  pull_request:
+    # Запустить при закрытии PR (включая merge)
+    types: [closed]
+
+jobs:
+  add-version-comment:
+    # Выполнить job если был выполнен merge
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      # Получить версию из package.json
+      - name: Read version from package.json
+        id: read_version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+
+      # Добавить комментарий во вливаемый PR
+      - name: Add comment to PR
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ✅ **Изменения успешно влиты**
+            > Текущая версия master: **${{ env.version }}**.
+            > Автор PR: [@${{ github.actor }}](https://github.com/${{ github.actor }})
+          token: ${{ secrets.GITHUB_TOKEN }}
