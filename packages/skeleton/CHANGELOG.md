@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-skeleton
 
 ## 5.4.0
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { Accordion } from '.';
+import { Accordion } from '@alfalab/core-components-accordion';
 
 test('Accordion', () => {
     let htmlString: string | undefined;

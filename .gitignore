@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules/
-/.pnp
+.pnp
 .pnp.js
 
 # testing
@@ -12,6 +12,7 @@ node_modules/
 /build
 dist
 *.tsbuildinfo
+package-size.json
 package-sizes.json
 
 # misc
@@ -28,11 +29,12 @@ storybook-static
 
 # IDE
 .idea
-.vscode
+/.vscode/*
+!.vscode/settings.json
 
-.yalc/
+.yalc
 yalc.lock
 lerna-debug.log
 .npmrc
 
-.storybook/public/images/*preview-snap.png
+.storybook/public/images/*-preview-snap.png

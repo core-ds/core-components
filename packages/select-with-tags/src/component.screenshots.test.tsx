@@ -4,7 +4,7 @@ import {
     closeBrowser,
     matchHtml,
     openBrowserPage,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const ENTRY_TO_COMPONENT_NAME = {
     desktop: 'SelectWithTagsDesktop',

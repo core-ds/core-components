@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-checkbox
 
 ## 4.9.5
 

@@ -12,7 +12,8 @@
     },
     "sideEffects": false,
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
         "classnames": "^2.5.1",

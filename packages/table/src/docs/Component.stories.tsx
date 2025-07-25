@@ -8,7 +8,7 @@ import { Table } from '@alfalab/core-components-table';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Table> = {
     title: 'Components/Table',

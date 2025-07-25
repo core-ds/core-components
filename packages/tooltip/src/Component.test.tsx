@@ -370,10 +370,7 @@ describe('Props test', () => {
 
         await renderTooltip(expectedProps);
 
-        const mockCalls = spy.mock.calls;
-        const lastMockCall = mockCalls[mockCalls.length - 1];
-
-        expect(lastMockCall[0]).toMatchObject({ anchorElement: anchor });
+        expect(spy).toHaveBeenCalledWith(expect.objectContaining({ anchorElement: anchor }), null);
     });
     it('should call `onTargetClick`', async () => {
         const childrenText = 'Click me';

@@ -395,8 +395,8 @@ describe('ProgressBar', () => {
             const title = screen.getByTestId(testIds.title);
             const subtitle = screen.getByTestId(testIds.subtitle);
 
-            expect(title).toHaveStyle('color: tomato');
-            expect(subtitle).toHaveStyle('color: tomato');
+            expect(title).toHaveStyle({ color: 'tomato' });
+            expect(subtitle).toHaveStyle({ color: 'tomato' });
         });
 
         it('should override "contentColor" with "titleColor"', () => {
@@ -418,8 +418,8 @@ describe('ProgressBar', () => {
             const title = screen.getByTestId(testIds.title);
             const subtitle = screen.getByTestId(testIds.subtitle);
 
-            expect(title).toHaveStyle('color: blue');
-            expect(subtitle).toHaveStyle('color: tomato');
+            expect(title).toHaveStyle({ color: 'blue' });
+            expect(subtitle).toHaveStyle({ color: 'tomato' });
         });
 
         it('should override "contentColor" with "subtitleColor"', () => {
@@ -441,8 +441,8 @@ describe('ProgressBar', () => {
             const subtitle = screen.getByTestId(testIds.subtitle);
             const title = screen.getByTestId(testIds.title);
 
-            expect(subtitle).toHaveStyle('color: blue');
-            expect(title).toHaveStyle('color: tomato');
+            expect(title).toHaveStyle({ color: 'tomato' });
+            expect(subtitle).toHaveStyle({ color: 'blue' });
         });
     });
 });

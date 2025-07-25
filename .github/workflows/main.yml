@@ -5,7 +5,6 @@ on:
     push:
         branches:
             - master
-            - beta
             - next
 
 concurrency:
@@ -24,7 +23,7 @@ jobs:
             - name: run build
               run: yarn build
               env:
-                  BUILD_CONCURRENCY: 5
+                  BUILD_CONCURRENCY: 4
 
     lint:
         name: lint
@@ -33,6 +32,10 @@ jobs:
             - uses: actions/checkout@v4
 
             - uses: ./.github/actions/ci-setup
+
+            - name: check tsconfig
+              run: |
+                  yarn tsconfig check
 
             - name: run lint
               run: |
@@ -60,9 +63,29 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
+    demo-params:
+        uses: ./.github/workflows/resolve-demo-params.yml
+        secrets: inherit
+        with:
+            dir: ${{ github.event.pull_request.number }}
+
+    build-demo:
+        uses: ./.github/workflows/build-demo.yml
+        secrets: inherit
+
+    deploy:
+        if: ${{ github.repository == 'core-ds/core-components' }}
+        needs: [demo-params, build-demo]
+        uses: ./.github/workflows/deploy-demo.yml
+        secrets: inherit
+        with:
+            run-id: ${{ needs.build-demo.outputs.run-id }}
+            dir: ${{ needs.demo-params.outputs.dir }}
+
     screenshot-test:
         name: screenshot test
         runs-on: ubuntu-latest
+        needs: build-demo
         steps:
             - uses: actions/checkout@v4
               with:
@@ -70,20 +93,13 @@ jobs:
 
             - uses: ./.github/actions/ci-setup
 
-            - name: build modern dist
-              shell: bash
-              env:
-                  BUILD_CONCURRENCY: 4
-                  BUILD_MODERN_ONLY: 'true'
-              run: |
-                  yarn build
-
-            - name: build demo
-              shell: bash
-              env:
-                  BUILD_STORYBOOK_FROM_DIST: 'true'
-              run: |
-                  yarn build-storybook
+            - name: download build
+              uses: actions/download-artifact@v4
+              with:
+                  name: build
+                  path: build
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  run-id: ${{ needs.build-demo.outputs.run-id }}
 
             - name: run screenshot test
               shell: bash
@@ -101,7 +117,7 @@ jobs:
         name: ci ok
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, test, screenshot-test]
+        needs: [lint, build, build-demo, test, screenshot-test]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:

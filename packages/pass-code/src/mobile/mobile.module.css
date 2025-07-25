@@ -1,9 +1,9 @@
-@import '../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../vars.css';
 
 .component {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     height: var(--pass-code-height);
 }

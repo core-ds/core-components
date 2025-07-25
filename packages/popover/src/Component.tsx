@@ -20,8 +20,8 @@ import maxSize from 'popper-max-size-modifier';
 import { Portal } from '@alfalab/core-components-portal';
 import { isFn } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
+import { stackingOrder } from '@alfalab/core-components-stack-context';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-import { stackingOrder } from '@alfalab/stack-context';
 
 import styles from './index.module.css';
 
