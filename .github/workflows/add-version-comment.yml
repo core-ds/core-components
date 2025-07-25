@@ -30,5 +30,9 @@ jobs:
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body: "Изменения успешно влиты. Текущая версия master: **${{ env.version }}**."
+          body: |
+            ✅ **Изменения успешно влиты**
+            > Текущая версия master: **${{ env.version }}**.
+            > Ветка: **${{ github.ref }}**
+            > Автор PR: [@${{ github.actor }}](https://github.com/${{ github.actor }})
           token: ${{ secrets.GITHUB_TOKEN }}
