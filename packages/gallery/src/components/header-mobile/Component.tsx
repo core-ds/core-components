@@ -28,29 +28,41 @@ export const HeaderMobile = () => {
     const showDownloadButton = !meta?.broken && canDownload;
 
     const handleShareClick = async () => {
-        if (!currentImage) return;
+        if (!currentImage || !navigator.share) return;
 
         const title = currentImage.name ?? new Date().toISOString().split('T')[0];
 
-        const image = await fetch(currentImage.src);
-        const blob = await image.blob();
+        if (!isVideo(currentImage.src)) {
+            try {
+                const image = await fetch(currentImage.src);
+                const blob = await image.blob();
 
-        const filesArray = [
-            new File([blob], title, {
-                type: blob.type,
-                lastModified: new Date().getTime(),
-            }),
-        ];
+                const filesArray = [
+                    new File([blob], title, {
+                        type: blob.type,
+                        lastModified: new Date().getTime(),
+                    }),
+                ];
 
-        const shareData = {
-            files: filesArray,
-        };
+                const shareData: ShareData = {
+                    files: filesArray,
+                    title,
+                };
 
-        if (navigator.canShare(shareData) && !isVideo(currentImage.src)) {
-            await navigator.share(shareData);
-        } else {
-            await navigator.share({ url: currentImage.src, title });
+                if (navigator.canShare && navigator.canShare(shareData)) {
+                    await navigator.share(shareData);
+
+                    return;
+                }
+            } catch {
+                /* empty */
+            }
         }
+
+        await navigator.share({
+            url: currentImage.src,
+            title,
+        });
     };
 
     return (
