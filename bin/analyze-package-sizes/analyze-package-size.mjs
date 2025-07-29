@@ -16,9 +16,14 @@ const ENTRY_POINTS = [
     'collapsible',
 ];
 
+const EXTENTIONS = ['js', 'jsx', 'ts', 'tsx'];
+
 async function main() {
     const pkg = await fse.readJson('package.json', { encoding: 'utf8' });
-    const entryPoints = await globby([`src/{${ENTRY_POINTS.join(',')}}/index.ts`, 'src/index.ts']);
+    const entryPoints = await globby([
+        `src/index.{${EXTENTIONS.join(',')}}`,
+        `src/{${ENTRY_POINTS.join(',')}}/index.{${EXTENTIONS.join(',')}}`,
+    ]);
     const result = await build({
         entryPoints,
         bundle: true,
