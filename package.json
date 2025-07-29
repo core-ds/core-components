@@ -50,6 +50,7 @@
         ]
     },
     "devDependencies": {
+        "@alfalab/icons-glyph": "^2.210.0",
         "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
         "@changesets/read": "^0.6.3",
