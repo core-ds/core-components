@@ -2,10 +2,7 @@
     {
         "override": {
             "@alfalab/core-components": {
-                "exclude": ["@alfalab/core-components"],
-                "dependencies": false,
-                "devDependencies": false,
-                "peerDependencies": false
+                "exclude": ["@alfalab/core-components"]
             },
             "storybook": {
                 "include": ["**"],

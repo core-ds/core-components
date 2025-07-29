@@ -3,7 +3,6 @@
 import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
-import detectIndent from 'detect-indent';
 import fse from 'fs-extra';
 import { globbySync } from 'globby';
 import path from 'node:path';
@@ -12,13 +11,18 @@ import { defineConfig } from 'rollup';
 import copy from 'rollup-plugin-copy';
 import ts from 'typescript';
 
+import cssmSupport from '../css-modules.cjs';
+
 import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
 import { processCss } from './process-css.mjs';
 import { transformDeclarations } from './ts-declaration-transformer.mjs';
 
 const { ScriptTarget } = ts;
+const { isCssModulesAvailable } = cssmSupport;
 
 const pkg = fse.readJsonSync(path.resolve(cwd(), 'package.json'), { encoding: 'utf8' });
+
+const IS_ROOT_PACKAGE = pkg.name === '@alfalab/core-components';
 
 const externals = [
     ...Object.keys(pkg.dependencies ?? {}),
@@ -70,13 +74,13 @@ const es5 = () => {
         output: [
             {
                 esModule: true,
-                dir: 'dist',
+                dir: IS_ROOT_PACKAGE ? 'dist/es5' : 'dist',
                 format: 'cjs',
                 interop: 'compat',
                 dynamicImportInCjs: false,
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                sourcemap: true,
+                sourcemap: !IS_ROOT_PACKAGE,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('..', relativeSourcePath),
             },
@@ -87,14 +91,14 @@ const es5 = () => {
             typescript({
                 tsconfig: 'tsconfig.build.json',
                 target: ScriptTarget.ES5,
-                outDir: 'dist',
-                declarationDir: 'dist',
+                outDir: IS_ROOT_PACKAGE ? 'dist/es5' : 'dist',
+                declarationDir: IS_ROOT_PACKAGE ? 'dist/es5' : 'dist',
                 outputToFilesystem: false,
             }),
             processCss(),
             assetsCopyPlugin('dist'),
             copy({ flatten: false, targets: [{ src: '**/package.json', dest: 'dist' }] }),
-            sourceCopyPlugin,
+            !IS_ROOT_PACKAGE && sourceCopyPlugin,
         ],
     });
 };
@@ -117,7 +121,7 @@ const cssm = () => {
                 dynamicImportInCjs: false,
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                sourcemap: true,
+                sourcemap: !IS_ROOT_PACKAGE,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('../..', relativeSourcePath),
             },
@@ -155,7 +159,7 @@ const modern = () => {
                 generatedCode: 'es2015',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                sourcemap: true,
+                sourcemap: !IS_ROOT_PACKAGE,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('../..', relativeSourcePath),
             },
@@ -195,7 +199,7 @@ const moderncssm = () => {
                 generatedCode: 'es2015',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                sourcemap: true,
+                sourcemap: !IS_ROOT_PACKAGE,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('../..', relativeSourcePath),
             },
@@ -235,7 +239,7 @@ const esm = () => {
                 format: 'esm',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                sourcemap: true,
+                sourcemap: !IS_ROOT_PACKAGE,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('../..', relativeSourcePath),
             },
@@ -258,47 +262,12 @@ const esm = () => {
     });
 };
 
-const root = () =>
-    defineConfig({
-        input: 'src/bin/bootstrap.js',
-        plugins: [
-            copy({
-                targets: [
-                    {
-                        src: 'package.json',
-                        dest: 'dist',
-                        transform: (contents) => {
-                            const content = contents.toString('utf8');
-                            const { indent } = detectIndent(content);
-                            const pkgJson = JSON.parse(content);
-
-                            pkgJson.scripts.postinstall = 'node bin/bootstrap.js';
-
-                            return `${JSON.stringify(pkgJson, null, indent)}\n`;
-                        },
-                    },
-                ],
-            }),
-        ],
-        output: {
-            dir: 'dist',
-            preserveModules: true,
-            preserveModulesRoot: 'src',
-        },
-    });
-
-export default pkg.name === '@alfalab/core-components'
-    ? root()
-    : process.env.BUILD_MODERN_ONLY === 'true'
+export default process.env.BUILD_MODERN_ONLY === 'true'
     ? modern()
     : [
           es5(),
           modern(),
           esm(),
-          pkg.name !== '@alfalab/core-components-themes' &&
-              pkg.name !== '@alfalab/core-components-vars' &&
-              cssm(),
-          pkg.name !== '@alfalab/core-components-themes' &&
-              pkg.name !== '@alfalab/core-components-vars' &&
-              moderncssm(),
+          isCssModulesAvailable(pkg.name) && cssm(),
+          isCssModulesAvailable(pkg.name) && moderncssm(),
       ].filter(Boolean);

@@ -2,14 +2,10 @@
     "name": "@alfalab/core-components",
     "version": "48.31.0",
     "license": "MIT",
-    "bin": {
-        "alfalab-core-components": "./bin/bootstrap.js"
-    },
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
     },
     "homepage": "https://github.com/core-ds/core-components#readme",
-    "scripts": {},
     "dependencies": {
         "@alfalab/core-components-accordion": "^1.2.15",
         "@alfalab/core-components-action-button": "^1.7.13",
@@ -131,8 +127,7 @@
         "@alfalab/core-components-universal-date-input": "^2.8.1",
         "@alfalab/core-components-universal-modal": "^1.1.5",
         "@alfalab/core-components-vars": "^9.21.0",
-        "@alfalab/core-components-with-suffix": "^4.2.20",
-        "resolve": "^1.22.10"
+        "@alfalab/core-components-with-suffix": "^4.2.20"
     },
     "peerDependencies": {
         "@alfalab/core-components-config": "^0.0.0",

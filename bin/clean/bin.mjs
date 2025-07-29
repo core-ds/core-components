@@ -39,6 +39,7 @@ async function main() {
             '--',
             'rimraf',
             'src/*.ts',
+            'src/**/*.ts',
         ]),
     ]);
 }

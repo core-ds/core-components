@@ -15,7 +15,7 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 async function main(args) {
     await $('yarn', ['clean']);
 
-    const CSS_PACKAGES = await readPackagesFile(path.join(dirname, '.css-packages'));
+    const CSS_PACKAGES = await readPackagesFile(path.join(cwd(), 'tools/.css-packages'));
 
     await $('lerna', [
         'exec',
@@ -46,6 +46,16 @@ async function main(args) {
         ]),
     ]);
 
+    await $('lerna', [
+        'exec',
+        '--scope',
+        '@alfalab/core-components',
+        '--',
+        'node',
+        path.resolve(cwd(), 'bin/build-root.mjs'),
+        'generate',
+    ]);
+
     const BUILD_IGNORED_PACKAGES = await readPackagesFile(
         path.resolve(cwd(), 'tools/.build-ignored-packages'),
     );
@@ -73,6 +83,16 @@ async function main(args) {
         '-c',
         path.resolve(cwd(), 'tools/rollup/rollup.config.mjs'),
         '--silent',
+    ]);
+
+    await $('lerna', [
+        'exec',
+        '--scope',
+        '@alfalab/core-components',
+        '--',
+        'node',
+        path.resolve(cwd(), 'bin/build-root.mjs'),
+        'link',
     ]);
 
     const PURGECSS_IGNORED_PACKAGES = await readPackagesFile(
