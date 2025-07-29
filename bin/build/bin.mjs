@@ -57,6 +57,18 @@ async function main(args) {
         ...BUILD_IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
         ...args,
         '--',
+        'tsc',
+        '-b',
+        'tsconfig.build.json',
+    ]);
+
+    await $('lerna', [
+        'exec',
+        '--concurrency',
+        env.BUILD_CONCURRENCY ?? '10',
+        ...BUILD_IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
+        ...args,
+        '--',
         'rollup',
         '-c',
         path.resolve(cwd(), 'tools/rollup/rollup.config.mjs'),

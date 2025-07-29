@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-icon-view": ["./src"],
             "@alfalab/core-components-icon-view/*": ["./src/*"],
@@ -17,8 +17,8 @@
         }
     },
     "references": [
-        { "path": "../indicator" },
-        { "path": "../screenshot-utils" },
-        { "path": "../test-utils" }
+        { "path": "../indicator/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

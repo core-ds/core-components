@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "types": [
             "@alfalab/core-components-env",
             "@testing-library/jest-dom",
@@ -18,5 +18,5 @@
             "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../../.storybook" }, { "path": "../test-utils" }]
+    "references": [{ "path": "../../.storybook" }, { "path": "../test-utils/tsconfig.build.json" }]
 }

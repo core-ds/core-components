@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-amount": ["../amount/src"],
             "@alfalab/core-components-amount/*": ["../amount/src/*"],
@@ -25,12 +25,12 @@
         }
     },
     "references": [
-        { "path": "../amount" },
-        { "path": "../button" },
-        { "path": "../comment" },
-        { "path": "../screenshot-utils" },
-        { "path": "../shared" },
-        { "path": "../test-utils" },
-        { "path": "../typography" }
+        { "path": "../amount/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../comment/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
     ]
 }

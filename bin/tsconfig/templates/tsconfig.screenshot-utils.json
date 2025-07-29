@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "types": ["@alfalab/core-components-env", "@testing-library/jest-dom", "@types/webpack-env"]
     }
 }

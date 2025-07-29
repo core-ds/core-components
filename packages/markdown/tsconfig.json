@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-link": ["../link/src"],
             "@alfalab/core-components-link/*": ["../link/src/*"],
@@ -23,11 +23,11 @@
         }
     },
     "references": [
-        { "path": "../link" },
-        { "path": "../list" },
-        { "path": "../mq" },
-        { "path": "../screenshot-utils" },
-        { "path": "../test-utils" },
-        { "path": "../typography" }
+        { "path": "../link/tsconfig.build.json" },
+        { "path": "../list/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
     ]
 }

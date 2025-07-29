@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-base-modal": ["../base-modal/src"],
             "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
@@ -27,12 +27,12 @@
         }
     },
     "references": [
-        { "path": "../base-modal" },
-        { "path": "../drawer" },
-        { "path": "../mq" },
-        { "path": "../navigation-bar-private" },
-        { "path": "../screenshot-utils" },
-        { "path": "../shared" },
-        { "path": "../test-utils" }
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../drawer/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../navigation-bar-private/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

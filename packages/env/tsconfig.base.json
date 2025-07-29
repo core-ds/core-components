@@ -12,6 +12,7 @@
         "resolveJsonModule": true,
         "composite": true,
         "declaration": true,
+        "importHelpers": true,
         "types": ["@alfalab/core-components-env", "@testing-library/jest-dom"]
     }
 }

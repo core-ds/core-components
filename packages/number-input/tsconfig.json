@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-icon-button": ["../icon-button/src"],
             "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
@@ -23,11 +23,11 @@
         }
     },
     "references": [
-        { "path": "../icon-button" },
-        { "path": "../input" },
-        { "path": "../mq" },
-        { "path": "../screenshot-utils" },
-        { "path": "../shared" },
-        { "path": "../test-utils" }
+        { "path": "../icon-button/tsconfig.build.json" },
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

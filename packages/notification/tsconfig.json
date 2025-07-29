@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-notification": ["./src"],
             "@alfalab/core-components-notification/*": ["./src/*"],
@@ -25,12 +25,12 @@
         }
     },
     "references": [
-        { "path": "../portal" },
-        { "path": "../screenshot-utils" },
-        { "path": "../shared" },
-        { "path": "../stack" },
-        { "path": "../stack-context" },
-        { "path": "../test-utils" },
-        { "path": "../toast-plate" }
+        { "path": "../portal/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../stack/tsconfig.build.json" },
+        { "path": "../stack-context/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" },
+        { "path": "../toast-plate/tsconfig.build.json" }
     ]
 }

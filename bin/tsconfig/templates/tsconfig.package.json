@@ -4,6 +4,6 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist"
+        "outDir": "no-dist"
     }
 }

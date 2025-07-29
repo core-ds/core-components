@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-accordion": ["./src"],
             "@alfalab/core-components-accordion/*": ["./src/*"],
@@ -19,9 +19,9 @@
         }
     },
     "references": [
-        { "path": "../screenshot-utils" },
-        { "path": "../shared" },
-        { "path": "../test-utils" },
-        { "path": "../typography" }
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
     ]
 }

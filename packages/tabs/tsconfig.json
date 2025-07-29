@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-badge": ["../badge/src"],
             "@alfalab/core-components-badge/*": ["../badge/src/*"],
@@ -31,15 +31,15 @@
         }
     },
     "references": [
-        { "path": "../badge" },
-        { "path": "../icon-button" },
-        { "path": "../keyboard-focusable" },
-        { "path": "../mq" },
-        { "path": "../picker-button" },
-        { "path": "../screenshot-utils" },
-        { "path": "../shared" },
-        { "path": "../skeleton" },
-        { "path": "../tag" },
-        { "path": "../test-utils" }
+        { "path": "../badge/tsconfig.build.json" },
+        { "path": "../icon-button/tsconfig.build.json" },
+        { "path": "../keyboard-focusable/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../picker-button/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../skeleton/tsconfig.build.json" },
+        { "path": "../tag/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

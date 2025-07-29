@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-gap": ["../gap/src"],
             "@alfalab/core-components-gap/*": ["../gap/src/*"],
@@ -17,8 +17,8 @@
         }
     },
     "references": [
-        { "path": "../gap" },
-        { "path": "../screenshot-utils" },
-        { "path": "../test-utils" }
+        { "path": "../gap/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

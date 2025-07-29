@@ -1,33 +1,71 @@
-{
-    "override": {
-        "@alfalab/core-components": {
-            "exclude": ["**"]
+[
+    {
+        "override": {
+            "@alfalab/core-components": {
+                "exclude": ["@alfalab/core-components"],
+                "dependencies": false,
+                "devDependencies": false,
+                "peerDependencies": false
+            },
+            "storybook": {
+                "include": ["**"],
+                "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
+                "storybook": true,
+                "out": "tsconfig.json",
+                "template": "templates/tsconfig.storybook.json",
+                "references": false
+            },
+            "test": {
+                "include": ["**"],
+                "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
+                "out": "tsconfig.test.json",
+                "template": "templates/tsconfig.test.json",
+                "references": false
+            }
         },
-        "@alfalab/core-components-screenshot-utils": {
-            "storybook": true,
-            "template": "templates/tsconfig.screenshot-utils.json"
-        },
-        "storybook": {
-            "include": ["**"],
-            "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
-            "storybook": true,
-            "template": "templates/tsconfig.storybook.json",
-            "references": false
-        },
-        "test": {
-            "include": ["**"],
-            "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
-            "out": "tsconfig.test.json",
-            "template": "templates/tsconfig.test.json",
-            "references": false
+        "rules": {
+            "out": "tsconfig.build.json",
+            "template": "templates/tsconfig.build-package.json",
+            "references": "tsconfig.build.json",
+            "dependencies": true,
+            "devDependencies": true,
+            "peerDependencies": true
         }
     },
-    "rules": {
-        "include": [
-            "@alfalab/core-components-screenshot-utils",
-            "@alfalab/core-components-test-utils"
-        ],
-        "template": "templates/tsconfig.package.json",
-        "references": true
+    {
+        "override": {
+            "@alfalab/core-components": {
+                "exclude": [
+                    "@alfalab/core-components",
+                    "@alfalab/core-components-screenshot-utils",
+                    "@alfalab/core-components-test-utils"
+                ],
+                "dependencies": false,
+                "devDependencies": false,
+                "peerDependencies": false
+            },
+            "@alfalab/core-components-screenshot-utils": {
+                "storybook": true,
+                "template": "templates/tsconfig.screenshot-utils.json"
+            },
+            "storybook": {
+                "skip": true
+            },
+            "test": {
+                "skip": true
+            }
+        },
+        "rules": {
+            "include": [
+                "@alfalab/core-components-screenshot-utils",
+                "@alfalab/core-components-test-utils"
+            ],
+            "out": "tsconfig.json",
+            "template": "templates/tsconfig.package.json",
+            "references": "tsconfig.build.json",
+            "dependencies": true,
+            "devDependencies": true,
+            "peerDependencies": true
+        }
     }
-}
+]

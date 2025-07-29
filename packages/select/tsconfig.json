@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-badge": ["../badge/src"],
             "@alfalab/core-components-badge/*": ["../badge/src/*"],
@@ -41,20 +41,20 @@
         }
     },
     "references": [
-        { "path": "../badge" },
-        { "path": "../base-modal" },
-        { "path": "../bottom-sheet" },
-        { "path": "../button" },
-        { "path": "../checkbox" },
-        { "path": "../form-control" },
-        { "path": "../input" },
-        { "path": "../modal" },
-        { "path": "../mq" },
-        { "path": "../popover" },
-        { "path": "../screenshot-utils" },
-        { "path": "../scrollbar" },
-        { "path": "../shared" },
-        { "path": "../skeleton" },
-        { "path": "../test-utils" }
+        { "path": "../badge/tsconfig.build.json" },
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../bottom-sheet/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../checkbox/tsconfig.build.json" },
+        { "path": "../form-control/tsconfig.build.json" },
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../modal/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../popover/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../scrollbar/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../skeleton/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

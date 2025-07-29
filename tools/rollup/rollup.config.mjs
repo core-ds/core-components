@@ -14,6 +14,7 @@ import ts from 'typescript';
 
 import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
 import { processCss } from './process-css.mjs';
+import { transformDeclarations } from './ts-declaration-transformer.mjs';
 
 const { ScriptTarget } = ts;
 
@@ -75,7 +76,6 @@ const es5 = () => {
                 dynamicImportInCjs: false,
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                hoistTransitiveImports: false,
                 sourcemap: true,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('..', relativeSourcePath),
@@ -85,11 +85,11 @@ const es5 = () => {
             ...base.plugins,
             externalsResolver(externals),
             typescript({
-                exclude: ['**/*.stories*', '**/*.test*'],
+                tsconfig: 'tsconfig.build.json',
                 target: ScriptTarget.ES5,
                 outDir: 'dist',
                 declarationDir: 'dist',
-                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+                outputToFilesystem: false,
             }),
             processCss(),
             assetsCopyPlugin('dist'),
@@ -117,7 +117,6 @@ const cssm = () => {
                 dynamicImportInCjs: false,
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                hoistTransitiveImports: false,
                 sourcemap: true,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('../..', relativeSourcePath),
@@ -128,11 +127,12 @@ const cssm = () => {
             coreComponentsResolver('cssm'),
             externalsResolver(externals),
             typescript({
-                exclude: ['**/*.stories*', '**/*.test*'],
+                tsconfig: 'tsconfig.build.json',
                 target: ScriptTarget.ES5,
                 outDir: 'dist/cssm',
                 declarationDir: 'dist/cssm',
-                tsBuildInfoFile: 'tsconfig.cssm.tsbuildinfo',
+                outputToFilesystem: false,
+                transformers: transformDeclarations('cssm'),
             }),
             processCss({ modules: false }),
             assetsCopyPlugin('dist/cssm'),
@@ -153,7 +153,6 @@ const modern = () => {
                 dir: 'dist/modern',
                 format: 'esm',
                 generatedCode: 'es2015',
-                hoistTransitiveImports: false,
                 preserveModules: true,
                 preserveModulesRoot: 'src',
                 sourcemap: true,
@@ -166,11 +165,12 @@ const modern = () => {
             coreComponentsResolver('modern'),
             externalsResolver(externals),
             typescript({
-                exclude: ['**/*.stories*', '**/*.test*'],
+                tsconfig: 'tsconfig.build.json',
                 target: ScriptTarget.ES2020,
                 outDir: 'dist/modern',
                 declarationDir: 'dist/modern',
-                tsBuildInfoFile: 'tsconfig.modern.tsbuildinfo',
+                outputToFilesystem: false,
+                transformers: transformDeclarations('modern'),
             }),
             processCss(),
             assetsCopyPlugin('dist/modern'),
@@ -193,7 +193,6 @@ const moderncssm = () => {
                 dir: 'dist/moderncssm',
                 format: 'esm',
                 generatedCode: 'es2015',
-                hoistTransitiveImports: false,
                 preserveModules: true,
                 preserveModulesRoot: 'src',
                 sourcemap: true,
@@ -206,11 +205,12 @@ const moderncssm = () => {
             coreComponentsResolver('moderncssm'),
             externalsResolver(externals),
             typescript({
-                exclude: ['**/*.stories*', '**/*.test*'],
+                tsconfig: 'tsconfig.build.json',
                 target: ScriptTarget.ES2020,
                 outDir: 'dist/moderncssm',
-                declarationDir: 'dist/moderncssm',
-                tsBuildInfoFile: 'tsconfig.moderncssm.tsbuildinfo',
+                declaration: 'dist/moderncssm',
+                outputToFilesystem: false,
+                transformers: transformDeclarations('moderncssm'),
             }),
             processCss({
                 noCommonVars: true,
@@ -235,7 +235,6 @@ const esm = () => {
                 format: 'esm',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                hoistTransitiveImports: false,
                 sourcemap: true,
                 sourcemapPathTransform: (relativeSourcePath) =>
                     path.relative('../..', relativeSourcePath),
@@ -246,11 +245,12 @@ const esm = () => {
             coreComponentsResolver('esm'),
             externalsResolver(externals),
             typescript({
-                exclude: ['**/*.stories*', '**/*.test*'],
+                tsconfig: 'tsconfig.build.json',
                 target: ScriptTarget.ES5,
                 outDir: 'dist/esm',
                 declarationDir: 'dist/esm',
-                tsBuildInfoFile: 'tsconfig.esm.tsbuildinfo',
+                outputToFilesystem: false,
+                transformers: transformDeclarations('esm'),
             }),
             processCss(),
             assetsCopyPlugin('dist'),

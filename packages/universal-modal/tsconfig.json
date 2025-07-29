@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-backdrop": ["../backdrop/src"],
             "@alfalab/core-components-backdrop/*": ["../backdrop/src/*"],
@@ -33,15 +33,15 @@
         }
     },
     "references": [
-        { "path": "../backdrop" },
-        { "path": "../base-modal" },
-        { "path": "../button" },
-        { "path": "../mq" },
-        { "path": "../navigation-bar-private" },
-        { "path": "../screenshot-utils" },
-        { "path": "../scrollbar" },
-        { "path": "../shared" },
-        { "path": "../test-utils" },
-        { "path": "../typography" }
+        { "path": "../backdrop/tsconfig.build.json" },
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../navigation-bar-private/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../scrollbar/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
     ]
 }

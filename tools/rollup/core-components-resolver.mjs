@@ -1,3 +1,7 @@
+import path from 'node:path';
+
+import { matchCoreComponentsModule } from './utils.mjs';
+
 /**
  * Заменяет импорты компонентов для сборки modern/cssm/moderncssm/esm
  *
@@ -7,13 +11,13 @@
 export const coreComponentsResolver = (buildPath) => ({
     name: 'core-components-resolver',
     resolveId: (id) => {
-        const match = id.match(/^(@alfalab\/core-components-[^/]+)\/?(.*)$/);
+        const match = matchCoreComponentsModule(id);
 
         if (match) {
             const [, componentName, entryPoint] = match;
 
             return {
-                id: [componentName, buildPath, entryPoint].filter(Boolean).join('/'),
+                id: path.join(componentName, buildPath, entryPoint),
                 external: true,
             };
         }

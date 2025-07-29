@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-input": ["../input/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
@@ -27,13 +27,13 @@
         }
     },
     "references": [
-        { "path": "../input" },
-        { "path": "../input-autocomplete" },
-        { "path": "../mq" },
-        { "path": "../screenshot-utils" },
-        { "path": "../select" },
-        { "path": "../shared" },
-        { "path": "../test-utils" },
-        { "path": "../types" }
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../input-autocomplete/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../select/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" },
+        { "path": "../types/tsconfig.build.json" }
     ]
 }

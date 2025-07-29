@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-bottom-sheet": ["../bottom-sheet/src"],
             "@alfalab/core-components-bottom-sheet/*": ["../bottom-sheet/src/*"],
@@ -27,13 +27,13 @@
         }
     },
     "references": [
-        { "path": "../bottom-sheet" },
-        { "path": "../form-control" },
-        { "path": "../mq" },
-        { "path": "../popover" },
-        { "path": "../screenshot-utils" },
-        { "path": "../select" },
-        { "path": "../tag" },
-        { "path": "../test-utils" }
+        { "path": "../bottom-sheet/tsconfig.build.json" },
+        { "path": "../form-control/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../popover/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../select/tsconfig.build.json" },
+        { "path": "../tag/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

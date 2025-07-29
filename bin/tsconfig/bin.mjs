@@ -18,9 +18,9 @@ import { isNonNullable } from '../../tools/utils.cjs';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 /**
- * @type {Configuration}
+ * @type {Configuration[]}
  */
-const config = await fse.readJson(path.join(dirname, 'config.json'), { encoding: 'utf8' });
+const configs = await fse.readJson(path.join(dirname, 'config.json'), { encoding: 'utf8' });
 
 const STORYBOOK_PATH = path.resolve(process.cwd(), '.storybook');
 const IGNORED_PACKAGES = await readPackagesFile(path.join(dirname, '.ignored-packages'));
@@ -61,13 +61,21 @@ await yargs(hideBin(argv))
                     ...(yargs.storybook || yargs.all ? ['storybook'] : []),
                     ...(yargs.test || yargs.all ? ['test'] : []),
                     ...(yargs.all ? INTERNAL_PACKAGES_NAMES : yargs.scope ?? []),
-                ].map(async (id) => {
-                    const options = resolveOptions(id);
+                ].map(async (id) =>
+                    Promise.all(
+                        configs.map(async (config) => {
+                            const options = resolveOptions(config, id);
 
-                    return fse.writeJson(options.out, await makeTsConfig(options), {
-                        encoding: 'utf8',
-                    });
-                }),
+                            if (options.skip) {
+                                return Promise.resolve();
+                            }
+
+                            return fse.writeJson(options.out, await makeTsConfig(options), {
+                                encoding: 'utf8',
+                            });
+                        }),
+                    ),
+                ),
             ),
     )
     .command(
@@ -78,18 +86,28 @@ await yargs(hideBin(argv))
             const errors = (
                 await Promise.all(
                     ['storybook', 'test', ...INTERNAL_PACKAGES_NAMES].map(async (id) => {
-                        const options = resolveOptions(id);
+                        const result = await Promise.all(
+                            configs.map(async (config) => {
+                                const options = resolveOptions(config, id);
 
-                        if (existsSync(options.out)) {
-                            const [expected, actual] = await Promise.all([
-                                makeTsConfig(options),
-                                fse.readJson(options.out, { encoding: 'utf8' }),
-                            ]);
+                                if (options.skip) {
+                                    return true;
+                                }
 
-                            return [id, isEqual(expected, actual)];
-                        }
+                                if (existsSync(options.out)) {
+                                    const [expected, actual] = await Promise.all([
+                                        makeTsConfig(options),
+                                        fse.readJson(options.out, { encoding: 'utf8' }),
+                                    ]);
 
-                        return [id, false];
+                                    return isEqual(expected, actual);
+                                }
+
+                                return false;
+                            }),
+                        );
+
+                        return [id, result.every((isEqual) => isEqual)];
                     }),
                 )
             ).filter(([, isEqual]) => !isEqual);
@@ -157,7 +175,9 @@ async function makeTsConfig(options) {
     const { dir, packages, referencesValues: references } = options;
     const tsconfig = await fse.readJson(options.template, { encoding: 'utf8' });
 
-    tsconfig.compilerOptions.paths = generatePaths(packages, dir);
+    if (isNonNullable(tsconfig.compilerOptions)) {
+        tsconfig.compilerOptions.paths = generatePaths(packages, dir);
+    }
 
     if (options.references) {
         tsconfig.references = references.map((reference) => ({
@@ -178,7 +198,10 @@ async function makeTsConfig(options) {
         }
     }
 
-    if (Object.keys(tsconfig.compilerOptions.paths).length === 0) {
+    if (
+        isNonNullable(tsconfig.compilerOptions) &&
+        Object.keys(tsconfig.compilerOptions.paths).length === 0
+    ) {
         delete tsconfig.compilerOptions.paths;
     }
 
@@ -191,6 +214,7 @@ async function makeTsConfig(options) {
 
 /**
  * @typedef Options
+ * @property {boolean} skip
  * @property {string} dir
  * @property {string} out
  * @property {string} template
@@ -201,15 +225,23 @@ async function makeTsConfig(options) {
  */
 
 /**
+ * @param {Configuration} config
  * @param {string} id
  * @returns {Options}
  */
-function resolveOptions(id) {
+// eslint-disable-next-line complexity
+function resolveOptions(config, id) {
     const { rules } = config;
-    const override = config.override[id] ?? {};
+    const override = config.override?.[id] ?? {};
     let include = override.include ?? rules.include ?? [];
     const exclude = override.exclude ?? rules.exclude ?? [];
-    const references = override.references ?? rules.references;
+    const referencesValue = override.references ?? rules.references ?? false;
+    const references = typeof referencesValue === 'string' || referencesValue;
+    const includeDependencies = override.dependencies ?? rules.dependencies ?? false;
+    const includeDevDependencies = override.devDependencies ?? rules.devDependencies ?? false;
+    const includePeerDependencies = override.peerDependencies ?? rules.peerDependencies ?? false;
+    const output = override.out ?? rules.out;
+    const skip = override.skip ?? rules.skip ?? false;
     /**
      * @type {string}
      */
@@ -224,13 +256,17 @@ function resolveOptions(id) {
         } = pkg;
 
         ({ dir } = pkg);
-        const all = Object.keys({ ...dependencies, ...devDependencies, ...peerDependencies });
+        const all = Object.keys({
+            ...(includeDependencies ? dependencies : null),
+            ...(includeDevDependencies ? devDependencies : null),
+            ...(includePeerDependencies ? peerDependencies : null),
+        });
 
         include = [...include, id, ...all];
     } else {
         dir = id === 'storybook' ? STORYBOOK_PATH : cwd();
     }
-    const out = path.resolve(dir, override.out ?? rules.out ?? 'tsconfig.json');
+    const out = path.resolve(dir, output);
     const packages = INTERNAL_PACKAGES.filter(({ packageJson: { name } }) =>
         micromatch.isMatch(name, include, { ignore: exclude }),
     );
@@ -238,10 +274,15 @@ function resolveOptions(id) {
         ? (isInternal
               ? packages.filter(({ packageJson: { name } }) => !(name === id))
               : packages
-          ).map((pkg) => pkg.dir)
+          ).map((pkg) =>
+              typeof referencesValue === 'string'
+                  ? slash(path.join(pkg.dir, referencesValue))
+                  : pkg.dir,
+          )
         : [];
 
     return {
+        skip,
         dir,
         out,
         packages,
@@ -264,12 +305,16 @@ function isEqual(a, b) {
 
 /**
  * @typedef Rules
+ * @property {boolean} [skip]
  * @property {string} template
- * @property {boolean} references
+ * @property {string} out
+ * @property {boolean | string} [references]
  * @property {boolean} [storybook]
  * @property {string[]} [exclude]
  * @property {string[]} [include]
- * @property {string} [out]
+ * @property {boolean} [dependencies]
+ * @property {boolean} [devDependencies]
+ * @property {boolean} [peerDependencies]
  */
 
 /**

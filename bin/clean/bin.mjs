@@ -27,6 +27,8 @@ async function main() {
             'rimraf',
             '*.tsbuildinfo',
             'dist',
+            'ts-dist',
+            'no-dist',
             '.rollup.cache',
             '**/__diff_output__',
             'package-size.json',

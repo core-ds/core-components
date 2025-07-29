@@ -11,6 +11,8 @@ node_modules/
 # production
 /build
 dist
+ts-dist
+no-dist
 *.tsbuildinfo
 package-size.json
 package-sizes.json

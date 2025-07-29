@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-calendar": ["../calendar/src"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
@@ -25,12 +25,12 @@
         }
     },
     "references": [
-        { "path": "../calendar" },
-        { "path": "../icon-button" },
-        { "path": "../input" },
-        { "path": "../mq" },
-        { "path": "../popover" },
-        { "path": "../screenshot-utils" },
-        { "path": "../test-utils" }
+        { "path": "../calendar/tsconfig.build.json" },
+        { "path": "../icon-button/tsconfig.build.json" },
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../popover/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

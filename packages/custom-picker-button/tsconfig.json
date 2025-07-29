@@ -4,7 +4,7 @@
     "include": ["src", "src/**/*.json"],
     "compilerOptions": {
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "no-dist",
         "paths": {
             "@alfalab/core-components-custom-button": ["../custom-button/src"],
             "@alfalab/core-components-custom-button/*": ["../custom-button/src/*"],
@@ -23,11 +23,11 @@
         }
     },
     "references": [
-        { "path": "../custom-button" },
-        { "path": "../mq" },
-        { "path": "../picker-button" },
-        { "path": "../screenshot-utils" },
-        { "path": "../select" },
-        { "path": "../test-utils" }
+        { "path": "../custom-button/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../picker-button/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../select/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }
