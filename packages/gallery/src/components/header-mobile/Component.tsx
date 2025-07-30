@@ -63,7 +63,7 @@ export const HeaderMobile = () => {
             };
 
             // Попробуем поделиться файлом
-            if (navigator.canShare?.(shareData)) {
+            if (navigator.canShare?.(shareData) && response.ok) {
                 await navigator.share(shareData);
             } else {
                 // Fallback: делимся только ссылкой
@@ -74,15 +74,10 @@ export const HeaderMobile = () => {
                 });
             }
         } catch {
-            // Последний fallback — просто делимся ссылкой
-            try {
-                await navigator.share({
-                    title,
-                    url,
-                });
-            } catch {
-                /* empty */
-            }
+            await navigator.share({
+                title,
+                url,
+            });
         }
     };
 
