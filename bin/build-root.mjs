@@ -1,39 +1,24 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import dedent from 'dedent';
+import fse from 'fs-extra';
 import { globby } from 'globby';
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { argv } from 'node:process';
+import { argv, cwd } from 'node:process';
+import { fileURLToPath } from 'node:url';
 import slash from 'slash';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { isCssModulesAvailable } from '../tools/css-modules.cjs';
 import { getPackages } from '../tools/monorepo.cjs';
-import { isInternal } from '../tools/resolve-internal.cjs';
+import { readPackagesFile } from '../tools/read-packages-file.cjs';
 
-const ENTRY_POINTS = [
-    'desktop',
-    'mobile',
-    'responsive',
-    'shared',
-    'utils',
-    'typings',
-    // icon-view
-    'circle',
-    'super-ellipse',
-    'rectangle',
-    'no-shape',
-    // tabs
-    'collapsible',
-];
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const EXTENTIONS = ['js', 'jsx', 'ts', 'tsx'];
-
+const EXTENTIONS = ['ts', 'tsx', 'json'];
 const BUILDS = ['es5', 'modern', 'esm', 'cssm', 'moderncssm'];
-
-const NO_CSS_MODULES_BUILDS = ['es5', 'modern', 'esm'];
+const CSS_PACKAGES = await readPackagesFile(path.join(dirname, '../tools/.css-packages'));
 
 yargs(hideBin(argv))
     .command(
@@ -41,11 +26,9 @@ yargs(hideBin(argv))
         'Generate source',
         (yargs) => yargs,
         async () => {
+            const pkg = await fse.readJson('package.json', { encoding: 'utf8' });
+            const dependencies = Object.keys(pkg.dependencies);
             const { packages } = getPackages();
-            const root = packages.find(
-                ({ packageJson: { name } }) => name === '@alfalab/core-components',
-            );
-            const dependencies = Object.keys(root.packageJson.dependencies);
 
             for (const {
                 dir,
@@ -56,7 +39,7 @@ yargs(hideBin(argv))
 
                     await Promise.all(
                         entryPoints.map(async ([entryPoint, content]) => {
-                            const rootEntryPoint = path.join(root.dir, entryPoint);
+                            const rootEntryPoint = path.join(cwd(), entryPoint);
 
                             await fs.mkdir(path.dirname(rootEntryPoint), { recursive: true });
 
@@ -72,34 +55,31 @@ yargs(hideBin(argv))
         'Link dist',
         (yargs) => yargs,
         async () => {
-            const { packages } = getPackages();
-            const root = packages.find(
-                ({ packageJson: { name } }) => name === '@alfalab/core-components',
-            );
-            const dependencies = Object.keys(root.packageJson.dependencies).filter((pkg) =>
-                isInternal(pkg),
-            );
+            const dist = path.join(cwd(), 'dist');
 
-            for (const pkg of dependencies) {
-                for (const build of isCssModulesAvailable(pkg) ? BUILDS : NO_CSS_MODULES_BUILDS) {
-                    const source = path.join(root.dir, 'dist', build, pkgToEntryPoint(pkg));
+            for (const build of BUILDS) {
+                const buildDir = path.join(dist, build);
+                const dirs = existsSync(buildDir)
+                    ? await globby('*', { cwd: buildDir, onlyDirectories: true })
+                    : [];
 
-                    if (existsSync(source)) {
-                        const destination = path.join(
-                            root.dir,
-                            'dist',
-                            pkgToEntryPoint(pkg),
-                            build === 'es5' ? '' : build,
-                        );
+                for (const dir of dirs) {
+                    const source = path.join(buildDir, dir);
+                    const destination = path.join(
+                        dist,
+                        path.basename(dir),
+                        build === 'es5' ? '' : build,
+                    );
 
-                        await fs.cp(source, destination, { recursive: true });
-                    }
+                    await fs.cp(source, destination, { recursive: true });
                 }
             }
 
-            for (const build of BUILDS) {
-                await fs.rm(path.join(root.dir, 'dist', build), { recursive: true, force: true });
-            }
+            await Promise.all(
+                BUILDS.map((build) =>
+                    fs.rm(path.join(dist, build), { recursive: true, force: true }),
+                ),
+            );
         },
     )
     .demandCommand()
@@ -109,41 +89,44 @@ yargs(hideBin(argv))
 
 async function handlePackage(name, dir) {
     const files = await globby(
-        name === '@alfalab/core-components-themes' || name === '@alfalab/core-components-vars'
-            ? ['src/*.ts', 'dist/*.css', 'dist/**/*.css']
-            : [
-                  `src/index.{${EXTENTIONS.join(',')}}`,
-                  `src/{${ENTRY_POINTS.join(',')}}.{${EXTENTIONS.join(',')}}`,
-                  `src/{${ENTRY_POINTS.join(',')}}/index.{${EXTENTIONS.join(',')}}`,
-              ],
-        { cwd: dir },
+        [
+            `src/*.{${EXTENTIONS.join(',')}}`,
+            `src/**/*.{${EXTENTIONS.join(',')}}`,
+            ...(CSS_PACKAGES.includes(name) ? ['dist/*.css', 'dist/**/*.css'] : []),
+        ],
+        {
+            ignore: [`src/**/*.{test,stories}.{${EXTENTIONS.join(',')}}`, 'src/**/*.d.ts'],
+            cwd: dir,
+        },
     );
 
     return (
         await Promise.all(
             files.map(async (file) => {
-                if (
-                    (name === '@alfalab/core-components-themes' ||
-                        name === '@alfalab/core-components-vars') &&
-                    /\.css$/.test(file)
-                ) {
-                    return [
-                        path.join('dist', pkgToEntryPoint(name), file.replace('dist', '')),
-                        `@import '${slash(file).replace('dist', name)}';`,
-                    ];
+                const [fileDir, ...restFilePath] = file.split(path.sep);
+                const rootEntryPoint = path.join(fileDir, pkgToEntryPoint(name), ...restFilePath);
+                const pkgEntryPoint = slash(file).replace(fileDir, name);
+
+                if (/\.css$/.test(file)) {
+                    return [rootEntryPoint, `@import '${pkgEntryPoint}';`];
+                }
+
+                if (/\.json$/.test(file)) {
+                    return [`${rootEntryPoint}.ts`, `export { default } from '${pkgEntryPoint}';`];
                 }
 
                 const content = await fs.readFile(path.join(dir, file), { encoding: 'utf8' });
-                const pkgEntryPoint = slash(file)
-                    .replace('src', name)
-                    .replace(new RegExp(`(\\/index)?\\.(${EXTENTIONS.join('|')})$`), '');
-                const rootEntryPoint = path.join(
-                    'src',
-                    pkgToEntryPoint(name),
-                    file.replace('src', ''),
-                );
 
-                return [rootEntryPoint, tsGenerate(content, pkgEntryPoint)];
+                return [
+                    rootEntryPoint.replace(new RegExp(`(${EXTENTIONS.join('|')})$`), 'ts'),
+                    tsGenerate(
+                        content,
+                        pkgEntryPoint.replace(
+                            new RegExp(`(\\/index)?\\.(${EXTENTIONS.join('|')})$`),
+                            '',
+                        ),
+                    ),
+                ];
             }),
         )
     ).filter(([, content]) => content.length > 0);
