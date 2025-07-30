@@ -28,41 +28,62 @@ export const HeaderMobile = () => {
     const showDownloadButton = !meta?.broken && canDownload;
 
     const handleShareClick = async () => {
-        if (!currentImage || !navigator.share) return;
+        if (!currentImage || !navigator.share) {
+            return;
+        }
 
         const title = currentImage.name ?? new Date().toISOString().split('T')[0];
+        const url = currentImage.src;
 
-        if (!isVideo(currentImage.src)) {
-            try {
-                const image = await fetch(currentImage.src);
-                const blob = await image.blob();
-
-                const filesArray = [
-                    new File([blob], title, {
-                        type: blob.type,
-                        lastModified: new Date().getTime(),
-                    }),
-                ];
-
-                const shareData: ShareData = {
-                    files: filesArray,
+        try {
+            if (isVideo(url)) {
+                // Если видео — всегда делим ссылку
+                await navigator.share({
                     title,
-                };
+                    url,
+                    text: 'Видео',
+                });
 
-                if (navigator.canShare && navigator.canShare(shareData)) {
-                    await navigator.share(shareData);
+                return;
+            }
 
-                    return;
-                }
+            // Попробуем скачать изображение
+            const response = await fetch(url, { mode: 'cors' });
+            const blob = await response.blob();
+
+            const file = new File([blob], `${title}.png`, {
+                type: blob.type,
+                lastModified: Date.now(),
+            });
+
+            const shareData: ShareData = {
+                files: [file],
+                title,
+                text: 'Картинка',
+            };
+
+            // Попробуем поделиться файлом
+            if (navigator.canShare?.(shareData)) {
+                await navigator.share(shareData);
+            } else {
+                // Fallback: делимся только ссылкой
+                await navigator.share({
+                    title,
+                    text: 'Картинка',
+                    url,
+                });
+            }
+        } catch {
+            // Последний fallback — просто делимся ссылкой
+            try {
+                await navigator.share({
+                    title,
+                    url,
+                });
             } catch {
                 /* empty */
             }
         }
-
-        await navigator.share({
-            url: currentImage.src,
-            title,
-        });
     };
 
     return (
