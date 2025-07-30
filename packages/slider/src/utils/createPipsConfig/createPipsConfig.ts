@@ -1,5 +1,7 @@
 import { Options } from 'nouislider';
 
+import { Pips } from '../../Component';
+
 import { config } from './config';
 
 type CreatePipsConfigParams = {
@@ -36,7 +38,7 @@ type CreatePipsConfigParams = {
      * Отображение подписей с values
      * https://refreshless.com/nouislider/pips/
      */
-    pips?: any;
+    pips?: Pips;
 
     /** Массив значений для произвольного размещения точек */
     customDots?: number[];
@@ -53,7 +55,7 @@ export const createPipsConfig = ({
     customDots = [],
 }: CreatePipsConfigParams): Options['pips'] => {
     if (pips && !customDots?.length) {
-        return pips;
+        return pips as Options['pips'];
     }
 
     return config[dotsSlider]?.({
