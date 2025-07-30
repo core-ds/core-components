@@ -1351,6 +1351,14 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                           />
                         </div>
                       </div>
+                      <div
+                        class="optionsListFooter"
+                      >
+                        <div
+                          class="gap vertical"
+                          data-gap-size="size-16"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2464,6 +2472,14 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             style="height: 0px; display: none;"
                           />
                         </div>
+                      </div>
+                      <div
+                        class="optionsListFooter"
+                      >
+                        <div
+                          class="gap vertical"
+                          data-gap-size="size-16"
+                        />
                       </div>
                     </div>
                   </div>

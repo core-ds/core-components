@@ -21,6 +21,7 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
+import { Gap } from '@alfalab/core-components-gap';
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
@@ -628,6 +629,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     )}
                 >
                     <OptionsList
+                        footer={view === 'mobile' && isBottomSheet && <Gap size={16} />}
                         {...listProps}
                         ref={view === 'desktop' ? listProps.ref : scrollableContainerRef}
                         setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
