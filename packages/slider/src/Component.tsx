@@ -16,7 +16,7 @@ type RangeOptions = {
 
 type PipsType = -1 | 0 | 1 | 2;
 
-type Pips = {
+export type Pips = {
     mode: 'range' | 'steps' | 'positions' | 'count' | 'values';
     values: number | number[];
     filter?: (value: number, type: PipsType) => PipsType;
