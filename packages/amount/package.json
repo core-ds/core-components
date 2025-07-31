@@ -10,7 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "dependencies": {
         "@alfalab/data": "^1.9.2",
         "@alfalab/utils": "^1.18.0",
