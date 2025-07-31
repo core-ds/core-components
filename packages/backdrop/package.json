@@ -10,7 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": ["**/*.css"],
+    "sideEffects": false,
     "dependencies": {
         "@types/react-transition-group": "^4.4.5",
         "classnames": "^2.5.1",

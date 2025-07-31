@@ -10,7 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": ["**/*.css"],
+    "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-typography": "^4.14.3",
         "@alfalab/core-components-shared": "^0.18.0",

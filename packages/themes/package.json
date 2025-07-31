@@ -8,5 +8,5 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": ["**/*.css"]
+    "sideEffects": false
 }

@@ -25,5 +25,5 @@
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0",
-    "sideEffects": ["**/*.css"]
+    "sideEffects": false
 }
