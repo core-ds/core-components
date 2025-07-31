@@ -24,6 +24,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0",
-    "sideEffects": false
+    "varsVersion": "9.21.0"
 }

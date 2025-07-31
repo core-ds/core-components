@@ -10,6 +10,5 @@
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    },
-    "sideEffects": false
+    }
 }
