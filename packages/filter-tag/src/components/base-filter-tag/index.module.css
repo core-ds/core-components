@@ -1,5 +1,5 @@
 @import '@alfalab/core-components-vars/src/index.css';
-@import '../../../../tag/src/vars.css';
+@import '@alfalab/core-components-tag/src/vars.css';
 @import '../../vars.css';
 
 .component {
