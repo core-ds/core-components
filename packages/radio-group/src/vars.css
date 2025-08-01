@@ -6,7 +6,7 @@
     --radio-group-sub-padding-left: var(--gap-0);
     --radio-group-list-padding-left: var(--gap-0);
     --radio-group-error-color: var(--color-light-text-negative);
-    --radio-group-error-padding-left: var(--gap-12);
+    --radio-group-error-padding-left: var(--gap-8);
     --radio-group-error-border-left: 1px solid var(--color-light-status-negative);
 
     /* mobile */
