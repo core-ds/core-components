@@ -188,7 +188,7 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState({ one: false, two: false, three: false, four: false });
+    const [value, setValue] = React.useState({ one: true, two: false, three: false, four: false });
     const [error, setError] = React.useState(false);
 
     const onChange = (_, payload) => {
@@ -205,16 +205,16 @@ render(() => {
                 hint='Выберите один из вариантов'
                 error={error}
             >
-                <Tag name='one' checked={value.one}>
+                <Tag name='one' checked={value.one} view='filled' shape='rectangular'>
                     Вариант 1
                 </Tag>
-                <Tag name='two' checked={value.two}>
+                <Tag name='two' checked={value.two} view='filled' shape='rectangular'>
                     Вариант 2
                 </Tag>
-                <Tag name='three' checked={value.three}>
+                <Tag name='three' checked={value.three} view='filled' shape='rectangular'>
                     Вариант 3
                 </Tag>
-                <Tag name='four' checked={value.four}>
+                <Tag name='four' checked={value.four} view='filled' shape='rectangular'>
                     Вариант 4
                 </Tag>
             </CheckboxGroupDesktop>
@@ -234,7 +234,7 @@ render(() => {
 });
 //MOBILE
 render(() => {
-    const [value, setValue] = React.useState({ one: false, two: false, three: false, four: false });
+    const [value, setValue] = React.useState({ one: true, two: false, three: false, four: false });
     const [error, setError] = React.useState(false);
 
     const onChange = (_, payload) => {
@@ -251,16 +251,16 @@ render(() => {
                 hint='Выберите один из вариантов'
                 error={error}
             >
-                <Tag name='one' checked={value.one}>
+                <Tag name='one' checked={value.one} view='filled' shape='rectangular'>
                     Вариант 1
                 </Tag>
-                <Tag name='two' checked={value.two}>
+                <Tag name='two' checked={value.two} view='filled' shape='rectangular'>
                     Вариант 2
                 </Tag>
-                <Tag name='three' checked={value.three}>
+                <Tag name='three' checked={value.three} view='filled' shape='rectangular'>
                     Вариант 3
                 </Tag>
-                <Tag name='four' checked={value.four}>
+                <Tag name='four' checked={value.four} view='filled' shape='rectangular'>
                     Вариант 4
                 </Tag>
             </CheckboxGroupMobile>

@@ -5,15 +5,6 @@
     flex-direction: column;
 }
 
-.error {
-    padding-left: var(--gap-12);
-    border-left: 1px solid var(--color-light-status-negative);
-
-    &.tag {
-        padding-left: var(--gap-8);
-    }
-}
-
 .radioList {
     display: flex;
 }
@@ -48,15 +39,6 @@
 .horizontalRadio:last-child,
 .horizontalTagLabel:last-child {
     margin-right: var(--gap-0);
-}
-
-.label {
-    margin-bottom: var(--gap-12);
-}
-
-.sub {
-    @mixin paragraph_component_secondary;
-    margin-top: var(--gap-12);
 }
 
 .errorMessage {
