@@ -10,7 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "dependencies": {
         "@alfalab/core-components-button": "^11.11.10",
         "@alfalab/core-components-code-input": "^3.9.10",

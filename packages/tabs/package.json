@@ -10,7 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^4.1.1",
         "@alfalab/core-components-tag": "^8.7.0",

@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "description": "Глобальный конфиг для настройки core-components",
     "license": "MIT",
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {

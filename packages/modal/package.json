@@ -10,7 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "dependencies": {
         "@alfalab/core-components-base-modal": "^5.9.4",
         "@alfalab/core-components-navigation-bar-private": "^0.8.7",

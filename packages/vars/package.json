@@ -11,5 +11,5 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false
+    "sideEffects": ["**/*.css"]
 }
