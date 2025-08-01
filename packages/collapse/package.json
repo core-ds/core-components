@@ -10,9 +10,10 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
         "@alfalab/core-components-link": "^5.3.4",
@@ -21,9 +22,6 @@
         "classnames": "^2.5.1",
         "lodash": "^4.17.21",
         "tslib": "^2.4.0"
-    },
-    "devDependencies": {
-        "@types/lodash": "^4.17.13"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"

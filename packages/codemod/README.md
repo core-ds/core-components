@@ -205,11 +205,11 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
 ### Запуск тестов
 
 ```bash
-$ yarn test:codemod
+yarn test
 ```
 
 or
 
-```
-$ npx jest packages/codemod/src --config=jest.codemod.config.js
+```bash
+yarn workspace @alfalab/core-components-codemod test
 ```

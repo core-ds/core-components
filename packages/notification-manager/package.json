@@ -10,9 +10,11 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "@alfalab/core-components-stack-context": "^0.0.0",
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
         "@alfalab/core-components-notification": "^7.5.13",

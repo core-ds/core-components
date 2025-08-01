@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-bank-card
 
 ## 5.8.21
 

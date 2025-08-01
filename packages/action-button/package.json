@@ -10,16 +10,17 @@
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
+    "sideEffects": ["**/*.css"],
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
         "@alfalab/core-components-spinner": "^4.0.9",
         "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
-        "react-merge-refs": "1.1.0",
+        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.4",

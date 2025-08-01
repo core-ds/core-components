@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-amount
 
 ## 3.10.2
 

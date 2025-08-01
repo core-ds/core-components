@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-universal-modal
 
 ## 1.1.5
 

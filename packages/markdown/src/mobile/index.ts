@@ -1,3 +1,3 @@
 export { MarkdownMobileComponent as MarkdownMobile } from '../Component.mobile';
 
-export { MarkdownMobileProps } from '../typings';
+export type { MarkdownMobileProps } from '../typings';

@@ -1,11 +1,25 @@
-const path = require('path');
+const path = require('node:path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { patchWebpackConfig } = require('storybook-addon-live-examples/dist/cjs/utils');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const ComponentResolverPlugin = require('./utils/componentsResolver');
-const DefinePlugin = require('webpack').DefinePlugin;
-const cssModuleRegex = /\.module\.css$/;
-const cssRegex = /\.css$/;
+const { DefinePlugin, NormalModuleReplacementPlugin } = require('webpack');
+const postcssConfig = require('../postcss.config');
+const postcssImport = require('postcss-import');
+const loadCss = require('postcss-import/lib/load-content');
+const { getPackages } = require('../tools/monorepo.cjs');
+const { isSamePath } = require('../tools/path.cjs');
+const { resolveInternal } = require('../tools/resolve-internal.cjs');
+const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
+
+const INTERNAL_PACKAGES = readPackagesFileSync(
+    path.resolve(__dirname, '../tools/.internal-packages'),
+);
+
+const CSS_MODULE_REGEXP = /\.module\.css$/;
+const CSS_REGEXP = /\.css$/;
+
+const distDir = path.resolve(__dirname, '../dist');
+const { packages } = getPackages();
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -16,8 +30,7 @@ const addDirsForTranspile = (config) => {
                     nestedRule.test.test('.tsx') &&
                     nestedRule.loader.includes('babel-loader')
                 ) {
-                    const paths = [path.resolve(__dirname, '../packages')];
-                    nestedRule.include.push(...paths);
+                    nestedRule.include = [...nestedRule.include, ...packages.map(({ dir }) => dir)];
                 }
             });
         }
@@ -27,15 +40,15 @@ const addDirsForTranspile = (config) => {
 function modifyCssRules(config) {
     const group = config.module.rules.find((rule) => rule.oneOf !== undefined);
     const cssRuleIndex = group.oneOf.findIndex(
-        (rule) => rule.test.toString() === cssRegex.toString(),
+        (rule) => rule.test.toString() === CSS_REGEXP.toString(),
     );
     const cssModuleRuleIndex = group.oneOf.findIndex(
-        (rule) => rule.test.toString() === cssModuleRegex.toString(),
+        (rule) => rule.test.toString() === CSS_MODULE_REGEXP.toString(),
     );
 
     group.oneOf[cssRuleIndex] = {
-        test: /\.css$/,
-        exclude: cssModuleRegex,
+        test: CSS_REGEXP,
+        exclude: CSS_MODULE_REGEXP,
         use: [
             {
                 loader: MiniCssExtractPlugin.loader,
@@ -51,7 +64,7 @@ function modifyCssRules(config) {
         ],
     };
     group.oneOf[cssModuleRuleIndex] = {
-        test: cssModuleRegex,
+        test: CSS_MODULE_REGEXP,
         use: [
             {
                 loader: MiniCssExtractPlugin.loader,
@@ -60,13 +73,47 @@ function modifyCssRules(config) {
                 loader: 'css-loader',
                 options: {
                     modules: {
+                        namedExport: false,
+                        exportLocalsConvention: 'as-is',
                         localIdentName: '[local]_[hash:base64:5]',
                     },
                     importLoaders: 1,
                     sourceMap: true,
                 },
             },
-            'postcss-loader',
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                        config: process.env.BUILD_STORYBOOK_FROM_DIST === 'true',
+                        plugins: [...postcssConfig.plugins].map((plugin) =>
+                            plugin.postcssPlugin === 'postcss-import'
+                                ? postcssImport({
+                                      warnOnEmpty: false,
+                                      load: async (filename) => {
+                                          if (
+                                              isSamePath(
+                                                  filename,
+                                                  resolveInternal(
+                                                      '@alfalab/core-components-vars/src/index.css',
+                                                      false,
+                                                  ),
+                                              )
+                                          ) {
+                                              // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
+                                              // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
+                                              // https://github.com/postcss/postcss-import/issues/84
+                                              return '/* */';
+                                          }
+
+                                          return loadCss(filename);
+                                      },
+                                  })
+                                : plugin,
+                        ),
+                    },
+                },
+            },
         ],
     };
 }
@@ -127,7 +174,7 @@ module.exports = {
                 ...config.resolve.fallback,
                 querystring: require.resolve('querystring-es3'),
             },
-            plugins: [...config.resolve.plugins, new ComponentResolverPlugin()],
+            plugins: config.resolve.plugins,
             alias: {
                 ...config.resolve.alias,
                 storybook: path.resolve(__dirname),
@@ -157,6 +204,45 @@ module.exports = {
                 plugin.constructor.name,
             );
         });
+
+        config.plugins.unshift(
+            new NormalModuleReplacementPlugin(/^@alfalab\/core-components[-\/]/, function (
+                resource,
+            ) {
+                if (
+                    resource.request === '@alfalab/core-components/package.json' ||
+                    resource.request === '@alfalab/core-components-vars/src/index.css'
+                ) {
+                    return;
+                }
+
+                resource.request = resource.request.replace(
+                    /^@alfalab\/core-components[-/]([^/]+)\/?(.*)/,
+                    (_, componentName, entrypoint) => {
+                        const pkgName = `@alfalab/core-components-${componentName}`;
+
+                        if (
+                            process.env.BUILD_STORYBOOK_FROM_DIST === 'true' &&
+                            !INTERNAL_PACKAGES.includes(pkgName)
+                        ) {
+                            return path.join(
+                                distDir,
+                                componentName,
+                                entrypoint.startsWith('modern') ? '' : 'modern',
+                                entrypoint,
+                            );
+                        }
+                        const pkg = packages.find(({ packageJson: { name } }) => name === pkgName);
+
+                        return path.join(pkg.dir, 'src', entrypoint);
+                    },
+                );
+
+                if (resource.createData) {
+                    resource.createData.request = resource.request;
+                }
+            }),
+        );
 
         config.plugins.push(
             new MiniCssExtractPlugin({
