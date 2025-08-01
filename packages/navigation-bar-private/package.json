@@ -10,6 +10,7 @@
         "access": "public",
         "directory": "dist"
     },
+    "sideEffects": false,
     "dependencies": {
         "@alfalab/core-components-icon-button": "^6.11.13",
         "@alfalab/core-components-button": "^11.11.10",
