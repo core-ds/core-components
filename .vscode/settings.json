@@ -96,7 +96,6 @@
         "packages/pure-cell",
         "packages/radio",
         "packages/radio-group",
-        "packages/root",
         "packages/screenshot-utils",
         "packages/scrollbar",
         "packages/segmented-control",
