@@ -125,7 +125,7 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Обработчик ввода в инпут
      */
     onInputChange?: (
-        event: ChangeEvent<HTMLInputElement>,
+        event: ChangeEvent<HTMLInputElement> | null,
         payload: { value: string; date: Date },
     ) => void;
 

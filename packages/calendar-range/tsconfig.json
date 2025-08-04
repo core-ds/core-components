@@ -10,6 +10,7 @@
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
+            "@alfalab/core-components-universal-date-input/*": ["../universal-date-input/src/*"],
             "@alfalab/core-components-calendar-input/*": ["../calendar-input/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
@@ -18,6 +19,7 @@
         { "path": "../calendar-input" },
         { "path": "../calendar" },
         { "path": "../date-input" },
+        { "path": "../universal-date-input" },
         { "path": "../modal" }
     ]
 }

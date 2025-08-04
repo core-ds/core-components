@@ -37,6 +37,11 @@ export interface BaseUniversalDateInputProps
     autoCorrection?: boolean;
 
     /**
+     * Реф позволяет управлять состоянием коррекции из вне
+     */
+    toggleCorrectionRef?: RefObject<{ handleCorrection: () => void }>;
+
+    /**
      * Минимальная дата, доступная для выбора (timestamp)
      */
     minDate?: number;
