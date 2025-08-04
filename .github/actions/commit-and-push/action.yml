@@ -8,7 +8,7 @@ inputs:
 runs:
     using: composite
     steps:
-        - uses: core-ds/core-components/.github/actions/setup-git-user@refactor/next-gen-monorepo
+        - uses: core-ds/core-components/.github/actions/setup-git-user@master
           with:
               name: 'github-actions[bot]'
               email: '41898282+github-actions[bot]@users.noreply.github.com'

@@ -73,7 +73,7 @@ jobs:
                   ref: ${{ inputs.ref }}
                   lfs: true
 
-            - uses: core-ds/core-components/.github/actions/ci-setup@refactor/next-gen-monorepo
+            - uses: core-ds/core-components/.github/actions/ci-setup@master
 
             - name: build modern dist
               shell: bash

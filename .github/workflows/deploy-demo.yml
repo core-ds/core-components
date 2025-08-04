@@ -45,7 +45,7 @@ jobs:
                   cp archive-versions.json ${{ inputs.dir }}
 
             - name: deploy
-              uses: core-ds/core-components/.github/actions/commit-and-push@refactor/next-gen-monorepo
+              uses: core-ds/core-components/.github/actions/commit-and-push@master
               with:
                   message: 'Deploy to GitHub Pages'
 

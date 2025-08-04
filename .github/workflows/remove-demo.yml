@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
     params:
-        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@refactor/next-gen-monorepo
+        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
             dir: ${{ github.event.pull_request.number }}
@@ -50,6 +50,6 @@ jobs:
 
             - name: deploy
               if: ${{ steps.git-status.outputs.result == 'true' }}
-              uses: core-ds/core-components/.github/actions/commit-and-push@refactor/next-gen-monorepo
+              uses: core-ds/core-components/.github/actions/commit-and-push
               with:
                   message: 'Deploy to GitHub Pages'

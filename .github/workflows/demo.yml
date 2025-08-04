@@ -14,21 +14,21 @@ concurrency:
 
 jobs:
     params:
-        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@refactor/next-gen-monorepo
+        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
             version: ${{ inputs.version }}
 
     build-demo:
         needs: params
-        uses: core-ds/core-components/.github/workflows/build-demo.yml@refactor/next-gen-monorepo
+        uses: core-ds/core-components/.github/workflows/build-demo.yml@master
         secrets: inherit
         with:
             ref: ${{ needs.params.outputs.ref }}
 
     deploy:
         needs: [build-demo, params]
-        uses: core-ds/core-components/.github/workflows/deploy-demo.yml@refactor/next-gen-monorepo
+        uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
