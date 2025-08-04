@@ -198,8 +198,8 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
                                 <image
                                     className={cn({
-                                        [styles['imageFit']]: scale === 'fit',
-                                        [styles['imageFill']]: scale === 'fill',
+                                        [styles.imageFit]: scale === 'fit',
+                                        [styles.imageFill]: scale === 'fill',
                                     })}
                                     href={imageUrl}
                                     width='100%'
