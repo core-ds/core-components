@@ -13,7 +13,7 @@ export type BottomSheetProps = {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
-    adjustContainerHeight?: (height: number) => number
+    adjustContainerHeight?: (height: number) => number;
     /**
      * Контент
      */
@@ -117,6 +117,12 @@ export type BottomSheetProps = {
     modalWrapperClassName?: string;
 
     /**
+     * Дефолтный маркер
+     * @default true
+     */
+    showSwipeMarker?: boolean;
+
+    /*
      * Дополнительный класс для маркера
      */
     swipeableMarkerClassName?: string;
