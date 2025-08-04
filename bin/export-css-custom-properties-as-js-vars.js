@@ -11,7 +11,6 @@ fs.mkdirSync(path.resolve(__dirname, distPath), { recursive: true });
 
 const BUILDS = ['es5', 'cssm', 'moderncssm', 'esm', 'modern'];
 const PALETTES = [
-    'colors',
     'colors-addons',
     'colors-bluetint',
     'colors-decorative',
