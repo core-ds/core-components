@@ -8,7 +8,10 @@ button.tag.tag {
     min-height: auto;
     min-width: 32px;
     height: 32px;
-    padding: 0 6px;
+
+    &:not(.arrow) {
+        padding: 0 6px;
+    }
 
     &:disabled:not(.checked) {
         opacity: 0.3;
