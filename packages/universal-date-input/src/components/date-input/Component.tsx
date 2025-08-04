@@ -17,7 +17,7 @@ import {
     DEFAULT_MAX_DATE,
     DEFAULT_MIN_DATE,
 } from '../../consts';
-import type { InnerDateInputProps } from '../../types';
+import type { InnerDateInputProps, InputSource } from '../../types';
 import {
     formatDate,
     isCompleteDate,
@@ -84,7 +84,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         const lastValidDate = useRef<string>('');
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
-        const { offDays } = calendarProps;
+        const { offDays, onChange: onChangeCalendar } = calendarProps;
         const [inputDate, inputTime] = inputValue.split(DATE_TIME_SEPARATOR);
         const isValidValue = isValidDate({ value: inputDate, minDate, maxDate, offDays });
 
@@ -124,15 +124,20 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             return false;
         };
 
-        const callOnChange = (val: string) => {
+        const callOnChange = (val: string, source?: InputSource) => {
             onChange?.(
                 val ? parseDateString(val, withTime ? DATE_TIME_FORMAT : DATE_FORMAT) : null,
                 val,
+                source,
             );
             lastValidDate.current = val;
         };
 
-        const changeInputValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
+        const changeInputValue = (
+            val: string,
+            event: ChangeEvent<HTMLInputElement> | null,
+            source?: InputSource,
+        ) => {
             onInputChange?.(event, { value: val });
 
             const [date, time = ''] = val.split(DATE_TIME_SEPARATOR);
@@ -140,17 +145,21 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             setInputValue(val);
 
             if (val === '' || (isCompleteDate(date) && isCompleteTime(time, withTime))) {
-                callOnChange(val);
+                callOnChange(val, source);
             }
         };
 
         const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-            changeInputValue(event.target.value, event);
+            changeInputValue(event.target.value, event, 'input');
         };
 
         const handleCalendarChange: CalendarProps['onChange'] = (date?: number) => {
             if (date) {
-                changeInputValue(formatDate(date, withTime ? DATE_TIME_FORMAT : DATE_FORMAT), null);
+                changeInputValue(
+                    formatDate(date, withTime ? DATE_TIME_FORMAT : DATE_FORMAT),
+                    null,
+                    'calendar',
+                );
                 requestAnimationFrame(() => {
                     const dateLen = DATE_FORMAT.length;
                     const newCaretPos = withTime ? dateLen + DATE_TIME_SEPARATOR.length : dateLen;
@@ -159,6 +168,8 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                 });
             }
             if (platform === 'desktop') onCalendarClose?.();
+
+            onChangeCalendar?.(date);
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
@@ -246,6 +257,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                                         styles[`size-${restProps.size}`],
                                     )}
                                     onMouseDown={preventDefault}
+                                    data-test-id={getDataTestId(dataTestId, 'calendar-icon')}
                                 />
                             )}
                         </React.Fragment>
@@ -265,6 +277,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                             desktopStyles.calendarContainer,
                         )}
                         withTransition={false}
+                        data-test-id='date-input-popover'
                     >
                         {renderCalendar()}
                     </Popover>

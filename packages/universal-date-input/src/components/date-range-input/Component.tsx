@@ -21,7 +21,7 @@ import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 import { CalendarSIcon } from '@alfalab/icons-glyph/CalendarSIcon';
 
 import { DATE_RANGE_SEPARATOR, DEFAULT_MAX_DATE, DEFAULT_MIN_DATE } from '../../consts';
-import { InnerDateRangeInputProps } from '../../types';
+import type { InnerDateRangeInputProps, InputSource } from '../../types';
 import {
     formatDate,
     formatDateRange,
@@ -84,7 +84,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
         const lastValidRange = useRef<string>('');
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
-        const { offDays } = calendarProps;
+        const { offDays, onChange: onChangeCalendar } = calendarProps;
         const [from = '', to = ''] = inputValue.split(DATE_RANGE_SEPARATOR);
         const dateFromProp = valueProp?.dateFrom;
         const dateToProp = valueProp?.dateTo;
@@ -135,7 +135,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             return false;
         };
 
-        const callOnChange = (val: string) => {
+        const callOnChange = (val: string, source?: InputSource) => {
             const [dateFrom = '', dateTo = ''] = val.split(DATE_RANGE_SEPARATOR);
 
             onChange?.(
@@ -144,15 +144,20 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
                     dateTo: dateFrom ? parseDateString(dateTo) : null,
                 },
                 val,
+                source,
             );
             lastValidRange.current = val;
         };
 
-        const changeInputValue = (val: string, event: ChangeEvent<HTMLInputElement> | null) => {
+        const changeInputValue = (
+            val: string,
+            event: ChangeEvent<HTMLInputElement> | null,
+            source?: InputSource,
+        ) => {
             onInputChange?.(event, { value: val });
 
             setInputValue(val);
-            if (val === '' || isCompleteDateRange(val)) callOnChange(val);
+            if (val === '' || isCompleteDateRange(val)) callOnChange(val, source);
         };
 
         const handleMonthChange = (date: number) => {
@@ -161,16 +166,18 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
         };
 
         const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-            changeInputValue(event.target.value, event);
+            changeInputValue(event.target.value, event, 'input');
         };
 
         const handleCalendarChange: CalendarProps['onChange'] = (date?: number) => {
             const newValue = updateRange({ date, validFrom, validTo, rangeBehavior });
 
-            changeInputValue(newValue, null);
+            changeInputValue(newValue, null, 'calendar');
+
             requestAnimationFrame(() => {
                 inputRef.current?.setSelectionRange(newValue.length, newValue.length);
             });
+            onChangeCalendar?.(date);
         };
 
         const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -259,6 +266,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
                                         styles[`size-${restProps.size}`],
                                     )}
                                     onMouseDown={preventDefault}
+                                    data-test-id={getDataTestId(dataTestId, 'calendar-icon')}
                                 />
                             )}
                         </React.Fragment>

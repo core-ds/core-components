@@ -15,6 +15,8 @@ import type { PopoverProps } from '@alfalab/core-components-popover';
 
 export type View = 'date' | 'date-time' | 'date-range' | 'time' | 'month';
 
+export type InputSource = 'input' | 'calendar';
+
 export type DateTemplate = {
     segments: string[];
     separators: string[];
@@ -169,7 +171,7 @@ export interface InnerDateInputProps extends Omit<BaseUniversalDateInputProps, '
     /**
      * Обработчик изменения значения
      */
-    onChange?: (date: Date | null, value: string) => void;
+    onChange?: (date: Date | null, value: string, source?: InputSource) => void;
 }
 
 export interface InnerDateRangeInputProps
@@ -193,7 +195,11 @@ export interface InnerDateRangeInputProps
     /**
      * Обработчик изменения значения
      */
-    onChange?: (range: { dateFrom: Date | null; dateTo: Date | null }, value: string) => void;
+    onChange?: (
+        range: { dateFrom: Date | null; dateTo: Date | null },
+        value: string,
+        source?: InputSource,
+    ) => void;
 }
 
 export interface InnerTimeInputProps extends Omit<InputProps, 'onChange'> {
