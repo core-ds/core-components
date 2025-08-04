@@ -1,6 +1,6 @@
 {
     "name": "resolve-demo-params",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "private": true,
     "dependencies": {
         "semver": "^7.7.1"
