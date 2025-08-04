@@ -1,40 +1,51 @@
 {
     "private": true,
-    "workspaces": [
-        "packages/*"
-    ],
+    "homepage": "https://core-ds.github.io/core-components",
     "repository": {
         "type": "git",
         "url": "https://github.com/core-ds/core-components"
     },
-    "homepage": "https://core-ds.github.io/core-components",
+    "workspaces": [
+        "packages/*"
+    ],
     "scripts": {
+        "analyze-package-sizes": "node bin/analyze-package-sizes/bin.mjs",
         "build": "node bin/build/bin.mjs",
-        "start": "storybook dev -p 9009",
         "build-storybook": "node bin/build-storybook/bin.mjs",
+        "clean": "node bin/clean/bin.mjs",
+        "cm": "git-cz",
+        "format": "prettier --write \"{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
+        "generate-dark-colors": " node bin/dark-colors-generator.mjs",
+        "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
+        "lint:css": "stylelint packages/**/*.css",
+        "lint:deps": "node bin/lint-deps/bin.mjs",
+        "lint:js": "node bin/lint-js.mjs",
+        "non-existent-css-vars": "node bin/non-existent-css-vars/bin.mjs",
+        "release": "yarn build && yarn changeset publish",
+        "release:snapshot": "yarn build && yarn changeset publish --tag snapshot --no-git-tag",
         "serve-storybook": "http-server build -p 9009",
+        "start": "storybook dev -p 9009",
+        "test": "jest --watchAll=false",
+        "test:codemod": "yarn workspace @alfalab/core-components-codemod test",
+        "test:screenshots": "bin/run-screenshots.sh",
+        "tsconfig": "node bin/tsconfig/bin.mjs",
         "update-colors": "node tools/update-colors.js && stylelint packages/{themes,vars}/**/*.css --fix && prettier --write \"packages/{themes,vars}/**/*.css\" && yarn generate-dark-colors",
         "update-typography": "node tools/update-typography.js",
         "update-usages": "node tools/update-usages.js",
-        "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
-        "lint:css": "stylelint packages/**/*.css",
-        "lint:js": "node bin/lint-js.mjs",
-        "lint:deps": "node bin/lint-deps/bin.mjs",
-        "test": "jest --watchAll=false",
-        "test:screenshots": "bin/run-screenshots.sh",
-        "test:codemod": "yarn workspace @alfalab/core-components-codemod test",
-        "format": "prettier --write \"{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
-        "clean": "node bin/clean/bin.mjs",
-        "cm": "git-cz",
-        "release": "yarn build && yarn changeset publish",
         "version-packages": "yarn changeset version && yarn write-vars-and-themes-version",
-        "analyze-package-sizes": "node bin/analyze-package-sizes/bin.mjs",
-        "generate-dark-colors": " node bin/dark-colors-generator.mjs",
-        "tsconfig": "node bin/tsconfig/bin.mjs",
-        "write-vars-and-themes-version": "node bin/write-vars-and-themes-version/bin.mjs",
-        "non-existent-css-vars": "node bin/non-existent-css-vars/bin.mjs",
-        "release:snapshot": "yarn build && yarn changeset publish --tag snapshot --no-git-tag",
-        "version-packages:snapshot": "yarn changeset version --snapshot snapshot && yarn write-vars-and-themes-version"
+        "version-packages:snapshot": "yarn changeset version --snapshot snapshot && yarn write-vars-and-themes-version",
+        "write-vars-and-themes-version": "node bin/write-vars-and-themes-version/bin.mjs"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn lint-staged && yarn test",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     },
     "browserslist": {
         "production": [
@@ -48,6 +59,21 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "prettier": "arui-presets-lint/prettier",
+    "stylelint": {
+        "extends": "arui-presets-lint/stylelint",
+        "rules": {
+            "arui-cssvars/use-variables": false,
+            "selector-pseudo-class-no-unknown": [
+                true,
+                {
+                    "ignorePseudoClasses": [
+                        "global"
+                    ]
+                }
+            ]
+        }
     },
     "devDependencies": {
         "@alfalab/icons-glyph": "^2.210.0",
@@ -168,32 +194,6 @@
         "ui-primitives": "^28.8.0",
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
-    },
-    "prettier": "arui-presets-lint/prettier",
-    "stylelint": {
-        "extends": "arui-presets-lint/stylelint",
-        "rules": {
-            "arui-cssvars/use-variables": false,
-            "selector-pseudo-class-no-unknown": [
-                true,
-                {
-                    "ignorePseudoClasses": [
-                        "global"
-                    ]
-                }
-            ]
-        }
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "yarn lint-staged && yarn test",
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
     },
     "packageManager": "yarn@1.22.22"
 }

@@ -4,17 +4,11 @@
     "description": "Scrollbar component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": ["**/*.css"],
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
         "@juggle/resize-observer": "^3.3.1",
         "can-use-dom": "^0.1.0",
@@ -25,6 +19,14 @@
         "react-merge-refs": "^1.1.0",
         "simplebar": "^5.3.8",
         "tslib": "^2.4.0"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"

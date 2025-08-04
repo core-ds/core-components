@@ -4,20 +4,22 @@
     "description": "Loader component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "classnames": "^2.5.1",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": ["**/*.css"],
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "classnames": "^2.5.1",
-        "tslib": "^2.4.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"

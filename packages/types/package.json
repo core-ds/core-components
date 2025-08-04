@@ -4,11 +4,11 @@
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": false,
     "main": "index.js",
     "module": "./esm/index.js",
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    },
-    "sideEffects": false
+    }
 }

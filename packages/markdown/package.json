@@ -1,29 +1,31 @@
 {
     "name": "@alfalab/core-components-markdown",
-    "description": "",
     "version": "1.7.0",
-    "main": "index.js",
+    "description": "",
     "license": "MIT",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "main": "index.js",
     "module": "./esm/index.js",
-    "sideEffects": ["**/*.css"],
+    "dependencies": {
+        "@alfalab/core-components-link": "^5.3.4",
+        "@alfalab/core-components-list": "^3.6.0",
+        "@alfalab/core-components-mq": "^4.4.1",
+        "@alfalab/core-components-typography": "^4.14.3",
+        "classnames": "^2.5.1",
+        "mdast-util-gfm-strikethrough": "^0.2.3",
+        "micromark-extension-gfm-strikethrough": "^0.6.5",
+        "react-markdown": "6.0.2",
+        "tslib": "^2.4.0"
+    },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/core-components-typography": "^4.14.3",
-        "@alfalab/core-components-list": "^3.6.0",
-        "@alfalab/core-components-link": "^5.3.4",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "tslib": "^2.4.0",
-        "classnames": "^2.5.1",
-        "mdast-util-gfm-strikethrough": "^0.2.3",
-        "micromark-extension-gfm-strikethrough": "^0.6.5",
-        "react-markdown": "6.0.2"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"

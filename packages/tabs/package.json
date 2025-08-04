@@ -4,34 +4,36 @@
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": ["**/*.css"],
     "dependencies": {
-        "@alfalab/core-components-keyboard-focusable": "^4.1.1",
-        "@alfalab/core-components-tag": "^8.7.1",
-        "@alfalab/core-components-picker-button": "^11.13.0",
         "@alfalab/core-components-badge": "^5.6.4",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/hooks": "^1.13.1",
-        "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/core-components-icon-button": "^6.11.13",
+        "@alfalab/core-components-keyboard-focusable": "^4.1.1",
+        "@alfalab/core-components-mq": "^4.4.1",
+        "@alfalab/core-components-picker-button": "^11.13.0",
+        "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/core-components-skeleton": "^5.4.0",
+        "@alfalab/core-components-tag": "^8.7.1",
+        "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
+        "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
         "lodash": "^4.17.21",
         "react-merge-refs": "^1.1.0",
-        "@juggle/resize-observer": "^3.3.1",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"

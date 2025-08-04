@@ -1,11 +1,14 @@
 {
     "name": "@alfalab/core-components",
     "version": "48.32.0",
-    "license": "MIT",
+    "homepage": "https://github.com/core-ds/core-components#readme",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
     },
-    "homepage": "https://github.com/core-ds/core-components#readme",
+    "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "dependencies": {
         "@alfalab/core-components-accordion": "^1.2.15",
         "@alfalab/core-components-action-button": "^1.7.13",
@@ -138,8 +141,5 @@
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    },
-    "sideEffects": [
-        "**/*.css"
-    ]
+    }
 }

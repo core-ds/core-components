@@ -4,16 +4,11 @@
     "description": "Pass code v1 (deprecated)",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
         "@alfalab/core-components-button": "^11.11.10",
         "@alfalab/core-components-gap": "^1.4.2",
@@ -23,7 +18,14 @@
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
     "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0",
-    "sideEffects": ["**/*.css"]
+    "varsVersion": "9.21.0"
 }

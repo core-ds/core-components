@@ -4,9 +4,11 @@
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    },
-    "sideEffects": ["**/*.css"]
+    }
 }

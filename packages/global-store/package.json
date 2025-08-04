@@ -4,16 +4,16 @@
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": false,
     "main": "index.js",
     "module": "./esm/index.js",
+    "dependencies": {
+        "tslib": "^2.4.0"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "dependencies": {
-        "tslib": "^2.4.0"
-    },
-    "sideEffects": false,
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"
 }

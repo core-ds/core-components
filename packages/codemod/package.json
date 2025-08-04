@@ -4,30 +4,30 @@
     "description": "Codemod tools for code transforms",
     "keywords": [],
     "license": "MIT",
-    "publishConfig": {
-        "access": "public"
-    },
     "bin": "./bin/index.js",
     "scripts": {
         "test": "jest"
     },
     "dependencies": {
-        "chalk": "^4.1.1",
-        "lodash.kebabcase": "^4.1.1",
-        "shelljs": "^0.8.5",
-        "yargs": "^17.0.1",
         "@codeshift/utils": "^0.1.5",
-        "postcss": "^8.4.14",
+        "chalk": "^4.1.1",
+        "glob": "^7.1.6",
         "jscodeshift": "^0.13.1",
-        "glob": "^7.1.6"
+        "lodash.kebabcase": "^4.1.1",
+        "postcss": "^8.4.14",
+        "shelljs": "^0.8.5",
+        "yargs": "^17.0.1"
     },
     "devDependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.18.6",
+        "@babel/plugin-transform-modules-commonjs": "^7.26.3",
+        "@babel/preset-react": "^7.26.3",
+        "@babel/preset-typescript": "^7.27.0",
         "@codeshift/cli": "^0.10.0",
         "@codeshift/test-utils": "^0.2.0",
-        "@types/jscodeshift": "^0.11.6",
-        "@babel/plugin-proposal-class-properties": "^7.18.6",
-        "@babel/preset-react": "^7.26.3",
-        "@babel/plugin-transform-modules-commonjs": "^7.26.3",
-        "@babel/preset-typescript": "^7.27.0"
+        "@types/jscodeshift": "^0.11.6"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }
