@@ -4,33 +4,28 @@ import path from 'node:path';
 import { cwd, exit } from 'node:process';
 import semver from 'semver';
 
-import { isInternal, resolveInternal } from '../../tools/resolve-internal.cjs';
+import { getPackages } from '../../tools/monorepo.cjs';
 import { isNonNullable } from '../../tools/utils.cjs';
 
 async function main() {
+    const { packages } = getPackages();
+    const INTERNAL_PACKAGES = packages.map(({ packageJson: { name } }) => name);
     const { dependencies, devDependencies, peerDependencies } = await fse.readJson('package.json', {
         encoding: 'utf8',
     });
+    const missmatched = Object.entries({ ...dependencies, ...devDependencies, ...peerDependencies })
+        .filter(([pkg]) => INTERNAL_PACKAGES.includes(pkg))
+        .map(([pkg, actualVersion]) => {
+            const {
+                packageJson: { version },
+            } = packages.find(({ packageJson: { name } }) => name === pkg);
+            const expectedVersion = isNonNullable(semver.prerelease(version))
+                ? version
+                : `^${version}`;
 
-    const missmatched = (
-        await Promise.all(
-            Object.entries({ ...dependencies, ...devDependencies, ...peerDependencies })
-                .filter(([pkg]) => isInternal(pkg))
-                .map(async ([pkg, actualVersion]) => {
-                    const { version } = await fse.readJson(
-                        resolveInternal(`${pkg}/package.json`, false),
-                        { encoding: 'utf8' },
-                    );
-                    const expectedVersion = isNonNullable(semver.prerelease(version))
-                        ? version
-                        : `^${version}`;
-
-                    return actualVersion === expectedVersion
-                        ? null
-                        : [pkg, actualVersion, expectedVersion];
-                }),
-        )
-    ).filter(isNonNullable);
+            return actualVersion === expectedVersion ? null : [pkg, actualVersion, expectedVersion];
+        })
+        .filter(isNonNullable);
 
     if (missmatched.length === 0) {
         return;

@@ -20,12 +20,4 @@ function resolveInternal(id, root = true) {
     return root ? path.dirname(resolved) : resolved;
 }
 
-/**
- * @param {string} pkg
- * @returns {boolean}
- */
-function isInternal(pkg) {
-    return pkg.startsWith('@alfalab/core-components-');
-}
-
-module.exports = { resolveInternal, isInternal };
+module.exports = { resolveInternal };
