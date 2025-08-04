@@ -111,3 +111,30 @@ describe(
         },
     }),
 );
+
+describe(
+    'IconView | SuperEllipse with Image scale',
+    screenshotTesting({
+        cases: [
+            [
+                'SuperEllipse scale',
+                createSpriteStorybookUrl({
+                    packageName: 'icon-view',
+                    componentName: 'SuperEllipse',
+                    knobs: {
+                        size: [32, 64, 80, 128],
+                        imageUrl: './images/imgBg.png',
+                        scale: ['fit', 'fill'],
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 600,
+            height: 720,
+        },
+        screenshotOpts: {
+            fullPage: false,
+        },
+    }),
+);
