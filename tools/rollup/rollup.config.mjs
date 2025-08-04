@@ -7,22 +7,26 @@ import fse from 'fs-extra';
 import { globbySync } from 'globby';
 import path from 'node:path';
 import { cwd } from 'node:process';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'rollup';
 import copy from 'rollup-plugin-copy';
 import ts from 'typescript';
 
-import cssmSupport from '../css-modules.cjs';
+import { readPackagesFileSync } from '../read-packages-file.cjs';
 
 import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
 import { processCss } from './process-css.mjs';
 import { transformDeclarations } from './ts-declaration-transformer.mjs';
 
 const { ScriptTarget } = ts;
-const { isCssModulesAvailable } = cssmSupport;
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const pkg = fse.readJsonSync(path.resolve(cwd(), 'package.json'), { encoding: 'utf8' });
 
 const IS_ROOT_PACKAGE = pkg.name === '@alfalab/core-components';
+
+const CSS_PACKAGES = readPackagesFileSync(path.join(dirname, '../.css-packages'));
 
 const externals = [
     ...Object.keys(pkg.dependencies ?? {}),
@@ -268,6 +272,6 @@ export default process.env.BUILD_MODERN_ONLY === 'true'
           es5(),
           modern(),
           esm(),
-          isCssModulesAvailable(pkg.name) && cssm(),
-          isCssModulesAvailable(pkg.name) && moderncssm(),
+          !CSS_PACKAGES.includes(pkg.name) && cssm(),
+          !CSS_PACKAGES.includes(pkg.name) && moderncssm(),
       ].filter(Boolean);
