@@ -182,6 +182,7 @@
         "rollup": "^4.29.1",
         "rollup-plugin-copy": "^3.5.0",
         "rollup-pluginutils": "^2.8.2",
+        "semver": "^7.7.2",
         "slash": "^5.1.0",
         "storybook": "^7.6.2",
         "storybook-addon-live-examples": "2.0.2",

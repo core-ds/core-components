@@ -3,6 +3,6 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
-        "semver": "^7.7.1"
+        "semver": "^7.7.2"
     }
 }
