@@ -1,5 +1,15 @@
 # @alfalab/core-components-icon-view
 
+## 3.11.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1785](https://github.com/core-ds/core-components/pull/1785)
+
+-   Добавлена возможность управлять масштабированием изображения через проп `scale` (`fill` / `fit`)
+
 ## 3.10.4
 
 ### Patch Changes

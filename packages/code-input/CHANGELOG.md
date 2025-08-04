@@ -1,5 +1,15 @@
 # @alfalab/core-components-code-input
 
+## 3.9.11
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1792](https://github.com/core-ds/core-components/pull/1792)
+
+-   Добавлен оператор опциональной последовательности при вызове element.Focus() для предотвращения ошибки при обращении к несуществующему элементу.
+
 ## 3.9.10
 
 ### Patch Changes

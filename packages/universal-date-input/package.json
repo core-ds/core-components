@@ -16,7 +16,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^7.19.2",
+        "@alfalab/core-components-calendar": "^7.20.0",
         "@alfalab/core-components-input": "^15.6.2",
         "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/core-components-popover": "^6.4.0",

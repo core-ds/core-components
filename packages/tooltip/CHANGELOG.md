@@ -1,5 +1,21 @@
 # @alfalab/core-components-tooltip
 
+## 7.10.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.19.0
+
 ## 7.9.17
 
 ### Patch Changes

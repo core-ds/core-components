@@ -1,5 +1,15 @@
 # @alfalab/core-components-tag
 
+## 8.7.1
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1748](https://github.com/core-ds/core-components/pull/1748)
+
+-   Исправлено выравнивание аддонов при отсутствии основного контента
+
 ## 8.7.0
 
 ### Minor Changes

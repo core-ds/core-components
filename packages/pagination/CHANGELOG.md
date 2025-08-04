@@ -1,5 +1,18 @@
 # @alfalab/core-components-pagination
 
+## 2.4.16
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1748](https://github.com/core-ds/core-components/pull/1748)
+
+-   Исправлена ширина и отступы для arrow, там где используется `<Tabs />`
+
+-   Обновлены зависимости
+    -   tag@8.7.1
+
 ## 2.4.15
 
 ### Patch Changes

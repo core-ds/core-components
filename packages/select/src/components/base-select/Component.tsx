@@ -487,7 +487,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     ? rootRef.current.getBoundingClientRect().width
                     : 0;
 
-                listRef.current.setAttribute('style', '');
+                listRef.current.removeAttribute('style');
                 listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
             }
         }, [view, optionsListWidth]);
