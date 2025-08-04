@@ -6,7 +6,7 @@ import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof BottomSheet> = {
     title: 'Components/BottomSheet',

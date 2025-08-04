@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-input-autocomplete
 
 ## 12.10.0
 

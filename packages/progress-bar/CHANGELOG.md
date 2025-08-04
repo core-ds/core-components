@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-progress-bar
 
 ## 3.5.2
 

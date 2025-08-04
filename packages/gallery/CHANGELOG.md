@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-gallery
 
 ## 5.12.11
 

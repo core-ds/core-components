@@ -1,0 +1,14 @@
+{
+    "name": "@alfalab/core-components-types",
+    "version": "0.0.0",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "sideEffects": false,
+    "main": "index.js",
+    "module": "./esm/index.js",
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    }
+}

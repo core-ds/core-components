@@ -1,4 +1,4 @@
-@import '../../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .wrapper {
     overflow-x: hidden;
@@ -9,7 +9,7 @@
 }
 
 .wrapperAlignEnd {
-    align-items: end;
+    align-items: flex-end;
 }
 
 .wrapperJustifyCenter {
@@ -17,7 +17,7 @@
 }
 
 .wrapperJustifyEnd {
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .component {

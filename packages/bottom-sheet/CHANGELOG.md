@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-bottom-sheet
 
 ## 6.19.0
 

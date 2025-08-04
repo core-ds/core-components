@@ -1,5 +1,5 @@
-@import '../../vars/src/index.css';
-@import '../../vars/src/safe-area.css';
+@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/safe-area.css';
 
 .container {
     position: relative;

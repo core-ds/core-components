@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-status
 
 ## 3.7.0
 

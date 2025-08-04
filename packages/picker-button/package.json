@@ -4,27 +4,27 @@
     "description": "Picker button component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "@alfalab/core-components-button": "^11.11.10",
+        "@alfalab/core-components-mq": "^4.4.1",
+        "@alfalab/core-components-popover": "^6.4.0",
+        "@alfalab/core-components-select": "^17.24.0",
+        "@alfalab/icons-glyph": "^2.210.0",
+        "classnames": "^2.5.1",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/core-components-button": "^11.11.10",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-select": "^17.24.0",
-        "@alfalab/core-components-popover": "^6.4.0",
-        "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
-        "classnames": "^2.5.1",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.18.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"

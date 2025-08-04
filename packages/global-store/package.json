@@ -4,8 +4,12 @@
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": false,
     "main": "index.js",
     "module": "./esm/index.js",
+    "dependencies": {
+        "tslib": "^2.4.0"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"

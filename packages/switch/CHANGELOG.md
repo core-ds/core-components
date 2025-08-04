@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-switch
 
 ## 4.5.9
 

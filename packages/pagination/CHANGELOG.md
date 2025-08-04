@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-pagination
 
 ## 2.4.16
 

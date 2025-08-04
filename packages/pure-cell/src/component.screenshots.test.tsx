@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    generateTestCases,
+    createPreview,
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,

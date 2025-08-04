@@ -5,7 +5,7 @@ import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof FileUploadItem> = {
     title: 'Components/FileUploadItem',

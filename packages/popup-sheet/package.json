@@ -4,25 +4,28 @@
     "description": "Popup sheet mobile component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "@alfalab/core-components-backdrop": "^3.4.5",
+        "@alfalab/core-components-base-modal": "^5.9.4",
+        "@alfalab/core-components-navigation-bar-private": "^0.8.7",
+        "@alfalab/core-components-shared": "^0.18.0",
+        "@alfalab/core-components-types": "^0.0.0",
+        "classnames": "^2.5.1",
+        "react-swipeable": "^7.0.0",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.4",
-        "@alfalab/core-components-backdrop": "^3.4.5",
-        "@alfalab/core-components-shared": "^0.18.0",
-        "@alfalab/core-components-navigation-bar-private": "^0.8.7",
-        "react-swipeable": "^7.0.0",
-        "classnames": "^2.5.1",
-        "tslib": "^2.4.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
     "themesVersion": "13.7.4",
     "varsVersion": "9.21.0"

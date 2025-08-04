@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-calendar-range
 
 ## 7.8.25
 

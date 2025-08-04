@@ -1,4 +1,4 @@
-# Change Log
+# @alfalab/core-components-tabs
 
 ## 8.13.2
 
