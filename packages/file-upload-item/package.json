@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-file-upload-item",
-    "version": "6.3.7",
+    "version": "6.3.8",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-icon-button": "^6.11.13",
-        "@alfalab/core-components-icon-view": "^3.10.4",
+        "@alfalab/core-components-icon-view": "^3.11.0",
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/core-components-typography": "^4.14.3",
         "classnames": "^2.5.1",

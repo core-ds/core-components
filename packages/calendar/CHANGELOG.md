@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.20.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1788](https://github.com/core-ds/core-components/pull/1788)
+
+-   Для компонента 'CalendarDesktop' с видом (selectorView='month-only') добавлен параметр 'hideDisabledArrows', позволяющий управлять видимостью кнопок.
+
 ## 7.19.2
 
 ### Patch Changes

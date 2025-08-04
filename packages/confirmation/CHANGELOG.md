@@ -1,5 +1,12 @@
 # Change Log
 
+## 13.10.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   code-input@3.9.11
+
 ## 13.10.5
 
 ### Patch Changes
