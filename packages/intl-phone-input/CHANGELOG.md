@@ -1,5 +1,25 @@
 # @alfalab/core-components-intl-phone-input
 
+## 10.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input-autocomplete@13.0.0
+    -   @alfalab/core-components-select@18.0.0
+
 ## 9.12.15
 
 ### Patch Changes

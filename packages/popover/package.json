@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popover",
-    "version": "6.4.0",
+    "version": "7.0.0",
     "description": "Popover component",
     "keywords": [],
     "license": "MIT",
@@ -10,9 +10,9 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-portal": "^3.3.10",
-        "@alfalab/core-components-shared": "^0.18.0",
-        "@alfalab/core-components-stack": "^5.0.1",
+        "@alfalab/core-components-portal": "^4.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-stack": "^6.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@juggle/resize-observer": "^3.3.1",
         "@popperjs/core": "^2.11.8",
@@ -25,7 +25,7 @@
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "@alfalab/core-components-stack-context": "^0.0.0",
+        "@alfalab/core-components-stack-context": "^1.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
@@ -33,6 +33,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.0",
+    "varsVersion": "10.0.0"
 }

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-action-button",
-    "version": "1.7.13",
+    "version": "2.0.0",
     "description": "Action Button component",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-shared": "^0.18.0",
-        "@alfalab/core-components-spinner": "^4.0.9",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-spinner": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.0",
+    "varsVersion": "10.0.0"
 }
