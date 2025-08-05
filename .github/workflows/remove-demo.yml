@@ -50,6 +50,6 @@ jobs:
 
             - name: deploy
               if: ${{ steps.git-status.outputs.result == 'true' }}
-              uses: core-ds/core-components/.github/actions/commit-and-push
+              uses: core-ds/core-components/.github/actions/commit-and-push@master
               with:
                   message: 'Deploy to GitHub Pages'
