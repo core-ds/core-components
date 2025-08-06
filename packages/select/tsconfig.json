@@ -19,6 +19,7 @@
             "@alfalab/core-components-form-control": ["../form-control/src"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-gap": ["../gap/src"],
+            "@alfalab/core-components-gap/*": ["../gap/src/*"],
             "@alfalab/core-components-input": ["../input/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
             "@alfalab/core-components-modal": ["../modal/src"],
