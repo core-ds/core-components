@@ -1,5 +1,24 @@
 # @alfalab/core-components-bank-card
 
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-masked-input@7.0.0
+
 ## 5.8.21
 
 ### Patch Changes
