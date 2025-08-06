@@ -36,8 +36,10 @@
     &.primary {
         color: var(--icon-button-primary-base-color);
 
-        &:hover {
-            color: var(--icon-button-primary-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-primary-hover-color);
+            }
         }
 
         &:active {
@@ -48,8 +50,10 @@
     &.secondary {
         color: var(--icon-button-secondary-base-color);
 
-        &:hover {
-            color: var(--icon-button-secondary-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-secondary-hover-color);
+            }
         }
 
         &:active {
@@ -60,8 +64,10 @@
     &.transparent {
         color: var(--icon-button-transparent-base-color);
 
-        &:hover {
-            color: var(--icon-button-transparent-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-transparent-hover-color);
+            }
         }
 
         &:active {
@@ -72,8 +78,10 @@
     &.negative {
         color: var(--icon-button-negative-base-color);
 
-        &:hover {
-            color: var(--icon-button-negative-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-negative-hover-color);
+            }
         }
 
         &:active {
@@ -84,8 +92,10 @@
     &.tertiary {
         color: var(--icon-button-tertiary-base-color);
 
-        &:hover {
-            color: var(--icon-button-tertiary-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-tertiary-hover-color);
+            }
         }
 
         &:active {
@@ -97,8 +107,10 @@
         &.primary {
             color: var(--color-light-text-primary);
 
-            &:hover {
-                background: var(--color-light-transparent-default-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
             }
 
             &:active {
@@ -109,8 +121,10 @@
         &.secondary {
             color: var(--color-light-text-secondary);
 
-            &:hover {
-                background: var(--color-light-transparent-default-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
             }
 
             &:active {
@@ -121,8 +135,10 @@
         &.negative {
             color: var(--color-light-text-negative);
 
-            &:hover {
-                background: var(--color-light-transparent-default-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
             }
 
             &:active {
@@ -133,8 +149,10 @@
         &.tertiary {
             color: var(--color-light-text-tertiary);
 
-            &:hover {
-                background: var(--color-light-transparent-default-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
             }
 
             &:active {
