@@ -1,5 +1,27 @@
 # @alfalab/core-components-calendar-input
 
+## 11.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.0
+    -   @alfalab/core-components-date-input@5.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+
 ## 10.4.37
 
 ### Patch Changes

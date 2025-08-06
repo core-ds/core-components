@@ -1,5 +1,29 @@
 # @alfalab/core-components-calendar
 
+## 8.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-modal@10.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
 ## 7.20.0
 
 ### Minor Changes

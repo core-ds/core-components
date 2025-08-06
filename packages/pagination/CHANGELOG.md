@@ -1,5 +1,24 @@
 # @alfalab/core-components-pagination
 
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-tag@9.0.0
+
 ## 2.4.16
 
 ### Patch Changes
