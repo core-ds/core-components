@@ -66,8 +66,10 @@
     &.primary {
         color: var(--icon-button-inverted-primary-base-color);
 
-        &:hover {
-            color: var(--icon-button-inverted-primary-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-inverted-primary-hover-color);
+            }
         }
 
         &:active {
@@ -78,8 +80,10 @@
     &.secondary {
         color: var(--icon-button-inverted-secondary-base-color);
 
-        &:hover {
-            color: var(--icon-button-inverted-secondary-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-inverted-secondary-hover-color);
+            }
         }
 
         &:active {
@@ -90,8 +94,10 @@
     &.transparent {
         color: var(--icon-button-inverted-transparent-base-color);
 
-        &:hover {
-            color: var(--icon-button-inverted-transparent-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-inverted-transparent-hover-color);
+            }
         }
 
         &:active {
@@ -102,8 +108,10 @@
     &.negative {
         color: var(--icon-button-inverted-negative-base-color);
 
-        &:hover {
-            color: var(--icon-button-inverted-negative-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-inverted-negative-hover-color);
+            }
         }
 
         &:active {
@@ -114,8 +122,10 @@
     &.tertiary {
         color: var(--icon-button-inverted-tertiary-base-color);
 
-        &:hover {
-            color: var(--icon-button-inverted-tertiary-hover-color);
+        @media (hover: hover) {
+            &:hover {
+                color: var(--icon-button-inverted-tertiary-hover-color);
+            }
         }
 
         &:active {
@@ -127,8 +137,10 @@
         &.primary {
             color: var(--color-light-text-primary-inverted);
 
-            &:hover {
-                background: var(--color-light-transparent-default-inverted-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-inverted-hover);
+                }
             }
 
             &:active {
@@ -139,8 +151,10 @@
         &.secondary {
             color: var(--color-light-text-secondary-inverted);
 
-            &:hover {
-                background: var(--color-light-transparent-default-inverted-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-inverted-hover);
+                }
             }
 
             &:active {
@@ -151,8 +165,10 @@
         &.negative {
             color: var(--color-light-text-negative-inverted);
 
-            &:hover {
-                background: var(--color-light-transparent-default-inverted-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-inverted-hover);
+                }
             }
 
             &:active {
@@ -163,8 +179,10 @@
         &.tertiary {
             color: var(--color-light-text-tertiary-inverted);
 
-            &:hover {
-                background: var(--color-light-transparent-default-inverted-hover);
+            @media (hover: hover) {
+                &:hover {
+                    background: var(--color-light-transparent-default-inverted-hover);
+                }
             }
 
             &:active {
