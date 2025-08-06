@@ -201,7 +201,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                 className={cn(
                     commonStyles.component,
                     commonStyles[type],
-                    { [commonStyles.error]: error },
+                    { [styles.error]: error },
                     className,
                 )}
                 data-test-id={dataTestId}
@@ -209,7 +209,9 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
             >
                 {label ? (
                     <span
-                        className={cn(commonStyles.label, styles.label)}
+                        className={cn(styles.label, {
+                            [styles.tag]: type === 'tag',
+                        })}
                         data-test-id={getDataTestId(dataTestId, 'label')}
                     >
                         {label}
@@ -239,7 +241,13 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
 
                 {errorMessage && (
                     <span
-                        className={cn(commonStyles.sub, styles.sub, commonStyles.errorMessage)}
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.errorMessage,
+                        )}
                         role='alert'
                         data-test-id={getDataTestId(dataTestId, 'error')}
                     >
@@ -249,7 +257,13 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
 
                 {hint && !errorMessage && (
                     <span
-                        className={cn(commonStyles.sub, styles.sub, commonStyles.hint)}
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.hint,
+                        )}
                         data-test-id={getDataTestId(dataTestId, 'hint')}
                     >
                         {hint}
