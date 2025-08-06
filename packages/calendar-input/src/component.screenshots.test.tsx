@@ -11,7 +11,7 @@ describe('CalendarInput', () =>
         {
             componentName: 'CalendarInput',
             knobs: {
-                size: 'm',
+                size: 56,
                 value: '01.01.2023',
                 label: 'Дата',
                 block: true,
