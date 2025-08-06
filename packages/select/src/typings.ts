@@ -882,6 +882,12 @@ export type AdditionalMobileProps = {
      * Использовать ли хук useSelectWithApply в мобильном компоненте
      */
     useWithApplyHook?: boolean;
+
+    /**
+     * Позиция чекбокса "Выбрать все" в Header
+     * @default 'before'
+     */
+    checkmarkPosition?: 'before' | 'after';
 };
 
 export type BottomSheetSelectMobileProps = {
