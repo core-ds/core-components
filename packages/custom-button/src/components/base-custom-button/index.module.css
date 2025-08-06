@@ -43,8 +43,10 @@
     }
 
     &.darkening {
-        &:hover:before {
-            background-color: var(--color-light-neutral-translucent-200);
+        @media (hover: hover) {
+            &:hover:before {
+                background-color: var(--color-light-neutral-translucent-200);
+            }
         }
 
         &:active:before {
@@ -53,8 +55,10 @@
     }
 
     &.lightening {
-        &:hover:before {
-            background-color: var(--color-light-neutral-translucent-200-inverted);
+        @media (hover: hover) {
+            &:hover:before {
+                background-color: var(--color-light-neutral-translucent-200-inverted);
+            }
         }
 
         &:active:before {
@@ -63,8 +67,10 @@
     }
 
     &.static-darkening {
-        &:hover:before {
-            background-color: rgba(0, 0, 0, 0.07);
+        @media (hover: hover) {
+            &:hover:before {
+                background-color: rgba(0, 0, 0, 0.07);
+            }
         }
 
         &:active:before {
@@ -73,8 +79,10 @@
     }
 
     &.static-lightening {
-        &:hover:before {
-            background-color: rgba(255, 255, 255, 0.07);
+        @media (hover: hover) {
+            &:hover:before {
+                background-color: rgba(255, 255, 255, 0.07);
+            }
         }
 
         &:active:before {
