@@ -135,6 +135,7 @@ export const ImageViewer: FC = () => {
                     src={currentImage?.src}
                     alt={currentImage ? getImageAlt(currentImage, currentSlideIndex) : ''}
                     className={styles.fullScreenImage}
+                    data-content-area='true'
                 />
             )}
 

@@ -18,16 +18,16 @@ export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, descriptio
         <div className={styles.info}>
             <div className={styles.filenameContainer}>
                 <TitleDesktop
-                    tag='h1'
+                    tag='h2'
                     className={styles.filenameHead}
-                    view='xsmall'
+                    view='small'
                     font='system'
                     color='static-primary-light'
                 >
                     {head}
                 </TitleDesktop>
 
-                <TitleDesktop tag='h1' view='xsmall' font='system' color='static-primary-light'>
+                <TitleDesktop tag='h2' view='small' font='system' color='static-primary-light'>
                     {tail}
                 </TitleDesktop>
             </div>
