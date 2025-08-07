@@ -215,8 +215,9 @@ async function releaseRoot() {
 
     if (!nextVersion) return false;
 
-    await git.add(config.packageJsonPath, cwd);
-    await git.add(config.changelogPath, cwd);
+    shell.exec('yarn changeset version', { fatal: true });
+
+    await git.add('.', cwd);
 
     logger.log('=> Commit changed files');
     shell.exec('git commit -n -m "chore: publish root package [skip ci]"', execOptions);
