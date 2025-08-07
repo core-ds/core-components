@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.2.4
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   base-modal@5.0.9
+    -   scrollbar@2.1.3
+
 ## 4.2.3
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.2.6
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.2.1
+    -   button@7.0.4
+    -   popover@6.0.7
+
 ## 6.2.5
 
 ### Patch Changes

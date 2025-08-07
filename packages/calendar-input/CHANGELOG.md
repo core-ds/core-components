@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.2.7
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   calendar@6.2.7
+    -   date-input@4.1.5
+    -   popover@6.0.7
+
 ## 8.2.6
 
 ### Patch Changes

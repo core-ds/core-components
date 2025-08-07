@@ -1,5 +1,26 @@
 # Change Log
 
+## 13.2.10
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   badge@5.0.1
+    -   base-modal@5.0.9
+    -   bottom-sheet@5.2.1
+    -   button@7.0.4
+    -   checkbox@3.0.8
+    -   form-control@9.0.3
+    -   input@11.1.5
+    -   modal@6.1.10
+    -   popover@6.0.7
+    -   scrollbar@2.1.3
+    -   skeleton@4.0.4
+
 ## 13.2.9
 
 ### Patch Changes

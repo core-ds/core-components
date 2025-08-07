@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.3.5
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   select@13.2.10
+
 ## 10.3.4
 
 ### Patch Changes

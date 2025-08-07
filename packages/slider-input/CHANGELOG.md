@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.1.7
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   input@11.1.5
+    -   slider@4.1.4
+
 ## 7.1.6
 
 ### Patch Changes

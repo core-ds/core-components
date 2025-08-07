@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.2.16
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   pagination@2.0.10
+    -   select@13.2.10
+
 ## 2.2.15
 
 ### Patch Changes

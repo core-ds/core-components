@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.0.4
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   spinner@3.0.4
+
 ## 7.0.3
 
 ### Patch Changes

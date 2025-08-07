@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.3.7
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   form-control@9.0.3
+    -   input@11.1.5
+    -   select@13.2.10
+
 ## 9.3.6
 
 ### Patch Changes

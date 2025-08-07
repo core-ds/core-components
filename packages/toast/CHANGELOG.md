@@ -1,5 +1,19 @@
 # Change Log
 
+## 4.2.14
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   popover@6.0.7
+    -   portal@3.1.3
+    -   stack@4.0.3
+    -   toast-plate@5.1.11
+
 ## 4.2.13
 
 ### Patch Changes

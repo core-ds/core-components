@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.1.8
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   typography@3.1.1
+
 ## 2.1.7
 
 ### Patch Changes

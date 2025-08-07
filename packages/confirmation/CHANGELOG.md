@@ -1,5 +1,20 @@
 # Change Log
 
+## 12.4.6
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   code-input@2.3.2
+    -   link@5.0.3
+    -   loader@3.0.5
+    -   typography@3.1.1
+
 ## 12.4.5
 
 ### Patch Changes

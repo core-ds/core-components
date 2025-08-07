@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.0.5
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   button@7.0.4
+
 ## 6.0.4
 
 ### Patch Changes

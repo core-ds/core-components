@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.1.14
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   notification@6.1.13
+    -   portal@3.1.3
+    -   stack@4.0.3
+
 ## 5.1.13
 
 ### Patch Changes

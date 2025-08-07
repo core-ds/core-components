@@ -1,5 +1,19 @@
 # @alfalab/core-components-date-range-input
 
+## 2.2.7
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   calendar@6.2.7
+    -   icon-button@6.0.5
+    -   input@11.1.5
+    -   popover@6.0.7
+
 ## 2.2.6
 
 ### Patch Changes

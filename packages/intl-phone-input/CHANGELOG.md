@@ -1,5 +1,18 @@
 # Change Log
 
+## 9.2.9
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   input@11.1.5
+    -   input-autocomplete@9.3.7
+    -   select@13.2.10
+
 ## 9.2.8
 
 ### Patch Changes

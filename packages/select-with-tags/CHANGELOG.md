@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.0.17
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   form-control@9.0.3
+    -   select@13.2.10
+    -   tag@5.0.4
+
 ## 7.0.16
 
 ### Patch Changes

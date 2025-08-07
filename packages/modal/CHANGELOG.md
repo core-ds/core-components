@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.1.10
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   base-modal@5.0.9
+    -   button@7.0.4
+    -   icon-button@6.0.5
+    -   mq@4.1.3
+
 ## 6.1.9
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.0.7
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   portal@3.1.3
+    -   stack@4.0.3
+
 ## 6.0.6
 
 ### Patch Changes

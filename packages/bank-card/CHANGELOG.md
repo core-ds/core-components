@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.12
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   masked-input@6.1.5
+
 ## 5.2.11
 
 ### Patch Changes

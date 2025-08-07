@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.3
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
 ## 4.1.2
 
 ### Patch Changes

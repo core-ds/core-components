@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.1.5
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   form-control@9.0.3
+    -   scrollbar@2.1.3
+
 ## 8.1.4
 
 ### Patch Changes

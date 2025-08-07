@@ -1,5 +1,17 @@
 # @alfalab/core-components-pass-code
 
+## 1.0.6
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   gap@1.1.1
+
 ## 1.0.5
 
 ### Patch Changes

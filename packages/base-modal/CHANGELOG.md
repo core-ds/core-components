@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.0.9
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   backdrop@3.0.4
+    -   global-store@2.0.4
+    -   portal@3.1.3
+    -   stack@4.0.3
+
 ## 5.0.8
 
 ### Patch Changes

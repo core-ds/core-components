@@ -1,5 +1,19 @@
 # Change Log
 
+## 4.1.10
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   amount@3.1.2
+    -   button@7.0.4
+    -   comment@2.1.8
+    -   typography@3.1.1
+
 ## 4.1.9
 
 ### Patch Changes

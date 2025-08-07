@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.0.20
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   input@11.1.5
+    -   portal@3.1.3
+
 ## 4.0.19
 
 ### Patch Changes

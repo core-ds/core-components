@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.3.5
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   badge@5.0.1
+    -   keyboard-focusable@4.0.4
+    -   picker-button@10.3.5
+    -   tag@5.0.4
+
 ## 7.3.4
 
 ### Patch Changes

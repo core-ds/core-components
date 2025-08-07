@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.12
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   base-modal@5.0.9
+    -   icon-button@6.0.5
+    -   tooltip@6.2.6
+    -   typography@3.1.1
+
 ## 5.1.11
 
 ### Patch Changes

@@ -1,3 +1,17 @@
+## 37.5.3
+
+<sup><time>07.08.2025</time></sup>
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+#### Что изменилось
+- Удален `postinstall` скрипт
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `alert` `amount` `amount-input` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `date-input` `date-range-input` `date-time-input`<br /> `divider` `drawer` `dropzone` `file-upload-item` `filter-tag`<br /> `form-control` `gallery` `gap` `generic-wrapper` `global-store`<br /> `grid` `hatching-progress-bar` `icon-button` `icon-view` `input`<br /> `input-autocomplete` `intl-phone-input` `keyboard-focusable` `link` `list`<br /> `list-header` `loader` `masked-input` `modal` `mq`<br /> `notification` `notification-manager` `number-input` `pagination` `pass-code`<br /> `password-input` `pattern-lock` `phone-input` `picker-button` `plate`<br /> `popover` `portal` `progress-bar` `pure-cell` `pure-input`<br /> `radio` `radio-group` `scrollbar` `select` `select-with-tags`<br /> `side-panel` `skeleton` `slider` `slider-input` `space`<br /> `spinner` `stack` `status` `stepped-progress-bar` `steps`<br /> `switch` `table` `tabs` `tag` `textarea`<br /> `themes` `time-input` `toast` `toast-plate` `tooltip`<br /> `typography` `vars` `with-suffix`
+
+
+
 ## 37.5.1
 
 <sup><time>07.02.2023</time></sup>

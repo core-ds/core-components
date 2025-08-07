@@ -1,5 +1,18 @@
 # Change Log
 
+## 11.1.5
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   badge@5.0.1
+    -   button@7.0.4
+    -   form-control@9.0.3
+
 ## 11.1.4
 
 ### Patch Changes

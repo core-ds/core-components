@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
 ## 5.0.0
 
 ### Major Changes

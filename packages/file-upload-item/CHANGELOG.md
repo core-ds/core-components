@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.1.13
+
+### Patch Changes
+
+### [#1804](https://github.com/core-ds/core-components/pull/1804)
+
+-   Удален `postinstall` скрипт
+
+-   Обновлены зависимости
+    -   icon-button@6.0.5
+    -   link@5.0.3
+    -   spinner@3.0.4
+
 ## 5.1.12
 
 ### Patch Changes
