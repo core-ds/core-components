@@ -42,8 +42,7 @@
         "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
         "pub:ci": "node ./bin/release.js",
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
-        "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')}\""
+        "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js"
     },
     "browserslist": {
         "production": [
@@ -296,5 +295,6 @@
     },
     "resolutions": {
         "es5-ext": "0.10.53"
-    }
+    },
+    "packageManager": "yarn@1.22.22"
 }

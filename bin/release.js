@@ -221,6 +221,8 @@ async function releaseRoot() {
     logger.log('=> Commit changed files');
     shell.exec('git commit -n -m "chore: publish root package [skip ci]"', execOptions);
 
+    shell.exec('yarn build', { maxBuffer: 1024 * 1024 * 100 });
+
     // копирую package.json в сборку корневого пакета
     shell.exec('cp package.json dist/package.json', execOptions);
 
@@ -243,20 +245,20 @@ async function releaseRoot() {
         logger.log(`=> Create tag ${nextReleaseTag}`);
         await git.tag(nextReleaseTag, cwd);
 
-        logger.log('=> Push changes');
-        shell.exec(
-            `git push "https://${config.gitUsername}:${process.env.GITHUB_TOKEN}@github.com/core-ds/core-components.git"`,
-            execOptions,
-        );
-        shell.exec('git push --follow-tags', execOptions);
+        // logger.log('=> Push changes');
+        // shell.exec(
+        //     `git push "https://${config.gitUsername}:${process.env.GITHUB_TOKEN}@github.com/core-ds/core-components.git"`,
+        //     execOptions,
+        // );
+        // shell.exec('git push --follow-tags', execOptions);
 
-        logger.log('=> Create github release');
-        shell.exec(
-            `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
-                notes.replace('<br />', '\n'),
-            )}" --target master`,
-            execOptions,
-        );
+        // logger.log('=> Create github release');
+        // shell.exec(
+        //     `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
+        //         notes.replace('<br />', '\n'),
+        //     )}" --target master`,
+        //     execOptions,
+        // );
 
         return true;
     } else {
@@ -290,25 +292,27 @@ async function releasePackages() {
     shell.exec('git push --follow-tags', execOptions);
 }
 
-(async () => {
-    try {
-        logger.log('Setup git');
-        if (!isGenerateChangelogOnly) {
-            setupGit();
-        }
+// (async () => {
+//     try {
+//         logger.log('Setup git');
+//         if (!isGenerateChangelogOnly) {
+//             setupGit();
+//         }
 
-        logger.log('Release root package');
-        const released = await releaseRoot();
+//         logger.log('Release root package');
+//         const released = await releaseRoot();
 
-        if (released) {
-            logger.log('\n\nRelease packages');
-            await releasePackages();
-        } else {
-            logger.info('no new version is released');
-        }
-    } catch (e) {
-        logger.error(e.message);
+//         if (released) {
+//             logger.log('\n\nRelease packages');
+//             await releasePackages();
+//         } else {
+//             logger.info('no new version is released');
+//         }
+//     } catch (e) {
+//         logger.error(e.message);
 
-        throw e;
-    }
-})();
+//         throw e;
+//     }
+// })();
+
+releaseRoot();
