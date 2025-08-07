@@ -101,7 +101,6 @@ const es5 = () => {
             }),
             processCss(),
             assetsCopyPlugin('dist'),
-            copy({ flatten: false, targets: [{ src: '**/package.json', dest: 'dist' }] }),
             !IS_ROOT_PACKAGE && sourceCopyPlugin,
         ],
     });
@@ -261,7 +260,7 @@ const esm = () => {
                 transformers: transformDeclarations('esm'),
             }),
             processCss(),
-            assetsCopyPlugin('dist'),
+            assetsCopyPlugin('dist/esm'),
         ],
     });
 };
