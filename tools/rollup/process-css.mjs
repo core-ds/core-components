@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow, import/no-extraneous-dependencies, no-param-reassign */
 
 import fse from 'fs-extra';
-import { globbySync } from 'globby';
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -140,7 +139,7 @@ async function processPostcss(filePath, config) {
             }
 
             return postcssMixins({
-                mixinsFiles: globbySync('src/*.css', {
+                mixinsFiles: globSync('src/*.css', {
                     ignore,
                     cwd: resolveInternal('@alfalab/core-components-vars'),
                     absolute: true,

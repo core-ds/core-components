@@ -1,6 +1,6 @@
-import { globby } from 'globby';
 import fs from 'node:fs/promises';
 import postcss from 'postcss';
+import { glob } from 'tinyglobby';
 
 /**
  * @returns {import('postcss').AcceptedPlugin}
@@ -35,7 +35,7 @@ const postcssLightToDarkColors = () => ({
  */
 
 async function main() {
-    const files = await globby('packages/vars/src/colors-*.css', {
+    const files = await glob('packages/vars/src/colors-*.css', {
         ignore: ['**/colors-bluetint.css', '**/colors-indigo.css', '**/*dark.css'],
     });
 

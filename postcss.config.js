@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires, global-require */
 
 const fse = require('fs-extra');
-const { globbySync } = require('globby');
+const { globSync } = require('tinyglobby');
 const { resolveInternal } = require('./tools/resolve-internal.cjs');
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
         require('postcss-each')({}),
         require('./tools/postcss/postcss-subtract-mixin.cjs')({}),
         require('postcss-mixins')({
-            mixinsFiles: globbySync('src/*.css', {
+            mixinsFiles: globSync('src/*.css', {
                 ignore: ['src/alfasans-{index,typography}.css'],
                 cwd: resolveInternal('@alfalab/core-components-vars'),
                 absolute: true,

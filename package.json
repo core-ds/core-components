@@ -145,7 +145,6 @@
         "eslint-plugin-unicorn": "^42.0.0",
         "execa": "^9.6.0",
         "glob": "^7.1.6",
-        "globby": "^14.1.0",
         "handlebars": "^4.7.3",
         "http-server": "^0.12.3",
         "husky": "^4.3.8",

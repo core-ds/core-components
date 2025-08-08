@@ -4,12 +4,12 @@ import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 import fse from 'fs-extra';
-import { globbySync } from 'globby';
 import path from 'node:path';
 import { cwd, env } from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'rollup';
 import copy from 'rollup-plugin-copy';
+import { globSync } from 'tinyglobby';
 import ts from 'typescript';
 
 import { readPackagesFileSync } from '../read-packages-file.cjs';
@@ -36,7 +36,7 @@ const externals = [
 const baseConfig = () =>
     defineConfig({
         cache: false,
-        input: globbySync('src/**/*.{ts,tsx}', {
+        input: globSync('src/**/*.{ts,tsx}', {
             ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
         }),
         plugins: [
