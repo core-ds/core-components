@@ -10,6 +10,8 @@ import exportCustomVariables, {
 } from 'postcss-export-custom-variables';
 import postcssImport from 'postcss-import';
 
+import { parseCssVariables } from './parser.mjs';
+
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const renderVariables = handlebars.compile(
@@ -94,6 +96,8 @@ async function buildPalettes() {
             const result = await postcss([
                 exportCustomVariables(createExportOptions(destination)),
             ]).process(css, { from: cssPath });
+
+            parseCssVariables(cssPath);
 
             return fs.writeFile(
                 cssPath.replace(CSS_REGEXP, '.ts'),
