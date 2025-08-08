@@ -9,7 +9,7 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function main() {
     const BUILD_MODERN_ONLY = env.BUILD_MODERN_ONLY ?? 'true';
-    const KEEP_DYNAMIC_MIXINS = env.KEEP_DYNAMIC_MIXINS ?? 'true';
+    const PRESERVE_DYNAMIC_MIXINS = env.PRESERVE_DYNAMIC_MIXINS ?? 'true';
     const BUILD_STORYBOOK_FROM_DIST = env.BUILD_STORYBOOK_FROM_DIST ?? 'true';
 
     const BUILD_IGNORED_PACKAGES = await readPackagesFile(
@@ -17,7 +17,7 @@ async function main() {
     );
 
     await $('yarn', ['build'], {
-        env: { ...env, BUILD_MODERN_ONLY, KEEP_DYNAMIC_MIXINS },
+        env: { ...env, BUILD_MODERN_ONLY, PRESERVE_DYNAMIC_MIXINS },
         preferLocal: true,
         stdio: 'inherit',
     });
@@ -42,7 +42,7 @@ async function main() {
     ]);
 
     $('storybook', ['build', '-o', 'build', '--quiet'], {
-        env: { ...env, BUILD_STORYBOOK_FROM_DIST, KEEP_DYNAMIC_MIXINS },
+        env: { ...env, BUILD_STORYBOOK_FROM_DIST, PRESERVE_DYNAMIC_MIXINS },
         preferLocal: true,
         stdio: 'inherit',
     });

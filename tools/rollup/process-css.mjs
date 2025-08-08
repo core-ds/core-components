@@ -33,7 +33,7 @@ const varsEntryPoints = globSync('src/*index.css', {
  * @typedef Options
  * @property {boolean} [modules]
  * @property {boolean} [noCommonVars]
- * @property {boolean} [keepDynamicMixins]
+ * @property {boolean} [preserveDynamicMixins]
  * @property {boolean} [preserveVars]
  */
 
@@ -48,7 +48,7 @@ export function processCss(options = {}) {
     const config = {
         modules: options.modules ?? true,
         noCommonVars: options.noCommonVars ?? false,
-        keepDynamicMixins: options.keepDynamicMixins ?? false,
+        preserveDynamicMixins: options.preserveDynamicMixins ?? false,
         preserveVars: options.preserveVars ?? true,
     };
 
@@ -133,7 +133,7 @@ async function processPostcss(filePath, config) {
 
                 if (existsSync(companionFile)) {
                     ignore = ['src/alfasans-{index,typography}.css'];
-                } else if (config.keepDynamicMixins) {
+                } else if (config.preserveDynamicMixins) {
                     ignore = ['src/alfasans-{index,typography}.css', 'src/{index,typography}.css'];
                     mixins = persistMixins(dynamicMixins);
                 } else {
@@ -194,7 +194,7 @@ async function processPostcss(filePath, config) {
 
     let result = await postcss(plugins).process(originalCss, { from: filePath });
 
-    if (config.keepDynamicMixins) {
+    if (config.preserveDynamicMixins) {
         result = await postcss(postcssPersistentMixins()).process(result.css, {
             from: undefined,
         });

@@ -139,7 +139,7 @@ const dynamicMixins = () => {
                 declarationDir: 'dist/dynamic-mixins',
                 outputToFilesystem: false,
             }),
-            processCss({ keepDynamicMixins: true }),
+            processCss({ preserveDynamicMixins: true }),
             assetsCopyPlugin('dist/dynamic-mixins'),
         ],
     });
@@ -219,7 +219,7 @@ const modern = () => {
                 transformers: transformDeclarations('modern'),
             }),
             processCss({
-                keepDynamicMixins: env.KEEP_DYNAMIC_MIXINS === 'true',
+                preserveDynamicMixins: env.PRESERVE_DYNAMIC_MIXINS === 'true',
                 preserveVars: !(env.BUILD_WITHOUT_CSS_VARS === 'true'),
             }),
             assetsCopyPlugin('dist/modern'),
