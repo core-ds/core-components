@@ -189,7 +189,7 @@ async function processPostcss(filePath, config) {
 
     if (config.keepDynamicMixins) {
         result = await postcss([postcssPersistentMixins()]).process(result.css, {
-            from: result.opts.from,
+            from: undefined,
         });
     }
 
