@@ -12,6 +12,7 @@
         "analyze-package-sizes": "node bin/analyze-package-sizes/bin.mjs",
         "build": "node bin/build/bin.mjs",
         "build-storybook": "node bin/build-storybook/bin.mjs",
+        "tt": "cd packages/themes && yarn rollup -c ../../tools/rollup/rollup.config.mjs && cd .. && cd ..",
         "clean": "node bin/clean/bin.mjs",
         "cm": "git-cz",
         "format": "prettier --write \"{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",

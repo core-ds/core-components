@@ -10,6 +10,8 @@ import postcssMixins from 'postcss-mixins';
 
 import { resolveInternal } from '../tools/resolve-internal.cjs';
 
+import { parseCssVariables } from './parser.mjs';
+
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const renderStyles = handlebars.compile(
@@ -113,9 +115,39 @@ const processRootTheme = async (cssFile) => {
     return result.css;
 };
 
+// Вспомогательная функция для парсинга токенов из строки CSS
+function extractRootTokens(cssContent, rootObject) {
+    const cssWithoutComments = cssContent.replace(/\/\*[\s\S]*?\*\//g, '');
+    const rootRegex = /:root\s*\{([\s\S]*?)\}/g;
+    let rootMatch;
+
+    // eslint-disable-next-line no-cond-assign
+    while ((rootMatch = rootRegex.exec(cssWithoutComments)) !== null) {
+        const cssBlock = rootMatch[1];
+        const cssLines = cssBlock.split(';');
+
+        cssLines.forEach((line) => {
+            const trimmedLine = line.trim();
+
+            if (trimmedLine) {
+                const parts = trimmedLine.split(':').map((part) => part.trim());
+
+                if (parts.length === 2) {
+                    const [key, value] = parts;
+
+                    // eslint-disable-next-line no-param-reassign
+                    rootObject[key] = value;
+                }
+            }
+        });
+    }
+}
+
 async function main() {
     // Переходим в папку с мисинами и парсим темы
     const themes = await globby('src/mixins/*.css');
+
+    await parseCssVariables('src/dark.css', 'src/dark-map.ts');
 
     for (const themeFile of themes) {
         const { name: themeName } = path.parse(themeFile);

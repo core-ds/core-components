@@ -1,3 +1,4 @@
+import { getPureTokenValue } from './get-pure-token-value';
 import { modifyColor } from './modify-color';
 import { translateColors } from './translatecolors';
 import { Color, HexColor, PaletteColor, Theme } from './types';
@@ -31,6 +32,7 @@ export const getColorVar = ({
     color,
     prefix = '',
     theme = 'light',
+    pure = false,
 }: {
     /**
      * Имя переменной в figma для цвета или HEX
@@ -42,6 +44,11 @@ export const getColorVar = ({
      * @default ''
      */
     prefix?: string;
+    /**
+     * Использовать ли реальные значения
+     * @default false
+     */
+    pure?: boolean;
     /**
      * Тема
      * @default 'light'
@@ -57,6 +64,12 @@ export const getColorVar = ({
     // Часть 1, преобразование по названию цвета
     if (isPaletteColor(color)) {
         const cssColor = getColorWithTheme(color, theme);
+
+        console.log('🚀 ~ cssColor:', `--color-${cssColor}`);
+        if (pure) {
+            return getPureTokenValue({ token: color, theme });
+        }
+
         const prefixWithDelimiter = prefix && `-${prefix}`;
 
         return `var(-${prefixWithDelimiter}-color-${cssColor})`;
