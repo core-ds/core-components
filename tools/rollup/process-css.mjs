@@ -6,6 +6,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { cwd } from 'node:process';
 import postcss from 'postcss';
+import postcssCustomProperties from 'postcss-custom-properties';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
 import postcssModules from 'postcss-modules';
@@ -33,6 +34,7 @@ const varsEntryPoints = globSync('src/*index.css', {
  * @property {boolean} [modules]
  * @property {boolean} [noCommonVars]
  * @property {boolean} [keepDynamicMixins]
+ * @property {boolean} [preserveVars]
  */
 
 /**
@@ -47,6 +49,7 @@ export function processCss(options = {}) {
         modules: options.modules ?? true,
         noCommonVars: options.noCommonVars ?? false,
         keepDynamicMixins: options.keepDynamicMixins ?? false,
+        preserveVars: options.preserveVars ?? true,
     };
 
     const name = 'process-css';
@@ -168,6 +171,10 @@ async function processPostcss(filePath, config) {
         );
     }
 
+    if (config.preserveVars === false) {
+        plugins.push(postcssCustomProperties({ preserve: false }));
+    }
+
     if (config.modules) {
         plugins.push(
             postcssModules({
@@ -188,7 +195,7 @@ async function processPostcss(filePath, config) {
     let result = await postcss(plugins).process(originalCss, { from: filePath });
 
     if (config.keepDynamicMixins) {
-        result = await postcss([postcssPersistentMixins()]).process(result.css, {
+        result = await postcss(postcssPersistentMixins()).process(result.css, {
             from: undefined,
         });
     }

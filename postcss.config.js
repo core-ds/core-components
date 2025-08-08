@@ -33,8 +33,5 @@ module.exports = {
                 ),
             },
         }),
-        ...(process.env.BUILD_WITHOUT_CSS_VARS === 'true'
-            ? [require('postcss-custom-properties')({ preserve: false })]
-            : []),
     ],
 };

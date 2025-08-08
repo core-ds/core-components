@@ -218,7 +218,10 @@ const modern = () => {
                 outputToFilesystem: false,
                 transformers: transformDeclarations('modern'),
             }),
-            processCss({ keepDynamicMixins: env.KEEP_DYNAMIC_MIXINS === 'true' }),
+            processCss({
+                keepDynamicMixins: env.KEEP_DYNAMIC_MIXINS === 'true',
+                preserveVars: !(env.BUILD_WITHOUT_CSS_VARS === 'true'),
+            }),
             assetsCopyPlugin('dist/modern'),
         ],
     });
