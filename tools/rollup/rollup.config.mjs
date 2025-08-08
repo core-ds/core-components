@@ -108,6 +108,44 @@ const es5 = () => {
 };
 
 /**
+ * Сборка ES5 с commonjs модулями и динамическими миксинами.
+ */
+const dynamicMixins = () => {
+    const base = baseConfig();
+
+    return defineConfig({
+        ...base,
+        output: [
+            {
+                esModule: true,
+                dir: 'dist/dynamic-mixins',
+                format: 'cjs',
+                interop: 'compat',
+                dynamicImportInCjs: false,
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                sourcemap: true,
+                sourcemapPathTransform: (relativeSourcePath) =>
+                    path.relative('../..', relativeSourcePath),
+            },
+        ],
+        plugins: [
+            ...base.plugins,
+            externalsResolver(externals),
+            typescript({
+                tsconfig: 'tsconfig.build.json',
+                target: ScriptTarget.ES5,
+                outDir: 'dist/dynamic-mixins',
+                declarationDir: 'dist/dynamic-mixins',
+                outputToFilesystem: false,
+            }),
+            processCss({ keepDynamicMixins: true }),
+            assetsCopyPlugin('dist/dynamic-mixins'),
+        ],
+    });
+};
+
+/**
  * Сборка ES5 с commonjs модулями.
  * Css-модули поставляются как есть, не компилируются.
  */
@@ -274,4 +312,5 @@ export default env.BUILD_MODERN_ONLY === 'true'
           esm(),
           !CSS_PACKAGES.includes(pkg.name) && cssm(),
           !CSS_PACKAGES.includes(pkg.name) && moderncssm(),
+          dynamicMixins(),
       ].filter(Boolean);
