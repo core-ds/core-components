@@ -1,5 +1,5 @@
 @import '../../vars.css';
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-dynamic-mixins-index.css';
 
 .component {
     display: flex;

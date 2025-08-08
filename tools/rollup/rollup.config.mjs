@@ -6,7 +6,7 @@ import typescript from '@rollup/plugin-typescript';
 import fse from 'fs-extra';
 import { globbySync } from 'globby';
 import path from 'node:path';
-import { cwd } from 'node:process';
+import { cwd, env } from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'rollup';
 import copy from 'rollup-plugin-copy';
@@ -67,6 +67,7 @@ const sourceCopyPlugin = copy({
         },
     ],
 });
+
 /**
  * Сборка ES5 с commonjs модулями.
  */
@@ -179,7 +180,7 @@ const modern = () => {
                 outputToFilesystem: false,
                 transformers: transformDeclarations('modern'),
             }),
-            processCss(),
+            processCss({ keepDynamicMixins: env.KEEP_DYNAMIC_MIXINS === 'true' }),
             assetsCopyPlugin('dist/modern'),
         ],
     });
@@ -265,7 +266,7 @@ const esm = () => {
     });
 };
 
-export default process.env.BUILD_MODERN_ONLY === 'true'
+export default env.BUILD_MODERN_ONLY === 'true'
     ? modern()
     : [
           es5(),

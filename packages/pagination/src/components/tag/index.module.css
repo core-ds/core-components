@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-dynamic-mixins-index.css';
 
 button.tag.tag {
     color: var(--color-light-text-secondary);
