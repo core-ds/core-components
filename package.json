@@ -160,7 +160,7 @@
         "postcss": "^8.5.3",
         "postcss-cli": "^7.1.0",
         "postcss-custom-media": "^7.0.8",
-        "postcss-custom-properties": "^10.0.0",
+        "postcss-custom-properties": "^12.1.10",
         "postcss-each": "^0.10.0",
         "postcss-export-custom-variables": "^1.0.0",
         "postcss-for": "^2.1.1",
