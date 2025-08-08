@@ -7,12 +7,12 @@ import { glob } from 'tinyglobby';
  */
 const postcssLightToDarkColors = () => ({
     postcssPlugin: 'postcss-light-to-dark-colors',
-    Once: (root, { Declaration }) => {
+    Once: (root, helpers) => {
         root.walkDecls((decl) => {
             // Check if color is light
             if (/^--color-light-[\w-]+$/.test(decl.prop)) {
                 decl.replaceWith(
-                    new Declaration({
+                    helpers.postcss.decl({
                         prop: decl.prop,
                         // --color-light-decorative-fuchsia-hover -> --color-dark-decorative-fuchsia-hover
                         value: `var(${decl.prop.replace(/^(--color)-light-(.*)$/, '$1-dark-$2')})`,
@@ -35,8 +35,9 @@ const postcssLightToDarkColors = () => ({
  */
 
 async function main() {
-    const files = await glob('packages/vars/src/colors-*.css', {
+    const files = await glob('src/colors-*.css', {
         ignore: ['**/colors-bluetint.css', '**/colors-indigo.css', '**/*dark.css'],
+        absolute: true,
     });
 
     for (const file of files) {
