@@ -65,9 +65,8 @@ export const getColorVar = ({
     if (isPaletteColor(color)) {
         const cssColor = getColorWithTheme(color, theme);
 
-        console.log('🚀 ~ cssColor:', `--color-${cssColor}`);
         if (pure) {
-            return getPureTokenValue({ token: color, theme });
+            return getPureTokenValue({ token: `--color-${cssColor}`, theme });
         }
 
         const prefixWithDelimiter = prefix && `-${prefix}`;

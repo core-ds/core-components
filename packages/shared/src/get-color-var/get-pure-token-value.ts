@@ -1,5 +1,4 @@
-import darkMap from '@alfalab/core-components-themes/dark-map';
-import * as colorVars from '@alfalab/core-components-vars/colors-bluetint.module';
+import bluetintColorVars from '@alfalab/core-components-vars/colors-bluetint-map';
 
 import { Theme } from './types';
 
@@ -11,31 +10,14 @@ type Props = {
      */
     theme?: Theme;
 };
-/**
- * v1
- * 1 Парсинг всех токенов цветов *-colors.css в значения (одни и теже токены могут быть разные в зависимости от темы, поэтому надо прокидывать бандлы)
- * 2 Просто подставить в обьекте
- * 3 Для темной темы запарсить dark.сss файл в обьект с переопределением
- * 4 Для темной темы использовать скрипт из плагины с подменой токенов, которые использовал в плагине и
- */
 
 /**
- * v2
- * 1 Парсинг всех токенов цветов *-colors.css в значения (одни и теже токены могут быть разные в зависимости от темы, поэтому надо прокидывать бандлы)
- * 2 Просто подставить в обьекте
- * 3 Для темной темы запарсить dark.сss файл в обьект с переопределением
- * 4 Для темной темы использовать скрипт из плагины с подменой токенов, которые использовал в плагине
+ * Возвращает значение токена цвета из общей мапы цветов.
+ * @param {Theme} [props.theme='light'] - Тема.
+ * @returns {string | undefined} Значение токена цвета или undefined, если токен не найден.
  */
-export const getPureTokenValue = ({ token, theme }: Props) => {
-    console.log('🚀 ~ getPureTokenValue ~ token:', token);
-    const colorVars1 = colorVars as any;
+export const getPureTokenValue = ({ token }: Props): string | undefined => {
+    const colors = bluetintColorVars as Record<string, string>;
 
-    console.log('🚀 ~ getPureTokenValue ~ colorVars1:', colorVars1);
-    const darkMap1 = darkMap as any;
-
-    if (theme === 'dark') {
-        return colorVars1[darkMap1[token]];
-    }
-
-    return colorVars1[token];
+    return colors[token];
 };
