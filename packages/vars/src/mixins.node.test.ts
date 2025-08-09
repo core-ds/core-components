@@ -1,8 +1,7 @@
-import postcss, { Plugin } from 'postcss';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import postcss, { Plugin } from 'postcss';
 import { glob } from 'tinyglobby';
-import postcssImport from 'postcss-import';
 
 interface Options {
     importTo?: (names: string[]) => void;
@@ -36,15 +35,13 @@ async function getMixinNames(file: string) {
     let mixins: string[] = [];
     const content = await fs.readFile(file, { encoding: 'utf8' });
 
-    // @ts-expect-error
-    await postcss([
-        postcssImport({}),
+    await postcss(
         postcssMixinNames({
             importTo: (names) => {
                 mixins = names;
             },
         }),
-    ]).process(content, { from: file });
+    ).process(content, { from: file });
 
     return mixins;
 }
@@ -67,18 +64,15 @@ describe('mixins', () => {
             }
 
             expect(mixins).toEqual(expect.arrayContaining(arr.at(index + 1)!));
+            // symmetric check
+            expect(arr.at(index + 1)).toEqual(expect.arrayContaining(mixins));
         });
     });
 
-    test.each`
-        file                | ignored
-        ${'typography.css'} | ${['row_limit']}
-    `(
-        "`no-dynamic-mixins-index.css` shouldn't contain `$file` mixins",
-        async ({ file, ignored }: { file: string; ignored: string[] }) => {
-            const dynamicMixins = (await getMixinNames(path.resolve(__dirname, file))).filter(
-                (name) => !ignored.includes(name),
-            );
+    test.each(['typography.css'])(
+        "`no-dynamic-mixins-index.css` shouldn't contain `%s` mixins",
+        async (file) => {
+            const dynamicMixins = await getMixinNames(path.resolve(__dirname, file));
             const nonDynamicMixins = await getMixinNames(
                 path.resolve(__dirname, 'no-dynamic-mixins-index.css'),
             );

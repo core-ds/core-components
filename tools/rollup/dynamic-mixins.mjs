@@ -25,6 +25,6 @@ async function getMixins(p) {
     return mixins;
 }
 
-export const dynamicMixins = (
-    await getMixins(resolveInternal('@alfalab/core-components-vars/src/typography.css', false))
-).filter((name) => !(name === 'row_limit'));
+export const dynamicMixins = await getMixins(
+    resolveInternal('@alfalab/core-components-vars/src/typography.css', false),
+);
