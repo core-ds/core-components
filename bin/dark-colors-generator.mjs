@@ -2,6 +2,8 @@ import fs from 'node:fs/promises';
 import postcss from 'postcss';
 import { glob } from 'tinyglobby';
 
+import { getPackages } from '../tools/monorepo.cjs';
+
 /**
  * @returns {import('postcss').AcceptedPlugin}
  */
@@ -35,8 +37,13 @@ const postcssLightToDarkColors = () => ({
  */
 
 async function main() {
+    const { packages } = getPackages();
+    const vars = packages.find(
+        ({ packageJson: { name } }) => name === '@alfalab/core-components-vars',
+    );
     const files = await glob('src/colors-*.css', {
         ignore: ['**/colors-bluetint.css', '**/colors-indigo.css', '**/*dark.css'],
+        cwd: vars.dir,
         absolute: true,
     });
 
