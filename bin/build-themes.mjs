@@ -1,4 +1,3 @@
-import { globby } from 'globby';
 import handlebars from 'handlebars';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -7,6 +6,7 @@ import postcss from 'postcss';
 import postcssColorMod from 'postcss-color-mod-function';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
+import { glob } from 'tinyglobby';
 
 import { resolveInternal } from '../tools/resolve-internal.cjs';
 
@@ -52,7 +52,7 @@ const postcssAddImports = ({ files }) => ({
  * @returns {Promise<string>}
  */
 const processComponentTheme = async (cssFile) => {
-    const colors = await globby('src/colors-*.css', {
+    const colors = await glob('src/colors-*.css', {
         ignore: ['**/*-indigo.css'],
         cwd: resolveInternal('@alfalab/core-components-vars'),
         absolute: true,
@@ -85,7 +85,7 @@ const processRootTheme = async (cssFile) => {
     const getImports = async () => {
         if (cssFile.includes('dark.css')) return [];
 
-        return globby('src/*.css', {
+        return glob('src/*.css', {
             ignore: [
                 '**/colors-!({addons,bluetint,monochrome,transparent}).css',
                 '**/shadows-!(bluetint).css',
@@ -115,12 +115,12 @@ const processRootTheme = async (cssFile) => {
 
 async function main() {
     // Переходим в папку с мисинами и парсим темы
-    const themes = await globby('src/mixins/*.css');
+    const themes = await glob('src/mixins/*.css');
 
     for (const themeFile of themes) {
         const { name: themeName } = path.parse(themeFile);
         // Извлекаем переменные из файлов с миксинами и генерируем css-файлы, записывая переменные в :root
-        const cssFiles = await globby(`src/mixins/*/${themeName}.css`);
+        const cssFiles = await glob(`src/mixins/*/${themeName}.css`);
 
         for (const cssFile of cssFiles) {
             const componentName = path.basename(path.dirname(cssFile));

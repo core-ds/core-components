@@ -1,7 +1,7 @@
-import { globby } from 'globby';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { argv } from 'node:process';
+import { glob } from 'tinyglobby';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -17,7 +17,7 @@ async function main(args) {
         })
         .parse();
 
-    const previews = await globby('src/**/*-preview-snap.png', { absolute: true });
+    const previews = await glob('src/**/*-preview-snap.png', { absolute: true });
 
     await Promise.all(
         previews.map((preview) => {

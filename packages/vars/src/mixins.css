@@ -106,3 +106,10 @@
     min-width: 0;
     cursor: pointer;
 }
+
+@define-mixin row_limit $num {
+    -webkit-line-clamp: $num;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

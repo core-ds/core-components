@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import dedent from 'dedent';
 import fse from 'fs-extra';
-import { globby } from 'globby';
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { argv, cwd } from 'node:process';
 import { fileURLToPath } from 'node:url';
 import slash from 'slash';
+import { glob } from 'tinyglobby';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -17,7 +17,7 @@ import { readPackagesFile } from '../tools/read-packages-file.cjs';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const EXTENTIONS = ['ts', 'tsx', 'json'];
-const BUILDS = ['es5', 'modern', 'esm', 'cssm', 'moderncssm'];
+const BUILDS = ['es5', 'modern', 'esm', 'cssm', 'moderncssm', 'dynamic-mixins'];
 const CSS_PACKAGES = await readPackagesFile(path.join(dirname, '../tools/.css-packages'));
 
 yargs(hideBin(argv))
@@ -60,7 +60,7 @@ yargs(hideBin(argv))
             for (const build of BUILDS) {
                 const buildDir = path.join(dist, build);
                 const dirs = existsSync(buildDir)
-                    ? await globby('*', { cwd: buildDir, onlyDirectories: true })
+                    ? await glob('*', { cwd: buildDir, onlyDirectories: true })
                     : [];
 
                 for (const dir of dirs) {
@@ -88,7 +88,7 @@ yargs(hideBin(argv))
     .parse();
 
 async function handlePackage(name, dir) {
-    const files = await globby(
+    const files = await glob(
         [
             `src/*.{${EXTENTIONS.join(',')}}`,
             `src/**/*.{${EXTENTIONS.join(',')}}`,
