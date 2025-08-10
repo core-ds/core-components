@@ -15,9 +15,7 @@ export const image: Story = {
         const [token, setToken] = useState('backgroundColorNeutral');
 
         const lightToken = getColorVar({ color: token as any, pure: true });
-        console.log('🚀 ~ lightToken:', lightToken);
         const darkToken = getColorVar({ color: token as any, pure: true, theme: 'dark' });
-        console.log('🚀 ~ darkToken:', darkToken);
         return (
             <div>
                 <div>
