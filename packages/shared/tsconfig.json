@@ -15,16 +15,13 @@
             "@alfalab/core-components-types": ["../types/src"],
             "@alfalab/core-components-types/*": ["../types/src/*"],
             "@alfalab/core-components-vars": ["../vars/src"],
-            "@alfalab/core-components-vars/*": ["../vars/src/*"],
-            "@alfalab/core-components-themes": ["../themes/src"],
-            "@alfalab/core-components-themes/*": ["../themes/src/*"]
+            "@alfalab/core-components-vars/*": ["../vars/src/*"]
         }
     },
     "references": [
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" },
         { "path": "../types/tsconfig.build.json" },
-        { "path": "../vars/tsconfig.build.json" },
-        { "path": "../themes/tsconfig.build.json" }
+        { "path": "../vars/tsconfig.build.json" }
     ]
 }
