@@ -1,5 +1,21 @@
 # @alfalab/core-components-select
 
+## 18.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.0.1
+    -   @alfalab/core-components-base-modal@6.0.1
+    -   @alfalab/core-components-bottom-sheet@7.0.1
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-checkbox@5.0.1
+    -   @alfalab/core-components-form-control@13.0.1
+    -   @alfalab/core-components-input@16.0.1
+    -   @alfalab/core-components-modal@10.0.1
+    -   @alfalab/core-components-mq@5.0.1
+    -   @alfalab/core-components-popover@7.0.1
+
 ## 18.0.0
 
 ### Major Changes

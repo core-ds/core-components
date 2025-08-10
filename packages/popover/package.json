@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popover",
-    "version": "7.0.0",
+    "version": "7.0.1",
     "description": "Popover component",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-portal": "^4.0.0",
-        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-portal": "^4.0.1",
+        "@alfalab/core-components-shared": "^1.0.1",
         "@alfalab/core-components-stack": "^6.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@juggle/resize-observer": "^3.3.1",

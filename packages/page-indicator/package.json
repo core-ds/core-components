@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-page-indicator",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "PageIndicator component",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-shared": "^1.0.1",
         "@types/react-transition-group": "^4.4.5",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",

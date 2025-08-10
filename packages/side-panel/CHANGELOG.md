@@ -1,5 +1,16 @@
 # @alfalab/core-components-side-panel
 
+## 6.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.0.1
+    -   @alfalab/core-components-base-modal@6.0.1
+    -   @alfalab/core-components-mq@5.0.1
+    -   @alfalab/core-components-navigation-bar-private@1.0.1
+    -   @alfalab/core-components-drawer@6.0.1
+
 ## 6.0.0
 
 ### Major Changes

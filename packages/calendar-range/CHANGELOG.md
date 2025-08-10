@@ -1,5 +1,15 @@
 # @alfalab/core-components-calendar-range
 
+## 8.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.0.1
+    -   @alfalab/core-components-calendar@8.0.1
+    -   @alfalab/core-components-calendar-input@11.0.1
+    -   @alfalab/core-components-date-input@5.0.1
+
 ## 8.0.0
 
 ### Major Changes

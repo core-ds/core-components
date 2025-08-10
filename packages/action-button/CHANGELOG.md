@@ -1,5 +1,13 @@
 # @alfalab/core-components-action-button
 
+## 2.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.0.1
+    -   @alfalab/core-components-spinner@5.0.1
+
 ## 2.0.0
 
 ### Major Changes

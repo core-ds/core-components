@@ -1,5 +1,12 @@
 # @alfalab/core-components-slider-input
 
+## 10.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.1
+
 ## 10.0.0
 
 ### Major Changes

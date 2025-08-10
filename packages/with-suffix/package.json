@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-with-suffix",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-input": "^16.0.0",
-        "@alfalab/core-components-portal": "^4.0.0",
+        "@alfalab/core-components-input": "^16.0.1",
+        "@alfalab/core-components-portal": "^4.0.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
