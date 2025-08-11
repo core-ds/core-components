@@ -132,6 +132,7 @@ const dynamicMixins = () => {
         ],
         plugins: [
             ...base.plugins,
+            coreComponentsResolver('dynamic-mixins'),
             externalsResolver(externals),
             typescript({
                 tsconfig: 'tsconfig.build.json',
