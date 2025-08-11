@@ -4,7 +4,11 @@ import { hideBin } from 'yargs/helpers';
 
 import { $ } from '../tools/execa.mjs';
 
-async function main() {
+/**
+ *
+ * @param {string[]} args
+ */
+async function main(args) {
     await $('yarn', ['clean']);
 
     await $('lerna', [
@@ -16,7 +20,7 @@ async function main() {
         path.resolve(cwd(), 'bin/build-vars.mjs'),
     ]);
 
-    await $('jest', ['--watchAll=false']);
+    await $('jest', ['--watchAll=false', ...args]);
 }
 
 await main(hideBin(argv));
