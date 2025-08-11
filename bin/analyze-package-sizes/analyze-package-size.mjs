@@ -38,7 +38,7 @@ async function main() {
         treeShaking: true,
         target: 'esnext',
         format: 'esm',
-        external: [...Object.keys(pkg.peerDependencies ?? {}), '*-map.ts', '*.css'],
+        external: [...Object.keys(pkg.peerDependencies ?? {}), '*-map', '*.css'],
         metafile: true,
     });
     const sizes = Object.fromEntries(
