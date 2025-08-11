@@ -49,7 +49,6 @@ export default {\n${Object.entries(parsedData)
             .join('\n')}\n};\n`;
 
         await fs.writeFile(outputFilePath, tsContent, 'utf8');
-        console.log(`Данные успешно сохранены в файл: ${outputFilePath}`);
     } catch (err) {
         console.error('Ошибка в процессе работы:', err);
     }
