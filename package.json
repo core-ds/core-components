@@ -26,7 +26,7 @@
         "release:snapshot": "yarn build && yarn changeset publish --tag snapshot --no-git-tag",
         "serve-storybook": "http-server build -p 9009",
         "start": "storybook dev -p 9009",
-        "test": "jest --watchAll=false",
+        "test": "node bin/run-jest-test.mjs",
         "test:codemod": "yarn workspace @alfalab/core-components-codemod test",
         "test:screenshots": "bin/run-screenshots.sh",
         "tsconfig": "node bin/tsconfig/bin.mjs",
