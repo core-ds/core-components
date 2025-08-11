@@ -61,7 +61,7 @@ const config = {
         ),
     [`./{${DIRS.join(',')}}/**/*.{${EXTENSIONS.join(',')}}`]: () => 'eslint --max-warnings 0',
     './bin/tsconfig/templates/tsconfig*.json': () => 'yarn tsconfig check',
-    '*.{js,jsx,ts,tsx,cjs,mjs,json,yml}': 'prettier --write',
+    '*.{js,jsx,ts,tsx,cjs,mjs,json,yml,md}': 'prettier --write',
     '*.css': ['prettier --write', 'stylelint'],
 };
 
