@@ -2,9 +2,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 /**
- * Парсит CSS-файл с переменными, которые ссылаются друг на друга или содержат прямые значения,
+ * Парсит CSS-файл с переменными, которые могут быть однострочными или многострочными,
  * и сохраняет их в виде объекта в TypeScript-файл.
- * Имя выходного файла генерируется автоматически (например, src/dark.css -> src/dark-map.ts).
+ * Имя выходного файла генестрируется автоматически (например, src/dark.css -> src/dark-map.ts).
  * @param {string} filePath Путь к CSS-файлу для парсинга.
  * @returns {Promise<void>}
  */
@@ -20,18 +20,18 @@ export const parseCssVariables = async (filePath) => {
         const data = await fs.readFile(filePath, 'utf8');
 
         /*
-         * Новое регулярное выражение:
-         * Оно захватывает имя переменной (--[\w-]+)
-         * и её значение (([^;]+)), которое затем обрабатывается.
+         * Единое регулярное выражение, которое ищет имя переменной и её значение до первой точки с запятой
+         * с флагом 's' для работы с многострочным текстом.
          */
-        const regex = /^\s*(--[\w-]+):\s*([^;]+);?/gm;
+        const regex = /^\s*(--[\w-]+):\s*((?:(?!;).)*)/gms;
         const parsedData = {};
         let match;
 
         // eslint-disable-next-line no-cond-assign
         while ((match = regex.exec(data)) !== null) {
             const key = match[1];
-            let value = match[2].trim();
+            // Удаляем лишние пробелы, табуляции и переносы строк, чтобы получить чистое значение
+            let value = match[2].replace(/\s+/g, ' ').trim();
 
             // Проверяем, является ли значение ссылкой на другую переменную.
             if (value.startsWith('var(') && value.endsWith(')')) {
