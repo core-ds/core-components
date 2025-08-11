@@ -10,7 +10,7 @@ import exportCustomVariables, {
 } from 'postcss-export-custom-variables';
 import postcssImport from 'postcss-import';
 
-import { parseCssVariables } from './parser.mjs';
+import { parseCssVariables } from './parse-css-vars.mjs';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 

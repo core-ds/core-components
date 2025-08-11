@@ -10,8 +10,6 @@ import postcssMixins from 'postcss-mixins';
 
 import { resolveInternal } from '../tools/resolve-internal.cjs';
 
-import { parseCssVariables } from './parser.mjs';
-
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const renderStyles = handlebars.compile(
@@ -118,8 +116,6 @@ const processRootTheme = async (cssFile) => {
 async function main() {
     // Переходим в папку с мисинами и парсим темы
     const themes = await globby('src/mixins/*.css');
-
-    await parseCssVariables('src/dark.css');
 
     for (const themeFile of themes) {
         const { name: themeName } = path.parse(themeFile);
