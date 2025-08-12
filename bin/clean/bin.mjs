@@ -37,9 +37,8 @@ async function main() {
             'exec',
             ...TS_GENERATE_PACKAGES.flatMap((pkg) => ['--scope', pkg]),
             '--',
-            'rimraf',
-            'src/*.ts',
-            'src/**/*.ts',
+            'node',
+            path.join(dirname, 'clean-ts-generate-package.mjs'),
         ]),
     ]);
 }

@@ -54,6 +54,10 @@ jobs:
               with:
                   timezone: Europe/Moscow
 
+            - name: build themes
+              run: |
+                  yarn build --scope @alfalab/core-components-themes
+
             - name: run test
               run: |
                   yarn test --coverage
@@ -117,7 +121,7 @@ jobs:
         name: ci ok
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, screenshot-test]
+        needs: [lint, build, build-demo, test, test-themes, screenshot-test]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
