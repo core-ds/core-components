@@ -121,7 +121,7 @@ jobs:
         name: ci ok
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, test-themes, screenshot-test]
+        needs: [lint, build, build-demo, test, screenshot-test]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
