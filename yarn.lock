@@ -237,23 +237,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-button@npm:^11.11.10":
-  version: 11.11.10
-  resolution: "@alfalab/core-components-button@npm:11.11.10"
-  dependencies:
-    "@alfalab/core-components-mq": "npm:^4.4.1"
-    "@alfalab/core-components-shared": "npm:^0.18.0"
-    "@alfalab/core-components-spinner": "npm:^4.0.9"
-    "@alfalab/hooks": "npm:^1.13.1"
-    classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/dd6c8c6db1c5f9e5229c5eb1d710664281227ffbdb51b95dc14e380837da1ceab993204b87720076cbde9d891b6dec747950f391264bc069b2025c25a06aeeb8
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-button@npm:^13.2.0, @alfalab/core-components-button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-button@workspace:packages/button"
@@ -298,7 +281,7 @@ __metadata:
     "@alfalab/core-components-calendar-input": "npm:^12.0.14"
     "@alfalab/core-components-date-input": "npm:^6.0.10"
     "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-universal-date-input": "npm:^2.7.4"
+    "@alfalab/core-components-universal-date-input": "npm:^4.0.14"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
@@ -748,21 +731,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-form-control@npm:^12.8.6":
-  version: 12.8.6
-  resolution: "@alfalab/core-components-form-control@npm:12.8.6"
-  dependencies:
-    "@alfalab/core-components-mq": "npm:^4.4.1"
-    "@alfalab/core-components-shared": "npm:^0.18.0"
-    classnames: "npm:^2.5.1"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/906df468ea6914f9f5b6f2a83c258ecbf24797b891ef1294a3ab73885b1c94cee3a08214998ff0d928b963aee6b575660d9929b99ae11b0ec0ababbcfa9d091b
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-form-control@npm:^14.0.7, @alfalab/core-components-form-control@workspace:packages/form-control":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-form-control@workspace:packages/form-control"
@@ -922,26 +890,6 @@ __metadata:
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
-
-"@alfalab/core-components-input@npm:^15.7.0":
-  version: 15.7.0
-  resolution: "@alfalab/core-components-input@npm:15.7.0"
-  dependencies:
-    "@alfalab/core-components-button": "npm:^11.11.10"
-    "@alfalab/core-components-form-control": "npm:^12.8.6"
-    "@alfalab/core-components-mq": "npm:^4.4.1"
-    "@alfalab/core-components-shared": "npm:^0.18.0"
-    "@alfalab/core-components-status-badge": "npm:^1.2.3"
-    "@alfalab/hooks": "npm:^1.13.1"
-    "@alfalab/icons-glyph": "npm:^2.210.0"
-    classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/655784571f4fec0fae81e4dbe9fc38fe0b00515e5b265914d84b26b69aeb235cbe277b779806fb3d0bdf47f28d20256a41f8bf0b2e54ae7bbb1de3c6f1408cfd
-  languageName: node
-  linkType: hard
 
 "@alfalab/core-components-input@npm:^17.1.8, @alfalab/core-components-input@workspace:packages/input":
   version: 0.0.0-use.local
@@ -1134,19 +1082,6 @@ __metadata:
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
-
-"@alfalab/core-components-mq@npm:^4.4.1":
-  version: 4.4.1
-  resolution: "@alfalab/core-components-mq@npm:4.4.1"
-  dependencies:
-    "@alfalab/core-config": "npm:^1.0.0"
-    "@alfalab/hooks": "npm:^1.13.1"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/781dfac40c92f64f87d61df3e57c57a2d10d63dd2048ae4e7419a0ce36669ada4bd7f77c0d31c28a81ba35ca018f86fde14cf0f50799afe6d8ada40975f78de8
-  languageName: node
-  linkType: hard
 
 "@alfalab/core-components-mq@npm:^6.0.5, @alfalab/core-components-mq@workspace:packages/mq":
   version: 0.0.0-use.local
@@ -1415,29 +1350,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-popover@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "@alfalab/core-components-popover@npm:6.4.0"
-  dependencies:
-    "@alfalab/core-components-portal": "npm:^3.3.10"
-    "@alfalab/core-components-shared": "npm:^0.18.0"
-    "@alfalab/core-components-stack": "npm:^5.0.1"
-    "@alfalab/hooks": "npm:^1.13.1"
-    "@juggle/resize-observer": "npm:^3.3.1"
-    "@popperjs/core": "npm:^2.11.8"
-    classnames: "npm:^2.5.1"
-    popper-max-size-modifier: "npm:^0.2.0"
-    react-merge-refs: "npm:^1.1.0"
-    react-popper: "npm:^2.3.0"
-    react-transition-group: "npm:^4.4.5"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/ea61c50f8d02c665674fd5f589e942dc0f3284ef3ff59ec0c96175059b2594cdbfbebe97e844e727f03516258ed38034fac716af0c9c54a73b6916b95865811e
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-popover@npm:^8.0.5, @alfalab/core-components-popover@workspace:packages/popover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-popover@workspace:packages/popover"
@@ -1480,19 +1392,6 @@ __metadata:
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
-
-"@alfalab/core-components-portal@npm:^3.3.10":
-  version: 3.3.10
-  resolution: "@alfalab/core-components-portal@npm:3.3.10"
-  dependencies:
-    "@alfalab/core-components-shared": "npm:^0.18.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/501440d4330020549b51f99ac0c2994d0ab6334df58eb582b5c798bbf82e287af96e74af50357f254bd4e523ad04bf03f328a12b3b43c80805629ea1e20a68b5
-  languageName: node
-  linkType: hard
 
 "@alfalab/core-components-portal@npm:^5.0.2, @alfalab/core-components-portal@workspace:packages/portal":
   version: 0.0.0-use.local
@@ -1799,20 +1698,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-shared@npm:^0.18.0":
-  version: 0.18.0
-  resolution: "@alfalab/core-components-shared@npm:0.18.0"
-  dependencies:
-    "@alfalab/hooks": "npm:^1.13.1"
-    "@maskito/core": "npm:^1.7.0"
-    detect-browser: "npm:^5.3.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10c0/a188fe96e57b8257ce8d3e3463ae9da772fb390b5ba6e2eca62a4c2a65c5c7a6c4a72304fca248a71d496fbb2ff1d184663c81c2efa6a49c6908335ae51e12a4
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-shared@npm:^2.2.1, @alfalab/core-components-shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-shared@workspace:packages/shared"
@@ -1917,21 +1802,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-spinner@npm:^4.0.9":
-  version: 4.0.9
-  resolution: "@alfalab/core-components-spinner@npm:4.0.9"
-  dependencies:
-    "@alfalab/core-components-shared": "npm:^0.18.0"
-    "@alfalab/hooks": "npm:^1.13.1"
-    classnames: "npm:^2.5.1"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/7b035662b959c20339b4e1ff91c2f9de4eae4b626d736d58efba7ac1582cfd468cc88409caa8efb17e844ee92dc44083068bc62731b8e3728f9b13c146e0fff1
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-spinner@npm:^6.0.5, @alfalab/core-components-spinner@workspace:packages/spinner":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-spinner@workspace:packages/spinner"
@@ -1957,19 +1827,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-stack@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@alfalab/core-components-stack@npm:5.0.1"
-  dependencies:
-    "@alfalab/stack-context": "npm:^1.16.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/f640c4fb6a455bf399c1532174b8abeb113943ea05912bfb0b9fd7fcd04fbb50a2d5115d2da2cbd53ab262a32b9effc017eedba4c5bdad0d5db8cdf988c932d7
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-stack@npm:^7.0.1, @alfalab/core-components-stack@workspace:packages/stack":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-stack@workspace:packages/stack"
@@ -1981,19 +1838,6 @@ __metadata:
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
-
-"@alfalab/core-components-status-badge@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "@alfalab/core-components-status-badge@npm:1.2.3"
-  dependencies:
-    "@alfalab/icons-glyph": "npm:^2.210.0"
-    classnames: "npm:^2.5.1"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10c0/076edce54754ccf1293cb106608ee371a62bd8100bff0a1c835735edf2e2c3acea55a3d8eca9670b1668fb9bf132a179951896b3e199da606bc5fbeaf215ff3e
-  languageName: node
-  linkType: hard
 
 "@alfalab/core-components-status-badge@npm:^3.0.2, @alfalab/core-components-status-badge@workspace:packages/status-badge":
   version: 0.0.0-use.local
@@ -2306,27 +2150,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-universal-date-input@npm:^2.7.4":
-  version: 2.8.2
-  resolution: "@alfalab/core-components-universal-date-input@npm:2.8.2"
-  dependencies:
-    "@alfalab/core-components-input": "npm:^15.7.0"
-    "@alfalab/core-components-mq": "npm:^4.4.1"
-    "@alfalab/core-components-popover": "npm:^6.4.0"
-    "@alfalab/core-components-shared": "npm:^0.18.0"
-    "@alfalab/icons-glyph": "npm:^2.210.0"
-    "@maskito/core": "npm:^1.7.0"
-    "@maskito/react": "npm:^1.7.0"
-    classnames: "npm:^2.5.1"
-    date-fns: "npm:^2.16.1"
-    react-merge-refs: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0
-  checksum: 10c0/c1e72b029a68426b0b1a3c2a543994627f41c6ff12edce5ae19881a5f4a7124d8f2fc33fb8d34be126854f8ea2319aff2d707ac5502976bb3d6aa34ccab2207d
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-universal-date-input@npm:^4.0.14, @alfalab/core-components-universal-date-input@workspace:packages/universal-date-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-universal-date-input@workspace:packages/universal-date-input"
@@ -2525,13 +2348,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-config@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@alfalab/core-config@npm:1.0.0"
-  checksum: 10c0/82e95553774bbff9de6330eb55c7eb5bd1cf82c21206b4238a73a30ff77d6d735d3dc31eb48b44236aa4e18442ccbddbbe54a6f8d7408317a6a5971e63ada2db
-  languageName: node
-  linkType: hard
-
 "@alfalab/data@npm:^1.10.2":
   version: 1.10.2
   resolution: "@alfalab/data@npm:1.10.2"
@@ -2546,7 +2362,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/hooks@npm:^1.13.1, @alfalab/hooks@npm:^1.17.0":
+"@alfalab/hooks@npm:^1.17.0":
   version: 1.17.0
   resolution: "@alfalab/hooks@npm:1.17.0"
   dependencies:
@@ -2565,16 +2381,6 @@ __metadata:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   checksum: 10c0/9102ca27b5f92b2a72ec2a54ff11196f7c3fd3d793ac87cd886e4c1454d93d9d8bb10391077f390c8ac673daf5c030308f23cf5d8e24505050c51bca4d304dda
-  languageName: node
-  linkType: hard
-
-"@alfalab/icons-glyph@npm:^2.210.0":
-  version: 2.284.0
-  resolution: "@alfalab/icons-glyph@npm:2.284.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/5543de137229b3ac7b0977a01231e9288b1f5a3850166fe3a1089d865db6c71ae88dc418c36efa9359b6070c4d69bf705f1760a4723ea2c9aeef80d292382421
   languageName: node
   linkType: hard
 
@@ -2670,13 +2476,6 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: 10c0/1a22f0113de890d0b7423cfaf4c85ab6fa7407e4cdb0711fa01c0485565f3f1b4b94189ac6319deec6f363a132208412e8063501c7cbbd8fe378cef1a865c8bd
-  languageName: node
-  linkType: hard
-
-"@alfalab/stack-context@npm:^1.16.0":
-  version: 1.16.0
-  resolution: "@alfalab/stack-context@npm:1.16.0"
-  checksum: 10c0/f65845ed56671d20b42d8b2633a873d55a438310211dceead9ce2c8cf77e0990f14f977d7ead82f0b4aa025cfcdb176ba13a94b4b239d7cba4618ffebae0abaa
   languageName: node
   linkType: hard
 
@@ -5944,13 +5743,6 @@ __metadata:
   version: 7.27.1
   resolution: "@babel/runtime@npm:7.27.1"
   checksum: 10c0/530a7332f86ac5a7442250456823a930906911d895c0b743bf1852efc88a20a016ed4cd26d442d0ca40ae6d5448111e02a08dd638a4f1064b47d080e2875dc05
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.21.0":
-  version: 7.29.7
-  resolution: "@babel/runtime@npm:7.29.7"
-  checksum: 10c0/ca11572f7146b21e0bde6a9ed4bb6a89eafbee5f0944c7eb54d0d8a2dac962c33638a1d611e14faa71dfbb92b4b5f9236232208568a6b7d5c6f3f39ddb91771e
   languageName: node
   linkType: hard
 
@@ -16472,15 +16264,6 @@ __metadata:
   version: 1.4.0
   resolution: "dataloader@npm:1.4.0"
   checksum: 10c0/5fa4c843b9e60195092f1fc7e2acaff318ed46886dc670ddff683bc560f12d4079e6d1e77749501b7e111a8582d26a2aa2a2fbe6d7d5e1520cef64f4e1fd242d
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:^2.16.1":
-  version: 2.30.0
-  resolution: "date-fns@npm:2.30.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.21.0"
-  checksum: 10c0/e4b521fbf22bc8c3db332bbfb7b094fd3e7627de0259a9d17c7551e2d2702608a7307a449206065916538e384f37b181565447ce2637ae09828427aed9cb5581
   languageName: node
   linkType: hard
 
