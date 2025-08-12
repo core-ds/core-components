@@ -8,7 +8,6 @@
         "paths": {
             "@alfalab/core-components-calendar": ["../calendar/src"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
-            "@alfalab/core-components-universal-date-input/*": ["../universal-date-input/src/*"],
             "@alfalab/core-components-calendar-input": ["../calendar-input/src"],
             "@alfalab/core-components-calendar-input/*": ["../calendar-input/src/*"],
             "@alfalab/core-components-calendar-range": ["./src"],
@@ -20,7 +19,9 @@
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
+            "@alfalab/core-components-universal-date-input": ["../universal-date-input/src"],
+            "@alfalab/core-components-universal-date-input/*": ["../universal-date-input/src/*"]
         }
     },
     "references": [
