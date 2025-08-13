@@ -477,32 +477,53 @@ describe('CalendarRange', () => {
             expect(onChange).not.toHaveBeenCalled();
         });
 
-        it.skip('should call onInputChange (static)', async () => {
+        it('should call onInputChange (static)', async () => {
             const dtiFrom = 'input_from';
             const dtiTo = 'input_to';
             const onInputFromChange = jest.fn();
             const onInputToChange = jest.fn();
+
             const { getByTestId } = render(
                 <CalendarRange
-                    inputFromProps={{ onInputChange: onInputFromChange, dataTestId: dtiFrom }}
-                    inputToProps={{ onInputChange: onInputToChange, dataTestId: dtiTo }}
+                    inputFromProps={{
+                        onInputChange: onInputFromChange,
+                        dataTestId: dtiFrom,
+                    }}
+                    inputToProps={{
+                        onInputChange: onInputToChange,
+                        dataTestId: dtiTo,
+                    }}
                     calendarPosition='static'
                 />,
             );
 
-            // fireEvent.change(getByTestId(dtiFrom), { target: { value: '10.10.2021' } });
-            // fireEvent.change(getByTestId(dtiTo), { target: { value: '10.10.2022' } });
+            const inputFrom = getByTestId(dtiFrom) as HTMLInputElement;
+            const inputTo = getByTestId(dtiTo) as HTMLInputElement;
 
-            await userEvent.type(getByTestId(dtiFrom), '10.10.2021');
-            await userEvent.type(getByTestId(dtiTo), '10.10.2022');
+            expect(inputFrom).toBeInTheDocument();
+            expect(inputTo).toBeInTheDocument();
 
-            expect(onInputFromChange).toBeCalledWith(expect.any(Object), {
-                date: new Date('2021-10-10'),
-                value: '10.10.2021',
+            fireEvent.input(inputFrom, { target: { value: '10.10.2021' } });
+            fireEvent.input(inputTo, { target: { value: '10.10.2022' } });
+
+            await waitFor(() => {
+                expect(onInputFromChange).toHaveBeenCalledWith(
+                    expect.any(Object),
+                    expect.objectContaining({
+                        value: '10.10.2021',
+                        date: new Date(2021, 9, 10), // 10.10.2021
+                    }),
+                );
             });
-            expect(onInputToChange).toBeCalledWith(expect.any(Object), {
-                date: new Date('2022-10-10'),
-                value: '10.10.2022',
+
+            await waitFor(() => {
+                expect(onInputToChange).toHaveBeenCalledWith(
+                    expect.any(Object),
+                    expect.objectContaining({
+                        value: '10.10.2022',
+                        date: new Date(2022, 9, 10),
+                    }),
+                );
             });
         });
 
