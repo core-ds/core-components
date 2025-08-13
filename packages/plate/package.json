@@ -28,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.0.0",
+    "themesVersion": "14.0.1",
     "varsVersion": "10.0.0"
 }
