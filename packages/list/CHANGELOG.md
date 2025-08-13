@@ -1,4 +1,42 @@
-# Change Log
+# @alfalab/core-components-list
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-typography@5.0.0
+
+## 3.6.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1765](https://github.com/core-ds/core-components/pull/1765)
+
+-   Заменено длинное тире на среднее "–" в маркерах списков
+-   Изменено выравнивание текста в контейнере с маркером на правое с сохранением ширины
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1780](https://github.com/core-ds/core-components/pull/1780)
+
+-   Добавлены data-test-id атрибуты для компонентов Checbox, CheckboxGroup, List, RadioGroup
 
 ## 3.5.7
 

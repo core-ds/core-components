@@ -5,11 +5,26 @@ import { Plate } from './components/plate';
 import { Logo } from '../../components/logo';
 import { GithubIcon } from '../../components/icons/GithubIcon';
 import { MODE_COLORS_TAG_ID } from '../../addons/utils';
-import packageJson from '../../../package.json';
+import packageJson from '@alfalab/core-components/package.json';
 
 import styles from './index.module.css';
 
-const MAINTAINERS = ['reme3d2y', 'Oladii', 'SiebenSieben', 'hextion', 'fulcanellee'];
+/**
+ * @see https://stackoverflow.com/a/2450976
+ */
+function shuffle<T>(array: T[]) {
+    const copy = [...array];
+    let currentIndex = copy.length;
+
+    while (currentIndex != 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex--);
+        [copy[currentIndex], copy[randomIndex]] = [copy[randomIndex], copy[currentIndex]];
+    }
+
+    return copy;
+}
+
+const MAINTAINERS = shuffle(['dHIM24', 'Oladii', 'SiebenSieben', 'hextion', 'fulcanellee']);
 const MAINTAINERS_COUNT = MAINTAINERS.length;
 const PHOTO_SIZE = 40;
 const PHOTO_OFFSET = 9;
@@ -68,7 +83,7 @@ export const Intro = () => {
                 <Logo className={styles.logo} />
 
                 <div className={styles.desc}>
-                    Актуальные и протестированные компоненты, отвечающие требованиям доступности
+                    Актуальные и протестированные компоненты, отвечающие требованиям доступности
                 </div>
 
                 <Button
@@ -91,7 +106,7 @@ export const Intro = () => {
 
                 <div className={styles.introFooter}>
                     <span className={styles.supportDesc}>
-                        Выделенная команда и оперативная поддержка
+                        Выделенная команда и оперативная поддержка
                     </span>
 
                     <div

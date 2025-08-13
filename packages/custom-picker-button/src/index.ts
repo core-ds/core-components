@@ -1,4 +1,2 @@
-export {
-    CustomPickerButtonResponsive as CustomPickerButton,
-    CustomPickerButtonResponsiveProps as CustomPickerButtonProps,
-} from './Component.responsive';
+export { CustomPickerButtonResponsive as CustomPickerButton } from './Component.responsive';
+export type { CustomPickerButtonResponsiveProps as CustomPickerButtonProps } from './Component.responsive';

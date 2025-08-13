@@ -1,0 +1,40 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-base-modal": ["../base-modal/src"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-gallery": ["./src"],
+            "@alfalab/core-components-gallery/*": ["./src/*"],
+            "@alfalab/core-components-icon-button": ["../icon-button/src"],
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@alfalab/core-components-icon-view": ["../icon-view/src"],
+            "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-spinner": ["../spinner/src"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
+            "@alfalab/core-components-tooltip": ["../tooltip/src"],
+            "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"],
+            "@alfalab/core-components-typography": ["../typography/src"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../icon-button/tsconfig.build.json" },
+        { "path": "../icon-view/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../spinner/tsconfig.build.json" },
+        { "path": "../tooltip/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
+    ]
+}

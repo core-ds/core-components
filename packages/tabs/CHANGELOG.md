@@ -1,4 +1,75 @@
-# Change Log
+# @alfalab/core-components-tabs
+
+## 9.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-badge@6.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-keyboard-focusable@5.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-picker-button@12.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-skeleton@6.0.0
+    -   @alfalab/core-components-tag@9.0.0
+
+## 8.13.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.13.0
+    -   tag@8.7.1
+
+## 8.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.33
+
+## 8.13.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1751](https://github.com/core-ds/core-components/pull/1751)
+
+-   Добавлен tagViews: transparent для компонента <Tabs />
+-   Для <Tabs /> типа secondary c tagViews: transparent убраны отступы
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1766](https://github.com/core-ds/core-components/pull/1766)
+
+-   Исправлена проблема с появлением значения класса "undefined" у элементов span внутри компонента Tabs
+
+-   Обновлены зависимости
+    -   picker-button@11.12.32
+
+## 8.12.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+    -   picker-button@11.12.31
 
 ## 8.12.31
 

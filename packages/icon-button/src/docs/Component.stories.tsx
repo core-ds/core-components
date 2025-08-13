@@ -7,7 +7,7 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof IconButton> = {
     title: 'Components/IconButton',

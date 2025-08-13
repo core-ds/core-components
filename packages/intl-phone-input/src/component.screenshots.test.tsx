@@ -4,7 +4,7 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 describe('IntlPhoneInput | interactions tests', () => {
     test('Fill value', async () => {

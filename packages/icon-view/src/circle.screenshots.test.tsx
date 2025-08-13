@@ -2,7 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     generateTestCases,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -91,6 +91,33 @@ describe(
         }),
         screenshotOpts: {
             clip: { x: 0, y: 0, width: 150, height: 150 },
+        },
+    }),
+);
+
+describe(
+    'IconView | Circle with Image scale',
+    screenshotTesting({
+        cases: [
+            [
+                'Circle scale',
+                createSpriteStorybookUrl({
+                    packageName: 'icon-view',
+                    componentName: 'Circle',
+                    knobs: {
+                        size: [32, 64, 80, 128],
+                        imageUrl: './images/imgBg.png',
+                        scale: ['fit', 'fill'],
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 600,
+            height: 720,
+        },
+        screenshotOpts: {
+            fullPage: false,
         },
     }),
 );
