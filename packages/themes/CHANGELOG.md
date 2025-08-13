@@ -1,5 +1,15 @@
 # @alfalab/core-components-themes
 
+## 14.0.1
+
+### Patch Changes
+
+<sup><time>13.08.2025</time></sup>
+
+#### [#1809](https://github.com/core-ds/core-components/pull/1809)
+
+-   Исправлена сборка `css` файлов темизации
+
 ## 14.0.0
 
 ### Major Changes
