@@ -518,15 +518,22 @@ describe('CalendarRange', () => {
             expect(onChange).not.toHaveBeenCalled();
         });
 
-        it.skip('should call onInputChange (static)', async () => {
+        it('should call onInputChange (static)', async () => {
             const dtiFrom = 'input_from';
             const dtiTo = 'input_to';
             const onInputFromChange = jest.fn();
             const onInputToChange = jest.fn();
+
             const { getByTestId } = render(
                 <CalendarRange
-                    inputFromProps={{ onInputChange: onInputFromChange, dataTestId: dtiFrom }}
-                    inputToProps={{ onInputChange: onInputToChange, dataTestId: dtiTo }}
+                    inputFromProps={{
+                        onInputChange: onInputFromChange,
+                        dataTestId: dtiFrom,
+                    }}
+                    inputToProps={{
+                        onInputChange: onInputToChange,
+                        dataTestId: dtiTo,
+                    }}
                     calendarPosition='static'
                 />,
             );
