@@ -54,6 +54,10 @@ jobs:
               with:
                   timezone: Europe/Moscow
 
+            - name: build themes
+              run: |
+                  yarn build --scope @alfalab/core-components-themes
+
             - name: run test
               run: |
                   yarn test --coverage

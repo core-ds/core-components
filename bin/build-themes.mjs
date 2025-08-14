@@ -83,17 +83,18 @@ const processRootTheme = async (cssFile) => {
      * 'postcss-custom-properties' - заменяет переменные значениями, что без дублирования импортов переменных будет приводить к потере значений
      */
     const getImports = async () => {
-        if (cssFile.includes('dark.css')) return [];
+        if (cssFile.endsWith('dark.css')) return [];
 
-        return glob('src/*.css', {
-            ignore: [
-                '**/colors-!({addons,bluetint,monochrome,transparent}).css',
-                '**/shadows-!(bluetint).css',
-                '**/*{index,dark}.css',
+        return glob(
+            [
+                'src/{border-radius,colors,common,gaps,mixins,shadows-bluetint,typography-common,typography}.css',
+                'src/colors-{addons,bluetint,transparent}.css',
             ],
-            cwd: resolveInternal('@alfalab/core-components-vars'),
-            absolute: true,
-        });
+            {
+                cwd: resolveInternal('@alfalab/core-components-vars'),
+                absolute: true,
+            },
+        );
     };
 
     const content = await fs.readFile(cssFile, { encoding: 'utf8' });
