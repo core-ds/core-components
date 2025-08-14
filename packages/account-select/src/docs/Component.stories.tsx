@@ -7,6 +7,8 @@ import { ProductCover } from '@alfalab/core-components-product-cover';
 import { PlusMIcon } from '@alfalab/icons-glyph/PlusMIcon';
 import { AccountSelectMobile } from '../mobile';
 import { CardData } from '../types';
+import { Amount } from '@alfalab/core-components-amount';
+import { Typography } from '@alfalab/core-components-typography';
 
 const baseCard = {
     baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
@@ -26,21 +28,20 @@ const options = [
     {
         key: '1',
         content: (
-            <PureCell verticalPadding='compact'>
+            <PureCell verticalPadding='none'>
                 <PureCell.Graphics verticalAlign='center'>
                     <ProductCover.Single size={32} />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
-                            Альфа-карта с преимуществами
-                        </PureCell.Text>
-                        <PureCell.Amount
+                        <Typography.Text color='secondary' view='component'>
+                            Карта с преимуществами
+                        </Typography.Text>
+                        <Amount
                             value={100000099}
-                            minorUnits={100}
+                            minority={100}
                             currency='RUR'
-                            color='primary'
-                            view={'withZeroMinorPart'}
+                            bold='major'
                             transparentMinor={true}
                         />
                     </PureCell.Main>
@@ -51,22 +52,21 @@ const options = [
     {
         key: '2',
         content: (
-            <PureCell verticalPadding='compact'>
+            <PureCell verticalPadding='none'>
                 <PureCell.Graphics verticalAlign='center'>
                     <ProductCover.Single size={32} />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
-                            Альфа-карта с кредитным лимитом
-                        </PureCell.Text>
-                        <PureCell.Amount
-                            value={100099}
-                            minorUnits={100}
-                            currency='RUR'
-                            color='primary'
-                            view={'withZeroMinorPart'}
+                        <Typography.Text color='secondary' view='component'>
+                            Карта с кредитным лимитом
+                        </Typography.Text>
+                        <Amount
+                            value={100000099}
                             transparentMinor={true}
+                            minority={100}
+                            currency='RUR'
+                            bold='major'
                         />
                     </PureCell.Main>
                 </PureCell.Content>
@@ -97,7 +97,7 @@ export const account_select_desktop: Story = {
                 fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
                 cardAddingProps={{
                     content: (
-                        <PureCell verticalPadding='airy'>
+                        <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={32}
@@ -135,7 +135,7 @@ export const account_select_mobile: Story = {
             options={options}
             cardAddingProps={{
                 content: (
-                    <PureCell verticalPadding='airy'>
+                    <PureCell verticalPadding='none'>
                         <PureCell.Graphics verticalAlign='center'>
                             <ProductCover.Single
                                 size={32}

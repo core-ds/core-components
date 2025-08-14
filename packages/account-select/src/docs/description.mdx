@@ -70,7 +70,7 @@ render(() => {
             ),
         },
     ];
-    return <AccountSelect size='m' label='Куда' options={options} />;
+    return <AccountSelect style={{ minWidth: '360px' }} size='m' label='Куда' options={options} />;
 });
 ```
 
@@ -82,21 +82,20 @@ render(() => {
         {
             key: '1',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='none'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single size={32} />
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Альфа-карта с преимуществами
-                            </PureCell.Text>
-                            <PureCell.Amount
+                            <Typography.Text color='secondary' view='component'>
+                                Карта с преимуществами
+                            </Typography.Text>
+                            <Amount
                                 value={100000099}
-                                minorUnits={100}
+                                minority={100}
                                 currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
+                                bold='major'
                                 transparentMinor={true}
                             />
                         </PureCell.Main>
@@ -107,22 +106,21 @@ render(() => {
         {
             key: '2',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='none'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single size={32} />
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Альфа-карта с кредитным лимитом
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
+                            <Typography.Text color='secondary' view='component'>
+                                Карта с кредитным лимитом
+                            </Typography.Text>
+                            <Amount
+                                value={100000099}
                                 transparentMinor={true}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
                             />
                         </PureCell.Main>
                     </PureCell.Content>
@@ -132,6 +130,7 @@ render(() => {
     ];
     return (
         <AccountSelect
+            style={{ minWidth: '360px' }}
             label='Карта получателя'
             fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
             options={options}
@@ -162,15 +161,14 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Альфа-карта с преимуществами
-                            </PureCell.Text>
-                            <PureCell.Amount
+                            <Typography.Text color='secondary' view='component'>
+                                Карта с преимуществами
+                            </Typography.Text>
+                            <Amount
                                 value={100000099}
-                                minorUnits={100}
+                                minority={100}
                                 currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
+                                bold='major'
                                 transparentMinor={true}
                             />
                         </PureCell.Main>
@@ -192,16 +190,15 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Альфа-карта с кредитным лимитом
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
+                            <Typography.Text color='secondary' view='component'>
+                                Карта с кредитным лимитом
+                            </Typography.Text>
+                            <Amount
+                                value={100000099}
                                 transparentMinor={true}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
                             />
                         </PureCell.Main>
                     </PureCell.Content>
@@ -241,7 +238,7 @@ render(() => {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <PureCell.Text titleColor='primary' view='primary-small'>
+                                    <PureCell.Text titleColor='primary' view='primary-medium'>
                                         Новая карта
                                     </PureCell.Text>
                                 </PureCell.Main>
@@ -295,7 +292,7 @@ render(() => {
                     <PureCell.Content>
                         <PureCell.Main>
                             <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Альфа-карта с преимуществами
+                                Карта с преимуществами
                             </PureCell.Text>
                             <PureCell.Amount
                                 value={100000099}
@@ -325,7 +322,7 @@ render(() => {
                     <PureCell.Content>
                         <PureCell.Main>
                             <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Альфа-карта с кредитным лимитом
+                                Карта с кредитным лимитом
                             </PureCell.Text>
                             <PureCell.Amount
                                 value={100099}
@@ -371,7 +368,7 @@ render(() => {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <PureCell.Text titleColor='primary' view='primary-small'>
+                                    <PureCell.Text titleColor='primary' view='primary-medium'>
                                         Новая карта
                                     </PureCell.Text>
                                 </PureCell.Main>

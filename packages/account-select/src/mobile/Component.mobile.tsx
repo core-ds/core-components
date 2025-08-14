@@ -1,6 +1,7 @@
 import React, { forwardRef, useMemo, useState } from 'react';
 
 import { SelectMobile } from '@alfalab/core-components-select/mobile';
+import { BaseSelectChangePayload } from '@alfalab/core-components-select/shared';
 
 import { CustomField, CustomFieldProps } from '../components/custom-field';
 import { ADD_CARD_KEY } from '../constants';
@@ -11,8 +12,8 @@ const MobileCustomField = (props: CustomFieldProps) => <CustomField {...props} v
 
 export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectProps>(
     (
-        { cardAddingProps, options, closeOnSelect = true, dataTestId, block = true, ...restProps },
-        ref,
+        { cardAddingProps, options, closeOnSelect = true, dataTestId, block = true, onChange, ...restProps },
+        ref
     ) => {
         const [error, setError] = useState<string | null>(null);
         const { content, ...restCardAddingProps } = cardAddingProps ?? {};
@@ -32,6 +33,11 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
 
         const contextValue = useMemo(() => ({ setError }), [setError]);
 
+        const handleChange = (payload: BaseSelectChangePayload) => {
+            setError(null);
+            onChange?.(payload);
+        };
+
         return (
             <AccountSelectContext.Provider value={contextValue}>
                 <SelectMobile
@@ -39,6 +45,7 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
                     dataTestId={dataTestId}
                     error={error}
                     ref={ref}
+                    onChange={handleChange}
                     {...restProps}
                     options={enhancedOptions}
                     closeOnSelect={closeOnSelect}

@@ -9,6 +9,7 @@ import {
     Optgroup as DefaultOptgroup,
     OptionProps,
     OptionsList as DefaultOptionsList,
+    BaseSelectChangePayload,
 } from '@alfalab/core-components-select/shared';
 
 import { CustomField } from '../components/custom-field';
@@ -34,6 +35,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
             options,
             cardAddingProps,
             dataTestId,
+            onChange,
             ...restProps
         },
         ref,
@@ -55,6 +57,11 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
 
         const contextValue = useMemo(() => ({ setError }), [setError]);
 
+        const handleChange = (payload: BaseSelectChangePayload) => {
+            setError(null);
+            onChange?.(payload);
+        };
+
         return (
             <AccountSelectContext.Provider value={contextValue}>
                 <BaseSelect
@@ -64,6 +71,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                     view='desktop'
                     Popover={Popover}
                     ref={ref}
+                    onChange={handleChange}
                     options={enhancedOptions}
                     closeOnSelect={closeOnSelect}
                     Option={Option}
