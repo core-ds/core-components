@@ -15,12 +15,10 @@ function postcssMixinNames(options: Options = {}): Plugin {
 
             return {
                 Once: (root) => {
-                    root.walkAtRules((atRule) => {
-                        if (atRule.name === 'define-mixin') {
-                            const [name] = atRule.params.split(/\s/);
+                    root.walkAtRules('define-mixin', (atRule) => {
+                        const [name] = atRule.params.split(/\s/);
 
-                            names.push(name);
-                        }
+                        names.push(name);
                     });
                 },
                 OnceExit: () => {

@@ -11,24 +11,22 @@ const postcssSubtractMixin = () => ({
 
         return {
             Once(root, { AtRule, Rule }) {
-                root.walkAtRules((atRule) => {
-                    if (atRule.name === 'subtract-mixin') {
-                        const mixinNames = atRule.params.split(',').map((name) => name.trim());
+                root.walkAtRules('subtract-mixin', (atRule) => {
+                    const mixinNames = atRule.params.split(',').map((name) => name.trim());
 
-                        const rules = mixinNames.map((mixinName) => {
-                            const selector = `.${stringHash(
-                                `${mixinName}-${Math.random()}`,
-                            ).toString(36)}`;
+                    const rules = mixinNames.map((mixinName) => {
+                        const selector = `.${stringHash(`${mixinName}-${Math.random()}`).toString(
+                            36,
+                        )}`;
 
-                            return new Rule({
-                                selector,
-                                nodes: [new AtRule({ name: 'mixin', params: mixinName })],
-                            });
+                        return new Rule({
+                            selector,
+                            nodes: [new AtRule({ name: 'mixin', params: mixinName })],
                         });
+                    });
 
-                        atRule.replaceWith(rules);
-                        store.push(rules);
-                    }
+                    atRule.replaceWith(rules);
+                    store.push(rules);
                 });
             },
             OnceExit: () => {

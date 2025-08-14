@@ -22,8 +22,8 @@ const removeCommentPlugin = () => ({
 const removeEmptyRootPlugin = () => ({
     postcssPlugin: 'postcss-remove-empty-root',
     Once(root) {
-        root.walkRules((rule) => {
-            if (rule.selector === ':root' && rule.nodes.length === 0) {
+        root.walkRules(':root', (rule) => {
+            if (rule.nodes.length === 0) {
                 rule.remove();
             }
         });

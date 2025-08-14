@@ -23,12 +23,10 @@ const renderStyles = handlebars.compile(
 const postcssMixinToRoot = () => ({
     postcssPlugin: 'postcss-mixin-to-root',
     Once(root, { Rule }) {
-        root.walkAtRules((atRule) => {
-            if (atRule.name === 'define-mixin') {
-                atRule.replaceWith(
-                    new Rule({ selector: ':root', raws: atRule.raws, nodes: atRule.nodes }),
-                );
-            }
+        root.walkAtRules('define-mixin', (atRule) => {
+            atRule.replaceWith(
+                new Rule({ selector: ':root', raws: atRule.raws, nodes: atRule.nodes }),
+            );
         });
     },
 });
