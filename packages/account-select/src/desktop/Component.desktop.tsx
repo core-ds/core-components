@@ -6,10 +6,10 @@ import {
     Arrow,
     BaseOption,
     BaseSelect,
+    BaseSelectChangePayload,
     Optgroup as DefaultOptgroup,
     OptionProps,
     OptionsList as DefaultOptionsList,
-    BaseSelectChangePayload,
 } from '@alfalab/core-components-select/shared';
 
 import { CustomField } from '../components/custom-field';
