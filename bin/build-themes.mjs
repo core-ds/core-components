@@ -77,31 +77,24 @@ const processComponentTheme = async (cssFile) => {
  * @returns {Promise<string>}
  */
 const processRootTheme = async (cssFile) => {
-    /**
-     * В каждый файл с темой необходимо импортировать переменные
-     * Это необходимо, так как некоторые проекты используют arui-scripts, который под капотом использует postcss-custom-properties
-     * 'postcss-custom-properties' - заменяет переменные значениями, что без дублирования импортов переменных будет приводить к потере значений
-     */
-    const getImports = async () => {
-        if (cssFile.endsWith('dark.css')) return [];
+    const getImports = () => {
+        if (cssFile.endsWith('dark.css')) {
+            return [];
+        }
 
-        return glob(
-            [
-                'src/{border-radius,colors,common,gaps,mixins,shadows-bluetint,typography-common,typography}.css',
-                'src/colors-{addons,bluetint,transparent}.css',
-            ],
-            {
-                cwd: resolveInternal('@alfalab/core-components-vars'),
-                absolute: true,
-            },
-        );
+        /**
+         * В каждый файл с темой необходимо импортировать переменные
+         * Это необходимо, так как некоторые проекты используют arui-scripts, который под капотом использует postcss-custom-properties
+         * 'postcss-custom-properties' - заменяет переменные значениями, что без дублирования импортов переменных будет приводить к потере значений
+         */
+        return [resolveInternal('@alfalab/core-components-vars/src/index.css', false)];
     };
 
     const content = await fs.readFile(cssFile, { encoding: 'utf8' });
 
     const result = await postcss([
         // добавляем импорты переменных
-        postcssAddImports({ files: await getImports() }),
+        postcssAddImports({ files: getImports() }),
         // меняем миксин на :root
         postcssMixinToRoot(),
         postcssImport({}),
