@@ -20,12 +20,9 @@
     "dependencies": {
         "@alfalab/core-components-select": "^18.0.0",
         "@alfalab/core-components-popover": "^7.0.0",
-        "@alfalab/core-components-button": "^12.0.0",
-        "@alfalab/core-components-shared": "^1.0.0",
         "@alfalab/core-components-form-control": "^13.0.0",
         "@alfalab/core-components-product-cover": "^2.0.0",
         "@alfalab/core-components-mq": "^5.0.0",
-        "@alfalab/hooks": "^1.13.1",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
         "classnames": "^2.5.1",
