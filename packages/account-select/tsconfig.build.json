@@ -22,7 +22,9 @@
             "@alfalab/core-components-modal": ["../modal/src"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"]
         }
     },
     "references": [
@@ -31,6 +33,7 @@
         { "path": "../popover/tsconfig.build.json" },
         { "path": "../form-control/tsconfig.build.json" },
         { "path": "../product-cover/tsconfig.build.json" },
-        { "path": "../button/tsconfig.build.json" }
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" }
     ]
 }
