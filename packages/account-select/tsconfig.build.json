@@ -9,31 +9,29 @@
         "paths": {
             "@alfalab/core-components-account-select": ["./src"],
             "@alfalab/core-components-account-select/*": ["./src/*"],
-            "@alfalab/core-components-select": ["../select/src"],
-            "@alfalab/core-components-select/*": ["../select/src/*"],
-            "@alfalab/core-components-popover": ["../popover/src"],
-            "@alfalab/core-components-popover/*": ["../popover/src/*"],
-            "@alfalab/core-components-form-control": ["../form-control/src"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
-            "@alfalab/core-components-product-cover": ["../product-cover/src"],
-            "@alfalab/core-components-product-cover/*": ["../product-cover/src/*"],
             "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-modal": ["../modal/src"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-form-control": ["../form-control/src"],
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
-            "@alfalab/core-components-mq/*": ["../mq/src/*"]
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-popover": ["../popover/src"],
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-product-cover": ["../product-cover/src"],
+            "@alfalab/core-components-product-cover/*": ["../product-cover/src/*"],
+            "@alfalab/core-components-select": ["../select/src"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
-        { "path": "../shared/tsconfig.build.json" },
-        { "path": "../select/tsconfig.build.json" },
-        { "path": "../popover/tsconfig.build.json" },
-        { "path": "../form-control/tsconfig.build.json" },
-        { "path": "../product-cover/tsconfig.build.json" },
         { "path": "../button/tsconfig.build.json" },
-        { "path": "../mq/tsconfig.build.json" }
+        { "path": "../form-control/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../popover/tsconfig.build.json" },
+        { "path": "../product-cover/tsconfig.build.json" },
+        { "path": "../select/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
     ]
 }
