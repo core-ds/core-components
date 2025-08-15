@@ -33,9 +33,8 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Размер компонента
-     * @description xs, s, m, l deprecated, используйте вместо них 8, 16, 20, 24, 32, 40 соответственно
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 8 | 16 | 20 | 24 | 32 | 40;
+    size?: 8 | 16 | 20 | 24 | 32 | 40;
 
     /**
      * Настройки обводки
@@ -102,20 +101,6 @@ function borderStyles(
     };
 }
 
-export const SIZE_TO_CLASSNAME_MAP = {
-    xs: 'size-8',
-    s: 'size-20',
-    m: 'size-24',
-    l: 'size-40',
-    8: 'size-8',
-    16: 'size-16',
-    20: 'size-20',
-    24: 'size-24',
-    32: 'size-32',
-    40: 'size-40',
-    48: 'size-48',
-};
-
 export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
     (
         {
@@ -128,20 +113,19 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
             className,
             dataTestId,
             style,
-            size = getSize(height, value) as keyof typeof SIZE_TO_CLASSNAME_MAP,
+            size = getSize(height, value),
             ...restProps
         },
         ref,
     ) => {
-        const showContent =
-            typeof value !== 'undefined' && SIZE_TO_CLASSNAME_MAP[size] !== 'size-8';
+        const showContent = typeof value !== 'undefined' && size !== 8;
 
         return (
             <div
                 ref={ref}
                 className={cn(
                     styles.component,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[`size-${size}`],
                     view && styles[view],
                     border === true && styles.border,
                     className,
