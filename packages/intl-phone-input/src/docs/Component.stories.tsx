@@ -22,7 +22,7 @@ export const intl_phone_input: Story = {
             },
             [setValue],
         );
-        const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
+        const size = select('size', [48, 56, 56, 72], 56);
         const block = boolean('block', false);
         const disabled = boolean('disabled', false);
         const hideCountrySelect = boolean('hideCountrySelect', false);
