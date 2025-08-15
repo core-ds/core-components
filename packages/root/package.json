@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "49.0.1",
+    "version": "49.0.2",
     "homepage": "https://github.com/core-ds/core-components#readme",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
@@ -49,7 +49,7 @@
         "@alfalab/core-components-file-upload-item-v1": "^2.0.0",
         "@alfalab/core-components-filter-tag": "^6.0.0",
         "@alfalab/core-components-form-control": "^13.0.0",
-        "@alfalab/core-components-gallery": "^6.0.0",
+        "@alfalab/core-components-gallery": "^6.0.1",
         "@alfalab/core-components-gap": "^2.0.0",
         "@alfalab/core-components-generic-wrapper": "^2.0.0",
         "@alfalab/core-components-global-store": "^3.0.0",
