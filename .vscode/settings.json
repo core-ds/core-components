@@ -133,6 +133,7 @@
         "packages/underlay",
         "packages/universal-date-input",
         "packages/universal-modal",
-        "packages/with-suffix"
+        "packages/with-suffix",
+        "packages/image"
     ]
 }
