@@ -1,5 +1,15 @@
 # @alfalab/core-components-gallery
 
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>15.08.2025</time></sup>
+
+#### [#1794](https://github.com/core-ds/core-components/pull/1794)
+
+-   добавлен fallback шаринга по ссылке для изображений из других источников
+
 ## 6.0.0
 
 ### Major Changes
