@@ -27,7 +27,6 @@ export type CircularProgressBarProps = {
     /**
      * Уровень прогресса, %
      */
-
     value:
         | number
         | {
@@ -98,8 +97,7 @@ export type CircularProgressBarProps = {
     view?: 'positive' | 'negative';
 
     /**
-     * Размер (xxl — 144×144px, xl — 128×128px, l — 80×80px, m — 64×64px, s — 48×48px, xs — 24×24px)
-     * @description xs, s, m, l, xl, xxl deprecated, используйте вместо них 24, 48, 64, 80, 128, 144 соответственно
+     * Размер (144 — 144×144px, 128 — 128×128px, 80 — 80×80px, 64 — 64×64px, 48 — 48×48px, 24 — 24×24px)
      * @default 64
      */
     size?: ComponentSize;
@@ -142,12 +140,12 @@ export type CircularProgressBarProps = {
     /**
      * Высота компонента, min = 24; max = 144
      * использовать совместно с size :
-     * xxl от 144
-     * xl  от 128 до 143
-     * l   от 80 до 127
-     * m   от 64 до 79
-     * s   от 48 до 63
-     * xs  от 24 до 47
+     * 144 от 144
+     * 128 от 128 до 143
+     * 80 от 80 до 127
+     * 64 от 64 до 79
+     * 48 от 48 до 63
+     * 24 от 24 до 47
      */
     height?: number;
 
