@@ -39,10 +39,17 @@ Object {
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -88,10 +95,17 @@ Object {
                   class="suffix"
                 >
                   <span
+                    class="suffixMajor"
+                  />
+                  <span
                     class="minorPartAndCurrency"
                   >
                      
-                    ₽
+                    <span
+                      class="suffixCurrency"
+                    >
+                      ₽
+                    </span>
                   </span>
                 </div>
               </div>
@@ -194,10 +208,17 @@ Object {
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -243,13 +264,25 @@ Object {
                   <div
                     class="suffix"
                   >
-                    12 345
+                    <span
+                      class="suffixMajor"
+                    >
+                      12 345
+                    </span>
                     <span
                       class="minorPartAndCurrency"
                     >
-                      ,67
+                      <span
+                        class="suffixMinor"
+                      >
+                        ,67
+                      </span>
                        
-                      $
+                      <span
+                        class="suffixCurrency"
+                      >
+                        $
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -296,13 +329,25 @@ Object {
                 <div
                   class="suffix"
                 >
-                  12 345
+                  <span
+                    class="suffixMajor"
+                  >
+                    12 345
+                  </span>
                   <span
                     class="minorPartAndCurrency"
                   >
-                    ,67
+                    <span
+                      class="suffixMinor"
+                    >
+                      ,67
+                    </span>
                      
-                    $
+                    <span
+                      class="suffixCurrency"
+                    >
+                      $
+                    </span>
                   </span>
                 </div>
               </div>
