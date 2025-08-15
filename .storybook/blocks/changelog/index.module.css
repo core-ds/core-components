@@ -1,6 +1,6 @@
 /* stylelint-disable selector-pseudo-class-no-unknown */
 
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-dynamic-mixins-index.css';
 
 .changelog {
     & h1 {

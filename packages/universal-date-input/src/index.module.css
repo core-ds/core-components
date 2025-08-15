@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-dynamic-mixins-index.css';
 @import '../../calendar/src/vars.css';
 @import './vars.css';
 

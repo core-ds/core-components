@@ -1,9 +1,9 @@
-import { globby } from 'globby';
 import fs from 'node:fs/promises';
 import { exit } from 'node:process';
+import { glob } from 'tinyglobby';
 
 async function main() {
-    const files = await globby('dist/**/*.css', { absolute: true });
+    const files = await glob('dist/**/*.css', { absolute: true });
 
     const nonExistentVarsEntries = (
         await Promise.all(

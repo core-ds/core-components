@@ -1,8 +1,8 @@
 import fs from 'fs/promises';
 
-import { globby } from 'globby';
 import postcss from 'postcss';
 import { PurgeCSS } from 'purgecss';
+import { glob } from 'tinyglobby';
 
 /**
  * @returns {import('postcss').AcceptedPlugin}
@@ -22,8 +22,8 @@ const removeCommentPlugin = () => ({
 const removeEmptyRootPlugin = () => ({
     postcssPlugin: 'postcss-remove-empty-root',
     Once(root) {
-        root.walkRules((rule) => {
-            if (rule.selector === ':root' && rule.nodes.length === 0) {
+        root.walkRules(':root', (rule) => {
+            if (rule.nodes.length === 0) {
                 rule.remove();
             }
         });
@@ -31,7 +31,7 @@ const removeEmptyRootPlugin = () => ({
 });
 
 async function main() {
-    const matches = await globby('dist/**/*.css', { ignore: ['**/src/**/*.css'] });
+    const matches = await glob('dist/**/*.css', { ignore: ['**/src/**/*.css'] });
 
     await Promise.all(
         matches.map(async (match) => {
