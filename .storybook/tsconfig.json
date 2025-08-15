@@ -20,6 +20,8 @@
             "storybook/*": ["./*"],
             "@alfalab/core-components-accordion": ["../packages/accordion/src"],
             "@alfalab/core-components-accordion/*": ["../packages/accordion/src/*"],
+            "@alfalab/core-components-account-select": ["../packages/account-select/src"],
+            "@alfalab/core-components-account-select/*": ["../packages/account-select/src/*"],
             "@alfalab/core-components-action-button": ["../packages/action-button/src"],
             "@alfalab/core-components-action-button/*": ["../packages/action-button/src/*"],
             "@alfalab/core-components-alert": ["../packages/alert/src"],
