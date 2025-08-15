@@ -37,6 +37,12 @@ export interface BaseUniversalDateInputProps
     autoCorrection?: boolean;
 
     /**
+     * Реф для программного вызова эффекта коррекции (например, мигания поля).
+     * Используется для синхронизации коррекции между полями "от" и "до".
+     */
+    correctionRef?: RefObject<{ handleCorrection: () => void }>;
+
+    /**
      * Минимальная дата, доступная для выбора (timestamp)
      */
     minDate?: number;
