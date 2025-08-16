@@ -167,7 +167,7 @@
         "postcss-loader": "^8.1.1",
         "postcss-mixins": "^7.0.3",
         "postcss-modules": "^6.0.1",
-        "postcss-preset-env": "^6.7.0",
+        "postcss-preset-env": "^7.8.3",
         "prettier": "^2.7.1",
         "purgecss": "^2.2.1",
         "querystring-es3": "^0.2.1",
