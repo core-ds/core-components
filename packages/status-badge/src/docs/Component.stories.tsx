@@ -9,7 +9,7 @@ import { StatusBadge, StatusBadgeProps } from '@alfalab/core-components-status-b
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof StatusBadge> = {
     title: 'Components/StatusBadge',

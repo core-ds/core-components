@@ -249,35 +249,35 @@
     line-height: 132px;
     font-weight: 500;
     font-family: var(--font-family-alfasans);
-} /* @deprecated */
+} /* deprecated */
 
 @define-mixin key_medium {
     font-size: 96px;
     line-height: 120px;
     font-weight: 500;
     font-family: var(--font-family-alfasans);
-} /* @deprecated */
+} /* deprecated */
 
 @define-mixin key_small {
     font-size: 80px;
     line-height: 96px;
     font-weight: 500;
     font-family: var(--font-family-alfasans);
-} /* @deprecated */
+} /* deprecated */
 
 @define-mixin key_xlarge {
     font-size: 144px;
     line-height: 180px;
     font-weight: 500;
     font-family: var(--font-family-alfasans);
-} /* @deprecated */
+} /* deprecated */
 
 @define-mixin key_xsmall {
     font-size: 64px;
     line-height: 80px;
     font-weight: 500;
     font-family: var(--font-family-alfasans);
-} /* @deprecated */
+} /* deprecated */
 
 @define-mixin paragraph_caps {
     font-size: 12px;

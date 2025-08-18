@@ -1,2 +1,2 @@
 src/*.ts
-src/compiled/*.ts
+!src/*.test.ts

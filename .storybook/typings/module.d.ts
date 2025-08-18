@@ -3,8 +3,6 @@ declare module '*.css' {
     export default classes;
 }
 
-export declare global {
-    interface Window {
-        sp: (...arg: unknown) => void;
-    }
+interface Window {
+    sp: (...arg: unknown) => void;
 }

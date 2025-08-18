@@ -1,4 +1,88 @@
-# Change Log
+# @alfalab/core-components-select
+
+## 18.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-badge@6.0.0
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-bottom-sheet@7.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-checkbox@5.0.0
+    -   @alfalab/core-components-form-control@13.0.0
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-modal@10.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+    -   @alfalab/core-components-scrollbar@4.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-skeleton@6.0.0
+
+## 17.24.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1787](https://github.com/core-ds/core-components/pull/1787)
+
+-   Исправлена проблема совместимости с CSP-директивами: заменён метод setAttribute('style', '') на removeAttribute('style') для удаления инлайн-стилей
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.19.0
+
+## 17.23.0
+
+### Minor Changes
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+-   Добавлена возможность указать классы `className` и `scrollbarClassName` для компонента `OptionsList`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
+## 17.22.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1781](https://github.com/core-ds/core-components/pull/1781)
+
+-   Добавлен кастомный проп valueSeparator в Select, который позволяет прокинуть свой разделитель вместо значений, не создавая новую утилиту valueRenderer
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.9.5
+    -   modal@9.9.20
 
 ## 17.21.5
 

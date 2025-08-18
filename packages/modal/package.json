@@ -1,28 +1,31 @@
 {
     "name": "@alfalab/core-components-modal",
-    "version": "9.9.19",
+    "version": "10.0.0",
     "description": "Modal component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.4",
-        "@alfalab/core-components-navigation-bar-private": "^0.8.7",
-        "@alfalab/core-components-shared": "^0.18.0",
-        "@alfalab/core-components-mq": "^4.4.1",
+        "@alfalab/core-components-base-modal": "^6.0.0",
+        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-navigation-bar-private": "^1.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.20.1"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

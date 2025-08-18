@@ -1,22 +1,35 @@
 {
-    "include": ["src", "../../typings", "../utils"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "no-dist",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@alfalab/core-components-base-modal": ["../base-modal/src"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-modal": ["./src"],
+            "@alfalab/core-components-modal/*": ["./src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-navigation-bar-private": ["../navigation-bar-private/src"],
+            "@alfalab/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
-        { "path": "../base-modal" },
-        { "path": "../mq" },
-        { "path": "../button" },
-        { "path": "../icon-button" },
-        { "path": "../navigation-bar-private" },
-        { "path": "../mq" },
-        { "path": "../shared" },
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../navigation-bar-private/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }
