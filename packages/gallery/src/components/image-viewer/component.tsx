@@ -86,6 +86,7 @@ export const ImageViewer: FC = () => {
                 toggle: true,
                 containerClass: 'zoom-container',
                 zoomedSlideClass: 'zoomed-slide',
+                
             },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
