@@ -17,11 +17,11 @@ module.exports = {
                 absolute: true,
             }),
         }),
+        require('postcss-color-mod-function')({ unresolved: 'ignore' }),
         require('postcss-preset-env')({
             stage: 3,
             features: {
                 'nesting-rules': true,
-                'color-mod-function': { unresolved: 'ignore' },
                 'custom-properties': false,
             },
         }),
