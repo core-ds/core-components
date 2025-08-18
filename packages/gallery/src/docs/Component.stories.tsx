@@ -6,7 +6,7 @@ import { Gallery } from '@alfalab/core-components-gallery';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Gallery> = {
     title: 'Components/Gallery',
@@ -94,6 +94,10 @@ export const gallery: Story = {
                         {
                             name: 'Маленькое изображение.jpg',
                             src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiBmaWxsPSIjNDU0Nzc4Ii8+Cjwvc3ZnPgo=',
+                        },
+                        {
+                            name: 'Photo.jpg',
+                            src: 'https://pixabay.com/images/download/people-2944065_640.jpg?attachment',
                         },
                         {
                             name: 'Alfa promo.m3u8',

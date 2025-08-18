@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Stack } from '@alfalab/core-components-stack';
-import { stackingOrder } from '@alfalab/stack-context';
+import { stackingOrder } from '@alfalab/core-components-stack-context';
 
 import { Notification, NotificationElement } from './components';
 

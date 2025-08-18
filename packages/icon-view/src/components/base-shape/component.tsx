@@ -14,6 +14,8 @@ type Border = {
     style?: 'solid' | 'dashed';
 };
 
+export type ScaleType = 'fit' | 'fill';
+
 export type TMainSize = 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 128;
 
 export type BaseShapeProps = {
@@ -44,6 +46,14 @@ export type BaseShapeProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
+
+    /**
+     * Режим масштабирования изображения
+     * 'fill' - изображение заполняет всё доступное пространство и может быть обрезано
+     * 'fit' - изображение вписывается полностью без обрезки
+     * @default 'fill'
+     */
+    scale?: ScaleType;
 
     /**
      * Фоновое svg. Имеет приоритет над иконкой и заливкой
@@ -108,6 +118,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             border = false,
             backgroundColor,
             imageUrl,
+            scale = 'fill',
             backgroundIcon: Icon,
             className,
             shapeClassName,
@@ -148,6 +159,9 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
         const borderDPath = getPath(polygonName, maxDimension, pathsMap.border);
 
+        const shouldContain = scale === 'fit';
+        const preserveAspectRatio = shouldContain ? 'xMidYMid meet' : 'xMidYMid slice';
+
         return (
             <div
                 className={cn(
@@ -183,11 +197,15 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                 </defs>
 
                                 <image
+                                    className={cn({
+                                        [styles.imageFit]: scale === 'fit',
+                                        [styles.imageFill]: scale === 'fill',
+                                    })}
                                     href={imageUrl}
                                     width='100%'
                                     height='100%'
                                     clipPath={`url(#${clipPathId})`}
-                                    preserveAspectRatio='xMidYMid slice'
+                                    preserveAspectRatio={preserveAspectRatio}
                                 />
 
                                 <path d={shapeDPath} fill='none' />

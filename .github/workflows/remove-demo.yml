@@ -1,4 +1,4 @@
-name: remove demo
+name: remove-demo
 
 on:
     pull_request:
@@ -6,9 +6,8 @@ on:
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or sha to checkout
-                required: true
-                default: ''
+                description: Version of @alfalab/core-components package, tag or SHA
+                required: false
                 type: string
 
 concurrency:
@@ -17,18 +16,10 @@ concurrency:
 
 jobs:
     params:
-        name: resolve params
-        runs-on: ubuntu-latest
-        outputs:
-            dir: ${{ steps.resolve.outputs.dir }}
-        steps:
-            - uses: actions/checkout@v4
-
-            - uses: ./.github/actions/resolve-demo-params
-              id: resolve
-              with:
-                  version: ${{ inputs.version }}
-                  pull-request-number: ${{ github.event.pull_request.number }}
+        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
+        secrets: inherit
+        with:
+            dir: ${{ github.event.pull_request.number }}
 
     remove-demo:
         name: remove demo
@@ -40,6 +31,7 @@ jobs:
               with:
                   ref: gh-pages
                   lfs: true
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: remove demo
               shell: bash
@@ -52,26 +44,12 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      let status = '';
+                      const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);
 
-                      await exec.exec('git', ['status', '--porcelain'], {
-                          listeners: {
-                              stdout: (data) => {
-                                  status += data.toString('utf8');
-                              },
-                          }
-                      });
-
-                      return status.split('\n').some((line) => /^ D .*$/.test(line));
+                      return stdout.split('\n').some((line) => /^\s+D\s+.*$/.test(line));
 
             - name: deploy
               if: ${{ steps.git-status.outputs.result == 'true' }}
-              shell: bash
-              run: |
-                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
-                  git config user.name 'github-actions[bot]'
-                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-
-                  git add .
-                  git commit -n -m "Deploy to GitHub Pages"
-                  git push
+              uses: core-ds/core-components/.github/actions/commit-and-push@master
+              with:
+                  message: 'Deploy to GitHub Pages'

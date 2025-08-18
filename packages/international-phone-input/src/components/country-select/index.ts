@@ -1,1 +1,2 @@
-export { CountrySelect, SharedCountrySelectProps } from './Component';
+export { CountrySelect } from './Component';
+export type { SharedCountrySelectProps } from './Component';

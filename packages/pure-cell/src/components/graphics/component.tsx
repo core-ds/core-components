@@ -28,7 +28,7 @@ export type Props = {
     /**
      * Отступ от графики
      */
-    graphicPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+    graphicPadding?: 'max' | 'airy' | 'default' | 'compact' | 'tiny' | 'none';
 
     /**
      * Клик по контенту графики.

@@ -1,39 +1,33 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "17.21.4",
+    "version": "18.0.0",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
-        "@alfalab/core-components-badge": "^5.6.4",
-        "@alfalab/core-components-base-modal": "^5.9.4",
-        "@alfalab/core-components-bottom-sheet": "^6.18.14",
-        "@alfalab/core-components-button": "^11.11.10",
-        "@alfalab/core-components-checkbox": "^4.9.4",
-        "@alfalab/core-components-form-control": "^12.8.6",
-        "@alfalab/core-components-input": "^15.6.2",
-        "@alfalab/core-components-modal": "^9.9.18",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-popover": "^6.3.11",
-        "@alfalab/core-components-scrollbar": "^3.4.0",
-        "@alfalab/core-components-skeleton": "^5.4.0",
-        "@alfalab/core-components-shared": "^0.18.0",
+        "@alfalab/core-components-badge": "^6.0.0",
+        "@alfalab/core-components-base-modal": "^6.0.0",
+        "@alfalab/core-components-bottom-sheet": "^7.0.0",
+        "@alfalab/core-components-button": "^12.0.0",
+        "@alfalab/core-components-checkbox": "^5.0.0",
+        "@alfalab/core-components-form-control": "^13.0.0",
+        "@alfalab/core-components-input": "^16.0.0",
+        "@alfalab/core-components-modal": "^10.0.0",
+        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-popover": "^7.0.0",
+        "@alfalab/core-components-scrollbar": "^4.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-skeleton": "^6.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "@juggle/resize-observer": "^3.3.1",
-        "compute-scroll-into-view": "^3.1.0",
         "classnames": "^2.5.1",
+        "compute-scroll-into-view": "^3.1.0",
         "downshift": "8.4.0",
         "intersection-observer": "^0.12.0",
         "react-fast-compare": "^3.2.2",
@@ -41,6 +35,14 @@
         "react-virtual": "^2.3.2",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.20.1"
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

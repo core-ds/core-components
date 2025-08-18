@@ -1,4 +1,27 @@
-# Change Log
+# @alfalab/core-components-input
+
+## 16.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-form-control@13.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-status-badge@2.0.0
 
 ## 15.6.2
 
