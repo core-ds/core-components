@@ -1,149 +1,164 @@
-import { FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
+import {
+    AriaAttributes,
+    FC,
+    HTMLAttributes,
+    MouseEvent,
+    ReactElement,
+    ReactNode,
+    Ref,
+} from 'react';
 
 import { SkeletonProps } from '@alfalab/core-components-skeleton';
 import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
-export type TabsProps = {
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
+export type TabsProps = Omit<
+    HTMLAttributes<HTMLDivElement>,
+    'onChange' | 'children' | 'className'
+> &
+    AriaAttributes & {
+        /**
+         * Дополнительный класс
+         */
+        className?: string;
 
-    /**
-     * Дополнительный класс контейнера
-     */
-    containerClassName?: string;
+        /**
+         * Дополнительный класс контейнера
+         */
+        containerClassName?: string;
 
-    /**
-     * Id активного таба
-     */
-    selectedId?: SelectedId;
+        /**
+         * Id активного таба
+         */
+        selectedId?: SelectedId;
 
-    /**
-     * Рендерить неактивные табы
-     */
-    keepMounted?: boolean;
+        /**
+         * Рендерить неактивные табы
+         */
+        keepMounted?: boolean;
 
-    /**
-     * Внешний вид заголовков табов
-     */
-    view?: 'primary' | 'secondary';
+        /**
+         * Внешний вид заголовков табов
+         */
+        view?: 'primary' | 'secondary';
 
-    /**
-     * Стиль текста. Имеет приоритет над size. Работает только в primary табах.
-     */
-    textStyle?:
-        | 'paragraph-primary-large'
-        | 'paragraph-primary-medium'
-        | 'paragraph-primary-small'
-        | 'action-primary-large'
-        | 'action-primary-medium'
-        | 'action-primary-small'
-        | 'accent-primary-large'
-        | 'accent-primary-medium'
-        | 'accent-primary-small'
-        | 'headline-system-xlarge'
-        | 'headline-system-large'
-        | 'headline-system-medium'
-        | 'headline-system-small'
-        | 'headline-system-xsmall'
-        | 'headline-xlarge'
-        | 'headline-large'
-        | 'headline-medium'
-        | 'headline-small'
-        | 'headline-xsmall';
+        /**
+         * Стиль текста. Имеет приоритет над size. Работает только в primary табах.
+         */
+        textStyle?:
+            | 'paragraph-primary-large'
+            | 'paragraph-primary-medium'
+            | 'paragraph-primary-small'
+            | 'action-primary-large'
+            | 'action-primary-medium'
+            | 'action-primary-small'
+            | 'accent-primary-large'
+            | 'accent-primary-medium'
+            | 'accent-primary-small'
+            | 'headline-system-xlarge'
+            | 'headline-system-large'
+            | 'headline-system-medium'
+            | 'headline-system-small'
+            | 'headline-system-xsmall'
+            | 'headline-xlarge'
+            | 'headline-large'
+            | 'headline-medium'
+            | 'headline-small'
+            | 'headline-xsmall';
 
-    /**
-     * Высота заголовков табов
-     */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+        /**
+         * Высота заголовков табов
+         */
+        size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-    /**
-     * Мобильный вид
-     */
-    mobile?: boolean;
+        /**
+         * Мобильный вид
+         */
+        mobile?: boolean;
 
-    /**
-     * Рендерить заголовки табов в контейнере со скроллом
-     */
-    scrollable?: boolean;
+        /**
+         * Рендерить заголовки табов в контейнере со скроллом
+         */
+        scrollable?: boolean;
 
-    /**
-     * Список табов, для контроля переноса вкладок в PickerButton
-     */
-    collapsedTabsIds?: string[];
+        /**
+         * Список табов, для контроля переноса вкладок в PickerButton
+         */
+        collapsedTabsIds?: string[];
 
-    /**
-     * При скроле табы будут уходить в край экрана
-     */
-    fullWidthScroll?: boolean;
+        /**
+         * При скроле табы будут уходить в край экрана
+         */
+        fullWidthScroll?: boolean;
 
-    /**
-     * Компоненты табов
-     */
-    children: Array<ReactElement<TabProps>>;
+        /**
+         * Компоненты табов
+         */
+        children: Array<ReactElement<TabProps>>;
 
-    /**
-     * Компонент заголовков табов
-     */
-    TabList: FC<TabListProps>;
+        /**
+         * Компонент заголовков табов
+         */
+        TabList: FC<TabListProps>;
 
-    /**
-     * Обработчик переключения табов
-     */
-    onChange?: (event: MouseEvent, payload: { selectedId: SelectedId }) => void;
+        /**
+         * Обработчик переключения табов
+         */
+        onChange?: (event: MouseEvent, payload: { selectedId: SelectedId }) => void;
 
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
+        /**
+         * Идентификатор для систем автоматизированного тестирования
+         */
+        dataTestId?: string;
 
-    /**
-     * Контрольная точка, с нее начинается desktop версия
-     * @default 1024
-     */
-    breakpoint?: number;
+        /**
+         * Контрольная точка, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
 
-    /**
-     * Версия, которая будет использоваться при серверном рендеринге
-     */
-    client?: 'desktop' | 'mobile';
+        /**
+         * Версия, которая будет использоваться при серверном рендеринге
+         */
+        client?: 'desktop' | 'mobile';
 
-    /**
-     * Значение по-умолчанию для хука useMatchMedia
-     * @deprecated Используйте client
-     */
-    defaultMatchMediaValue?: boolean | (() => boolean);
+        /**
+         * Значение по-умолчанию для хука useMatchMedia
+         * @deprecated Используйте client
+         */
+        defaultMatchMediaValue?: boolean | (() => boolean);
 
-    /**
-     * Форма тега (для view secondary только)
-     */
-    tagShape?: TagProps['shape'];
+        /**
+         * Форма тега (для view secondary только)
+         */
+        tagShape?: TagProps['shape'];
 
-    /**
-     * Стиль тега (для view secondary только)
-     */
-    tagView?: TagProps['view'];
+        /**
+         * Стиль тега (для view secondary только)
+         */
+        tagView?: TagProps['view'];
 
-    /**
-     * Дополнительные инлайн стили для враппера
-     */
-    style?: React.CSSProperties;
+        /**
+         * Дополнительные инлайн стили для враппера
+         */
+        style?: React.CSSProperties;
 
-    /**
-     * Показать скелетон
-     */
-    showSkeleton?: boolean;
+        /**
+         * Показать скелетон
+         */
+        showSkeleton?: boolean;
 
-    /**
-     * Доп. пропсы для скелетона
-     */
-    skeletonProps?: Omit<SkeletonProps, 'visible'>;
-};
+        /**
+         * Доп. пропсы для скелетона
+         */
+        skeletonProps?: Omit<SkeletonProps, 'visible'>;
+    };
 
-export type TabProps = {
+export type TabProps = Omit<
+    HTMLAttributes<HTMLDivElement>,
+    'id' | 'title' | 'className' | 'hidden' | 'children'
+> & {
     /**
      * Id таба
      */

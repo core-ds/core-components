@@ -10,6 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
+        "@alfalab/core-components-shared": "^1.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

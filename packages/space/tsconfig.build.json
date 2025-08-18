@@ -7,8 +7,15 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-space": ["./src"],
             "@alfalab/core-components-space/*": ["./src/*"]
         }
-    }
+    },
+    "references": [
+        {
+            "path": "../shared/tsconfig.build.json"
+        }
+    ]
 }

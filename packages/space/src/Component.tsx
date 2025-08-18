@@ -1,63 +1,73 @@
-import React, { Children, forwardRef, isValidElement, ReactNode } from 'react';
+import React, {
+    AriaAttributes,
+    Children,
+    forwardRef,
+    HTMLAttributes,
+    isValidElement,
+    ReactNode,
+} from 'react';
 import cn from 'classnames';
+
+import { pickAccessibilityProps } from '@alfalab/core-components-shared';
 
 import Item from './Item';
 import { Align, Direction, Size } from './utils';
 
 import styles from './index.module.css';
 
-export type SpaceProps = {
-    /**
-     * Выравнивание
-     */
-    align?: Align;
+export type SpaceProps = Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'> &
+    AriaAttributes & {
+        /**
+         * Выравнивание
+         */
+        align?: Align;
 
-    /**
-     * Направление
-     */
-    direction?: Direction;
+        /**
+         * Направление
+         */
+        direction?: Direction;
 
-    /**
-     * Размер отступов
-     */
-    size?: Size | [Size, Size];
+        /**
+         * Размер отступов
+         */
+        size?: Size | [Size, Size];
 
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
+        /**
+         * Дополнительный класс
+         */
+        className?: string;
 
-    /**
-     * Дочерние компоненты
-     */
-    children: ReactNode;
+        /**
+         * Дочерние компоненты
+         */
+        children: ReactNode;
 
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
+        /**
+         * Идентификатор для систем автоматизированного тестирования
+         */
+        dataTestId?: string;
 
-    /**
-     * Автоматический перенос строк, полезно при direction = 'horizontal'
-     */
-    wrap?: boolean;
+        /**
+         * Автоматический перенос строк, полезно при direction = 'horizontal'
+         */
+        wrap?: boolean;
 
-    /**
-     * Компонент разделителя
-     */
-    divider?: string | ReactNode;
+        /**
+         * Компонент разделителя
+         */
+        divider?: string | ReactNode;
 
-    /**
-     * Растягивать ли компонент на всю ширину
-     */
-    fullWidth?: boolean;
+        /**
+         * Растягивать ли компонент на всю ширину
+         */
+        fullWidth?: boolean;
 
-    /**
-     * Использовать css gap
-     * @description Поддержка ограничена. см https://caniuse.com/?search=gap
-     */
-    useCssGaps?: boolean;
-};
+        /**
+         * Использовать css gap
+         * @description Поддержка ограничена. см https://caniuse.com/?search=gap
+         */
+        useCssGaps?: boolean;
+    };
 
 const SpaceSizes: { [key in Size]: number } = {
     s: 12,
@@ -83,6 +93,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         fullWidth = false,
         dataTestId,
         useCssGaps = false,
+        ...restProps
     } = props;
 
     const [horizontalSize, verticalSize] = React.useMemo(
@@ -150,6 +161,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
                 ...(wrap && !useCssGaps && { flexWrap: 'wrap', marginBottom: -verticalSize }),
             }}
             ref={ref}
+            {...pickAccessibilityProps(restProps)}
         >
             {nodes}
         </div>

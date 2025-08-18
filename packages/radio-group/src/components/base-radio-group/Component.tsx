@@ -1,9 +1,11 @@
 import React, {
+    AriaAttributes,
     ChangeEvent,
     Children,
     cloneElement,
     FocusEvent,
     forwardRef,
+    HTMLAttributes,
     isValidElement,
     MouseEvent,
     ReactElement,
@@ -12,7 +14,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, pickAccessibilityProps } from '@alfalab/core-components-shared';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 
 import commonStyles from './index.module.css';
@@ -20,93 +22,97 @@ import commonStyles from './index.module.css';
 export type Direction = 'horizontal' | 'vertical';
 export type RadioGroupType = 'radio' | 'tag';
 
-export type BaseRadioGroupProps = {
-    /**
-     * Заголовок группы
-     */
-    label?: ReactNode;
+export type BaseRadioGroupProps = Omit<
+    HTMLAttributes<HTMLDivElement>,
+    'onChange' | 'onBlur' | 'onFocus' | 'children' | 'className'
+> &
+    AriaAttributes & {
+        /**
+         * Заголовок группы
+         */
+        label?: ReactNode;
 
-    /**
-     * Направление
-     */
-    direction?: Direction;
+        /**
+         * Направление
+         */
+        direction?: Direction;
 
-    /**
-     * Тип компонента
-     */
-    type?: RadioGroupType;
+        /**
+         * Тип компонента
+         */
+        type?: RadioGroupType;
 
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
+        /**
+         * Дополнительный класс
+         */
+        className?: string;
 
-    /**
-     * Дополнительный класс для списка радио элементов
-     */
-    radioListClassName?: string;
+        /**
+         * Дополнительный класс для списка радио элементов
+         */
+        radioListClassName?: string;
 
-    /**
-     * Отображение ошибки
-     */
-    error?: ReactNode | boolean;
+        /**
+         * Отображение ошибки
+         */
+        error?: ReactNode | boolean;
 
-    /**
-     * Текст подсказки снизу
-     */
-    hint?: ReactNode;
+        /**
+         * Текст подсказки снизу
+         */
+        hint?: ReactNode;
 
-    /**
-     * Дочерние элементы. Ожидаются компоненты `Radio` или `Tag`
-     */
-    children: ReactNode;
+        /**
+         * Дочерние элементы. Ожидаются компоненты `Radio` или `Tag`
+         */
+        children: ReactNode;
 
-    /**
-     * Обработчик изменения значения 'checked' одного из дочерних компонентов
-     */
-    onChange?: (
-        event: ChangeEvent | MouseEvent,
-        payload: {
-            value: string;
-            name?: string;
-        },
-    ) => void;
+        /**
+         * Обработчик изменения значения 'checked' одного из дочерних компонентов
+         */
+        onChange?: (
+            event: ChangeEvent | MouseEvent,
+            payload: {
+                value: string;
+                name?: string;
+            },
+        ) => void;
 
-    /**
-     * Обработчик блюра.
-     */
-    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+        /**
+         * Обработчик блюра.
+         */
+        onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
 
-    /**
-     * Обработчик фокуса.
-     */
-    onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+        /**
+         * Обработчик фокуса.
+         */
+        onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
 
-    /**
-     * Управление возможностью изменения состояния 'checked' дочерних компонентов Radio | Tag
-     */
-    disabled?: boolean;
+        /**
+         * Управление возможностью изменения состояния 'checked' дочерних компонентов Radio | Tag
+         */
+        disabled?: boolean;
 
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
+        /**
+         * Идентификатор для систем автоматизированного тестирования
+         */
+        dataTestId?: string;
 
-    /**
-     * Атрибут name для всех дочерних компонентов
-     */
-    name?: string;
+        /**
+         * Атрибут name для всех дочерних компонентов
+         */
+        name?: string;
 
-    /**
-     * Value выбранного дочернего элемента
-     */
-    value?: string | null;
+        /**
+         * Value выбранного дочернего элемента
+         */
+        value?: string | null;
 
-    /**
-     * Основные стили компонента.
-     */
-    styles: { [key: string]: string };
-};
+        /**
+         * Основные стили компонента.
+         */
+        styles: { [key: string]: string };
+    };
 
 export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
     (
@@ -127,6 +133,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
             name,
             value,
             styles,
+            ...restProps
         },
         ref,
     ) => {
@@ -204,8 +211,9 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                     { [commonStyles.error]: error },
                     className,
                 )}
-                data-test-id={dataTestId}
                 ref={ref}
+                data-test-id={dataTestId}
+                {...pickAccessibilityProps(restProps)}
             >
                 {label ? (
                     <span
