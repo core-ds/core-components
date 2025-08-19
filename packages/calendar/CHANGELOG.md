@@ -1,4 +1,52 @@
-# Change Log
+# @alfalab/core-components-calendar
+
+## 8.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-modal@10.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 7.20.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1788](https://github.com/core-ds/core-components/pull/1788)
+
+-   Для компонента 'CalendarDesktop' с видом (selectorView='month-only') добавлен параметр 'hideDisabledArrows', позволяющий управлять видимостью кнопок.
+
+## 7.19.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.20
+
+## 7.19.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.19
 
 ## 7.19.0
 

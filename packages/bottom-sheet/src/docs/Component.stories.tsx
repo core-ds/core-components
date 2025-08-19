@@ -6,7 +6,7 @@ import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof BottomSheet> = {
     title: 'Components/BottomSheet',
@@ -82,6 +82,7 @@ export const bottom_sheet: Story = {
                     }
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
+                    showSwipeMarker={boolean('showSwipeMarker', true)}
                     titleAlign={select('titleAlign', ['center', 'left'], 'center')}
                     trimTitle={boolean('trimTitle', false)}
                     stickyHeader={boolean('stickyHeader', false)}

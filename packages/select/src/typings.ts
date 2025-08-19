@@ -242,7 +242,13 @@ export type BaseSelectProps = StatusProps & {
     }: {
         selected?: OptionShape;
         selectedMultiple: OptionShape[];
+        valueSeparator?: string;
     }) => ReactNode;
+
+    /**
+     * Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)
+     */
+    valueSeparator?: string;
 
     /**
      * Компонент стрелки
@@ -454,6 +460,11 @@ export type FieldProps = StatusProps & {
      * Кастомный рендер выбранного пункта
      */
     valueRenderer?: BaseSelectProps['valueRenderer'];
+
+    /**
+     * Кастомный разделитель выбранных пунктов
+     */
+    valueSeparator?: BaseSelectProps['valueSeparator'];
 
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.

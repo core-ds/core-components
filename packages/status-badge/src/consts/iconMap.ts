@@ -1,8 +1,3 @@
-import {
-    StatusBadgeIcon,
-    StatusBadgeSizes,
-    StatusBadgeViews,
-} from '@alfalab/core-components-status-badge';
 import { CheckmarkCompactMIcon } from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
 import { CheckmarkCompactSIcon } from '@alfalab/icons-glyph/CheckmarkCompactSIcon';
 import { ClockHandsCompactMIcon } from '@alfalab/icons-glyph/ClockHandsCompactMIcon';
@@ -16,6 +11,8 @@ import { InformationCompactSIcon } from '@alfalab/icons-glyph/InformationCompact
 import { StopBrickCompactMIcon } from '@alfalab/icons-glyph/StopBrickCompactMIcon';
 import { StopBrickMIcon } from '@alfalab/icons-glyph/StopBrickMIcon';
 import { StopBrickSIcon } from '@alfalab/icons-glyph/StopBrickSIcon';
+
+import { StatusBadgeIcon, StatusBadgeSizes, StatusBadgeViews } from '../types/statusBadgePropTypes';
 
 export type IconMap = Record<
     StatusBadgeViews,

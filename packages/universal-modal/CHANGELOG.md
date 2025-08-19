@@ -1,4 +1,30 @@
-# Change Log
+# @alfalab/core-components-universal-modal
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-backdrop@4.0.0
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-navigation-bar-private@1.0.0
+    -   @alfalab/core-components-scrollbar@4.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
 
 ## 1.1.5
 

@@ -20,7 +20,7 @@
 }
 
 .wrapperJustifyStart {
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .wrapperJustifyCenter {
@@ -28,5 +28,5 @@
 }
 
 .wrapperJustifyEnd {
-    justify-content: end;
+    justify-content: flex-end;
 }

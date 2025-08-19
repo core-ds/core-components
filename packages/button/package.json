@@ -1,32 +1,35 @@
 {
     "name": "@alfalab/core-components-button",
-    "version": "11.11.10",
+    "version": "12.0.0",
     "description": "",
-    "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-spinner": "^4.0.9",
-        "@alfalab/core-components-shared": "^0.18.0",
+        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-spinner": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
     "buildThemes": [
         "site"
     ],
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.20.1"
+    "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

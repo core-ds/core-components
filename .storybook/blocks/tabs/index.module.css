@@ -1,4 +1,4 @@
-@import '../../../packages/vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .tabs {
     margin-top: var(--gap-32);

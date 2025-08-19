@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-backdrop": ["../backdrop/src"],
+            "@alfalab/core-components-backdrop/*": ["../backdrop/src/*"],
+            "@alfalab/core-components-base-modal": ["./src"],
+            "@alfalab/core-components-base-modal/*": ["./src/*"],
+            "@alfalab/core-components-global-store": ["../global-store/src"],
+            "@alfalab/core-components-global-store/*": ["../global-store/src/*"],
+            "@alfalab/core-components-portal": ["../portal/src"],
+            "@alfalab/core-components-portal/*": ["../portal/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-stack": ["../stack/src"],
+            "@alfalab/core-components-stack/*": ["../stack/src/*"],
+            "@alfalab/core-components-stack-context": ["../stack-context/src"],
+            "@alfalab/core-components-stack-context/*": ["../stack-context/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../backdrop/tsconfig.build.json" },
+        { "path": "../global-store/tsconfig.build.json" },
+        { "path": "../portal/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../stack/tsconfig.build.json" },
+        { "path": "../stack-context/tsconfig.build.json" }
+    ]
+}

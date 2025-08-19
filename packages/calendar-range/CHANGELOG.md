@@ -1,4 +1,57 @@
-# Change Log
+# @alfalab/core-components-calendar-range
+
+## 8.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.0
+    -   @alfalab/core-components-calendar-input@11.0.0
+    -   @alfalab/core-components-date-input@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+
+## 7.8.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.20.0
+    -   calendar-input@10.4.37
+
+## 7.8.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar-input@10.4.36
+
+## 7.8.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.2
+    -   calendar-input@10.4.35
+
+## 7.8.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.1
+    -   calendar-input@10.4.34
 
 ## 7.8.21
 

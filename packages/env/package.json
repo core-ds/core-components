@@ -1,0 +1,9 @@
+{
+    "name": "@alfalab/core-components-env",
+    "version": "0.0.0",
+    "private": true,
+    "types": "./src/react-app.d.ts",
+    "dependencies": {
+        "@alfalab/core-components-global-store": "^3.0.0"
+    }
+}

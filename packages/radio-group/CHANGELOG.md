@@ -1,4 +1,34 @@
-# Change Log
+# @alfalab/core-components-radio-group
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+
+## 4.8.4
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1780](https://github.com/core-ds/core-components/pull/1780)
+
+-   Добавлены data-test-id атрибуты для компонентов Checbox, CheckboxGroup, List, RadioGroup
 
 ## 4.8.3
 

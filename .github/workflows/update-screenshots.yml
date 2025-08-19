@@ -1,17 +1,39 @@
-name: update screenshots
+name: update-screenshots
 
 on: workflow_dispatch
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
+    build-demo:
+        uses: ./.github/workflows/build-demo.yml
+        secrets: inherit
+
     update:
         name: update screenshots
         runs-on: ubuntu-latest
+        needs: build-demo
+        if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
             - uses: actions/checkout@v4
               with:
+                  # used GH_TOKEN to trigger github actions on branch update
+                  # GITHUB_TOKEN doesn't trigger any action
+                  # https://github.com/orgs/community/discussions/55906
+                  token: ${{ secrets.GH_TOKEN }}
                   lfs: true
 
             - uses: ./.github/actions/ci-setup
+
+            - name: download build
+              uses: actions/download-artifact@v4
+              with:
+                  name: build
+                  path: build
+                  run-id: ${{ needs.build-demo.outputs.run-id }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: update screenshots
               shell: bash
@@ -22,28 +44,13 @@ jobs:
               id: git-status
               uses: actions/github-script@v7
               with:
-                  result-encoding: string
                   script: |
-                      let status = '';
+                      const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);
 
-                      await exec.exec('git', ['status', '--porcelain'], {
-                          listeners: {
-                              stdout: (data) => {
-                                  status += data.toString('utf8');
-                              },
-                          }
-                      });
-
-                      return status.split('\n').some(line => /^ M .*\.png$/.test(line));
+                      return stdout.split('\n').some(line => /^\s+M\s+.*\.png$/.test(line));
 
             - name: update branch
               if: ${{ steps.git-status.outputs.result == 'true' }}
-              shell: bash
-              run: |
-                  git config url.'https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/'.insteadOf https://github.com/
-                  git config user.name 'github-actions[bot]'
-                  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-
-                  git add .
-                  git commit -n -m "test: updated screenshots"
-                  git push
+              uses: ./.github/actions/commit-and-push
+              with:
+                  message: 'test: updated screenshots'

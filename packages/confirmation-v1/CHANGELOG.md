@@ -1,4 +1,32 @@
-# Change Log
+# @alfalab/core-components-confirmation-v1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-link@6.0.0
+    -   @alfalab/core-components-loader@4.0.0
+
+## 1.10.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   loader@3.2.5
 
 ## 1.10.4
 

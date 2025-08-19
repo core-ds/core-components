@@ -1,4 +1,4 @@
-@import '../../../../tag/src/vars.css';
+@import '@alfalab/core-components-tag/src/vars.css';
 @import '../../vars.css';
 
 .component {
@@ -44,9 +44,12 @@
         background-color: var(--tag-inverted-outlined-background-color);
 
         &:disabled {
-            border-color: var(--tag-inverted-border-color-disabled);
             color: var(--tag-inverted-text-color-disabled);
             background-color: var(--tag-inverted-outlined-background-color-disabled);
+
+            &:not(.checked) {
+                border-color: var(--tag-inverted-border-color-disabled);
+            }
         }
 
         @media (hover: hover) {

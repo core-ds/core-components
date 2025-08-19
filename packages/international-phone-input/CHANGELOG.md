@@ -1,5 +1,70 @@
 # @alfalab/core-components-international-phone-input
 
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-input-autocomplete@13.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-select@18.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-types@1.0.0
+
+## 2.8.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.10.0
+    -   select@17.24.0
+
+## 2.7.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   input-autocomplete@12.9.9
+
+## 2.7.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+    -   input-autocomplete@12.9.8
+
+## 2.7.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+    -   input-autocomplete@12.9.7
+
 ## 2.7.18
 
 ### Patch Changes
