@@ -40,10 +40,9 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
     ) => {
         const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-        const titleClassName = {
-            [styles.content]: true,
+        const titleClassName = cn(styles.content, {
             [styles.focused]: focused,
-        };
+        });
 
         useEffect(() => {
             const resizeObserver = new ResizeObserver(() => {
@@ -93,7 +92,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
                         {title}
                     </Skeleton>
                 ) : (
-                    <span className={cn(titleClassName)}>{title}</span>
+                    <span className={titleClassName}>{title}</span>
                 )}
 
                 {rightAddons && (

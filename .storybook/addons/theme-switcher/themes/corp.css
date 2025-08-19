@@ -1,4 +1,4 @@
-@import '../../../../packages/themes/src/mixins/corp.css';
+@import '@alfalab/core-components-themes/src/mixins/corp.css';
 
 :root {
     @mixin theme-corp;

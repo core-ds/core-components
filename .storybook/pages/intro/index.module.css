@@ -1,4 +1,4 @@
-@import '../../../packages/vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .page {
     margin-top: -44px;
@@ -145,7 +145,7 @@ div[data-mode='dark'] .intro {
 
     .maintainers {
         margin-right: 30px;
-        justify-content: end;
+        justify-content: flex-end;
     }
 
     .whereToStart {

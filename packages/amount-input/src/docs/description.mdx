@@ -21,22 +21,22 @@ render(() => {
 
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
-            <AmountInput 
-                value={1234567} 
+            <AmountInput
+                value={1234567}
                 placeholder='Введите сумму'
-                labelView={isMobile() ? 'outer': 'inner'}
-                label='Сумма' 
-                minority={minor ? 100 : 1} 
+                labelView={isMobile() ? 'outer' : 'inner'}
+                label='Сумма'
+                minority={minor ? 100 : 1}
                 integersOnly={!minor}
-                bold={false} 
+                bold={false}
                 suffix={suffixInput}
                 block={true}
                 size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
             />
-            <Gap size='xl'/>
+            <Gap size={24} />
             <Switch label='Минорная часть' checked={minor} onChange={handleMinorChange} />
-            <Gap size='xl'/>
+            <Gap size={24} />
             <RadioGroup
                 label='Суффикс'
                 direction='vertical'
@@ -53,6 +53,47 @@ render(() => {
 });
 ```
 
-## Морфология
+Если знаечния изменяются с фиксированным шагом, можно включить степпер.
+При наличии степпера ввод с клавиатуры можно запретить.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
+    const [value, setValue] = React.useState(1010);
+
+    const handleChange = (e, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <AmountInput
+                value={value}
+                disableUserInput={disableUserInput}
+                placeholder='Введите сумму'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                label='Сумма'
+                minority={100}
+                bold={false}
+                suffix='RUR'
+                block={true}
+                size={isMobile() ? 48 : 56}
+                breakpoint={BREAKPOINT}
+                onChange={handleChange}
+                stepper={{ step: 10, min: 1000, max: 1100 }}
+            />
+
+            <Gap size={24} />
+
+            <Switch
+                block={true}
+                checked={disableUserInput}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setDisableUserInput(!disableUserInput)}
+            />
+        </div>
+    );
+});
+```
 
 Компонент является оберткой над [FormControl](?path=/docs/formcontrol--docs), поэтому наследует все доступные для него настройки.

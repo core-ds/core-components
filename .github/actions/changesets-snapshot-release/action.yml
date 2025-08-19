@@ -1,0 +1,29 @@
+name: changesets-snapshot-release
+
+inputs:
+    version:
+        description: Version script
+        required: true
+    publish:
+        description: Publish script
+        required: true
+
+outputs:
+    published:
+        description: Whether published packages or not
+        value: ${{ steps.main.outputs.published }}
+    published-packages:
+        description: List of published packages as JSON string
+        value: ${{ steps.main.outputs.published-packages }}
+
+runs:
+    using: composite
+    steps:
+        - id: main
+          uses: actions/github-script@v7
+          with:
+              script: |
+                  const run = require('./tools/gh-actions/changesets-snapshot-release/main.js');
+                  const inputs = ${{ toJSON(inputs) }};
+
+                  await run({ github, context, core, glob, io, exec, inputs });

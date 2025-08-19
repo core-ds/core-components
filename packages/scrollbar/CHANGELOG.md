@@ -1,4 +1,38 @@
-# Change Log
+# @alfalab/core-components-scrollbar
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 3.4.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1747](https://github.com/core-ds/core-components/pull/1747)
+
+-   Добавлен дополнительный класс для контейнера горизонтальной полосы прокрутки horizontalBarClassName
+
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1679](https://github.com/core-ds/core-components/pull/1679)
+
+-   Добавлен ref для вертикальной полосы прокрутки
 
 ## 3.2.0
 

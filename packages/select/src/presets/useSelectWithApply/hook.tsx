@@ -67,6 +67,18 @@ export type UseSelectWithApplyProps = {
      * Показывать пункт "Выбрать все" в заголовке списка
      */
     showHeaderWithSelectAll?: boolean;
+
+    /**
+     * Значение name при применении выбора
+     * @default 'apply-footer'
+     */
+    applyName?: string;
+
+    /**
+     * Значение name при сбросе выбора
+     * @default 'reset-footer'
+     */
+    resetName?: string;
 };
 
 export const SELECT_ALL_KEY = 'select_all';
@@ -85,6 +97,8 @@ export function useSelectWithApply({
     showHeaderWithSelectAll = false,
     showSearch = false,
     searchProps = {},
+    applyName = 'apply-footer',
+    resetName = 'reset-footer',
 }: UseSelectWithApplyProps) {
     const [searchState, setSearchState] = useState('');
 
@@ -131,7 +145,7 @@ export function useSelectWithApply({
             selected: selectedDraft[0],
             selectedMultiple: selectedDraft,
             initiator: null,
-            name: 'apply-footer',
+            name: applyName,
         });
     };
 
@@ -141,7 +155,7 @@ export function useSelectWithApply({
             selected: null,
             selectedMultiple: [],
             initiator: null,
-            name: 'reset-footer',
+            name: resetName,
         });
     };
 
@@ -246,6 +260,8 @@ export function useSelectWithApply({
             showHeaderWithSelectAll,
             showSearch,
             searchProps,
+            applyName,
+            resetName,
         },
     };
 }

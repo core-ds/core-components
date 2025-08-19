@@ -179,8 +179,6 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-            if (open) return;
-
             onBlur?.(event);
 
             if (autoCorrection) {

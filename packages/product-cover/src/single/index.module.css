@@ -1,8 +1,8 @@
-@import '../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .component {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     position: relative;
     background-color: var(--color-light-neutral-500);
     box-sizing: border-box;

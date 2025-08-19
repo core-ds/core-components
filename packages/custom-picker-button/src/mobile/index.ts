@@ -1,1 +1,2 @@
-export { CustomPickerButtonMobile, CustomPickerButtonMobileProps } from './Component.mobile';
+export { CustomPickerButtonMobile } from './Component.mobile';
+export type { CustomPickerButtonMobileProps } from './Component.mobile';

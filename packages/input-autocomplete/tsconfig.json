@@ -1,27 +1,42 @@
 {
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "no-dist",
         "paths": {
-            "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-form-control": ["../form-control/src"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-input": ["../input/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-input-autocomplete": ["./src"],
+            "@alfalab/core-components-input-autocomplete/*": ["./src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-popover": ["../popover/src"],
+            "@alfalab/core-components-popover/*": ["../popover/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-select": ["../select/src"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-status-badge": ["../status-badge/src"],
+            "@alfalab/core-components-status-badge/*": ["../status-badge/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
-        { "path": "../select" },
-        { "path": "../input" },
-        { "path": "../button" },
-        { "path": "../form-control" },
-        { "path": "../bottom-sheet" },
-        { "path": "../mq" },
-        { "path": "../shared" },
-        { "path": "../status-badge" }
+        { "path": "../form-control/tsconfig.build.json" },
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../popover/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../select/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../status-badge/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

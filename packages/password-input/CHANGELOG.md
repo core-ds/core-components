@@ -1,4 +1,62 @@
-# Change Log
+# @alfalab/core-components-password-input
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-input@16.0.0
+
+## 5.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+    -   icon-button@6.11.13
+
+## 5.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+    -   icon-button@6.11.12
+
+## 5.8.2
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 5.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.5
+    -   icon-button@6.11.11
 
 ## 5.8.0
 

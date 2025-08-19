@@ -1,4 +1,33 @@
-# Change Log
+# @alfalab/core-components-collapse
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-link@6.0.0
+
+## 4.5.5
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1517](https://github.com/core-ds/core-components/pull/1517)
+
+-   Парные иконки заменены на одну иконку и css-rotate
 
 ## 4.5.4
 
