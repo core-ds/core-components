@@ -198,7 +198,7 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
 npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42-calendar,42-calendar-input,42-checkbox-group,42-code-input,42-confirmation,42-date-range-input,42-date-time-input,42-filter-tag,42-form-control,42-input,42-modal,42-picker-button,42-plate,42-radio-group,42-select,42-side-panel,42-system-message,42-tabs,42-tag,42-toast,42-toast-plate,42-tooltip --glob='src/**/*.tsx'
 ```
 
-### 49 мажорный релиз
+### 50 мажорный релиз
 
 <table>
     <thead>
