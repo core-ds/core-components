@@ -1,4 +1,5 @@
 ---
+'@alfalab/core-components': major
 '@alfalab/core-components-universal-modal': major
 ---
 
