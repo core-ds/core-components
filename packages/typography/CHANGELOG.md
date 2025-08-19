@@ -1,4 +1,49 @@
-# Change Log
+# @alfalab/core-components-typography
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-skeleton@6.0.0
+
+## 4.14.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 4.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 4.14.1
+
+### Patch Changes
+
+<sup><time>26.05.2025</time></sup>
+
+### [#1721](https://github.com/core-ds/core-components/pull/1721)
+
+-   Исправлено использование переменной окружения `NODE_ENV`
 
 ## 4.14.0
 

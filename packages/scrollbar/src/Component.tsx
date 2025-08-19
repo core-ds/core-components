@@ -2,7 +2,8 @@ import React, { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
-import SimpleBar from 'simplebar/src/simplebar';
+
+import SimpleBar from './simplebar/simplebar';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -87,6 +88,11 @@ export type ScrollbarProps = {
     verticalBarClassName?: string;
 
     /**
+     * Дополнительный класс контейнера горизонтальной полосы прокрутки
+     */
+    horizontalBarClassName?: string;
+
+    /**
      * Обработчик изменения скролла
      */
     onContentScroll?: (e: Event) => void;
@@ -150,6 +156,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             widthPropName = 'minWidth',
             maskProps,
             verticalBarClassName,
+            horizontalBarClassName,
             onContentScroll,
             verticalBarRef,
             ...htmlAttributes
@@ -299,7 +306,9 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     </div>
                     <div className={classNames.placeholder} />
                 </div>
-                <div className={cn(classNames.track, classNames.horizontal)}>
+                <div
+                    className={cn(classNames.track, classNames.horizontal, horizontalBarClassName)}
+                >
                     <div className={classNames.scrollbar} />
                 </div>
                 <div

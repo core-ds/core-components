@@ -1,3 +1,4 @@
+import { modifyColor } from './modify-color';
 import { translateColors } from './translatecolors';
 import { Color, HexColor, PaletteColor, Theme } from './types';
 
@@ -63,7 +64,7 @@ export const getColorVar = ({
 
     // Часть 2, проверка на hex
     if (isHexColor(color)) {
-        return color;
+        return modifyColor(color);
     }
 
     // Часть 3, поведение не по схеме: просто отдаём цвет так, как он пришел

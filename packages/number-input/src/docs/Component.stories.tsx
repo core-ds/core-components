@@ -8,7 +8,7 @@ import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof NumberInput> = {
     title: 'Components/NumberInput',

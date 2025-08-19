@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-custom-button": ["../custom-button/src"],
+            "@alfalab/core-components-custom-button/*": ["../custom-button/src/*"],
+            "@alfalab/core-components-custom-picker-button": ["./src"],
+            "@alfalab/core-components-custom-picker-button/*": ["./src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-picker-button": ["../picker-button/src"],
+            "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
+            "@alfalab/core-components-select": ["../select/src"],
+            "@alfalab/core-components-select/*": ["../select/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../custom-button/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../picker-button/tsconfig.build.json" },
+        { "path": "../select/tsconfig.build.json" }
+    ]
+}

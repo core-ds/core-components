@@ -6,7 +6,7 @@ import { FileUploadItemV1 } from '@alfalab/core-components-file-upload-item-v1';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const WRAPPER_STYLES = {
     background: 'var(--color-light-modal-bg-primary)',

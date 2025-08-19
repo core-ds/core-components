@@ -17,7 +17,7 @@ import React, {
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
-import { TransitionProps } from 'react-transition-group/Transition';
+import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
@@ -25,7 +25,7 @@ import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-compon
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { browser, os } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
-import { stackingOrder } from '@alfalab/stack-context';
+import { stackingOrder } from '@alfalab/core-components-stack-context';
 
 import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
@@ -152,7 +152,7 @@ export type BaseModalProps = {
     /**
      * Пропсы для анимации (CSSTransition)
      */
-    transitionProps?: Partial<TransitionProps>;
+    transitionProps?: Partial<CSSTransitionProps>;
 
     /**
      * Рендерить ли в контейнер через портал.
@@ -445,7 +445,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             return scrollHandler.current || wrapperRef.current;
         }, [scrollHandler]);
 
-        const handleEntered: Required<TransitionProps>['onEntered'] = useCallback(
+        const handleEntered: Required<CSSTransitionProps>['onEntered'] = useCallback(
             (node, isAppearing) => {
                 scrollableNodeRef.current = getScrollHandler();
 
@@ -465,7 +465,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             [addResizeHandle, getScrollHandler, handleScroll, onMount, transitionProps],
         );
 
-        const handleExited: Required<TransitionProps>['onExited'] = useCallback(
+        const handleExited: Required<CSSTransitionProps>['onExited'] = useCallback(
             (node) => {
                 removeResizeHandle();
 

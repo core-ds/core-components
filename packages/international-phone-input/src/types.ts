@@ -1,5 +1,4 @@
-import type { ElementType, FC } from 'react';
-import { FocusEvent } from 'react';
+import type { ElementType, FC, FocusEvent } from 'react';
 
 import type { InputProps } from '@alfalab/core-components-input';
 import type { InputDesktopProps } from '@alfalab/core-components-input/desktop';
@@ -7,21 +6,20 @@ import type { InputMobileProps } from '@alfalab/core-components-input/mobile';
 import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
 import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
 import type { InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
-import { OptionShape } from '@alfalab/core-components-select/typings';
-
-import { Country } from '../../types';
+import type { OptionShape } from '@alfalab/core-components-select/typings';
+import type { Country } from '@alfalab/core-components-types';
 
 import type { SharedCountrySelectProps } from './components/country-select';
-import { CountriesData } from './data/country-data';
+import type { CountriesData } from './data/country-data';
 
-export { Country };
+export type { Country } from '@alfalab/core-components-types';
 
 export type AreaItem = Country & {
     isAreaCode: boolean;
     areaCodeLength: number;
 };
 
-type CommonPhoneInputProps = {
+export type CommonPhoneInputProps = {
     /**
      *  Выбранная страна
      */
@@ -95,26 +93,22 @@ export type BaseInternationalPhoneInputProps = CommonPhoneInputProps & {
 
 export type InternationalPhoneInputDesktopProps = CommonPhoneInputProps &
     (
-        | ({ options?: never } & Omit<
+        | Omit<
               InputDesktopProps,
               'onFocus' | 'onBlur' | 'clear' | 'onClear' | 'onChange' | 'onInput'
-          >)
-        | ({ options: InputAutocompleteDesktopProps['options'] } & Omit<
-              InputAutocompleteDesktopProps,
-              'onChange' | 'onInput'
-          >)
+          >
+        | (Required<Pick<InputAutocompleteDesktopProps, 'options'>> &
+              Omit<InputAutocompleteDesktopProps, 'onChange' | 'onInput' | 'onClear'>)
     );
 
 export type InternationalPhoneInputMobileProps = CommonPhoneInputProps &
     (
-        | ({ options?: never } & Omit<
+        | Omit<
               InputMobileProps,
               'onFocus' | 'onBlur' | 'clear' | 'onClear' | 'onChange' | 'onInput'
-          >)
-        | ({ options: InputAutocompleteMobileProps['options'] } & Omit<
-              InputAutocompleteMobileProps,
-              'onChange' | 'onInput'
-          >)
+          >
+        | (Required<Pick<InputAutocompleteMobileProps, 'options'>> &
+              Omit<InputAutocompleteMobileProps, 'onChange' | 'onInput' | 'onClear'>)
     );
 
 export type InternationalPhoneInputProps = InternationalPhoneInputDesktopProps &

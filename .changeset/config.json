@@ -2,12 +2,19 @@
     "$schema": "https://unpkg.com/@changesets/config@2.1.1/schema.json",
     "changelog": "../tools/changesets/changelogFunctions.js",
     "commit": false,
-    "fixed": [],
     "linked": [],
+    "ignore": [
+        "@alfalab/core-components-env",
+        "@alfalab/core-components-screenshot-utils",
+        "@alfalab/core-components-test-utils"
+    ],
     "access": "public",
     "baseBranch": "master",
     "updateInternalDependencies": "patch",
-    "ignore": ["@alfalab/core-components-codemod"],
+    "snapshot": {
+        "prereleaseTemplate": "{tag}-{commit}",
+        "useCalculatedVersion": true
+    },
     "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
         "onlyUpdatePeerDependentsWhenOutOfRange": true,
         "updateInternalDependents": "always"

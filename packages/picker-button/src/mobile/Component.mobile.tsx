@@ -68,6 +68,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
                 bottomSheetProps={{
                     title: label,
                     stickyHeader: true,
+                    showSwipeMarker: false,
                     ...bottomSheetProps,
                 }}
                 Field={Field}

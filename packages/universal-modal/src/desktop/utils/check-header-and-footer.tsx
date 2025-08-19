@@ -3,6 +3,9 @@ import { Children, isValidElement, ReactNode } from 'react';
 import { FooterDesktop } from '../../components/footer';
 import { HeaderDesktop } from '../../components/header';
 
+import { isFooterNode } from './isFooterNode';
+import { isHeaderNode } from './isHeaderNode';
+
 type ChildType = typeof HeaderDesktop | typeof FooterDesktop;
 
 export const checkHeaderAndFooter = (children: ReactNode) => {
@@ -13,11 +16,11 @@ export const checkHeaderAndFooter = (children: ReactNode) => {
         if (isValidElement(child)) {
             const { displayName } = child.type as ChildType;
 
-            if (displayName === 'HeaderDesktop') {
+            if (displayName && isHeaderNode(displayName)) {
                 hasHeader = true;
             }
 
-            if (displayName === 'FooterDesktop') {
+            if (displayName && isFooterNode(displayName)) {
                 hasFooter = true;
             }
         }

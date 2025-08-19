@@ -9,4 +9,8 @@
     & .skeleton + .skeleton {
         margin-left: var(--secondary-tablist-mobile-gaps);
     }
+
+    &.transparentView.transparentView .title {
+        margin-left: var(--secondary-tablist-transparent-gaps);
+    }
 }

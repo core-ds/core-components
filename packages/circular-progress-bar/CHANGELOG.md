@@ -1,4 +1,47 @@
-# Change Log
+# @alfalab/core-components-circular-progress-bar
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 3.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   typography@4.14.3
+
+## 3.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   typography@4.14.2
+
+## 3.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
 
 ## 3.9.1
 

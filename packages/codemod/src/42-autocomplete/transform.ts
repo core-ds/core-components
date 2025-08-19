@@ -1,9 +1,4 @@
-import {
-    hasImportSpecifier,
-    isIndexEntry,
-    modifyIdentifiers,
-    modifyImportPath,
-} from '../42-utils';
+import { hasImportSpecifier, isIndexEntry, modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const autocompleteEntryTransformer = (source, j) => {
     modifyImportPath(source, j, (path) =>
