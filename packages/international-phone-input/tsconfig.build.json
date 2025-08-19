@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-input": ["../input/src"],
+            "@alfalab/core-components-input/*": ["../input/src/*"],
+            "@alfalab/core-components-input-autocomplete": ["../input-autocomplete/src"],
+            "@alfalab/core-components-input-autocomplete/*": ["../input-autocomplete/src/*"],
+            "@alfalab/core-components-international-phone-input": ["./src"],
+            "@alfalab/core-components-international-phone-input/*": ["./src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-select": ["../select/src"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-types": ["../types/src"],
+            "@alfalab/core-components-types/*": ["../types/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../input-autocomplete/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../select/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../types/tsconfig.build.json" }
+    ]
+}

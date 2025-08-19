@@ -1,1 +1,2 @@
-export { NumberInputMobile, NumberInputMobileProps } from './Component.mobile';
+export { NumberInputMobile } from './Component.mobile';
+export type { NumberInputMobileProps } from './Component.mobile';

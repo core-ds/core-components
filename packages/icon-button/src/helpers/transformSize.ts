@@ -1,4 +1,4 @@
-import { IconButtonProps } from '@alfalab/core-components-icon-button';
+import { IconButtonProps } from '../Component';
 
 export const transformSize = (size: IconButtonProps['size'] = 48) => {
     switch (size) {

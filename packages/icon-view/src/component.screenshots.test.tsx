@@ -1,4 +1,7 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -90,6 +93,60 @@ describe(
         viewport: {
             width: 330,
             height: 760,
+        },
+        screenshotOpts: {
+            fullPage: false,
+        },
+    }),
+);
+
+describe(
+    'IconView | Rectangle with Image scale',
+    screenshotTesting({
+        cases: [
+            [
+                'Rectangle scale',
+                createSpriteStorybookUrl({
+                    packageName: 'icon-view',
+                    componentName: 'Rectangle',
+                    knobs: {
+                        size: [32, 64, 80, 128],
+                        imageUrl: './images/imgBg.png',
+                        scale: ['fit', 'fill'],
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 600,
+            height: 720,
+        },
+        screenshotOpts: {
+            fullPage: false,
+        },
+    }),
+);
+
+describe(
+    'IconView | NoShape with Image scale',
+    screenshotTesting({
+        cases: [
+            [
+                'NoShape scale',
+                createSpriteStorybookUrl({
+                    packageName: 'icon-view',
+                    componentName: 'NoShape',
+                    knobs: {
+                        size: [32, 64, 80, 128],
+                        imageUrl: './images/imgBg.png',
+                        scale: ['fit', 'fill'],
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 600,
+            height: 720,
         },
         screenshotOpts: {
             fullPage: false,

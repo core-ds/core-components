@@ -18,7 +18,7 @@ export const ContentDesktop: FC<ContentDesktopProps> = ({ className, ...restProp
 
     return (
         <BaseContent
-            className={cn(className, {
+            className={cn(styles.content, className, {
                 [styles.withHeader]: hasHeader,
                 [styles.withFooter]: hasFooter,
             })}

@@ -6,7 +6,7 @@ import { PatternLockV1 } from '@alfalab/core-components-pattern-lock-v1';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof PatternLockV1> = {
     title: 'Deprecated components/PatternLockV1',

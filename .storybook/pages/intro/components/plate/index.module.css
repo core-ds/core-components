@@ -1,4 +1,4 @@
-@import '../../../../../packages/vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .plate {
     padding: var(--gap-16) var(--gap-20);

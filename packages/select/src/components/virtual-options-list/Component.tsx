@@ -42,6 +42,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             setSelectedItems,
             search,
             multiple,
+            scrollbarClassName,
         },
         ref,
     ) => {
@@ -205,7 +206,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         const renderWithCustomScrollbar = () => (
             <Scrollbar
-                className={styles.scrollable}
+                className={cn(styles.scrollable, scrollbarClassName)}
                 ref={scrollbarRef}
                 horizontalAutoStretch={optionsListWidth === 'content'}
                 scrollableNodeProps={{ onScroll, ref: parentRef }}
@@ -219,7 +220,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             if (visibleOptions) {
                 return (
                     <div
-                        className={styles.scrollable}
+                        className={cn(styles.scrollable, scrollbarClassName)}
                         ref={mergeRefs([parentRef, ref])}
                         onScroll={onScroll}
                     >

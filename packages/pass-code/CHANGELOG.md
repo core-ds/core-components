@@ -1,5 +1,37 @@
 # @alfalab/core-components-pass-code
 
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-gap@2.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+
+## 2.5.8
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1778](https://github.com/core-ds/core-components/pull/1778)
+
+-   Исправлено hover состояние KeyPadButton для android устройств
+
 ## 2.5.7
 
 ### Patch Changes

@@ -11,7 +11,7 @@ import { boolean, number } from '@storybook/addon-knobs';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof PopupSheet> = {
     title: 'Components/PopupSheet',

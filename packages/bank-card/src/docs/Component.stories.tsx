@@ -4,7 +4,7 @@ import { text, select } from '@storybook/addon-knobs';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 import styles from './preview.module.css';
 
 import { AlfaBankSignMIcon } from '@alfalab/icons-logo/AlfaBankSignMIcon';

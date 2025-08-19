@@ -1,24 +1,27 @@
 {
     "name": "@alfalab/core-components-icon-button",
-    "version": "6.11.13",
+    "version": "7.0.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "dependencies": {
+        "@alfalab/core-components-button": "^12.0.0",
+        "classnames": "^2.5.1",
+        "tslib": "^2.4.0"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
-    "dependencies": {
-        "@alfalab/core-components-button": "^11.11.10",
-        "classnames": "^2.5.1",
-        "tslib": "^2.4.0"
-    },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.20.1"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

@@ -1,15 +1,30 @@
 {
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "no-dist",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-
+            "@alfalab/core-components-confirmation-v1": ["./src"],
+            "@alfalab/core-components-confirmation-v1/*": ["./src/*"],
+            "@alfalab/core-components-link": ["../link/src"],
+            "@alfalab/core-components-link/*": ["../link/src/*"],
+            "@alfalab/core-components-loader": ["../loader/src"],
+            "@alfalab/core-components-loader/*": ["../loader/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../loader" }, { "path": "../link" }]
+    "references": [
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../link/tsconfig.build.json" },
+        { "path": "../loader/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
+    ]
 }

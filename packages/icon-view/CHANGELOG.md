@@ -1,4 +1,39 @@
-# Change Log
+# @alfalab/core-components-icon-view
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 3.11.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1785](https://github.com/core-ds/core-components/pull/1785)
+
+-   Добавлена возможность управлять масштабированием изображения через проп `scale` (`fill` / `fit`)
+
+## 3.10.4
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1626](https://github.com/core-ds/core-components/pull/1626)
+
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
 
 ## 3.10.3
 

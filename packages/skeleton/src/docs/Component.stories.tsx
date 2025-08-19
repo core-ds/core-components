@@ -4,7 +4,7 @@ import { Skeleton, useSkeleton } from '@alfalab/core-components-skeleton';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Skeleton> = {

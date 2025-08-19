@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-amount-input": ["./src"],
+            "@alfalab/core-components-amount-input/*": ["./src/*"],
+            "@alfalab/core-components-input": ["../input/src"],
+            "@alfalab/core-components-input/*": ["../input/src/*"],
+            "@alfalab/core-components-number-input": ["../number-input/src"],
+            "@alfalab/core-components-number-input/*": ["../number-input/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-with-suffix": ["../with-suffix/src"],
+            "@alfalab/core-components-with-suffix/*": ["../with-suffix/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../number-input/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../with-suffix/tsconfig.build.json" }
+    ]
+}
