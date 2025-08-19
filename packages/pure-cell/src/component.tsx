@@ -59,6 +59,12 @@ type BasePureCellProps = {
     href?: string;
 
     /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    hrefProp?: string;
+
+    /**
      * Вертикальные отступы
      */
     verticalPadding?:
@@ -112,6 +118,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
             dataTestId,
             onClick,
             href,
+            hrefProp,
             tag: Component = (href && 'a') || (onClick && 'button') || 'section',
             children,
             horizontalPadding = 'none',
@@ -171,8 +178,8 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
 
-            // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
+            const propName = hrefProp || (typeof Component === 'string' ? 'href' : 'to');
+            const hrefProps = { [propName]: href };
 
             return (
                 <Component
