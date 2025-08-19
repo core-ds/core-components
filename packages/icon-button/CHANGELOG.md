@@ -1,4 +1,44 @@
-# Change Log
+# @alfalab/core-components-icon-button
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+
+## 6.11.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.10
+
+## 6.11.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+
+## 6.11.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
 
 ## 6.11.10
 

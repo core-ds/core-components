@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
-import { CalendarRange } from '@alfalab/core-components-calendar-range';
+import { CalendarRange } from '../';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof CalendarRange> = {
     title: 'Components/CalendarRange',

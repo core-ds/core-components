@@ -5,7 +5,7 @@ import {
     generateTestCases,
     createSpriteStorybookUrl,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -267,6 +267,96 @@ describe(
         },
     }),
 );
+
+describe('InputDesktop | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input',
+                        componentName: 'InputDesktop',
+                        knobs: {
+                            value: 'Value',
+                            success: true,
+                            clear: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input',
+                        componentName: 'InputDesktop',
+                        knobs: {
+                            value: 'Value',
+                            error: true,
+                            clear: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            viewport: {
+                width: 350,
+                height: 800,
+            },
+            theme,
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
+
+describe('InputMobile | screenshots addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input',
+                        componentName: 'InputMobile',
+                        knobs: {
+                            value: 'Value',
+                            success: true,
+                            clear: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input',
+                        componentName: 'InputMobile',
+                        knobs: {
+                            value: 'Value',
+                            error: true,
+                            clear: true,
+                            block: true,
+                            rightAddons: 'right',
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            viewport: {
+                width: 350,
+                height: 800,
+            },
+            theme,
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
 
 describe(
     'Input | hover state',

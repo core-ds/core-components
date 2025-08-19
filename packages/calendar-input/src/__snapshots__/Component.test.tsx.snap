@@ -30,7 +30,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         >
           <svg
             class="calendarIcon"
@@ -100,7 +100,7 @@ Object {
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-48"
             >
               <svg
                 class="calendarIcon"
@@ -162,7 +162,7 @@ Object {
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           >
             <svg
               class="calendarIcon"
@@ -277,7 +277,7 @@ Object {
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-48"
             >
               <div>
                 Right addons
@@ -335,7 +335,7 @@ Object {
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           >
             <div>
               Right addons

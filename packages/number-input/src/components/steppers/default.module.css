@@ -1,5 +1,14 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .separator {
     background-color: var(--color-light-neutral-translucent-300);
+}
+
+.steppers {
+    background-color: var(--color-light-neutral-translucent-0);
+}
+
+.steppersFocused,
+.steppersDisabled {
+    background-color: var(--color-light-neutral-translucent-200);
 }

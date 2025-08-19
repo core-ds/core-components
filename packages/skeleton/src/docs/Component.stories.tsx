@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment, RefObject } from 'react';
 import { text, boolean, select } from '@storybook/addon-knobs';
-import { Skeleton } from '@alfalab/core-components-skeleton';
+import { Skeleton, useSkeleton } from '@alfalab/core-components-skeleton';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Skeleton> = {
@@ -89,6 +89,59 @@ export const skeleton: Story = {
                     />
                 </Skeleton>
             </div>
+        );
+    },
+};
+
+export const skeleton_text: Story = {
+    name: 'SkeletonText',
+    render: () => {
+        const rows = select('rows', [undefined, 2, 4, 6, 8, 10], undefined);
+        const width = select(
+            'width',
+            [undefined, [100, 200, 300, 400], 100, 200, 300, 400],
+            undefined,
+        );
+        const align = select('align', [undefined, 'left', 'center', 'right'], undefined);
+
+        // дополнительные преобразования нужны для скриншот-тестирования, так как все кнобсы в этом случае приходят в виде строки
+        const getWidth = () => {
+            if (typeof width === 'string') {
+                if ((width as string).startsWith('[') && (width as string).endsWith(']')) {
+                    return JSON.parse(width);
+                }
+            }
+
+            return width;
+        };
+
+        // дополнительные преобразования нужны для скриншот-тестирования, так как все кнобсы в этом случае приходят в виде строки
+        const getRows = () => {
+            if (typeof rows === 'string') {
+                return Number(rows);
+            }
+
+            return rows;
+        };
+
+        const { renderSkeleton, textRef } = useSkeleton(true, {
+            rows: getRows(),
+            width: getWidth(),
+            align,
+        });
+
+        return (
+            <Fragment>
+                <div ref={textRef as RefObject<HTMLDivElement>} style={{ lineHeight: '20px' }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                {renderSkeleton({})}
+            </Fragment>
         );
     },
 };

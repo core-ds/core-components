@@ -41,6 +41,7 @@ export const Field = ({
     FormControlComponent,
     clear,
     onClear,
+    valueSeparator,
     ...restProps
 }: BaseFieldProps & FormControlProps & FieldProps) => {
     const [focused, setFocused] = useState(false);
@@ -52,7 +53,7 @@ export const Field = ({
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
 
-    const value = valueRenderer({ selected, selectedMultiple });
+    const value = valueRenderer({ selected, selectedMultiple, valueSeparator });
 
     const filled = Boolean(value);
     const showLabel = !!label || labelView === 'outer';

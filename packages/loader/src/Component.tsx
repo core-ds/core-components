@@ -15,6 +15,9 @@ export type LoaderProps = {
     dataTestId?: string;
 };
 
+/**
+ * @deprecated Используйте Spinner
+ */
 export const Loader: React.FC<LoaderProps> = ({ className, dataTestId }) => (
     <div className={cn(styles.component, className)} data-test-id={dataTestId}>
         <div />

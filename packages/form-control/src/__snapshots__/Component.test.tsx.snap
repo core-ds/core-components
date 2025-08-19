@@ -869,7 +869,7 @@ Object {
             />
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           >
             <div>
               Right addons
@@ -894,7 +894,7 @@ Object {
           />
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         >
           <div>
             Right addons

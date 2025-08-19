@@ -3,7 +3,7 @@ import { RefObject } from 'react';
 import type { MaskitoPlugin } from '@maskito/core';
 import { MaskitoPostprocessor, MaskitoPreprocessor } from '@maskito/core';
 
-import { Country } from '../../types';
+import { Country } from '@alfalab/core-components-types';
 
 import { fnUtils, isNonNullable } from './fnUtils';
 

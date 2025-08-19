@@ -6,7 +6,7 @@ import { Chart } from '@alfalab/core-components-chart';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Chart> = {
     title: 'Components/Chart',

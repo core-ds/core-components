@@ -1,9 +1,11 @@
 import React from 'react';
+import cn from 'classnames';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { OptionShape } from '../../../../typings';
+import { SIZE_TO_CLASSNAME_MAP } from '../../../../consts';
+import { OptionShape, OptionsListProps } from '../../../../typings';
 
 import styles from './index.module.css';
 
@@ -13,6 +15,7 @@ export type FooterProps = {
     showClear?: boolean;
     selectedDraft?: OptionShape[];
     dataTestId?: string;
+    size?: OptionsListProps['size'];
 };
 
 export const Footer = ({
@@ -21,11 +24,12 @@ export const Footer = ({
     showClear,
     selectedDraft = [],
     dataTestId,
+    size,
 }: FooterProps) => (
     <div
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
-        className={styles.footer}
+        className={cn(styles.footer, size && styles[SIZE_TO_CLASSNAME_MAP[size]])}
     >
         <ButtonDesktop
             size={32}

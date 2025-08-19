@@ -96,8 +96,13 @@ export function guessCountry(inputNumber: string, data: Country[][]) {
         return guess || selectedCountry;
     }, undefined as Country | undefined);
 
-    if (!result && inputNumber.length > 5 && inputNumber.startsWith('8'))
-        return data.find((countryData) => countryData[0].iso2 === 'ru')?.[0];
+    if (!result && inputNumber.startsWith('8')) {
+        const matchContry = data.some(([{ dialCode }]) => dialCode.startsWith(inputNumberDialCode));
+
+        if (!matchContry) {
+            return data.find(([{ iso2 }]) => iso2 === 'ru')?.[0];
+        }
+    }
 
     return result;
 }
@@ -233,7 +238,7 @@ export function getPhoneData(phone: string, countries: Country[][], defaultIso2?
     const inputNumber = clearMask(nextPhone);
     const nextCountry = findCountry(countries, phone, defaultIso2);
 
-    if (nextCountry?.iso2 === 'ru' && inputNumber.length > 5 && inputNumber.startsWith('8')) {
+    if (nextCountry?.iso2 === 'ru' && inputNumber.startsWith('8')) {
         nextPhone = phone.replace(/\+?8/, '+7');
     }
 

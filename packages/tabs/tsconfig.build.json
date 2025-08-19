@@ -1,0 +1,40 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-badge": ["../badge/src"],
+            "@alfalab/core-components-badge/*": ["../badge/src/*"],
+            "@alfalab/core-components-icon-button": ["../icon-button/src"],
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@alfalab/core-components-keyboard-focusable": ["../keyboard-focusable/src"],
+            "@alfalab/core-components-keyboard-focusable/*": ["../keyboard-focusable/src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-picker-button": ["../picker-button/src"],
+            "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-skeleton": ["../skeleton/src"],
+            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"],
+            "@alfalab/core-components-tabs": ["./src"],
+            "@alfalab/core-components-tabs/*": ["./src/*"],
+            "@alfalab/core-components-tag": ["../tag/src"],
+            "@alfalab/core-components-tag/*": ["../tag/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../badge/tsconfig.build.json" },
+        { "path": "../icon-button/tsconfig.build.json" },
+        { "path": "../keyboard-focusable/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../picker-button/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../skeleton/tsconfig.build.json" },
+        { "path": "../tag/tsconfig.build.json" }
+    ]
+}

@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const globby = require('globby');
+const { globby } = require('globby');
 const os = require('os');
 
 const apiUrl = 'http://design/design-system-usage/api/stats/component-usages';

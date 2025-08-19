@@ -2,7 +2,7 @@
 import React, { ElementType, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId, isObject } from '@alfalab/core-components-shared';
+import { getDataTestId, isObject, noop } from '@alfalab/core-components-shared';
 import { Text, TitleMobile } from '@alfalab/core-components-typography';
 
 import { ComponentSize } from './types/component-size';
@@ -44,6 +44,10 @@ export type CircularProgressBarProps = {
                * @default backward
                */
               counting?: 'forward' | 'backward';
+              /**
+               * Обработчик завершения таймера
+               */
+              onFinish?: () => void;
           };
 
     /**
@@ -214,6 +218,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         isTimer ? Math.min(Math.max(valueFromProps.timer, MIN_TIMER_VALUE), MAX_TIMER_VALUE) : -1,
         isTimer,
         isTimer ? valueFromProps.counting ?? 'backward' : 'backward',
+        isTimer ? valueFromProps.onFinish ?? noop : noop,
     );
     let value: number;
     let title: React.ReactNode;

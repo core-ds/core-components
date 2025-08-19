@@ -30,9 +30,9 @@ const heights: Record<Required<RectangleProps>['size'], number> = {
     48: 34,
     56: 40,
     64: 46,
-    72: 56,
+    72: 52,
     80: 58,
-    128: 94,
+    128: 92,
 };
 
 export const Rectangle = forwardRef<HTMLDivElement, RectangleProps>(

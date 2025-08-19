@@ -1,6 +1,6 @@
 @define-mixin input-site {
-    --input-error-icon-display: block;
-    --input-error-icon-not-alone-display: block;
+    --input-error-icon-display: flex;
+    --input-error-icon-not-alone-display: flex;
     --input-disabled-color: var(--color-light-text-secondary);
     --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
     --input-read-only-color: var(--color-light-text-secondary);

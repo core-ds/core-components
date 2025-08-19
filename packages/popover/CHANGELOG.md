@@ -1,4 +1,64 @@
-# Change Log
+# @alfalab/core-components-popover
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+-   Пакет `@alfalab/stack-context` перенесен в `@alfalab/core-components-stack-context`. При обновлении необходимо заменить `as-is`.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-portal@4.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-stack@6.0.0
+    -   @alfalab/core-components-stack-context@1.0.0
+
+## 6.4.0
+
+### Minor Changes
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+-   Добавлена возможность указать DOM элемент в качестве контейнера для пропса `availableHeight`
+-   Добавлен проп `scrollableContentClassName`
+
+## 6.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.10
+
+## 6.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.9
+
+## 6.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.3.8
 
 ## 6.3.8
 
