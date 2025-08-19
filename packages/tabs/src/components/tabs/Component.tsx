@@ -1,4 +1,4 @@
-import React, { AriaAttributes, cloneElement, HTMLAttributes } from 'react';
+import React, { cloneElement } from 'react';
 
 import { pickAccessibilityProps } from '@alfalab/core-components-shared';
 
@@ -27,7 +27,7 @@ export const Tabs = ({
     textStyle,
     style,
     ...restProps
-}: Omit<TabsProps, 'view'> & HTMLAttributes<HTMLDivElement> & AriaAttributes) => {
+}: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(
         ({
@@ -58,7 +58,7 @@ export const Tabs = ({
     );
 
     return (
-        <div className={className} {...pickAccessibilityProps(restProps)}>
+        <div className={className} {...pickAccessibilityProps<typeof restProps>(restProps)}>
             <TabList
                 containerClassName={containerClassName}
                 size={size}

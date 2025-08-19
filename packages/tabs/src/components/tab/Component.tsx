@@ -28,7 +28,7 @@ export const Tab = ({
             role='tabpanel'
             tabIndex={disabled ? -1 : 0}
             data-test-id={dataTestId}
-            {...pickAccessibilityProps(restProps)}
+            {...pickAccessibilityProps<typeof restProps>(restProps)}
         >
             {children}
         </div>
