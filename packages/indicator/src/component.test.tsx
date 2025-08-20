@@ -91,6 +91,6 @@ describe('Indicator', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Indicator />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });
