@@ -24,7 +24,14 @@ function generateTypography({ data }) {
                 }),
             );
 
-            Object.entries(data).forEach(([name, rules]) => {
+            const sortedData = Object.entries(data).sort(([aName], [bName]) =>
+                aName.localeCompare(bName),
+            );
+
+            [
+                ...sortedData.filter(([, rules]) => !rules.deprecated),
+                ...sortedData.filter(([, rules]) => rules.deprecated),
+            ].forEach(([name, rules]) => {
                 const atRule = helpers.postcss.atRule({
                     name: 'define-mixin',
                     params: name,
@@ -44,7 +51,9 @@ function generateTypography({ data }) {
                         }
 
                         // code formatting
-                        const raws = { before: `\n${' '.repeat(4 /* indent size in spaces */)}` };
+                        const raws = {
+                            before: `\n${' '.repeat(4 /* indent size in spaces */)}`,
+                        };
 
                         if (prop === 'font-family' && value === 'var(--font-family-styrene)') {
                             result.push(

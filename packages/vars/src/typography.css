@@ -128,6 +128,46 @@
     text-transform: uppercase;
 }
 
+@define-mixin headline_large {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline_medium {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline_small {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline_xlarge {
+    font-size: 48px;
+    line-height: 64px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline_xsmall {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
 @define-mixin headline-mobile_large {
     font-size: 30px;
     line-height: 36px;
@@ -168,36 +208,6 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline-system-mobile_large {
-    font-size: 30px;
-    line-height: 36px;
-    font-weight: 600;
-}
-
-@define-mixin headline-system-mobile_medium {
-    font-size: 26px;
-    line-height: 32px;
-    font-weight: 600;
-}
-
-@define-mixin headline-system-mobile_small {
-    font-size: 20px;
-    line-height: 28px;
-    font-weight: 600;
-}
-
-@define-mixin headline-system-mobile_xlarge {
-    font-size: 34px;
-    line-height: 40px;
-    font-weight: 600;
-}
-
-@define-mixin headline-system-mobile_xsmall {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-}
-
 @define-mixin headline-system_large {
     font-size: 40px;
     line-height: 48px;
@@ -228,44 +238,34 @@
     font-weight: 700;
 }
 
-@define-mixin headline_large {
-    font-size: 40px;
-    line-height: 48px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
+@define-mixin headline-system-mobile_large {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 600;
 }
 
-@define-mixin headline_medium {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin headline_small {
-    font-size: 24px;
+@define-mixin headline-system-mobile_medium {
+    font-size: 26px;
     line-height: 32px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
+    font-weight: 600;
 }
 
-@define-mixin headline_xlarge {
-    font-size: 48px;
-    line-height: 64px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin headline_xsmall {
+@define-mixin headline-system-mobile_small {
     font-size: 20px;
-    line-height: 24px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
+    line-height: 28px;
+    font-weight: 600;
+}
+
+@define-mixin headline-system-mobile_xlarge {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+@define-mixin headline-system-mobile_xsmall {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
 }
 
 @define-mixin key_large {
@@ -372,6 +372,46 @@
     text-transform: uppercase;
 }
 
+@define-mixin promo_large {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo_medium {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo_small {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo_xlarge {
+    font-size: 48px;
+    line-height: 64px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo_xsmall {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
 @define-mixin promo-mobile_large {
     font-size: 30px;
     line-height: 36px;
@@ -412,36 +452,6 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin promo-system-mobile_large {
-    font-size: 30px;
-    line-height: 36px;
-    font-weight: 400;
-}
-
-@define-mixin promo-system-mobile_medium {
-    font-size: 26px;
-    line-height: 32px;
-    font-weight: 400;
-}
-
-@define-mixin promo-system-mobile_small {
-    font-size: 20px;
-    line-height: 28px;
-    font-weight: 400;
-}
-
-@define-mixin promo-system-mobile_xlarge {
-    font-size: 34px;
-    line-height: 40px;
-    font-weight: 400;
-}
-
-@define-mixin promo-system-mobile_xsmall {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 400;
-}
-
 @define-mixin promo-system_large {
     font-size: 40px;
     line-height: 48px;
@@ -472,44 +482,34 @@
     font-weight: 400;
 }
 
-@define-mixin promo_large {
-    font-size: 40px;
-    line-height: 48px;
+@define-mixin promo-system-mobile_large {
+    font-size: 30px;
+    line-height: 36px;
     font-weight: 400;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
 }
 
-@define-mixin promo_medium {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 400;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin promo_small {
-    font-size: 24px;
+@define-mixin promo-system-mobile_medium {
+    font-size: 26px;
     line-height: 32px;
     font-weight: 400;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
 }
 
-@define-mixin promo_xlarge {
-    font-size: 48px;
-    line-height: 64px;
-    font-weight: 400;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin promo_xsmall {
+@define-mixin promo-system-mobile_small {
     font-size: 20px;
-    line-height: 24px;
+    line-height: 28px;
     font-weight: 400;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo-system-mobile_xlarge {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system-mobile_xsmall {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
 }
 
 @define-mixin accent_component {
