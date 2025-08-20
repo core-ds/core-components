@@ -191,7 +191,7 @@ describe('Button', () => {
 
             fireEvent.click(getByTestId(dataTestId));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call `onClick` prop if disabled', () => {
@@ -203,7 +203,7 @@ describe('Button', () => {
 
             fireEvent.click(getByTestId(dataTestId));
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         it('should not call `onClick` prop if disabled and href passed', () => {
@@ -215,7 +215,7 @@ describe('Button', () => {
 
             fireEvent.click(getByTestId(dataTestId));
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         /**
@@ -306,7 +306,7 @@ describe('Button', () => {
 
             render(<Button Component={forwardRef(cb)} dataTestId={dataTestId} />);
 
-            expect(cb).toBeCalled();
+            expect(cb).toHaveBeenCalled();
 
             const props = cb.mock.calls[0][0];
             expect(props['data-test-id']).toBe(dataTestId);
@@ -318,7 +318,7 @@ describe('Button', () => {
 
             render(<Button Component={forwardRef(cb)} href='test' />);
 
-            expect(cb).toBeCalled();
+            expect(cb).toHaveBeenCalled();
 
             const props = cb.mock.calls[0][0];
 
@@ -358,6 +358,6 @@ describe('Button', () => {
             </Button>,
         );
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

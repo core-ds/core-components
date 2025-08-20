@@ -83,7 +83,7 @@ describe('UniversalDateInput', () => {
                     const input = queryByRole('textbox') as HTMLInputElement;
                     await userEvent.type(input, value);
 
-                    expect(onInputChange).toBeCalledWith(...result);
+                    expect(onInputChange).toHaveBeenCalledWith(...result);
                 });
             }
         });
@@ -98,8 +98,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '12122022');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(new Date('2022-12-12'), '12.12.2022');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(new Date('2022-12-12'), '12.12.2022');
             });
 
             it(`should call onChange when clear input`, async () => {
@@ -118,8 +118,8 @@ describe('UniversalDateInput', () => {
                     initialSelectionEnd: 10,
                 });
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(null, '');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(null, '');
             });
         });
 
@@ -137,7 +137,7 @@ describe('UniversalDateInput', () => {
 
                 fireEvent.click(getByRole('button', { name: 'Очистить' }));
 
-                expect(onClear).toBeCalledTimes(1);
+                expect(onClear).toHaveBeenCalledTimes(1);
             });
 
             it(`should clear input when uncontrolled`, async () => {
@@ -217,7 +217,7 @@ describe('UniversalDateInput', () => {
                     const input = queryByRole('textbox') as HTMLInputElement;
                     await userEvent.type(input, value);
 
-                    expect(onInputChange).toBeCalledWith(...result);
+                    expect(onInputChange).toHaveBeenCalledWith(...result);
                 });
             }
         });
@@ -232,8 +232,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '121220221212');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(
                     new Date('2022-12-12T12:12:00'),
                     `12.12.2022${DATE_TIME_SEPARATOR}12:12`,
                 );
@@ -255,8 +255,8 @@ describe('UniversalDateInput', () => {
                     initialSelectionEnd: 17,
                 });
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(null, '');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(null, '');
             });
         });
     });
@@ -320,7 +320,7 @@ describe('UniversalDateInput', () => {
             await userEvent.click(input);
             fireEvent.blur(input);
 
-            expect(onBlur).toBeCalledTimes(1);
+            expect(onBlur).toHaveBeenCalledTimes(1);
         });
 
         describe('onInputChange tests', () => {
@@ -360,7 +360,7 @@ describe('UniversalDateInput', () => {
                     const input = queryByRole('textbox') as HTMLInputElement;
                     await userEvent.type(input, value);
 
-                    expect(onInputChange).toBeCalledWith(...result);
+                    expect(onInputChange).toHaveBeenCalledWith(...result);
                 });
             }
         });
@@ -375,8 +375,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '1212202212122023');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(
                     {
                         dateFrom: new Date('2022-12-12'),
                         dateTo: new Date('2023-12-12'),
@@ -404,8 +404,8 @@ describe('UniversalDateInput', () => {
                     initialSelectionEnd: 23,
                 });
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith({ dateFrom: null, dateTo: null }, '');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith({ dateFrom: null, dateTo: null }, '');
             });
         });
     });
@@ -439,8 +439,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '1212');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith('12:12');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith('12:12');
             });
         });
 
@@ -453,7 +453,7 @@ describe('UniversalDateInput', () => {
 
                 fireEvent.click(getByRole('button', { name: 'Очистить' }));
 
-                expect(onClear).toBeCalledTimes(1);
+                expect(onClear).toHaveBeenCalledTimes(1);
             });
 
             it(`should clear input when uncontrolled`, async () => {

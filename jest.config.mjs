@@ -32,11 +32,6 @@ const [initialProjectOptions] = [
             (pkg) => `<rootDir>/${path.relative(dirname, resolveInternal(pkg))}`,
         ),
         transformIgnorePatterns: [`/node_modules/(?!(${IGNORED_MODULES.join('|')}))/`],
-        // see https://jestjs.io/blog/2022/08/25/jest-29
-        snapshotFormat: {
-            escapeString: true,
-            printBasicPrototype: true,
-        },
     },
 ];
 

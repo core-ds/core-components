@@ -42,7 +42,7 @@ describe('Scrollbar', () => {
 
             fireEvent.scroll(getByTestId(scrollableDataTestId));
 
-            expect(onScroll).toBeCalledTimes(1);
+            expect(onScroll).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -50,7 +50,7 @@ describe('Scrollbar', () => {
         it('should unmount without errors', () => {
             const { unmount } = render(renderScrollbar());
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

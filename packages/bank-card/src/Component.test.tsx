@@ -183,7 +183,7 @@ describe('BankCard', () => {
 
             fireEvent.change(input, { target: { value } });
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(input.value).toBe(value);
         });
 
@@ -194,13 +194,13 @@ describe('BankCard', () => {
 
             fireEvent.click(getByRole('button'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<BankCard value='value' onChange={jest.fn()} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

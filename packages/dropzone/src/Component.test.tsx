@@ -163,19 +163,19 @@ describe('Dropzone', () => {
 
             fireDragEventWithFiles(dropzone, 'drop');
 
-            expect(handleDrop).not.toBeCalled();
+            expect(handleDrop).not.toHaveBeenCalled();
 
             fireDragEventWithFiles(dropzone, 'dragEnter');
 
-            expect(handleDragEnter).not.toBeCalled();
+            expect(handleDragEnter).not.toHaveBeenCalled();
 
             fireDragEventWithFiles(dropzone, 'dragLeave');
 
-            expect(handleDragLeave).not.toBeCalled();
+            expect(handleDragLeave).not.toHaveBeenCalled();
 
             fireDragEventWithFiles(dropzone, 'dragOver');
 
-            expect(handleDragOver).not.toBeCalled();
+            expect(handleDragOver).not.toHaveBeenCalled();
         });
     });
 });

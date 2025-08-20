@@ -87,7 +87,7 @@ describe('Render tests', () => {
     test('should unmount without errors', () => {
         const { unmount } = render(<Tag rightAddons={<div>addons</div>}>Tag</Tag>);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     test('should contain right addons', () => {
@@ -121,7 +121,7 @@ describe('Interaction tests', () => {
             fireEvent.click(container.firstElementChild);
         }
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     test('should not call `onClick` prop, if tag is disabled', () => {
@@ -137,7 +137,7 @@ describe('Interaction tests', () => {
             fireEvent.click(container.firstElementChild);
         }
 
-        expect(cb).toBeCalledTimes(0);
+        expect(cb).toHaveBeenCalledTimes(0);
     });
 
     test('should not call `onClick` prop, if tag is disabled and checked', () => {
@@ -153,6 +153,6 @@ describe('Interaction tests', () => {
             fireEvent.click(container.firstElementChild);
         }
 
-        expect(cb).toBeCalledTimes(0);
+        expect(cb).toHaveBeenCalledTimes(0);
     });
 });
