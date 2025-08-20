@@ -36,12 +36,8 @@
 }
 
 .month {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
+    @mixin accent_caps;
+
     color: var(--color-light-text-primary);
     margin-bottom: var(--gap-8);
 

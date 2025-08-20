@@ -197,5 +197,8 @@
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },
-    "packageManager": "yarn@1.22.22"
+    "packageManager": "yarn@1.22.22",
+    "resolutions": {
+        "arui-presets-lint/@alfalab/stylelint-core-vars": "1.7.2-snapshot-535879116f6a10fec29e7f9928ee26fdb7847828"
+    }
 }

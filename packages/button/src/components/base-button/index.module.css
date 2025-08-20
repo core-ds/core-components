@@ -76,7 +76,8 @@
     min-width: 80px;
     min-height: var(--size-xxs-height);
     padding: var(--gap-0) 15px;
-    font-size: 14px;
+
+    @mixin action_primary_small;
 
     &.iconOnly {
         min-width: var(--size-xxs-height);
@@ -87,7 +88,8 @@
     min-width: 88px;
     min-height: var(--size-xs-height);
     padding: var(--gap-0) 19px;
-    font-size: 14px;
+
+    @mixin action_primary_small;
 
     &.iconOnly {
         min-width: var(--size-xs-height);
@@ -97,7 +99,9 @@
 .size-48 {
     min-width: 104px;
     min-height: var(--size-s-height);
-    font-size: 16px;
+
+    @mixin action_component_primary;
+
     line-height: 20px;
 
     &.iconOnly {
@@ -109,8 +113,8 @@
     min-width: 128px;
     min-height: var(--size-m-height);
     padding: var(--gap-0) 27px;
-    font-size: 16px;
-    line-height: 20px;
+
+    @mixin action_component_primary;
 
     &.iconOnly {
         min-width: var(--size-m-height);
@@ -121,8 +125,8 @@
     min-width: 160px;
     min-height: var(--size-l-height);
     padding: var(--gap-0) 31px;
-    font-size: 18px;
-    line-height: 24px;
+
+    @mixin action_primary_large;
 
     &.iconOnly {
         min-width: var(--size-l-height);
@@ -133,8 +137,8 @@
     min-width: 168px;
     min-height: var(--size-xl-height);
     padding: var(--gap-0) 35px;
-    font-size: 18px;
-    line-height: 24px;
+
+    @mixin action_primary_large;
 
     &.iconOnly {
         min-width: var(--size-xl-height);

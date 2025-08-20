@@ -45,8 +45,8 @@
     left: var(--gap-0);
     transform: translateY(-1px);
     color: var(--color-light-text-secondary);
-    font-size: 20px;
-    line-height: 24px;
+
+    @mixin promo_xsmall;
 
     @media (max-width: 360px) {
         font-size: 16px;

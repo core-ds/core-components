@@ -48,10 +48,13 @@
     react-merge-refs "^1.1.0"
     react-use-event-hook "^0.9.6"
 
-"@alfalab/stylelint-core-vars@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.5.0.tgz#2eb559978a9835a80afb1bf7d8ba36c7b12b6a49"
-  integrity sha512-3gYD2jZa0Vv/FvoiLVRec/U5JMBpg2AUrIipyUne7ymlnOH9ETM3ecZVPTWAh3K3kPoPFSvVV8vSrKkG/qEliw==
+"@alfalab/stylelint-core-vars@1.5.0", "@alfalab/stylelint-core-vars@1.7.2-snapshot-535879116f6a10fec29e7f9928ee26fdb7847828":
+  version "1.7.2-snapshot-535879116f6a10fec29e7f9928ee26fdb7847828"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.7.2-snapshot-535879116f6a10fec29e7f9928ee26fdb7847828.tgz#d58cf26992e02baa6bea1a5c6ca336934d4828ec"
+  integrity sha512-r+WWgMjbgxJ2/WJb0ROT4vKhpVLTPxQTu7YoXSDEe0VPDujHeQUdblPMmcEVBlX2//SI99ANPLx6vzcPj6SE5w==
+  dependencies:
+    "@manypkg/get-packages" "^2.2.2"
+    postcss "^8.5.6"
 
 "@alfalab/utils@^1.17.1":
   version "1.17.1"
@@ -19488,7 +19491,7 @@ postcss@^8.1.10, postcss@^8.4.14, postcss@^8.4.16, postcss@^8.4.19:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postcss@^8.1.6:
+postcss@^8.1.6, postcss@^8.5.6:
   version "8.5.6"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.6.tgz#2825006615a619b4f62a9e7426cc120b349a8f3c"
   integrity sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==
