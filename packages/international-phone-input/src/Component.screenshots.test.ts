@@ -160,7 +160,7 @@ describe('InternationalPhoneInputMobile | interactions', () => {
                 expect,
                 screenshotOpts: { fullPage: true },
                 viewport: { width: 360, height: 640 },
-                evaluate: (page) => page.click('input'),
+                evaluate: (page) => page.click('input:visible'),
             });
         } catch (e) {
             // eslint-disable-next-line no-console

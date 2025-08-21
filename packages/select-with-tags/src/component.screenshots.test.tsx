@@ -92,11 +92,11 @@ describe('SelectWithTags', () => {
                 await page.click('[role="option"]:nth-child(2)', { delay: 100 });
                 await page.click('[role="option"]:nth-child(3)', { delay: 100 });
 
-                await page.fill('input', 'sadsadad');
+                await page.fill('input:visible', 'sadsadad');
 
                 await match();
 
-                await page.fill('input', 'niu');
+                await page.fill('input:visible', 'niu');
 
                 await match();
 
