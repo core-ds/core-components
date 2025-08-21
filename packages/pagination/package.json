@@ -11,7 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-tag": "^9.0.0",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

@@ -11,7 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-link": "^6.0.0",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
         "lodash": "^4.17.21",
