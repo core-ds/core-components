@@ -2,6 +2,7 @@
 '@alfalab/core-components-checkbox-group': minor
 '@alfalab/core-components-radio-group': minor
 '@alfalab/core-components-themes': minor
+'@alfalab/core-components': minor
 ---
 
 - Убрана красная линия и отступ слева в состоянии ошибки:
