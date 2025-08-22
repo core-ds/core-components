@@ -1,5 +1,13 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
+@define-mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @mixin-content;
+        }
+    }
+}
+
 :root {
     /* primary */
     --icon-button-inverted-primary-base-color: var(--color-light-neutral-translucent-1300-inverted);
@@ -66,10 +74,8 @@
     &.primary {
         color: var(--icon-button-inverted-primary-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-inverted-primary-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-inverted-primary-hover-color);
         }
 
         &:active {
@@ -80,10 +86,8 @@
     &.secondary {
         color: var(--icon-button-inverted-secondary-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-inverted-secondary-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-inverted-secondary-hover-color);
         }
 
         &:active {
@@ -94,10 +98,8 @@
     &.transparent {
         color: var(--icon-button-inverted-transparent-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-inverted-transparent-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-inverted-transparent-hover-color);
         }
 
         &:active {
@@ -108,10 +110,8 @@
     &.negative {
         color: var(--icon-button-inverted-negative-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-inverted-negative-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-inverted-negative-hover-color);
         }
 
         &:active {
@@ -122,10 +122,8 @@
     &.tertiary {
         color: var(--icon-button-inverted-tertiary-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-inverted-tertiary-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-inverted-tertiary-hover-color);
         }
 
         &:active {
@@ -137,10 +135,8 @@
         &.primary {
             color: var(--color-light-text-primary-inverted);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-inverted-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-inverted-hover);
             }
 
             &:active {
@@ -151,10 +147,8 @@
         &.secondary {
             color: var(--color-light-text-secondary-inverted);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-inverted-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-inverted-hover);
             }
 
             &:active {
@@ -165,10 +159,8 @@
         &.negative {
             color: var(--color-light-text-negative-inverted);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-inverted-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-inverted-hover);
             }
 
             &:active {
@@ -179,10 +171,8 @@
         &.tertiary {
             color: var(--color-light-text-tertiary-inverted);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-inverted-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-inverted-hover);
             }
 
             &:active {

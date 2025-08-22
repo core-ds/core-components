@@ -1,5 +1,13 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
+@define-mixin hover {
+    @media (hover: hover) {
+        &:hover:before {
+            @mixin-content;
+        }
+    }
+}
+
 .customButton {
     overflow: hidden;
     position: relative;
@@ -43,10 +51,8 @@
     }
 
     &.darkening {
-        @media (hover: hover) {
-            &:hover:before {
-                background-color: var(--color-light-neutral-translucent-200);
-            }
+        @mixin hover {
+            background-color: var(--color-light-neutral-translucent-200);
         }
 
         &:active:before {
@@ -55,10 +61,8 @@
     }
 
     &.lightening {
-        @media (hover: hover) {
-            &:hover:before {
-                background-color: var(--color-light-neutral-translucent-200-inverted);
-            }
+        @mixin hover {
+            background-color: var(--color-light-neutral-translucent-200-inverted);
         }
 
         &:active:before {
@@ -67,10 +71,8 @@
     }
 
     &.static-darkening {
-        @media (hover: hover) {
-            &:hover:before {
-                background-color: rgba(0, 0, 0, 0.07);
-            }
+        @mixin hover {
+            background-color: rgba(0, 0, 0, 0.07);
         }
 
         &:active:before {
@@ -79,10 +81,8 @@
     }
 
     &.static-lightening {
-        @media (hover: hover) {
-            &:hover:before {
-                background-color: rgba(255, 255, 255, 0.07);
-            }
+        @mixin hover {
+            background-color: rgba(255, 255, 255, 0.07);
         }
 
         &:active:before {
