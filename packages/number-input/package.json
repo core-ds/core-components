@@ -14,7 +14,7 @@
         "@alfalab/core-components-input": "^16.0.0",
         "@alfalab/core-components-mq": "^5.0.0",
         "@alfalab/core-components-shared": "^1.0.0",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
         "classnames": "^2.5.1",
