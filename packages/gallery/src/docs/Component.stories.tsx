@@ -6,7 +6,7 @@ import { Gallery } from '@alfalab/core-components-gallery';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Gallery> = {
     title: 'Components/Gallery',
@@ -94,8 +94,17 @@ export const gallery: Story = {
                             src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiBmaWxsPSIjNDU0Nzc4Ii8+Cjwvc3ZnPgo=',
                         },
                         {
+                            name: 'Photo.jpg',
+                            src: 'https://pixabay.com/images/download/people-2944065_640.jpg?attachment',
+                        },
+                        {
                             name: 'Alfa promo.m3u8',
                             src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
+                            bottomButton: {
+                                text: 'Кнопка с задержкой 2 секунды',
+                                onClick: () => {},
+                                timeout: 2,
+                            },
                         },
                         {
                             name: 'Битое изображение.jpg',
@@ -111,8 +120,8 @@ export const gallery: Story = {
                     }}
                     images={[
                         {
-                            name: 'Горизонтальное изображение.jpg',
-                            src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI1MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDUwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjNDU0Nzc4Ii8+Cjwvc3ZnPgo=',
+                            name: 'Вертикальное изображение.jpg',
+                            src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjEwMDAiIHZpZXdCb3g9IjAgMCA1MDAgMTAwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIxMDAwIiBmaWxsPSIjNDU0Nzc4Ii8+Cjwvc3ZnPgo=',
                         },
                     ]}
                     loop={boolean('loop', true)}

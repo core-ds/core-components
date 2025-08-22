@@ -66,7 +66,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
             <div
               class="info"
             >
-              Запросить повторно можно через
+              Запросить новый можно через
             </div>
             <div
               class="loaderWrap"
@@ -106,7 +106,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           <span
             class="text"
           >
-            Не приходит сообщение?
+            Не приходит код?
           </span>
         </button>
       </div>
@@ -213,7 +213,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
           class="component left"
         >
           <div>
-            Код отправлен на
+            Отправили на
              
             +7 ··· ··· 55-66
           </div>
@@ -221,7 +221,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
             <div
               class="info"
             >
-              Запросить повторно можно через
+              Запросить новый можно через
             </div>
             <div
               class="loaderWrap"
@@ -261,7 +261,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
           <span
             class="text"
           >
-            Не приходит сообщение?
+            Не приходит код?
           </span>
         </button>
       </div>
@@ -343,7 +343,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
             <div
               class="info"
             >
-              Запросить повторно можно через
+              Запросить новый можно через
             </div>
             <div
               class="loaderWrap"
@@ -383,7 +383,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
           <span
             class="text"
           >
-            Не приходит сообщение?
+            Не приходит код?
           </span>
         </button>
       </div>
@@ -530,7 +530,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
             <div
               class="info"
             >
-              Запросить повторно можно через
+              Запросить новый можно через
             </div>
             <div
               class="loaderWrap"
@@ -570,7 +570,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
           <span
             class="text"
           >
-            Не приходит сообщение?
+            Не приходит код?
           </span>
         </button>
       </div>
@@ -646,7 +646,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
             <div
               class="info"
             >
-              Запросить повторно можно через
+              Запросить новый можно через
             </div>
             <div
               class="loaderWrap"
@@ -686,7 +686,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
           <span
             class="text"
           >
-            Не приходит сообщение?
+            Не приходит код?
           </span>
         </button>
       </div>
@@ -759,7 +759,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
           class="component left"
         >
           <div>
-            Код отправлен на
+            Отправили на
              
             +7 999 888-55-66
           </div>
@@ -767,7 +767,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
             <div
               class="info"
             >
-              Запросить повторно можно через
+              Запросить новый можно через
             </div>
             <div
               class="loaderWrap"
@@ -807,7 +807,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
           <span
             class="text"
           >
-            Не приходит сообщение?
+            Не приходит код?
           </span>
         </button>
       </div>
@@ -883,7 +883,7 @@ exports[`Confirmation Snapshot tests should match snapshot without smsCountdown 
           <span
             class="text"
           >
-            Не приходит сообщение?
+            Не приходит код?
           </span>
         </button>
       </div>

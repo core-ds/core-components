@@ -1,9 +1,10 @@
 import {
+    createPreview,
     createStorybookUrl,
     closeBrowser,
     matchHtml,
     openBrowserPage,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const ENTRY_TO_COMPONENT_NAME = {
     desktop: 'SelectWithTagsDesktop',
@@ -23,6 +24,19 @@ const screenshotOpts = {
     fullPage: false,
     omitBackground: false,
 };
+
+describe('SelectWithTags', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'SelectWithTags',
+            knobs: {
+                size: 56,
+            },
+        },
+        'transform:scale(2.1)',
+    );
+});
 
 describe('SelectWithTags', () => {
     test('hover & pressed', async () => {

@@ -1,30 +1,33 @@
 {
     "name": "@alfalab/core-components-intl-phone-input",
-    "version": "9.12.3",
+    "version": "10.0.0",
     "description": "Phone input for international phones",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
-        "@alfalab/core-components-input-autocomplete": "12.8.8",
-        "@alfalab/core-components-select": "^17.20.11",
+        "@alfalab/core-components-input-autocomplete": "^13.0.0",
+        "@alfalab/core-components-select": "^18.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.210.0",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "libphonenumber-js": "^1.10.30",
-        "react-merge-refs": "1.1.0",
+        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

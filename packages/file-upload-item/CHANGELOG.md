@@ -1,4 +1,104 @@
-# Change Log
+# @alfalab/core-components-file-upload-item
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-icon-view@4.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 6.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.11.0
+
+## 6.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.4
+
+## 6.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.3
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 6.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.2
+
+## 6.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 6.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 6.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 6.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.1
+    -   icon-button@6.11.11
+
+## 6.3.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1640](https://github.com/core-ds/core-components/pull/1640)
+
+1. Если в компоненте `FileUploadItem` отсутствуют кнопки (то есть ни `showRestore`, ни `downloadLink`, ни `showDelete` не активны), то элемент `Content` отображается с курсором в виде `pointer`, сигнализируя о том, что он кликабельный.
+
+2. Если хотя бы одна из кнопок присутствует, кликабельность `Content` меняется в соответствии с логикой отображения.
+
+3. Добавлен пропс `isClickable`, который позволяет управлять визуальным отображением кликабельности элемента `Content` в случае отсутствия кнопок.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
 
 ## 6.2.6
 

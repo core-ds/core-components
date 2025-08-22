@@ -1,4 +1,63 @@
-# Change Log
+# @alfalab/core-components-phone-input
+
+## 8.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-masked-input@7.0.0
+
+## 7.5.8
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1698](https://github.com/core-ds/core-components/pull/1698)
+
+-   При вставке номера телефона без знака "+" номер не обрезается.
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1729](https://github.com/core-ds/core-components/pull/1729)
+
+-   Исправлено определение вставки чисел перед знаком `+` или после него. Ранее могло приводить к ошибкам при управлении компонентом с помощью изменения `value`
+
+-   Обновлены зависимости
+    -   masked-input@6.3.39
+
+## 7.5.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.38
+
+## 7.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.37
+
+## 7.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.36
 
 ## 7.5.4
 

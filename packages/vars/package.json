@@ -1,9 +1,14 @@
 {
     "name": "@alfalab/core-components-vars",
-    "version": "9.19.0",
+    "version": "10.0.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "main": "index.js",
+    "module": "esm/index.js",
     "style": "index.css",
     "publishConfig": {
         "access": "public",

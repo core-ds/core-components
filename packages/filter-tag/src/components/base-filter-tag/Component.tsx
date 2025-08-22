@@ -93,7 +93,6 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                         [styles.checked]: checked,
                         [commonStyles.disabled]: disabled,
                         [colorStyles[colors].disabled]: disabled,
-                        [styles.disabled]: disabled,
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
                         [commonStyles.block]: block,

@@ -6,7 +6,7 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -191,7 +191,7 @@ describe('ConfirmationV1 | interactions tests', () => {
         const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
-            await page.locator('button', { hasText: 'Не приходит сообщение?' }).click();
+            await page.locator('button', { hasText: 'Не приходит код?' }).click();
 
             await matchHtml({
                 context,

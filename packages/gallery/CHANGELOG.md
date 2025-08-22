@@ -1,4 +1,168 @@
-# Change Log
+# @alfalab/core-components-gallery
+
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>15.08.2025</time></sup>
+
+#### [#1794](https://github.com/core-ds/core-components/pull/1794)
+
+-   добавлен fallback шаринга по ссылке для изображений из других источников
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-icon-view@4.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-spinner@5.0.0
+    -   @alfalab/core-components-tooltip@8.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 5.12.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.10.0
+    -   icon-view@3.11.0
+
+## 5.12.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.17
+
+## 5.12.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.4
+
+## 5.12.8
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1756](https://github.com/core-ds/core-components/pull/1756)
+
+-   safe-area отступы перенесены из modal в container
+
+## 5.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.3
+    -   base-modal@5.9.4
+    -   button@11.11.10
+    -   spinner@4.0.9
+    -   tooltip@7.9.16
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 5.12.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+    -   icon-view@3.10.2
+    -   tooltip@7.9.15
+
+## 5.12.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.2
+    -   button@11.11.9
+    -   spinner@4.0.8
+    -   tooltip@7.9.14
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 5.12.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   tooltip@7.9.13
+
+## 5.12.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   tooltip@7.9.12
+
+## 5.12.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.1
+    -   button@11.11.8
+    -   spinner@4.0.7
+    -   tooltip@7.9.11
+    -   typography@4.13.1
+    -   icon-button@6.11.11
+
+## 5.12.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.9.10
+
+## 5.12.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1568](https://github.com/core-ds/core-components/pull/1568)
+
+Кастомные эвенты для событий у видео: onPlay, onPause, onMute, onUnmute, заменены на коллбэки, которые можно прокинуть в images
+
+-   Десктоп:
+
+1. Добавлено пролистывание превью с зажатой кнопкой ЛКМ
+2. Про воспроизведении, видео пробелом ставится видео на паузу;
+
+-   Мобайл:
+
+1. В хедер добавлена кнопка «Поделиться»;
+2. В навигации если это одна из первых или последних миниатюр, она не центририруется, чтобы по краям не возникало пустое пространство. Активная миниатюра центрируется, если справа и слева от нее достаточно элементов, чтобы заполнить всю область, отведённую под миниатюры;
+3. При свайпе вниз, галерея закрывается
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   tooltip@7.9.9
 
 ## 5.11.9
 

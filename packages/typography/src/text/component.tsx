@@ -2,11 +2,13 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
+
 import { Color } from '../colors';
-import { useSkeleton } from '../hooks';
-import { TextElementType, TextSkeletonProps } from '../types';
+import { TextElementType } from '../types';
 
 import colors from '../colors.module.css';
+import alfasansStyles from './alfasans-index.module.css';
 import styles from './index.module.css';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
@@ -82,6 +84,11 @@ type TextBaseProps = {
      * Пропы для скелетона
      */
     skeletonProps?: TextSkeletonProps;
+
+    /**
+     * Шрифт текста
+     */
+    font?: 'alfasans' | undefined | null;
 };
 
 type TextPTagProps = Omit<TextBaseProps, 'tag' | 'defaultMargins'> & {
@@ -123,6 +130,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
             rowLimit,
             showSkeleton,
             skeletonProps,
+            font,
             ...restProps
         },
         ref,
@@ -153,11 +161,12 @@ export const Text = forwardRef<TextElementType, TextProps>(
                         [styles.monospace]: monospaceNumbers,
                         [styles[`rowLimit${rowLimit}`]]: rowLimit,
                         [styles.transparent]: showSkeleton,
+                        [alfasansStyles.text]: font === 'alfasans',
                     },
                     className,
                     color && colors[color],
-                    styles[view],
-                    weight && styles[weight],
+                    (font === 'alfasans' ? alfasansStyles : styles)[view],
+                    weight && (font === 'alfasans' ? alfasansStyles : styles)[weight],
                 )}
                 data-test-id={dataTestId}
                 ref={mergeRefs([ref, textRef])}

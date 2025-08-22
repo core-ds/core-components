@@ -1,4 +1,55 @@
-# Change Log
+# @alfalab/core-components-with-suffix
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-portal@4.0.0
+
+## 4.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+    -   portal@3.3.10
+
+## 4.2.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+    -   portal@3.3.9
+
+## 4.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 4.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.5
+    -   portal@3.3.8
 
 ## 4.2.16
 

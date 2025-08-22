@@ -1,11 +1,11 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .customButton {
     overflow: hidden;
     position: relative;
 
     &.border {
-        border: 0;
+        border: 1px solid transparent;
     }
 
     &.white * {

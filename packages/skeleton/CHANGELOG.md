@@ -1,4 +1,28 @@
-# Change Log
+# @alfalab/core-components-skeleton
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 5.4.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1606](https://github.com/core-ds/core-components/pull/1606)
+
+-   Перенос хука useSkeleton из `Typography` в `Skeleton`
 
 ## 5.3.0
 

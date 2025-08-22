@@ -68,10 +68,7 @@ export const ImageViewer: FC = () => {
     const swiperProps = useMemo<Swiper>(
         () => ({
             slidesPerView: 1,
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true,
-            },
+            effect: 'slide',
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
@@ -84,9 +81,10 @@ export const ImageViewer: FC = () => {
             },
             initialSlide,
             simulateTouch: false,
-            zoom: { maxRatio: 4 },
+            zoom: { maxRatio: 4, minRatio: 1, toggle: true },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
+            lazy: { loadPrevNext: true },
         }),
         [
             fullScreen,
@@ -107,12 +105,12 @@ export const ImageViewer: FC = () => {
     const swiperAspectRatio = swiperWidth / swiperHeight;
 
     return (
-        /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         <div
             className={cn(styles.component, {
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             })}
+            aria-hidden={true}
             onClick={handleWrapperClick}
         >
             {showControls && (

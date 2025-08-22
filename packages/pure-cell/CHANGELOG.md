@@ -1,4 +1,108 @@
-# Change Log
+# @alfalab/core-components-pure-cell
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-amount@4.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-comment@3.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 4.15.0
+
+### Minor Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1758](https://github.com/core-ds/core-components/pull/1758)
+
+-   Добавлен новый тип `max` отступа от графики
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+-   Версия пакета @alfalab/data обновлена до 1.9.2
+
+-   Обновлены зависимости
+    -   amount@3.10.2
+
+## 4.14.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   typography@4.14.3
+    -   comment@2.4.15
+
+## 4.14.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   typography@4.14.2
+    -   comment@2.4.14
+
+## 4.14.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+    -   comment@2.4.13
+
+## 4.14.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+    -   comment@2.4.12
+
+## 4.14.9
+
+### Patch Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1618](https://github.com/core-ds/core-components/pull/1618)
+
+-   Исправлено active состояние при mouseup событии за пределами компонента
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   typography@4.13.1
+    -   comment@2.4.11
+
+## 4.14.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
+    -   comment@2.4.10
 
 ## 4.14.7
 

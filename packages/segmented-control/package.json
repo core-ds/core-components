@@ -1,26 +1,29 @@
 {
     "name": "@alfalab/core-components-segmented-control",
-    "version": "1.7.3",
+    "version": "2.0.0",
     "description": "SegmentedControl component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "@alfalab/hooks": "^1.13.1",
+        "@juggle/resize-observer": "^3.3.1",
+        "classnames": "^2.5.1",
+        "react-merge-refs": "^1.1.0",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/hooks": "^1.13.1",
-        "classnames": "^2.5.1",
-        "react-merge-refs": "^1.1.0",
-        "@juggle/resize-observer": "^3.3.1"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.19.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

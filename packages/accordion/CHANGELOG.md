@@ -1,4 +1,66 @@
-# Change Log
+# @alfalab/core-components-accordion
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 1.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.3
+
+## 1.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.2
+
+## 1.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 1.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 1.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.1
+
+## 1.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
 
 ## 1.2.9
 

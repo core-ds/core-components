@@ -1,5 +1,159 @@
 # @alfalab/core-components-international-phone-input
 
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-input-autocomplete@13.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-select@18.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-types@1.0.0
+
+## 2.8.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.10.0
+    -   select@17.24.0
+
+## 2.7.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   input-autocomplete@12.9.9
+
+## 2.7.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+    -   input-autocomplete@12.9.8
+
+## 2.7.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+    -   input-autocomplete@12.9.7
+
+## 2.7.18
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1644](https://github.com/core-ds/core-components/pull/1644)
+
+-   Для размера XL горизонтальные паддинги исправлены на 16px в соответствии с дизайном
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   input-autocomplete@12.9.6
+    -   input@15.6.2
+
+## 2.7.17
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1722](https://github.com/core-ds/core-components/pull/1722)
+
+-   Убран не используемый проп onClear(обработчик можно пробросить в inputProps)
+
+-   Обновлены зависимости
+    -   select@17.21.3
+    -   input-autocomplete@12.9.5
+
+## 2.7.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   input-autocomplete@12.9.4
+    -   select@17.21.2
+
+## 2.7.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+    -   input-autocomplete@12.9.3
+
+## 2.7.14
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1709](https://github.com/core-ds/core-components/pull/1709)
+
+-   Улучшен механизм угадывания страны по пользовательскому вводу
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input@15.6.0
+    -   input-autocomplete@12.9.2
+
+## 2.7.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   input@15.5.5
+    -   input-autocomplete@12.9.1
+    -   select@17.20.14
+
+## 2.7.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@12.9.0
+    -   select@17.20.13
+
+## 2.7.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+    -   input-autocomplete@12.8.9
+
 ## 2.7.10
 
 ### Patch Changes

@@ -1,8 +1,11 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .container {
     position: relative;
-    cursor: pointer;
+
+    &.clickable {
+        cursor: pointer;
+    }
 
     & .progress {
         position: absolute;

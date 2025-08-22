@@ -1,4 +1,107 @@
-# Change Log
+# @alfalab/core-components-confirmation
+
+## 14.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-code-input@4.0.0
+    -   @alfalab/core-components-link@6.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-spinner@5.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 13.10.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   code-input@3.9.11
+
+## 13.10.5
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1730](https://github.com/core-ds/core-components/pull/1730)
+
+-   Исправлено выравнивание компонента для `alignContent=left`. Теперь контейнер будет прижат к левому краю, а не располагаться по центру.
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   code-input@3.9.10
+    -   button@11.11.10
+    -   spinner@4.0.9
+    -   typography@4.14.3
+
+## 13.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   code-input@3.9.9
+    -   spinner@4.0.8
+    -   typography@4.14.2
+
+## 13.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 13.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 13.10.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   code-input@3.9.8
+    -   spinner@4.0.7
+    -   typography@4.13.1
+
+## 13.10.0
+
+### Minor Changes
+
+<sup><time>28.04.2025</time></sup>
+
+### [#1652](https://github.com/core-ds/core-components/pull/1652)
+
+-   Исправлены копирайты для экранов `INITIAL`, `HINT`, `FATAL_ERROR`, `TEMP_BLOCK`
+-   Добавлен новый экран `TEMP_BLOCK_OVER`
+-   Добавлена возможность проброса через prop texts текстовок для экрана `HINT`
+
+## 13.9.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.0
 
 ## 13.9.11
 

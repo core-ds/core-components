@@ -1,4 +1,113 @@
-# Change Log
+# @alfalab/core-components-calendar-input
+
+## 11.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.0
+    -   @alfalab/core-components-date-input@5.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+
+## 10.4.37
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.20.0
+
+## 10.4.36
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
+## 10.4.35
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.2
+
+## 10.4.34
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.1
+
+## 10.4.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   calendar@7.19.0
+    -   date-input@4.4.20
+    -   popover@6.3.11
+
+## 10.4.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+
+## 10.4.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   calendar@7.18.6
+    -   date-input@4.4.19
+    -   popover@6.3.10
+
+## 10.4.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+
+## 10.4.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.4.18
+    -   calendar@7.18.4
+
+## 10.4.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   calendar@7.18.3
+    -   date-input@4.4.17
+    -   popover@6.3.9
+
+## 10.4.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.2
 
 ## 10.4.26
 

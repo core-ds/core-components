@@ -1,4 +1,129 @@
-# Change Log
+# @alfalab/core-components-picker-button
+
+## 12.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+    -   @alfalab/core-components-select@18.0.0
+
+## 11.13.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.24.0
+
+## 11.12.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   popover@6.4.0
+
+## 11.12.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
+## 11.12.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+
+## 11.12.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   popover@6.3.11
+
+## 11.12.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+
+## 11.12.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   select@17.21.2
+    -   popover@6.3.10
+
+## 11.12.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
+## 11.12.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+
+## 11.12.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   select@17.20.14
+    -   popover@6.3.9
+
+## 11.12.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.13
+
+## 11.12.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
 
 ## 11.12.22
 

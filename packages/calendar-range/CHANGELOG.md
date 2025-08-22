@@ -1,4 +1,120 @@
-# Change Log
+# @alfalab/core-components-calendar-range
+
+## 8.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.0
+    -   @alfalab/core-components-calendar-input@11.0.0
+    -   @alfalab/core-components-date-input@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+
+## 7.8.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.20.0
+    -   calendar-input@10.4.37
+
+## 7.8.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar-input@10.4.36
+
+## 7.8.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.2
+    -   calendar-input@10.4.35
+
+## 7.8.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.19.1
+    -   calendar-input@10.4.34
+
+## 7.8.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   calendar@7.19.0
+    -   calendar-input@10.4.33
+    -   date-input@4.4.20
+
+## 7.8.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.7
+    -   calendar-input@10.4.32
+
+## 7.8.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   calendar@7.18.6
+    -   calendar-input@10.4.31
+    -   date-input@4.4.19
+
+## 7.8.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.5
+    -   calendar-input@10.4.30
+
+## 7.8.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.4.18
+    -   calendar@7.18.4
+    -   calendar-input@10.4.29
+
+## 7.8.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   calendar@7.18.3
+    -   calendar-input@10.4.28
+    -   date-input@4.4.17
+
+## 7.8.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.18.2
+    -   calendar-input@10.4.27
 
 ## 7.8.14
 

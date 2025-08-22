@@ -2,6 +2,10 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { pluralize } from '@alfalab/utils';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
 import { SelectWithTagsDesktop } from '@alfalab/core-components-select-with-tags/desktop';
@@ -36,9 +40,14 @@ const options = [
     { key: '15', content: 'Bohrium', value: 'Bohrium' },
 ];
 
-const renderComponent = (Component = SelectWithTags) => {
+const renderComponent = (component = SelectWithTags) => {
+    const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+    const isPreview = Object.keys(previewStyles).length > 0;
+    const Component = isPreview ? SelectWithTagsDesktop : component;
     const [value, setValue] = React.useState('');
-    const [selected, setSelected] = React.useState<(string | OptionShape)[]>([]);
+    const [selected, setSelected] = React.useState<(string | OptionShape)[]>(
+        isPreview ? options.slice(3, 8) : [],
+    );
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     };
@@ -50,27 +59,29 @@ const renderComponent = (Component = SelectWithTags) => {
         return `+${count} ${pluralize(count, 'элемент', 'элемента', 'элементов')}`;
     };
     return (
-        <div style={{ width: '400px' }}>
-            <Component
-                collapseTagList={boolean('collapseTagList', true)}
-                moveInputToNewLine={boolean('moveInputToNewLine', true)}
-                options={options}
-                block={boolean('block', true)}
-                size={select('size', [48, 56, 64, 72], 72)}
-                disabled={boolean('disabled', false)}
-                error={text('error', '')}
-                hint={text('hint', '')}
-                Arrow={boolean('Arrow', false) ? Arrow : undefined}
-                circularNavigation={boolean('circularNavigation', false)}
-                placeholder={text('placeholder', 'Элемент')}
-                label={text('label', '')}
-                autocomplete={boolean('autocomplete', true)}
-                onInput={handleInput}
-                transformCollapsedTagText={transformCollapsedTagText}
-                value={value}
-                onChange={handleChange}
-                selected={selected}
-            />
+        <div style={previewStyles}>
+            <div style={{ width: isPreview ? 256 : 400 }}>
+                <Component
+                    collapseTagList={boolean('collapseTagList', true)}
+                    moveInputToNewLine={boolean('moveInputToNewLine', true)}
+                    options={options}
+                    block={boolean('block', true)}
+                    size={select('size', [48, 56, 64, 72], 72)}
+                    disabled={boolean('disabled', false)}
+                    error={text('error', '')}
+                    hint={text('hint', '')}
+                    Arrow={boolean('Arrow', false) ? Arrow : undefined}
+                    circularNavigation={boolean('circularNavigation', false)}
+                    placeholder={text('placeholder', 'Элемент')}
+                    label={text('label', '')}
+                    autocomplete={boolean('autocomplete', true)}
+                    onInput={handleInput}
+                    transformCollapsedTagText={transformCollapsedTagText}
+                    value={value}
+                    onChange={handleChange}
+                    selected={selected}
+                />
+            </div>
         </div>
     );
 };

@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-icon-button": ["../icon-button/src"],
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-plate": ["./src"],
+            "@alfalab/core-components-plate/*": ["./src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../icon-button/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
+    ]
+}
