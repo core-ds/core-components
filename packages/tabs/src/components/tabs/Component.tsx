@@ -1,7 +1,5 @@
 import React, { cloneElement } from 'react';
 
-import { pickAccessibilityProps } from '@alfalab/core-components-shared';
-
 import { TabsProps } from '../../typings';
 
 export const Tabs = ({
@@ -58,7 +56,7 @@ export const Tabs = ({
     );
 
     return (
-        <div className={className} {...pickAccessibilityProps<typeof restProps>(restProps)}>
+        <div className={className} {...restProps}>
             <TabList
                 containerClassName={containerClassName}
                 size={size}

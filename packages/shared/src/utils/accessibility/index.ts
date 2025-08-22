@@ -1,1 +1,0 @@
-export { pickAccessibilityProps } from './accessibility';

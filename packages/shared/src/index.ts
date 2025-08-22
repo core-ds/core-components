@@ -8,7 +8,6 @@ export * from './browser';
 export * from './hooks';
 export * from './os';
 export * from './dom';
-export * from './utils';
 export * from './exhaustiveCheck';
 export * from './context/PortalContext';
 export * from './warning';
