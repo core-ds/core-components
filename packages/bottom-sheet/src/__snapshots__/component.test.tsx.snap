@@ -34,7 +34,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
           class="component modal appear appearActive"
         >
           <div
-            class="content hasHeader"
+            class="content hasFooter hasHeader"
           >
             <div
               class="wrapper"
@@ -74,6 +74,9 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                       Bottom sheet content
                     </div>
                   </div>
+                  <div
+                    class="footer sticky"
+                  />
                 </div>
               </div>
             </div>
