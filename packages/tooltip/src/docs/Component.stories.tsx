@@ -8,7 +8,7 @@ import { Tooltip } from '@alfalab/core-components-tooltip';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Tooltip> = {
     title: 'Components/Tooltip',

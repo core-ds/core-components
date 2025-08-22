@@ -44,11 +44,6 @@ export type BaseUniversalModalProps = {
      * Устанавливает отступы модального окна
      */
     margin?: TMargin;
-
-    /**
-     * Хэндлер закрытия модалки
-     */
-    onClose?: () => void;
 };
 
 export type UniversalModalDesktopProps = BaseUniversalModalProps &
@@ -63,6 +58,8 @@ export type UniversalModalDesktopProps = BaseUniversalModalProps &
             | 'onUnmount'
             | 'transitionProps'
             | 'backdropProps'
+            | 'disableBackdropClick'
+            | 'onClose'
         >
     > & {
         /**

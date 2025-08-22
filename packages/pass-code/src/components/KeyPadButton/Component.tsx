@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
-import { os } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 
@@ -53,9 +52,7 @@ export function KeyPadButton<T extends ReactNode>({
 }: KeyPadButtonProps<T>) {
     return (
         <ButtonMobile
-            className={cn(styles.button, styles[view], buttonClassName, {
-                [styles.isIOS]: os.isIOS(),
-            })}
+            className={cn(styles.button, styles[view], buttonClassName)}
             view={view}
             onClick={() => onClick?.(children)}
             dataTestId={dataTestId}

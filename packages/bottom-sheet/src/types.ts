@@ -4,8 +4,7 @@ import type { TransitionProps } from 'react-transition-group/Transition';
 
 import type { BaseModalProps } from '@alfalab/core-components-base-modal';
 import type { NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
-
-import type { BackgroundColorType } from '../../types';
+import type { BackgroundColorType } from '@alfalab/core-components-types';
 
 export type ColorType = 'default' | 'inverted';
 
@@ -119,6 +118,12 @@ export type BottomSheetProps = {
     modalWrapperClassName?: string;
 
     /**
+     * Дефолтный маркер
+     * @default true
+     */
+    showSwipeMarker?: boolean;
+
+    /*
      * Дополнительный класс для маркера
      */
     swipeableMarkerClassName?: string;

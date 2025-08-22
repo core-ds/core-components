@@ -1,8 +1,11 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .component {
     width: 100%;
     max-width: 388px;
-    margin: var(--gap-0) auto;
     color: var(--color-light-text-secondary);
+
+    &.center {
+        margin: var(--gap-0) auto;
+    }
 }

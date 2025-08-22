@@ -1,4 +1,43 @@
-# Change Log
+# @alfalab/core-components-tab-bar
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-indicator@3.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 2.1.19
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1779](https://github.com/core-ds/core-components/pull/1779)
+
+-   Добавлен нижний safe-area отступ для standalone мода
+
+## 2.1.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   typography@4.14.3
 
 ## 2.1.17
 

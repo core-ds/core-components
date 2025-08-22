@@ -1,0 +1,69 @@
+name: resolve-demo-params
+
+on:
+    workflow_call:
+        inputs:
+            version:
+                description: Version of @alfalab/core-components package, tag or SHA
+                required: false
+                type: string
+                default: ${{ github.ref }}
+            dir:
+                description: Demo directory
+                required: false
+                type: string
+        outputs:
+            ref:
+                description: Checkout ref
+                value: ${{ jobs.resolve.outputs.ref }}
+            dir:
+                description: Demo directory
+                value: ${{ jobs.resolve.outputs.dir }}
+
+jobs:
+    resolve:
+        runs-on: ubuntu-latest
+        outputs:
+            ref: ${{ steps.resolve-ref.outputs.result }}
+            dir: ${{ steps.resolve-dir.outputs.result }}
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: setup nodejs
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 18.x
+                  cache: yarn
+
+            - name: install dependencies
+              shell: bash
+              working-directory: tools/gh-actions/resolve-demo-params
+              run: |
+                  yarn install --frozen-lockfile
+
+            - id: resolve-ref
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      const run = require('./tools/gh-actions/resolve-demo-params/resolve-ref.js');
+                      const inputs = ${{ toJSON(inputs) }};
+
+                      return await run({ github, context, core, glob, io, exec, inputs });
+
+            - uses: actions/checkout@v4
+              if: ${{ steps.resolve-ref.outputs.result != github.ref }}
+              with:
+                  ref: ${{ steps.resolve-ref.outputs.result }}
+                  fetch-tags: true
+                  path: checkout-ref
+
+            - id: resolve-dir
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      const run = require('./tools/gh-actions/resolve-demo-params/resolve-dir.js');
+                      const inputs = ${{ toJSON(inputs) }};
+
+                      return await run({ github, context, core, glob, io, exec, inputs });

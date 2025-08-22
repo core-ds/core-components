@@ -1,27 +1,30 @@
 {
     "name": "@alfalab/core-components-navigation-bar",
-    "version": "1.2.24",
+    "version": "2.0.0",
     "description": "NavigationBar",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.9",
-        "@alfalab/core-components-typography": "^4.14.2",
-        "@alfalab/core-components-shared": "^0.17.1",
+        "@alfalab/core-components-button": "^12.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-typography": "^5.0.0",
         "@alfalab/icons-glyph": "^2.210.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.3",
-    "varsVersion": "9.20.0"
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

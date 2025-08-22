@@ -2,7 +2,7 @@ import {
     createPreview,
     createSpriteStorybookUrl,
     setupScreenshotTesting,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,

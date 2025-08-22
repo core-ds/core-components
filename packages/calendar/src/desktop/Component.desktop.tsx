@@ -174,6 +174,12 @@ export type CalendarDesktopProps = {
     showCurrentYearSelector?: boolean;
 
     /**
+     * Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'
+     * @default true
+     */
+    hideDisabledArrows?: boolean;
+
+    /**
      * CalendarDesktop используется в мобильной и десктопной версии
      * Пропс позволяет определить платформу
      */
@@ -212,6 +218,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             dayAddons,
             shape = 'rounded',
             showCurrentYearSelector = false,
+            hideDisabledArrows = true,
             mobile,
         },
         ref,
@@ -379,7 +386,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                                 periodType='month'
                                 prevArrowDisabled={!canSetPrevMonth}
                                 nextArrowDisabled={!canSetNextMonth}
-                                hideDisabledArrows={true}
+                                hideDisabledArrows={hideDisabledArrows}
                                 showCurrentYearSelector={showCurrentYearSelector}
                                 onPrevArrowClick={handlePrevArrowClick}
                                 onNextArrowClick={handleNextArrowClick}

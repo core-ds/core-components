@@ -4,6 +4,7 @@
 '@alfalab/core-components-modal': patch
 '@alfalab/core-components-picker-button': patch
 '@alfalab/core-components-side-panel': patch
+'@alfalab/core-components': patch
 ---
 
 - Добавлена инверсия BottomSheet через props `colors`

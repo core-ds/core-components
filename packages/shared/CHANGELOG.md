@@ -1,5 +1,34 @@
 # @alfalab/core-components-shared
 
+## 1.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-types@1.0.0
+
+## 0.18.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+-   Добавлена проверка `isMaskitoMask`
+
 ## 0.17.1
 
 ### Patch Changes

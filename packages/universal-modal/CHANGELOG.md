@@ -1,4 +1,52 @@
-# Change Log
+# @alfalab/core-components-universal-modal
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-backdrop@4.0.0
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-navigation-bar-private@1.0.0
+    -   @alfalab/core-components-scrollbar@4.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 1.1.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   scrollbar@3.4.0
+    -   base-modal@5.9.4
+    -   button@11.11.10
+    -   navigation-bar-private@0.8.7
+    -   typography@4.14.3
+
+## 1.1.4
+
+### Patch Changes
+
+<sup><time>17.06.2025</time></sup>
+
+### [#1743](https://github.com/core-ds/core-components/pull/1743)
+
+-   Открыт для использования пропс `disableBackdropClick` в десктопной версии
 
 ## 1.1.3
 

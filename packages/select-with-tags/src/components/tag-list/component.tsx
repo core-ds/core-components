@@ -73,6 +73,7 @@ export const TagList: FC<
     label,
     valueRenderer,
     onInput,
+    onClear,
     handleDeleteTag,
     collapseTagList,
     moveInputToNewLine,

@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-date-input": ["./src"],
+            "@alfalab/core-components-date-input/*": ["./src/*"],
+            "@alfalab/core-components-input": ["../input/src"],
+            "@alfalab/core-components-input/*": ["../input/src/*"]
+        }
+    },
+    "references": [{ "path": "../input/tsconfig.build.json" }]
+}
