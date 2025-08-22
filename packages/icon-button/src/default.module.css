@@ -1,5 +1,13 @@
 @import '../../vars/src/index.css';
 
+@define-mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @mixin-content;
+        }
+    }
+}
+
 :root {
     /* primary */
     --icon-button-primary-base-color: var(--color-light-neutral-translucent-1300);
@@ -36,10 +44,8 @@
     &.primary {
         color: var(--icon-button-primary-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-primary-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-primary-hover-color);
         }
 
         &:active {
@@ -50,10 +56,8 @@
     &.secondary {
         color: var(--icon-button-secondary-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-secondary-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-secondary-hover-color);
         }
 
         &:active {
@@ -64,10 +68,8 @@
     &.transparent {
         color: var(--icon-button-transparent-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-transparent-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-transparent-hover-color);
         }
 
         &:active {
@@ -78,10 +80,8 @@
     &.negative {
         color: var(--icon-button-negative-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-negative-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-negative-hover-color);
         }
 
         &:active {
@@ -92,10 +92,8 @@
     &.tertiary {
         color: var(--icon-button-tertiary-base-color);
 
-        @media (hover: hover) {
-            &:hover {
-                color: var(--icon-button-tertiary-hover-color);
-            }
+        @mixin hover {
+            color: var(--icon-button-tertiary-hover-color);
         }
 
         &:active {
@@ -107,10 +105,8 @@
         &.primary {
             color: var(--color-light-text-primary);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
             }
 
             &:active {
@@ -121,10 +117,8 @@
         &.secondary {
             color: var(--color-light-text-secondary);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
             }
 
             &:active {
@@ -135,10 +129,8 @@
         &.negative {
             color: var(--color-light-text-negative);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
             }
 
             &:active {
@@ -149,10 +141,8 @@
         &.tertiary {
             color: var(--color-light-text-tertiary);
 
-            @media (hover: hover) {
-                &:hover {
-                    background: var(--color-light-transparent-default-hover);
-                }
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
             }
 
             &:active {
