@@ -1,7 +1,0 @@
-@import '@alfalab/core-components-vars/src/index.css';
-
-.button.button {
-    padding: 0 var(--gap-12);
-    background-color: var(--color-light-bg-primary-alpha-40);
-    backdrop-filter: blur(10px);
-}

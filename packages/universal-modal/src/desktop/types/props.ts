@@ -27,10 +27,9 @@ export type BaseUniversalModalProps = {
 
     /**
      * Высота модального окна
-     * fullHeight - высота модального окна подстроится под viewport
-     * hugContent - высота модального окна зафиксируется под размер содержимого
+     * fullHeight - высота модального окна подстроится под viewport (по умолчанию для боковой модалки)
+     * hugContent - высота модального окна зафиксируется под размер содержимого (по умолчания для центральной модалки)
      * minHeight - 264
-     * @default fullHeight
      */
     height?: number | 'fullHeight' | 'hugContent';
 
