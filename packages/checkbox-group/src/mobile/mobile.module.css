@@ -8,8 +8,28 @@
     @mixin paragraph_component_secondary;
     color: var(--checkbox-group-mobile-label-color);
     padding-left: var(--checkbox-group-mobile-sub-padding-left);
+    margin-bottom: var(--gap-12);
+
+    &.tag {
+        margin-bottom: var(--gap-8);
+    }
 }
 
 .sub {
+    @mixin paragraph_component_secondary;
+    margin-top: var(--gap-12);
     padding-left: var(--checkbox-group-mobile-sub-padding-left);
+
+    &.tag {
+        margin-top: var(--gap-8);
+    }
+}
+
+.error {
+    padding-left: var(--checkbox-group-mobile-error-padding-left);
+    border-left: var(--checkbox-group-mobile-error-border-left);
+
+    &.tag {
+        padding-left: var(--gap-0);
+    }
 }
