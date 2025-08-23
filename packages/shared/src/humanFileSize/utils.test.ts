@@ -1,4 +1,4 @@
-import { humanFileSize } from './utils';
+import { humanFileSize } from './humanFileSize';
 
 describe('humanFileSize', () => {
     const cases = [

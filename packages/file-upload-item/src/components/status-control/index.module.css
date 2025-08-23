@@ -12,6 +12,7 @@
         top: var(--gap-4-neg);
         left: var(--gap-4-neg);
         z-index: 1;
+        will-change: opacity;
 
         &.success,
         &.error {

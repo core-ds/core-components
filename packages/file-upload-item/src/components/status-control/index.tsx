@@ -6,8 +6,8 @@ import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
 import { isErrorStatus, isSuccessStatus } from '../../utils';
 
-import { StatusControlIcon } from './components/status-control-icon';
-import { ProgressBar } from './components/status-control-progress-bar/status-control-progress-bar';
+import { ExtensionIcon } from './extension-icon';
+import { ProgressBar } from './progress-bar';
 
 import styles from './index.module.css';
 
@@ -20,8 +20,9 @@ export const StatusControl = () => {
         isClickable,
     } = useContext(FileUploadItemContext);
 
-    const measureDashoffset = 182.574 * (1 - progressBar / 100);
-    const dashoffset = Math.max(measureDashoffset, 0);
+    const strokeDasharray = 182.5742645263672; // total length
+    const measureDashoffset = strokeDasharray * (1 - progressBar / 100);
+    const strokeDashoffset = Math.max(measureDashoffset, 0);
 
     return (
         <div
@@ -30,14 +31,15 @@ export const StatusControl = () => {
             })}
         >
             <SuperEllipse size={48} {...(imageUrl && { imageUrl })}>
-                <StatusControlIcon />
+                <ExtensionIcon />
             </SuperEllipse>
             <ProgressBar
                 className={cn(styles.progress, {
                     [styles.success]: isSuccessStatus(uploadStatus),
                     [styles.error]: isErrorStatus(uploadStatus),
                 })}
-                dashoffset={dashoffset}
+                strokeDasharray={strokeDasharray}
+                strokeDashoffset={strokeDashoffset}
             />
         </div>
     );
