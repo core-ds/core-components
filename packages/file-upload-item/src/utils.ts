@@ -1,5 +1,6 @@
 import { type FileUploadItemStatus } from './types/status';
 
+// todo в shared
 export function humanFileSize(size: string | number) {
     const units = ['Б', 'КБ', 'МБ', 'ГБ'];
 

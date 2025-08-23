@@ -1,0 +1,34 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.container {
+    position: relative;
+
+    &.clickable {
+        cursor: pointer;
+    }
+
+    & .progress {
+        position: absolute;
+        top: var(--gap-4-neg);
+        left: var(--gap-4-neg);
+        z-index: 1;
+
+        &.success,
+        &.error {
+            transition: opacity 400ms ease-in;
+            opacity: 0;
+        }
+
+        &.success {
+            & path {
+                stroke: var(--color-light-status-positive);
+            }
+        }
+
+        &.error {
+            & path {
+                stroke: var(--color-light-status-negative);
+            }
+        }
+    }
+}
