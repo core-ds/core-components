@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed state 1`] = `
 <body>
@@ -118,7 +118,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
             >
               <div
                 class="component sheet"
-                style="max-height: 744px; height: 744px;"
+                style="height: 744px; max-height: 744px;"
               >
                 <div
                   class="scrollableContainer sheetContainer"

@@ -74,7 +74,7 @@ describe('NotificationManager', () => {
 
             jest.runAllTimers();
 
-            expect(cb).toBeCalledWith(notificationId);
+            expect(cb).toHaveBeenCalledWith(notificationId);
         });
 
         it('should call `onRemoveNotification` prop by closer click', () => {
@@ -96,7 +96,7 @@ describe('NotificationManager', () => {
                 fireEvent.click(closer);
             }
 
-            expect(cb).toBeCalledWith(notificationId);
+            expect(cb).toHaveBeenCalledWith(notificationId);
         });
     });
 
@@ -148,7 +148,7 @@ describe('NotificationManager', () => {
             <NotificationManager onRemoveNotification={jest.fn()} notifications={[]} />,
         );
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     it('should render to container', () => {

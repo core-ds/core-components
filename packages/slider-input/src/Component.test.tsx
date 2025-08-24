@@ -145,7 +145,7 @@ describe('SliderInput', () => {
 
         fireEvent.change(input, { target: { value } });
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     it('should call `onInputChange` prop', () => {
@@ -158,7 +158,7 @@ describe('SliderInput', () => {
 
         fireEvent.change(input, { target: { value } });
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     it.skip('should call `onSliderChange` prop', () => {
@@ -171,7 +171,7 @@ describe('SliderInput', () => {
 
         fireEvent.change(slider, { target: { value } });
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     it('should call `onBlur` prop', () => {
@@ -184,12 +184,12 @@ describe('SliderInput', () => {
         fireEvent.focus(input);
         fireEvent.blur(input);
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<SliderInput />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

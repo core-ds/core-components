@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Skeleton Snapshots tests should display 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -70,7 +70,7 @@ Object {
 `;
 
 exports[`Skeleton Snapshots tests should not display 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -135,7 +135,7 @@ Object {
 `;
 
 exports[`Skeleton Snapshots tests should use a children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
