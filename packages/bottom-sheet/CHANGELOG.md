@@ -1,5 +1,22 @@
 # @alfalab/core-components-bottom-sheet
 
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>25.08.2025</time></sup>
+
+#### [#1822](https://github.com/core-ds/core-components/pull/1822)
+
+-   Добавлен отступ футера
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-navigation-bar-private@1.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-base-modal@6.0.1
+
 ## 7.0.0
 
 ### Major Changes
