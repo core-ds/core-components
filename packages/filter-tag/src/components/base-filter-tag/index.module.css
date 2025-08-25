@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '@alfalab/core-components-tag/src/vars.css';
 @import '../../vars.css';
 
@@ -128,18 +128,18 @@
     &.checked {
         &.rounded {
             &.size-32 {
-                border-radius: var(--tag-rounded-xxs-border-radius) 0 0
-                    var(--tag-rounded-xxs-border-radius);
+                border-radius: var(--tag-rounded-xxs-border-radius) var(--border-radius-0)
+                    var(--border-radius-0) var(--tag-rounded-xxs-border-radius);
             }
 
             &.size-40 {
-                border-radius: var(--tag-rounded-xs-border-radius) 0 0
-                    var(--tag-rounded-xs-border-radius);
+                border-radius: var(--tag-rounded-xs-border-radius) var(--border-radius-0)
+                    var(--border-radius-0) var(--tag-rounded-xs-border-radius);
             }
 
             &.size-48 {
-                border-radius: var(--tag-rounded-s-border-radius) 0 0
-                    var(--tag-rounded-s-border-radius);
+                border-radius: var(--tag-rounded-s-border-radius) var(--border-radius-0)
+                    var(--border-radius-0) var(--tag-rounded-s-border-radius);
             }
 
             &:disabled,
@@ -178,17 +178,18 @@
 
     &.rounded {
         &.size-32 {
-            border-radius: 0 var(--tag-rounded-xxs-border-radius)
-                var(--tag-rounded-xxs-border-radius) 0;
+            border-radius: var(--border-radius-0) var(--tag-rounded-xxs-border-radius)
+                var(--tag-rounded-xxs-border-radius) var(--border-radius-0);
         }
 
         &.size-40 {
-            border-radius: 0 var(--tag-rounded-xs-border-radius) var(--tag-rounded-xs-border-radius)
-                0;
+            border-radius: var(--border-radius-0) var(--tag-rounded-xs-border-radius)
+                var(--tag-rounded-xs-border-radius) var(--border-radius-0);
         }
 
         &.size-48 {
-            border-radius: 0 var(--tag-rounded-s-border-radius) var(--tag-rounded-s-border-radius) 0;
+            border-radius: var(--border-radius-0) var(--tag-rounded-s-border-radius)
+                var(--tag-rounded-s-border-radius) var(--border-radius-0);
         }
     }
 
