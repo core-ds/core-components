@@ -1,4 +1,79 @@
-# Change Log
+# @alfalab/core-components-toast
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+-   Пакет `@alfalab/stack-context` перенесен в `@alfalab/core-components-stack-context`. При обновлении необходимо заменить `as-is`.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+    -   @alfalab/core-components-portal@4.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-stack@6.0.0
+    -   @alfalab/core-components-stack-context@1.0.0
+    -   @alfalab/core-components-toast-plate@8.0.0
+
+## 6.3.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
+## 6.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   portal@3.3.10
+    -   toast-plate@7.3.14
+    -   popover@6.3.11
+
+## 6.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   portal@3.3.9
+    -   toast-plate@7.3.13
+    -   popover@6.3.10
+
+## 6.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   portal@3.3.8
+    -   toast-plate@7.3.12
+    -   popover@6.3.9
+
+## 6.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@7.3.11
 
 ## 6.3.10
 

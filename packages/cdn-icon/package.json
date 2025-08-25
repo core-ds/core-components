@@ -1,25 +1,28 @@
 {
     "name": "@alfalab/core-components-cdn-icon",
-    "version": "5.3.4",
+    "version": "6.0.0",
     "description": "",
     "keywords": [],
     "license": "ISC",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "dependencies": {
+        "@alfalab/core-components-shared": "^1.0.0",
+        "classnames": "^2.5.1",
+        "tslib": "^2.4.0",
+        "use-sync-external-store": "^1.4.0"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
-    "dependencies": {
-        "classnames": "^2.5.1",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0",
-        "use-sync-external-store": "^1.4.0"
-    },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

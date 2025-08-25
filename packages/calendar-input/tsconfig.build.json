@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-calendar": ["../calendar/src"],
+            "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
+            "@alfalab/core-components-calendar-input": ["./src"],
+            "@alfalab/core-components-calendar-input/*": ["./src/*"],
+            "@alfalab/core-components-date-input": ["../date-input/src"],
+            "@alfalab/core-components-date-input/*": ["../date-input/src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-popover": ["../popover/src"],
+            "@alfalab/core-components-popover/*": ["../popover/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../calendar/tsconfig.build.json" },
+        { "path": "../date-input/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../popover/tsconfig.build.json" }
+    ]
+}

@@ -1,46 +1,28 @@
-name: "Css vars"
+name: non-existent-css-vars
 
-on:
-  pull_request:
-    branches:
-      - master
+on: pull_request
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  search-vars:
-    name: search non-existent css vars
+    search-vars:
+        name: search non-existent css vars
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
 
-    runs-on: ubuntu-latest
+            - uses: ./.github/actions/ci-setup
 
-    steps:
-      - uses: actions/checkout@v3
+            - name: run build
+              shell: bash
+              env:
+                  BUILD_WITHOUT_CSS_VARS: 'true'
+                  BUILD_CONCURRENCY: 4
+                  BUILD_MODERN_ONLY: 'true'
+              run: |
+                  yarn build
 
-      - name: Install dependencies
-        run: yarn --pure-lockfile
-
-      - name: Run build
-        run: BUILD_WITHOUT_CSS_VARS=true BUILD_MODERN_ONLY=true yarn build
-
-      - name: run search non-existent css vars
-        id: search_vars
-        run: node ./bin/non-existent-css-vars.js
-
-      - name: show checking result
-        if: ${{ steps.search_vars.outputs.has-non-existent-vars != 'false' }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const output = '${{ steps.search_vars.outputs.non-existent-css-vars }}';
-            const nonExistentVars = JSON.parse(output);
-
-            core.setFailed('Found non-existent css vars: \n' + Object.keys(nonExistentVars).reduce((acc, key) => {
-              acc += key + '\n';
-
-              const vars = nonExistentVars[key];
-              vars.forEach(cssVar => acc += '    ' + cssVar + '\n')
-
-              return acc;
-            }, ''));
+            - name: search
+              run: yarn non-existent-css-vars

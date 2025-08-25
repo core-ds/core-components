@@ -14,11 +14,11 @@ import elementClosest from 'element-closest';
 
 import { Portal } from '@alfalab/core-components-portal';
 import { Stack } from '@alfalab/core-components-stack';
+import { stackingOrder } from '@alfalab/core-components-stack-context';
 import {
     ToastPlateDesktop,
     ToastPlateDesktopProps,
 } from '@alfalab/core-components-toast-plate/desktop';
-import { stackingOrder } from '@alfalab/stack-context';
 
 import { useClickOutside } from './utils';
 

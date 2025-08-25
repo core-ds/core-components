@@ -1,4 +1,51 @@
-# Change Log
+# @alfalab/core-components-drawer
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-base-modal@6.0.0
+
+## 5.1.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.4
+
+## 5.1.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 5.1.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.2
+
+## 5.1.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.1
 
 ## 5.1.11
 

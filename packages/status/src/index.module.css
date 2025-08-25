@@ -1,5 +1,5 @@
-@import '../../vars/src/index.css';
-@import '../../vars/src/colors-decorative.css';
+@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/colors-decorative.css';
 
 .component {
     display: inline-flex;
@@ -11,6 +11,12 @@
     text-align: center;
     text-transform: initial;
     letter-spacing: 0.5px;
+
+    & .leftAddons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     & .ellipsis {
         @mixin row_limit 1;
@@ -63,6 +69,28 @@
         &.size-32,
         &.size-40 {
             @mixin accent_caps;
+        }
+    }
+
+    &.withLeftAddons {
+        &.size-20 {
+            gap: 3px;
+            padding-left: 6px;
+        }
+
+        &.size-24 {
+            gap: var(--gap-4);
+            padding-left: var(--gap-8);
+        }
+
+        &.size-32 {
+            gap: 6px;
+            padding-left: var(--gap-12);
+        }
+
+        &.size-40 {
+            gap: 6px;
+            padding-left: var(--gap-16);
         }
     }
 }

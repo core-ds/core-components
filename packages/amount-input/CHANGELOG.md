@@ -1,4 +1,101 @@
-# Change Log
+# @alfalab/core-components-amount-input
+
+## 8.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-number-input@3.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-with-suffix@5.0.0
+
+## 7.15.4
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1633](https://github.com/core-ds/core-components/pull/1633)
+
+-   Теперь удаляется символ перед пробелом при размещении курсора после пробела и нажатии клавиши `Backspace`
+
+## 7.15.3
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+-   Версия пакета @alfalab/data обновлена до 1.9.2
+
+## 7.15.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   input@15.6.2
+    -   number-input@2.7.2
+    -   with-suffix@4.2.20
+
+## 7.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   number-input@2.7.1
+    -   with-suffix@4.2.19
+
+## 7.15.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Добавлена возможность включить в правом аддоне компонент `Stepper` с помощью пропса `stepper`
+-   Расширен тип пропса `onChange`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   number-input@2.7.0
+    -   input@15.6.0
+    -   with-suffix@4.2.18
+
+## 7.14.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   input@15.5.5
+    -   with-suffix@4.2.17
+
+## 7.14.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
+    -   with-suffix@4.2.16
 
 ## 7.14.0
 

@@ -1,8 +1,7 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .component {
     display: flex;
-    padding: var(--gap-4);
     z-index: 3;
     overflow: hidden;
     transition: border 0.15s ease-in-out;

@@ -1,10 +1,31 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('Steps ', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Steps',
+            knobs: {
+                children: [['Шаг 1', 'Шаг 2', 'Шаг 3']],
+                isVerticalAlign: true,
+                ordered: true,
+                activeStep: 2,
+                minSpaceBetweenSteps: 16,
+            },
+        },
+        'transform: scale(2.1)',
+    );
 });
 
 describe(

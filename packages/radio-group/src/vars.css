@@ -1,14 +1,18 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
-    --radio-group-error-color: var(--color-light-text-negative);
     --radio-group-hint-color: var(--color-light-text-secondary);
     --radio-group-label-color: var(--color-light-text-primary);
     --radio-group-sub-padding-left: var(--gap-0);
     --radio-group-list-padding-left: var(--gap-0);
+    --radio-group-error-color: var(--color-light-text-negative);
+    --radio-group-error-padding-left: var(--gap-8);
+    --radio-group-error-border-left: 1px solid var(--color-light-status-negative);
 
     /* mobile */
     --radio-group-mobile-sub-padding-left: var(--gap-4);
     --radio-group-mobile-list-padding-left: var(--gap-2);
     --radio-group-mobile-label-color: var(--color-light-text-secondary);
+    --radio-group-mobile-error-padding-left: var(--gap-0);
+    --radio-group-mobile-error-border-left: none;
 }

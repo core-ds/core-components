@@ -1,4 +1,149 @@
-# Change Log
+# @alfalab/core-components-table
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-pagination@3.0.0
+    -   @alfalab/core-components-select@18.0.0
+
+## 2.11.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.24.0
+    -   pagination@2.4.16
+
+## 2.11.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+
+## 2.11.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1521](https://github.com/core-ds/core-components/pull/1521)
+
+-   Добавлены атомарные импорты
+-   Поправлена ts-конфигурация зависимостей
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
+## 2.10.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   pagination@2.4.15
+    -   select@17.21.5
+
+## 2.10.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   button@11.11.10
+    -   pagination@2.4.14
+
+## 2.10.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+
+## 2.10.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+    -   select@17.21.2
+    -   pagination@2.4.13
+
+## 2.10.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
+## 2.10.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+
+## 2.10.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
+    -   select@17.20.14
+    -   pagination@2.4.12
+
+## 2.10.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.13
+
+## 2.10.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.12
+
+## 2.10.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.7
+    -   select@17.20.11
+
+## 2.10.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+
+## 2.10.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   pagination@2.4.11
+    -   select@17.20.9
 
 ## 2.10.4
 

@@ -27,6 +27,60 @@ export const HeaderMobile = () => {
     const canDownload = currentImage?.canDownload ?? true;
     const showDownloadButton = !meta?.broken && canDownload;
 
+    const handleShareClick = async () => {
+        if (!currentImage || !navigator.share) {
+            return;
+        }
+
+        const title = currentImage.name ?? new Date().toISOString().split('T')[0];
+        const url = currentImage.src;
+
+        try {
+            if (isVideo(url)) {
+                // Если видео — всегда делим ссылку
+                await navigator.share({
+                    title,
+                    url,
+                    text: 'Видео',
+                });
+
+                return;
+            }
+
+            // Попробуем скачать изображение
+            const response = await fetch(url, { mode: 'cors' });
+            const blob = await response.blob();
+
+            const file = new File([blob], `${title}.png`, {
+                type: blob.type,
+                lastModified: Date.now(),
+            });
+
+            const shareData: ShareData = {
+                files: [file],
+                title,
+                text: 'Картинка',
+            };
+
+            // Попробуем поделиться файлом
+            if (navigator.canShare?.(shareData) && response.ok) {
+                await navigator.share(shareData);
+            } else {
+                // Fallback: делимся только ссылкой
+                await navigator.share({
+                    title,
+                    text: 'Картинка',
+                    url,
+                });
+            }
+        } catch {
+            await navigator.share({
+                title,
+                url,
+            });
+        }
+    };
+
     return (
         <div
             className={cn(styles.headerMobile, {
@@ -51,6 +105,7 @@ export const HeaderMobile = () => {
                         dataTestId={TestIds.DOWNLOAD_BUTTON}
                     />
                 )}
+                {!meta?.broken && <Buttons.Share onClick={handleShareClick} />}
             </div>
         </div>
     );

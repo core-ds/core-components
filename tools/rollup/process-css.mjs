@@ -1,67 +1,196 @@
-import globby from 'globby';
+/* eslint-disable @typescript-eslint/no-shadow, import/no-extraneous-dependencies, no-param-reassign */
+
+import fse from 'fs-extra';
+import { globbySync } from 'globby';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { cwd } from 'node:process';
 import postcss from 'postcss';
-import path from 'path';
-import { checkOrCreateDir, readFile, writeFile } from './common.mjs';
-import { createRequire } from 'module';
+import postcssImport from 'postcss-import';
+import postcssMixins from 'postcss-mixins';
+import postcssModules from 'postcss-modules';
+import { createFilter } from 'rollup-pluginutils';
+import stringHash from 'string-hash';
 
-const require = createRequire(import.meta.url);
+import postcssConfig from '../../postcss.config.js';
+import { isSamePath } from '../path.cjs';
+import { resolveInternal } from '../resolve-internal.cjs';
 
-const postcssConfig = require(path.join(process.env.LERNA_ROOT_PATH, 'postcss.config'));
+const pkg = fse.readJsonSync('package.json', { encoding: 'utf8' });
 
-async function generateCssFile(source, options) {
-    const dest = path.resolve(source).replace('src', `dist/${options.folder}`);
+/**
+ *
+ * @param {} options
+ * @returns {import('rollup').Plugin}
+ */
+export function processCss(options = {}) {
+    const config = {
+        name: 'process-css',
+        modules: options.modules ?? true,
+        noCommonVars: options.noCommonVars ?? false,
+    };
 
-    const content = await readFile(source, 'utf-8');
+    const cssAssets = {};
 
-    const plugins = postcssConfig.plugins;
+    const isIncluded = createFilter('**/*.css', '**/node_modules/**');
 
-    if (options.noCommonVars) {
-        const importPluginIdx = plugins.findIndex(
-            (plugin) => plugin.postcssPlugin === 'postcss-import',
-        );
+    return {
+        name: config.name,
+        async resolveId(source, importer, options) {
+            const resolution = await this.resolve(source, importer, options);
 
-        if (importPluginIdx !== -1) {
-            plugins[importPluginIdx] = require('postcss-import')({
-                warnOnEmpty: false,
-                load: async (filename, importOptions) => {
-                    if (filename.includes('/vars/src/index.css')) {
-                        // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
-                        // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
-                        // https://github.com/postcss/postcss-import/issues/84
-                        return '/* */';
+            if (!resolution || resolution.external || !isIncluded(resolution.id)) return resolution;
+
+            cssAssets[resolution.id] = { filepath: resolution.id, from: importer };
+
+            if (!config.modules) {
+                resolution.external = true;
+            }
+
+            return resolution;
+        },
+        async transform(_, id) {
+            if (!cssAssets[id]) {
+                return null;
+            }
+
+            const result = await processPostcss(id, config);
+
+            cssAssets[id].classNames = result.classNames;
+            cssAssets[id].css = result.css;
+
+            return {
+                code: `
+                import "${id.replace('.module.css', '.css')}";
+                export default ${JSON.stringify(cssAssets[id].classNames)};`,
+                map: null,
+            };
+        },
+        async renderStart(outputOptions) {
+            if (!outputOptions.preserveModules) {
+                this.error(`\n\n${config.name} requires output.preserveModules to be enabled\n\n`);
+            }
+
+            await Promise.all(
+                Object.values(cssAssets).map(async (cssAsset) => {
+                    if (!config.modules) {
+                        const result = await processPostcss(cssAsset.filepath, config);
+
+                        cssAsset.css = result.css;
                     }
 
-                    return readFile(filename, 'utf-8');
-                },
-            });
-        }
-    }
-
-    const result = await postcss(postcssConfig.plugins).process(content, { from: source });
-
-    await checkOrCreateDir(path.dirname(dest));
-
-    await writeFile(dest, result.css);
-}
-
-export default function processCss(options = {}) {
-    return {
-        name: 'process-css',
-        buildEnd: async () => {
-            const dist = path.resolve(`dist/${options.folder}`);
-
-            await checkOrCreateDir(dist);
-
-            try {
-                const matchedPaths = await globby('src/**/*.css');
-
-                await Promise.all(
-                    matchedPaths.map((source) => generateCssFile(source, options)),
-                );
-            } catch (error) {
-                //
-                console.log(error);
-            }
+                    return saveCssAsset(cssAsset, outputOptions, config.modules);
+                }),
+            );
         },
     };
+}
+
+async function processPostcss(filePath, config = {}) {
+    let classNames = {};
+
+    const originalCss = await fs.readFile(filePath, { encoding: 'utf8' });
+
+    let plugins = [...postcssConfig.plugins];
+
+    if (config.noCommonVars) {
+        plugins = plugins.map((plugin) =>
+            plugin.postcssPlugin === 'postcss-import'
+                ? postcssImport({
+                      warnOnEmpty: false,
+                      load: async (filename) => {
+                          if (
+                              isSamePath(
+                                  filename,
+                                  resolveInternal(
+                                      '@alfalab/core-components-vars/src/index.css',
+                                      false,
+                                  ),
+                              )
+                          ) {
+                              /*
+                               * TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
+                               * В текущей версиии postcss-import импорт пустого файла вызывает ошибку
+                               * https://github.com/postcss/postcss-import/issues/84
+                               */
+                              return '/* */';
+                          }
+
+                          return fs.readFile(filename, { encoding: 'utf8' });
+                      },
+                  })
+                : plugin,
+        );
+    }
+
+    // replace `typography.css` mixins by `alfasans-typography.css` mixins
+    if (/\/alfasans-.*\.css$/.test(filePath)) {
+        plugins = plugins.map((plugin) =>
+            plugin.postcssPlugin === 'postcss-mixins'
+                ? postcssMixins({
+                      mixinsFiles: globbySync('src/*.css', {
+                          ignore: ['**/{index,typography}.css'],
+                          cwd: resolveInternal('@alfalab/core-components-vars'),
+                          absolute: true,
+                      }),
+                  })
+                : plugin,
+        );
+    }
+
+    if (config.modules) {
+        plugins.push(
+            postcssModules({
+                generateScopedName(name, fileName) {
+                    const relativeFileName = path.relative(cwd(), fileName);
+                    const componentName = pkg.name.replace('@alfalab/core-components-', '');
+                    const hash = generateClassNameHash(pkg.name, pkg.version, relativeFileName);
+
+                    return `${componentName}__${name}_${hash}`;
+                },
+                getJSON: (_, json) => {
+                    classNames = json;
+                },
+            }),
+        );
+    }
+
+    const result = await postcss(plugins).process(originalCss, {
+        from: filePath,
+    });
+
+    return {
+        css: result.css,
+        classNames,
+    };
+}
+
+async function saveCssAsset(cssAsset, outputOptions, modules = true) {
+    if (!cssAsset.css) {
+        return;
+    }
+
+    const { dir, preserveModulesRoot } = outputOptions;
+
+    let dest = cssAsset.filepath.replace(preserveModulesRoot, dir);
+
+    if (modules) {
+        dest = dest.replace('.module.css', '.css');
+    }
+
+    if (!cssAsset.filepath.startsWith(preserveModulesRoot)) {
+        throw new Error(
+            `\n\nCannot include asset: ${cssAsset.filepath} from ${cssAsset.from} because it is outside of the preserve modules root`,
+        );
+    }
+
+    await fse.ensureDir(path.dirname(dest));
+
+    await fs.writeFile(dest, cssAsset.css, { encoding: 'utf8' });
+}
+
+function generateClassNameHash(packageName, packageVersion, relativeFileName) {
+    return stringHash(`${packageName}@${packageVersion}@${relativeFileName}`)
+        .toString(36)
+        .slice(0, 5);
 }

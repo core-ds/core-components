@@ -324,10 +324,13 @@ export function minMaxValidation(segments: Partial<DateSegments>, min: Date, max
     }
 
     if (dayFilled && monthFilled && yearFilled) {
-        const date = clamp(new Date(`${segments.year}-${segments.month}-${segments.day}`), {
-            start: min,
-            end: max,
-        });
+        const date = clamp(
+            new Date(`${segments.year}-${segments.month}-${segments.day}T00:00:00`),
+            {
+                start: min,
+                end: max,
+            },
+        );
 
         segments.day = date.getDate().toString().padStart(2, '0');
         segments.month = (date.getMonth() + 1).toString().padStart(2, '0');

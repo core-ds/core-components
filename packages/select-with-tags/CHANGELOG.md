@@ -1,4 +1,178 @@
-# Change Log
+# @alfalab/core-components-select-with-tags
+
+## 9.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-bottom-sheet@7.0.0
+    -   @alfalab/core-components-form-control@13.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+    -   @alfalab/core-components-select@18.0.0
+    -   @alfalab/core-components-tag@9.0.0
+
+## 8.8.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.19.0
+    -   select@17.24.0
+    -   tag@8.7.1
+
+## 8.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   popover@6.4.0
+
+## 8.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
+## 8.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+    -   select@17.21.5
+
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1706](https://github.com/core-ds/core-components/pull/1706)
+
+-   Исключение возможности проброса onClear через компонент `SelectWithTag` в `BaseFormControl`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   bottom-sheet@6.18.14
+    -   form-control@12.8.6
+    -   tag@8.6.10
+    -   popover@6.3.11
+
+## 8.6.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.13
+    -   select@17.21.3
+
+## 8.6.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   bottom-sheet@6.18.12
+    -   form-control@12.8.5
+    -   select@17.21.2
+    -   tag@8.6.9
+    -   popover@6.3.10
+
+## 8.6.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.11
+    -   select@17.21.1
+
+## 8.6.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   form-control@12.8.4
+    -   bottom-sheet@6.18.10
+
+## 8.6.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   bottom-sheet@6.18.9
+    -   form-control@12.8.3
+    -   select@17.20.14
+    -   tag@8.6.8
+    -   popover@6.3.9
+
+## 8.6.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.8
+    -   select@17.20.13
+
+## 8.6.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.7
+    -   select@17.20.12
+
+## 8.6.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.11
+    -   bottom-sheet@6.18.6
+
+## 8.6.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.5
+    -   select@17.20.10
+
+## 8.6.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+    -   bottom-sheet@6.18.4
 
 ## 8.6.9
 

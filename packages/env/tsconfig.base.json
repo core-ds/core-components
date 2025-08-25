@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "jsx": "react",
+        "allowJs": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "composite": true,
+        "declaration": true,
+        "importHelpers": true,
+        "types": ["@alfalab/core-components-env", "@testing-library/jest-dom"]
+    }
+}

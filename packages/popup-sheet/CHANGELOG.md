@@ -1,5 +1,122 @@
 # @alfalab/core-components-popup-sheet
 
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-backdrop@4.0.0
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-navigation-bar-private@1.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-types@1.0.0
+
+## 1.4.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   base-modal@5.9.4
+    -   navigation-bar-private@0.8.7
+
+## 1.4.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 1.4.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+
+## 1.4.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 1.4.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 1.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
+
+## 1.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.2
+
+## 1.4.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.1
+
+## 1.4.2
+
+### Patch Changes
+
+<sup><time>31.03.2025</time></sup>
+
+### [#1649](https://github.com/core-ds/core-components/pull/1649)
+
+-   Исправлено перезатирание класса компонента у closer, при передаче closerProps
+
+## 1.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.0
+
+## 1.4.0
+
+### Minor Changes
+
+<sup><time>26.03.2025</time></sup>
+
+### [#1613](https://github.com/core-ds/core-components/pull/1613)
+
+-   Добавлена возможность передавать дополнительные props в компонент `Closer` из `NavigationBarPrivate` и `PopupSheet`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.7.0
+
 ## 1.3.20
 
 ### Patch Changes

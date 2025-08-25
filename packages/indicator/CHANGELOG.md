@@ -1,5 +1,30 @@
 # @alfalab/core-components-indicator
 
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>18.04.2025</time></sup>
+
+### [#1662](https://github.com/core-ds/core-components/pull/1662)
+
+-   Заменен дефолтный цвет обводки `border` на `--color-light-base-bg-primary`
+-   Добавлен размер `size-32` для компонента `Indicator`
+
 ## 2.2.4
 
 ### Patch Changes

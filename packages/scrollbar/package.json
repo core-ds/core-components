@@ -1,20 +1,14 @@
 {
     "name": "@alfalab/core-components-scrollbar",
-    "version": "3.2.0",
+    "version": "4.0.0",
     "description": "Scrollbar component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
         "@juggle/resize-observer": "^3.3.1",
         "can-use-dom": "^0.1.0",
@@ -22,13 +16,18 @@
         "lodash.debounce": "^4.0.8",
         "lodash.memoize": "^4.1.2",
         "lodash.throttle": "^4.1.1",
-        "react-merge-refs": "1.1.0",
+        "react-merge-refs": "^1.1.0",
         "simplebar": "^5.3.8",
         "tslib": "^2.4.0"
     },
-    "devDependencies": {
-        "@types/lodash.throttle": "^4.1.7"
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

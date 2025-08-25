@@ -3,19 +3,20 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { useModalHeight } from '../../hooks/useModalHeight';
 import { useModalWheel } from '../../hooks/useModalWheel';
-import { useModalWidth } from '../../hooks/useModalWidth';
-import { ModalBySideProps } from '../../types/props';
+import { UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
-import { getMargins } from '../../utils/get-margins';
-import { BaseUniversalModalContent } from '../base-universal-modal-content/base-universal-modal-content';
+import { getHeightStyle } from '../../utils/get-height-style';
+import { getMarginStyles } from '../../utils/get-margin-styles';
+import { getMaxHeightStyle } from '../../utils/get-max-height-style';
+import { getWidthStyle } from '../../utils/get-width-style';
+import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
-import styles from './styles/index.module.css';
+import styles from './index.module.css';
 
-export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, ref) => {
+export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
         width = 500,
         height = 'fullHeight',
@@ -27,20 +28,14 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
         className,
         children,
         margin,
+        scrollableContainerRef,
         onClose,
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    useModalWidth(width, open, componentRef);
-    useModalHeight(height, open, componentRef);
     const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
-
-    const isHorizontalStart = horizontalAlign === 'start';
-    const isHorizontalEnd = horizontalAlign === 'end';
-    const isVerticalCenter = verticalAlign === 'center';
-    const isVerticalBottom = verticalAlign === 'bottom';
 
     const {
         isFullSizeModal,
@@ -59,14 +54,14 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
             scrollHandler='content'
             disableBlockingScroll={!overlay}
             wrapperClassName={cn(styles.wrapper, {
-                [styles.wrapperAlignStart]: isHorizontalStart,
-                [styles.wrapperAlignEnd]: isHorizontalEnd,
-                [styles.wrapperJustifyCenter]: isVerticalCenter,
-                [styles.wrapperJustifyEnd]: isVerticalBottom,
+                [styles.wrapperAlignStart]: horizontalAlign === 'start',
+                [styles.wrapperAlignEnd]: horizontalAlign === 'end',
+                [styles.wrapperJustifyCenter]: verticalAlign === 'center',
+                [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
             })}
             className={cn(styles.component, className, {
                 [styles.overlayHidden]: !overlay,
-                ...getMargins({ styles, margin }),
+                ...getMarginStyles({ styles, margin }),
             })}
             contentClassName={styles.content}
             transitionProps={{
@@ -82,14 +77,25 @@ export const SideModal = forwardRef<HTMLDivElement, ModalBySideProps>((props, re
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
             }}
+            componentDivProps={{
+                style: {
+                    width: getWidthStyle(width, margin),
+                    height: getHeightStyle(height, margin),
+                    ...(height === 'hugContent' && {
+                        maxHeight: getMaxHeightStyle(margin),
+                    }),
+                },
+            }}
             onWheel={handleWheel}
             onClose={onClose}
         >
-            <div className={styles.container}>
-                <BaseUniversalModalContent wheelDeltaY={wheelDeltaY}>
-                    {children}
-                </BaseUniversalModalContent>
-            </div>
+            <ModalContent
+                height={height}
+                wheelDeltaY={wheelDeltaY}
+                scrollableContainerRef={scrollableContainerRef}
+            >
+                {children}
+            </ModalContent>
         </BaseModal>
     );
 });

@@ -28,7 +28,10 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
     gap = 8,
     colors = 'default',
 }) => {
-    const refs = useMemo(() => Array.from({ length: count }, createRef<HTMLLIElement>), [count]);
+    const refs = useMemo(
+        () => Array.from({ length: count }, () => createRef<HTMLLIElement>()),
+        [count],
+    );
     const [height, width, offset, elementSize, firstVisibleElementIndex, lastVisibleElementIndex] =
         useMemo(
             () => calcParams(size, gap, activeElementIndex, count),

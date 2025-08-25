@@ -1,15 +1,12 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { InternationalPhoneInputDesktop } from './desktop';
 import { InternationalPhoneInputMobile } from './mobile';
-import { InternationalPhoneInputProps } from './types';
+import type { InternationalPhoneInputProps } from './types';
 
-export const InternationalPhoneInput = React.forwardRef<
-    HTMLInputElement,
-    InternationalPhoneInputProps
->(
+export const InternationalPhoneInput = forwardRef<HTMLInputElement, InternationalPhoneInputProps>(
     (
         {
             breakpoint,

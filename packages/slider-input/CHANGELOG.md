@@ -1,4 +1,60 @@
-# Change Log
+# @alfalab/core-components-slider-input
+
+## 10.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-slider@5.0.0
+
+## 9.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+
+## 9.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+
+## 9.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 9.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   slider@4.8.0
+    -   input@15.5.5
+
+## 9.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
 
 ## 9.2.2
 

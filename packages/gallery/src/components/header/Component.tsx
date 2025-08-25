@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect, useRef } from 'react';
 
 import { GalleryContext } from '../../context';
-import { GALLERY_EVENTS, isSmallImage, isVideo, TestIds } from '../../utils';
+import { isSmallImage, isVideo, TestIds } from '../../utils';
 import * as Buttons from '../buttons';
 import { HeaderInfoBlock } from '../header-info-block';
 
@@ -27,18 +27,12 @@ export const Header: FC = () => {
     const toggleFullScreenButton = useRef<HTMLButtonElement>(null);
 
     const onMuteButtonClick = () => {
-        if (mutedVideo) {
-            const customEvent = new CustomEvent(GALLERY_EVENTS.ON_UNMUTE, {
-                detail: { player: meta?.player?.current },
-            });
-
-            dispatchEvent(customEvent);
-        } else {
-            const customEvent = new CustomEvent(GALLERY_EVENTS.ON_MUTE, {
-                detail: { player: meta?.player?.current },
-            });
-
-            dispatchEvent(customEvent);
+        if (currentImage) {
+            if (mutedVideo && currentImage.onUnmute) {
+                currentImage.onUnmute();
+            } else if (currentImage.onMute) {
+                currentImage.onMute();
+            }
         }
         setMutedVideo(!mutedVideo);
     };

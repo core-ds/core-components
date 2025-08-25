@@ -3,7 +3,7 @@ import {
     createStorybookUrl,
     createSpriteStorybookUrl,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -12,14 +12,14 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('NavBar ', () => {
+describe('NavigationBar ', () => {
     createPreview(
         {
             testStory: false,
             componentName: 'NavigationBar',
             knobs: {},
         },
-        'transform:scale(1.5)',
+        'transform:scale(1.44)',
     );
 });
 

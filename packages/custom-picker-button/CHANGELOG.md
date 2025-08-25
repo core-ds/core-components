@@ -1,5 +1,155 @@
 # @alfalab/core-components-custom-picker-button
 
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-custom-button@4.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-picker-button@12.0.0
+    -   @alfalab/core-components-select@18.0.0
+
+## 2.6.34
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.13.0
+    -   select@17.24.0
+
+## 2.6.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   picker-button@11.12.33
+
+## 2.6.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+    -   picker-button@11.12.32
+
+## 2.6.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+    -   picker-button@11.12.31
+
+## 2.6.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   picker-button@11.12.30
+    -   custom-button@3.12.9
+
+## 2.6.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+    -   picker-button@11.12.29
+
+## 2.6.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   picker-button@11.12.28
+    -   select@17.21.2
+    -   custom-button@3.12.8
+
+## 2.6.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+    -   picker-button@11.12.27
+
+## 2.6.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   picker-button@11.12.26
+
+## 2.6.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   picker-button@11.12.25
+    -   select@17.20.14
+    -   custom-button@3.12.7
+
+## 2.6.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.13
+    -   picker-button@11.12.24
+
+## 2.6.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.12.6
+    -   select@17.20.12
+    -   picker-button@11.12.23
+
+## 2.6.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.12.5
+    -   picker-button@11.12.22
+    -   select@17.20.11
+
+## 2.6.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.10
+    -   picker-button@11.12.21
+
+## 2.6.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.20.9
+    -   picker-button@11.12.20
+
 ## 2.6.19
 
 ### Patch Changes

@@ -1,3 +1,5 @@
+import type { RefObject } from 'react';
+
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 
 import { TMargin } from '../../typings/margin-type';
@@ -26,10 +28,11 @@ export type BaseUniversalModalProps = {
     /**
      * Высота модального окна
      * fullHeight - высота модального окна подстроится под viewport
+     * hugContent - высота модального окна зафиксируется под размер содержимого
      * minHeight - 264
      * @default fullHeight
      */
-    height?: number | 'fullHeight';
+    height?: number | 'fullHeight' | 'hugContent';
 
     /**
      * Наличие оверлея
@@ -41,26 +44,26 @@ export type BaseUniversalModalProps = {
      * Устанавливает отступы модального окна
      */
     margin?: TMargin;
-
-    /**
-     * Хэндлер закрытия модалки
-     */
-    onClose?: () => void;
 };
 
 export type UniversalModalDesktopProps = BaseUniversalModalProps &
-    Pick<
-        BaseModalProps,
-        | 'children'
-        | 'dataTestId'
-        | 'open'
-        | 'className'
-        | 'wrapperClassName'
-        | 'onUnmount'
-        | 'transitionProps'
-        | 'backdropProps'
-    >;
-
-export type ModalBySideProps = UniversalModalDesktopProps;
-
-export type ModalByCenterProps = UniversalModalDesktopProps;
+    Pick<BaseModalProps, 'open'> &
+    Partial<
+        Pick<
+            BaseModalProps,
+            | 'children'
+            | 'dataTestId'
+            | 'className'
+            | 'wrapperClassName'
+            | 'onUnmount'
+            | 'transitionProps'
+            | 'backdropProps'
+            | 'disableBackdropClick'
+            | 'onClose'
+        >
+    > & {
+        /**
+         * Реф контейнера на котором происходит scroll
+         */
+        scrollableContainerRef?: RefObject<HTMLDivElement>;
+    };

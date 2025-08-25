@@ -1,10 +1,10 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .header {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
     width: 100%;
-    padding: var(--gap-16) var(--gap-24);
+    padding: var(--gap-16) var(--gap-32);
     box-sizing: border-box;
 }

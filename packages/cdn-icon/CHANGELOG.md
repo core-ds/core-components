@@ -1,4 +1,64 @@
-# Change Log
+# @alfalab/core-components-cdn-icon
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.0.0
+
+## 5.4.3
+
+### Patch Changes
+
+<sup><time>14.07.2025</time></sup>
+
+### [#1777](https://github.com/core-ds/core-components/pull/1777)
+
+-   Исправлен `SSR`
+
+## 5.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 5.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 5.4.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1696](https://github.com/core-ds/core-components/pull/1696)
+
+-   Добавлена возможность пробросить колбек onError в компонент CDNIcon
+
+## 5.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
 
 ## 5.3.4
 

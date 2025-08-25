@@ -59,6 +59,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             cancelButtonContent = 'Отмена',
             selectButtonContent = 'Выбрать',
             resetButtonContent = 'Сбросить',
+            hasBackButton = false,
+            onBack,
             ...restProps
         },
         ref,
@@ -204,10 +206,12 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 {hasHeader && (
                     <ModalMobile.Header
                         hasCloser={true}
+                        hasBackButton={hasBackButton}
                         title={title}
                         sticky={true}
                         bottomAddons={renderDayNames()}
                         className={cn({ [styles.withZIndex]: selectorView === 'full' })}
+                        onBack={onBack}
                     />
                 )}
                 <ModalMobile.Content className={styles.contentModal} flex={true}>

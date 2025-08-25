@@ -1,32 +1,39 @@
 {
     "name": "@alfalab/core-components-bottom-sheet",
-    "version": "6.18.3",
+    "version": "7.0.0",
     "description": "Bottom sheet mobile component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
     "dependencies": {
-        "@alfalab/core-components-backdrop": "^3.4.5",
-        "@alfalab/core-components-base-modal": "^5.9.0",
-        "@alfalab/core-components-navigation-bar-private": "^0.6.2",
-        "@alfalab/core-components-shared": "^0.16.0",
+        "@alfalab/core-components-backdrop": "^4.0.0",
+        "@alfalab/core-components-base-modal": "^6.0.0",
+        "@alfalab/core-components-navigation-bar-private": "^1.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-types": "^1.0.0",
         "classnames": "^2.5.1",
         "react-div-100vh": "^0.7.0",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^7.0.0",
         "react-transition-group": "^4.4.5",
-        "tslib": "^2.4.0"
+        "tslib": "^2.4.0",
+        "use-sync-external-store": "^1.4.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "devDependencies": {
+        "@alfalab/core-components-button": "^12.0.0"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

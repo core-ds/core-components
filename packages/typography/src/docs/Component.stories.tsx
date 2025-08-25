@@ -16,9 +16,10 @@ export const typography_title: Story = {
     name: 'Typography.Title',
     render: () => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
-        const color = select('color', colors, '');
+        const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
-        const font = select('font', ['styrene', 'system'], 'styrene');
+        const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
+        const systemCompat = boolean('systemCompat', false);
 
         return (
             <>
@@ -28,7 +29,7 @@ export const typography_title: Story = {
                         view={view}
                         color={color}
                         weight={weight}
-                        font={font}
+                        font={font === 'alfasans' ? { font, systemCompat } : font}
                         key={view}
                     >
                         заголовок view='{view}'
@@ -43,9 +44,10 @@ export const typography_title_responsive: Story = {
     name: 'Typography.TitleResponsive',
     render: () => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
-        const color = select('color', colors, '');
+        const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
-        const font = select('font', ['styrene', 'system'], 'styrene');
+        const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
+        const systemCompat = boolean('systemCompat', false);
         return (
             <>
                 {VIEW_TYPES.map((view) => (
@@ -54,7 +56,7 @@ export const typography_title_responsive: Story = {
                         view={view}
                         color={color}
                         weight={weight}
-                        font={font}
+                        font={font === 'alfasans' ? { font, systemCompat } : font}
                         key={view}
                     >
                         заголовок view='{view}'
@@ -69,9 +71,10 @@ export const typography_title_mobile: Story = {
     name: 'Typography.TitleMobile',
     render: () => {
         const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
-        const color = select('color', colors, '');
+        const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
-        const font = select('font', ['styrene', 'system'], 'styrene');
+        const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
+        const systemCompat = boolean('systemCompat', false);
         return (
             <>
                 {VIEW_TYPES.map((view) => (
@@ -79,7 +82,7 @@ export const typography_title_mobile: Story = {
                         view={view}
                         color={color}
                         weight={weight}
-                        font={font}
+                        font={font === 'alfasans' ? { font, systemCompat } : font}
                         key={view}
                     >
                         заголовок view='{view}'
@@ -103,8 +106,10 @@ export const typography_text: Story = {
             'component-primary',
             'component-secondary',
             'caps',
+            'tagline',
         ];
-        const color = select('color', colors, '');
+        const color = select('color', colors, 'primary');
+        const font = select('font', ['default', 'alfasans'], 'default');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold', undefined], 'regular');
         const monospace = boolean('monospaceNumbers', false);
@@ -120,6 +125,7 @@ export const typography_text: Story = {
                         monospaceNumbers={monospace}
                         key={view}
                         defaultMargins={defaultMargins}
+                        font={font === 'alfasans' ? 'alfasans' : undefined}
                     >
                         {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый
                         момент времени в прошлом, когда плотность энергии (материи) и кривизна

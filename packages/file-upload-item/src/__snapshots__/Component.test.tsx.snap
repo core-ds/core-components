@@ -9,13 +9,13 @@ Object {
         class="component initial"
       >
         <div
-          class="container"
+          class="container clickable"
         >
           <div
-            class="icon-view__componentWrapper_ssmml icon-view__wrapperSize_48_ssmml"
+            class="componentWrapper wrapperSize_48"
           >
             <div
-              class="icon-view__component_ssmml"
+              class="component"
               style="width: 48px; height: 48px;"
             >
               <svg
@@ -26,12 +26,12 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  class="icon-view__bg_ssmml"
+                  class="bg"
                   d="M.8 12.3C1.7 6.3 6.2 1.7 12.3.8a83 83 0 0 1 23.4 0c6 .9 10.6 5.4 11.5 11.5a83 83 0 0 1 0 23.4 13.4 13.4 0 0 1-11.5 11.5 83 83 0 0 1-23.4 0A13.4 13.4 0 0 1 .8 35.7a83 83 0 0 1 0-23.4"
                 />
               </svg>
               <div
-                class="icon-view__children_ssmml"
+                class="children"
               >
                 <svg
                   fill="currentColor"
@@ -96,7 +96,7 @@ Object {
           </div>
         </div>
         <div
-          class="container"
+          class="container clickable"
         >
           <span
             class="title primary component"
@@ -120,13 +120,13 @@ Object {
       class="component initial"
     >
       <div
-        class="container"
+        class="container clickable"
       >
         <div
-          class="icon-view__componentWrapper_ssmml icon-view__wrapperSize_48_ssmml"
+          class="componentWrapper wrapperSize_48"
         >
           <div
-            class="icon-view__component_ssmml"
+            class="component"
             style="width: 48px; height: 48px;"
           >
             <svg
@@ -137,12 +137,12 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                class="icon-view__bg_ssmml"
+                class="bg"
                 d="M.8 12.3C1.7 6.3 6.2 1.7 12.3.8a83 83 0 0 1 23.4 0c6 .9 10.6 5.4 11.5 11.5a83 83 0 0 1 0 23.4 13.4 13.4 0 0 1-11.5 11.5 83 83 0 0 1-23.4 0A13.4 13.4 0 0 1 .8 35.7a83 83 0 0 1 0-23.4"
               />
             </svg>
             <div
-              class="icon-view__children_ssmml"
+              class="children"
             >
               <svg
                 fill="currentColor"
@@ -207,7 +207,7 @@ Object {
         </div>
       </div>
       <div
-        class="container"
+        class="container clickable"
       >
         <span
           class="title primary component"

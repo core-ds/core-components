@@ -1,30 +1,32 @@
 {
     "name": "@alfalab/core-components-calendar-range",
-    "version": "7.8.11",
+    "version": "8.0.0",
     "description": "Calendar range component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "@alfalab/core-components-calendar": "^8.0.0",
+        "@alfalab/core-components-calendar-input": "^11.0.0",
+        "@alfalab/core-components-date-input": "^5.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/hooks": "^1.13.1",
+        "classnames": "^2.5.1",
+        "date-fns": "^4.1.0",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/core-components-calendar": "^7.17.13",
-        "@alfalab/core-components-calendar-input": "^10.4.23",
-        "@alfalab/core-components-date-input": "^4.4.15",
-        "@alfalab/core-components-shared": "^0.16.0",
-        "@alfalab/hooks": "^1.13.1",
-        "classnames": "^2.5.1",
-        "date-fns": "4.1.0",
-        "tslib": "^2.4.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

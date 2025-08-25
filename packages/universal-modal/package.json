@@ -1,32 +1,38 @@
 {
     "name": "@alfalab/core-components-universal-modal",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "description": "UniversalModal component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "dependencies": {
+        "@alfalab/core-components-backdrop": "^4.0.0",
+        "@alfalab/core-components-base-modal": "^6.0.0",
+        "@alfalab/core-components-button": "^12.0.0",
+        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-navigation-bar-private": "^1.0.0",
+        "@alfalab/core-components-scrollbar": "^4.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-typography": "^5.0.0",
+        "@alfalab/icons-glyph": "^2.247.0",
+        "@types/react-transition-group": "^4.4.5",
+        "classnames": "^2.5.1",
+        "react-merge-refs": "^1.1.0",
+        "react-transition-group": "^4.4.5",
+        "tslib": "^2.4.0"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
-    "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.0",
-        "@alfalab/core-components-mq": "^4.3.0",
-        "@alfalab/core-components-navigation-bar-private": "^0.6.2",
-        "@alfalab/core-components-shared": "^0.16.0",
-        "@alfalab/core-components-button": "^11.11.6",
-        "@alfalab/core-components-scrollbar": "^3.2.0",
-        "@alfalab/core-components-typography": "^4.12.0",
-        "@alfalab/core-components-backdrop": "^3.4.5",
-        "classnames": "^2.5.1",
-        "react-merge-refs": "^1.1.0",
-        "tslib": "^2.4.0"
-    },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.18.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

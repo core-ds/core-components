@@ -24,6 +24,7 @@ import {
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
 import {
     defaultAccessor,
@@ -34,13 +35,6 @@ import {
 } from '../../utils';
 import { NativeSelect } from '../native-select';
 
-import { getListPopoverDesktopProps } from './components/list-desktop/helpers/get-list-popover-desktop-props';
-import { ListPopoverDesktop } from './components/list-desktop/list-popover-desktop';
-import {
-    getListBottomSheetMobileProps,
-    getListModalMobileProps,
-} from './components/list-mobile/helpers';
-import { ListMobile } from './components/list-mobile/list-mobile';
 import { ComponentProps } from './types/component-types';
 
 import styles from './index.module.css';
@@ -61,6 +55,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             optionGroupClassName,
             optionsListClassName,
             optionClassName,
+            popperClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -71,6 +66,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             nativeSelect = false,
             defaultOpen = false,
             open: openProp,
+            popoverPosition = 'bottom-start',
+            preventFlip = true,
             optionsListWidth = 'content',
             name,
             id,
@@ -103,12 +100,22 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             Optgroup = () => null,
             Option = () => null,
             Search = () => null,
+            updatePopover,
+            zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
             view,
             isBottomSheet = true,
+            footer,
+            swipeable,
             modalProps,
+            popoverProps,
+            modalFooterProps,
+            modalHeaderProps,
             bottomSheetProps,
+            Popover,
+            ModalMobile,
+            BottomSheet,
             limitDynamicOptionGroupSize,
         } = props;
         const shouldSearchBlurRef = useRef(true);
@@ -402,7 +409,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 !autocomplete &&
                 !nativeSelect &&
                 (event.target as HTMLElement).tagName !== 'INPUT' &&
-                (event.target as HTMLElement).tagName !== 'BUTTON'
+                (event.target as HTMLElement).tagName !== 'BUTTON' &&
+                (event.target as HTMLElement).tagName !== 'TEXTAREA'
             ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
@@ -479,7 +487,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     ? rootRef.current.getBoundingClientRect().width
                     : 0;
 
-                listRef.current.setAttribute('style', '');
+                listRef.current.removeAttribute('style');
                 listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
             }
         }, [view, optionsListWidth]);
@@ -564,10 +572,14 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     onChange={handleChange}
                     dataTestId={getDataTestId(dataTestId, 'search')}
                     onClear={handleClear}
-                    className={cn(searchProps?.componentProps?.className, {
-                        [styles.search]: view === 'desktop',
-                        [mobileStyles.search]: view === 'mobile',
-                    })}
+                    className={cn(
+                        searchProps?.componentProps?.className,
+                        {
+                            [styles.search]: view === 'desktop',
+                            [mobileStyles.search]: view === 'mobile',
+                        },
+                        size && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    )}
                     ref={mergeRefs([searchRef, searchProps?.componentProps?.ref || null])}
                 />
             );
@@ -619,8 +631,14 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         {...listProps}
                         ref={view === 'desktop' ? listProps.ref : scrollableContainerRef}
                         setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
-                        className={cn({ [mobileStyles.optionsList]: view === 'mobile' })}
-                        scrollbarClassName={cn({ [mobileStyles.scrollbar]: view === 'mobile' })}
+                        className={cn(
+                            { [mobileStyles.optionsList]: view === 'mobile' },
+                            listProps.className,
+                        )}
+                        scrollbarClassName={cn(
+                            { [mobileStyles.scrollbar]: view === 'mobile' },
+                            listProps.scrollbarClassName,
+                        )}
                         optionsListWidth={optionsListWidth}
                         flatOptions={flatOptions}
                         highlightedIndex={highlightedIndex}
@@ -649,6 +667,138 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
             );
+        };
+
+        const renderInPopover = () => {
+            if (!nativeSelect && Popover) {
+                return (
+                    <Popover
+                        {...popoverProps}
+                        open={open}
+                        withTransition={false}
+                        anchorElement={fieldRef.current as HTMLElement}
+                        position={popoverPosition}
+                        preventFlip={preventFlip}
+                        popperClassName={cn(styles.popoverInner, popperClassName)}
+                        update={updatePopover}
+                        zIndex={zIndexPopover}
+                    >
+                        {renderOptionsList()}
+                    </Popover>
+                );
+            }
+
+            return null;
+        };
+
+        const renderInBottomSheet = () => {
+            if (!nativeSelect && BottomSheet) {
+                const bottomAddons = bottomSheetProps?.bottomAddons;
+
+                return (
+                    <BottomSheet
+                        dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
+                        open={open}
+                        className={mobileStyles.sheet}
+                        contentClassName={mobileStyles.sheetContent}
+                        containerClassName={mobileStyles.sheetContainer}
+                        title={label || placeholder}
+                        actionButton={footer}
+                        stickyHeader={true}
+                        hasCloser={true}
+                        swipeable={swipeable}
+                        initialHeight={showSearch ? 'full' : 'default'}
+                        {...bottomSheetProps}
+                        sheetContainerRef={menuRef}
+                        scrollableContainerRef={scrollableContainerRef}
+                        onClose={() => {
+                            closeMenu();
+                            bottomSheetProps?.onClose?.();
+                        }}
+                        transitionProps={{
+                            ...bottomSheetProps?.transitionProps,
+                            onEntered: handleEntered,
+                        }}
+                        bottomAddons={
+                            <React.Fragment>
+                                {renderSearch()}
+                                {typeof bottomAddons === 'function'
+                                    ? bottomAddons(flatOptions)
+                                    : bottomAddons}
+                            </React.Fragment>
+                        }
+                        containerProps={{
+                            ...bottomSheetProps?.containerProps,
+                            onScroll,
+                        }}
+                    >
+                        {renderOptionsList()}
+                    </BottomSheet>
+                );
+            }
+
+            return null;
+        };
+
+        const renderInModalMobile = () => {
+            if (!nativeSelect && ModalMobile) {
+                const bottomAddons = modalHeaderProps?.bottomAddons;
+
+                return (
+                    <ModalMobile
+                        dataTestId={getDataTestId(dataTestId, 'modal')}
+                        open={open}
+                        hasCloser={true}
+                        {...modalProps}
+                        componentRef={menuRef}
+                        onClose={(...args) => {
+                            closeMenu();
+                            modalProps?.onClose?.(...args);
+                        }}
+                        contentClassName={cn(
+                            mobileStyles.sheetContent,
+                            modalProps?.contentClassName,
+                        )}
+                        ref={mergeRefs([
+                            scrollableContainerRef,
+                            modalProps?.ref as React.Ref<HTMLDivElement>,
+                        ])}
+                        wrapperProps={{
+                            ...modalProps?.wrapperProps,
+                            onScroll,
+                        }}
+                        transitionProps={{
+                            ...modalProps?.transitionProps,
+                            onEntered: handleEntered,
+                        }}
+                    >
+                        <ModalMobile.Header
+                            hasCloser={true}
+                            sticky={true}
+                            {...modalHeaderProps}
+                            title={undefined}
+                            bottomAddons={
+                                <React.Fragment>
+                                    {renderSearch()}
+                                    {typeof bottomAddons === 'function'
+                                        ? bottomAddons(flatOptions)
+                                        : bottomAddons}
+                                </React.Fragment>
+                            }
+                        >
+                            {modalHeaderProps?.title || label || placeholder}
+                        </ModalMobile.Header>
+
+                        <ModalMobile.Content flex={true} className={mobileStyles.modalContent}>
+                            {renderOptionsList()}
+                        </ModalMobile.Content>
+
+                        {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
+                    </ModalMobile>
+                );
+            }
+
+            return null;
         };
 
         return (
@@ -703,32 +853,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
                 {name && !nativeSelect && renderValue()}
 
-                {view === 'desktop' && !nativeSelect && (
-                    <ListPopoverDesktop
-                        {...getListPopoverDesktopProps(props)}
-                        open={open}
-                        fieldRef={fieldRef}
-                        renderOptionsList={renderOptionsList}
-                    />
-                )}
-
-                {view === 'mobile' && (
-                    <ListMobile
-                        baseProps={
-                            isBottomSheet
-                                ? getListBottomSheetMobileProps(props)
-                                : getListModalMobileProps(props)
-                        }
-                        open={open}
-                        menuRef={menuRef}
-                        scrollableContainerRef={scrollableContainerRef}
-                        flatOptions={flatOptions}
-                        renderOptionsList={renderOptionsList}
-                        renderSearch={renderSearch}
-                        closeMenu={closeMenu}
-                        handleEntered={handleEntered}
-                    />
-                )}
+                {view === 'desktop' && renderInPopover()}
+                {view === 'mobile' &&
+                    (isBottomSheet ? renderInBottomSheet() : renderInModalMobile())}
             </div>
         );
     },

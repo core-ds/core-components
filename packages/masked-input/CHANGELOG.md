@@ -1,4 +1,58 @@
-# Change Log
+# @alfalab/core-components-masked-input
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.0
+
+## 6.3.39
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+
+## 6.3.38
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+
+## 6.3.37
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 6.3.36
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.5
+
+## 6.3.35
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.4
 
 ## 6.3.34
 

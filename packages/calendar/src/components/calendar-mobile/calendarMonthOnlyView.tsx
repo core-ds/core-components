@@ -1,11 +1,11 @@
 import React, { useMemo, useRef } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 import cn from 'classnames';
-import { endOfDay, isAfter, isSameMonth, startOfDay, startOfMonth } from 'date-fns';
+import { endOfDay, isAfter, isSameMonth, startOfDay, startOfMonth, isBefore } from 'date-fns';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { Month } from '../../typings';
+import { ActiveMonths, Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
 import { useRange } from '../../useRange';
 import {
@@ -135,19 +135,34 @@ export const CalendarMonthOnlyView = ({
 
         const generatedMonths = [...prevMonths, ...currYearMonths, ...nextMonths];
 
-        return generatedMonths.map((item) => ({
-            ...item,
-            weeks: generateWeeks(item.date, {
-                minDate,
-                maxDate,
-                selected,
-                eventsMap,
-                offDaysMap,
-                holidaysMap,
-                dayAddonsMap,
-            }),
-            title: `${monthName(item.date)} ${item.date.getFullYear()}`,
-        }));
+        return generatedMonths.reduce<ActiveMonths[]>((acc, item) => {
+            // отсекаем лишние месяцы если задана минимальная дата
+            if (minDate && isBefore(item.date, startOfMonth(minDate))) {
+                return acc;
+            }
+
+            // отсекаем лишние месяцы если задана максимальная дата
+            if (maxDate && isAfter(item.date, startOfMonth(maxDate))) {
+                return acc;
+            }
+
+            return [
+                ...acc,
+                {
+                    ...item,
+                    weeks: generateWeeks(item.date, {
+                        minDate,
+                        maxDate,
+                        selected,
+                        eventsMap,
+                        offDaysMap,
+                        holidaysMap,
+                        dayAddonsMap,
+                    }),
+                    title: `${monthName(item.date)} ${item.date.getFullYear()}`,
+                },
+            ];
+        }, []);
     }, [events, offDays, holidays, dayAddons, minDate, maxDate, yearsAmount, selected]);
 
     const initialMonthIndex = useMemo(() => {

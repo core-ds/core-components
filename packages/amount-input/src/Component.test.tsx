@@ -1,9 +1,5 @@
-/**
- * @jest-environment jsdom-sixteen
- */
-
 import React, { useState } from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
 import { MMSP, THINSP } from '@alfalab/utils';
@@ -408,11 +404,11 @@ describe('AmountInput', () => {
         expect(input.value).toBe('123,45');
     });
 
-    it('should not delete any symbol when caret set after space and backspace pressed', async () => {
+    it('should delete the symbol before the space when placing the cursor after the space and pressing the Backspace key', async () => {
         const input = renderAmountInput(null);
 
-        await userEvent.type(input, '1234');
-        expect(input.value).toBe(`1${MMSP}234`);
+        await userEvent.type(input, '12345');
+        expect(input.value).toBe(`12${MMSP}345`);
 
         await userEvent.type(input, '{backspace}', {
             initialSelectionStart: 2,
@@ -420,7 +416,7 @@ describe('AmountInput', () => {
             delay: 10,
         });
 
-        expect(input.value).toBe(`1${MMSP}234`);
+        expect(input.value).toBe(`1${MMSP}345`);
     });
 
     it('should render new amount from props (looped value)', async () => {
@@ -605,6 +601,88 @@ describe('AmountInput', () => {
     it('should has passed `inputClassName` too', () => {
         const input = renderAmountInput(null, 'RUR', { inputClassName: 'foo' });
         expect(input).toHaveClass('foo');
+    });
+
+    describe('stepper tests', () => {
+        it('should render stepper increment', () => {
+            const dataTestId = 'test-id';
+
+            render(<AmountInput dataTestId={dataTestId} value={1000} stepper={{ step: 1 }} />);
+
+            expect(screen.queryByTestId(`${dataTestId}-increment-button`)).toBeInTheDocument();
+        });
+
+        it('should render stepper decrement', () => {
+            const dataTestId = 'test-id';
+
+            render(<AmountInput dataTestId={dataTestId} value={1000} stepper={{ step: 1 }} />);
+
+            expect(screen.queryByTestId(`${dataTestId}-decrement-button`)).toBeInTheDocument();
+        });
+
+        it('should increment', () => {
+            const dataTestId = 'test-id';
+
+            const Component = () => {
+                const [value, setValue] = useState(1000);
+                const handleChange: AmountInputProps['onChange'] = (e, payload) => {
+                    if (payload.value) {
+                        setValue(payload.value);
+                    }
+                };
+
+                return (
+                    <AmountInput
+                        dataTestId={dataTestId}
+                        value={value}
+                        stepper={{ step: 1 }}
+                        onChange={handleChange}
+                    />
+                );
+            };
+
+            render(<Component />);
+
+            const incrementButton = screen.getByTestId(`${dataTestId}-increment-button`);
+            const input: HTMLInputElement = screen.getByTestId(dataTestId);
+
+            fireEvent.click(incrementButton);
+            fireEvent.click(incrementButton);
+
+            expect(input.value).toBe('10,02');
+        });
+
+        it('should decrement', () => {
+            const dataTestId = 'test-id';
+
+            const Component = () => {
+                const [value, setValue] = useState(1000);
+                const handleChange: AmountInputProps['onChange'] = (e, payload) => {
+                    if (payload.value) {
+                        setValue(payload.value);
+                    }
+                };
+
+                return (
+                    <AmountInput
+                        dataTestId={dataTestId}
+                        value={value}
+                        stepper={{ step: 1 }}
+                        onChange={handleChange}
+                    />
+                );
+            };
+
+            render(<Component />);
+
+            const decrementButton = screen.getByTestId(`${dataTestId}-decrement-button`);
+            const input: HTMLInputElement = screen.getByTestId(dataTestId);
+
+            fireEvent.click(decrementButton);
+            fireEvent.click(decrementButton);
+
+            expect(input.value).toBe('9,98');
+        });
     });
 
     /**

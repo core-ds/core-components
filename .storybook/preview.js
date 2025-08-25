@@ -8,6 +8,7 @@ import { rmCommentsFromCss, setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
 import guidelinesStyles from '!css-loader!!postcss-loader!./public/guidelines.css';
 import './blocks/code-editor/github-light-theme.css';
+import '@alfalab/core-components-vars/src/index.css';
 
 import alfaTheme from './theme';
 import scope from './scope';
@@ -74,9 +75,9 @@ export const parameters = {
                 </h2>
             ),
             h3: ({ children, ...restProps }) => (
-                <h2 {...restProps} className={cn(restProps.className, 'sbdocs-h3')}>
+                <h3 {...restProps} className={cn(restProps.className, 'sbdocs-h3')}>
                     {children}
-                </h2>
+                </h3>
             ),
             h4: ({ children, ...restProps }) => (
                 <h4 {...restProps} className={cn(restProps.className, 'sbdocs-h4')}>

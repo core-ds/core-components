@@ -157,6 +157,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                 allowUnselect={allowUnselect}
                 showEmptyOptionsList={true}
                 fieldProps={{
+                    ...(restProps?.fieldProps as FieldProps),
                     value,
                     isOpen,
                     autocomplete: view === 'desktop' && isAutocomplete,
@@ -224,6 +225,8 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                                   },
                               },
                               bottomSheetProps: {
+                                  showFooter: false,
+                                  showSwipeMarker: false,
                                   onClose: handleClose,
                                   containerProps: {
                                       onTouchMove: handleOptionsListTouchMove,

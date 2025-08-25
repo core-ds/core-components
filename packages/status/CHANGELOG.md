@@ -1,4 +1,28 @@
-# Change Log
+# @alfalab/core-components-status
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 3.7.0
+
+### Minor Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1663](https://github.com/core-ds/core-components/pull/1663)
+
+-   Добавлен пропс `leftAddons` позволяющий размещать контент в левый слот
 
 ## 3.6.3
 

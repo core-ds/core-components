@@ -86,6 +86,7 @@ export type NavigationBarPrivateProps = {
 
     /**
      * Выравнивание заголовка
+     * @default left
      */
     align?: 'left' | 'center';
 
@@ -118,6 +119,11 @@ export type NavigationBarPrivateProps = {
      * Обработчик закрытия
      */
     onClose?: CloserProps['onClose'];
+
+    /**
+     * Дополнительные пропсы для компонента Closer.
+     */
+    closerProps?: Omit<CloserProps, 'view' | 'onClose'>;
 
     /**
      * обработчик клика по кнопке "назад"
@@ -155,4 +161,5 @@ export type ContentParams = {
     wrapperRef?: React.RefObject<HTMLDivElement>;
     style?: React.CSSProperties;
     hidden?: boolean;
+    extraAlign?: NavigationBarPrivateProps['align'];
 };

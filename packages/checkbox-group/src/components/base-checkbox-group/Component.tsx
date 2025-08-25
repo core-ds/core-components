@@ -2,14 +2,16 @@ import React, {
     ChangeEvent,
     Children,
     cloneElement,
-    FC,
     FocusEvent,
+    forwardRef,
     isValidElement,
     MouseEvent,
     ReactElement,
     ReactNode,
 } from 'react';
 import cn from 'classnames';
+
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import commonStyles from './index.module.css';
 
@@ -89,111 +91,146 @@ export type BaseCheckboxGroupProps = {
     styles: { [key: string]: string };
 };
 
-export const BaseCheckboxGroup: FC<BaseCheckboxGroupProps> = ({
-    children,
-    className,
-    direction = 'vertical',
-    label,
-    error,
-    hint,
-    onChange,
-    onBlur,
-    onFocus,
-    type = 'checkbox',
-    dataTestId,
-    disabled = false,
-    styles,
-}) => {
-    const renderCheckbox = (child: ReactElement) => {
-        const { name, checked, className: childClassName } = child.props;
+export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupProps>(
+    (
+        {
+            children,
+            className,
+            direction = 'vertical',
+            label,
+            error,
+            hint,
+            onChange,
+            onBlur,
+            onFocus,
+            type = 'checkbox',
+            dataTestId,
+            disabled = false,
+            styles,
+        },
+        ref,
+    ) => {
+        const renderCheckbox = (child: ReactElement) => {
+            const { name, checked, className: childClassName } = child.props;
 
-        const handleChange = (event: ChangeEvent) => {
-            if (onChange) {
-                onChange(event, { name, checked: !checked });
-            }
+            const handleChange = (event: ChangeEvent) => {
+                if (onChange) {
+                    onChange(event, { name, checked: !checked });
+                }
+            };
+
+            return cloneElement(child, {
+                onChange: handleChange,
+                disabled,
+                ...child.props,
+                className: cn(childClassName, commonStyles.checkbox),
+            });
         };
 
-        return cloneElement(child, {
-            onChange: handleChange,
-            disabled,
-            ...child.props,
-            className: cn(childClassName, commonStyles.checkbox),
-        });
-    };
+        const renderTag = (child: ReactElement) => {
+            const { name, checked } = child.props;
 
-    const renderTag = (child: ReactElement) => {
-        const { name, checked } = child.props;
+            const handleChange = (event: ChangeEvent | MouseEvent) => {
+                if (onChange) {
+                    onChange(event, { name, checked: !checked });
+                }
+            };
 
-        const handleChange = (event: ChangeEvent | MouseEvent) => {
-            if (onChange) {
-                onChange(event, { name, checked: !checked });
-            }
+            const clone = cloneElement(child, { onClick: handleChange, disabled, ...child.props });
+
+            return (
+                // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                <label className={cn(commonStyles.checkbox, commonStyles.tagLabel)}>
+                    {clone}
+                    <input
+                        type='checkbox'
+                        autoComplete='off'
+                        onChange={handleChange}
+                        disabled={disabled || child.props.disabled}
+                        checked={checked}
+                        className={commonStyles.hiddenInput}
+                        tabIndex={-1}
+                    />
+                </label>
+            );
         };
 
-        const clone = cloneElement(child, { onClick: handleChange, disabled, ...child.props });
+        const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
-            <label className={cn(commonStyles.checkbox, commonStyles.tagLabel)}>
-                {clone}
-                <input
-                    type='checkbox'
-                    autoComplete='off'
-                    onChange={handleChange}
-                    disabled={disabled || child.props.disabled}
-                    checked={checked}
-                    className={commonStyles.hiddenInput}
-                    tabIndex={-1}
-                />
-            </label>
+            <div
+                ref={ref}
+                className={cn(
+                    commonStyles.component,
+                    commonStyles[type],
+                    commonStyles[direction],
+                    { [styles.error]: error },
+                    className,
+                )}
+                data-test-id={dataTestId}
+            >
+                {label ? (
+                    <span
+                        className={cn(styles.label, {
+                            [styles.tag]: type === 'tag',
+                        })}
+                        data-test-id={getDataTestId(dataTestId, 'label')}
+                    >
+                        {label}
+                    </span>
+                ) : null}
+
+                {children ? (
+                    <div
+                        className={cn(commonStyles.checkboxList, {
+                            [styles.checkboxList]: type === 'checkbox',
+                        })}
+                        onBlur={onBlur}
+                        onFocus={onFocus}
+                    >
+                        {Children.map(children, (child) => {
+                            if (isValidElement(child)) {
+                                return type === 'checkbox'
+                                    ? renderCheckbox(child)
+                                    : renderTag(child);
+                            }
+
+                            return null;
+                        })}
+                    </div>
+                ) : null}
+
+                {errorMessage && (
+                    <span
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.errorMessage,
+                        )}
+                        role='alert'
+                        data-test-id={getDataTestId(dataTestId, 'error')}
+                    >
+                        {errorMessage}
+                    </span>
+                )}
+
+                {hint && !errorMessage && (
+                    <span
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.hint,
+                        )}
+                        data-test-id={getDataTestId(dataTestId, 'hint')}
+                    >
+                        {hint}
+                    </span>
+                )}
+            </div>
         );
-    };
-
-    const errorMessage = typeof error === 'boolean' ? '' : error;
-
-    return (
-        <div
-            className={cn(
-                commonStyles.component,
-                commonStyles[type],
-                commonStyles[direction],
-                { [commonStyles.error]: error },
-                className,
-            )}
-            data-test-id={dataTestId}
-        >
-            {label ? <span className={cn(commonStyles.label, styles.label)}>{label}</span> : null}
-
-            {children ? (
-                <div
-                    className={cn(commonStyles.checkboxList, {
-                        [styles.checkboxList]: type === 'checkbox',
-                    })}
-                    onBlur={onBlur}
-                    onFocus={onFocus}
-                >
-                    {Children.map(children, (child) => {
-                        if (isValidElement(child)) {
-                            return type === 'checkbox' ? renderCheckbox(child) : renderTag(child);
-                        }
-
-                        return null;
-                    })}
-                </div>
-            ) : null}
-
-            {errorMessage && (
-                <span
-                    className={cn(commonStyles.sub, styles.sub, commonStyles.errorMessage)}
-                    role='alert'
-                >
-                    {errorMessage}
-                </span>
-            )}
-
-            {hint && !errorMessage && (
-                <span className={cn(commonStyles.sub, styles.sub, commonStyles.hint)}>{hint}</span>
-            )}
-        </div>
-    );
-};
+    },
+);

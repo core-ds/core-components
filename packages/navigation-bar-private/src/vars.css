@@ -1,8 +1,11 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     /* closer-mobile */
     --navigation-bar-closer-mobile-color: var(--color-light-neutral-translucent-700);
+    --navigation-bar-closer-mobile-color-inverted: var(
+        --color-light-neutral-translucent-700-inverted
+    );
 
     /* back-arrow */
     --navigation-bar-back-arrow-mobile-fill: var(--color-light-neutral-translucent-700);

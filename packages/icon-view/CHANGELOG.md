@@ -1,4 +1,76 @@
-# Change Log
+# @alfalab/core-components-icon-view
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 3.11.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1785](https://github.com/core-ds/core-components/pull/1785)
+
+-   Добавлена возможность управлять масштабированием изображения через проп `scale` (`fill` / `fit`)
+
+## 3.10.4
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1626](https://github.com/core-ds/core-components/pull/1626)
+
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
+
+## 3.10.3
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1733](https://github.com/core-ds/core-components/pull/1733)
+
+-   Исправлено позиционирование индикатора для размера 64
+
+## 3.10.2
+
+### Patch Changes
+
+<sup><time>30.05.2025</time></sup>
+
+### [#1650](https://github.com/core-ds/core-components/pull/1650)
+
+-   Исправлено положение фона для Rectangle
+
+## 3.10.1
+
+### Patch Changes
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1627](https://github.com/core-ds/core-components/pull/1627)
+
+-   Фикс пустого css-класса
+-   Добавлено описание дефолта в пропс `mainSize`
+
+<sup><time>11.04.2025</time></sup>
+
+### [#1667](https://github.com/core-ds/core-components/pull/1667)
+
+-   Added support for using animated images
 
 ## 3.10.0
 

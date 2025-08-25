@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .container {
     display: flex;
@@ -12,12 +12,24 @@
 
 .deleteIconColor {
     fill: var(--color-light-text-tertiary);
+
+    &:hover {
+        fill: var(--color-light-text-tertiary-hover);
+    }
 }
 
 .downloadIconColor {
     fill: var(--color-light-text-tertiary);
+
+    &:hover {
+        fill: var(--color-light-text-tertiary-hover);
+    }
 }
 
 .restoreIconColor {
     fill: var(--color-light-text-tertiary);
+
+    &:hover {
+        fill: var(--color-light-text-tertiary-hover);
+    }
 }
