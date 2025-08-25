@@ -23,6 +23,9 @@
         "tslib": "^2.4.0",
         "use-sync-external-store": "^1.4.0"
     },
+    "devDependencies": {
+        "@alfalab/core-components-button": "^12.0.0"
+    },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"

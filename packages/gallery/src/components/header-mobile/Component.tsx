@@ -28,28 +28,56 @@ export const HeaderMobile = () => {
     const showDownloadButton = !meta?.broken && canDownload;
 
     const handleShareClick = async () => {
-        if (!currentImage) return;
+        if (!currentImage || !navigator.share) {
+            return;
+        }
 
         const title = currentImage.name ?? new Date().toISOString().split('T')[0];
+        const url = currentImage.src;
 
-        const image = await fetch(currentImage.src);
-        const blob = await image.blob();
+        try {
+            if (isVideo(url)) {
+                // Если видео — всегда делим ссылку
+                await navigator.share({
+                    title,
+                    url,
+                    text: 'Видео',
+                });
 
-        const filesArray = [
-            new File([blob], title, {
+                return;
+            }
+
+            // Попробуем скачать изображение
+            const response = await fetch(url, { mode: 'cors' });
+            const blob = await response.blob();
+
+            const file = new File([blob], `${title}.png`, {
                 type: blob.type,
-                lastModified: new Date().getTime(),
-            }),
-        ];
+                lastModified: Date.now(),
+            });
 
-        const shareData = {
-            files: filesArray,
-        };
+            const shareData: ShareData = {
+                files: [file],
+                title,
+                text: 'Картинка',
+            };
 
-        if (navigator.canShare(shareData) && !isVideo(currentImage.src)) {
-            await navigator.share(shareData);
-        } else {
-            await navigator.share({ url: currentImage.src, title });
+            // Попробуем поделиться файлом
+            if (navigator.canShare?.(shareData) && response.ok) {
+                await navigator.share(shareData);
+            } else {
+                // Fallback: делимся только ссылкой
+                await navigator.share({
+                    title,
+                    text: 'Картинка',
+                    url,
+                });
+            }
+        } catch {
+            await navigator.share({
+                title,
+                url,
+            });
         }
     };
 

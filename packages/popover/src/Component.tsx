@@ -346,20 +346,17 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 className={cn(styles.component, className)}
                 {...attributes.popper}
             >
-                <div
-                    className={cn(styles.inner, popperClassName)}
-                    ref={innerRef}
-                    style={{
-                        maxHeight:
-                            isFn(availableHeight) || availableHeight
-                                ? state?.modifiersData.maxSize?.height
-                                : undefined,
-                    }}
-                >
+                <div className={cn(styles.inner, popperClassName)} ref={innerRef}>
                     <div
                         className={cn(scrollableContentClassName, {
                             [styles.scrollableContent]: isFn(availableHeight) || availableHeight,
                         })}
+                        style={{
+                            maxHeight:
+                                isFn(availableHeight) || availableHeight
+                                    ? state?.modifiersData.maxSize?.height
+                                    : undefined,
+                        }}
                     >
                         {children}
                     </div>

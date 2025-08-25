@@ -16,7 +16,7 @@
         "@alfalab/core-components-mq": "^5.0.0",
         "@alfalab/core-components-popover": "^7.0.0",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0",

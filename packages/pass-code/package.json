@@ -14,7 +14,7 @@
         "@alfalab/core-components-gap": "^2.0.0",
         "@alfalab/core-components-mq": "^5.0.0",
         "@alfalab/core-components-shared": "^1.0.0",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"

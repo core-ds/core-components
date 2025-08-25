@@ -3,6 +3,14 @@
     outline-offset: 2px;
 }
 
+@define-mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @mixin-content;
+        }
+    }
+}
+
 @define-mixin custom-scrollbar {
     overflow: auto;
     cursor: auto;
