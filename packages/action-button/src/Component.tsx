@@ -1,6 +1,7 @@
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
+    ElementType,
     forwardRef,
     Fragment,
     useRef,
@@ -66,6 +67,17 @@ type ComponentProps = {
     href?: string;
 
     /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    hrefProp?: string;
+
+    /**
+     * Позволяет использовать кастомный компонент для кнопки
+     */
+    Component?: ElementType;
+
+    /**
      * Заблокировать кнопку
      */
     disabled?: boolean;
@@ -103,6 +115,8 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
             icon,
             children,
             href,
+            hrefProp,
+            Component = href ? 'a' : 'button',
             size = 48,
             view = 'primary',
             type = 'button',
@@ -164,22 +178,25 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         );
 
         if (href) {
+            const propName = hrefProp || (typeof Component === 'string' ? 'href' : 'to');
+            const hrefProps = { [propName]: href };
+
             return (
-                <a
+                <Component
                     role='button'
                     ref={mergeRefs([componentRef, ref])}
-                    href={href}
                     aria-disabled={disabled || loading}
                     {...componentProps}
                     {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+                    {...hrefProps}
                 >
                     {buttonChildren}
-                </a>
+                </Component>
             );
         }
 
         return (
-            <button
+            <Component
                 ref={mergeRefs([componentRef, ref])}
                 // eslint-disable-next-line react/button-has-type
                 type={type as ButtonHTMLAttributes<HTMLButtonElement>['type']}
@@ -188,7 +205,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                 {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
             >
                 {buttonChildren}
-            </button>
+            </Component>
         );
     },
 );
