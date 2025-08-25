@@ -254,10 +254,13 @@ async function releaseRoot() {
     shell.exec('git push --follow-tags', execOptions);
 
     logger.log('=> Create github release');
+
+    const currentBranch = shell.exec('git branch --show-current', execOptions).stdout.trim();
+
     shell.exec(
         `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
             notes.replace('<br />', '\n'),
-        )}" --target master`,
+        )}" --target ${currentBranch}`,
         execOptions,
     );
 
