@@ -20,9 +20,8 @@ jobs:
           script: |
             core.setFailed("You don't have permission to run this workflow!");
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
-          ref: 'master'
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
 
