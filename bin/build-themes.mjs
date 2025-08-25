@@ -88,7 +88,7 @@ const processRootTheme = async (cssFile) => {
         return globby(
             [
                 'src/{border-radius,colors,common,gaps,mixins,shadows-bluetint,typography-common,typography}.css',
-                'src/colors-{addons,bluetint,transparent}.css',
+                'src/colors-{addons,bluetint}.css',
             ],
             {
                 cwd: resolveInternal('@alfalab/core-components-vars'),
