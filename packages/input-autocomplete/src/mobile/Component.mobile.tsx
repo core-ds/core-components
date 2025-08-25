@@ -137,6 +137,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             [isBottomSheet ? 'containerProps' : 'componentDivProps']: {
                 onTouchMove: handleOptionsListTouchMove,
             },
+            showFooter: false,
             disableFocusLock: os.isIOS(),
         };
 

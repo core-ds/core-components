@@ -5,15 +5,6 @@
     flex-direction: column;
 }
 
-.error {
-    padding-left: var(--checkbox-group-error-padding-left);
-    border-left: var(--checkbox-group-error-border-left);
-
-    &.tag {
-        padding-left: var(--gap-8);
-    }
-}
-
 .checkboxList {
     display: flex;
 }
@@ -48,15 +39,6 @@
 .horizontal .checkbox:last-child,
 .horizontal .tagLabel:last-child {
     margin-right: var(--gap-0);
-}
-
-.label {
-    margin-bottom: var(--gap-12);
-}
-
-.sub {
-    @mixin paragraph_component_secondary;
-    margin-top: var(--gap-12);
 }
 
 .errorMessage {
