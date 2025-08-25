@@ -12,7 +12,7 @@ module.exports = {
         require('./tools/postcss/postcss-subtract-mixin.cjs')({}),
         require('postcss-mixins')({
             mixinsFiles: globSync('src/*.css', {
-                ignore: ['src/alfasans-{index,typography}.css'],
+                ignore: ['src/alfasans-{index,typography}.css', 'src/no-typography.css'],
                 cwd: resolveInternal('@alfalab/core-components-vars'),
                 absolute: true,
             }),

@@ -6,10 +6,19 @@ import resolve from 'resolve';
 
 import { getPackages } from './monorepo.cjs';
 
+function prepareData(data) {
+    const sortedData = Object.entries(data).sort(([aName], [bName]) => aName.localeCompare(bName));
+
+    return [
+        ...sortedData.filter(([, rules]) => !rules.deprecated),
+        ...sortedData.filter(([, rules]) => rules.deprecated),
+    ];
+}
+
 /**
  * @returns {import('postcss').Plugin}
  */
-function generateTypography({ data }) {
+function generateTypography({ data, empty }) {
     return {
         postcssPlugin: 'postcss-generate-typography',
         Once: (root, helpers) => {
@@ -24,51 +33,58 @@ function generateTypography({ data }) {
                 }),
             );
 
-            const sortedData = Object.entries(data).sort(([aName], [bName]) =>
-                aName.localeCompare(bName),
-            );
+            prepareData(data).forEach(([name, rules]) => {
+                const nodes = empty
+                    ? [
+                          helpers.postcss.comment({
+                              text: `@mixin ${name}`,
+                              // formatting
+                              raws: {
+                                  before: `\n${' '.repeat(4 /* indent size in spaces */)}`,
+                                  left: ' ',
+                                  right: ' ',
+                              },
+                          }),
+                      ]
+                    : Object.entries(rules).flatMap(([rawProp, rawValue]) => {
+                          const prop = rawProp.replace(/_/, '-').toLocaleLowerCase();
+                          const value =
+                              typeof rawValue === 'number' && !(prop === 'font-weight')
+                                  ? `${rawValue}px`
+                                  : rawValue;
+                          const result = [];
 
-            [
-                ...sortedData.filter(([, rules]) => !rules.deprecated),
-                ...sortedData.filter(([, rules]) => rules.deprecated),
-            ].forEach(([name, rules]) => {
+                          if (
+                              (prop === 'deprecated' && value) ||
+                              (prop === 'font-family' && value === 'var(--font-family-system)')
+                          ) {
+                              return result;
+                          }
+
+                          // code formatting
+                          const raws = {
+                              before: `\n${' '.repeat(4 /* indent size in spaces */)}`,
+                          };
+
+                          if (prop === 'font-family' && value === 'var(--font-family-styrene)') {
+                              result.push(
+                                  helpers.postcss.decl({
+                                      prop: 'font-feature-settings',
+                                      value: "'ss01'",
+                                      raws,
+                                  }),
+                              );
+                          }
+
+                          result.push(helpers.postcss.decl({ prop, value, raws }));
+
+                          return result;
+                      });
+
                 const atRule = helpers.postcss.atRule({
                     name: 'define-mixin',
                     params: name,
-                    nodes: Object.entries(rules).flatMap(([rawProp, rawValue]) => {
-                        const prop = rawProp.replace(/_/, '-').toLocaleLowerCase();
-                        const value =
-                            typeof rawValue === 'number' && !(prop === 'font-weight')
-                                ? `${rawValue}px`
-                                : rawValue;
-                        const result = [];
-
-                        if (
-                            (prop === 'deprecated' && value) ||
-                            (prop === 'font-family' && value === 'var(--font-family-system)')
-                        ) {
-                            return result;
-                        }
-
-                        // code formatting
-                        const raws = {
-                            before: `\n${' '.repeat(4 /* indent size in spaces */)}`,
-                        };
-
-                        if (prop === 'font-family' && value === 'var(--font-family-styrene)') {
-                            result.push(
-                                helpers.postcss.decl({
-                                    prop: 'font-feature-settings',
-                                    value: "'ss01'",
-                                    raws,
-                                }),
-                            );
-                        }
-
-                        result.push(helpers.postcss.decl({ prop, value, raws }));
-
-                        return result;
-                    }),
+                    nodes,
                     // formatting
                     raws: {
                         before: '\n\n',
@@ -109,10 +125,21 @@ async function main() {
         { from: undefined },
     );
 
-    fs.writeFile(
+    await fs.writeFile(
         path.join(vars.dir, 'src/typography.css'),
         // FIXME stripping redundant line feeds - `raws.before` doesn't have effect for comments
         result.css.replace(/(\})\n+(\/)/g, '$1 $2'),
+        { encoding: 'utf8' },
+    );
+
+    const emptyResult = await postcss(
+        generateTypography({ data: typographyData, empty: true }),
+    ).process(postcss.root(), { from: undefined });
+
+    await fs.writeFile(
+        path.join(vars.dir, 'src/no-typography.css'),
+        // FIXME stripping redundant line feeds - `raws.before` doesn't have effect for comments
+        emptyResult.css.replace(/(\})\s+(\/)/g, '$1 $2'),
         { encoding: 'utf8' },
     );
 }

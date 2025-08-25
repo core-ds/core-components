@@ -20,8 +20,6 @@ import { persistMixins } from '../postcss/postcss-mixins.cjs';
 import postcssPersistentMixins from '../postcss/postcss-persistent-mixins.cjs';
 import { resolveInternal } from '../resolve-internal.cjs';
 
-import { dynamicMixins } from './dynamic-mixins.mjs';
-
 const pkg = fse.readJsonSync('package.json', { encoding: 'utf8' });
 
 const varsEntryPoints = globSync('src/*index.css', {
@@ -33,7 +31,6 @@ const varsEntryPoints = globSync('src/*index.css', {
  * @typedef Options
  * @property {boolean} [modules]
  * @property {boolean} [noCommonVars]
- * @property {boolean} [preserveDynamicMixins]
  * @property {boolean} [preserveVars]
  */
 
@@ -48,7 +45,6 @@ export function processCss(options = {}) {
     const config = {
         modules: options.modules ?? true,
         noCommonVars: options.noCommonVars ?? false,
-        preserveDynamicMixins: options.preserveDynamicMixins ?? false,
         preserveVars: options.preserveVars ?? true,
     };
 
@@ -124,20 +120,16 @@ async function processPostcss(filePath, config) {
             const parsed = path.parse(filePath);
 
             let ignore;
-            let mixins;
 
             if (/^alfasans-.*\.css$/.test(parsed.base)) {
-                ignore = ['src/{index,typography}.css'];
+                ignore = ['src/{index,typography}.css', 'src/no-typography.css'];
             } else {
                 const companionFile = path.join(parsed.dir, `alfasans-${parsed.base}`);
 
                 if (existsSync(companionFile)) {
-                    ignore = ['src/alfasans-{index,typography}.css'];
-                } else if (config.preserveDynamicMixins) {
-                    ignore = ['src/alfasans-{index,typography}.css', 'src/{index,typography}.css'];
-                    mixins = persistMixins(dynamicMixins);
+                    ignore = ['src/alfasans-{index,typography}.css', 'src/no-typography.css'];
                 } else {
-                    ignore = ['src/alfasans-{index,typography}.css'];
+                    ignore = ['src/alfasans-{index,typography}.css', 'src/{index,typography}.css'];
                 }
             }
 
@@ -147,7 +139,6 @@ async function processPostcss(filePath, config) {
                     cwd: resolveInternal('@alfalab/core-components-vars'),
                     absolute: true,
                 }),
-                mixins,
             });
         }
 
@@ -192,13 +183,7 @@ async function processPostcss(filePath, config) {
         );
     }
 
-    let result = await postcss(plugins).process(originalCss, { from: filePath });
-
-    if (config.preserveDynamicMixins) {
-        result = await postcss(postcssPersistentMixins()).process(result.css, {
-            from: undefined,
-        });
-    }
+    const result = await postcss(plugins).process(originalCss, { from: filePath });
 
     return {
         css: result.css,

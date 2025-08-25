@@ -68,16 +68,16 @@ describe('mixins', () => {
     });
 
     test.each(['typography.css'])(
-        "`no-dynamic-mixins-index.css` shouldn't contain `%s` mixins",
+        "`no-typography-index.css` shouldn't contain `%s` mixins",
         async (file) => {
-            const dynamicMixins = await getMixinNames(path.resolve(__dirname, file));
-            const nonDynamicMixins = await getMixinNames(
-                path.resolve(__dirname, 'no-dynamic-mixins-index.css'),
+            const mixins = await getMixinNames(path.resolve(__dirname, file));
+            const nonMixins = await getMixinNames(
+                path.resolve(__dirname, 'no-typography-index.css'),
             );
 
-            expect(dynamicMixins).not.toHaveLength(0);
-            expect(nonDynamicMixins).toBeInstanceOf(Array);
-            expect(nonDynamicMixins).not.toEqual(expect.arrayContaining(dynamicMixins));
+            expect(mixins).not.toHaveLength(0);
+            expect(nonMixins).toBeInstanceOf(Array);
+            expect(nonMixins).not.toEqual(expect.arrayContaining(mixins));
         },
     );
 });
