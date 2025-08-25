@@ -75,14 +75,6 @@
 }
 @import '@alfalab/core-components-vars/src/index.css';
 
-@define-mixin hover {
-    @media (hover: hover) {
-        &:hover {
-            @mixin-content;
-        }
-    }
-}
-
 :root {
     /* primary */
     --icon-button-primary-base-color: var(--color-light-neutral-translucent-1300);
