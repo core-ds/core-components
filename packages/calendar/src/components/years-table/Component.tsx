@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import isSameYear from 'date-fns/isSameYear';
-import isThisYear from 'date-fns/isThisYear';
+import { isSameYear, isThisYear } from 'date-fns';
 
 import { SelectButton, SelectButtonProps } from '../select-button';
 

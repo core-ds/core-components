@@ -1,12 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 import cn from 'classnames';
-import endOfDay from 'date-fns/endOfDay';
-import isAfter from 'date-fns/isAfter';
-import isBefore from 'date-fns/isBefore';
-import isSameMonth from 'date-fns/isSameMonth';
-import startOfDay from 'date-fns/startOfDay';
-import startOfMonth from 'date-fns/startOfMonth';
+import { endOfDay, isAfter, isBefore, isSameMonth, startOfDay, startOfMonth } from 'date-fns';
 
 import { Typography } from '@alfalab/core-components-typography';
 

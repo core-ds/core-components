@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
-import clamp from 'date-fns/clamp';
-import getDaysInMonth from 'date-fns/getDaysInMonth';
+import { clamp, getDaysInMonth } from 'date-fns';
 
 import { DATE_MAX_VALUES, DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from '../consts';
 import { DateSegments, DateTemplate } from '../types';

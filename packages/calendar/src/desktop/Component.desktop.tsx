@@ -1,8 +1,6 @@
 import React, { forwardRef, MouseEvent, SyntheticEvent, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
-import endOfDay from 'date-fns/endOfDay';
-import startOfDay from 'date-fns/startOfDay';
-import startOfMonth from 'date-fns/startOfMonth';
+import { endOfDay, startOfDay, startOfMonth } from 'date-fns';
 
 import { getDataTestId, hooks } from '@alfalab/core-components-shared';
 import { useDidUpdateEffect, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';

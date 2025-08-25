@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import isValid from 'date-fns/isValid';
+import { isValid } from 'date-fns';
 
 import type { CalendarProps } from '@alfalab/core-components-calendar';
 import { Input } from '@alfalab/core-components-input';
