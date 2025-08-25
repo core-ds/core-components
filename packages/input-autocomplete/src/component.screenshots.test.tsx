@@ -111,11 +111,11 @@ describe('InputAutocomplete | interactions tests', () => {
         try {
             await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
-            await page.focus('input');
+            await page.focus('input:visible');
 
             await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
-            await page.fill('input', 'D');
+            await page.fill('input:visible', 'D');
 
             await matchHtml({ context, page, expect, matchImageSnapshotOptions });
         } catch (error) {
@@ -154,7 +154,7 @@ describe('InputAutocompleteMobile | interactions tests', () => {
 
             await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
-            await page.fill('input', 'D');
+            await page.fill('input:visible', 'D');
 
             await page.click('button[data-test-id="InputAutocomplete-apply"]');
 
@@ -197,7 +197,7 @@ describe('InputAutocompleteModalMobile | interactions', () => {
                 },
             });
 
-            await page.fill('input', 'Nep');
+            await page.fill('input:visible', 'Nep');
 
             await page.waitForTimeout(300);
 

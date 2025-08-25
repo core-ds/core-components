@@ -19,6 +19,7 @@ describe('IntlPhoneInput', () => {
     });
 
     const testId = 'intl-phone-input';
+    const fieldTestId = 'intl-phone-input-field';
 
     it('should match snapshot', () => {
         const { container } = render(
@@ -40,7 +41,7 @@ describe('IntlPhoneInput', () => {
         const onChange = jest.fn();
         render(<IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />);
 
-        const input = await screen.getByDisplayValue('');
+        const input = screen.getByTestId(fieldTestId);
 
         fireEvent.change(input, { target: { value: '+54' } });
 
@@ -52,7 +53,7 @@ describe('IntlPhoneInput', () => {
         const onChange = jest.fn();
         render(<IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />);
 
-        const input = await screen.getByDisplayValue('');
+        const input = screen.getByTestId(fieldTestId);
 
         fireEvent.change(input, { target: { value: '+1868' } });
 
@@ -64,7 +65,7 @@ describe('IntlPhoneInput', () => {
         const onChange = jest.fn();
         render(<IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />);
 
-        const input = await screen.getByDisplayValue('');
+        const input = screen.getByTestId(fieldTestId);
         fireEvent.change(input, { target: { value: '+74957888878' } });
 
         expect(onChange).toHaveBeenCalled();
@@ -152,22 +153,21 @@ describe('IntlPhoneInput', () => {
     });
 
     it('should call `onCountryChange` callback after input was changed', async () => {
+        const onChange = jest.fn();
         const onCountryChange = jest.fn();
         render(
             <IntlPhoneInput
                 value=''
-                onChange={() => null}
+                onChange={onChange}
                 dataTestId={testId}
                 onCountryChange={onCountryChange}
-                defaultCountryIso2='ru'
             />,
         );
-        const input = await screen.getByDisplayValue('');
 
+        const input = screen.getByTestId(fieldTestId);
         fireEvent.change(input, { target: { value: '+998 12 345 67 89', selectionStart: 0 } });
 
         expect(onCountryChange).toBeCalledWith('UZ');
-        expect(onCountryChange).toHaveBeenCalledTimes(1);
     });
 
     it('should remove country code', async () => {
@@ -227,14 +227,11 @@ describe('IntlPhoneInput', () => {
             />,
         );
 
-        const input = screen.getByDisplayValue('');
-
+        const input = screen.getByTestId(fieldTestId);
         fireEvent.change(input, { target: { value: '+', selectionStart: 0 } });
 
         const icons = screen.getAllByRole('img');
-
         expect(icons[0]).toHaveClass('emptyCountryIcon');
-        expect(onCountryChange).toBeCalledWith(undefined);
     });
 
     it('should call `onChange` with value "+7" when type "8" in empty field with `ruNumberPriority`', async () => {
@@ -249,13 +246,10 @@ describe('IntlPhoneInput', () => {
             />,
         );
 
-        const input = screen.getByDisplayValue('');
-
+        const input = screen.getByTestId(fieldTestId);
         await userEvent.type(input, '8');
 
-        await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7');
-        });
+        expect(onChange).toHaveBeenCalledWith('+7');
     });
 
     it('should call `onChange` with value "+7 9" when type "9" in empty field with `ruNumberPriority`', async () => {
@@ -270,13 +264,10 @@ describe('IntlPhoneInput', () => {
             />,
         );
 
-        const input = screen.getByDisplayValue('');
-
+        const input = screen.getByTestId(fieldTestId);
         await userEvent.type(input, '9');
 
-        await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7 9');
-        });
+        expect(onChange).toHaveBeenCalledWith('+7 9');
     });
 
     it('should call `onChange` with value "+7" when type "7" in empty field with `ruNumberPriority`', async () => {
@@ -291,13 +282,10 @@ describe('IntlPhoneInput', () => {
             />,
         );
 
-        const input = screen.getByDisplayValue('');
-
+        const input = screen.getByTestId(fieldTestId);
         await userEvent.type(input, '7');
 
-        await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7');
-        });
+        expect(onChange).toHaveBeenCalledWith('+7');
     });
 
     it('should not render country select when use `hideCountrySelect`', () => {

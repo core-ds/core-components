@@ -63,7 +63,7 @@ describe('InternationalPhoneInput', () => {
         const onChange = jest.fn();
         render(<InternationalPhoneInputDesktop value='' onChange={onChange} dataTestId={testId} />);
 
-        const input = screen.getByDisplayValue('');
+        const input = screen.getByTestId(testId);
 
         fireEvent.input(input, { target: { value: '+54' } });
 
@@ -72,9 +72,9 @@ describe('InternationalPhoneInput', () => {
 
     it('should call `onChange` callback after input was changed with dial code of country from NANP', async () => {
         const onChange = jest.fn();
-        render(<InternationalPhoneInputStateful onChange={onChange} />);
+        render(<InternationalPhoneInputStateful onChange={onChange} dataTestId={testId} />);
 
-        const input = screen.getByDisplayValue('');
+        const input = screen.getByTestId(testId);
 
         fireEvent.input(input, { target: { value: '+1868' } });
 
@@ -85,9 +85,9 @@ describe('InternationalPhoneInput', () => {
 
     it('should call `onChange` callback after input was changed with whole russian number', () => {
         const onChange = jest.fn();
-        render(<InternationalPhoneInputStateful onChange={onChange} />);
+        render(<InternationalPhoneInputStateful onChange={onChange} dataTestId={testId} />);
 
-        const input = screen.getByDisplayValue('');
+        const input = screen.getByTestId(testId);
         fireEvent.input(input, { target: { value: '+74957888878' } });
 
         expect(onChange).toHaveBeenCalledWith('+7 495 788 88 78');
@@ -96,11 +96,15 @@ describe('InternationalPhoneInput', () => {
     describe('should call `onChange` callback after input was pasted with', () => {
         it('empty value', () => {
             const onChange = jest.fn();
-            const { getByDisplayValue } = render(
-                <InternationalPhoneInputStateful __initialValue='' onChange={onChange} />,
+            const { getByTestId } = render(
+                <InternationalPhoneInputStateful
+                    __initialValue=''
+                    onChange={onChange}
+                    dataTestId={testId}
+                />,
             );
 
-            const input = getByDisplayValue('');
+            const input = getByTestId(testId);
 
             input.focus();
 
@@ -108,18 +112,20 @@ describe('InternationalPhoneInput', () => {
 
             expect(onChange).toHaveBeenCalledWith('+7 495 788 88 78');
         });
+
         describe('partically filled value', () => {
             describe('has matching start', () => {
                 it('full value', () => {
                     const onChange = jest.fn();
-                    const { getByDisplayValue } = render(
+                    const { getByTestId } = render(
                         <InternationalPhoneInputStateful
                             __initialValue='+7 495'
                             onChange={onChange}
+                            dataTestId={testId}
                         />,
                     );
 
-                    const input = getByDisplayValue('+7 495');
+                    const input = getByTestId(testId);
 
                     input.focus();
 
@@ -127,16 +133,18 @@ describe('InternationalPhoneInput', () => {
 
                     expect(onChange).toHaveBeenCalledWith('+7 495 495 78 88');
                 });
+
                 it('partitial value', () => {
                     const onChange = jest.fn();
-                    const { getByDisplayValue } = render(
+                    const { getByTestId } = render(
                         <InternationalPhoneInputStateful
                             __initialValue='+7 495'
                             onChange={onChange}
+                            dataTestId={testId}
                         />,
                     );
 
-                    const input = getByDisplayValue('+7 495');
+                    const input = getByTestId(testId);
 
                     input.focus();
 
@@ -145,13 +153,18 @@ describe('InternationalPhoneInput', () => {
                     expect(onChange).toHaveBeenCalledWith('+7 495 788 88 78');
                 });
             });
+
             it('has no matching start', () => {
                 const onChange = jest.fn();
-                const { getByDisplayValue } = render(
-                    <InternationalPhoneInputStateful __initialValue='+7 995' onChange={onChange} />,
+                const { getByTestId } = render(
+                    <InternationalPhoneInputStateful
+                        __initialValue='+7 995'
+                        onChange={onChange}
+                        dataTestId={testId}
+                    />,
                 );
 
-                const input = getByDisplayValue('+7 995');
+                const input = getByTestId(testId);
 
                 input.focus();
 
@@ -160,16 +173,18 @@ describe('InternationalPhoneInput', () => {
                 expect(onChange).toHaveBeenCalledWith('+7 995 495 78 88');
             });
         });
+
         it('fully filled value', () => {
             const onChange = jest.fn();
-            const { getByDisplayValue } = render(
+            const { getByTestId } = render(
                 <InternationalPhoneInputStateful
                     __initialValue='+7 995 788 88 78'
                     onChange={onChange}
+                    dataTestId={testId}
                 />,
             );
 
-            const input = getByDisplayValue('+7 995 788 88 78');
+            const input = getByTestId(testId);
 
             input.focus();
 
@@ -187,10 +202,11 @@ describe('InternationalPhoneInput', () => {
                     __initialValue='+7'
                     onChange={onChange}
                     clearableCountryCode='preserve'
+                    dataTestId={testId}
                 />,
             );
 
-            const input = screen.getByDisplayValue('+7');
+            const input = screen.getByTestId(testId);
 
             input.focus();
 
@@ -198,6 +214,7 @@ describe('InternationalPhoneInput', () => {
 
             expect(onChange).toHaveBeenCalledWith('+7 495 788 88 78');
         });
+
         it('whole phone number', () => {
             const onChange = jest.fn();
             render(
@@ -205,10 +222,11 @@ describe('InternationalPhoneInput', () => {
                     __initialValue='+7'
                     onChange={onChange}
                     clearableCountryCode='preserve'
+                    dataTestId={testId}
                 />,
             );
 
-            const input = screen.getByDisplayValue('+7');
+            const input = screen.getByTestId(testId);
 
             input.focus();
 
@@ -300,7 +318,7 @@ describe('InternationalPhoneInput', () => {
                 onCountryChange={onCountryChange}
             />,
         );
-        const input = screen.getByDisplayValue('');
+        const input = screen.getByTestId(testId);
 
         fireEvent.input(input, { target: { value: '+998 12 345 67 89', selectionStart: 0 } });
 
@@ -322,7 +340,7 @@ describe('InternationalPhoneInput', () => {
                 defaultIso2='az'
             />,
         );
-        const input = screen.getByDisplayValue('');
+        const input = screen.getByTestId(testId);
 
         fireEvent.input(input, { target: { value: '+000 12 345 67 89', selectionStart: 0 } });
 
