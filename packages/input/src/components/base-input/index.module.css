@@ -55,18 +55,6 @@
     width: 100%;
 }
 
-.errorIcon {
-    display: var(--input-error-icon-display);
-}
-
-* + .errorIcon {
-    display: var(--input-error-icon-not-alone-display);
-}
-
-.successIcon {
-    display: var(--input-success-icon-display);
-}
-
 /* DISABLED STATE */
 
 .input:disabled {

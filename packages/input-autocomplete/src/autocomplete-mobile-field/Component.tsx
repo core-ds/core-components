@@ -11,6 +11,8 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus } from '@alfalab/hooks';
 
+import { InputAutocompleteCommonProps } from '../types';
+
 import styles from './index.module.css';
 
 type FieldProps = {
@@ -20,7 +22,9 @@ type FieldProps = {
     FormControlComponent?: ElementType;
 };
 
-export type AutocompleteMobileFieldProps = FormControlMobileProps &
+export type AutocompleteMobileFieldProps = FieldProps &
+    FormControlMobileProps &
+    Pick<InputAutocompleteCommonProps, 'showErrorIcon'> &
     Omit<BaseFieldProps, 'selected' | 'multiple' | 'success'> & {
         /**
          * Значение поля ввода
@@ -28,6 +32,7 @@ export type AutocompleteMobileFieldProps = FormControlMobileProps &
         value?: string;
     };
 
+// eslint-disable-next-line complexity
 export const AutocompleteMobileField = ({
     size = 56,
     open,
@@ -46,6 +51,7 @@ export const AutocompleteMobileField = ({
     FormControlComponent,
     rightAddons,
     error,
+    showErrorIcon,
     readOnly,
     clear,
     success,
@@ -53,7 +59,7 @@ export const AutocompleteMobileField = ({
     onInput,
     colors = 'default',
     ...restProps
-}: AutocompleteMobileFieldProps & FieldProps) => {
+}: AutocompleteMobileFieldProps) => {
     const [focused, setFocused] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -63,6 +69,9 @@ export const AutocompleteMobileField = ({
     const filled = Boolean(value);
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
     const clearButtonVisible = clear && filled && !disabled && !readOnly;
+    const shouldShowErrorIcon = error && showErrorIcon;
+    const shouldShowSuccessIcon = success && !error;
+    const statusBadgeSize = size === 40 ? 16 : 20;
 
     const { tabIndex, ...restInnerProps } = innerProps;
 
@@ -71,26 +80,22 @@ export const AutocompleteMobileField = ({
             {clearButtonVisible && (
                 <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
             )}
-            {rightAddons}
+            {shouldShowErrorIcon && (
+                <StatusBadge
+                    view='negative-alert'
+                    size={statusBadgeSize}
+                    dataTestId={getDataTestId(dataTestId, 'error-icon')}
+                />
+            )}
+            {shouldShowSuccessIcon && (
+                <StatusBadge
+                    view='positive-checkmark'
+                    size={statusBadgeSize}
+                    dataTestId={getDataTestId(dataTestId, 'success-icon')}
+                />
+            )}
             {Arrow}
-            {error && (
-                <div className={styles.errorIcon} data-addon='error-icon'>
-                    <StatusBadge
-                        view='negative-alert'
-                        size={size === 40 ? 16 : 20}
-                        dataTestId={getDataTestId(dataTestId, 'error-icon')}
-                    />
-                </div>
-            )}
-            {success && !error && (
-                <div className={styles.successIcon}>
-                    <StatusBadge
-                        view='positive-checkmark'
-                        size={size === 40 ? 16 : 20}
-                        dataTestId={getDataTestId(dataTestId, 'success-icon')}
-                    />
-                </div>
-            )}
+            {rightAddons}
         </Fragment>
     );
 

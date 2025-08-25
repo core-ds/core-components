@@ -103,6 +103,7 @@ describe('InputAutocompleteMobile', () => {
                                     leftAddons: 'left',
                                     rightAddons: 'right',
                                 }}
+                                showErrorIcon={true}
                                 dataTestId={dataTestId}
                             />,
                         );
@@ -159,7 +160,7 @@ describe('InputAutocompleteMobile', () => {
         );
 
         it('should set `data-test-id` attribute in desktop component', () => {
-            const { getByTestId, container } = render(
+            const { getByTestId } = render(
                 <InputAutocompleteDesktop
                     options={[{ key: 'Fermium' }]}
                     open={true}
@@ -169,6 +170,7 @@ describe('InputAutocompleteMobile', () => {
                         rightAddons: 'right',
                     }}
                     dataTestId={dataTestId}
+                    showErrorIcon={true}
                 />,
             );
 
@@ -183,6 +185,7 @@ describe('InputAutocompleteMobile', () => {
             expect(getByTestId(testIds.fieldLeftAddons)).toBeInTheDocument();
             expect(getByTestId(testIds.fieldRightAddons)).toBeInTheDocument();
             expect(getByTestId(testIds.fieldError)).toBeInTheDocument();
+            expect(getByTestId(testIds.fieldErrorIcon)).toBeInTheDocument();
 
             const { getByTestId: getByTestIdHint } = render(
                 <InputAutocompleteDesktop

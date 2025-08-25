@@ -5,7 +5,3 @@
     display: block;
     transition: opacity 0.2s ease;
 }
-
-.clearButton + [data-addon='error-icon'] {
-    display: var(--input-error-icon-display);
-}
