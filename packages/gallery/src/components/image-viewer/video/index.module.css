@@ -6,6 +6,16 @@
     height: 100%;
     width: auto;
     position: relative;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.videoWrapper.loading {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: var(--color-static-neutral-translucent-100-inverted);
+    border-radius: var(--border-radius-24);
+    align-items: center;
 }
 
 .video {
