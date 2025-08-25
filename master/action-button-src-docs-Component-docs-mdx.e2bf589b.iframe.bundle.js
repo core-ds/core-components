@@ -34,8 +34,10 @@
         background-color: var(--action-button-primary-base-bg-color);
     }
 
-    &:hover .iconWrapper {
-        background-color: var(--action-button-primary-hover-color);
+    @media (hover: hover) {
+        &:hover .iconWrapper {
+            background-color: var(--action-button-primary-hover-color);
+        }
     }
 
     &:active .iconWrapper {
@@ -55,8 +57,10 @@
         background-color: var(--action-button-secondary-base-bg-color);
     }
 
-    &:hover .iconWrapper {
-        background-color: var(--action-button-secondary-hover-color);
+    @media (hover: hover) {
+        &:hover .iconWrapper {
+            background-color: var(--action-button-secondary-hover-color);
+        }
     }
 
     &:active .iconWrapper {
@@ -119,8 +123,10 @@
         background-color: var(--action-button-inverted-primary-base-bg-color);
     }
 
-    &:hover .iconWrapper {
-        background-color: var(--action-button-inverted-primary-hover-color);
+    @media (hover: hover) {
+        &:hover .iconWrapper {
+            background-color: var(--action-button-inverted-primary-hover-color);
+        }
     }
 
     &:active .iconWrapper {
@@ -140,8 +146,10 @@
         background-color: var(--action-button-inverted-secondary-base-bg-color);
     }
 
-    &:hover .iconWrapper {
-        background-color: var(--action-button-inverted-secondary-hover-color);
+    @media (hover: hover) {
+        &:hover .iconWrapper {
+            background-color: var(--action-button-inverted-secondary-hover-color);
+        }
     }
 
     &:active .iconWrapper {
