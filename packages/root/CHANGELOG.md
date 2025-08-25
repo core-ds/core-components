@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+<sup><time>15.08.2025</time></sup>
+
+#### [#1794](https://github.com/core-ds/core-components/pull/1794)
+
+-   Добавлен fallback шаринга по ссылке для изображений из других источников
+
 -   Обновлены зависимости
     -   @alfalab/core-components-gallery@6.0.1
 
