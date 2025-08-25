@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 import cn from 'classnames';
-import { endOfDay, isAfter, isSameMonth, startOfDay, startOfMonth, isBefore } from 'date-fns';
+import { endOfDay, isAfter, isBefore, isSameMonth, startOfDay, startOfMonth } from 'date-fns';
 
 import { Typography } from '@alfalab/core-components-typography';
 
