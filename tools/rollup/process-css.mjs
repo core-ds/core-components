@@ -16,8 +16,6 @@ import { globSync } from 'tinyglobby';
 
 import postcssConfig from '../../postcss.config.js';
 import { isSamePath } from '../path.cjs';
-import { persistMixins } from '../postcss/postcss-mixins.cjs';
-import postcssPersistentMixins from '../postcss/postcss-persistent-mixins.cjs';
 import { resolveInternal } from '../resolve-internal.cjs';
 
 const pkg = fse.readJsonSync('package.json', { encoding: 'utf8' });
