@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-side-panel",
-    "version": "5.9.19",
+    "version": "6.0.0",
     "description": "SidePanel component",
     "keywords": [],
     "license": "MIT",
@@ -10,11 +10,11 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.4",
-        "@alfalab/core-components-drawer": "^5.1.15",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-navigation-bar-private": "^0.8.7",
-        "@alfalab/core-components-shared": "^0.18.0",
+        "@alfalab/core-components-base-modal": "^6.0.0",
+        "@alfalab/core-components-drawer": "^6.0.0",
+        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-navigation-bar-private": "^1.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
@@ -27,6 +27,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

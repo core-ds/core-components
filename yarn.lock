@@ -20,25 +20,25 @@
     "@alfalab/utils" "^1.17.1"
     uuid "^8.3.2"
 
-"@alfalab/icons-glyph@^2.210.0":
-  version "2.211.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.211.0.tgz#84c3b7a450ceec355909e33554c191e880324995"
-  integrity sha512-uyHHAHs73Aj5Sbai4cviAOs9OqzQHi4NTtkQ2UeASIwYg7qCGdHOm35GViKI0rJnZcc17rxopltReb1WtD7N1w==
+"@alfalab/icons-glyph@^2.247.0":
+  version "2.247.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.247.0.tgz#3adac7b808c807e518fdf6348617b4421838ae45"
+  integrity sha512-zwz6/RDJcc4Zy7DQi1UnK1qt6l8p1g5UMv53uDJC8mz/2jeqyza3aIbYnYG/GAfInIVDwpkrc7ukgsm8xMRSnw==
 
 "@alfalab/icons-glyph@^2.66.0":
   version "2.140.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.140.0.tgz#31cb75bf2495b082a0b8d0e3f4a8c2c47e3e2eb6"
   integrity sha512-Mee0c9tyFVKIH0yN9IuKyLa0qoYf1ybwGFkng9Iy+1OGIvgl9ecb74erg/+n/NzR7bI2AAx1yVFDS/LEHivixw==
 
-"@alfalab/icons-logo@^1.39.0":
-  version "1.42.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-logo/-/icons-logo-1.42.0.tgz#3e90a33b037f27e4f9db5df095974af8dabbb654"
-  integrity sha512-uDcxIMotPTtrtQdiMIY1rz3K+1liyXkANUkADx8yQqQyKRBm4Rj0oszFq+2/GzX/U2XlzwyB5NnaRKMk0ZbF0w==
+"@alfalab/icons-logo@^1.48.0":
+  version "1.48.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logo/-/icons-logo-1.48.0.tgz#e0d230a95593ef74221400ff593d2b148dc7f465"
+  integrity sha512-ImgGw+BpVgwfZ4VGVs5qSZ/rPPIDhS8TKpjii6Z9OyTHUbGivr2YLq92kOlmPztC6ZHThyylsiBzuldffIn35A==
 
-"@alfalab/icons-logotype@^2.27.0":
-  version "2.27.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.27.0.tgz#74510f49dbf0790b73b26d494cb77fde5b4cf9d0"
-  integrity sha512-n8MAGItrO1C0Z2ZDR8bQzXZQs78lI5f/7jXvzGLOFvNTlO0iRg8Uvx71slAJMJoALH+RQii9DwPrn8PX9hYQ+Q==
+"@alfalab/icons-logotype@^2.34.0":
+  version "2.34.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.34.0.tgz#67f49fc81df014b0dca3f9fa99dda170fc279f26"
+  integrity sha512-pXXt55rwTZ3T0mHzQgpAq23PGnTCIu7Xt+anlFYod47bLslqYK1yi3QVFsLu9WMXgWhLU2H8QajHp9KmT7F4cA==
 
 "@alfalab/react-canvas-pattern-lock@^2.0.7":
   version "2.0.7"
@@ -12413,7 +12413,7 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
-fdir@^6.4.3:
+fdir@^6.4.3, fdir@^6.4.4:
   version "6.4.6"
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.6.tgz#2b268c0232697063111bbf3f64810a2a741ba281"
   integrity sha512-hiFoqpyZcfNm1yc4u8oWCf9A2c4D3QjCrks3zmoVKVxpQRzmPNar1hUJcBG2RQHvEVGDN+Jm81ZheVLAQMK6+w==
@@ -18873,12 +18873,11 @@ postcss-custom-media@^8.0.2:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-custom-properties@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-10.0.0.tgz"
-  integrity sha512-55BPj5FudpCiPZzBaO+MOeqmwMDa+nV9/0QBJBfhZjYg6D9hE+rW9lpMBLTJoF4OTXnS5Po4yM1nMlgkPbCxFg==
+postcss-custom-properties@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-11.0.0.tgz#f98cd192cd8dfcd8afa3baa1ad5b5d91d01292f3"
+  integrity sha512-Fhnx/QLt+CTt23A/KKVx1anZD9nmVpOxKCKv5owWacMoOsBXFhMAD6SZYbmPMH4nHdIeMUnWOvLZnlY4niS0sA==
   dependencies:
-    postcss "^7.0.17"
     postcss-values-parser "^4.0.0"
 
 postcss-custom-properties@^12.1.10:
@@ -23244,6 +23243,14 @@ tinyglobby@0.2.12:
   integrity sha512-qkf4trmKSIiMTs/E63cxH+ojC2unam7rJ0WrauAzpT3ECNTxGRMlaXxVbfxMUC/w0LaYk6jQ4y/nGR9uBO3tww==
   dependencies:
     fdir "^6.4.3"
+    picomatch "^4.0.2"
+
+tinyglobby@^0.2.14:
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.14.tgz#5280b0cf3f972b050e74ae88406c0a6a58f4079d"
+  integrity sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==
+  dependencies:
+    fdir "^6.4.4"
     picomatch "^4.0.2"
 
 tmp@^0.0.33:

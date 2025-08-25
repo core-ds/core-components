@@ -1,5 +1,28 @@
 # @alfalab/core-components-date-range-input
 
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+
 ## 3.5.37
 
 ### Patch Changes

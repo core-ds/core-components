@@ -8,7 +8,7 @@ function process(content) {
     return content
         .split('\n')
         .map((line) => line.trim())
-        .filter((str) => str.length > 0);
+        .filter((line) => line.length > 0 && !line.startsWith('#'));
 }
 
 /**

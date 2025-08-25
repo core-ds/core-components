@@ -1,5 +1,41 @@
 # @alfalab/core-components-gallery
 
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>15.08.2025</time></sup>
+
+#### [#1794](https://github.com/core-ds/core-components/pull/1794)
+
+-   Добавлен fallback шаринга по ссылке для изображений из других источников
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-icon-view@4.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-spinner@5.0.0
+    -   @alfalab/core-components-tooltip@8.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
 ## 5.12.11
 
 ### Patch Changes

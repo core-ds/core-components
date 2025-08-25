@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pagination",
-    "version": "2.4.16",
+    "version": "3.0.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-tag": "^8.7.1",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/core-components-tag": "^9.0.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -23,6 +23,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

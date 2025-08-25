@@ -42,7 +42,7 @@ export const Content = ({ isPreview }) => {
                     <Text />
                 </>
             )}
-            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+            <Button className='showMoreButton' size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
                 {showMore ? 'Скрыть' : 'Показать еще'}
             </Button>
         </>
@@ -63,8 +63,9 @@ export const ModalComponent = ModalDesktop;
         const header = boolean('header', true);
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
+        const hasBackButton = boolean('header.hasBackButton', false);
         const trim = boolean('header.trim', true);
-        const align = select('header.align', ['left', 'right', 'center'], 'left');
+        const align = select('header.align', ['left', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
         const footer = boolean('footer', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -109,9 +110,11 @@ export const ModalComponent = ModalDesktop;
                         <ModalComponent.Header
                             sticky={stickyHeader}
                             hasCloser={hasCloser}
+                            hasBackButton={hasBackButton}
                             title={headerTitle}
                             trim={trim}
                             align={align}
+                            {...(isMobile && {titleSize: select('titleSize', ['default', 'compact'], 'default')})}
                         />
                     )}
                     <ModalComponent.Content flex={flexContent}>

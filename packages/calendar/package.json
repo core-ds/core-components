@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar",
-    "version": "7.20.0",
+    "version": "8.0.0",
     "description": "Calendar component",
     "keywords": [],
     "license": "MIT",
@@ -10,14 +10,14 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.10",
-        "@alfalab/core-components-icon-button": "^6.11.13",
-        "@alfalab/core-components-modal": "^9.9.20",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-shared": "^0.18.0",
-        "@alfalab/core-components-typography": "^4.14.3",
+        "@alfalab/core-components-button": "^12.0.0",
+        "@alfalab/core-components-icon-button": "^7.0.0",
+        "@alfalab/core-components-modal": "^10.0.0",
+        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-typography": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
         "date-fns": "^2.16.1",
@@ -34,6 +34,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

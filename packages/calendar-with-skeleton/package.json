@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-with-skeleton",
-    "version": "5.3.39",
+    "version": "6.0.0",
     "description": "CalendarWithSkeleton component",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-calendar": "^7.20.0",
-        "@alfalab/core-components-skeleton": "^5.4.0",
+        "@alfalab/core-components-calendar": "^8.0.0",
+        "@alfalab/core-components-skeleton": "^6.0.0",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
@@ -24,6 +24,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

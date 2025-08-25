@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pure-cell",
-    "version": "4.15.0",
+    "version": "5.0.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,11 +10,11 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-amount": "^3.10.2",
-        "@alfalab/core-components-button": "^11.11.10",
-        "@alfalab/core-components-comment": "^2.4.15",
-        "@alfalab/core-components-shared": "^0.18.0",
-        "@alfalab/core-components-typography": "^4.14.3",
+        "@alfalab/core-components-amount": "^4.0.0",
+        "@alfalab/core-components-button": "^12.0.0",
+        "@alfalab/core-components-comment": "^3.0.0",
+        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-typography": "^5.0.0",
         "@alfalab/data": "^1.9.2",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
@@ -29,6 +29,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

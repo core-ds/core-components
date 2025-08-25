@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-gallery",
-    "version": "5.12.11",
+    "version": "6.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,16 +10,16 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^5.9.4",
-        "@alfalab/core-components-button": "^11.11.10",
-        "@alfalab/core-components-icon-button": "^6.11.13",
-        "@alfalab/core-components-icon-view": "^3.11.0",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-spinner": "^4.0.9",
-        "@alfalab/core-components-tooltip": "^7.10.0",
-        "@alfalab/core-components-typography": "^4.14.3",
+        "@alfalab/core-components-base-modal": "^6.0.0",
+        "@alfalab/core-components-button": "^12.0.0",
+        "@alfalab/core-components-icon-button": "^7.0.0",
+        "@alfalab/core-components-icon-view": "^4.0.0",
+        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-spinner": "^5.0.0",
+        "@alfalab/core-components-tooltip": "^8.0.0",
+        "@alfalab/core-components-typography": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "element-closest": "^3.0.2",
         "hls.js": "^1.5.13",
@@ -35,6 +35,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }

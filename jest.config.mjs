@@ -47,16 +47,16 @@ const config = {
     projects: [
         {
             ...initialProjectOptions,
-            displayName: 'csr' /* client side rendering */,
+            displayName: 'jsdom',
             testEnvironment: 'jsdom',
-            testMatch: ['**/*.test.ts?(x)', '!**/*.{screenshots,ssr}.test.ts?(x)'],
+            testMatch: ['**/*.test.ts?(x)', '!**/*.{node,screenshots,ssr}.test.ts?(x)'],
             coveragePathIgnorePatterns: ['/index.tsx?$'],
         },
         {
             ...initialProjectOptions,
-            displayName: 'ssr' /* server side rendering */,
+            displayName: 'node',
             testEnvironment: 'node',
-            testMatch: ['**/*.ssr.test.ts?(x)'],
+            testMatch: ['**/*.{node,ssr}.test.ts?(x)'],
             coveragePathIgnorePatterns: ['/index.tsx?$'],
         },
     ],

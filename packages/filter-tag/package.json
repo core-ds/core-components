@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-filter-tag",
-    "version": "5.9.3",
+    "version": "6.0.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,9 +10,9 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-mq": "^4.4.1",
+        "@alfalab/core-components-mq": "^5.0.0",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -24,6 +24,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "themesVersion": "14.0.1",
+    "varsVersion": "10.0.0"
 }
