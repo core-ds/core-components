@@ -15,4 +15,4 @@ export * from './object';
 export * from './type-checks';
 export * from './get-color-var';
 export * from './mask';
-export * from './humanFileSize/humanFileSize';
+export * from './human-file-size';
