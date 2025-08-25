@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext } from 'react';
+import React, { FC, ReactNode, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import { Spinner } from '@alfalab/core-components-spinner';
@@ -81,13 +81,36 @@ export const Slide: FC<SlideProps> = ({
     containerHeight,
     slideVisible,
 }) => {
-    const { view } = useContext(GalleryContext);
+    const { view, setHideNavigation, hideNavigation } = useContext(GalleryContext);
     const { handleLoad, handleLoadError } = useHandleImageViewer();
 
     const broken = Boolean(meta?.broken);
     const small = isSmallImage(meta);
     const verticalImageFit = !small && containerAspectRatio > imageAspectRatio;
     const horizontalImageFit = !small && containerAspectRatio <= imageAspectRatio;
+
+    const singleClickTimeoutRef = useRef<number | null>(null);
+
+    useEffect(() => () => {
+        if (singleClickTimeoutRef.current) {
+            window.clearTimeout(singleClickTimeoutRef.current);
+            singleClickTimeoutRef.current = null;
+        }
+    }, []);
+
+    const handleContainerClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
+        if (singleClickTimeoutRef.current) {
+            window.clearTimeout(singleClickTimeoutRef.current);
+            singleClickTimeoutRef.current = null;
+        }
+
+        if (event.detail === 1) {
+            singleClickTimeoutRef.current = window.setTimeout(() => {
+                setHideNavigation(!hideNavigation);
+                singleClickTimeoutRef.current = null;
+            }, 300);
+        }
+    };
 
     if (isVideo(image.src)) {
         return (
@@ -99,23 +122,25 @@ export const Slide: FC<SlideProps> = ({
 
     return (
         <SlideInner active={isActive} broken={broken} loading={!meta}>
-            <img
-                src={image.src}
-                alt={getImageAlt(image, index)}
-                className={cn({
-                    [styles.smallImage]: small,
-                    [styles.image]: !small && meta,
-                    [styles.mobile]: view === 'mobile',
-                    [styles.verticalImageFit]: verticalImageFit,
-                    [styles.horizontalImageFit]: horizontalImageFit,
-                })}
-                onLoad={(event) => handleLoad(event, index)}
-                onError={() => handleLoadError(index)}
-                style={{
-                    maxHeight: `${containerHeight}px`,
-                }}
-                data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
-            />
+            <div aria-hidden={true} onClick={handleContainerClick} className='zoom-container'>
+                <img
+                    src={image.src}
+                    alt={getImageAlt(image, index)}
+                    className={cn('zoomed-slide', {
+                        [styles.smallImage]: small,
+                        [styles.image]: !small && meta,
+                        [styles.mobile]: view === 'mobile',
+                        [styles.verticalImageFit]: verticalImageFit,
+                        [styles.horizontalImageFit]: horizontalImageFit,
+                    })}
+                    onLoad={(event) => handleLoad(event, index)}
+                    onError={() => handleLoadError(index)}
+                    style={{
+                        maxHeight: `${containerHeight}px`,
+                    }}
+                    data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
+                />
+            </div>
         </SlideInner>
     );
 };
