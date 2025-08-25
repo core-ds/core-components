@@ -51,6 +51,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         );
 
         const [values, setValues] = useState(initialValues.split(''));
+        const [isCodeInputLocked, setIsCodeInputLocked] = useState(false);
 
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
 
@@ -96,6 +97,17 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             }
         };
 
+        const setCodeValues = (newValues: string[]) => {
+            if (isCodeInputLocked) {
+                return false;
+            }
+
+            setValues(newValues);
+            triggerChange(newValues);
+
+            return true;
+        };
+
         const handleChange = (value: string, index: number, valid: boolean) => {
             const newValue = value.replace(/\D/g, '');
 
@@ -129,15 +141,17 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 newValues[index] = newValue;
             }
 
-            setValues(newValues);
+            const isNewValuesSet = setCodeValues(newValues);
+
+            if (!isNewValuesSet) {
+                return;
+            }
 
             if (nextRef && nextRef.current) {
                 nextRef.current.focus();
 
                 nextRef.current.select();
             }
-
-            triggerChange(newValues);
         };
 
         const handleChangeFromEvent: InputProps['onChange'] = (event, { index }) => {
@@ -162,26 +176,32 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             const newValues = [...values];
 
             switch (event.key) {
-                case 'Backspace':
+                case 'Backspace': {
                     event.preventDefault();
 
                     if (values[index]) {
                         newValues[index] = '';
                     } else if (prevRef) {
                         newValues[prevIndex] = '';
-
-                        focusOnInput(prevRef);
                     }
 
-                    setValues(newValues);
+                    const isNewValuesSet = setCodeValues(newValues);
 
-                    triggerChange(newValues);
-
+                    if (isNewValuesSet && prevRef) {
+                        focusOnInput(prevRef);
+                    }
                     break;
-                case 'Delete':
+                }
+                case 'Delete': {
                     event.preventDefault();
 
                     newValues[index] = '';
+
+                    const isNewValuesSet = setCodeValues(newValues);
+
+                    if (!isNewValuesSet) {
+                        return;
+                    }
 
                     if (!values[nextIndex]) {
                         focusOnInput(curtRef);
@@ -190,13 +210,9 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     if (nextRef) {
                         focusOnInput(nextRef);
                     }
-
-                    setValues(newValues);
-
-                    triggerChange(newValues);
-
                     break;
-                case 'ArrowLeft':
+                }
+                case 'ArrowLeft': {
                     event.preventDefault();
 
                     if (prevRef) {
@@ -204,7 +220,8 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     }
 
                     break;
-                case 'ArrowRight':
+                }
+                case 'ArrowRight': {
                     event.preventDefault();
 
                     if (nextRef) {
@@ -212,10 +229,12 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     }
 
                     break;
+                }
                 case 'ArrowUp':
-                case 'ArrowDown':
+                case 'ArrowDown': {
                     event.preventDefault();
                     break;
+                }
                 default:
                     break;
             }
@@ -233,6 +252,12 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             });
         };
 
+        const handleErrorAnimationStart = () => {
+            if (clearCodeOnError) {
+                setIsCodeInputLocked(true);
+            }
+        };
+
         const handleErrorAnimationEnd = () => {
             clearErrorTimerId.current = setTimeout(() => {
                 if (clearCodeOnError) {
@@ -240,6 +265,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     /** Очищаем только в случае, если код не изменился */
                     setValues((prevState) => (values === prevState ? [] : prevState));
                 }
+                setIsCodeInputLocked(false);
 
                 onErrorAnimationEnd?.();
             }, errorVisibleDuration);
@@ -250,6 +276,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 if (clearErrorTimerId.current) {
                     clearTimeout(clearErrorTimerId.current);
                     clearErrorTimerId.current = undefined;
+                    setIsCodeInputLocked(false);
                 }
             },
             [error],
@@ -289,6 +316,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             <div
                 className={cn(styles.component, className)}
                 data-test-id={dataTestId}
+                onAnimationStart={handleErrorAnimationStart}
                 onAnimationEnd={handleErrorAnimationEnd}
             >
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
