@@ -1,5 +1,13 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
+@define-mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @mixin-content;
+        }
+    }
+}
+
 :root {
     /* primary */
     --icon-button-primary-base-color: var(--color-light-neutral-translucent-1300);
@@ -36,7 +44,7 @@
     &.primary {
         color: var(--icon-button-primary-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-primary-hover-color);
         }
 
@@ -48,7 +56,7 @@
     &.secondary {
         color: var(--icon-button-secondary-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-secondary-hover-color);
         }
 
@@ -60,7 +68,7 @@
     &.transparent {
         color: var(--icon-button-transparent-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-transparent-hover-color);
         }
 
@@ -72,7 +80,7 @@
     &.negative {
         color: var(--icon-button-negative-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-negative-hover-color);
         }
 
@@ -84,7 +92,7 @@
     &.tertiary {
         color: var(--icon-button-tertiary-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-tertiary-hover-color);
         }
 
@@ -97,7 +105,7 @@
         &.primary {
             color: var(--color-light-text-primary);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-hover);
             }
 
@@ -109,7 +117,7 @@
         &.secondary {
             color: var(--color-light-text-secondary);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-hover);
             }
 
@@ -121,7 +129,7 @@
         &.negative {
             color: var(--color-light-text-negative);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-hover);
             }
 
@@ -133,7 +141,7 @@
         &.tertiary {
             color: var(--color-light-text-tertiary);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-hover);
             }
 
