@@ -1,13 +1,5 @@
 @import '../../vars/src/index.css';
 
-@define-mixin hover {
-    @media (hover: hover) {
-        &:hover {
-            @mixin-content;
-        }
-    }
-}
-
 :root {
     /* primary */
     --icon-button-inverted-primary-base-color: var(--color-light-neutral-translucent-1300-inverted);
