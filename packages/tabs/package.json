@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "9.0.0",
+    "version": "9.0.1",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -11,13 +11,13 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-badge": "^6.0.0",
-        "@alfalab/core-components-icon-button": "^7.0.0",
+        "@alfalab/core-components-icon-button": "^7.0.1",
         "@alfalab/core-components-keyboard-focusable": "^5.0.0",
-        "@alfalab/core-components-mq": "^5.0.0",
-        "@alfalab/core-components-picker-button": "^12.0.0",
-        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-picker-button": "^12.0.1",
+        "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/core-components-skeleton": "^6.0.0",
-        "@alfalab/core-components-tag": "^9.0.0",
+        "@alfalab/core-components-tag": "^9.0.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.247.0",
         "@juggle/resize-observer": "^3.3.1",
@@ -35,6 +35,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.0.1",
-    "varsVersion": "10.0.0"
+    "themesVersion": "14.1.0",
+    "varsVersion": "10.1.0"
 }
