@@ -1,4 +1,4 @@
-import { FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
+import { AriaAttributes, FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
 
 import { SkeletonProps } from '@alfalab/core-components-skeleton';
 import { TagProps } from '@alfalab/core-components-tag';
@@ -141,7 +141,7 @@ export type TabsProps = {
      * Доп. пропсы для скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
-};
+} & AriaAttributes;
 
 export type TabProps = {
     /**
@@ -198,7 +198,7 @@ export type TabProps = {
      * Реф для кнопки переключения таба
      */
     toggleRef?: Ref<HTMLDivElement>;
-};
+} & AriaAttributes;
 
 export type TabListTitle = {
     title: NonNullable<ReactNode>;
