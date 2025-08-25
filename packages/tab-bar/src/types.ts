@@ -148,5 +148,5 @@ export interface PrivateTabProps
         TabBarProps,
         'tabClassNames' | 'onChange' | 'dataTestId' | 'accentColor' | 'bgColor'
     > {
-    selected?: boolean;
+    selected: boolean;
 }
