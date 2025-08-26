@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "17.24.0",
+    "version": "17.24.1",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -18,12 +18,12 @@
     "dependencies": {
         "@alfalab/core-components-badge": "^5.6.4",
         "@alfalab/core-components-base-modal": "^5.9.4",
-        "@alfalab/core-components-bottom-sheet": "^6.19.0",
+        "@alfalab/core-components-bottom-sheet": "^6.19.1",
         "@alfalab/core-components-button": "^11.11.10",
         "@alfalab/core-components-checkbox": "^4.9.5",
         "@alfalab/core-components-form-control": "^12.8.6",
         "@alfalab/core-components-input": "^15.6.2",
-        "@alfalab/core-components-modal": "^9.9.20",
+        "@alfalab/core-components-modal": "^9.9.21",
         "@alfalab/core-components-mq": "^4.4.1",
         "@alfalab/core-components-popover": "^6.4.0",
         "@alfalab/core-components-scrollbar": "^3.4.0",
@@ -42,5 +42,5 @@
         "tslib": "^2.4.0"
     },
     "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "varsVersion": "9.22.0"
 }

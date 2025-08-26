@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-navigation-bar-private",
-    "version": "0.8.7",
+    "version": "0.8.8",
     "description": "Navigation bar private component",
     "keywords": [],
     "license": "MIT",
@@ -12,7 +12,7 @@
     },
     "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-icon-button": "^6.11.13",
+        "@alfalab/core-components-icon-button": "^6.11.14",
         "@alfalab/core-components-button": "^11.11.10",
         "@alfalab/core-components-typography": "^4.14.3",
         "@alfalab/core-components-shared": "^0.18.0",
@@ -26,5 +26,5 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "themesVersion": "13.7.4",
-    "varsVersion": "9.21.0"
+    "varsVersion": "9.22.0"
 }

@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.11.14
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+### [#1825](https://github.com/core-ds/core-components/pull/1825)
+
+-   Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover.
+
 ## 6.11.13
 
 ### Patch Changes

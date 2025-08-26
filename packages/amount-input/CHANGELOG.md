@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.15.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   number-input@2.7.3
+
 ## 7.15.4
 
 ### Patch Changes
