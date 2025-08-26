@@ -3,11 +3,7 @@ import { useCoreConfig } from '@alfalab/core-components-config';
 import { getDefaultPortalContainer } from '../utils';
 
 export const usePortalContainer = () => {
-    const { portalContainer } = useCoreConfig();
+    const { getPortalContainer } = useCoreConfig();
 
-    if (portalContainer) {
-        return () => portalContainer;
-    }
-
-    return getDefaultPortalContainer;
+    return getPortalContainer ?? getDefaultPortalContainer;
 };

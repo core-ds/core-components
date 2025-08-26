@@ -10,10 +10,11 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-config": "^1.0.0",
+        "@alfalab/hooks": "^1.13.1",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
+        "@alfalab/core-components-config": "^1.0.0",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },

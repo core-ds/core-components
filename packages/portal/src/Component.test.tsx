@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { render, screen } from '@testing-library/react';
 
 import { Portal } from './index';
@@ -47,8 +47,7 @@ describe('Portal tests', () => {
     it('should render overlay into container (DOMNode)', () => {
         const textInPortal = 'Text in portal';
 
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const getPortalContainer = () => document.querySelector('#portal-container')!;
+        const getPortalContainer = () => document.querySelector('#portal-container');
 
         const { getByText } = render(
             <div>
@@ -70,19 +69,13 @@ describe('Portal tests', () => {
 
         const TestWrapper = () => {
             const containerRef = useRef<HTMLDivElement>(null);
-            const [portalContainer, setPortalContainer] = useState<HTMLDivElement | null>(null);
+            const getPortalContainer = () => containerRef.current;
 
             const context: CoreConfigContextValue = {
                 breakpoint: 1024,
                 client: 'desktop',
-                portalContainer,
+                getPortalContainer,
             };
-
-            useEffect(() => {
-                if (containerRef.current) {
-                    setPortalContainer(containerRef.current);
-                }
-            }, []);
 
             return (
                 <>

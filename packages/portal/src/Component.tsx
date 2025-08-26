@@ -1,49 +1,49 @@
-import { forwardRef, ReactNode, useEffect, useState } from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import { usePortalContainer } from './hooks/usePortalContainer';
-import { setRef } from './utils';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-export type PortalProps = {
-    /** Контент */
+import { usePortalContainer } from './hooks/usePortalContainer';
+
+export interface PortalProps {
+    /**
+     *  Контент
+     */
     children?: ReactNode;
 
     /**
      * Функция, возвращающая контейнер, в который будут рендериться дочерние элементы
      */
-    getPortalContainer?: () => Element | null;
+    getPortalContainer?: () => Element | null | undefined;
 
     /**
      * Немедленно отрендерить дочерние элементы (false - контент будет отрендерен на след. рендер).
      */
     immediateMount?: boolean;
-};
-export const Portal = forwardRef<Element, PortalProps>((props, ref) => {
+}
+
+export const Portal = forwardRef<Element | null | undefined, PortalProps>((props, ref) => {
     const portalContainer = usePortalContainer();
-
     const { getPortalContainer = portalContainer, immediateMount = false, children } = props;
-
-    const [mountNode, setMountNode] = useState<Element | null>(() =>
-        typeof window !== 'undefined' && immediateMount ? getPortalContainer() : null,
+    const [mountNode, setMountNode] = useState<Element | null | undefined>(
+        immediateMount ? getPortalContainer : null,
     );
 
-    useEffect(() => {
-        setMountNode(getPortalContainer());
-    }, [getPortalContainer]);
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        const nextMountNode = getPortalContainer();
 
-    useEffect(() => {
-        if (mountNode) {
-            setRef(ref, mountNode);
-
-            return () => {
-                setRef(ref, null);
-            };
+        if (mountNode !== nextMountNode) {
+            setMountNode(nextMountNode);
         }
+    });
 
-        return () => null;
-    }, [ref, mountNode]);
+    useImperativeHandle<Element | null | undefined, Element | null | undefined>(
+        ref,
+        () => mountNode,
+        [mountNode],
+    );
 
-    return mountNode ? createPortal(children, mountNode) : mountNode;
+    return mountNode ? createPortal(children, mountNode) : null;
 });
 
 Portal.displayName = 'Portal';
