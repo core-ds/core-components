@@ -7,11 +7,11 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
+            "@alfalab/core-components-config": ["../config/src"],
+            "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-portal": ["./src"],
-            "@alfalab/core-components-portal/*": ["./src/*"],
-            "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-portal/*": ["./src/*"]
         }
     },
-    "references": [{ "path": "../shared/tsconfig.build.json" }]
+    "references": [{ "path": "../config/tsconfig.build.json" }]
 }

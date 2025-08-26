@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { render, screen } from '@testing-library/react';
 
 import { Portal } from './index';
 import { PORTAL_CONTAINER_ATTRIBUTE } from './utils';
-import { PortalContext } from '@alfalab/core-components-shared';
+import { CoreConfigContext, type CoreConfigContextValue } from '@alfalab/core-components-config';
 
 describe('Portal tests', () => {
     it('should render in a different node', () => {
@@ -65,20 +65,38 @@ describe('Portal tests', () => {
         expect(document.querySelector('#portal-container')).toContainElement(portalChild);
     });
 
-    it('render to element based on portal context', () => {
+    it('render to element based on core-config', () => {
         const textContent = 'Text content';
-        const getPortalContainer = () => document.querySelector('#portal-container');
 
-        render(
-            <>
-                <div data-test-id='portal-container' id='portal-container'></div>
-                <PortalContext.Provider value={getPortalContainer}>
-                    <Portal>
-                        <span>{textContent}</span>
-                    </Portal>
-                </PortalContext.Provider>
-            </>,
-        );
+        const TestWrapper = () => {
+            const containerRef = useRef<HTMLDivElement>(null);
+            const [portalContainer, setPortalContainer] = useState<HTMLDivElement | null>(null);
+
+            const context: CoreConfigContextValue = {
+                breakpoint: 1024,
+                client: 'desktop',
+                portalContainer,
+            };
+
+            useEffect(() => {
+                if (containerRef.current) {
+                    setPortalContainer(containerRef.current);
+                }
+            }, []);
+
+            return (
+                <>
+                    <div ref={containerRef} data-test-id='portal-container' id='portal-container' />
+                    <CoreConfigContext.Provider value={context}>
+                        <Portal>
+                            <span>{textContent}</span>
+                        </Portal>
+                    </CoreConfigContext.Provider>
+                </>
+            );
+        };
+
+        render(<TestWrapper />);
 
         const portalChild = screen.queryByText(textContent);
         expect(screen.queryByTestId('portal-container')).toContainElement(portalChild);

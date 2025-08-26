@@ -9,7 +9,6 @@ export * from './hooks';
 export * from './os';
 export * from './dom';
 export * from './exhaustiveCheck';
-export * from './context/PortalContext';
 export * from './warning';
 export * from './object';
 export * from './type-checks';
