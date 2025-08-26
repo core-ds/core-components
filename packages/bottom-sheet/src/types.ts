@@ -361,11 +361,4 @@ export type BottomSheetProps = {
      * Учитывать высоту виртуальной клавиатуры
      */
     virtualKeyboard?: boolean;
-
-    /**
-     * Показывать футер
-     *
-     * @default true
-     */
-    showFooter?: boolean;
 };

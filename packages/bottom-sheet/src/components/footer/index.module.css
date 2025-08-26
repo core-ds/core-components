@@ -2,23 +2,19 @@
 @import '../../vars.css';
 
 .footer {
-    padding-top: var(--gap-16);
+    padding: var(--gap-16) var(--gap-16);
     background-color: var(--color-light-modal-bg-primary);
+}
 
-    &.sticky {
-        position: sticky;
-        bottom: var(--gap-0);
-        z-index: 1;
-    }
+.sticky {
+    position: sticky;
+    bottom: var(--gap-0);
+    z-index: 1;
+}
 
-    &:not(:empty) {
-        padding: var(--gap-16);
-
-        &.highlighted {
-            border-top: var(--bottom-sheet-footer-border-top);
-            background-color: var(--bottom-sheet-footer-background-color);
-        }
-    }
+.highlighted {
+    border-top: var(--bottom-sheet-footer-border-top);
+    background-color: var(--bottom-sheet-footer-background-color);
 }
 
 @mixin bg-class-list;

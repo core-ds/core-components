@@ -13,8 +13,6 @@
             "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
             "@alfalab/core-components-bottom-sheet": ["./src"],
             "@alfalab/core-components-bottom-sheet/*": ["./src/*"],
-            "@alfalab/core-components-button": ["../button/src"],
-            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-navigation-bar-private": ["../navigation-bar-private/src"],
             "@alfalab/core-components-navigation-bar-private/*": [
                 "../navigation-bar-private/src/*"
@@ -28,7 +26,6 @@
     "references": [
         { "path": "../backdrop/tsconfig.build.json" },
         { "path": "../base-modal/tsconfig.build.json" },
-        { "path": "../button/tsconfig.build.json" },
         { "path": "../navigation-bar-private/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../types/tsconfig.build.json" }

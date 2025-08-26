@@ -330,7 +330,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
         class="component modal appear appearActive"
       >
         <div
-          class="content hasFooter hasHeader"
+          class="content hasHeader"
         >
           <div
             class="wrapper"
@@ -1354,9 +1354,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
-                <div
-                  class="footer sticky"
-                />
               </div>
             </div>
           </div>
@@ -1447,7 +1444,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
         class="component modal appear appearActive"
       >
         <div
-          class="content hasFooter hasHeader"
+          class="content hasHeader"
         >
           <div
             class="wrapper"
@@ -2471,9 +2468,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
-                <div
-                  class="footer sticky"
-                />
               </div>
             </div>
           </div>
