@@ -151,6 +151,13 @@ export type PopoverProps = {
      * Класс для скролл контейнера
      */
     scrollableContentClassName?: string;
+
+    /**
+     * Минимальное расстояние стрелки до края поповера
+     *
+     * @default 24
+     */
+    arrowToEdgeMinDistance?: number;
 };
 
 const DEFAULT_TRANSITION: PopoverProps['transition'] = {
@@ -166,33 +173,32 @@ const CSS_TRANSITION_CLASS_NAMES = {
 
 const DEFAULT_OFFSET = [0, 0];
 
-// Минимальное расстояние стрелки до края поповера
-const MIN_DISTANCE_TO_EDGE = 24;
+function createGetArrowPadding(minDistanceToEdge: number) {
+    return function getArrowPadding({
+        placement,
+    }: {
+        popper: { height: number; width: number };
+        reference: { height: number; width: number };
+        placement: Position;
+    }) {
+        if (placement === 'right-end' || placement === 'left-end') {
+            return { top: minDistanceToEdge, right: 0, bottom: 0, left: 0 };
+        }
 
-function getArrowPadding({
-    placement,
-}: {
-    popper: { height: number; width: number };
-    reference: { height: number; width: number };
-    placement: Position;
-}) {
-    if (placement === 'right-end' || placement === 'left-end') {
-        return { top: MIN_DISTANCE_TO_EDGE, right: 0, bottom: 0, left: 0 };
-    }
+        if (placement === 'top-start' || placement === 'bottom-start') {
+            return { top: 0, right: minDistanceToEdge, bottom: 0, left: 0 };
+        }
 
-    if (placement === 'top-start' || placement === 'bottom-start') {
-        return { top: 0, right: MIN_DISTANCE_TO_EDGE, bottom: 0, left: 0 };
-    }
+        if (placement === 'right-start' || placement === 'left-start') {
+            return { top: 0, right: 0, bottom: minDistanceToEdge, left: 0 };
+        }
 
-    if (placement === 'right-start' || placement === 'left-start') {
-        return { top: 0, right: 0, bottom: MIN_DISTANCE_TO_EDGE, left: 0 };
-    }
+        if (placement === 'top-end' || placement === 'bottom-end') {
+            return { top: 0, right: 0, bottom: 0, left: minDistanceToEdge };
+        }
 
-    if (placement === 'top-end' || placement === 'bottom-end') {
-        return { top: 0, right: 0, bottom: 0, left: MIN_DISTANCE_TO_EDGE };
-    }
-
-    return 0;
+        return 0;
+    };
 }
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
@@ -220,6 +226,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             preventOverflow = true,
             availableHeight = false,
             scrollableContentClassName,
+            arrowToEdgeMinDistance = 24,
         },
         ref,
     ) => {
@@ -243,7 +250,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     name: 'arrow',
                     options: {
                         element: arrowElement,
-                        padding: getArrowPadding,
+                        padding: createGetArrowPadding(arrowToEdgeMinDistance),
                     },
                 });
             }
@@ -273,6 +280,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             preventOverflow,
             availableHeight,
             arrowElement,
+            arrowToEdgeMinDistance,
             maxSizeOptions,
         ]);
 
