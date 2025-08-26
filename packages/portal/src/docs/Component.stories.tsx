@@ -77,7 +77,7 @@ export const portal_context: Story = {
                     value={{
                         breakpoint: 1024,
                         client: 'desktop',
-                        portalContainer: containerRef.current,
+                        getPortalContainer: () => containerRef.current,
                     }}
                 >
                     {show && (
@@ -87,7 +87,7 @@ export const portal_context: Story = {
                     )}
                 </CoreConfigContext.Provider>
                 <span>Контейнер для контента портала</span>
-                <div ref={containerRef} id='portal-container' style={styles} />
+                <div ref={containerRef} style={styles} />
             </Space>
         );
     },

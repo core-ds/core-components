@@ -16,7 +16,9 @@ import { CoreConfigContext } from '@alfalab/core-components-config';
 
 <CoreConfigContext.Provider
     value={{
-        portalContainer: Element,
+        getPortalContainer: () => {
+            // Element | null | undefined
+        },
     }}
 >
     ...
