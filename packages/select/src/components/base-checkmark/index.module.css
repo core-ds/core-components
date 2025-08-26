@@ -5,6 +5,14 @@
     flex-shrink: 0;
     box-sizing: border-box;
 
+    &.before {
+        margin-right: var(--gap-xs);
+    }
+
+    &.after {
+        margin-left: var(--gap-xs);
+    }
+
     &.start {
         align-self: start;
     }
