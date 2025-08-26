@@ -110,7 +110,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backButtonProps,
             iOSLock = false,
             virtualKeyboard = false,
-            showFooter = true,
         },
         ref,
     ) => {
@@ -668,7 +667,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             ref={mergeRefs([scrollableContainer, scrollableContainerRef])}
                         >
                             {!hideHeader && !emptyHeader && (
-                                <Header {...headerProps} showSwipeMarker={showSwipeMarker} />
+                                <Header
+                                    {...headerProps}
+                                    showSwipeMarker={showSwipeMarker}
+                                />
                             )}
 
                             <div
@@ -682,7 +684,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                 {children}
                             </div>
 
-                            {showFooter && (
+                            {actionButton && (
                                 <Footer
                                     sticky={stickyFooter}
                                     className={cn(bgClassName, footerClassName)}

@@ -123,7 +123,6 @@ export const SelectMobile = forwardRef(
                           bottomSheetProps: {
                               bottomAddons,
                               showSwipeMarker: false,
-                              showFooter: !multiple,
                               ...restProps.bottomSheetProps,
                           },
                       })}
