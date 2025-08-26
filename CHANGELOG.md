@@ -1,3 +1,20 @@
+## 48.33.0
+
+<sup><time>26.08.2025</time></sup>
+
+### [#1825](https://github.com/core-ds/core-components/pull/1825)
+
+#### Что изменилось
+- Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover.
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+- Патчи<br />`action-button` `custom-button` `icon-button`
+
+
+
 ## 48.32.0
 
 <sup><time>04.08.2025</time></sup>
