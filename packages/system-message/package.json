@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-system-message",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "System message component",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-mq": "^5.0.0",
-        "@alfalab/core-components-shared": "^1.0.0",
+        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/core-components-types": "^1.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
@@ -24,6 +24,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.0.1",
-    "varsVersion": "10.0.0"
+    "themesVersion": "14.1.0",
+    "varsVersion": "10.1.0"
 }

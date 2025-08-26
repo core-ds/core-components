@@ -1,5 +1,29 @@
 # @alfalab/core-components-select-with-tags
 
+## 9.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1803](https://github.com/core-ds/core-components/pull/1803)
+
+-   Исправлено прокидывание fieldProps в SelectWithTags, ранее при передаче не прокидывались
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-select@18.0.1
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-bottom-sheet@7.0.1
+    -   @alfalab/core-components-form-control@13.0.1
+    -   @alfalab/core-components-mq@5.0.1
+    -   @alfalab/core-components-tag@9.0.1
+
 ## 9.0.0
 
 ### Major Changes
