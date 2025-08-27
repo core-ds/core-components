@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.7.5
+
+### Patch Changes
+
+<sup><time>27.08.2025</time></sup>
+
+### [#1839](https://github.com/core-ds/core-components/pull/1839)
+
+-   Исправлена темизация `site` для `slider-input`
+
 ## 13.7.4
 
 ### Patch Changes

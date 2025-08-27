@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider-input",
-    "version": "9.2.7",
+    "version": "9.2.8",
     "description": "Slider input component",
     "keywords": [],
     "license": "MIT",
@@ -21,6 +21,6 @@
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
-    "themesVersion": "13.7.4",
+    "themesVersion": "13.7.5",
     "varsVersion": "9.22.0"
 }

@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.2.8
+
+### Patch Changes
+
+<sup><time>27.08.2025</time></sup>
+
+### [#1839](https://github.com/core-ds/core-components/pull/1839)
+
+-   Исправлена специфичность слайдера
+
 ## 9.2.7
 
 ### Patch Changes

@@ -20,6 +20,6 @@
         "@alfalab/core-components-shared": "^0.18.0",
         "use-sync-external-store": "^1.4.0"
     },
-    "themesVersion": "13.7.4",
+    "themesVersion": "13.7.5",
     "varsVersion": "9.22.0"
 }
