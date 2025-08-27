@@ -1,27 +1,29 @@
 import { ReactNode } from 'react';
-import addDays from 'date-fns/addDays';
-import addMonths from 'date-fns/addMonths';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import eachMonthOfInterval from 'date-fns/eachMonthOfInterval';
-import eachYearOfInterval from 'date-fns/eachYearOfInterval';
-import endOfDay from 'date-fns/endOfDay';
-import endOfWeek from 'date-fns/endOfWeek';
-import endOfYear from 'date-fns/endOfYear';
-import format from 'date-fns/format';
-import isAfter from 'date-fns/isAfter';
-import isBefore from 'date-fns/isBefore';
-import isSameDay from 'date-fns/isSameDay';
-import isThisMonth from 'date-fns/isThisMonth';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import max from 'date-fns/max';
-import min from 'date-fns/min';
-import parse from 'date-fns/parse';
-import startOfDay from 'date-fns/startOfDay';
-import startOfMonth from 'date-fns/startOfMonth';
-import startOfWeek from 'date-fns/startOfWeek';
-import startOfYear from 'date-fns/startOfYear';
-import subDays from 'date-fns/subDays';
-import subMonths from 'date-fns/subMonths';
+import {
+    addDays,
+    addMonths,
+    eachDayOfInterval,
+    eachMonthOfInterval,
+    eachYearOfInterval,
+    endOfDay,
+    endOfWeek,
+    endOfYear,
+    format,
+    isAfter,
+    isBefore,
+    isSameDay,
+    isThisMonth,
+    lastDayOfMonth,
+    max,
+    min,
+    parse,
+    startOfDay,
+    startOfMonth,
+    startOfWeek,
+    startOfYear,
+    subDays,
+    subMonths,
+} from 'date-fns';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
