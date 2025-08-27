@@ -16,7 +16,7 @@
         "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
-        "date-fns": "^2.16.1",
+        "date-fns": "^4.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {

@@ -11,7 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-input": "^16.0.1",
-        "date-fns": "^2.16.1",
+        "date-fns": "^4.1.0",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
