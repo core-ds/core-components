@@ -1,11 +1,11 @@
 import { hasOwnProperty } from '@alfalab/core-components-shared';
 
-import { UniversalModalDesktopProps } from '../types/props';
+import type { UniversalModalDesktopProps } from '../types/props';
 
-type Params = {
+interface Params {
     styles: Record<string, string>;
     margin: UniversalModalDesktopProps['margin'];
-};
+}
 
 export const getMarginStyles = (params: Params): Record<string, boolean> => {
     const { margin, styles } = params;
