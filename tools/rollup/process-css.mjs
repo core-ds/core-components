@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow, import/no-extraneous-dependencies, no-param-reassign */
 
 import fse from 'fs-extra';
-import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { cwd } from 'node:process';
@@ -122,13 +121,7 @@ async function processPostcss(filePath, config) {
             if (/^alfasans-.*\.css$/.test(parsed.base)) {
                 ignore = ['src/{index,typography}.css', 'src/no-typography.css'];
             } else {
-                const companionFile = path.join(parsed.dir, `alfasans-${parsed.base}`);
-
-                if (existsSync(companionFile)) {
-                    ignore = ['src/alfasans-{index,typography}.css', 'src/no-typography.css'];
-                } else {
-                    ignore = ['src/alfasans-{index,typography}.css', 'src/{index,typography}.css'];
-                }
+                ignore = ['src/alfasans-{index,typography}.css', 'src/no-typography.css'];
             }
 
             return postcssMixins({
