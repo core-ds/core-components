@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Checkbox Display tests should display checkbox group correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -210,7 +210,7 @@ Object {
 `;
 
 exports[`Checkbox Display tests should display checkbox group with error correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -431,7 +431,7 @@ Object {
 `;
 
 exports[`Checkbox Display tests should display checkbox group with one child correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -560,7 +560,7 @@ Object {
 `;
 
 exports[`Checkbox Display tests should display tag group correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -757,7 +757,7 @@ Object {
 `;
 
 exports[`Checkbox Display tests should display with children like boolean or string or others react children type correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>

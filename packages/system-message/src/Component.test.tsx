@@ -156,7 +156,7 @@ describe('SystemMessage', () => {
                 </SystemMessage>,
             );
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

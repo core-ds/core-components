@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
 <body
@@ -41,7 +41,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
             >
               <div
                 class="component"
-                style="max-height: 744px;"
+                style="height: unset; max-height: 744px;"
               >
                 <div
                   class="marker defaultMarker"
@@ -130,7 +130,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
             >
               <div
                 class="component"
-                style="max-height: 744px;"
+                style="height: unset; max-height: 744px;"
               >
                 <div
                   class="marker defaultMarker"

@@ -56,7 +56,7 @@ describe('InternationalPhoneInput', () => {
             <InternationalPhoneInputDesktop value='+7 111 111 11 11' onChange={jest.fn()} />,
         );
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     it('should call `onChange` callback after input was changed with dial code of country without priority', () => {
@@ -304,7 +304,7 @@ describe('InternationalPhoneInput', () => {
 
         fireEvent.input(input, { target: { value: '+998 12 345 67 89', selectionStart: 0 } });
 
-        expect(onCountryChange).toBeCalledWith(
+        expect(onCountryChange).toHaveBeenCalledWith(
             expect.objectContaining({
                 iso2: 'uz',
             }),
@@ -461,7 +461,7 @@ describe('InternationalPhoneInput', () => {
         fireEvent.click(clearButton);
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith('');
+            expect(onChange).toHaveBeenCalledWith('');
         });
     });
 
@@ -546,7 +546,7 @@ describe('InternationalPhoneInput', () => {
         });
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7 983 123 67');
+            expect(onChange).toHaveBeenCalledWith('+7 983 123 67');
         });
     });
 
@@ -569,7 +569,7 @@ describe('InternationalPhoneInput', () => {
         });
 
         await waitFor(() => {
-            expect(onChange).not.toBeCalled();
+            expect(onChange).not.toHaveBeenCalled();
         });
     });
 

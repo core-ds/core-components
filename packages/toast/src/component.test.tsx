@@ -139,10 +139,10 @@ describe('Toast', () => {
             render(<Toast onClose={onClose} open={true} getPortalContainer={getPortalContainer} />);
 
             fireEvent.click(getPortalContainer().firstElementChild as HTMLElement);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
 
             await userEvent.setup({ delay: null }).click(document.body);
-            expect(onClose).toBeCalled();
+            expect(onClose).toHaveBeenCalled();
         });
 
         it('should not call onClose when click outside', async () => {
@@ -157,10 +157,10 @@ describe('Toast', () => {
             );
 
             fireEvent.click(getPortalContainer().firstElementChild as HTMLElement);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
 
             await userEvent.setup({ delay: null }).click(document.body);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
         });
 
         it('should call onClose after delay', () => {
@@ -168,10 +168,10 @@ describe('Toast', () => {
             render(<Toast onClose={onClose} open={true} autoCloseDelay={3000} />);
 
             jest.advanceTimersByTime(2500);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
 
             jest.advanceTimersByTime(3500);
-            expect(onClose).toBeCalled();
+            expect(onClose).toHaveBeenCalled();
         });
 
         it('should not call onClose if mouse is over ToastPlate', async () => {
@@ -191,7 +191,7 @@ describe('Toast', () => {
             await userEvent.setup({ delay: null }).hover(toastPlate);
             jest.advanceTimersByTime(5000);
 
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
         });
 
         it('should call onClose after mouse left ToastPlate', () => {
@@ -212,7 +212,7 @@ describe('Toast', () => {
             userEvent.unhover(toastPlate);
             jest.advanceTimersByTime(5000);
 
-            expect(onClose).toBeCalled();
+            expect(onClose).toHaveBeenCalled();
         });
 
         it('should not call onClose if touch ToastPlate', () => {
@@ -232,7 +232,7 @@ describe('Toast', () => {
             fireEvent.touchStart(toastPlate);
             jest.advanceTimersByTime(5000);
 
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
         });
 
         it('should render custom toast plate', async () => {
@@ -260,6 +260,6 @@ describe('Toast', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Toast {...baseProps} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

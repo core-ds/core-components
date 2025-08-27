@@ -47,7 +47,7 @@ describe('Render tests', () => {
     it('should unmount without errors', async () => {
         const { unmount } = render(<Spinner size={20} lineWidth={2} style={{ padding: 2 }} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     it('should have visible class if prop visible is true', async () => {
@@ -94,7 +94,7 @@ describe('Spinner props', () => {
 
     it('should warn color via styles', () => {
         render(<Spinner visible size={48} lineWidth={6} style={{ color: '#EC2D20' }} />);
-        expect(devWarning).toBeCalledWith(
+        expect(devWarning).toHaveBeenCalledWith(
             expect.stringContaining(
                 "[Spinner]: Палитра, в контексте которой используется спиннер (проп 'colors') игнорируется.",
             ),

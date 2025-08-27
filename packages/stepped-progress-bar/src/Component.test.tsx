@@ -31,7 +31,7 @@ describe('SteppedProgressBar', () => {
         it('should unmount without errors', () => {
             const { unmount } = render(<SteppedProgressBar {...defaultProps} />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 

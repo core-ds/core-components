@@ -257,7 +257,7 @@ describe('PureCell', () => {
 
         fireEvent.click(screen.getByTestId('cell-pure'));
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
         expect(screen.getByTestId('cell-pure').tagName).toBe('BUTTON');
     });
 
@@ -326,8 +326,8 @@ describe('PureCell', () => {
 
             fireEvent.click(screen.getByTestId('cell-pure-graphics'));
 
-            expect(cb).toBeCalledTimes(1);
-            expect(cellCb).toBeCalledTimes(0);
+            expect(cb).toHaveBeenCalledTimes(1);
+            expect(cellCb).toHaveBeenCalledTimes(0);
             expect(screen.getByTestId('cell-pure-graphics').tagName).toBe('BUTTON');
         });
     });
@@ -354,8 +354,8 @@ describe('PureCell', () => {
 
             fireEvent.click(screen.getByTestId('cell-pure-main'));
 
-            expect(cb).toBeCalledTimes(1);
-            expect(cellCb).toBeCalledTimes(0);
+            expect(cb).toHaveBeenCalledTimes(1);
+            expect(cellCb).toHaveBeenCalledTimes(0);
             expect(screen.getByTestId('cell-pure-main').tagName).toBe('BUTTON');
         });
     });
@@ -377,8 +377,8 @@ describe('PureCell', () => {
 
             fireEvent.click(screen.getByTestId('cell-pure-addon'));
 
-            expect(cb).toBeCalledTimes(1);
-            expect(cellCb).toBeCalledTimes(0);
+            expect(cb).toHaveBeenCalledTimes(1);
+            expect(cellCb).toHaveBeenCalledTimes(0);
             expect(screen.getByTestId('cell-pure-addon').tagName).toBe('BUTTON');
         });
     });
@@ -402,8 +402,8 @@ describe('PureCell', () => {
 
             fireEvent.click(screen.getByTestId('cell-pure-button'));
 
-            expect(cb).toBeCalledTimes(1);
-            expect(cellCb).toBeCalledTimes(0);
+            expect(cb).toHaveBeenCalledTimes(1);
+            expect(cellCb).toHaveBeenCalledTimes(0);
             expect(screen.getByTestId('cell-pure-button').tagName).toBe('BUTTON');
         });
     });

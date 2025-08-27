@@ -68,6 +68,6 @@ describe('Slider', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Slider />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });
