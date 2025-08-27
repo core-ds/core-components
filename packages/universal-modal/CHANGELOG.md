@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.1.7
+
+### Patch Changes
+
+<sup><time>27.08.2025</time></sup>
+
+### [#1837](https://github.com/core-ds/core-components/pull/1837)
+
+-   Исправлена типизация. Типы переведены на компоненты.
+
 ## 1.1.6
 
 ### Patch Changes
