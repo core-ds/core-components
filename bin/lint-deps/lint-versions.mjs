@@ -2,7 +2,6 @@ import dedent from 'dedent';
 import fse from 'fs-extra';
 import path from 'node:path';
 import { cwd, exit } from 'node:process';
-import semver from 'semver';
 
 import { getPackages } from '../../tools/monorepo.cjs';
 import { isNonNullable } from '../../tools/utils.cjs';
@@ -19,9 +18,7 @@ async function main() {
             const {
                 packageJson: { version },
             } = packages.find(({ packageJson: { name } }) => name === pkg);
-            const expectedVersion = isNonNullable(semver.prerelease(version))
-                ? version
-                : `^${version}`;
+            const expectedVersion = `^${version}`;
 
             return actualVersion === expectedVersion ? null : [pkg, actualVersion, expectedVersion];
         })
