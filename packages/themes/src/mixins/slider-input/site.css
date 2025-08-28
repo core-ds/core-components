@@ -6,8 +6,8 @@
     --slider-input-progress-margin-horizontal: 0;
     --slider-input-xl-progress-margin-horizontal: 0;
     --slider-input-progress-border-radius: 0;
-    --slider-input-progress-bg-color: var(--color-light-neutral-700);
-    --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
+    --slider-input-progress-bg-color: transparent;
+    --slider-input-progress-hover-bg-color: var(--color-light-neutral-500);
     --slider-input-origin-width: 100%;
     --slider-input-origin-right: var(--gap-0);
 }
