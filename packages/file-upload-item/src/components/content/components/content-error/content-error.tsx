@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { TypographyText } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 
@@ -11,9 +11,9 @@ export const ContentError = () => {
 
     if (typeof error === 'string' && error.length > 0) {
         return (
-            <TypographyText className={styles.errorItem} view='primary-small' color='negative'>
+            <Text className={styles.errorItem} view='primary-small' color='negative'>
                 {error}
-            </TypographyText>
+            </Text>
         );
     }
 
@@ -21,22 +21,22 @@ export const ContentError = () => {
         return (
             <div>
                 {error.map((item) => (
-                    <TypographyText
+                    <Text
                         key={item}
                         className={styles.errorItem}
                         view='primary-small'
                         color='negative'
                     >
                         {item}
-                    </TypographyText>
+                    </Text>
                 ))}
             </div>
         );
     }
 
     return (
-        <TypographyText className={styles.errorItem} view='primary-small' color='negative'>
+        <Text className={styles.errorItem} view='primary-small' color='negative'>
             Не удалось загрузить файл
-        </TypographyText>
+        </Text>
     );
 };

@@ -7,7 +7,6 @@ import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
-import { getSizeClassName } from '../../helpers/get-size-class-name';
 import { isKeyBoardEvent } from '../../helpers/is-keyboard-event';
 import { PrivateProps } from '../../types/base-filter-tag-private-props';
 import { BaseFilterTagProps } from '../../types/base-filter-tag-props';
@@ -21,6 +20,15 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
+const SIZE_TO_CLASSNAME_MAP = {
+    xxs: 'size-32',
+    xs: 'size-40',
+    s: 'size-48',
+    32: 'size-32',
+    40: 'size-40',
+    48: 'size-48',
+};
+
 export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & PrivateProps>(
     (
         {
@@ -30,7 +38,8 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
             open,
             onClick,
             size = 48,
-            shape = 'rounded',
+            variant = 'default',
+            shape,
             view = 'outlined',
             onClear = () => null,
             showClear = true,
@@ -62,6 +71,10 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
             onClear();
         };
 
+        const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
+
+        const shapeClassName = shape || variantClassName;
+
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
@@ -69,11 +82,11 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                     className,
                     commonStyles.component,
                     colorStyles[colors].component,
-                    commonStyles[shape],
-                    commonStyles[getSizeClassName(size)],
+                    commonStyles[shapeClassName],
+                    commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
                     styles.component,
-                    styles[shape],
-                    styles[getSizeClassName(size)],
+                    styles[shapeClassName],
+                    styles[SIZE_TO_CLASSNAME_MAP[size]],
                     {
                         [commonStyles.checked]: checked,
                         [colorStyles[colors].checked]: checked,
@@ -98,10 +111,10 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                         colorStyles[colors].valueButton,
                         styles.valueButton,
                         colorStylesMap[colors].valueButton,
-                        commonStyles[getSizeClassName(size)],
-                        styles[getSizeClassName(size)],
-                        commonStyles[shape],
-                        styles[shape],
+                        commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                        styles[SIZE_TO_CLASSNAME_MAP[size]],
+                        commonStyles[shapeClassName],
+                        styles[shapeClassName],
                         commonStyles[view],
                         colorStyles[colors][view],
                         {
@@ -121,7 +134,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                     {leftAddons && <div className={commonStyles.addons}>{leftAddons}</div>}
                     <span className={commonStyles.content}>{children}</span>
                     <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
-                        {[40, 32].includes(size) ? (
+                        {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
                             <ChevronDownCompactSIcon />
                         ) : (
                             <ChevronDownMIcon />
@@ -136,16 +149,20 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                             commonStyles.clear,
                             [colorStyles[colors].clear],
                             styles.clear,
-                            commonStyles[getSizeClassName(size)],
-                            styles[getSizeClassName(size)],
-                            styles[shape],
-                            commonStyles[shape],
+                            commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                            styles[SIZE_TO_CLASSNAME_MAP[size]],
+                            styles[shapeClassName],
+                            commonStyles[shapeClassName],
                         )}
                         onClick={handleClear}
                         onKeyDown={handleClear}
                         tabIndex={0}
                     >
-                        {[40, 32].includes(size) ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
+                        {['size-40', 'size-32'].includes(SIZE_TO_CLASSNAME_MAP[size]) ? (
+                            <CrossCircleSIcon />
+                        ) : (
+                            <CrossCircleMIcon />
+                        )}
                     </div>
                 )}
             </div>

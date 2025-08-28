@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import cn from 'classnames';
 
-import { TypographyText } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { isVideo } from '../../utils';
@@ -37,14 +37,14 @@ export const InfoBar = () => {
             ) : (
                 <Buttons.Play onClick={handlePlayVideo} />
             )}
-            <TypographyText
+            <Text
                 className={styles.description}
                 tag='div'
                 view='component'
                 color='static-primary-light'
             >
                 {image?.name}
-            </TypographyText>
+            </Text>
             {mutedVideo ? (
                 <Buttons.UnmuteVideo onClick={handleMuteVideo} />
             ) : (
@@ -53,14 +53,14 @@ export const InfoBar = () => {
         </section>
     ) : (
         <section className={styles.infoWrapper}>
-            <TypographyText
+            <Text
                 className={styles.description}
                 tag='div'
                 view='component'
                 color='static-primary-light'
             >
                 {image?.name}
-            </TypographyText>
+            </Text>
         </section>
     );
 };

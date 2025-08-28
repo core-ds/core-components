@@ -4,11 +4,11 @@ import { ContentDesktop } from '../components/content';
 import { FooterDesktop } from '../components/footer';
 import { HeaderDesktop } from '../components/header';
 import { UniversalModalContext } from '../context/universal-modal-context';
-import type { UniversalModalContextType } from '../typings';
+import { UniversalModalContextType } from '../typings';
 
 import { CenterModal } from './components/center-modal';
 import { SideModal } from './components/side-modal';
-import type { UniversalModalDesktopProps } from './types/props';
+import { UniversalModalDesktopProps } from './types/props';
 import { checkHeaderAndFooter } from './utils/check-header-and-footer';
 
 export const UniversalModalDesktopComponent = forwardRef<

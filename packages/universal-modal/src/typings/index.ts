@@ -1,7 +1,7 @@
 import { UniversalModalDesktopProps } from '../desktop';
 import { UniversalModalMobileProps } from '../mobile';
 
-export interface UniversalModalContextType {
+export type UniversalModalContextType = {
     modalWidth: UniversalModalDesktopProps['width'];
     modalHeaderHighlighted?: boolean;
     modalFooterHighlighted?: boolean;
@@ -9,19 +9,18 @@ export interface UniversalModalContextType {
     hasFooter: boolean;
     setModalHeaderHighlighted?: (value: boolean) => void;
     setModalFooterHighlighted?: (value: boolean) => void;
-}
+};
 
-export interface UniversalModalResponsiveProps
-    extends UniversalModalDesktopProps,
-        UniversalModalMobileProps {
-    /**
-     * Контрольная точка, с нее начинается desktop версия
-     * @default 1024
-     */
-    breakpoint?: number;
+export type UniversalModalResponsiveProps = UniversalModalDesktopProps &
+    UniversalModalMobileProps & {
+        /**
+         * Контрольная точка, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
 
-    /**
-     * Значение по-умолчанию для хука useMatchMedia
-     */
-    defaultMatchMediaValue?: boolean | (() => boolean);
-}
+        /**
+         * Значение по-умолчанию для хука useMatchMedia
+         */
+        defaultMatchMediaValue?: boolean | (() => boolean);
+    };

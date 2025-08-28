@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import cn from 'classnames';
 
 import { humanFileSize } from '@alfalab/core-components-shared';
-import { TypographyText } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { MAX_PROGRESS_BAR_VALUE } from '../../../../const/progress-bar';
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
@@ -39,10 +39,10 @@ export const ContentSubtitle = () => {
     // uploading status
     if (isUploadingStatus(uploadStatus)) {
         return (
-            <TypographyText view='primary-small' color='secondary'>
+            <Text view='primary-small' color='secondary'>
                 Загружено{'\u00A0'}
                 {Math.floor(validProgressBar)}%
-            </TypographyText>
+            </Text>
         );
     }
 
@@ -56,14 +56,14 @@ export const ContentSubtitle = () => {
         return (
             <div>
                 {size && (
-                    <TypographyText className={styles.size} view='primary-small' color='secondary'>
+                    <Text className={styles.size} view='primary-small' color='secondary'>
                         {humanFileSize(size)}
-                    </TypographyText>
+                    </Text>
                 )}
                 {uploadDate && (
-                    <TypographyText view='primary-small' color='secondary'>
+                    <Text view='primary-small' color='secondary'>
                         {uploadDate}
-                    </TypographyText>
+                    </Text>
                 )}
             </div>
         );
@@ -72,14 +72,14 @@ export const ContentSubtitle = () => {
     // restore status
     if (showRestore) {
         return (
-            <TypographyText view='primary-small' color='tertiary'>
+            <Text view='primary-small' color='tertiary'>
                 Файл удален
-            </TypographyText>
+            </Text>
         );
     }
 
     return (
-        <TypographyText
+        <Text
             className={cn(styles.subtitle, {
                 [styles.truncate]: truncate,
             })}
@@ -87,6 +87,6 @@ export const ContentSubtitle = () => {
             color='secondary'
         >
             {subtitle}
-        </TypographyText>
+        </Text>
     );
 };

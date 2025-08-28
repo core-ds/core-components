@@ -6,12 +6,12 @@ import { BaseContent, ContentProps } from '../base-content/base-content';
 
 import styles from './desktop.module.css';
 
-export interface ContentDesktopProps extends ContentProps {
+export type ContentDesktopProps = ContentProps & {
     /**
      * Размер (только для desktop версии компонента)
      */
     size?: 's' | 500;
-}
+};
 
 export const ContentDesktop: FC<ContentDesktopProps> = ({ className, ...restProps }) => {
     const { hasHeader, hasFooter } = useContext(UniversalModalContext);

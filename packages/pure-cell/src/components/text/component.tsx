@@ -2,7 +2,7 @@ import React, { ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { type Color, TypographyText } from '@alfalab/core-components-typography';
+import { type Color, Text as TypographyText } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 
