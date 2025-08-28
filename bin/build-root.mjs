@@ -17,7 +17,7 @@ import { readPackagesFile } from '../tools/read-packages-file.cjs';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const EXTENTIONS = ['ts', 'tsx', 'json'];
-const BUILDS = ['es5', 'modern', 'esm', 'cssm', 'moderncssm', 'dynamic-mixins'];
+const BUILDS = ['es5', 'modern', 'esm', 'cssm', 'moderncssm'];
 const CSS_PACKAGES = await readPackagesFile(path.join(dirname, '../tools/.css-packages'));
 
 yargs(hideBin(argv))
