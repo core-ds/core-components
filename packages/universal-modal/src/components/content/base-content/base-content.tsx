@@ -7,7 +7,7 @@ import { ModalContext } from '../../../Context';
 
 import styles from './index.module.css';
 
-export type ContentProps = {
+export interface ContentProps {
     /**
      * Контент
      */
@@ -22,17 +22,14 @@ export type ContentProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+}
 
 export const BaseContent: FC<ContentProps> = ({ children, className, dataTestId }) => {
-    const { contentRef, hasHeader, hasFooter } = useContext(ModalContext);
+    const { contentRef } = useContext(ModalContext);
 
     return (
         <div
-            className={cn(styles.content, styles.flex, className, {
-                [styles.withHeader]: hasHeader,
-                [styles.withFooter]: hasFooter,
-            })}
+            className={cn(styles.content, className)}
             ref={contentRef as Ref<HTMLDivElement>}
             data-test-id={getDataTestId(dataTestId, 'content')}
         >

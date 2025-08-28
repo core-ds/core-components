@@ -1,16 +1,12 @@
-import {
-    hasImportSpecifier,
-    isIndexEntry,
-    modifyIdentifiers,
-    modifyImportPath,
-} from '../42-utils';
+import { hasImportSpecifier, isIndexEntry, modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const radioGroupTransformer = (source, j) => {
     modifyImportPath(
         source,
         j,
         (path) => (isIndexEntry(path, 'radio-group') ? `${path}/desktop` : path),
-        (path) => hasImportSpecifier(path, 'RadioGroup') || hasImportSpecifier(path, 'RadioGroupProps'),
+        (path) =>
+            hasImportSpecifier(path, 'RadioGroup') || hasImportSpecifier(path, 'RadioGroupProps'),
     );
     modifyIdentifiers(source, j, 'RadioGroup', 'RadioGroupDesktop');
     modifyIdentifiers(source, j, 'RadioGroupProps', 'RadioGroupDesktopProps');

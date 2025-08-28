@@ -12,7 +12,7 @@ import Development from './development.mdx';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/Calendar' component={Calendar} id='Calendar' />
 
@@ -113,11 +113,13 @@ export const MONTHS = {
                         <Button onClick={() => setOpen(true)}>Открыть календарь</Button>
                         <CalendarMobile
                             onClose={() => setOpen(false)}
+                            onBack={() => setOpen(false)}
                             open={open}
                             value={value}
                             onChange={setValue}
                             defaultView={defaultView}
                             selectorView={selectorView}
+                            hasBackButton={boolean('hasBackButton', false)}
                         />
                     </>
                 );
@@ -127,12 +129,14 @@ export const MONTHS = {
                         <Button onClick={() => setOpen(true)}>Открыть календарь (период)</Button>
                         <CalendarMobile
                             onClose={() => setOpen(false)}
+                            onBack={() => setOpen(false)}
                             open={open}
                             onChange={updatePeriod}
                             selectedFrom={selectedFrom}
                             selectedTo={selectedTo}
                             defaultView={defaultView}
                             selectorView={selectorView}
+                            hasBackButton={boolean('hasBackButton', false)}
                         />
                     </>
                 );

@@ -1,4 +1,149 @@
-# Change Log
+# @alfalab/core-components-input-autocomplete
+
+## 13.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.1
+    -   @alfalab/core-components-select@18.0.1
+    -   @alfalab/core-components-status-badge@2.0.1
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-form-control@13.0.1
+    -   @alfalab/core-components-mq@5.0.1
+
+## 13.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-form-control@13.0.0
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+    -   @alfalab/core-components-select@18.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-status-badge@2.0.0
+
+## 12.10.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.24.0
+
+## 12.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.23.0
+    -   popover@6.4.0
+
+## 12.9.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.22.0
+
+## 12.9.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.5
+
+## 12.9.6
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+-   Исправлено отображение маскированного значения в компоненте `InputAutocompleteMobile`
+
+-   Обновлены зависимости
+    -   select@17.21.4
+    -   shared@0.18.0
+    -   form-control@12.8.6
+    -   input@15.6.2
+    -   popover@6.3.11
+
+## 12.9.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.3
+
+## 12.9.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   form-control@12.8.5
+    -   input@15.6.1
+    -   select@17.21.2
+    -   popover@6.3.10
+
+## 12.9.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@17.21.1
+
+## 12.9.2
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   select@17.21.0
+    -   input@15.6.0
+    -   form-control@12.8.4
+
+## 12.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   form-control@12.8.3
+    -   input@15.5.5
+    -   select@17.20.14
+    -   popover@6.3.9
 
 ## 12.9.0
 

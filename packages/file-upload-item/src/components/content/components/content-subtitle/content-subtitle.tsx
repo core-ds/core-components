@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
+import { humanFileSize } from '@alfalab/core-components-shared';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { MAX_PROGRESS_BAR_VALUE } from '../../../../const/progress-bar';
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
 import {
-    humanFileSize,
     isErrorStatus,
     isSuccessStatus,
     isUploadedStatus,

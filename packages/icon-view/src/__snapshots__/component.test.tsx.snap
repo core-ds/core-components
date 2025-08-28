@@ -279,6 +279,7 @@ exports[`IconView Snapshots tests should match snapshot with image 1`] = `
             </clippath>
           </defs>
           <image
+            class="imageFill"
             clip-path="url(#:r4:)"
             height="100%"
             href="https://picsum.photos/id/1081/5512/3708"

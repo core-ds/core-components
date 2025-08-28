@@ -22,7 +22,7 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="component size-48"
+              class="component size-56"
             >
               <div
                 aria-controls="downshift-:r0:-menu"
@@ -63,7 +63,7 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
                   </span>
                 </span>
                 <svg
-                  class="arrow size-48"
+                  class="arrow size-56"
                   fill="currentColor"
                   focusable="false"
                   height="24"
@@ -87,6 +87,7 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
           class="input size-56"
         >
           <input
+            autocomplete="tel"
             class="input size-56 input"
             type="tel"
             value="+7 111 111 11 11"

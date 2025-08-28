@@ -1,30 +1,31 @@
 {
     "name": "@alfalab/core-components-tooltip",
-    "version": "7.9.10",
+    "version": "8.0.1",
     "description": "Tooltip component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "@alfalab/core-components-bottom-sheet": "^7.0.1",
+        "@alfalab/core-components-button": "^12.0.1",
+        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-popover": "^7.1.0",
+        "classnames": "^2.5.1",
+        "react-merge-refs": "^1.1.0",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/core-components-bottom-sheet": "^6.18.8",
-        "@alfalab/core-components-button": "^11.11.7",
-        "@alfalab/core-components-popover": "^6.3.8",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "classnames": "^2.5.1",
-        "react-merge-refs": "^1.1.0",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.20.0"
+    "themesVersion": "14.1.0",
+    "varsVersion": "10.1.0"
 }

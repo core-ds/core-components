@@ -1,4 +1,74 @@
-# Change Log
+# @alfalab/core-components-bank-card
+
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-masked-input@7.0.1
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-masked-input@7.0.0
+
+## 5.8.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.39
+
+## 5.8.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.38
+
+## 5.8.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.37
+
+## 5.8.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.3.36
+
+## 5.8.17
+
+### Patch Changes
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1677](https://github.com/core-ds/core-components/pull/1677)
+
+-   Изменён логотип по умолчанию
 
 ## 5.8.16
 

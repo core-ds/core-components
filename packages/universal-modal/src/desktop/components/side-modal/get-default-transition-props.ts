@@ -1,13 +1,13 @@
 import cn from 'classnames';
 
-import { ModalBySideProps } from '../../types/props';
+import type { UniversalModalDesktopProps } from '../../types/props';
 
-import transitions from './styles/transitions/transitions.module.css';
+import transitions from './transitions/transitions.module.css';
 
-type Params = {
-    horizontalAlign: ModalBySideProps['horizontalAlign'];
-    margin: ModalBySideProps['margin'];
-};
+interface Params {
+    horizontalAlign: UniversalModalDesktopProps['horizontalAlign'];
+    margin: UniversalModalDesktopProps['margin'];
+}
 
 export const getDefaultTransitionProps = (params: Params) => {
     const { horizontalAlign, margin } = params;

@@ -1,5 +1,108 @@
 # @alfalab/core-components-universal-date-input
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.1
+    -   @alfalab/core-components-input@16.0.1
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-mq@5.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.0
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+    -   @alfalab/core-components-shared@1.0.0
+
+## 2.8.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
+## 2.8.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1744](https://github.com/core-ds/core-components/pull/1744)
+
+Добавлены пропсы для управления открытием календаря `calendarOpen` и `onCalendarOpenChange`.
+
+Пропсы `onCalendarOpen` и `onCalendarClose` помечены как `deprecated`. Вместо них используйте `onCalendarOpenChange`.
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1723](https://github.com/core-ds/core-components/pull/1723)
+
+-   Исправлена работа пропса onBlur для date-range варианта при использовании пикера
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1545](https://github.com/core-ds/core-components/pull/1545)
+
+-   Исправлена валидация вводимого времени, которая раннее могла приводить к выводу неправильной даты в разных таймзонах
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   input@15.6.2
+    -   popover@6.3.11
+
+## 2.7.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   input@15.6.1
+    -   popover@6.3.10
+
+## 2.7.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 2.7.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   input@15.5.5
+    -   popover@6.3.9
+
 ## 2.7.4
 
 ### Patch Changes

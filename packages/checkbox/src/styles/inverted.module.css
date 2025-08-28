@@ -1,4 +1,4 @@
-@import '../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     --checkbox-hint-color-inverted: var(--color-light-text-secondary-inverted);
@@ -47,9 +47,11 @@
     color: var(--checkbox-icon-color-inverted);
 }
 
-.component:hover:not(.disabled) .box {
-    background-color: var(--checkbox-hover-bg-color-inverted);
-    border-color: var(--checkbox-hover-border-color-inverted);
+@media (hover: hover) {
+    .component:hover:not(.disabled) .box {
+        background-color: var(--checkbox-hover-bg-color-inverted);
+        border-color: var(--checkbox-hover-border-color-inverted);
+    }
 }
 
 .component:active:not(.disabled) .box {

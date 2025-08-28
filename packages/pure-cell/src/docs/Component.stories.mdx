@@ -15,7 +15,7 @@ import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
@@ -49,7 +49,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const graphicPadding = select(
             'graphicPadding',
-            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            ['max', 'airy', 'default', 'compact', 'tiny', 'none', undefined],
             undefined,
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
@@ -301,7 +301,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const graphicPadding = select(
             'graphicPadding',
-            ['airy', 'default', 'compact', 'tiny', 'none', undefined],
+            ['max', 'airy', 'default', 'compact', 'tiny', 'none', undefined],
             undefined,
         );
         const addonPadding = select('addonPadding', ['default', 'none'], 'default');

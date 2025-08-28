@@ -27,9 +27,20 @@ export type ItemProps = {
      * Дополнительный класс для маркера
      */
     markerClassName?: string;
+
+    /**
+     * Дополнительный класс для маркера
+     */
+    dataTestId?: string;
 };
 
-export const Item: React.FC<ItemProps> = ({ caption, children, className, markerClassName }) => {
+export const Item: React.FC<ItemProps> = ({
+    caption,
+    children,
+    className,
+    markerClassName,
+    dataTestId,
+}) => {
     const {
         orderedList,
         markerType,
@@ -52,7 +63,7 @@ export const Item: React.FC<ItemProps> = ({ caption, children, className, marker
     const marker = orderedList || markerType === 'decimal' ? `${count}.` : markerType;
 
     return (
-        <li className={cn(itemClassNames)}>
+        <li className={cn(itemClassNames)} data-test-id={dataTestId}>
             {!markerLowerAlpha && (
                 <TypographyText
                     tag='div'
