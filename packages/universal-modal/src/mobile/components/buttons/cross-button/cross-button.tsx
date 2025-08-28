@@ -5,9 +5,9 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import styles from './cross-button.module.css';
 
-type CrossButtonProps = {
+interface CrossButtonProps {
     onClick?: () => void;
-};
+}
 
 export const CrossButtonMobile: FC<CrossButtonProps> = (props) => {
     const { onClick } = props;

@@ -1,4 +1,77 @@
-# Change Log
+# @alfalab/core-components-pagination
+
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-tag@9.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-tag@9.0.0
+
+## 2.4.16
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1748](https://github.com/core-ds/core-components/pull/1748)
+
+-   Исправлена ширина и отступы для arrow, там где используется `<Tabs />`
+
+-   Обновлены зависимости
+    -   tag@8.7.1
+
+## 2.4.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+
+## 2.4.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.10
+
+## 2.4.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.9
+
+## 2.4.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.6.8
 
 ## 2.4.11
 

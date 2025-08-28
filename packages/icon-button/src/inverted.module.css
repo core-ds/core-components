@@ -1,4 +1,4 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     /* primary */
@@ -66,7 +66,7 @@
     &.primary {
         color: var(--icon-button-inverted-primary-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-inverted-primary-hover-color);
         }
 
@@ -78,7 +78,7 @@
     &.secondary {
         color: var(--icon-button-inverted-secondary-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-inverted-secondary-hover-color);
         }
 
@@ -90,7 +90,7 @@
     &.transparent {
         color: var(--icon-button-inverted-transparent-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-inverted-transparent-hover-color);
         }
 
@@ -102,7 +102,7 @@
     &.negative {
         color: var(--icon-button-inverted-negative-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-inverted-negative-hover-color);
         }
 
@@ -114,7 +114,7 @@
     &.tertiary {
         color: var(--icon-button-inverted-tertiary-base-color);
 
-        &:hover {
+        @mixin hover {
             color: var(--icon-button-inverted-tertiary-hover-color);
         }
 
@@ -127,7 +127,7 @@
         &.primary {
             color: var(--color-light-text-primary-inverted);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-inverted-hover);
             }
 
@@ -139,7 +139,7 @@
         &.secondary {
             color: var(--color-light-text-secondary-inverted);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-inverted-hover);
             }
 
@@ -151,7 +151,7 @@
         &.negative {
             color: var(--color-light-text-negative-inverted);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-inverted-hover);
             }
 
@@ -163,7 +163,7 @@
         &.tertiary {
             color: var(--color-light-text-tertiary-inverted);
 
-            &:hover {
+            @mixin hover {
                 background: var(--color-light-transparent-default-inverted-hover);
             }
 

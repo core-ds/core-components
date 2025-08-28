@@ -1,29 +1,32 @@
 {
     "name": "@alfalab/core-components-confirmation-v1",
-    "version": "1.10.1",
+    "version": "2.0.1",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
-    },
-    "sideEffects": false,
     "dependencies": {
-        "@alfalab/core-components-button": "^11.11.7",
-        "@alfalab/core-components-link": "^5.3.4",
-        "@alfalab/core-components-loader": "^3.2.4",
+        "@alfalab/core-components-button": "^12.0.1",
+        "@alfalab/core-components-link": "^6.0.0",
+        "@alfalab/core-components-loader": "^4.0.0",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.20.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "themesVersion": "14.1.0",
+    "varsVersion": "10.1.0"
 }

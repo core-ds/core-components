@@ -11,6 +11,8 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import commonStyles from './index.module.css';
 
 export type Direction = 'horizontal' | 'vertical';
@@ -162,13 +164,20 @@ export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupPro
                     commonStyles.component,
                     commonStyles[type],
                     commonStyles[direction],
-                    { [commonStyles.error]: error },
+                    { [styles.error]: error },
                     className,
                 )}
                 data-test-id={dataTestId}
             >
                 {label ? (
-                    <span className={cn(commonStyles.label, styles.label)}>{label}</span>
+                    <span
+                        className={cn(styles.label, {
+                            [styles.tag]: type === 'tag',
+                        })}
+                        data-test-id={getDataTestId(dataTestId, 'label')}
+                    >
+                        {label}
+                    </span>
                 ) : null}
 
                 {children ? (
@@ -193,15 +202,31 @@ export const BaseCheckboxGroup = forwardRef<HTMLDivElement, BaseCheckboxGroupPro
 
                 {errorMessage && (
                     <span
-                        className={cn(commonStyles.sub, styles.sub, commonStyles.errorMessage)}
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.errorMessage,
+                        )}
                         role='alert'
+                        data-test-id={getDataTestId(dataTestId, 'error')}
                     >
                         {errorMessage}
                     </span>
                 )}
 
                 {hint && !errorMessage && (
-                    <span className={cn(commonStyles.sub, styles.sub, commonStyles.hint)}>
+                    <span
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.hint,
+                        )}
+                        data-test-id={getDataTestId(dataTestId, 'hint')}
+                    >
                         {hint}
                     </span>
                 )}

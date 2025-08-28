@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-backdrop": ["../backdrop/src"],
+            "@alfalab/core-components-backdrop/*": ["../backdrop/src/*"],
+            "@alfalab/core-components-base-modal": ["../base-modal/src"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-navigation-bar-private": ["../navigation-bar-private/src"],
+            "@alfalab/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@alfalab/core-components-scrollbar": ["../scrollbar/src"],
+            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-typography": ["../typography/src"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"],
+            "@alfalab/core-components-universal-modal": ["./src"],
+            "@alfalab/core-components-universal-modal/*": ["./src/*"]
+        }
+    },
+    "references": [
+        { "path": "../backdrop/tsconfig.build.json" },
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../navigation-bar-private/tsconfig.build.json" },
+        { "path": "../scrollbar/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
+    ]
+}

@@ -1,46 +1,38 @@
-name: Release
+name: release
 
-on: workflow_dispatch
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - master
+            - next
 
-concurrency: ${{ github.workflow }}
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  build:
-    env:
-      CI: true
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
+    release:
+        name: release
+        if: ${{ github.repository == 'core-ds/core-components' }}
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  # used GH_TOKEN to trigger github actions on branch update
+                  # GITHUB_TOKEN doesn't trigger any action
+                  # https://github.com/orgs/community/discussions/55906
+                  token: ${{ secrets.GH_TOKEN }}
 
-    steps:
-      - name: Check permissions
-        if: ${{ contains(fromJSON('["reme3d2y","SiebenSieben","hextion","fulcanellee"]'), github.actor) == false }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            core.setFailed("You don't have permission to run this workflow!");
+            - uses: ./.github/actions/ci-setup
 
-      - uses: actions/checkout@v3
-        with:
-          ref: 'master'
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN }}
-
-      - name: Install dependencies
-        run: yarn --pure-lockfile
-
-      - name: Build app
-        run: yarn build
-        env:
-          BUILD_CONCURRENCY: 5
-
-      - name: Set NPM Token
-        uses: filipstefansson/set-npm-token-action@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-
-      - name: Release
-        run: npm run pub:ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: create release pull request or publish to npm
+              uses: changesets/action@v1
+              with:
+                  publish: yarn release
+                  version: yarn version-packages
+                  commit: 'chore: version packages'
+              env:
+                  # used GH_TOKEN to trigger github actions on branch update
+                  # GITHUB_TOKEN doesn't trigger any action
+                  # https://github.com/orgs/community/discussions/55906
+                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

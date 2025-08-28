@@ -40,7 +40,12 @@ const Content = () => {
                     <Text />
                 </>
             )}
-            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+            <Button
+                className='showMoreButton'
+                size={40}
+                type='Button'
+                onClick={() => setShowMore(!showMore)}
+            >
                 {showMore ? 'Скрыть' : 'Показать еще'}
             </Button>
         </>
@@ -195,9 +200,10 @@ export const mobile: Story = {
             ['start', 'center', 'space-between', 'column'],
             'start',
         );
-        const bigTitle = boolean('bigTitle', false);
         const open = boolean('open', false);
         const appearance = select('appearance', ['bottom', 'right'], 'bottom');
+        const hasCloser = boolean('header.hasCloser', false);
+        const hasBackButton = boolean('header.hasBackButton', false);
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -210,26 +216,27 @@ export const mobile: Story = {
                     onClose={() => setOpen(false)}
                 >
                     {header && (
-                        <UniversalModalDesktop.Header
+                        <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
                             align={headerAlign}
-                            bigTitle={bigTitle}
+                            hasCloser={hasCloser}
+                            hasBackButton={hasBackButton}
                         />
                     )}
-                    <UniversalModalDesktop.Content>
+                    <UniversalModalMobile.Content>
                         <Content />
-                    </UniversalModalDesktop.Content>
+                    </UniversalModalMobile.Content>
 
                     {stickyFooter && (
-                        <UniversalModalDesktop.Footer sticky={stickyFooter} layout={footerLayout}>
+                        <UniversalModalMobile.Footer sticky={stickyFooter} layout={footerLayout}>
                             <ButtonMobile size={56} view='primary'>
                                 Сохранить
                             </ButtonMobile>
                             <ButtonMobile size={56} view='secondary'>
                                 Отмена
                             </ButtonMobile>
-                        </UniversalModalDesktop.Footer>
+                        </UniversalModalMobile.Footer>
                     )}
                 </UniversalModalMobile>
             </div>

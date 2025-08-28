@@ -1,4 +1,67 @@
-# Change Log
+# @alfalab/core-components-code-input
+
+## 4.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.1
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.0
+
+## 3.9.11
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1792](https://github.com/core-ds/core-components/pull/1792)
+
+-   Добавлен оператор опциональной последовательности при вызове element.Focus() для предотвращения ошибки при обращении к несуществующему элементу.
+
+## 3.9.10
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1742](https://github.com/core-ds/core-components/pull/1742)
+
+-   Добавлен оператор опциональной последовательности при вызове фокуса
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 3.9.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 3.9.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
 
 ## 3.9.7
 

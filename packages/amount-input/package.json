@@ -1,28 +1,32 @@
 {
     "name": "@alfalab/core-components-amount-input",
-    "version": "7.14.1",
+    "version": "8.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "dependencies": {
+        "@alfalab/core-components-input": "^16.0.1",
+        "@alfalab/core-components-number-input": "^3.0.1",
+        "@alfalab/core-components-shared": "^1.1.0",
+        "@alfalab/core-components-with-suffix": "^5.0.1",
+        "@alfalab/data": "^1.9.2",
+        "@alfalab/utils": "^1.18.0",
+        "classnames": "^2.5.1",
+        "tslib": "^2.4.0"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "sideEffects": false,
-    "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
-    },
-    "dependencies": {
-        "@alfalab/core-components-input": "^15.5.4",
-        "@alfalab/core-components-with-suffix": "^4.2.16",
-        "@alfalab/data": "^1.9.1",
-        "@alfalab/utils": "^1.18.0",
-        "classnames": "^2.5.1",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
-    },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.20.0"
+    "themesVersion": "14.1.0",
+    "varsVersion": "10.1.0"
 }

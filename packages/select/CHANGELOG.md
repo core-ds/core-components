@@ -1,4 +1,226 @@
-# Change Log
+# @alfalab/core-components-select
+
+## 18.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.1
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-bottom-sheet@7.0.1
+    -   @alfalab/core-components-modal@10.0.1
+    -   @alfalab/core-components-base-modal@6.0.1
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-checkbox@5.0.1
+    -   @alfalab/core-components-form-control@13.0.1
+    -   @alfalab/core-components-mq@5.0.1
+
+## 18.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-badge@6.0.0
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-bottom-sheet@7.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-checkbox@5.0.0
+    -   @alfalab/core-components-form-control@13.0.0
+    -   @alfalab/core-components-input@16.0.0
+    -   @alfalab/core-components-modal@10.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+    -   @alfalab/core-components-scrollbar@4.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-skeleton@6.0.0
+
+## 17.24.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1787](https://github.com/core-ds/core-components/pull/1787)
+
+-   Исправлена проблема совместимости с CSP-директивами: заменён метод setAttribute('style', '') на removeAttribute('style') для удаления инлайн-стилей
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.19.0
+
+## 17.23.0
+
+### Minor Changes
+
+<sup><time>22.07.2025</time></sup>
+
+### [#1784](https://github.com/core-ds/core-components/pull/1784)
+
+-   Добавлена возможность указать классы `className` и `scrollbarClassName` для компонента `OptionsList`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
+## 17.22.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1781](https://github.com/core-ds/core-components/pull/1781)
+
+-   Добавлен кастомный проп valueSeparator в Select, который позволяет прокинуть свой разделитель вместо значений, не создавая новую утилиту valueRenderer
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   checkbox@4.9.5
+    -   modal@9.9.20
+
+## 17.21.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.9.19
+
+## 17.21.4
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1644](https://github.com/core-ds/core-components/pull/1644)
+
+-   Для размера XL горизонтальные паддинги исправлены на 16px в соответствии с дизайном
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1734](https://github.com/core-ds/core-components/pull/1734)
+
+-   Исправлено использование `useLazyLoading`
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   scrollbar@3.4.0
+    -   base-modal@5.9.4
+    -   bottom-sheet@6.18.14
+    -   button@11.11.10
+    -   checkbox@4.9.4
+    -   form-control@12.8.6
+    -   input@15.6.2
+    -   modal@9.9.18
+    -   popover@6.3.11
+
+## 17.21.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+    -   bottom-sheet@6.18.13
+    -   modal@9.9.17
+
+## 17.21.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   bottom-sheet@6.18.12
+    -   button@11.11.9
+    -   checkbox@4.9.3
+    -   form-control@12.8.5
+    -   input@15.6.1
+    -   modal@9.9.16
+    -   popover@6.3.10
+
+## 17.21.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.11
+    -   modal@9.9.15
+
+## 17.21.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1715](https://github.com/core-ds/core-components/pull/1715)
+
+-   Добавлена возможность проброса applyName и resetName, заданы значения по умолчанию
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1714](https://github.com/core-ds/core-components/pull/1714)
+
+-   Разрешен ввод пробелов в textarea
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   scrollbar@3.3.0
+    -   checkbox@4.9.2
+    -   skeleton@5.4.0
+    -   input@15.6.0
+    -   form-control@12.8.4
+    -   bottom-sheet@6.18.10
+    -   modal@9.9.14
+
+## 17.20.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   modal@9.9.13
+    -   base-modal@5.9.1
+    -   bottom-sheet@6.18.9
+    -   button@11.11.8
+    -   checkbox@4.9.1
+    -   form-control@12.8.3
+    -   input@15.5.5
+    -   popover@6.3.9
 
 ## 17.20.13
 

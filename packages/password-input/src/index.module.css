@@ -1,19 +1,5 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .eye:last-child {
     height: 100%;
-}
-
-.size-72 {
-    & .addons {
-        padding-right: var(--gap-0);
-    }
-
-    & .eye {
-        margin-left: var(--gap-4);
-    }
-}
-
-.addons {
-    padding-right: var(--gap-0);
 }

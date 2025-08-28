@@ -1,4 +1,93 @@
-# Change Log
+# @alfalab/core-components-input
+
+## 16.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-status-badge@2.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-form-control@13.0.1
+    -   @alfalab/core-components-mq@5.0.1
+
+## 16.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-form-control@13.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-status-badge@2.0.0
+
+## 15.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   form-control@12.8.6
+
+## 15.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   form-control@12.8.5
+
+## 15.6.0
+
+### Minor Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1673](https://github.com/core-ds/core-components/pull/1673)
+
+-   Расширена логика `focus` состояния если в `rightAddons` передан компонент `Steppers`
+
+### Patch Changes
+
+<sup><time>23.05.2025</time></sup>
+
+### [#1699](https://github.com/core-ds/core-components/pull/1699)
+
+-   Увеличены отступы между элементами правого аддона до `12px` в мобильных версиях компонентов
+-   Исправлено выравнивание иконки ошибки для размера `40`
+
+-   Обновлены зависимости
+    -   form-control@12.8.4
+
+## 15.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   form-control@12.8.3
 
 ## 15.5.4
 

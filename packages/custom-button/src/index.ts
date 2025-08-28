@@ -1,2 +1,2 @@
 export { CustomButton } from './Component';
-export { CustomButtonProps, ComponentProps } from './types/props';
+export type { CustomButtonProps, ComponentProps } from './types/props';

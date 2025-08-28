@@ -1,4 +1,116 @@
-# Change Log
+# @alfalab/core-components-tooltip
+
+## 8.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1818](https://github.com/core-ds/core-components/pull/1818)
+
+-   Исправлено всплытие событие клика в мобильной версии Tooltip. Теперь события корректно останавливаются, а обработчик onTargetClick вызывается в мобильной версии так же, как и в десктопной.
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-bottom-sheet@7.0.1
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-mq@5.0.1
+
+## 8.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-bottom-sheet@7.0.0
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-popover@7.0.0
+
+## 7.10.0
+
+### Minor Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1764](https://github.com/core-ds/core-components/pull/1764)
+
+-   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+-   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.19.0
+
+## 7.9.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.4.0
+
+## 7.9.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   bottom-sheet@6.18.14
+    -   button@11.11.10
+    -   popover@6.3.11
+
+## 7.9.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.13
+
+## 7.9.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   bottom-sheet@6.18.12
+    -   button@11.11.9
+    -   popover@6.3.10
+
+## 7.9.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.11
+
+## 7.9.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.18.10
+
+## 7.9.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   bottom-sheet@6.18.9
+    -   button@11.11.8
+    -   popover@6.3.9
 
 ## 7.9.10
 

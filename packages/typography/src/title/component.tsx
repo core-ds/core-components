@@ -3,10 +3,9 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { isObject } from '@alfalab/core-components-shared';
+import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
 
 import { Color } from '../colors';
-import { useSkeleton } from '../hooks';
-import { TextSkeletonProps } from '../types';
 
 import { getDefaultWeight } from './utils';
 

@@ -6,9 +6,9 @@ import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon'
 
 import styles from './arrow-button.module.css';
 
-type ArrowButtonDesktopProps = {
+interface ArrowButtonDesktopProps {
     onClick?: (e: MouseEvent) => void;
-};
+}
 
 export const ArrowButtonDesktop: FC<ArrowButtonDesktopProps> = (props) => {
     const { onClick } = props;

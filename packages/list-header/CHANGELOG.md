@@ -1,4 +1,65 @@
-# Change Log
+# @alfalab/core-components-list-header
+
+## 4.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-typography@5.0.1
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-typography@5.0.0
+
+## 3.3.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.3
+
+## 3.3.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.2
+
+## 3.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 3.3.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 3.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.1
 
 ## 3.3.10
 

@@ -1,4 +1,110 @@
-# Change Log
+# @alfalab/core-components-modal
+
+## 10.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-navigation-bar-private@1.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-base-modal@6.0.1
+    -   @alfalab/core-components-mq@5.0.1
+
+## 10.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-navigation-bar-private@1.0.0
+    -   @alfalab/core-components-shared@1.0.0
+
+## 9.9.20
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1625](https://github.com/core-ds/core-components/pull/1625)
+
+-   Добавлены (починены) атомарные импорты при корневом (респонсивном) подключении
+
+## 9.9.19
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1759](https://github.com/core-ds/core-components/pull/1759)
+
+-   Изменен `border-radius` для десктопной модалки с 12px на 24px во всех темах и для всех размеров (кроме fullscreen, у него нет скруглений)
+
+## 9.9.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   base-modal@5.9.4
+    -   navigation-bar-private@0.8.7
+
+## 9.9.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 9.9.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+
+## 9.9.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 9.9.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 9.9.13
+
+### Patch Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1681](https://github.com/core-ds/core-components/pull/1681)
+
+-   Добавлен отступ по умолчанию для устройств без нижней safe area
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
 
 ## 9.9.12
 

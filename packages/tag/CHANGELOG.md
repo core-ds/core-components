@@ -1,4 +1,71 @@
-# Change Log
+# @alfalab/core-components-tag
+
+## 9.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.1
+
+## 9.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.0
+
+## 8.7.1
+
+### Patch Changes
+
+<sup><time>04.08.2025</time></sup>
+
+### [#1748](https://github.com/core-ds/core-components/pull/1748)
+
+-   Исправлено выравнивание аддонов при отсутствии основного контента
+
+## 8.7.0
+
+### Minor Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1727](https://github.com/core-ds/core-components/pull/1727)
+
+-   Добавлен view: transparent для компонента <Tag />
+
+## 8.6.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 8.6.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 8.6.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
 
 ## 8.6.7
 

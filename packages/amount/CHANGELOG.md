@@ -1,4 +1,28 @@
-# Change Log
+# @alfalab/core-components-amount
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 3.10.2
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1761](https://github.com/core-ds/core-components/pull/1761)
+
+-   Версия пакета @alfalab/data обновлена до 1.9.2
 
 ## 3.10.1
 

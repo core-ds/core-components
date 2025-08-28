@@ -1,5 +1,93 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 1.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1750](https://github.com/core-ds/core-components/pull/1750)
+
+-   Исправлено позиционирование анимированного заголовка в compact состоянии
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-icon-button@7.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-typography@5.0.1
+
+## 1.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 0.8.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   button@11.11.10
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 0.8.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   button@11.11.9
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 0.8.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 0.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 0.8.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   button@11.11.8
+    -   typography@4.13.1
+    -   icon-button@6.11.11
+
 ## 0.8.2
 
 ### Patch Changes

@@ -1,0 +1,17 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.skeletonText.skeletonText {
+    border-radius: var(--border-radius-pill);
+}
+
+.left > div {
+    margin-right: auto;
+}
+
+.center > div {
+    margin: var(--gap-0) auto;
+}
+
+.right > div {
+    margin-left: auto;
+}
