@@ -3,7 +3,11 @@ import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
 import { List } from '@alfalab/core-components-list';
-import { Text, TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
+import {
+    TypographyText,
+    TypographyTitle,
+    TypographyTitleMobile,
+} from '@alfalab/core-components-typography';
 
 import { FontType, OverridesComponents, PlatformType } from '../typings';
 
@@ -11,7 +15,7 @@ import styles from '../index.module.css';
 
 export const useOverrides = (platform?: PlatformType, font?: FontType): OverridesComponents =>
     useMemo(() => {
-        const Title = platform === 'desktop' ? TitleDesktop : TitleMobile;
+        const Title = platform === 'desktop' ? TypographyTitle : TypographyTitleMobile;
 
         return {
             h1: (props) => (
@@ -59,19 +63,19 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                 </Title>
             ),
             p: (props) => (
-                <Text className='p' tag='p' view='primary-medium' color='primary'>
+                <TypographyText className='p' tag='p' view='primary-medium' color='primary'>
                     {props.children}
-                </Text>
+                </TypographyText>
             ),
             blockquote: (props) => (
-                <Text
+                <TypographyText
                     className={cn(styles.blockquote, 'blockquote')}
                     tag='div'
                     view='primary-small'
                     color='secondary'
                 >
                     {props.children}
-                </Text>
+                </TypographyText>
             ),
             a: (props) => (
                 <Link
@@ -84,14 +88,14 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                 </Link>
             ),
             code: (props) => (
-                <Text
+                <TypographyText
                     tag='span'
                     className={cn(styles.code, 'code')}
                     view='primary-small'
                     color='secondary'
                 >
                     {props.children}
-                </Text>
+                </TypographyText>
             ),
             img: (props) => (
                 <div className={cn(styles.imageContainer, 'img')}>
@@ -113,9 +117,9 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                 </List>
             ),
             li: (props) => (
-                <Text className={cn(styles.li, 'li')} view='primary-medium'>
+                <TypographyText className={cn(styles.li, 'li')} view='primary-medium'>
                     {props.children}
-                </Text>
+                </TypographyText>
             ),
         };
     }, [font, platform]);

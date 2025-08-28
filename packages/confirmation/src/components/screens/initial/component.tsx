@@ -6,7 +6,7 @@ import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
 import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
 import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
 import { Link } from '@alfalab/core-components-link';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 import { useLayoutEffect_SAFE_FOR_SSR, usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../../context';
@@ -172,7 +172,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             <Header mobile={mobile}>{texts.title}</Header>
 
             {phone ? (
-                <Text
+                <TypographyText
                     view='primary-medium'
                     color='primary'
                     className={cn(styles.phone, {
@@ -181,7 +181,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                     })}
                 >
                     Отправили на {phone}
-                </Text>
+                </TypographyText>
             ) : null}
             <ComponentCodeInput
                 disabled={processing}
