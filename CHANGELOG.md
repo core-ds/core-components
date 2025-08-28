@@ -1,3 +1,17 @@
+## 48.33.3
+
+<sup><time>28.08.2025</time></sup>
+
+### [#1848](https://github.com/core-ds/core-components/pull/1848)
+
+#### Что изменилось
+- Исправленая темизация `site` для `FormControl` и `SliderInput`
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+
 ## 48.33.2
 
 <sup><time>27.08.2025</time></sup>
