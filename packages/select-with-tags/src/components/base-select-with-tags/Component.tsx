@@ -148,7 +148,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                 view={view}
                 ref={ref}
                 Option={Option}
-                Field={TagList as FC<FieldProps>}
+                Field={TagList as FC<Omit<FieldProps, 'onClear'>>}
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
                 Arrow={Arrow}
@@ -173,6 +173,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                         ? { selectedMultiple: frozenValue.current }
                         : null),
                 }}
+                disableClear={true}
                 selected={selected}
                 autocomplete={view === 'desktop' && isAutocomplete}
                 size={size}

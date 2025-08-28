@@ -83,6 +83,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             label,
             labelView,
             placeholder,
+            disableClear,
             fieldProps = {},
             optionsListProps = {},
             optionProps = {},
@@ -683,7 +684,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     valueRenderer={valueRenderer}
                     className={fieldClassName}
                     clear={clear}
-                    onClear={handleFieldClear}
+                    {...(disableClear ? {} : { onClear: handleFieldClear })}
                     innerProps={{
                         onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,

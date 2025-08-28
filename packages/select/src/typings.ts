@@ -352,6 +352,11 @@ export type BaseSelectProps = {
     clear?: boolean;
 
     /**
+     * Флаг, отключить кнопку очистки поля
+     */
+    disableClear?: boolean;
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение поповера
      */
     updatePopover?: PopoverProps['update'];
@@ -479,7 +484,7 @@ export type FieldProps = {
         tabIndex?: number;
         id: string;
     } & RefAttributes<HTMLDivElement | HTMLInputElement> &
-        AriaAttributes;
+    AriaAttributes;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -785,7 +790,7 @@ export type OptionCommonProps = {
         onMouseMove?: (event: MouseEvent<HTMLDivElement>) => void;
         role?: string;
     } & RefAttributes<HTMLDivElement> &
-        AriaAttributes;
+    AriaAttributes;
 
     /**
      * Идентификатор для систем автоматизированного тестирования

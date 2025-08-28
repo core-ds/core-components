@@ -17,7 +17,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { FieldProps } from '@alfalab/core-components-select/shared';
+import type { FieldProps, OptionShape } from '@alfalab/core-components-select/shared';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import type { TagComponent } from '../../types';
@@ -57,7 +57,7 @@ const SIZE_TO_CLASSNAME_MAP = {
 };
 
 export const TagList: FC<
-    Partial<FieldProps> & Omit<FormControlProps, 'size'> & TagListOwnProps
+    Partial<Omit<FieldProps, 'onClear'>> & Omit<FormControlProps, 'size'> & TagListOwnProps
 > = ({
     size = 72,
     open,
@@ -240,7 +240,7 @@ export const TagList: FC<
                     })}
                     ref={contentWrapperRef}
                 >
-                    {selectedMultiple.map((option, index) =>
+                    {selectedMultiple.map((option: OptionShape, index: number) =>
                         (collapseTagList && isShowMoreEnabled) || index + 1 <= visibleElements ? (
                             <Tag
                                 checked={true}
@@ -294,3 +294,5 @@ export const TagList: FC<
         </div>
     );
 };
+
+TagList.displayName = 'TagList';
