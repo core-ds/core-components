@@ -2,6 +2,7 @@ import React, {
     ChangeEvent,
     cloneElement,
     ComponentType,
+    FocusEvent,
     forwardRef,
     Fragment,
     isValidElement,
@@ -36,6 +37,14 @@ export type SliderInputProps = Omit<
      * Макс. допустимое число
      */
     max?: number;
+
+    /**
+     * Предотвращает ввод числа если оно больше или меньше допустимого.
+     * При событии blur установится число по верхней границе, если оно больше допустимого, и наоборот - по нижней границе, если число меньше допустимого.
+     * @default false
+     * @deprecated Обработайте установку лимитов самостоятельно в событии onBlur. Пропс будет удален в версии core-components@49.0
+     */
+    lockLimit?: boolean;
 
     /**
      * Массив подписей к слайдеру
@@ -154,6 +163,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             min = 0,
             max = 100,
             step = 1,
+            lockLimit = false,
             block,
             steps = [],
             sliderValue = +value,
@@ -202,6 +212,43 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             [getValidInputValue, onChange, onInputChange],
         );
 
+        const handleInputBlur = useCallback(
+            (event: FocusEvent<HTMLInputElement>) => {
+                const { value: inputValue } = event.target as HTMLInputElement;
+                const validValue = getValidInputValue(inputValue);
+
+                const getEventPayloadValue = (payload: number | '') => {
+                    if (payload > max) {
+                        return max;
+                    }
+
+                    if (payload < min) {
+                        return min;
+                    }
+
+                    return '';
+                };
+
+                if (lockLimit) {
+                    if (onChange) {
+                        onChange(null, {
+                            value: getEventPayloadValue(validValue),
+                        });
+                    }
+                    if (onInputChange) {
+                        onInputChange(null, {
+                            value: getEventPayloadValue(validValue),
+                        });
+                    }
+                }
+
+                if (restProps.onBlur) {
+                    restProps.onBlur(event);
+                }
+            },
+            [getValidInputValue, lockLimit, max, min, onChange, onInputChange, restProps],
+        );
+
         return (
             <div
                 className={cn(
@@ -223,6 +270,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     ref={ref}
                     value={value.toString()}
                     onChange={handleInputChange}
+                    onBlur={handleInputBlur}
                     block={true}
                     size={size}
                     label={label}
