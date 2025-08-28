@@ -8,15 +8,16 @@ import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { useModalHighlighted } from '../../hooks/use-modal-highlighted';
 import { useOutsideScroll } from '../../hooks/use-outside-scroll';
 import { useSetScrollbarHeight } from '../../hooks/use-set-scrollbar-height';
-import { UniversalModalDesktopProps } from '../../types/props';
+import type { UniversalModalDesktopProps } from '../../types/props';
 import { setFooterAndHeaderRefs } from '../../utils/set-footer-and-header-refs';
 
 import styles from './modal-content.module.css';
 
-type Props = Pick<BaseModalProps, 'children'> &
-    Pick<UniversalModalDesktopProps, 'height' | 'scrollableContainerRef'> & {
-        wheelDeltaY: number;
-    };
+interface Props
+    extends Pick<BaseModalProps, 'children'>,
+        Pick<UniversalModalDesktopProps, 'height' | 'scrollableContainerRef'> {
+    wheelDeltaY: number;
+}
 
 export const ModalContent: FC<Props> = (props) => {
     const { children, wheelDeltaY, height, scrollableContainerRef = null } = props;
