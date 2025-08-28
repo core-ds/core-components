@@ -16,6 +16,7 @@
         "cm": "git-cz",
         "format": "prettier --write \"{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "generate-dark-colors": " node bin/dark-colors-generator.mjs",
+        "generate-major-changeset": "node bin/generate-major-changeset.mjs",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
         "lint:css": "stylelint packages/**/*.css",
         "lint:deps": "node bin/lint-deps/bin.mjs",
@@ -76,6 +77,8 @@
         }
     },
     "devDependencies": {
+        "@actions/core": "^1.11.1",
+        "@actions/exec": "^1.1.1",
         "@alfalab/icons-glyph": "^2.247.0",
         "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
