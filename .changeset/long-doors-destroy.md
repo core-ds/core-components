@@ -1,5 +1,6 @@
 ---
 '@alfalab/core-components-slider-input': major
+'@alfalab/core-components': major
 ---
 
 Удален пропс `lockLimit`, который был добавлен в `core-components@48.0`<br/>
