@@ -35,8 +35,8 @@ render(() => {
     };
 
     const handleSwitchChange = () => {
-        setSwitchChecked(prev => !prev)
-    }
+        setSwitchChecked((prev) => !prev);
+    };
 
     const isImg = radioButtons[checked].extension === 'Img';
 
@@ -52,7 +52,7 @@ render(() => {
                     progressBar={progressBar}
                     {...(checked !== 0 && { showDelete: true })}
                     {...(isImg && { imageUrl: './images/gagarin_yu_a.png' })}
-                    {...(switchChecked && {iconStyle: 'colored'})}
+                    {...(switchChecked && { iconStyle: 'colored' })}
                     onDelete={handleDelete}
                 >
                     <FileUploadItem.StatusControl />
@@ -79,11 +79,7 @@ render(() => {
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-            <Switch
-                checked={switchChecked}
-                label='Цветные иконки'
-                onChange={handleSwitchChange}
-            />
+            <Switch checked={switchChecked} label='Цветные иконки' onChange={handleSwitchChange} />
         </React.Fragment>
     );
 });
@@ -137,14 +133,16 @@ render(() => {
     };
 
     const handleError = () => {
-        setProgressBar(0);
         setStatus('UPLOADING');
+        setProgressBar(0);
+        setTitle('Пример.docx');
         requestAnimationFrame((t) => measure(t, 'ERROR'));
     };
 
     const handleMultiError = () => {
         setProgressBar(0);
         setStatus('UPLOADING');
+        setTitle('Пример.docx');
         requestAnimationFrame((t) => measure(t, 'MULTI_ERROR'));
     };
 

@@ -1,5 +1,21 @@
 # @alfalab/core-components-tooltip
 
+## 8.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1818](https://github.com/core-ds/core-components/pull/1818)
+
+-   Исправлено всплытие событие клика в мобильной версии Tooltip. Теперь события корректно останавливаются, а обработчик onTargetClick вызывается в мобильной версии так же, как и в десктопной.
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-bottom-sheet@7.0.1
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-mq@5.0.1
+
 ## 8.0.0
 
 ### Major Changes

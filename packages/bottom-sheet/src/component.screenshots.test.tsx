@@ -195,3 +195,64 @@ describe('BottomSheet | magnetic areas', () => {
     test('100%', () => magneticAreaTest({ initialActiveAreaIndex: 2 }));
     test('negative 200px', () => magneticAreaTest({ magneticAreas: '[0,-200]' }));
 });
+
+const titleTest = async (knobs: Knobs, scroll: boolean = false) => {
+    const pageUrl = createStorybookUrl({
+        componentName: 'BottomSheet',
+        testStory: false,
+        knobs: {
+            hasCloser: true,
+            hasBacker: true,
+            stickyHeader: true,
+            stickyFooter: false,
+            trimTitle: true,
+            title: 'Заголовок',
+            ...knobs,
+        },
+    });
+
+    const { browser, context, page } = await openBrowserPage(pageUrl);
+
+    try {
+        await page.click('#button-2');
+
+        await matchHtml({
+            context,
+            page,
+            expect,
+            viewport: {
+                width: 320,
+                height: 600,
+            },
+            screenshotOpts: { fullPage: true },
+            ...(scroll && {
+                evaluate: async (page) => {
+                    await page.waitForTimeout(500);
+                    await page.$eval('button[class*=showMoreButton]', (el) => {
+                        el.scrollIntoView();
+                    });
+                    await page.waitForTimeout(500);
+                },
+            }),
+        });
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error((error as Error).message);
+
+        throw error;
+    } finally {
+        await closeBrowser({ browser, context, page });
+    }
+};
+
+describe('BottomSheet | header', () => {
+    test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: true }));
+    test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', stickyHeader: true }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', stickyHeader: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'left', hasBacker: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', hasBacker: false }));
+
+    test('animated title alignment', () => titleTest({ titleAlign: 'left' }, true));
+    test('animated title alignment', () => titleTest({ titleAlign: 'center' }, true));
+});

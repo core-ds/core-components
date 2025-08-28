@@ -151,6 +151,10 @@ export type TooltipDesktopProps = {
      */
     targetTag?: 'div' | 'span';
 
+    /**
+     * Обработчик клика по целевому элементу
+     * Событие всплытия останавливается до вызова этого обработчика
+     */
     onTargetClick?: (event: MouseEvent<HTMLElement>) => void;
 };
 
@@ -166,6 +170,7 @@ export type TooltipMobileProps = Omit<Partial<BottomSheetProps>, 'actionButton'>
         | 'dataTestId'
         | 'getPortalContainer'
         | 'targetTag'
+        | 'onTargetClick'
     > & {
         /**
          * Заголовок кнопки в футере
