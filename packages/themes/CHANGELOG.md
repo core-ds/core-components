@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.7.6
+
+### Patch Changes
+
+<sup><time>28.08.2025</time></sup>
+
+### [#1848](https://github.com/core-ds/core-components/pull/1848)
+
+-   Исправленая темизация `site` для `FormControl` и `SliderInput`
+
 ## 13.7.5
 
 ### Patch Changes

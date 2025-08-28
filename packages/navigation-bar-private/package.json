@@ -25,6 +25,6 @@
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "themesVersion": "13.7.5",
+    "themesVersion": "13.7.6",
     "varsVersion": "9.22.0"
 }

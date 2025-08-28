@@ -32,6 +32,6 @@
     "devDependencies": {
         "@types/react-transition-group": "^4.4.5"
     },
-    "themesVersion": "13.7.5",
+    "themesVersion": "13.7.6",
     "varsVersion": "9.22.0"
 }

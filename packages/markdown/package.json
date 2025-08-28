@@ -26,6 +26,6 @@
         "micromark-extension-gfm-strikethrough": "^0.6.5",
         "react-markdown": "6.0.2"
     },
-    "themesVersion": "13.7.5",
+    "themesVersion": "13.7.6",
     "varsVersion": "9.22.0"
 }
