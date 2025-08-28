@@ -16,4 +16,11 @@ function isNullable(val) {
     return !isNonNullable(val);
 }
 
-module.exports = { isNonNullable, isNullable };
+/**
+ * @param {string} text
+ */
+function unquote(text) {
+    return text.replace(/(['"])(.*)(\1)/, '$2');
+}
+
+module.exports = { isNonNullable, isNullable, unquote };
