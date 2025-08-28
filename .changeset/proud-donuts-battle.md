@@ -1,5 +1,6 @@
 ---
 '@alfalab/core-components-typography': major
+'@alfalab/core-components': major
 ---
 
 - Исправление атомарного экспорта Text => TypographyText
