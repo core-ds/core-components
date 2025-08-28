@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 
+import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
 import postcss from 'postcss';
-import { PurgeCSS } from 'purgecss';
 import { glob } from 'tinyglobby';
 
 /**
@@ -9,7 +9,7 @@ import { glob } from 'tinyglobby';
  */
 const removeCommentPlugin = () => ({
     postcssPlugin: 'postcss-remove-comment',
-    Once(root) {
+    OnceExit(root) {
         root.walkComments((comment) => {
             comment.remove();
         });
@@ -21,7 +21,7 @@ const removeCommentPlugin = () => ({
  */
 const removeEmptyRootPlugin = () => ({
     postcssPlugin: 'postcss-remove-empty-root',
-    Once(root) {
+    OnceExit(root) {
         root.walkRules(':root', (rule) => {
             if (rule.nodes.length === 0) {
                 rule.remove();
@@ -31,35 +31,29 @@ const removeEmptyRootPlugin = () => ({
 });
 
 async function main() {
-    const matches = await glob('dist/**/*.css', { ignore: ['**/src/**/*.css'] });
+    const cssFiles = await glob('dist/**/*.css', { ignore: ['**/src/**/*.css'] });
 
     await Promise.all(
-        matches.map(async (match) => {
-            const purge = new PurgeCSS();
+        cssFiles.map(async (cssFile) => {
+            const css = await fs.readFile(cssFile, { encoding: 'utf8' });
 
-            const result = await purge.purge({
-                content: ['dist/**/*.js'],
-                css: [match],
-                variables: true,
-                /**
-                 * Мы юзаем purgecss только чтобы удалить лишнюю портянку из переменных
-                 * Поэтому указываем, что ВООБЩЕ никакие селекторы удалять не нужно
-                 */
-                whitelistPatterns: [/.*/],
-            });
-
-            return Promise.all(
-                result.map(async ({ css, file }) => {
-                    const postcssResult = await postcss([
-                        // удаляем комментарии
-                        removeCommentPlugin(),
-                        // удаляем пустые блоки :root
-                        removeEmptyRootPlugin(),
-                    ]).process(css, { from: file });
-
-                    return fs.writeFile(file, postcssResult.css, { encoding: 'utf8' });
+            const result = await postcss([
+                purgeCSSPlugin({
+                    content: ['dist/**/*.js'],
+                    variables: true,
+                    /**
+                     * Мы юзаем purgecss только чтобы удалить лишнюю портянку из переменных
+                     * Поэтому указываем, что ВООБЩЕ никакие селекторы удалять не нужно
+                     */
+                    safelist: [/.*/],
                 }),
-            );
+                // удаляем комментарии
+                removeCommentPlugin(),
+                // удаляем пустые блоки :root
+                removeEmptyRootPlugin(),
+            ]).process(css, { from: cssFile });
+
+            return fs.writeFile(cssFile, result.css, { encoding: 'utf8' });
         }),
     );
 }

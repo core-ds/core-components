@@ -7,11 +7,14 @@ const stringHash = require('string-hash');
 const postcssSubtractMixin = () => ({
     postcssPlugin: 'postcss-subtract-mixin',
     prepare: () => {
-        const store = [];
+        /**
+         * @type {Array<Array<import('postcss').Rule>>}
+         */
+        const rulesets = [];
 
         return {
-            Once(root, { AtRule, Rule }) {
-                root.walkAtRules('subtract-mixin', (atRule) => {
+            AtRule: {
+                'subtract-mixin': (atRule, helpers) => {
                     const mixinNames = atRule.params.split(',').map((name) => name.trim());
 
                     const rules = mixinNames.map((mixinName) => {
@@ -19,27 +22,27 @@ const postcssSubtractMixin = () => ({
                             36,
                         )}`;
 
-                        return new Rule({
+                        return helpers.postcss.rule({
                             selector,
-                            nodes: [new AtRule({ name: 'mixin', params: mixinName })],
+                            nodes: [helpers.postcss.atRule({ name: 'mixin', params: mixinName })],
                         });
                     });
 
                     atRule.replaceWith(rules);
-                    store.push(rules);
-                });
+                    rulesets.push(rules);
+                },
             },
             OnceExit: () => {
-                while (store.length > 0) {
-                    const rules = store.pop();
+                while (rulesets.length > 0) {
+                    const ruleset = rulesets.pop();
 
-                    rules.forEach((rule) => {
+                    ruleset.forEach((rule) => {
                         assert(
                             rule.nodes.every((node) => node.type === 'decl'),
                             'Every rule must have declarations only',
                         );
                     });
-                    const [source, ...rest] = rules;
+                    const [source, ...rest] = ruleset;
                     const subtracts = rest.map(({ nodes }) => nodes).reduce((a, b) => a.concat(b));
 
                     const result = source.nodes.filter(
@@ -52,7 +55,7 @@ const postcssSubtractMixin = () => ({
                     );
 
                     source.parent.append(result);
-                    rules.forEach((rule) => {
+                    ruleset.forEach((rule) => {
                         rule.remove();
                     });
                 }
