@@ -37,7 +37,7 @@ Object {
                 </div>
               </div>
               <div
-                class="addons rightAddons"
+                class="addons rightAddons rightAddons size-48"
               >
                 <svg
                   class="arrow size-48 arrow"
@@ -95,7 +95,7 @@ Object {
               </div>
             </div>
             <div
-              class="addons rightAddons"
+              class="addons rightAddons rightAddons size-48"
             >
               <svg
                 class="arrow size-48 arrow"
@@ -204,7 +204,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           >
             <svg
               class="arrow size-48 arrow"
@@ -267,7 +267,7 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           >
             <svg
               class="arrow size-48 arrow open"

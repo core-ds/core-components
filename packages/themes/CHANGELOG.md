@@ -1,4 +1,71 @@
-# Change Log
+# @alfalab/core-components-themes
+
+## 14.1.0
+
+### Minor Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1731](https://github.com/core-ds/core-components/pull/1731)
+
+-   Убрана красная линия и отступ слева в состоянии ошибки:
+
+    -   Для мобильных компонентов во всех темах
+    -   Для десктопных компонентов в теме `click`
+
+-   Изменены отступы для групп с `type="tag"`:
+    -   Между label и группой: с 12px до 8px
+    -   Между группой и hint/error: с 12px до 8px
+
+## 14.0.1
+
+### Patch Changes
+
+<sup><time>13.08.2025</time></sup>
+
+#### [#1809](https://github.com/core-ds/core-components/pull/1809)
+
+-   Исправлена сборка `css` файлов темизации
+
+## 14.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+-   Удалена тема `compilied/mobile-dark-bluetint.{css,js,d.ts}`
+
+## 13.7.4
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1745](https://github.com/core-ds/core-components/pull/1745)
+
+-   Для темы click в side-panel footer приведен к общей теме
+
+## 13.7.3
+
+### Patch Changes
+
+<sup><time>30.04.2025</time></sup>
+
+### [#1400](https://github.com/core-ds/core-components/pull/1400)
+
+-   Импорт JS-файла темы больше не зависит от webpack-лоадера. Теперь содержимое темы представлено в виде строки.
 
 ## 13.7.2
 

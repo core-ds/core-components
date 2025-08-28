@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-confirmation-v1": ["./src"],
+            "@alfalab/core-components-confirmation-v1/*": ["./src/*"],
+            "@alfalab/core-components-link": ["../link/src"],
+            "@alfalab/core-components-link/*": ["../link/src/*"],
+            "@alfalab/core-components-loader": ["../loader/src"],
+            "@alfalab/core-components-loader/*": ["../loader/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../link/tsconfig.build.json" },
+        { "path": "../loader/tsconfig.build.json" }
+    ]
+}

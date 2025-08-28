@@ -1,4 +1,144 @@
-# Change Log
+# @alfalab/core-components-tabs
+
+## 9.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-picker-button@12.0.1
+    -   @alfalab/core-components-icon-button@7.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-mq@5.0.1
+    -   @alfalab/core-components-tag@9.0.1
+
+## 9.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-badge@6.0.0
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-keyboard-focusable@5.0.0
+    -   @alfalab/core-components-mq@5.0.0
+    -   @alfalab/core-components-picker-button@12.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-skeleton@6.0.0
+    -   @alfalab/core-components-tag@9.0.0
+
+## 8.13.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.13.0
+    -   tag@8.7.1
+
+## 8.13.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.33
+
+## 8.13.0
+
+### Minor Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1751](https://github.com/core-ds/core-components/pull/1751)
+
+-   Добавлен tagViews: transparent для компонента <Tabs />
+-   Для <Tabs /> типа secondary c tagViews: transparent убраны отступы
+
+### Patch Changes
+
+<sup><time>18.07.2025</time></sup>
+
+### [#1766](https://github.com/core-ds/core-components/pull/1766)
+
+-   Исправлена проблема с появлением значения класса "undefined" у элементов span внутри компонента Tabs
+
+-   Обновлены зависимости
+    -   picker-button@11.12.32
+
+## 8.12.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@8.7.0
+    -   picker-button@11.12.31
+
+## 8.12.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   picker-button@11.12.30
+    -   tag@8.6.10
+    -   icon-button@6.11.13
+
+## 8.12.30
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.29
+
+## 8.12.29
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   picker-button@11.12.28
+    -   tag@8.6.9
+    -   icon-button@6.11.12
+
+## 8.12.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.12.27
+
+## 8.12.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@5.4.0
+    -   picker-button@11.12.26
+
+## 8.12.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   picker-button@11.12.25
+    -   tag@8.6.8
+    -   icon-button@6.11.11
 
 ## 8.12.25
 

@@ -1,29 +1,30 @@
 {
     "name": "@alfalab/core-components-custom-picker-button",
-    "version": "2.6.24",
+    "version": "3.0.1",
     "description": "Custom picker button component",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "@alfalab/core-components-custom-button": "^4.0.1",
+        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-picker-button": "^12.0.1",
+        "@alfalab/core-components-select": "^18.0.1",
+        "classnames": "^2.5.1",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/core-components-picker-button": "^11.12.24",
-        "@alfalab/core-components-custom-button": "^3.12.6",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-select": "^17.20.13",
-        "classnames": "^2.5.1",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.20.0"
+    "themesVersion": "14.1.0",
+    "varsVersion": "10.1.0"
 }

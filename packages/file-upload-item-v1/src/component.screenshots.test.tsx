@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    generateTestCases,
+    createPreview,
+} from '@alfalab/core-components-screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 1920, height: 150 };
 

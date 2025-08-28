@@ -1,5 +1,64 @@
 # @alfalab/core-components-shared
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1823](https://github.com/core-ds/core-components/pull/1823)
+
+-   Добавлена функция `humanFileSize`, с помощью которой можно переводить байты в человеко-читаемый вид
+
+## 1.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-types@1.0.0
+
+## 0.18.0
+
+### Minor Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1740](https://github.com/core-ds/core-components/pull/1740)
+
+-   Добавлена проверка `isMaskitoMask`
+
+## 0.17.1
+
+### Patch Changes
+
+<sup><time>27.05.2025</time></sup>
+
+### [#1718](https://github.com/core-ds/core-components/pull/1718)
+
+-   Добавлена поддержка и преобразование argb в rgba у функции get-color-var
+
+## 0.17.0
+
+### Minor Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1697](https://github.com/core-ds/core-components/pull/1697)
+
+-   Добавлена утилита get-color-var
+
 ## 0.16.0
 
 ### Minor Changes

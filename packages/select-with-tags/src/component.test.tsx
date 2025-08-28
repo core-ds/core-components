@@ -35,7 +35,7 @@ describe('SelectWithTags', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             const { container } = render(
@@ -103,6 +103,26 @@ describe('SelectWithTags', () => {
             const input = container.querySelector('input') as HTMLInputElement;
 
             expect(input).toBeInTheDocument();
+        });
+
+        it('should pass fieldProps correctly', () => {
+            const customFieldProps = {
+                'data-testid': 'custom-field',
+                'aria-label': 'custom-label',
+            };
+
+            const { container } = render(
+                <SelectWithTags
+                    options={options}
+                    value=''
+                    onInput={jest.fn()}
+                    fieldProps={customFieldProps}
+                />,
+            );
+
+            const field = container.querySelector('[data-testid="custom-field"]');
+
+            expect(field).toBeInTheDocument();
         });
 
         it('should not render input if autocomplete=`false`', () => {

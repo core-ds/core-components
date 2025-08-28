@@ -58,11 +58,13 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         const leftAddonsRef = useRef<HTMLDivElement>(null);
         const rightAddonsRef = useRef<HTMLDivElement>(null);
 
-        const compactTitle = view === 'mobile' && titleSize === 'compact';
+        const isMobile = view === 'mobile';
+
+        const compactTitle = isMobile && titleSize === 'compact';
         const hasLeftPart = Boolean(leftAddons || hasBackButton);
         const hasRightPart = Boolean(rightAddons || hasCloser);
         const hasContent = Boolean(title || children);
-        const withAnimation = Boolean(view === 'mobile' && hasLeftPart && sticky && !compactTitle);
+        const withAnimation = Boolean(isMobile && hasLeftPart && sticky && !compactTitle);
         const showContentOnTop = hasContent && (compactTitle || !hasLeftPart);
         const showContentOnBot = hasContent && !compactTitle && hasLeftPart;
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
@@ -146,16 +148,22 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         };
 
         const renderContent = (args: ContentParams = {}) => {
-            const { extraClassName, wrapperRef, style, hidden } = args;
+            const { extraClassName, wrapperRef, style, hidden, extraAlign } = args;
 
             return (
                 <div
                     style={{ ...style, visibility: hidden ? 'hidden' : 'visible' }}
                     ref={wrapperRef}
-                    className={cn(styles.content, extraClassName, contentClassName, styles[align], {
-                        [styles.trim]: trim,
-                        [styles.withCompactTitle]: view === 'mobile' && compactTitle && hasContent,
-                    })}
+                    className={cn(
+                        styles.content,
+                        extraClassName,
+                        contentClassName,
+                        styles[extraAlign || align],
+                        {
+                            [styles.trim]: trim,
+                            [styles.withCompactTitle]: isMobile && compactTitle && hasContent,
+                        },
+                    )}
                     aria-hidden={hidden}
                 >
                     {children && <div className={styles.children}>{children}</div>}
@@ -253,6 +261,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                                       }
                                     : null),
                             },
+                            extraAlign: 'center',
                         })}
 
                     {hasRightPart && (
@@ -277,14 +286,16 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                         extraClassName: styles.underAddons,
                         style: { opacity: Math.max(0, 1 - scrollTop / ADDONS_HEIGHT) },
                         hidden: scrollTop / ADDONS_HEIGHT > 1,
+                        extraAlign: 'left',
                     })}
 
                 {showStaticContentOnBot &&
                     renderContent({
                         extraClassName: cn({
                             [styles.contentOnBotDesktop]: view === 'desktop',
-                            [styles.contentOnBotMobile]: view === 'mobile',
+                            [styles.contentOnBotMobile]: isMobile,
                         }),
+                        extraAlign: 'left',
                     })}
 
                 {bottomAddons && (

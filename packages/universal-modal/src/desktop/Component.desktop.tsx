@@ -3,31 +3,34 @@ import React, { forwardRef, useMemo, useState } from 'react';
 import { ContentDesktop } from '../components/content';
 import { FooterDesktop } from '../components/footer';
 import { HeaderDesktop } from '../components/header';
-import { ResponsiveContext } from '../ResponsiveContext';
-import { TResponsiveModalContext } from '../typings';
+import { UniversalModalContext } from '../context/universal-modal-context';
+import type { UniversalModalContextType } from '../typings';
 
 import { CenterModal } from './components/center-modal';
 import { SideModal } from './components/side-modal';
-import { UniversalModalDesktopProps } from './types/props';
+import type { UniversalModalDesktopProps } from './types/props';
+import { checkHeaderAndFooter } from './utils/check-header-and-footer';
 
 export const UniversalModalDesktopComponent = forwardRef<
     HTMLDivElement,
     UniversalModalDesktopProps
 >(({ children, horizontalAlign = 'center', ...restProps }, ref) => {
-    const [modalWidth, setModalWidth] = useState<number>(0);
     const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
     const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
 
-    const contextValue = useMemo<TResponsiveModalContext>(
+    const { hasHeader, hasFooter } = checkHeaderAndFooter(children);
+
+    const contextValue = useMemo<UniversalModalContextType>(
         () => ({
-            modalWidth,
+            modalWidth: restProps.width,
             modalHeaderHighlighted,
             modalFooterHighlighted,
-            setModalWidth,
+            hasHeader,
+            hasFooter,
             setModalHeaderHighlighted,
             setModalFooterHighlighted,
         }),
-        [modalWidth, modalHeaderHighlighted, modalFooterHighlighted],
+        [restProps.width, modalHeaderHighlighted, modalFooterHighlighted, hasHeader, hasFooter],
     );
 
     const renderModal = () => {
@@ -47,9 +50,9 @@ export const UniversalModalDesktopComponent = forwardRef<
     };
 
     return (
-        <ResponsiveContext.Provider value={contextValue}>
+        <UniversalModalContext.Provider value={contextValue}>
             {renderModal()}
-        </ResponsiveContext.Provider>
+        </UniversalModalContext.Provider>
     );
 });
 

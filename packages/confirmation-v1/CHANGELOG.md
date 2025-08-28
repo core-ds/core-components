@@ -1,4 +1,66 @@
-# Change Log
+# @alfalab/core-components-confirmation-v1
+
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-link@6.0.0
+    -   @alfalab/core-components-loader@4.0.0
+
+## 1.10.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   loader@3.2.5
+
+## 1.10.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.10
+
+## 1.10.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+
+## 1.10.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
 
 ## 1.10.1
 

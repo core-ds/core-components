@@ -1,4 +1,57 @@
-# Change Log
+# @alfalab/core-components-custom-button
+
+## 4.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1801](https://github.com/core-ds/core-components/pull/1801)
+
+-   Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover.
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.1
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+
+## 3.12.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.10
+
+## 3.12.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+
+## 3.12.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
 
 ## 3.12.6
 

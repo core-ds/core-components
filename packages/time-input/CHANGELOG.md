@@ -1,5 +1,59 @@
 # @alfalab/core-components-time-input
 
+## 3.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.0
+
+## 2.2.58
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.2
+
+## 2.2.57
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.1
+
+## 2.2.56
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.6.0
+
+## 2.2.55
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@15.5.5
+
 ## 2.2.54
 
 ### Patch Changes

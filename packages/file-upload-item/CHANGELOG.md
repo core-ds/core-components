@@ -1,4 +1,107 @@
-# Change Log
+# @alfalab/core-components-file-upload-item
+
+## 7.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1823](https://github.com/core-ds/core-components/pull/1823)
+
+-   Рефакторинг шкалы прогресса, изменена работа с mask-image на обычное заполнение svg path
+-   Функция `humanFileSize` вынесена в модуль `shared`
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-icon-button@7.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-typography@5.0.1
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-icon-button@7.0.0
+    -   @alfalab/core-components-icon-view@4.0.0
+    -   @alfalab/core-components-typography@5.0.0
+
+## 6.3.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.11.0
+
+## 6.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.4
+
+## 6.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.3
+    -   typography@4.14.3
+    -   icon-button@6.11.13
+
+## 6.3.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-view@3.10.2
+
+## 6.3.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.2
+    -   icon-button@6.11.12
+
+## 6.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.1
+
+## 6.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.14.0
+
+## 6.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.13.1
+    -   icon-button@6.11.11
 
 ## 6.3.0
 

@@ -1,23 +1,22 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires, global-require */
 
-const path = require('path');
-const glob = require('glob');
-
-const { Once, OnceExit } = require('./tools/postcss/postcss-subtract-mixin.cjs')().prepare();
+const fse = require('fs-extra');
+const { globbySync } = require('globby');
+const { resolveInternal } = require('./tools/resolve-internal.cjs');
 
 module.exports = {
     plugins: [
         require('postcss-import')({}),
         require('postcss-for')({}),
         require('postcss-each')({}),
-        Once,
+        require('./tools/postcss/postcss-subtract-mixin.cjs')({}),
         require('postcss-mixins')({
-            mixinsFiles: glob.sync(path.join(__dirname, 'packages/vars/src/*.css'), {
+            mixinsFiles: globbySync('src/*.css', {
                 ignore: ['**/alfasans-*.css'],
+                cwd: resolveInternal('@alfalab/core-components-vars'),
+                absolute: true,
             }),
         }),
-        OnceExit,
         require('postcss-preset-env')({
             stage: 3,
             features: {
@@ -28,7 +27,10 @@ module.exports = {
         }),
         require('postcss-custom-media')({
             importFrom: {
-                customMedia: require('./packages/mq/src/mq.json'),
+                customMedia: fse.readJsonSync(
+                    resolveInternal('@alfalab/core-components-mq/src/mq.json', false),
+                    { encoding: 'utf8' },
+                ),
             },
         }),
         ...(process.env.BUILD_WITHOUT_CSS_VARS === 'true'

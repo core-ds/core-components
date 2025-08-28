@@ -1,5 +1,85 @@
 # @alfalab/core-components-popup-sheet
 
+## 2.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-navigation-bar-private@1.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-base-modal@6.0.1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-backdrop@4.0.0
+    -   @alfalab/core-components-base-modal@6.0.0
+    -   @alfalab/core-components-navigation-bar-private@1.0.0
+    -   @alfalab/core-components-shared@1.0.0
+    -   @alfalab/core-components-types@1.0.0
+
+## 1.4.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+    -   base-modal@5.9.4
+    -   navigation-bar-private@0.8.7
+
+## 1.4.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.9.3
+
+## 1.4.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+    -   base-modal@5.9.2
+    -   navigation-bar-private@0.8.6
+
+## 1.4.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.5
+
+## 1.4.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar-private@0.8.4
+
+## 1.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
+    -   base-modal@5.9.1
+    -   navigation-bar-private@0.8.3
+
 ## 1.4.4
 
 ### Patch Changes

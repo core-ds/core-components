@@ -6,7 +6,7 @@ import { PatternLock } from '@alfalab/core-components-pattern-lock';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof PatternLock> = {
     title: 'Components/PatternLock',

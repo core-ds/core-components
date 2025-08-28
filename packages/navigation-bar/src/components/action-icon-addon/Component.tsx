@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ChevronLeftMIcon } from '@alfalab/icons-glyph/ChevronLeftMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
@@ -42,7 +42,7 @@ export const ActionIconAddon: React.FC<ActionIconAddonProps> = ({
     dataTestId,
     ...htmlAttributes
 }) => (
-    <ButtonDesktop
+    <ButtonMobile
         view='text'
         size='s'
         onClick={onClick}
@@ -54,5 +54,5 @@ export const ActionIconAddon: React.FC<ActionIconAddonProps> = ({
         <div className={cn(styles.iconWrapper, { [styles[action]]: Boolean(styles[action]) })}>
             {iconComponents[action]}
         </div>
-    </ButtonDesktop>
+    </ButtonMobile>
 );

@@ -1,0 +1,22 @@
+@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/colors-decorative.css';
+
+.iconPDFColored {
+    fill: var(--color-light-decorative-red);
+}
+
+.iconDOCColored {
+    fill: var(--color-light-decorative-blue);
+}
+
+.iconExcelColored {
+    fill: var(--color-light-decorative-green);
+}
+
+.icon1CColored {
+    fill: var(--color-light-decorative-orange);
+}
+
+.iconDocumentColored {
+    fill: var(--color-light-neutral-translucent-1300);
+}

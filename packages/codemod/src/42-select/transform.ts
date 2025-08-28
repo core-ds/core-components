@@ -3,7 +3,8 @@ import {
     hasImportSpecifier,
     isIndexEntry,
     modifyIdentifiers,
-    modifyImportPath, removeEmptyCoreImport,
+    modifyImportPath,
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const selectEntryTransformer = (source, j) => {

@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "no-dist",
+        "paths": {
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-test-utils": ["./src"],
+            "@alfalab/core-components-test-utils/*": ["./src/*"]
+        }
+    },
+    "references": [{ "path": "../screenshot-utils/tsconfig.build.json" }]
+}

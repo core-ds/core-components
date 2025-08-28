@@ -1,9 +1,12 @@
 {
     "name": "@alfalab/core-components-themes",
-    "version": "13.7.2",
+    "version": "14.1.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "publishConfig": {
         "access": "public",
         "directory": "dist"

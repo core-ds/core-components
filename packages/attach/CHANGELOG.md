@@ -1,4 +1,59 @@
-# Change Log
+# @alfalab/core-components-attach
+
+## 7.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.1
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-button@12.0.0
+    -   @alfalab/core-components-keyboard-focusable@5.0.0
+    -   @alfalab/core-components-progress-bar@4.0.0
+
+## 6.7.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.10
+
+## 6.7.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.9
+
+## 6.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.11.8
 
 ## 6.7.1
 

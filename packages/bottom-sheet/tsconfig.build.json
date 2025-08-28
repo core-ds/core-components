@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-backdrop": ["../backdrop/src"],
+            "@alfalab/core-components-backdrop/*": ["../backdrop/src/*"],
+            "@alfalab/core-components-base-modal": ["../base-modal/src"],
+            "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-bottom-sheet": ["./src"],
+            "@alfalab/core-components-bottom-sheet/*": ["./src/*"],
+            "@alfalab/core-components-navigation-bar-private": ["../navigation-bar-private/src"],
+            "@alfalab/core-components-navigation-bar-private/*": [
+                "../navigation-bar-private/src/*"
+            ],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-types": ["../types/src"],
+            "@alfalab/core-components-types/*": ["../types/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../backdrop/tsconfig.build.json" },
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../navigation-bar-private/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../types/tsconfig.build.json" }
+    ]
+}

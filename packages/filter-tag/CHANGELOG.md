@@ -1,4 +1,63 @@
-# Change Log
+# @alfalab/core-components-filter-tag
+
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.1
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.0
+
+## 5.9.3
+
+### Patch Changes
+
+<sup><time>23.06.2025</time></sup>
+
+### [#1707](https://github.com/core-ds/core-components/pull/1707)
+
+-   Исправлен проброс classname undefined `[styles.disabled]: disabled`
+
+-   Обновлены зависимости
+    -   shared@0.18.0
+
+## 5.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.1
+
+## 5.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.17.0
 
 ## 5.9.0
 

@@ -34,17 +34,6 @@ export type PasswordInputProps = Omit<InputProps, 'size'> & {
     onPasswordVisibleChange?: (visible: boolean) => void;
 };
 
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
-};
-
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     (
         {
@@ -89,7 +78,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                 size={size}
                 ref={ref}
                 colors={colors}
-                className={cn(className, styles[SIZE_TO_CLASSNAME_MAP[size]])}
+                className={cn(className)}
                 rightAddons={
                     <React.Fragment>
                         {rightAddons}
@@ -97,7 +86,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                             className={styles.eye}
                             colors={colors}
                             view='secondary'
-                            size='s'
+                            size={24}
                             icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
                             onClick={handleButtonClick}
                             disabled={disabled}
@@ -105,7 +94,6 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                         />
                     </React.Fragment>
                 }
-                addonsClassName={styles.addons}
                 inputClassName={styles.input}
             />
         );

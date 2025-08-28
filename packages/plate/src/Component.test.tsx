@@ -79,17 +79,19 @@ describe('Plate', () => {
     });
 
     it('should set `background` style', () => {
-        const background = 'var(--color-light-base-bg-secondary)';
-        const { container } = render(<Plate background={background} />);
+        const background = 'red';
+        const { container } = render(<Plate view='custom' background={background} />);
 
-        expect(container.firstElementChild).toHaveStyle({ background });
+        expect(container.firstElementChild).toHaveStyle({ 'background-color': 'red' });
     });
 
     it('should set `borderColor` style', () => {
-        const borderColor = 'var(--color-light-base-bg-secondary)';
-        const { container } = render(<Plate borderColor={borderColor} />);
+        const borderColor = 'red';
+        const { container } = render(<Plate view='custom' borderColor={borderColor} />);
 
-        expect(container.firstElementChild).toHaveStyle({ borderColor });
+        expect(container.firstElementChild).toHaveStyle({
+            'border-color': 'red',
+        });
     });
 
     describe('Classes tests', () => {

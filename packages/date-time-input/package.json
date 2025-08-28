@@ -1,34 +1,35 @@
 {
     "name": "@alfalab/core-components-date-time-input",
-    "version": "4.5.27",
+    "version": "5.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "index.js",
     "module": "./esm/index.js",
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "dependencies": {
+        "@alfalab/core-components-calendar": "^8.0.1",
+        "@alfalab/core-components-icon-button": "^7.0.1",
+        "@alfalab/core-components-input": "^16.0.1",
+        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-popover": "^7.1.0",
+        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/icons-glyph": "^2.247.0",
+        "classnames": "^2.5.1",
+        "date-fns": "^2.16.1",
+        "react-merge-refs": "^1.1.0",
+        "tslib": "^2.4.0"
     },
-    "sideEffects": false,
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
-    "dependencies": {
-        "@alfalab/core-components-calendar": "^7.18.2",
-        "@alfalab/core-components-input": "^15.5.4",
-        "@alfalab/core-components-icon-button": "^6.11.10",
-        "@alfalab/core-components-mq": "^4.4.1",
-        "@alfalab/core-components-popover": "^6.3.8",
-        "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.210.0",
-        "classnames": "^2.5.1",
-        "date-fns": "^2.16.1",
-        "react-merge-refs": "^1.1.0",
-        "tslib": "^2.4.0",
-        "@alfalab/core-components-shared": "^0.16.0"
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
     },
-    "themesVersion": "13.7.2",
-    "varsVersion": "9.20.0"
+    "themesVersion": "14.1.0",
+    "varsVersion": "10.1.0"
 }
