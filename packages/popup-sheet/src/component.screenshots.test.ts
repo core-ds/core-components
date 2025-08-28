@@ -21,15 +21,15 @@ describe('PopupSheet', () =>
         'transform:scale(4);',
         {
             viewport: {
-                width: 860,
-                height: 600,
+                width: 400,
+                height: 640,
             },
             screenshotOpts: {
                 clip: {
                     x: 8,
                     y: 8,
-                    width: 860,
-                    height: 600,
+                    width: 400,
+                    height: 640,
                 },
             },
         },
