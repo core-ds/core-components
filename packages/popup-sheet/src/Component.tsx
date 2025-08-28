@@ -6,6 +6,7 @@ import React, {
     useRef,
     useState,
 } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
@@ -186,6 +187,9 @@ export const PopupSheet = forwardRef<HTMLDivElement, PopupSheetProps>(
             delta: 5,
         });
 
+        const { ref: swipeRef, ...swipeHandlers } = sheetSwipeableHandlers;
+        const componentRef = mergeRefs([sheetRef, swipeRef]);
+
         return (
             <BaseModal
                 {...restProps}
@@ -215,13 +219,13 @@ export const PopupSheet = forwardRef<HTMLDivElement, PopupSheetProps>(
                     onExited: handleExited,
                 }}
                 componentDivProps={{
-                    ref: sheetRef,
+                    ref: componentRef,
                     style: getSwipeStyles(),
+                    ...(swipeable ? swipeHandlers : {}),
                 }}
                 contentProps={{
                     style: createPaddingStyle(padding),
                     ...contentProps,
-                    ...sheetSwipeableHandlers,
                     className: cn(styles.content, contentProps?.className),
                 }}
             >
