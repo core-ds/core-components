@@ -17,9 +17,22 @@ async function main(args) {
     const changeset = await getExecOutput(bin('changeset'), ['--empty'], { silent: true });
     // matches '🦋  info file' string
     const [, file] = changeset.stdout.match(/^\ud83e\udd8b\s+info\s+(.*)$/m);
-    const lerna = await getExecOutput(bin('lerna'), ['list', ...args, '--include-dependents'], {
-        silent: true,
-    });
+    const lerna = await getExecOutput(
+        bin('lerna'),
+        [
+            'ls',
+            ...args,
+            /**
+             * Include all transitive dependencies when running a command regardless of --scope, --ignore, or --since
+             *
+             * @see https://lerna.js.org/docs/api-reference/commands#--include-dependencies
+             */
+            '--include-dependents',
+        ],
+        {
+            silent: true,
+        },
+    );
     const content = dedent`---
                            ${lerna.stdout
                                .trim()
