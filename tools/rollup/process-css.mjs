@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow, import/no-extraneous-dependencies, no-param-reassign */
 
+import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
 import fse from 'fs-extra';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -15,6 +16,8 @@ import { globSync } from 'tinyglobby';
 
 import postcssConfig from '../../postcss.config.js';
 import { isSamePath } from '../path.cjs';
+import postcssRemoveComment from '../postcss/postcss-remove-comment.cjs';
+import postcssRemoveEmptyRoot from '../postcss/postcss-remove-empty-root.cjs';
 import { resolveInternal } from '../resolve-internal.cjs';
 
 const pkg = fse.readJsonSync('package.json', { encoding: 'utf8' });
@@ -173,6 +176,19 @@ async function processPostcss(filePath, config) {
             }),
         );
     }
+
+    plugins.push(
+        purgeCSSPlugin({
+            variables: true,
+            /**
+             * Мы юзаем purgecss только чтобы удалить лишнюю портянку из переменных
+             * Поэтому указываем, что ВООБЩЕ никакие селекторы удалять не нужно
+             */
+            safelist: [/.*/],
+        }),
+        postcssRemoveComment(),
+        postcssRemoveEmptyRoot(),
+    );
 
     const result = await postcss(plugins).process(originalCss, { from: filePath });
 
