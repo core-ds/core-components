@@ -1,5 +1,3 @@
-import { MutableRefObject, RefObject } from 'react';
-
 export const PORTAL_CONTAINER_ATTRIBUTE = 'alfa-portal-container';
 
 function createPortalContainer() {
@@ -12,17 +10,5 @@ function createPortalContainer() {
     return portalContainer;
 }
 
-export const getDefaultPortalContainer = (): Element =>
-    document.querySelector(`[${PORTAL_CONTAINER_ATTRIBUTE}]`) || createPortalContainer();
-
-export function setRef<T>(
-    ref: RefObject<T> | ((instance: T | null) => void) | null | undefined,
-    value: T | null,
-): void {
-    if (typeof ref === 'function') {
-        ref(value);
-    } else if (ref) {
-        // eslint-disable-next-line no-param-reassign
-        (ref as MutableRefObject<T | null>).current = value;
-    }
-}
+export const getDefaultPortalContainer = () =>
+    document.querySelector(`[${PORTAL_CONTAINER_ATTRIBUTE}]`) ?? createPortalContainer();
