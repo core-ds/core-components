@@ -5,9 +5,9 @@ import { CrossMediumMIcon } from '@alfalab/icons-glyph/CrossMediumMIcon';
 
 import styles from './cross-button.module.css';
 
-interface CrossButtonProps {
+type CrossButtonProps = {
     onClick?: () => void;
-}
+};
 
 export const CrossButtonDesktop: FC<CrossButtonProps> = (props) => {
     const { onClick } = props;

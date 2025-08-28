@@ -3,17 +3,17 @@ import cn from 'classnames';
 
 import { UniversalModalContext } from '../../../context/universal-modal-context';
 import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/constants';
-import { type FooterProps, BaseFooter } from '../base-footer/base-footer';
+import { BaseFooter, FooterProps } from '../base-footer/base-footer';
 
 import styles from './desktop.module.css';
 import layoutStyles from './layout.module.css';
 
-export interface FooterDesktopProps extends FooterProps {
+export type FooterDesktopProps = FooterProps & {
     /**
      * Размер (только для desktop версии компонента)
      */
     size?: 's' | 500;
-}
+};
 
 export const FooterDesktop = forwardRef<HTMLDivElement, FooterDesktopProps>((props, ref) => {
     const { className, sticky, layout = 'start', ...restProps } = props;

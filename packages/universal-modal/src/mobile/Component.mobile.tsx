@@ -7,7 +7,7 @@ import { ContentMobile } from '../components/content';
 import { FooterMobile } from '../components/footer';
 import { HeaderMobile } from '../components/header';
 
-import type { UniversalModalMobileProps } from './types/props';
+import { UniversalModalMobileProps } from './types/props';
 
 import styles from './mobile.module.css';
 import rightSideTransitions from './transitions/right-side-transitions.mobile.module.css';

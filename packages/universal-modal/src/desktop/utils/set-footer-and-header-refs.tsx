@@ -15,11 +15,11 @@ import { HeaderDesktop } from '../../components/header';
 import { isFooterNode } from './isFooterNode';
 import { isHeaderNode } from './isHeaderNode';
 
-interface Params {
+type Params = {
     children: ReactNode;
     headerElementRef: RefObject<HTMLDivElement>;
     footerElementRef: RefObject<HTMLDivElement>;
-}
+};
 
 /** Устанавливает рефы в хедер и футер если они переданы в модалку (необходимы для дальнейшего расчета высоты кастомного скроллбара) */
 export const setFooterAndHeaderRefs = (params: Params) => {

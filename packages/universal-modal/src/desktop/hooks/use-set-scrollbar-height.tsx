@@ -2,12 +2,12 @@ import { RefObject, useEffect } from 'react';
 
 import { SCROLLBAR_DEFAULT_GAP } from '../constants';
 
-interface Params {
+type Params = {
     scrollbarRef: RefObject<HTMLDivElement>;
     verticalBarRef: RefObject<HTMLDivElement>;
     headerElementRef: RefObject<HTMLDivElement>;
     footerElementRef: RefObject<HTMLDivElement>;
-}
+};
 
 /** Устанавливает размер полосы прокрутки в зависимости от наличия хедера и футера */
 export const useSetScrollbarHeight = (params: Params) => {

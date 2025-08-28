@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { TypographyText } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 
@@ -41,7 +41,7 @@ export const Category: React.FC<Props> = ({
 
     return (
         <div className={styles.component} data-test-id='cell-pure-category'>
-            <TypographyText
+            <Text
                 view='primary-small'
                 color='secondary'
                 dataTestId={getDataTestId(
@@ -51,9 +51,9 @@ export const Category: React.FC<Props> = ({
                 className={styles.categoryName}
             >
                 {categoryName}
-            </TypographyText>
+            </Text>
             {categoryPercent !== undefined && (
-                <TypographyText
+                <Text
                     tag='div'
                     view='primary-small'
                     color='secondary'
@@ -64,7 +64,7 @@ export const Category: React.FC<Props> = ({
                     )}
                 >
                     {categoryPercent}%
-                </TypographyText>
+                </Text>
             )}
             {rightAddons !== undefined && (
                 <div

@@ -13,17 +13,16 @@ import { UniversalModalContext } from '../../../context/universal-modal-context'
 import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
 
-export interface HeaderDesktopProps
-    extends Omit<
-        NavigationBarPrivateProps,
-        'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle'
-    > {
+export type HeaderDesktopProps = Omit<
+    NavigationBarPrivateProps,
+    'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle'
+> & {
     /**
      * Заголовок в шапке крупного размера
      * @default false
      */
     bigTitle?: boolean;
-}
+};
 
 export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((props, ref) => {
     const {

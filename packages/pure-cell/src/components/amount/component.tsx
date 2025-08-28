@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { type Color, TypographyText } from '@alfalab/core-components-typography';
+import { type Color, Text } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 import { AmountProps as AmountType } from '../typesProps';
@@ -59,7 +59,7 @@ export const Amount: React.FC<Props> = ({
     }
 
     return (
-        <TypographyText
+        <Text
             view={textView}
             dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-text')}
             className={cn(styles.component)}
@@ -71,6 +71,6 @@ export const Amount: React.FC<Props> = ({
                 dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount')}
                 {...restProps}
             />
-        </TypographyText>
+        </Text>
     );
 };

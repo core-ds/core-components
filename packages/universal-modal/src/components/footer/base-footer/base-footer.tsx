@@ -7,7 +7,7 @@ import { ModalContext } from '../../../Context';
 
 import styles from './index.module.css';
 
-export interface FooterProps {
+export type FooterProps = {
     /**
      * Контент футера
      */
@@ -37,7 +37,7 @@ export interface FooterProps {
      * Отбивка бордером
      */
     isHighlighted?: boolean;
-}
+};
 
 export const BaseFooter = forwardRef<HTMLDivElement, FooterProps>((props, ref) => {
     const { children, className, sticky, dataTestId, isHighlighted } = props;
