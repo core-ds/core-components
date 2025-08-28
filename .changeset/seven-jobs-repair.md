@@ -1,5 +1,6 @@
 ---
 '@alfalab/core-components-filter-tag': major
+'@alfalab/core-components': major
 ---
 
 - Удален пропс `variant` (был объявлен как deprecated в core-components@38.x.x)
