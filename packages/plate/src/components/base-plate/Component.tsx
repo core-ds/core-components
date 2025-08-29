@@ -119,6 +119,11 @@ export type BasePlateProps = {
     buttonsClassName?: string;
 
     /**
+     * Дополнительный класс для контейнера кнопок
+     */
+    buttonsContainerClassName?: string;
+
+    /**
      * Дополнительный класс для контента
      */
     contentClassName?: string;
@@ -183,6 +188,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             shadow = view === 'custom',
             className,
             buttonsClassName,
+            buttonsContainerClassName,
             contentClassName,
             subAddonsClassName,
             dataTestId,
@@ -367,7 +373,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                                             buttons={buttons}
                                             containerClassName={cn(
                                                 commonStyles.containerButton,
-                                                buttonsClassName,
+                                                buttonsContainerClassName,
                                             )}
                                             buttonClassName={cn(
                                                 commonStyles.button,
