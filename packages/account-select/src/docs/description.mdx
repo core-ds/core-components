@@ -9,15 +9,14 @@ render(() => {
                 <PureCell verticalPadding='compact'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                            <Typography.Text color='secondary' view='component'>
                                 Экспресс-счёт ··1234
-                            </PureCell.Text>
-                            <PureCell.Amount
+                            </Typography.Text>
+                            <Amount
                                 value={100000099}
-                                minorUnits={100}
+                                minority={100}
                                 currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
+                                bold='major'
                                 transparentMinor={true}
                             />
                         </PureCell.Main>
@@ -31,15 +30,14 @@ render(() => {
                 <PureCell verticalPadding='compact'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Экспресс-счёт ··1111
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100099}
-                                minorUnits={100}
+                            <Typography.Text color='secondary' view='component'>
+                                Экспресс-счёт ··1234
+                            </Typography.Text>
+                            <Amount
+                                value={100000099}
+                                minority={100}
                                 currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
+                                bold='major'
                                 transparentMinor={true}
                             />
                         </PureCell.Main>
@@ -53,15 +51,14 @@ render(() => {
                 <PureCell verticalPadding='compact'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                            <Typography.Text color='secondary' view='component'>
                                 Экспресс-счёт ··4567
-                            </PureCell.Text>
-                            <PureCell.Amount
+                            </Typography.Text>
+                            <Amount
                                 value={0}
-                                minorUnits={100}
+                                minority={100}
                                 currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
+                                bold='major'
                                 transparentMinor={true}
                             />
                         </PureCell.Main>
@@ -70,7 +67,7 @@ render(() => {
             ),
         },
     ];
-    return <AccountSelect style={{ minWidth: '360px' }} size='m' label='Куда' options={options} />;
+    return <AccountSelect size='m' label='Куда' options={options} />;
 });
 ```
 
@@ -82,7 +79,7 @@ render(() => {
         {
             key: '1',
             content: (
-                <PureCell verticalPadding='none'>
+                <PureCell verticalPadding='airy'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single size={32} />
                     </PureCell.Graphics>
@@ -106,7 +103,7 @@ render(() => {
         {
             key: '2',
             content: (
-                <PureCell verticalPadding='none'>
+                <PureCell verticalPadding='airy'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single size={32} />
                     </PureCell.Graphics>
@@ -130,7 +127,7 @@ render(() => {
     ];
     return (
         <AccountSelect
-            style={{ minWidth: '360px' }}
+            size='m'
             label='Карта получателя'
             fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
             options={options}
@@ -232,7 +229,8 @@ render(() => {
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={32}
-                                    iconColor='var(--color-light-neutral-200)'
+                                    iconColor='var(--color-light-neutral-700)'
+                                    backgroundColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}
                                 />
                             </PureCell.Graphics>
@@ -362,7 +360,8 @@ render(() => {
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={32}
-                                    iconColor='var(--color-light-neutral-200)'
+                                    iconColor='var(--color-light-neutral-700)'
+                                    backgroundColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}
                                 />
                             </PureCell.Graphics>

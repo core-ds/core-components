@@ -28,7 +28,7 @@ const options = [
     {
         key: '1',
         content: (
-            <PureCell verticalPadding='none'>
+            <PureCell verticalPadding='default'>
                 <PureCell.Graphics verticalAlign='center'>
                     <ProductCover.Single size={32} />
                 </PureCell.Graphics>
@@ -52,7 +52,7 @@ const options = [
     {
         key: '2',
         content: (
-            <PureCell verticalPadding='none'>
+            <PureCell verticalPadding='default'>
                 <PureCell.Graphics verticalAlign='center'>
                     <ProductCover.Single size={32} />
                 </PureCell.Graphics>
@@ -90,18 +90,20 @@ export const account_select_desktop: Story = {
 
         return (
             <AccountSelectDesktop
+                size='s'
                 onChange={(e) => {
                     console.log(e);
                 }}
-                label={text('label', 'Выберите карту')}
+                label={text('label', 'Элемент')}
                 fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
                 cardAddingProps={{
                     content: (
-                        <PureCell verticalPadding='none'>
+                        <PureCell verticalPadding='default'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={32}
                                     iconColor='var(--color-light-neutral-700)'
+                                    backgroundColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}
                                 />
                             </PureCell.Graphics>
@@ -131,7 +133,7 @@ export const account_select_mobile: Story = {
     name: 'AccountSelectMobile',
     render: () => (
         <AccountSelectMobile
-            label={text('label', 'Выберите карту')}
+            label={text('label', 'Элемент')}
             options={options}
             cardAddingProps={{
                 content: (
@@ -140,6 +142,7 @@ export const account_select_mobile: Story = {
                             <ProductCover.Single
                                 size={32}
                                 iconColor='var(--color-light-neutral-700)'
+                                backgroundColor='var(--color-light-neutral-200)'
                                 icon={PlusMIcon}
                             />
                         </PureCell.Graphics>
