@@ -1,25 +1,22 @@
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 
-export type BaseUniversalModalMobileProps = {
-    /**
-     * Хэндлер закрытия модалки
-     */
-    onClose?: () => void;
-
+export interface BaseUniversalModalMobileProps {
     /** Сторона с которой будет появляться модальное окно */
     appearance?: 'bottom' | 'right';
-};
+}
 
-export type UniversalModalMobileProps = BaseUniversalModalMobileProps &
-    Pick<BaseModalProps, 'open'> &
-    Partial<
-        Pick<
-            BaseModalProps,
-            | 'children'
-            | 'dataTestId'
-            | 'className'
-            | 'wrapperClassName'
-            | 'onUnmount'
-            | 'transitionProps'
-        >
-    >;
+export interface UniversalModalMobileProps
+    extends BaseUniversalModalMobileProps,
+        Pick<BaseModalProps, 'open'>,
+        Partial<
+            Pick<
+                BaseModalProps,
+                | 'children'
+                | 'dataTestId'
+                | 'className'
+                | 'wrapperClassName'
+                | 'onUnmount'
+                | 'transitionProps'
+                | 'onClose'
+            >
+        > {}

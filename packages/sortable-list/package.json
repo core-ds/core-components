@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-sortable-list",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Sortable list component",
     "keywords": [],
     "license": "MIT",
@@ -10,9 +10,9 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-portal": "^4.0.0",
-        "@alfalab/core-components-shared": "^1.0.0",
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/core-components-portal": "^4.0.1",
+        "@alfalab/core-components-shared": "^1.1.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
         "@dnd-kit/utilities": "^3.2.1",
@@ -27,6 +27,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.0.1",
-    "varsVersion": "10.0.0"
+    "themesVersion": "14.1.1",
+    "varsVersion": "10.1.0"
 }
