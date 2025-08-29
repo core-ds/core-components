@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, Fragment } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -79,7 +79,14 @@ export const AutocompleteField = ({
             value={value}
             rightAddons={
                 (Arrow || inputProps.rightAddons) && (
-                    <React.Fragment>
+                    /**
+                     * Right addon priority [4] <= [3] <= [2] <= [1]
+                     * [4] - Clear
+                     * [3] - Common (info, e.g.)
+                     * [2] - Status (error, success)
+                     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+                     */
+                    <Fragment>
                         {inputProps.rightAddons}
                         {Arrow && (
                             <span
@@ -90,7 +97,7 @@ export const AutocompleteField = ({
                                 {Arrow}
                             </span>
                         )}
-                    </React.Fragment>
+                    </Fragment>
                 )
             }
         />
