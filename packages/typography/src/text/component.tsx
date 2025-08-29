@@ -24,7 +24,6 @@ type TextBaseProps = {
         | 'secondary-large'
         | 'secondary-medium'
         | 'secondary-small'
-        | 'component'
         | 'component-primary'
         | 'component-secondary'
         | 'caps'
@@ -98,23 +97,6 @@ type TextPTagProps = Omit<TextBaseProps, 'tag' | 'defaultMargins'> & {
 
 export type TextProps = Omit<NativeProps, 'color'> & (TextBaseProps | TextPTagProps);
 
-const logWarning = (view: Required<TextBaseProps>['view']) => {
-    if (process.env.NODE_ENV !== 'development') {
-        return;
-    }
-
-    const viewsMap: { [key: string]: string } = {
-        component: 'component-primary',
-    };
-
-    // eslint-disable-next-line no-console
-    console.warn(
-        // eslint-disable-next-line prefer-template
-        `@alfalab/core-components/typography: view='${view}' будет удален в следующих мажорных версиях. ` +
-            `Используйте view='${viewsMap[view]}'.`,
-    );
-};
-
 export const Text = forwardRef<TextElementType, TextProps>(
     (
         {
@@ -135,10 +117,6 @@ export const Text = forwardRef<TextElementType, TextProps>(
         },
         ref,
     ) => {
-        if (view === 'component') {
-            logWarning(view);
-        }
-
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
 
         const skeleton = renderSkeleton({
