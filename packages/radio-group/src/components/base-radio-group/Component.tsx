@@ -5,6 +5,7 @@ import React, {
     cloneElement,
     FocusEvent,
     forwardRef,
+    HTMLAttributes,
     isValidElement,
     MouseEvent,
     ReactElement,
@@ -107,7 +108,8 @@ export type BaseRadioGroupProps = {
      * Основные стили компонента.
      */
     styles: { [key: string]: string };
-} & AriaAttributes;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'onBlur' | 'onFocus' | 'children' | 'className'> &
+    AriaAttributes;
 
 export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
     (

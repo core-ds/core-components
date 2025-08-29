@@ -1,3 +1,4 @@
+import type { AriaAttributes } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
@@ -11,6 +12,7 @@ export const Tab = ({
     className,
     disabled,
     dataTestId,
+    id,
     ...restProps
 }: TabProps) =>
     children ? (
@@ -26,7 +28,7 @@ export const Tab = ({
             role='tabpanel'
             tabIndex={disabled ? -1 : 0}
             data-test-id={dataTestId}
-            {...restProps}
+            {...(restProps as AriaAttributes)}
         >
             {children}
         </div>

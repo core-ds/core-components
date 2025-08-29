@@ -1,4 +1,4 @@
-import { AriaAttributes, FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
+import { AriaAttributes, FC, HTMLAttributes, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
 
 import { SkeletonProps } from '@alfalab/core-components-skeleton';
 import { TagProps } from '@alfalab/core-components-tag';
@@ -35,25 +35,25 @@ export type TabsProps = {
      * Стиль текста. Имеет приоритет над size. Работает только в primary табах.
      */
     textStyle?:
-        | 'paragraph-primary-large'
-        | 'paragraph-primary-medium'
-        | 'paragraph-primary-small'
-        | 'action-primary-large'
-        | 'action-primary-medium'
-        | 'action-primary-small'
-        | 'accent-primary-large'
-        | 'accent-primary-medium'
-        | 'accent-primary-small'
-        | 'headline-system-xlarge'
-        | 'headline-system-large'
-        | 'headline-system-medium'
-        | 'headline-system-small'
-        | 'headline-system-xsmall'
-        | 'headline-xlarge'
-        | 'headline-large'
-        | 'headline-medium'
-        | 'headline-small'
-        | 'headline-xsmall';
+    | 'paragraph-primary-large'
+    | 'paragraph-primary-medium'
+    | 'paragraph-primary-small'
+    | 'action-primary-large'
+    | 'action-primary-medium'
+    | 'action-primary-small'
+    | 'accent-primary-large'
+    | 'accent-primary-medium'
+    | 'accent-primary-small'
+    | 'headline-system-xlarge'
+    | 'headline-system-large'
+    | 'headline-system-medium'
+    | 'headline-system-small'
+    | 'headline-system-xsmall'
+    | 'headline-xlarge'
+    | 'headline-large'
+    | 'headline-medium'
+    | 'headline-small'
+    | 'headline-xsmall';
 
     /**
      * Высота заголовков табов
@@ -141,7 +141,10 @@ export type TabsProps = {
      * Доп. пропсы для скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
-} & AriaAttributes;
+} & Omit<
+    HTMLAttributes<HTMLDivElement>,
+    'onChange' | 'children' | 'className'
+> & AriaAttributes;
 
 export type TabProps = {
     /**

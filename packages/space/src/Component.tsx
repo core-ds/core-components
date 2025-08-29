@@ -2,6 +2,7 @@ import React, {
     AriaAttributes,
     Children,
     forwardRef,
+    HTMLAttributes,
     isValidElement,
     ReactNode,
 } from 'react';
@@ -63,7 +64,7 @@ export type SpaceProps = {
      * @description Поддержка ограничена. см https://caniuse.com/?search=gap
      */
     useCssGaps?: boolean;
-} & AriaAttributes;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'> & AriaAttributes;
 
 const SpaceSizes: { [key in Size]: number } = {
     s: 12,
