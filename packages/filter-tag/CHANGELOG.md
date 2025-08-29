@@ -1,5 +1,16 @@
 # @alfalab/core-components-filter-tag
 
+## 7.0.0-next.0
+
+### Major Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1854](https://github.com/core-ds/core-components/pull/1854)
+
+-   Удален пропс `variant` (был объявлен как deprecated в core-components@38.x.x)
+-   Удалены буквенные варианты пропса `size` (были объявлены как deprecated в core-components@44.x.x)
+
 ## 6.0.1
 
 ### Patch Changes

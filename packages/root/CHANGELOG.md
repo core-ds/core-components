@@ -1,5 +1,85 @@
 # @alfalab/core-components
 
+## 50.0.0-next.0
+
+### Major Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1855](https://github.com/core-ds/core-components/pull/1855)
+
+Удален пропс `lockLimit`, который был добавлен в `core-components@48.0`<br/>
+Данный пропс использовался для установки значений в пределах указанных min/max границ при `blur` событии.
+Было обнаружено, что значения в компоненте могут вести себя непредсказуемо если одновременно использовать onBlur, lockLimit, а также при мутации передаваемого value.<br/>
+Чтобы реализовать установку значения по границам - используйте обработчик `onBlur`.
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1841](https://github.com/core-ds/core-components/pull/1841)
+
+-   Обновлен `date-fns` до `4` версии
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1854](https://github.com/core-ds/core-components/pull/1854)
+
+-   Удален пропс `variant` (был объявлен как deprecated в core-components@38.x.x)
+-   Удалены буквенные варианты пропса `size` (были объявлены как deprecated в core-components@44.x.x)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-slider-input@11.0.0-next.0
+    -   @alfalab/core-components-accordion@3.0.0-next.0
+    -   @alfalab/core-components-bottom-sheet@8.0.0-next.0
+    -   @alfalab/core-components-calendar@9.0.0-next.0
+    -   @alfalab/core-components-calendar-input@12.0.0-next.0
+    -   @alfalab/core-components-calendar-range@9.0.0-next.0
+    -   @alfalab/core-components-calendar-with-skeleton@7.0.0-next.0
+    -   @alfalab/core-components-chart@5.0.0-next.0
+    -   @alfalab/core-components-circular-progress-bar@5.0.0-next.0
+    -   @alfalab/core-components-comment@4.0.0-next.0
+    -   @alfalab/core-components-confirmation@15.0.0-next.0
+    -   @alfalab/core-components-custom-picker-button@4.0.0-next.0
+    -   @alfalab/core-components-date-range-input@5.0.0-next.0
+    -   @alfalab/core-components-date-time-input@6.0.0-next.0
+    -   @alfalab/core-components-file-upload-item@8.0.0-next.0
+    -   @alfalab/core-components-gallery@7.0.0-next.0
+    -   @alfalab/core-components-input-autocomplete@14.0.0-next.0
+    -   @alfalab/core-components-international-phone-input@4.0.0-next.0
+    -   @alfalab/core-components-intl-phone-input@11.0.0-next.0
+    -   @alfalab/core-components-list@5.0.0-next.0
+    -   @alfalab/core-components-list-header@5.0.0-next.0
+    -   @alfalab/core-components-markdown@3.0.0-next.0
+    -   @alfalab/core-components-modal@11.0.0-next.0
+    -   @alfalab/core-components-navigation-bar@3.0.0-next.0
+    -   @alfalab/core-components-navigation-bar-private@2.0.0-next.0
+    -   @alfalab/core-components-picker-button@13.0.0-next.0
+    -   @alfalab/core-components-popup-sheet@3.0.0-next.0
+    -   @alfalab/core-components-product-cover@3.0.0-next.0
+    -   @alfalab/core-components-pure-cell@6.0.0-next.0
+    -   @alfalab/core-components-select@19.0.0-next.0
+    -   @alfalab/core-components-select-with-tags@10.0.0-next.0
+    -   @alfalab/core-components-side-panel@7.0.0-next.0
+    -   @alfalab/core-components-stepped-progress-bar@4.0.0-next.0
+    -   @alfalab/core-components-tab-bar@4.0.0-next.0
+    -   @alfalab/core-components-table@4.0.0-next.0
+    -   @alfalab/core-components-tabs@10.0.0-next.0
+    -   @alfalab/core-components-tooltip@9.0.0-next.0
+    -   @alfalab/core-components-typography@6.0.0-next.0
+    -   @alfalab/core-components-universal-date-input@4.0.0-next.0
+    -   @alfalab/core-components-universal-modal@3.0.0-next.0
+    -   @alfalab/core-components-filter-tag@7.0.0-next.0
+
 ## 49.1.0
 
 ### Minor Changes

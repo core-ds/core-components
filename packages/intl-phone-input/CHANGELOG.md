@@ -1,5 +1,24 @@
 # @alfalab/core-components-intl-phone-input
 
+## 11.0.0-next.0
+
+### Major Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input-autocomplete@14.0.0-next.0
+    -   @alfalab/core-components-select@19.0.0-next.0
+
 ## 10.0.1
 
 ### Patch Changes

@@ -1,5 +1,30 @@
 # @alfalab/core-components-calendar-range
 
+## 9.0.0-next.0
+
+### Major Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1841](https://github.com/core-ds/core-components/pull/1841)
+
+-   Обновлен `date-fns` до `4` версии
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@9.0.0-next.0
+    -   @alfalab/core-components-calendar-input@12.0.0-next.0
+
 ## 8.0.1
 
 ### Patch Changes

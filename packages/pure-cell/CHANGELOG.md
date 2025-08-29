@@ -1,5 +1,24 @@
 # @alfalab/core-components-pure-cell
 
+## 6.0.0-next.0
+
+### Major Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-comment@4.0.0-next.0
+    -   @alfalab/core-components-typography@6.0.0-next.0
+
 ## 5.0.1
 
 ### Patch Changes
