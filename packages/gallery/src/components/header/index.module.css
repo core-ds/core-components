@@ -1,6 +1,10 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-static-neutral-0-inverted);
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
