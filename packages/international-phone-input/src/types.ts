@@ -81,6 +81,13 @@ export type CommonPhoneInputProps = {
      * Обработчик фокуса поля
      */
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+
+    /**
+     * Включить автозаполнение номера
+     *
+     * @default true
+     */
+    autoFill?: boolean;
 };
 
 export type BaseInternationalPhoneInputProps = CommonPhoneInputProps & {

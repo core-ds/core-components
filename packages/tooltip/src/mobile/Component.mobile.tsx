@@ -14,6 +14,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
     content,
     targetRef,
     onOpen,
+    onTargetClick,
     targetClassName,
     children,
     getPortalContainer,
@@ -24,14 +25,20 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
     const [visible, setVisible] = useState(!!openProp);
     const show = openProp === undefined ? visible : openProp;
 
-    const handleOpen = () => {
+    const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
+        event.stopPropagation();
+
+        onTargetClick?.(event);
+
         if (!show) {
             if (openProp === undefined) setVisible(true);
             onOpen?.();
         }
     };
 
-    const handleClose = () => {
+    const handleClose = (event?: React.MouseEvent<HTMLElement>) => {
+        event?.stopPropagation();
+
         if (show) {
             if (openProp === undefined) setVisible(false);
             onClose?.();

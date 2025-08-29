@@ -201,6 +201,83 @@ describe(
     }),
 );
 
+describe(
+    'SidePanelMobile | title alignment',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    SidePanelComponent: 'SidePanelMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.hasBackButton': true,
+                    'header.sticky': [true, false],
+                    'header.align': ['left', 'center'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'SidePanel',
+                testStory: false,
+                knobs: {
+                    SidePanelComponent: 'SidePanelMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.sticky': true,
+                    'header.hasBackButton': false,
+                    'header.align': ['left', 'center'],
+                },
+            }),
+        ],
+        viewport: {
+            width: 320,
+            height: 600,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'SidePanelMobile | animated title alignment',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'SidePanel',
+            testStory: false,
+            knobs: {
+                SidePanelComponent: 'SidePanelMobile',
+                open: true,
+                header: true,
+                showMore: true,
+                'header.title': 'Заголовок',
+                'header.sticky': true,
+                'header.hasBackButton': true,
+                'header.align': ['left', 'center'],
+            },
+        }),
+        viewport: {
+            width: 320,
+            height: 600,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+        evaluate: async (page) => {
+            await page.waitForTimeout(500);
+            await page.$eval('button[class*=showMoreButton]', (el) => {
+                el.scrollIntoView();
+            });
+            await page.waitForTimeout(500);
+        },
+    }),
+);
+
 // DESKTOP
 
 describe('SidePanelDesktop', () => {

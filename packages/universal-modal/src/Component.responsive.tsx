@@ -7,7 +7,7 @@ import { FooterResponsive } from './components/footer';
 import { HeaderResponsive } from './components/header';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
-import { UniversalModalResponsiveProps } from './typings';
+import type { UniversalModalResponsiveProps } from './typings';
 
 export const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
     ({ children, breakpoint, defaultMatchMediaValue, dataTestId, ...restProps }, ref) => {

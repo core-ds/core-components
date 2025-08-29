@@ -1,9 +1,9 @@
 import { RefObject, useEffect } from 'react';
 
-type Params = {
+interface Params {
     scrollableNodeRef: RefObject<HTMLDivElement>;
     wheelDeltaY: number;
-};
+}
 
 /** Изменение позиции скролла */
 export const useOutsideScroll = (params: Params) => {

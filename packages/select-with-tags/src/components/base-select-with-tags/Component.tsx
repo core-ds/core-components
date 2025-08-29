@@ -157,6 +157,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                 allowUnselect={allowUnselect}
                 showEmptyOptionsList={true}
                 fieldProps={{
+                    ...(restProps?.fieldProps as FieldProps),
                     value,
                     isOpen,
                     autocomplete: view === 'desktop' && isAutocomplete,

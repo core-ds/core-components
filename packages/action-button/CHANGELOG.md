@@ -1,5 +1,19 @@
 # @alfalab/core-components-action-button
 
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1801](https://github.com/core-ds/core-components/pull/1801)
+
+-   Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover.
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-spinner@5.0.1
+
 ## 2.0.0
 
 ### Major Changes

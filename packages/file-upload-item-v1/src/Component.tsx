@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Link } from '@alfalab/core-components-link';
+import { humanFileSize } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
@@ -10,7 +11,7 @@ import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
 import { CrossSIcon } from '@alfalab/icons-glyph/CrossSIcon';
 import { PointerDownSIcon } from '@alfalab/icons-glyph/PointerDownSIcon';
 
-import { fileIcon, humanFileSize } from './utils';
+import { fileIcon } from './utils';
 
 import styles from './index.module.css';
 

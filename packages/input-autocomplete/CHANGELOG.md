@@ -1,5 +1,18 @@
 # @alfalab/core-components-input-autocomplete
 
+## 13.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.1
+    -   @alfalab/core-components-select@18.0.1
+    -   @alfalab/core-components-status-badge@2.0.1
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-form-control@13.0.1
+    -   @alfalab/core-components-mq@5.0.1
+
 ## 13.0.0
 
 ### Major Changes

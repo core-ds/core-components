@@ -1,5 +1,27 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 1.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1750](https://github.com/core-ds/core-components/pull/1750)
+
+-   Исправлено позиционирование анимированного заголовка в compact состоянии
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-icon-button@7.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-typography@5.0.1
+
 ## 1.0.0
 
 ### Major Changes

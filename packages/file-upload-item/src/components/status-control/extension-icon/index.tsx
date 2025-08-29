@@ -6,17 +6,16 @@ import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
 import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
 import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
 import { DocumentMIcon } from '@alfalab/icons-glyph/DocumentMIcon';
-import DocumentOffMIcon from '@alfalab/icons-glyph/DocumentOffMIcon';
+import { DocumentOffMIcon } from '@alfalab/icons-glyph/DocumentOffMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
-import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
-import { getExtension, isInitialStatus } from '../../../../utils';
+import { FileUploadItemContext } from '../../../context/file-upload-item-context';
+import { getExtension, isInitialStatus } from '../../../utils';
 
-import styles from './status-control-icon.module.css';
+import styles from './index.module.css';
 
-/* eslint-disable complexity */
-export const StatusControlIcon = () => {
+export const ExtensionIcon = () => {
     const {
         title = '',
         uploadStatus,
