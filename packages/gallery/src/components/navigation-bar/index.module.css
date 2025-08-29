@@ -8,12 +8,12 @@
     flex-shrink: 0;
     overflow-x: auto;
     box-sizing: border-box;
-    padding: var(--gap-12) var(--gap-24);
+    padding: var(--gap-12) var(--gap-32);
     scrollbar-width: none;
     background-color: var(--color-static-neutral-0-inverted);
 
     &.mobile {
-        padding: var(--gap-8) var(--gap-24);
+        padding: var(--gap-8);
     }
 
     &::-webkit-scrollbar {
