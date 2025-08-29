@@ -1,7 +1,6 @@
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, getByTestId, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import { CodeInputDesktop as CodeInput } from './desktop';
 
@@ -211,6 +210,106 @@ describe('CodeInput', () => {
             expect(queryByDisplayValue('3')).not.toBeInTheDocument();
             expect(queryByDisplayValue('2')).not.toBeInTheDocument();
             expect(queryByDisplayValue('1')).not.toBeInTheDocument();
+        });
+
+        describe('lock input on error tests', () => {
+            beforeEach(() => {
+                jest.useFakeTimers();
+            });
+
+            afterEach(() => {
+                jest.useRealTimers();
+            });
+
+            it('should lock input on error if clearCodeOnError is true', async () => {
+                const handleChange = jest.fn();
+                const user = userEvent.setup({
+                    delay: null,
+                    advanceTimers: jest.advanceTimersByTime,
+                });
+
+                const { container, getByDisplayValue, rerender, queryByDisplayValue } = render(
+                    <CodeInput
+                        clearCodeOnError={true}
+                        onChange={handleChange}
+                        dataTestId={'code-input'}
+                    />,
+                );
+
+                const input = getInput(container, 0);
+
+                await user.type(input, '1234');
+
+                expect(getByDisplayValue('1')).toBeInTheDocument();
+                expect(getByDisplayValue('2')).toBeInTheDocument();
+                expect(getByDisplayValue('3')).toBeInTheDocument();
+                expect(getByDisplayValue('4')).toBeInTheDocument();
+
+                rerender(
+                    <CodeInput
+                        clearCodeOnError={true}
+                        error={true}
+                        onChange={handleChange}
+                        dataTestId={'code-input'}
+                    />,
+                );
+
+                //TODO: коллбеки состояния анимации не работают в тестах, issues не нашел, но когда починят - можно будет убрать
+                fireEvent.animationStart(getByTestId(container, 'code-input'));
+                await user.type(input, '5');
+
+                expect(handleChange).toHaveBeenCalledTimes(4);
+                expect(queryByDisplayValue('5')).not.toBeInTheDocument();
+
+                act(() => jest.advanceTimersByTime(300));
+                // TODO: аналогично комменту выше, выкидываю руками, потому что на изменение инпута это не происходит
+                fireEvent.animationEnd(getByTestId(container, 'code-input'));
+                act(() => jest.advanceTimersByTime(2000));
+
+                await user.type(input, '6');
+                expect(handleChange).toHaveBeenCalledTimes(5);
+                expect(queryByDisplayValue('6')).toBeInTheDocument();
+            });
+
+            it('code input should not be cleared on error if clearCodeOnError is false', async () => {
+                const user = userEvent.setup({
+                    delay: null,
+                    advanceTimers: jest.advanceTimersByTime,
+                });
+                const handleChange = jest.fn();
+
+                const { container, getByDisplayValue, rerender, queryByDisplayValue } = render(
+                    <CodeInput
+                        clearCodeOnError={false}
+                        onChange={handleChange}
+                        dataTestId={'code-input'}
+                    />,
+                );
+
+                const input = getInput(container, 0);
+
+                await user.type(input, '1234');
+
+                expect(getByDisplayValue('1')).toBeInTheDocument();
+                expect(getByDisplayValue('2')).toBeInTheDocument();
+                expect(getByDisplayValue('3')).toBeInTheDocument();
+                expect(getByDisplayValue('4')).toBeInTheDocument();
+
+                rerender(
+                    <CodeInput
+                        clearCodeOnError={false}
+                        error={true}
+                        onChange={handleChange}
+                        dataTestId={'code-input'}
+                    />,
+                );
+
+                fireEvent.animationStart(getByTestId(container, 'code-input'));
+                await user.type(input, '5');
+
+                expect(handleChange).toHaveBeenCalledTimes(5);
+                expect(getByDisplayValue('5')).toBeInTheDocument();
+            });
         });
     });
 });
