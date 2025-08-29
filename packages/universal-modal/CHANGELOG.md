@@ -1,5 +1,39 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.2
+
+### Patch Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1838](https://github.com/core-ds/core-components/pull/1838)
+
+-   Исправлена типизация. Типы переведены на интерфейсы.
+
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1816](https://github.com/core-ds/core-components/pull/1816)
+
+-   Исправлено наследование пропса `onClose`. Теперь из аргументов callback функции можно получить event и reason без ts ошибки.
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-navigation-bar-private@1.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-base-modal@6.0.1
+    -   @alfalab/core-components-button@12.0.1
+    -   @alfalab/core-components-mq@5.0.1
+    -   @alfalab/core-components-typography@5.0.1
+
 ## 2.0.0
 
 ### Major Changes

@@ -8,8 +8,20 @@
     @mixin paragraph_primary_medium;
     color: var(--checkbox-group-label-color);
     padding-left: var(--checkbox-group-sub-padding-left);
+    margin-bottom: var(--gap-12);
 }
 
 .sub {
+    @mixin paragraph_component_secondary;
+    margin-top: var(--gap-12);
     padding-left: var(--checkbox-group-sub-padding-left);
+}
+
+.error {
+    padding-left: var(--checkbox-group-error-padding-left);
+    border-left: var(--checkbox-group-error-border-left);
+
+    &.tag {
+        padding-left: var(--gap-8);
+    }
 }

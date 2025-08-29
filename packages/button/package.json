@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-button",
-    "version": "12.0.0",
+    "version": "12.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,9 +10,9 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-mq": "^5.0.0",
-        "@alfalab/core-components-shared": "^1.0.0",
-        "@alfalab/core-components-spinner": "^5.0.0",
+        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-shared": "^1.1.0",
+        "@alfalab/core-components-spinner": "^5.0.1",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
@@ -30,6 +30,6 @@
         "site"
     ],
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
-    "themesVersion": "14.0.1",
-    "varsVersion": "10.0.0"
+    "themesVersion": "14.1.1",
+    "varsVersion": "10.1.0"
 }

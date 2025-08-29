@@ -1,5 +1,22 @@
 # @alfalab/core-components-universal-date-input
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-calendar@8.0.1
+    -   @alfalab/core-components-input@16.0.1
+    -   @alfalab/core-components-popover@7.1.0
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-mq@5.0.1
+
 ## 3.0.0
 
 ### Major Changes
