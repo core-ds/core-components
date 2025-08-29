@@ -3,7 +3,7 @@ import React, { ElementType, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId, isObject, noop } from '@alfalab/core-components-shared';
-import { Text, TitleMobile } from '@alfalab/core-components-typography';
+import { TypographyText, TypographyTitleMobile } from '@alfalab/core-components-typography';
 
 import { ComponentSize } from './types/component-size';
 import { TypographyColor } from './types/typography-color';
@@ -294,7 +294,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
     const renderTitleString = () =>
         SIZES[size] > 64 ? (
-            <TitleMobile
+            <TypographyTitleMobile
                 className={cn(styles.typography, styles.title)}
                 color={getTextColor(titleColor)}
                 tag='div'
@@ -306,9 +306,9 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {titleContent}
-            </TitleMobile>
+            </TypographyTitleMobile>
         ) : (
-            <Text
+            <TypographyText
                 className={styles.title}
                 color={getTextColor(titleColor)}
                 tag='div'
@@ -320,14 +320,14 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {titleContent}
-            </Text>
+            </TypographyText>
         );
 
     const renderTitle = () => (typeof title === 'string' ? renderTitleString() : titleContent);
 
     const renderSubTitle = () =>
         typeof subtitle === 'string' ? (
-            <Text
+            <TypographyText
                 tag='div'
                 className={styles.subtitle}
                 color={getTextColor(subtitleColor)}
@@ -338,7 +338,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 }}
             >
                 {subtitleContent}
-            </Text>
+            </TypographyText>
         ) : (
             subtitleContent
         );
