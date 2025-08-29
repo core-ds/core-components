@@ -63,34 +63,43 @@ export const AutocompleteMobileField = ({
     const filled = Boolean(value);
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
     const clearButtonVisible = clear && filled && !disabled && !readOnly;
+    const shouldShowSuccessIcon = success && !error;
+    const statusBadgeSize = size === 40 ? 16 : 20;
 
     const { tabIndex, ...restInnerProps } = innerProps;
 
     const formRightAddons = (Arrow || rightAddons || clearButtonVisible || error || success) && (
+        /**
+         * Right addon priority [4] <= [3] <= [2] <= [1]
+         * [4] - Clear
+         * [3] - Status (error, success)
+         * [2] - Common (info, e.g.)
+         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+         */
         <Fragment>
             {clearButtonVisible && (
                 <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
             )}
-            {rightAddons}
-            {Arrow}
             {error && (
                 <div className={styles.errorIcon} data-addon='error-icon'>
                     <StatusBadge
                         view='negative-alert'
-                        size={size === 40 ? 16 : 20}
+                        size={statusBadgeSize}
                         dataTestId={getDataTestId(dataTestId, 'error-icon')}
                     />
                 </div>
             )}
-            {success && !error && (
+            {shouldShowSuccessIcon && (
                 <div className={styles.successIcon}>
                     <StatusBadge
                         view='positive-checkmark'
-                        size={size === 40 ? 16 : 20}
+                        size={statusBadgeSize}
                         dataTestId={getDataTestId(dataTestId, 'success-icon')}
                     />
                 </div>
             )}
+            {rightAddons}
+            {Arrow}
         </Fragment>
     );
 
