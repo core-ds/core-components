@@ -53,6 +53,12 @@ export type LinkProps = NativeProps & {
     Component?: ElementType;
 
     /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    hrefProp?: string;
+
+    /**
      * Дополнительный класс (native prop)
      */
     className?: string;
@@ -91,6 +97,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             children,
             colors = 'default',
             href,
+            hrefProp,
             Component = pseudo ? 'button' : 'a',
             ...restProps
         },
@@ -116,8 +123,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             ),
             'data-test-id': dataTestId,
             rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
-            // Для совместимости с react-router-dom, меняем href на to
-            [typeof Component === 'string' ? 'href' : 'to']: href,
+            ...{ [hrefProp || (typeof Component === 'string' ? 'href' : 'to')]: href },
             ...(pseudo && { type: 'button' }),
         };
 

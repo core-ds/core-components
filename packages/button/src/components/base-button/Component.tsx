@@ -84,6 +84,7 @@ export const BaseButton = React.forwardRef<
             spinnerClassName,
             dataTestId,
             href,
+            hrefProp,
             loading = false,
             nowrap = false,
             colors = 'default',
@@ -219,8 +220,8 @@ export const BaseButton = React.forwardRef<
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
 
-            // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
+            const propName = hrefProp || (typeof Component === 'string' ? 'href' : 'to');
+            const hrefProps = { [propName]: href };
 
             return (
                 <Component

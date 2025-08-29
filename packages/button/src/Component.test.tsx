@@ -325,6 +325,43 @@ describe('Button', () => {
             expect(props.href).toBeFalsy();
             expect(props.to).toBe('test');
         });
+
+        it('should use custom hrefProp for custom component', () => {
+            const cb = jest.fn();
+            cb.mockReturnValue(null);
+
+            render(<Button Component={forwardRef(cb)} href='test' hrefProp='customHref' />);
+
+            expect(cb).toBeCalled();
+
+            const props = cb.mock.calls[0][0];
+
+            expect(props.href).toBeFalsy();
+            expect(props.to).toBeFalsy();
+            expect(props.customHref).toBe('test');
+        });
+
+        it('should use custom hrefProp for native elements', () => {
+            const { container } = render(<Button href='test' hrefProp='customHref' />);
+
+            const element = container.firstElementChild;
+            expect(element?.getAttribute('href')).toBeFalsy();
+            expect(element?.getAttribute('customHref')).toBe('test');
+        });
+
+        it('should use hrefProp="href" for Next.js Link component', () => {
+            const cb = jest.fn();
+            cb.mockReturnValue(null);
+
+            render(<Button Component={forwardRef(cb)} href='/test' hrefProp='href' />);
+
+            expect(cb).toBeCalled();
+
+            const props = cb.mock.calls[0][0];
+
+            expect(props.href).toBe('/test');
+            expect(props.to).toBeFalsy();
+        });
     });
 
     describe('props test', () => {

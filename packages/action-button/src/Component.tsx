@@ -33,6 +33,11 @@ const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
 type Colors = 'default' | 'inverted' | 'static';
 
+type HrefConfig = {
+    href: string;
+    hrefType?: 'href' | 'to';
+};
+
 type ComponentProps = {
     /**
      * Иконка кнопки
@@ -62,8 +67,15 @@ type ComponentProps = {
 
     /**
      * Значение href для ссылки
+     * Может быть строкой или объектом с href и hrefType
      */
-    href?: string;
+    href?: string | HrefConfig;
+
+    /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    hrefProp?: string;
 
     /**
      * Заблокировать кнопку
@@ -103,6 +115,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
             icon,
             children,
             href,
+            hrefProp,
             size = 48,
             view = 'primary',
             type = 'button',
@@ -164,14 +177,19 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         );
 
         if (href) {
+            const hrefValue = typeof href === 'string' ? href : href.href;
+            const hrefType =
+                typeof href === 'string' ? hrefProp || 'href' : href.hrefType || 'href';
+            const hrefProps = { [hrefType]: hrefValue };
+
             return (
                 <a
                     role='button'
                     ref={mergeRefs([componentRef, ref])}
-                    href={href}
                     aria-disabled={disabled || loading}
                     {...componentProps}
                     {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+                    {...hrefProps}
                 >
                     {buttonChildren}
                 </a>
