@@ -1,7 +1,6 @@
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
-    ElementType,
     forwardRef,
     Fragment,
     useRef,
@@ -34,6 +33,11 @@ const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
 type Colors = 'default' | 'inverted' | 'static';
 
+type HrefConfig = {
+    href: string;
+    hrefType?: 'href' | 'to';
+};
+
 type ComponentProps = {
     /**
      * Иконка кнопки
@@ -63,19 +67,15 @@ type ComponentProps = {
 
     /**
      * Значение href для ссылки
+     * Может быть строкой или объектом с href и hrefType
      */
-    href?: string;
+    href?: string | HrefConfig;
 
     /**
      * Имя пропа для передачи href в кастомный компонент
      * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
      */
     hrefProp?: string;
-
-    /**
-     * Позволяет использовать кастомный компонент для кнопки
-     */
-    Component?: ElementType;
 
     /**
      * Заблокировать кнопку
@@ -116,7 +116,6 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
             children,
             href,
             hrefProp,
-            Component = href ? 'a' : 'button',
             size = 48,
             view = 'primary',
             type = 'button',
@@ -178,11 +177,13 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         );
 
         if (href) {
-            const propName = hrefProp || (typeof Component === 'string' ? 'href' : 'to');
-            const hrefProps = { [propName]: href };
+            const hrefValue = typeof href === 'string' ? href : href.href;
+            const hrefType =
+                typeof href === 'string' ? hrefProp || 'href' : href.hrefType || 'href';
+            const hrefProps = { [hrefType]: hrefValue };
 
             return (
-                <Component
+                <a
                     role='button'
                     ref={mergeRefs([componentRef, ref])}
                     aria-disabled={disabled || loading}
@@ -191,12 +192,12 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                     {...hrefProps}
                 >
                     {buttonChildren}
-                </Component>
+                </a>
             );
         }
 
         return (
-            <Component
+            <button
                 ref={mergeRefs([componentRef, ref])}
                 // eslint-disable-next-line react/button-has-type
                 type={type as ButtonHTMLAttributes<HTMLButtonElement>['type']}
@@ -205,7 +206,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                 {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
             >
                 {buttonChildren}
-            </Component>
+            </button>
         );
     },
 );
