@@ -3,10 +3,15 @@
 
 .checkmark {
     flex-shrink: 0;
-    margin: var(--select-checkmark-margin);
+
+    &.before {
+        margin-right: var(--gap-xs);
+        display: var(--select-checkmark-before-display);
+    }
 
     &.after {
-        margin: var(--select-checkmark-margin-after);
+        margin-left: var(--gap-xs);
+        display: var(--select-checkmark-after-display);
     }
 }
 
@@ -26,20 +31,15 @@
     }
 }
 
-.before {
-    display: var(--select-checkmark-before-display);
-
-    &.multiple {
+.multiple {
+    &.before {
         margin-right: var(--gap-12);
         display: var(--select-checkmark-before-display-multiple);
     }
-}
 
-.after.after {
-    display: var(--select-checkmark-after-display);
-
-    &.single {
-        display: var(--select-checkmark-after-display-single);
+    &.after {
+        margin-left: var(--gap-12);
+        display: var(--select-checkmark-after-display-multiple);
     }
 }
 

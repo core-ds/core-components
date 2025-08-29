@@ -40,6 +40,7 @@ export const BaseOption: FC<OptionProps> = ({
                     selected={selected}
                     multiple={multiple}
                     align={align}
+                    position={checkmarkPosition}
                 />
             );
         }
@@ -61,11 +62,8 @@ export const BaseOption: FC<OptionProps> = ({
             })}
             data-test-id={dataTestId}
         >
-            {checkmarkPosition === 'before' && renderCheckmark()}
-
             <div className={cn(styles.content)}>{content}</div>
-
-            {checkmarkPosition === 'after' && renderCheckmark()}
+            {renderCheckmark()}
         </div>
     );
 };
