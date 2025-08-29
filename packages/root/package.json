@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "49.1.0",
+    "version": "49.2.0",
     "homepage": "https://github.com/core-ds/core-components#readme",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
@@ -67,7 +67,7 @@
         "@alfalab/core-components-list": "^4.0.1",
         "@alfalab/core-components-list-header": "^4.0.1",
         "@alfalab/core-components-loader": "^4.0.0",
-        "@alfalab/core-components-markdown": "^2.0.1",
+        "@alfalab/core-components-markdown": "^2.1.0",
         "@alfalab/core-components-masked-input": "^7.0.1",
         "@alfalab/core-components-modal": "^10.0.1",
         "@alfalab/core-components-mq": "^5.0.1",
@@ -87,7 +87,7 @@
         "@alfalab/core-components-picker-button": "^12.0.1",
         "@alfalab/core-components-plate": "^8.0.1",
         "@alfalab/core-components-popover": "^7.1.0",
-        "@alfalab/core-components-popup-sheet": "^2.0.1",
+        "@alfalab/core-components-popup-sheet": "^2.0.2",
         "@alfalab/core-components-portal": "^4.0.1",
         "@alfalab/core-components-product-cover": "^2.0.1",
         "@alfalab/core-components-progress-bar": "^4.0.0",
@@ -102,7 +102,7 @@
         "@alfalab/core-components-side-panel": "^6.0.1",
         "@alfalab/core-components-skeleton": "^6.0.0",
         "@alfalab/core-components-slider": "^5.0.0",
-        "@alfalab/core-components-slider-input": "^10.0.1",
+        "@alfalab/core-components-slider-input": "^10.0.2",
         "@alfalab/core-components-sortable-list": "^2.0.1",
         "@alfalab/core-components-space": "^4.0.0",
         "@alfalab/core-components-spinner": "^5.0.1",
@@ -119,7 +119,7 @@
         "@alfalab/core-components-tag": "^9.0.1",
         "@alfalab/core-components-text": "^2.0.0",
         "@alfalab/core-components-textarea": "^9.0.1",
-        "@alfalab/core-components-themes": "^14.1.0",
+        "@alfalab/core-components-themes": "^14.1.1",
         "@alfalab/core-components-time-input": "^3.0.1",
         "@alfalab/core-components-toast": "^7.0.1",
         "@alfalab/core-components-toast-plate": "^8.0.1",
@@ -128,7 +128,7 @@
         "@alfalab/core-components-typography": "^5.0.1",
         "@alfalab/core-components-underlay": "^2.0.0",
         "@alfalab/core-components-universal-date-input": "^3.0.1",
-        "@alfalab/core-components-universal-modal": "^2.0.1",
+        "@alfalab/core-components-universal-modal": "^2.0.2",
         "@alfalab/core-components-vars": "^10.1.0",
         "@alfalab/core-components-with-suffix": "^5.0.1"
     },

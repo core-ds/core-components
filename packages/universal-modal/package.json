@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-universal-modal",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "UniversalModal component",
     "keywords": [],
     "license": "MIT",
@@ -33,6 +33,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.0",
+    "themesVersion": "14.1.1",
     "varsVersion": "10.1.0"
 }

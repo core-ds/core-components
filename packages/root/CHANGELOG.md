@@ -1,5 +1,42 @@
 # @alfalab/core-components
 
+## 49.2.0
+
+### Minor Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1833](https://github.com/core-ds/core-components/pull/1833)
+
+-   Добавлен пропс `transformLinkUri` позволяющий отключить трансформацию для ссылок с неизвестными форматами
+
+### Patch Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1838](https://github.com/core-ds/core-components/pull/1838)
+
+-   Исправлена типизация. Типы переведены на интерфейсы.
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1842](https://github.com/core-ds/core-components/pull/1842)
+
+-   Исправлена темизация `site` для `FormControl` и `SliderInput`
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1842](https://github.com/core-ds/core-components/pull/1842)
+
+-   Исправлена специфичность слайдера
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-markdown@2.1.0
+    -   @alfalab/core-components-universal-modal@2.0.2
+    -   @alfalab/core-components-popup-sheet@2.0.2
+    -   @alfalab/core-components-themes@14.1.1
+    -   @alfalab/core-components-slider-input@10.0.2
+
 ## 49.1.0
 
 ### Minor Changes
