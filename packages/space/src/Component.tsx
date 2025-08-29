@@ -1,4 +1,11 @@
-import React, { Children, forwardRef, isValidElement, ReactNode } from 'react';
+import React, {
+    AriaAttributes,
+    Children,
+    forwardRef,
+    HTMLAttributes,
+    isValidElement,
+    ReactNode,
+} from 'react';
 import cn from 'classnames';
 
 import Item from './Item';
@@ -57,7 +64,7 @@ export type SpaceProps = {
      * @description Поддержка ограничена. см https://caniuse.com/?search=gap
      */
     useCssGaps?: boolean;
-};
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'> & AriaAttributes;
 
 const SpaceSizes: { [key in Size]: number } = {
     s: 12,
@@ -83,6 +90,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         fullWidth = false,
         dataTestId,
         useCssGaps = false,
+        ...restProps
     } = props;
 
     const [horizontalSize, verticalSize] = React.useMemo(
@@ -150,6 +158,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
                 ...(wrap && !useCssGaps && { flexWrap: 'wrap', marginBottom: -verticalSize }),
             }}
             ref={ref}
+            {...restProps}
         >
             {nodes}
         </div>
