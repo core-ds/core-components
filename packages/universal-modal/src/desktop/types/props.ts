@@ -1,10 +1,10 @@
 import type { RefObject } from 'react';
 
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import type { BaseModalProps } from '@alfalab/core-components-base-modal';
 
-import { TMargin } from '../../typings/margin-type';
+import type { TMargin } from '../../typings/margin-type';
 
-export type BaseUniversalModalProps = {
+export interface BaseUniversalModalProps {
     /**
      * Расположение по горизонтали и сторона с которой модал “выезжает” при открытии
      * @default center
@@ -27,10 +27,9 @@ export type BaseUniversalModalProps = {
 
     /**
      * Высота модального окна
-     * fullHeight - высота модального окна подстроится под viewport
-     * hugContent - высота модального окна зафиксируется под размер содержимого
+     * fullHeight - высота модального окна подстроится под viewport (по умолчанию для боковой модалки)
+     * hugContent - высота модального окна зафиксируется под размер содержимого (по умолчания для центральной модалки)
      * minHeight - 264
-     * @default fullHeight
      */
     height?: number | 'fullHeight' | 'hugContent';
 
@@ -44,26 +43,27 @@ export type BaseUniversalModalProps = {
      * Устанавливает отступы модального окна
      */
     margin?: TMargin;
-};
+}
 
-export type UniversalModalDesktopProps = BaseUniversalModalProps &
-    Pick<BaseModalProps, 'open'> &
-    Partial<
-        Pick<
-            BaseModalProps,
-            | 'children'
-            | 'dataTestId'
-            | 'className'
-            | 'wrapperClassName'
-            | 'onUnmount'
-            | 'transitionProps'
-            | 'backdropProps'
-            | 'disableBackdropClick'
-            | 'onClose'
-        >
-    > & {
-        /**
-         * Реф контейнера на котором происходит scroll
-         */
-        scrollableContainerRef?: RefObject<HTMLDivElement>;
-    };
+export interface UniversalModalDesktopProps
+    extends BaseUniversalModalProps,
+        Pick<BaseModalProps, 'open'>,
+        Partial<
+            Pick<
+                BaseModalProps,
+                | 'children'
+                | 'dataTestId'
+                | 'className'
+                | 'wrapperClassName'
+                | 'onUnmount'
+                | 'transitionProps'
+                | 'backdropProps'
+                | 'disableBackdropClick'
+                | 'onClose'
+            >
+        > {
+    /**
+     * Реф контейнера на котором происходит scroll
+     */
+    scrollableContainerRef?: RefObject<HTMLDivElement>;
+}
