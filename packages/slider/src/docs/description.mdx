@@ -61,9 +61,9 @@ render(() => {
             <br />
             <Slider
                 size={4}
-                value={0}
+                value={value}
                 onChange={handleChange}
-                range={{min: 0, '10%': 1, '40%': 4, '50%': 5, max: 10}}
+                range={{ min: 0, '10%': 1, '40%': 4, '50%': 5, max: 10 }}
                 snap={true}
                 pips={{
                     mode: 'values',
@@ -215,6 +215,47 @@ render(() => {
                 <Slider size={4} value={value} onChange={handleChange} />
             </div>
             <Slider size={2} value={slider} onChange={handleChangeSlider} />
+        </>
+    );
+});
+```
+
+### Кастомные точки и управление отображением
+
+#### Типы отображения точек
+
+Слайдер поддерживает два типа отображения точек:
+
+-   **`'step'`** - точки отображаются по шагу слайдера (по умолчанию)
+-   **`'custom'`** - произвольное расположение точек
+
+#### Произвольные точки
+
+Можно задать произвольное расположение точек с помощью `dotsSlider='custom'` и `customDots`. В этом случае отображаются только точки в указанных позициях без чисел.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState(4);
+
+    const handleChange = ({ value }) => setValue(value);
+
+    return (
+        <>
+            <div>Value: {value}</div>
+            <br />
+            <Slider
+                min={1}
+                max={8}
+                step={0.5}
+                value={value}
+                onChange={handleChange}
+                size={4}
+                dots
+                dotsSlider='custom'
+                showNumbers={true}
+                customDots={[4, 5.5, 7]}
+                pips={{ mode: 'values', values: [1, 2, 3, 5, 6] }}
+            />
         </>
     );
 });
