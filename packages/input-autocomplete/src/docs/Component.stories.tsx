@@ -87,22 +87,36 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
 
 export const input_autocomplete: Story = {
     name: 'InputAutocomplete',
-    render: () => renderComponent(InputAutocomplete),
+    render: () =>
+        renderComponent(InputAutocomplete, {
+            showErrorIcon: boolean('showErrorIcon', false),
+        }),
 };
 
 export const input_autocomplete_desktop: Story = {
     name: 'InputAutocompleteDesktop',
-    render: () => renderComponent(InputAutocompleteDesktop),
+    render: () =>
+        renderComponent(InputAutocompleteDesktop, {
+            showErrorIcon: boolean('showErrorIcon', false),
+        }),
 };
 
 export const input_autocomplete_mobile: Story = {
     name: 'InputAutocompleteMobile',
-    render: () => renderComponent(InputAutocompleteMobile, { inputProps: { clear: true } }),
+    render: () =>
+        renderComponent(InputAutocompleteMobile, {
+            inputProps: { clear: true },
+            showErrorIcon: boolean('showErrorIcon', false),
+        }),
 };
 
 export const input_autocomplete_modal_mobile: Story = {
     name: 'InputAutocompleteModalMobile',
-    render: () => renderComponent(InputAutocompleteModalMobile, { inputProps: { clear: true } }),
+    render: () =>
+        renderComponent(InputAutocompleteModalMobile, {
+            inputProps: { clear: true },
+            showErrorIcon: boolean('showErrorIcon', false),
+        }),
 };
 
 export default meta;
