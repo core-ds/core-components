@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-markdown",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "",
     "license": "MIT",
     "sideEffects": [
@@ -27,6 +27,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.0",
+    "themesVersion": "14.1.1",
     "varsVersion": "10.1.0"
 }

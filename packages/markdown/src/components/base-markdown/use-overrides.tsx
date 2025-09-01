@@ -9,9 +9,9 @@ import {
     TypographyTitleMobile,
 } from '@alfalab/core-components-typography';
 
-import { FontType, OverridesComponents, PlatformType } from '../typings';
+import { FontType, OverridesComponents, PlatformType } from '../../typings';
 
-import styles from '../index.module.css';
+import styles from './index.module.css';
 
 export const useOverrides = (platform?: PlatformType, font?: FontType): OverridesComponents =>
     useMemo(() => {
