@@ -18,11 +18,11 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-select": "^18.0.0",
-        "@alfalab/core-components-popover": "^7.0.0",
-        "@alfalab/core-components-form-control": "^13.0.0",
-        "@alfalab/core-components-product-cover": "^2.0.0",
-        "@alfalab/core-components-mq": "^5.0.0",
+        "@alfalab/core-components-select": "^18.0.1",
+        "@alfalab/core-components-popover": "^7.1.0",
+        "@alfalab/core-components-form-control": "^13.0.1",
+        "@alfalab/core-components-product-cover": "^2.0.1",
+        "@alfalab/core-components-mq": "^5.0.1",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
         "classnames": "^2.5.1",
