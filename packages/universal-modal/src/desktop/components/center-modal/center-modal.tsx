@@ -27,7 +27,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         open,
         children,
         width = 500,
-        height = 'fullHeight',
+        height = 'hugContent',
         verticalAlign = 'center',
         overlay = true,
         margin,
