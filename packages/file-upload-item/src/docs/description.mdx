@@ -95,6 +95,8 @@ render(() => {
     const [title, setTitle] = React.useState('Прикрепите файл');
     const [progressBar, setProgressBar] = React.useState(0);
     const [error, setError] = React.useState('');
+    const [isProgressKnown, setIsProgressKnown] = React.useState(false);
+    const [isSuccessClicked, setIsSuccessClicked] = React.useState(false);
 
     const distance = 100;
     const duration = 500;
@@ -124,35 +126,93 @@ render(() => {
         }
     };
 
+    const handleLoaderAnimation = () => {
+        setError('');
+        setProgressBar(0);
+        setStatus('LOADING');
+        setTitle('Пример.docx');
+        setIsSuccessClicked(true);
+
+        setTimeout(() => {
+            setStatus('SUCCESS');
+        }, 5000);
+    };
+
     const handleSuccessClick = () => {
         setError('');
         setProgressBar(0);
         setStatus('UPLOADING');
         setTitle('Пример.docx');
+        setIsSuccessClicked(true);
         requestAnimationFrame((t) => measure(t, 'SUCCESS'));
     };
 
     const handleError = () => {
-        setStatus('UPLOADING');
-        setProgressBar(0);
-        setTitle('Пример.docx');
-        requestAnimationFrame((t) => measure(t, 'ERROR'));
+        if (isProgressKnown) {
+            setStatus('UPLOADING');
+            setProgressBar(0);
+            setTitle('Пример.docx');
+            requestAnimationFrame((t) => measure(t, 'ERROR'));
+        } else {
+            setError('');
+            setProgressBar(0);
+            setStatus('LOADING');
+            setTitle('Пример.docx');
+            setIsSuccessClicked(true);
+
+            setTimeout(() => {
+                setStatus('ERROR');
+                setError('Описание первой ошибки');
+            }, 5000);
+        }
     };
 
     const handleMultiError = () => {
+        if (isProgressKnown) {
+            setProgressBar(0);
+            setStatus('UPLOADING');
+            setTitle('Пример.docx');
+            requestAnimationFrame((t) => measure(t, 'MULTI_ERROR'));
+        } else {
+            setError('');
+            setProgressBar(0);
+            setStatus('LOADING');
+            setTitle('Пример.docx');
+            setIsSuccessClicked(true);
+
+            setTimeout(() => {
+                setStatus('ERROR');
+                setError(['Описание первой ошибки', 'Описание второй ошибки']);
+            }, 5000);
+        }
+    };
+
+    const handleToggleChange = () => {
+        setIsProgressKnown((prev) => !prev);
+        setIsSuccessClicked(false);
         setProgressBar(0);
-        setStatus('UPLOADING');
-        setTitle('Пример.docx');
-        requestAnimationFrame((t) => measure(t, 'MULTI_ERROR'));
+        if (!isProgressKnown) {
+            setStatus('INITIAL');
+            setTitle('Прикрепите файл');
+        } else {
+            setStatus('INITIAL');
+            setTitle('Прикрепите файл');
+        }
     };
 
     return (
         <React.Fragment>
             <FileUploadItem
                 title={title}
-                subtitle='Нет файла'
+                subtitle={
+                    isSuccessClicked
+                        ? isProgressKnown
+                            ? 'Загружается'
+                            : 'Загружается'
+                        : 'Нет файла'
+                }
                 uploadStatus={status}
-                progressBar={progressBar}
+                progressBar={isProgressKnown && isSuccessClicked ? progressBar : undefined}
                 uploadDate='22.07.2024'
                 size={2097152} // 2mb
                 error={error}
@@ -163,7 +223,10 @@ render(() => {
             </FileUploadItem>
             <Gap size={20} />
             <div>
-                <Button size={32} onClick={handleSuccessClick}>
+                <Button
+                    size={32}
+                    onClick={isProgressKnown ? handleSuccessClick : handleLoaderAnimation}
+                >
                     Успех
                 </Button>
                 <Gap size={8} direction='horizontal' />
@@ -175,6 +238,12 @@ render(() => {
                     Несколько ошибок
                 </Button>
             </div>
+            <Gap size={20} />
+            <Switch
+                checked={isProgressKnown}
+                label='Известен прогресс загрузки'
+                onChange={handleToggleChange}
+            />
         </React.Fragment>
     );
 });
