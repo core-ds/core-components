@@ -92,127 +92,67 @@ render(() => {
 ```jsx live mobileHeight={500}
 render(() => {
     const [status, setStatus] = React.useState('INITIAL');
-    const [title, setTitle] = React.useState('Прикрепите файл');
     const [progressBar, setProgressBar] = React.useState(0);
     const [error, setError] = React.useState('');
     const [isProgressKnown, setIsProgressKnown] = React.useState(false);
-    const [isSuccessClicked, setIsSuccessClicked] = React.useState(false);
 
-    const distance = 100;
-    const duration = 500;
-    let startAnimation = null;
-
-    const measure = (timestamp, status) => {
-        if (!startAnimation) {
-            startAnimation = timestamp;
-        }
-
-        const progress = (timestamp - startAnimation) / duration;
-        const progressValue = progress * distance;
-        setProgressBar(progressValue);
-
-        if (progress < 1) {
-            return requestAnimationFrame((t) => measure(t, status));
-        }
-
-        if (status === 'SUCCESS') {
-            setStatus(status);
-        } else if (status === 'ERROR') {
-            setStatus('ERROR');
-            setError('Описание первой ошибки');
-        } else if (status === 'MULTI_ERROR') {
-            setStatus('ERROR');
-            setError(['Описание первой ошибки', 'Описание второй ошибки']);
-        }
-    };
-
-    const handleLoaderAnimation = () => {
+    const resetState = () => {
         setError('');
         setProgressBar(0);
-        setStatus('LOADING');
-        setTitle('Пример.docx');
-        setIsSuccessClicked(true);
-
-        setTimeout(() => {
-            setStatus('SUCCESS');
-        }, 5000);
+        setStatus('INITIAL');
     };
 
-    const handleSuccessClick = () => {
+    const startUpload = (finalStatus, errorMessage) => {
         setError('');
         setProgressBar(0);
-        setStatus('UPLOADING');
-        setTitle('Пример.docx');
-        setIsSuccessClicked(true);
-        requestAnimationFrame((t) => measure(t, 'SUCCESS'));
-    };
+        setStatus(isProgressKnown ? 'UPLOADING' : 'LOADING');
 
-    const handleError = () => {
         if (isProgressKnown) {
-            setStatus('UPLOADING');
-            setProgressBar(0);
-            setTitle('Пример.docx');
-            requestAnimationFrame((t) => measure(t, 'ERROR'));
-        } else {
-            setError('');
-            setProgressBar(0);
-            setStatus('LOADING');
-            setTitle('Пример.docx');
-            setIsSuccessClicked(true);
+            let currentProgress = 0;
 
+            const animateProgress = () => {
+                currentProgress += 2;
+                setProgressBar(currentProgress);
+
+                if (currentProgress >= 100) {
+                    clearInterval(interval);
+                    setStatus(finalStatus);
+
+                    if (errorMessage) setError(errorMessage);
+                }
+            };
+
+            const interval = setInterval(animateProgress, 20);
+        } else {
+            // Для режима без прогресса показываем загрузку дольше
             setTimeout(() => {
-                setStatus('ERROR');
-                setError('Описание первой ошибки');
+                setStatus(finalStatus);
+                if (errorMessage) setError(errorMessage);
             }, 5000);
         }
     };
 
-    const handleMultiError = () => {
-        if (isProgressKnown) {
-            setProgressBar(0);
-            setStatus('UPLOADING');
-            setTitle('Пример.docx');
-            requestAnimationFrame((t) => measure(t, 'MULTI_ERROR'));
-        } else {
-            setError('');
-            setProgressBar(0);
-            setStatus('LOADING');
-            setTitle('Пример.docx');
-            setIsSuccessClicked(true);
-
-            setTimeout(() => {
-                setStatus('ERROR');
-                setError(['Описание первой ошибки', 'Описание второй ошибки']);
-            }, 5000);
-        }
-    };
+    const handleSuccess = () => startUpload('SUCCESS');
+    const handleError = () => startUpload('ERROR', 'Описание первой ошибки');
+    const handleMultiError = () =>
+        startUpload('ERROR', ['Описание первой ошибки', 'Описание второй ошибки']);
 
     const handleToggleChange = () => {
         setIsProgressKnown((prev) => !prev);
-        setIsSuccessClicked(false);
-        setProgressBar(0);
-        if (!isProgressKnown) {
-            setStatus('INITIAL');
-            setTitle('Прикрепите файл');
-        } else {
-            setStatus('INITIAL');
-            setTitle('Прикрепите файл');
-        }
+        resetState();
     };
+
+    const isUploading = status === 'UPLOADING' || status === 'LOADING';
+    const title = isUploading ? 'Пример.docx' : 'Прикрепите файл';
+    const subtitle = isUploading ? 'Загружается' : 'Нет файла';
 
     return (
         <React.Fragment>
             <FileUploadItem
                 title={title}
-                subtitle={
-                    isSuccessClicked
-                        ? isProgressKnown
-                            ? 'Загружается'
-                            : 'Загружается'
-                        : 'Нет файла'
-                }
+                subtitle={subtitle}
                 uploadStatus={status}
-                progressBar={isProgressKnown && isSuccessClicked ? progressBar : undefined}
+                progressBar={isProgressKnown && isUploading ? progressBar : undefined}
                 uploadDate='22.07.2024'
                 size={2097152} // 2mb
                 error={error}
@@ -223,10 +163,7 @@ render(() => {
             </FileUploadItem>
             <Gap size={20} />
             <div>
-                <Button
-                    size={32}
-                    onClick={isProgressKnown ? handleSuccessClick : handleLoaderAnimation}
-                >
+                <Button size={32} onClick={handleSuccess}>
                     Успех
                 </Button>
                 <Gap size={8} direction='horizontal' />
