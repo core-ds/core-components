@@ -16,7 +16,7 @@ const meta: Meta<typeof BottomSheet> = {
 
 type Story = StoryObj<typeof BottomSheet>;
 
-const BACKGROUND = ['primary', 'secondary', undefined] as const;
+const BACKGROUND = ['primary', 'secondary', undefined];
 
 const shortText =
     'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через 60 секунд после после оформления.';

@@ -1,5 +1,22 @@
 # @alfalab/core-components-tabs
 
+## 9.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-picker-button@12.0.1
+    -   @alfalab/core-components-icon-button@7.0.1
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-mq@5.0.1
+    -   @alfalab/core-components-tag@9.0.1
+
 ## 9.0.0
 
 ### Major Changes

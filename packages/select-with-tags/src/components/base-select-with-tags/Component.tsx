@@ -225,7 +225,6 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                                   },
                               },
                               bottomSheetProps: {
-                                  showFooter: false,
                                   showSwipeMarker: false,
                                   onClose: handleClose,
                                   containerProps: {

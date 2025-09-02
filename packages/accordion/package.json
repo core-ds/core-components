@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-accordion",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-shared": "^1.0.0",
-        "@alfalab/core-components-typography": "^5.0.0",
+        "@alfalab/core-components-shared": "^1.1.0",
+        "@alfalab/core-components-typography": "^5.0.1",
         "@alfalab/icons-glyph": "^2.247.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.0.1",
-    "varsVersion": "10.0.0"
+    "themesVersion": "14.1.1",
+    "varsVersion": "10.1.0"
 }

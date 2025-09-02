@@ -1,5 +1,15 @@
 # @alfalab/core-components-shared
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1823](https://github.com/core-ds/core-components/pull/1823)
+
+-   Добавлена функция `humanFileSize`, с помощью которой можно переводить байты в человеко-читаемый вид
+
 ## 1.0.0
 
 ### Major Changes
