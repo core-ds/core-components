@@ -13,7 +13,9 @@ import { Align, Direction, Size } from './utils';
 
 import styles from './index.module.css';
 
-export type SpaceProps = {
+export interface SpaceProps
+    extends Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'>,
+        AriaAttributes {
     /**
      * Выравнивание
      */
@@ -64,7 +66,7 @@ export type SpaceProps = {
      * @description Поддержка ограничена. см https://caniuse.com/?search=gap
      */
     useCssGaps?: boolean;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'> & AriaAttributes;
+}
 
 const SpaceSizes: { [key in Size]: number } = {
     s: 12,

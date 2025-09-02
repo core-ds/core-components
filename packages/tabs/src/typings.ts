@@ -5,7 +5,10 @@ import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
-export type TabsProps = {
+export interface TabsProps extends Omit<
+    HTMLAttributes<HTMLDivElement>,
+    'onChange' | 'children' | 'className'
+>, AriaAttributes {
     /**
      * Дополнительный класс
      */
@@ -141,12 +144,9 @@ export type TabsProps = {
      * Доп. пропсы для скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
-} & Omit<
-    HTMLAttributes<HTMLDivElement>,
-    'onChange' | 'children' | 'className'
-> & AriaAttributes;
+}
 
-export type TabProps = {
+export interface TabProps extends AriaAttributes {
     /**
      * Id таба
      */
@@ -201,9 +201,9 @@ export type TabProps = {
      * Реф для кнопки переключения таба
      */
     toggleRef?: Ref<HTMLDivElement>;
-} & AriaAttributes;
+}
 
-export type TabListTitle = {
+export interface TabListTitle {
     title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
@@ -214,9 +214,9 @@ export type TabListTitle = {
     collapsed?: boolean;
     dataTestId?: string;
     toggleRef?: Ref<HTMLDivElement>;
-};
+}
 
-export type TabListProps = Pick<
+export interface TabListProps extends Pick<
     TabsProps,
     | 'className'
     | 'containerClassName'
@@ -233,7 +233,7 @@ export type TabListProps = Pick<
     | 'textStyle'
     | 'showSkeleton'
     | 'skeletonProps'
-> & {
+> {
     /**
      * Заголовки табов
      */
@@ -254,12 +254,12 @@ export type TabListProps = Pick<
      * Дополнительные инлайн стили для заголовка
      */
     inlineStyle?: React.CSSProperties;
-};
+}
 
-export type SecondaryTabListProps = TabListProps & {
+export interface SecondaryTabListProps extends TabListProps {
     tagSize?: TagProps['size'];
     TagComponent?: FC<Omit<TagProps, 'breakpoint'>>;
-};
+}
 
 export type UseTabsProps = TabListProps;
 

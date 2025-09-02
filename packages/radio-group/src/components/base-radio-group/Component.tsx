@@ -22,7 +22,12 @@ import commonStyles from './index.module.css';
 export type Direction = 'horizontal' | 'vertical';
 export type RadioGroupType = 'radio' | 'tag';
 
-export type BaseRadioGroupProps = {
+export interface BaseRadioGroupProps
+    extends Omit<
+            HTMLAttributes<HTMLDivElement>,
+            'onChange' | 'onBlur' | 'onFocus' | 'children' | 'className'
+        >,
+        AriaAttributes {
     /**
      * Заголовок группы
      */
@@ -108,8 +113,7 @@ export type BaseRadioGroupProps = {
      * Основные стили компонента.
      */
     styles: { [key: string]: string };
-} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'onBlur' | 'onFocus' | 'children' | 'className'> &
-    AriaAttributes;
+}
 
 export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
     (
