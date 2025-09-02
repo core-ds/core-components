@@ -13,13 +13,19 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-type NativeProps = AnchorHTMLAttributes<HTMLAnchorElement>;
+interface IHrefConfig {
+    href: string;
+    hrefType?: 'href' | 'to';
+}
 
-export type LinkProps = NativeProps & {
+type NativeProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
+
+export interface ILinkProps extends NativeProps {
     /**
-     * URL для перехода (native prop)
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
      */
-    href?: string;
+    href?: string | IHrefConfig;
 
     /**
      * Тип ссылки
@@ -53,12 +59,6 @@ export type LinkProps = NativeProps & {
     Component?: ElementType;
 
     /**
-     * Имя пропа для передачи href в кастомный компонент
-     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
-     */
-    hrefProp?: string;
-
-    /**
      * Дополнительный класс (native prop)
      */
     className?: string;
@@ -82,9 +82,9 @@ export type LinkProps = NativeProps & {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
-};
+}
 
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+export const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
     (
         {
             view = 'primary',
@@ -97,7 +97,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             children,
             colors = 'default',
             href,
-            hrefProp,
             Component = pseudo ? 'button' : 'a',
             ...restProps
         },
@@ -108,6 +107,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         const [focused] = useFocus(linkRef, 'keyboard');
 
         const viewClassName = view === 'default' ? 'defaultView' : view;
+
+        const hrefProp = typeof href === 'string' ? 'href' : href?.hrefType || 'href';
+        const hrefValue = typeof href === 'string' ? href : href?.href;
 
         const componentProps = {
             className: cn(
@@ -123,7 +125,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             ),
             'data-test-id': dataTestId,
             rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
-            ...{ [hrefProp || (typeof Component === 'string' ? 'href' : 'to')]: href },
+            ...{ [hrefProp]: hrefValue },
             ...(pseudo && { type: 'button' }),
         };
 

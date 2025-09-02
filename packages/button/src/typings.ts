@@ -9,7 +9,12 @@ export type StyleColors = {
     };
 };
 
-export type ComponentProps = {
+interface IHrefConfig {
+    href: string;
+    hrefType?: 'href' | 'to';
+};
+
+export interface IComponentProps {
     /**
      * Тип кнопки
      * @default secondary
@@ -77,20 +82,15 @@ export type ComponentProps = {
     spinnerClassName?: string;
 
     /**
-     * Выводит ссылку в виде кнопки
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
      */
-    href?: string;
+    href?: string | IHrefConfig;
 
     /**
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
     Component?: ElementType;
-
-    /**
-     * Имя пропа для передачи href в кастомный компонент
-     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
-     */
-    hrefProp?: string;
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
@@ -139,7 +139,7 @@ export type PrivateButtonProps = {
     colorStylesMap: StyleColors;
 };
 
-export type CommonButtonProps = ComponentProps &
+export type CommonButtonProps = IComponentProps &
     Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
 export type ButtonProps = CommonButtonProps & {
