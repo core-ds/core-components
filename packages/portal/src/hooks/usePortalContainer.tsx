@@ -1,15 +1,9 @@
-import { useContext } from 'react';
-
-import { PortalContext } from '@alfalab/core-components-shared';
+import { useCoreConfig } from '@alfalab/core-components-config';
 
 import { getDefaultPortalContainer } from '../utils';
 
 export const usePortalContainer = () => {
-    const getContextPortalContainer = useContext(PortalContext);
+    const { getPortalContainer } = useCoreConfig();
 
-    if (getContextPortalContainer()) {
-        return getContextPortalContainer;
-    }
-
-    return getDefaultPortalContainer;
+    return getPortalContainer ?? getDefaultPortalContainer;
 };
