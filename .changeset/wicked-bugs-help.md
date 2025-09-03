@@ -7,4 +7,4 @@
 '@alfalab/core-components': patch
 ---
 
-- Добавлена инверсия BottomSheet через props `colors`
+-  Добавлена инверсия BottomSheet через props `colors`

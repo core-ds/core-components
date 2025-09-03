@@ -3,4 +3,4 @@
 '@alfalab/core-components': major
 ---
 
-- Удалены неиспользуемые значения тем для `BottomSheet`
+-  Удалены неиспользуемые значения тем для `BottomSheet`
