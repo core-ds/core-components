@@ -4,10 +4,10 @@ import { ScrollbarProps } from '@alfalab/core-components-scrollbar';
 
 import { UniversalModalContext } from '../../context/universal-modal-context';
 
-type Params = {
+interface Params {
     scrollbarContentNodeRef: RefObject<HTMLDivElement>;
     scrollableNodeRef: RefObject<HTMLDivElement>;
-};
+}
 
 /**
  * Расчет overlap состояния

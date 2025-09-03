@@ -1,5 +1,15 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.2
+
+### Patch Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1838](https://github.com/core-ds/core-components/pull/1838)
+
+-   Исправлена типизация. Типы переведены на интерфейсы.
+
 ## 2.0.1
 
 ### Patch Changes

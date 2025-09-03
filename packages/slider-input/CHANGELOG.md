@@ -1,5 +1,15 @@
 # @alfalab/core-components-slider-input
 
+## 10.0.2
+
+### Patch Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1842](https://github.com/core-ds/core-components/pull/1842)
+
+-   Исправлена специфичность слайдера
+
 ## 10.0.1
 
 ### Patch Changes

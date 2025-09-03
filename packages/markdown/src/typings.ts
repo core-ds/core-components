@@ -7,7 +7,7 @@ export type OverridesComponents =
     | Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>
     | undefined;
 
-export type MarkdownProps = {
+export type BaseMarkdownProps = {
     children: string;
 
     /**
@@ -29,13 +29,20 @@ export type MarkdownProps = {
      * Переопределение компонентов для тегов разметки
      */
     overrides?: OverridesComponents;
+
+    /**
+     * Трансформация ссылок неизвестных форматов
+     * https://github.com/remarkjs/react-markdown/issues/537
+     * @default true
+     */
+    transformLinkUri?: boolean;
 };
 
-export type MarkdownDesktopProps = Omit<MarkdownProps, 'platform'>;
+export type MarkdownDesktopProps = Omit<BaseMarkdownProps, 'platform'>;
 
-export type MarkdownMobileProps = Omit<MarkdownProps, 'platform'>;
+export type MarkdownMobileProps = Omit<BaseMarkdownProps, 'platform'>;
 
-export type MarkdownResponsiveProps = Omit<MarkdownProps, 'platform'> & {
+export type MarkdownResponsiveProps = Omit<BaseMarkdownProps, 'platform'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
