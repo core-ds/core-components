@@ -9,7 +9,7 @@ Object {
         class="component radio"
       >
         <span
-          class="label label"
+          class="label"
         >
           Заголовок группы
         </span>
@@ -85,7 +85,7 @@ Object {
       class="component radio"
     >
       <span
-        class="label label"
+        class="label"
       >
         Заголовок группы
       </span>
@@ -218,7 +218,7 @@ Object {
         class="component radio error"
       >
         <span
-          class="label label"
+          class="label"
         >
           Заголовок группы
         </span>
@@ -287,7 +287,7 @@ Object {
           </label>
         </div>
         <span
-          class="sub sub errorMessage"
+          class="sub errorMessage"
           role="alert"
         >
           Error
@@ -300,7 +300,7 @@ Object {
       class="component radio error"
     >
       <span
-        class="label label"
+        class="label"
       >
         Заголовок группы
       </span>
@@ -369,7 +369,7 @@ Object {
         </label>
       </div>
       <span
-        class="sub sub errorMessage"
+        class="sub errorMessage"
         role="alert"
       >
         Error
@@ -439,7 +439,7 @@ Object {
         class="component radio"
       >
         <span
-          class="label label"
+          class="label"
         >
           Заголовок группы
         </span>
@@ -475,7 +475,7 @@ Object {
       class="component radio"
     >
       <span
-        class="label label"
+        class="label"
       >
         Заголовок группы
       </span>
@@ -568,7 +568,7 @@ Object {
         class="component tag"
       >
         <span
-          class="label label"
+          class="label tag"
         >
           Заголовок группы
         </span>
@@ -644,7 +644,7 @@ Object {
       class="component tag"
     >
       <span
-        class="label label"
+        class="label tag"
       >
         Заголовок группы
       </span>
@@ -777,7 +777,7 @@ Object {
         class="component radio"
       >
         <span
-          class="label label"
+          class="label"
         >
           Заголовок группы
         </span>
@@ -792,7 +792,7 @@ Object {
       class="component radio"
     >
       <span
-        class="label label"
+        class="label"
       >
         Заголовок группы
       </span>

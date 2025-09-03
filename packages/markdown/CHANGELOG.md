@@ -1,5 +1,24 @@
 # @alfalab/core-components-markdown
 
+## 2.1.0
+
+### Minor Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1833](https://github.com/core-ds/core-components/pull/1833)
+
+-   Добавлен пропс `transformLinkUri` позволяющий отключить трансформацию для ссылок с неизвестными форматами
+
+## 2.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@5.0.1
+    -   @alfalab/core-components-typography@5.0.1
+    -   @alfalab/core-components-list@4.0.1
+
 ## 2.0.0
 
 ### Major Changes

@@ -88,6 +88,7 @@ export type NavigationBarPrivateProps = {
 
     /**
      * Выравнивание заголовка
+     * @default left
      */
     align?: 'left' | 'center';
 
@@ -172,4 +173,5 @@ export type ContentParams = {
     wrapperRef?: React.RefObject<HTMLDivElement>;
     style?: React.CSSProperties;
     hidden?: boolean;
+    extraAlign?: NavigationBarPrivateProps['align'];
 };

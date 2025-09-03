@@ -1,5 +1,32 @@
 # @alfalab/core-components-themes
 
+## 14.1.1
+
+### Patch Changes
+
+<sup><time>29.08.2025</time></sup>
+
+#### [#1842](https://github.com/core-ds/core-components/pull/1842)
+
+-   Исправлена темизация `site` для `FormControl` и `SliderInput`
+
+## 14.1.0
+
+### Minor Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1731](https://github.com/core-ds/core-components/pull/1731)
+
+-   Убрана красная линия и отступ слева в состоянии ошибки:
+
+    -   Для мобильных компонентов во всех темах
+    -   Для десктопных компонентов в теме `click`
+
+-   Изменены отступы для групп с `type="tag"`:
+    -   Между label и группой: с 12px до 8px
+    -   Между группой и hint/error: с 12px до 8px
+
 ## 14.0.1
 
 ### Patch Changes

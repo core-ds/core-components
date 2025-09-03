@@ -1,6 +1,6 @@
 import { hasOwnProperty } from '@alfalab/core-components-shared';
 
-import { UniversalModalDesktopProps } from '../types/props';
+import type { UniversalModalDesktopProps } from '../types/props';
 
 export const getMaxHeightStyle = (margin: UniversalModalDesktopProps['margin']) => {
     const marginTop = (margin && hasOwnProperty(margin, 'top') && margin.top) || 0;

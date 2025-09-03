@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-dropzone",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/icons-glyph": "^2.210.0",
+        "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -22,6 +22,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.0.1",
-    "varsVersion": "10.0.0"
+    "themesVersion": "14.1.1",
+    "varsVersion": "10.1.0"
 }

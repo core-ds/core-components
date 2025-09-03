@@ -28,7 +28,7 @@
     display: block;
 }
 
-.slider {
+.component .slider {
     width: calc(100% - var(--slider-input-progress-margin-horizontal) * 2);
     margin-left: var(--slider-input-progress-margin-horizontal);
     margin-right: var(--slider-input-progress-margin-horizontal);
