@@ -13,19 +13,19 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-interface IHrefConfig {
+interface HrefConfig {
     href: string;
-    hrefType?: 'href' | 'to';
+    hrefType: 'href' | 'to';
 }
 
 type NativeProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
 
-export interface ILinkProps extends NativeProps {
+export interface LinkProps extends NativeProps {
     /**
      * Имя пропа для передачи href в кастомный компонент
      * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
      */
-    href?: string | IHrefConfig;
+    href?: string | HrefConfig;
 
     /**
      * Тип ссылки
@@ -84,7 +84,7 @@ export interface ILinkProps extends NativeProps {
     colors?: 'default' | 'inverted';
 }
 
-export const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     (
         {
             view = 'primary',
@@ -108,8 +108,9 @@ export const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
 
         const viewClassName = view === 'default' ? 'defaultView' : view;
 
-        const hrefProp = typeof href === 'string' ? 'href' : href?.hrefType || 'href';
+        const hrefType = typeof href === 'string' ? 'href' : href?.hrefType;
         const hrefValue = typeof href === 'string' ? href : href?.href;
+        const hasHref = hrefType && hrefValue;
 
         const componentProps = {
             className: cn(
@@ -125,7 +126,7 @@ export const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
             ),
             'data-test-id': dataTestId,
             rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
-            ...{ [hrefProp]: hrefValue },
+            ...(hasHref ? { [hrefType]: hrefValue } : {}),
             ...(pseudo && { type: 'button' }),
         };
 

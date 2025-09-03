@@ -33,16 +33,22 @@ const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
 type Colors = 'default' | 'inverted' | 'static';
 
-interface IHrefConfig {
+interface HrefConfig {
     href: string;
-    hrefType?: 'href' | 'to';
-};
+    hrefType: 'href' | 'to';
+}
 
-interface IComponentProps {
+interface ComponentProps {
     /**
      * Иконка кнопки
      */
     icon: React.ReactNode;
+
+    /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    href: string | HrefConfig;
 
     /**
      *  Размер кнопки
@@ -66,12 +72,6 @@ interface IComponentProps {
     iconWrapperClassName?: string;
 
     /**
-     * Имя пропа для передачи href в кастомный компонент
-     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
-     */
-    href?: string | IHrefConfig;
-
-    /**
      * Заблокировать кнопку
      */
     disabled?: boolean;
@@ -91,15 +91,15 @@ interface IComponentProps {
      * Палитра, в контексте которой используется кнопка
      */
     colors?: Colors;
-};
+}
 
 const SIZE_TO_CLASSNAME_MAP = {
     s: 'size-48',
     48: 'size-48',
 };
 
-type AnchorProps = IComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type ButtonProps = IComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+type AnchorProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type ButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 export type ActionButtonProps = Partial<AnchorProps | ButtonProps>;
 
 export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, ActionButtonProps>(
@@ -170,8 +170,8 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         );
 
         if (href) {
-            const hrefKey = typeof href === 'string' ? 'href' : href.hrefType || 'href';
             const hrefValue = typeof href === 'string' ? href : href.href;
+            const hrefType = typeof href === 'string' ? 'href' : href.hrefType;
 
             return (
                 <a
@@ -179,7 +179,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                     ref={mergeRefs([componentRef, ref])}
                     aria-disabled={disabled || loading}
                     {...componentProps}
-                    {...{ [hrefKey]: hrefValue }}
+                    {...{ [hrefType]: hrefValue }}
                     {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
                 >
                     {buttonChildren}

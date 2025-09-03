@@ -13,7 +13,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import { CommonButtonProps, IComponentProps, PrivateButtonProps } from '../../typings';
+import { CommonButtonProps, ComponentProps, PrivateButtonProps } from '../../typings';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -30,7 +30,7 @@ const colorStyles = {
  */
 export const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
-const logWarning = (view: Required<IComponentProps>['view']) => {
+const logWarning = (view: Required<ComponentProps>['view']) => {
     if (process.env.NODE_ENV !== 'development') {
         return;
     }
@@ -219,15 +219,15 @@ export const BaseButton = React.forwardRef<
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
 
-            const hrefKey = typeof href === 'string' ? 'href' : href.hrefType || 'href';
             const hrefValue = typeof href === 'string' ? href : href.href;
+            const hrefType = typeof href === 'string' ? 'href' : href.hrefType;
 
             return (
                 <Component
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                    {... { [hrefKey]: hrefValue }}
+                    {... { [hrefType]: hrefValue }}
                     onClick={handleClick}
                     disabled={disabled || showLoader}
                     ref={mergeRefs([buttonRef, ref])}

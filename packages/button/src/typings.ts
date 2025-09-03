@@ -9,27 +9,33 @@ export type StyleColors = {
     };
 };
 
-interface IHrefConfig {
+interface HrefConfig {
     href: string;
-    hrefType?: 'href' | 'to';
+    hrefType: 'href' | 'to';
 };
 
-export interface IComponentProps {
+export interface ComponentProps {
+    /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    href?: string | HrefConfig;
+
     /**
      * Тип кнопки
      * @default secondary
      */
     view?:
-        | 'accent'
-        | 'primary'
-        | 'secondary'
-        | 'outlined'
-        | 'transparent'
-        | 'text'
-        | 'tertiary'
-        | 'filled' // deprecated
-        | 'link' // deprecated
-        | 'ghost'; // deprecated;
+    | 'accent'
+    | 'primary'
+    | 'secondary'
+    | 'outlined'
+    | 'transparent'
+    | 'text'
+    | 'tertiary'
+    | 'filled' // deprecated
+    | 'link' // deprecated
+    | 'ghost'; // deprecated;
 
     /**
      * Форма кнопки
@@ -80,12 +86,6 @@ export interface IComponentProps {
      * Дополнительный класс для спиннера
      */
     spinnerClassName?: string;
-
-    /**
-     * Имя пропа для передачи href в кастомный компонент
-     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
-     */
-    href?: string | IHrefConfig;
 
     /**
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
@@ -139,7 +139,7 @@ export type PrivateButtonProps = {
     colorStylesMap: StyleColors;
 };
 
-export type CommonButtonProps = IComponentProps &
+export type CommonButtonProps = ComponentProps &
     Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
 export type ButtonProps = CommonButtonProps & {
