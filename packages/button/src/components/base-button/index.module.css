@@ -2,6 +2,11 @@
 @import '../../vars.css';
 
 .component {
+    && {
+        font-weight: var(--button-font-weight);
+        font-family: var(--font-family);
+    }
+
     @mixin reset-tap-highlight-color;
 
     position: relative;
@@ -13,9 +18,6 @@
     align-items: center;
     margin: var(--gap-0);
     padding: var(--gap-0) 23px;
-    line-height: 20px;
-    font-weight: var(--button-font-weight);
-    font-family: var(--font-family);
     text-decoration: none;
     outline: none;
     box-shadow: none;
