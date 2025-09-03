@@ -4,4 +4,4 @@
 '@alfalab/core-components': minor
 ---
 
-- Добавлен проброс prop `colors` через компонент `Collapse` в `Link`
+-  Добавлен проброс prop `colors` через компонент `Collapse` в `Link`
