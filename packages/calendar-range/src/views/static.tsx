@@ -5,7 +5,7 @@ import { addMonths, endOfMonth, isSameMonth, max, startOfMonth, subMonths } from
 
 import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
-import { CalendarInputProps } from '@alfalab/core-components-calendar-input/index';
+import { CalendarInputProps } from '@alfalab/core-components-calendar-input';
 import {
     formatDate,
     isValidInputValue,
@@ -37,12 +37,12 @@ export type CalendarRangeStaticProps = Omit<
     defaultMonthPosition?: 'left' | 'right';
 
     /**
-     * Пропсы для инпута даты от
+     * Пропсы для инпута начальной даты диапазона
      */
     inputFromProps?: DateInputProps;
 
     /**
-     * Пропсы для инпута даты до
+     * Пропсы для инпута конечной даты диапазона
      */
     inputToProps?: DateInputProps;
 };
@@ -174,7 +174,12 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
 
         const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
 
-        onInputChangeFrom?.(event, payloadWithDate);
+        if (onInputChangeFrom) {
+            onInputChangeFrom(
+                event === null ? ({} as React.ChangeEvent<HTMLInputElement>) : event,
+                payloadWithDate,
+            );
+        }
     };
 
     const handleInputToChange: Required<UniversalDateInputProps>['onInputChange'] = (
@@ -191,7 +196,12 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
 
         const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
 
-        onInputChangeTo?.(event, payloadWithDate);
+        if (onInputChangeTo) {
+            onInputChangeTo(
+                event === null ? ({} as React.ChangeEvent<HTMLInputElement>) : event,
+                payloadWithDate,
+            );
+        }
     };
 
     const handleMouseOver = useCallback((event: MouseEvent<HTMLDivElement>) => {

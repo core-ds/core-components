@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
     min-width: 16px;
     margin: var(--gap-0) var(--gap-8);
 
