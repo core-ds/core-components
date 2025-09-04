@@ -9,22 +9,33 @@ export type StyleColors = {
     };
 };
 
-export type ComponentProps = {
+interface HrefConfig {
+    href: string;
+    hrefType: 'href' | 'to';
+};
+
+export interface ComponentProps {
+    /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    href?: string | HrefConfig;
+
     /**
      * Тип кнопки
      * @default secondary
      */
     view?:
-        | 'accent'
-        | 'primary'
-        | 'secondary'
-        | 'outlined'
-        | 'transparent'
-        | 'text'
-        | 'tertiary'
-        | 'filled' // deprecated
-        | 'link' // deprecated
-        | 'ghost'; // deprecated;
+    | 'accent'
+    | 'primary'
+    | 'secondary'
+    | 'outlined'
+    | 'transparent'
+    | 'text'
+    | 'tertiary'
+    | 'filled' // deprecated
+    | 'link' // deprecated
+    | 'ghost'; // deprecated;
 
     /**
      * Форма кнопки
@@ -75,11 +86,6 @@ export type ComponentProps = {
      * Дополнительный класс для спиннера
      */
     spinnerClassName?: string;
-
-    /**
-     * Выводит ссылку в виде кнопки
-     */
-    href?: string;
 
     /**
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)

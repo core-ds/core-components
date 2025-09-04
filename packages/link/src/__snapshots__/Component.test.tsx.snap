@@ -7,7 +7,6 @@ Object {
     <div>
       <a
         class="component primary"
-        href=""
       >
         <span
           class="text"
@@ -20,7 +19,6 @@ Object {
   "container": <div>
     <a
       class="component primary"
-      href=""
     >
       <span
         class="text"
@@ -90,7 +88,6 @@ Object {
     <div>
       <a
         class="component primary withAddons"
-        href=""
       >
         <span
           class="addons"
@@ -121,7 +118,6 @@ Object {
   "container": <div>
     <a
       class="component primary withAddons"
-      href=""
     >
       <span
         class="addons"
@@ -292,7 +288,6 @@ Object {
     <div>
       <a
         class="component primary withAddons"
-        href=""
       >
         <span>
           <span
@@ -323,7 +318,6 @@ Object {
   "container": <div>
     <a
       class="component primary withAddons"
-      href=""
     >
       <span>
         <span
