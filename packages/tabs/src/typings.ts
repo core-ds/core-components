@@ -1,11 +1,14 @@
-import { FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
+import { AriaAttributes, FC, HTMLAttributes, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
 
 import { SkeletonProps } from '@alfalab/core-components-skeleton';
 import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
-export type TabsProps = {
+export interface TabsProps extends Omit<
+    HTMLAttributes<HTMLDivElement>,
+    'onChange' | 'children' | 'className'
+>, AriaAttributes {
     /**
      * Дополнительный класс
      */
@@ -35,25 +38,25 @@ export type TabsProps = {
      * Стиль текста. Имеет приоритет над size. Работает только в primary табах.
      */
     textStyle?:
-        | 'paragraph-primary-large'
-        | 'paragraph-primary-medium'
-        | 'paragraph-primary-small'
-        | 'action-primary-large'
-        | 'action-primary-medium'
-        | 'action-primary-small'
-        | 'accent-primary-large'
-        | 'accent-primary-medium'
-        | 'accent-primary-small'
-        | 'headline-system-xlarge'
-        | 'headline-system-large'
-        | 'headline-system-medium'
-        | 'headline-system-small'
-        | 'headline-system-xsmall'
-        | 'headline-xlarge'
-        | 'headline-large'
-        | 'headline-medium'
-        | 'headline-small'
-        | 'headline-xsmall';
+    | 'paragraph-primary-large'
+    | 'paragraph-primary-medium'
+    | 'paragraph-primary-small'
+    | 'action-primary-large'
+    | 'action-primary-medium'
+    | 'action-primary-small'
+    | 'accent-primary-large'
+    | 'accent-primary-medium'
+    | 'accent-primary-small'
+    | 'headline-system-xlarge'
+    | 'headline-system-large'
+    | 'headline-system-medium'
+    | 'headline-system-small'
+    | 'headline-system-xsmall'
+    | 'headline-xlarge'
+    | 'headline-large'
+    | 'headline-medium'
+    | 'headline-small'
+    | 'headline-xsmall';
 
     /**
      * Высота заголовков табов
@@ -141,9 +144,9 @@ export type TabsProps = {
      * Доп. пропсы для скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
-};
+}
 
-export type TabProps = {
+export interface TabProps extends AriaAttributes {
     /**
      * Id таба
      */
@@ -198,9 +201,9 @@ export type TabProps = {
      * Реф для кнопки переключения таба
      */
     toggleRef?: Ref<HTMLDivElement>;
-};
+}
 
-export type TabListTitle = {
+export interface TabListTitle {
     title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
@@ -211,9 +214,9 @@ export type TabListTitle = {
     collapsed?: boolean;
     dataTestId?: string;
     toggleRef?: Ref<HTMLDivElement>;
-};
+}
 
-export type TabListProps = Pick<
+export interface TabListProps extends Pick<
     TabsProps,
     | 'className'
     | 'containerClassName'
@@ -230,7 +233,7 @@ export type TabListProps = Pick<
     | 'textStyle'
     | 'showSkeleton'
     | 'skeletonProps'
-> & {
+> {
     /**
      * Заголовки табов
      */
@@ -251,12 +254,12 @@ export type TabListProps = Pick<
      * Дополнительные инлайн стили для заголовка
      */
     inlineStyle?: React.CSSProperties;
-};
+}
 
-export type SecondaryTabListProps = TabListProps & {
+export interface SecondaryTabListProps extends TabListProps {
     tagSize?: TagProps['size'];
     TagComponent?: FC<Omit<TagProps, 'breakpoint'>>;
-};
+}
 
 export type UseTabsProps = TabListProps;
 

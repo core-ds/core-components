@@ -1,3 +1,4 @@
+import type { AriaAttributes } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
@@ -5,7 +6,15 @@ import { TabProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Tab = ({ children, hidden, className, disabled, dataTestId }: TabProps) =>
+export const Tab = ({
+    children,
+    hidden,
+    className,
+    disabled,
+    dataTestId,
+    id,
+    ...restProps
+}: TabProps) =>
     children ? (
         <div
             className={cn(
@@ -19,6 +28,7 @@ export const Tab = ({ children, hidden, className, disabled, dataTestId }: TabPr
             role='tabpanel'
             tabIndex={disabled ? -1 : 0}
             data-test-id={dataTestId}
+            {...(restProps as AriaAttributes)}
         >
             {children}
         </div>
