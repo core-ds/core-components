@@ -14,8 +14,9 @@ export const BaseCheckmark = ({
     className,
     multiple,
     align = 'center',
+    position = 'before',
 }: CheckmarkProps) => {
-    const checkmarkClassNames = cn(styles.checkmark, styles[align], className, {
+    const checkmarkClassNames = cn(styles.checkmark, styles[align], styles[position], className, {
         [styles.single]: !multiple,
         [styles.selected]: selected,
     });
