@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
-import { isErrorStatus, isSuccessStatus } from '../../utils';
+import { isErrorStatus, isLoadingStatus, isSuccessStatus } from '../../utils';
 
 import { ExtensionIcon } from './extension-icon';
 import { ProgressBar } from './progress-bar';
@@ -35,11 +35,18 @@ export const StatusControl = () => {
             </SuperEllipse>
             <ProgressBar
                 className={cn(styles.progress, {
+                    [styles.loading]: isLoadingStatus(uploadStatus),
                     [styles.success]: isSuccessStatus(uploadStatus),
                     [styles.error]: isErrorStatus(uploadStatus),
                 })}
                 strokeDasharray={strokeDasharray}
-                strokeDashoffset={strokeDashoffset}
+                strokeDashoffset={
+                    isLoadingStatus(uploadStatus) ||
+                    isSuccessStatus(uploadStatus) ||
+                    isErrorStatus(uploadStatus)
+                        ? 0
+                        : strokeDashoffset
+                }
             />
         </div>
     );

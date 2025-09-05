@@ -20,6 +20,15 @@
             opacity: 0;
         }
 
+        &.loading {
+            & path {
+                stroke: #babbc2;
+                stroke-dasharray: 182.5742645263672;
+                stroke-dashoffset: 0;
+                animation: loading-rotate 1s linear infinite;
+            }
+        }
+
         &.success {
             & path {
                 stroke: var(--color-light-status-positive);
@@ -31,5 +40,14 @@
                 stroke: var(--color-light-status-negative);
             }
         }
+    }
+}
+
+@keyframes loading-rotate {
+    0% {
+        stroke-dashoffset: 182.5742645263672;
+    }
+    100% {
+        stroke-dashoffset: 0;
     }
 }

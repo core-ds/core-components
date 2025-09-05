@@ -4,4 +4,5 @@ export type FileUploadItemStatus =
     | 'ERROR'
     | 'UPLOADING'
     | 'UPLOADED'
+    | 'LOADING'
     | 'DELETED';
