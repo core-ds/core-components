@@ -1,5 +1,23 @@
 # @alfalab/core-components-slider-input
 
+## 11.0.0-next.0
+
+### Major Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1855](https://github.com/core-ds/core-components/pull/1855)
+
+Удален пропс `lockLimit`, который был добавлен в `core-components@48.0`<br/>
+Данный пропс использовался для установки значений в пределах указанных min/max границ при `blur` событии.
+Было обнаружено, что значения в компоненте могут вести себя непредсказуемо если одновременно использовать onBlur, lockLimit, а также при мутации передаваемого value.<br/>
+Чтобы реализовать установку значения по границам - используйте обработчик `onBlur`.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input@16.0.2-next.0
+
 ## 10.0.2
 
 ### Patch Changes

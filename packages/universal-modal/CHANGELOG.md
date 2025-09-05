@@ -1,5 +1,38 @@
 # @alfalab/core-components-universal-modal
 
+## 3.0.0-next.0
+
+### Major Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+-   Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1672](https://github.com/core-ds/core-components/pull/1672)
+
+-   Удалены компоненты для внешнего использования `Arrow` и `Cross`. Данные компоненты остались от промежуточной реализации `UniversalModal`
+-   Изменена высота по умолчанию для центральной модалки на `hugContent`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-navigation-bar-private@2.0.0-next.0
+    -   @alfalab/core-components-base-modal@7.0.0-next.0
+    -   @alfalab/core-components-mq@6.0.0-next.0
+
 ## 2.0.2
 
 ### Patch Changes

@@ -1,5 +1,32 @@
 # @alfalab/core-components-international-phone-input
 
+## 4.0.0-next.0
+
+### Major Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+-   Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-input-autocomplete@14.0.0-next.0
+    -   @alfalab/core-components-select@19.0.0-next.0
+    -   @alfalab/core-components-mq@6.0.0-next.0
+    -   @alfalab/core-components-input@16.0.2-next.0
+
 ## 3.1.0
 
 ### Minor Changes

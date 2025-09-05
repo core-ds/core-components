@@ -1,5 +1,32 @@
 # @alfalab/core-components-tabs
 
+## 10.0.0-next.0
+
+### Major Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+-   Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-picker-button@13.0.0-next.0
+    -   @alfalab/core-components-mq@6.0.0-next.0
+    -   @alfalab/core-components-tag@9.0.2-next.0
+    -   @alfalab/core-components-icon-button@7.0.2-next.0
+
 ## 9.0.1
 
 ### Patch Changes
