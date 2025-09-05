@@ -1,6 +1,6 @@
 @import '../../vars/src/index.css';
 
-.component {
+.component.component {
     position: fixed;
     bottom: var(--gap-0);
     margin: auto var(--gap-8) var(--gap-8);
