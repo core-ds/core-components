@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, ReactEventHandler, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -42,12 +42,17 @@ export type CardImageProps = {
     onLoad?: () => void;
 
     /**
+     * Колбек, вызываемый при ошибке загрузки изображения
+     */
+    onError?: ReactEventHandler<HTMLImageElement>;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Текстовое описание изображения
      */
     alt?: string;
 
@@ -72,6 +77,7 @@ export const CardImage: FC<CardImageProps> = ({
     id,
     dataTestId,
     onLoad,
+    onError,
     className,
 }) => {
     const [loaded, setLoaded] = useState(false);
@@ -132,6 +138,7 @@ export const CardImage: FC<CardImageProps> = ({
                     alt={alt}
                     role='presentation'
                     onLoad={handleLoadedImage}
+                    onError={onError}
                 />
             )}
         </div>
