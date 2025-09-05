@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.10.2
+
+### Patch Changes
+
+<sup><time>05.09.2025</time></sup>
+
+### [#1864](https://github.com/core-ds/core-components/pull/1864)
+
+-   Исправлена проблема со специфичностью в компоненте `Tooltip`
+
 ## 7.10.1
 
 ### Patch Changes

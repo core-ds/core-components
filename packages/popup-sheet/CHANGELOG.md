@@ -1,5 +1,15 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.12
+
+### Patch Changes
+
+<sup><time>05.09.2025</time></sup>
+
+### [#1864](https://github.com/core-ds/core-components/pull/1864)
+
+-   Исправлена проблема со специфичностью в компоненте `PopupSheet`. Увеличена специфичность селектора `.component` для корректного применения стилей позиционирования.
+
 ## 1.4.11
 
 ### Patch Changes
