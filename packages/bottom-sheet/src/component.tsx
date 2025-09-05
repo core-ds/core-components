@@ -667,10 +667,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             ref={mergeRefs([scrollableContainer, scrollableContainerRef])}
                         >
                             {!hideHeader && !emptyHeader && (
-                                <Header
-                                    {...headerProps}
-                                    showSwipeMarker={showSwipeMarker}
-                                />
+                                <Header {...headerProps} showSwipeMarker={showSwipeMarker} />
                             )}
 
                             <div
