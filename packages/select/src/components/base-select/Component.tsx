@@ -117,6 +117,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             ModalMobile,
             BottomSheet,
             limitDynamicOptionGroupSize,
+            environment,
         } = props;
         const shouldSearchBlurRef = useRef(true);
         const rootRef = useRef<HTMLDivElement>(null);
@@ -242,6 +243,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             isItemDisabled,
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
             scrollIntoView,
+            environment,
             onSelectedItemChange: (changes) => {
                 const selectedItem = changes.selectedItem || initiatorRef.current;
 
