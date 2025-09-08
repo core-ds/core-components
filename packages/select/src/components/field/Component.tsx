@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import type { FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus } from '@alfalab/hooks';
 
 import { FieldProps as BaseFieldProps } from '../../typings';
@@ -18,6 +19,7 @@ type FieldProps = {
     FormControlComponent?: ElementType;
 };
 
+// eslint-disable-next-line complexity
 export const Field = ({
     size = 56,
     open,
@@ -41,6 +43,8 @@ export const Field = ({
     FormControlComponent,
     clear,
     onClear,
+    showErrorIcon,
+    success,
     valueSeparator,
     ...restProps
 }: BaseFieldProps & FormControlProps & FieldProps) => {
@@ -60,6 +64,9 @@ export const Field = ({
     const showPlaceholder = !!placeholder && !filled && (open || !label || labelView === 'outer');
 
     const shouldShowClearButton = clear && filled;
+    const shouldShowErrorIcon = error && showErrorIcon;
+    const shouldShowSuccessIcon = success && !error;
+    const statusBadgeSize = size === 40 ? 16 : 20;
 
     return (
         <div
@@ -92,7 +99,7 @@ export const Field = ({
                          * [2] - Common (info, e.g.)
                          * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
                          */
-                        (Arrow || rightAddons) && (
+                        (Arrow || rightAddons || shouldShowClearButton || error || success) && (
                             <Fragment>
                                 {shouldShowClearButton && (
                                     <ClearButton
@@ -100,6 +107,20 @@ export const Field = ({
                                         disabled={disabled}
                                         dataTestId={getDataTestId(dataTestId, 'clear-icon')}
                                         size={size}
+                                    />
+                                )}
+                                {shouldShowErrorIcon && (
+                                    <StatusBadge
+                                        view='negative-alert'
+                                        size={statusBadgeSize}
+                                        dataTestId={getDataTestId(dataTestId, 'error-icon')}
+                                    />
+                                )}
+                                {shouldShowSuccessIcon && (
+                                    <StatusBadge
+                                        view='positive-checkmark'
+                                        size={statusBadgeSize}
+                                        dataTestId={getDataTestId(dataTestId, 'success-icon')}
                                     />
                                 )}
                                 {rightAddons}
