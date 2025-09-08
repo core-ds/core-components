@@ -1,41 +1,61 @@
 /* eslint-disable @typescript-eslint/no-shadow, import/no-extraneous-dependencies, no-param-reassign */
 
+import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
 import fse from 'fs-extra';
-import { globbySync } from 'globby';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { cwd } from 'node:process';
 import postcss from 'postcss';
+import postcssCustomProperties from 'postcss-custom-properties';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
 import postcssModules from 'postcss-modules';
 import { createFilter } from 'rollup-pluginutils';
 import stringHash from 'string-hash';
+import { globSync } from 'tinyglobby';
 
 import postcssConfig from '../../postcss.config.js';
 import { isSamePath } from '../path.cjs';
+import postcssRemoveComment from '../postcss/postcss-remove-comment.cjs';
+import postcssRemoveEmptyRoot from '../postcss/postcss-remove-empty-root.cjs';
 import { resolveInternal } from '../resolve-internal.cjs';
 
 const pkg = fse.readJsonSync('package.json', { encoding: 'utf8' });
 
+const varsEntryPoints = globSync('src/*index.css', {
+    cwd: resolveInternal('@alfalab/core-components-vars'),
+    absolute: true,
+});
+
 /**
- *
- * @param {} options
+ * @typedef Options
+ * @property {boolean} [modules]
+ * @property {boolean} [noCommonVars]
+ * @property {boolean} [preserveVars]
+ */
+
+/**
+ * @param {Options} [options]
  * @returns {import('rollup').Plugin}
  */
 export function processCss(options = {}) {
+    /**
+     * @type {Required<Options>}
+     */
     const config = {
-        name: 'process-css',
         modules: options.modules ?? true,
         noCommonVars: options.noCommonVars ?? false,
+        preserveVars: options.preserveVars ?? true,
     };
+
+    const name = 'process-css';
 
     const cssAssets = {};
 
     const isIncluded = createFilter('**/*.css', '**/node_modules/**');
 
     return {
-        name: config.name,
+        name,
         async resolveId(source, importer, options) {
             const resolution = await this.resolve(source, importer, options);
 
@@ -68,7 +88,7 @@ export function processCss(options = {}) {
         },
         async renderStart(outputOptions) {
             if (!outputOptions.preserveModules) {
-                this.error(`\n\n${config.name} requires output.preserveModules to be enabled\n\n`);
+                this.error(`\n\n${name} requires output.preserveModules to be enabled\n\n`);
             }
 
             await Promise.all(
@@ -86,56 +106,58 @@ export function processCss(options = {}) {
     };
 }
 
-async function processPostcss(filePath, config = {}) {
+/**
+ * @param {string} filePath
+ * @param {Required<Options>} config
+ */
+async function processPostcss(filePath, config) {
     let classNames = {};
 
     const originalCss = await fs.readFile(filePath, { encoding: 'utf8' });
 
-    let plugins = [...postcssConfig.plugins];
+    let plugins = postcssConfig.plugins.map((plugin) => {
+        if (plugin.postcssPlugin === 'postcss-mixins') {
+            const parsed = path.parse(filePath);
+
+            let ignore;
+
+            if (/^alfasans-.*\.css$/.test(parsed.base)) {
+                ignore = ['src/{index,typography}.css', 'src/no-typography.css'];
+            } else {
+                ignore = ['src/alfasans-{index,typography}.css', 'src/no-typography.css'];
+            }
+
+            return postcssMixins({
+                mixinsFiles: globSync('src/*.css', {
+                    ignore,
+                    cwd: resolveInternal('@alfalab/core-components-vars'),
+                    absolute: true,
+                }),
+            });
+        }
+
+        return plugin;
+    });
 
     if (config.noCommonVars) {
         plugins = plugins.map((plugin) =>
             plugin.postcssPlugin === 'postcss-import'
                 ? postcssImport({
                       warnOnEmpty: false,
-                      load: async (filename) => {
-                          if (
-                              isSamePath(
-                                  filename,
-                                  resolveInternal(
-                                      '@alfalab/core-components-vars/src/index.css',
-                                      false,
-                                  ),
-                              )
-                          ) {
-                              /*
-                               * TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
-                               * В текущей версиии postcss-import импорт пустого файла вызывает ошибку
-                               * https://github.com/postcss/postcss-import/issues/84
-                               */
-                              return '/* */';
-                          }
+                      load: (filename) => {
+                          const isEntryPoint = varsEntryPoints.some((entryPoint) =>
+                              isSamePath(entryPoint, filename),
+                          );
 
-                          return fs.readFile(filename, { encoding: 'utf8' });
+                          return isEntryPoint ? '' : fs.readFile(filename, { encoding: 'utf8' });
                       },
                   })
                 : plugin,
         );
     }
 
-    // replace `typography.css` mixins by `alfasans-typography.css` mixins
-    if (/\/alfasans-.*\.css$/.test(filePath)) {
-        plugins = plugins.map((plugin) =>
-            plugin.postcssPlugin === 'postcss-mixins'
-                ? postcssMixins({
-                      mixinsFiles: globbySync('src/*.css', {
-                          ignore: ['**/{index,typography}.css'],
-                          cwd: resolveInternal('@alfalab/core-components-vars'),
-                          absolute: true,
-                      }),
-                  })
-                : plugin,
-        );
+    if (config.preserveVars === false) {
+        plugins.push(postcssCustomProperties({ preserve: false }));
     }
 
     if (config.modules) {
@@ -155,9 +177,20 @@ async function processPostcss(filePath, config = {}) {
         );
     }
 
-    const result = await postcss(plugins).process(originalCss, {
-        from: filePath,
-    });
+    plugins.push(
+        purgeCSSPlugin({
+            variables: true,
+            /**
+             * Мы юзаем purgecss только чтобы удалить лишнюю портянку из переменных
+             * Поэтому указываем, что ВООБЩЕ никакие селекторы удалять не нужно
+             */
+            safelist: [/.*/],
+        }),
+        postcssRemoveComment(),
+        postcssRemoveEmptyRoot(),
+    );
+
+    const result = await postcss(plugins).process(originalCss, { from: filePath });
 
     return {
         css: result.css,

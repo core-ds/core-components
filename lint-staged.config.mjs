@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import fse from 'fs-extra';
-import { convertPathToPattern } from 'globby';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { convertPathToPattern } from 'tinyglobby';
 
 import { getPackages } from './tools/monorepo.cjs';
 import { readPackagesFileSync } from './tools/read-packages-file.cjs';
@@ -59,9 +59,9 @@ const config = {
             }),
             {},
         ),
-    [`./{${DIRS.join(',')}}/**/*.{${EXTENSIONS.join(',')}}`]: 'eslint --max-warnings 0 --no-ignore',
+    [`./{${DIRS.join(',')}}/**/*.{${EXTENSIONS.join(',')}}`]: () => 'eslint --max-warnings 0',
     './bin/tsconfig/templates/tsconfig*.json': () => 'yarn tsconfig check',
-    '*.{js,jsx,ts,tsx,cjs,mjs,json,yml}': 'prettier --write',
+    '*.{js,jsx,ts,tsx,cjs,mjs,json,yml,md}': 'prettier --write',
     '*.css': ['prettier --write', 'stylelint'],
 };
 

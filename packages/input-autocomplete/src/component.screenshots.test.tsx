@@ -34,62 +34,37 @@ describe('InputAutocomplete', () => {
     );
 });
 
-describe(
-    'InputAutocomplete | screenshots rightAddons',
-    screenshotTesting({
-        cases: [
-            [
-                `default theme sprite`,
-                createSpriteStorybookUrl({
-                    componentName: 'InputAutocomplete',
-                    knobs: {
-                        label: 'Автокомплит',
-                        size: 56,
-                        block: true,
-                        selected: [['1']],
-                        options: [[{ key: '1', content: 'Вариант из списка' }]],
-                        success: [true, false],
-                        error: [undefined, 'Error'],
-                    },
-                    size: { width: 200, height: 150 },
-                }),
+describe('InputAutocomplete | screenshots rightAddons', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme sprite`,
+                    createSpriteStorybookUrl({
+                        componentName: 'InputAutocomplete',
+                        knobs: {
+                            label: 'Автокомплит',
+                            size: 56,
+                            block: true,
+                            selected: [['1']],
+                            options: [[{ key: '1', content: 'Вариант из списка' }]],
+                            success: [true, false],
+                            error: [undefined, 'Error'],
+                            showErrorIcon: true,
+                        },
+                        size: { width: 200, height: 150 },
+                    }),
+                ],
             ],
-        ],
-        theme: 'default',
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
+            theme,
+            screenshotOpts: {
+                fullPage: true,
+            },
+        })();
+    };
 
-describe(
-    'InputAutocomplete | screenshots rightAddons',
-    screenshotTesting({
-        cases: [
-            [
-                `site theme sprite`,
-                createSpriteStorybookUrl({
-                    componentName: 'InputAutocomplete',
-                    knobs: {
-                        label: 'Автокомплит',
-                        size: 56,
-                        block: true,
-                        selected: [['1']],
-                        options: [[{ key: '1', content: 'Вариант из списка' }]],
-                        success: [true, false],
-                        error: [undefined, 'Error'],
-                        showErrorIcon: true,
-                    },
-                    size: { width: 200, height: 150 },
-                }),
-            ],
-        ],
-        theme: 'site',
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
 
 describe('InputAutocomplete | interactions tests', () => {
     test('Fill value', async () => {

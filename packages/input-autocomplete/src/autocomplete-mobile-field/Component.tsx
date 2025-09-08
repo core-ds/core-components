@@ -76,6 +76,13 @@ export const AutocompleteMobileField = ({
     const { tabIndex, ...restInnerProps } = innerProps;
 
     const formRightAddons = (Arrow || rightAddons || clearButtonVisible || error || success) && (
+        /**
+         * Right addon priority [4] <= [3] <= [2] <= [1]
+         * [4] - Clear
+         * [3] - Status (error, success)
+         * [2] - Common (info, e.g.)
+         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+         */
         <Fragment>
             {clearButtonVisible && (
                 <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
@@ -94,8 +101,8 @@ export const AutocompleteMobileField = ({
                     dataTestId={getDataTestId(dataTestId, 'success-icon')}
                 />
             )}
-            {Arrow}
             {rightAddons}
+            {Arrow}
         </Fragment>
     );
 

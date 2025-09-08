@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { Fragment, useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 
 import { InputProps } from '@alfalab/core-components-input';
@@ -81,10 +81,17 @@ export const AutocompleteField = ({
             value={value}
             rightAddons={
                 (Arrow || inputProps.rightAddons) && (
-                    <React.Fragment>
-                        {Arrow && <span>{Arrow}</span>}
+                    /**
+                     * Right addon priority [4] <= [3] <= [2] <= [1]
+                     * [4] - Clear
+                     * [3] - Status (error, success)
+                     * [2] - Common (info, e.g.)
+                     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+                     */
+                    <Fragment>
                         {inputProps.rightAddons}
-                    </React.Fragment>
+                        {Arrow && <span>{Arrow}</span>}
+                    </Fragment>
                 )
             }
         />

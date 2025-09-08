@@ -1,18 +1,20 @@
-import { globby } from 'globby';
 import fs from 'node:fs/promises';
 import postcss from 'postcss';
+import { glob } from 'tinyglobby';
+
+import { getPackages } from '../tools/monorepo.cjs';
 
 /**
  * @returns {import('postcss').AcceptedPlugin}
  */
 const postcssLightToDarkColors = () => ({
     postcssPlugin: 'postcss-light-to-dark-colors',
-    Once: (root, { Declaration }) => {
+    Once: (root, helpers) => {
         root.walkDecls((decl) => {
             // Check if color is light
             if (/^--color-light-[\w-]+$/.test(decl.prop)) {
                 decl.replaceWith(
-                    new Declaration({
+                    helpers.postcss.decl({
                         prop: decl.prop,
                         // --color-light-decorative-fuchsia-hover -> --color-dark-decorative-fuchsia-hover
                         value: `var(${decl.prop.replace(/^(--color)-light-(.*)$/, '$1-dark-$2')})`,
@@ -35,8 +37,14 @@ const postcssLightToDarkColors = () => ({
  */
 
 async function main() {
-    const files = await globby('packages/vars/src/colors-*.css', {
+    const { packages } = getPackages();
+    const vars = packages.find(
+        ({ packageJson: { name } }) => name === '@alfalab/core-components-vars',
+    );
+    const files = await glob('src/colors-*.css', {
         ignore: ['**/colors-bluetint.css', '**/colors-indigo.css', '**/*dark.css'],
+        cwd: vars.dir,
+        absolute: true,
     });
 
     for (const file of files) {

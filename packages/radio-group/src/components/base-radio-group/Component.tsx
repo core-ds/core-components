@@ -1,9 +1,11 @@
 import React, {
+    AriaAttributes,
     ChangeEvent,
     Children,
     cloneElement,
     FocusEvent,
     forwardRef,
+    HTMLAttributes,
     isValidElement,
     MouseEvent,
     ReactElement,
@@ -20,7 +22,12 @@ import commonStyles from './index.module.css';
 export type Direction = 'horizontal' | 'vertical';
 export type RadioGroupType = 'radio' | 'tag';
 
-export type BaseRadioGroupProps = {
+export interface BaseRadioGroupProps
+    extends Omit<
+            HTMLAttributes<HTMLDivElement>,
+            'onChange' | 'onBlur' | 'onFocus' | 'children' | 'className'
+        >,
+        AriaAttributes {
     /**
      * Заголовок группы
      */
@@ -106,7 +113,7 @@ export type BaseRadioGroupProps = {
      * Основные стили компонента.
      */
     styles: { [key: string]: string };
-};
+}
 
 export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
     (
@@ -127,6 +134,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
             name,
             value,
             styles,
+            ...restProps
         },
         ref,
     ) => {
@@ -204,8 +212,9 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                     { [styles.error]: error },
                     className,
                 )}
-                data-test-id={dataTestId}
                 ref={ref}
+                data-test-id={dataTestId}
+                {...restProps}
             >
                 {label ? (
                     <span

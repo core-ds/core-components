@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-radio-group",
-    "version": "5.1.0",
+    "version": "5.2.0",
     "description": "Radio group",
     "keywords": [],
     "license": "MIT",
@@ -24,6 +24,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.0",
+    "themesVersion": "14.1.2",
     "varsVersion": "10.1.0"
 }

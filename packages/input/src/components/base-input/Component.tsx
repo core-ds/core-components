@@ -428,6 +428,13 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             const statusBadgeSize = size === 40 ? 16 : 20;
 
             return (
+                /**
+                 * Right addon priority [4] <= [3] <= [2] <= [1]
+                 * [4] - Clear
+                 * [3] - Status (error, success)
+                 * [2] - Common (info, e.g.)
+                 * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+                 */
                 addonsVisible && (
                     <Fragment>
                         {clearButtonVisible && (

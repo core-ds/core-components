@@ -24,6 +24,7 @@ export const Tabs = ({
     skeletonProps,
     textStyle,
     style,
+    ...restProps
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(
@@ -55,7 +56,7 @@ export const Tabs = ({
     );
 
     return (
-        <div className={className}>
+        <div className={className} {...restProps}>
             <TabList
                 containerClassName={containerClassName}
                 size={size}

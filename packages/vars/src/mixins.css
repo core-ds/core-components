@@ -106,11 +106,18 @@
     border: 0;
     margin: var(--gap-0);
     box-shadow: none;
-    border-radius: 0;
+    border-radius: var(--border-radius-0);
     user-select: none;
     vertical-align: middle;
     appearance: none;
     text-decoration: none;
     min-width: 0;
     cursor: pointer;
+}
+
+@define-mixin row_limit $num {
+    -webkit-line-clamp: $num;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

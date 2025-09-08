@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --universal-modal-header-desktop-font-weight: bold;
