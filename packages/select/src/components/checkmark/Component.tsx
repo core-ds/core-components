@@ -32,17 +32,7 @@ export const Checkmark = ({
 
     return single ? (
         <div className={checkmarkClassNames}>
-            {position === 'before' ? (
-                <Badge
-                    className={styles.after}
-                    view='icon'
-                    size='m'
-                    iconColor='positive'
-                    content={<CheckmarkCircleMIcon className={styles.colorIcon} />}
-                />
-            ) : (
-                <CheckmarkMIcon className={cn(styles.displayIcon)} />
-            )}
+            <CheckmarkMIcon className={cn(styles.displayIcon)} />
         </div>
     ) : (
         <Checkbox
