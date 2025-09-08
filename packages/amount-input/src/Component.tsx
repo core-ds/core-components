@@ -1,4 +1,12 @@
-import React, { FocusEvent, forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
+import React, {
+    FocusEvent,
+    forwardRef,
+    Fragment,
+    SyntheticEvent,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
@@ -365,6 +373,17 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onBlur?.(event);
         };
 
+        const handleSelect = (event: SyntheticEvent<HTMLInputElement>) => {
+            const target = event.currentTarget;
+
+            const selectionExists =
+                (target.selectionEnd as number) > (target.selectionStart as number);
+
+            if (selectionExists !== isFocused) {
+                setIsFocused(selectionExists);
+            }
+        };
+
         const handleDecrement = () => {
             if (stepper.step) {
                 const newValue = parseNumber(value) - stepper.step;
@@ -422,6 +441,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 className={cn(styles.container, {
                     [styles.bold]: bold,
                     [styles.filled]: Boolean(inputValue),
+                    [styles.focused]: isFocused,
                 })}
             >
                 <SuffixInput
@@ -429,7 +449,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
-                            {majorPart}
+                            <span className={styles.suffixMajor}>{majorPart}</span>
 
                             <span
                                 className={cn({
@@ -438,9 +458,13 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                                     [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
-                                {minorPart !== undefined && `,${minorPart}`}
+                                {minorPart !== undefined && (
+                                    <span className={styles.suffixMinor}>{`,${minorPart}`}</span>
+                                )}
                                 {THINSP}
-                                {suffix === currency ? currencyCode : suffix}
+                                <span className={styles.suffixCurrency}>
+                                    {suffix === currency ? currencyCode : suffix}
+                                </span>
                             </span>
                         </Fragment>
                     }
@@ -459,6 +483,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onBlur={handleBlur}
                     onKeyDown={handleKeyDown}
                     onFocus={handleFocus}
+                    onSelect={handleSelect}
                     inputMode='decimal'
                     pattern={`[${positiveOnly ? '' : '\\-'}0-9\\s\\.,]*`}
                     dataTestId={dataTestId}

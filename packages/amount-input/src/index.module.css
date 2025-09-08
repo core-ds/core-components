@@ -31,3 +31,16 @@
 .input:focus {
     -webkit-text-fill-color: transparent;
 }
+
+/*
+* Когда пользователь выделяет текст, показываем реальный текст инпута
+* и скрываем визуальный суффикс, чтобы избежать артефактов рендеринга (Windows).
+*/
+.focused .input {
+    -webkit-text-fill-color: currentColor;
+}
+
+.focused .suffixMajor,
+.focused .suffixMinor {
+    opacity: 0;
+}
