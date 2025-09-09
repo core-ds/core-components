@@ -24,17 +24,17 @@ const meta: Meta<typeof AccountSelectDesktop> = {
 
 type Story = StoryObj<typeof AccountSelectDesktop>;
 
-const options = [
+const getOptions = (platform: 'desktop' | 'mobile' = 'desktop') => [
     {
         key: '1',
         content: (
             <PureCell verticalPadding='default'>
                 <PureCell.Graphics verticalAlign='center'>
-                    <ProductCover.Single size={32} />
+                    <ProductCover.Single size={platform === 'desktop' ? 48 : 40} />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <Typography.Text color='secondary' view='component'>
+                        <Typography.Text color='secondary' view='primary-small'>
                             Карта с преимуществами
                         </Typography.Text>
                         <Amount
@@ -54,11 +54,11 @@ const options = [
         content: (
             <PureCell verticalPadding='default'>
                 <PureCell.Graphics verticalAlign='center'>
-                    <ProductCover.Single size={32} />
+                    <ProductCover.Single size={platform === 'desktop' ? 48 : 40} />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <Typography.Text color='secondary' view='component'>
+                        <Typography.Text color='secondary' view='primary-small'>
                             Карта с кредитным лимитом
                         </Typography.Text>
                         <Amount
@@ -101,7 +101,7 @@ export const account_select_desktop: Story = {
                         <PureCell verticalPadding='default'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
-                                    size={32}
+                                    size={48}
                                     iconColor='var(--color-light-neutral-700)'
                                     backgroundColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}
@@ -109,9 +109,9 @@ export const account_select_desktop: Story = {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <PureCell.Text titleColor='primary' view='primary-small'>
+                                    <Typography.Text view='component-primary'>
                                         Новая карта
-                                    </PureCell.Text>
+                                    </Typography.Text>
                                 </PureCell.Main>
                             </PureCell.Content>
                         </PureCell>
@@ -123,7 +123,7 @@ export const account_select_desktop: Story = {
                     expiryAsDate: boolean('expiryAsDate', true),
                     cardImage,
                 }}
-                options={options}
+                options={getOptions()}
             />
         );
     },
@@ -134,13 +134,13 @@ export const account_select_mobile: Story = {
     render: () => (
         <AccountSelectMobile
             label={text('label', 'Элемент')}
-            options={options}
+            options={getOptions('mobile')}
             cardAddingProps={{
                 content: (
                     <PureCell verticalPadding='none'>
                         <PureCell.Graphics verticalAlign='center'>
                             <ProductCover.Single
-                                size={32}
+                                size={40}
                                 iconColor='var(--color-light-neutral-700)'
                                 backgroundColor='var(--color-light-neutral-200)'
                                 icon={PlusMIcon}
@@ -148,9 +148,9 @@ export const account_select_mobile: Story = {
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text titleColor='primary' view='primary-small'>
+                                <Typography.Text view='component-primary'>
                                     Новая карта
-                                </PureCell.Text>
+                                </Typography.Text>
                             </PureCell.Main>
                         </PureCell.Content>
                     </PureCell>

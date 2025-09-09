@@ -40,7 +40,25 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const cvvRef = useRef<HTMLInputElement | null>(null);
 
         const numberMaskRef = useMaskito({ options: CARD_MASK });
-        const expiryMaskRef = useMaskito({ options: EXPIRY_MASK });
+        const expiryMaskRef = useMaskito({
+            options: {
+                ...EXPIRY_MASK,
+                postprocessors: [
+                    (state) => {
+                        const {
+                            value,
+                            selection: [, to],
+                        } = state;
+                        if (to >= 5 && !validateExpiry(value)) {
+                            setError('Введена неверная дата');
+                        } else {
+                            setError(null);
+                        }
+                        return state;
+                    },
+                ],
+            },
+        });
         const cvvMaskRef = useMaskito({ options: CVV_MASK });
 
         const numberRefCallback = useCallback(
