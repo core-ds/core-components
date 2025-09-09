@@ -1,5 +1,12 @@
 # @alfalab/core-components-code-input
 
+## 4.0.2-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@6.0.0-next.0
+
 ## 4.0.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @alfalab/core-components-pagination
 
+## 3.0.2-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-tag@9.0.2-next.0
+
 ## 3.0.1
 
 ### Patch Changes

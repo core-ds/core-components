@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-textarea",
-    "version": "9.0.1",
+    "version": "9.0.2-next.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-form-control": "^13.0.1",
-        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-form-control": "^13.0.2-next.0",
+        "@alfalab/core-components-mq": "^6.0.0-next.0",
         "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",

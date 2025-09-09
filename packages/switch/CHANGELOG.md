@@ -1,5 +1,15 @@
 # @alfalab/core-components-switch
 
+## 6.0.0-next.0
+
+### Major Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1695](https://github.com/core-ds/core-components/pull/1695)
+
+-   Удалён пропс `inactive`, который был отмечен как `deprecated` в core-components@43.x.x. Вместо него используйте пропс `disabled`
+
 ## 5.0.1
 
 ### Patch Changes

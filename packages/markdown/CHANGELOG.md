@@ -1,5 +1,31 @@
 # @alfalab/core-components-markdown
 
+## 3.0.0-next.0
+
+### Major Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+-   Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-list@5.0.0-next.0
+    -   @alfalab/core-components-typography@6.0.0-next.0
+    -   @alfalab/core-components-mq@6.0.0-next.0
+
 ## 2.1.0
 
 ### Minor Changes
