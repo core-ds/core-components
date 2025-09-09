@@ -52,7 +52,7 @@ export const ActionTextAddon: React.FC<ActionTextAddonProps> = ({
     >
         <TypographyText
             className={styles.text}
-            view='component'
+            view='component-primary'
             weight={action === 'primary' ? 'medium' : 'regular'}
         >
             {text}

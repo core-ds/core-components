@@ -66,7 +66,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
                 {textOpacity > 0 && text && (
                     <TypographyText
                         className={styles.text}
-                        view={view === 'desktop' ? 'primary-large' : 'component'}
+                        view={view === 'desktop' ? 'primary-large' : 'component-primary'}
                         weight='medium'
                         style={{ opacity: textOpacity }}
                     >
