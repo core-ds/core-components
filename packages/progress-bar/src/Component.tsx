@@ -31,9 +31,9 @@ export type ProgressBarProps = {
 
     /**
      * Размер компонента
-     * @description s, m deprecated, используйте вместо них 4, 8 соответственно
+     * @default 8
      */
-    size?: 's' | 'm' | 4 | 8;
+    size?: 4 | 8;
 
     /**
      * Id компонента для тестов
@@ -44,13 +44,6 @@ export type ProgressBarProps = {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
-};
-
-export const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-4',
-    m: 'size-8',
-    4: 'size-4',
-    8: 'size-8',
 };
 
 const colorStyles = {
@@ -71,7 +64,7 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
                 className={cn(
                     styles.container,
                     colorStyles[colors].container,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[`size-${size}`],
                     className,
                 )}
                 data-test-id={dataTestId}
