@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import cn from 'classnames';
 
-import { ResponsivePropertyType } from '../typings';
+import { type ResponsivePropertyType } from '../typings';
 import { createClassNames } from '../utils';
 
 import guttersStyles from '../gutters.module.css';

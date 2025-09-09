@@ -1,7 +1,7 @@
-import { Children, isValidElement, ReactNode } from 'react';
+import { Children, isValidElement, type ReactNode } from 'react';
 
-import { FooterDesktop } from '../../components/footer';
-import { HeaderDesktop } from '../../components/header';
+import { type FooterDesktop } from '../../components/footer';
+import { type HeaderDesktop } from '../../components/header';
 
 import { isFooterNode } from './isFooterNode';
 import { isHeaderNode } from './isHeaderNode';

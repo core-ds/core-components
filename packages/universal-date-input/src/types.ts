@@ -1,17 +1,17 @@
-import type {
-    ChangeEvent,
-    FocusEvent,
-    ForwardRefExoticComponent,
-    KeyboardEvent,
-    MouseEvent,
-    PropsWithoutRef,
-    RefAttributes,
-    RefObject,
+import {
+    type ChangeEvent,
+    type FocusEvent,
+    type ForwardRefExoticComponent,
+    type KeyboardEvent,
+    type MouseEvent,
+    type PropsWithoutRef,
+    type RefAttributes,
+    type RefObject,
 } from 'react';
 
-import type { CalendarProps } from '@alfalab/core-components-calendar';
-import type { InputProps } from '@alfalab/core-components-input';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import { type CalendarProps } from '@alfalab/core-components-calendar';
+import { type InputProps } from '@alfalab/core-components-input';
+import { type PopoverProps } from '@alfalab/core-components-popover';
 
 export type View = 'date' | 'date-time' | 'date-range' | 'time' | 'month';
 

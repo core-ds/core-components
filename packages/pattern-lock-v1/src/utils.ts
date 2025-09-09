@@ -1,4 +1,4 @@
-import { Theme, ThemeParams } from 'react-canvas-pattern-lock';
+import { type Theme, type ThemeParams } from 'react-canvas-pattern-lock';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 

@@ -4,7 +4,7 @@ import { CalendarMobile } from '@alfalab/core-components-calendar/mobile';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { DateInputProps } from '@alfalab/core-components-date-input';
 
-import { CalendarInput, CalendarInputProps } from '../components/calendar-input/Component';
+import { CalendarInput, type CalendarInputProps } from '../components/calendar-input/Component';
 
 export type CalendarInputMobileProps = Omit<CalendarInputProps, 'view'>;
 

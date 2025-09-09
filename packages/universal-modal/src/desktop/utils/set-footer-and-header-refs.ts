@@ -2,15 +2,15 @@ import {
     Children,
     cloneElement,
     isValidElement,
-    MutableRefObject,
-    ReactElement,
-    ReactNode,
-    RefObject,
+    type MutableRefObject,
+    type ReactElement,
+    type ReactNode,
+    type RefObject,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 
-import { FooterDesktop } from '../../components/footer';
-import { HeaderDesktop } from '../../components/header';
+import { type FooterDesktop } from '../../components/footer';
+import { type HeaderDesktop } from '../../components/header';
 
 import { isFooterNode } from './isFooterNode';
 import { isHeaderNode } from './isHeaderNode';

@@ -1,6 +1,6 @@
 import React, {
-    ChangeEvent,
-    FocusEvent,
+    type ChangeEvent,
+    type FocusEvent,
     forwardRef,
     useEffect,
     useMemo,
@@ -13,7 +13,7 @@ import isAfter from 'date-fns/isAfter';
 import isValid from 'date-fns/isValid';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import type { CalendarProps } from '@alfalab/core-components-calendar';
+import { type CalendarProps } from '@alfalab/core-components-calendar';
 import { Input } from '@alfalab/core-components-input';
 import { Popover } from '@alfalab/core-components-popover';
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -21,7 +21,7 @@ import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 import { CalendarSIcon } from '@alfalab/icons-glyph/CalendarSIcon';
 
 import { DATE_RANGE_SEPARATOR, DEFAULT_MAX_DATE, DEFAULT_MIN_DATE } from '../../consts';
-import { InnerDateRangeInputProps } from '../../types';
+import { type InnerDateRangeInputProps } from '../../types';
 import {
     formatDate,
     formatDateRange,

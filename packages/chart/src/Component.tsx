@@ -27,13 +27,13 @@ import { TooltipContent } from './components/TooltipContent';
 import { CustomizedHOC } from './hoc/Customized';
 import { useSettings } from './hooks/useSettings';
 import {
-    ActiveDotProps,
-    CoordinatesProps,
-    DataDynamicBooleanProps,
-    DataDynamicProps,
-    OptionsProps,
-    SeriaProps,
-    ToggleChartProps,
+    type ActiveDotProps,
+    type CoordinatesProps,
+    type DataDynamicBooleanProps,
+    type DataDynamicProps,
+    type OptionsProps,
+    type SeriaProps,
+    type ToggleChartProps,
 } from './types';
 
 import styles from './index.module.css';
@@ -287,7 +287,7 @@ export const Chart = (props: OptionsProps) => {
 
     // Позиционирование brush
     useEffect(() => {
-        if (!state || !state.brush) return;
+        if (!state?.brush) return;
         if (!heightLegend || heightLegend === 0) return;
 
         const align = state?.legend?.verticalAlign;

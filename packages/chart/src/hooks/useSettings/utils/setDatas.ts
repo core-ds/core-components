@@ -1,8 +1,8 @@
-import { SeriaProps } from '../../../types/seria.types';
+import { type SeriaProps } from '../../../types/seria.types';
 import {
-    DataDynamicBooleanProps,
-    DataDynamicProps,
-    DataProps,
+    type DataDynamicBooleanProps,
+    type DataDynamicProps,
+    type DataProps,
 } from '../../../types/utils/data.types';
 
 type DatasResultProps = [DataDynamicProps[], DataDynamicBooleanProps, number];

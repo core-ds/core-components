@@ -1,18 +1,18 @@
 import React, {
-    ChangeEvent,
-    FC,
-    FocusEvent,
+    type ChangeEvent,
+    type FC,
+    type FocusEvent,
     forwardRef,
-    Ref,
+    type Ref,
     useEffect,
     useMemo,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { MaskitoOptions, maskitoTransform } from '@maskito/core';
+import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
-import type { InputProps } from '@alfalab/core-components-input';
+import { type InputProps } from '@alfalab/core-components-input';
 import { fnUtils, os } from '@alfalab/core-components-shared';
 
 import {

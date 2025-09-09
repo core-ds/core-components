@@ -1,14 +1,14 @@
 import React, {
-    AnimationEvent,
-    ChangeEvent,
-    ElementType,
+    type AnimationEvent,
+    type ChangeEvent,
+    type ElementType,
     Fragment,
-    HTMLAttributes,
-    InputHTMLAttributes,
-    KeyboardEvent,
-    MouseEvent,
-    ReactNode,
-    RefAttributes,
+    type HTMLAttributes,
+    type InputHTMLAttributes,
+    type KeyboardEvent,
+    type MouseEvent,
+    type ReactNode,
+    type RefAttributes,
     useCallback,
     useRef,
     useState,
@@ -16,7 +16,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { FormControlProps } from '@alfalab/core-components-form-control';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';

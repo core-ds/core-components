@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { BaseConfirmation } from '../components/base-confirmation';
-import { ConfirmationProps } from '../types';
+import { type ConfirmationProps } from '../types';
 
 export type DesktopConfirmationProps = Omit<ConfirmationProps, 'mobile' | 'breakpoint'>;
 

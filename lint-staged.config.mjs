@@ -1,68 +1,43 @@
-/* eslint-disable import/no-extraneous-dependencies */
+// @ts-check
 
-import fse from 'fs-extra';
+/* eslint-disable import/no-extraneous-dependencies */
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { convertPathToPattern } from 'tinyglobby';
 
+import { ESLINT_IGNORED_PACKAGES } from './tools/eslint.cjs';
 import { getPackages } from './tools/monorepo.cjs';
-import { readPackagesFileSync } from './tools/read-packages-file.cjs';
-
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.json'), { encoding: 'utf8' });
-
-const ESLINT_IGNORED_PACKAGES = readPackagesFileSync(
-    path.join(dirname, 'tools/.eslint-ignored-packages'),
-);
-
-const EXTENSIONS = ['js', 'ts', 'cjs', 'mjs'];
-const DIRS = ['bin', 'tools'];
-const FILES_REGEXP = new RegExp(`^(?!(${DIRS.join('|')})\\/).*\\.(${EXTENSIONS.join('|')})$`);
 
 const { packages } = getPackages();
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @type {import('lint-staged').Configuration}
  */
 const config = {
+    '{package,tsconfig*}.json': () => 'yarn tsconfig check',
+    '*.{ts,tsx,js,jsx,mjs,mts,cjs,cts,css,json,md,yaml,yml}': 'prettier --write --list-different',
+    './*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}': 'eslint --fix --max-warnings 0',
+    './{bin,tools}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}': 'eslint --fix --max-warnings 0',
+    '*.css': 'stylelint --fix',
     ...packages
         .filter(({ packageJson: { name } }) => !ESLINT_IGNORED_PACKAGES.includes(name))
-        .reduce((patterns, { dir, relativeDir, packageJson: { name } }) => {
-            const pattern = `./${convertPathToPattern(
-                relativeDir,
-            )}/src/**/*.{js,jsx,ts,tsx,cjs,mjs}`;
-
-            return {
-                ...patterns,
-                [pattern]: () => {
-                    const eslintConfig = path.relative(dir, path.join(dirname, '.eslintrc.cjs'));
-
-                    return `lerna exec --scope ${name} -- "eslint src --max-warnings 0 --config '${eslintConfig}'"`;
-                },
-            };
-        }, {}),
-    ...packages.reduce((patterns, { relativeDir }) => {
-        const pattern = `./${convertPathToPattern(relativeDir)}/{package,tsconfig}.json`;
-
-        return {
-            ...patterns,
-            [pattern]: () => 'yarn tsconfig check',
-        };
-    }, {}),
-    ...tsconfig.include
-        .filter((included) => FILES_REGEXP.test(included))
         .reduce(
-            (patterns, file) => ({
-                ...patterns,
-                [`./${convertPathToPattern(file)}`]: 'eslint --max-warnings 0',
+            (packagesConfig, { dir, relativeDir, packageJson: { name } }) => ({
+                ...packagesConfig,
+                [`./${convertPathToPattern(relativeDir)}/src/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]:
+                    () => {
+                        const eslintConfig = path.relative(
+                            dir,
+                            path.join(dirname, '.eslintrc.cjs'),
+                        );
+
+                        return `lerna exec --scope ${name} -- "eslint src --max-warnings 0 --config '${eslintConfig}'"`;
+                    },
             }),
             {},
         ),
-    [`./{${DIRS.join(',')}}/**/*.{${EXTENSIONS.join(',')}}`]: () => 'eslint --max-warnings 0',
-    './bin/tsconfig/templates/tsconfig*.json': () => 'yarn tsconfig check',
-    '*.{js,jsx,ts,tsx,cjs,mjs,json,yml,md}': 'prettier --write',
-    '*.css': ['prettier --write', 'stylelint'],
 };
 
 export default config;

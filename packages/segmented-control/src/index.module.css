@@ -73,5 +73,7 @@
     bottom: var(--gap-2);
     left: var(--gap-2);
     box-shadow: var(--shadow-s);
-    transition: width 0.2s ease, transform 0.2s ease;
+    transition:
+        width 0.2s ease,
+        transform 0.2s ease;
 }
