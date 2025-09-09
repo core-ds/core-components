@@ -40,12 +40,12 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.34.0.tgz#67f49fc81df014b0dca3f9fa99dda170fc279f26"
   integrity sha512-pXXt55rwTZ3T0mHzQgpAq23PGnTCIu7Xt+anlFYod47bLslqYK1yi3QVFsLu9WMXgWhLU2H8QajHp9KmT7F4cA==
 
-"@alfalab/lint-preset@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/lint-preset/-/lint-preset-0.0.1.tgz#d5657e6a67ebedc1d75bc6e5f0d72867a0a0583c"
-  integrity sha512-ZPiUKu8e2h0+liLhKEI4NwFEQQSSv6TdOVcOixq1uqAJoRhL7bpYFu1ij09rS8vOF0NKbTcZ7Jniy2ZzCGlfBA==
+"@alfalab/lint-preset@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/lint-preset/-/lint-preset-1.0.0.tgz#8a4a911b7bcb1f344f0824bbe2e1670e34a965f0"
+  integrity sha512-BbPVAYiIFpIFIcHMdgxXxtzZeOfdmy0UvUAKglFmTOAWpK0Yb8M8mnAp8DH7YlmfwpWQVXdwSo0a5gbVjIUMLg==
   dependencies:
-    "@alfalab/stylelint-core-vars" "2.0.0-snapshot-7641e539f9b047e266c30e237d5857b8eaf50239"
+    "@alfalab/stylelint-core-vars" "^2.0.0"
     "@commitlint/config-conventional" "^18.0.0"
     "@commitlint/types" "^18.0.0"
     "@typescript-eslint/eslint-plugin" "^7.18.0"
@@ -71,10 +71,10 @@
     react-merge-refs "^1.1.0"
     react-use-event-hook "^0.9.6"
 
-"@alfalab/stylelint-core-vars@2.0.0-snapshot-7641e539f9b047e266c30e237d5857b8eaf50239":
-  version "2.0.0-snapshot-7641e539f9b047e266c30e237d5857b8eaf50239"
-  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-2.0.0-snapshot-7641e539f9b047e266c30e237d5857b8eaf50239.tgz#c342b1bd0d5b7d7897f9ec1667efe748f17899b2"
-  integrity sha512-t0ZzvEysjAfBA3I6pqQaDHWAGfHE8Nr/4GyawJfuqgR+eaY2wrjyFt3/H2Mmq32PcNjANTj2PWEYfmDdGFQrBA==
+"@alfalab/stylelint-core-vars@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-2.0.0.tgz#c896fab922a288bc00e8843f3e343f5fece74635"
+  integrity sha512-DDE5YKDwnZboAR/29oORDtxXeuADF6XPtbtHqSRhPgqeZmn2jnbSEWBWX3YTcKJiwb+sjrC7huat12lw0Qh3nA==
   dependencies:
     "@manypkg/get-packages" "^3.1.0"
     postcss "^8.5.6"
