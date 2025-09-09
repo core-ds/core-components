@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import {
-    type Color,
     type TitleProps,
     TypographyTitleResponsive,
 } from '@alfalab/core-components-typography';
@@ -15,12 +14,6 @@ import { AmountProps as AmountType } from '../typesProps';
 import styles from './index.module.css';
 
 type Props = {
-    /**
-     * Цвет денежного значения
-     * @deprecated Используйте titleProps.color
-     */
-    color?: Color;
-
     /**
      * Пропсы, которые будут прокинуты в компонент типографики
      */
@@ -43,7 +36,6 @@ export const AmountTitle: React.FC<Props> = ({
     minorUnits = 100,
     hidden,
     className,
-    color = 'primary',
     dataTestId,
     titleProps: titlePropsFromProps = {},
     ...restProps
@@ -53,7 +45,6 @@ export const AmountTitle: React.FC<Props> = ({
     const titleProps = {
         tag: 'h4',
         view: 'small',
-        color,
         ...titlePropsFromProps,
     } as Omit<TitleProps, 'className' | 'dataTestId'>;
 
