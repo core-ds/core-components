@@ -1,5 +1,6 @@
 ---
 '@alfalab/core-components': major
+'@alfalab/core-components-attach': major
 '@alfalab/core-components-progress-bar': major
 ---
 
