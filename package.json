@@ -90,7 +90,6 @@
         "@testing-library/react": "^16.2.0",
         "@testing-library/react-hooks": "^8.0.1",
         "@testing-library/user-event": "^14.6.1",
-        "@tsconfig/node22": "^22.0.1",
         "@types/detect-browser": "^4.0.3",
         "@types/element-closest": "^3.0.0",
         "@types/jest": "^29.5.14",
