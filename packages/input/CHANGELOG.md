@@ -1,5 +1,14 @@
 # @alfalab/core-components-input
 
+## 16.0.2-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@6.0.0-next.0
+    -   @alfalab/core-components-button@12.0.2-next.0
+    -   @alfalab/core-components-form-control@13.0.2-next.0
+
 ## 16.0.1
 
 ### Patch Changes

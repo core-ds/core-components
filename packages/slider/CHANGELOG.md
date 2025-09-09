@@ -1,5 +1,15 @@
 # @alfalab/core-components-slider
 
+## 6.0.0-next.0
+
+### Major Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1694](https://github.com/core-ds/core-components/pull/1694)
+
+-   Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
 ## 5.0.0
 
 ### Major Changes

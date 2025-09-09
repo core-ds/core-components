@@ -1,5 +1,21 @@
 # @alfalab/core-components-attach
 
+## 8.0.0-next.0
+
+### Major Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1690](https://github.com/core-ds/core-components/pull/1690)
+
+-   Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-progress-bar@5.0.0-next.0
+    -   @alfalab/core-components-button@12.0.2-next.0
+
 ## 7.0.1
 
 ### Patch Changes

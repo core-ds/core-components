@@ -1,5 +1,37 @@
 # @alfalab/core-components-pure-cell
 
+## 6.0.0-next.0
+
+### Major Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+-   Исправление атомарного экспорта Text => TypographyText
+-   Исправление атомарного экспорта Title => TypographyTitle
+-   Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+-   Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+-   Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1691](https://github.com/core-ds/core-components/pull/1691)
+
+-   Удален пропс `color` для `amount-title` который был отмечен как `deprecated` в core-components@42.x.x. Вместо него используйте `titleProps.color`
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-comment@4.0.0-next.0
+    -   @alfalab/core-components-typography@6.0.0-next.0
+    -   @alfalab/core-components-button@12.0.2-next.0
+
 ## 5.0.1
 
 ### Patch Changes

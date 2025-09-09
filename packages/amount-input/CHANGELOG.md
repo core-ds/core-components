@@ -1,5 +1,22 @@
 # @alfalab/core-components-amount-input
 
+## 9.0.0-next.0
+
+### Major Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+-   Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-with-suffix@6.0.0-next.0
+    -   @alfalab/core-components-input@16.0.2-next.0
+    -   @alfalab/core-components-number-input@3.0.2-next.0
+
 ## 8.0.1
 
 ### Patch Changes

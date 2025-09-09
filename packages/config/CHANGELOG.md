@@ -1,5 +1,15 @@
 # @alfalab/core-components-config
 
+## 1.1.0-next.0
+
+### Minor Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+-   Добавлен параметр `getPortalContainer` для передачи рендер элемента компонента `Portal`
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,26 @@
 # @alfalab/core-components-base-modal
 
+## 7.0.0-next.0
+
+### Major Changes
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+-   Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>09.09.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+-   Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-portal@5.0.0-next.0
+
 ## 6.0.1
 
 ### Patch Changes

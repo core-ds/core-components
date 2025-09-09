@@ -1,5 +1,12 @@
 # @alfalab/core-components-checkbox-group
 
+## 5.1.1-next.0
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-mq@6.0.0-next.0
+
 ## 5.1.0
 
 ### Minor Changes
