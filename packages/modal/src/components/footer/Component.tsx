@@ -3,9 +3,9 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
+import { getSizeStyle } from '../../utils';
 
 import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
@@ -60,7 +60,7 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky, layout = 
                     [styles.sticky]: sticky,
                     [desktopStyles.footer]: view === 'desktop',
                     [desktopStyles.sticky]: view === 'desktop' && sticky,
-                    [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
+                    [desktopStyles[getSizeStyle(size)]]: view === 'desktop',
                     [mobileStyles.footer]: view === 'mobile',
                     [mobileStyles.sticky]: view === 'mobile' && sticky,
                 },
