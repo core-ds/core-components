@@ -40,7 +40,7 @@ export const InfoBar = () => {
             <TypographyText
                 className={styles.description}
                 tag='div'
-                view='component'
+                view='component-primary'
                 color='static-primary-light'
             >
                 {image?.name}
@@ -56,7 +56,7 @@ export const InfoBar = () => {
             <TypographyText
                 className={styles.description}
                 tag='div'
-                view='component'
+                view='component-primary'
                 color='static-primary-light'
             >
                 {image?.name}

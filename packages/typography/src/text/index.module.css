@@ -39,10 +39,6 @@
     @mixin paragraph_secondary_small;
 }
 
-.component {
-    @mixin paragraph_component;
-}
-
 .component-primary {
     @mixin paragraph_component_primary;
 }

@@ -19,7 +19,7 @@ type Props = {
     /**
      * Размер денежного значения
      */
-    textView?: 'component' | 'primary-small';
+    textView?: 'component-primary' | 'primary-small';
 
     /**
      * Цвет денежного значения
@@ -40,7 +40,7 @@ type Props = {
 
 export const Amount: React.FC<Props> = ({
     weight = 'normal',
-    textView = 'component',
+    textView = 'component-primary',
     color = 'primary',
     minority,
     minorUnits = 100,
