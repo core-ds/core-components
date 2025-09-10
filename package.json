@@ -164,7 +164,7 @@
         "stylelint": "^16.24.0",
         "svgo": "^3.0.2",
         "tinyglobby": "^0.2.14",
-        "ts-jest": "^29.3.4",
+        "ts-jest": "^29.4.1",
         "typescript": "~4.7.4",
         "ui-primitives": "^28.8.0",
         "webpack": "^5.98.0",
