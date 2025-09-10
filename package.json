@@ -12,6 +12,7 @@
         "analyze-package-sizes": "node bin/analyze-package-sizes/bin.mjs",
         "build": "node bin/build/bin.mjs",
         "build-storybook": "node bin/build-storybook/bin.mjs",
+        "check-package-json": "sort-package-json --check package.json \"packages/*/package.json\"",
         "clean": "node bin/clean/bin.mjs",
         "cm": "git-cz",
         "format": "prettier --check \"{packages,bin,tools}/**/*.{ts,tsx,js,jsx,css,json}\"",
@@ -63,6 +64,9 @@
     "prettier": "@alfalab/lint-preset/prettier",
     "stylelint": {
         "extends": "@alfalab/lint-preset/stylelint"
+    },
+    "resolutions": {
+        "react-scripts/resolve-url-loader": "^5.0.0"
     },
     "devDependencies": {
         "@alfalab/icons-glyph": "^2.247.0",
@@ -155,6 +159,7 @@
         "rollup-pluginutils": "^2.8.2",
         "semver": "^7.7.2",
         "slash": "^5.1.0",
+        "sort-package-json": "^3.4.0",
         "storybook": "^7.6.2",
         "storybook-addon-live-examples": "2.0.2",
         "stylelint": "^16.24.0",
@@ -166,8 +171,5 @@
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },
-    "packageManager": "yarn@1.22.22",
-    "resolutions": {
-        "react-scripts/resolve-url-loader": "^5.0.0"
-    }
+    "packageManager": "yarn@1.22.22"
 }

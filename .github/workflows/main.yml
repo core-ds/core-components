@@ -33,6 +33,10 @@ jobs:
 
             - uses: ./.github/actions/ci-setup
 
+            - name: check package.json
+              run: |
+                  yarn check-package-json
+
             - name: check tsconfig
               run: |
                   yarn tsconfig check
