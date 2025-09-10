@@ -42,7 +42,7 @@ jobs:
 
             - name: check git status
               id: git-status
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   script: |
                       const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);

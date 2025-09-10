@@ -42,7 +42,7 @@ jobs:
                   yarn install --frozen-lockfile
 
             - id: resolve-ref
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |
@@ -59,7 +59,7 @@ jobs:
                   path: checkout-ref
 
             - id: resolve-dir
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |
