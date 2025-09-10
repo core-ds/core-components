@@ -64,6 +64,9 @@
     "stylelint": {
         "extends": "@alfalab/lint-preset/stylelint"
     },
+    "resolutions": {
+        "react-scripts/resolve-url-loader": "^5.0.0"
+    },
     "devDependencies": {
         "@alfalab/icons-glyph": "^2.247.0",
         "@alfalab/lint-preset": "1.0.0",
@@ -167,8 +170,5 @@
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },
-    "packageManager": "yarn@1.22.22",
-    "resolutions": {
-        "react-scripts/resolve-url-loader": "^5.0.0"
-    }
+    "packageManager": "yarn@1.22.22"
 }
