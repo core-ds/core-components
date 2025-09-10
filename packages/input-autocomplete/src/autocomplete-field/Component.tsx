@@ -2,12 +2,12 @@ import React, { Fragment, useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { InputProps } from '@alfalab/core-components-input';
+import { type InputProps } from '@alfalab/core-components-input';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
-import type { FieldProps } from '@alfalab/core-components-select/shared';
+import { type FieldProps } from '@alfalab/core-components-select/shared';
 
 import { OnInputReason } from '../enums';
-import { InputAutocompleteCommonProps } from '../types';
+import { type InputAutocompleteCommonProps } from '../types';
 
 import styles from './index.module.css';
 

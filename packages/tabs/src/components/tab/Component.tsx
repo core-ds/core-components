@@ -1,8 +1,7 @@
-import type { AriaAttributes } from 'react';
-import React from 'react';
+import React, { type AriaAttributes } from 'react';
 import cn from 'classnames';
 
-import { TabProps } from '../../typings';
+import { type TabProps } from '../../typings';
 
 import styles from './index.module.css';
 

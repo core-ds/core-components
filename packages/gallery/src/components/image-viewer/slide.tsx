@@ -1,11 +1,11 @@
-import React, { FC, ReactNode, useContext } from 'react';
+import React, { type FC, type ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { Spinner } from '@alfalab/core-components-spinner';
 import { Text } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
-import { GalleryImage, ImageMeta } from '../../types';
+import { type GalleryImage, type ImageMeta } from '../../types';
 import { getImageAlt, isSmallImage, isVideo, TestIds } from '../../utils';
 
 import { useHandleImageViewer } from './hooks';

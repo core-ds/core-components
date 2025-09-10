@@ -1,4 +1,4 @@
-import { AxisProps } from './utils/axis.types';
+import { type AxisProps } from './utils/axis.types';
 
 export interface YAxisProps extends AxisProps {
     /**

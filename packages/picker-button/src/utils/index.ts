@@ -1,11 +1,11 @@
-import { ComponentType, SVGProps } from 'react';
+import { type ComponentType, type SVGProps } from 'react';
 
 import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { MoreMIcon } from '@alfalab/icons-glyph/MoreMIcon';
 import { MoreSIcon } from '@alfalab/icons-glyph/MoreSIcon';
 
-import { PickerButtonVariant } from '../types';
+import { type PickerButtonVariant } from '../types';
 
 export const getCompactIcon = (size: string, Icon?: ComponentType<SVGProps<SVGSVGElement>>) => {
     if (Icon) {

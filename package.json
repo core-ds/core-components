@@ -14,7 +14,7 @@
         "build-storybook": "node bin/build-storybook/bin.mjs",
         "clean": "node bin/clean/bin.mjs",
         "cm": "git-cz",
-        "format": "prettier --write \"{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
+        "format": "prettier --check \"{packages,bin,tools}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "generate-dark-colors": "node bin/dark-colors-generator.mjs",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
         "lint:css": "stylelint packages/**/*.css",
@@ -60,29 +60,18 @@
             "last 1 safari version"
         ]
     },
-    "prettier": "arui-presets-lint/prettier",
+    "prettier": "@alfalab/lint-preset/prettier",
     "stylelint": {
-        "extends": "arui-presets-lint/stylelint",
-        "rules": {
-            "arui-cssvars/use-variables": false,
-            "selector-pseudo-class-no-unknown": [
-                true,
-                {
-                    "ignorePseudoClasses": [
-                        "global"
-                    ]
-                }
-            ]
-        }
+        "extends": "@alfalab/lint-preset/stylelint"
     },
     "devDependencies": {
         "@alfalab/icons-glyph": "^2.247.0",
+        "@alfalab/lint-preset": "1.0.0",
         "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
         "@changesets/read": "^0.6.3",
-        "@commitlint/cli": "^19.8.1",
-        "@commitlint/config-conventional": "^19.8.1",
-        "@commitlint/types": "^19.8.1",
+        "@commitlint/cli": "^18.6.1",
+        "@commitlint/types": "^18.6.1",
         "@fullhuman/postcss-purgecss": "^7.0.2",
         "@manypkg/get-packages": "^2.2.2",
         "@rollup/plugin-json": "^6.1.0",
@@ -101,7 +90,6 @@
         "@testing-library/react": "^16.2.0",
         "@testing-library/react-hooks": "^8.0.1",
         "@testing-library/user-event": "^14.6.1",
-        "@tsconfig/node22": "^22.0.1",
         "@types/detect-browser": "^4.0.3",
         "@types/element-closest": "^3.0.0",
         "@types/jest": "^29.5.14",
@@ -117,11 +105,9 @@
         "@types/swiper": "^5.4.3",
         "@types/use-sync-external-store": "^0.0.6",
         "@types/webpack-env": "^1.18.0",
-        "@typescript-eslint/eslint-plugin": "^5.40.1",
-        "@typescript-eslint/parser": "^5.40.1",
-        "arui-presets-lint": "^6.1.0",
         "axios": "^0.21.0",
         "commitizen": "^4.1.2",
+        "cross-env": "^10.0.0",
         "css-loader": "^7.1.2",
         "css-minimizer-webpack-plugin": "^7.0.2",
         "cz-conventional-changelog": "^3.2.0",
@@ -129,20 +115,6 @@
         "depcheck": "^1.4.3",
         "detect-indent": "^7.0.1",
         "eslint": "^8.57.1",
-        "eslint-config-airbnb": "^19.0.4",
-        "eslint-config-airbnb-typescript": "^17.0.0",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-import-resolver-typescript": "~3.1.5",
-        "eslint-plugin-chai-friendly": "^0.7.2",
-        "eslint-plugin-cypress": "^2.12.1",
-        "eslint-plugin-dirnames": "^1.0.3",
-        "eslint-plugin-import": "^2.26.0",
-        "eslint-plugin-jsx-a11y": "^6.6.1",
-        "eslint-plugin-react": "^7.31.10",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-simple-import-sort": "^8.0.0",
-        "eslint-plugin-sort-class-members": "^1.15.2",
-        "eslint-plugin-unicorn": "^42.0.0",
         "execa": "^9.6.0",
         "glob": "^7.1.6",
         "handlebars": "^4.7.3",
@@ -169,7 +141,7 @@
         "postcss-mixins": "^7.0.3",
         "postcss-modules": "^6.0.1",
         "postcss-preset-env": "^7.8.3",
-        "prettier": "^2.7.1",
+        "prettier": "~3.6.2",
         "querystring-es3": "^0.2.1",
         "raw-loader": "^4.0.1",
         "react": "^18.2.0",
@@ -185,9 +157,7 @@
         "slash": "^5.1.0",
         "storybook": "^7.6.2",
         "storybook-addon-live-examples": "2.0.2",
-        "stylelint": "^14.9.1",
-        "stylelint-config-prettier": "^9.0.3",
-        "stylelint-config-standard": "^20.0.0",
+        "stylelint": "^16.24.0",
         "svgo": "^3.0.2",
         "tinyglobby": "^0.2.14",
         "ts-jest": "^29.3.4",
@@ -198,7 +168,6 @@
     },
     "packageManager": "yarn@1.22.22",
     "resolutions": {
-        "arui-presets-lint/@alfalab/stylelint-core-vars": "1.7.2-snapshot-535879116f6a10fec29e7f9928ee26fdb7847828",
         "react-scripts/resolve-url-loader": "^5.0.0"
     }
 }

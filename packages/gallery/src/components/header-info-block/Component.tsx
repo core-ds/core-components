@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { Text, TitleDesktop } from '@alfalab/core-components-typography';
 

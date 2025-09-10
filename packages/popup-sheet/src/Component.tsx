@@ -1,19 +1,19 @@
 import React, {
-    CSSProperties,
+    type CSSProperties,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
+    type KeyboardEvent,
+    type MouseEvent,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { SwipeCallback, useSwipeable } from 'react-swipeable';
+import { type SwipeCallback, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Closer, CloserProps } from '@alfalab/core-components-navigation-bar-private/shared';
+import { BaseModal, type BaseModalProps } from '@alfalab/core-components-base-modal';
+import { Closer, type CloserProps } from '@alfalab/core-components-navigation-bar-private/shared';
 import { createPaddingStyle, easingFns, getDataTestId } from '@alfalab/core-components-shared';
-import type { PaddingType } from '@alfalab/core-components-types';
+import { type PaddingType } from '@alfalab/core-components-types';
 
 import { PopupBackdrop } from './components/backdrop';
 

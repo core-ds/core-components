@@ -1,5 +1,5 @@
 import { MaskTypeEnum } from '../enums';
-import { MaskType } from '../types';
+import { type MaskType } from '../types';
 
 export const getDefaultInputLabel = (maskType: MaskType) => {
     switch (maskType) {

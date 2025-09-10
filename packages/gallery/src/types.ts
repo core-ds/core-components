@@ -1,4 +1,4 @@
-import { MouseEvent, RefObject } from 'react';
+import { type MouseEvent, type RefObject } from 'react';
 
 export type TBottomButton = {
     text: string;

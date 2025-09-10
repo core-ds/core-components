@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import type { UniversalModalDesktopProps } from '../../types/props';
+import { type UniversalModalDesktopProps } from '../../types/props';
 
 import transitions from './transitions/transitions.module.css';
 

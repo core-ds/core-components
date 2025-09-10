@@ -1,6 +1,6 @@
 import React, { cloneElement } from 'react';
 
-import { TabsProps } from '../../typings';
+import { type TabsProps } from '../../typings';
 
 export const Tabs = ({
     TabList,

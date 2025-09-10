@@ -1,3 +1,5 @@
+// @ts-check
+
 /* eslint-disable import/no-extraneous-dependencies */
 import fse from 'fs-extra';
 import path from 'node:path';

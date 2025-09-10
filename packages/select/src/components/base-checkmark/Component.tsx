@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Checkbox } from '@alfalab/core-components-checkbox';
 import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
 
-import { CheckmarkProps } from '../../typings';
+import { type CheckmarkProps } from '../../typings';
 
 import styles from './index.module.css';
 

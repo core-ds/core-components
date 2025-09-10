@@ -9,7 +9,9 @@
     text-align: center;
     opacity: 1;
     z-index: 1;
-    transition: opacity 500ms ease-in-out, margin-bottom 270ms ease-in-out;
+    transition:
+        opacity 500ms ease-in-out,
+        margin-bottom 270ms ease-in-out;
 
     &.mobile {
         position: unset;

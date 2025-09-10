@@ -1,11 +1,11 @@
-import React, { ElementType, Fragment, useCallback, useRef, useState } from 'react';
+import React, { type ElementType, Fragment, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import type { FormControlProps } from '@alfalab/core-components-form-control';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
-import { FieldProps as BaseFieldProps } from '../../typings';
+import { type FieldProps as BaseFieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
 import { ClearButton } from '../clear-button';
 

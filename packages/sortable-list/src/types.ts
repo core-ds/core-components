@@ -1,7 +1,12 @@
-import React from 'react';
-import type { Announcements, DragEndEvent, DragStartEvent, UniqueIdentifier } from '@dnd-kit/core';
+import type React from 'react';
+import {
+    type Announcements,
+    type DragEndEvent,
+    type DragStartEvent,
+    type UniqueIdentifier,
+} from '@dnd-kit/core';
 
-import type { PortalProps } from '@alfalab/core-components-portal';
+import { type PortalProps } from '@alfalab/core-components-portal';
 
 type View = 'primary' | 'secondary';
 type ActivatorNode = 'cell' | 'control';

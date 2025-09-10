@@ -1,7 +1,9 @@
+// @ts-check
+
 /* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
 const fs = require('node:fs');
 const path = require('node:path');
-const resolve = require('resolve/sync');
+const resolve = require('resolve');
 
 const ignored = ['.eslintignore', '.gitignore']
     .map((file) => path.join(process.cwd(), file))
@@ -9,7 +11,7 @@ const ignored = ['.eslintignore', '.gitignore']
     .map((file) => fs.readFileSync(file, { encoding: 'utf8' }))
     .flatMap((content) => content.split('\n'))
     .map((line) => line.trim())
-    .filter((str) => str.length > 0)
+    .filter((line) => line.length > 0 && !line.startsWith('#'))
     .map((pattern) =>
         /**
          * ./src/foo.ts -> src/foo.ts
@@ -23,23 +25,20 @@ const ignored = ['.eslintignore', '.gitignore']
  */
 const config = {
     root: true,
-    env: {
-        es2023: true,
-    },
     parserOptions: {
         project: [path.join(process.cwd(), 'tsconfig.json')],
     },
     ignorePatterns: ['**/*.test*', '**/*.stories*', ...ignored],
-    extends: resolve('arui-presets-lint/eslint', { basedir: __dirname }),
+    extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),
     overrides: [
         {
             files: ['**/*.tsx', '**/*.ts', '**/*.jsx', '**/*.js'],
             rules: {
-                'import/no-extraneous-dependencies': 0,
-                'unicorn/filename-case': 0,
-                'react/no-unused-prop-types': 0,
-                'dirnames/match-kebab-case': 0,
-                'import/no-relative-packages': 0,
+                'import/no-extraneous-dependencies': 'off',
+                'unicorn/filename-case': 'off',
+                'react/no-unused-prop-types': 'off',
+                'dirnames/match-kebab-case': 'off',
+                'import/no-relative-packages': 'off',
             },
         },
     ],
@@ -52,6 +51,9 @@ const config = {
             },
         ],
         'multiline-comment-style': ['error', 'starred-block'],
+        '@typescript-eslint/default-param-last': 'off',
+        'max-lines': 'off',
+        'max-params': 'off',
     },
 };
 

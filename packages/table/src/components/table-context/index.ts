@@ -1,6 +1,6 @@
-import React, { RefObject } from 'react';
+import { createContext, type RefObject } from 'react';
 
-import { TextAlignProperty } from '../../typings';
+import { type TextAlignProperty } from '../../typings';
 
 export type ColumnConfiguration = {
     width?: string | number;
@@ -25,4 +25,4 @@ export const DEFAULT_TABLE_CONTEXT: TableContextType = {
     wrapperRef: { current: null },
 };
 
-export const TableContext = React.createContext<TableContextType>(DEFAULT_TABLE_CONTEXT);
+export const TableContext = createContext<TableContextType>(DEFAULT_TABLE_CONTEXT);

@@ -1,4 +1,4 @@
-import React, { FC, Fragment, ReactNode, useContext } from 'react';
+import React, { type FC, Fragment, type ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';

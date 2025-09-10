@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { type FC, useCallback, useMemo } from 'react';
 
-import { SelectDesktop, SelectDesktopProps } from '@alfalab/core-components-select/desktop';
-import { OptionsListProps, VirtualOptionsList } from '@alfalab/core-components-select/shared';
-import { Country } from '@alfalab/utils';
+import { SelectDesktop, type SelectDesktopProps } from '@alfalab/core-components-select/desktop';
+import { type OptionsListProps, VirtualOptionsList } from '@alfalab/core-components-select/shared';
+import { type Country } from '@alfalab/utils';
 
 import { FlagIcon } from '../flag-icon';
 import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';

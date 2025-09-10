@@ -37,6 +37,10 @@ jobs:
               run: |
                   yarn tsconfig check
 
+            - name: run format
+              run: |
+                  yarn format
+
             - name: run lint
               run: |
                   yarn lint

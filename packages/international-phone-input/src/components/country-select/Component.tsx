@@ -1,17 +1,17 @@
-import React, { ElementType, useCallback, useMemo } from 'react';
+import React, { type ElementType, useCallback, useMemo } from 'react';
 import cn from 'classnames';
 
 import {
     BaseOption,
-    BaseSelectProps,
-    OptionsListProps,
+    type BaseSelectProps,
+    type OptionsListProps,
     VirtualOptionsList,
 } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { Country } from '../../types';
+import { type Country } from '../../types';
 import { FlagIcon } from '../flag-icon';
 import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
 

@@ -1,12 +1,19 @@
-import React, { FocusEvent, forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
+import React, {
+    type FocusEvent,
+    forwardRef,
+    Fragment,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { Input, type InputProps } from '@alfalab/core-components-input';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault, parseNumber } from '@alfalab/core-components-number-input/utils';
 import { fnUtils } from '@alfalab/core-components-shared';
-import { withSuffix, withSuffixProps } from '@alfalab/core-components-with-suffix';
-import { CurrencyCodes } from '@alfalab/data';
+import { withSuffix, type withSuffixProps } from '@alfalab/core-components-with-suffix';
+import { type CurrencyCodes } from '@alfalab/data';
 import { formatAmount, MMSP, THINSP } from '@alfalab/utils';
 
 import {

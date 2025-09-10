@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 
 import { BaseFilterTag } from '../components/base-filter-tag';
-import { PrivateProps } from '../types/base-filter-tag-private-props';
-import { BaseFilterTagProps } from '../types/base-filter-tag-props';
+import { type PrivateProps } from '../types/base-filter-tag-private-props';
+import { type BaseFilterTagProps } from '../types/base-filter-tag-props';
 
 import defaultColors from './default.desktop.module.css';
 import styles from './desktop.module.css';

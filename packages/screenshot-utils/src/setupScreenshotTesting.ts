@@ -1,39 +1,9 @@
-import { Browser, BrowserContext, chromium, Page } from 'playwright';
+import { type Browser, type BrowserContext, chromium, type Page } from 'playwright';
 
-import { defaultViewport, matchHtml, MatchHtmlParams } from './helpers';
+import { defaultViewport, matchHtml } from './helpers';
+import { type ScreenshotTestingParams } from './types';
 
 export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009/iframe.html';
-
-export type ScreenshotOpts = {
-    /**
-     * When true, takes a screenshot of the full scrollable page, instead of the currently visible viewport.
-     * Defaults to `false`.
-     */
-    fullPage?: boolean;
-
-    /**
-     * Hides default white background and allows capturing screenshots with transparency.
-     * Not applicable to `jpeg` images. Defaults to `false`.
-     */
-    omitBackground?: boolean;
-
-    clip?: {
-        x: number;
-        y: number;
-        width: number;
-        height: number;
-    };
-};
-
-export type EvaluateFn = (page: Page) => void;
-
-export type ScreenshotTestingParams = Omit<
-    MatchHtmlParams,
-    'page' | 'css' | 'expect' | 'context'
-> & {
-    cases: Array<[string, string]>;
-    theme?: string;
-};
 
 export const setupScreenshotTesting =
     ({

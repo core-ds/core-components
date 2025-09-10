@@ -18,7 +18,9 @@
     text-align: center;
     text-decoration: none;
     text-transform: none;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
     user-select: none;
     font-family: inherit;
     appearance: none;

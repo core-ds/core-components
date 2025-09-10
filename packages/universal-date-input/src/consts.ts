@@ -1,4 +1,4 @@
-import { DateSegments, DateTemplate, View } from './types';
+import { type DateSegments, type DateTemplate, type View } from './types';
 
 export const DATE_RANGE_SEPARATOR = ' – ';
 export const DATE_TIME_SEPARATOR = ', ';

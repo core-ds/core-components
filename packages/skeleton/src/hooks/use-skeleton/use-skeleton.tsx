@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { Skeleton } from '../../Component';
-import { TextSkeletonProps } from '../../types/text-skeleton-props';
+import { type TextSkeletonProps } from '../../types/text-skeleton-props';
 
 import styles from './use-skeleton.module.css';
 
