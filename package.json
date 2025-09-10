@@ -120,7 +120,6 @@
         "detect-indent": "^7.0.1",
         "eslint": "^8.57.1",
         "execa": "^9.6.0",
-        "glob": "^7.1.6",
         "handlebars": "^4.7.3",
         "http-server": "^0.12.3",
         "husky": "^4.3.8",
