@@ -1,13 +1,26 @@
 import React, { FC } from 'react';
 
+import { LoadingSpinner } from '../loading-spinner';
+
 type Props = {
     className: string;
     strokeDasharray: number;
     strokeDashoffset: number;
+    isLoaded?: boolean;
 };
 
 export const ProgressBar: FC<Props> = (props) => {
-    const { className, strokeDasharray, strokeDashoffset } = props;
+    const { className, strokeDasharray, strokeDashoffset, isLoaded = false } = props;
+
+    if (isLoaded) {
+        return (
+            <LoadingSpinner
+                className={className}
+                strokeDasharray={strokeDasharray}
+                strokeDashoffset={strokeDashoffset}
+            />
+        );
+    }
 
     return (
         <svg

@@ -47,6 +47,7 @@ export const StatusControl = () => {
                         ? 0
                         : strokeDashoffset
                 }
+                isLoaded={isLoadingStatus(uploadStatus)}
             />
         </div>
     );

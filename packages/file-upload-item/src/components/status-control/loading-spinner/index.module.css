@@ -1,0 +1,27 @@
+.spinner {
+    position: absolute;
+    top: var(--gap-4-neg);
+    left: var(--gap-4-neg);
+    z-index: 1;
+    color: rgba(186, 187, 194, 1);
+    border-radius: 0;
+}
+
+.gradient {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: gradient_rotate 2s linear infinite;
+    isolation: isolate;
+}
+
+@keyframes gradient_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
