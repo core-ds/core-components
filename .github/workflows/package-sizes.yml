@@ -57,13 +57,13 @@ jobs:
             - uses: actions/checkout@v5
 
             - name: download target
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v5
               with:
                   name: target
                   path: target
 
             - name: download current
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v5
               with:
                   name: current
                   path: current
