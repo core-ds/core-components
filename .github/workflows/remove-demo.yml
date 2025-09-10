@@ -27,7 +27,7 @@ jobs:
         needs: params
         if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   ref: gh-pages
                   lfs: true

@@ -15,7 +15,7 @@ jobs:
             published: ${{ steps.snapshot-release.outputs.published }}
             published-packages: ${{ steps.snapshot-release.outputs.published-packages }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - uses: ./.github/actions/ci-setup
 
@@ -46,7 +46,7 @@ jobs:
         if: ${{ needs.snapshot-release.outputs.published == 'true' && needs.pull-request.outputs.number != '' }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - name: prepare comment
               id: prepare-comment

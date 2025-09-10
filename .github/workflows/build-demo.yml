@@ -20,7 +20,7 @@ jobs:
         outputs:
             workflow_run_id: ${{ steps.find.outputs.result }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   ref: ${{ inputs.ref }}
 
@@ -68,7 +68,7 @@ jobs:
         name: build demo
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   ref: ${{ inputs.ref }}
                   lfs: true
