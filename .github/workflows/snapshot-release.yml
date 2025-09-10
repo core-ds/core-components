@@ -19,8 +19,8 @@ jobs:
 
             - uses: ./.github/actions/ci-setup
 
-            - uses: ./.github/actions/changesets-snapshot-release
-              id: snapshot-release
+            - id: snapshot-release
+              uses: core-ds/changesets-snapshot-release@v1
               with:
                   version: 'yarn version-packages:snapshot'
                   publish: 'yarn release:snapshot'
