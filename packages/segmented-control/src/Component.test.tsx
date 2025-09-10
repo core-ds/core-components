@@ -35,7 +35,7 @@ describe('segmented-control', () => {
 
         fireEvent.click(screen.getByTestId(SEGMENT_TEST_ID));
 
-        expect(onChange).toBeCalledWith(2);
+        expect(onChange).toHaveBeenCalledWith(2);
     });
 
     it('should set dataTestId', () => {

@@ -89,7 +89,7 @@ describe('Render tests', () => {
     test('should unmount without errors', () => {
         const { unmount } = render(<FilterTag>FilterTag</FilterTag>);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     test('should contain children', () => {
@@ -134,7 +134,7 @@ describe('Interaction tests', () => {
             fireEvent.click(button);
         }
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     test('should call `onClear` prop, if filterTag checked and not disabled', () => {
@@ -152,7 +152,7 @@ describe('Interaction tests', () => {
             fireEvent.click(buttons[1]);
         }
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     test('should not call `onClick` prop, if tag is disabled', () => {
@@ -168,7 +168,7 @@ describe('Interaction tests', () => {
         if (button) {
             fireEvent.click(button);
         }
-        expect(cb).toBeCalledTimes(0);
+        expect(cb).toHaveBeenCalledTimes(0);
     });
 
     test('should not call `onClick` prop, if tag is disabled and checked', () => {
@@ -184,6 +184,6 @@ describe('Interaction tests', () => {
             fireEvent.click(button);
         }
 
-        expect(cb).toBeCalledTimes(0);
+        expect(cb).toHaveBeenCalledTimes(0);
     });
 });

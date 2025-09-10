@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ProgressBar Snapshots tests should fill all progress bar and match view snapshot 1`] = `
 <div>

@@ -203,7 +203,7 @@ describe('ProductCover', () => {
         it('should unmount without errors', () => {
             const { unmount } = render(<ProductCover.Single />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

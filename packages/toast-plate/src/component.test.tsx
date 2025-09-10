@@ -101,13 +101,13 @@ describe('Notification', () => {
 
             fireEvent.click(closeEl);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<ToastPlate />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });
