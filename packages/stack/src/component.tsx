@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext } from 'react';
+import React, { type FC, type ReactNode, useContext } from 'react';
 
 import { StackingContext, stackingOrder } from '@alfalab/core-components-stack-context';
 

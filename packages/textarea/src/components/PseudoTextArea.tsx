@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../consts';
-import { TextareaIncomeProps } from '../typings';
+import { type TextareaIncomeProps } from '../typings';
 
 import styles from '../index.module.css';
 

@@ -8,7 +8,7 @@ import { Graphic } from './components/graphic';
 import { Subtitle } from './components/subtitle';
 import { Title } from './components/title';
 import { SystemMessage } from './Component';
-import type { SystemMessageResponsiveProps } from './types';
+import { type SystemMessageResponsiveProps } from './types';
 import { createCompound } from './utils';
 
 const SystemMessageResponsiveComponent: React.FC<SystemMessageResponsiveProps> = ({

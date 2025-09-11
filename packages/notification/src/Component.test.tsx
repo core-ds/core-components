@@ -95,7 +95,7 @@ describe('Notification', () => {
 
             fireEvent.click(closeEl);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onCloseTimeout` prop', async () => {
@@ -117,7 +117,7 @@ describe('Notification', () => {
 
             jest.advanceTimersByTime(100);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onMouseEnter` prop', async () => {
@@ -131,7 +131,7 @@ describe('Notification', () => {
 
             fireEvent.mouseEnter(el);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onMouseLeave` prop', async () => {
@@ -145,7 +145,7 @@ describe('Notification', () => {
 
             fireEvent.mouseLeave(el);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onClickOutside` prop', async () => {
@@ -162,7 +162,7 @@ describe('Notification', () => {
 
             fireEvent.click(el);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call `onClickOutside` if clicked inside', async () => {
@@ -177,7 +177,7 @@ describe('Notification', () => {
             fireEvent.click(el);
             fireEvent.click(el.firstElementChild as HTMLElement);
 
-            expect(cb).toBeCalledTimes(0);
+            expect(cb).toHaveBeenCalledTimes(0);
         });
 
         it('should not call `onClickOutside` if clicked inside another', async () => {
@@ -195,13 +195,13 @@ describe('Notification', () => {
             fireEvent.click(el);
             fireEvent.click(el.firstElementChild as HTMLElement);
 
-            expect(cb).toBeCalledTimes(0);
+            expect(cb).toHaveBeenCalledTimes(0);
         });
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<Notification />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

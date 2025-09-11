@@ -3,8 +3,11 @@ import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import type { Theme, TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
-import { ReactCanvasPatternLock } from '@alfalab/react-canvas-pattern-lock';
+import {
+    ReactCanvasPatternLock,
+    type Theme,
+    type TPatternLockInstance,
+} from '@alfalab/react-canvas-pattern-lock';
 
 import {
     DEFAULT_EXTRA_BOUNDS,
@@ -12,7 +15,7 @@ import {
     OBSERVE_OPTIONS,
     THEME_STATE,
 } from '../../consts';
-import type { CommonPatternLockProps, PrivatePatternLockProps } from '../../typings';
+import { type CommonPatternLockProps, type PrivatePatternLockProps } from '../../typings';
 import { getColorByToken, getDefaultObserveTarget, getSizes, getTheme } from '../../utils';
 
 import commonStyles from './index.module.css';

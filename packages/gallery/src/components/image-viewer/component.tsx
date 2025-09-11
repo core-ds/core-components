@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
+import React, { type FC, type KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';

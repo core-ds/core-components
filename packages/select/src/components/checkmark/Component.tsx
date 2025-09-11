@@ -2,11 +2,11 @@ import React, { useCallback } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
-import { Checkbox, CheckboxProps } from '@alfalab/core-components-checkbox';
+import { Checkbox, type CheckboxProps } from '@alfalab/core-components-checkbox';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import CheckmarkMIcon from '@alfalab/icons-glyph/CheckmarkMIcon';
 
-import { CheckmarkProps } from '../../typings';
+import { type CheckmarkProps } from '../../typings';
 
 import styles from './index.module.css';
 

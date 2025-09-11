@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .wrapper {
     display: flex;
@@ -73,5 +73,7 @@
     bottom: var(--gap-2);
     left: var(--gap-2);
     box-shadow: var(--shadow-s);
-    transition: width 0.2s ease, transform 0.2s ease;
+    transition:
+        width 0.2s ease,
+        transform 0.2s ease;
 }

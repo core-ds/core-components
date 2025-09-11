@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 
 import { Step } from './components/step';
-import { StepIndicatorProps } from './components/step-indicator';
-import { CommonProps } from './types/common-props';
+import { type StepIndicatorProps } from './components/step-indicator';
+import { type CommonProps } from './types/common-props';
 
 import styles from './index.module.css';
 
@@ -147,7 +147,7 @@ export const Steps: React.FC<StepsProps> = ({
                     : false;
                 const isWarning = checkIsStepWarning ? checkIsStepWarning(stepNumber) : false;
                 const isWaiting = checkIsStepWaiting ? checkIsStepWaiting(stepNumber) : false;
-                const customStepIndicator = checkIsStepCustom && checkIsStepCustom(stepNumber);
+                const customStepIndicator = checkIsStepCustom?.(stepNumber);
                 const isNotLastStep = stepsLength !== stepNumber;
                 const isInteractive = !disabled && interactive;
 

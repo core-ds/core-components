@@ -1,7 +1,10 @@
 @alfalab/core-components
 @alfalab/core-components-codemod
 @alfalab/core-components-screenshot-utils
+# used simplebar sources, version of sources is in package.json
 @alfalab/core-components-scrollbar
 @alfalab/core-components-test-utils
 # depcheck ignore doesn't work
 @alfalab/core-components-themes
+# incorrect depcheck ignore patterns see bin/lint-deps/lint-package-deps.mjs
+@alfalab/core-components-vars

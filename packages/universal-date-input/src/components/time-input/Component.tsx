@@ -1,9 +1,16 @@
-import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import React, {
+    type ChangeEvent,
+    type FocusEvent,
+    forwardRef,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 
 import { Input } from '@alfalab/core-components-input';
 
 import { HOURS_MINUTES_SEPARATOR } from '../../consts';
-import type { InnerTimeInputProps } from '../../types';
+import { type InnerTimeInputProps } from '../../types';
 import { isCompleteTime } from '../../utils';
 
 const defaultTime = `00${HOURS_MINUTES_SEPARATOR}00`;

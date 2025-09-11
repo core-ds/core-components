@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef } from 'react';
+import React, { type FC, useContext, useRef } from 'react';
 import cn from 'classnames';
 
 import { GalleryContext } from '../../context';

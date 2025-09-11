@@ -40,6 +40,7 @@ export type HatchingProgressBarProps = {
 
 export const HatchingProgressBar = React.forwardRef<HTMLDivElement, HatchingProgressBarProps>(
     ({ className, value, hatchValue, view = 'positive', dataTestId }, ref) => (
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
         <div
             role='progressbar'
             aria-valuenow={Math.round(value)}

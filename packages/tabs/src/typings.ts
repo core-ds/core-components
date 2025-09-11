@@ -1,11 +1,21 @@
-import { FC, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
+import {
+    type AriaAttributes,
+    type FC,
+    type HTMLAttributes,
+    type MouseEvent,
+    type ReactElement,
+    type ReactNode,
+    type Ref,
+} from 'react';
 
-import { SkeletonProps } from '@alfalab/core-components-skeleton';
-import { TagProps } from '@alfalab/core-components-tag';
+import { type SkeletonProps } from '@alfalab/core-components-skeleton';
+import { type TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
-export type TabsProps = {
+export interface TabsProps
+    extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'children' | 'className'>,
+        AriaAttributes {
     /**
      * Дополнительный класс
      */
@@ -141,9 +151,9 @@ export type TabsProps = {
      * Доп. пропсы для скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
-};
+}
 
-export type TabProps = {
+export interface TabProps extends AriaAttributes {
     /**
      * Id таба
      */
@@ -198,9 +208,9 @@ export type TabProps = {
      * Реф для кнопки переключения таба
      */
     toggleRef?: Ref<HTMLDivElement>;
-};
+}
 
-export type TabListTitle = {
+export interface TabListTitle {
     title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
@@ -211,26 +221,27 @@ export type TabListTitle = {
     collapsed?: boolean;
     dataTestId?: string;
     toggleRef?: Ref<HTMLDivElement>;
-};
+}
 
-export type TabListProps = Pick<
-    TabsProps,
-    | 'className'
-    | 'containerClassName'
-    | 'size'
-    | 'defaultMatchMediaValue'
-    | 'selectedId'
-    | 'scrollable'
-    | 'collapsedTabsIds'
-    | 'onChange'
-    | 'dataTestId'
-    | 'fullWidthScroll'
-    | 'tagShape'
-    | 'tagView'
-    | 'textStyle'
-    | 'showSkeleton'
-    | 'skeletonProps'
-> & {
+export interface TabListProps
+    extends Pick<
+        TabsProps,
+        | 'className'
+        | 'containerClassName'
+        | 'size'
+        | 'defaultMatchMediaValue'
+        | 'selectedId'
+        | 'scrollable'
+        | 'collapsedTabsIds'
+        | 'onChange'
+        | 'dataTestId'
+        | 'fullWidthScroll'
+        | 'tagShape'
+        | 'tagView'
+        | 'textStyle'
+        | 'showSkeleton'
+        | 'skeletonProps'
+    > {
     /**
      * Заголовки табов
      */
@@ -251,12 +262,12 @@ export type TabListProps = Pick<
      * Дополнительные инлайн стили для заголовка
      */
     inlineStyle?: React.CSSProperties;
-};
+}
 
-export type SecondaryTabListProps = TabListProps & {
+export interface SecondaryTabListProps extends TabListProps {
     tagSize?: TagProps['size'];
     TagComponent?: FC<Omit<TagProps, 'breakpoint'>>;
-};
+}
 
 export type UseTabsProps = TabListProps;
 

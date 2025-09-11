@@ -1,8 +1,8 @@
-import React, { ChangeEvent, FocusEvent, forwardRef, useRef, useState } from 'react';
+import React, { type ChangeEvent, type FocusEvent, forwardRef, useRef, useState } from 'react';
 
 import { Input } from '@alfalab/core-components-input';
 
-import { InnerMonthInputProps } from '../../types';
+import { type InnerMonthInputProps } from '../../types';
 import { isCompleteMonth } from '../../utils';
 
 const defaultMonth = '01.1900';

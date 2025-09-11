@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
-import { BaseCheckboxGroup, BaseCheckboxGroupProps } from '../components/base-checkbox-group';
+import { BaseCheckboxGroup, type BaseCheckboxGroupProps } from '../components/base-checkbox-group';
 
 import styles from './mobile.module.css';
 

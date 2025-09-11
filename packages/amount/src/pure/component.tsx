@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { formatAmount, THINSP } from '@alfalab/utils';
 
-import { AmountProps } from '../types';
+import { type AmountProps } from '../types';
 
 import styles from './index.module.css';
 

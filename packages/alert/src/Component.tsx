@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { type Plate, type PlateProps } from '@alfalab/core-components-plate';

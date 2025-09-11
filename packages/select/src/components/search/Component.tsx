@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Input } from '@alfalab/core-components-input';
 import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
 
-import { SearchProps } from '../../typings';
+import { type SearchProps } from '../../typings';
 
 import styles from './index.module.css';
 

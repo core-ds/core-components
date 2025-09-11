@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, Ref, useContext } from 'react';
+import React, { type FC, type ReactNode, type Ref, useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -7,7 +7,7 @@ import { ModalContext } from '../../../Context';
 
 import styles from './index.module.css';
 
-export type ContentProps = {
+export interface ContentProps {
     /**
      * Контент
      */
@@ -22,7 +22,7 @@ export type ContentProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+}
 
 export const BaseContent: FC<ContentProps> = ({ children, className, dataTestId }) => {
     const { contentRef } = useContext(ModalContext);

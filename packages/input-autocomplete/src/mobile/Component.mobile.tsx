@@ -1,4 +1,4 @@
-import React, { Ref, useMemo, useRef, useState } from 'react';
+import React, { type Ref, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { maskitoTransform } from '@maskito/core';
 import cn from 'classnames';
@@ -6,20 +6,20 @@ import throttle from 'lodash/throttle';
 
 import {
     SelectMobile,
-    SelectMobileProps,
+    type SelectMobileProps,
     SelectModalMobile,
 } from '@alfalab/core-components-select/mobile';
 import {
-    AnyObject,
-    BottomSheetSelectMobileProps,
+    type AnyObject,
+    type BottomSheetSelectMobileProps,
     Footer,
-    ModalSelectMobileProps,
+    type ModalSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 import { isMaskitoMask, isNonNullable } from '@alfalab/core-components-shared';
 
 import { AutocompleteMobileField } from '../autocomplete-mobile-field';
 import { OnInputReason } from '../enums';
-import { InputAutocompleteMobileProps } from '../types';
+import { type InputAutocompleteMobileProps } from '../types';
 import { searchFilterStub } from '../utils';
 
 import styles from './mobile.module.css';

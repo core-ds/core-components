@@ -10,16 +10,20 @@ const { getPackages } = require('../tools/monorepo.cjs');
 const { isSamePath } = require('../tools/path.cjs');
 const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
+const { globSync } = require('tinyglobby');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
 );
-
 const CSS_MODULE_REGEXP = /\.module\.css$/;
 const CSS_REGEXP = /\.css$/;
 
 const distDir = path.resolve(__dirname, '../dist');
 const { packages } = getPackages();
+const varsEntryPoints = globSync('src/*index.css', {
+    cwd: resolveInternal('@alfalab/core-components-vars'),
+    absolute: true,
+});
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -86,27 +90,16 @@ function modifyCssRules(config) {
                 options: {
                     postcssOptions: {
                         config: process.env.BUILD_STORYBOOK_FROM_DIST === 'true',
-                        plugins: [...postcssConfig.plugins].map((plugin) =>
+                        plugins: postcssConfig.plugins.map((plugin) =>
                             plugin.postcssPlugin === 'postcss-import'
                                 ? postcssImport({
                                       warnOnEmpty: false,
-                                      load: async (filename) => {
-                                          if (
-                                              isSamePath(
-                                                  filename,
-                                                  resolveInternal(
-                                                      '@alfalab/core-components-vars/src/index.css',
-                                                      false,
-                                                  ),
-                                              )
-                                          ) {
-                                              // TODO: warnOnEmpty добавлен только в 16й версии postcss-import. Но для нее требуется node >= 18
-                                              // В текущей версиии postcss-import импорт пустого файла вызывает ошибку
-                                              // https://github.com/postcss/postcss-import/issues/84
-                                              return '/* */';
-                                          }
+                                      load: (filename) => {
+                                          const isEntryPoint = varsEntryPoints.some((entryPoint) =>
+                                              isSamePath(entryPoint, filename),
+                                          );
 
-                                          return loadCss(filename);
+                                          return isEntryPoint ? '' : loadCss(filename);
                                       },
                                   })
                                 : plugin,
@@ -211,6 +204,7 @@ module.exports = {
             ) {
                 if (
                     resource.request === '@alfalab/core-components/package.json' ||
+                    resource.request === '@alfalab/core-components-vars/src/alfasans-index.css' ||
                     resource.request === '@alfalab/core-components-vars/src/index.css'
                 ) {
                     return;

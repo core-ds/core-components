@@ -1,0 +1,65 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+.component > :first-child,
+.component > p:first-child > :first-child {
+    margin-top: var(--gap-0);
+}
+
+.component > *:only-child,
+.component > p:only-child > *:only-child {
+    margin-top: var(--gap-0);
+    margin-bottom: var(--gap-0);
+}
+
+.h1 {
+    margin-bottom: var(--gap-16);
+}
+
+.h2 {
+    margin-top: var(--gap-32);
+    margin-bottom: var(--gap-16);
+}
+
+.h3 {
+    margin-top: var(--gap-16);
+    margin-bottom: var(--gap-16);
+}
+
+.h4 {
+    margin-top: var(--gap-8);
+    margin-bottom: var(--gap-4);
+}
+
+.code {
+    margin-bottom: var(--gap-16);
+}
+
+.blockquote > p {
+    color: inherit;
+    font: inherit;
+}
+
+.list > li {
+    margin-top: var(--gap-0);
+    margin-bottom: var(--gap-12);
+}
+
+.list > li:only-child {
+    margin-bottom: var(--gap-0);
+}
+
+.list > li p {
+    margin: var(--gap-0);
+    padding: var(--gap-0) !important;
+}
+
+.imageContainer {
+    margin-top: var(--gap-16);
+    margin-bottom: var(--gap-24);
+}
+
+.image {
+    display: block;
+    width: 100%;
+    border-radius: var(--border-radius-16);
+}

@@ -1,26 +1,26 @@
-import { TransitionProps } from 'react-transition-group/Transition';
+import { type TransitionProps } from 'react-transition-group/Transition';
 
-import { BackdropProps } from '@alfalab/core-components-backdrop';
+import { type BackdropProps } from '@alfalab/core-components-backdrop';
 import { exhaustiveCheck } from '@alfalab/core-components-shared';
 
-import { UniversalModalDesktopProps } from '../types/props';
+import { type UniversalModalDesktopProps } from '../types/props';
 
 import fullSizeBackdropTransitions from '../styles/transitions/full-size-backdrop-transitions.module.css';
 import fullSizeVerticalBottomTransitions from '../styles/transitions/full-size-vertical-bottom-transitions.module.css';
 import fullSizeVerticalCenterTransitions from '../styles/transitions/full-size-vertical-center-transitions.module.css';
 import fullSizeVerticalTopTransitions from '../styles/transitions/full-size-vertical-top-transitions.module.css';
 
-type Params = {
+interface Params {
     verticalAlign: Exclude<UniversalModalDesktopProps['verticalAlign'], undefined>;
     width: UniversalModalDesktopProps['width'];
     height: UniversalModalDesktopProps['height'];
-};
+}
 
-type ReturnType = {
+interface ReturnType {
     isFullSizeModal: boolean;
     backdropTransitions: Partial<BackdropProps>;
     componentTransitions: Partial<TransitionProps>;
-};
+}
 
 export const getFullSizeModalTransitions = (params: Params): ReturnType => {
     const { verticalAlign, width, height } = params;
