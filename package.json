@@ -70,7 +70,7 @@
     },
     "devDependencies": {
         "@alfalab/icons-glyph": "^2.247.0",
-        "@alfalab/lint-preset": "1.0.0",
+        "@alfalab/lint-preset": "^1.0.0",
         "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
         "@changesets/read": "^0.6.3",
@@ -97,7 +97,7 @@
         "@types/detect-browser": "^4.0.3",
         "@types/element-closest": "^3.0.0",
         "@types/eslint": "^8.56.12",
-        "@types/jest": "^29.5.14",
+        "@types/jest": "^30.0.0",
         "@types/jest-image-snapshot": "^6.4.0",
         "@types/lodash": "^4.17.13",
         "@types/lodash.throttle": "^4.1.7",
