@@ -28,7 +28,7 @@ const config = {
     parserOptions: {
         project: [path.join(process.cwd(), 'tsconfig.json')],
     },
-    ignorePatterns: ['**/*.test*', '**/*.stories*', ...ignored],
+    ignorePatterns: ['**/*.test.*', '**/*.stories.*', ...ignored],
     extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),
     overrides: [
         {
