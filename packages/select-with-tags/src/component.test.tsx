@@ -65,7 +65,7 @@ describe('SelectWithTags', () => {
 
             render(<SelectWithTags options={options} value='' onInput={jest.fn()} ref={ref} />);
 
-            expect(ref).toBeCalled();
+            expect(ref).toHaveBeenCalled();
         });
 
         it('should pass value', () => {
@@ -154,7 +154,7 @@ describe('SelectWithTags', () => {
 
             fireEvent.change(input, event);
 
-            expect(cb).toBeCalled();
+            expect(cb).toHaveBeenCalled();
         });
 
         it('should call `match` fn', () => {
@@ -169,7 +169,7 @@ describe('SelectWithTags', () => {
 
             fireEvent.change(input, event);
 
-            expect(match).toBeCalled();
+            expect(match).toHaveBeenCalled();
         });
     });
 
@@ -283,7 +283,7 @@ describe('SelectWithTags', () => {
                 <SelectWithTags options={options} value='' onInput={jest.fn()} />,
             );
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

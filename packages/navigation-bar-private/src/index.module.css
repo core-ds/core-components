@@ -1,9 +1,11 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .header {
     width: 100%;
     box-sizing: border-box;
-    transition: box-shadow 0.2s ease, background 0.2s ease;
+    transition:
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 
     &.header.backgroundImage {
         background-repeat: no-repeat;

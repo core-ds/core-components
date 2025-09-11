@@ -1,4 +1,9 @@
-import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent, ReactNode } from 'react';
+import React, {
+    type ElementType,
+    type HTMLAttributeAnchorTarget,
+    type MouseEvent,
+    type ReactNode,
+} from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';

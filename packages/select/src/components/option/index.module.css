@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 
 .option {
@@ -51,9 +51,6 @@
 
 .size-72 {
     min-height: var(--size-xl-height);
-}
-
-.size-72 {
     padding-left: var(--select-option-l-left-padding);
     padding-right: var(--select-option-l-right-padding);
 

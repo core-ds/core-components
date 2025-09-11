@@ -123,8 +123,8 @@ describe('DateRangeInput', () => {
             await userEvent.type(input, value);
 
             await waitFor(() => {
-                expect(onComplete).toBeCalledTimes(2);
-                expect(onChange).toBeCalledTimes(value.length + 2);
+                expect(onComplete).toHaveBeenCalledTimes(2);
+                expect(onChange).toHaveBeenCalledTimes(value.length + 2);
             });
         });
 
@@ -165,8 +165,8 @@ describe('DateRangeInput', () => {
             });
 
             await waitFor(() => {
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith({
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith({
                     dateFrom: parseDateString(dateAsStringFrom),
                     dateTo: undefined,
                     value: dateAsStringFrom,
@@ -185,8 +185,8 @@ describe('DateRangeInput', () => {
             });
 
             await waitFor(() => {
-                expect(onComplete).toBeCalledTimes(1);
-                expect(onComplete).toBeCalledWith({
+                expect(onComplete).toHaveBeenCalledTimes(1);
+                expect(onComplete).toHaveBeenCalledWith({
                     dateFrom: parseDateString(dateAsStringFrom),
                     dateTo: parseDateString(dateAsStringTo),
                     value: `${dateAsStringFrom} - ${dateAsStringTo}`,
@@ -199,7 +199,7 @@ describe('DateRangeInput', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<DateRangeInput />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

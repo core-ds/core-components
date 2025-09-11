@@ -1,7 +1,7 @@
 import React, {
     forwardRef,
     Fragment,
-    MouseEvent,
+    type MouseEvent,
     useCallback,
     useEffect,
     useRef,
@@ -17,7 +17,7 @@ import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 import {
     ToastPlateDesktop,
-    ToastPlateDesktopProps,
+    type ToastPlateDesktopProps,
 } from '@alfalab/core-components-toast-plate/desktop';
 
 import { useClickOutside } from './utils';

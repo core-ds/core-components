@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
-import { Backdrop, BackdropProps } from '@alfalab/core-components-backdrop';
+import { Backdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 
 import styles from './index.module.css';
 

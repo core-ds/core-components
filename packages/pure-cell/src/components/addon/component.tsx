@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { PureCellContext } from '../../component';
-import { AddonElement } from '../types';
+import { PureCellContext } from '../../context';
+import { type AddonElement } from '../types';
 
 import styles from './index.module.css';
 

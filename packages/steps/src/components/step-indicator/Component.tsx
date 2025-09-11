@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Badge, BadgeProps } from '@alfalab/core-components-badge';
+import { Badge, type BadgeProps } from '@alfalab/core-components-badge';
 
 import styles from './index.module.css';
 

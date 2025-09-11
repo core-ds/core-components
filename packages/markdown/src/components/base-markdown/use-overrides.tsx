@@ -5,7 +5,7 @@ import { Link } from '@alfalab/core-components-link';
 import { List } from '@alfalab/core-components-list';
 import { Text, TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
 
-import { FontType, OverridesComponents, PlatformType } from '../../typings';
+import { type FontType, type OverridesComponents, type PlatformType } from '../../typings';
 
 import styles from './index.module.css';
 

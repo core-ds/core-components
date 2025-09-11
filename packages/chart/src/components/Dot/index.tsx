@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { PointIcon } from '../../icons/Point';
-import { DotProps, DotSettingProps } from '../../types/utils/dot.types';
+import { type DotProps, type DotSettingProps } from '../../types/utils/dot.types';
 
 import styles from './index.module.css';
 

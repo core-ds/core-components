@@ -1,10 +1,13 @@
-import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
 import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
-import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
+import {
+    type BaseCodeInputProps,
+    type CustomInputRef,
+} from '@alfalab/core-components-code-input/shared';
 import { Link } from '@alfalab/core-components-link';
 import { Text } from '@alfalab/core-components-typography';
 import { useLayoutEffect_SAFE_FOR_SSR, usePrevious } from '@alfalab/hooks';

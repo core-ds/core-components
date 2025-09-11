@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { type ButtonHTMLAttributes, forwardRef } from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';

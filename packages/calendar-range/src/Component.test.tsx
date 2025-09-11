@@ -440,7 +440,7 @@ describe('CalendarRange', () => {
             fireEvent.click(calendars[0].querySelector('*[data-date]') as HTMLButtonElement);
             fireEvent.click(calendars[1].querySelector('*[data-date]') as HTMLButtonElement);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
 
             const { date } = cb.mock.calls[0][0];
 
@@ -456,7 +456,7 @@ describe('CalendarRange', () => {
             fireEvent.click(calendars[0].querySelector('*[data-date]') as HTMLButtonElement);
             fireEvent.click(calendars[1].querySelector('*[data-date]') as HTMLButtonElement);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
 
             const { date } = cb.mock.calls[0][0];
 
@@ -546,11 +546,11 @@ describe('CalendarRange', () => {
             fireEvent.change(inputFrom, { target: { value: '10.10.2021' } });
             fireEvent.change(inputTo, { target: { value: '10.10.2022' } });
 
-            expect(onInputFromChange).toBeCalledWith(expect.any(Object), {
+            expect(onInputFromChange).toHaveBeenCalledWith(expect.any(Object), {
                 date: new Date('2021-10-10'),
                 value: '10.10.2021',
             });
-            expect(onInputToChange).toBeCalledWith(expect.any(Object), {
+            expect(onInputToChange).toHaveBeenCalledWith(expect.any(Object), {
                 date: new Date('2022-10-10'),
                 value: '10.10.2022',
             });
@@ -607,7 +607,7 @@ describe('CalendarRange', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<CalendarRange />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

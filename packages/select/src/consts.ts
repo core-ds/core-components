@@ -13,3 +13,5 @@ export const SIZE_TO_CLASSNAME_MAP = {
 };
 
 export const DEFAULT_SEPARATOR = ', ';
+
+export const SELECT_ALL_KEY = 'select_all';

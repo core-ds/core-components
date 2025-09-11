@@ -1,15 +1,12 @@
-import { globby } from 'globby';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { argv, cwd } from 'node:process';
+import { glob } from 'tinyglobby';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-/**
- * @param {string[]} args
- */
-async function main(args) {
-    const { to } = await yargs(args)
+async function main() {
+    const { to } = await yargs(hideBin(argv))
         .option('to', {
             type: 'string',
             demandOption: true,
@@ -17,7 +14,7 @@ async function main(args) {
         })
         .parse();
 
-    const cssFiles = await globby('src/**/*.css');
+    const cssFiles = await glob('src/**/*.css');
 
     await Promise.all(
         cssFiles.map((cssFile) => {
@@ -29,4 +26,4 @@ async function main(args) {
     );
 }
 
-await main(hideBin(argv));
+await main();

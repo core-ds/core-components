@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactElement } from 'react';
-import { RectangleProps } from 'recharts';
-import { DataKey } from 'recharts/types/util/types';
+import { type ReactElement } from 'react';
+import { type RectangleProps } from 'recharts';
+import { type DataKey } from 'recharts/types/util/types';
 
-import { DataProps } from './utils/data.types';
-import { DotSettingProps } from './utils/dot.types';
+import { type DataProps } from './utils/data.types';
+import { type DotSettingProps } from './utils/dot.types';
 
 type CurveType = 'linear' | 'monotone' | 'step';
 

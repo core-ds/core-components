@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .component {
     text-align: unset;
@@ -20,7 +20,7 @@
     font-family: inherit;
     background: none;
     border: 0;
-    border-radius: 0;
+    border-radius: var(--border-radius-0);
     cursor: pointer;
     transition: opacity 0.15s ease-in-out;
     padding: var(--gap-0);

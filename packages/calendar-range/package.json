@@ -13,8 +13,8 @@
         "@alfalab/core-components-calendar": "^8.0.1",
         "@alfalab/core-components-calendar-input": "^11.0.1",
         "@alfalab/core-components-date-input": "^5.0.1",
-        "@alfalab/core-components-universal-date-input": "^3.0.1",
         "@alfalab/core-components-shared": "^1.1.0",
+        "@alfalab/core-components-universal-date-input": "^3.0.1",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "date-fns": "^2.16.1",
@@ -28,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.1",
+    "themesVersion": "14.1.2",
     "varsVersion": "10.1.0"
 }

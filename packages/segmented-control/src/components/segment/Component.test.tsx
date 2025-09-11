@@ -43,7 +43,7 @@ describe('segment', () => {
 
         fireEvent.click(getByTestId(dataTestId));
 
-        expect(onChange).toBeCalledTimes(1);
+        expect(onChange).toHaveBeenCalledTimes(1);
     });
 
     it('render with icon as title', () => {

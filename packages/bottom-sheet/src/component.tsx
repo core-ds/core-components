@@ -1,5 +1,5 @@
 import React, {
-    CSSProperties,
+    type CSSProperties,
     forwardRef,
     useEffect,
     useImperativeHandle,
@@ -9,20 +9,25 @@ import React, {
 } from 'react';
 import { use100vh } from 'react-div-100vh';
 import mergeRefs from 'react-merge-refs';
-import { SwipeCallback, SwipeEventData, TapCallback, useSwipeable } from 'react-swipeable';
-import { HandledEvents } from 'react-swipeable/es/types';
+import {
+    type SwipeCallback,
+    type SwipeEventData,
+    type TapCallback,
+    useSwipeable,
+} from 'react-swipeable';
+import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
 import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
-import { Header, HeaderProps } from './components/header/Component';
+import { Header, type HeaderProps } from './components/header/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 import { horizontalDirections } from './consts/swipeConsts';
-import { ShouldSkipSwipingParams } from './types/swipeTypes';
+import { type ShouldSkipSwipingParams } from './types/swipeTypes';
 import { useVisualViewportSize } from './hooks';
-import type { BottomSheetProps } from './types';
+import { type BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
     convertPercentToNumber,
@@ -115,7 +120,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     ) => {
         const windowHeight = use100vh() ?? 0;
         const visualViewportSize = useVisualViewportSize();
-        let fullHeight = virtualKeyboard ? visualViewportSize?.height ?? 0 : windowHeight;
+        let fullHeight = virtualKeyboard ? (visualViewportSize?.height ?? 0) : windowHeight;
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
 

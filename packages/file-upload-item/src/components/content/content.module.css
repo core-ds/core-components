@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .container {
     padding: var(--gap-2) 0 0 var(--gap-16);

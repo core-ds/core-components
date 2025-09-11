@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { type FC, type MouseEvent } from 'react';
 import cn from 'classnames';
 
 import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
