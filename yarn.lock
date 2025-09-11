@@ -40,7 +40,7 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.34.0.tgz#67f49fc81df014b0dca3f9fa99dda170fc279f26"
   integrity sha512-pXXt55rwTZ3T0mHzQgpAq23PGnTCIu7Xt+anlFYod47bLslqYK1yi3QVFsLu9WMXgWhLU2H8QajHp9KmT7F4cA==
 
-"@alfalab/lint-preset@1.0.0":
+"@alfalab/lint-preset@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@alfalab/lint-preset/-/lint-preset-1.0.0.tgz#8a4a911b7bcb1f344f0824bbe2e1670e34a965f0"
   integrity sha512-BbPVAYiIFpIFIcHMdgxXxtzZeOfdmy0UvUAKglFmTOAWpK0Yb8M8mnAp8DH7YlmfwpWQVXdwSo0a5gbVjIUMLg==

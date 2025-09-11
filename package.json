@@ -70,7 +70,7 @@
     },
     "devDependencies": {
         "@alfalab/icons-glyph": "^2.247.0",
-        "@alfalab/lint-preset": "1.0.0",
+        "@alfalab/lint-preset": "^1.0.0",
         "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
         "@changesets/read": "^0.6.3",
