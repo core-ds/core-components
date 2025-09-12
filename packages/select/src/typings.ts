@@ -497,7 +497,7 @@ export type FieldProps = {
         tabIndex?: number;
         id: string;
     } & RefAttributes<HTMLDivElement | HTMLInputElement> &
-    AriaAttributes;
+        AriaAttributes;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -803,7 +803,7 @@ export type OptionCommonProps = {
         onMouseMove?: (event: MouseEvent<HTMLDivElement>) => void;
         role?: string;
     } & RefAttributes<HTMLDivElement> &
-    AriaAttributes;
+        AriaAttributes;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
