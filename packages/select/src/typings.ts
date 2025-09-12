@@ -9,6 +9,7 @@ import {
     type RefAttributes,
     type SVGProps,
 } from 'react';
+import { type Environment } from 'downshift';
 
 import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { type FormControlProps } from '@alfalab/core-components-form-control';
@@ -394,6 +395,12 @@ export type BaseSelectProps = {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: boolean;
+
+    /**
+     * Контекст окружения для downshift.js
+     * @default window
+     */
+    environment?: Environment;
 };
 
 // TODO: использовать InputProps
