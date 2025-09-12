@@ -34,6 +34,8 @@ async function main() {
     $('lerna', [
         'exec',
         ...BUILD_IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
+        '--ignore',
+        '@alfalab/core-components',
         '--',
         'node',
         path.join(dirname, 'copy-package-dist.mjs'),
