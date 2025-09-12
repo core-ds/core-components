@@ -1,5 +1,15 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.4.13
+
+### Patch Changes
+
+<sup><time>12.09.2025</time></sup>
+
+### [#1877](https://github.com/core-ds/core-components/pull/1877)
+
+-   Исправлена работа touch событий в PopupSheet. Обработчики useSwipeable теперь навешиваются на правильный элемент, что решает проблемы с перехватом touchmove на мобильных устройствах.
+
 ## 1.4.12
 
 ### Patch Changes
