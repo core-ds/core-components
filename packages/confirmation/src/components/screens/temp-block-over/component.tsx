@@ -17,7 +17,7 @@ export type TempBlockOverProps = {
 };
 
 export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
-    const { alignContent, texts, breakpoint, client, onChangeScreen, onChangeState } =
+    const { alignContent, titleTag, texts, breakpoint, client, onChangeScreen, onChangeState } =
         useContext(ConfirmationContext);
 
     const handleReturnButtonClick = () => {
@@ -27,7 +27,9 @@ export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.tempBlockOverTitle}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.tempBlockOverTitle}
+            </Header>
 
             <Text
                 view='primary-medium'
