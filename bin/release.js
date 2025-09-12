@@ -274,10 +274,16 @@ async function releaseRoot() {
         execOptions,
     );
     shell.cd('dist');
-    const publishRet = shell.exec(`npm publish --userconfig "${path.join(cwd, '.npmrc')}"`, {
-        ...execOptions,
-        maxBuffer: 1024 * 1024 * 100,
-    });
+    const publishRet = shell.exec(
+        `npm publish --userconfig "${path.join(
+            cwd,
+            '.npmrc',
+        )}" --tag tag-for-publishing-older-releases`,
+        {
+            ...execOptions,
+            maxBuffer: 1024 * 1024 * 100,
+        },
+    );
     shell.cd('..');
 
     if (publishRet.stdout.indexOf(`+ @alfalab/core-components@${nextVersion}`) !== -1) {
@@ -298,7 +304,7 @@ async function releasePackages() {
     shell.exec('yarn lerna exec -- yarn copyfiles package.json dist', execOptions);
 
     logger.log('=> publish packages');
-    shell.exec(`yarn changeset publish`, { fatal: true });
+    shell.exec(`yarn changeset publish --tag tag-for-publishing-older-releases`, { fatal: true });
 
     logger.log('=> Commit changed files');
     shell.exec('git add .', execOptions);
