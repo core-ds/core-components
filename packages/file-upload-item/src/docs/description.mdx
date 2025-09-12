@@ -128,7 +128,7 @@ render(() => {
             setTimeout(() => {
                 setStatus(finalStatus);
                 if (errorMessage) setError(errorMessage);
-            }, 50000);
+            }, 5000);
         }
     };
 
@@ -152,7 +152,8 @@ render(() => {
                 title={title}
                 subtitle={subtitle}
                 uploadStatus={status}
-                progressBar={isProgressKnown && isUploading ? progressBar : undefined}
+                progressBar={isProgressKnown ? progressBar : undefined}
+                progressBarAvailable={isProgressKnown}
                 uploadDate='22.07.2024'
                 size={2097152} // 2mb
                 error={error}

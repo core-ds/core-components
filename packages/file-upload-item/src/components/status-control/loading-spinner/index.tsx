@@ -1,50 +1,35 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { useId } from '@alfalab/hooks';
 
+import { type StatusControlProps } from '../types';
+
 import styles from './index.module.css';
 
-type Props = {
-    className?: string;
-    strokeWidth?: number;
-    strokeDasharray?: number;
-    strokeDashoffset?: number;
-};
-
-export const LoadingSpinner: FC<Props> = ({
-    strokeWidth = 2,
+export const LoadingSpinner: FC<StatusControlProps> = ({
+    className,
+    size,
+    strokeDasharray,
     strokeDashoffset,
+    strokeWidth,
 }) => {
     const uniqId = useId();
-    const radius = 56 / 2 - strokeWidth / 2;
-    const rotationAngle = Math.ceil(
-        (Math.asin(strokeWidth / 2 / radius) * 180) / Math.PI,
-    );
-    const gap = 90;
- 
-    const cornerRadius = 27;
-    const straightSides = 4 * (56 - 2 * cornerRadius); 
-    const curvedSides = (4 * (Math.PI * cornerRadius)) / 2;
-    const pathLength = straightSides + curvedSides;
+    const radius = size / 2 - strokeWidth / 2;
+    const rotationAngle = Math.ceil((Math.asin(strokeWidth / 2 / radius) * 180) / Math.PI);
 
-    const fillPercentage = 1; 
-    const dashLength = pathLength * fillPercentage;
-    const gapLength = pathLength * (1 - fillPercentage - 0.05);
-    const strokeDasharray = `${dashLength} ${gapLength}`;
     const gradient = `conic-gradient(from ${rotationAngle}deg, transparent ${
-        gap - rotationAngle * 2
+        90 - rotationAngle * 2
     }deg, currentColor)`;
 
     return (
         <svg
-            className={cn(styles.spinner)}
-            xmlns='http://www.w3.org/2000/svg'
-            width={56}
-            height={56}
-            viewBox='0 0 56 56'
-            preserveAspectRatio='xMidYMid'
+            className={cn(className, styles.loading)}
+            width={size}
+            height={size}
+            viewBox={`0 0 ${size} ${size}`}
             fill='none'
+            xmlns='http://www.w3.org/2000/svg'
         >
             <defs>
                 <mask id={`spinner-mask-${uniqId}`}>
